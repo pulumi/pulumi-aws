@@ -37,21 +37,6 @@ class TeamsChannelConfigurationArgs:
                  user_authorization_required: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a TeamsChannelConfiguration resource.
-        :param pulumi.Input[_builtins.str] channel_id: ID of the Microsoft Teams channel.
-        :param pulumi.Input[_builtins.str] configuration_name: Name of the Microsoft Teams channel configuration.
-        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role that defines the permissions for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role.
-        :param pulumi.Input[_builtins.str] team_id: ID of the Microsoft Team authorized with AWS Chatbot. To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console.
-        :param pulumi.Input[_builtins.str] tenant_id: ID of the Microsoft Teams tenant.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] channel_name: Name of the Microsoft Teams channel.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] guardrail_policy_arns: List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-        :param pulumi.Input[_builtins.str] logging_level: Logging levels include `ERROR`, `INFO`, or `NONE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sns_topic_arns: ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource.
-        :param pulumi.Input[_builtins.str] team_name: Name of the Microsoft Teams team.
-        :param pulumi.Input[_builtins.bool] user_authorization_required: Enables use of a user role requirement in your chat configuration.
         """
         pulumi.set(__self__, "channel_id", channel_id)
         pulumi.set(__self__, "configuration_name", configuration_name)
@@ -80,9 +65,6 @@ class TeamsChannelConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="channelId")
     def channel_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the Microsoft Teams channel.
-        """
         return pulumi.get(self, "channel_id")
 
     @channel_id.setter
@@ -92,9 +74,6 @@ class TeamsChannelConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="configurationName")
     def configuration_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Microsoft Teams channel configuration.
-        """
         return pulumi.get(self, "configuration_name")
 
     @configuration_name.setter
@@ -104,9 +83,6 @@ class TeamsChannelConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the IAM role that defines the permissions for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
@@ -116,9 +92,6 @@ class TeamsChannelConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="teamId")
     def team_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the Microsoft Team authorized with AWS Chatbot. To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console.
-        """
         return pulumi.get(self, "team_id")
 
     @team_id.setter
@@ -128,11 +101,6 @@ class TeamsChannelConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the Microsoft Teams tenant.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
@@ -142,9 +110,6 @@ class TeamsChannelConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="channelName")
     def channel_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Microsoft Teams channel.
-        """
         return pulumi.get(self, "channel_name")
 
     @channel_name.setter
@@ -154,9 +119,6 @@ class TeamsChannelConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="guardrailPolicyArns")
     def guardrail_policy_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-        """
         return pulumi.get(self, "guardrail_policy_arns")
 
     @guardrail_policy_arns.setter
@@ -166,9 +128,6 @@ class TeamsChannelConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="loggingLevel")
     def logging_level(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Logging levels include `ERROR`, `INFO`, or `NONE`.
-        """
         return pulumi.get(self, "logging_level")
 
     @logging_level.setter
@@ -178,9 +137,6 @@ class TeamsChannelConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -190,9 +146,6 @@ class TeamsChannelConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="snsTopicArns")
     def sns_topic_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-        """
         return pulumi.get(self, "sns_topic_arns")
 
     @sns_topic_arns.setter
@@ -202,9 +155,6 @@ class TeamsChannelConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -214,9 +164,6 @@ class TeamsChannelConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="teamName")
     def team_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Microsoft Teams team.
-        """
         return pulumi.get(self, "team_name")
 
     @team_name.setter
@@ -235,9 +182,6 @@ class TeamsChannelConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="userAuthorizationRequired")
     def user_authorization_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enables use of a user role requirement in your chat configuration.
-        """
         return pulumi.get(self, "user_authorization_required")
 
     @user_authorization_required.setter
@@ -266,23 +210,6 @@ class _TeamsChannelConfigurationState:
                  user_authorization_required: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering TeamsChannelConfiguration resources.
-        :param pulumi.Input[_builtins.str] channel_id: ID of the Microsoft Teams channel.
-        :param pulumi.Input[_builtins.str] channel_name: Name of the Microsoft Teams channel.
-        :param pulumi.Input[_builtins.str] chat_configuration_arn: ARN of the Microsoft Teams channel configuration.
-        :param pulumi.Input[_builtins.str] configuration_name: Name of the Microsoft Teams channel configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] guardrail_policy_arns: List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role that defines the permissions for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role.
-        :param pulumi.Input[_builtins.str] logging_level: Logging levels include `ERROR`, `INFO`, or `NONE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sns_topic_arns: ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] team_id: ID of the Microsoft Team authorized with AWS Chatbot. To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console.
-        :param pulumi.Input[_builtins.str] team_name: Name of the Microsoft Teams team.
-        :param pulumi.Input[_builtins.str] tenant_id: ID of the Microsoft Teams tenant.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] user_authorization_required: Enables use of a user role requirement in your chat configuration.
         """
         if channel_id is not None:
             pulumi.set(__self__, "channel_id", channel_id)
@@ -320,9 +247,6 @@ class _TeamsChannelConfigurationState:
     @_builtins.property
     @pulumi.getter(name="channelId")
     def channel_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the Microsoft Teams channel.
-        """
         return pulumi.get(self, "channel_id")
 
     @channel_id.setter
@@ -332,9 +256,6 @@ class _TeamsChannelConfigurationState:
     @_builtins.property
     @pulumi.getter(name="channelName")
     def channel_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Microsoft Teams channel.
-        """
         return pulumi.get(self, "channel_name")
 
     @channel_name.setter
@@ -344,9 +265,6 @@ class _TeamsChannelConfigurationState:
     @_builtins.property
     @pulumi.getter(name="chatConfigurationArn")
     def chat_configuration_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Microsoft Teams channel configuration.
-        """
         return pulumi.get(self, "chat_configuration_arn")
 
     @chat_configuration_arn.setter
@@ -356,9 +274,6 @@ class _TeamsChannelConfigurationState:
     @_builtins.property
     @pulumi.getter(name="configurationName")
     def configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Microsoft Teams channel configuration.
-        """
         return pulumi.get(self, "configuration_name")
 
     @configuration_name.setter
@@ -368,9 +283,6 @@ class _TeamsChannelConfigurationState:
     @_builtins.property
     @pulumi.getter(name="guardrailPolicyArns")
     def guardrail_policy_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-        """
         return pulumi.get(self, "guardrail_policy_arns")
 
     @guardrail_policy_arns.setter
@@ -380,9 +292,6 @@ class _TeamsChannelConfigurationState:
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role that defines the permissions for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
@@ -392,9 +301,6 @@ class _TeamsChannelConfigurationState:
     @_builtins.property
     @pulumi.getter(name="loggingLevel")
     def logging_level(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Logging levels include `ERROR`, `INFO`, or `NONE`.
-        """
         return pulumi.get(self, "logging_level")
 
     @logging_level.setter
@@ -404,9 +310,6 @@ class _TeamsChannelConfigurationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -416,9 +319,6 @@ class _TeamsChannelConfigurationState:
     @_builtins.property
     @pulumi.getter(name="snsTopicArns")
     def sns_topic_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-        """
         return pulumi.get(self, "sns_topic_arns")
 
     @sns_topic_arns.setter
@@ -428,9 +328,6 @@ class _TeamsChannelConfigurationState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -440,9 +337,6 @@ class _TeamsChannelConfigurationState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -452,9 +346,6 @@ class _TeamsChannelConfigurationState:
     @_builtins.property
     @pulumi.getter(name="teamId")
     def team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the Microsoft Team authorized with AWS Chatbot. To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console.
-        """
         return pulumi.get(self, "team_id")
 
     @team_id.setter
@@ -464,9 +355,6 @@ class _TeamsChannelConfigurationState:
     @_builtins.property
     @pulumi.getter(name="teamName")
     def team_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Microsoft Teams team.
-        """
         return pulumi.get(self, "team_name")
 
     @team_name.setter
@@ -476,11 +364,6 @@ class _TeamsChannelConfigurationState:
     @_builtins.property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the Microsoft Teams tenant.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
@@ -499,9 +382,6 @@ class _TeamsChannelConfigurationState:
     @_builtins.property
     @pulumi.getter(name="userAuthorizationRequired")
     def user_authorization_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enables use of a user role requirement in your chat configuration.
-        """
         return pulumi.get(self, "user_authorization_required")
 
     @user_authorization_required.setter
@@ -531,54 +411,9 @@ class TeamsChannelConfiguration(pulumi.CustomResource):
                  user_authorization_required: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Chatbot Microsoft Teams Channel Configuration.
-
-        > **NOTE:** We provide this resource on a best-effort basis. If you are able to test it and find it useful, we welcome your input at GitHub.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.chatbot.TeamsChannelConfiguration("test",
-            channel_id="C07EZ1ABC23",
-            configuration_name="mitt-lags-kanal",
-            iam_role_arn=test_aws_iam_role["arn"],
-            team_id="74361522-da01-538d-aa2e-ac7918c6bb92",
-            tenant_id="1234",
-            tags={
-                "Name": "mitt-lags-kanal",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Chatbot Microsoft Teams Channel Configuration using the `team_id`. For example:
-
-        ```sh
-        $ pulumi import aws:chatbot/teamsChannelConfiguration:TeamsChannelConfiguration example 5f4f15d2-b958-522a-8333-124aa8bf0925
-        ```
-
+        Create a TeamsChannelConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] channel_id: ID of the Microsoft Teams channel.
-        :param pulumi.Input[_builtins.str] channel_name: Name of the Microsoft Teams channel.
-        :param pulumi.Input[_builtins.str] configuration_name: Name of the Microsoft Teams channel configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] guardrail_policy_arns: List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role that defines the permissions for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role.
-        :param pulumi.Input[_builtins.str] logging_level: Logging levels include `ERROR`, `INFO`, or `NONE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sns_topic_arns: ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource.
-        :param pulumi.Input[_builtins.str] team_id: ID of the Microsoft Team authorized with AWS Chatbot. To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console.
-        :param pulumi.Input[_builtins.str] team_name: Name of the Microsoft Teams team.
-        :param pulumi.Input[_builtins.str] tenant_id: ID of the Microsoft Teams tenant.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] user_authorization_required: Enables use of a user role requirement in your chat configuration.
         """
         ...
     @overload
@@ -587,37 +422,7 @@ class TeamsChannelConfiguration(pulumi.CustomResource):
                  args: TeamsChannelConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Chatbot Microsoft Teams Channel Configuration.
-
-        > **NOTE:** We provide this resource on a best-effort basis. If you are able to test it and find it useful, we welcome your input at GitHub.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.chatbot.TeamsChannelConfiguration("test",
-            channel_id="C07EZ1ABC23",
-            configuration_name="mitt-lags-kanal",
-            iam_role_arn=test_aws_iam_role["arn"],
-            team_id="74361522-da01-538d-aa2e-ac7918c6bb92",
-            tenant_id="1234",
-            tags={
-                "Name": "mitt-lags-kanal",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Chatbot Microsoft Teams Channel Configuration using the `team_id`. For example:
-
-        ```sh
-        $ pulumi import aws:chatbot/teamsChannelConfiguration:TeamsChannelConfiguration example 5f4f15d2-b958-522a-8333-124aa8bf0925
-        ```
-
+        Create a TeamsChannelConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TeamsChannelConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -715,23 +520,6 @@ class TeamsChannelConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] channel_id: ID of the Microsoft Teams channel.
-        :param pulumi.Input[_builtins.str] channel_name: Name of the Microsoft Teams channel.
-        :param pulumi.Input[_builtins.str] chat_configuration_arn: ARN of the Microsoft Teams channel configuration.
-        :param pulumi.Input[_builtins.str] configuration_name: Name of the Microsoft Teams channel configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] guardrail_policy_arns: List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role that defines the permissions for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role.
-        :param pulumi.Input[_builtins.str] logging_level: Logging levels include `ERROR`, `INFO`, or `NONE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sns_topic_arns: ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] team_id: ID of the Microsoft Team authorized with AWS Chatbot. To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console.
-        :param pulumi.Input[_builtins.str] team_name: Name of the Microsoft Teams team.
-        :param pulumi.Input[_builtins.str] tenant_id: ID of the Microsoft Teams tenant.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] user_authorization_required: Enables use of a user role requirement in your chat configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -758,115 +546,71 @@ class TeamsChannelConfiguration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="channelId")
     def channel_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the Microsoft Teams channel.
-        """
         return pulumi.get(self, "channel_id")
 
     @_builtins.property
     @pulumi.getter(name="channelName")
     def channel_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Microsoft Teams channel.
-        """
         return pulumi.get(self, "channel_name")
 
     @_builtins.property
     @pulumi.getter(name="chatConfigurationArn")
     def chat_configuration_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Microsoft Teams channel configuration.
-        """
         return pulumi.get(self, "chat_configuration_arn")
 
     @_builtins.property
     @pulumi.getter(name="configurationName")
     def configuration_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Microsoft Teams channel configuration.
-        """
         return pulumi.get(self, "configuration_name")
 
     @_builtins.property
     @pulumi.getter(name="guardrailPolicyArns")
     def guardrail_policy_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-        """
         return pulumi.get(self, "guardrail_policy_arns")
 
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the IAM role that defines the permissions for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="loggingLevel")
     def logging_level(self) -> pulumi.Output[_builtins.str]:
-        """
-        Logging levels include `ERROR`, `INFO`, or `NONE`.
-        """
         return pulumi.get(self, "logging_level")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="snsTopicArns")
     def sns_topic_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-        """
         return pulumi.get(self, "sns_topic_arns")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags assigned to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="teamId")
     def team_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the Microsoft Team authorized with AWS Chatbot. To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console.
-        """
         return pulumi.get(self, "team_id")
 
     @_builtins.property
     @pulumi.getter(name="teamName")
     def team_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Microsoft Teams team.
-        """
         return pulumi.get(self, "team_name")
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the Microsoft Teams tenant.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "tenant_id")
 
     @_builtins.property
@@ -877,8 +621,5 @@ class TeamsChannelConfiguration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="userAuthorizationRequired")
     def user_authorization_required(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Enables use of a user role requirement in your chat configuration.
-        """
         return pulumi.get(self, "user_authorization_required")
 

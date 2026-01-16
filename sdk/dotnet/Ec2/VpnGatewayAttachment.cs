@@ -9,72 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides a Virtual Private Gateway attachment resource, allowing for an existing
-    /// hardware VPN gateway to be attached and/or detached from a VPC.
-    /// 
-    /// &gt; **Note:** The `aws.ec2.VpnGateway`
-    /// resource can also automatically attach the Virtual Private Gateway it creates
-    /// to an existing VPC by setting the `VpcId` attribute accordingly.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var network = new Aws.Ec2.Vpc("network", new()
-    ///     {
-    ///         CidrBlock = "10.0.0.0/16",
-    ///     });
-    /// 
-    ///     var vpn = new Aws.Ec2.VpnGateway("vpn", new()
-    ///     {
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example-vpn-gateway" },
-    ///         },
-    ///     });
-    /// 
-    ///     var vpnAttachment = new Aws.Ec2.VpnGatewayAttachment("vpn_attachment", new()
-    ///     {
-    ///         VpcId = network.Id,
-    ///         VpnGatewayId = vpn.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)
-    /// and [Virtual Private Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html) user
-    /// guides for more information.
-    /// 
-    /// ## Import
-    /// 
-    /// You cannot import this resource.
-    /// </summary>
     [AwsResourceType("aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment")]
     public partial class VpnGatewayAttachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the VPC.
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the Virtual Private Gateway.
-        /// </summary>
         [Output("vpnGatewayId")]
         public Output<string> VpnGatewayId { get; private set; } = null!;
 
@@ -124,21 +67,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpnGatewayAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the VPC.
-        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the Virtual Private Gateway.
-        /// </summary>
         [Input("vpnGatewayId", required: true)]
         public Input<string> VpnGatewayId { get; set; } = null!;
 
@@ -150,21 +84,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpnGatewayAttachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the VPC.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 
-        /// <summary>
-        /// The ID of the Virtual Private Gateway.
-        /// </summary>
         [Input("vpnGatewayId")]
         public Input<string>? VpnGatewayId { get; set; }
 

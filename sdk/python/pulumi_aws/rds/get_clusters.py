@@ -48,17 +48,11 @@ class GetClustersResult:
     @_builtins.property
     @pulumi.getter(name="clusterArns")
     def cluster_arns(self) -> Sequence[_builtins.str]:
-        """
-        Set of cluster ARNs of the matched RDS clusters.
-        """
         return pulumi.get(self, "cluster_arns")
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifiers")
     def cluster_identifiers(self) -> Sequence[_builtins.str]:
-        """
-        Set of ARNs of cluster identifiers of the matched RDS clusters.
-        """
         return pulumi.get(self, "cluster_identifiers")
 
     @_builtins.property
@@ -97,25 +91,7 @@ def get_clusters(filters: Optional[Sequence[Union['GetClustersFilterArgs', 'GetC
                  region: Optional[_builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClustersResult:
     """
-    Data source for managing an AWS RDS (Relational Database) Clusters.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.rds.get_clusters(filters=[{
-        "name": "engine",
-        "values": ["aurora-postgresql"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetClustersFilterArgs', 'GetClustersFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -133,25 +109,7 @@ def get_clusters_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClustersResult]:
     """
-    Data source for managing an AWS RDS (Relational Database) Clusters.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.rds.get_clusters(filters=[{
-        "name": "engine",
-        "values": ["aurora-postgresql"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetClustersFilterArgs', 'GetClustersFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

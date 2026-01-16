@@ -11,66 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS AppSync Source API Association.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appsync.NewSourceApiAssociation(ctx, "test", &appsync.SourceApiAssociationArgs{
-//				Description: pulumi.String("My source API Merged"),
-//				MergedApiId: pulumi.String("gzos6bteufdunffzzifiowisoe"),
-//				SourceApiId: pulumi.String("fzzifiowisoegzos6bteufdunf"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import AppSync Source API Association using the `association_id` and `merged_api_id` separated by `,`. For example:
-//
-// ```sh
-// $ pulumi import aws:appsync/sourceApiAssociation:SourceApiAssociation example gzos6bteufdunffzzifiowisoe,243685a0-9347-4a1a-89c1-9b57dea01e31
-// ```
 type SourceApiAssociation struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Source API Association.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// ID of the Source API Association.
-	AssociationId pulumi.StringOutput `pulumi:"associationId"`
-	// Description of the source API being merged.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// ARN of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
-	MergedApiArn pulumi.StringOutput `pulumi:"mergedApiArn"`
-	// ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
-	MergedApiId pulumi.StringOutput `pulumi:"mergedApiId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
+	Arn                         pulumi.StringOutput                                       `pulumi:"arn"`
+	AssociationId               pulumi.StringOutput                                       `pulumi:"associationId"`
+	Description                 pulumi.StringPtrOutput                                    `pulumi:"description"`
+	MergedApiArn                pulumi.StringOutput                                       `pulumi:"mergedApiArn"`
+	MergedApiId                 pulumi.StringOutput                                       `pulumi:"mergedApiId"`
+	Region                      pulumi.StringOutput                                       `pulumi:"region"`
 	SourceApiArn                pulumi.StringOutput                                       `pulumi:"sourceApiArn"`
 	SourceApiAssociationConfigs SourceApiAssociationSourceApiAssociationConfigArrayOutput `pulumi:"sourceApiAssociationConfigs"`
-	// ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
-	SourceApiId pulumi.StringOutput                   `pulumi:"sourceApiId"`
-	Timeouts    SourceApiAssociationTimeoutsPtrOutput `pulumi:"timeouts"`
+	SourceApiId                 pulumi.StringOutput                                       `pulumi:"sourceApiId"`
+	Timeouts                    SourceApiAssociationTimeoutsPtrOutput                     `pulumi:"timeouts"`
 }
 
 // NewSourceApiAssociation registers a new resource with the given unique name, arguments, and options.
@@ -103,45 +56,29 @@ func GetSourceApiAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SourceApiAssociation resources.
 type sourceApiAssociationState struct {
-	// ARN of the Source API Association.
-	Arn *string `pulumi:"arn"`
-	// ID of the Source API Association.
-	AssociationId *string `pulumi:"associationId"`
-	// Description of the source API being merged.
-	Description *string `pulumi:"description"`
-	// ARN of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
-	MergedApiArn *string `pulumi:"mergedApiArn"`
-	// ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
-	MergedApiId *string `pulumi:"mergedApiId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
+	Arn                         *string                                          `pulumi:"arn"`
+	AssociationId               *string                                          `pulumi:"associationId"`
+	Description                 *string                                          `pulumi:"description"`
+	MergedApiArn                *string                                          `pulumi:"mergedApiArn"`
+	MergedApiId                 *string                                          `pulumi:"mergedApiId"`
+	Region                      *string                                          `pulumi:"region"`
 	SourceApiArn                *string                                          `pulumi:"sourceApiArn"`
 	SourceApiAssociationConfigs []SourceApiAssociationSourceApiAssociationConfig `pulumi:"sourceApiAssociationConfigs"`
-	// ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
-	SourceApiId *string                       `pulumi:"sourceApiId"`
-	Timeouts    *SourceApiAssociationTimeouts `pulumi:"timeouts"`
+	SourceApiId                 *string                                          `pulumi:"sourceApiId"`
+	Timeouts                    *SourceApiAssociationTimeouts                    `pulumi:"timeouts"`
 }
 
 type SourceApiAssociationState struct {
-	// ARN of the Source API Association.
-	Arn pulumi.StringPtrInput
-	// ID of the Source API Association.
-	AssociationId pulumi.StringPtrInput
-	// Description of the source API being merged.
-	Description pulumi.StringPtrInput
-	// ARN of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
-	MergedApiArn pulumi.StringPtrInput
-	// ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
-	MergedApiId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
+	Arn                         pulumi.StringPtrInput
+	AssociationId               pulumi.StringPtrInput
+	Description                 pulumi.StringPtrInput
+	MergedApiArn                pulumi.StringPtrInput
+	MergedApiId                 pulumi.StringPtrInput
+	Region                      pulumi.StringPtrInput
 	SourceApiArn                pulumi.StringPtrInput
 	SourceApiAssociationConfigs SourceApiAssociationSourceApiAssociationConfigArrayInput
-	// ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
-	SourceApiId pulumi.StringPtrInput
-	Timeouts    SourceApiAssociationTimeoutsPtrInput
+	SourceApiId                 pulumi.StringPtrInput
+	Timeouts                    SourceApiAssociationTimeoutsPtrInput
 }
 
 func (SourceApiAssociationState) ElementType() reflect.Type {
@@ -149,38 +86,26 @@ func (SourceApiAssociationState) ElementType() reflect.Type {
 }
 
 type sourceApiAssociationArgs struct {
-	// Description of the source API being merged.
-	Description *string `pulumi:"description"`
-	// ARN of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
-	MergedApiArn *string `pulumi:"mergedApiArn"`
-	// ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
-	MergedApiId *string `pulumi:"mergedApiId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
+	Description                 *string                                          `pulumi:"description"`
+	MergedApiArn                *string                                          `pulumi:"mergedApiArn"`
+	MergedApiId                 *string                                          `pulumi:"mergedApiId"`
+	Region                      *string                                          `pulumi:"region"`
 	SourceApiArn                *string                                          `pulumi:"sourceApiArn"`
 	SourceApiAssociationConfigs []SourceApiAssociationSourceApiAssociationConfig `pulumi:"sourceApiAssociationConfigs"`
-	// ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
-	SourceApiId *string                       `pulumi:"sourceApiId"`
-	Timeouts    *SourceApiAssociationTimeouts `pulumi:"timeouts"`
+	SourceApiId                 *string                                          `pulumi:"sourceApiId"`
+	Timeouts                    *SourceApiAssociationTimeouts                    `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a SourceApiAssociation resource.
 type SourceApiAssociationArgs struct {
-	// Description of the source API being merged.
-	Description pulumi.StringPtrInput
-	// ARN of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
-	MergedApiArn pulumi.StringPtrInput
-	// ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
-	MergedApiId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
+	Description                 pulumi.StringPtrInput
+	MergedApiArn                pulumi.StringPtrInput
+	MergedApiId                 pulumi.StringPtrInput
+	Region                      pulumi.StringPtrInput
 	SourceApiArn                pulumi.StringPtrInput
 	SourceApiAssociationConfigs SourceApiAssociationSourceApiAssociationConfigArrayInput
-	// ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
-	SourceApiId pulumi.StringPtrInput
-	Timeouts    SourceApiAssociationTimeoutsPtrInput
+	SourceApiId                 pulumi.StringPtrInput
+	Timeouts                    SourceApiAssociationTimeoutsPtrInput
 }
 
 func (SourceApiAssociationArgs) ElementType() reflect.Type {
@@ -270,37 +195,30 @@ func (o SourceApiAssociationOutput) ToSourceApiAssociationOutputWithContext(ctx 
 	return o
 }
 
-// ARN of the Source API Association.
 func (o SourceApiAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceApiAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// ID of the Source API Association.
 func (o SourceApiAssociationOutput) AssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceApiAssociation) pulumi.StringOutput { return v.AssociationId }).(pulumi.StringOutput)
 }
 
-// Description of the source API being merged.
 func (o SourceApiAssociationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceApiAssociation) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
 func (o SourceApiAssociationOutput) MergedApiArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceApiAssociation) pulumi.StringOutput { return v.MergedApiArn }).(pulumi.StringOutput)
 }
 
-// ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
 func (o SourceApiAssociationOutput) MergedApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceApiAssociation) pulumi.StringOutput { return v.MergedApiId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SourceApiAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceApiAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
 func (o SourceApiAssociationOutput) SourceApiArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceApiAssociation) pulumi.StringOutput { return v.SourceApiArn }).(pulumi.StringOutput)
 }
@@ -311,7 +229,6 @@ func (o SourceApiAssociationOutput) SourceApiAssociationConfigs() SourceApiAssoc
 	}).(SourceApiAssociationSourceApiAssociationConfigArrayOutput)
 }
 
-// ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
 func (o SourceApiAssociationOutput) SourceApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceApiAssociation) pulumi.StringOutput { return v.SourceApiId }).(pulumi.StringOutput)
 }

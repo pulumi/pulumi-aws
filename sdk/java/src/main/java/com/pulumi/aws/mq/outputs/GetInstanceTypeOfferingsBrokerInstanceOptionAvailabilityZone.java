@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone {
-    /**
-     * @return Name of the Availability Zone.
-     * 
-     */
     private String name;
 
     private GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone() {}
-    /**
-     * @return Name of the Availability Zone.
-     * 
-     */
     public String name() {
         return this.name;
     }

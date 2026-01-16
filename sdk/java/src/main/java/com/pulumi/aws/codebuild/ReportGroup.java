@@ -17,227 +17,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a CodeBuild Report Groups Resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.codebuild.ReportGroup;
- * import com.pulumi.aws.codebuild.ReportGroupArgs;
- * import com.pulumi.aws.codebuild.inputs.ReportGroupExportConfigArgs;
- * import com.pulumi.aws.codebuild.inputs.ReportGroupExportConfigS3DestinationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("Enable IAM User Permissions")
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("AWS")
- *                     .identifiers(String.format("arn:aws:iam::%s:root", current.accountId()))
- *                     .build())
- *                 .actions("kms:*")
- *                 .resources("*")
- *                 .build())
- *             .build());
- * 
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
- *             .description("my test kms key")
- *             .deletionWindowInDays(7)
- *             .policy(example.json())
- *             .build());
- * 
- *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
- *             .bucket("my-test")
- *             .build());
- * 
- *         var exampleReportGroup = new ReportGroup("exampleReportGroup", ReportGroupArgs.builder()
- *             .name("my test report group")
- *             .type("TEST")
- *             .exportConfig(ReportGroupExportConfigArgs.builder()
- *                 .type("S3")
- *                 .s3Destination(ReportGroupExportConfigS3DestinationArgs.builder()
- *                     .bucket(exampleBucket.id())
- *                     .encryptionDisabled(false)
- *                     .encryptionKey(exampleKey.arn())
- *                     .packaging("NONE")
- *                     .path("/some")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild report group.
- * 
- * Using `pulumi import`, import CodeBuild Report Group using the CodeBuild Report Group arn. For example:
- * 
- * % pulumi import aws_codebuild_report_group.example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
- * 
- */
 @ResourceType(type="aws:codebuild/reportGroup:ReportGroup")
 public class ReportGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of Report Group.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of Report Group.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The date and time this Report Group was created.
-     * 
-     */
     @Export(name="created", refs={String.class}, tree="[0]")
     private Output<String> created;
 
-    /**
-     * @return The date and time this Report Group was created.
-     * 
-     */
     public Output<String> created() {
         return this.created;
     }
-    /**
-     * If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
-     * 
-     */
     @Export(name="deleteReports", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteReports;
 
-    /**
-     * @return If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
-     * 
-     */
     public Output<Optional<Boolean>> deleteReports() {
         return Codegen.optional(this.deleteReports);
     }
-    /**
-     * Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
-     * 
-     */
     @Export(name="exportConfig", refs={ReportGroupExportConfig.class}, tree="[0]")
     private Output<ReportGroupExportConfig> exportConfig;
 
-    /**
-     * @return Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
-     * 
-     */
     public Output<ReportGroupExportConfig> exportConfig() {
         return this.exportConfig;
     }
-    /**
-     * The name of a Report Group.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of a Report Group.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }

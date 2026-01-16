@@ -14,57 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ImageWorkflow {
-    /**
-     * @return The action to take if the workflow fails. Must be one of `CONTINUE` or `ABORT`.
-     * 
-     */
     private @Nullable String onFailure;
-    /**
-     * @return The parallel group in which to run a test Workflow.
-     * 
-     */
     private @Nullable String parallelGroup;
-    /**
-     * @return Configuration block for the workflow parameters. Detailed below.
-     * 
-     */
     private @Nullable List<ImageWorkflowParameter> parameters;
-    /**
-     * @return Amazon Resource Name (ARN) of the Image Builder Workflow.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String workflowArn;
 
     private ImageWorkflow() {}
-    /**
-     * @return The action to take if the workflow fails. Must be one of `CONTINUE` or `ABORT`.
-     * 
-     */
     public Optional<String> onFailure() {
         return Optional.ofNullable(this.onFailure);
     }
-    /**
-     * @return The parallel group in which to run a test Workflow.
-     * 
-     */
     public Optional<String> parallelGroup() {
         return Optional.ofNullable(this.parallelGroup);
     }
-    /**
-     * @return Configuration block for the workflow parameters. Detailed below.
-     * 
-     */
     public List<ImageWorkflowParameter> parameters() {
         return this.parameters == null ? List.of() : this.parameters;
     }
-    /**
-     * @return Amazon Resource Name (ARN) of the Image Builder Workflow.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String workflowArn() {
         return this.workflowArn;
     }

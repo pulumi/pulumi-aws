@@ -16,17 +16,9 @@ public final class EventSourcesConfigEventSourceArgs extends com.pulumi.resource
 
     public static final EventSourcesConfigEventSourceArgs Empty = new EventSourcesConfigEventSourceArgs();
 
-    /**
-     * Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazonCodeGuruProfiler` below.
-     * 
-     */
     @Import(name="amazonCodeGuruProfilers")
     private @Nullable Output<List<EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs>> amazonCodeGuruProfilers;
 
-    /**
-     * @return Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazonCodeGuruProfiler` below.
-     * 
-     */
     public Optional<Output<List<EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs>>> amazonCodeGuruProfilers() {
         return Optional.ofNullable(this.amazonCodeGuruProfilers);
     }
@@ -55,33 +47,15 @@ public final class EventSourcesConfigEventSourceArgs extends com.pulumi.resource
             $ = new EventSourcesConfigEventSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param amazonCodeGuruProfilers Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazonCodeGuruProfiler` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amazonCodeGuruProfilers(@Nullable Output<List<EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs>> amazonCodeGuruProfilers) {
             $.amazonCodeGuruProfilers = amazonCodeGuruProfilers;
             return this;
         }
 
-        /**
-         * @param amazonCodeGuruProfilers Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazonCodeGuruProfiler` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amazonCodeGuruProfilers(List<EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs> amazonCodeGuruProfilers) {
             return amazonCodeGuruProfilers(Output.of(amazonCodeGuruProfilers));
         }
 
-        /**
-         * @param amazonCodeGuruProfilers Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazonCodeGuruProfiler` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amazonCodeGuruProfilers(EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs... amazonCodeGuruProfilers) {
             return amazonCodeGuruProfilers(List.of(amazonCodeGuruProfilers));
         }

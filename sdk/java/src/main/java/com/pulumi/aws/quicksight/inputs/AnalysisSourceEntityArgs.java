@@ -15,17 +15,9 @@ public final class AnalysisSourceEntityArgs extends com.pulumi.resources.Resourc
 
     public static final AnalysisSourceEntityArgs Empty = new AnalysisSourceEntityArgs();
 
-    /**
-     * The source template. See source_template.
-     * 
-     */
     @Import(name="sourceTemplate")
     private @Nullable Output<AnalysisSourceEntitySourceTemplateArgs> sourceTemplate;
 
-    /**
-     * @return The source template. See source_template.
-     * 
-     */
     public Optional<Output<AnalysisSourceEntitySourceTemplateArgs>> sourceTemplate() {
         return Optional.ofNullable(this.sourceTemplate);
     }
@@ -54,23 +46,11 @@ public final class AnalysisSourceEntityArgs extends com.pulumi.resources.Resourc
             $ = new AnalysisSourceEntityArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param sourceTemplate The source template. See source_template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceTemplate(@Nullable Output<AnalysisSourceEntitySourceTemplateArgs> sourceTemplate) {
             $.sourceTemplate = sourceTemplate;
             return this;
         }
 
-        /**
-         * @param sourceTemplate The source template. See source_template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceTemplate(AnalysisSourceEntitySourceTemplateArgs sourceTemplate) {
             return sourceTemplate(Output.of(sourceTemplate));
         }

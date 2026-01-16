@@ -15,115 +15,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Adds a logging configuration for the specified Amazon Chime Voice Connector. The logging configuration specifies whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.chime.VoiceConnector;
- * import com.pulumi.aws.chime.VoiceConnectorArgs;
- * import com.pulumi.aws.chime.VoiceConnectorLogging;
- * import com.pulumi.aws.chime.VoiceConnectorLoggingArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var default_ = new VoiceConnector("default", VoiceConnectorArgs.builder()
- *             .name("vc-name-test")
- *             .requireEncryption(true)
- *             .build());
- * 
- *         var defaultVoiceConnectorLogging = new VoiceConnectorLogging("defaultVoiceConnectorLogging", VoiceConnectorLoggingArgs.builder()
- *             .enableSipLogs(true)
- *             .enableMediaMetricLogs(true)
- *             .voiceConnectorId(default_.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Chime Voice Connector Logging using the `voice_connector_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:chime/voiceConnectorLogging:VoiceConnectorLogging default abcdef1ghij2klmno3pqr4
- * ```
- * 
- */
 @ResourceType(type="aws:chime/voiceConnectorLogging:VoiceConnectorLogging")
 public class VoiceConnectorLogging extends com.pulumi.resources.CustomResource {
-    /**
-     * When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
-     * 
-     */
     @Export(name="enableMediaMetricLogs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableMediaMetricLogs;
 
-    /**
-     * @return When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
-     * 
-     */
     public Output<Optional<Boolean>> enableMediaMetricLogs() {
         return Codegen.optional(this.enableMediaMetricLogs);
     }
-    /**
-     * When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
-     * 
-     */
     @Export(name="enableSipLogs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableSipLogs;
 
-    /**
-     * @return When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
-     * 
-     */
     public Output<Optional<Boolean>> enableSipLogs() {
         return Codegen.optional(this.enableSipLogs);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The Amazon Chime Voice Connector ID.
-     * 
-     */
     @Export(name="voiceConnectorId", refs={String.class}, tree="[0]")
     private Output<String> voiceConnectorId;
 
-    /**
-     * @return The Amazon Chime Voice Connector ID.
-     * 
-     */
     public Output<String> voiceConnectorId() {
         return this.voiceConnectorId;
     }

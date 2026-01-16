@@ -12,164 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages API Gateway Stage Method Settings. For example, CloudWatch logging and metrics.
-//
-// > **NOTE:** We recommend using this resource in conjunction with the `apigateway.Stage` resource instead of a stage managed by the `apigateway.Deployment` resource optional `stageName` argument. Stages managed by the `apigateway.Deployment` resource are recreated on redeployment and this resource will require a second apply to recreate the method settings.
-//
-// ## Example Usage
-//
-// ### End-to-end
-//
-// ### Off
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigateway.NewMethodSettings(ctx, "path_specific", &apigateway.MethodSettingsArgs{
-//				RestApi:    pulumi.Any(example.Id),
-//				StageName:  pulumi.Any(exampleAwsApiGatewayStage.StageName),
-//				MethodPath: pulumi.String("path1/GET"),
-//				Settings: &apigateway.MethodSettingsSettingsArgs{
-//					LoggingLevel: pulumi.String("OFF"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Errors Only
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigateway.NewMethodSettings(ctx, "path_specific", &apigateway.MethodSettingsArgs{
-//				RestApi:    pulumi.Any(example.Id),
-//				StageName:  pulumi.Any(exampleAwsApiGatewayStage.StageName),
-//				MethodPath: pulumi.String("path1/GET"),
-//				Settings: &apigateway.MethodSettingsSettingsArgs{
-//					LoggingLevel:     pulumi.String("ERROR"),
-//					MetricsEnabled:   pulumi.Bool(true),
-//					DataTraceEnabled: pulumi.Bool(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Errors and Info Logs
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigateway.NewMethodSettings(ctx, "path_specific", &apigateway.MethodSettingsArgs{
-//				RestApi:    pulumi.Any(example.Id),
-//				StageName:  pulumi.Any(exampleAwsApiGatewayStage.StageName),
-//				MethodPath: pulumi.String("path1/GET"),
-//				Settings: &apigateway.MethodSettingsSettingsArgs{
-//					LoggingLevel:     pulumi.String("INFO"),
-//					MetricsEnabled:   pulumi.Bool(true),
-//					DataTraceEnabled: pulumi.Bool(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Full Request and Response Logs
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigateway.NewMethodSettings(ctx, "path_specific", &apigateway.MethodSettingsArgs{
-//				RestApi:    pulumi.Any(example.Id),
-//				StageName:  pulumi.Any(exampleAwsApiGatewayStage.StageName),
-//				MethodPath: pulumi.String("path1/GET"),
-//				Settings: &apigateway.MethodSettingsSettingsArgs{
-//					LoggingLevel:     pulumi.String("INFO"),
-//					MetricsEnabled:   pulumi.Bool(true),
-//					DataTraceEnabled: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_api_gateway_method_settings` using `REST-API-ID/STAGE-NAME/METHOD-PATH`. For example:
-//
-// ```sh
-// $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
-// ```
 type MethodSettings struct {
 	pulumi.CustomResourceState
 
-	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
-	MethodPath pulumi.StringOutput `pulumi:"methodPath"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ID of the REST API
-	RestApi pulumi.StringOutput `pulumi:"restApi"`
-	// Settings block, see below.
-	Settings MethodSettingsSettingsOutput `pulumi:"settings"`
-	// Name of the stage
-	StageName pulumi.StringOutput `pulumi:"stageName"`
+	MethodPath pulumi.StringOutput          `pulumi:"methodPath"`
+	Region     pulumi.StringOutput          `pulumi:"region"`
+	RestApi    pulumi.StringOutput          `pulumi:"restApi"`
+	Settings   MethodSettingsSettingsOutput `pulumi:"settings"`
+	StageName  pulumi.StringOutput          `pulumi:"stageName"`
 }
 
 // NewMethodSettings registers a new resource with the given unique name, arguments, and options.
@@ -214,29 +64,19 @@ func GetMethodSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MethodSettings resources.
 type methodSettingsState struct {
-	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
-	MethodPath *string `pulumi:"methodPath"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the REST API
-	RestApi interface{} `pulumi:"restApi"`
-	// Settings block, see below.
-	Settings *MethodSettingsSettings `pulumi:"settings"`
-	// Name of the stage
-	StageName *string `pulumi:"stageName"`
+	MethodPath *string                 `pulumi:"methodPath"`
+	Region     *string                 `pulumi:"region"`
+	RestApi    interface{}             `pulumi:"restApi"`
+	Settings   *MethodSettingsSettings `pulumi:"settings"`
+	StageName  *string                 `pulumi:"stageName"`
 }
 
 type MethodSettingsState struct {
-	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
 	MethodPath pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the REST API
-	RestApi pulumi.Input
-	// Settings block, see below.
-	Settings MethodSettingsSettingsPtrInput
-	// Name of the stage
-	StageName pulumi.StringPtrInput
+	Region     pulumi.StringPtrInput
+	RestApi    pulumi.Input
+	Settings   MethodSettingsSettingsPtrInput
+	StageName  pulumi.StringPtrInput
 }
 
 func (MethodSettingsState) ElementType() reflect.Type {
@@ -244,30 +84,20 @@ func (MethodSettingsState) ElementType() reflect.Type {
 }
 
 type methodSettingsArgs struct {
-	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
-	MethodPath string `pulumi:"methodPath"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the REST API
-	RestApi interface{} `pulumi:"restApi"`
-	// Settings block, see below.
-	Settings MethodSettingsSettings `pulumi:"settings"`
-	// Name of the stage
-	StageName string `pulumi:"stageName"`
+	MethodPath string                 `pulumi:"methodPath"`
+	Region     *string                `pulumi:"region"`
+	RestApi    interface{}            `pulumi:"restApi"`
+	Settings   MethodSettingsSettings `pulumi:"settings"`
+	StageName  string                 `pulumi:"stageName"`
 }
 
 // The set of arguments for constructing a MethodSettings resource.
 type MethodSettingsArgs struct {
-	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
 	MethodPath pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the REST API
-	RestApi pulumi.Input
-	// Settings block, see below.
-	Settings MethodSettingsSettingsInput
-	// Name of the stage
-	StageName pulumi.StringInput
+	Region     pulumi.StringPtrInput
+	RestApi    pulumi.Input
+	Settings   MethodSettingsSettingsInput
+	StageName  pulumi.StringInput
 }
 
 func (MethodSettingsArgs) ElementType() reflect.Type {
@@ -357,27 +187,22 @@ func (o MethodSettingsOutput) ToMethodSettingsOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
 func (o MethodSettingsOutput) MethodPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *MethodSettings) pulumi.StringOutput { return v.MethodPath }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MethodSettingsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MethodSettings) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ID of the REST API
 func (o MethodSettingsOutput) RestApi() pulumi.StringOutput {
 	return o.ApplyT(func(v *MethodSettings) pulumi.StringOutput { return v.RestApi }).(pulumi.StringOutput)
 }
 
-// Settings block, see below.
 func (o MethodSettingsOutput) Settings() MethodSettingsSettingsOutput {
 	return o.ApplyT(func(v *MethodSettings) MethodSettingsSettingsOutput { return v.Settings }).(MethodSettingsSettingsOutput)
 }
 
-// Name of the stage
 func (o MethodSettingsOutput) StageName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MethodSettings) pulumi.StringOutput { return v.StageName }).(pulumi.StringOutput)
 }

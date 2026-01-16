@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location
     {
-        /// <summary>
-        /// S3 URI for intermediate storage.
-        /// </summary>
         public readonly string Uri;
 
         [OutputConstructor]

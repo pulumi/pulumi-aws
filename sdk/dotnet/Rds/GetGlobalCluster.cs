@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Rds
 {
     public static class GetGlobalCluster
     {
-        /// <summary>
-        /// Data source for managing an AWS RDS (Relational Database) Global Cluster.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Rds.GetGlobalCluster.Invoke(new()
-        ///     {
-        ///         Identifier = test.GlobalClusterIdentifier,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetGlobalClusterResult> InvokeAsync(GetGlobalClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGlobalClusterResult>("aws:rds/getGlobalCluster:getGlobalCluster", args ?? new GetGlobalClusterArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS RDS (Relational Database) Global Cluster.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Rds.GetGlobalCluster.Invoke(new()
-        ///     {
-        ///         Identifier = test.GlobalClusterIdentifier,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetGlobalClusterResult> Invoke(GetGlobalClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalClusterResult>("aws:rds/getGlobalCluster:getGlobalCluster", args ?? new GetGlobalClusterInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS RDS (Relational Database) Global Cluster.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Rds.GetGlobalCluster.Invoke(new()
-        ///     {
-        ///         Identifier = test.GlobalClusterIdentifier,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetGlobalClusterResult> Invoke(GetGlobalClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalClusterResult>("aws:rds/getGlobalCluster:getGlobalCluster", args ?? new GetGlobalClusterInvokeArgs(), options.WithDefaults());
     }
@@ -93,17 +24,9 @@ namespace Pulumi.Aws.Rds
 
     public sealed class GetGlobalClusterArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The global cluster identifier of the RDS global cluster.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("identifier", required: true)]
         public string Identifier { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -115,17 +38,9 @@ namespace Pulumi.Aws.Rds
 
     public sealed class GetGlobalClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The global cluster identifier of the RDS global cluster.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("identifier", required: true)]
         public Input<string> Identifier { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -139,55 +54,22 @@ namespace Pulumi.Aws.Rds
     [OutputType]
     public sealed class GetGlobalClusterResult
     {
-        /// <summary>
-        /// RDS Global Cluster Amazon Resource Name (ARN)
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Name of the automatically created database on cluster creation.
-        /// </summary>
         public readonly string DatabaseName;
-        /// <summary>
-        /// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `True`.
-        /// </summary>
         public readonly bool DeletionProtection;
-        /// <summary>
-        /// The endpoint for the Global Cluster.
-        /// </summary>
         public readonly string Endpoint;
-        /// <summary>
-        /// Name of the database engine.
-        /// </summary>
         public readonly string Engine;
-        /// <summary>
-        /// The current lifecycle support status of the database engine for this Global Cluster.
-        /// </summary>
         public readonly string EngineLifecycleSupport;
-        /// <summary>
-        /// Version of the database engine for this Global Cluster.
-        /// </summary>
         public readonly string EngineVersion;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string Identifier;
-        /// <summary>
-        /// Set of objects containing Global Cluster members.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetGlobalClusterMemberResult> Members;
         public readonly string Region;
-        /// <summary>
-        /// AWS Region-unique, immutable identifier for the global database cluster.
-        /// </summary>
         public readonly string ResourceId;
-        /// <summary>
-        /// Whether the DB cluster is encrypted.
-        /// </summary>
         public readonly bool StorageEncrypted;
-        /// <summary>
-        /// A map of tags to assigned to the Global Cluster.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

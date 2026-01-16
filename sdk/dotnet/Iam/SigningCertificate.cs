@@ -9,89 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    /// <summary>
-    /// Provides an IAM Signing Certificate resource to upload Signing Certificates.
-    /// 
-    /// &gt; **Note:** All arguments including the certificate body will be stored in the raw state as plain-text.
-    /// ## Example Usage
-    /// 
-    /// **Using certs on file:**
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testCert = new Aws.Iam.SigningCertificate("test_cert", new()
-    ///     {
-    ///         Username = "some_test_cert",
-    ///         CertificateBody = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "self-ca-cert.pem",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// **Example with cert in-line:**
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testCertAlt = new Aws.Iam.SigningCertificate("test_cert_alt", new()
-    ///     {
-    ///         Username = "some_test_cert",
-    ///         CertificateBody = @"-----BEGIN CERTIFICATE-----
-    /// [......] # cert contents
-    /// -----END CERTIFICATE-----
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import IAM Signing Certificates using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iam/signingCertificate:SigningCertificate")]
     public partial class SigningCertificate : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The contents of the signing certificate in PEM-encoded format.
-        /// </summary>
         [Output("certificateBody")]
         public Output<string> CertificateBody { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID for the signing certificate.
-        /// </summary>
         [Output("certificateId")]
         public Output<string> CertificateId { get; private set; } = null!;
 
-        /// <summary>
-        /// The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
-        /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the user the signing certificate is for.
-        /// </summary>
         [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
 
@@ -141,21 +70,12 @@ namespace Pulumi.Aws.Iam
 
     public sealed class SigningCertificateArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The contents of the signing certificate in PEM-encoded format.
-        /// </summary>
         [Input("certificateBody", required: true)]
         public Input<string> CertificateBody { get; set; } = null!;
 
-        /// <summary>
-        /// The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        /// <summary>
-        /// The name of the user the signing certificate is for.
-        /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
 
@@ -167,27 +87,15 @@ namespace Pulumi.Aws.Iam
 
     public sealed class SigningCertificateState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The contents of the signing certificate in PEM-encoded format.
-        /// </summary>
         [Input("certificateBody")]
         public Input<string>? CertificateBody { get; set; }
 
-        /// <summary>
-        /// The ID for the signing certificate.
-        /// </summary>
         [Input("certificateId")]
         public Input<string>? CertificateId { get; set; }
 
-        /// <summary>
-        /// The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        /// <summary>
-        /// The name of the user the signing certificate is for.
-        /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
 

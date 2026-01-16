@@ -9,101 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudFront
 {
-    /// <summary>
-    /// Provides a CloudFront Field-level Encryption Config resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.CloudFront.FieldLevelEncryptionConfig("test", new()
-    ///     {
-    ///         Comment = "test comment",
-    ///         ContentTypeProfileConfig = new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigContentTypeProfileConfigArgs
-    ///         {
-    ///             ForwardWhenContentTypeIsUnknown = true,
-    ///             ContentTypeProfiles = new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs
-    ///             {
-    ///                 Items = new[]
-    ///                 {
-    ///                     new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs
-    ///                     {
-    ///                         ContentType = "application/x-www-form-urlencoded",
-    ///                         Format = "URLEncoded",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///         QueryArgProfileConfig = new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigQueryArgProfileConfigArgs
-    ///         {
-    ///             ForwardWhenQueryArgProfileIsUnknown = true,
-    ///             QueryArgProfiles = new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs
-    ///             {
-    ///                 Items = new[]
-    ///                 {
-    ///                     new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs
-    ///                     {
-    ///                         ProfileId = testAwsCloudfrontFieldLevelEncryptionProfile.Id,
-    ///                         QueryArg = "Arg1",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Cloudfront Field Level Encryption Config using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig")]
     public partial class FieldLevelEncryptionConfig : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Field Level Encryption Config ARN.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
-        /// </summary>
         [Output("callerReference")]
         public Output<string> CallerReference { get; private set; } = null!;
 
-        /// <summary>
-        /// An optional comment about the Field Level Encryption Config.
-        /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
 
-        /// <summary>
-        /// Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
-        /// </summary>
         [Output("contentTypeProfileConfig")]
         public Output<Outputs.FieldLevelEncryptionConfigContentTypeProfileConfig> ContentTypeProfileConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// The current version of the Field Level Encryption Config. For example: `E2QWRUHAPOMQZL`.
-        /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
-        /// <summary>
-        /// Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
-        /// </summary>
         [Output("queryArgProfileConfig")]
         public Output<Outputs.FieldLevelEncryptionConfigQueryArgProfileConfig> QueryArgProfileConfig { get; private set; } = null!;
 
@@ -153,21 +76,12 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class FieldLevelEncryptionConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An optional comment about the Field Level Encryption Config.
-        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
-        /// <summary>
-        /// Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
-        /// </summary>
         [Input("contentTypeProfileConfig", required: true)]
         public Input<Inputs.FieldLevelEncryptionConfigContentTypeProfileConfigArgs> ContentTypeProfileConfig { get; set; } = null!;
 
-        /// <summary>
-        /// Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
-        /// </summary>
         [Input("queryArgProfileConfig", required: true)]
         public Input<Inputs.FieldLevelEncryptionConfigQueryArgProfileConfigArgs> QueryArgProfileConfig { get; set; } = null!;
 
@@ -179,39 +93,21 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class FieldLevelEncryptionConfigState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Field Level Encryption Config ARN.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
-        /// </summary>
         [Input("callerReference")]
         public Input<string>? CallerReference { get; set; }
 
-        /// <summary>
-        /// An optional comment about the Field Level Encryption Config.
-        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
-        /// <summary>
-        /// Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
-        /// </summary>
         [Input("contentTypeProfileConfig")]
         public Input<Inputs.FieldLevelEncryptionConfigContentTypeProfileConfigGetArgs>? ContentTypeProfileConfig { get; set; }
 
-        /// <summary>
-        /// The current version of the Field Level Encryption Config. For example: `E2QWRUHAPOMQZL`.
-        /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
-        /// <summary>
-        /// Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
-        /// </summary>
         [Input("queryArgProfileConfig")]
         public Input<Inputs.FieldLevelEncryptionConfigQueryArgProfileConfigGetArgs>? QueryArgProfileConfig { get; set; }
 

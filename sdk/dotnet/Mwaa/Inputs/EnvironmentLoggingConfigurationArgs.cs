@@ -12,33 +12,18 @@ namespace Pulumi.Aws.Mwaa.Inputs
 
     public sealed class EnvironmentLoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
-        /// </summary>
         [Input("dagProcessingLogs")]
         public Input<Inputs.EnvironmentLoggingConfigurationDagProcessingLogsArgs>? DagProcessingLogs { get; set; }
 
-        /// <summary>
-        /// Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
-        /// </summary>
         [Input("schedulerLogs")]
         public Input<Inputs.EnvironmentLoggingConfigurationSchedulerLogsArgs>? SchedulerLogs { get; set; }
 
-        /// <summary>
-        /// Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
-        /// </summary>
         [Input("taskLogs")]
         public Input<Inputs.EnvironmentLoggingConfigurationTaskLogsArgs>? TaskLogs { get; set; }
 
-        /// <summary>
-        /// Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
-        /// </summary>
         [Input("webserverLogs")]
         public Input<Inputs.EnvironmentLoggingConfigurationWebserverLogsArgs>? WebserverLogs { get; set; }
 
-        /// <summary>
-        /// Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
-        /// </summary>
         [Input("workerLogs")]
         public Input<Inputs.EnvironmentLoggingConfigurationWorkerLogsArgs>? WorkerLogs { get; set; }
 

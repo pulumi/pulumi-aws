@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate {
-    /**
-     * @return ARN of the Certificate Manager SSL/TLS server certificate that&#39;s used for inbound SSL/TLS inspection.
-     * 
-     */
     private @Nullable String resourceArn;
 
     private TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate() {}
-    /**
-     * @return ARN of the Certificate Manager SSL/TLS server certificate that&#39;s used for inbound SSL/TLS inspection.
-     * 
-     */
     public Optional<String> resourceArn() {
         return Optional.ofNullable(this.resourceArn);
     }

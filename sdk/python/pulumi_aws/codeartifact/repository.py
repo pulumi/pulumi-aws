@@ -31,14 +31,6 @@ class RepositoryArgs:
                  upstreams: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryUpstreamArgs']]]] = None):
         """
         The set of arguments for constructing a Repository resource.
-        :param pulumi.Input[_builtins.str] domain: The domain that contains the created repository.
-        :param pulumi.Input[_builtins.str] repository: The name of the repository to create.
-        :param pulumi.Input[_builtins.str] description: The description of the repository.
-        :param pulumi.Input[_builtins.str] domain_owner: The account number of the AWS account that owns the domain.
-        :param pulumi.Input['RepositoryExternalConnectionsArgs'] external_connections: An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryUpstreamArgs']]] upstreams: A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
         """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "repository", repository)
@@ -58,9 +50,6 @@ class RepositoryArgs:
     @_builtins.property
     @pulumi.getter
     def domain(self) -> pulumi.Input[_builtins.str]:
-        """
-        The domain that contains the created repository.
-        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -70,9 +59,6 @@ class RepositoryArgs:
     @_builtins.property
     @pulumi.getter
     def repository(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the repository to create.
-        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -82,9 +68,6 @@ class RepositoryArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the repository.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -94,9 +77,6 @@ class RepositoryArgs:
     @_builtins.property
     @pulumi.getter(name="domainOwner")
     def domain_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The account number of the AWS account that owns the domain.
-        """
         return pulumi.get(self, "domain_owner")
 
     @domain_owner.setter
@@ -106,9 +86,6 @@ class RepositoryArgs:
     @_builtins.property
     @pulumi.getter(name="externalConnections")
     def external_connections(self) -> Optional[pulumi.Input['RepositoryExternalConnectionsArgs']]:
-        """
-        An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
-        """
         return pulumi.get(self, "external_connections")
 
     @external_connections.setter
@@ -118,9 +95,6 @@ class RepositoryArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -130,9 +104,6 @@ class RepositoryArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -142,9 +113,6 @@ class RepositoryArgs:
     @_builtins.property
     @pulumi.getter
     def upstreams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryUpstreamArgs']]]]:
-        """
-        A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
-        """
         return pulumi.get(self, "upstreams")
 
     @upstreams.setter
@@ -168,17 +136,6 @@ class _RepositoryState:
                  upstreams: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryUpstreamArgs']]]] = None):
         """
         Input properties used for looking up and filtering Repository resources.
-        :param pulumi.Input[_builtins.str] administrator_account: The account number of the AWS account that manages the repository.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the repository.
-        :param pulumi.Input[_builtins.str] description: The description of the repository.
-        :param pulumi.Input[_builtins.str] domain: The domain that contains the created repository.
-        :param pulumi.Input[_builtins.str] domain_owner: The account number of the AWS account that owns the domain.
-        :param pulumi.Input['RepositoryExternalConnectionsArgs'] external_connections: An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] repository: The name of the repository to create.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryUpstreamArgs']]] upstreams: A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
         """
         if administrator_account is not None:
             pulumi.set(__self__, "administrator_account", administrator_account)
@@ -206,9 +163,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter(name="administratorAccount")
     def administrator_account(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The account number of the AWS account that manages the repository.
-        """
         return pulumi.get(self, "administrator_account")
 
     @administrator_account.setter
@@ -218,9 +172,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the repository.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -230,9 +181,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the repository.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -242,9 +190,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The domain that contains the created repository.
-        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -254,9 +199,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter(name="domainOwner")
     def domain_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The account number of the AWS account that owns the domain.
-        """
         return pulumi.get(self, "domain_owner")
 
     @domain_owner.setter
@@ -266,9 +208,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter(name="externalConnections")
     def external_connections(self) -> Optional[pulumi.Input['RepositoryExternalConnectionsArgs']]:
-        """
-        An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
-        """
         return pulumi.get(self, "external_connections")
 
     @external_connections.setter
@@ -278,9 +217,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -290,9 +226,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the repository to create.
-        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -302,9 +235,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -314,9 +244,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -326,9 +253,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter
     def upstreams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryUpstreamArgs']]]]:
-        """
-        A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
-        """
         return pulumi.get(self, "upstreams")
 
     @upstreams.setter
@@ -352,79 +276,9 @@ class Repository(pulumi.CustomResource):
                  upstreams: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryUpstreamArgs', 'RepositoryUpstreamArgsDict']]]]] = None,
                  __props__=None):
         """
-        Provides a CodeArtifact Repository Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example", description="domain key")
-        example_domain = aws.codeartifact.Domain("example",
-            domain="example",
-            encryption_key=example.arn)
-        test = aws.codeartifact.Repository("test",
-            repository="example",
-            domain=example_domain.domain)
-        ```
-
-        ### With Upstream Repository
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        upstream = aws.codeartifact.Repository("upstream",
-            repository="upstream",
-            domain=test_aws_codeartifact_domain["domain"])
-        test = aws.codeartifact.Repository("test",
-            repository="example",
-            domain=example["domain"],
-            upstreams=[{
-                "repository_name": upstream.repository,
-            }])
-        ```
-
-        ### With External Connection
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        upstream = aws.codeartifact.Repository("upstream",
-            repository="upstream",
-            domain=test_aws_codeartifact_domain["domain"])
-        test = aws.codeartifact.Repository("test",
-            repository="example",
-            domain=example["domain"],
-            external_connections={
-                "external_connection_name": "public:npmjs",
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeArtifact repository.
-
-        Using `pulumi import`, import CodeArtifact Repository using the CodeArtifact Repository ARN. For example:
-
-        % pulumi import aws_codeartifact_repository.example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
-
+        Create a Repository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: The description of the repository.
-        :param pulumi.Input[_builtins.str] domain: The domain that contains the created repository.
-        :param pulumi.Input[_builtins.str] domain_owner: The account number of the AWS account that owns the domain.
-        :param pulumi.Input[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict']] external_connections: An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] repository: The name of the repository to create.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryUpstreamArgs', 'RepositoryUpstreamArgsDict']]]] upstreams: A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
         """
         ...
     @overload
@@ -433,69 +287,7 @@ class Repository(pulumi.CustomResource):
                  args: RepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CodeArtifact Repository Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example", description="domain key")
-        example_domain = aws.codeartifact.Domain("example",
-            domain="example",
-            encryption_key=example.arn)
-        test = aws.codeartifact.Repository("test",
-            repository="example",
-            domain=example_domain.domain)
-        ```
-
-        ### With Upstream Repository
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        upstream = aws.codeartifact.Repository("upstream",
-            repository="upstream",
-            domain=test_aws_codeartifact_domain["domain"])
-        test = aws.codeartifact.Repository("test",
-            repository="example",
-            domain=example["domain"],
-            upstreams=[{
-                "repository_name": upstream.repository,
-            }])
-        ```
-
-        ### With External Connection
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        upstream = aws.codeartifact.Repository("upstream",
-            repository="upstream",
-            domain=test_aws_codeartifact_domain["domain"])
-        test = aws.codeartifact.Repository("test",
-            repository="example",
-            domain=example["domain"],
-            external_connections={
-                "external_connection_name": "public:npmjs",
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeArtifact repository.
-
-        Using `pulumi import`, import CodeArtifact Repository using the CodeArtifact Repository ARN. For example:
-
-        % pulumi import aws_codeartifact_repository.example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
-
+        Create a Repository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -571,17 +363,6 @@ class Repository(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] administrator_account: The account number of the AWS account that manages the repository.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the repository.
-        :param pulumi.Input[_builtins.str] description: The description of the repository.
-        :param pulumi.Input[_builtins.str] domain: The domain that contains the created repository.
-        :param pulumi.Input[_builtins.str] domain_owner: The account number of the AWS account that owns the domain.
-        :param pulumi.Input[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict']] external_connections: An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] repository: The name of the repository to create.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryUpstreamArgs', 'RepositoryUpstreamArgsDict']]]] upstreams: A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -603,88 +384,55 @@ class Repository(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="administratorAccount")
     def administrator_account(self) -> pulumi.Output[_builtins.str]:
-        """
-        The account number of the AWS account that manages the repository.
-        """
         return pulumi.get(self, "administrator_account")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the repository.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The description of the repository.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def domain(self) -> pulumi.Output[_builtins.str]:
-        """
-        The domain that contains the created repository.
-        """
         return pulumi.get(self, "domain")
 
     @_builtins.property
     @pulumi.getter(name="domainOwner")
     def domain_owner(self) -> pulumi.Output[_builtins.str]:
-        """
-        The account number of the AWS account that owns the domain.
-        """
         return pulumi.get(self, "domain_owner")
 
     @_builtins.property
     @pulumi.getter(name="externalConnections")
     def external_connections(self) -> pulumi.Output[Optional['outputs.RepositoryExternalConnections']]:
-        """
-        An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
-        """
         return pulumi.get(self, "external_connections")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def repository(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the repository to create.
-        """
         return pulumi.get(self, "repository")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def upstreams(self) -> pulumi.Output[Optional[Sequence['outputs.RepositoryUpstream']]]:
-        """
-        A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
-        """
         return pulumi.get(self, "upstreams")
 

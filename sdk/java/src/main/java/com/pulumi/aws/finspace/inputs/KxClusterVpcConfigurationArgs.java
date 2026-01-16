@@ -15,34 +15,16 @@ public final class KxClusterVpcConfigurationArgs extends com.pulumi.resources.Re
 
     public static final KxClusterVpcConfigurationArgs Empty = new KxClusterVpcConfigurationArgs();
 
-    /**
-     * IP address type for cluster network configuration parameters. The following type is available: IP_V4 - IP address version 4.
-     * 
-     */
     @Import(name="ipAddressType", required=true)
     private Output<String> ipAddressType;
 
-    /**
-     * @return IP address type for cluster network configuration parameters. The following type is available: IP_V4 - IP address version 4.
-     * 
-     */
     public Output<String> ipAddressType() {
         return this.ipAddressType;
     }
 
-    /**
-     * Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-     * * ` subnetIds  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
-     * 
-     */
     @Import(name="securityGroupIds", required=true)
     private Output<List<String>> securityGroupIds;
 
-    /**
-     * @return Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-     * * ` subnetIds  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
-     * 
-     */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
     }
@@ -54,17 +36,9 @@ public final class KxClusterVpcConfigurationArgs extends com.pulumi.resources.Re
         return this.subnetIds;
     }
 
-    /**
-     * Identifier of the VPC endpoint
-     * 
-     */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
-    /**
-     * @return Identifier of the VPC endpoint
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }
@@ -96,57 +70,24 @@ public final class KxClusterVpcConfigurationArgs extends com.pulumi.resources.Re
             $ = new KxClusterVpcConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ipAddressType IP address type for cluster network configuration parameters. The following type is available: IP_V4 - IP address version 4.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddressType(Output<String> ipAddressType) {
             $.ipAddressType = ipAddressType;
             return this;
         }
 
-        /**
-         * @param ipAddressType IP address type for cluster network configuration parameters. The following type is available: IP_V4 - IP address version 4.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddressType(String ipAddressType) {
             return ipAddressType(Output.of(ipAddressType));
         }
 
-        /**
-         * @param securityGroupIds Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-         * * ` subnetIds  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
-        /**
-         * @param securityGroupIds Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-         * * ` subnetIds  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
-        /**
-         * @param securityGroupIds Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-         * * ` subnetIds  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
@@ -164,23 +105,11 @@ public final class KxClusterVpcConfigurationArgs extends com.pulumi.resources.Re
             return subnetIds(List.of(subnetIds));
         }
 
-        /**
-         * @param vpcId Identifier of the VPC endpoint
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId Identifier of the VPC endpoint
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

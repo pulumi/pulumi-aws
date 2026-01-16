@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentAgentMemoryConfigurationSessionSummaryConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Maximum number of recent session summaries to include in the agent's prompt context.
-        /// </summary>
         [Input("maxRecentSessions", required: true)]
         public Input<int> MaxRecentSessions { get; set; } = null!;
 

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.RolesAnywhere.Outputs
     [OutputType]
     public sealed class TrustAnchorSource
     {
-        /// <summary>
-        /// The data denoting the source of trust, documented below
-        /// </summary>
         public readonly Outputs.TrustAnchorSourceSourceData SourceData;
-        /// <summary>
-        /// The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
-        /// </summary>
         public readonly string SourceType;
 
         [OutputConstructor]

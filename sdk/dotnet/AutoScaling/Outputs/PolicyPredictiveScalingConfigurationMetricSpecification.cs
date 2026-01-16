@@ -13,33 +13,12 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     [OutputType]
     public sealed class PolicyPredictiveScalingConfigurationMetricSpecification
     {
-        /// <summary>
-        /// Customized capacity metric specification. The field is only valid when you use `CustomizedLoadMetricSpecification`
-        /// </summary>
         public readonly Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification? CustomizedCapacityMetricSpecification;
-        /// <summary>
-        /// Customized load metric specification.
-        /// </summary>
         public readonly Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification? CustomizedLoadMetricSpecification;
-        /// <summary>
-        /// Customized scaling metric specification.
-        /// </summary>
         public readonly Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification? CustomizedScalingMetricSpecification;
-        /// <summary>
-        /// Predefined load metric specification.
-        /// </summary>
         public readonly Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification? PredefinedLoadMetricSpecification;
-        /// <summary>
-        /// Metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
-        /// </summary>
         public readonly Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification? PredefinedMetricPairSpecification;
-        /// <summary>
-        /// Predefined scaling metric specification.
-        /// </summary>
         public readonly Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification? PredefinedScalingMetricSpecification;
-        /// <summary>
-        /// Target value for the metric.
-        /// </summary>
         public readonly double TargetValue;
 
         [OutputConstructor]

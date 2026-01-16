@@ -14,20 +14,8 @@ import java.util.Objects;
 
 @CustomType
 public final class GetQueueResult {
-    /**
-     * @return ARN of the Queue.
-     * 
-     */
     private String arn;
-    /**
-     * @return Description of the Queue.
-     * 
-     */
     private String description;
-    /**
-     * @return Specifies the identifier of the Hours of Operation.
-     * 
-     */
     private String hoursOfOperationId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -35,53 +23,21 @@ public final class GetQueueResult {
      */
     private String id;
     private String instanceId;
-    /**
-     * @return Maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
-     * 
-     */
     private Integer maxContacts;
     private String name;
-    /**
-     * @return A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
-     * 
-     */
     private List<GetQueueOutboundCallerConfig> outboundCallerConfigs;
-    /**
-     * @return Identifier for the Queue.
-     * 
-     */
     private String queueId;
     private String region;
-    /**
-     * @return Description of the Queue. Values are `ENABLED` or `DISABLED`.
-     * 
-     */
     private String status;
-    /**
-     * @return Map of tags assigned to the Queue.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetQueueResult() {}
-    /**
-     * @return ARN of the Queue.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Description of the Queue.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Specifies the identifier of the Hours of Operation.
-     * 
-     */
     public String hoursOfOperationId() {
         return this.hoursOfOperationId;
     }
@@ -95,44 +51,24 @@ public final class GetQueueResult {
     public String instanceId() {
         return this.instanceId;
     }
-    /**
-     * @return Maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
-     * 
-     */
     public Integer maxContacts() {
         return this.maxContacts;
     }
     public String name() {
         return this.name;
     }
-    /**
-     * @return A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
-     * 
-     */
     public List<GetQueueOutboundCallerConfig> outboundCallerConfigs() {
         return this.outboundCallerConfigs;
     }
-    /**
-     * @return Identifier for the Queue.
-     * 
-     */
     public String queueId() {
         return this.queueId;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Description of the Queue. Values are `ENABLED` or `DISABLED`.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Map of tags assigned to the Queue.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

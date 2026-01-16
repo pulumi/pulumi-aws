@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserEmails {
-    /**
-     * @return When `true`, this is the primary email associated with the user.
-     * 
-     */
     private @Nullable Boolean primary;
-    /**
-     * @return The type of email.
-     * 
-     */
     private @Nullable String type;
-    /**
-     * @return The email address. This value must be unique across the identity store.
-     * 
-     */
     private @Nullable String value;
 
     private UserEmails() {}
-    /**
-     * @return When `true`, this is the primary email associated with the user.
-     * 
-     */
     public Optional<Boolean> primary() {
         return Optional.ofNullable(this.primary);
     }
-    /**
-     * @return The type of email.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
-    /**
-     * @return The email address. This value must be unique across the identity store.
-     * 
-     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

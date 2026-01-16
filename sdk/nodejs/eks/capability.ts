@@ -7,43 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an EKS Capability for an EKS cluster.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.eks.Capability("example", {
- *     clusterName: exampleAwsEksCluster.name,
- *     capabilityName: "argocd",
- *     type: "ARGOCD",
- *     roleArn: exampleAwsIamRole.arn,
- *     deletePropagationPolicy: "RETAIN",
- *     configuration: {
- *         argoCd: {
- *             awsIdc: {
- *                 idcInstanceArn: "arn:aws:sso:::instance/ssoins-1234567890abcdef0",
- *             },
- *             namespace: "argocd",
- *         },
- *     },
- *     tags: {
- *         Name: "example-capability",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import EKS Capability using the `cluster_name` and `capability_name` separated by a comma (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:eks/capability:Capability example my-cluster,my-capability
- * ```
- */
 export class Capability extends pulumi.CustomResource {
     /**
      * Get an existing Capability resource's state with the given name, ID, and optional extra
@@ -72,50 +35,17 @@ export class Capability extends pulumi.CustomResource {
         return obj['__pulumiType'] === Capability.__pulumiType;
     }
 
-    /**
-     * ARN of the capability.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Name of the capability. Must be unique within the cluster.
-     */
     declare public readonly capabilityName: pulumi.Output<string>;
-    /**
-     * Name of the EKS cluster.
-     */
     declare public readonly clusterName: pulumi.Output<string>;
-    /**
-     * Configuration for the capability. See `configuration` below.
-     */
     declare public readonly configuration: pulumi.Output<outputs.eks.CapabilityConfiguration | undefined>;
-    /**
-     * Delete propagation policy for the capability. Valid values: `RETAIN`.
-     */
     declare public readonly deletePropagationPolicy: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ARN of the IAM role to associate with the capability.
-     */
     declare public readonly roleArn: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.eks.CapabilityTimeouts | undefined>;
-    /**
-     * Type of the capability. Valid values: `ACK`, `KRO`, `ARGOCD`.
-     */
     declare public readonly type: pulumi.Output<string>;
-    /**
-     * Version of the capability.
-     */
     declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
@@ -182,50 +112,17 @@ export class Capability extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Capability resources.
  */
 export interface CapabilityState {
-    /**
-     * ARN of the capability.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Name of the capability. Must be unique within the cluster.
-     */
     capabilityName?: pulumi.Input<string>;
-    /**
-     * Name of the EKS cluster.
-     */
     clusterName?: pulumi.Input<string>;
-    /**
-     * Configuration for the capability. See `configuration` below.
-     */
     configuration?: pulumi.Input<inputs.eks.CapabilityConfiguration>;
-    /**
-     * Delete propagation policy for the capability. Valid values: `RETAIN`.
-     */
     deletePropagationPolicy?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the IAM role to associate with the capability.
-     */
     roleArn?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.eks.CapabilityTimeouts>;
-    /**
-     * Type of the capability. Valid values: `ACK`, `KRO`, `ARGOCD`.
-     */
     type?: pulumi.Input<string>;
-    /**
-     * Version of the capability.
-     */
     version?: pulumi.Input<string>;
 }
 
@@ -233,37 +130,13 @@ export interface CapabilityState {
  * The set of arguments for constructing a Capability resource.
  */
 export interface CapabilityArgs {
-    /**
-     * Name of the capability. Must be unique within the cluster.
-     */
     capabilityName: pulumi.Input<string>;
-    /**
-     * Name of the EKS cluster.
-     */
     clusterName: pulumi.Input<string>;
-    /**
-     * Configuration for the capability. See `configuration` below.
-     */
     configuration?: pulumi.Input<inputs.eks.CapabilityConfiguration>;
-    /**
-     * Delete propagation policy for the capability. Valid values: `RETAIN`.
-     */
     deletePropagationPolicy: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the IAM role to associate with the capability.
-     */
     roleArn: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.eks.CapabilityTimeouts>;
-    /**
-     * Type of the capability. Valid values: `ACK`, `KRO`, `ARGOCD`.
-     */
     type: pulumi.Input<string>;
 }

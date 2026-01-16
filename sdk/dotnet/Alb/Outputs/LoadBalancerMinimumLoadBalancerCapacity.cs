@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Alb.Outputs
     [OutputType]
     public sealed class LoadBalancerMinimumLoadBalancerCapacity
     {
-        /// <summary>
-        /// The number of capacity units.
-        /// </summary>
         public readonly int CapacityUnits;
 
         [OutputConstructor]

@@ -12,31 +12,15 @@ import java.util.Objects;
 
 @CustomType
 public final class GetApplicationAssignmentsResult {
-    /**
-     * @return ARN of the application.
-     * 
-     */
     private String applicationArn;
-    /**
-     * @return List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
-     * 
-     */
     private List<GetApplicationAssignmentsApplicationAssignment> applicationAssignments;
     private String id;
     private String region;
 
     private GetApplicationAssignmentsResult() {}
-    /**
-     * @return ARN of the application.
-     * 
-     */
     public String applicationArn() {
         return this.applicationArn;
     }
-    /**
-     * @return List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
-     * 
-     */
     public List<GetApplicationAssignmentsApplicationAssignment> applicationAssignments() {
         return this.applicationAssignments;
     }

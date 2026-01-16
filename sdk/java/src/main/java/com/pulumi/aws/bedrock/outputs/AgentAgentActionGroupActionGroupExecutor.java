@@ -11,35 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentAgentActionGroupActionGroupExecutor {
-    /**
-     * @return Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
-     * To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
-     * Only one of `customControl` or `lambda` can be specified.
-     * 
-     */
     private @Nullable String customControl;
-    /**
-     * @return ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
-     * Only one of `lambda` or `customControl` can be specified.
-     * 
-     */
     private @Nullable String lambda;
 
     private AgentAgentActionGroupActionGroupExecutor() {}
-    /**
-     * @return Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
-     * To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
-     * Only one of `customControl` or `lambda` can be specified.
-     * 
-     */
     public Optional<String> customControl() {
         return Optional.ofNullable(this.customControl);
     }
-    /**
-     * @return ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
-     * Only one of `lambda` or `customControl` can be specified.
-     * 
-     */
     public Optional<String> lambda() {
         return Optional.ofNullable(this.lambda);
     }

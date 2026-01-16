@@ -12,212 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an ECR repository lifecycle policy.
-//
-// > **NOTE:** Only one `ecr.LifecyclePolicy` resource can be used with the same ECR repository. To apply multiple rules, they must be combined in the `policy` JSON.
-//
-// > **NOTE:** The AWS ECR API seems to reorder rules based on `rulePriority`. If you define multiple rules that are not sorted in ascending `rulePriority` order in the this provider code, the resource will be flagged for recreation every deployment.
-//
-// ## Example Usage
-//
-// ### Policy on Untagged Images
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ecr.NewRepository(ctx, "example", &ecr.RepositoryArgs{
-//				Name: pulumi.String("example-repo"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ecr.NewLifecyclePolicy(ctx, "example", &ecr.LifecyclePolicyArgs{
-//				Repository: example.Name,
-//				Policy: pulumi.Any(`{
-//	  \"rules\": [
-//	    {
-//	      \"rulePriority\": 1,
-//	      \"description\": \"Expire images older than 14 days\",
-//	      \"selection\": {
-//	        \"tagStatus\": \"untagged\",
-//	        \"countType\": \"sinceImagePushed\",
-//	        \"countUnit\": \"days\",
-//	        \"countNumber\": 14
-//	      },
-//	      \"action\": {
-//	        \"type\": \"expire\"
-//	      }
-//	    }
-//	  ]
-//	}
-//
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Policy on Tagged Images
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ecr.NewRepository(ctx, "example", &ecr.RepositoryArgs{
-//				Name: pulumi.String("example-repo"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ecr.NewLifecyclePolicy(ctx, "example", &ecr.LifecyclePolicyArgs{
-//				Repository: example.Name,
-//				Policy: pulumi.Any(`{
-//	  \"rules\": [
-//	    {
-//	      \"rulePriority\": 1,
-//	      \"description\": \"Keep last 30 images\",
-//	      \"selection\": {
-//	        \"tagStatus\": \"tagged\",
-//	        \"tagPrefixList\": [\"v\"],
-//	        \"countType\": \"imageCountMoreThan\",
-//	        \"countNumber\": 30
-//	      },
-//	      \"action\": {
-//	        \"type\": \"expire\"
-//	      }
-//	    }
-//	  ]
-//	}
-//
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Policy to Archive and Delete
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ecr.NewRepository(ctx, "example", &ecr.RepositoryArgs{
-//				Name: pulumi.String("example-repo"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ecr.NewLifecyclePolicy(ctx, "example", &ecr.LifecyclePolicyArgs{
-//				Repository: example.Name,
-//				Policy: pulumi.Any(`{
-//	  \"rules\": [
-//	    {
-//	      \"rulePriority\": 1,
-//	      \"description\": \"Archive images not pulled in 90 days\",
-//	      \"selection\": {
-//	        \"tagStatus\": \"any\",
-//	        \"countType\": \"sinceImagePulled\",
-//	        \"countUnit\": \"days\",
-//	        \"countNumber\": 90
-//	      },
-//	      \"action\": {
-//	        \"type\": \"transition\",
-//	        \"targetStorageClass\": \"archive\"
-//	      }
-//	    },
-//	    {
-//	      \"rulePriority\": 2,
-//	      \"description\": \"Delete images archived for more than 365 days\",
-//	      \"selection\": {
-//	        \"tagStatus\": \"any\",
-//	        \"storageClass\": \"archive\",
-//	        \"countType\": \"sinceImageTransitioned\",
-//	        \"countUnit\": \"days\",
-//	        \"countNumber\": 365
-//	      },
-//	      \"action\": {
-//	        \"type\": \"expire\"
-//	      }
-//	    }
-//	  ]
-//	}
-//
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// * `repository` - (String) Name of the ECR repository.
-//
-// #### Optional
-//
-// * `account_id` (String) AWS Account where this resource is managed.
-//
-// * `region` (String) Region where this resource is managed.
-//
-// Using `pulumi import`, import ECR Lifecycle Policy using the name of the repository. For example:
-//
-// % pulumi import aws_ecr_lifecycle_policy.example tf-example
 type LifecyclePolicy struct {
 	pulumi.CustomResourceState
 
-	// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `policy` argument.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The registry ID where the repository was created.
+	Policy     pulumi.StringOutput `pulumi:"policy"`
+	Region     pulumi.StringOutput `pulumi:"region"`
 	RegistryId pulumi.StringOutput `pulumi:"registryId"`
-	// Name of the repository to apply the policy.
 	Repository pulumi.StringOutput `pulumi:"repository"`
 }
 
@@ -257,24 +57,16 @@ func GetLifecyclePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LifecyclePolicy resources.
 type lifecyclePolicyState struct {
-	// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `policy` argument.
-	Policy interface{} `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The registry ID where the repository was created.
-	RegistryId *string `pulumi:"registryId"`
-	// Name of the repository to apply the policy.
-	Repository *string `pulumi:"repository"`
+	Policy     interface{} `pulumi:"policy"`
+	Region     *string     `pulumi:"region"`
+	RegistryId *string     `pulumi:"registryId"`
+	Repository *string     `pulumi:"repository"`
 }
 
 type LifecyclePolicyState struct {
-	// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `policy` argument.
-	Policy pulumi.Input
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The registry ID where the repository was created.
+	Policy     pulumi.Input
+	Region     pulumi.StringPtrInput
 	RegistryId pulumi.StringPtrInput
-	// Name of the repository to apply the policy.
 	Repository pulumi.StringPtrInput
 }
 
@@ -283,21 +75,15 @@ func (LifecyclePolicyState) ElementType() reflect.Type {
 }
 
 type lifecyclePolicyArgs struct {
-	// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `policy` argument.
-	Policy interface{} `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Name of the repository to apply the policy.
-	Repository string `pulumi:"repository"`
+	Policy     interface{} `pulumi:"policy"`
+	Region     *string     `pulumi:"region"`
+	Repository string      `pulumi:"repository"`
 }
 
 // The set of arguments for constructing a LifecyclePolicy resource.
 type LifecyclePolicyArgs struct {
-	// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `policy` argument.
-	Policy pulumi.Input
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Name of the repository to apply the policy.
+	Policy     pulumi.Input
+	Region     pulumi.StringPtrInput
 	Repository pulumi.StringInput
 }
 
@@ -388,22 +174,18 @@ func (o LifecyclePolicyOutput) ToLifecyclePolicyOutputWithContext(ctx context.Co
 	return o
 }
 
-// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `policy` argument.
 func (o LifecyclePolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LifecyclePolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The registry ID where the repository was created.
 func (o LifecyclePolicyOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.RegistryId }).(pulumi.StringOutput)
 }
 
-// Name of the repository to apply the policy.
 func (o LifecyclePolicyOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }

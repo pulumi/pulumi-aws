@@ -10,33 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPermissionsDataLocation {
-    /**
-     * @return ARN that uniquely identifies the data location resource.
-     * 
-     * The following argument is optional:
-     * 
-     */
     private String arn;
-    /**
-     * @return Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
-     * 
-     */
     private String catalogId;
 
     private GetPermissionsDataLocation() {}
-    /**
-     * @return ARN that uniquely identifies the data location resource.
-     * 
-     * The following argument is optional:
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
-     * 
-     */
     public String catalogId() {
         return this.catalogId;
     }

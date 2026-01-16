@@ -16,73 +16,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRouteTableResult {
-    /**
-     * @return ARN of the route table.
-     * 
-     */
     private String arn;
-    /**
-     * @return List of associations with attributes detailed below.
-     * 
-     */
     private List<GetRouteTableAssociation> associations;
     private @Nullable List<GetRouteTableFilter> filters;
-    /**
-     * @return Gateway ID. Only set when associated with an Internet Gateway or Virtual Private Gateway.
-     * 
-     */
     private String gatewayId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return ID of the AWS account that owns the route table.
-     * 
-     */
     private String ownerId;
     private String region;
-    /**
-     * @return Route Table ID.
-     * 
-     */
     private String routeTableId;
-    /**
-     * @return List of routes with attributes detailed below.
-     * 
-     */
     private List<GetRouteTableRoute> routes;
-    /**
-     * @return Subnet ID. Only set when associated with a subnet.
-     * 
-     */
     private String subnetId;
     private Map<String,String> tags;
     private String vpcId;
 
     private GetRouteTableResult() {}
-    /**
-     * @return ARN of the route table.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return List of associations with attributes detailed below.
-     * 
-     */
     public List<GetRouteTableAssociation> associations() {
         return this.associations;
     }
     public List<GetRouteTableFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
-    /**
-     * @return Gateway ID. Only set when associated with an Internet Gateway or Virtual Private Gateway.
-     * 
-     */
     public String gatewayId() {
         return this.gatewayId;
     }
@@ -93,34 +53,18 @@ public final class GetRouteTableResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return ID of the AWS account that owns the route table.
-     * 
-     */
     public String ownerId() {
         return this.ownerId;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Route Table ID.
-     * 
-     */
     public String routeTableId() {
         return this.routeTableId;
     }
-    /**
-     * @return List of routes with attributes detailed below.
-     * 
-     */
     public List<GetRouteTableRoute> routes() {
         return this.routes;
     }
-    /**
-     * @return Subnet ID. Only set when associated with a subnet.
-     * 
-     */
     public String subnetId() {
         return this.subnetId;
     }

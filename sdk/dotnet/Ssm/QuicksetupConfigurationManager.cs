@@ -9,143 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ssm
 {
-    /// <summary>
-    /// Resource for managing an AWS SSM Quick Setup Configuration Manager.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Patch Policy Configuration Type
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var currentGetPartition = Aws.GetPartition.Invoke();
-    /// 
-    ///     var currentGetRegion = Aws.GetRegion.Invoke();
-    /// 
-    ///     var example = Aws.Ssm.GetPatchBaselines.Invoke(new()
-    ///     {
-    ///         DefaultBaselines = true,
-    ///     });
-    /// 
-    ///     // transform the output of the aws_ssm_patch_baselines data source
-    ///     // into the format expected by the SelectedPatchBaselines parameter
-    ///     var selectedPatchBaselines = JsonSerializer.Serialize(.ToDictionary(item =&gt; {
-    ///         var baseline = item.Value;
-    ///         return baseline.OperatingSystem;
-    ///     }, item =&gt; {
-    ///         var baseline = item.Value;
-    ///         return 
-    ///         {
-    ///             { "value", baseline.BaselineId },
-    ///             { "label", baseline.BaselineName },
-    ///             { "description", baseline.BaselineDescription },
-    ///             { "disabled", !baseline.DefaultBaseline },
-    ///         };
-    ///     }));
-    /// 
-    ///     var exampleQuicksetupConfigurationManager = new Aws.Ssm.QuicksetupConfigurationManager("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         ConfigurationDefinition = new Aws.Ssm.Inputs.QuicksetupConfigurationManagerConfigurationDefinitionArgs
-    ///         {
-    ///             LocalDeploymentAdministrationRoleArn = Output.Tuple(currentGetPartition, current).Apply(values =&gt;
-    ///             {
-    ///                 var currentGetPartition = values.Item1;
-    ///                 var current = values.Item2;
-    ///                 return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:role/AWS-QuickSetup-PatchPolicy-LocalAdministrationRole";
-    ///             }),
-    ///             LocalDeploymentExecutionRoleName = "AWS-QuickSetup-PatchPolicy-LocalExecutionRole",
-    ///             Type = "AWSQuickSetupType-PatchPolicy",
-    ///             Parameters = 
-    ///             {
-    ///                 { "ConfigurationOptionsPatchOperation", "Scan" },
-    ///                 { "ConfigurationOptionsScanValue", "cron(0 1 * * ? *)" },
-    ///                 { "ConfigurationOptionsScanNextInterval", "false" },
-    ///                 { "PatchBaselineRegion", currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region) },
-    ///                 { "PatchBaselineUseDefault", "default" },
-    ///                 { "PatchPolicyName", "example" },
-    ///                 { "SelectedPatchBaselines", selectedPatchBaselines },
-    ///                 { "OutputLogEnableS3", "false" },
-    ///                 { "RateControlConcurrency", "10%" },
-    ///                 { "RateControlErrorThreshold", "2%" },
-    ///                 { "IsPolicyAttachAllowed", "false" },
-    ///                 { "TargetAccounts", current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId) },
-    ///                 { "TargetRegions", currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region) },
-    ///                 { "TargetType", "*" },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SSM Quick Setup Configuration Manager using the `manager_arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager example arn:aws:ssm-quicksetup:us-east-1:012345678901:configuration-manager/abcd-1234
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager")]
     public partial class QuicksetupConfigurationManager : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Definition of the Quick Setup configuration that the configuration manager deploys. See `ConfigurationDefinition` below.
-        /// </summary>
         [Output("configurationDefinition")]
         public Output<Outputs.QuicksetupConfigurationManagerConfigurationDefinition?> ConfigurationDefinition { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the configuration manager.
-        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the Configuration Manager.
-        /// </summary>
         [Output("managerArn")]
         public Output<string> ManagerArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration manager name.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `StatusSummaries` below.
-        /// </summary>
         [Output("statusSummaries")]
         public Output<ImmutableArray<Outputs.QuicksetupConfigurationManagerStatusSummary>> StatusSummaries { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -198,38 +85,20 @@ namespace Pulumi.Aws.Ssm
 
     public sealed class QuicksetupConfigurationManagerArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Definition of the Quick Setup configuration that the configuration manager deploys. See `ConfigurationDefinition` below.
-        /// </summary>
         [Input("configurationDefinition")]
         public Input<Inputs.QuicksetupConfigurationManagerConfigurationDefinitionArgs>? ConfigurationDefinition { get; set; }
 
-        /// <summary>
-        /// Description of the configuration manager.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Configuration manager name.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -247,44 +116,23 @@ namespace Pulumi.Aws.Ssm
 
     public sealed class QuicksetupConfigurationManagerState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Definition of the Quick Setup configuration that the configuration manager deploys. See `ConfigurationDefinition` below.
-        /// </summary>
         [Input("configurationDefinition")]
         public Input<Inputs.QuicksetupConfigurationManagerConfigurationDefinitionGetArgs>? ConfigurationDefinition { get; set; }
 
-        /// <summary>
-        /// Description of the configuration manager.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// ARN of the Configuration Manager.
-        /// </summary>
         [Input("managerArn")]
         public Input<string>? ManagerArn { get; set; }
 
-        /// <summary>
-        /// Configuration manager name.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("statusSummaries")]
         private InputList<Inputs.QuicksetupConfigurationManagerStatusSummaryGetArgs>? _statusSummaries;
-
-        /// <summary>
-        /// A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `StatusSummaries` below.
-        /// </summary>
         public InputList<Inputs.QuicksetupConfigurationManagerStatusSummaryGetArgs> StatusSummaries
         {
             get => _statusSummaries ?? (_statusSummaries = new InputList<Inputs.QuicksetupConfigurationManagerStatusSummaryGetArgs>());
@@ -293,10 +141,6 @@ namespace Pulumi.Aws.Ssm
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -305,10 +149,6 @@ namespace Pulumi.Aws.Ssm
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

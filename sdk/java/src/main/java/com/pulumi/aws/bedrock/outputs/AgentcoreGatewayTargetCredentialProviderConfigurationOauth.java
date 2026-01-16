@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauth {
-    /**
-     * @return Map of custom parameters to include in OAuth requests.
-     * 
-     */
     private @Nullable Map<String,String> customParameters;
-    /**
-     * @return ARN of the OIDC provider for OAuth authentication.
-     * 
-     */
     private String providerArn;
-    /**
-     * @return Set of OAuth scopes to request.
-     * 
-     */
     private List<String> scopes;
 
     private AgentcoreGatewayTargetCredentialProviderConfigurationOauth() {}
-    /**
-     * @return Map of custom parameters to include in OAuth requests.
-     * 
-     */
     public Map<String,String> customParameters() {
         return this.customParameters == null ? Map.of() : this.customParameters;
     }
-    /**
-     * @return ARN of the OIDC provider for OAuth authentication.
-     * 
-     */
     public String providerArn() {
         return this.providerArn;
     }
-    /**
-     * @return Set of OAuth scopes to request.
-     * 
-     */
     public List<String> scopes() {
         return this.scopes;
     }

@@ -16,36 +16,16 @@ public final class GetTaskExecutionPlacementStrategyArgs extends com.pulumi.reso
 
     public static final GetTaskExecutionPlacementStrategyArgs Empty = new GetTaskExecutionPlacementStrategyArgs();
 
-    /**
-     * The field to apply the placement strategy against.
-     * 
-     */
     @Import(name="field")
     private @Nullable Output<String> field;
 
-    /**
-     * @return The field to apply the placement strategy against.
-     * 
-     */
     public Optional<Output<String>> field() {
         return Optional.ofNullable(this.field);
     }
 
-    /**
-     * The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
-     * 
-     * For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
-     * 
-     * For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -75,48 +55,20 @@ public final class GetTaskExecutionPlacementStrategyArgs extends com.pulumi.reso
             $ = new GetTaskExecutionPlacementStrategyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param field The field to apply the placement strategy against.
-         * 
-         * @return builder
-         * 
-         */
         public Builder field(@Nullable Output<String> field) {
             $.field = field;
             return this;
         }
 
-        /**
-         * @param field The field to apply the placement strategy against.
-         * 
-         * @return builder
-         * 
-         */
         public Builder field(String field) {
             return field(Output.of(field));
         }
 
-        /**
-         * @param type The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
-         * 
-         * For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
-         * 
-         * For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

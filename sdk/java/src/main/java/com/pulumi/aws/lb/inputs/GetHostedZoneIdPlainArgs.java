@@ -14,32 +14,16 @@ public final class GetHostedZoneIdPlainArgs extends com.pulumi.resources.InvokeA
 
     public static final GetHostedZoneIdPlainArgs Empty = new GetHostedZoneIdPlainArgs();
 
-    /**
-     * Type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
-     * 
-     */
     @Import(name="loadBalancerType")
     private @Nullable String loadBalancerType;
 
-    /**
-     * @return Type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
-     * 
-     */
     public Optional<String> loadBalancerType() {
         return Optional.ofNullable(this.loadBalancerType);
     }
 
-    /**
-     * Name of the Region whose AWS ELB HostedZoneId is desired. Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Name of the Region whose AWS ELB HostedZoneId is desired. Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -69,23 +53,11 @@ public final class GetHostedZoneIdPlainArgs extends com.pulumi.resources.InvokeA
             $ = new GetHostedZoneIdPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param loadBalancerType Type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loadBalancerType(@Nullable String loadBalancerType) {
             $.loadBalancerType = loadBalancerType;
             return this;
         }
 
-        /**
-         * @param region Name of the Region whose AWS ELB HostedZoneId is desired. Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

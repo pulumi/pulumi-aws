@@ -14,17 +14,9 @@ public final class PipelineStageOnSuccessArgs extends com.pulumi.resources.Resou
 
     public static final PipelineStageOnSuccessArgs Empty = new PipelineStageOnSuccessArgs();
 
-    /**
-     * The conditions that are success conditions. Defined as a `condition` block below.
-     * 
-     */
     @Import(name="condition", required=true)
     private Output<PipelineStageOnSuccessConditionArgs> condition;
 
-    /**
-     * @return The conditions that are success conditions. Defined as a `condition` block below.
-     * 
-     */
     public Output<PipelineStageOnSuccessConditionArgs> condition() {
         return this.condition;
     }
@@ -53,23 +45,11 @@ public final class PipelineStageOnSuccessArgs extends com.pulumi.resources.Resou
             $ = new PipelineStageOnSuccessArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param condition The conditions that are success conditions. Defined as a `condition` block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder condition(Output<PipelineStageOnSuccessConditionArgs> condition) {
             $.condition = condition;
             return this;
         }
 
-        /**
-         * @param condition The conditions that are success conditions. Defined as a `condition` block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder condition(PipelineStageOnSuccessConditionArgs condition) {
             return condition(Output.of(condition));
         }

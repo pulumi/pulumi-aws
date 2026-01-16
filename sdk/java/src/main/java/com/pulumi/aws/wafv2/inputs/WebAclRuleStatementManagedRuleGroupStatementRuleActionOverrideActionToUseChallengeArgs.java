@@ -15,17 +15,9 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
 
     public static final WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs();
 
-    /**
-     * Defines custom handling for the web request. See `customRequestHandling` below for details.
-     * 
-     */
     @Import(name="customRequestHandling")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs> customRequestHandling;
 
-    /**
-     * @return Defines custom handling for the web request. See `customRequestHandling` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs>> customRequestHandling() {
         return Optional.ofNullable(this.customRequestHandling);
     }
@@ -54,23 +46,11 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
             $ = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customRequestHandling Defines custom handling for the web request. See `customRequestHandling` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customRequestHandling(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs> customRequestHandling) {
             $.customRequestHandling = customRequestHandling;
             return this;
         }
 
-        /**
-         * @param customRequestHandling Defines custom handling for the web request. See `customRequestHandling` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customRequestHandling(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs customRequestHandling) {
             return customRequestHandling(Output.of(customRequestHandling));
         }

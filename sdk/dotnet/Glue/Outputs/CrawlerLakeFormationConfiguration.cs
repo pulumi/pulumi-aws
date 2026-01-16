@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class CrawlerLakeFormationConfiguration
     {
-        /// <summary>
-        /// Required for cross account crawls. For same account crawls as the target data, this can omitted.
-        /// </summary>
         public readonly string? AccountId;
-        /// <summary>
-        /// Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
-        /// </summary>
         public readonly bool? UseLakeFormationCredentials;
 
         [OutputConstructor]

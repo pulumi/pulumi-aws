@@ -15,32 +15,16 @@ public final class GetReleaseLabelsFiltersArgs extends com.pulumi.resources.Reso
 
     public static final GetReleaseLabelsFiltersArgs Empty = new GetReleaseLabelsFiltersArgs();
 
-    /**
-     * Optional release label application filter. For example, `Spark{@literal @}2.1.0` or `Spark`.
-     * 
-     */
     @Import(name="application")
     private @Nullable Output<String> application;
 
-    /**
-     * @return Optional release label application filter. For example, `Spark{@literal @}2.1.0` or `Spark`.
-     * 
-     */
     public Optional<Output<String>> application() {
         return Optional.ofNullable(this.application);
     }
 
-    /**
-     * Optional release label version prefix filter. For example, `emr-5`.
-     * 
-     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
-    /**
-     * @return Optional release label version prefix filter. For example, `emr-5`.
-     * 
-     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -70,44 +54,20 @@ public final class GetReleaseLabelsFiltersArgs extends com.pulumi.resources.Reso
             $ = new GetReleaseLabelsFiltersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param application Optional release label application filter. For example, `Spark{@literal @}2.1.0` or `Spark`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder application(@Nullable Output<String> application) {
             $.application = application;
             return this;
         }
 
-        /**
-         * @param application Optional release label application filter. For example, `Spark{@literal @}2.1.0` or `Spark`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder application(String application) {
             return application(Output.of(application));
         }
 
-        /**
-         * @param prefix Optional release label version prefix filter. For example, `emr-5`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix Optional release label version prefix filter. For example, `emr-5`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }

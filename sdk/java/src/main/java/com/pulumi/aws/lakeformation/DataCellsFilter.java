@@ -16,91 +16,17 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Lake Formation Data Cells Filter.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lakeformation.DataCellsFilter;
- * import com.pulumi.aws.lakeformation.DataCellsFilterArgs;
- * import com.pulumi.aws.lakeformation.inputs.DataCellsFilterTableDataArgs;
- * import com.pulumi.aws.lakeformation.inputs.DataCellsFilterTableDataRowFilterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataCellsFilter("example", DataCellsFilterArgs.builder()
- *             .tableData(DataCellsFilterTableDataArgs.builder()
- *                 .databaseName(test.name())
- *                 .name("example")
- *                 .tableCatalogId(current.accountId())
- *                 .tableName(testAwsGlueCatalogTable.name())
- *                 .columnNames("my_column")
- *                 .rowFilter(DataCellsFilterTableDataRowFilterArgs.builder()
- *                     .filterExpression("my_column='example'")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Lake Formation Data Cells Filter using the `database_name`, `name`, `table_catalog_id`, and `table_name` separated by `,`. For example:
- * 
- * ```sh
- * $ pulumi import aws:lakeformation/dataCellsFilter:DataCellsFilter example database_name,name,table_catalog_id,table_name
- * ```
- * 
- */
 @ResourceType(type="aws:lakeformation/dataCellsFilter:DataCellsFilter")
 public class DataCellsFilter extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Information about the data cells filter. See Table Data below for details.
-     * 
-     */
     @Export(name="tableData", refs={DataCellsFilterTableData.class}, tree="[0]")
     private Output</* @Nullable */ DataCellsFilterTableData> tableData;
 
-    /**
-     * @return Information about the data cells filter. See Table Data below for details.
-     * 
-     */
     public Output<Optional<DataCellsFilterTableData>> tableData() {
         return Codegen.optional(this.tableData);
     }

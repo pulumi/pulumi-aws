@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class TableSchemaDefinitionColumn {
-    /**
-     * @return The name of the column.
-     * 
-     */
     private String name;
-    /**
-     * @return The data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
-     * 
-     */
     private String type;
 
     private TableSchemaDefinitionColumn() {}
-    /**
-     * @return The name of the column.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
-     * 
-     */
     public String type() {
         return this.type;
     }

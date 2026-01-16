@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardParameters {
-    /**
-     * @return A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
-     * 
-     */
     private @Nullable List<DashboardParametersDateTimeParameter> dateTimeParameters;
-    /**
-     * @return A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
-     * 
-     */
     private @Nullable List<DashboardParametersDecimalParameter> decimalParameters;
-    /**
-     * @return A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
-     * 
-     */
     private @Nullable List<DashboardParametersIntegerParameter> integerParameters;
-    /**
-     * @return A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
-     * 
-     */
     private @Nullable List<DashboardParametersStringParameter> stringParameters;
 
     private DashboardParameters() {}
-    /**
-     * @return A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
-     * 
-     */
     public List<DashboardParametersDateTimeParameter> dateTimeParameters() {
         return this.dateTimeParameters == null ? List.of() : this.dateTimeParameters;
     }
-    /**
-     * @return A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
-     * 
-     */
     public List<DashboardParametersDecimalParameter> decimalParameters() {
         return this.decimalParameters == null ? List.of() : this.decimalParameters;
     }
-    /**
-     * @return A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
-     * 
-     */
     public List<DashboardParametersIntegerParameter> integerParameters() {
         return this.integerParameters == null ? List.of() : this.integerParameters;
     }
-    /**
-     * @return A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
-     * 
-     */
     public List<DashboardParametersStringParameter> stringParameters() {
         return this.stringParameters == null ? List.of() : this.stringParameters;
     }

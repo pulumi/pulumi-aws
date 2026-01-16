@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration {
-    /**
-     * @return ARN of the model used to create vector embeddings for the knowledge base.
-     * 
-     */
     private String embeddingModelArn;
-    /**
-     * @return The embeddings model configuration details for the vector model used in Knowledge Base.  See `embeddingModelConfiguration` block for details.
-     * 
-     */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration embeddingModelConfiguration;
-    /**
-     * @return supplemental_data_storage_configuration.  See `supplementalDataStorageConfiguration` block for details.
-     * 
-     */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration supplementalDataStorageConfiguration;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration() {}
-    /**
-     * @return ARN of the model used to create vector embeddings for the knowledge base.
-     * 
-     */
     public String embeddingModelArn() {
         return this.embeddingModelArn;
     }
-    /**
-     * @return The embeddings model configuration details for the vector model used in Knowledge Base.  See `embeddingModelConfiguration` block for details.
-     * 
-     */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration> embeddingModelConfiguration() {
         return Optional.ofNullable(this.embeddingModelConfiguration);
     }
-    /**
-     * @return supplemental_data_storage_configuration.  See `supplementalDataStorageConfiguration` block for details.
-     * 
-     */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration> supplementalDataStorageConfiguration() {
         return Optional.ofNullable(this.supplementalDataStorageConfiguration);
     }

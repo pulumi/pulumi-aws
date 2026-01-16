@@ -26,10 +26,6 @@ class GroupMembershipArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GroupMembership resource.
-        :param pulumi.Input[_builtins.str] group_name: The name of the group in which the member will be added.
-        :param pulumi.Input[_builtins.str] member_name: The name of the member to add to the group.
-        :param pulumi.Input[_builtins.str] namespace: The namespace that you want the user to be a part of. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "member_name", member_name)
@@ -43,9 +39,6 @@ class GroupMembershipArgs:
     @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the group in which the member will be added.
-        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -55,9 +48,6 @@ class GroupMembershipArgs:
     @_builtins.property
     @pulumi.getter(name="memberName")
     def member_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the member to add to the group.
-        """
         return pulumi.get(self, "member_name")
 
     @member_name.setter
@@ -76,9 +66,6 @@ class GroupMembershipArgs:
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The namespace that you want the user to be a part of. Defaults to `default`.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -88,9 +75,6 @@ class GroupMembershipArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -109,10 +93,6 @@ class _GroupMembershipState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GroupMembership resources.
-        :param pulumi.Input[_builtins.str] group_name: The name of the group in which the member will be added.
-        :param pulumi.Input[_builtins.str] member_name: The name of the member to add to the group.
-        :param pulumi.Input[_builtins.str] namespace: The namespace that you want the user to be a part of. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -148,9 +128,6 @@ class _GroupMembershipState:
     @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the group in which the member will be added.
-        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -160,9 +137,6 @@ class _GroupMembershipState:
     @_builtins.property
     @pulumi.getter(name="memberName")
     def member_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the member to add to the group.
-        """
         return pulumi.get(self, "member_name")
 
     @member_name.setter
@@ -172,9 +146,6 @@ class _GroupMembershipState:
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The namespace that you want the user to be a part of. Defaults to `default`.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -184,9 +155,6 @@ class _GroupMembershipState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -207,33 +175,9 @@ class GroupMembership(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing QuickSight Group Membership
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.GroupMembership("example",
-            group_name="all-access-users",
-            member_name="john_smith")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import QuickSight Group membership using the AWS account ID, namespace, group name and member name separated by `/`. For example:
-
-        ```sh
-        $ pulumi import aws:quicksight/groupMembership:GroupMembership example 123456789123/default/all-access-users/john_smith
-        ```
-
+        Create a GroupMembership resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] group_name: The name of the group in which the member will be added.
-        :param pulumi.Input[_builtins.str] member_name: The name of the member to add to the group.
-        :param pulumi.Input[_builtins.str] namespace: The namespace that you want the user to be a part of. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -242,27 +186,7 @@ class GroupMembership(pulumi.CustomResource):
                  args: GroupMembershipArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing QuickSight Group Membership
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.GroupMembership("example",
-            group_name="all-access-users",
-            member_name="john_smith")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import QuickSight Group membership using the AWS account ID, namespace, group name and member name separated by `/`. For example:
-
-        ```sh
-        $ pulumi import aws:quicksight/groupMembership:GroupMembership example 123456789123/default/all-access-users/john_smith
-        ```
-
+        Create a GroupMembership resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param GroupMembershipArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -325,10 +249,6 @@ class GroupMembership(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] group_name: The name of the group in which the member will be added.
-        :param pulumi.Input[_builtins.str] member_name: The name of the member to add to the group.
-        :param pulumi.Input[_builtins.str] namespace: The namespace that you want the user to be a part of. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -355,32 +275,20 @@ class GroupMembership(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the group in which the member will be added.
-        """
         return pulumi.get(self, "group_name")
 
     @_builtins.property
     @pulumi.getter(name="memberName")
     def member_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the member to add to the group.
-        """
         return pulumi.get(self, "member_name")
 
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The namespace that you want the user to be a part of. Defaults to `default`.
-        """
         return pulumi.get(self, "namespace")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

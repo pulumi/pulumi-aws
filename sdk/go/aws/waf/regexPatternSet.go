@@ -11,53 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a WAF Regex Pattern Set Resource
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/waf"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := waf.NewRegexPatternSet(ctx, "example", &waf.RegexPatternSetArgs{
-//				Name: pulumi.String("my_waf_regex_pattern_set"),
-//				RegexPatternStrings: pulumi.StringArray{
-//					pulumi.String("one"),
-//					pulumi.String("two"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import AWS WAF Regex Pattern Set using their ID. For example:
-//
-// ```sh
-// $ pulumi import aws:waf/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-// ```
 type RegexPatternSet struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN)
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name or description of the Regex Pattern Set.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
+	Arn                 pulumi.StringOutput      `pulumi:"arn"`
+	Name                pulumi.StringOutput      `pulumi:"name"`
 	RegexPatternStrings pulumi.StringArrayOutput `pulumi:"regexPatternStrings"`
 }
 
@@ -91,20 +49,14 @@ func GetRegexPatternSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegexPatternSet resources.
 type regexPatternSetState struct {
-	// Amazon Resource Name (ARN)
-	Arn *string `pulumi:"arn"`
-	// The name or description of the Regex Pattern Set.
-	Name *string `pulumi:"name"`
-	// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
+	Arn                 *string  `pulumi:"arn"`
+	Name                *string  `pulumi:"name"`
 	RegexPatternStrings []string `pulumi:"regexPatternStrings"`
 }
 
 type RegexPatternSetState struct {
-	// Amazon Resource Name (ARN)
-	Arn pulumi.StringPtrInput
-	// The name or description of the Regex Pattern Set.
-	Name pulumi.StringPtrInput
-	// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
+	Arn                 pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
 	RegexPatternStrings pulumi.StringArrayInput
 }
 
@@ -113,17 +65,13 @@ func (RegexPatternSetState) ElementType() reflect.Type {
 }
 
 type regexPatternSetArgs struct {
-	// The name or description of the Regex Pattern Set.
-	Name *string `pulumi:"name"`
-	// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
+	Name                *string  `pulumi:"name"`
 	RegexPatternStrings []string `pulumi:"regexPatternStrings"`
 }
 
 // The set of arguments for constructing a RegexPatternSet resource.
 type RegexPatternSetArgs struct {
-	// The name or description of the Regex Pattern Set.
-	Name pulumi.StringPtrInput
-	// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
+	Name                pulumi.StringPtrInput
 	RegexPatternStrings pulumi.StringArrayInput
 }
 
@@ -214,17 +162,14 @@ func (o RegexPatternSetOutput) ToRegexPatternSetOutputWithContext(ctx context.Co
 	return o
 }
 
-// Amazon Resource Name (ARN)
 func (o RegexPatternSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name or description of the Regex Pattern Set.
 func (o RegexPatternSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
 func (o RegexPatternSetOutput) RegexPatternStrings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringArrayOutput { return v.RegexPatternStrings }).(pulumi.StringArrayOutput)
 }

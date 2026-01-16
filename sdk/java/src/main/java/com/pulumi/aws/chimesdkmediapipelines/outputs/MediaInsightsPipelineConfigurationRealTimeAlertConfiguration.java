@@ -14,29 +14,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MediaInsightsPipelineConfigurationRealTimeAlertConfiguration {
-    /**
-     * @return Disables real time alert rules.
-     * 
-     */
     private @Nullable Boolean disabled;
-    /**
-     * @return Collection of real time alert rules
-     * 
-     */
     private List<MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule> rules;
 
     private MediaInsightsPipelineConfigurationRealTimeAlertConfiguration() {}
-    /**
-     * @return Disables real time alert rules.
-     * 
-     */
     public Optional<Boolean> disabled() {
         return Optional.ofNullable(this.disabled);
     }
-    /**
-     * @return Collection of real time alert rules
-     * 
-     */
     public List<MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule> rules() {
         return this.rules;
     }

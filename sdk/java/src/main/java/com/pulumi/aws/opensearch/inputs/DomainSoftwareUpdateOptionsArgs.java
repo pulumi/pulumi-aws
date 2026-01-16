@@ -15,17 +15,9 @@ public final class DomainSoftwareUpdateOptionsArgs extends com.pulumi.resources.
 
     public static final DomainSoftwareUpdateOptionsArgs Empty = new DomainSoftwareUpdateOptionsArgs();
 
-    /**
-     * Whether automatic service software updates are enabled for the domain. Defaults to `false`.
-     * 
-     */
     @Import(name="autoSoftwareUpdateEnabled")
     private @Nullable Output<Boolean> autoSoftwareUpdateEnabled;
 
-    /**
-     * @return Whether automatic service software updates are enabled for the domain. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> autoSoftwareUpdateEnabled() {
         return Optional.ofNullable(this.autoSoftwareUpdateEnabled);
     }
@@ -54,23 +46,11 @@ public final class DomainSoftwareUpdateOptionsArgs extends com.pulumi.resources.
             $ = new DomainSoftwareUpdateOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoSoftwareUpdateEnabled Whether automatic service software updates are enabled for the domain. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoSoftwareUpdateEnabled(@Nullable Output<Boolean> autoSoftwareUpdateEnabled) {
             $.autoSoftwareUpdateEnabled = autoSoftwareUpdateEnabled;
             return this;
         }
 
-        /**
-         * @param autoSoftwareUpdateEnabled Whether automatic service software updates are enabled for the domain. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoSoftwareUpdateEnabled(Boolean autoSoftwareUpdateEnabled) {
             return autoSoftwareUpdateEnabled(Output.of(autoSoftwareUpdateEnabled));
         }

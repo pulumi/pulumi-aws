@@ -15,53 +15,23 @@ public final class RulePredicateArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RulePredicateArgs Empty = new RulePredicateArgs();
 
-    /**
-     * A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
-     * 
-     */
     @Import(name="dataId", required=true)
     private Output<String> dataId;
 
-    /**
-     * @return A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
-     * 
-     */
     public Output<String> dataId() {
         return this.dataId;
     }
 
-    /**
-     * Set this to `false` if you want to allow, block, or count requests
-     * based on the settings in the specified waf_byte_match_set, waf_ipset, aws_waf_size_constraint_set, aws.waf.SqlInjectionMatchSet or aws_waf_xss_match_set.
-     * For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
-     * If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses except `192.0.2.44`.
-     * 
-     */
     @Import(name="negated", required=true)
     private Output<Boolean> negated;
 
-    /**
-     * @return Set this to `false` if you want to allow, block, or count requests
-     * based on the settings in the specified waf_byte_match_set, waf_ipset, aws_waf_size_constraint_set, aws.waf.SqlInjectionMatchSet or aws_waf_xss_match_set.
-     * For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
-     * If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses except `192.0.2.44`.
-     * 
-     */
     public Output<Boolean> negated() {
         return this.negated;
     }
 
-    /**
-     * The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -92,71 +62,29 @@ public final class RulePredicateArgs extends com.pulumi.resources.ResourceArgs {
             $ = new RulePredicateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dataId A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataId(Output<String> dataId) {
             $.dataId = dataId;
             return this;
         }
 
-        /**
-         * @param dataId A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataId(String dataId) {
             return dataId(Output.of(dataId));
         }
 
-        /**
-         * @param negated Set this to `false` if you want to allow, block, or count requests
-         * based on the settings in the specified waf_byte_match_set, waf_ipset, aws_waf_size_constraint_set, aws.waf.SqlInjectionMatchSet or aws_waf_xss_match_set.
-         * For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
-         * If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses except `192.0.2.44`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder negated(Output<Boolean> negated) {
             $.negated = negated;
             return this;
         }
 
-        /**
-         * @param negated Set this to `false` if you want to allow, block, or count requests
-         * based on the settings in the specified waf_byte_match_set, waf_ipset, aws_waf_size_constraint_set, aws.waf.SqlInjectionMatchSet or aws_waf_xss_match_set.
-         * For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
-         * If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses except `192.0.2.44`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder negated(Boolean negated) {
             return negated(Output.of(negated));
         }
 
-        /**
-         * @param type The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

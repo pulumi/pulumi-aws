@@ -18,32 +18,16 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationProcessingCon
 
     public static final FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs Empty = new FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs();
 
-    /**
-     * Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
-     * 
-     */
     @Import(name="parameters")
     private @Nullable Output<List<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs>> parameters;
 
-    /**
-     * @return Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
-     * 
-     */
     public Optional<Output<List<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs>>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
 
-    /**
-     * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -73,54 +57,24 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationProcessingCon
             $ = new FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param parameters Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(@Nullable Output<List<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
-        /**
-         * @param parameters Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(List<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs> parameters) {
             return parameters(Output.of(parameters));
         }
 
-        /**
-         * @param parameters Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs... parameters) {
             return parameters(List.of(parameters));
         }
 
-        /**
-         * @param type The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

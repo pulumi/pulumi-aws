@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionTenantDomain
     {
-        /// <summary>
-        /// Set of domains associated with the distribution tenant.
-        /// </summary>
         public readonly string Domain;
-        /// <summary>
-        /// Current status of the distribution tenant.
-        /// </summary>
         public readonly string? Status;
 
         [OutputConstructor]

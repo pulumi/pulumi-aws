@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Rekognition.Outputs
     public sealed class StreamProcessorSettingsFaceSearch
     {
         /// <summary>
-        /// ID of a collection that contains faces that you want to search for.
+        /// The ID of a collection that contains faces that you want to search for.
         /// </summary>
         public readonly string CollectionId;
         /// <summary>

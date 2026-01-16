@@ -12,122 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS WorkSpaces Web Network Settings resource. Once associated with a web portal, network settings define how streaming instances will connect with your specified VPC.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// example, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
-// CidrBlock: pulumi.String("10.0.0.0/16"),
-// })
-// if err != nil {
-// return err
-// }
-// invokeCidrsubnet, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
-// Input: cidrBlock,
-// Newbits: 8,
-// Netnum: val0,
-// }, nil)
-// if err != nil {
-// return err
-// }
-// var exampleSubnet []*ec2.Subnet
-//
-//	for index := 0; index < 2; index++ {
-//	    key0 := index
-//	    val0 := index
-//
-// __res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-%v", key0), &ec2.SubnetArgs{
-// VpcId: example.ID(),
-// CidrBlock: pulumi.String(example.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
-// %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
-// return invoke.Result, nil
-// }).(pulumi.StringPtrOutput)),
-// AvailabilityZone: available.Names[val0],
-// })
-// if err != nil {
-// return err
-// }
-// exampleSubnet = append(exampleSubnet, __res)
-// }
-// var example1 []*ec2.SecurityGroup
-//
-//	for index := 0; index < 2; index++ {
-//	    key0 := index
-//	    val0 := index
-//
-// __res, err := ec2.NewSecurityGroup(ctx, fmt.Sprintf("example1-%v", key0), &ec2.SecurityGroupArgs{
-// VpcId: example.ID(),
-// Name: pulumi.Sprintf("example-sg-%v$", val0),
-// })
-// if err != nil {
-// return err
-// }
-// example1 = append(example1, __res)
-// }
-// _, err = workspacesweb.NewNetworkSettings(ctx, "example", &workspacesweb.NetworkSettingsArgs{
-// VpcId: example.ID(),
-// SubnetIds: pulumi.StringArray{
-// exampleSubnet[0].ID(),
-// exampleSubnet[1].ID(),
-// },
-// SecurityGroupIds: pulumi.StringArray{
-// exampleAwsSecurityGroup[0].Id,
-// exampleAwsSecurityGroup[1].Id,
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import WorkSpaces Web Network Settings using the `network_settings_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:workspacesweb/networkSettings:NetworkSettings example arn:aws:workspacesweb:us-west-2:123456789012:networksettings/abcdef12345
-// ```
 type NetworkSettings struct {
 	pulumi.CustomResourceState
 
-	// List of web portal ARNs associated with the network settings.
 	AssociatedPortalArns pulumi.StringArrayOutput `pulumi:"associatedPortalArns"`
-	// ARN of the network settings resource.
-	NetworkSettingsArn pulumi.StringOutput `pulumi:"networkSettingsArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// One or more security groups used to control access from streaming instances to your VPC.
-	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
-	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The VPC that streaming instances will connect to.
-	//
-	// The following arguments are optional:
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	NetworkSettingsArn   pulumi.StringOutput      `pulumi:"networkSettingsArn"`
+	Region               pulumi.StringOutput      `pulumi:"region"`
+	SecurityGroupIds     pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
+	SubnetIds            pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	Tags                 pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll              pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	VpcId                pulumi.StringOutput      `pulumi:"vpcId"`
 }
 
 // NewNetworkSettings registers a new resource with the given unique name, arguments, and options.
@@ -175,45 +70,25 @@ func GetNetworkSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkSettings resources.
 type networkSettingsState struct {
-	// List of web portal ARNs associated with the network settings.
-	AssociatedPortalArns []string `pulumi:"associatedPortalArns"`
-	// ARN of the network settings resource.
-	NetworkSettingsArn *string `pulumi:"networkSettingsArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// One or more security groups used to control access from streaming instances to your VPC.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
-	SubnetIds []string `pulumi:"subnetIds"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The VPC that streaming instances will connect to.
-	//
-	// The following arguments are optional:
-	VpcId *string `pulumi:"vpcId"`
+	AssociatedPortalArns []string          `pulumi:"associatedPortalArns"`
+	NetworkSettingsArn   *string           `pulumi:"networkSettingsArn"`
+	Region               *string           `pulumi:"region"`
+	SecurityGroupIds     []string          `pulumi:"securityGroupIds"`
+	SubnetIds            []string          `pulumi:"subnetIds"`
+	Tags                 map[string]string `pulumi:"tags"`
+	TagsAll              map[string]string `pulumi:"tagsAll"`
+	VpcId                *string           `pulumi:"vpcId"`
 }
 
 type NetworkSettingsState struct {
-	// List of web portal ARNs associated with the network settings.
 	AssociatedPortalArns pulumi.StringArrayInput
-	// ARN of the network settings resource.
-	NetworkSettingsArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// One or more security groups used to control access from streaming instances to your VPC.
-	SecurityGroupIds pulumi.StringArrayInput
-	// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
-	SubnetIds pulumi.StringArrayInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The VPC that streaming instances will connect to.
-	//
-	// The following arguments are optional:
-	VpcId pulumi.StringPtrInput
+	NetworkSettingsArn   pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
+	SecurityGroupIds     pulumi.StringArrayInput
+	SubnetIds            pulumi.StringArrayInput
+	Tags                 pulumi.StringMapInput
+	TagsAll              pulumi.StringMapInput
+	VpcId                pulumi.StringPtrInput
 }
 
 func (NetworkSettingsState) ElementType() reflect.Type {
@@ -221,34 +96,20 @@ func (NetworkSettingsState) ElementType() reflect.Type {
 }
 
 type networkSettingsArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// One or more security groups used to control access from streaming instances to your VPC.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
-	SubnetIds []string `pulumi:"subnetIds"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The VPC that streaming instances will connect to.
-	//
-	// The following arguments are optional:
-	VpcId string `pulumi:"vpcId"`
+	Region           *string           `pulumi:"region"`
+	SecurityGroupIds []string          `pulumi:"securityGroupIds"`
+	SubnetIds        []string          `pulumi:"subnetIds"`
+	Tags             map[string]string `pulumi:"tags"`
+	VpcId            string            `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a NetworkSettings resource.
 type NetworkSettingsArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// One or more security groups used to control access from streaming instances to your VPC.
+	Region           pulumi.StringPtrInput
 	SecurityGroupIds pulumi.StringArrayInput
-	// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
-	SubnetIds pulumi.StringArrayInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The VPC that streaming instances will connect to.
-	//
-	// The following arguments are optional:
-	VpcId pulumi.StringInput
+	SubnetIds        pulumi.StringArrayInput
+	Tags             pulumi.StringMapInput
+	VpcId            pulumi.StringInput
 }
 
 func (NetworkSettingsArgs) ElementType() reflect.Type {
@@ -338,44 +199,34 @@ func (o NetworkSettingsOutput) ToNetworkSettingsOutputWithContext(ctx context.Co
 	return o
 }
 
-// List of web portal ARNs associated with the network settings.
 func (o NetworkSettingsOutput) AssociatedPortalArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkSettings) pulumi.StringArrayOutput { return v.AssociatedPortalArns }).(pulumi.StringArrayOutput)
 }
 
-// ARN of the network settings resource.
 func (o NetworkSettingsOutput) NetworkSettingsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkSettings) pulumi.StringOutput { return v.NetworkSettingsArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NetworkSettingsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkSettings) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// One or more security groups used to control access from streaming instances to your VPC.
 func (o NetworkSettingsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkSettings) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
 func (o NetworkSettingsOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkSettings) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o NetworkSettingsOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkSettings) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o NetworkSettingsOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkSettings) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The VPC that streaming instances will connect to.
-//
-// The following arguments are optional:
 func (o NetworkSettingsOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkSettings) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

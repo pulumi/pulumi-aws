@@ -16,47 +16,23 @@ public final class GetDedicatedIpPoolPlainArgs extends com.pulumi.resources.Invo
 
     public static final GetDedicatedIpPoolPlainArgs Empty = new GetDedicatedIpPoolPlainArgs();
 
-    /**
-     * Name of the dedicated IP pool.
-     * 
-     */
     @Import(name="poolName", required=true)
     private String poolName;
 
-    /**
-     * @return Name of the dedicated IP pool.
-     * 
-     */
     public String poolName() {
         return this.poolName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags attached to the pool.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return A map of tags attached to the pool.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -87,34 +63,16 @@ public final class GetDedicatedIpPoolPlainArgs extends com.pulumi.resources.Invo
             $ = new GetDedicatedIpPoolPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param poolName Name of the dedicated IP pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder poolName(String poolName) {
             $.poolName = poolName;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags A map of tags attached to the pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

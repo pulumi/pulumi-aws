@@ -14,16 +14,9 @@ namespace Pulumi.Aws.ElastiCache.Outputs
     public sealed class GetClusterCacheNodeResult
     {
         public readonly string Address;
-        /// <summary>
-        /// Availability Zone for the cache cluster.
-        /// </summary>
         public readonly string AvailabilityZone;
         public readonly string Id;
         public readonly string OutpostArn;
-        /// <summary>
-        /// The port number on which each of the cache nodes will
-        /// accept connections.
-        /// </summary>
         public readonly int Port;
 
         [OutputConstructor]

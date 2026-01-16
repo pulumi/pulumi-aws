@@ -15,17 +15,9 @@ public final class RuleGroupRuleActionChallengeArgs extends com.pulumi.resources
 
     public static final RuleGroupRuleActionChallengeArgs Empty = new RuleGroupRuleActionChallengeArgs();
 
-    /**
-     * Defines custom handling for the web request. See Custom Request Handling below for details.
-     * 
-     */
     @Import(name="customRequestHandling")
     private @Nullable Output<RuleGroupRuleActionChallengeCustomRequestHandlingArgs> customRequestHandling;
 
-    /**
-     * @return Defines custom handling for the web request. See Custom Request Handling below for details.
-     * 
-     */
     public Optional<Output<RuleGroupRuleActionChallengeCustomRequestHandlingArgs>> customRequestHandling() {
         return Optional.ofNullable(this.customRequestHandling);
     }
@@ -54,23 +46,11 @@ public final class RuleGroupRuleActionChallengeArgs extends com.pulumi.resources
             $ = new RuleGroupRuleActionChallengeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customRequestHandling Defines custom handling for the web request. See Custom Request Handling below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customRequestHandling(@Nullable Output<RuleGroupRuleActionChallengeCustomRequestHandlingArgs> customRequestHandling) {
             $.customRequestHandling = customRequestHandling;
             return this;
         }
 
-        /**
-         * @param customRequestHandling Defines custom handling for the web request. See Custom Request Handling below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customRequestHandling(RuleGroupRuleActionChallengeCustomRequestHandlingArgs customRequestHandling) {
             return customRequestHandling(Output.of(customRequestHandling));
         }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Dsql.Outputs
     [OutputType]
     public sealed class ClusterEncryptionDetail
     {
-        /// <summary>
-        /// The status of encryption for the DSQL Cluster.
-        /// </summary>
         public readonly string EncryptionStatus;
-        /// <summary>
-        /// The type of encryption that protects the data on the DSQL Cluster.
-        /// </summary>
         public readonly string EncryptionType;
 
         [OutputConstructor]

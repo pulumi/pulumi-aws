@@ -60,27 +60,16 @@ class GetListenerRuleResult:
     @_builtins.property
     @pulumi.getter
     def actions(self) -> Optional[Sequence['outputs.GetListenerRuleActionResult']]:
-        """
-        List of actions associated with the rule, sorted by `order`.
-        Detailed below.
-        """
         return pulumi.get(self, "actions")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the target group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def conditions(self) -> Optional[Sequence['outputs.GetListenerRuleConditionResult']]:
-        """
-        Set of conditions associated with the rule.
-        Detailed below.
-        """
         return pulumi.get(self, "conditions")
 
     @_builtins.property
@@ -109,17 +98,11 @@ class GetListenerRuleResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Tags assigned to the Listener Rule.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter
     def transforms(self) -> Optional[Sequence['outputs.GetListenerRuleTransformResult']]:
-        """
-        Block for transform to apply to requests that match this rule. Detailed below.
-        """
         return pulumi.get(self, "transforms")
 
 
@@ -149,47 +132,7 @@ def get_listener_rule(actions: Optional[Sequence[Union['GetListenerRuleActionArg
                       transforms: Optional[Sequence[Union['GetListenerRuleTransformArgs', 'GetListenerRuleTransformArgsDict']]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetListenerRuleResult:
     """
-    Provides information about an AWS Elastic Load Balancing Listener Rule.
-
-    ## Example Usage
-
-    ### Match by Rule ARN
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    lb_rule_arn = config.require("lbRuleArn")
-    example = aws.lb.get_listener_rule(arn=lb_rule_arn)
-    ```
-
-    ### Match by Listener ARN and Priority
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    lb_listener_arn = config.require("lbListenerArn")
-    lb_rule_priority = config.require_float("lbRulePriority")
-    example = aws.lb.get_listener_rule(listener_arn=lb_listener_arn,
-        priority=lb_rule_priority)
-    ```
-
-
-    :param Sequence[Union['GetListenerRuleActionArgs', 'GetListenerRuleActionArgsDict']] actions: List of actions associated with the rule, sorted by `order`.
-           Detailed below.
-    :param _builtins.str arn: ARN of the Listener Rule.
-           Either `arn` or `listener_arn` must be set.
-    :param Sequence[Union['GetListenerRuleConditionArgs', 'GetListenerRuleConditionArgsDict']] conditions: Set of conditions associated with the rule.
-           Detailed below.
-    :param _builtins.str listener_arn: ARN of the associated Listener.
-           Either `arn` or `listener_arn` must be set.
-    :param _builtins.int priority: Priority of the Listener Rule within the Listener.
-           Must be set if `listener_arn` is set, otherwise must not be set.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Sequence[Union['GetListenerRuleTransformArgs', 'GetListenerRuleTransformArgsDict']] transforms: Block for transform to apply to requests that match this rule. Detailed below.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['actions'] = actions
@@ -221,47 +164,7 @@ def get_listener_rule_output(actions: Optional[pulumi.Input[Optional[Sequence[Un
                              transforms: Optional[pulumi.Input[Optional[Sequence[Union['GetListenerRuleTransformArgs', 'GetListenerRuleTransformArgsDict']]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetListenerRuleResult]:
     """
-    Provides information about an AWS Elastic Load Balancing Listener Rule.
-
-    ## Example Usage
-
-    ### Match by Rule ARN
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    lb_rule_arn = config.require("lbRuleArn")
-    example = aws.lb.get_listener_rule(arn=lb_rule_arn)
-    ```
-
-    ### Match by Listener ARN and Priority
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    lb_listener_arn = config.require("lbListenerArn")
-    lb_rule_priority = config.require_float("lbRulePriority")
-    example = aws.lb.get_listener_rule(listener_arn=lb_listener_arn,
-        priority=lb_rule_priority)
-    ```
-
-
-    :param Sequence[Union['GetListenerRuleActionArgs', 'GetListenerRuleActionArgsDict']] actions: List of actions associated with the rule, sorted by `order`.
-           Detailed below.
-    :param _builtins.str arn: ARN of the Listener Rule.
-           Either `arn` or `listener_arn` must be set.
-    :param Sequence[Union['GetListenerRuleConditionArgs', 'GetListenerRuleConditionArgsDict']] conditions: Set of conditions associated with the rule.
-           Detailed below.
-    :param _builtins.str listener_arn: ARN of the associated Listener.
-           Either `arn` or `listener_arn` must be set.
-    :param _builtins.int priority: Priority of the Listener Rule within the Listener.
-           Must be set if `listener_arn` is set, otherwise must not be set.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Sequence[Union['GetListenerRuleTransformArgs', 'GetListenerRuleTransformArgsDict']] transforms: Block for transform to apply to requests that match this rule. Detailed below.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['actions'] = actions

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class MultitenantDistributionRestrictionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Geographic restriction configuration. See Geo Restriction below.
-        /// </summary>
         [Input("geoRestriction")]
         public Input<Inputs.MultitenantDistributionRestrictionsGeoRestrictionArgs>? GeoRestriction { get; set; }
 

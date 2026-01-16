@@ -14,17 +14,9 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
 
     public static final V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs Empty = new V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs();
 
-    /**
-     * Time for which a bot waits before re-prompting a customer for text input.
-     * 
-     */
     @Import(name="startTimeoutMs", required=true)
     private Output<Integer> startTimeoutMs;
 
-    /**
-     * @return Time for which a bot waits before re-prompting a customer for text input.
-     * 
-     */
     public Output<Integer> startTimeoutMs() {
         return this.startTimeoutMs;
     }
@@ -53,23 +45,11 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
             $ = new V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param startTimeoutMs Time for which a bot waits before re-prompting a customer for text input.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startTimeoutMs(Output<Integer> startTimeoutMs) {
             $.startTimeoutMs = startTimeoutMs;
             return this;
         }
 
-        /**
-         * @param startTimeoutMs Time for which a bot waits before re-prompting a customer for text input.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startTimeoutMs(Integer startTimeoutMs) {
             return startTimeoutMs(Output.of(startTimeoutMs));
         }

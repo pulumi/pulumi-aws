@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class XssMatchSetXssMatchTuple {
-    /**
-     * @return Specifies where in a web request to look for cross-site scripting attacks.
-     * 
-     */
     private XssMatchSetXssMatchTupleFieldToMatch fieldToMatch;
-    /**
-     * @return Which text transformation, if any, to perform on the web request before inspecting the request for cross-site scripting attacks.
-     * 
-     */
     private String textTransformation;
 
     private XssMatchSetXssMatchTuple() {}
-    /**
-     * @return Specifies where in a web request to look for cross-site scripting attacks.
-     * 
-     */
     public XssMatchSetXssMatchTupleFieldToMatch fieldToMatch() {
         return this.fieldToMatch;
     }
-    /**
-     * @return Which text transformation, if any, to perform on the web request before inspecting the request for cross-site scripting attacks.
-     * 
-     */
     public String textTransformation() {
         return this.textTransformation;
     }

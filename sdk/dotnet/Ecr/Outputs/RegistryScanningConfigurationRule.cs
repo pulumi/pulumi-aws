@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ecr.Outputs
     [OutputType]
     public sealed class RegistryScanningConfigurationRule
     {
-        /// <summary>
-        /// One or more repository filter blocks, containing a `Filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `FilterType` (required string, currently only `WILDCARD` is supported).
-        /// </summary>
         public readonly ImmutableArray<Outputs.RegistryScanningConfigurationRuleRepositoryFilter> RepositoryFilters;
-        /// <summary>
-        /// The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
-        /// </summary>
         public readonly string ScanFrequency;
 
         [OutputConstructor]

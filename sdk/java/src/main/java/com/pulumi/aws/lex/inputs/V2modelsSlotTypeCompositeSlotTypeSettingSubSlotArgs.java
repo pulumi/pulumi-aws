@@ -14,34 +14,16 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs extends c
 
     public static final V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs Empty = new V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs();
 
-    /**
-     * Name of a constituent sub slot inside a composite slot.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of a constituent sub slot inside a composite slot.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Unique identifier assigned to a slot type.
-     * This refers to either a built-in slot type or the unique `slotTypeId` of a custom slot type.
-     * 
-     */
     @Import(name="slotTypeId", required=true)
     private Output<String> slotTypeId;
 
-    /**
-     * @return Unique identifier assigned to a slot type.
-     * This refers to either a built-in slot type or the unique `slotTypeId` of a custom slot type.
-     * 
-     */
     public Output<String> slotTypeId() {
         return this.slotTypeId;
     }
@@ -71,46 +53,20 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs extends c
             $ = new V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of a constituent sub slot inside a composite slot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of a constituent sub slot inside a composite slot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param slotTypeId Unique identifier assigned to a slot type.
-         * This refers to either a built-in slot type or the unique `slotTypeId` of a custom slot type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slotTypeId(Output<String> slotTypeId) {
             $.slotTypeId = slotTypeId;
             return this;
         }
 
-        /**
-         * @param slotTypeId Unique identifier assigned to a slot type.
-         * This refers to either a built-in slot type or the unique `slotTypeId` of a custom slot type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slotTypeId(String slotTypeId) {
             return slotTypeId(Output.of(slotTypeId));
         }

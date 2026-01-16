@@ -12,77 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetReportPlanReportSetting {
-    /**
-     * @return (Optional) Specifies the list of accounts a report covers.
-     * 
-     */
     private List<String> accounts;
-    /**
-     * @return ARNs of the frameworks a report covers.
-     * 
-     */
     private List<String> frameworkArns;
-    /**
-     * @return Specifies the number of frameworks a report covers.
-     * 
-     */
     private Integer numberOfFrameworks;
-    /**
-     * @return (Optional) Specifies the list of Organizational Units a report covers.
-     * 
-     */
     private List<String> organizationUnits;
-    /**
-     * @return (Optional) Specifies the list of regions a report covers.
-     * 
-     */
     private List<String> regions;
-    /**
-     * @return Identifies the report template for the report. Reports are built using a report template.
-     * 
-     */
     private String reportTemplate;
 
     private GetReportPlanReportSetting() {}
-    /**
-     * @return (Optional) Specifies the list of accounts a report covers.
-     * 
-     */
     public List<String> accounts() {
         return this.accounts;
     }
-    /**
-     * @return ARNs of the frameworks a report covers.
-     * 
-     */
     public List<String> frameworkArns() {
         return this.frameworkArns;
     }
-    /**
-     * @return Specifies the number of frameworks a report covers.
-     * 
-     */
     public Integer numberOfFrameworks() {
         return this.numberOfFrameworks;
     }
-    /**
-     * @return (Optional) Specifies the list of Organizational Units a report covers.
-     * 
-     */
     public List<String> organizationUnits() {
         return this.organizationUnits;
     }
-    /**
-     * @return (Optional) Specifies the list of regions a report covers.
-     * 
-     */
     public List<String> regions() {
         return this.regions;
     }
-    /**
-     * @return Identifies the report template for the report. Reports are built using a report template.
-     * 
-     */
     public String reportTemplate() {
         return this.reportTemplate;
     }

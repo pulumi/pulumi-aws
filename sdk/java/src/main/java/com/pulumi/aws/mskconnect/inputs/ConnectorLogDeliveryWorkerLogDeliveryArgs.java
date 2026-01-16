@@ -17,47 +17,23 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryArgs extends com.pulumi.
 
     public static final ConnectorLogDeliveryWorkerLogDeliveryArgs Empty = new ConnectorLogDeliveryWorkerLogDeliveryArgs();
 
-    /**
-     * Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatchLogs` Block for details.
-     * 
-     */
     @Import(name="cloudwatchLogs")
     private @Nullable Output<ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs> cloudwatchLogs;
 
-    /**
-     * @return Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatchLogs` Block for details.
-     * 
-     */
     public Optional<Output<ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs>> cloudwatchLogs() {
         return Optional.ofNullable(this.cloudwatchLogs);
     }
 
-    /**
-     * Details about delivering logs to Amazon Kinesis Data Firehose. See `firehose` Block for details.
-     * 
-     */
     @Import(name="firehose")
     private @Nullable Output<ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs> firehose;
 
-    /**
-     * @return Details about delivering logs to Amazon Kinesis Data Firehose. See `firehose` Block for details.
-     * 
-     */
     public Optional<Output<ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs>> firehose() {
         return Optional.ofNullable(this.firehose);
     }
 
-    /**
-     * Details about delivering logs to Amazon S3. See `s3` Block for deetails.
-     * 
-     */
     @Import(name="s3")
     private @Nullable Output<ConnectorLogDeliveryWorkerLogDeliveryS3Args> s3;
 
-    /**
-     * @return Details about delivering logs to Amazon S3. See `s3` Block for deetails.
-     * 
-     */
     public Optional<Output<ConnectorLogDeliveryWorkerLogDeliveryS3Args>> s3() {
         return Optional.ofNullable(this.s3);
     }
@@ -88,65 +64,29 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryArgs extends com.pulumi.
             $ = new ConnectorLogDeliveryWorkerLogDeliveryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudwatchLogs Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatchLogs` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogs(@Nullable Output<ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs> cloudwatchLogs) {
             $.cloudwatchLogs = cloudwatchLogs;
             return this;
         }
 
-        /**
-         * @param cloudwatchLogs Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatchLogs` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogs(ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs cloudwatchLogs) {
             return cloudwatchLogs(Output.of(cloudwatchLogs));
         }
 
-        /**
-         * @param firehose Details about delivering logs to Amazon Kinesis Data Firehose. See `firehose` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firehose(@Nullable Output<ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs> firehose) {
             $.firehose = firehose;
             return this;
         }
 
-        /**
-         * @param firehose Details about delivering logs to Amazon Kinesis Data Firehose. See `firehose` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firehose(ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs firehose) {
             return firehose(Output.of(firehose));
         }
 
-        /**
-         * @param s3 Details about delivering logs to Amazon S3. See `s3` Block for deetails.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3(@Nullable Output<ConnectorLogDeliveryWorkerLogDeliveryS3Args> s3) {
             $.s3 = s3;
             return this;
         }
 
-        /**
-         * @param s3 Details about delivering logs to Amazon S3. See `s3` Block for deetails.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3(ConnectorLogDeliveryWorkerLogDeliveryS3Args s3) {
             return s3(Output.of(s3));
         }

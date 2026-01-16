@@ -11,40 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/secretsmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := secretsmanager.GetSecrets(ctx, &secretsmanager.GetSecretsArgs{
-//				Filters: []secretsmanager.GetSecretsFilter{
-//					{
-//						Name: "name",
-//						Values: []string{
-//							"example",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetSecrets(ctx *pulumi.Context, args *GetSecretsArgs, opts ...pulumi.InvokeOption) (*GetSecretsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSecretsResult
@@ -57,20 +23,16 @@ func GetSecrets(ctx *pulumi.Context, args *GetSecretsArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getSecrets.
 type GetSecretsArgs struct {
-	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetSecretsFilter `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region  *string            `pulumi:"region"`
 }
 
 // A collection of values returned by getSecrets.
 type GetSecretsResult struct {
-	// Set of ARNs of the matched Secrets Manager secrets.
 	Arns    []string           `pulumi:"arns"`
 	Filters []GetSecretsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Set of names of the matched Secrets Manager secrets.
+	Id     string   `pulumi:"id"`
 	Names  []string `pulumi:"names"`
 	Region string   `pulumi:"region"`
 }
@@ -86,10 +48,8 @@ func GetSecretsOutput(ctx *pulumi.Context, args GetSecretsOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getSecrets.
 type GetSecretsOutputArgs struct {
-	// Configuration block(s) for filtering. Detailed below.
 	Filters GetSecretsFilterArrayInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Region  pulumi.StringPtrInput      `pulumi:"region"`
 }
 
 func (GetSecretsOutputArgs) ElementType() reflect.Type {
@@ -111,7 +71,6 @@ func (o GetSecretsResultOutput) ToGetSecretsResultOutputWithContext(ctx context.
 	return o
 }
 
-// Set of ARNs of the matched Secrets Manager secrets.
 func (o GetSecretsResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecretsResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }
@@ -125,7 +84,6 @@ func (o GetSecretsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Set of names of the matched Secrets Manager secrets.
 func (o GetSecretsResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecretsResult) []string { return v.Names }).(pulumi.StringArrayOutput)
 }

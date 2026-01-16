@@ -12,108 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing a Roles Anywhere Trust Anchor.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/acmpca"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rolesanywhere"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := acmpca.NewCertificateAuthority(ctx, "example", &acmpca.CertificateAuthorityArgs{
-//				PermanentDeletionTimeInDays: pulumi.Int(7),
-//				Type:                        pulumi.String("ROOT"),
-//				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
-//					KeyAlgorithm:     pulumi.String("RSA_4096"),
-//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
-//					Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
-//						CommonName: pulumi.String("example.com"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			current, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = acmpca.NewCertificate(ctx, "test", &acmpca.CertificateArgs{
-//				CertificateAuthorityArn:   example.Arn,
-//				CertificateSigningRequest: example.CertificateSigningRequest,
-//				SigningAlgorithm:          pulumi.String("SHA512WITHRSA"),
-//				TemplateArn:               pulumi.Sprintf("arn:%v:acm-pca:::template/RootCACertificate/V1", current.Partition),
-//				Validity: &acmpca.CertificateValidityArgs{
-//					Type:  pulumi.String("YEARS"),
-//					Value: pulumi.String("1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleCertificateAuthorityCertificate, err := acmpca.NewCertificateAuthorityCertificate(ctx, "example", &acmpca.CertificateAuthorityCertificateArgs{
-//				CertificateAuthorityArn: example.Arn,
-//				Certificate:             pulumi.Any(exampleAwsAcmpcaCertificate.Certificate),
-//				CertificateChain:        pulumi.Any(exampleAwsAcmpcaCertificate.CertificateChain),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = rolesanywhere.NewTrustAnchor(ctx, "test", &rolesanywhere.TrustAnchorArgs{
-//				Name: pulumi.String("example"),
-//				Source: &rolesanywhere.TrustAnchorSourceArgs{
-//					SourceData: &rolesanywhere.TrustAnchorSourceSourceDataArgs{
-//						AcmPcaArn: example.Arn,
-//					},
-//					SourceType: pulumi.String("AWS_ACM_PCA"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleCertificateAuthorityCertificate,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_rolesanywhere_trust_anchor` using its `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:rolesanywhere/trustAnchor:TrustAnchor example 92b2fbbb-984d-41a3-a765-e3cbdb69ebb1
-// ```
 type TrustAnchor struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Trust Anchor
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Whether or not the Trust Anchor should be enabled.
-	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// The name of the Trust Anchor.
+	Arn                  pulumi.StringOutput                       `pulumi:"arn"`
+	Enabled              pulumi.BoolOutput                         `pulumi:"enabled"`
 	Name                 pulumi.StringOutput                       `pulumi:"name"`
 	NotificationSettings TrustAnchorNotificationSettingArrayOutput `pulumi:"notificationSettings"`
-	// The source of trust, documented below
-	Source TrustAnchorSourceOutput `pulumi:"source"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Source               TrustAnchorSourceOutput                   `pulumi:"source"`
+	Tags                 pulumi.StringMapOutput                    `pulumi:"tags"`
+	TagsAll              pulumi.StringMapOutput                    `pulumi:"tagsAll"`
 }
 
 // NewTrustAnchor registers a new resource with the given unique name, arguments, and options.
@@ -149,35 +57,23 @@ func GetTrustAnchor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TrustAnchor resources.
 type trustAnchorState struct {
-	// Amazon Resource Name (ARN) of the Trust Anchor
-	Arn *string `pulumi:"arn"`
-	// Whether or not the Trust Anchor should be enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// The name of the Trust Anchor.
+	Arn                  *string                          `pulumi:"arn"`
+	Enabled              *bool                            `pulumi:"enabled"`
 	Name                 *string                          `pulumi:"name"`
 	NotificationSettings []TrustAnchorNotificationSetting `pulumi:"notificationSettings"`
-	// The source of trust, documented below
-	Source *TrustAnchorSource `pulumi:"source"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Source               *TrustAnchorSource               `pulumi:"source"`
+	Tags                 map[string]string                `pulumi:"tags"`
+	TagsAll              map[string]string                `pulumi:"tagsAll"`
 }
 
 type TrustAnchorState struct {
-	// Amazon Resource Name (ARN) of the Trust Anchor
-	Arn pulumi.StringPtrInput
-	// Whether or not the Trust Anchor should be enabled.
-	Enabled pulumi.BoolPtrInput
-	// The name of the Trust Anchor.
+	Arn                  pulumi.StringPtrInput
+	Enabled              pulumi.BoolPtrInput
 	Name                 pulumi.StringPtrInput
 	NotificationSettings TrustAnchorNotificationSettingArrayInput
-	// The source of trust, documented below
-	Source TrustAnchorSourcePtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Source               TrustAnchorSourcePtrInput
+	Tags                 pulumi.StringMapInput
+	TagsAll              pulumi.StringMapInput
 }
 
 func (TrustAnchorState) ElementType() reflect.Type {
@@ -185,28 +81,20 @@ func (TrustAnchorState) ElementType() reflect.Type {
 }
 
 type trustAnchorArgs struct {
-	// Whether or not the Trust Anchor should be enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// The name of the Trust Anchor.
+	Enabled              *bool                            `pulumi:"enabled"`
 	Name                 *string                          `pulumi:"name"`
 	NotificationSettings []TrustAnchorNotificationSetting `pulumi:"notificationSettings"`
-	// The source of trust, documented below
-	Source TrustAnchorSource `pulumi:"source"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Source               TrustAnchorSource                `pulumi:"source"`
+	Tags                 map[string]string                `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TrustAnchor resource.
 type TrustAnchorArgs struct {
-	// Whether or not the Trust Anchor should be enabled.
-	Enabled pulumi.BoolPtrInput
-	// The name of the Trust Anchor.
+	Enabled              pulumi.BoolPtrInput
 	Name                 pulumi.StringPtrInput
 	NotificationSettings TrustAnchorNotificationSettingArrayInput
-	// The source of trust, documented below
-	Source TrustAnchorSourceInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Source               TrustAnchorSourceInput
+	Tags                 pulumi.StringMapInput
 }
 
 func (TrustAnchorArgs) ElementType() reflect.Type {
@@ -296,17 +184,14 @@ func (o TrustAnchorOutput) ToTrustAnchorOutputWithContext(ctx context.Context) T
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Trust Anchor
 func (o TrustAnchorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustAnchor) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Whether or not the Trust Anchor should be enabled.
 func (o TrustAnchorOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *TrustAnchor) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The name of the Trust Anchor.
 func (o TrustAnchorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustAnchor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -315,17 +200,14 @@ func (o TrustAnchorOutput) NotificationSettings() TrustAnchorNotificationSetting
 	return o.ApplyT(func(v *TrustAnchor) TrustAnchorNotificationSettingArrayOutput { return v.NotificationSettings }).(TrustAnchorNotificationSettingArrayOutput)
 }
 
-// The source of trust, documented below
 func (o TrustAnchorOutput) Source() TrustAnchorSourceOutput {
 	return o.ApplyT(func(v *TrustAnchor) TrustAnchorSourceOutput { return v.Source }).(TrustAnchorSourceOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o TrustAnchorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TrustAnchor) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TrustAnchorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TrustAnchor) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

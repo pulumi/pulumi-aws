@@ -12,39 +12,21 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsAudioDescriptionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Advanced audio normalization settings. See Audio Normalization Settings for more details.
-        /// </summary>
         [Input("audioNormalizationSettings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs>? AudioNormalizationSettings { get; set; }
 
-        /// <summary>
-        /// The name of the audio selector used as the source for this AudioDescription.
-        /// </summary>
         [Input("audioSelectorName", required: true)]
         public Input<string> AudioSelectorName { get; set; } = null!;
 
-        /// <summary>
-        /// Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
-        /// </summary>
         [Input("audioType")]
         public Input<string>? AudioType { get; set; }
 
-        /// <summary>
-        /// Determined how audio type is determined.
-        /// </summary>
         [Input("audioTypeControl")]
         public Input<string>? AudioTypeControl { get; set; }
 
-        /// <summary>
-        /// Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
-        /// </summary>
         [Input("audioWatermarkSettings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs>? AudioWatermarkSettings { get; set; }
 
-        /// <summary>
-        /// Audio codec settings. See Audio Codec Settings for more details.
-        /// </summary>
         [Input("codecSettings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs>? CodecSettings { get; set; }
 
@@ -54,18 +36,12 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("languageCodeControl")]
         public Input<string>? LanguageCodeControl { get; set; }
 
-        /// <summary>
-        /// The name of this audio description.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("remixSettings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs>? RemixSettings { get; set; }
 
-        /// <summary>
-        /// Stream name RTMP destinations (URLs of type rtmp://)
-        /// </summary>
         [Input("streamName")]
         public Input<string>? StreamName { get; set; }
 

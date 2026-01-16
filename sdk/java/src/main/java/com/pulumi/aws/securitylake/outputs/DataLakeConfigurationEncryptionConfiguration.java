@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class DataLakeConfigurationEncryptionConfiguration {
-    /**
-     * @return The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
-     * 
-     */
     private String kmsKeyId;
 
     private DataLakeConfigurationEncryptionConfiguration() {}
-    /**
-     * @return The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
-     * 
-     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }

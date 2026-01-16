@@ -7,24 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Data source for manging db servers linked to exadata infrastructure of Oracle Database@AWS.
- *
- * You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.odb.getDbServers({
- *     cloudExadataInfrastructureId: "exadata_infra_id",
- * });
- * ```
- */
 export function getDbServers(args: GetDbServersArgs, opts?: pulumi.InvokeOptions): Promise<GetDbServersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:odb/getDbServers:getDbServers", {
@@ -37,15 +19,7 @@ export function getDbServers(args: GetDbServersArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getDbServers.
  */
 export interface GetDbServersArgs {
-    /**
-     * The unique identifier of the cloud vm cluster.
-     *
-     * The following arguments are optional:
-     */
     cloudExadataInfrastructureId: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -54,9 +28,6 @@ export interface GetDbServersArgs {
  */
 export interface GetDbServersResult {
     readonly cloudExadataInfrastructureId: string;
-    /**
-     * the list of DB servers along with their properties.
-     */
     readonly dbServers: outputs.odb.GetDbServersDbServer[];
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -64,24 +35,6 @@ export interface GetDbServersResult {
     readonly id: string;
     readonly region: string;
 }
-/**
- * Data source for manging db servers linked to exadata infrastructure of Oracle Database@AWS.
- *
- * You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.odb.getDbServers({
- *     cloudExadataInfrastructureId: "exadata_infra_id",
- * });
- * ```
- */
 export function getDbServersOutput(args: GetDbServersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDbServersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:odb/getDbServers:getDbServers", {
@@ -94,14 +47,6 @@ export function getDbServersOutput(args: GetDbServersOutputArgs, opts?: pulumi.I
  * A collection of arguments for invoking getDbServers.
  */
 export interface GetDbServersOutputArgs {
-    /**
-     * The unique identifier of the cloud vm cluster.
-     *
-     * The following arguments are optional:
-     */
     cloudExadataInfrastructureId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

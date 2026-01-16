@@ -11,22 +11,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBudgetCostFilter {
-    /**
-     * @return The name of a budget. Unique within accounts.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String name;
     private List<String> values;
 
     private GetBudgetCostFilter() {}
-    /**
-     * @return The name of a budget. Unique within accounts.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String name() {
         return this.name;
     }

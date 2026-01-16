@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Route53 traffic policy instance resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.route53.TrafficPolicyInstance("test", {
- *     name: "test.example.com",
- *     trafficPolicyId: "b3gb108f-ea6f-45a5-baab-9d112d8b4037",
- *     trafficPolicyVersion: 1,
- *     hostedZoneId: "Z033120931TAQO548OGJC",
- *     ttl: 360,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Route53 traffic policy instance using its id. For example:
- *
- * ```sh
- * $ pulumi import aws:route53/trafficPolicyInstance:TrafficPolicyInstance test df579d9a-6396-410e-ac22-e7ad60cf9e7e
- * ```
- */
 export class TrafficPolicyInstance extends pulumi.CustomResource {
     /**
      * Get an existing TrafficPolicyInstance resource's state with the given name, ID, and optional extra
@@ -58,29 +32,11 @@ export class TrafficPolicyInstance extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrafficPolicyInstance.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the traffic policy instance.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
-     */
     declare public readonly hostedZoneId: pulumi.Output<string>;
-    /**
-     * Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
-     */
     declare public readonly trafficPolicyId: pulumi.Output<string>;
-    /**
-     * Version of the traffic policy
-     */
     declare public readonly trafficPolicyVersion: pulumi.Output<number>;
-    /**
-     * TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
-     */
     declare public readonly ttl: pulumi.Output<number>;
 
     /**
@@ -132,29 +88,11 @@ export class TrafficPolicyInstance extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TrafficPolicyInstance resources.
  */
 export interface TrafficPolicyInstanceState {
-    /**
-     * Amazon Resource Name (ARN) of the traffic policy instance.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
-     */
     hostedZoneId?: pulumi.Input<string>;
-    /**
-     * Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
-     */
     trafficPolicyId?: pulumi.Input<string>;
-    /**
-     * Version of the traffic policy
-     */
     trafficPolicyVersion?: pulumi.Input<number>;
-    /**
-     * TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
-     */
     ttl?: pulumi.Input<number>;
 }
 
@@ -162,24 +100,9 @@ export interface TrafficPolicyInstanceState {
  * The set of arguments for constructing a TrafficPolicyInstance resource.
  */
 export interface TrafficPolicyInstanceArgs {
-    /**
-     * ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
-     */
     hostedZoneId: pulumi.Input<string>;
-    /**
-     * Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
-     */
     trafficPolicyId: pulumi.Input<string>;
-    /**
-     * Version of the traffic policy
-     */
     trafficPolicyVersion: pulumi.Input<number>;
-    /**
-     * TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
-     */
     ttl: pulumi.Input<number>;
 }

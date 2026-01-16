@@ -11,36 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opensearch.LookupServerlessLifecyclePolicy(ctx, &opensearch.LookupServerlessLifecyclePolicyArgs{
-//				Name: "example-lifecycle-policy",
-//				Type: "retention",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupServerlessLifecyclePolicy(ctx *pulumi.Context, args *LookupServerlessLifecyclePolicyArgs, opts ...pulumi.InvokeOption) (*LookupServerlessLifecyclePolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerlessLifecyclePolicyResult
@@ -53,30 +23,22 @@ func LookupServerlessLifecyclePolicy(ctx *pulumi.Context, args *LookupServerless
 
 // A collection of arguments for invoking getServerlessLifecyclePolicy.
 type LookupServerlessLifecyclePolicyArgs struct {
-	// Name of the policy
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   string  `pulumi:"name"`
 	Region *string `pulumi:"region"`
-	// Type of lifecycle policy. Must be `retention`.
-	Type string `pulumi:"type"`
+	Type   string  `pulumi:"type"`
 }
 
 // A collection of values returned by getServerlessLifecyclePolicy.
 type LookupServerlessLifecyclePolicyResult struct {
-	// The date the lifecycle policy was created.
-	CreatedDate string `pulumi:"createdDate"`
-	// Description of the policy. Typically used to store information about the permissions defined in the policy.
-	Description string `pulumi:"description"`
-	Id          string `pulumi:"id"`
-	// The date the lifecycle policy was last modified.
+	CreatedDate      string `pulumi:"createdDate"`
+	Description      string `pulumi:"description"`
+	Id               string `pulumi:"id"`
 	LastModifiedDate string `pulumi:"lastModifiedDate"`
 	Name             string `pulumi:"name"`
-	// JSON policy document to use as the content for the new policy.
-	Policy string `pulumi:"policy"`
-	// Version of the policy.
-	PolicyVersion string `pulumi:"policyVersion"`
-	Region        string `pulumi:"region"`
-	Type          string `pulumi:"type"`
+	Policy           string `pulumi:"policy"`
+	PolicyVersion    string `pulumi:"policyVersion"`
+	Region           string `pulumi:"region"`
+	Type             string `pulumi:"type"`
 }
 
 func LookupServerlessLifecyclePolicyOutput(ctx *pulumi.Context, args LookupServerlessLifecyclePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessLifecyclePolicyResultOutput {
@@ -90,12 +52,9 @@ func LookupServerlessLifecyclePolicyOutput(ctx *pulumi.Context, args LookupServe
 
 // A collection of arguments for invoking getServerlessLifecyclePolicy.
 type LookupServerlessLifecyclePolicyOutputArgs struct {
-	// Name of the policy
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringInput    `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Type of lifecycle policy. Must be `retention`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type   pulumi.StringInput    `pulumi:"type"`
 }
 
 func (LookupServerlessLifecyclePolicyOutputArgs) ElementType() reflect.Type {
@@ -117,12 +76,10 @@ func (o LookupServerlessLifecyclePolicyResultOutput) ToLookupServerlessLifecycle
 	return o
 }
 
-// The date the lifecycle policy was created.
 func (o LookupServerlessLifecyclePolicyResultOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessLifecyclePolicyResult) string { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// Description of the policy. Typically used to store information about the permissions defined in the policy.
 func (o LookupServerlessLifecyclePolicyResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessLifecyclePolicyResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -131,7 +88,6 @@ func (o LookupServerlessLifecyclePolicyResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessLifecyclePolicyResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The date the lifecycle policy was last modified.
 func (o LookupServerlessLifecyclePolicyResultOutput) LastModifiedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessLifecyclePolicyResult) string { return v.LastModifiedDate }).(pulumi.StringOutput)
 }
@@ -140,12 +96,10 @@ func (o LookupServerlessLifecyclePolicyResultOutput) Name() pulumi.StringOutput 
 	return o.ApplyT(func(v LookupServerlessLifecyclePolicyResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// JSON policy document to use as the content for the new policy.
 func (o LookupServerlessLifecyclePolicyResultOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessLifecyclePolicyResult) string { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Version of the policy.
 func (o LookupServerlessLifecyclePolicyResultOutput) PolicyVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessLifecyclePolicyResult) string { return v.PolicyVersion }).(pulumi.StringOutput)
 }

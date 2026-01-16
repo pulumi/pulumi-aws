@@ -14,32 +14,16 @@ public final class MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs
 
     public static final MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs Empty = new MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs();
 
-    /**
-     * Unique provider name.
-     * 
-     */
     @Import(name="providerName", required=true)
     private Output<String> providerName;
 
-    /**
-     * @return Unique provider name.
-     * 
-     */
     public Output<String> providerName() {
         return this.providerName;
     }
 
-    /**
-     * Unique service name.
-     * 
-     */
     @Import(name="serviceName", required=true)
     private Output<String> serviceName;
 
-    /**
-     * @return Unique service name.
-     * 
-     */
     public Output<String> serviceName() {
         return this.serviceName;
     }
@@ -69,44 +53,20 @@ public final class MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs
             $ = new MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param providerName Unique provider name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerName(Output<String> providerName) {
             $.providerName = providerName;
             return this;
         }
 
-        /**
-         * @param providerName Unique provider name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerName(String providerName) {
             return providerName(Output.of(providerName));
         }
 
-        /**
-         * @param serviceName Unique service name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(Output<String> serviceName) {
             $.serviceName = serviceName;
             return this;
         }
 
-        /**
-         * @param serviceName Unique service name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(String serviceName) {
             return serviceName(Output.of(serviceName));
         }

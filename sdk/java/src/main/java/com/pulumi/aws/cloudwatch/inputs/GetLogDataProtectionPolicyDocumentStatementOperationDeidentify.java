@@ -13,17 +13,9 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperationDeidentif
 
     public static final GetLogDataProtectionPolicyDocumentStatementOperationDeidentify Empty = new GetLogDataProtectionPolicyDocumentStatementOperationDeidentify();
 
-    /**
-     * An empty object that configures masking.
-     * 
-     */
     @Import(name="maskConfig", required=true)
     private GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig maskConfig;
 
-    /**
-     * @return An empty object that configures masking.
-     * 
-     */
     public GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig maskConfig() {
         return this.maskConfig;
     }
@@ -52,12 +44,6 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperationDeidentif
             $ = new GetLogDataProtectionPolicyDocumentStatementOperationDeidentify(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maskConfig An empty object that configures masking.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maskConfig(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig maskConfig) {
             $.maskConfig = maskConfig;
             return this;

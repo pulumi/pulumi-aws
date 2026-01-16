@@ -9,184 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Cfg
 {
-    /// <summary>
-    /// Provides an AWS Config Configuration Recorder. Please note that this resource **does not start** the created recorder automatically.
-    /// 
-    /// &gt; **Note:** _Starting_ the Configuration Recorder requires a delivery channel (while delivery channel creation requires Configuration Recorder). This is why `aws.cfg.RecorderStatus` is a separate resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "config.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var r = new Aws.Iam.Role("r", new()
-    ///     {
-    ///         Name = "awsconfig-example",
-    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var foo = new Aws.Cfg.Recorder("foo", new()
-    ///     {
-    ///         Name = "example",
-    ///         RoleArn = r.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Exclude Resources Types Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Aws.Cfg.Recorder("foo", new()
-    ///     {
-    ///         Name = "example",
-    ///         RoleArn = r.Arn,
-    ///         RecordingGroup = new Aws.Cfg.Inputs.RecorderRecordingGroupArgs
-    ///         {
-    ///             AllSupported = false,
-    ///             ExclusionByResourceTypes = new[]
-    ///             {
-    ///                 new Aws.Cfg.Inputs.RecorderRecordingGroupExclusionByResourceTypeArgs
-    ///                 {
-    ///                     ResourceTypes = new[]
-    ///                     {
-    ///                         "AWS::EC2::Instance",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             RecordingStrategies = new[]
-    ///             {
-    ///                 new Aws.Cfg.Inputs.RecorderRecordingGroupRecordingStrategyArgs
-    ///                 {
-    ///                     UseOnly = "EXCLUSION_BY_RESOURCE_TYPES",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Periodic Recording
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Aws.Cfg.Recorder("foo", new()
-    ///     {
-    ///         Name = "example",
-    ///         RoleArn = r.Arn,
-    ///         RecordingGroup = new Aws.Cfg.Inputs.RecorderRecordingGroupArgs
-    ///         {
-    ///             AllSupported = false,
-    ///             IncludeGlobalResourceTypes = false,
-    ///             ResourceTypes = new[]
-    ///             {
-    ///                 "AWS::EC2::Instance",
-    ///                 "AWS::EC2::NetworkInterface",
-    ///             },
-    ///         },
-    ///         RecordingMode = new Aws.Cfg.Inputs.RecorderRecordingModeArgs
-    ///         {
-    ///             RecordingFrequency = "CONTINUOUS",
-    ///             RecordingModeOverride = new Aws.Cfg.Inputs.RecorderRecordingModeRecordingModeOverrideArgs
-    ///             {
-    ///                 Description = "Only record EC2 network interfaces daily",
-    ///                 ResourceTypes = new[]
-    ///                 {
-    ///                     "AWS::EC2::NetworkInterface",
-    ///                 },
-    ///                 RecordingFrequency = "DAILY",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Configuration Recorder using the name. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cfg/recorder:Recorder foo example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cfg/recorder:Recorder")]
     public partial class Recorder : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The name of the recorder. Defaults to `Default`. Changing it recreates the resource.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Recording group - see below.
-        /// </summary>
         [Output("recordingGroup")]
         public Output<Outputs.RecorderRecordingGroup> RecordingGroup { get; private set; } = null!;
 
-        /// <summary>
-        /// Recording mode - see below.
-        /// </summary>
         [Output("recordingMode")]
         public Output<Outputs.RecorderRecordingMode> RecordingMode { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
@@ -236,33 +73,18 @@ namespace Pulumi.Aws.Cfg
 
     public sealed class RecorderArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the recorder. Defaults to `Default`. Changing it recreates the resource.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Recording group - see below.
-        /// </summary>
         [Input("recordingGroup")]
         public Input<Inputs.RecorderRecordingGroupArgs>? RecordingGroup { get; set; }
 
-        /// <summary>
-        /// Recording mode - see below.
-        /// </summary>
         [Input("recordingMode")]
         public Input<Inputs.RecorderRecordingModeArgs>? RecordingMode { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
@@ -274,33 +96,18 @@ namespace Pulumi.Aws.Cfg
 
     public sealed class RecorderState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the recorder. Defaults to `Default`. Changing it recreates the resource.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Recording group - see below.
-        /// </summary>
         [Input("recordingGroup")]
         public Input<Inputs.RecorderRecordingGroupGetArgs>? RecordingGroup { get; set; }
 
-        /// <summary>
-        /// Recording mode - see below.
-        /// </summary>
         [Input("recordingMode")]
         public Input<Inputs.RecorderRecordingModeGetArgs>? RecordingMode { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 

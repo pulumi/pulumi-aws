@@ -4,177 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS OpenSearch Serverless Security Policy. See AWS documentation for [encryption policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html#serverless-encryption-policies) and [network policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html#serverless-network-policies).
- *
- * ## Example Usage
- *
- * ### Encryption Security Policy
- *
- * ### Applies to a single collection
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
- *     name: "example",
- *     type: "encryption",
- *     description: "encryption security policy for example-collection",
- *     policy: JSON.stringify({
- *         Rules: [{
- *             Resource: ["collection/example-collection"],
- *             ResourceType: "collection",
- *         }],
- *         AWSOwnedKey: true,
- *     }),
- * });
- * ```
- *
- * ### Applies to multiple collections
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
- *     name: "example",
- *     type: "encryption",
- *     description: "encryption security policy for collections that begin with \"example\"",
- *     policy: JSON.stringify({
- *         Rules: [{
- *             Resource: ["collection/example*"],
- *             ResourceType: "collection",
- *         }],
- *         AWSOwnedKey: true,
- *     }),
- * });
- * ```
- *
- * ### Using a customer managed key
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
- *     name: "example",
- *     type: "encryption",
- *     description: "encryption security policy using customer KMS key",
- *     policy: JSON.stringify({
- *         Rules: [{
- *             Resource: ["collection/customer-managed-key-collection"],
- *             ResourceType: "collection",
- *         }],
- *         AWSOwnedKey: false,
- *         KmsARN: "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36",
- *     }),
- * });
- * ```
- *
- * ### Network Security Policy
- *
- * ### Allow public access to the collection endpoint and the Dashboards endpoint
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
- *     name: "example",
- *     type: "network",
- *     description: "Public access",
- *     policy: JSON.stringify([{
- *         Description: "Public access to collection and Dashboards endpoint for example collection",
- *         Rules: [
- *             {
- *                 ResourceType: "collection",
- *                 Resource: ["collection/example-collection"],
- *             },
- *             {
- *                 ResourceType: "dashboard",
- *                 Resource: ["collection/example-collection"],
- *             },
- *         ],
- *         AllowFromPublic: true,
- *     }]),
- * });
- * ```
- *
- * ### Allow VPC access to the collection endpoint and the Dashboards endpoint
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
- *     name: "example",
- *     type: "network",
- *     description: "VPC access",
- *     policy: JSON.stringify([{
- *         Description: "VPC access to collection and Dashboards endpoint for example collection",
- *         Rules: [
- *             {
- *                 ResourceType: "collection",
- *                 Resource: ["collection/example-collection"],
- *             },
- *             {
- *                 ResourceType: "dashboard",
- *                 Resource: ["collection/example-collection"],
- *             },
- *         ],
- *         AllowFromPublic: false,
- *         SourceVPCEs: ["vpce-050f79086ee71ac05"],
- *     }]),
- * });
- * ```
- *
- * ### Mixed access for different collections
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
- *     name: "example",
- *     type: "network",
- *     description: "Mixed access for marketing and sales",
- *     policy: JSON.stringify([
- *         {
- *             Description: "Marketing access",
- *             Rules: [
- *                 {
- *                     ResourceType: "collection",
- *                     Resource: ["collection/marketing*"],
- *                 },
- *                 {
- *                     ResourceType: "dashboard",
- *                     Resource: ["collection/marketing*"],
- *                 },
- *             ],
- *             AllowFromPublic: false,
- *             SourceVPCEs: ["vpce-050f79086ee71ac05"],
- *         },
- *         {
- *             Description: "Sales access",
- *             Rules: [{
- *                 ResourceType: "collection",
- *                 Resource: ["collection/finance"],
- *             }],
- *             AllowFromPublic: true,
- *         },
- *     ]),
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import OpenSearchServerless Security Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
- *
- * ```sh
- * $ pulumi import aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy example example/encryption
- * ```
- */
 export class ServerlessSecurityPolicy extends pulumi.CustomResource {
     /**
      * Get an existing ServerlessSecurityPolicy resource's state with the given name, ID, and optional extra
@@ -212,21 +41,16 @@ export class ServerlessSecurityPolicy extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * JSON policy document to use as the content for the new policy
+     * JSON policy document to use as the content for the new policy.
      */
     declare public readonly policy: pulumi.Output<string>;
     /**
      * Version of the policy.
      */
     declare public /*out*/ readonly policyVersion: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     /**
      * Type of security policy. One of `encryption` or `network`.
-     *
-     * The following arguments are optional:
      */
     declare public readonly type: pulumi.Output<string>;
 
@@ -282,21 +106,16 @@ export interface ServerlessSecurityPolicyState {
      */
     name?: pulumi.Input<string>;
     /**
-     * JSON policy document to use as the content for the new policy
+     * JSON policy document to use as the content for the new policy.
      */
     policy?: pulumi.Input<string>;
     /**
      * Version of the policy.
      */
     policyVersion?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     /**
      * Type of security policy. One of `encryption` or `network`.
-     *
-     * The following arguments are optional:
      */
     type?: pulumi.Input<string>;
 }
@@ -314,17 +133,12 @@ export interface ServerlessSecurityPolicyArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * JSON policy document to use as the content for the new policy
+     * JSON policy document to use as the content for the new policy.
      */
     policy: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     /**
      * Type of security policy. One of `encryption` or `network`.
-     *
-     * The following arguments are optional:
      */
     type: pulumi.Input<string>;
 }

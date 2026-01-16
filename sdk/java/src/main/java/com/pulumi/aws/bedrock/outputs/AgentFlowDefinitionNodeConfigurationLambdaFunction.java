@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationLambdaFunction {
-    /**
-     * @return The Amazon Resource Name (ARN) of the Lambda function to invoke.
-     * 
-     */
     private String lambdaArn;
 
     private AgentFlowDefinitionNodeConfigurationLambdaFunction() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the Lambda function to invoke.
-     * 
-     */
     public String lambdaArn() {
         return this.lambdaArn;
     }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     [OutputType]
     public sealed class DataCellsFilterTableDataColumnWildcard
     {
-        /// <summary>
-        /// (Optional) Excludes column names. Any column with this name will be excluded.
-        /// </summary>
         public readonly ImmutableArray<string> ExcludedColumnNames;
 
         [OutputConstructor]

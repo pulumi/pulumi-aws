@@ -11,65 +11,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec {
-    /**
-     * @return The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
-     * 
-     */
     private @Nullable String instanceType;
-    /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-     * 
-     */
     private @Nullable String lifecycleConfigArn;
-    /**
-     * @return The ARN of the SageMaker AI image that the image version belongs to.
-     * 
-     */
     private @Nullable String sagemakerImageArn;
-    /**
-     * @return The SageMaker AI Image Version Alias.
-     * 
-     */
     private @Nullable String sagemakerImageVersionAlias;
-    /**
-     * @return The ARN of the image version created on the instance.
-     * 
-     */
     private @Nullable String sagemakerImageVersionArn;
 
     private UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec() {}
-    /**
-     * @return The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
-     * 
-     */
     public Optional<String> instanceType() {
         return Optional.ofNullable(this.instanceType);
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-     * 
-     */
     public Optional<String> lifecycleConfigArn() {
         return Optional.ofNullable(this.lifecycleConfigArn);
     }
-    /**
-     * @return The ARN of the SageMaker AI image that the image version belongs to.
-     * 
-     */
     public Optional<String> sagemakerImageArn() {
         return Optional.ofNullable(this.sagemakerImageArn);
     }
-    /**
-     * @return The SageMaker AI Image Version Alias.
-     * 
-     */
     public Optional<String> sagemakerImageVersionAlias() {
         return Optional.ofNullable(this.sagemakerImageVersionAlias);
     }
-    /**
-     * @return The ARN of the image version created on the instance.
-     * 
-     */
     public Optional<String> sagemakerImageVersionArn() {
         return Optional.ofNullable(this.sagemakerImageVersionArn);
     }

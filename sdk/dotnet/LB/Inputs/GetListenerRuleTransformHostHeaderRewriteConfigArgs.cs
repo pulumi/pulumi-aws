@@ -14,10 +14,6 @@ namespace Pulumi.Aws.LB.Inputs
     {
         [Input("rewrites")]
         private InputList<Inputs.GetListenerRuleTransformHostHeaderRewriteConfigRewriteInputArgs>? _rewrites;
-
-        /// <summary>
-        /// Block for URL rewrite configuration. Detailed below.
-        /// </summary>
         public InputList<Inputs.GetListenerRuleTransformHostHeaderRewriteConfigRewriteInputArgs> Rewrites
         {
             get => _rewrites ?? (_rewrites = new InputList<Inputs.GetListenerRuleTransformHostHeaderRewriteConfigRewriteInputArgs>());

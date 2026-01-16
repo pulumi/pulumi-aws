@@ -13,42 +13,18 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource {
-    /**
-     * @return The name of the S3 bucket.
-     * 
-     */
     private String bucket;
-    /**
-     * @return List of key prefixes in the S3 bucket.
-     * 
-     */
     private @Nullable List<String> keyPrefixes;
-    /**
-     * @return List of object keys in the S3 bucket.
-     * 
-     */
     private @Nullable List<String> keys;
     private @Nullable List<RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrant> kmsKeysToGrants;
 
     private RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource() {}
-    /**
-     * @return The name of the S3 bucket.
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }
-    /**
-     * @return List of key prefixes in the S3 bucket.
-     * 
-     */
     public List<String> keyPrefixes() {
         return this.keyPrefixes == null ? List.of() : this.keyPrefixes;
     }
-    /**
-     * @return List of object keys in the S3 bucket.
-     * 
-     */
     public List<String> keys() {
         return this.keys == null ? List.of() : this.keys;
     }

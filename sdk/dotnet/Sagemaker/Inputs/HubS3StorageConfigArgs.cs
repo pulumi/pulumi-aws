@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class HubS3StorageConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon S3 bucket prefix for hosting hub content.interface.
-        /// </summary>
         [Input("s3OutputPath")]
         public Input<string>? S3OutputPath { get; set; }
 

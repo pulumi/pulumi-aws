@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfiguration {
-    /**
-     * @return Model Context Protocol (MCP) configuration. See `mcp` below.
-     * 
-     */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcp mcp;
 
     private AgentcoreGatewayTargetTargetConfiguration() {}
-    /**
-     * @return Model Context Protocol (MCP) configuration. See `mcp` below.
-     * 
-     */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcp> mcp() {
         return Optional.ofNullable(this.mcp);
     }

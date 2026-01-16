@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Ebs.Outputs
     [OutputType]
     public sealed class SnapshotImportDiskContainer
     {
-        /// <summary>
-        /// The description of the disk image being imported.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The format of the disk image being imported. One of `VHD` or `VMDK`.
-        /// </summary>
         public readonly string Format;
-        /// <summary>
-        /// The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `Url` or `UserBucket` must be set.
-        /// </summary>
         public readonly string? Url;
-        /// <summary>
-        /// The Amazon S3 bucket for the disk image. One of `Url` or `UserBucket` must be set. Detailed below.
-        /// </summary>
         public readonly Outputs.SnapshotImportDiskContainerUserBucket? UserBucket;
 
         [OutputConstructor]

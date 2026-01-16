@@ -14,32 +14,16 @@ public final class RecommendationPreferencesScopeArgs extends com.pulumi.resourc
 
     public static final RecommendationPreferencesScopeArgs Empty = new RecommendationPreferencesScopeArgs();
 
-    /**
-     * The name of the scope. Valid values: `Organization`, `AccountId`, `ResourceArn`.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the scope. Valid values: `Organization`, `AccountId`, `ResourceArn`.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * The value of the scope. `ALL_ACCOUNTS` for `Organization` scopes, AWS account ID for `AccountId` scopes, ARN of an EC2 instance or an Auto Scaling group for `ResourceArn` scopes.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return The value of the scope. `ALL_ACCOUNTS` for `Organization` scopes, AWS account ID for `AccountId` scopes, ARN of an EC2 instance or an Auto Scaling group for `ResourceArn` scopes.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -69,44 +53,20 @@ public final class RecommendationPreferencesScopeArgs extends com.pulumi.resourc
             $ = new RecommendationPreferencesScopeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the scope. Valid values: `Organization`, `AccountId`, `ResourceArn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the scope. Valid values: `Organization`, `AccountId`, `ResourceArn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param value The value of the scope. `ALL_ACCOUNTS` for `Organization` scopes, AWS account ID for `AccountId` scopes, ARN of an EC2 instance or an Auto Scaling group for `ResourceArn` scopes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The value of the scope. `ALL_ACCOUNTS` for `Organization` scopes, AWS account ID for `AccountId` scopes, ARN of an EC2 instance or an Auto Scaling group for `ResourceArn` scopes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Amazon Managed Prometheus workspace data source.
- *
- * ## Example Usage
- *
- * ### Basic configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.amp.getWorkspace({
- *     workspaceId: "ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7",
- * });
- * ```
- */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:amp/getWorkspace:getWorkspace", {
@@ -33,17 +17,8 @@ export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getWorkspace.
  */
 export interface GetWorkspaceArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Tags assigned to the resource.
-     */
     tags?: {[key: string]: string};
-    /**
-     * Prometheus workspace ID.
-     */
     workspaceId: string;
 }
 
@@ -51,57 +26,20 @@ export interface GetWorkspaceArgs {
  * A collection of values returned by getWorkspace.
  */
 export interface GetWorkspaceResult {
-    /**
-     * Prometheus workspace alias.
-     */
     readonly alias: string;
-    /**
-     * ARN of the Prometheus workspace.
-     */
     readonly arn: string;
-    /**
-     * Creation date of the Prometheus workspace.
-     */
     readonly createdDate: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * ARN of the KMS key used to encrypt data in the Prometheus workspace.
-     */
     readonly kmsKeyArn: string;
-    /**
-     * Endpoint of the Prometheus workspace.
-     */
     readonly prometheusEndpoint: string;
     readonly region: string;
-    /**
-     * Status of the Prometheus workspace.
-     */
     readonly status: string;
-    /**
-     * Tags assigned to the resource.
-     */
     readonly tags: {[key: string]: string};
     readonly workspaceId: string;
 }
-/**
- * Provides an Amazon Managed Prometheus workspace data source.
- *
- * ## Example Usage
- *
- * ### Basic configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.amp.getWorkspace({
- *     workspaceId: "ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7",
- * });
- * ```
- */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:amp/getWorkspace:getWorkspace", {
@@ -115,16 +53,7 @@ export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.I
  * A collection of arguments for invoking getWorkspace.
  */
 export interface GetWorkspaceOutputArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Tags assigned to the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Prometheus workspace ID.
-     */
     workspaceId: pulumi.Input<string>;
 }

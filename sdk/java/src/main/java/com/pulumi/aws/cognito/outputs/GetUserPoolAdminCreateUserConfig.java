@@ -13,35 +13,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserPoolAdminCreateUserConfig {
-    /**
-     * @return - Whether only admins can create users.
-     * 
-     */
     private Boolean allowAdminCreateUserOnly;
     private List<GetUserPoolAdminCreateUserConfigInviteMessageTemplate> inviteMessageTemplates;
-    /**
-     * @return - Number of days an unconfirmed user account remains valid.
-     * * invite_message_template - Templates for invitation messages.
-     * 
-     */
     private Integer unusedAccountValidityDays;
 
     private GetUserPoolAdminCreateUserConfig() {}
-    /**
-     * @return - Whether only admins can create users.
-     * 
-     */
     public Boolean allowAdminCreateUserOnly() {
         return this.allowAdminCreateUserOnly;
     }
     public List<GetUserPoolAdminCreateUserConfigInviteMessageTemplate> inviteMessageTemplates() {
         return this.inviteMessageTemplates;
     }
-    /**
-     * @return - Number of days an unconfirmed user account remains valid.
-     * * invite_message_template - Templates for invitation messages.
-     * 
-     */
     public Integer unusedAccountValidityDays() {
         return this.unusedAccountValidityDays;
     }

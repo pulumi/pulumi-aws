@@ -57,17 +57,11 @@ class GetAppregistryAttributeGroupResult:
     @_builtins.property
     @pulumi.getter
     def attributes(self) -> _builtins.str:
-        """
-        A JSON string of nested key-value pairs that represents the attributes of the group.
-        """
         return pulumi.get(self, "attributes")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the Attribute Group.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -88,9 +82,6 @@ class GetAppregistryAttributeGroupResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        A map of tags assigned to the Attribute Group. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -115,25 +106,7 @@ def get_appregistry_attribute_group(arn: Optional[_builtins.str] = None,
                                     region: Optional[_builtins.str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppregistryAttributeGroupResult:
     """
-    Data source for managing an AWS Service Catalog AppRegistry Attribute Group.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicecatalog.get_appregistry_attribute_group(name="example_attribute_group")
-    ```
-
-
-    :param _builtins.str arn: ARN of the Attribute Group to find.
-    :param _builtins.str id: ID of the Attribute Group to find.
-    :param _builtins.str name: Name of the Attribute Group to find.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-           > Exactly one of `arn`, `id`, or `name` must be set.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -157,25 +130,7 @@ def get_appregistry_attribute_group_output(arn: Optional[pulumi.Input[Optional[_
                                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppregistryAttributeGroupResult]:
     """
-    Data source for managing an AWS Service Catalog AppRegistry Attribute Group.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicecatalog.get_appregistry_attribute_group(name="example_attribute_group")
-    ```
-
-
-    :param _builtins.str arn: ARN of the Attribute Group to find.
-    :param _builtins.str id: ID of the Attribute Group to find.
-    :param _builtins.str name: Name of the Attribute Group to find.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-           > Exactly one of `arn`, `id`, or `name` must be set.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

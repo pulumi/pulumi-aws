@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class FlowDefinitionHumanLoopRequestSource
     {
-        /// <summary>
-        /// Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. Valid values are: `AWS/Rekognition/DetectModerationLabels/Image/V3` and `AWS/Textract/AnalyzeDocument/Forms/V1`.
-        /// </summary>
         public readonly string AwsManagedHumanLoopRequestSource;
 
         [OutputConstructor]

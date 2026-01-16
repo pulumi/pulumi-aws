@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RouteSpecHttpRouteMatchPath {
-    /**
-     * @return The exact path to match on.
-     * 
-     */
     private @Nullable String exact;
-    /**
-     * @return The regex used to match the path.
-     * 
-     */
     private @Nullable String regex;
 
     private RouteSpecHttpRouteMatchPath() {}
-    /**
-     * @return The exact path to match on.
-     * 
-     */
     public Optional<String> exact() {
         return Optional.ofNullable(this.exact);
     }
-    /**
-     * @return The regex used to match the path.
-     * 
-     */
     public Optional<String> regex() {
         return Optional.ofNullable(this.regex);
     }

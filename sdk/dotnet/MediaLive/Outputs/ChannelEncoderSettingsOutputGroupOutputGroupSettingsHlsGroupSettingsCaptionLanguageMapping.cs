@@ -15,9 +15,6 @@ namespace Pulumi.Aws.MediaLive.Outputs
     {
         public readonly int CaptionChannel;
         public readonly string LanguageCode;
-        /// <summary>
-        /// Human readable information to indicate captions available for players (eg. English, or Spanish).
-        /// </summary>
         public readonly string LanguageDescription;
 
         [OutputConstructor]

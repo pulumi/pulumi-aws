@@ -107,10 +107,6 @@ class BotAssociationLexBot(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  lex_region: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: The name of the Amazon Lex (V1) bot.
-        :param _builtins.str lex_region: The Region that the Amazon Lex (V1) bot was created in. Defaults to current region.
-        """
         pulumi.set(__self__, "name", name)
         if lex_region is not None:
             pulumi.set(__self__, "lex_region", lex_region)
@@ -118,17 +114,11 @@ class BotAssociationLexBot(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the Amazon Lex (V1) bot.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="lexRegion")
     def lex_region(self) -> Optional[_builtins.str]:
-        """
-        The Region that the Amazon Lex (V1) bot was created in. Defaults to current region.
-        """
         return pulumi.get(self, "lex_region")
 
 
@@ -157,11 +147,6 @@ class HoursOfOperationConfig(dict):
                  day: _builtins.str,
                  end_time: 'outputs.HoursOfOperationConfigEndTime',
                  start_time: 'outputs.HoursOfOperationConfigStartTime'):
-        """
-        :param _builtins.str day: Specifies the day that the hours of operation applies to.
-        :param 'HoursOfOperationConfigEndTimeArgs' end_time: A end time block specifies the time that your contact center closes. The `end_time` is documented below.
-        :param 'HoursOfOperationConfigStartTimeArgs' start_time: A start time block specifies the time that your contact center opens. The `start_time` is documented below.
-        """
         pulumi.set(__self__, "day", day)
         pulumi.set(__self__, "end_time", end_time)
         pulumi.set(__self__, "start_time", start_time)
@@ -169,25 +154,16 @@ class HoursOfOperationConfig(dict):
     @_builtins.property
     @pulumi.getter
     def day(self) -> _builtins.str:
-        """
-        Specifies the day that the hours of operation applies to.
-        """
         return pulumi.get(self, "day")
 
     @_builtins.property
     @pulumi.getter(name="endTime")
     def end_time(self) -> 'outputs.HoursOfOperationConfigEndTime':
-        """
-        A end time block specifies the time that your contact center closes. The `end_time` is documented below.
-        """
         return pulumi.get(self, "end_time")
 
     @_builtins.property
     @pulumi.getter(name="startTime")
     def start_time(self) -> 'outputs.HoursOfOperationConfigStartTime':
-        """
-        A start time block specifies the time that your contact center opens. The `start_time` is documented below.
-        """
         return pulumi.get(self, "start_time")
 
 
@@ -196,27 +172,17 @@ class HoursOfOperationConfigEndTime(dict):
     def __init__(__self__, *,
                  hours: _builtins.int,
                  minutes: _builtins.int):
-        """
-        :param _builtins.int hours: Specifies the hour of closing.
-        :param _builtins.int minutes: Specifies the minute of closing.
-        """
         pulumi.set(__self__, "hours", hours)
         pulumi.set(__self__, "minutes", minutes)
 
     @_builtins.property
     @pulumi.getter
     def hours(self) -> _builtins.int:
-        """
-        Specifies the hour of closing.
-        """
         return pulumi.get(self, "hours")
 
     @_builtins.property
     @pulumi.getter
     def minutes(self) -> _builtins.int:
-        """
-        Specifies the minute of closing.
-        """
         return pulumi.get(self, "minutes")
 
 
@@ -225,27 +191,17 @@ class HoursOfOperationConfigStartTime(dict):
     def __init__(__self__, *,
                  hours: _builtins.int,
                  minutes: _builtins.int):
-        """
-        :param _builtins.int hours: Specifies the hour of opening.
-        :param _builtins.int minutes: Specifies the minute of opening.
-        """
         pulumi.set(__self__, "hours", hours)
         pulumi.set(__self__, "minutes", minutes)
 
     @_builtins.property
     @pulumi.getter
     def hours(self) -> _builtins.int:
-        """
-        Specifies the hour of opening.
-        """
         return pulumi.get(self, "hours")
 
     @_builtins.property
     @pulumi.getter
     def minutes(self) -> _builtins.int:
-        """
-        Specifies the minute of opening.
-        """
         return pulumi.get(self, "minutes")
 
 
@@ -282,13 +238,6 @@ class InstanceStorageConfigStorageConfig(dict):
                  kinesis_stream_config: Optional['outputs.InstanceStorageConfigStorageConfigKinesisStreamConfig'] = None,
                  kinesis_video_stream_config: Optional['outputs.InstanceStorageConfigStorageConfigKinesisVideoStreamConfig'] = None,
                  s3_config: Optional['outputs.InstanceStorageConfigStorageConfigS3Config'] = None):
-        """
-        :param _builtins.str storage_type: A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
-        :param 'InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs' kinesis_firehose_config: A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
-        :param 'InstanceStorageConfigStorageConfigKinesisStreamConfigArgs' kinesis_stream_config: A block that specifies the configuration of the Kinesis data stream. Documented below.
-        :param 'InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs' kinesis_video_stream_config: A block that specifies the configuration of the Kinesis video stream. Documented below.
-        :param 'InstanceStorageConfigStorageConfigS3ConfigArgs' s3_config: A block that specifies the configuration of S3 Bucket. Documented below.
-        """
         pulumi.set(__self__, "storage_type", storage_type)
         if kinesis_firehose_config is not None:
             pulumi.set(__self__, "kinesis_firehose_config", kinesis_firehose_config)
@@ -302,41 +251,26 @@ class InstanceStorageConfigStorageConfig(dict):
     @_builtins.property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> _builtins.str:
-        """
-        A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
-        """
         return pulumi.get(self, "storage_type")
 
     @_builtins.property
     @pulumi.getter(name="kinesisFirehoseConfig")
     def kinesis_firehose_config(self) -> Optional['outputs.InstanceStorageConfigStorageConfigKinesisFirehoseConfig']:
-        """
-        A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
-        """
         return pulumi.get(self, "kinesis_firehose_config")
 
     @_builtins.property
     @pulumi.getter(name="kinesisStreamConfig")
     def kinesis_stream_config(self) -> Optional['outputs.InstanceStorageConfigStorageConfigKinesisStreamConfig']:
-        """
-        A block that specifies the configuration of the Kinesis data stream. Documented below.
-        """
         return pulumi.get(self, "kinesis_stream_config")
 
     @_builtins.property
     @pulumi.getter(name="kinesisVideoStreamConfig")
     def kinesis_video_stream_config(self) -> Optional['outputs.InstanceStorageConfigStorageConfigKinesisVideoStreamConfig']:
-        """
-        A block that specifies the configuration of the Kinesis video stream. Documented below.
-        """
         return pulumi.get(self, "kinesis_video_stream_config")
 
     @_builtins.property
     @pulumi.getter(name="s3Config")
     def s3_config(self) -> Optional['outputs.InstanceStorageConfigStorageConfigS3Config']:
-        """
-        A block that specifies the configuration of S3 Bucket. Documented below.
-        """
         return pulumi.get(self, "s3_config")
 
 
@@ -361,17 +295,11 @@ class InstanceStorageConfigStorageConfigKinesisFirehoseConfig(dict):
 
     def __init__(__self__, *,
                  firehose_arn: _builtins.str):
-        """
-        :param _builtins.str firehose_arn: The Amazon Resource Name (ARN) of the delivery stream.
-        """
         pulumi.set(__self__, "firehose_arn", firehose_arn)
 
     @_builtins.property
     @pulumi.getter(name="firehoseArn")
     def firehose_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the delivery stream.
-        """
         return pulumi.get(self, "firehose_arn")
 
 
@@ -396,17 +324,11 @@ class InstanceStorageConfigStorageConfigKinesisStreamConfig(dict):
 
     def __init__(__self__, *,
                  stream_arn: _builtins.str):
-        """
-        :param _builtins.str stream_arn: The Amazon Resource Name (ARN) of the data stream.
-        """
         pulumi.set(__self__, "stream_arn", stream_arn)
 
     @_builtins.property
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the data stream.
-        """
         return pulumi.get(self, "stream_arn")
 
 
@@ -435,11 +357,6 @@ class InstanceStorageConfigStorageConfigKinesisVideoStreamConfig(dict):
                  encryption_config: 'outputs.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig',
                  prefix: _builtins.str,
                  retention_period_hours: _builtins.int):
-        """
-        :param 'InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs' encryption_config: The encryption configuration. Documented below.
-        :param _builtins.str prefix: The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `<prefix>-connect-<connect_instance_alias>-contact-` since the API appends additional details to the `prefix`.
-        :param _builtins.int retention_period_hours: The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0`, indicates that the stream does not persist data.
-        """
         pulumi.set(__self__, "encryption_config", encryption_config)
         pulumi.set(__self__, "prefix", prefix)
         pulumi.set(__self__, "retention_period_hours", retention_period_hours)
@@ -447,25 +364,16 @@ class InstanceStorageConfigStorageConfigKinesisVideoStreamConfig(dict):
     @_builtins.property
     @pulumi.getter(name="encryptionConfig")
     def encryption_config(self) -> 'outputs.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig':
-        """
-        The encryption configuration. Documented below.
-        """
         return pulumi.get(self, "encryption_config")
 
     @_builtins.property
     @pulumi.getter
     def prefix(self) -> _builtins.str:
-        """
-        The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `<prefix>-connect-<connect_instance_alias>-contact-` since the API appends additional details to the `prefix`.
-        """
         return pulumi.get(self, "prefix")
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriodHours")
     def retention_period_hours(self) -> _builtins.int:
-        """
-        The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0`, indicates that the stream does not persist data.
-        """
         return pulumi.get(self, "retention_period_hours")
 
 
@@ -493,27 +401,17 @@ class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig
     def __init__(__self__, *,
                  encryption_type: _builtins.str,
                  key_id: _builtins.str):
-        """
-        :param _builtins.str encryption_type: The type of encryption. Valid Values: `KMS`.
-        :param _builtins.str key_id: The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
-        """
         pulumi.set(__self__, "encryption_type", encryption_type)
         pulumi.set(__self__, "key_id", key_id)
 
     @_builtins.property
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> _builtins.str:
-        """
-        The type of encryption. Valid Values: `KMS`.
-        """
         return pulumi.get(self, "encryption_type")
 
     @_builtins.property
     @pulumi.getter(name="keyId")
     def key_id(self) -> _builtins.str:
-        """
-        The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
-        """
         return pulumi.get(self, "key_id")
 
 
@@ -544,11 +442,6 @@ class InstanceStorageConfigStorageConfigS3Config(dict):
                  bucket_name: _builtins.str,
                  bucket_prefix: _builtins.str,
                  encryption_config: Optional['outputs.InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig'] = None):
-        """
-        :param _builtins.str bucket_name: The S3 bucket name.
-        :param _builtins.str bucket_prefix: The S3 bucket prefix.
-        :param 'InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs' encryption_config: The encryption configuration. Documented below.
-        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "bucket_prefix", bucket_prefix)
         if encryption_config is not None:
@@ -557,25 +450,16 @@ class InstanceStorageConfigStorageConfigS3Config(dict):
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> _builtins.str:
-        """
-        The S3 bucket name.
-        """
         return pulumi.get(self, "bucket_name")
 
     @_builtins.property
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> _builtins.str:
-        """
-        The S3 bucket prefix.
-        """
         return pulumi.get(self, "bucket_prefix")
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfig")
     def encryption_config(self) -> Optional['outputs.InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig']:
-        """
-        The encryption configuration. Documented below.
-        """
         return pulumi.get(self, "encryption_config")
 
 
@@ -603,27 +487,17 @@ class InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig(dict):
     def __init__(__self__, *,
                  encryption_type: _builtins.str,
                  key_id: _builtins.str):
-        """
-        :param _builtins.str encryption_type: The type of encryption. Valid Values: `KMS`.
-        :param _builtins.str key_id: The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
-        """
         pulumi.set(__self__, "encryption_type", encryption_type)
         pulumi.set(__self__, "key_id", key_id)
 
     @_builtins.property
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> _builtins.str:
-        """
-        The type of encryption. Valid Values: `KMS`.
-        """
         return pulumi.get(self, "encryption_type")
 
     @_builtins.property
     @pulumi.getter(name="keyId")
     def key_id(self) -> _builtins.str:
-        """
-        The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
-        """
         return pulumi.get(self, "key_id")
 
 
@@ -632,10 +506,6 @@ class PhoneNumberStatus(dict):
     def __init__(__self__, *,
                  message: Optional[_builtins.str] = None,
                  status: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str message: The status message.
-        :param _builtins.str status: The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
-        """
         if message is not None:
             pulumi.set(__self__, "message", message)
         if status is not None:
@@ -644,17 +514,11 @@ class PhoneNumberStatus(dict):
     @_builtins.property
     @pulumi.getter
     def message(self) -> Optional[_builtins.str]:
-        """
-        The status message.
-        """
         return pulumi.get(self, "message")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[_builtins.str]:
-        """
-        The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
-        """
         return pulumi.get(self, "status")
 
 
@@ -685,11 +549,6 @@ class QueueOutboundCallerConfig(dict):
                  outbound_caller_id_name: Optional[_builtins.str] = None,
                  outbound_caller_id_number_id: Optional[_builtins.str] = None,
                  outbound_flow_id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str outbound_caller_id_name: Specifies the caller ID name.
-        :param _builtins.str outbound_caller_id_number_id: Specifies the caller ID number.
-        :param _builtins.str outbound_flow_id: Specifies outbound whisper flow to be used during an outbound call.
-        """
         if outbound_caller_id_name is not None:
             pulumi.set(__self__, "outbound_caller_id_name", outbound_caller_id_name)
         if outbound_caller_id_number_id is not None:
@@ -700,25 +559,16 @@ class QueueOutboundCallerConfig(dict):
     @_builtins.property
     @pulumi.getter(name="outboundCallerIdName")
     def outbound_caller_id_name(self) -> Optional[_builtins.str]:
-        """
-        Specifies the caller ID name.
-        """
         return pulumi.get(self, "outbound_caller_id_name")
 
     @_builtins.property
     @pulumi.getter(name="outboundCallerIdNumberId")
     def outbound_caller_id_number_id(self) -> Optional[_builtins.str]:
-        """
-        Specifies the caller ID number.
-        """
         return pulumi.get(self, "outbound_caller_id_number_id")
 
     @_builtins.property
     @pulumi.getter(name="outboundFlowId")
     def outbound_flow_id(self) -> Optional[_builtins.str]:
-        """
-        Specifies outbound whisper flow to be used during an outbound call.
-        """
         return pulumi.get(self, "outbound_flow_id")
 
 
@@ -752,12 +602,6 @@ class QuickConnectQuickConnectConfig(dict):
                  phone_configs: Optional[Sequence['outputs.QuickConnectQuickConnectConfigPhoneConfig']] = None,
                  queue_configs: Optional[Sequence['outputs.QuickConnectQuickConnectConfigQueueConfig']] = None,
                  user_configs: Optional[Sequence['outputs.QuickConnectQuickConnectConfigUserConfig']] = None):
-        """
-        :param _builtins.str quick_connect_type: Specifies the configuration type of the quick connect. valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
-        :param Sequence['QuickConnectQuickConnectConfigPhoneConfigArgs'] phone_configs: Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
-        :param Sequence['QuickConnectQuickConnectConfigQueueConfigArgs'] queue_configs: Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
-        :param Sequence['QuickConnectQuickConnectConfigUserConfigArgs'] user_configs: Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
-        """
         pulumi.set(__self__, "quick_connect_type", quick_connect_type)
         if phone_configs is not None:
             pulumi.set(__self__, "phone_configs", phone_configs)
@@ -769,33 +613,21 @@ class QuickConnectQuickConnectConfig(dict):
     @_builtins.property
     @pulumi.getter(name="quickConnectType")
     def quick_connect_type(self) -> _builtins.str:
-        """
-        Specifies the configuration type of the quick connect. valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
-        """
         return pulumi.get(self, "quick_connect_type")
 
     @_builtins.property
     @pulumi.getter(name="phoneConfigs")
     def phone_configs(self) -> Optional[Sequence['outputs.QuickConnectQuickConnectConfigPhoneConfig']]:
-        """
-        Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
-        """
         return pulumi.get(self, "phone_configs")
 
     @_builtins.property
     @pulumi.getter(name="queueConfigs")
     def queue_configs(self) -> Optional[Sequence['outputs.QuickConnectQuickConnectConfigQueueConfig']]:
-        """
-        Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
-        """
         return pulumi.get(self, "queue_configs")
 
     @_builtins.property
     @pulumi.getter(name="userConfigs")
     def user_configs(self) -> Optional[Sequence['outputs.QuickConnectQuickConnectConfigUserConfig']]:
-        """
-        Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
-        """
         return pulumi.get(self, "user_configs")
 
 
@@ -820,17 +652,11 @@ class QuickConnectQuickConnectConfigPhoneConfig(dict):
 
     def __init__(__self__, *,
                  phone_number: _builtins.str):
-        """
-        :param _builtins.str phone_number: Specifies the phone number in in E.164 format.
-        """
         pulumi.set(__self__, "phone_number", phone_number)
 
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> _builtins.str:
-        """
-        Specifies the phone number in in E.164 format.
-        """
         return pulumi.get(self, "phone_number")
 
 
@@ -858,27 +684,17 @@ class QuickConnectQuickConnectConfigQueueConfig(dict):
     def __init__(__self__, *,
                  contact_flow_id: _builtins.str,
                  queue_id: _builtins.str):
-        """
-        :param _builtins.str contact_flow_id: Specifies the identifier of the contact flow.
-        :param _builtins.str queue_id: Specifies the identifier for the queue.
-        """
         pulumi.set(__self__, "contact_flow_id", contact_flow_id)
         pulumi.set(__self__, "queue_id", queue_id)
 
     @_builtins.property
     @pulumi.getter(name="contactFlowId")
     def contact_flow_id(self) -> _builtins.str:
-        """
-        Specifies the identifier of the contact flow.
-        """
         return pulumi.get(self, "contact_flow_id")
 
     @_builtins.property
     @pulumi.getter(name="queueId")
     def queue_id(self) -> _builtins.str:
-        """
-        Specifies the identifier for the queue.
-        """
         return pulumi.get(self, "queue_id")
 
 
@@ -906,27 +722,17 @@ class QuickConnectQuickConnectConfigUserConfig(dict):
     def __init__(__self__, *,
                  contact_flow_id: _builtins.str,
                  user_id: _builtins.str):
-        """
-        :param _builtins.str contact_flow_id: Specifies the identifier of the contact flow.
-        :param _builtins.str user_id: Specifies the identifier for the user.
-        """
         pulumi.set(__self__, "contact_flow_id", contact_flow_id)
         pulumi.set(__self__, "user_id", user_id)
 
     @_builtins.property
     @pulumi.getter(name="contactFlowId")
     def contact_flow_id(self) -> _builtins.str:
-        """
-        Specifies the identifier of the contact flow.
-        """
         return pulumi.get(self, "contact_flow_id")
 
     @_builtins.property
     @pulumi.getter(name="userId")
     def user_id(self) -> _builtins.str:
-        """
-        Specifies the identifier for the user.
-        """
         return pulumi.get(self, "user_id")
 
 
@@ -953,10 +759,6 @@ class RoutingProfileMediaConcurrency(dict):
                  channel: _builtins.str,
                  concurrency: _builtins.int,
                  cross_channel_behavior: Optional['outputs.RoutingProfileMediaConcurrencyCrossChannelBehavior'] = None):
-        """
-        :param _builtins.str channel: Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
-        :param _builtins.int concurrency: Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
-        """
         pulumi.set(__self__, "channel", channel)
         pulumi.set(__self__, "concurrency", concurrency)
         if cross_channel_behavior is not None:
@@ -965,17 +767,11 @@ class RoutingProfileMediaConcurrency(dict):
     @_builtins.property
     @pulumi.getter
     def channel(self) -> _builtins.str:
-        """
-        Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
-        """
         return pulumi.get(self, "channel")
 
     @_builtins.property
     @pulumi.getter
     def concurrency(self) -> _builtins.int:
-        """
-        Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
-        """
         return pulumi.get(self, "concurrency")
 
     @_builtins.property
@@ -1005,17 +801,11 @@ class RoutingProfileMediaConcurrencyCrossChannelBehavior(dict):
 
     def __init__(__self__, *,
                  behavior_type: _builtins.str):
-        """
-        :param _builtins.str behavior_type: Specifies the cross-channel behavior for routing contacts across multiple channels. Valid values are `ROUTE_CURRENT_CHANNEL_ONLY` and `ROUTE_ANY_CHANNEL`. `ROUTE_CURRENT_CHANNEL_ONLY` restricts agents to receive contacts only from the channel they are currently handling. `ROUTE_ANY_CHANNEL` allows agents to receive contacts from any channel regardless of what they are currently handling.
-        """
         pulumi.set(__self__, "behavior_type", behavior_type)
 
     @_builtins.property
     @pulumi.getter(name="behaviorType")
     def behavior_type(self) -> _builtins.str:
-        """
-        Specifies the cross-channel behavior for routing contacts across multiple channels. Valid values are `ROUTE_CURRENT_CHANNEL_ONLY` and `ROUTE_ANY_CHANNEL`. `ROUTE_CURRENT_CHANNEL_ONLY` restricts agents to receive contacts only from the channel they are currently handling. `ROUTE_ANY_CHANNEL` allows agents to receive contacts from any channel regardless of what they are currently handling.
-        """
         return pulumi.get(self, "behavior_type")
 
 
@@ -1049,14 +839,6 @@ class RoutingProfileQueueConfig(dict):
                  queue_id: _builtins.str,
                  queue_arn: Optional[_builtins.str] = None,
                  queue_name: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str channel: Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
-        :param _builtins.int delay: Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
-        :param _builtins.int priority: Specifies the order in which contacts are to be handled for the queue.
-        :param _builtins.str queue_id: Specifies the identifier for the queue.
-        :param _builtins.str queue_arn: ARN for the queue.
-        :param _builtins.str queue_name: Name for the queue.
-        """
         pulumi.set(__self__, "channel", channel)
         pulumi.set(__self__, "delay", delay)
         pulumi.set(__self__, "priority", priority)
@@ -1069,49 +851,31 @@ class RoutingProfileQueueConfig(dict):
     @_builtins.property
     @pulumi.getter
     def channel(self) -> _builtins.str:
-        """
-        Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
-        """
         return pulumi.get(self, "channel")
 
     @_builtins.property
     @pulumi.getter
     def delay(self) -> _builtins.int:
-        """
-        Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
-        """
         return pulumi.get(self, "delay")
 
     @_builtins.property
     @pulumi.getter
     def priority(self) -> _builtins.int:
-        """
-        Specifies the order in which contacts are to be handled for the queue.
-        """
         return pulumi.get(self, "priority")
 
     @_builtins.property
     @pulumi.getter(name="queueId")
     def queue_id(self) -> _builtins.str:
-        """
-        Specifies the identifier for the queue.
-        """
         return pulumi.get(self, "queue_id")
 
     @_builtins.property
     @pulumi.getter(name="queueArn")
     def queue_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN for the queue.
-        """
         return pulumi.get(self, "queue_arn")
 
     @_builtins.property
     @pulumi.getter(name="queueName")
     def queue_name(self) -> Optional[_builtins.str]:
-        """
-        Name for the queue.
-        """
         return pulumi.get(self, "queue_name")
 
 
@@ -1148,13 +912,6 @@ class UserHierarchyGroupHierarchyPath(dict):
                  level_ones: Optional[Sequence['outputs.UserHierarchyGroupHierarchyPathLevelOne']] = None,
                  level_threes: Optional[Sequence['outputs.UserHierarchyGroupHierarchyPathLevelThree']] = None,
                  level_twos: Optional[Sequence['outputs.UserHierarchyGroupHierarchyPathLevelTwo']] = None):
-        """
-        :param Sequence['UserHierarchyGroupHierarchyPathLevelFifeArgs'] level_fives: A block that defines the details of level five. The level block is documented below.
-        :param Sequence['UserHierarchyGroupHierarchyPathLevelFourArgs'] level_fours: A block that defines the details of level four. The level block is documented below.
-        :param Sequence['UserHierarchyGroupHierarchyPathLevelOneArgs'] level_ones: A block that defines the details of level one. The level block is documented below.
-        :param Sequence['UserHierarchyGroupHierarchyPathLevelThreeArgs'] level_threes: A block that defines the details of level three. The level block is documented below.
-        :param Sequence['UserHierarchyGroupHierarchyPathLevelTwoArgs'] level_twos: A block that defines the details of level two. The level block is documented below.
-        """
         if level_fives is not None:
             pulumi.set(__self__, "level_fives", level_fives)
         if level_fours is not None:
@@ -1169,41 +926,26 @@ class UserHierarchyGroupHierarchyPath(dict):
     @_builtins.property
     @pulumi.getter(name="levelFives")
     def level_fives(self) -> Optional[Sequence['outputs.UserHierarchyGroupHierarchyPathLevelFife']]:
-        """
-        A block that defines the details of level five. The level block is documented below.
-        """
         return pulumi.get(self, "level_fives")
 
     @_builtins.property
     @pulumi.getter(name="levelFours")
     def level_fours(self) -> Optional[Sequence['outputs.UserHierarchyGroupHierarchyPathLevelFour']]:
-        """
-        A block that defines the details of level four. The level block is documented below.
-        """
         return pulumi.get(self, "level_fours")
 
     @_builtins.property
     @pulumi.getter(name="levelOnes")
     def level_ones(self) -> Optional[Sequence['outputs.UserHierarchyGroupHierarchyPathLevelOne']]:
-        """
-        A block that defines the details of level one. The level block is documented below.
-        """
         return pulumi.get(self, "level_ones")
 
     @_builtins.property
     @pulumi.getter(name="levelThrees")
     def level_threes(self) -> Optional[Sequence['outputs.UserHierarchyGroupHierarchyPathLevelThree']]:
-        """
-        A block that defines the details of level three. The level block is documented below.
-        """
         return pulumi.get(self, "level_threes")
 
     @_builtins.property
     @pulumi.getter(name="levelTwos")
     def level_twos(self) -> Optional[Sequence['outputs.UserHierarchyGroupHierarchyPathLevelTwo']]:
-        """
-        A block that defines the details of level two. The level block is documented below.
-        """
         return pulumi.get(self, "level_twos")
 
 
@@ -1213,11 +955,6 @@ class UserHierarchyGroupHierarchyPathLevelFife(dict):
                  arn: Optional[_builtins.str] = None,
                  id: Optional[_builtins.str] = None,
                  name: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str arn: The Amazon Resource Name (ARN) of the hierarchy group.
-        :param _builtins.str id: The identifier of the hierarchy group.
-        :param _builtins.str name: The name of the user hierarchy group. Must not be more than 100 characters.
-        """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if id is not None:
@@ -1228,25 +965,16 @@ class UserHierarchyGroupHierarchyPathLevelFife(dict):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the hierarchy group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
-        """
-        The identifier of the hierarchy group.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
-        """
-        The name of the user hierarchy group. Must not be more than 100 characters.
-        """
         return pulumi.get(self, "name")
 
 
@@ -1256,11 +984,6 @@ class UserHierarchyGroupHierarchyPathLevelFour(dict):
                  arn: Optional[_builtins.str] = None,
                  id: Optional[_builtins.str] = None,
                  name: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str arn: The Amazon Resource Name (ARN) of the hierarchy group.
-        :param _builtins.str id: The identifier of the hierarchy group.
-        :param _builtins.str name: The name of the user hierarchy group. Must not be more than 100 characters.
-        """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if id is not None:
@@ -1271,25 +994,16 @@ class UserHierarchyGroupHierarchyPathLevelFour(dict):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the hierarchy group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
-        """
-        The identifier of the hierarchy group.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
-        """
-        The name of the user hierarchy group. Must not be more than 100 characters.
-        """
         return pulumi.get(self, "name")
 
 
@@ -1299,11 +1013,6 @@ class UserHierarchyGroupHierarchyPathLevelOne(dict):
                  arn: Optional[_builtins.str] = None,
                  id: Optional[_builtins.str] = None,
                  name: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str arn: The Amazon Resource Name (ARN) of the hierarchy group.
-        :param _builtins.str id: The identifier of the hierarchy group.
-        :param _builtins.str name: The name of the user hierarchy group. Must not be more than 100 characters.
-        """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if id is not None:
@@ -1314,25 +1023,16 @@ class UserHierarchyGroupHierarchyPathLevelOne(dict):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the hierarchy group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
-        """
-        The identifier of the hierarchy group.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
-        """
-        The name of the user hierarchy group. Must not be more than 100 characters.
-        """
         return pulumi.get(self, "name")
 
 
@@ -1342,11 +1042,6 @@ class UserHierarchyGroupHierarchyPathLevelThree(dict):
                  arn: Optional[_builtins.str] = None,
                  id: Optional[_builtins.str] = None,
                  name: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str arn: The Amazon Resource Name (ARN) of the hierarchy group.
-        :param _builtins.str id: The identifier of the hierarchy group.
-        :param _builtins.str name: The name of the user hierarchy group. Must not be more than 100 characters.
-        """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if id is not None:
@@ -1357,25 +1052,16 @@ class UserHierarchyGroupHierarchyPathLevelThree(dict):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the hierarchy group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
-        """
-        The identifier of the hierarchy group.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
-        """
-        The name of the user hierarchy group. Must not be more than 100 characters.
-        """
         return pulumi.get(self, "name")
 
 
@@ -1385,11 +1071,6 @@ class UserHierarchyGroupHierarchyPathLevelTwo(dict):
                  arn: Optional[_builtins.str] = None,
                  id: Optional[_builtins.str] = None,
                  name: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str arn: The Amazon Resource Name (ARN) of the hierarchy group.
-        :param _builtins.str id: The identifier of the hierarchy group.
-        :param _builtins.str name: The name of the user hierarchy group. Must not be more than 100 characters.
-        """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if id is not None:
@@ -1400,25 +1081,16 @@ class UserHierarchyGroupHierarchyPathLevelTwo(dict):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the hierarchy group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
-        """
-        The identifier of the hierarchy group.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
-        """
-        The name of the user hierarchy group. Must not be more than 100 characters.
-        """
         return pulumi.get(self, "name")
 
 
@@ -1455,15 +1127,6 @@ class UserHierarchyStructureHierarchyStructure(dict):
                  level_one: Optional['outputs.UserHierarchyStructureHierarchyStructureLevelOne'] = None,
                  level_three: Optional['outputs.UserHierarchyStructureHierarchyStructureLevelThree'] = None,
                  level_two: Optional['outputs.UserHierarchyStructureHierarchyStructureLevelTwo'] = None):
-        """
-        :param 'UserHierarchyStructureHierarchyStructureLevelFiveArgs' level_five: A block that defines the details of level five. The level block is documented below.
-               
-               Each level block supports the following arguments:
-        :param 'UserHierarchyStructureHierarchyStructureLevelFourArgs' level_four: A block that defines the details of level four. The level block is documented below.
-        :param 'UserHierarchyStructureHierarchyStructureLevelOneArgs' level_one: A block that defines the details of level one. The level block is documented below.
-        :param 'UserHierarchyStructureHierarchyStructureLevelThreeArgs' level_three: A block that defines the details of level three. The level block is documented below.
-        :param 'UserHierarchyStructureHierarchyStructureLevelTwoArgs' level_two: A block that defines the details of level two. The level block is documented below.
-        """
         if level_five is not None:
             pulumi.set(__self__, "level_five", level_five)
         if level_four is not None:
@@ -1478,43 +1141,26 @@ class UserHierarchyStructureHierarchyStructure(dict):
     @_builtins.property
     @pulumi.getter(name="levelFive")
     def level_five(self) -> Optional['outputs.UserHierarchyStructureHierarchyStructureLevelFive']:
-        """
-        A block that defines the details of level five. The level block is documented below.
-
-        Each level block supports the following arguments:
-        """
         return pulumi.get(self, "level_five")
 
     @_builtins.property
     @pulumi.getter(name="levelFour")
     def level_four(self) -> Optional['outputs.UserHierarchyStructureHierarchyStructureLevelFour']:
-        """
-        A block that defines the details of level four. The level block is documented below.
-        """
         return pulumi.get(self, "level_four")
 
     @_builtins.property
     @pulumi.getter(name="levelOne")
     def level_one(self) -> Optional['outputs.UserHierarchyStructureHierarchyStructureLevelOne']:
-        """
-        A block that defines the details of level one. The level block is documented below.
-        """
         return pulumi.get(self, "level_one")
 
     @_builtins.property
     @pulumi.getter(name="levelThree")
     def level_three(self) -> Optional['outputs.UserHierarchyStructureHierarchyStructureLevelThree']:
-        """
-        A block that defines the details of level three. The level block is documented below.
-        """
         return pulumi.get(self, "level_three")
 
     @_builtins.property
     @pulumi.getter(name="levelTwo")
     def level_two(self) -> Optional['outputs.UserHierarchyStructureHierarchyStructureLevelTwo']:
-        """
-        A block that defines the details of level two. The level block is documented below.
-        """
         return pulumi.get(self, "level_two")
 
 
@@ -1524,11 +1170,6 @@ class UserHierarchyStructureHierarchyStructureLevelFive(dict):
                  name: _builtins.str,
                  arn: Optional[_builtins.str] = None,
                  id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: The name of the user hierarchy level. Must not be more than 50 characters.
-        :param _builtins.str arn: The Amazon Resource Name (ARN) of the hierarchy level.
-        :param _builtins.str id: The identifier of the hierarchy level.
-        """
         pulumi.set(__self__, "name", name)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -1538,25 +1179,16 @@ class UserHierarchyStructureHierarchyStructureLevelFive(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the user hierarchy level. Must not be more than 50 characters.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the hierarchy level.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
-        """
-        The identifier of the hierarchy level.
-        """
         return pulumi.get(self, "id")
 
 
@@ -1566,11 +1198,6 @@ class UserHierarchyStructureHierarchyStructureLevelFour(dict):
                  name: _builtins.str,
                  arn: Optional[_builtins.str] = None,
                  id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: The name of the user hierarchy level. Must not be more than 50 characters.
-        :param _builtins.str arn: The Amazon Resource Name (ARN) of the hierarchy level.
-        :param _builtins.str id: The identifier of the hierarchy level.
-        """
         pulumi.set(__self__, "name", name)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -1580,25 +1207,16 @@ class UserHierarchyStructureHierarchyStructureLevelFour(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the user hierarchy level. Must not be more than 50 characters.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the hierarchy level.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
-        """
-        The identifier of the hierarchy level.
-        """
         return pulumi.get(self, "id")
 
 
@@ -1608,11 +1226,6 @@ class UserHierarchyStructureHierarchyStructureLevelOne(dict):
                  name: _builtins.str,
                  arn: Optional[_builtins.str] = None,
                  id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: The name of the user hierarchy level. Must not be more than 50 characters.
-        :param _builtins.str arn: The Amazon Resource Name (ARN) of the hierarchy level.
-        :param _builtins.str id: The identifier of the hierarchy level.
-        """
         pulumi.set(__self__, "name", name)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -1622,25 +1235,16 @@ class UserHierarchyStructureHierarchyStructureLevelOne(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the user hierarchy level. Must not be more than 50 characters.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the hierarchy level.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
-        """
-        The identifier of the hierarchy level.
-        """
         return pulumi.get(self, "id")
 
 
@@ -1650,11 +1254,6 @@ class UserHierarchyStructureHierarchyStructureLevelThree(dict):
                  name: _builtins.str,
                  arn: Optional[_builtins.str] = None,
                  id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: The name of the user hierarchy level. Must not be more than 50 characters.
-        :param _builtins.str arn: The Amazon Resource Name (ARN) of the hierarchy level.
-        :param _builtins.str id: The identifier of the hierarchy level.
-        """
         pulumi.set(__self__, "name", name)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -1664,25 +1263,16 @@ class UserHierarchyStructureHierarchyStructureLevelThree(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the user hierarchy level. Must not be more than 50 characters.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the hierarchy level.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
-        """
-        The identifier of the hierarchy level.
-        """
         return pulumi.get(self, "id")
 
 
@@ -1692,11 +1282,6 @@ class UserHierarchyStructureHierarchyStructureLevelTwo(dict):
                  name: _builtins.str,
                  arn: Optional[_builtins.str] = None,
                  id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: The name of the user hierarchy level. Must not be more than 50 characters.
-        :param _builtins.str arn: The Amazon Resource Name (ARN) of the hierarchy level.
-        :param _builtins.str id: The identifier of the hierarchy level.
-        """
         pulumi.set(__self__, "name", name)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -1706,25 +1291,16 @@ class UserHierarchyStructureHierarchyStructureLevelTwo(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the user hierarchy level. Must not be more than 50 characters.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the hierarchy level.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
-        """
-        The identifier of the hierarchy level.
-        """
         return pulumi.get(self, "id")
 
 
@@ -1756,12 +1332,6 @@ class UserIdentityInfo(dict):
                  first_name: Optional[_builtins.str] = None,
                  last_name: Optional[_builtins.str] = None,
                  secondary_email: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str email: The email address. If you are using SAML for identity management and include this parameter, an error is returned. Note that updates to the `email` is supported. From the [UpdateUserIdentityInfo API documentation](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserIdentityInfo.html) it is strongly recommended to limit who has the ability to invoke `UpdateUserIdentityInfo`. Someone with that ability can change the login credentials of other users by changing their email address. This poses a security risk to your organization. They can change the email address of a user to the attacker's email address, and then reset the password through email. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
-        :param _builtins.str first_name: The first name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
-        :param _builtins.str last_name: The last name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
-        :param _builtins.str secondary_email: The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
-        """
         if email is not None:
             pulumi.set(__self__, "email", email)
         if first_name is not None:
@@ -1774,33 +1344,21 @@ class UserIdentityInfo(dict):
     @_builtins.property
     @pulumi.getter
     def email(self) -> Optional[_builtins.str]:
-        """
-        The email address. If you are using SAML for identity management and include this parameter, an error is returned. Note that updates to the `email` is supported. From the [UpdateUserIdentityInfo API documentation](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserIdentityInfo.html) it is strongly recommended to limit who has the ability to invoke `UpdateUserIdentityInfo`. Someone with that ability can change the login credentials of other users by changing their email address. This poses a security risk to your organization. They can change the email address of a user to the attacker's email address, and then reset the password through email. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
-        """
         return pulumi.get(self, "email")
 
     @_builtins.property
     @pulumi.getter(name="firstName")
     def first_name(self) -> Optional[_builtins.str]:
-        """
-        The first name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
-        """
         return pulumi.get(self, "first_name")
 
     @_builtins.property
     @pulumi.getter(name="lastName")
     def last_name(self) -> Optional[_builtins.str]:
-        """
-        The last name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
-        """
         return pulumi.get(self, "last_name")
 
     @_builtins.property
     @pulumi.getter(name="secondaryEmail")
     def secondary_email(self) -> Optional[_builtins.str]:
-        """
-        The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
-        """
         return pulumi.get(self, "secondary_email")
 
 
@@ -1834,12 +1392,6 @@ class UserPhoneConfig(dict):
                  after_contact_work_time_limit: Optional[_builtins.int] = None,
                  auto_accept: Optional[_builtins.bool] = None,
                  desk_phone_number: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str phone_type: The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
-        :param _builtins.int after_contact_work_time_limit: The After Call Work (ACW) timeout setting, in seconds. Minimum value of 0.
-        :param _builtins.bool auto_accept: When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
-        :param _builtins.str desk_phone_number: The phone number for the user's desk phone. Required if `phone_type` is set as `DESK_PHONE`.
-        """
         pulumi.set(__self__, "phone_type", phone_type)
         if after_contact_work_time_limit is not None:
             pulumi.set(__self__, "after_contact_work_time_limit", after_contact_work_time_limit)
@@ -1851,33 +1403,21 @@ class UserPhoneConfig(dict):
     @_builtins.property
     @pulumi.getter(name="phoneType")
     def phone_type(self) -> _builtins.str:
-        """
-        The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
-        """
         return pulumi.get(self, "phone_type")
 
     @_builtins.property
     @pulumi.getter(name="afterContactWorkTimeLimit")
     def after_contact_work_time_limit(self) -> Optional[_builtins.int]:
-        """
-        The After Call Work (ACW) timeout setting, in seconds. Minimum value of 0.
-        """
         return pulumi.get(self, "after_contact_work_time_limit")
 
     @_builtins.property
     @pulumi.getter(name="autoAccept")
     def auto_accept(self) -> Optional[_builtins.bool]:
-        """
-        When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
-        """
         return pulumi.get(self, "auto_accept")
 
     @_builtins.property
     @pulumi.getter(name="deskPhoneNumber")
     def desk_phone_number(self) -> Optional[_builtins.str]:
-        """
-        The phone number for the user's desk phone. Required if `phone_type` is set as `DESK_PHONE`.
-        """
         return pulumi.get(self, "desk_phone_number")
 
 
@@ -1886,27 +1426,17 @@ class GetBotAssociationLexBotResult(dict):
     def __init__(__self__, *,
                  lex_region: _builtins.str,
                  name: _builtins.str):
-        """
-        :param _builtins.str lex_region: Region that the Amazon Lex (V1) bot was created in.
-        :param _builtins.str name: Name of the Amazon Lex (V1) bot.
-        """
         pulumi.set(__self__, "lex_region", lex_region)
         pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter(name="lexRegion")
     def lex_region(self) -> _builtins.str:
-        """
-        Region that the Amazon Lex (V1) bot was created in.
-        """
         return pulumi.get(self, "lex_region")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the Amazon Lex (V1) bot.
-        """
         return pulumi.get(self, "name")
 
 
@@ -1916,11 +1446,6 @@ class GetHoursOfOperationConfigResult(dict):
                  day: _builtins.str,
                  end_times: Sequence['outputs.GetHoursOfOperationConfigEndTimeResult'],
                  start_times: Sequence['outputs.GetHoursOfOperationConfigStartTimeResult']):
-        """
-        :param _builtins.str day: Day that the hours of operation applies to.
-        :param Sequence['GetHoursOfOperationConfigEndTimeArgs'] end_times: End time block specifies the time that your contact center closes. The `end_time` is documented below.
-        :param Sequence['GetHoursOfOperationConfigStartTimeArgs'] start_times: Start time block specifies the time that your contact center opens. The `start_time` is documented below.
-        """
         pulumi.set(__self__, "day", day)
         pulumi.set(__self__, "end_times", end_times)
         pulumi.set(__self__, "start_times", start_times)
@@ -1928,25 +1453,16 @@ class GetHoursOfOperationConfigResult(dict):
     @_builtins.property
     @pulumi.getter
     def day(self) -> _builtins.str:
-        """
-        Day that the hours of operation applies to.
-        """
         return pulumi.get(self, "day")
 
     @_builtins.property
     @pulumi.getter(name="endTimes")
     def end_times(self) -> Sequence['outputs.GetHoursOfOperationConfigEndTimeResult']:
-        """
-        End time block specifies the time that your contact center closes. The `end_time` is documented below.
-        """
         return pulumi.get(self, "end_times")
 
     @_builtins.property
     @pulumi.getter(name="startTimes")
     def start_times(self) -> Sequence['outputs.GetHoursOfOperationConfigStartTimeResult']:
-        """
-        Start time block specifies the time that your contact center opens. The `start_time` is documented below.
-        """
         return pulumi.get(self, "start_times")
 
 
@@ -1955,27 +1471,17 @@ class GetHoursOfOperationConfigEndTimeResult(dict):
     def __init__(__self__, *,
                  hours: _builtins.int,
                  minutes: _builtins.int):
-        """
-        :param _builtins.int hours: Hour of opening.
-        :param _builtins.int minutes: Minute of opening.
-        """
         pulumi.set(__self__, "hours", hours)
         pulumi.set(__self__, "minutes", minutes)
 
     @_builtins.property
     @pulumi.getter
     def hours(self) -> _builtins.int:
-        """
-        Hour of opening.
-        """
         return pulumi.get(self, "hours")
 
     @_builtins.property
     @pulumi.getter
     def minutes(self) -> _builtins.int:
-        """
-        Minute of opening.
-        """
         return pulumi.get(self, "minutes")
 
 
@@ -1984,27 +1490,17 @@ class GetHoursOfOperationConfigStartTimeResult(dict):
     def __init__(__self__, *,
                  hours: _builtins.int,
                  minutes: _builtins.int):
-        """
-        :param _builtins.int hours: Hour of opening.
-        :param _builtins.int minutes: Minute of opening.
-        """
         pulumi.set(__self__, "hours", hours)
         pulumi.set(__self__, "minutes", minutes)
 
     @_builtins.property
     @pulumi.getter
     def hours(self) -> _builtins.int:
-        """
-        Hour of opening.
-        """
         return pulumi.get(self, "hours")
 
     @_builtins.property
     @pulumi.getter
     def minutes(self) -> _builtins.int:
-        """
-        Minute of opening.
-        """
         return pulumi.get(self, "minutes")
 
 
@@ -2016,13 +1512,6 @@ class GetInstanceStorageConfigStorageConfigResult(dict):
                  kinesis_video_stream_configs: Sequence['outputs.GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigResult'],
                  s3_configs: Sequence['outputs.GetInstanceStorageConfigStorageConfigS3ConfigResult'],
                  storage_type: _builtins.str):
-        """
-        :param Sequence['GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs'] kinesis_firehose_configs: A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
-        :param Sequence['GetInstanceStorageConfigStorageConfigKinesisStreamConfigArgs'] kinesis_stream_configs: A block that specifies the configuration of the Kinesis data stream. Documented below.
-        :param Sequence['GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs'] kinesis_video_stream_configs: A block that specifies the configuration of the Kinesis video stream. Documented below.
-        :param Sequence['GetInstanceStorageConfigStorageConfigS3ConfigArgs'] s3_configs: A block that specifies the configuration of S3 Bucket. Documented below.
-        :param _builtins.str storage_type: A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
-        """
         pulumi.set(__self__, "kinesis_firehose_configs", kinesis_firehose_configs)
         pulumi.set(__self__, "kinesis_stream_configs", kinesis_stream_configs)
         pulumi.set(__self__, "kinesis_video_stream_configs", kinesis_video_stream_configs)
@@ -2032,41 +1521,26 @@ class GetInstanceStorageConfigStorageConfigResult(dict):
     @_builtins.property
     @pulumi.getter(name="kinesisFirehoseConfigs")
     def kinesis_firehose_configs(self) -> Sequence['outputs.GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigResult']:
-        """
-        A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
-        """
         return pulumi.get(self, "kinesis_firehose_configs")
 
     @_builtins.property
     @pulumi.getter(name="kinesisStreamConfigs")
     def kinesis_stream_configs(self) -> Sequence['outputs.GetInstanceStorageConfigStorageConfigKinesisStreamConfigResult']:
-        """
-        A block that specifies the configuration of the Kinesis data stream. Documented below.
-        """
         return pulumi.get(self, "kinesis_stream_configs")
 
     @_builtins.property
     @pulumi.getter(name="kinesisVideoStreamConfigs")
     def kinesis_video_stream_configs(self) -> Sequence['outputs.GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigResult']:
-        """
-        A block that specifies the configuration of the Kinesis video stream. Documented below.
-        """
         return pulumi.get(self, "kinesis_video_stream_configs")
 
     @_builtins.property
     @pulumi.getter(name="s3Configs")
     def s3_configs(self) -> Sequence['outputs.GetInstanceStorageConfigStorageConfigS3ConfigResult']:
-        """
-        A block that specifies the configuration of S3 Bucket. Documented below.
-        """
         return pulumi.get(self, "s3_configs")
 
     @_builtins.property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> _builtins.str:
-        """
-        A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
-        """
         return pulumi.get(self, "storage_type")
 
 
@@ -2074,17 +1548,11 @@ class GetInstanceStorageConfigStorageConfigResult(dict):
 class GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigResult(dict):
     def __init__(__self__, *,
                  firehose_arn: _builtins.str):
-        """
-        :param _builtins.str firehose_arn: The Amazon Resource Name (ARN) of the delivery stream.
-        """
         pulumi.set(__self__, "firehose_arn", firehose_arn)
 
     @_builtins.property
     @pulumi.getter(name="firehoseArn")
     def firehose_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the delivery stream.
-        """
         return pulumi.get(self, "firehose_arn")
 
 
@@ -2092,17 +1560,11 @@ class GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigResult(dict):
 class GetInstanceStorageConfigStorageConfigKinesisStreamConfigResult(dict):
     def __init__(__self__, *,
                  stream_arn: _builtins.str):
-        """
-        :param _builtins.str stream_arn: The Amazon Resource Name (ARN) of the data stream.
-        """
         pulumi.set(__self__, "stream_arn", stream_arn)
 
     @_builtins.property
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the data stream.
-        """
         return pulumi.get(self, "stream_arn")
 
 
@@ -2112,11 +1574,6 @@ class GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigResult(dict):
                  encryption_configs: Sequence['outputs.GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigResult'],
                  prefix: _builtins.str,
                  retention_period_hours: _builtins.int):
-        """
-        :param Sequence['GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs'] encryption_configs: The encryption configuration. Documented below.
-        :param _builtins.str prefix: The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `<prefix>-connect-<connect_instance_alias>-contact-` since the API appends additional details to the `prefix`.
-        :param _builtins.int retention_period_hours: The number of hours to retain the data in a data store associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0` indicates that the stream does not persist data.
-        """
         pulumi.set(__self__, "encryption_configs", encryption_configs)
         pulumi.set(__self__, "prefix", prefix)
         pulumi.set(__self__, "retention_period_hours", retention_period_hours)
@@ -2124,25 +1581,16 @@ class GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigResult(dict):
     @_builtins.property
     @pulumi.getter(name="encryptionConfigs")
     def encryption_configs(self) -> Sequence['outputs.GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigResult']:
-        """
-        The encryption configuration. Documented below.
-        """
         return pulumi.get(self, "encryption_configs")
 
     @_builtins.property
     @pulumi.getter
     def prefix(self) -> _builtins.str:
-        """
-        The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `<prefix>-connect-<connect_instance_alias>-contact-` since the API appends additional details to the `prefix`.
-        """
         return pulumi.get(self, "prefix")
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriodHours")
     def retention_period_hours(self) -> _builtins.int:
-        """
-        The number of hours to retain the data in a data store associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0` indicates that the stream does not persist data.
-        """
         return pulumi.get(self, "retention_period_hours")
 
 
@@ -2151,27 +1599,17 @@ class GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionCon
     def __init__(__self__, *,
                  encryption_type: _builtins.str,
                  key_id: _builtins.str):
-        """
-        :param _builtins.str encryption_type: The type of encryption. Valid Values: `KMS`.
-        :param _builtins.str key_id: The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
-        """
         pulumi.set(__self__, "encryption_type", encryption_type)
         pulumi.set(__self__, "key_id", key_id)
 
     @_builtins.property
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> _builtins.str:
-        """
-        The type of encryption. Valid Values: `KMS`.
-        """
         return pulumi.get(self, "encryption_type")
 
     @_builtins.property
     @pulumi.getter(name="keyId")
     def key_id(self) -> _builtins.str:
-        """
-        The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
-        """
         return pulumi.get(self, "key_id")
 
 
@@ -2181,11 +1619,6 @@ class GetInstanceStorageConfigStorageConfigS3ConfigResult(dict):
                  bucket_name: _builtins.str,
                  bucket_prefix: _builtins.str,
                  encryption_configs: Sequence['outputs.GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigResult']):
-        """
-        :param _builtins.str bucket_name: The S3 bucket name.
-        :param _builtins.str bucket_prefix: The S3 bucket prefix.
-        :param Sequence['GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs'] encryption_configs: The encryption configuration. Documented below.
-        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "bucket_prefix", bucket_prefix)
         pulumi.set(__self__, "encryption_configs", encryption_configs)
@@ -2193,25 +1626,16 @@ class GetInstanceStorageConfigStorageConfigS3ConfigResult(dict):
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> _builtins.str:
-        """
-        The S3 bucket name.
-        """
         return pulumi.get(self, "bucket_name")
 
     @_builtins.property
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> _builtins.str:
-        """
-        The S3 bucket prefix.
-        """
         return pulumi.get(self, "bucket_prefix")
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfigs")
     def encryption_configs(self) -> Sequence['outputs.GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigResult']:
-        """
-        The encryption configuration. Documented below.
-        """
         return pulumi.get(self, "encryption_configs")
 
 
@@ -2220,27 +1644,17 @@ class GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigResult(dict):
     def __init__(__self__, *,
                  encryption_type: _builtins.str,
                  key_id: _builtins.str):
-        """
-        :param _builtins.str encryption_type: The type of encryption. Valid Values: `KMS`.
-        :param _builtins.str key_id: The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
-        """
         pulumi.set(__self__, "encryption_type", encryption_type)
         pulumi.set(__self__, "key_id", key_id)
 
     @_builtins.property
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> _builtins.str:
-        """
-        The type of encryption. Valid Values: `KMS`.
-        """
         return pulumi.get(self, "encryption_type")
 
     @_builtins.property
     @pulumi.getter(name="keyId")
     def key_id(self) -> _builtins.str:
-        """
-        The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
-        """
         return pulumi.get(self, "key_id")
 
 
@@ -2250,11 +1664,6 @@ class GetQueueOutboundCallerConfigResult(dict):
                  outbound_caller_id_name: _builtins.str,
                  outbound_caller_id_number_id: _builtins.str,
                  outbound_flow_id: _builtins.str):
-        """
-        :param _builtins.str outbound_caller_id_name: Specifies the caller ID name.
-        :param _builtins.str outbound_caller_id_number_id: Specifies the caller ID number.
-        :param _builtins.str outbound_flow_id: Outbound whisper flow to be used during an outbound call.
-        """
         pulumi.set(__self__, "outbound_caller_id_name", outbound_caller_id_name)
         pulumi.set(__self__, "outbound_caller_id_number_id", outbound_caller_id_number_id)
         pulumi.set(__self__, "outbound_flow_id", outbound_flow_id)
@@ -2262,25 +1671,16 @@ class GetQueueOutboundCallerConfigResult(dict):
     @_builtins.property
     @pulumi.getter(name="outboundCallerIdName")
     def outbound_caller_id_name(self) -> _builtins.str:
-        """
-        Specifies the caller ID name.
-        """
         return pulumi.get(self, "outbound_caller_id_name")
 
     @_builtins.property
     @pulumi.getter(name="outboundCallerIdNumberId")
     def outbound_caller_id_number_id(self) -> _builtins.str:
-        """
-        Specifies the caller ID number.
-        """
         return pulumi.get(self, "outbound_caller_id_number_id")
 
     @_builtins.property
     @pulumi.getter(name="outboundFlowId")
     def outbound_flow_id(self) -> _builtins.str:
-        """
-        Outbound whisper flow to be used during an outbound call.
-        """
         return pulumi.get(self, "outbound_flow_id")
 
 
@@ -2291,12 +1691,6 @@ class GetQuickConnectQuickConnectConfigResult(dict):
                  queue_configs: Sequence['outputs.GetQuickConnectQuickConnectConfigQueueConfigResult'],
                  quick_connect_type: _builtins.str,
                  user_configs: Sequence['outputs.GetQuickConnectQuickConnectConfigUserConfigResult']):
-        """
-        :param Sequence['GetQuickConnectQuickConnectConfigPhoneConfigArgs'] phone_configs: Phone configuration of the Quick Connect. This is returned only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
-        :param Sequence['GetQuickConnectQuickConnectConfigQueueConfigArgs'] queue_configs: Queue configuration of the Quick Connect. This is returned only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
-        :param _builtins.str quick_connect_type: Configuration type of the Quick Connect. Valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
-        :param Sequence['GetQuickConnectQuickConnectConfigUserConfigArgs'] user_configs: User configuration of the Quick Connect. This is returned only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
-        """
         pulumi.set(__self__, "phone_configs", phone_configs)
         pulumi.set(__self__, "queue_configs", queue_configs)
         pulumi.set(__self__, "quick_connect_type", quick_connect_type)
@@ -2305,33 +1699,21 @@ class GetQuickConnectQuickConnectConfigResult(dict):
     @_builtins.property
     @pulumi.getter(name="phoneConfigs")
     def phone_configs(self) -> Sequence['outputs.GetQuickConnectQuickConnectConfigPhoneConfigResult']:
-        """
-        Phone configuration of the Quick Connect. This is returned only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
-        """
         return pulumi.get(self, "phone_configs")
 
     @_builtins.property
     @pulumi.getter(name="queueConfigs")
     def queue_configs(self) -> Sequence['outputs.GetQuickConnectQuickConnectConfigQueueConfigResult']:
-        """
-        Queue configuration of the Quick Connect. This is returned only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
-        """
         return pulumi.get(self, "queue_configs")
 
     @_builtins.property
     @pulumi.getter(name="quickConnectType")
     def quick_connect_type(self) -> _builtins.str:
-        """
-        Configuration type of the Quick Connect. Valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
-        """
         return pulumi.get(self, "quick_connect_type")
 
     @_builtins.property
     @pulumi.getter(name="userConfigs")
     def user_configs(self) -> Sequence['outputs.GetQuickConnectQuickConnectConfigUserConfigResult']:
-        """
-        User configuration of the Quick Connect. This is returned only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
-        """
         return pulumi.get(self, "user_configs")
 
 
@@ -2339,17 +1721,11 @@ class GetQuickConnectQuickConnectConfigResult(dict):
 class GetQuickConnectQuickConnectConfigPhoneConfigResult(dict):
     def __init__(__self__, *,
                  phone_number: _builtins.str):
-        """
-        :param _builtins.str phone_number: Phone number in in E.164 format.
-        """
         pulumi.set(__self__, "phone_number", phone_number)
 
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> _builtins.str:
-        """
-        Phone number in in E.164 format.
-        """
         return pulumi.get(self, "phone_number")
 
 
@@ -2358,27 +1734,17 @@ class GetQuickConnectQuickConnectConfigQueueConfigResult(dict):
     def __init__(__self__, *,
                  contact_flow_id: _builtins.str,
                  queue_id: _builtins.str):
-        """
-        :param _builtins.str contact_flow_id: Identifier of the contact flow.
-        :param _builtins.str queue_id: Identifier for the queue.
-        """
         pulumi.set(__self__, "contact_flow_id", contact_flow_id)
         pulumi.set(__self__, "queue_id", queue_id)
 
     @_builtins.property
     @pulumi.getter(name="contactFlowId")
     def contact_flow_id(self) -> _builtins.str:
-        """
-        Identifier of the contact flow.
-        """
         return pulumi.get(self, "contact_flow_id")
 
     @_builtins.property
     @pulumi.getter(name="queueId")
     def queue_id(self) -> _builtins.str:
-        """
-        Identifier for the queue.
-        """
         return pulumi.get(self, "queue_id")
 
 
@@ -2387,27 +1753,17 @@ class GetQuickConnectQuickConnectConfigUserConfigResult(dict):
     def __init__(__self__, *,
                  contact_flow_id: _builtins.str,
                  user_id: _builtins.str):
-        """
-        :param _builtins.str contact_flow_id: Identifier of the contact flow.
-        :param _builtins.str user_id: Identifier for the user.
-        """
         pulumi.set(__self__, "contact_flow_id", contact_flow_id)
         pulumi.set(__self__, "user_id", user_id)
 
     @_builtins.property
     @pulumi.getter(name="contactFlowId")
     def contact_flow_id(self) -> _builtins.str:
-        """
-        Identifier of the contact flow.
-        """
         return pulumi.get(self, "contact_flow_id")
 
     @_builtins.property
     @pulumi.getter(name="userId")
     def user_id(self) -> _builtins.str:
-        """
-        Identifier for the user.
-        """
         return pulumi.get(self, "user_id")
 
 
@@ -2417,11 +1773,6 @@ class GetRoutingProfileMediaConcurrencyResult(dict):
                  channel: _builtins.str,
                  concurrency: _builtins.int,
                  cross_channel_behaviors: Sequence['outputs.GetRoutingProfileMediaConcurrencyCrossChannelBehaviorResult']):
-        """
-        :param _builtins.str channel: Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
-        :param _builtins.int concurrency: Number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
-        :param Sequence['GetRoutingProfileMediaConcurrencyCrossChannelBehaviorArgs'] cross_channel_behaviors: Configuration block for cross-channel behavior. Documented below.
-        """
         pulumi.set(__self__, "channel", channel)
         pulumi.set(__self__, "concurrency", concurrency)
         pulumi.set(__self__, "cross_channel_behaviors", cross_channel_behaviors)
@@ -2429,25 +1780,16 @@ class GetRoutingProfileMediaConcurrencyResult(dict):
     @_builtins.property
     @pulumi.getter
     def channel(self) -> _builtins.str:
-        """
-        Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
-        """
         return pulumi.get(self, "channel")
 
     @_builtins.property
     @pulumi.getter
     def concurrency(self) -> _builtins.int:
-        """
-        Number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
-        """
         return pulumi.get(self, "concurrency")
 
     @_builtins.property
     @pulumi.getter(name="crossChannelBehaviors")
     def cross_channel_behaviors(self) -> Sequence['outputs.GetRoutingProfileMediaConcurrencyCrossChannelBehaviorResult']:
-        """
-        Configuration block for cross-channel behavior. Documented below.
-        """
         return pulumi.get(self, "cross_channel_behaviors")
 
 
@@ -2455,17 +1797,11 @@ class GetRoutingProfileMediaConcurrencyResult(dict):
 class GetRoutingProfileMediaConcurrencyCrossChannelBehaviorResult(dict):
     def __init__(__self__, *,
                  behavior_type: _builtins.str):
-        """
-        :param _builtins.str behavior_type: Cross-channel behavior for routing contacts across multiple channels. Valid values are `ROUTE_CURRENT_CHANNEL_ONLY`, `ROUTE_ANY_CHANNEL`.
-        """
         pulumi.set(__self__, "behavior_type", behavior_type)
 
     @_builtins.property
     @pulumi.getter(name="behaviorType")
     def behavior_type(self) -> _builtins.str:
-        """
-        Cross-channel behavior for routing contacts across multiple channels. Valid values are `ROUTE_CURRENT_CHANNEL_ONLY`, `ROUTE_ANY_CHANNEL`.
-        """
         return pulumi.get(self, "behavior_type")
 
 
@@ -2478,14 +1814,6 @@ class GetRoutingProfileQueueConfigResult(dict):
                  queue_arn: _builtins.str,
                  queue_id: _builtins.str,
                  queue_name: _builtins.str):
-        """
-        :param _builtins.str channel: Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
-        :param _builtins.int delay: Delay, in seconds, that a contact should be in the queue before they are routed to an available agent
-        :param _builtins.int priority: Order in which contacts are to be handled for the queue.
-        :param _builtins.str queue_arn: ARN for the queue.
-        :param _builtins.str queue_id: Identifier for the queue.
-        :param _builtins.str queue_name: Name for the queue.
-        """
         pulumi.set(__self__, "channel", channel)
         pulumi.set(__self__, "delay", delay)
         pulumi.set(__self__, "priority", priority)
@@ -2496,49 +1824,31 @@ class GetRoutingProfileQueueConfigResult(dict):
     @_builtins.property
     @pulumi.getter
     def channel(self) -> _builtins.str:
-        """
-        Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
-        """
         return pulumi.get(self, "channel")
 
     @_builtins.property
     @pulumi.getter
     def delay(self) -> _builtins.int:
-        """
-        Delay, in seconds, that a contact should be in the queue before they are routed to an available agent
-        """
         return pulumi.get(self, "delay")
 
     @_builtins.property
     @pulumi.getter
     def priority(self) -> _builtins.int:
-        """
-        Order in which contacts are to be handled for the queue.
-        """
         return pulumi.get(self, "priority")
 
     @_builtins.property
     @pulumi.getter(name="queueArn")
     def queue_arn(self) -> _builtins.str:
-        """
-        ARN for the queue.
-        """
         return pulumi.get(self, "queue_arn")
 
     @_builtins.property
     @pulumi.getter(name="queueId")
     def queue_id(self) -> _builtins.str:
-        """
-        Identifier for the queue.
-        """
         return pulumi.get(self, "queue_id")
 
     @_builtins.property
     @pulumi.getter(name="queueName")
     def queue_name(self) -> _builtins.str:
-        """
-        Name for the queue.
-        """
         return pulumi.get(self, "queue_name")
 
 
@@ -2550,13 +1860,6 @@ class GetUserHierarchyGroupHierarchyPathResult(dict):
                  level_ones: Sequence['outputs.GetUserHierarchyGroupHierarchyPathLevelOneResult'],
                  level_threes: Sequence['outputs.GetUserHierarchyGroupHierarchyPathLevelThreeResult'],
                  level_twos: Sequence['outputs.GetUserHierarchyGroupHierarchyPathLevelTwoResult']):
-        """
-        :param Sequence['GetUserHierarchyGroupHierarchyPathLevelFifeArgs'] level_fives: Details of level five. See below.
-        :param Sequence['GetUserHierarchyGroupHierarchyPathLevelFourArgs'] level_fours: Details of level four. See below.
-        :param Sequence['GetUserHierarchyGroupHierarchyPathLevelOneArgs'] level_ones: Details of level one. See below.
-        :param Sequence['GetUserHierarchyGroupHierarchyPathLevelThreeArgs'] level_threes: Details of level three. See below.
-        :param Sequence['GetUserHierarchyGroupHierarchyPathLevelTwoArgs'] level_twos: Details of level two. See below.
-        """
         pulumi.set(__self__, "level_fives", level_fives)
         pulumi.set(__self__, "level_fours", level_fours)
         pulumi.set(__self__, "level_ones", level_ones)
@@ -2566,41 +1869,26 @@ class GetUserHierarchyGroupHierarchyPathResult(dict):
     @_builtins.property
     @pulumi.getter(name="levelFives")
     def level_fives(self) -> Sequence['outputs.GetUserHierarchyGroupHierarchyPathLevelFifeResult']:
-        """
-        Details of level five. See below.
-        """
         return pulumi.get(self, "level_fives")
 
     @_builtins.property
     @pulumi.getter(name="levelFours")
     def level_fours(self) -> Sequence['outputs.GetUserHierarchyGroupHierarchyPathLevelFourResult']:
-        """
-        Details of level four. See below.
-        """
         return pulumi.get(self, "level_fours")
 
     @_builtins.property
     @pulumi.getter(name="levelOnes")
     def level_ones(self) -> Sequence['outputs.GetUserHierarchyGroupHierarchyPathLevelOneResult']:
-        """
-        Details of level one. See below.
-        """
         return pulumi.get(self, "level_ones")
 
     @_builtins.property
     @pulumi.getter(name="levelThrees")
     def level_threes(self) -> Sequence['outputs.GetUserHierarchyGroupHierarchyPathLevelThreeResult']:
-        """
-        Details of level three. See below.
-        """
         return pulumi.get(self, "level_threes")
 
     @_builtins.property
     @pulumi.getter(name="levelTwos")
     def level_twos(self) -> Sequence['outputs.GetUserHierarchyGroupHierarchyPathLevelTwoResult']:
-        """
-        Details of level two. See below.
-        """
         return pulumi.get(self, "level_twos")
 
 
@@ -2610,13 +1898,6 @@ class GetUserHierarchyGroupHierarchyPathLevelFifeResult(dict):
                  arn: _builtins.str,
                  id: _builtins.str,
                  name: _builtins.str):
-        """
-        :param _builtins.str arn: ARN of the hierarchy group.
-        :param _builtins.str id: The identifier of the hierarchy group.
-        :param _builtins.str name: Returns information on a specific hierarchy group by name
-               
-               > **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
-        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -2624,27 +1905,16 @@ class GetUserHierarchyGroupHierarchyPathLevelFifeResult(dict):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the hierarchy group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        The identifier of the hierarchy group.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Returns information on a specific hierarchy group by name
-
-        > **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
-        """
         return pulumi.get(self, "name")
 
 
@@ -2654,13 +1924,6 @@ class GetUserHierarchyGroupHierarchyPathLevelFourResult(dict):
                  arn: _builtins.str,
                  id: _builtins.str,
                  name: _builtins.str):
-        """
-        :param _builtins.str arn: ARN of the hierarchy group.
-        :param _builtins.str id: The identifier of the hierarchy group.
-        :param _builtins.str name: Returns information on a specific hierarchy group by name
-               
-               > **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
-        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -2668,27 +1931,16 @@ class GetUserHierarchyGroupHierarchyPathLevelFourResult(dict):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the hierarchy group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        The identifier of the hierarchy group.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Returns information on a specific hierarchy group by name
-
-        > **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
-        """
         return pulumi.get(self, "name")
 
 
@@ -2698,13 +1950,6 @@ class GetUserHierarchyGroupHierarchyPathLevelOneResult(dict):
                  arn: _builtins.str,
                  id: _builtins.str,
                  name: _builtins.str):
-        """
-        :param _builtins.str arn: ARN of the hierarchy group.
-        :param _builtins.str id: The identifier of the hierarchy group.
-        :param _builtins.str name: Returns information on a specific hierarchy group by name
-               
-               > **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
-        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -2712,27 +1957,16 @@ class GetUserHierarchyGroupHierarchyPathLevelOneResult(dict):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the hierarchy group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        The identifier of the hierarchy group.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Returns information on a specific hierarchy group by name
-
-        > **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
-        """
         return pulumi.get(self, "name")
 
 
@@ -2742,13 +1976,6 @@ class GetUserHierarchyGroupHierarchyPathLevelThreeResult(dict):
                  arn: _builtins.str,
                  id: _builtins.str,
                  name: _builtins.str):
-        """
-        :param _builtins.str arn: ARN of the hierarchy group.
-        :param _builtins.str id: The identifier of the hierarchy group.
-        :param _builtins.str name: Returns information on a specific hierarchy group by name
-               
-               > **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
-        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -2756,27 +1983,16 @@ class GetUserHierarchyGroupHierarchyPathLevelThreeResult(dict):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the hierarchy group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        The identifier of the hierarchy group.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Returns information on a specific hierarchy group by name
-
-        > **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
-        """
         return pulumi.get(self, "name")
 
 
@@ -2786,13 +2002,6 @@ class GetUserHierarchyGroupHierarchyPathLevelTwoResult(dict):
                  arn: _builtins.str,
                  id: _builtins.str,
                  name: _builtins.str):
-        """
-        :param _builtins.str arn: ARN of the hierarchy group.
-        :param _builtins.str id: The identifier of the hierarchy group.
-        :param _builtins.str name: Returns information on a specific hierarchy group by name
-               
-               > **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
-        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -2800,27 +2009,16 @@ class GetUserHierarchyGroupHierarchyPathLevelTwoResult(dict):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the hierarchy group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        The identifier of the hierarchy group.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Returns information on a specific hierarchy group by name
-
-        > **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
-        """
         return pulumi.get(self, "name")
 
 
@@ -2832,13 +2030,6 @@ class GetUserHierarchyStructureHierarchyStructureResult(dict):
                  level_ones: Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelOneResult'],
                  level_threes: Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelThreeResult'],
                  level_twos: Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelTwoResult']):
-        """
-        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelFifeArgs'] level_fives: Details of level five. See below.
-        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelFourArgs'] level_fours: Details of level four. See below.
-        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelOneArgs'] level_ones: Details of level one. See below.
-        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelThreeArgs'] level_threes: Details of level three. See below.
-        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelTwoArgs'] level_twos: Details of level two. See below.
-        """
         pulumi.set(__self__, "level_fives", level_fives)
         pulumi.set(__self__, "level_fours", level_fours)
         pulumi.set(__self__, "level_ones", level_ones)
@@ -2848,41 +2039,26 @@ class GetUserHierarchyStructureHierarchyStructureResult(dict):
     @_builtins.property
     @pulumi.getter(name="levelFives")
     def level_fives(self) -> Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelFifeResult']:
-        """
-        Details of level five. See below.
-        """
         return pulumi.get(self, "level_fives")
 
     @_builtins.property
     @pulumi.getter(name="levelFours")
     def level_fours(self) -> Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelFourResult']:
-        """
-        Details of level four. See below.
-        """
         return pulumi.get(self, "level_fours")
 
     @_builtins.property
     @pulumi.getter(name="levelOnes")
     def level_ones(self) -> Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelOneResult']:
-        """
-        Details of level one. See below.
-        """
         return pulumi.get(self, "level_ones")
 
     @_builtins.property
     @pulumi.getter(name="levelThrees")
     def level_threes(self) -> Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelThreeResult']:
-        """
-        Details of level three. See below.
-        """
         return pulumi.get(self, "level_threes")
 
     @_builtins.property
     @pulumi.getter(name="levelTwos")
     def level_twos(self) -> Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelTwoResult']:
-        """
-        Details of level two. See below.
-        """
         return pulumi.get(self, "level_twos")
 
 
@@ -2892,11 +2068,6 @@ class GetUserHierarchyStructureHierarchyStructureLevelFifeResult(dict):
                  arn: _builtins.str,
                  id: _builtins.str,
                  name: _builtins.str):
-        """
-        :param _builtins.str arn: ARN of the hierarchy level.
-        :param _builtins.str id: The identifier of the hierarchy level.
-        :param _builtins.str name: Name of the user hierarchy level. Must not be more than 50 characters.
-        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -2904,25 +2075,16 @@ class GetUserHierarchyStructureHierarchyStructureLevelFifeResult(dict):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the hierarchy level.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        The identifier of the hierarchy level.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the user hierarchy level. Must not be more than 50 characters.
-        """
         return pulumi.get(self, "name")
 
 
@@ -2932,11 +2094,6 @@ class GetUserHierarchyStructureHierarchyStructureLevelFourResult(dict):
                  arn: _builtins.str,
                  id: _builtins.str,
                  name: _builtins.str):
-        """
-        :param _builtins.str arn: ARN of the hierarchy level.
-        :param _builtins.str id: The identifier of the hierarchy level.
-        :param _builtins.str name: Name of the user hierarchy level. Must not be more than 50 characters.
-        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -2944,25 +2101,16 @@ class GetUserHierarchyStructureHierarchyStructureLevelFourResult(dict):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the hierarchy level.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        The identifier of the hierarchy level.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the user hierarchy level. Must not be more than 50 characters.
-        """
         return pulumi.get(self, "name")
 
 
@@ -2972,11 +2120,6 @@ class GetUserHierarchyStructureHierarchyStructureLevelOneResult(dict):
                  arn: _builtins.str,
                  id: _builtins.str,
                  name: _builtins.str):
-        """
-        :param _builtins.str arn: ARN of the hierarchy level.
-        :param _builtins.str id: The identifier of the hierarchy level.
-        :param _builtins.str name: Name of the user hierarchy level. Must not be more than 50 characters.
-        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -2984,25 +2127,16 @@ class GetUserHierarchyStructureHierarchyStructureLevelOneResult(dict):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the hierarchy level.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        The identifier of the hierarchy level.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the user hierarchy level. Must not be more than 50 characters.
-        """
         return pulumi.get(self, "name")
 
 
@@ -3012,11 +2146,6 @@ class GetUserHierarchyStructureHierarchyStructureLevelThreeResult(dict):
                  arn: _builtins.str,
                  id: _builtins.str,
                  name: _builtins.str):
-        """
-        :param _builtins.str arn: ARN of the hierarchy level.
-        :param _builtins.str id: The identifier of the hierarchy level.
-        :param _builtins.str name: Name of the user hierarchy level. Must not be more than 50 characters.
-        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -3024,25 +2153,16 @@ class GetUserHierarchyStructureHierarchyStructureLevelThreeResult(dict):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the hierarchy level.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        The identifier of the hierarchy level.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the user hierarchy level. Must not be more than 50 characters.
-        """
         return pulumi.get(self, "name")
 
 
@@ -3052,11 +2172,6 @@ class GetUserHierarchyStructureHierarchyStructureLevelTwoResult(dict):
                  arn: _builtins.str,
                  id: _builtins.str,
                  name: _builtins.str):
-        """
-        :param _builtins.str arn: ARN of the hierarchy level.
-        :param _builtins.str id: The identifier of the hierarchy level.
-        :param _builtins.str name: Name of the user hierarchy level. Must not be more than 50 characters.
-        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -3064,25 +2179,16 @@ class GetUserHierarchyStructureHierarchyStructureLevelTwoResult(dict):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the hierarchy level.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        The identifier of the hierarchy level.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the user hierarchy level. Must not be more than 50 characters.
-        """
         return pulumi.get(self, "name")
 
 
@@ -3093,12 +2199,6 @@ class GetUserIdentityInfoResult(dict):
                  first_name: _builtins.str,
                  last_name: _builtins.str,
                  secondary_email: _builtins.str):
-        """
-        :param _builtins.str email: The email address.
-        :param _builtins.str first_name: The first name.
-        :param _builtins.str last_name: The last name.
-        :param _builtins.str secondary_email: The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
-        """
         pulumi.set(__self__, "email", email)
         pulumi.set(__self__, "first_name", first_name)
         pulumi.set(__self__, "last_name", last_name)
@@ -3107,33 +2207,21 @@ class GetUserIdentityInfoResult(dict):
     @_builtins.property
     @pulumi.getter
     def email(self) -> _builtins.str:
-        """
-        The email address.
-        """
         return pulumi.get(self, "email")
 
     @_builtins.property
     @pulumi.getter(name="firstName")
     def first_name(self) -> _builtins.str:
-        """
-        The first name.
-        """
         return pulumi.get(self, "first_name")
 
     @_builtins.property
     @pulumi.getter(name="lastName")
     def last_name(self) -> _builtins.str:
-        """
-        The last name.
-        """
         return pulumi.get(self, "last_name")
 
     @_builtins.property
     @pulumi.getter(name="secondaryEmail")
     def secondary_email(self) -> _builtins.str:
-        """
-        The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
-        """
         return pulumi.get(self, "secondary_email")
 
 
@@ -3144,12 +2232,6 @@ class GetUserPhoneConfigResult(dict):
                  auto_accept: _builtins.bool,
                  desk_phone_number: _builtins.str,
                  phone_type: _builtins.str):
-        """
-        :param _builtins.int after_contact_work_time_limit: The After Call Work (ACW) timeout setting, in seconds.
-        :param _builtins.bool auto_accept: When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
-        :param _builtins.str desk_phone_number: The phone number for the user's desk phone.
-        :param _builtins.str phone_type: The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
-        """
         pulumi.set(__self__, "after_contact_work_time_limit", after_contact_work_time_limit)
         pulumi.set(__self__, "auto_accept", auto_accept)
         pulumi.set(__self__, "desk_phone_number", desk_phone_number)
@@ -3158,33 +2240,21 @@ class GetUserPhoneConfigResult(dict):
     @_builtins.property
     @pulumi.getter(name="afterContactWorkTimeLimit")
     def after_contact_work_time_limit(self) -> _builtins.int:
-        """
-        The After Call Work (ACW) timeout setting, in seconds.
-        """
         return pulumi.get(self, "after_contact_work_time_limit")
 
     @_builtins.property
     @pulumi.getter(name="autoAccept")
     def auto_accept(self) -> _builtins.bool:
-        """
-        When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
-        """
         return pulumi.get(self, "auto_accept")
 
     @_builtins.property
     @pulumi.getter(name="deskPhoneNumber")
     def desk_phone_number(self) -> _builtins.str:
-        """
-        The phone number for the user's desk phone.
-        """
         return pulumi.get(self, "desk_phone_number")
 
     @_builtins.property
     @pulumi.getter(name="phoneType")
     def phone_type(self) -> _builtins.str:
-        """
-        The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
-        """
         return pulumi.get(self, "phone_type")
 
 

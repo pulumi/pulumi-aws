@@ -16,32 +16,16 @@ public final class CustomRoutingListenerArgs extends com.pulumi.resources.Resour
 
     public static final CustomRoutingListenerArgs Empty = new CustomRoutingListenerArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of a custom routing accelerator.
-     * 
-     */
     @Import(name="acceleratorArn", required=true)
     private Output<String> acceleratorArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of a custom routing accelerator.
-     * 
-     */
     public Output<String> acceleratorArn() {
         return this.acceleratorArn;
     }
 
-    /**
-     * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-     * 
-     */
     @Import(name="portRanges", required=true)
     private Output<List<CustomRoutingListenerPortRangeArgs>> portRanges;
 
-    /**
-     * @return The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-     * 
-     */
     public Output<List<CustomRoutingListenerPortRangeArgs>> portRanges() {
         return this.portRanges;
     }
@@ -71,54 +55,24 @@ public final class CustomRoutingListenerArgs extends com.pulumi.resources.Resour
             $ = new CustomRoutingListenerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param acceleratorArn The Amazon Resource Name (ARN) of a custom routing accelerator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder acceleratorArn(Output<String> acceleratorArn) {
             $.acceleratorArn = acceleratorArn;
             return this;
         }
 
-        /**
-         * @param acceleratorArn The Amazon Resource Name (ARN) of a custom routing accelerator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder acceleratorArn(String acceleratorArn) {
             return acceleratorArn(Output.of(acceleratorArn));
         }
 
-        /**
-         * @param portRanges The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder portRanges(Output<List<CustomRoutingListenerPortRangeArgs>> portRanges) {
             $.portRanges = portRanges;
             return this;
         }
 
-        /**
-         * @param portRanges The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder portRanges(List<CustomRoutingListenerPortRangeArgs> portRanges) {
             return portRanges(Output.of(portRanges));
         }
 
-        /**
-         * @param portRanges The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder portRanges(CustomRoutingListenerPortRangeArgs... portRanges) {
             return portRanges(List.of(portRanges));
         }

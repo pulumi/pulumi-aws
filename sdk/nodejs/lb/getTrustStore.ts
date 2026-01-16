@@ -4,30 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * > **Note:** `awsAlbTrustStore` is known as `aws.lb.TrustStore`. The functionality is identical.
- *
- * Provides information about a Load Balancer Trust Store.
- *
- * This data source can prove useful when a module accepts an LB Trust Store as an
- * input variable and needs to know its attributes. It can also be used to get the ARN of
- * an LB Trust Store for use in other resources, given LB Trust Store name.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const lbTsArn = config.get("lbTsArn") || "";
- * const lbTsName = config.get("lbTsName") || "";
- * const test = aws.lb.getTrustStore({
- *     arn: lbTsArn,
- *     name: lbTsName,
- * });
- * ```
- */
 export function getTrustStore(args?: GetTrustStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetTrustStoreResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,19 +18,8 @@ export function getTrustStore(args?: GetTrustStoreArgs, opts?: pulumi.InvokeOpti
  * A collection of arguments for invoking getTrustStore.
  */
 export interface GetTrustStoreArgs {
-    /**
-     * Full ARN of the trust store.
-     */
     arn?: string;
-    /**
-     * Unique name of the trust store.
-     *
-     * > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
-     */
     name?: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -70,30 +35,6 @@ export interface GetTrustStoreResult {
     readonly name: string;
     readonly region: string;
 }
-/**
- * > **Note:** `awsAlbTrustStore` is known as `aws.lb.TrustStore`. The functionality is identical.
- *
- * Provides information about a Load Balancer Trust Store.
- *
- * This data source can prove useful when a module accepts an LB Trust Store as an
- * input variable and needs to know its attributes. It can also be used to get the ARN of
- * an LB Trust Store for use in other resources, given LB Trust Store name.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const lbTsArn = config.get("lbTsArn") || "";
- * const lbTsName = config.get("lbTsName") || "";
- * const test = aws.lb.getTrustStore({
- *     arn: lbTsArn,
- *     name: lbTsName,
- * });
- * ```
- */
 export function getTrustStoreOutput(args?: GetTrustStoreOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrustStoreResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -108,18 +49,7 @@ export function getTrustStoreOutput(args?: GetTrustStoreOutputArgs, opts?: pulum
  * A collection of arguments for invoking getTrustStore.
  */
 export interface GetTrustStoreOutputArgs {
-    /**
-     * Full ARN of the trust store.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Unique name of the trust store.
-     *
-     * > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

@@ -14,17 +14,9 @@ public final class MediaInsightsPipelineConfigurationElementLambdaFunctionSinkCo
 
     public static final MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgs Empty = new MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgs();
 
-    /**
-     * Lambda Function to deliver results.
-     * 
-     */
     @Import(name="insightsTarget", required=true)
     private Output<String> insightsTarget;
 
-    /**
-     * @return Lambda Function to deliver results.
-     * 
-     */
     public Output<String> insightsTarget() {
         return this.insightsTarget;
     }
@@ -53,23 +45,11 @@ public final class MediaInsightsPipelineConfigurationElementLambdaFunctionSinkCo
             $ = new MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param insightsTarget Lambda Function to deliver results.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insightsTarget(Output<String> insightsTarget) {
             $.insightsTarget = insightsTarget;
             return this;
         }
 
-        /**
-         * @param insightsTarget Lambda Function to deliver results.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insightsTarget(String insightsTarget) {
             return insightsTarget(Output.of(insightsTarget));
         }

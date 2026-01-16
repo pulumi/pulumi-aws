@@ -16,66 +16,30 @@ public final class CustomerGatewayAssociationArgs extends com.pulumi.resources.R
 
     public static final CustomerGatewayAssociationArgs Empty = new CustomerGatewayAssociationArgs();
 
-    /**
-     * ARN of the customer gateway.
-     * 
-     */
     @Import(name="customerGatewayArn", required=true)
     private Output<String> customerGatewayArn;
 
-    /**
-     * @return ARN of the customer gateway.
-     * 
-     */
     public Output<String> customerGatewayArn() {
         return this.customerGatewayArn;
     }
 
-    /**
-     * ID of the device.
-     * 
-     */
     @Import(name="deviceId", required=true)
     private Output<String> deviceId;
 
-    /**
-     * @return ID of the device.
-     * 
-     */
     public Output<String> deviceId() {
         return this.deviceId;
     }
 
-    /**
-     * ID of the global network.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="globalNetworkId", required=true)
     private Output<String> globalNetworkId;
 
-    /**
-     * @return ID of the global network.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> globalNetworkId() {
         return this.globalNetworkId;
     }
 
-    /**
-     * ID of the link.
-     * 
-     */
     @Import(name="linkId")
     private @Nullable Output<String> linkId;
 
-    /**
-     * @return ID of the link.
-     * 
-     */
     public Optional<Output<String>> linkId() {
         return Optional.ofNullable(this.linkId);
     }
@@ -107,90 +71,38 @@ public final class CustomerGatewayAssociationArgs extends com.pulumi.resources.R
             $ = new CustomerGatewayAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customerGatewayArn ARN of the customer gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customerGatewayArn(Output<String> customerGatewayArn) {
             $.customerGatewayArn = customerGatewayArn;
             return this;
         }
 
-        /**
-         * @param customerGatewayArn ARN of the customer gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customerGatewayArn(String customerGatewayArn) {
             return customerGatewayArn(Output.of(customerGatewayArn));
         }
 
-        /**
-         * @param deviceId ID of the device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceId(Output<String> deviceId) {
             $.deviceId = deviceId;
             return this;
         }
 
-        /**
-         * @param deviceId ID of the device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceId(String deviceId) {
             return deviceId(Output.of(deviceId));
         }
 
-        /**
-         * @param globalNetworkId ID of the global network.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(Output<String> globalNetworkId) {
             $.globalNetworkId = globalNetworkId;
             return this;
         }
 
-        /**
-         * @param globalNetworkId ID of the global network.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(String globalNetworkId) {
             return globalNetworkId(Output.of(globalNetworkId));
         }
 
-        /**
-         * @param linkId ID of the link.
-         * 
-         * @return builder
-         * 
-         */
         public Builder linkId(@Nullable Output<String> linkId) {
             $.linkId = linkId;
             return this;
         }
 
-        /**
-         * @param linkId ID of the link.
-         * 
-         * @return builder
-         * 
-         */
         public Builder linkId(String linkId) {
             return linkId(Output.of(linkId));
         }

@@ -15,32 +15,16 @@ public final class ReplicatorKafkaClusterArgs extends com.pulumi.resources.Resou
 
     public static final ReplicatorKafkaClusterArgs Empty = new ReplicatorKafkaClusterArgs();
 
-    /**
-     * Details of an Amazon MSK cluster.
-     * 
-     */
     @Import(name="amazonMskCluster", required=true)
     private Output<ReplicatorKafkaClusterAmazonMskClusterArgs> amazonMskCluster;
 
-    /**
-     * @return Details of an Amazon MSK cluster.
-     * 
-     */
     public Output<ReplicatorKafkaClusterAmazonMskClusterArgs> amazonMskCluster() {
         return this.amazonMskCluster;
     }
 
-    /**
-     * Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
-     * 
-     */
     @Import(name="vpcConfig", required=true)
     private Output<ReplicatorKafkaClusterVpcConfigArgs> vpcConfig;
 
-    /**
-     * @return Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
-     * 
-     */
     public Output<ReplicatorKafkaClusterVpcConfigArgs> vpcConfig() {
         return this.vpcConfig;
     }
@@ -70,44 +54,20 @@ public final class ReplicatorKafkaClusterArgs extends com.pulumi.resources.Resou
             $ = new ReplicatorKafkaClusterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param amazonMskCluster Details of an Amazon MSK cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amazonMskCluster(Output<ReplicatorKafkaClusterAmazonMskClusterArgs> amazonMskCluster) {
             $.amazonMskCluster = amazonMskCluster;
             return this;
         }
 
-        /**
-         * @param amazonMskCluster Details of an Amazon MSK cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amazonMskCluster(ReplicatorKafkaClusterAmazonMskClusterArgs amazonMskCluster) {
             return amazonMskCluster(Output.of(amazonMskCluster));
         }
 
-        /**
-         * @param vpcConfig Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConfig(Output<ReplicatorKafkaClusterVpcConfigArgs> vpcConfig) {
             $.vpcConfig = vpcConfig;
             return this;
         }
 
-        /**
-         * @param vpcConfig Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConfig(ReplicatorKafkaClusterVpcConfigArgs vpcConfig) {
             return vpcConfig(Output.of(vpcConfig));
         }

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.VpcLattice.Inputs
     {
         [Input("targetGroups")]
         private InputList<Inputs.ListenerDefaultActionForwardTargetGroupGetArgs>? _targetGroups;
-
-        /// <summary>
-        /// One or more target group blocks.
-        /// </summary>
         public InputList<Inputs.ListenerDefaultActionForwardTargetGroupGetArgs> TargetGroups
         {
             get => _targetGroups ?? (_targetGroups = new InputList<Inputs.ListenerDefaultActionForwardTargetGroupGetArgs>());

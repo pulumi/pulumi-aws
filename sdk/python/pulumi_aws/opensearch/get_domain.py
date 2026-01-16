@@ -125,105 +125,66 @@ class GetDomainResult:
     @_builtins.property
     @pulumi.getter(name="accessPolicies")
     def access_policies(self) -> _builtins.str:
-        """
-        Policy document attached to the domain.
-        """
         return pulumi.get(self, "access_policies")
 
     @_builtins.property
     @pulumi.getter(name="advancedOptions")
     def advanced_options(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value string pairs to specify advanced configuration options.
-        """
         return pulumi.get(self, "advanced_options")
 
     @_builtins.property
     @pulumi.getter(name="advancedSecurityOptions")
     def advanced_security_options(self) -> Sequence['outputs.GetDomainAdvancedSecurityOptionResult']:
-        """
-        Status of the OpenSearch domain's advanced security options. The block consists of the following attributes:
-        """
         return pulumi.get(self, "advanced_security_options")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the domain.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="autoTuneOptions")
     def auto_tune_options(self) -> Sequence['outputs.GetDomainAutoTuneOptionResult']:
-        """
-        Configuration of the Auto-Tune options of the domain.
-        """
         return pulumi.get(self, "auto_tune_options")
 
     @_builtins.property
     @pulumi.getter(name="clusterConfigs")
     def cluster_configs(self) -> Sequence['outputs.GetDomainClusterConfigResult']:
-        """
-        Cluster configuration of the domain.
-        """
         return pulumi.get(self, "cluster_configs")
 
     @_builtins.property
     @pulumi.getter(name="cognitoOptions")
     def cognito_options(self) -> Sequence['outputs.GetDomainCognitoOptionResult']:
-        """
-        Domain Amazon Cognito Authentication options for Dashboard.
-        """
         return pulumi.get(self, "cognito_options")
 
     @_builtins.property
     @pulumi.getter
     def created(self) -> _builtins.bool:
-        """
-        Status of the creation of the domain.
-        """
         return pulumi.get(self, "created")
 
     @_builtins.property
     @pulumi.getter(name="dashboardEndpoint")
     def dashboard_endpoint(self) -> _builtins.str:
-        """
-        Domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html).
-        """
         return pulumi.get(self, "dashboard_endpoint")
 
     @_builtins.property
     @pulumi.getter(name="dashboardEndpointV2")
     def dashboard_endpoint_v2(self) -> _builtins.str:
-        """
-        V2 domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html)
-        """
         return pulumi.get(self, "dashboard_endpoint_v2")
 
     @_builtins.property
     @pulumi.getter
     def deleted(self) -> _builtins.bool:
-        """
-        Status of the deletion of the domain.
-        """
         return pulumi.get(self, "deleted")
 
     @_builtins.property
     @pulumi.getter(name="domainEndpointV2HostedZoneId")
     def domain_endpoint_v2_hosted_zone_id(self) -> _builtins.str:
-        """
-        Dual stack hosted zone ID for the domain.
-        """
         return pulumi.get(self, "domain_endpoint_v2_hosted_zone_id")
 
     @_builtins.property
     @pulumi.getter(name="domainId")
     def domain_id(self) -> _builtins.str:
-        """
-        Unique identifier for the domain.
-        """
         return pulumi.get(self, "domain_id")
 
     @_builtins.property
@@ -234,41 +195,26 @@ class GetDomainResult:
     @_builtins.property
     @pulumi.getter(name="ebsOptions")
     def ebs_options(self) -> Sequence['outputs.GetDomainEbsOptionResult']:
-        """
-        EBS Options for the instances in the domain.
-        """
         return pulumi.get(self, "ebs_options")
 
     @_builtins.property
     @pulumi.getter(name="encryptionAtRests")
     def encryption_at_rests(self) -> Sequence['outputs.GetDomainEncryptionAtRestResult']:
-        """
-        Domain encryption at rest related options.
-        """
         return pulumi.get(self, "encryption_at_rests")
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> _builtins.str:
-        """
-        Domain-specific endpoint used to submit index, search, and data upload requests.
-        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter(name="endpointV2")
     def endpoint_v2(self) -> _builtins.str:
-        """
-        V2 domain-specific endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
-        """
         return pulumi.get(self, "endpoint_v2")
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> _builtins.str:
-        """
-        OpenSearch version for the domain.
-        """
         return pulumi.get(self, "engine_version")
 
     @_builtins.property
@@ -282,49 +228,31 @@ class GetDomainResult:
     @_builtins.property
     @pulumi.getter(name="identityCenterOptions")
     def identity_center_options(self) -> Sequence['outputs.GetDomainIdentityCenterOptionResult']:
-        """
-        Configuration for enabling and managing IAM Identity Center integration within a domain.
-        """
         return pulumi.get(self, "identity_center_options")
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> _builtins.str:
-        """
-        Type of IP addresses supported by the endpoint for the domain.
-        """
         return pulumi.get(self, "ip_address_type")
 
     @_builtins.property
     @pulumi.getter(name="logPublishingOptions")
     def log_publishing_options(self) -> Sequence['outputs.GetDomainLogPublishingOptionResult']:
-        """
-        Domain log publishing related options.
-        """
         return pulumi.get(self, "log_publishing_options")
 
     @_builtins.property
     @pulumi.getter(name="nodeToNodeEncryptions")
     def node_to_node_encryptions(self) -> Sequence['outputs.GetDomainNodeToNodeEncryptionResult']:
-        """
-        Domain in transit encryption related options.
-        """
         return pulumi.get(self, "node_to_node_encryptions")
 
     @_builtins.property
     @pulumi.getter(name="offPeakWindowOptions")
     def off_peak_window_options(self) -> 'outputs.GetDomainOffPeakWindowOptionsResult':
-        """
-        Off Peak update options
-        """
         return pulumi.get(self, "off_peak_window_options")
 
     @_builtins.property
     @pulumi.getter
     def processing(self) -> _builtins.bool:
-        """
-        Status of a configuration change in the domain.
-        """
         return pulumi.get(self, "processing")
 
     @_builtins.property
@@ -335,33 +263,21 @@ class GetDomainResult:
     @_builtins.property
     @pulumi.getter(name="snapshotOptions")
     def snapshot_options(self) -> Sequence['outputs.GetDomainSnapshotOptionResult']:
-        """
-        Domain snapshot related options.
-        """
         return pulumi.get(self, "snapshot_options")
 
     @_builtins.property
     @pulumi.getter(name="softwareUpdateOptions")
     def software_update_options(self) -> Sequence['outputs.GetDomainSoftwareUpdateOptionResult']:
-        """
-        Software update options for the domain
-        """
         return pulumi.get(self, "software_update_options")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Tags assigned to the domain.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="vpcOptions")
     def vpc_options(self) -> Sequence['outputs.GetDomainVpcOptionResult']:
-        """
-        VPC Options for private OpenSearch domains.
-        """
         return pulumi.get(self, "vpc_options")
 
 
@@ -409,21 +325,7 @@ def get_domain(domain_name: Optional[_builtins.str] = None,
                tags: Optional[Mapping[str, _builtins.str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainResult:
     """
-    Use this data source to get information about an OpenSearch Domain
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_domain = aws.opensearch.get_domain(domain_name="my-domain-name")
-    ```
-
-
-    :param _builtins.str domain_name: Name of the domain.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tags assigned to the domain.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['domainName'] = domain_name
@@ -469,21 +371,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainResult]:
     """
-    Use this data source to get information about an OpenSearch Domain
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_domain = aws.opensearch.get_domain(domain_name="my-domain-name")
-    ```
-
-
-    :param _builtins.str domain_name: Name of the domain.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tags assigned to the domain.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['domainName'] = domain_name

@@ -12,43 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class KxClusterSavedownStorageConfiguration {
-    /**
-     * @return Size of temporary storage in gigabytes. Must be between 10 and 16000.
-     * 
-     */
     private @Nullable Integer size;
-    /**
-     * @return Type of writeable storage space for temporarily storing your savedown data. The valid values are:
-     * * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
-     * 
-     */
     private @Nullable String type;
-    /**
-     * @return The name of the kdb volume that you want to use as writeable save-down storage for clusters.
-     * 
-     */
     private @Nullable String volumeName;
 
     private KxClusterSavedownStorageConfiguration() {}
-    /**
-     * @return Size of temporary storage in gigabytes. Must be between 10 and 16000.
-     * 
-     */
     public Optional<Integer> size() {
         return Optional.ofNullable(this.size);
     }
-    /**
-     * @return Type of writeable storage space for temporarily storing your savedown data. The valid values are:
-     * * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
-    /**
-     * @return The name of the kdb volume that you want to use as writeable save-down storage for clusters.
-     * 
-     */
     public Optional<String> volumeName() {
         return Optional.ofNullable(this.volumeName);
     }

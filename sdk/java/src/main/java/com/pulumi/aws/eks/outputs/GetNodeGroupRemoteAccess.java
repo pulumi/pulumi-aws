@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetNodeGroupRemoteAccess {
-    /**
-     * @return EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group.
-     * 
-     */
     private String ec2SshKey;
-    /**
-     * @return Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes.
-     * 
-     */
     private List<String> sourceSecurityGroupIds;
 
     private GetNodeGroupRemoteAccess() {}
-    /**
-     * @return EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group.
-     * 
-     */
     public String ec2SshKey() {
         return this.ec2SshKey;
     }
-    /**
-     * @return Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes.
-     * 
-     */
     public List<String> sourceSecurityGroupIds() {
         return this.sourceSecurityGroupIds;
     }

@@ -16,47 +16,23 @@ public final class WebAclAssociationArgs extends com.pulumi.resources.ResourceAr
 
     public static final WebAclAssociationArgs Empty = new WebAclAssociationArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
-     * 
-     */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
-     * 
-     */
     @Import(name="webAclArn", required=true)
     private Output<String> webAclArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
-     * 
-     */
     public Output<String> webAclArn() {
         return this.webAclArn;
     }
@@ -87,65 +63,29 @@ public final class WebAclAssociationArgs extends com.pulumi.resources.ResourceAr
             $ = new WebAclAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }
 
-        /**
-         * @param webAclArn The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder webAclArn(Output<String> webAclArn) {
             $.webAclArn = webAclArn;
             return this;
         }
 
-        /**
-         * @param webAclArn The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder webAclArn(String webAclArn) {
             return webAclArn(Output.of(webAclArn));
         }

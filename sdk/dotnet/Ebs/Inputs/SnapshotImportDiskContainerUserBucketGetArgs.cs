@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ebs.Inputs
 
     public sealed class SnapshotImportDiskContainerUserBucketGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the Amazon S3 bucket where the disk image is located.
-        /// </summary>
         [Input("s3Bucket", required: true)]
         public Input<string> S3Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// The file name of the disk image.
-        /// </summary>
         [Input("s3Key", required: true)]
         public Input<string> S3Key { get; set; } = null!;
 

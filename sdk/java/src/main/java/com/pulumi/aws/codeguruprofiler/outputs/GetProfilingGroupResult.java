@@ -14,71 +14,27 @@ import java.util.Objects;
 
 @CustomType
 public final class GetProfilingGroupResult {
-    /**
-     * @return Profiling Group agent orchestration config
-     * 
-     */
     private List<GetProfilingGroupAgentOrchestrationConfig> agentOrchestrationConfigs;
-    /**
-     * @return ARN of the Profiling Group.
-     * 
-     */
     private String arn;
-    /**
-     * @return The compute platform of the profiling group.
-     * 
-     */
     private String computePlatform;
-    /**
-     * @return Timestamp when Profiling Group was created.
-     * 
-     */
     private String createdAt;
     private String id;
     private String name;
-    /**
-     * @return The status of the Profiling Group.
-     * 
-     */
     private List<GetProfilingGroupProfilingStatus> profilingStatuses;
     private String region;
-    /**
-     * @return Mapping of Key-Value tags for the resource.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Timestamp when Profiling Group was updated.
-     * 
-     */
     private String updatedAt;
 
     private GetProfilingGroupResult() {}
-    /**
-     * @return Profiling Group agent orchestration config
-     * 
-     */
     public List<GetProfilingGroupAgentOrchestrationConfig> agentOrchestrationConfigs() {
         return this.agentOrchestrationConfigs;
     }
-    /**
-     * @return ARN of the Profiling Group.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The compute platform of the profiling group.
-     * 
-     */
     public String computePlatform() {
         return this.computePlatform;
     }
-    /**
-     * @return Timestamp when Profiling Group was created.
-     * 
-     */
     public String createdAt() {
         return this.createdAt;
     }
@@ -88,27 +44,15 @@ public final class GetProfilingGroupResult {
     public String name() {
         return this.name;
     }
-    /**
-     * @return The status of the Profiling Group.
-     * 
-     */
     public List<GetProfilingGroupProfilingStatus> profilingStatuses() {
         return this.profilingStatuses;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Mapping of Key-Value tags for the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Timestamp when Profiling Group was updated.
-     * 
-     */
     public String updatedAt() {
         return this.updatedAt;
     }

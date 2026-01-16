@@ -11,20 +11,8 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVocabularyResult {
-    /**
-     * @return The Amazon Resource Name (ARN) of the Vocabulary.
-     * 
-     */
     private String arn;
-    /**
-     * @return The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table).
-     * 
-     */
     private String content;
-    /**
-     * @return The reason why the custom vocabulary was not created.
-     * 
-     */
     private String failureReason;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -32,53 +20,21 @@ public final class GetVocabularyResult {
      */
     private String id;
     private String instanceId;
-    /**
-     * @return The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.
-     * 
-     */
     private String languageCode;
-    /**
-     * @return The timestamp when the custom vocabulary was last modified.
-     * 
-     */
     private String lastModifiedTime;
     private String name;
     private String region;
-    /**
-     * @return The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
-     * 
-     */
     private String state;
-    /**
-     * @return A map of tags to assign to the Vocabulary.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return The identifier of the custom vocabulary.
-     * 
-     */
     private String vocabularyId;
 
     private GetVocabularyResult() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the Vocabulary.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table).
-     * 
-     */
     public String content() {
         return this.content;
     }
-    /**
-     * @return The reason why the custom vocabulary was not created.
-     * 
-     */
     public String failureReason() {
         return this.failureReason;
     }
@@ -92,17 +48,9 @@ public final class GetVocabularyResult {
     public String instanceId() {
         return this.instanceId;
     }
-    /**
-     * @return The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.
-     * 
-     */
     public String languageCode() {
         return this.languageCode;
     }
-    /**
-     * @return The timestamp when the custom vocabulary was last modified.
-     * 
-     */
     public String lastModifiedTime() {
         return this.lastModifiedTime;
     }
@@ -112,24 +60,12 @@ public final class GetVocabularyResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
-     * 
-     */
     public String state() {
         return this.state;
     }
-    /**
-     * @return A map of tags to assign to the Vocabulary.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return The identifier of the custom vocabulary.
-     * 
-     */
     public String vocabularyId() {
         return this.vocabularyId;
     }

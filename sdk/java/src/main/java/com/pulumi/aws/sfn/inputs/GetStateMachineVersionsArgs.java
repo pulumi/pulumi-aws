@@ -16,32 +16,16 @@ public final class GetStateMachineVersionsArgs extends com.pulumi.resources.Invo
 
     public static final GetStateMachineVersionsArgs Empty = new GetStateMachineVersionsArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN of the State Machine.
-     * 
-     */
     @Import(name="statemachineArn", required=true)
     private Output<String> statemachineArn;
 
-    /**
-     * @return ARN of the State Machine.
-     * 
-     */
     public Output<String> statemachineArn() {
         return this.statemachineArn;
     }
@@ -71,44 +55,20 @@ public final class GetStateMachineVersionsArgs extends com.pulumi.resources.Invo
             $ = new GetStateMachineVersionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param statemachineArn ARN of the State Machine.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statemachineArn(Output<String> statemachineArn) {
             $.statemachineArn = statemachineArn;
             return this;
         }
 
-        /**
-         * @param statemachineArn ARN of the State Machine.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statemachineArn(String statemachineArn) {
             return statemachineArn(Output.of(statemachineArn));
         }

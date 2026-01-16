@@ -11,75 +11,12 @@ namespace Pulumi.Aws.ElastiCache
 {
     public static class GetReplicationGroup
     {
-        /// <summary>
-        /// Use this data source to get information about an ElastiCache Replication Group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var bar = Aws.ElastiCache.GetReplicationGroup.Invoke(new()
-        ///     {
-        ///         ReplicationGroupId = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetReplicationGroupResult> InvokeAsync(GetReplicationGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationGroupResult>("aws:elasticache/getReplicationGroup:getReplicationGroup", args ?? new GetReplicationGroupArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about an ElastiCache Replication Group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var bar = Aws.ElastiCache.GetReplicationGroup.Invoke(new()
-        ///     {
-        ///         ReplicationGroupId = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetReplicationGroupResult> Invoke(GetReplicationGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationGroupResult>("aws:elasticache/getReplicationGroup:getReplicationGroup", args ?? new GetReplicationGroupInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about an ElastiCache Replication Group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var bar = Aws.ElastiCache.GetReplicationGroup.Invoke(new()
-        ///     {
-        ///         ReplicationGroupId = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetReplicationGroupResult> Invoke(GetReplicationGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationGroupResult>("aws:elasticache/getReplicationGroup:getReplicationGroup", args ?? new GetReplicationGroupInvokeArgs(), options.WithDefaults());
     }
@@ -87,15 +24,9 @@ namespace Pulumi.Aws.ElastiCache
 
     public sealed class GetReplicationGroupArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// Identifier for the replication group.
-        /// </summary>
         [Input("replicationGroupId", required: true)]
         public string ReplicationGroupId { get; set; } = null!;
 
@@ -107,15 +38,9 @@ namespace Pulumi.Aws.ElastiCache
 
     public sealed class GetReplicationGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Identifier for the replication group.
-        /// </summary>
         [Input("replicationGroupId", required: true)]
         public Input<string> ReplicationGroupId { get; set; } = null!;
 
@@ -129,87 +54,30 @@ namespace Pulumi.Aws.ElastiCache
     [OutputType]
     public sealed class GetReplicationGroupResult
     {
-        /// <summary>
-        /// ARN of the created ElastiCache Replication Group.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Whether an AuthToken (password) is enabled.
-        /// </summary>
         public readonly bool AuthTokenEnabled;
-        /// <summary>
-        /// Whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
-        /// </summary>
         public readonly bool AutomaticFailoverEnabled;
-        /// <summary>
-        /// Whether cluster mode is enabled or disabled.
-        /// </summary>
         public readonly string ClusterMode;
-        /// <summary>
-        /// Configuration endpoint address to allow host discovery.
-        /// </summary>
         public readonly string ConfigurationEndpointAddress;
-        /// <summary>
-        /// Description of the replication group.
-        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetReplicationGroupLogDeliveryConfigurationResult> LogDeliveryConfigurations;
-        /// <summary>
-        /// Identifiers of all the nodes that are part of this replication group.
-        /// </summary>
         public readonly ImmutableArray<string> MemberClusters;
-        /// <summary>
-        /// Whether Multi-AZ Support is enabled for the replication group.
-        /// </summary>
         public readonly bool MultiAzEnabled;
-        /// <summary>
-        /// Configuration of the node groups (shards). See below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetReplicationGroupNodeGroupConfigurationResult> NodeGroupConfigurations;
-        /// <summary>
-        /// Cluster node type.
-        /// </summary>
         public readonly string NodeType;
-        /// <summary>
-        /// Number of cache clusters that the replication group has.
-        /// </summary>
         public readonly int NumCacheClusters;
-        /// <summary>
-        /// Number of node groups (shards) for the replication group.
-        /// </summary>
         public readonly int NumNodeGroups;
-        /// <summary>
-        /// Port number on which the configuration endpoint will accept connections.
-        /// </summary>
         public readonly int Port;
-        /// <summary>
-        /// Endpoint of the primary node in this node group (shard).
-        /// </summary>
         public readonly string PrimaryEndpointAddress;
-        /// <summary>
-        /// Endpoint of the reader node in this node group (shard).
-        /// </summary>
         public readonly string ReaderEndpointAddress;
         public readonly string Region;
-        /// <summary>
-        /// Number of replica nodes in each node group.
-        /// </summary>
         public readonly int ReplicasPerNodeGroup;
         public readonly string ReplicationGroupId;
-        /// <summary>
-        /// Number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
-        /// </summary>
         public readonly int SnapshotRetentionLimit;
-        /// <summary>
-        /// Daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
-        /// </summary>
         public readonly string SnapshotWindow;
 
         [OutputConstructor]

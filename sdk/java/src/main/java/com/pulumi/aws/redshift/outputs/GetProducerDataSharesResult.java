@@ -14,43 +14,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetProducerDataSharesResult {
-    /**
-     * @return An array of all data shares in the producer. See `dataShares` below.
-     * 
-     */
     private List<GetProducerDataSharesDataShare> dataShares;
-    /**
-     * @return Producer ARN.
-     * 
-     */
     private String id;
-    /**
-     * @return ARN (Amazon Resource Name) of the producer.
-     * 
-     */
     private String producerArn;
     private String region;
     private @Nullable String status;
 
     private GetProducerDataSharesResult() {}
-    /**
-     * @return An array of all data shares in the producer. See `dataShares` below.
-     * 
-     */
     public List<GetProducerDataSharesDataShare> dataShares() {
         return this.dataShares;
     }
-    /**
-     * @return Producer ARN.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return ARN (Amazon Resource Name) of the producer.
-     * 
-     */
     public String producerArn() {
         return this.producerArn;
     }

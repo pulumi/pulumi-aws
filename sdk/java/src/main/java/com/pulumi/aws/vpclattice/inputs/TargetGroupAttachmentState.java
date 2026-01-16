@@ -16,47 +16,23 @@ public final class TargetGroupAttachmentState extends com.pulumi.resources.Resou
 
     public static final TargetGroupAttachmentState Empty = new TargetGroupAttachmentState();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The target.
-     * 
-     */
     @Import(name="target")
     private @Nullable Output<TargetGroupAttachmentTargetArgs> target;
 
-    /**
-     * @return The target.
-     * 
-     */
     public Optional<Output<TargetGroupAttachmentTargetArgs>> target() {
         return Optional.ofNullable(this.target);
     }
 
-    /**
-     * The ID or Amazon Resource Name (ARN) of the target group.
-     * 
-     */
     @Import(name="targetGroupIdentifier")
     private @Nullable Output<String> targetGroupIdentifier;
 
-    /**
-     * @return The ID or Amazon Resource Name (ARN) of the target group.
-     * 
-     */
     public Optional<Output<String>> targetGroupIdentifier() {
         return Optional.ofNullable(this.targetGroupIdentifier);
     }
@@ -87,65 +63,29 @@ public final class TargetGroupAttachmentState extends com.pulumi.resources.Resou
             $ = new TargetGroupAttachmentState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param target The target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(@Nullable Output<TargetGroupAttachmentTargetArgs> target) {
             $.target = target;
             return this;
         }
 
-        /**
-         * @param target The target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(TargetGroupAttachmentTargetArgs target) {
             return target(Output.of(target));
         }
 
-        /**
-         * @param targetGroupIdentifier The ID or Amazon Resource Name (ARN) of the target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGroupIdentifier(@Nullable Output<String> targetGroupIdentifier) {
             $.targetGroupIdentifier = targetGroupIdentifier;
             return this;
         }
 
-        /**
-         * @param targetGroupIdentifier The ID or Amazon Resource Name (ARN) of the target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGroupIdentifier(String targetGroupIdentifier) {
             return targetGroupIdentifier(Output.of(targetGroupIdentifier));
         }

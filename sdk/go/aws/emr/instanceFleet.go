@@ -12,108 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Elastic MapReduce Cluster Instance Fleet configuration.
-// See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/emr/) for more information.
-//
-// > **NOTE:** At this time, Instance Fleets cannot be destroyed through the API nor
-// web interface. Instance Fleets are destroyed when the EMR Cluster is destroyed.
-// the provider will resize any Instance Fleet to zero when destroying the resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emr.NewInstanceFleet(ctx, "task", &emr.InstanceFleetArgs{
-//				ClusterId: pulumi.Any(cluster.Id),
-//				InstanceTypeConfigs: emr.InstanceFleetInstanceTypeConfigArray{
-//					&emr.InstanceFleetInstanceTypeConfigArgs{
-//						BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
-//						EbsConfigs: emr.InstanceFleetInstanceTypeConfigEbsConfigArray{
-//							&emr.InstanceFleetInstanceTypeConfigEbsConfigArgs{
-//								Size:               pulumi.Int(100),
-//								Type:               pulumi.String("gp2"),
-//								VolumesPerInstance: pulumi.Int(1),
-//							},
-//						},
-//						InstanceType:     pulumi.String("m4.xlarge"),
-//						WeightedCapacity: pulumi.Int(1),
-//					},
-//					&emr.InstanceFleetInstanceTypeConfigArgs{
-//						BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
-//						EbsConfigs: emr.InstanceFleetInstanceTypeConfigEbsConfigArray{
-//							&emr.InstanceFleetInstanceTypeConfigEbsConfigArgs{
-//								Size:               pulumi.Int(100),
-//								Type:               pulumi.String("gp2"),
-//								VolumesPerInstance: pulumi.Int(1),
-//							},
-//						},
-//						InstanceType:     pulumi.String("m4.2xlarge"),
-//						WeightedCapacity: pulumi.Int(2),
-//					},
-//				},
-//				LaunchSpecifications: &emr.InstanceFleetLaunchSpecificationsArgs{
-//					SpotSpecifications: emr.InstanceFleetLaunchSpecificationsSpotSpecificationArray{
-//						&emr.InstanceFleetLaunchSpecificationsSpotSpecificationArgs{
-//							AllocationStrategy:     pulumi.String("capacity-optimized"),
-//							BlockDurationMinutes:   pulumi.Int(0),
-//							TimeoutAction:          pulumi.String("TERMINATE_CLUSTER"),
-//							TimeoutDurationMinutes: pulumi.Int(10),
-//						},
-//					},
-//				},
-//				Name:                   pulumi.String("task fleet"),
-//				TargetOnDemandCapacity: pulumi.Int(1),
-//				TargetSpotCapacity:     pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EMR Instance Fleet using the EMR Cluster identifier and Instance Fleet identifier separated by a forward slash (`/`). For example:
-//
-// ```sh
-// $ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
-// ```
 type InstanceFleet struct {
 	pulumi.CustomResourceState
 
-	// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
-	// Configuration block for instance fleet
-	InstanceTypeConfigs InstanceFleetInstanceTypeConfigArrayOutput `pulumi:"instanceTypeConfigs"`
-	// Configuration block for launch specification
-	LaunchSpecifications InstanceFleetLaunchSpecificationsPtrOutput `pulumi:"launchSpecifications"`
-	// Friendly name given to the instance fleet.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The number of On-Demand units that have been provisioned for the instance
-	// fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
-	ProvisionedOnDemandCapacity pulumi.IntOutput `pulumi:"provisionedOnDemandCapacity"`
-	// The number of Spot units that have been provisioned for this instance fleet
-	// to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
-	ProvisionedSpotCapacity pulumi.IntOutput `pulumi:"provisionedSpotCapacity"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-	TargetOnDemandCapacity pulumi.IntPtrOutput `pulumi:"targetOnDemandCapacity"`
-	// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-	TargetSpotCapacity pulumi.IntPtrOutput `pulumi:"targetSpotCapacity"`
+	ClusterId                   pulumi.StringOutput                        `pulumi:"clusterId"`
+	InstanceTypeConfigs         InstanceFleetInstanceTypeConfigArrayOutput `pulumi:"instanceTypeConfigs"`
+	LaunchSpecifications        InstanceFleetLaunchSpecificationsPtrOutput `pulumi:"launchSpecifications"`
+	Name                        pulumi.StringOutput                        `pulumi:"name"`
+	ProvisionedOnDemandCapacity pulumi.IntOutput                           `pulumi:"provisionedOnDemandCapacity"`
+	ProvisionedSpotCapacity     pulumi.IntOutput                           `pulumi:"provisionedSpotCapacity"`
+	Region                      pulumi.StringOutput                        `pulumi:"region"`
+	TargetOnDemandCapacity      pulumi.IntPtrOutput                        `pulumi:"targetOnDemandCapacity"`
+	TargetSpotCapacity          pulumi.IntPtrOutput                        `pulumi:"targetSpotCapacity"`
 }
 
 // NewInstanceFleet registers a new resource with the given unique name, arguments, and options.
@@ -149,49 +59,27 @@ func GetInstanceFleet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InstanceFleet resources.
 type instanceFleetState struct {
-	// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-	ClusterId *string `pulumi:"clusterId"`
-	// Configuration block for instance fleet
-	InstanceTypeConfigs []InstanceFleetInstanceTypeConfig `pulumi:"instanceTypeConfigs"`
-	// Configuration block for launch specification
-	LaunchSpecifications *InstanceFleetLaunchSpecifications `pulumi:"launchSpecifications"`
-	// Friendly name given to the instance fleet.
-	Name *string `pulumi:"name"`
-	// The number of On-Demand units that have been provisioned for the instance
-	// fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
-	ProvisionedOnDemandCapacity *int `pulumi:"provisionedOnDemandCapacity"`
-	// The number of Spot units that have been provisioned for this instance fleet
-	// to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
-	ProvisionedSpotCapacity *int `pulumi:"provisionedSpotCapacity"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-	TargetOnDemandCapacity *int `pulumi:"targetOnDemandCapacity"`
-	// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-	TargetSpotCapacity *int `pulumi:"targetSpotCapacity"`
+	ClusterId                   *string                            `pulumi:"clusterId"`
+	InstanceTypeConfigs         []InstanceFleetInstanceTypeConfig  `pulumi:"instanceTypeConfigs"`
+	LaunchSpecifications        *InstanceFleetLaunchSpecifications `pulumi:"launchSpecifications"`
+	Name                        *string                            `pulumi:"name"`
+	ProvisionedOnDemandCapacity *int                               `pulumi:"provisionedOnDemandCapacity"`
+	ProvisionedSpotCapacity     *int                               `pulumi:"provisionedSpotCapacity"`
+	Region                      *string                            `pulumi:"region"`
+	TargetOnDemandCapacity      *int                               `pulumi:"targetOnDemandCapacity"`
+	TargetSpotCapacity          *int                               `pulumi:"targetSpotCapacity"`
 }
 
 type InstanceFleetState struct {
-	// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-	ClusterId pulumi.StringPtrInput
-	// Configuration block for instance fleet
-	InstanceTypeConfigs InstanceFleetInstanceTypeConfigArrayInput
-	// Configuration block for launch specification
-	LaunchSpecifications InstanceFleetLaunchSpecificationsPtrInput
-	// Friendly name given to the instance fleet.
-	Name pulumi.StringPtrInput
-	// The number of On-Demand units that have been provisioned for the instance
-	// fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
+	ClusterId                   pulumi.StringPtrInput
+	InstanceTypeConfigs         InstanceFleetInstanceTypeConfigArrayInput
+	LaunchSpecifications        InstanceFleetLaunchSpecificationsPtrInput
+	Name                        pulumi.StringPtrInput
 	ProvisionedOnDemandCapacity pulumi.IntPtrInput
-	// The number of Spot units that have been provisioned for this instance fleet
-	// to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
-	ProvisionedSpotCapacity pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-	TargetOnDemandCapacity pulumi.IntPtrInput
-	// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-	TargetSpotCapacity pulumi.IntPtrInput
+	ProvisionedSpotCapacity     pulumi.IntPtrInput
+	Region                      pulumi.StringPtrInput
+	TargetOnDemandCapacity      pulumi.IntPtrInput
+	TargetSpotCapacity          pulumi.IntPtrInput
 }
 
 func (InstanceFleetState) ElementType() reflect.Type {
@@ -199,38 +87,24 @@ func (InstanceFleetState) ElementType() reflect.Type {
 }
 
 type instanceFleetArgs struct {
-	// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-	ClusterId string `pulumi:"clusterId"`
-	// Configuration block for instance fleet
-	InstanceTypeConfigs []InstanceFleetInstanceTypeConfig `pulumi:"instanceTypeConfigs"`
-	// Configuration block for launch specification
-	LaunchSpecifications *InstanceFleetLaunchSpecifications `pulumi:"launchSpecifications"`
-	// Friendly name given to the instance fleet.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-	TargetOnDemandCapacity *int `pulumi:"targetOnDemandCapacity"`
-	// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-	TargetSpotCapacity *int `pulumi:"targetSpotCapacity"`
+	ClusterId              string                             `pulumi:"clusterId"`
+	InstanceTypeConfigs    []InstanceFleetInstanceTypeConfig  `pulumi:"instanceTypeConfigs"`
+	LaunchSpecifications   *InstanceFleetLaunchSpecifications `pulumi:"launchSpecifications"`
+	Name                   *string                            `pulumi:"name"`
+	Region                 *string                            `pulumi:"region"`
+	TargetOnDemandCapacity *int                               `pulumi:"targetOnDemandCapacity"`
+	TargetSpotCapacity     *int                               `pulumi:"targetSpotCapacity"`
 }
 
 // The set of arguments for constructing a InstanceFleet resource.
 type InstanceFleetArgs struct {
-	// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-	ClusterId pulumi.StringInput
-	// Configuration block for instance fleet
-	InstanceTypeConfigs InstanceFleetInstanceTypeConfigArrayInput
-	// Configuration block for launch specification
-	LaunchSpecifications InstanceFleetLaunchSpecificationsPtrInput
-	// Friendly name given to the instance fleet.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+	ClusterId              pulumi.StringInput
+	InstanceTypeConfigs    InstanceFleetInstanceTypeConfigArrayInput
+	LaunchSpecifications   InstanceFleetLaunchSpecificationsPtrInput
+	Name                   pulumi.StringPtrInput
+	Region                 pulumi.StringPtrInput
 	TargetOnDemandCapacity pulumi.IntPtrInput
-	// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-	TargetSpotCapacity pulumi.IntPtrInput
+	TargetSpotCapacity     pulumi.IntPtrInput
 }
 
 func (InstanceFleetArgs) ElementType() reflect.Type {
@@ -320,49 +194,38 @@ func (o InstanceFleetOutput) ToInstanceFleetOutputWithContext(ctx context.Contex
 	return o
 }
 
-// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
 func (o InstanceFleetOutput) ClusterId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceFleet) pulumi.StringOutput { return v.ClusterId }).(pulumi.StringOutput)
 }
 
-// Configuration block for instance fleet
 func (o InstanceFleetOutput) InstanceTypeConfigs() InstanceFleetInstanceTypeConfigArrayOutput {
 	return o.ApplyT(func(v *InstanceFleet) InstanceFleetInstanceTypeConfigArrayOutput { return v.InstanceTypeConfigs }).(InstanceFleetInstanceTypeConfigArrayOutput)
 }
 
-// Configuration block for launch specification
 func (o InstanceFleetOutput) LaunchSpecifications() InstanceFleetLaunchSpecificationsPtrOutput {
 	return o.ApplyT(func(v *InstanceFleet) InstanceFleetLaunchSpecificationsPtrOutput { return v.LaunchSpecifications }).(InstanceFleetLaunchSpecificationsPtrOutput)
 }
 
-// Friendly name given to the instance fleet.
 func (o InstanceFleetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceFleet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The number of On-Demand units that have been provisioned for the instance
-// fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
 func (o InstanceFleetOutput) ProvisionedOnDemandCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *InstanceFleet) pulumi.IntOutput { return v.ProvisionedOnDemandCapacity }).(pulumi.IntOutput)
 }
 
-// The number of Spot units that have been provisioned for this instance fleet
-// to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
 func (o InstanceFleetOutput) ProvisionedSpotCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *InstanceFleet) pulumi.IntOutput { return v.ProvisionedSpotCapacity }).(pulumi.IntOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InstanceFleetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceFleet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
 func (o InstanceFleetOutput) TargetOnDemandCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InstanceFleet) pulumi.IntPtrOutput { return v.TargetOnDemandCapacity }).(pulumi.IntPtrOutput)
 }
 
-// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
 func (o InstanceFleetOutput) TargetSpotCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InstanceFleet) pulumi.IntPtrOutput { return v.TargetSpotCapacity }).(pulumi.IntPtrOutput)
 }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.S3Control.Outputs
     [OutputType]
     public sealed class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms
     {
-        /// <summary>
-        /// KMS key ARN.
-        /// </summary>
         public readonly string KeyId;
 
         [OutputConstructor]

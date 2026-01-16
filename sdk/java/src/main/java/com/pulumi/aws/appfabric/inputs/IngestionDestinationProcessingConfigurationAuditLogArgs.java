@@ -14,32 +14,16 @@ public final class IngestionDestinationProcessingConfigurationAuditLogArgs exten
 
     public static final IngestionDestinationProcessingConfigurationAuditLogArgs Empty = new IngestionDestinationProcessingConfigurationAuditLogArgs();
 
-    /**
-     * The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
-     * 
-     */
     @Import(name="format", required=true)
     private Output<String> format;
 
-    /**
-     * @return The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
-     * 
-     */
     public Output<String> format() {
         return this.format;
     }
 
-    /**
-     * The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
-     * 
-     */
     @Import(name="schema", required=true)
     private Output<String> schema;
 
-    /**
-     * @return The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
-     * 
-     */
     public Output<String> schema() {
         return this.schema;
     }
@@ -69,44 +53,20 @@ public final class IngestionDestinationProcessingConfigurationAuditLogArgs exten
             $ = new IngestionDestinationProcessingConfigurationAuditLogArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param format The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder format(Output<String> format) {
             $.format = format;
             return this;
         }
 
-        /**
-         * @param format The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder format(String format) {
             return format(Output.of(format));
         }
 
-        /**
-         * @param schema The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schema(Output<String> schema) {
             $.schema = schema;
             return this;
         }
 
-        /**
-         * @param schema The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schema(String schema) {
             return schema(Output.of(schema));
         }

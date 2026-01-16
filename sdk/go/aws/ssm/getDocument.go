@@ -11,64 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Gets the contents of the specified Systems Manager document.
-//
-// ## Example Usage
-//
-// To get the contents of the document owned by AWS.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foo, err := ssm.LookupDocument(ctx, &ssm.LookupDocumentArgs{
-//				Name:           "AWS-GatherSoftwareInventory",
-//				DocumentFormat: pulumi.StringRef("YAML"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("content", foo.Content)
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// To get the contents of the custom document.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.LookupDocument(ctx, &ssm.LookupDocumentArgs{
-//				Name:           testAwsSsmDocument.Name,
-//				DocumentFormat: pulumi.StringRef("JSON"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupDocument(ctx *pulumi.Context, args *LookupDocumentArgs, opts ...pulumi.InvokeOption) (*LookupDocumentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDocumentResult
@@ -81,24 +23,17 @@ func LookupDocument(ctx *pulumi.Context, args *LookupDocumentArgs, opts ...pulum
 
 // A collection of arguments for invoking getDocument.
 type LookupDocumentArgs struct {
-	// The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
-	DocumentFormat *string `pulumi:"documentFormat"`
-	// The document version.
+	DocumentFormat  *string `pulumi:"documentFormat"`
 	DocumentVersion *string `pulumi:"documentVersion"`
-	// The name of the document.
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Name            string  `pulumi:"name"`
+	Region          *string `pulumi:"region"`
 }
 
 // A collection of values returned by getDocument.
 type LookupDocumentResult struct {
-	// ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
-	Arn string `pulumi:"arn"`
-	// The content for the SSM document in JSON or YAML format.
-	Content        string  `pulumi:"content"`
-	DocumentFormat *string `pulumi:"documentFormat"`
-	// The type of the document.
+	Arn             string  `pulumi:"arn"`
+	Content         string  `pulumi:"content"`
+	DocumentFormat  *string `pulumi:"documentFormat"`
 	DocumentType    string  `pulumi:"documentType"`
 	DocumentVersion *string `pulumi:"documentVersion"`
 	// The provider-assigned unique ID for this managed resource.
@@ -118,14 +53,10 @@ func LookupDocumentOutput(ctx *pulumi.Context, args LookupDocumentOutputArgs, op
 
 // A collection of arguments for invoking getDocument.
 type LookupDocumentOutputArgs struct {
-	// The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
-	DocumentFormat pulumi.StringPtrInput `pulumi:"documentFormat"`
-	// The document version.
+	DocumentFormat  pulumi.StringPtrInput `pulumi:"documentFormat"`
 	DocumentVersion pulumi.StringPtrInput `pulumi:"documentVersion"`
-	// The name of the document.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Name            pulumi.StringInput    `pulumi:"name"`
+	Region          pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupDocumentOutputArgs) ElementType() reflect.Type {
@@ -147,12 +78,10 @@ func (o LookupDocumentResultOutput) ToLookupDocumentResultOutputWithContext(ctx 
 	return o
 }
 
-// ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
 func (o LookupDocumentResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDocumentResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The content for the SSM document in JSON or YAML format.
 func (o LookupDocumentResultOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDocumentResult) string { return v.Content }).(pulumi.StringOutput)
 }
@@ -161,7 +90,6 @@ func (o LookupDocumentResultOutput) DocumentFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDocumentResult) *string { return v.DocumentFormat }).(pulumi.StringPtrOutput)
 }
 
-// The type of the document.
 func (o LookupDocumentResultOutput) DocumentType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDocumentResult) string { return v.DocumentType }).(pulumi.StringOutput)
 }

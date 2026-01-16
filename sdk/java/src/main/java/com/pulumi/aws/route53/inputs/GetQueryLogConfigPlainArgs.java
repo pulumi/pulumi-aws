@@ -17,81 +17,37 @@ public final class GetQueryLogConfigPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetQueryLogConfigPlainArgs Empty = new GetQueryLogConfigPlainArgs();
 
-    /**
-     * One or more name/value pairs to use as filters. There are
-     * several valid keys, for a full reference, check out
-     * [Route53resolver Filter value in the AWS API reference][1].
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetQueryLogConfigFilter> filters;
 
-    /**
-     * @return One or more name/value pairs to use as filters. There are
-     * several valid keys, for a full reference, check out
-     * [Route53resolver Filter value in the AWS API reference][1].
-     * 
-     */
     public Optional<List<GetQueryLogConfigFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * The name of the query logging configuration.
-     * 
-     */
     @Import(name="name")
     private @Nullable String name;
 
-    /**
-     * @return The name of the query logging configuration.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the Route53 Resolver Query Logging Configuration.
-     * 
-     */
     @Import(name="resolverQueryLogConfigId")
     private @Nullable String resolverQueryLogConfigId;
 
-    /**
-     * @return ID of the Route53 Resolver Query Logging Configuration.
-     * 
-     */
     public Optional<String> resolverQueryLogConfigId() {
         return Optional.ofNullable(this.resolverQueryLogConfigId);
     }
 
-    /**
-     * Map of tags to assign to the service.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags to assign to the service.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -124,70 +80,30 @@ public final class GetQueryLogConfigPlainArgs extends com.pulumi.resources.Invok
             $ = new GetQueryLogConfigPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters One or more name/value pairs to use as filters. There are
-         * several valid keys, for a full reference, check out
-         * [Route53resolver Filter value in the AWS API reference][1].
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetQueryLogConfigFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters One or more name/value pairs to use as filters. There are
-         * several valid keys, for a full reference, check out
-         * [Route53resolver Filter value in the AWS API reference][1].
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetQueryLogConfigFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param name The name of the query logging configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param resolverQueryLogConfigId ID of the Route53 Resolver Query Logging Configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resolverQueryLogConfigId(@Nullable String resolverQueryLogConfigId) {
             $.resolverQueryLogConfigId = resolverQueryLogConfigId;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

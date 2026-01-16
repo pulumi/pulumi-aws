@@ -25,12 +25,6 @@ class TagOptionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TagOption resource.
-        :param pulumi.Input[_builtins.str] key: Tag option key.
-        :param pulumi.Input[_builtins.str] value: Tag option value.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] active: Whether tag option is active. Default is `true`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -42,9 +36,6 @@ class TagOptionArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Input[_builtins.str]:
-        """
-        Tag option key.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -54,11 +45,6 @@ class TagOptionArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        Tag option value.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -68,9 +54,6 @@ class TagOptionArgs:
     @_builtins.property
     @pulumi.getter
     def active(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether tag option is active. Default is `true`.
-        """
         return pulumi.get(self, "active")
 
     @active.setter
@@ -80,9 +63,6 @@ class TagOptionArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -100,12 +80,6 @@ class _TagOptionState:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TagOption resources.
-        :param pulumi.Input[_builtins.bool] active: Whether tag option is active. Default is `true`.
-        :param pulumi.Input[_builtins.str] key: Tag option key.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] value: Tag option value.
-               
-               The following arguments are optional:
         """
         if active is not None:
             pulumi.set(__self__, "active", active)
@@ -121,9 +95,6 @@ class _TagOptionState:
     @_builtins.property
     @pulumi.getter
     def active(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether tag option is active. Default is `true`.
-        """
         return pulumi.get(self, "active")
 
     @active.setter
@@ -133,9 +104,6 @@ class _TagOptionState:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Tag option key.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -154,9 +122,6 @@ class _TagOptionState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -166,11 +131,6 @@ class _TagOptionState:
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Tag option value.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -190,37 +150,9 @@ class TagOption(pulumi.CustomResource):
                  value: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a Service Catalog Tag Option.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.TagOption("example",
-            key="nyckel",
-            value="värde")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For example:
-
-        ```sh
-        $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
-        ```
-
+        Create a TagOption resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] active: Whether tag option is active. Default is `true`.
-        :param pulumi.Input[_builtins.str] key: Tag option key.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] value: Tag option value.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -229,29 +161,7 @@ class TagOption(pulumi.CustomResource):
                  args: TagOptionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Service Catalog Tag Option.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.TagOption("example",
-            key="nyckel",
-            value="värde")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For example:
-
-        ```sh
-        $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
-        ```
-
+        Create a TagOption resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TagOptionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -311,12 +221,6 @@ class TagOption(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] active: Whether tag option is active. Default is `true`.
-        :param pulumi.Input[_builtins.str] key: Tag option key.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] value: Tag option value.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -332,17 +236,11 @@ class TagOption(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def active(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether tag option is active. Default is `true`.
-        """
         return pulumi.get(self, "active")
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Output[_builtins.str]:
-        """
-        Tag option key.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
@@ -353,18 +251,10 @@ class TagOption(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Output[_builtins.str]:
-        """
-        Tag option value.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "value")
 

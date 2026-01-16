@@ -14,32 +14,16 @@ public final class GetAttachmentsFilter extends com.pulumi.resources.InvokeArgs 
 
     public static final GetAttachmentsFilter Empty = new GetAttachmentsFilter();
 
-    /**
-     * Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html)
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html)
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * List of one or more values for the filter.
-     * 
-     */
     @Import(name="values", required=true)
     private List<String> values;
 
-    /**
-     * @return List of one or more values for the filter.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }
@@ -69,34 +53,16 @@ public final class GetAttachmentsFilter extends com.pulumi.resources.InvokeArgs 
             $ = new GetAttachmentsFilter(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html)
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param values List of one or more values for the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values List of one or more values for the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

@@ -17,47 +17,23 @@ public final class WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigu
 
     public static final WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationArgs Empty = new WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationArgs();
 
-    /**
-     * Boolean whether Amazon S3 logging is enabled for the workgroup.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Boolean whether Amazon S3 logging is enabled for the workgroup.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
 
-    /**
-     * KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
-     * 
-     */
     @Import(name="kmsKey")
     private @Nullable Output<String> kmsKey;
 
-    /**
-     * @return KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
-     * 
-     */
     public Optional<Output<String>> kmsKey() {
         return Optional.ofNullable(this.kmsKey);
     }
 
-    /**
-     * Amazon S3 destination URI (`s3://bucket/prefix`) for log publishing.
-     * 
-     */
     @Import(name="logLocation")
     private @Nullable Output<String> logLocation;
 
-    /**
-     * @return Amazon S3 destination URI (`s3://bucket/prefix`) for log publishing.
-     * 
-     */
     public Optional<Output<String>> logLocation() {
         return Optional.ofNullable(this.logLocation);
     }
@@ -88,65 +64,29 @@ public final class WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigu
             $ = new WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Boolean whether Amazon S3 logging is enabled for the workgroup.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Boolean whether Amazon S3 logging is enabled for the workgroup.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param kmsKey KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKey(@Nullable Output<String> kmsKey) {
             $.kmsKey = kmsKey;
             return this;
         }
 
-        /**
-         * @param kmsKey KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKey(String kmsKey) {
             return kmsKey(Output.of(kmsKey));
         }
 
-        /**
-         * @param logLocation Amazon S3 destination URI (`s3://bucket/prefix`) for log publishing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logLocation(@Nullable Output<String> logLocation) {
             $.logLocation = logLocation;
             return this;
         }
 
-        /**
-         * @param logLocation Amazon S3 destination URI (`s3://bucket/prefix`) for log publishing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logLocation(String logLocation) {
             return logLocation(Output.of(logLocation));
         }

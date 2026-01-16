@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
-        /// </summary>
         [Input("maxPageSize", required: true)]
         public Input<int> MaxPageSize { get; set; } = null!;
 

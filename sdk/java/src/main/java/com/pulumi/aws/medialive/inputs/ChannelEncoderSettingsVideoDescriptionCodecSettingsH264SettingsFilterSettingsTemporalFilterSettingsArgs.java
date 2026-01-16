@@ -15,32 +15,16 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
 
     public static final ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgs Empty = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgs();
 
-    /**
-     * Post filter sharpening.
-     * 
-     */
     @Import(name="postFilterSharpening")
     private @Nullable Output<String> postFilterSharpening;
 
-    /**
-     * @return Post filter sharpening.
-     * 
-     */
     public Optional<Output<String>> postFilterSharpening() {
         return Optional.ofNullable(this.postFilterSharpening);
     }
 
-    /**
-     * Filter strength.
-     * 
-     */
     @Import(name="strength")
     private @Nullable Output<String> strength;
 
-    /**
-     * @return Filter strength.
-     * 
-     */
     public Optional<Output<String>> strength() {
         return Optional.ofNullable(this.strength);
     }
@@ -70,44 +54,20 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
             $ = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param postFilterSharpening Post filter sharpening.
-         * 
-         * @return builder
-         * 
-         */
         public Builder postFilterSharpening(@Nullable Output<String> postFilterSharpening) {
             $.postFilterSharpening = postFilterSharpening;
             return this;
         }
 
-        /**
-         * @param postFilterSharpening Post filter sharpening.
-         * 
-         * @return builder
-         * 
-         */
         public Builder postFilterSharpening(String postFilterSharpening) {
             return postFilterSharpening(Output.of(postFilterSharpening));
         }
 
-        /**
-         * @param strength Filter strength.
-         * 
-         * @return builder
-         * 
-         */
         public Builder strength(@Nullable Output<String> strength) {
             $.strength = strength;
             return this;
         }
 
-        /**
-         * @param strength Filter strength.
-         * 
-         * @return builder
-         * 
-         */
         public Builder strength(String strength) {
             return strength(Output.of(strength));
         }

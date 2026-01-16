@@ -14,17 +14,9 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
 
     public static final StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs Empty = new StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs();
 
-    /**
-     * Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
-     * 
-     */
     @Import(name="storageMetrics", required=true)
     private Output<StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs> storageMetrics;
 
-    /**
-     * @return Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
-     * 
-     */
     public Output<StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs> storageMetrics() {
         return this.storageMetrics;
     }
@@ -53,23 +45,11 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
             $ = new StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param storageMetrics Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageMetrics(Output<StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs> storageMetrics) {
             $.storageMetrics = storageMetrics;
             return this;
         }
 
-        /**
-         * @param storageMetrics Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageMetrics(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs storageMetrics) {
             return storageMetrics(Output.of(storageMetrics));
         }

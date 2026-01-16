@@ -20,159 +20,65 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TableArgs Empty = new TableArgs();
 
-    /**
-     * A single table bucket encryption configuration object.
-     * See `encryptionConfiguration` below.
-     * 
-     */
     @Import(name="encryptionConfiguration")
     private @Nullable Output<TableEncryptionConfigurationArgs> encryptionConfiguration;
 
-    /**
-     * @return A single table bucket encryption configuration object.
-     * See `encryptionConfiguration` below.
-     * 
-     */
     public Optional<Output<TableEncryptionConfigurationArgs>> encryptionConfiguration() {
         return Optional.ofNullable(this.encryptionConfiguration);
     }
 
-    /**
-     * Format of the table.
-     * Must be `ICEBERG`.
-     * 
-     */
     @Import(name="format", required=true)
     private Output<String> format;
 
-    /**
-     * @return Format of the table.
-     * Must be `ICEBERG`.
-     * 
-     */
     public Output<String> format() {
         return this.format;
     }
 
-    /**
-     * A single table bucket maintenance configuration object.
-     * See `maintenanceConfiguration` below.
-     * 
-     */
     @Import(name="maintenanceConfiguration")
     private @Nullable Output<TableMaintenanceConfigurationArgs> maintenanceConfiguration;
 
-    /**
-     * @return A single table bucket maintenance configuration object.
-     * See `maintenanceConfiguration` below.
-     * 
-     */
     public Optional<Output<TableMaintenanceConfigurationArgs>> maintenanceConfiguration() {
         return Optional.ofNullable(this.maintenanceConfiguration);
     }
 
-    /**
-     * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-     * See `metadata` below.
-     * 
-     */
     @Import(name="metadata")
     private @Nullable Output<TableMetadataArgs> metadata;
 
-    /**
-     * @return Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-     * See `metadata` below.
-     * 
-     */
     public Optional<Output<TableMetadataArgs>> metadata() {
         return Optional.ofNullable(this.metadata);
     }
 
-    /**
-     * Name of the table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-     * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-     * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Name of the namespace for this table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-     * 
-     */
     @Import(name="namespace", required=true)
     private Output<String> namespace;
 
-    /**
-     * @return Name of the namespace for this table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-     * 
-     */
     public Output<String> namespace() {
         return this.namespace;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN referencing the Table Bucket that contains this Namespace.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="tableBucketArn", required=true)
     private Output<String> tableBucketArn;
 
-    /**
-     * @return ARN referencing the Table Bucket that contains this Namespace.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> tableBucketArn() {
         return this.tableBucketArn;
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -209,213 +115,83 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TableArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param encryptionConfiguration A single table bucket encryption configuration object.
-         * See `encryptionConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfiguration(@Nullable Output<TableEncryptionConfigurationArgs> encryptionConfiguration) {
             $.encryptionConfiguration = encryptionConfiguration;
             return this;
         }
 
-        /**
-         * @param encryptionConfiguration A single table bucket encryption configuration object.
-         * See `encryptionConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfiguration(TableEncryptionConfigurationArgs encryptionConfiguration) {
             return encryptionConfiguration(Output.of(encryptionConfiguration));
         }
 
-        /**
-         * @param format Format of the table.
-         * Must be `ICEBERG`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder format(Output<String> format) {
             $.format = format;
             return this;
         }
 
-        /**
-         * @param format Format of the table.
-         * Must be `ICEBERG`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder format(String format) {
             return format(Output.of(format));
         }
 
-        /**
-         * @param maintenanceConfiguration A single table bucket maintenance configuration object.
-         * See `maintenanceConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maintenanceConfiguration(@Nullable Output<TableMaintenanceConfigurationArgs> maintenanceConfiguration) {
             $.maintenanceConfiguration = maintenanceConfiguration;
             return this;
         }
 
-        /**
-         * @param maintenanceConfiguration A single table bucket maintenance configuration object.
-         * See `maintenanceConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maintenanceConfiguration(TableMaintenanceConfigurationArgs maintenanceConfiguration) {
             return maintenanceConfiguration(Output.of(maintenanceConfiguration));
         }
 
-        /**
-         * @param metadata Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-         * See `metadata` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metadata(@Nullable Output<TableMetadataArgs> metadata) {
             $.metadata = metadata;
             return this;
         }
 
-        /**
-         * @param metadata Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-         * See `metadata` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metadata(TableMetadataArgs metadata) {
             return metadata(Output.of(metadata));
         }
 
-        /**
-         * @param name Name of the table.
-         * Must be between 1 and 255 characters in length.
-         * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-         * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the table.
-         * Must be between 1 and 255 characters in length.
-         * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-         * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param namespace Name of the namespace for this table.
-         * Must be between 1 and 255 characters in length.
-         * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
 
-        /**
-         * @param namespace Name of the namespace for this table.
-         * Must be between 1 and 255 characters in length.
-         * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tableBucketArn ARN referencing the Table Bucket that contains this Namespace.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableBucketArn(Output<String> tableBucketArn) {
             $.tableBucketArn = tableBucketArn;
             return this;
         }
 
-        /**
-         * @param tableBucketArn ARN referencing the Table Bucket that contains this Namespace.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableBucketArn(String tableBucketArn) {
             return tableBucketArn(Output.of(tableBucketArn));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

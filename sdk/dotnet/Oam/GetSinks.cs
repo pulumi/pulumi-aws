@@ -11,72 +11,12 @@ namespace Pulumi.Aws.Oam
 {
     public static class GetSinks
     {
-        /// <summary>
-        /// Data source for managing an AWS CloudWatch Observability Access Manager Sinks.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Oam.GetSinks.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetSinksResult> InvokeAsync(GetSinksArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSinksResult>("aws:oam/getSinks:getSinks", args ?? new GetSinksArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS CloudWatch Observability Access Manager Sinks.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Oam.GetSinks.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetSinksResult> Invoke(GetSinksInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSinksResult>("aws:oam/getSinks:getSinks", args ?? new GetSinksInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS CloudWatch Observability Access Manager Sinks.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Oam.GetSinks.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetSinksResult> Invoke(GetSinksInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSinksResult>("aws:oam/getSinks:getSinks", args ?? new GetSinksInvokeArgs(), options.WithDefaults());
     }
@@ -84,9 +24,6 @@ namespace Pulumi.Aws.Oam
 
     public sealed class GetSinksArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -98,9 +35,6 @@ namespace Pulumi.Aws.Oam
 
     public sealed class GetSinksInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -114,9 +48,6 @@ namespace Pulumi.Aws.Oam
     [OutputType]
     public sealed class GetSinksResult
     {
-        /// <summary>
-        /// Set of ARN of the Sinks.
-        /// </summary>
         public readonly ImmutableArray<string> Arns;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

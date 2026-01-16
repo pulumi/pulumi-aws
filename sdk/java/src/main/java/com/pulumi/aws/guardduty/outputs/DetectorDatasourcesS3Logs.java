@@ -10,19 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class DetectorDatasourcesS3Logs {
-    /**
-     * @return If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-     * Defaults to `true`.
-     * 
-     */
     private Boolean enable;
 
     private DetectorDatasourcesS3Logs() {}
-    /**
-     * @return If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-     * Defaults to `true`.
-     * 
-     */
     public Boolean enable() {
         return this.enable;
     }

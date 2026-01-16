@@ -14,34 +14,16 @@ import javax.annotation.Nullable;
 @CustomType
 public final class V2modelsSlotSubSlotSettingSlotSpecification {
     private String mapBlockKey;
-    /**
-     * @return Unique identifier assigned to the slot type.
-     * 
-     */
     private String slotTypeId;
-    /**
-     * @return Elicitation setting details for constituent sub slots of a composite slot.
-     * See the `valueElicitationSetting` argument reference below.
-     * 
-     */
     private @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting> valueElicitationSettings;
 
     private V2modelsSlotSubSlotSettingSlotSpecification() {}
     public String mapBlockKey() {
         return this.mapBlockKey;
     }
-    /**
-     * @return Unique identifier assigned to the slot type.
-     * 
-     */
     public String slotTypeId() {
         return this.slotTypeId;
     }
-    /**
-     * @return Elicitation setting details for constituent sub slots of a composite slot.
-     * See the `valueElicitationSetting` argument reference below.
-     * 
-     */
     public List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting> valueElicitationSettings() {
         return this.valueElicitationSettings == null ? List.of() : this.valueElicitationSettings;
     }

@@ -41,9 +41,6 @@ class GetDelegatedAdministratorsResult:
     @_builtins.property
     @pulumi.getter(name="delegatedAdministrators")
     def delegated_administrators(self) -> Sequence['outputs.GetDelegatedAdministratorsDelegatedAdministratorResult']:
-        """
-        The list of delegated administrators in your organization, which have the following attributes:
-        """
         return pulumi.get(self, "delegated_administrators")
 
     @_builtins.property
@@ -74,19 +71,7 @@ class AwaitableGetDelegatedAdministratorsResult(GetDelegatedAdministratorsResult
 def get_delegated_administrators(service_principal: Optional[_builtins.str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDelegatedAdministratorsResult:
     """
-    Get a list of AWS accounts that are designated as delegated administrators in this organization
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.organizations.get_delegated_administrators(service_principal="SERVICE PRINCIPAL")
-    ```
-
-
-    :param _builtins.str service_principal: Specifies a service principal name. If specified, then the operation lists the delegated administrators only for the specified service. If you don't specify a service principal, the operation lists all delegated administrators for all services in your organization.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['servicePrincipal'] = service_principal
@@ -100,19 +85,7 @@ def get_delegated_administrators(service_principal: Optional[_builtins.str] = No
 def get_delegated_administrators_output(service_principal: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDelegatedAdministratorsResult]:
     """
-    Get a list of AWS accounts that are designated as delegated administrators in this organization
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.organizations.get_delegated_administrators(service_principal="SERVICE PRINCIPAL")
-    ```
-
-
-    :param _builtins.str service_principal: Specifies a service principal name. If specified, then the operation lists the delegated administrators only for the specified service. If you don't specify a service principal, the operation lists all delegated administrators for all services in your organization.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['servicePrincipal'] = service_principal

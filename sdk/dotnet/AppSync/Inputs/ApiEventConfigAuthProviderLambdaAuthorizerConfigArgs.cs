@@ -12,21 +12,12 @@ namespace Pulumi.Aws.AppSync.Inputs
 
     public sealed class ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// TTL in seconds for the authorization result cache.
-        /// </summary>
         [Input("authorizerResultTtlInSeconds")]
         public Input<int>? AuthorizerResultTtlInSeconds { get; set; }
 
-        /// <summary>
-        /// URI of the Lambda function for authorization.
-        /// </summary>
         [Input("authorizerUri", required: true)]
         public Input<string> AuthorizerUri { get; set; } = null!;
 
-        /// <summary>
-        /// Regular expression for identity validation.
-        /// </summary>
         [Input("identityValidationExpression")]
         public Input<string>? IdentityValidationExpression { get; set; }
 

@@ -11,65 +11,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFleetComputeConfiguration {
-    /**
-     * @return Amount of disk space of the instance type included in the fleet.
-     * 
-     */
     private Integer disk;
-    /**
-     * @return EC2 instance type in the fleet.
-     * 
-     */
     private String instanceType;
-    /**
-     * @return Machine type of the instance type included in the fleet.
-     * 
-     */
     private String machineType;
-    /**
-     * @return Amount of memory of the instance type included in the fleet.
-     * 
-     */
     private Integer memory;
-    /**
-     * @return Number of vCPUs of the instance type included in the fleet.
-     * 
-     */
     private Integer vcpu;
 
     private GetFleetComputeConfiguration() {}
-    /**
-     * @return Amount of disk space of the instance type included in the fleet.
-     * 
-     */
     public Integer disk() {
         return this.disk;
     }
-    /**
-     * @return EC2 instance type in the fleet.
-     * 
-     */
     public String instanceType() {
         return this.instanceType;
     }
-    /**
-     * @return Machine type of the instance type included in the fleet.
-     * 
-     */
     public String machineType() {
         return this.machineType;
     }
-    /**
-     * @return Amount of memory of the instance type included in the fleet.
-     * 
-     */
     public Integer memory() {
         return this.memory;
     }
-    /**
-     * @return Number of vCPUs of the instance type included in the fleet.
-     * 
-     */
     public Integer vcpu() {
         return this.vcpu;
     }

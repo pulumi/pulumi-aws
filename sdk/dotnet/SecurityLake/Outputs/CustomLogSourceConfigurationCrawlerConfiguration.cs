@@ -13,9 +13,6 @@ namespace Pulumi.Aws.SecurityLake.Outputs
     [OutputType]
     public sealed class CustomLogSourceConfigurationCrawlerConfiguration
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
-        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

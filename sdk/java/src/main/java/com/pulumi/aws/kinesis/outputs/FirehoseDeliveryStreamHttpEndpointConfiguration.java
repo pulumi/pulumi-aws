@@ -18,161 +18,57 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
-    /**
-     * @return The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
-     * 
-     */
     private @Nullable String accessKey;
-    /**
-     * @return Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
-     * 
-     */
     private @Nullable Integer bufferingInterval;
-    /**
-     * @return Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-     * 
-     */
     private @Nullable Integer bufferingSize;
-    /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
-     * 
-     */
     private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
-    /**
-     * @return The HTTP endpoint name.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return The data processing configuration.  See `processingConfiguration` block below for details.
-     * 
-     */
     private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration processingConfiguration;
-    /**
-     * @return The request configuration.  See `requestConfiguration` block below for details.
-     * 
-     */
     private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration requestConfiguration;
-    /**
-     * @return Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
-     * 
-     */
     private @Nullable Integer retryDuration;
-    /**
-     * @return Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
-     * 
-     */
     private @Nullable String roleArn;
-    /**
-     * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
-     * 
-     */
     private @Nullable String s3BackupMode;
-    /**
-     * @return The S3 Configuration. See `s3Configuration` block below for details.
-     * 
-     */
     private FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration s3Configuration;
-    /**
-     * @return The Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
-     * 
-     */
     private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration secretsManagerConfiguration;
-    /**
-     * @return The HTTP endpoint URL to which Kinesis Firehose sends your data.
-     * 
-     */
     private String url;
 
     private FirehoseDeliveryStreamHttpEndpointConfiguration() {}
-    /**
-     * @return The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
-     * 
-     */
     public Optional<String> accessKey() {
         return Optional.ofNullable(this.accessKey);
     }
-    /**
-     * @return Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
-     * 
-     */
     public Optional<Integer> bufferingInterval() {
         return Optional.ofNullable(this.bufferingInterval);
     }
-    /**
-     * @return Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-     * 
-     */
     public Optional<Integer> bufferingSize() {
         return Optional.ofNullable(this.bufferingSize);
     }
-    /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
-     * 
-     */
     public Optional<FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
         return Optional.ofNullable(this.cloudwatchLoggingOptions);
     }
-    /**
-     * @return The HTTP endpoint name.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return The data processing configuration.  See `processingConfiguration` block below for details.
-     * 
-     */
     public Optional<FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration> processingConfiguration() {
         return Optional.ofNullable(this.processingConfiguration);
     }
-    /**
-     * @return The request configuration.  See `requestConfiguration` block below for details.
-     * 
-     */
     public Optional<FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration> requestConfiguration() {
         return Optional.ofNullable(this.requestConfiguration);
     }
-    /**
-     * @return Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
-     * 
-     */
     public Optional<Integer> retryDuration() {
         return Optional.ofNullable(this.retryDuration);
     }
-    /**
-     * @return Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
-     * 
-     */
     public Optional<String> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
-    /**
-     * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
-     * 
-     */
     public Optional<String> s3BackupMode() {
         return Optional.ofNullable(this.s3BackupMode);
     }
-    /**
-     * @return The S3 Configuration. See `s3Configuration` block below for details.
-     * 
-     */
     public FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration s3Configuration() {
         return this.s3Configuration;
     }
-    /**
-     * @return The Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
-     * 
-     */
     public Optional<FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration> secretsManagerConfiguration() {
         return Optional.ofNullable(this.secretsManagerConfiguration);
     }
-    /**
-     * @return The HTTP endpoint URL to which Kinesis Firehose sends your data.
-     * 
-     */
     public String url() {
         return this.url;
     }

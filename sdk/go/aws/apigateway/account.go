@@ -11,113 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a settings of an API Gateway Account. Settings is applied region-wide per `provider` block.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"apigateway.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			cloudwatchRole, err := iam.NewRole(ctx, "cloudwatch", &iam.RoleArgs{
-//				Name:             pulumi.String("api_gateway_cloudwatch_global"),
-//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apigateway.NewAccount(ctx, "demo", &apigateway.AccountArgs{
-//				CloudwatchRoleArn: cloudwatchRole.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			cloudwatch, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"logs:CreateLogGroup",
-//							"logs:CreateLogStream",
-//							"logs:DescribeLogGroups",
-//							"logs:DescribeLogStreams",
-//							"logs:PutLogEvents",
-//							"logs:GetLogEvents",
-//							"logs:FilterLogEvents",
-//						},
-//						Resources: []string{
-//							"*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicy(ctx, "cloudwatch", &iam.RolePolicyArgs{
-//				Name:   pulumi.String("default"),
-//				Role:   cloudwatchRole.ID(),
-//				Policy: pulumi.String(cloudwatch.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import API Gateway Accounts using the account ID. For example:
-//
-// ```sh
-// $ pulumi import aws:apigateway/account:Account demo 123456789012
-// ```
 type Account struct {
 	pulumi.CustomResourceState
 
-	// The version of the API keys used for the account.
-	ApiKeyVersion pulumi.StringOutput `pulumi:"apiKeyVersion"`
-	// ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-	CloudwatchRoleArn pulumi.StringOutput `pulumi:"cloudwatchRoleArn"`
-	// A list of features supported for the account.
-	Features pulumi.StringArrayOutput `pulumi:"features"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Account-Level throttle settings. See exported fields below.
-	ThrottleSettings AccountThrottleSettingArrayOutput `pulumi:"throttleSettings"`
+	ApiKeyVersion     pulumi.StringOutput               `pulumi:"apiKeyVersion"`
+	CloudwatchRoleArn pulumi.StringOutput               `pulumi:"cloudwatchRoleArn"`
+	Features          pulumi.StringArrayOutput          `pulumi:"features"`
+	Region            pulumi.StringOutput               `pulumi:"region"`
+	ThrottleSettings  AccountThrottleSettingArrayOutput `pulumi:"throttleSettings"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -150,29 +51,19 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
-	// The version of the API keys used for the account.
-	ApiKeyVersion *string `pulumi:"apiKeyVersion"`
-	// ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-	CloudwatchRoleArn *string `pulumi:"cloudwatchRoleArn"`
-	// A list of features supported for the account.
-	Features []string `pulumi:"features"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Account-Level throttle settings. See exported fields below.
-	ThrottleSettings []AccountThrottleSetting `pulumi:"throttleSettings"`
+	ApiKeyVersion     *string                  `pulumi:"apiKeyVersion"`
+	CloudwatchRoleArn *string                  `pulumi:"cloudwatchRoleArn"`
+	Features          []string                 `pulumi:"features"`
+	Region            *string                  `pulumi:"region"`
+	ThrottleSettings  []AccountThrottleSetting `pulumi:"throttleSettings"`
 }
 
 type AccountState struct {
-	// The version of the API keys used for the account.
-	ApiKeyVersion pulumi.StringPtrInput
-	// ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
+	ApiKeyVersion     pulumi.StringPtrInput
 	CloudwatchRoleArn pulumi.StringPtrInput
-	// A list of features supported for the account.
-	Features pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Account-Level throttle settings. See exported fields below.
-	ThrottleSettings AccountThrottleSettingArrayInput
+	Features          pulumi.StringArrayInput
+	Region            pulumi.StringPtrInput
+	ThrottleSettings  AccountThrottleSettingArrayInput
 }
 
 func (AccountState) ElementType() reflect.Type {
@@ -180,18 +71,14 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
-	// ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
 	CloudwatchRoleArn *string `pulumi:"cloudwatchRoleArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region            *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
 	CloudwatchRoleArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {
@@ -281,27 +168,22 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 	return o
 }
 
-// The version of the API keys used for the account.
 func (o AccountOutput) ApiKeyVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.ApiKeyVersion }).(pulumi.StringOutput)
 }
 
-// ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
 func (o AccountOutput) CloudwatchRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.CloudwatchRoleArn }).(pulumi.StringOutput)
 }
 
-// A list of features supported for the account.
 func (o AccountOutput) Features() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringArrayOutput { return v.Features }).(pulumi.StringArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AccountOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Account-Level throttle settings. See exported fields below.
 func (o AccountOutput) ThrottleSettings() AccountThrottleSettingArrayOutput {
 	return o.ApplyT(func(v *Account) AccountThrottleSettingArrayOutput { return v.ThrottleSettings }).(AccountThrottleSettingArrayOutput)
 }

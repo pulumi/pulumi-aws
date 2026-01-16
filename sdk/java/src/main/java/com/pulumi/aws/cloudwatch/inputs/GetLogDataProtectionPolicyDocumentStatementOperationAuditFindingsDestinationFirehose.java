@@ -13,17 +13,9 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperationAuditFind
 
     public static final GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose Empty = new GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose();
 
-    /**
-     * Name of the Kinesis Firehose Delivery Stream to send findings to.
-     * 
-     */
     @Import(name="deliveryStream", required=true)
     private String deliveryStream;
 
-    /**
-     * @return Name of the Kinesis Firehose Delivery Stream to send findings to.
-     * 
-     */
     public String deliveryStream() {
         return this.deliveryStream;
     }
@@ -52,12 +44,6 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperationAuditFind
             $ = new GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param deliveryStream Name of the Kinesis Firehose Delivery Stream to send findings to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryStream(String deliveryStream) {
             $.deliveryStream = deliveryStream;
             return this;

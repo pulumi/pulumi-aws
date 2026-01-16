@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduleTargetEcsParametersPlacementStrategy {
-    /**
-     * @return The field to apply the placement strategy against.
-     * 
-     */
     private @Nullable String field;
-    /**
-     * @return The type of placement strategy. One of: `random`, `spread`, `binpack`.
-     * 
-     */
     private String type;
 
     private ScheduleTargetEcsParametersPlacementStrategy() {}
-    /**
-     * @return The field to apply the placement strategy against.
-     * 
-     */
     public Optional<String> field() {
         return Optional.ofNullable(this.field);
     }
-    /**
-     * @return The type of placement strategy. One of: `random`, `spread`, `binpack`.
-     * 
-     */
     public String type() {
         return this.type;
     }

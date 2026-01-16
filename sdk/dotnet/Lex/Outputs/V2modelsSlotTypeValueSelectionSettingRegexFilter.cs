@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsSlotTypeValueSelectionSettingRegexFilter
     {
-        /// <summary>
-        /// A regular expression used to validate the value of a slot.
-        /// </summary>
         public readonly string Pattern;
 
         [OutputConstructor]

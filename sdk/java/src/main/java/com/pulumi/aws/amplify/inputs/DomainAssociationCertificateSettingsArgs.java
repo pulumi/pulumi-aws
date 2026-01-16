@@ -16,51 +16,23 @@ public final class DomainAssociationCertificateSettingsArgs extends com.pulumi.r
 
     public static final DomainAssociationCertificateSettingsArgs Empty = new DomainAssociationCertificateSettingsArgs();
 
-    /**
-     * DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).
-     * 
-     */
     @Import(name="certificateVerificationDnsRecord")
     private @Nullable Output<String> certificateVerificationDnsRecord;
 
-    /**
-     * @return DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).
-     * 
-     */
     public Optional<Output<String>> certificateVerificationDnsRecord() {
         return Optional.ofNullable(this.certificateVerificationDnsRecord);
     }
 
-    /**
-     * The Amazon resource name (ARN) for the custom certificate.
-     * Required when `type` is `CUSTOM`.
-     * 
-     */
     @Import(name="customCertificateArn")
     private @Nullable Output<String> customCertificateArn;
 
-    /**
-     * @return The Amazon resource name (ARN) for the custom certificate.
-     * Required when `type` is `CUSTOM`.
-     * 
-     */
     public Optional<Output<String>> customCertificateArn() {
         return Optional.ofNullable(this.customCertificateArn);
     }
 
-    /**
-     * The certificate type.
-     * Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The certificate type.
-     * Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -91,69 +63,29 @@ public final class DomainAssociationCertificateSettingsArgs extends com.pulumi.r
             $ = new DomainAssociationCertificateSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificateVerificationDnsRecord DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateVerificationDnsRecord(@Nullable Output<String> certificateVerificationDnsRecord) {
             $.certificateVerificationDnsRecord = certificateVerificationDnsRecord;
             return this;
         }
 
-        /**
-         * @param certificateVerificationDnsRecord DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateVerificationDnsRecord(String certificateVerificationDnsRecord) {
             return certificateVerificationDnsRecord(Output.of(certificateVerificationDnsRecord));
         }
 
-        /**
-         * @param customCertificateArn The Amazon resource name (ARN) for the custom certificate.
-         * Required when `type` is `CUSTOM`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customCertificateArn(@Nullable Output<String> customCertificateArn) {
             $.customCertificateArn = customCertificateArn;
             return this;
         }
 
-        /**
-         * @param customCertificateArn The Amazon resource name (ARN) for the custom certificate.
-         * Required when `type` is `CUSTOM`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customCertificateArn(String customCertificateArn) {
             return customCertificateArn(Output.of(customCertificateArn));
         }
 
-        /**
-         * @param type The certificate type.
-         * Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The certificate type.
-         * Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

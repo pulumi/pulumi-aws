@@ -9,258 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ssm
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ssm.ContactsRotation("example", new()
-    ///     {
-    ///         ContactIds = new[]
-    ///         {
-    ///             exampleAwsSsmcontactsContact.Arn,
-    ///         },
-    ///         Name = "rotation",
-    ///         Recurrence = new Aws.Ssm.Inputs.ContactsRotationRecurrenceArgs
-    ///         {
-    ///             NumberOfOnCalls = 1,
-    ///             RecurrenceMultiplier = 1,
-    ///             DailySettings = new[]
-    ///             {
-    ///                 new Aws.Ssm.Inputs.ContactsRotationRecurrenceDailySettingArgs
-    ///                 {
-    ///                     HourOfDay = 9,
-    ///                     MinuteOfHour = 0,
-    ///                 },
-    ///             },
-    ///         },
-    ///         TimeZoneId = "Australia/Sydney",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleAwsSsmincidentsReplicationSet,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Usage with Weekly Settings and Shift Coverages Fields
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ssm.ContactsRotation("example", new()
-    ///     {
-    ///         ContactIds = new[]
-    ///         {
-    ///             exampleAwsSsmcontactsContact.Arn,
-    ///         },
-    ///         Name = "rotation",
-    ///         Recurrence = new Aws.Ssm.Inputs.ContactsRotationRecurrenceArgs
-    ///         {
-    ///             NumberOfOnCalls = 1,
-    ///             RecurrenceMultiplier = 1,
-    ///             WeeklySettings = new[]
-    ///             {
-    ///                 new Aws.Ssm.Inputs.ContactsRotationRecurrenceWeeklySettingArgs
-    ///                 {
-    ///                     DayOfWeek = "WED",
-    ///                     HandOffTime = new Aws.Ssm.Inputs.ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs
-    ///                     {
-    ///                         HourOfDay = 4,
-    ///                         MinuteOfHour = 25,
-    ///                     },
-    ///                 },
-    ///                 new Aws.Ssm.Inputs.ContactsRotationRecurrenceWeeklySettingArgs
-    ///                 {
-    ///                     DayOfWeek = "FRI",
-    ///                     HandOffTime = new Aws.Ssm.Inputs.ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs
-    ///                     {
-    ///                         HourOfDay = 15,
-    ///                         MinuteOfHour = 57,
-    ///                     },
-    ///                 },
-    ///             },
-    ///             ShiftCoverages = new[]
-    ///             {
-    ///                 new Aws.Ssm.Inputs.ContactsRotationRecurrenceShiftCoverageArgs
-    ///                 {
-    ///                     MapBlockKey = "MON",
-    ///                     CoverageTimes = new[]
-    ///                     {
-    ///                         new Aws.Ssm.Inputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs
-    ///                         {
-    ///                             Start = new Aws.Ssm.Inputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs
-    ///                             {
-    ///                                 HourOfDay = 1,
-    ///                                 MinuteOfHour = 0,
-    ///                             },
-    ///                             End = new Aws.Ssm.Inputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs
-    ///                             {
-    ///                                 HourOfDay = 23,
-    ///                                 MinuteOfHour = 0,
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///         StartTime = "2023-07-20T02:21:49+00:00",
-    ///         TimeZoneId = "Australia/Sydney",
-    ///         Tags = 
-    ///         {
-    ///             { "key1", "tag1" },
-    ///             { "key2", "tag2" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleAwsSsmincidentsReplicationSet,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Usage with Monthly Settings Fields
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ssm.ContactsRotation("example", new()
-    ///     {
-    ///         ContactIds = new[]
-    ///         {
-    ///             exampleAwsSsmcontactsContact.Arn,
-    ///         },
-    ///         Name = "rotation",
-    ///         Recurrence = new Aws.Ssm.Inputs.ContactsRotationRecurrenceArgs
-    ///         {
-    ///             NumberOfOnCalls = 1,
-    ///             RecurrenceMultiplier = 1,
-    ///             MonthlySettings = new[]
-    ///             {
-    ///                 new Aws.Ssm.Inputs.ContactsRotationRecurrenceMonthlySettingArgs
-    ///                 {
-    ///                     DayOfMonth = 20,
-    ///                     HandOffTime = new Aws.Ssm.Inputs.ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs
-    ///                     {
-    ///                         HourOfDay = 8,
-    ///                         MinuteOfHour = 0,
-    ///                     },
-    ///                 },
-    ///                 new Aws.Ssm.Inputs.ContactsRotationRecurrenceMonthlySettingArgs
-    ///                 {
-    ///                     DayOfMonth = 13,
-    ///                     HandOffTime = new Aws.Ssm.Inputs.ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs
-    ///                     {
-    ///                         HourOfDay = 12,
-    ///                         MinuteOfHour = 34,
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///         TimeZoneId = "Australia/Sydney",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleAwsSsmincidentsReplicationSet,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the SSM Contacts rotation.
-    /// 
-    /// Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `arn`. For example:
-    /// 
-    /// % pulumi import aws_ssmcontacts_rotation.example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
-    /// </summary>
     [AwsResourceType("aws:ssm/contactsRotation:ContactsRotation")]
     public partial class ContactsRotation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the rotation.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
-        /// </summary>
         [Output("contactIds")]
         public Output<ImmutableArray<string>> ContactIds { get; private set; } = null!;
 
-        /// <summary>
-        /// The name for the rotation.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `DailySettings`, `MonthlySettings`, or `WeeklySettings` must be populated. See Recurrence for more details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("recurrence")]
         public Output<Outputs.ContactsRotationRecurrence?> Recurrence { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The date and time, in RFC 3339 format, that the rotation goes into effect.
-        /// </summary>
         [Output("startTime")]
         public Output<string?> StartTime { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
-        /// </summary>
         [Output("timeZoneId")]
         public Output<string> TimeZoneId { get; private set; } = null!;
 
@@ -312,57 +87,32 @@ namespace Pulumi.Aws.Ssm
     {
         [Input("contactIds", required: true)]
         private InputList<string>? _contactIds;
-
-        /// <summary>
-        /// Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
-        /// </summary>
         public InputList<string> ContactIds
         {
             get => _contactIds ?? (_contactIds = new InputList<string>());
             set => _contactIds = value;
         }
 
-        /// <summary>
-        /// The name for the rotation.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `DailySettings`, `MonthlySettings`, or `WeeklySettings` must be populated. See Recurrence for more details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("recurrence")]
         public Input<Inputs.ContactsRotationRecurrenceArgs>? Recurrence { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The date and time, in RFC 3339 format, that the rotation goes into effect.
-        /// </summary>
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
-        /// </summary>
         [Input("timeZoneId", required: true)]
         public Input<string> TimeZoneId { get; set; } = null!;
 
@@ -374,56 +124,31 @@ namespace Pulumi.Aws.Ssm
 
     public sealed class ContactsRotationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the rotation.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("contactIds")]
         private InputList<string>? _contactIds;
-
-        /// <summary>
-        /// Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
-        /// </summary>
         public InputList<string> ContactIds
         {
             get => _contactIds ?? (_contactIds = new InputList<string>());
             set => _contactIds = value;
         }
 
-        /// <summary>
-        /// The name for the rotation.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `DailySettings`, `MonthlySettings`, or `WeeklySettings` must be populated. See Recurrence for more details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("recurrence")]
         public Input<Inputs.ContactsRotationRecurrenceGetArgs>? Recurrence { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The date and time, in RFC 3339 format, that the rotation goes into effect.
-        /// </summary>
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -432,19 +157,12 @@ namespace Pulumi.Aws.Ssm
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
-        /// </summary>
         [Input("timeZoneId")]
         public Input<string>? TimeZoneId { get; set; }
 

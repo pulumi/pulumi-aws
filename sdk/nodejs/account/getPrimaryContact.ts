@@ -4,18 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Data source for the primary contact information associated with an AWS Account.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.account.getPrimaryContact({});
- * ```
- */
 export function getPrimaryContact(args?: GetPrimaryContactArgs, opts?: pulumi.InvokeOptions): Promise<GetPrimaryContactResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -28,9 +16,6 @@ export function getPrimaryContact(args?: GetPrimaryContactArgs, opts?: pulumi.In
  * A collection of arguments for invoking getPrimaryContact.
  */
 export interface GetPrimaryContactArgs {
-    /**
-     * The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
-     */
     accountId?: string;
 }
 
@@ -39,71 +24,23 @@ export interface GetPrimaryContactArgs {
  */
 export interface GetPrimaryContactResult {
     readonly accountId: string;
-    /**
-     * The first line of the primary contact address.
-     */
     readonly addressLine1: string;
-    /**
-     * The second line of the primary contact address.
-     */
     readonly addressLine2: string;
-    /**
-     * The third line of the primary contact address.
-     */
     readonly addressLine3: string;
-    /**
-     * The city of the primary contact address.
-     */
     readonly city: string;
-    /**
-     * The name of the company associated with the primary contact information.
-     */
     readonly companyName: string;
-    /**
-     * The ISO-3166 two-letter country code for the primary contact address.
-     */
     readonly countryCode: string;
-    /**
-     * The district or county of the primary contact address.
-     */
     readonly districtOrCounty: string;
-    /**
-     * The full name of the primary contact address.
-     */
     readonly fullName: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * The phone number of the primary contact information.
-     */
     readonly phoneNumber: string;
-    /**
-     * The postal code of the primary contact address.
-     */
     readonly postalCode: string;
-    /**
-     * The state or region of the primary contact address.
-     */
     readonly stateOrRegion: string;
-    /**
-     * The URL of the website associated with the primary contact information.
-     */
     readonly websiteUrl: string;
 }
-/**
- * Data source for the primary contact information associated with an AWS Account.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.account.getPrimaryContact({});
- * ```
- */
 export function getPrimaryContactOutput(args?: GetPrimaryContactOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrimaryContactResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -116,8 +53,5 @@ export function getPrimaryContactOutput(args?: GetPrimaryContactOutputArgs, opts
  * A collection of arguments for invoking getPrimaryContact.
  */
 export interface GetPrimaryContactOutputArgs {
-    /**
-     * The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
-     */
     accountId?: pulumi.Input<string>;
 }

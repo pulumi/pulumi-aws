@@ -12,33 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DevEnvironmentRepository {
-    /**
-     * @return The name of the branch in a source repository.
-     * 
-     * persistent storage (`  persistentStorage `) supports the following:
-     * 
-     */
     private @Nullable String branchName;
-    /**
-     * @return The name of the source repository.
-     * 
-     */
     private String repositoryName;
 
     private DevEnvironmentRepository() {}
-    /**
-     * @return The name of the branch in a source repository.
-     * 
-     * persistent storage (`  persistentStorage `) supports the following:
-     * 
-     */
     public Optional<String> branchName() {
         return Optional.ofNullable(this.branchName);
     }
-    /**
-     * @return The name of the source repository.
-     * 
-     */
     public String repositoryName() {
         return this.repositoryName;
     }

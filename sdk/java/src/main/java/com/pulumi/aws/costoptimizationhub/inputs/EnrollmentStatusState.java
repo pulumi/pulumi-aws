@@ -16,17 +16,9 @@ public final class EnrollmentStatusState extends com.pulumi.resources.ResourceAr
 
     public static final EnrollmentStatusState Empty = new EnrollmentStatusState();
 
-    /**
-     * Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
-     * 
-     */
     @Import(name="includeMemberAccounts")
     private @Nullable Output<Boolean> includeMemberAccounts;
 
-    /**
-     * @return Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> includeMemberAccounts() {
         return Optional.ofNullable(this.includeMemberAccounts);
     }
@@ -63,23 +55,11 @@ public final class EnrollmentStatusState extends com.pulumi.resources.ResourceAr
             $ = new EnrollmentStatusState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param includeMemberAccounts Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeMemberAccounts(@Nullable Output<Boolean> includeMemberAccounts) {
             $.includeMemberAccounts = includeMemberAccounts;
             return this;
         }
 
-        /**
-         * @param includeMemberAccounts Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeMemberAccounts(Boolean includeMemberAccounts) {
             return includeMemberAccounts(Output.of(includeMemberAccounts));
         }

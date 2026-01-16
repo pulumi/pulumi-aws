@@ -17,47 +17,23 @@ public final class ReceiptRuleSnsActionArgs extends com.pulumi.resources.Resourc
 
     public static final ReceiptRuleSnsActionArgs Empty = new ReceiptRuleSnsActionArgs();
 
-    /**
-     * The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
-     * 
-     */
     @Import(name="encoding")
     private @Nullable Output<String> encoding;
 
-    /**
-     * @return The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
-     * 
-     */
     public Optional<Output<String>> encoding() {
         return Optional.ofNullable(this.encoding);
     }
 
-    /**
-     * The position of the action in the receipt rule
-     * 
-     */
     @Import(name="position", required=true)
     private Output<Integer> position;
 
-    /**
-     * @return The position of the action in the receipt rule
-     * 
-     */
     public Output<Integer> position() {
         return this.position;
     }
 
-    /**
-     * The ARN of an SNS topic to notify
-     * 
-     */
     @Import(name="topicArn", required=true)
     private Output<String> topicArn;
 
-    /**
-     * @return The ARN of an SNS topic to notify
-     * 
-     */
     public Output<String> topicArn() {
         return this.topicArn;
     }
@@ -88,65 +64,29 @@ public final class ReceiptRuleSnsActionArgs extends com.pulumi.resources.Resourc
             $ = new ReceiptRuleSnsActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param encoding The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encoding(@Nullable Output<String> encoding) {
             $.encoding = encoding;
             return this;
         }
 
-        /**
-         * @param encoding The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encoding(String encoding) {
             return encoding(Output.of(encoding));
         }
 
-        /**
-         * @param position The position of the action in the receipt rule
-         * 
-         * @return builder
-         * 
-         */
         public Builder position(Output<Integer> position) {
             $.position = position;
             return this;
         }
 
-        /**
-         * @param position The position of the action in the receipt rule
-         * 
-         * @return builder
-         * 
-         */
         public Builder position(Integer position) {
             return position(Output.of(position));
         }
 
-        /**
-         * @param topicArn The ARN of an SNS topic to notify
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicArn(Output<String> topicArn) {
             $.topicArn = topicArn;
             return this;
         }
 
-        /**
-         * @param topicArn The ARN of an SNS topic to notify
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicArn(String topicArn) {
             return topicArn(Output.of(topicArn));
         }

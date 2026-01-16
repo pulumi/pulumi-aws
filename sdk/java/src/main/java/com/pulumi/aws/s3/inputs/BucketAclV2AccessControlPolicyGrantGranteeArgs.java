@@ -17,8 +17,6 @@ public final class BucketAclV2AccessControlPolicyGrantGranteeArgs extends com.pu
     public static final BucketAclV2AccessControlPolicyGrantGranteeArgs Empty = new BucketAclV2AccessControlPolicyGrantGranteeArgs();
 
     /**
-     * Display name of the owner.
-     * 
      * @deprecated
      * display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
      * 
@@ -28,8 +26,6 @@ public final class BucketAclV2AccessControlPolicyGrantGranteeArgs extends com.pu
     private @Nullable Output<String> displayName;
 
     /**
-     * @return Display name of the owner.
-     * 
      * @deprecated
      * display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
      * 
@@ -39,62 +35,30 @@ public final class BucketAclV2AccessControlPolicyGrantGranteeArgs extends com.pu
         return Optional.ofNullable(this.displayName);
     }
 
-    /**
-     * Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
-     * 
-     */
     @Import(name="emailAddress")
     private @Nullable Output<String> emailAddress;
 
-    /**
-     * @return Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
-     * 
-     */
     public Optional<Output<String>> emailAddress() {
         return Optional.ofNullable(this.emailAddress);
     }
 
-    /**
-     * Canonical user ID of the grantee.
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return Canonical user ID of the grantee.
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Type of grantee. Valid values: `CanonicalUser`, `AmazonCustomerByEmail`, `Group`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of grantee. Valid values: `CanonicalUser`, `AmazonCustomerByEmail`, `Group`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
 
-    /**
-     * URI of the grantee group.
-     * 
-     */
     @Import(name="uri")
     private @Nullable Output<String> uri;
 
-    /**
-     * @return URI of the grantee group.
-     * 
-     */
     public Optional<Output<String>> uri() {
         return Optional.ofNullable(this.uri);
     }
@@ -128,8 +92,6 @@ public final class BucketAclV2AccessControlPolicyGrantGranteeArgs extends com.pu
         }
 
         /**
-         * @param displayName Display name of the owner.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -143,8 +105,6 @@ public final class BucketAclV2AccessControlPolicyGrantGranteeArgs extends com.pu
         }
 
         /**
-         * @param displayName Display name of the owner.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -156,86 +116,38 @@ public final class BucketAclV2AccessControlPolicyGrantGranteeArgs extends com.pu
             return displayName(Output.of(displayName));
         }
 
-        /**
-         * @param emailAddress Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailAddress(@Nullable Output<String> emailAddress) {
             $.emailAddress = emailAddress;
             return this;
         }
 
-        /**
-         * @param emailAddress Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailAddress(String emailAddress) {
             return emailAddress(Output.of(emailAddress));
         }
 
-        /**
-         * @param id Canonical user ID of the grantee.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Canonical user ID of the grantee.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param type Type of grantee. Valid values: `CanonicalUser`, `AmazonCustomerByEmail`, `Group`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of grantee. Valid values: `CanonicalUser`, `AmazonCustomerByEmail`, `Group`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param uri URI of the grantee group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uri(@Nullable Output<String> uri) {
             $.uri = uri;
             return this;
         }
 
-        /**
-         * @param uri URI of the grantee group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uri(String uri) {
             return uri(Output.of(uri));
         }

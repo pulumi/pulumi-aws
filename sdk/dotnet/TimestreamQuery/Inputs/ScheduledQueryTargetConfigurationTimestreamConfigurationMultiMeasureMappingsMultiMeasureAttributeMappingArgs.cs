@@ -12,21 +12,12 @@ namespace Pulumi.Aws.TimestreamQuery.Inputs
 
     public sealed class ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Type of the attribute to be read from the source column. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `TIMESTAMP`.
-        /// </summary>
         [Input("measureValueType", required: true)]
         public Input<string> MeasureValueType { get; set; } = null!;
 
-        /// <summary>
-        /// Source column from where the attribute value is to be read.
-        /// </summary>
         [Input("sourceColumn", required: true)]
         public Input<string> SourceColumn { get; set; } = null!;
 
-        /// <summary>
-        /// Custom name to be used for attribute name in derived table. If not provided, `SourceColumn` is used.
-        /// </summary>
         [Input("targetMultiMeasureAttributeName")]
         public Input<string>? TargetMultiMeasureAttributeName { get; set; }
 

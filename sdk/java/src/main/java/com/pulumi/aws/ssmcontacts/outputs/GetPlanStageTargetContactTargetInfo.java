@@ -11,18 +11,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPlanStageTargetContactTargetInfo {
-    /**
-     * @return The Amazon Resource Name (ARN) of the contact or escalation plan.
-     * 
-     */
     private String contactId;
     private Boolean isEssential;
 
     private GetPlanStageTargetContactTargetInfo() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the contact or escalation plan.
-     * 
-     */
     public String contactId() {
         return this.contactId;
     }

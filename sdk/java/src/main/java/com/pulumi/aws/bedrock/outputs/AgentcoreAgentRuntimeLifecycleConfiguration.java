@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentcoreAgentRuntimeLifecycleConfiguration {
-    /**
-     * @return Timeout in seconds for idle runtime sessions.
-     * 
-     */
     private Integer idleRuntimeSessionTimeout;
-    /**
-     * @return Maximum lifetime for the instance in seconds.
-     * 
-     */
     private Integer maxLifetime;
 
     private AgentcoreAgentRuntimeLifecycleConfiguration() {}
-    /**
-     * @return Timeout in seconds for idle runtime sessions.
-     * 
-     */
     public Integer idleRuntimeSessionTimeout() {
         return this.idleRuntimeSessionTimeout;
     }
-    /**
-     * @return Maximum lifetime for the instance in seconds.
-     * 
-     */
     public Integer maxLifetime() {
         return this.maxLifetime;
     }

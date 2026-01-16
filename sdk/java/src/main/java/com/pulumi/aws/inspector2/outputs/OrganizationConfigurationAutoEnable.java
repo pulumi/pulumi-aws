@@ -12,65 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrganizationConfigurationAutoEnable {
-    /**
-     * @return Whether code repository scans are automatically enabled for new members of your Amazon Inspector organization.
-     * 
-     */
     private @Nullable Boolean codeRepository;
-    /**
-     * @return Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
-     * 
-     */
     private Boolean ec2;
-    /**
-     * @return Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
-     * 
-     */
     private Boolean ecr;
-    /**
-     * @return Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
-     * 
-     */
     private @Nullable Boolean lambda;
-    /**
-     * @return Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `true`, you must also set the `lambda` argument to `true`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
-     * 
-     */
     private @Nullable Boolean lambdaCode;
 
     private OrganizationConfigurationAutoEnable() {}
-    /**
-     * @return Whether code repository scans are automatically enabled for new members of your Amazon Inspector organization.
-     * 
-     */
     public Optional<Boolean> codeRepository() {
         return Optional.ofNullable(this.codeRepository);
     }
-    /**
-     * @return Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
-     * 
-     */
     public Boolean ec2() {
         return this.ec2;
     }
-    /**
-     * @return Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
-     * 
-     */
     public Boolean ecr() {
         return this.ecr;
     }
-    /**
-     * @return Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
-     * 
-     */
     public Optional<Boolean> lambda() {
         return Optional.ofNullable(this.lambda);
     }
-    /**
-     * @return Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `true`, you must also set the `lambda` argument to `true`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
-     * 
-     */
     public Optional<Boolean> lambdaCode() {
         return Optional.ofNullable(this.lambdaCode);
     }

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainAimlOptionsNaturalLanguageQueryGenerationOptions {
-    /**
-     * @return The desired state of the natural language query generation feature. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     private @Nullable String desiredState;
 
     private DomainAimlOptionsNaturalLanguageQueryGenerationOptions() {}
-    /**
-     * @return The desired state of the natural language query generation feature. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public Optional<String> desiredState() {
         return Optional.ofNullable(this.desiredState);
     }

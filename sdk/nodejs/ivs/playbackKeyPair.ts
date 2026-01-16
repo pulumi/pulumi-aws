@@ -4,35 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS IVS (Interactive Video) Playback Key Pair.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.ivs.PlaybackKeyPair("example", {publicKey: std.file({
- *     input: "./public-key.pem",
- * }).then(invoke => invoke.result)});
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the IVS playback key pair.
- *
- * Using `pulumi import`, import IVS (Interactive Video) Playback Key Pair using the ARN. For example:
- *
- * % pulumi import aws_ivs_playback_key_pair.example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
- */
 export class PlaybackKeyPair extends pulumi.CustomResource {
     /**
      * Get an existing PlaybackKeyPair resource's state with the given name, ID, and optional extra
@@ -61,35 +32,12 @@ export class PlaybackKeyPair extends pulumi.CustomResource {
         return obj['__pulumiType'] === PlaybackKeyPair.__pulumiType;
     }
 
-    /**
-     * ARN of the Playback Key Pair.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Key-pair identifier.
-     */
     declare public /*out*/ readonly fingerprint: pulumi.Output<string>;
-    /**
-     * Playback Key Pair name.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly publicKey: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -134,35 +82,12 @@ export class PlaybackKeyPair extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PlaybackKeyPair resources.
  */
 export interface PlaybackKeyPairState {
-    /**
-     * ARN of the Playback Key Pair.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Key-pair identifier.
-     */
     fingerprint?: pulumi.Input<string>;
-    /**
-     * Playback Key Pair name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
-     *
-     * The following arguments are optional:
-     */
     publicKey?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -170,22 +95,8 @@ export interface PlaybackKeyPairState {
  * The set of arguments for constructing a PlaybackKeyPair resource.
  */
 export interface PlaybackKeyPairArgs {
-    /**
-     * Playback Key Pair name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
-     *
-     * The following arguments are optional:
-     */
     publicKey: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

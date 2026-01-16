@@ -12,64 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS CloudWatch Logs Transformer.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewLogTransformer(ctx, "example", &cloudwatch.LogTransformerArgs{
-//				TransformerConfigs: cloudwatch.LogTransformerTransformerConfigArray{
-//					&cloudwatch.LogTransformerTransformerConfigArgs{
-//						ParseJsons: cloudwatch.LogTransformerTransformerConfigParseJsonArray{
-//							&cloudwatch.LogTransformerTransformerConfigParseJsonArgs{},
-//						},
-//					},
-//				},
-//				LogGroupArn: exampleLogGroup.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudWatch Logs Transformer using the `log_group_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudwatch/logTransformer:LogTransformer example arn:aws:logs:us-west-2:123456789012:log-group:example
-// ```
 type LogTransformer struct {
 	pulumi.CustomResourceState
 
-	// Log group ARN to set the transformer for.
-	LogGroupArn pulumi.StringOutput `pulumi:"logGroupArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Specifies the configuration of the transformer. You must include at least one configuration, and 20 at most. See `transformerConfig` below for details.
+	LogGroupArn        pulumi.StringOutput                        `pulumi:"logGroupArn"`
+	Region             pulumi.StringOutput                        `pulumi:"region"`
 	TransformerConfigs LogTransformerTransformerConfigArrayOutput `pulumi:"transformerConfigs"`
 }
 
@@ -109,20 +56,14 @@ func GetLogTransformer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogTransformer resources.
 type logTransformerState struct {
-	// Log group ARN to set the transformer for.
-	LogGroupArn *string `pulumi:"logGroupArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Specifies the configuration of the transformer. You must include at least one configuration, and 20 at most. See `transformerConfig` below for details.
+	LogGroupArn        *string                           `pulumi:"logGroupArn"`
+	Region             *string                           `pulumi:"region"`
 	TransformerConfigs []LogTransformerTransformerConfig `pulumi:"transformerConfigs"`
 }
 
 type LogTransformerState struct {
-	// Log group ARN to set the transformer for.
-	LogGroupArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Specifies the configuration of the transformer. You must include at least one configuration, and 20 at most. See `transformerConfig` below for details.
+	LogGroupArn        pulumi.StringPtrInput
+	Region             pulumi.StringPtrInput
 	TransformerConfigs LogTransformerTransformerConfigArrayInput
 }
 
@@ -131,21 +72,15 @@ func (LogTransformerState) ElementType() reflect.Type {
 }
 
 type logTransformerArgs struct {
-	// Log group ARN to set the transformer for.
-	LogGroupArn string `pulumi:"logGroupArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Specifies the configuration of the transformer. You must include at least one configuration, and 20 at most. See `transformerConfig` below for details.
+	LogGroupArn        string                            `pulumi:"logGroupArn"`
+	Region             *string                           `pulumi:"region"`
 	TransformerConfigs []LogTransformerTransformerConfig `pulumi:"transformerConfigs"`
 }
 
 // The set of arguments for constructing a LogTransformer resource.
 type LogTransformerArgs struct {
-	// Log group ARN to set the transformer for.
-	LogGroupArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Specifies the configuration of the transformer. You must include at least one configuration, and 20 at most. See `transformerConfig` below for details.
+	LogGroupArn        pulumi.StringInput
+	Region             pulumi.StringPtrInput
 	TransformerConfigs LogTransformerTransformerConfigArrayInput
 }
 
@@ -236,17 +171,14 @@ func (o LogTransformerOutput) ToLogTransformerOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Log group ARN to set the transformer for.
 func (o LogTransformerOutput) LogGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogTransformer) pulumi.StringOutput { return v.LogGroupArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LogTransformerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogTransformer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Specifies the configuration of the transformer. You must include at least one configuration, and 20 at most. See `transformerConfig` below for details.
 func (o LogTransformerOutput) TransformerConfigs() LogTransformerTransformerConfigArrayOutput {
 	return o.ApplyT(func(v *LogTransformer) LogTransformerTransformerConfigArrayOutput { return v.TransformerConfigs }).(LogTransformerTransformerConfigArrayOutput)
 }

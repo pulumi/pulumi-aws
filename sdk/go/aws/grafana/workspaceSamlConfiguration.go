@@ -12,120 +12,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Amazon Managed Grafana workspace SAML configuration resource.
-//
-// ## Example Usage
-//
-// ### Basic configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/grafana"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Sid":    "",
-//						"Principal": map[string]interface{}{
-//							"Service": "grafana.amazonaws.com",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			assume, err := iam.NewRole(ctx, "assume", &iam.RoleArgs{
-//				Name:             pulumi.String("grafana-assume"),
-//				AssumeRolePolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleWorkspace, err := grafana.NewWorkspace(ctx, "example", &grafana.WorkspaceArgs{
-//				AccountAccessType: pulumi.String("CURRENT_ACCOUNT"),
-//				AuthenticationProviders: pulumi.StringArray{
-//					pulumi.String("SAML"),
-//				},
-//				PermissionType: pulumi.String("SERVICE_MANAGED"),
-//				RoleArn:        assume.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = grafana.NewWorkspaceSamlConfiguration(ctx, "example", &grafana.WorkspaceSamlConfigurationArgs{
-//				EditorRoleValues: pulumi.StringArray{
-//					pulumi.String("editor"),
-//				},
-//				IdpMetadataUrl: pulumi.String("https://my_idp_metadata.url"),
-//				WorkspaceId:    exampleWorkspace.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Grafana Workspace SAML configuration using the workspace's `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration example g-2054c75a02
-// ```
 type WorkspaceSamlConfiguration struct {
 	pulumi.CustomResourceState
 
-	// The admin role values.
-	AdminRoleValues pulumi.StringArrayOutput `pulumi:"adminRoleValues"`
-	// The allowed organizations.
-	AllowedOrganizations pulumi.StringArrayOutput `pulumi:"allowedOrganizations"`
-	// The editor role values.
-	EditorRoleValues pulumi.StringArrayOutput `pulumi:"editorRoleValues"`
-	// The email assertion.
-	EmailAssertion pulumi.StringOutput `pulumi:"emailAssertion"`
-	// The groups assertion.
-	GroupsAssertion pulumi.StringPtrOutput `pulumi:"groupsAssertion"`
-	// The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
-	IdpMetadataUrl pulumi.StringPtrOutput `pulumi:"idpMetadataUrl"`
-	// The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
-	IdpMetadataXml pulumi.StringPtrOutput `pulumi:"idpMetadataXml"`
-	// The login assertion.
-	LoginAssertion pulumi.StringOutput `pulumi:"loginAssertion"`
-	// The login validity duration.
-	LoginValidityDuration pulumi.IntOutput `pulumi:"loginValidityDuration"`
-	// The name assertion.
-	NameAssertion pulumi.StringOutput `pulumi:"nameAssertion"`
-	// The org assertion.
-	OrgAssertion pulumi.StringPtrOutput `pulumi:"orgAssertion"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The role assertion.
-	RoleAssertion pulumi.StringPtrOutput `pulumi:"roleAssertion"`
-	// The status of the SAML configuration.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// The workspace id.
-	//
-	// The following arguments are optional:
-	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
+	AdminRoleValues       pulumi.StringArrayOutput `pulumi:"adminRoleValues"`
+	AllowedOrganizations  pulumi.StringArrayOutput `pulumi:"allowedOrganizations"`
+	EditorRoleValues      pulumi.StringArrayOutput `pulumi:"editorRoleValues"`
+	EmailAssertion        pulumi.StringOutput      `pulumi:"emailAssertion"`
+	GroupsAssertion       pulumi.StringPtrOutput   `pulumi:"groupsAssertion"`
+	IdpMetadataUrl        pulumi.StringPtrOutput   `pulumi:"idpMetadataUrl"`
+	IdpMetadataXml        pulumi.StringPtrOutput   `pulumi:"idpMetadataXml"`
+	LoginAssertion        pulumi.StringOutput      `pulumi:"loginAssertion"`
+	LoginValidityDuration pulumi.IntOutput         `pulumi:"loginValidityDuration"`
+	NameAssertion         pulumi.StringOutput      `pulumi:"nameAssertion"`
+	OrgAssertion          pulumi.StringPtrOutput   `pulumi:"orgAssertion"`
+	Region                pulumi.StringOutput      `pulumi:"region"`
+	RoleAssertion         pulumi.StringPtrOutput   `pulumi:"roleAssertion"`
+	Status                pulumi.StringOutput      `pulumi:"status"`
+	WorkspaceId           pulumi.StringOutput      `pulumi:"workspaceId"`
 }
 
 // NewWorkspaceSamlConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -164,73 +68,39 @@ func GetWorkspaceSamlConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkspaceSamlConfiguration resources.
 type workspaceSamlConfigurationState struct {
-	// The admin role values.
-	AdminRoleValues []string `pulumi:"adminRoleValues"`
-	// The allowed organizations.
-	AllowedOrganizations []string `pulumi:"allowedOrganizations"`
-	// The editor role values.
-	EditorRoleValues []string `pulumi:"editorRoleValues"`
-	// The email assertion.
-	EmailAssertion *string `pulumi:"emailAssertion"`
-	// The groups assertion.
-	GroupsAssertion *string `pulumi:"groupsAssertion"`
-	// The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
-	IdpMetadataUrl *string `pulumi:"idpMetadataUrl"`
-	// The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
-	IdpMetadataXml *string `pulumi:"idpMetadataXml"`
-	// The login assertion.
-	LoginAssertion *string `pulumi:"loginAssertion"`
-	// The login validity duration.
-	LoginValidityDuration *int `pulumi:"loginValidityDuration"`
-	// The name assertion.
-	NameAssertion *string `pulumi:"nameAssertion"`
-	// The org assertion.
-	OrgAssertion *string `pulumi:"orgAssertion"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The role assertion.
-	RoleAssertion *string `pulumi:"roleAssertion"`
-	// The status of the SAML configuration.
-	Status *string `pulumi:"status"`
-	// The workspace id.
-	//
-	// The following arguments are optional:
-	WorkspaceId *string `pulumi:"workspaceId"`
+	AdminRoleValues       []string `pulumi:"adminRoleValues"`
+	AllowedOrganizations  []string `pulumi:"allowedOrganizations"`
+	EditorRoleValues      []string `pulumi:"editorRoleValues"`
+	EmailAssertion        *string  `pulumi:"emailAssertion"`
+	GroupsAssertion       *string  `pulumi:"groupsAssertion"`
+	IdpMetadataUrl        *string  `pulumi:"idpMetadataUrl"`
+	IdpMetadataXml        *string  `pulumi:"idpMetadataXml"`
+	LoginAssertion        *string  `pulumi:"loginAssertion"`
+	LoginValidityDuration *int     `pulumi:"loginValidityDuration"`
+	NameAssertion         *string  `pulumi:"nameAssertion"`
+	OrgAssertion          *string  `pulumi:"orgAssertion"`
+	Region                *string  `pulumi:"region"`
+	RoleAssertion         *string  `pulumi:"roleAssertion"`
+	Status                *string  `pulumi:"status"`
+	WorkspaceId           *string  `pulumi:"workspaceId"`
 }
 
 type WorkspaceSamlConfigurationState struct {
-	// The admin role values.
-	AdminRoleValues pulumi.StringArrayInput
-	// The allowed organizations.
-	AllowedOrganizations pulumi.StringArrayInput
-	// The editor role values.
-	EditorRoleValues pulumi.StringArrayInput
-	// The email assertion.
-	EmailAssertion pulumi.StringPtrInput
-	// The groups assertion.
-	GroupsAssertion pulumi.StringPtrInput
-	// The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
-	IdpMetadataUrl pulumi.StringPtrInput
-	// The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
-	IdpMetadataXml pulumi.StringPtrInput
-	// The login assertion.
-	LoginAssertion pulumi.StringPtrInput
-	// The login validity duration.
+	AdminRoleValues       pulumi.StringArrayInput
+	AllowedOrganizations  pulumi.StringArrayInput
+	EditorRoleValues      pulumi.StringArrayInput
+	EmailAssertion        pulumi.StringPtrInput
+	GroupsAssertion       pulumi.StringPtrInput
+	IdpMetadataUrl        pulumi.StringPtrInput
+	IdpMetadataXml        pulumi.StringPtrInput
+	LoginAssertion        pulumi.StringPtrInput
 	LoginValidityDuration pulumi.IntPtrInput
-	// The name assertion.
-	NameAssertion pulumi.StringPtrInput
-	// The org assertion.
-	OrgAssertion pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The role assertion.
-	RoleAssertion pulumi.StringPtrInput
-	// The status of the SAML configuration.
-	Status pulumi.StringPtrInput
-	// The workspace id.
-	//
-	// The following arguments are optional:
-	WorkspaceId pulumi.StringPtrInput
+	NameAssertion         pulumi.StringPtrInput
+	OrgAssertion          pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
+	RoleAssertion         pulumi.StringPtrInput
+	Status                pulumi.StringPtrInput
+	WorkspaceId           pulumi.StringPtrInput
 }
 
 func (WorkspaceSamlConfigurationState) ElementType() reflect.Type {
@@ -238,70 +108,38 @@ func (WorkspaceSamlConfigurationState) ElementType() reflect.Type {
 }
 
 type workspaceSamlConfigurationArgs struct {
-	// The admin role values.
-	AdminRoleValues []string `pulumi:"adminRoleValues"`
-	// The allowed organizations.
-	AllowedOrganizations []string `pulumi:"allowedOrganizations"`
-	// The editor role values.
-	EditorRoleValues []string `pulumi:"editorRoleValues"`
-	// The email assertion.
-	EmailAssertion *string `pulumi:"emailAssertion"`
-	// The groups assertion.
-	GroupsAssertion *string `pulumi:"groupsAssertion"`
-	// The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
-	IdpMetadataUrl *string `pulumi:"idpMetadataUrl"`
-	// The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
-	IdpMetadataXml *string `pulumi:"idpMetadataXml"`
-	// The login assertion.
-	LoginAssertion *string `pulumi:"loginAssertion"`
-	// The login validity duration.
-	LoginValidityDuration *int `pulumi:"loginValidityDuration"`
-	// The name assertion.
-	NameAssertion *string `pulumi:"nameAssertion"`
-	// The org assertion.
-	OrgAssertion *string `pulumi:"orgAssertion"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The role assertion.
-	RoleAssertion *string `pulumi:"roleAssertion"`
-	// The workspace id.
-	//
-	// The following arguments are optional:
-	WorkspaceId string `pulumi:"workspaceId"`
+	AdminRoleValues       []string `pulumi:"adminRoleValues"`
+	AllowedOrganizations  []string `pulumi:"allowedOrganizations"`
+	EditorRoleValues      []string `pulumi:"editorRoleValues"`
+	EmailAssertion        *string  `pulumi:"emailAssertion"`
+	GroupsAssertion       *string  `pulumi:"groupsAssertion"`
+	IdpMetadataUrl        *string  `pulumi:"idpMetadataUrl"`
+	IdpMetadataXml        *string  `pulumi:"idpMetadataXml"`
+	LoginAssertion        *string  `pulumi:"loginAssertion"`
+	LoginValidityDuration *int     `pulumi:"loginValidityDuration"`
+	NameAssertion         *string  `pulumi:"nameAssertion"`
+	OrgAssertion          *string  `pulumi:"orgAssertion"`
+	Region                *string  `pulumi:"region"`
+	RoleAssertion         *string  `pulumi:"roleAssertion"`
+	WorkspaceId           string   `pulumi:"workspaceId"`
 }
 
 // The set of arguments for constructing a WorkspaceSamlConfiguration resource.
 type WorkspaceSamlConfigurationArgs struct {
-	// The admin role values.
-	AdminRoleValues pulumi.StringArrayInput
-	// The allowed organizations.
-	AllowedOrganizations pulumi.StringArrayInput
-	// The editor role values.
-	EditorRoleValues pulumi.StringArrayInput
-	// The email assertion.
-	EmailAssertion pulumi.StringPtrInput
-	// The groups assertion.
-	GroupsAssertion pulumi.StringPtrInput
-	// The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
-	IdpMetadataUrl pulumi.StringPtrInput
-	// The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
-	IdpMetadataXml pulumi.StringPtrInput
-	// The login assertion.
-	LoginAssertion pulumi.StringPtrInput
-	// The login validity duration.
+	AdminRoleValues       pulumi.StringArrayInput
+	AllowedOrganizations  pulumi.StringArrayInput
+	EditorRoleValues      pulumi.StringArrayInput
+	EmailAssertion        pulumi.StringPtrInput
+	GroupsAssertion       pulumi.StringPtrInput
+	IdpMetadataUrl        pulumi.StringPtrInput
+	IdpMetadataXml        pulumi.StringPtrInput
+	LoginAssertion        pulumi.StringPtrInput
 	LoginValidityDuration pulumi.IntPtrInput
-	// The name assertion.
-	NameAssertion pulumi.StringPtrInput
-	// The org assertion.
-	OrgAssertion pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The role assertion.
-	RoleAssertion pulumi.StringPtrInput
-	// The workspace id.
-	//
-	// The following arguments are optional:
-	WorkspaceId pulumi.StringInput
+	NameAssertion         pulumi.StringPtrInput
+	OrgAssertion          pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
+	RoleAssertion         pulumi.StringPtrInput
+	WorkspaceId           pulumi.StringInput
 }
 
 func (WorkspaceSamlConfigurationArgs) ElementType() reflect.Type {
@@ -391,79 +229,62 @@ func (o WorkspaceSamlConfigurationOutput) ToWorkspaceSamlConfigurationOutputWith
 	return o
 }
 
-// The admin role values.
 func (o WorkspaceSamlConfigurationOutput) AdminRoleValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringArrayOutput { return v.AdminRoleValues }).(pulumi.StringArrayOutput)
 }
 
-// The allowed organizations.
 func (o WorkspaceSamlConfigurationOutput) AllowedOrganizations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringArrayOutput { return v.AllowedOrganizations }).(pulumi.StringArrayOutput)
 }
 
-// The editor role values.
 func (o WorkspaceSamlConfigurationOutput) EditorRoleValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringArrayOutput { return v.EditorRoleValues }).(pulumi.StringArrayOutput)
 }
 
-// The email assertion.
 func (o WorkspaceSamlConfigurationOutput) EmailAssertion() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringOutput { return v.EmailAssertion }).(pulumi.StringOutput)
 }
 
-// The groups assertion.
 func (o WorkspaceSamlConfigurationOutput) GroupsAssertion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringPtrOutput { return v.GroupsAssertion }).(pulumi.StringPtrOutput)
 }
 
-// The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
 func (o WorkspaceSamlConfigurationOutput) IdpMetadataUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringPtrOutput { return v.IdpMetadataUrl }).(pulumi.StringPtrOutput)
 }
 
-// The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
 func (o WorkspaceSamlConfigurationOutput) IdpMetadataXml() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringPtrOutput { return v.IdpMetadataXml }).(pulumi.StringPtrOutput)
 }
 
-// The login assertion.
 func (o WorkspaceSamlConfigurationOutput) LoginAssertion() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringOutput { return v.LoginAssertion }).(pulumi.StringOutput)
 }
 
-// The login validity duration.
 func (o WorkspaceSamlConfigurationOutput) LoginValidityDuration() pulumi.IntOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.IntOutput { return v.LoginValidityDuration }).(pulumi.IntOutput)
 }
 
-// The name assertion.
 func (o WorkspaceSamlConfigurationOutput) NameAssertion() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringOutput { return v.NameAssertion }).(pulumi.StringOutput)
 }
 
-// The org assertion.
 func (o WorkspaceSamlConfigurationOutput) OrgAssertion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringPtrOutput { return v.OrgAssertion }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WorkspaceSamlConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The role assertion.
 func (o WorkspaceSamlConfigurationOutput) RoleAssertion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringPtrOutput { return v.RoleAssertion }).(pulumi.StringPtrOutput)
 }
 
-// The status of the SAML configuration.
 func (o WorkspaceSamlConfigurationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// The workspace id.
-//
-// The following arguments are optional:
 func (o WorkspaceSamlConfigurationOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }

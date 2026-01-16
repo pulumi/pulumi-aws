@@ -17,32 +17,16 @@ public final class PlanStageTargetChannelTargetInfoArgs extends com.pulumi.resou
 
     public static final PlanStageTargetChannelTargetInfoArgs Empty = new PlanStageTargetChannelTargetInfoArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the contact channel.
-     * 
-     */
     @Import(name="contactChannelId", required=true)
     private Output<String> contactChannelId;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the contact channel.
-     * 
-     */
     public Output<String> contactChannelId() {
         return this.contactChannelId;
     }
 
-    /**
-     * The number of minutes to wait before retrying to send engagement if the engagement initially failed.
-     * 
-     */
     @Import(name="retryIntervalInMinutes")
     private @Nullable Output<Integer> retryIntervalInMinutes;
 
-    /**
-     * @return The number of minutes to wait before retrying to send engagement if the engagement initially failed.
-     * 
-     */
     public Optional<Output<Integer>> retryIntervalInMinutes() {
         return Optional.ofNullable(this.retryIntervalInMinutes);
     }
@@ -72,44 +56,20 @@ public final class PlanStageTargetChannelTargetInfoArgs extends com.pulumi.resou
             $ = new PlanStageTargetChannelTargetInfoArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param contactChannelId The Amazon Resource Name (ARN) of the contact channel.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contactChannelId(Output<String> contactChannelId) {
             $.contactChannelId = contactChannelId;
             return this;
         }
 
-        /**
-         * @param contactChannelId The Amazon Resource Name (ARN) of the contact channel.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contactChannelId(String contactChannelId) {
             return contactChannelId(Output.of(contactChannelId));
         }
 
-        /**
-         * @param retryIntervalInMinutes The number of minutes to wait before retrying to send engagement if the engagement initially failed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retryIntervalInMinutes(@Nullable Output<Integer> retryIntervalInMinutes) {
             $.retryIntervalInMinutes = retryIntervalInMinutes;
             return this;
         }
 
-        /**
-         * @param retryIntervalInMinutes The number of minutes to wait before retrying to send engagement if the engagement initially failed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retryIntervalInMinutes(Integer retryIntervalInMinutes) {
             return retryIntervalInMinutes(Output.of(retryIntervalInMinutes));
         }

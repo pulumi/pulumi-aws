@@ -11,81 +11,12 @@ namespace Pulumi.Aws.VpcLattice
 {
     public static class GetService
     {
-        /// <summary>
-        /// Data source for managing an AWS VPC Lattice Service.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.VpcLattice.GetService.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("aws:vpclattice/getService:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS VPC Lattice Service.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.VpcLattice.GetService.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("aws:vpclattice/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS VPC Lattice Service.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.VpcLattice.GetService.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("aws:vpclattice/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
@@ -93,30 +24,17 @@ namespace Pulumi.Aws.VpcLattice
 
     public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Service name.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the service.
-        /// </summary>
         [Input("serviceIdentifier")]
         public string? ServiceIdentifier { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// List of tags associated with the service.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -131,30 +49,17 @@ namespace Pulumi.Aws.VpcLattice
 
     public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Service name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the service.
-        /// </summary>
         [Input("serviceIdentifier")]
         public Input<string>? ServiceIdentifier { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// List of tags associated with the service.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -171,25 +76,10 @@ namespace Pulumi.Aws.VpcLattice
     [OutputType]
     public sealed class GetServiceResult
     {
-        /// <summary>
-        /// ARN of the service.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Type of IAM policy. Either `NONE` or `AWS_IAM`.
-        /// </summary>
         public readonly string AuthType;
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the certificate.
-        /// </summary>
         public readonly string CertificateArn;
-        /// <summary>
-        /// Custom domain name of the service.
-        /// </summary>
         public readonly string CustomDomainName;
-        /// <summary>
-        /// List of objects with DNS names.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceDnsEntryResult> DnsEntries;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -198,13 +88,7 @@ namespace Pulumi.Aws.VpcLattice
         public readonly string Name;
         public readonly string Region;
         public readonly string ServiceIdentifier;
-        /// <summary>
-        /// Status of the service.
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// List of tags associated with the service.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

@@ -20,62 +20,30 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs extends com
 
     public static final VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs Empty = new VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs();
 
-    /**
-     * Listener&#39;s TLS certificate.
-     * 
-     */
     @Import(name="certificate")
     private @Nullable Output<VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs> certificate;
 
-    /**
-     * @return Listener&#39;s TLS certificate.
-     * 
-     */
     public Optional<Output<VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs>> certificate() {
         return Optional.ofNullable(this.certificate);
     }
 
-    /**
-     * Whether the policy is enforced. Default is `true`.
-     * 
-     */
     @Import(name="enforce")
     private @Nullable Output<Boolean> enforce;
 
-    /**
-     * @return Whether the policy is enforced. Default is `true`.
-     * 
-     */
     public Optional<Output<Boolean>> enforce() {
         return Optional.ofNullable(this.enforce);
     }
 
-    /**
-     * One or more ports that the policy is enforced for.
-     * 
-     */
     @Import(name="ports")
     private @Nullable Output<List<Integer>> ports;
 
-    /**
-     * @return One or more ports that the policy is enforced for.
-     * 
-     */
     public Optional<Output<List<Integer>>> ports() {
         return Optional.ofNullable(this.ports);
     }
 
-    /**
-     * Listener&#39;s Transport Layer Security (TLS) validation context.
-     * 
-     */
     @Import(name="validation", required=true)
     private Output<VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs> validation;
 
-    /**
-     * @return Listener&#39;s Transport Layer Security (TLS) validation context.
-     * 
-     */
     public Output<VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs> validation() {
         return this.validation;
     }
@@ -107,96 +75,42 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs extends com
             $ = new VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificate Listener&#39;s TLS certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificate(@Nullable Output<VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs> certificate) {
             $.certificate = certificate;
             return this;
         }
 
-        /**
-         * @param certificate Listener&#39;s TLS certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificate(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs certificate) {
             return certificate(Output.of(certificate));
         }
 
-        /**
-         * @param enforce Whether the policy is enforced. Default is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enforce(@Nullable Output<Boolean> enforce) {
             $.enforce = enforce;
             return this;
         }
 
-        /**
-         * @param enforce Whether the policy is enforced. Default is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enforce(Boolean enforce) {
             return enforce(Output.of(enforce));
         }
 
-        /**
-         * @param ports One or more ports that the policy is enforced for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ports(@Nullable Output<List<Integer>> ports) {
             $.ports = ports;
             return this;
         }
 
-        /**
-         * @param ports One or more ports that the policy is enforced for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ports(List<Integer> ports) {
             return ports(Output.of(ports));
         }
 
-        /**
-         * @param ports One or more ports that the policy is enforced for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ports(Integer... ports) {
             return ports(List.of(ports));
         }
 
-        /**
-         * @param validation Listener&#39;s Transport Layer Security (TLS) validation context.
-         * 
-         * @return builder
-         * 
-         */
         public Builder validation(Output<VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs> validation) {
             $.validation = validation;
             return this;
         }
 
-        /**
-         * @param validation Listener&#39;s Transport Layer Security (TLS) validation context.
-         * 
-         * @return builder
-         * 
-         */
         public Builder validation(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs validation) {
             return validation(Output.of(validation));
         }

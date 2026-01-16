@@ -38,23 +38,6 @@ class ServerlessCacheArgs:
                  user_group_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerlessCache resource.
-        :param pulumi.Input[_builtins.str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
-        :param pulumi.Input['ServerlessCacheCacheUsageLimitsArgs'] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
-        :param pulumi.Input[_builtins.str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
-        :param pulumi.Input[_builtins.str] description: User-provided description for the serverless cache. The default is NULL.
-        :param pulumi.Input[_builtins.str] kms_key_id: ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
-        :param pulumi.Input[_builtins.str] major_engine_version: The version of the cache engine that will be used to create the serverless cache.
-               See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-        :param pulumi.Input[_builtins.str] name: The Cluster name which serves as a unique identifier to the serverless cache
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snapshot_arns_to_restores: The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
-        :param pulumi.Input[_builtins.int] snapshot_retention_limit: The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] user_group_id: The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
         """
         pulumi.set(__self__, "engine", engine)
         if cache_usage_limits is not None:
@@ -89,9 +72,6 @@ class ServerlessCacheArgs:
     @_builtins.property
     @pulumi.getter
     def engine(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
-        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -101,9 +81,6 @@ class ServerlessCacheArgs:
     @_builtins.property
     @pulumi.getter(name="cacheUsageLimits")
     def cache_usage_limits(self) -> Optional[pulumi.Input['ServerlessCacheCacheUsageLimitsArgs']]:
-        """
-        Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
-        """
         return pulumi.get(self, "cache_usage_limits")
 
     @cache_usage_limits.setter
@@ -113,9 +90,6 @@ class ServerlessCacheArgs:
     @_builtins.property
     @pulumi.getter(name="dailySnapshotTime")
     def daily_snapshot_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
-        """
         return pulumi.get(self, "daily_snapshot_time")
 
     @daily_snapshot_time.setter
@@ -125,9 +99,6 @@ class ServerlessCacheArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        User-provided description for the serverless cache. The default is NULL.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -137,9 +108,6 @@ class ServerlessCacheArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -149,10 +117,6 @@ class ServerlessCacheArgs:
     @_builtins.property
     @pulumi.getter(name="majorEngineVersion")
     def major_engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The version of the cache engine that will be used to create the serverless cache.
-        See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-        """
         return pulumi.get(self, "major_engine_version")
 
     @major_engine_version.setter
@@ -162,11 +126,6 @@ class ServerlessCacheArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Cluster name which serves as a unique identifier to the serverless cache
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -176,9 +135,6 @@ class ServerlessCacheArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -188,9 +144,6 @@ class ServerlessCacheArgs:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -200,9 +153,6 @@ class ServerlessCacheArgs:
     @_builtins.property
     @pulumi.getter(name="snapshotArnsToRestores")
     def snapshot_arns_to_restores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
-        """
         return pulumi.get(self, "snapshot_arns_to_restores")
 
     @snapshot_arns_to_restores.setter
@@ -212,9 +162,6 @@ class ServerlessCacheArgs:
     @_builtins.property
     @pulumi.getter(name="snapshotRetentionLimit")
     def snapshot_retention_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
-        """
         return pulumi.get(self, "snapshot_retention_limit")
 
     @snapshot_retention_limit.setter
@@ -224,9 +171,6 @@ class ServerlessCacheArgs:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -236,9 +180,6 @@ class ServerlessCacheArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -257,9 +198,6 @@ class ServerlessCacheArgs:
     @_builtins.property
     @pulumi.getter(name="userGroupId")
     def user_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
-        """
         return pulumi.get(self, "user_group_id")
 
     @user_group_id.setter
@@ -294,29 +232,6 @@ class _ServerlessCacheState:
                  user_group_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerlessCache resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the serverless cache.
-        :param pulumi.Input['ServerlessCacheCacheUsageLimitsArgs'] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
-        :param pulumi.Input[_builtins.str] create_time: Timestamp of when the serverless cache was created.
-        :param pulumi.Input[_builtins.str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
-        :param pulumi.Input[_builtins.str] description: User-provided description for the serverless cache. The default is NULL.
-        :param pulumi.Input[Sequence[pulumi.Input['ServerlessCacheEndpointArgs']]] endpoints: Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
-        :param pulumi.Input[_builtins.str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
-        :param pulumi.Input[_builtins.str] full_engine_version: The name and version number of the engine the serverless cache is compatible with.
-        :param pulumi.Input[_builtins.str] kms_key_id: ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
-        :param pulumi.Input[_builtins.str] major_engine_version: The version of the cache engine that will be used to create the serverless cache.
-               See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-        :param pulumi.Input[_builtins.str] name: The Cluster name which serves as a unique identifier to the serverless cache
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['ServerlessCacheReaderEndpointArgs']]] reader_endpoints: Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snapshot_arns_to_restores: The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
-        :param pulumi.Input[_builtins.int] snapshot_retention_limit: The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
-        :param pulumi.Input[_builtins.str] status: The current status of the serverless cache. The allowed values are CREATING, AVAILABLE, DELETING, CREATE-FAILED and MODIFYING.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] user_group_id: The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -366,9 +281,6 @@ class _ServerlessCacheState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the serverless cache.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -378,9 +290,6 @@ class _ServerlessCacheState:
     @_builtins.property
     @pulumi.getter(name="cacheUsageLimits")
     def cache_usage_limits(self) -> Optional[pulumi.Input['ServerlessCacheCacheUsageLimitsArgs']]:
-        """
-        Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
-        """
         return pulumi.get(self, "cache_usage_limits")
 
     @cache_usage_limits.setter
@@ -390,9 +299,6 @@ class _ServerlessCacheState:
     @_builtins.property
     @pulumi.getter(name="createTime")
     def create_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Timestamp of when the serverless cache was created.
-        """
         return pulumi.get(self, "create_time")
 
     @create_time.setter
@@ -402,9 +308,6 @@ class _ServerlessCacheState:
     @_builtins.property
     @pulumi.getter(name="dailySnapshotTime")
     def daily_snapshot_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
-        """
         return pulumi.get(self, "daily_snapshot_time")
 
     @daily_snapshot_time.setter
@@ -414,9 +317,6 @@ class _ServerlessCacheState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        User-provided description for the serverless cache. The default is NULL.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -426,9 +326,6 @@ class _ServerlessCacheState:
     @_builtins.property
     @pulumi.getter
     def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheEndpointArgs']]]]:
-        """
-        Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
-        """
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
@@ -438,9 +335,6 @@ class _ServerlessCacheState:
     @_builtins.property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
-        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -450,9 +344,6 @@ class _ServerlessCacheState:
     @_builtins.property
     @pulumi.getter(name="fullEngineVersion")
     def full_engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name and version number of the engine the serverless cache is compatible with.
-        """
         return pulumi.get(self, "full_engine_version")
 
     @full_engine_version.setter
@@ -462,9 +353,6 @@ class _ServerlessCacheState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -474,10 +362,6 @@ class _ServerlessCacheState:
     @_builtins.property
     @pulumi.getter(name="majorEngineVersion")
     def major_engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The version of the cache engine that will be used to create the serverless cache.
-        See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-        """
         return pulumi.get(self, "major_engine_version")
 
     @major_engine_version.setter
@@ -487,11 +371,6 @@ class _ServerlessCacheState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Cluster name which serves as a unique identifier to the serverless cache
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -501,9 +380,6 @@ class _ServerlessCacheState:
     @_builtins.property
     @pulumi.getter(name="readerEndpoints")
     def reader_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheReaderEndpointArgs']]]]:
-        """
-        Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
-        """
         return pulumi.get(self, "reader_endpoints")
 
     @reader_endpoints.setter
@@ -513,9 +389,6 @@ class _ServerlessCacheState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -525,9 +398,6 @@ class _ServerlessCacheState:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -537,9 +407,6 @@ class _ServerlessCacheState:
     @_builtins.property
     @pulumi.getter(name="snapshotArnsToRestores")
     def snapshot_arns_to_restores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
-        """
         return pulumi.get(self, "snapshot_arns_to_restores")
 
     @snapshot_arns_to_restores.setter
@@ -549,9 +416,6 @@ class _ServerlessCacheState:
     @_builtins.property
     @pulumi.getter(name="snapshotRetentionLimit")
     def snapshot_retention_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
-        """
         return pulumi.get(self, "snapshot_retention_limit")
 
     @snapshot_retention_limit.setter
@@ -561,9 +425,6 @@ class _ServerlessCacheState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The current status of the serverless cache. The allowed values are CREATING, AVAILABLE, DELETING, CREATE-FAILED and MODIFYING.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -573,9 +434,6 @@ class _ServerlessCacheState:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -585,9 +443,6 @@ class _ServerlessCacheState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -615,9 +470,6 @@ class _ServerlessCacheState:
     @_builtins.property
     @pulumi.getter(name="userGroupId")
     def user_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
-        """
         return pulumi.get(self, "user_group_id")
 
     @user_group_id.setter
@@ -648,116 +500,9 @@ class ServerlessCache(pulumi.CustomResource):
                  user_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an ElastiCache Serverless Cache resource which manages memcached, redis or valkey.
-
-        ## Example Usage
-
-        ### Memcached Serverless
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.elasticache.ServerlessCache("example",
-            engine="memcached",
-            name="example",
-            cache_usage_limits={
-                "data_storage": {
-                    "maximum": 10,
-                    "unit": "GB",
-                },
-                "ecpu_per_seconds": [{
-                    "maximum": 5000,
-                }],
-            },
-            description="Test Server",
-            kms_key_id=test["arn"],
-            major_engine_version="1.6",
-            security_group_ids=[test_aws_security_group["id"]],
-            subnet_ids=[__item["id"] for __item in test_aws_subnet])
-        ```
-
-        ### Redis OSS Serverless
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.elasticache.ServerlessCache("example",
-            engine="redis",
-            name="example",
-            cache_usage_limits={
-                "data_storage": {
-                    "maximum": 10,
-                    "unit": "GB",
-                },
-                "ecpu_per_seconds": [{
-                    "maximum": 5000,
-                }],
-            },
-            daily_snapshot_time="09:00",
-            description="Test Server",
-            kms_key_id=test["arn"],
-            major_engine_version="7",
-            snapshot_retention_limit=1,
-            security_group_ids=[test_aws_security_group["id"]],
-            subnet_ids=[__item["id"] for __item in test_aws_subnet])
-        ```
-
-        ### Valkey Serverless
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.elasticache.ServerlessCache("example",
-            engine="valkey",
-            name="example",
-            cache_usage_limits={
-                "data_storage": {
-                    "maximum": 10,
-                    "unit": "GB",
-                },
-                "ecpu_per_seconds": [{
-                    "maximum": 5000,
-                }],
-            },
-            daily_snapshot_time="09:00",
-            description="Test Server",
-            kms_key_id=test["arn"],
-            major_engine_version="7",
-            snapshot_retention_limit=1,
-            security_group_ids=[test_aws_security_group["id"]],
-            subnet_ids=[__item["id"] for __item in test_aws_subnet])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import ElastiCache Serverless Cache using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:elasticache/serverlessCache:ServerlessCache my_cluster my_cluster
-        ```
-
+        Create a ServerlessCache resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict']] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
-        :param pulumi.Input[_builtins.str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
-        :param pulumi.Input[_builtins.str] description: User-provided description for the serverless cache. The default is NULL.
-        :param pulumi.Input[_builtins.str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
-        :param pulumi.Input[_builtins.str] kms_key_id: ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
-        :param pulumi.Input[_builtins.str] major_engine_version: The version of the cache engine that will be used to create the serverless cache.
-               See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-        :param pulumi.Input[_builtins.str] name: The Cluster name which serves as a unique identifier to the serverless cache
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snapshot_arns_to_restores: The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
-        :param pulumi.Input[_builtins.int] snapshot_retention_limit: The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] user_group_id: The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
         """
         ...
     @overload
@@ -766,97 +511,7 @@ class ServerlessCache(pulumi.CustomResource):
                  args: ServerlessCacheArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an ElastiCache Serverless Cache resource which manages memcached, redis or valkey.
-
-        ## Example Usage
-
-        ### Memcached Serverless
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.elasticache.ServerlessCache("example",
-            engine="memcached",
-            name="example",
-            cache_usage_limits={
-                "data_storage": {
-                    "maximum": 10,
-                    "unit": "GB",
-                },
-                "ecpu_per_seconds": [{
-                    "maximum": 5000,
-                }],
-            },
-            description="Test Server",
-            kms_key_id=test["arn"],
-            major_engine_version="1.6",
-            security_group_ids=[test_aws_security_group["id"]],
-            subnet_ids=[__item["id"] for __item in test_aws_subnet])
-        ```
-
-        ### Redis OSS Serverless
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.elasticache.ServerlessCache("example",
-            engine="redis",
-            name="example",
-            cache_usage_limits={
-                "data_storage": {
-                    "maximum": 10,
-                    "unit": "GB",
-                },
-                "ecpu_per_seconds": [{
-                    "maximum": 5000,
-                }],
-            },
-            daily_snapshot_time="09:00",
-            description="Test Server",
-            kms_key_id=test["arn"],
-            major_engine_version="7",
-            snapshot_retention_limit=1,
-            security_group_ids=[test_aws_security_group["id"]],
-            subnet_ids=[__item["id"] for __item in test_aws_subnet])
-        ```
-
-        ### Valkey Serverless
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.elasticache.ServerlessCache("example",
-            engine="valkey",
-            name="example",
-            cache_usage_limits={
-                "data_storage": {
-                    "maximum": 10,
-                    "unit": "GB",
-                },
-                "ecpu_per_seconds": [{
-                    "maximum": 5000,
-                }],
-            },
-            daily_snapshot_time="09:00",
-            description="Test Server",
-            kms_key_id=test["arn"],
-            major_engine_version="7",
-            snapshot_retention_limit=1,
-            security_group_ids=[test_aws_security_group["id"]],
-            subnet_ids=[__item["id"] for __item in test_aws_subnet])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import ElastiCache Serverless Cache using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:elasticache/serverlessCache:ServerlessCache my_cluster my_cluster
-        ```
-
+        Create a ServerlessCache resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ServerlessCacheArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -959,29 +614,6 @@ class ServerlessCache(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the serverless cache.
-        :param pulumi.Input[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict']] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
-        :param pulumi.Input[_builtins.str] create_time: Timestamp of when the serverless cache was created.
-        :param pulumi.Input[_builtins.str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
-        :param pulumi.Input[_builtins.str] description: User-provided description for the serverless cache. The default is NULL.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCacheEndpointArgs', 'ServerlessCacheEndpointArgsDict']]]] endpoints: Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
-        :param pulumi.Input[_builtins.str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
-        :param pulumi.Input[_builtins.str] full_engine_version: The name and version number of the engine the serverless cache is compatible with.
-        :param pulumi.Input[_builtins.str] kms_key_id: ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
-        :param pulumi.Input[_builtins.str] major_engine_version: The version of the cache engine that will be used to create the serverless cache.
-               See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-        :param pulumi.Input[_builtins.str] name: The Cluster name which serves as a unique identifier to the serverless cache
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCacheReaderEndpointArgs', 'ServerlessCacheReaderEndpointArgsDict']]]] reader_endpoints: Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snapshot_arns_to_restores: The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
-        :param pulumi.Input[_builtins.int] snapshot_retention_limit: The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
-        :param pulumi.Input[_builtins.str] status: The current status of the serverless cache. The allowed values are CREATING, AVAILABLE, DELETING, CREATE-FAILED and MODIFYING.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] user_group_id: The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1014,156 +646,96 @@ class ServerlessCache(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the serverless cache.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="cacheUsageLimits")
     def cache_usage_limits(self) -> pulumi.Output[Optional['outputs.ServerlessCacheCacheUsageLimits']]:
-        """
-        Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
-        """
         return pulumi.get(self, "cache_usage_limits")
 
     @_builtins.property
     @pulumi.getter(name="createTime")
     def create_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Timestamp of when the serverless cache was created.
-        """
         return pulumi.get(self, "create_time")
 
     @_builtins.property
     @pulumi.getter(name="dailySnapshotTime")
     def daily_snapshot_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
-        """
         return pulumi.get(self, "daily_snapshot_time")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
-        """
-        User-provided description for the serverless cache. The default is NULL.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def endpoints(self) -> pulumi.Output[Sequence['outputs.ServerlessCacheEndpoint']]:
-        """
-        Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
-        """
         return pulumi.get(self, "endpoints")
 
     @_builtins.property
     @pulumi.getter
     def engine(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
-        """
         return pulumi.get(self, "engine")
 
     @_builtins.property
     @pulumi.getter(name="fullEngineVersion")
     def full_engine_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name and version number of the engine the serverless cache is compatible with.
-        """
         return pulumi.get(self, "full_engine_version")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="majorEngineVersion")
     def major_engine_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        The version of the cache engine that will be used to create the serverless cache.
-        See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-        """
         return pulumi.get(self, "major_engine_version")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Cluster name which serves as a unique identifier to the serverless cache
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="readerEndpoints")
     def reader_endpoints(self) -> pulumi.Output[Sequence['outputs.ServerlessCacheReaderEndpoint']]:
-        """
-        Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
-        """
         return pulumi.get(self, "reader_endpoints")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="snapshotArnsToRestores")
     def snapshot_arns_to_restores(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
-        """
         return pulumi.get(self, "snapshot_arns_to_restores")
 
     @_builtins.property
     @pulumi.getter(name="snapshotRetentionLimit")
     def snapshot_retention_limit(self) -> pulumi.Output[_builtins.int]:
-        """
-        The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
-        """
         return pulumi.get(self, "snapshot_retention_limit")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The current status of the serverless cache. The allowed values are CREATING, AVAILABLE, DELETING, CREATE-FAILED and MODIFYING.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -1179,8 +751,5 @@ class ServerlessCache(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="userGroupId")
     def user_group_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
-        """
         return pulumi.get(self, "user_group_id")
 

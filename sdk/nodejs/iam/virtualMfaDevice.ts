@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an IAM Virtual MFA Device.
- *
- * > **Note:** All attributes will be stored in the raw state as plain-text.
- * **Note:** A virtual MFA device cannot be directly associated with an IAM User from the provider.
- *   To associate the virtual MFA device with a user and enable it, use the code returned in either `base32StringSeed` or `qrCodePng` to generate TOTP authentication codes.
- *   The authentication codes can then be used with the AWS CLI command [`aws iam enable-mfa-device`](https://docs.aws.amazon.com/cli/latest/reference/iam/enable-mfa-device.html) or the AWS API call [`EnableMFADevice`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html).
- *
- * ## Example Usage
- *
- * **Using certs on file:**
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.iam.VirtualMfaDevice("example", {virtualMfaDeviceName: "example"});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import IAM Virtual MFA Devices using the `arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:iam/virtualMfaDevice:VirtualMfaDevice example arn:aws:iam::123456789012:mfa/example
- * ```
- */
 export class VirtualMfaDevice extends pulumi.CustomResource {
     /**
      * Get an existing VirtualMfaDevice resource's state with the given name, ID, and optional extra
@@ -59,45 +32,15 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
         return obj['__pulumiType'] === VirtualMfaDevice.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
-     */
     declare public /*out*/ readonly base32StringSeed: pulumi.Output<string>;
-    /**
-     * Date and time when the virtual MFA device was enabled.
-     */
     declare public /*out*/ readonly enableDate: pulumi.Output<string>;
-    /**
-     * Path for the virtual MFA device.
-     */
     declare public readonly path: pulumi.Output<string | undefined>;
-    /**
-     * QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. `AccountName` is the user name if set (otherwise, the account ID), and `Base32String` is the seed in base32 format.
-     */
     declare public /*out*/ readonly qrCodePng: pulumi.Output<string>;
-    /**
-     * Serial number associated with the virtual MFA device.
-     */
     declare public /*out*/ readonly serialNumber: pulumi.Output<string>;
-    /**
-     * Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Name of the IAM user associated with this virtual MFA device.
-     */
     declare public /*out*/ readonly userName: pulumi.Output<string>;
-    /**
-     * Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
-     */
     declare public readonly virtualMfaDeviceName: pulumi.Output<string>;
 
     /**
@@ -148,45 +91,15 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VirtualMfaDevice resources.
  */
 export interface VirtualMfaDeviceState {
-    /**
-     * Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
-     */
     base32StringSeed?: pulumi.Input<string>;
-    /**
-     * Date and time when the virtual MFA device was enabled.
-     */
     enableDate?: pulumi.Input<string>;
-    /**
-     * Path for the virtual MFA device.
-     */
     path?: pulumi.Input<string>;
-    /**
-     * QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. `AccountName` is the user name if set (otherwise, the account ID), and `Base32String` is the seed in base32 format.
-     */
     qrCodePng?: pulumi.Input<string>;
-    /**
-     * Serial number associated with the virtual MFA device.
-     */
     serialNumber?: pulumi.Input<string>;
-    /**
-     * Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Name of the IAM user associated with this virtual MFA device.
-     */
     userName?: pulumi.Input<string>;
-    /**
-     * Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
-     */
     virtualMfaDeviceName?: pulumi.Input<string>;
 }
 
@@ -194,16 +107,7 @@ export interface VirtualMfaDeviceState {
  * The set of arguments for constructing a VirtualMfaDevice resource.
  */
 export interface VirtualMfaDeviceArgs {
-    /**
-     * Path for the virtual MFA device.
-     */
     path?: pulumi.Input<string>;
-    /**
-     * Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
-     */
     virtualMfaDeviceName: pulumi.Input<string>;
 }

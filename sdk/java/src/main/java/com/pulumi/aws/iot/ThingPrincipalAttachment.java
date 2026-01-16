@@ -13,116 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Attaches Principal to AWS IoT Thing.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iot.Thing;
- * import com.pulumi.aws.iot.ThingArgs;
- * import com.pulumi.aws.iot.Certificate;
- * import com.pulumi.aws.iot.CertificateArgs;
- * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
- * import com.pulumi.aws.iot.ThingPrincipalAttachment;
- * import com.pulumi.aws.iot.ThingPrincipalAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Thing("example", ThingArgs.builder()
- *             .name("example")
- *             .build());
- * 
- *         var cert = new Certificate("cert", CertificateArgs.builder()
- *             .csr(StdFunctions.file(FileArgs.builder()
- *                 .input("csr.pem")
- *                 .build()).result())
- *             .active(true)
- *             .build());
- * 
- *         var att = new ThingPrincipalAttachment("att", ThingPrincipalAttachmentArgs.builder()
- *             .principal(cert.arn())
- *             .thing(example.name())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment")
 public class ThingPrincipalAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-     * 
-     */
     @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
-    /**
-     * @return The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-     * 
-     */
     public Output<String> principal() {
         return this.principal;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The name of the thing.
-     * 
-     */
     @Export(name="thing", refs={String.class}, tree="[0]")
     private Output<String> thing;
 
-    /**
-     * @return The name of the thing.
-     * 
-     */
     public Output<String> thing() {
         return this.thing;
     }
-    /**
-     * The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
-     * 
-     */
     @Export(name="thingPrincipalType", refs={String.class}, tree="[0]")
     private Output<String> thingPrincipalType;
 
-    /**
-     * @return The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
-     * 
-     */
     public Output<String> thingPrincipalType() {
         return this.thingPrincipalType;
     }

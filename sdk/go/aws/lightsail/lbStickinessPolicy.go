@@ -12,69 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages session stickiness for a Lightsail Load Balancer.
-//
-// Use this resource to configure session stickiness to ensure that user sessions are consistently routed to the same backend instance. This helps maintain session state for applications that store session data locally on the server.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := lightsail.NewLb(ctx, "example", &lightsail.LbArgs{
-//				Name:            pulumi.String("example-load-balancer"),
-//				HealthCheckPath: pulumi.String("/"),
-//				InstancePort:    pulumi.Int(80),
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewLbStickinessPolicy(ctx, "example", &lightsail.LbStickinessPolicyArgs{
-//				LbName:         example.Name,
-//				CookieDuration: pulumi.Int(900),
-//				Enabled:        pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_lightsail_lb_stickiness_policy` using the `lb_name` attribute. For example:
-//
-// ```sh
-// $ pulumi import aws:lightsail/lbStickinessPolicy:LbStickinessPolicy example example-load-balancer
-// ```
 type LbStickinessPolicy struct {
 	pulumi.CustomResourceState
 
-	// Cookie duration in seconds. This determines the length of the session stickiness.
-	CookieDuration pulumi.IntOutput `pulumi:"cookieDuration"`
-	// Whether to enable session stickiness for the load balancer.
-	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// Name of the load balancer to which you want to enable session stickiness.
-	//
-	// The following arguments are optional:
-	LbName pulumi.StringOutput `pulumi:"lbName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	CookieDuration pulumi.IntOutput    `pulumi:"cookieDuration"`
+	Enabled        pulumi.BoolOutput   `pulumi:"enabled"`
+	LbName         pulumi.StringOutput `pulumi:"lbName"`
+	Region         pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLbStickinessPolicy registers a new resource with the given unique name, arguments, and options.
@@ -116,29 +60,17 @@ func GetLbStickinessPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LbStickinessPolicy resources.
 type lbStickinessPolicyState struct {
-	// Cookie duration in seconds. This determines the length of the session stickiness.
-	CookieDuration *int `pulumi:"cookieDuration"`
-	// Whether to enable session stickiness for the load balancer.
-	Enabled *bool `pulumi:"enabled"`
-	// Name of the load balancer to which you want to enable session stickiness.
-	//
-	// The following arguments are optional:
-	LbName *string `pulumi:"lbName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	CookieDuration *int    `pulumi:"cookieDuration"`
+	Enabled        *bool   `pulumi:"enabled"`
+	LbName         *string `pulumi:"lbName"`
+	Region         *string `pulumi:"region"`
 }
 
 type LbStickinessPolicyState struct {
-	// Cookie duration in seconds. This determines the length of the session stickiness.
 	CookieDuration pulumi.IntPtrInput
-	// Whether to enable session stickiness for the load balancer.
-	Enabled pulumi.BoolPtrInput
-	// Name of the load balancer to which you want to enable session stickiness.
-	//
-	// The following arguments are optional:
-	LbName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Enabled        pulumi.BoolPtrInput
+	LbName         pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
 }
 
 func (LbStickinessPolicyState) ElementType() reflect.Type {
@@ -146,30 +78,18 @@ func (LbStickinessPolicyState) ElementType() reflect.Type {
 }
 
 type lbStickinessPolicyArgs struct {
-	// Cookie duration in seconds. This determines the length of the session stickiness.
-	CookieDuration int `pulumi:"cookieDuration"`
-	// Whether to enable session stickiness for the load balancer.
-	Enabled bool `pulumi:"enabled"`
-	// Name of the load balancer to which you want to enable session stickiness.
-	//
-	// The following arguments are optional:
-	LbName string `pulumi:"lbName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	CookieDuration int     `pulumi:"cookieDuration"`
+	Enabled        bool    `pulumi:"enabled"`
+	LbName         string  `pulumi:"lbName"`
+	Region         *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LbStickinessPolicy resource.
 type LbStickinessPolicyArgs struct {
-	// Cookie duration in seconds. This determines the length of the session stickiness.
 	CookieDuration pulumi.IntInput
-	// Whether to enable session stickiness for the load balancer.
-	Enabled pulumi.BoolInput
-	// Name of the load balancer to which you want to enable session stickiness.
-	//
-	// The following arguments are optional:
-	LbName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Enabled        pulumi.BoolInput
+	LbName         pulumi.StringInput
+	Region         pulumi.StringPtrInput
 }
 
 func (LbStickinessPolicyArgs) ElementType() reflect.Type {
@@ -259,24 +179,18 @@ func (o LbStickinessPolicyOutput) ToLbStickinessPolicyOutputWithContext(ctx cont
 	return o
 }
 
-// Cookie duration in seconds. This determines the length of the session stickiness.
 func (o LbStickinessPolicyOutput) CookieDuration() pulumi.IntOutput {
 	return o.ApplyT(func(v *LbStickinessPolicy) pulumi.IntOutput { return v.CookieDuration }).(pulumi.IntOutput)
 }
 
-// Whether to enable session stickiness for the load balancer.
 func (o LbStickinessPolicyOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LbStickinessPolicy) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Name of the load balancer to which you want to enable session stickiness.
-//
-// The following arguments are optional:
 func (o LbStickinessPolicyOutput) LbName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbStickinessPolicy) pulumi.StringOutput { return v.LbName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LbStickinessPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbStickinessPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

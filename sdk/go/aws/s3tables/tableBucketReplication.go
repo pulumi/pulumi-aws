@@ -12,63 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages Amazon S3 Tables Table Bucket Replication configuration.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3tables"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3tables.NewTableBucketReplication(ctx, "example", &s3tables.TableBucketReplicationArgs{
-//				TableBucketArn: pulumi.Any(source.Arn),
-//				Role:           pulumi.Any(exampleAwsIamRole.Arn),
-//				Rule: &s3tables.TableBucketReplicationRuleArgs{
-//					Destinations: s3tables.TableBucketReplicationRuleDestinationArray{
-//						&s3tables.TableBucketReplicationRuleDestinationArgs{
-//							DestinationTableBucketArn: pulumi.Any(target.Arn),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import S3 Tables Table Bucket Replication using the `table_bucket_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:s3tables/tableBucketReplication:TableBucketReplication example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket'
-// ```
 type TableBucketReplication struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ARN referencing the IAM role assumed by S3 when replicating tables in this bucket.
-	Role pulumi.StringOutput `pulumi:"role"`
-	// Replication rules. See Rule below for more details.
-	Rule TableBucketReplicationRulePtrOutput `pulumi:"rule"`
-	// ARN referencing the Table Bucket that owns this replication configuration.
-	TableBucketArn pulumi.StringOutput `pulumi:"tableBucketArn"`
-	VersionToken   pulumi.StringOutput `pulumi:"versionToken"`
+	Region         pulumi.StringOutput                 `pulumi:"region"`
+	Role           pulumi.StringOutput                 `pulumi:"role"`
+	Rule           TableBucketReplicationRulePtrOutput `pulumi:"rule"`
+	TableBucketArn pulumi.StringOutput                 `pulumi:"tableBucketArn"`
+	VersionToken   pulumi.StringOutput                 `pulumi:"versionToken"`
 }
 
 // NewTableBucketReplication registers a new resource with the given unique name, arguments, and options.
@@ -107,25 +58,17 @@ func GetTableBucketReplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TableBucketReplication resources.
 type tableBucketReplicationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN referencing the IAM role assumed by S3 when replicating tables in this bucket.
-	Role *string `pulumi:"role"`
-	// Replication rules. See Rule below for more details.
-	Rule *TableBucketReplicationRule `pulumi:"rule"`
-	// ARN referencing the Table Bucket that owns this replication configuration.
-	TableBucketArn *string `pulumi:"tableBucketArn"`
-	VersionToken   *string `pulumi:"versionToken"`
+	Region         *string                     `pulumi:"region"`
+	Role           *string                     `pulumi:"role"`
+	Rule           *TableBucketReplicationRule `pulumi:"rule"`
+	TableBucketArn *string                     `pulumi:"tableBucketArn"`
+	VersionToken   *string                     `pulumi:"versionToken"`
 }
 
 type TableBucketReplicationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN referencing the IAM role assumed by S3 when replicating tables in this bucket.
-	Role pulumi.StringPtrInput
-	// Replication rules. See Rule below for more details.
-	Rule TableBucketReplicationRulePtrInput
-	// ARN referencing the Table Bucket that owns this replication configuration.
+	Region         pulumi.StringPtrInput
+	Role           pulumi.StringPtrInput
+	Rule           TableBucketReplicationRulePtrInput
 	TableBucketArn pulumi.StringPtrInput
 	VersionToken   pulumi.StringPtrInput
 }
@@ -135,25 +78,17 @@ func (TableBucketReplicationState) ElementType() reflect.Type {
 }
 
 type tableBucketReplicationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN referencing the IAM role assumed by S3 when replicating tables in this bucket.
-	Role string `pulumi:"role"`
-	// Replication rules. See Rule below for more details.
-	Rule *TableBucketReplicationRule `pulumi:"rule"`
-	// ARN referencing the Table Bucket that owns this replication configuration.
-	TableBucketArn string `pulumi:"tableBucketArn"`
+	Region         *string                     `pulumi:"region"`
+	Role           string                      `pulumi:"role"`
+	Rule           *TableBucketReplicationRule `pulumi:"rule"`
+	TableBucketArn string                      `pulumi:"tableBucketArn"`
 }
 
 // The set of arguments for constructing a TableBucketReplication resource.
 type TableBucketReplicationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN referencing the IAM role assumed by S3 when replicating tables in this bucket.
-	Role pulumi.StringInput
-	// Replication rules. See Rule below for more details.
-	Rule TableBucketReplicationRulePtrInput
-	// ARN referencing the Table Bucket that owns this replication configuration.
+	Region         pulumi.StringPtrInput
+	Role           pulumi.StringInput
+	Rule           TableBucketReplicationRulePtrInput
 	TableBucketArn pulumi.StringInput
 }
 
@@ -244,22 +179,18 @@ func (o TableBucketReplicationOutput) ToTableBucketReplicationOutputWithContext(
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TableBucketReplicationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableBucketReplication) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ARN referencing the IAM role assumed by S3 when replicating tables in this bucket.
 func (o TableBucketReplicationOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableBucketReplication) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
 }
 
-// Replication rules. See Rule below for more details.
 func (o TableBucketReplicationOutput) Rule() TableBucketReplicationRulePtrOutput {
 	return o.ApplyT(func(v *TableBucketReplication) TableBucketReplicationRulePtrOutput { return v.Rule }).(TableBucketReplicationRulePtrOutput)
 }
 
-// ARN referencing the Table Bucket that owns this replication configuration.
 func (o TableBucketReplicationOutput) TableBucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableBucketReplication) pulumi.StringOutput { return v.TableBucketArn }).(pulumi.StringOutput)
 }

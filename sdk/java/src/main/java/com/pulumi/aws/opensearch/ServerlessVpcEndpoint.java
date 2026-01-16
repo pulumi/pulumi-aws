@@ -16,55 +16,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS OpenSearchServerless VPC Endpoint.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.opensearch.ServerlessVpcEndpoint;
- * import com.pulumi.aws.opensearch.ServerlessVpcEndpointArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ServerlessVpcEndpoint("example", ServerlessVpcEndpointArgs.builder()
- *             .name("myendpoint")
- *             .subnetIds(exampleAwsSubnet.id())
- *             .vpcId(exampleAwsVpc.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import OpenSearchServerless Vpc Endpointa using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589
- * ```
- * 
- */
 @ResourceType(type="aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint")
 public class ServerlessVpcEndpoint extends com.pulumi.resources.CustomResource {
     /**
@@ -81,17 +32,9 @@ public class ServerlessVpcEndpoint extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
@@ -132,16 +75,12 @@ public class ServerlessVpcEndpoint extends com.pulumi.resources.CustomResource {
     /**
      * ID of the VPC from which you&#39;ll access OpenSearch Serverless.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
      * @return ID of the VPC from which you&#39;ll access OpenSearch Serverless.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> vpcId() {

@@ -12,11 +12,6 @@ namespace Pulumi.Aws.VerifiedPermissions.Inputs
 
     public sealed class PolicyStoreValidationSettingsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The mode for the validation settings. Valid values: `OFF`, `STRICT`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
 

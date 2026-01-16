@@ -15,42 +15,18 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings {
-    /**
-     * @return UDP output buffering in milliseconds.
-     * 
-     */
     private @Nullable Integer bufferMsec;
-    /**
-     * @return UDP container settings. See Container Settings for more details.
-     * 
-     */
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings containerSettings;
-    /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
-     * 
-     */
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination destination;
     private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings fecOutputSettings;
 
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings() {}
-    /**
-     * @return UDP output buffering in milliseconds.
-     * 
-     */
     public Optional<Integer> bufferMsec() {
         return Optional.ofNullable(this.bufferMsec);
     }
-    /**
-     * @return UDP container settings. See Container Settings for more details.
-     * 
-     */
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings containerSettings() {
         return this.containerSettings;
     }
-    /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
-     * 
-     */
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination destination() {
         return this.destination;
     }

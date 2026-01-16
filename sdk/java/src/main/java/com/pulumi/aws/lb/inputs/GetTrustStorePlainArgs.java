@@ -14,51 +14,23 @@ public final class GetTrustStorePlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetTrustStorePlainArgs Empty = new GetTrustStorePlainArgs();
 
-    /**
-     * Full ARN of the trust store.
-     * 
-     */
     @Import(name="arn")
     private @Nullable String arn;
 
-    /**
-     * @return Full ARN of the trust store.
-     * 
-     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Unique name of the trust store.
-     * 
-     * &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
-     * 
-     */
     @Import(name="name")
     private @Nullable String name;
 
-    /**
-     * @return Unique name of the trust store.
-     * 
-     * &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -89,36 +61,16 @@ public final class GetTrustStorePlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetTrustStorePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Full ARN of the trust store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable String arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param name Unique name of the trust store.
-         * 
-         * &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

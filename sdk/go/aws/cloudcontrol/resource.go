@@ -12,67 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Cloud Control API Resource. The configuration and lifecycle handling of these resources is proxied through Cloud Control API handlers to the backend service.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudcontrol"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"ClusterName": "example",
-//				"Tags": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Key":   "CostCenter",
-//						"Value": "IT",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = cloudcontrol.NewResource(ctx, "example", &cloudcontrol.ResourceArgs{
-//				TypeName:     pulumi.String("AWS::ECS::Cluster"),
-//				DesiredState: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type Resource struct {
 	pulumi.CustomResourceState
 
-	// JSON string matching the CloudFormation resource type schema with desired configuration.
-	DesiredState pulumi.StringOutput `pulumi:"desiredState"`
-	// JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
-	Properties pulumi.StringOutput `pulumi:"properties"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
-	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
-	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
-	Schema pulumi.StringOutput `pulumi:"schema"`
-	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
-	//
-	// The following arguments are optional:
-	TypeName pulumi.StringOutput `pulumi:"typeName"`
-	// Identifier of the CloudFormation resource type version.
+	DesiredState  pulumi.StringOutput    `pulumi:"desiredState"`
+	Properties    pulumi.StringOutput    `pulumi:"properties"`
+	Region        pulumi.StringOutput    `pulumi:"region"`
+	RoleArn       pulumi.StringPtrOutput `pulumi:"roleArn"`
+	Schema        pulumi.StringOutput    `pulumi:"schema"`
+	TypeName      pulumi.StringOutput    `pulumi:"typeName"`
 	TypeVersionId pulumi.StringPtrOutput `pulumi:"typeVersionId"`
 }
 
@@ -119,40 +67,22 @@ func GetResource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Resource resources.
 type resourceState struct {
-	// JSON string matching the CloudFormation resource type schema with desired configuration.
-	DesiredState *string `pulumi:"desiredState"`
-	// JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
-	Properties *string `pulumi:"properties"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
-	RoleArn *string `pulumi:"roleArn"`
-	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
-	Schema *string `pulumi:"schema"`
-	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
-	//
-	// The following arguments are optional:
-	TypeName *string `pulumi:"typeName"`
-	// Identifier of the CloudFormation resource type version.
+	DesiredState  *string `pulumi:"desiredState"`
+	Properties    *string `pulumi:"properties"`
+	Region        *string `pulumi:"region"`
+	RoleArn       *string `pulumi:"roleArn"`
+	Schema        *string `pulumi:"schema"`
+	TypeName      *string `pulumi:"typeName"`
 	TypeVersionId *string `pulumi:"typeVersionId"`
 }
 
 type ResourceState struct {
-	// JSON string matching the CloudFormation resource type schema with desired configuration.
-	DesiredState pulumi.StringPtrInput
-	// JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
-	Properties pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
-	RoleArn pulumi.StringPtrInput
-	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
-	Schema pulumi.StringPtrInput
-	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
-	//
-	// The following arguments are optional:
-	TypeName pulumi.StringPtrInput
-	// Identifier of the CloudFormation resource type version.
+	DesiredState  pulumi.StringPtrInput
+	Properties    pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
+	RoleArn       pulumi.StringPtrInput
+	Schema        pulumi.StringPtrInput
+	TypeName      pulumi.StringPtrInput
 	TypeVersionId pulumi.StringPtrInput
 }
 
@@ -161,37 +91,21 @@ func (ResourceState) ElementType() reflect.Type {
 }
 
 type resourceArgs struct {
-	// JSON string matching the CloudFormation resource type schema with desired configuration.
-	DesiredState string `pulumi:"desiredState"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
-	RoleArn *string `pulumi:"roleArn"`
-	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
-	Schema *string `pulumi:"schema"`
-	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
-	//
-	// The following arguments are optional:
-	TypeName string `pulumi:"typeName"`
-	// Identifier of the CloudFormation resource type version.
+	DesiredState  string  `pulumi:"desiredState"`
+	Region        *string `pulumi:"region"`
+	RoleArn       *string `pulumi:"roleArn"`
+	Schema        *string `pulumi:"schema"`
+	TypeName      string  `pulumi:"typeName"`
 	TypeVersionId *string `pulumi:"typeVersionId"`
 }
 
 // The set of arguments for constructing a Resource resource.
 type ResourceArgs struct {
-	// JSON string matching the CloudFormation resource type schema with desired configuration.
-	DesiredState pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
-	RoleArn pulumi.StringPtrInput
-	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
-	Schema pulumi.StringPtrInput
-	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
-	//
-	// The following arguments are optional:
-	TypeName pulumi.StringInput
-	// Identifier of the CloudFormation resource type version.
+	DesiredState  pulumi.StringInput
+	Region        pulumi.StringPtrInput
+	RoleArn       pulumi.StringPtrInput
+	Schema        pulumi.StringPtrInput
+	TypeName      pulumi.StringInput
 	TypeVersionId pulumi.StringPtrInput
 }
 
@@ -282,39 +196,30 @@ func (o ResourceOutput) ToResourceOutputWithContext(ctx context.Context) Resourc
 	return o
 }
 
-// JSON string matching the CloudFormation resource type schema with desired configuration.
 func (o ResourceOutput) DesiredState() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.DesiredState }).(pulumi.StringOutput)
 }
 
-// JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
 func (o ResourceOutput) Properties() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.Properties }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResourceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
 func (o ResourceOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
 func (o ResourceOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }
 
-// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
-//
-// The following arguments are optional:
 func (o ResourceOutput) TypeName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.TypeName }).(pulumi.StringOutput)
 }
 
-// Identifier of the CloudFormation resource type version.
 func (o ResourceOutput) TypeVersionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringPtrOutput { return v.TypeVersionId }).(pulumi.StringPtrOutput)
 }

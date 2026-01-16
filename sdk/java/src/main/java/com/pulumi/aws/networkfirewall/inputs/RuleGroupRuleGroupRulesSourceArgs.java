@@ -19,62 +19,30 @@ public final class RuleGroupRuleGroupRulesSourceArgs extends com.pulumi.resource
 
     public static final RuleGroupRuleGroupRulesSourceArgs Empty = new RuleGroupRuleGroupRulesSourceArgs();
 
-    /**
-     * A configuration block containing **stateful** inspection criteria for a domain list rule group. See Rules Source List below for details.
-     * 
-     */
     @Import(name="rulesSourceList")
     private @Nullable Output<RuleGroupRuleGroupRulesSourceRulesSourceListArgs> rulesSourceList;
 
-    /**
-     * @return A configuration block containing **stateful** inspection criteria for a domain list rule group. See Rules Source List below for details.
-     * 
-     */
     public Optional<Output<RuleGroupRuleGroupRulesSourceRulesSourceListArgs>> rulesSourceList() {
         return Optional.ofNullable(this.rulesSourceList);
     }
 
-    /**
-     * Stateful inspection criteria, provided in Suricata compatible rules. These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn’t have a separate action setting.
-     * 
-     */
     @Import(name="rulesString")
     private @Nullable Output<String> rulesString;
 
-    /**
-     * @return Stateful inspection criteria, provided in Suricata compatible rules. These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn’t have a separate action setting.
-     * 
-     */
     public Optional<Output<String>> rulesString() {
         return Optional.ofNullable(this.rulesString);
     }
 
-    /**
-     * Set of configuration blocks containing **stateful** inspection criteria for 5-tuple rules to be used together in a rule group. See Stateful Rule below for details.
-     * 
-     */
     @Import(name="statefulRules")
     private @Nullable Output<List<RuleGroupRuleGroupRulesSourceStatefulRuleArgs>> statefulRules;
 
-    /**
-     * @return Set of configuration blocks containing **stateful** inspection criteria for 5-tuple rules to be used together in a rule group. See Stateful Rule below for details.
-     * 
-     */
     public Optional<Output<List<RuleGroupRuleGroupRulesSourceStatefulRuleArgs>>> statefulRules() {
         return Optional.ofNullable(this.statefulRules);
     }
 
-    /**
-     * A configuration block containing **stateless** inspection criteria for a stateless rule group. See Stateless Rules and Custom Actions below for details.
-     * 
-     */
     @Import(name="statelessRulesAndCustomActions")
     private @Nullable Output<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs> statelessRulesAndCustomActions;
 
-    /**
-     * @return A configuration block containing **stateless** inspection criteria for a stateless rule group. See Stateless Rules and Custom Actions below for details.
-     * 
-     */
     public Optional<Output<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs>> statelessRulesAndCustomActions() {
         return Optional.ofNullable(this.statelessRulesAndCustomActions);
     }
@@ -106,96 +74,42 @@ public final class RuleGroupRuleGroupRulesSourceArgs extends com.pulumi.resource
             $ = new RuleGroupRuleGroupRulesSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param rulesSourceList A configuration block containing **stateful** inspection criteria for a domain list rule group. See Rules Source List below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rulesSourceList(@Nullable Output<RuleGroupRuleGroupRulesSourceRulesSourceListArgs> rulesSourceList) {
             $.rulesSourceList = rulesSourceList;
             return this;
         }
 
-        /**
-         * @param rulesSourceList A configuration block containing **stateful** inspection criteria for a domain list rule group. See Rules Source List below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rulesSourceList(RuleGroupRuleGroupRulesSourceRulesSourceListArgs rulesSourceList) {
             return rulesSourceList(Output.of(rulesSourceList));
         }
 
-        /**
-         * @param rulesString Stateful inspection criteria, provided in Suricata compatible rules. These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn’t have a separate action setting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rulesString(@Nullable Output<String> rulesString) {
             $.rulesString = rulesString;
             return this;
         }
 
-        /**
-         * @param rulesString Stateful inspection criteria, provided in Suricata compatible rules. These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn’t have a separate action setting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rulesString(String rulesString) {
             return rulesString(Output.of(rulesString));
         }
 
-        /**
-         * @param statefulRules Set of configuration blocks containing **stateful** inspection criteria for 5-tuple rules to be used together in a rule group. See Stateful Rule below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statefulRules(@Nullable Output<List<RuleGroupRuleGroupRulesSourceStatefulRuleArgs>> statefulRules) {
             $.statefulRules = statefulRules;
             return this;
         }
 
-        /**
-         * @param statefulRules Set of configuration blocks containing **stateful** inspection criteria for 5-tuple rules to be used together in a rule group. See Stateful Rule below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statefulRules(List<RuleGroupRuleGroupRulesSourceStatefulRuleArgs> statefulRules) {
             return statefulRules(Output.of(statefulRules));
         }
 
-        /**
-         * @param statefulRules Set of configuration blocks containing **stateful** inspection criteria for 5-tuple rules to be used together in a rule group. See Stateful Rule below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statefulRules(RuleGroupRuleGroupRulesSourceStatefulRuleArgs... statefulRules) {
             return statefulRules(List.of(statefulRules));
         }
 
-        /**
-         * @param statelessRulesAndCustomActions A configuration block containing **stateless** inspection criteria for a stateless rule group. See Stateless Rules and Custom Actions below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statelessRulesAndCustomActions(@Nullable Output<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs> statelessRulesAndCustomActions) {
             $.statelessRulesAndCustomActions = statelessRulesAndCustomActions;
             return this;
         }
 
-        /**
-         * @param statelessRulesAndCustomActions A configuration block containing **stateless** inspection criteria for a stateless rule group. See Stateless Rules and Custom Actions below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statelessRulesAndCustomActions(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs statelessRulesAndCustomActions) {
             return statelessRulesAndCustomActions(Output.of(statelessRulesAndCustomActions));
         }

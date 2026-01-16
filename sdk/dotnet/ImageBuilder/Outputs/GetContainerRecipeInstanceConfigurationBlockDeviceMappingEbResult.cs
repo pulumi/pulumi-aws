@@ -13,37 +13,13 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbResult
     {
-        /// <summary>
-        /// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
-        /// </summary>
         public readonly bool DeleteOnTermination;
-        /// <summary>
-        /// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
-        /// </summary>
         public readonly bool Encrypted;
-        /// <summary>
-        /// Number of Input/Output (I/O) operations per second to provision for an `Io1` or `Io2` volume.
-        /// </summary>
         public readonly int Iops;
-        /// <summary>
-        /// KMS key used to encrypt the container image.
-        /// </summary>
         public readonly string KmsKeyId;
-        /// <summary>
-        /// Identifier of the EC2 Volume Snapshot.
-        /// </summary>
         public readonly string SnapshotId;
-        /// <summary>
-        /// For GP3 volumes only. The throughput in MiB/s that the volume supports.
-        /// </summary>
         public readonly int Throughput;
-        /// <summary>
-        /// Size of the volume, in GiB.
-        /// </summary>
         public readonly int VolumeSize;
-        /// <summary>
-        /// Type of the volume. For example, `Gp2` or `Io2`.
-        /// </summary>
         public readonly string VolumeType;
 
         [OutputConstructor]

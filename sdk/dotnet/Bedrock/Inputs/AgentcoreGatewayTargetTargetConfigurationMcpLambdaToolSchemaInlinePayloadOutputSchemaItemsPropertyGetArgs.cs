@@ -12,39 +12,21 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the property.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `PropertiesJson`.
-        /// </summary>
         [Input("itemsJson")]
         public Input<string>? ItemsJson { get; set; }
 
-        /// <summary>
-        /// Name of the property.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `ItemsJson`.
-        /// </summary>
         [Input("propertiesJson")]
         public Input<string>? PropertiesJson { get; set; }
 
-        /// <summary>
-        /// Whether this property is required. Defaults to `False`.
-        /// </summary>
         [Input("required")]
         public Input<bool>? Required { get; set; }
 
-        /// <summary>
-        /// Data type of the property.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

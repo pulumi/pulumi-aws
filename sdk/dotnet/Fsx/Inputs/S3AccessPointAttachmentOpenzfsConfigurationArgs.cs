@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Fsx.Inputs
 
     public sealed class S3AccessPointAttachmentOpenzfsConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// File system user identity to use for authorizing file read and write requests that are made using the S3 access point. See `FileSystemIdentity` Block for details.
-        /// </summary>
         [Input("fileSystemIdentity")]
         public Input<Inputs.S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgs>? FileSystemIdentity { get; set; }
 
-        /// <summary>
-        /// ID of the FSx for OpenZFS volume to which the S3 access point is attached.
-        /// </summary>
         [Input("volumeId", required: true)]
         public Input<string> VolumeId { get; set; } = null!;
 

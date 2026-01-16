@@ -12,15 +12,9 @@ namespace Pulumi.Aws.TimestreamQuery.Inputs
 
     public sealed class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the table which is queried with the largest time range.
-        /// </summary>
         [Input("tableArn")]
         public Input<string>? TableArn { get; set; }
 
-        /// <summary>
-        /// Maximum duration in nanoseconds between the start and end of the query.
-        /// </summary>
         [Input("value")]
         public Input<int>? Value { get; set; }
 

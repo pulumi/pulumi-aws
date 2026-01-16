@@ -15,17 +15,9 @@ public final class IdcApplicationServiceIntegrationLakeFormationArgs extends com
 
     public static final IdcApplicationServiceIntegrationLakeFormationArgs Empty = new IdcApplicationServiceIntegrationLakeFormationArgs();
 
-    /**
-     * Lake formation scope.
-     * 
-     */
     @Import(name="lakeFormationQuery")
     private @Nullable Output<IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs> lakeFormationQuery;
 
-    /**
-     * @return Lake formation scope.
-     * 
-     */
     public Optional<Output<IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs>> lakeFormationQuery() {
         return Optional.ofNullable(this.lakeFormationQuery);
     }
@@ -54,23 +46,11 @@ public final class IdcApplicationServiceIntegrationLakeFormationArgs extends com
             $ = new IdcApplicationServiceIntegrationLakeFormationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param lakeFormationQuery Lake formation scope.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lakeFormationQuery(@Nullable Output<IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs> lakeFormationQuery) {
             $.lakeFormationQuery = lakeFormationQuery;
             return this;
         }
 
-        /**
-         * @param lakeFormationQuery Lake formation scope.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lakeFormationQuery(IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs lakeFormationQuery) {
             return lakeFormationQuery(Output.of(lakeFormationQuery));
         }

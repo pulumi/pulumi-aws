@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription
     {
-        /// <summary>
-        /// The text of a description for a column.
-        /// </summary>
         public readonly string? Text;
 
         [OutputConstructor]

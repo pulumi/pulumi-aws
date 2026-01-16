@@ -12,131 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Attaches a permissions boundary policy to a Single Sign-On (SSO) Permission Set resource.
-//
-// > **NOTE:** A permission set can have at most one permissions boundary attached; using more than one `ssoadmin.PermissionsBoundaryAttachment` references the same permission set will show a permanent difference.
-//
-// ## Example Usage
-//
-// ### Attaching a customer-managed policy
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			examplePermissionSet, err := ssoadmin.NewPermissionSet(ctx, "example", &ssoadmin.PermissionSetArgs{
-//				Name:        pulumi.String("Example"),
-//				InstanceArn: pulumi.String(example.Arns[0]),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
-//							"ec2:Describe*",
-//						},
-//						"Effect":   "Allow",
-//						"Resource": "*",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			examplePolicy, err := iam.NewPolicy(ctx, "example", &iam.PolicyArgs{
-//				Name:        pulumi.String("TestPolicy"),
-//				Description: pulumi.String("My test policy"),
-//				Policy:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssoadmin.NewPermissionsBoundaryAttachment(ctx, "example", &ssoadmin.PermissionsBoundaryAttachmentArgs{
-//				InstanceArn:      examplePermissionSet.InstanceArn,
-//				PermissionSetArn: examplePermissionSet.Arn,
-//				PermissionsBoundary: &ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundaryArgs{
-//					CustomerManagedPolicyReference: &ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs{
-//						Name: examplePolicy.Name,
-//						Path: pulumi.String("/"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Attaching an AWS-managed policy
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssoadmin.NewPermissionsBoundaryAttachment(ctx, "example", &ssoadmin.PermissionsBoundaryAttachmentArgs{
-//				InstanceArn:      pulumi.Any(exampleAwsSsoadminPermissionSet.InstanceArn),
-//				PermissionSetArn: pulumi.Any(exampleAwsSsoadminPermissionSet.Arn),
-//				PermissionsBoundary: &ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundaryArgs{
-//					ManagedPolicyArn: pulumi.String("arn:aws:iam::aws:policy/ReadOnlyAccess"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SSO Admin Permissions Boundary Attachments using the `permission_set_arn` and `instance_arn`, separated by a comma (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
-// ```
 type PermissionsBoundaryAttachment struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
-	// The Amazon Resource Name (ARN) of the Permission Set.
-	PermissionSetArn pulumi.StringOutput `pulumi:"permissionSetArn"`
-	// The permissions boundary policy. See below.
+	InstanceArn         pulumi.StringOutput                                    `pulumi:"instanceArn"`
+	PermissionSetArn    pulumi.StringOutput                                    `pulumi:"permissionSetArn"`
 	PermissionsBoundary PermissionsBoundaryAttachmentPermissionsBoundaryOutput `pulumi:"permissionsBoundary"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region              pulumi.StringOutput                                    `pulumi:"region"`
 }
 
 // NewPermissionsBoundaryAttachment registers a new resource with the given unique name, arguments, and options.
@@ -178,25 +60,17 @@ func GetPermissionsBoundaryAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PermissionsBoundaryAttachment resources.
 type permissionsBoundaryAttachmentState struct {
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-	InstanceArn *string `pulumi:"instanceArn"`
-	// The Amazon Resource Name (ARN) of the Permission Set.
-	PermissionSetArn *string `pulumi:"permissionSetArn"`
-	// The permissions boundary policy. See below.
+	InstanceArn         *string                                           `pulumi:"instanceArn"`
+	PermissionSetArn    *string                                           `pulumi:"permissionSetArn"`
 	PermissionsBoundary *PermissionsBoundaryAttachmentPermissionsBoundary `pulumi:"permissionsBoundary"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region              *string                                           `pulumi:"region"`
 }
 
 type PermissionsBoundaryAttachmentState struct {
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-	InstanceArn pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the Permission Set.
-	PermissionSetArn pulumi.StringPtrInput
-	// The permissions boundary policy. See below.
+	InstanceArn         pulumi.StringPtrInput
+	PermissionSetArn    pulumi.StringPtrInput
 	PermissionsBoundary PermissionsBoundaryAttachmentPermissionsBoundaryPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
 }
 
 func (PermissionsBoundaryAttachmentState) ElementType() reflect.Type {
@@ -204,26 +78,18 @@ func (PermissionsBoundaryAttachmentState) ElementType() reflect.Type {
 }
 
 type permissionsBoundaryAttachmentArgs struct {
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-	InstanceArn string `pulumi:"instanceArn"`
-	// The Amazon Resource Name (ARN) of the Permission Set.
-	PermissionSetArn string `pulumi:"permissionSetArn"`
-	// The permissions boundary policy. See below.
+	InstanceArn         string                                           `pulumi:"instanceArn"`
+	PermissionSetArn    string                                           `pulumi:"permissionSetArn"`
 	PermissionsBoundary PermissionsBoundaryAttachmentPermissionsBoundary `pulumi:"permissionsBoundary"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region              *string                                          `pulumi:"region"`
 }
 
 // The set of arguments for constructing a PermissionsBoundaryAttachment resource.
 type PermissionsBoundaryAttachmentArgs struct {
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-	InstanceArn pulumi.StringInput
-	// The Amazon Resource Name (ARN) of the Permission Set.
-	PermissionSetArn pulumi.StringInput
-	// The permissions boundary policy. See below.
+	InstanceArn         pulumi.StringInput
+	PermissionSetArn    pulumi.StringInput
 	PermissionsBoundary PermissionsBoundaryAttachmentPermissionsBoundaryInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
 }
 
 func (PermissionsBoundaryAttachmentArgs) ElementType() reflect.Type {
@@ -313,24 +179,20 @@ func (o PermissionsBoundaryAttachmentOutput) ToPermissionsBoundaryAttachmentOutp
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
 func (o PermissionsBoundaryAttachmentOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PermissionsBoundaryAttachment) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Permission Set.
 func (o PermissionsBoundaryAttachmentOutput) PermissionSetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PermissionsBoundaryAttachment) pulumi.StringOutput { return v.PermissionSetArn }).(pulumi.StringOutput)
 }
 
-// The permissions boundary policy. See below.
 func (o PermissionsBoundaryAttachmentOutput) PermissionsBoundary() PermissionsBoundaryAttachmentPermissionsBoundaryOutput {
 	return o.ApplyT(func(v *PermissionsBoundaryAttachment) PermissionsBoundaryAttachmentPermissionsBoundaryOutput {
 		return v.PermissionsBoundary
 	}).(PermissionsBoundaryAttachmentPermissionsBoundaryOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PermissionsBoundaryAttachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PermissionsBoundaryAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

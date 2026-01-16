@@ -13,9 +13,6 @@ namespace Pulumi.Aws.DevOpsGuru.Outputs
     [OutputType]
     public sealed class ServiceIntegrationLogsAnomalyDetection
     {
-        /// <summary>
-        /// Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups. Valid values are `DISABLED` and `ENABLED`.
-        /// </summary>
         public readonly string? OptInStatus;
 
         [OutputConstructor]

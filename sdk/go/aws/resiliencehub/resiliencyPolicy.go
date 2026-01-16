@@ -12,90 +12,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Resilience Hub Resiliency Policy.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/resiliencehub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := resiliencehub.NewResiliencyPolicy(ctx, "example", &resiliencehub.ResiliencyPolicyArgs{
-//				Name:                   pulumi.String("testexample"),
-//				Description:            pulumi.String("testexample"),
-//				Tier:                   pulumi.String("NonCritical"),
-//				DataLocationConstraint: pulumi.String("AnyLocation"),
-//				Policy: &resiliencehub.ResiliencyPolicyPolicyArgs{
-//					Region: &resiliencehub.ResiliencyPolicyPolicyRegionArgs{
-//						Rpo: pulumi.String("24h"),
-//						Rto: pulumi.String("24h"),
-//					},
-//					Az: &resiliencehub.ResiliencyPolicyPolicyAzArgs{
-//						Rpo: pulumi.String("24h"),
-//						Rto: pulumi.String("24h"),
-//					},
-//					Hardware: &resiliencehub.ResiliencyPolicyPolicyHardwareArgs{
-//						Rpo: pulumi.String("24h"),
-//						Rto: pulumi.String("24h"),
-//					},
-//					Software: &resiliencehub.ResiliencyPolicyPolicySoftwareArgs{
-//						Rpo: pulumi.String("24h"),
-//						Rto: pulumi.String("24h"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Resilience Hub Resiliency Policy using the `arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy example arn:aws:resiliencehub:us-east-1:123456789012:resiliency-policy/8c1cfa29-d1dd-4421-aa68-c9f64cced4c2
-// ```
 type ResiliencyPolicy struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Resiliency Policy.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Data Location Constraint of the Policy.
-	// Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
+	// Specifies a high-level geographical location constraint for where resilience policy data can be stored.
 	DataLocationConstraint pulumi.StringOutput `pulumi:"dataLocationConstraint"`
-	// Description of Resiliency Policy.
+	// The description for the policy.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Estimated Cost Tier of the Resiliency Policy.
+	// Specifies the estimated cost tier of the resiliency policy.
 	EstimatedCostTier pulumi.StringOutput `pulumi:"estimatedCostTier"`
-	// Name of Resiliency Policy.
-	// Must be between 2 and 60 characters long.
-	// Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
+	// The name of the policy.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
-	//
-	// The following arguments are optional:
-	Policy ResiliencyPolicyPolicyPtrOutput `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Resiliency Policy Tier.
-	// Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
+	// The resiliency failure policy.
+	Policy  ResiliencyPolicyPolicyPtrOutput `pulumi:"policy"`
+	Region  pulumi.StringOutput             `pulumi:"region"`
+	Tags    pulumi.StringMapOutput          `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput          `pulumi:"tagsAll"`
+	// The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
 	Tier     pulumi.StringOutput               `pulumi:"tier"`
 	Timeouts ResiliencyPolicyTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -133,61 +67,41 @@ func GetResiliencyPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResiliencyPolicy resources.
 type resiliencyPolicyState struct {
-	// ARN of the Resiliency Policy.
 	Arn *string `pulumi:"arn"`
-	// Data Location Constraint of the Policy.
-	// Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
+	// Specifies a high-level geographical location constraint for where resilience policy data can be stored.
 	DataLocationConstraint *string `pulumi:"dataLocationConstraint"`
-	// Description of Resiliency Policy.
+	// The description for the policy.
 	Description *string `pulumi:"description"`
-	// Estimated Cost Tier of the Resiliency Policy.
+	// Specifies the estimated cost tier of the resiliency policy.
 	EstimatedCostTier *string `pulumi:"estimatedCostTier"`
-	// Name of Resiliency Policy.
-	// Must be between 2 and 60 characters long.
-	// Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
+	// The name of the policy.
 	Name *string `pulumi:"name"`
-	// The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
-	//
-	// The following arguments are optional:
-	Policy *ResiliencyPolicyPolicy `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Resiliency Policy Tier.
-	// Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
+	// The resiliency failure policy.
+	Policy  *ResiliencyPolicyPolicy `pulumi:"policy"`
+	Region  *string                 `pulumi:"region"`
+	Tags    map[string]string       `pulumi:"tags"`
+	TagsAll map[string]string       `pulumi:"tagsAll"`
+	// The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
 	Tier     *string                   `pulumi:"tier"`
 	Timeouts *ResiliencyPolicyTimeouts `pulumi:"timeouts"`
 }
 
 type ResiliencyPolicyState struct {
-	// ARN of the Resiliency Policy.
 	Arn pulumi.StringPtrInput
-	// Data Location Constraint of the Policy.
-	// Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
+	// Specifies a high-level geographical location constraint for where resilience policy data can be stored.
 	DataLocationConstraint pulumi.StringPtrInput
-	// Description of Resiliency Policy.
+	// The description for the policy.
 	Description pulumi.StringPtrInput
-	// Estimated Cost Tier of the Resiliency Policy.
+	// Specifies the estimated cost tier of the resiliency policy.
 	EstimatedCostTier pulumi.StringPtrInput
-	// Name of Resiliency Policy.
-	// Must be between 2 and 60 characters long.
-	// Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
+	// The name of the policy.
 	Name pulumi.StringPtrInput
-	// The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
-	//
-	// The following arguments are optional:
-	Policy ResiliencyPolicyPolicyPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// The resiliency failure policy.
+	Policy  ResiliencyPolicyPolicyPtrInput
+	Region  pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
-	// Resiliency Policy Tier.
-	// Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
+	// The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
 	Tier     pulumi.StringPtrInput
 	Timeouts ResiliencyPolicyTimeoutsPtrInput
 }
@@ -197,50 +111,34 @@ func (ResiliencyPolicyState) ElementType() reflect.Type {
 }
 
 type resiliencyPolicyArgs struct {
-	// Data Location Constraint of the Policy.
-	// Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
+	// Specifies a high-level geographical location constraint for where resilience policy data can be stored.
 	DataLocationConstraint *string `pulumi:"dataLocationConstraint"`
-	// Description of Resiliency Policy.
+	// The description for the policy.
 	Description *string `pulumi:"description"`
-	// Name of Resiliency Policy.
-	// Must be between 2 and 60 characters long.
-	// Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
+	// The name of the policy.
 	Name *string `pulumi:"name"`
-	// The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
-	//
-	// The following arguments are optional:
+	// The resiliency failure policy.
 	Policy *ResiliencyPolicyPolicy `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Resiliency Policy Tier.
-	// Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
+	Region *string                 `pulumi:"region"`
+	Tags   map[string]string       `pulumi:"tags"`
+	// The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
 	Tier     string                    `pulumi:"tier"`
 	Timeouts *ResiliencyPolicyTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a ResiliencyPolicy resource.
 type ResiliencyPolicyArgs struct {
-	// Data Location Constraint of the Policy.
-	// Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
+	// Specifies a high-level geographical location constraint for where resilience policy data can be stored.
 	DataLocationConstraint pulumi.StringPtrInput
-	// Description of Resiliency Policy.
+	// The description for the policy.
 	Description pulumi.StringPtrInput
-	// Name of Resiliency Policy.
-	// Must be between 2 and 60 characters long.
-	// Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
+	// The name of the policy.
 	Name pulumi.StringPtrInput
-	// The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
-	//
-	// The following arguments are optional:
+	// The resiliency failure policy.
 	Policy ResiliencyPolicyPolicyPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Resiliency Policy Tier.
-	// Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
+	Tags   pulumi.StringMapInput
+	// The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
 	Tier     pulumi.StringInput
 	Timeouts ResiliencyPolicyTimeoutsPtrInput
 }
@@ -332,58 +230,48 @@ func (o ResiliencyPolicyOutput) ToResiliencyPolicyOutputWithContext(ctx context.
 	return o
 }
 
-// ARN of the Resiliency Policy.
 func (o ResiliencyPolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResiliencyPolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Data Location Constraint of the Policy.
-// Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
+// Specifies a high-level geographical location constraint for where resilience policy data can be stored.
 func (o ResiliencyPolicyOutput) DataLocationConstraint() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResiliencyPolicy) pulumi.StringOutput { return v.DataLocationConstraint }).(pulumi.StringOutput)
 }
 
-// Description of Resiliency Policy.
+// The description for the policy.
 func (o ResiliencyPolicyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResiliencyPolicy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Estimated Cost Tier of the Resiliency Policy.
+// Specifies the estimated cost tier of the resiliency policy.
 func (o ResiliencyPolicyOutput) EstimatedCostTier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResiliencyPolicy) pulumi.StringOutput { return v.EstimatedCostTier }).(pulumi.StringOutput)
 }
 
-// Name of Resiliency Policy.
-// Must be between 2 and 60 characters long.
-// Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
+// The name of the policy.
 func (o ResiliencyPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResiliencyPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
-//
-// The following arguments are optional:
+// The resiliency failure policy.
 func (o ResiliencyPolicyOutput) Policy() ResiliencyPolicyPolicyPtrOutput {
 	return o.ApplyT(func(v *ResiliencyPolicy) ResiliencyPolicyPolicyPtrOutput { return v.Policy }).(ResiliencyPolicyPolicyPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResiliencyPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResiliencyPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ResiliencyPolicyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResiliencyPolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ResiliencyPolicyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResiliencyPolicy) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Resiliency Policy Tier.
-// Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
+// The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
 func (o ResiliencyPolicyOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResiliencyPolicy) pulumi.StringOutput { return v.Tier }).(pulumi.StringOutput)
 }

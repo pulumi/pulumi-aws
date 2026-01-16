@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationAppversionLifecycle {
-    /**
-     * @return Set to `true` to delete a version&#39;s source bundle from S3 when the application version is deleted.
-     * 
-     */
     private @Nullable Boolean deleteSourceFromS3;
-    /**
-     * @return The number of days to retain an application version (&#39;max_age_in_days&#39; and &#39;max_count&#39; cannot be enabled simultaneously.).
-     * 
-     */
     private @Nullable Integer maxAgeInDays;
-    /**
-     * @return The maximum number of application versions to retain (&#39;max_age_in_days&#39; and &#39;max_count&#39; cannot be enabled simultaneously.).
-     * 
-     */
     private @Nullable Integer maxCount;
-    /**
-     * @return The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-     * 
-     */
     private String serviceRole;
 
     private ApplicationAppversionLifecycle() {}
-    /**
-     * @return Set to `true` to delete a version&#39;s source bundle from S3 when the application version is deleted.
-     * 
-     */
     public Optional<Boolean> deleteSourceFromS3() {
         return Optional.ofNullable(this.deleteSourceFromS3);
     }
-    /**
-     * @return The number of days to retain an application version (&#39;max_age_in_days&#39; and &#39;max_count&#39; cannot be enabled simultaneously.).
-     * 
-     */
     public Optional<Integer> maxAgeInDays() {
         return Optional.ofNullable(this.maxAgeInDays);
     }
-    /**
-     * @return The maximum number of application versions to retain (&#39;max_age_in_days&#39; and &#39;max_count&#39; cannot be enabled simultaneously.).
-     * 
-     */
     public Optional<Integer> maxCount() {
         return Optional.ofNullable(this.maxCount);
     }
-    /**
-     * @return The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-     * 
-     */
     public String serviceRole() {
         return this.serviceRole;
     }

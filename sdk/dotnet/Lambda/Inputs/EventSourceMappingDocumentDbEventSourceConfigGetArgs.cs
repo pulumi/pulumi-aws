@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Lambda.Inputs
 
     public sealed class EventSourceMappingDocumentDbEventSourceConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
-        /// </summary>
         [Input("collectionName")]
         public Input<string>? CollectionName { get; set; }
 
-        /// <summary>
-        /// Name of the database to consume within the DocumentDB cluster.
-        /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
-        /// <summary>
-        /// Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
-        /// </summary>
         [Input("fullDocument")]
         public Input<string>? FullDocument { get; set; }
 

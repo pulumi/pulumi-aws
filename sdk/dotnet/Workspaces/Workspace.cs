@@ -9,142 +9,45 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Workspaces
 {
-    /// <summary>
-    /// Provides a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service
-    /// 
-    /// &gt; **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var valueWindows10 = Aws.Workspaces.GetBundle.Invoke(new()
-    ///     {
-    ///         BundleId = "wsb-bh8rsxt14",
-    ///     });
-    /// 
-    ///     var workspaces = Aws.Kms.GetKey.Invoke(new()
-    ///     {
-    ///         KeyId = "alias/aws/workspaces",
-    ///     });
-    /// 
-    ///     var example = new Aws.Workspaces.Workspace("example", new()
-    ///     {
-    ///         DirectoryId = exampleAwsWorkspacesDirectory.Id,
-    ///         BundleId = valueWindows10.Apply(getBundleResult =&gt; getBundleResult.Id),
-    ///         UserName = "john.doe",
-    ///         RootVolumeEncryptionEnabled = true,
-    ///         UserVolumeEncryptionEnabled = true,
-    ///         VolumeEncryptionKey = workspaces.Apply(getKeyResult =&gt; getKeyResult.Arn),
-    ///         WorkspaceProperties = new Aws.Workspaces.Inputs.WorkspaceWorkspacePropertiesArgs
-    ///         {
-    ///             ComputeTypeName = "VALUE",
-    ///             UserVolumeSizeGib = 10,
-    ///             RootVolumeSizeGib = 80,
-    ///             RunningMode = "AUTO_STOP",
-    ///             RunningModeAutoStopTimeoutInMinutes = 60,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Department", "IT" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Workspaces using their ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:workspaces/workspace:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ID of the bundle for the WorkSpace.
-        /// </summary>
         [Output("bundleId")]
         public Output<string> BundleId { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the WorkSpace, as seen by the operating system.
-        /// </summary>
         [Output("computerName")]
         public Output<string> ComputerName { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the directory for the WorkSpace.
-        /// </summary>
         [Output("directoryId")]
         public Output<string> DirectoryId { get; private set; } = null!;
 
-        /// <summary>
-        /// The IP address of the WorkSpace.
-        /// </summary>
         [Output("ipAddress")]
         public Output<string> IpAddress { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether the data stored on the root volume is encrypted.
-        /// </summary>
         [Output("rootVolumeEncryptionEnabled")]
         public Output<bool?> RootVolumeEncryptionEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// The operational state of the WorkSpace.
-        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
-        /// <summary>
-        /// The tags for the WorkSpace. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
-        /// </summary>
         [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether the data stored on the user volume is encrypted.
-        /// </summary>
         [Output("userVolumeEncryptionEnabled")]
         public Output<bool?> UserVolumeEncryptionEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
-        /// </summary>
         [Output("volumeEncryptionKey")]
         public Output<string?> VolumeEncryptionKey { get; private set; } = null!;
 
-        /// <summary>
-        /// The WorkSpace properties.
-        /// </summary>
         [Output("workspaceProperties")]
         public Output<Outputs.WorkspaceWorkspaceProperties> WorkspaceProperties { get; private set; } = null!;
 
@@ -194,63 +97,35 @@ namespace Pulumi.Aws.Workspaces
 
     public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the bundle for the WorkSpace.
-        /// </summary>
         [Input("bundleId", required: true)]
         public Input<string> BundleId { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the directory for the WorkSpace.
-        /// </summary>
         [Input("directoryId", required: true)]
         public Input<string> DirectoryId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Indicates whether the data stored on the root volume is encrypted.
-        /// </summary>
         [Input("rootVolumeEncryptionEnabled")]
         public Input<bool>? RootVolumeEncryptionEnabled { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// The tags for the WorkSpace. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
-        /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
 
-        /// <summary>
-        /// Indicates whether the data stored on the user volume is encrypted.
-        /// </summary>
         [Input("userVolumeEncryptionEnabled")]
         public Input<bool>? UserVolumeEncryptionEnabled { get; set; }
 
-        /// <summary>
-        /// The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
-        /// </summary>
         [Input("volumeEncryptionKey")]
         public Input<string>? VolumeEncryptionKey { get; set; }
 
-        /// <summary>
-        /// The WorkSpace properties.
-        /// </summary>
         [Input("workspaceProperties")]
         public Input<Inputs.WorkspaceWorkspacePropertiesArgs>? WorkspaceProperties { get; set; }
 
@@ -262,54 +137,29 @@ namespace Pulumi.Aws.Workspaces
 
     public sealed class WorkspaceState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the bundle for the WorkSpace.
-        /// </summary>
         [Input("bundleId")]
         public Input<string>? BundleId { get; set; }
 
-        /// <summary>
-        /// The name of the WorkSpace, as seen by the operating system.
-        /// </summary>
         [Input("computerName")]
         public Input<string>? ComputerName { get; set; }
 
-        /// <summary>
-        /// The ID of the directory for the WorkSpace.
-        /// </summary>
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }
 
-        /// <summary>
-        /// The IP address of the WorkSpace.
-        /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Indicates whether the data stored on the root volume is encrypted.
-        /// </summary>
         [Input("rootVolumeEncryptionEnabled")]
         public Input<bool>? RootVolumeEncryptionEnabled { get; set; }
 
-        /// <summary>
-        /// The operational state of the WorkSpace.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// The tags for the WorkSpace. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -318,37 +168,21 @@ namespace Pulumi.Aws.Workspaces
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
-        /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
 
-        /// <summary>
-        /// Indicates whether the data stored on the user volume is encrypted.
-        /// </summary>
         [Input("userVolumeEncryptionEnabled")]
         public Input<bool>? UserVolumeEncryptionEnabled { get; set; }
 
-        /// <summary>
-        /// The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
-        /// </summary>
         [Input("volumeEncryptionKey")]
         public Input<string>? VolumeEncryptionKey { get; set; }
 
-        /// <summary>
-        /// The WorkSpace properties.
-        /// </summary>
         [Input("workspaceProperties")]
         public Input<Inputs.WorkspaceWorkspacePropertiesGetArgs>? WorkspaceProperties { get; set; }
 

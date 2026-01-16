@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Route 53 Resolver query logging configuration association resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.route53.ResolverQueryLogConfigAssociation("example", {
- *     resolverQueryLogConfigId: exampleAwsRoute53ResolverQueryLogConfig.id,
- *     resourceId: exampleAwsVpc.id,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import  Route 53 Resolver query logging configuration associations using the Route 53 Resolver query logging configuration association ID. For example:
- *
- * ```sh
- * $ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70
- * ```
- */
 export class ResolverQueryLogConfigAssociation extends pulumi.CustomResource {
     /**
      * Get an existing ResolverQueryLogConfigAssociation resource's state with the given name, ID, and optional extra
@@ -55,17 +32,8 @@ export class ResolverQueryLogConfigAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResolverQueryLogConfigAssociation.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
-     */
     declare public readonly resolverQueryLogConfigId: pulumi.Output<string>;
-    /**
-     * The ID of a VPC that you want this query logging configuration to log queries for.
-     */
     declare public readonly resourceId: pulumi.Output<string>;
 
     /**
@@ -105,17 +73,8 @@ export class ResolverQueryLogConfigAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResolverQueryLogConfigAssociation resources.
  */
 export interface ResolverQueryLogConfigAssociationState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
-     */
     resolverQueryLogConfigId?: pulumi.Input<string>;
-    /**
-     * The ID of a VPC that you want this query logging configuration to log queries for.
-     */
     resourceId?: pulumi.Input<string>;
 }
 
@@ -123,16 +82,7 @@ export interface ResolverQueryLogConfigAssociationState {
  * The set of arguments for constructing a ResolverQueryLogConfigAssociation resource.
  */
 export interface ResolverQueryLogConfigAssociationArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
-     */
     resolverQueryLogConfigId: pulumi.Input<string>;
-    /**
-     * The ID of a VPC that you want this query logging configuration to log queries for.
-     */
     resourceId: pulumi.Input<string>;
 }

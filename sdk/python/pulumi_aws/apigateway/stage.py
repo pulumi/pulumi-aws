@@ -37,20 +37,6 @@ class StageArgs:
                  xray_tracing_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Stage resource.
-        :param pulumi.Input[_builtins.str] deployment: ID of the deployment that the stage points to
-        :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API
-        :param pulumi.Input[_builtins.str] stage_name: Name of the stage
-        :param pulumi.Input['StageAccessLogSettingsArgs'] access_log_settings: Enables access logs for the API stage. See Access Log Settings below.
-        :param pulumi.Input[_builtins.bool] cache_cluster_enabled: Whether a cache cluster is enabled for the stage
-        :param pulumi.Input[_builtins.str] cache_cluster_size: Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
-        :param pulumi.Input['StageCanarySettingsArgs'] canary_settings: Configuration settings of a canary deployment. See Canary Settings below.
-        :param pulumi.Input[_builtins.str] client_certificate_id: Identifier of a client certificate for the stage.
-        :param pulumi.Input[_builtins.str] description: Description of the stage.
-        :param pulumi.Input[_builtins.str] documentation_version: Version of the associated API documentation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] variables: Map that defines the stage variables.
-        :param pulumi.Input[_builtins.bool] xray_tracing_enabled: Whether active tracing with X-ray is enabled. Defaults to `false`.
         """
         pulumi.set(__self__, "deployment", deployment)
         pulumi.set(__self__, "rest_api", rest_api)
@@ -81,9 +67,6 @@ class StageArgs:
     @_builtins.property
     @pulumi.getter
     def deployment(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the deployment that the stage points to
-        """
         return pulumi.get(self, "deployment")
 
     @deployment.setter
@@ -93,9 +76,6 @@ class StageArgs:
     @_builtins.property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the associated REST API
-        """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
@@ -105,9 +85,6 @@ class StageArgs:
     @_builtins.property
     @pulumi.getter(name="stageName")
     def stage_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the stage
-        """
         return pulumi.get(self, "stage_name")
 
     @stage_name.setter
@@ -117,9 +94,6 @@ class StageArgs:
     @_builtins.property
     @pulumi.getter(name="accessLogSettings")
     def access_log_settings(self) -> Optional[pulumi.Input['StageAccessLogSettingsArgs']]:
-        """
-        Enables access logs for the API stage. See Access Log Settings below.
-        """
         return pulumi.get(self, "access_log_settings")
 
     @access_log_settings.setter
@@ -129,9 +103,6 @@ class StageArgs:
     @_builtins.property
     @pulumi.getter(name="cacheClusterEnabled")
     def cache_cluster_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether a cache cluster is enabled for the stage
-        """
         return pulumi.get(self, "cache_cluster_enabled")
 
     @cache_cluster_enabled.setter
@@ -141,9 +112,6 @@ class StageArgs:
     @_builtins.property
     @pulumi.getter(name="cacheClusterSize")
     def cache_cluster_size(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
-        """
         return pulumi.get(self, "cache_cluster_size")
 
     @cache_cluster_size.setter
@@ -153,9 +121,6 @@ class StageArgs:
     @_builtins.property
     @pulumi.getter(name="canarySettings")
     def canary_settings(self) -> Optional[pulumi.Input['StageCanarySettingsArgs']]:
-        """
-        Configuration settings of a canary deployment. See Canary Settings below.
-        """
         return pulumi.get(self, "canary_settings")
 
     @canary_settings.setter
@@ -165,9 +130,6 @@ class StageArgs:
     @_builtins.property
     @pulumi.getter(name="clientCertificateId")
     def client_certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of a client certificate for the stage.
-        """
         return pulumi.get(self, "client_certificate_id")
 
     @client_certificate_id.setter
@@ -177,9 +139,6 @@ class StageArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the stage.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -189,9 +148,6 @@ class StageArgs:
     @_builtins.property
     @pulumi.getter(name="documentationVersion")
     def documentation_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version of the associated API documentation.
-        """
         return pulumi.get(self, "documentation_version")
 
     @documentation_version.setter
@@ -201,9 +157,6 @@ class StageArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -213,9 +166,6 @@ class StageArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -225,9 +175,6 @@ class StageArgs:
     @_builtins.property
     @pulumi.getter
     def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map that defines the stage variables.
-        """
         return pulumi.get(self, "variables")
 
     @variables.setter
@@ -237,9 +184,6 @@ class StageArgs:
     @_builtins.property
     @pulumi.getter(name="xrayTracingEnabled")
     def xray_tracing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether active tracing with X-ray is enabled. Defaults to `false`.
-        """
         return pulumi.get(self, "xray_tracing_enabled")
 
     @xray_tracing_enabled.setter
@@ -271,28 +215,6 @@ class _StageState:
                  xray_tracing_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Stage resources.
-        :param pulumi.Input['StageAccessLogSettingsArgs'] access_log_settings: Enables access logs for the API stage. See Access Log Settings below.
-        :param pulumi.Input[_builtins.str] arn: ARN
-        :param pulumi.Input[_builtins.bool] cache_cluster_enabled: Whether a cache cluster is enabled for the stage
-        :param pulumi.Input[_builtins.str] cache_cluster_size: Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
-        :param pulumi.Input['StageCanarySettingsArgs'] canary_settings: Configuration settings of a canary deployment. See Canary Settings below.
-        :param pulumi.Input[_builtins.str] client_certificate_id: Identifier of a client certificate for the stage.
-        :param pulumi.Input[_builtins.str] deployment: ID of the deployment that the stage points to
-        :param pulumi.Input[_builtins.str] description: Description of the stage.
-        :param pulumi.Input[_builtins.str] documentation_version: Version of the associated API documentation.
-        :param pulumi.Input[_builtins.str] execution_arn: Execution ARN to be used in `lambda_permission`'s `source_arn`
-               when allowing API Gateway to invoke a Lambda function,
-               e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-        :param pulumi.Input[_builtins.str] invoke_url: URL to invoke the API pointing to the stage,
-               e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API
-        :param pulumi.Input[_builtins.str] stage_name: Name of the stage
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] variables: Map that defines the stage variables.
-        :param pulumi.Input[_builtins.str] web_acl_arn: ARN of the WebAcl associated with the Stage.
-        :param pulumi.Input[_builtins.bool] xray_tracing_enabled: Whether active tracing with X-ray is enabled. Defaults to `false`.
         """
         if access_log_settings is not None:
             pulumi.set(__self__, "access_log_settings", access_log_settings)
@@ -336,9 +258,6 @@ class _StageState:
     @_builtins.property
     @pulumi.getter(name="accessLogSettings")
     def access_log_settings(self) -> Optional[pulumi.Input['StageAccessLogSettingsArgs']]:
-        """
-        Enables access logs for the API stage. See Access Log Settings below.
-        """
         return pulumi.get(self, "access_log_settings")
 
     @access_log_settings.setter
@@ -348,9 +267,6 @@ class _StageState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -360,9 +276,6 @@ class _StageState:
     @_builtins.property
     @pulumi.getter(name="cacheClusterEnabled")
     def cache_cluster_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether a cache cluster is enabled for the stage
-        """
         return pulumi.get(self, "cache_cluster_enabled")
 
     @cache_cluster_enabled.setter
@@ -372,9 +285,6 @@ class _StageState:
     @_builtins.property
     @pulumi.getter(name="cacheClusterSize")
     def cache_cluster_size(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
-        """
         return pulumi.get(self, "cache_cluster_size")
 
     @cache_cluster_size.setter
@@ -384,9 +294,6 @@ class _StageState:
     @_builtins.property
     @pulumi.getter(name="canarySettings")
     def canary_settings(self) -> Optional[pulumi.Input['StageCanarySettingsArgs']]:
-        """
-        Configuration settings of a canary deployment. See Canary Settings below.
-        """
         return pulumi.get(self, "canary_settings")
 
     @canary_settings.setter
@@ -396,9 +303,6 @@ class _StageState:
     @_builtins.property
     @pulumi.getter(name="clientCertificateId")
     def client_certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of a client certificate for the stage.
-        """
         return pulumi.get(self, "client_certificate_id")
 
     @client_certificate_id.setter
@@ -408,9 +312,6 @@ class _StageState:
     @_builtins.property
     @pulumi.getter
     def deployment(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the deployment that the stage points to
-        """
         return pulumi.get(self, "deployment")
 
     @deployment.setter
@@ -420,9 +321,6 @@ class _StageState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the stage.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -432,9 +330,6 @@ class _StageState:
     @_builtins.property
     @pulumi.getter(name="documentationVersion")
     def documentation_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version of the associated API documentation.
-        """
         return pulumi.get(self, "documentation_version")
 
     @documentation_version.setter
@@ -444,11 +339,6 @@ class _StageState:
     @_builtins.property
     @pulumi.getter(name="executionArn")
     def execution_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Execution ARN to be used in `lambda_permission`'s `source_arn`
-        when allowing API Gateway to invoke a Lambda function,
-        e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-        """
         return pulumi.get(self, "execution_arn")
 
     @execution_arn.setter
@@ -458,10 +348,6 @@ class _StageState:
     @_builtins.property
     @pulumi.getter(name="invokeUrl")
     def invoke_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        URL to invoke the API pointing to the stage,
-        e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-        """
         return pulumi.get(self, "invoke_url")
 
     @invoke_url.setter
@@ -471,9 +357,6 @@ class _StageState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -483,9 +366,6 @@ class _StageState:
     @_builtins.property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the associated REST API
-        """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
@@ -495,9 +375,6 @@ class _StageState:
     @_builtins.property
     @pulumi.getter(name="stageName")
     def stage_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the stage
-        """
         return pulumi.get(self, "stage_name")
 
     @stage_name.setter
@@ -507,9 +384,6 @@ class _StageState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -519,9 +393,6 @@ class _StageState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -531,9 +402,6 @@ class _StageState:
     @_builtins.property
     @pulumi.getter
     def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map that defines the stage variables.
-        """
         return pulumi.get(self, "variables")
 
     @variables.setter
@@ -543,9 +411,6 @@ class _StageState:
     @_builtins.property
     @pulumi.getter(name="webAclArn")
     def web_acl_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the WebAcl associated with the Stage.
-        """
         return pulumi.get(self, "web_acl_arn")
 
     @web_acl_arn.setter
@@ -555,9 +420,6 @@ class _StageState:
     @_builtins.property
     @pulumi.getter(name="xrayTracingEnabled")
     def xray_tracing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether active tracing with X-ray is enabled. Defaults to `false`.
-        """
         return pulumi.get(self, "xray_tracing_enabled")
 
     @xray_tracing_enabled.setter
@@ -587,52 +449,9 @@ class Stage(pulumi.CustomResource):
                  xray_tracing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Manages an API Gateway Stage. A stage is a named reference to a deployment, which can be done via the `apigateway.Deployment` resource. Stages can be optionally managed further with the `apigateway.BasePathMapping` resource, `apigateway.DomainName` resource, and `aws_api_method_settings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-stages.html).
-
-        ### Managing the API Logging CloudWatch Log Group
-
-        API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, import the `cloudwatch.LogGroup` resource into Pulumi as a one time operation. You can recreate the environment without import.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        config = pulumi.Config()
-        stage_name = config.get("stageName")
-        if stage_name is None:
-            stage_name = "example"
-        example = aws.apigateway.RestApi("example")
-        example_log_group = aws.cloudwatch.LogGroup("example",
-            name=example.id.apply(lambda id: f"API-Gateway-Execution-Logs_{id}/{stage_name}"),
-            retention_in_days=7)
-        example_stage = aws.apigateway.Stage("example", stage_name=stage_name,
-        opts = pulumi.ResourceOptions(depends_on=[example_log_group]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_api_gateway_stage` using `REST-API-ID/STAGE-NAME`. For example:
-
-        ```sh
-        $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
-        ```
-
+        Create a Stage resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict']] access_log_settings: Enables access logs for the API stage. See Access Log Settings below.
-        :param pulumi.Input[_builtins.bool] cache_cluster_enabled: Whether a cache cluster is enabled for the stage
-        :param pulumi.Input[_builtins.str] cache_cluster_size: Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
-        :param pulumi.Input[Union['StageCanarySettingsArgs', 'StageCanarySettingsArgsDict']] canary_settings: Configuration settings of a canary deployment. See Canary Settings below.
-        :param pulumi.Input[_builtins.str] client_certificate_id: Identifier of a client certificate for the stage.
-        :param pulumi.Input[_builtins.str] deployment: ID of the deployment that the stage points to
-        :param pulumi.Input[_builtins.str] description: Description of the stage.
-        :param pulumi.Input[_builtins.str] documentation_version: Version of the associated API documentation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API
-        :param pulumi.Input[_builtins.str] stage_name: Name of the stage
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] variables: Map that defines the stage variables.
-        :param pulumi.Input[_builtins.bool] xray_tracing_enabled: Whether active tracing with X-ray is enabled. Defaults to `false`.
         """
         ...
     @overload
@@ -641,36 +460,7 @@ class Stage(pulumi.CustomResource):
                  args: StageArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an API Gateway Stage. A stage is a named reference to a deployment, which can be done via the `apigateway.Deployment` resource. Stages can be optionally managed further with the `apigateway.BasePathMapping` resource, `apigateway.DomainName` resource, and `aws_api_method_settings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-stages.html).
-
-        ### Managing the API Logging CloudWatch Log Group
-
-        API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, import the `cloudwatch.LogGroup` resource into Pulumi as a one time operation. You can recreate the environment without import.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        config = pulumi.Config()
-        stage_name = config.get("stageName")
-        if stage_name is None:
-            stage_name = "example"
-        example = aws.apigateway.RestApi("example")
-        example_log_group = aws.cloudwatch.LogGroup("example",
-            name=example.id.apply(lambda id: f"API-Gateway-Execution-Logs_{id}/{stage_name}"),
-            retention_in_days=7)
-        example_stage = aws.apigateway.Stage("example", stage_name=stage_name,
-        opts = pulumi.ResourceOptions(depends_on=[example_log_group]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_api_gateway_stage` using `REST-API-ID/STAGE-NAME`. For example:
-
-        ```sh
-        $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
-        ```
-
+        Create a Stage resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param StageArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -770,28 +560,6 @@ class Stage(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict']] access_log_settings: Enables access logs for the API stage. See Access Log Settings below.
-        :param pulumi.Input[_builtins.str] arn: ARN
-        :param pulumi.Input[_builtins.bool] cache_cluster_enabled: Whether a cache cluster is enabled for the stage
-        :param pulumi.Input[_builtins.str] cache_cluster_size: Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
-        :param pulumi.Input[Union['StageCanarySettingsArgs', 'StageCanarySettingsArgsDict']] canary_settings: Configuration settings of a canary deployment. See Canary Settings below.
-        :param pulumi.Input[_builtins.str] client_certificate_id: Identifier of a client certificate for the stage.
-        :param pulumi.Input[_builtins.str] deployment: ID of the deployment that the stage points to
-        :param pulumi.Input[_builtins.str] description: Description of the stage.
-        :param pulumi.Input[_builtins.str] documentation_version: Version of the associated API documentation.
-        :param pulumi.Input[_builtins.str] execution_arn: Execution ARN to be used in `lambda_permission`'s `source_arn`
-               when allowing API Gateway to invoke a Lambda function,
-               e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-        :param pulumi.Input[_builtins.str] invoke_url: URL to invoke the API pointing to the stage,
-               e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API
-        :param pulumi.Input[_builtins.str] stage_name: Name of the stage
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] variables: Map that defines the stage variables.
-        :param pulumi.Input[_builtins.str] web_acl_arn: ARN of the WebAcl associated with the Stage.
-        :param pulumi.Input[_builtins.bool] xray_tracing_enabled: Whether active tracing with X-ray is enabled. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -821,155 +589,95 @@ class Stage(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accessLogSettings")
     def access_log_settings(self) -> pulumi.Output[Optional['outputs.StageAccessLogSettings']]:
-        """
-        Enables access logs for the API stage. See Access Log Settings below.
-        """
         return pulumi.get(self, "access_log_settings")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="cacheClusterEnabled")
     def cache_cluster_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether a cache cluster is enabled for the stage
-        """
         return pulumi.get(self, "cache_cluster_enabled")
 
     @_builtins.property
     @pulumi.getter(name="cacheClusterSize")
     def cache_cluster_size(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
-        """
         return pulumi.get(self, "cache_cluster_size")
 
     @_builtins.property
     @pulumi.getter(name="canarySettings")
     def canary_settings(self) -> pulumi.Output[Optional['outputs.StageCanarySettings']]:
-        """
-        Configuration settings of a canary deployment. See Canary Settings below.
-        """
         return pulumi.get(self, "canary_settings")
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateId")
     def client_certificate_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Identifier of a client certificate for the stage.
-        """
         return pulumi.get(self, "client_certificate_id")
 
     @_builtins.property
     @pulumi.getter
     def deployment(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the deployment that the stage points to
-        """
         return pulumi.get(self, "deployment")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the stage.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="documentationVersion")
     def documentation_version(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Version of the associated API documentation.
-        """
         return pulumi.get(self, "documentation_version")
 
     @_builtins.property
     @pulumi.getter(name="executionArn")
     def execution_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Execution ARN to be used in `lambda_permission`'s `source_arn`
-        when allowing API Gateway to invoke a Lambda function,
-        e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-        """
         return pulumi.get(self, "execution_arn")
 
     @_builtins.property
     @pulumi.getter(name="invokeUrl")
     def invoke_url(self) -> pulumi.Output[_builtins.str]:
-        """
-        URL to invoke the API pointing to the stage,
-        e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-        """
         return pulumi.get(self, "invoke_url")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the associated REST API
-        """
         return pulumi.get(self, "rest_api")
 
     @_builtins.property
     @pulumi.getter(name="stageName")
     def stage_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the stage
-        """
         return pulumi.get(self, "stage_name")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def variables(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map that defines the stage variables.
-        """
         return pulumi.get(self, "variables")
 
     @_builtins.property
     @pulumi.getter(name="webAclArn")
     def web_acl_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the WebAcl associated with the Stage.
-        """
         return pulumi.get(self, "web_acl_arn")
 
     @_builtins.property
     @pulumi.getter(name="xrayTracingEnabled")
     def xray_tracing_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether active tracing with X-ray is enabled. Defaults to `false`.
-        """
         return pulumi.get(self, "xray_tracing_enabled")
 

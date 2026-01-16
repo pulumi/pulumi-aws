@@ -14,7 +14,6 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type InvoiceUnitRule struct {
-	// Set of AWS account IDs included in this invoice unit.
 	LinkedAccounts []string `pulumi:"linkedAccounts"`
 }
 
@@ -30,7 +29,6 @@ type InvoiceUnitRuleInput interface {
 }
 
 type InvoiceUnitRuleArgs struct {
-	// Set of AWS account IDs included in this invoice unit.
 	LinkedAccounts pulumi.StringArrayInput `pulumi:"linkedAccounts"`
 }
 
@@ -85,7 +83,6 @@ func (o InvoiceUnitRuleOutput) ToInvoiceUnitRuleOutputWithContext(ctx context.Co
 	return o
 }
 
-// Set of AWS account IDs included in this invoice unit.
 func (o InvoiceUnitRuleOutput) LinkedAccounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InvoiceUnitRule) []string { return v.LinkedAccounts }).(pulumi.StringArrayOutput)
 }

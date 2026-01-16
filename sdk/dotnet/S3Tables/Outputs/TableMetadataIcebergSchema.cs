@@ -14,8 +14,7 @@ namespace Pulumi.Aws.S3Tables.Outputs
     public sealed class TableMetadataIcebergSchema
     {
         /// <summary>
-        /// List of schema fields for the Iceberg table. Each field defines a column in the table schema.
-        /// See `Field` below.
+        /// List of schema fields for the Iceberg table.
         /// </summary>
         public readonly ImmutableArray<Outputs.TableMetadataIcebergSchemaField> Fields;
 

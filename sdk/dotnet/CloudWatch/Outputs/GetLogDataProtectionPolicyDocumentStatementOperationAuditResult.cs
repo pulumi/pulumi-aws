@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class GetLogDataProtectionPolicyDocumentStatementOperationAuditResult
     {
-        /// <summary>
-        /// Configures destinations to send audit findings to.
-        /// </summary>
         public readonly Outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationResult FindingsDestination;
 
         [OutputConstructor]

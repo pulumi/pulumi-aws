@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Kinesis.Inputs
 
     public sealed class FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
-        /// </summary>
         [Input("connectivity", required: true)]
         public Input<string> Connectivity { get; set; } = null!;
 
-        /// <summary>
-        /// The ARN of the role used to access the Amazon MSK cluster.
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class InstanceInstanceMarketOptions
     {
-        /// <summary>
-        /// Type of market for the instance. Valid values are `Spot` and `capacity-block`. Defaults to `Spot`. Required if `SpotOptions` is specified.
-        /// </summary>
         public readonly string? MarketType;
-        /// <summary>
-        /// Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
-        /// </summary>
         public readonly Outputs.InstanceInstanceMarketOptionsSpotOptions? SpotOptions;
 
         [OutputConstructor]

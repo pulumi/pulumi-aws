@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class LifecyclePolicyResourceSelectionRecipe
     {
-        /// <summary>
-        /// The name of an Image Builder recipe that the lifecycle policy uses for resource selection.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The version of the Image Builder recipe specified by the name field.
-        /// </summary>
         public readonly string SemanticVersion;
 
         [OutputConstructor]

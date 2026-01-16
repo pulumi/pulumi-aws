@@ -18,47 +18,23 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
 
     public static final RouteSpecGrpcRouteMatchArgs Empty = new RouteSpecGrpcRouteMatchArgs();
 
-    /**
-     * Data to match from the gRPC request.
-     * 
-     */
     @Import(name="metadatas")
     private @Nullable Output<List<RouteSpecGrpcRouteMatchMetadataArgs>> metadatas;
 
-    /**
-     * @return Data to match from the gRPC request.
-     * 
-     */
     public Optional<Output<List<RouteSpecGrpcRouteMatchMetadataArgs>>> metadatas() {
         return Optional.ofNullable(this.metadatas);
     }
 
-    /**
-     * Method name to match from the request. If you specify a name, you must also specify a `serviceName`.
-     * 
-     */
     @Import(name="methodName")
     private @Nullable Output<String> methodName;
 
-    /**
-     * @return Method name to match from the request. If you specify a name, you must also specify a `serviceName`.
-     * 
-     */
     public Optional<Output<String>> methodName() {
         return Optional.ofNullable(this.methodName);
     }
 
-    /**
-     * The port number to match from the request.
-     * 
-     */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
-    /**
-     * @return The port number to match from the request.
-     * 
-     */
     public Optional<Output<Integer>> port() {
         return Optional.ofNullable(this.port);
     }
@@ -70,17 +46,9 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.prefix);
     }
 
-    /**
-     * Fully qualified domain name for the service to match from the request.
-     * 
-     */
     @Import(name="serviceName")
     private @Nullable Output<String> serviceName;
 
-    /**
-     * @return Fully qualified domain name for the service to match from the request.
-     * 
-     */
     public Optional<Output<String>> serviceName() {
         return Optional.ofNullable(this.serviceName);
     }
@@ -113,75 +81,33 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
             $ = new RouteSpecGrpcRouteMatchArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param metadatas Data to match from the gRPC request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metadatas(@Nullable Output<List<RouteSpecGrpcRouteMatchMetadataArgs>> metadatas) {
             $.metadatas = metadatas;
             return this;
         }
 
-        /**
-         * @param metadatas Data to match from the gRPC request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metadatas(List<RouteSpecGrpcRouteMatchMetadataArgs> metadatas) {
             return metadatas(Output.of(metadatas));
         }
 
-        /**
-         * @param metadatas Data to match from the gRPC request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metadatas(RouteSpecGrpcRouteMatchMetadataArgs... metadatas) {
             return metadatas(List.of(metadatas));
         }
 
-        /**
-         * @param methodName Method name to match from the request. If you specify a name, you must also specify a `serviceName`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder methodName(@Nullable Output<String> methodName) {
             $.methodName = methodName;
             return this;
         }
 
-        /**
-         * @param methodName Method name to match from the request. If you specify a name, you must also specify a `serviceName`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder methodName(String methodName) {
             return methodName(Output.of(methodName));
         }
 
-        /**
-         * @param port The port number to match from the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(@Nullable Output<Integer> port) {
             $.port = port;
             return this;
         }
 
-        /**
-         * @param port The port number to match from the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(Integer port) {
             return port(Output.of(port));
         }
@@ -195,23 +121,11 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
             return prefix(Output.of(prefix));
         }
 
-        /**
-         * @param serviceName Fully qualified domain name for the service to match from the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(@Nullable Output<String> serviceName) {
             $.serviceName = serviceName;
             return this;
         }
 
-        /**
-         * @param serviceName Fully qualified domain name for the service to match from the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(String serviceName) {
             return serviceName(Output.of(serviceName));
         }

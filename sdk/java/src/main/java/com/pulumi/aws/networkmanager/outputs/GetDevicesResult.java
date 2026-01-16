@@ -20,10 +20,6 @@ public final class GetDevicesResult {
      * 
      */
     private String id;
-    /**
-     * @return IDs of the devices.
-     * 
-     */
     private List<String> ids;
     private @Nullable String siteId;
     private @Nullable Map<String,String> tags;
@@ -39,10 +35,6 @@ public final class GetDevicesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return IDs of the devices.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }

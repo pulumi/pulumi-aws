@@ -12,71 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an IAM User Login Profile with limited support for password creation during this provider resource creation. Uses PGP to encrypt the password for safe transport to the user. PGP keys can be obtained from Keybase.
-//
-// > To reset an IAM User login password via this provider, you can use delete and recreate this resource or change any of the arguments.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := iam.NewUser(ctx, "example", &iam.UserArgs{
-//				Name:         pulumi.String("example"),
-//				Path:         pulumi.String("/"),
-//				ForceDestroy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUserLoginProfile, err := iam.NewUserLoginProfile(ctx, "example", &iam.UserLoginProfileArgs{
-//				User:   example.Name,
-//				PgpKey: pulumi.String("keybase:some_person_that_exists"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("password", exampleUserLoginProfile.EncryptedPassword)
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import IAM User Login Profiles without password information via the IAM User name. For example:
-//
-// ```sh
-// $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
-// ```
-// Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
 type UserLoginProfile struct {
 	pulumi.CustomResourceState
 
-	// The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
-	EncryptedPassword pulumi.StringOutput `pulumi:"encryptedPassword"`
-	// The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
-	KeyFingerprint pulumi.StringOutput `pulumi:"keyFingerprint"`
-	// The plain text password, only available when `pgpKey` is not provided.
-	Password pulumi.StringOutput `pulumi:"password"`
-	// The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
-	PasswordLength pulumi.IntPtrOutput `pulumi:"passwordLength"`
-	// Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
-	PasswordResetRequired pulumi.BoolOutput `pulumi:"passwordResetRequired"`
-	// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
-	PgpKey pulumi.StringPtrOutput `pulumi:"pgpKey"`
-	// The IAM user's name.
-	User pulumi.StringOutput `pulumi:"user"`
+	EncryptedPassword     pulumi.StringOutput    `pulumi:"encryptedPassword"`
+	KeyFingerprint        pulumi.StringOutput    `pulumi:"keyFingerprint"`
+	Password              pulumi.StringOutput    `pulumi:"password"`
+	PasswordLength        pulumi.IntPtrOutput    `pulumi:"passwordLength"`
+	PasswordResetRequired pulumi.BoolOutput      `pulumi:"passwordResetRequired"`
+	PgpKey                pulumi.StringPtrOutput `pulumi:"pgpKey"`
+	User                  pulumi.StringOutput    `pulumi:"user"`
 }
 
 // NewUserLoginProfile registers a new resource with the given unique name, arguments, and options.
@@ -116,37 +61,23 @@ func GetUserLoginProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserLoginProfile resources.
 type userLoginProfileState struct {
-	// The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
-	EncryptedPassword *string `pulumi:"encryptedPassword"`
-	// The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
-	KeyFingerprint *string `pulumi:"keyFingerprint"`
-	// The plain text password, only available when `pgpKey` is not provided.
-	Password *string `pulumi:"password"`
-	// The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
-	PasswordLength *int `pulumi:"passwordLength"`
-	// Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
-	PasswordResetRequired *bool `pulumi:"passwordResetRequired"`
-	// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
-	PgpKey *string `pulumi:"pgpKey"`
-	// The IAM user's name.
-	User *string `pulumi:"user"`
+	EncryptedPassword     *string `pulumi:"encryptedPassword"`
+	KeyFingerprint        *string `pulumi:"keyFingerprint"`
+	Password              *string `pulumi:"password"`
+	PasswordLength        *int    `pulumi:"passwordLength"`
+	PasswordResetRequired *bool   `pulumi:"passwordResetRequired"`
+	PgpKey                *string `pulumi:"pgpKey"`
+	User                  *string `pulumi:"user"`
 }
 
 type UserLoginProfileState struct {
-	// The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
-	EncryptedPassword pulumi.StringPtrInput
-	// The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
-	KeyFingerprint pulumi.StringPtrInput
-	// The plain text password, only available when `pgpKey` is not provided.
-	Password pulumi.StringPtrInput
-	// The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
-	PasswordLength pulumi.IntPtrInput
-	// Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
+	EncryptedPassword     pulumi.StringPtrInput
+	KeyFingerprint        pulumi.StringPtrInput
+	Password              pulumi.StringPtrInput
+	PasswordLength        pulumi.IntPtrInput
 	PasswordResetRequired pulumi.BoolPtrInput
-	// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
-	PgpKey pulumi.StringPtrInput
-	// The IAM user's name.
-	User pulumi.StringPtrInput
+	PgpKey                pulumi.StringPtrInput
+	User                  pulumi.StringPtrInput
 }
 
 func (UserLoginProfileState) ElementType() reflect.Type {
@@ -154,26 +85,18 @@ func (UserLoginProfileState) ElementType() reflect.Type {
 }
 
 type userLoginProfileArgs struct {
-	// The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
-	PasswordLength *int `pulumi:"passwordLength"`
-	// Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
-	PasswordResetRequired *bool `pulumi:"passwordResetRequired"`
-	// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
-	PgpKey *string `pulumi:"pgpKey"`
-	// The IAM user's name.
-	User string `pulumi:"user"`
+	PasswordLength        *int    `pulumi:"passwordLength"`
+	PasswordResetRequired *bool   `pulumi:"passwordResetRequired"`
+	PgpKey                *string `pulumi:"pgpKey"`
+	User                  string  `pulumi:"user"`
 }
 
 // The set of arguments for constructing a UserLoginProfile resource.
 type UserLoginProfileArgs struct {
-	// The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
-	PasswordLength pulumi.IntPtrInput
-	// Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
+	PasswordLength        pulumi.IntPtrInput
 	PasswordResetRequired pulumi.BoolPtrInput
-	// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
-	PgpKey pulumi.StringPtrInput
-	// The IAM user's name.
-	User pulumi.StringInput
+	PgpKey                pulumi.StringPtrInput
+	User                  pulumi.StringInput
 }
 
 func (UserLoginProfileArgs) ElementType() reflect.Type {
@@ -263,37 +186,30 @@ func (o UserLoginProfileOutput) ToUserLoginProfileOutputWithContext(ctx context.
 	return o
 }
 
-// The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
 func (o UserLoginProfileOutput) EncryptedPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserLoginProfile) pulumi.StringOutput { return v.EncryptedPassword }).(pulumi.StringOutput)
 }
 
-// The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
 func (o UserLoginProfileOutput) KeyFingerprint() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserLoginProfile) pulumi.StringOutput { return v.KeyFingerprint }).(pulumi.StringOutput)
 }
 
-// The plain text password, only available when `pgpKey` is not provided.
 func (o UserLoginProfileOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserLoginProfile) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
 }
 
-// The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
 func (o UserLoginProfileOutput) PasswordLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserLoginProfile) pulumi.IntPtrOutput { return v.PasswordLength }).(pulumi.IntPtrOutput)
 }
 
-// Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
 func (o UserLoginProfileOutput) PasswordResetRequired() pulumi.BoolOutput {
 	return o.ApplyT(func(v *UserLoginProfile) pulumi.BoolOutput { return v.PasswordResetRequired }).(pulumi.BoolOutput)
 }
 
-// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
 func (o UserLoginProfileOutput) PgpKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserLoginProfile) pulumi.StringPtrOutput { return v.PgpKey }).(pulumi.StringPtrOutput)
 }
 
-// The IAM user's name.
 func (o UserLoginProfileOutput) User() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserLoginProfile) pulumi.StringOutput { return v.User }).(pulumi.StringOutput)
 }

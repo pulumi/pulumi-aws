@@ -26,25 +26,7 @@ MYPY = False
 if not MYPY:
     class GetLicenseGrantsFilterArgsDict(TypedDict):
         name: _builtins.str
-        """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
-        For example, if filtering using `ProductSKU`, use:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        selected = aws.licensemanager.get_license_grants(filters=[{
-            "name": "ProductSKU",
-            "values": [""],
-        }])
-        ```
-        """
         values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given field.
-        """
 elif False:
     GetLicenseGrantsFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -53,43 +35,12 @@ class GetLicenseGrantsFilterArgs:
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the field to filter by, as defined by
-               [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
-               For example, if filtering using `ProductSKU`, use:
-               
-               ```python
-               import pulumi
-               import pulumi_aws as aws
-               
-               selected = aws.licensemanager.get_license_grants(filters=[{
-                   "name": "ProductSKU",
-                   "values": [""],
-               }])
-               ```
-        :param Sequence[_builtins.str] values: Set of values that are accepted for the given field.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
-        For example, if filtering using `ProductSKU`, use:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        selected = aws.licensemanager.get_license_grants(filters=[{
-            "name": "ProductSKU",
-            "values": [""],
-        }])
-        ```
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -99,9 +50,6 @@ class GetLicenseGrantsFilterArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        Set of values that are accepted for the given field.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -112,25 +60,7 @@ class GetLicenseGrantsFilterArgs:
 if not MYPY:
     class GetReceivedLicensesFilterArgsDict(TypedDict):
         name: _builtins.str
-        """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
-        For example, if filtering using `ProductSKU`, use:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        selected = aws.licensemanager.get_received_licenses(filters=[{
-            "name": "ProductSKU",
-            "values": [""],
-        }])
-        ```
-        """
         values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given field.
-        """
 elif False:
     GetReceivedLicensesFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -139,43 +69,12 @@ class GetReceivedLicensesFilterArgs:
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the field to filter by, as defined by
-               [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
-               For example, if filtering using `ProductSKU`, use:
-               
-               ```python
-               import pulumi
-               import pulumi_aws as aws
-               
-               selected = aws.licensemanager.get_received_licenses(filters=[{
-                   "name": "ProductSKU",
-                   "values": [""],
-               }])
-               ```
-        :param Sequence[_builtins.str] values: Set of values that are accepted for the given field.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
-        For example, if filtering using `ProductSKU`, use:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        selected = aws.licensemanager.get_received_licenses(filters=[{
-            "name": "ProductSKU",
-            "values": [""],
-        }])
-        ```
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -185,9 +84,6 @@ class GetReceivedLicensesFilterArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        Set of values that are accepted for the given field.
-        """
         return pulumi.get(self, "values")
 
     @values.setter

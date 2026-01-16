@@ -12,98 +12,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource manages a User resource within an Identity Store.
-//
-// > **Note:** If you use an external identity provider or Active Directory as your identity source,
-// use this resource with caution. IAM Identity Center does not support outbound synchronization,
-// so your identity source does not automatically update with the changes that you make to
-// users using this resource.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/identitystore"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := identitystore.NewUser(ctx, "example", &identitystore.UserArgs{
-//				IdentityStoreId: pulumi.Any(exampleAwsSsoadminInstances.IdentityStoreIds[0]),
-//				DisplayName:     pulumi.String("John Doe"),
-//				UserName:        pulumi.String("johndoe"),
-//				Name: &identitystore.UserNameArgs{
-//					GivenName:  pulumi.String("John"),
-//					FamilyName: pulumi.String("Doe"),
-//				},
-//				Emails: &identitystore.UserEmailsArgs{
-//					Value: pulumi.String("john@example.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import an Identity Store User using the combination `identity_store_id/user_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
-// ```
 type User struct {
 	pulumi.CustomResourceState
 
-	// Details about the user's address. At most 1 address is allowed. Detailed below.
-	Addresses UserAddressesPtrOutput `pulumi:"addresses"`
-	// The name that is typically displayed when the user is referenced.
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// Details about the user's email. At most 1 email is allowed. Detailed below.
-	Emails UserEmailsPtrOutput `pulumi:"emails"`
-	// A list of identifiers issued to this resource by an external identity provider.
-	ExternalIds UserExternalIdArrayOutput `pulumi:"externalIds"`
-	// The globally unique identifier for the identity store that this user is in.
-	IdentityStoreId pulumi.StringOutput `pulumi:"identityStoreId"`
-	// The user's geographical region or location.
-	Locale pulumi.StringPtrOutput `pulumi:"locale"`
-	// Details about the user's full name. Detailed below.
-	Name UserNameOutput `pulumi:"name"`
-	// An alternate name for the user.
-	Nickname pulumi.StringPtrOutput `pulumi:"nickname"`
-	// Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
-	PhoneNumbers UserPhoneNumbersPtrOutput `pulumi:"phoneNumbers"`
-	// The preferred language of the user.
-	PreferredLanguage pulumi.StringPtrOutput `pulumi:"preferredLanguage"`
-	// An URL that may be associated with the user.
-	ProfileUrl pulumi.StringPtrOutput `pulumi:"profileUrl"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The user's time zone.
-	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
-	// The user's title.
-	Title pulumi.StringPtrOutput `pulumi:"title"`
-	// The identifier for this user in the identity store.
-	UserId pulumi.StringOutput `pulumi:"userId"`
-	// A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
-	//
-	// The following arguments are optional:
-	UserName pulumi.StringOutput `pulumi:"userName"`
-	// The user type.
-	//
-	// > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
-	UserType pulumi.StringPtrOutput `pulumi:"userType"`
+	Addresses         UserAddressesPtrOutput    `pulumi:"addresses"`
+	DisplayName       pulumi.StringOutput       `pulumi:"displayName"`
+	Emails            UserEmailsPtrOutput       `pulumi:"emails"`
+	ExternalIds       UserExternalIdArrayOutput `pulumi:"externalIds"`
+	IdentityStoreId   pulumi.StringOutput       `pulumi:"identityStoreId"`
+	Locale            pulumi.StringPtrOutput    `pulumi:"locale"`
+	Name              UserNameOutput            `pulumi:"name"`
+	Nickname          pulumi.StringPtrOutput    `pulumi:"nickname"`
+	PhoneNumbers      UserPhoneNumbersPtrOutput `pulumi:"phoneNumbers"`
+	PreferredLanguage pulumi.StringPtrOutput    `pulumi:"preferredLanguage"`
+	ProfileUrl        pulumi.StringPtrOutput    `pulumi:"profileUrl"`
+	Region            pulumi.StringOutput       `pulumi:"region"`
+	Timezone          pulumi.StringPtrOutput    `pulumi:"timezone"`
+	Title             pulumi.StringPtrOutput    `pulumi:"title"`
+	UserId            pulumi.StringOutput       `pulumi:"userId"`
+	UserName          pulumi.StringOutput       `pulumi:"userName"`
+	UserType          pulumi.StringPtrOutput    `pulumi:"userType"`
 }
 
 // NewUser registers a new resource with the given unique name, arguments, and options.
@@ -145,85 +73,43 @@ func GetUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering User resources.
 type userState struct {
-	// Details about the user's address. At most 1 address is allowed. Detailed below.
-	Addresses *UserAddresses `pulumi:"addresses"`
-	// The name that is typically displayed when the user is referenced.
-	DisplayName *string `pulumi:"displayName"`
-	// Details about the user's email. At most 1 email is allowed. Detailed below.
-	Emails *UserEmails `pulumi:"emails"`
-	// A list of identifiers issued to this resource by an external identity provider.
-	ExternalIds []UserExternalId `pulumi:"externalIds"`
-	// The globally unique identifier for the identity store that this user is in.
-	IdentityStoreId *string `pulumi:"identityStoreId"`
-	// The user's geographical region or location.
-	Locale *string `pulumi:"locale"`
-	// Details about the user's full name. Detailed below.
-	Name *UserName `pulumi:"name"`
-	// An alternate name for the user.
-	Nickname *string `pulumi:"nickname"`
-	// Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
-	PhoneNumbers *UserPhoneNumbers `pulumi:"phoneNumbers"`
-	// The preferred language of the user.
-	PreferredLanguage *string `pulumi:"preferredLanguage"`
-	// An URL that may be associated with the user.
-	ProfileUrl *string `pulumi:"profileUrl"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The user's time zone.
-	Timezone *string `pulumi:"timezone"`
-	// The user's title.
-	Title *string `pulumi:"title"`
-	// The identifier for this user in the identity store.
-	UserId *string `pulumi:"userId"`
-	// A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
-	//
-	// The following arguments are optional:
-	UserName *string `pulumi:"userName"`
-	// The user type.
-	//
-	// > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
-	UserType *string `pulumi:"userType"`
+	Addresses         *UserAddresses    `pulumi:"addresses"`
+	DisplayName       *string           `pulumi:"displayName"`
+	Emails            *UserEmails       `pulumi:"emails"`
+	ExternalIds       []UserExternalId  `pulumi:"externalIds"`
+	IdentityStoreId   *string           `pulumi:"identityStoreId"`
+	Locale            *string           `pulumi:"locale"`
+	Name              *UserName         `pulumi:"name"`
+	Nickname          *string           `pulumi:"nickname"`
+	PhoneNumbers      *UserPhoneNumbers `pulumi:"phoneNumbers"`
+	PreferredLanguage *string           `pulumi:"preferredLanguage"`
+	ProfileUrl        *string           `pulumi:"profileUrl"`
+	Region            *string           `pulumi:"region"`
+	Timezone          *string           `pulumi:"timezone"`
+	Title             *string           `pulumi:"title"`
+	UserId            *string           `pulumi:"userId"`
+	UserName          *string           `pulumi:"userName"`
+	UserType          *string           `pulumi:"userType"`
 }
 
 type UserState struct {
-	// Details about the user's address. At most 1 address is allowed. Detailed below.
-	Addresses UserAddressesPtrInput
-	// The name that is typically displayed when the user is referenced.
-	DisplayName pulumi.StringPtrInput
-	// Details about the user's email. At most 1 email is allowed. Detailed below.
-	Emails UserEmailsPtrInput
-	// A list of identifiers issued to this resource by an external identity provider.
-	ExternalIds UserExternalIdArrayInput
-	// The globally unique identifier for the identity store that this user is in.
-	IdentityStoreId pulumi.StringPtrInput
-	// The user's geographical region or location.
-	Locale pulumi.StringPtrInput
-	// Details about the user's full name. Detailed below.
-	Name UserNamePtrInput
-	// An alternate name for the user.
-	Nickname pulumi.StringPtrInput
-	// Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
-	PhoneNumbers UserPhoneNumbersPtrInput
-	// The preferred language of the user.
+	Addresses         UserAddressesPtrInput
+	DisplayName       pulumi.StringPtrInput
+	Emails            UserEmailsPtrInput
+	ExternalIds       UserExternalIdArrayInput
+	IdentityStoreId   pulumi.StringPtrInput
+	Locale            pulumi.StringPtrInput
+	Name              UserNamePtrInput
+	Nickname          pulumi.StringPtrInput
+	PhoneNumbers      UserPhoneNumbersPtrInput
 	PreferredLanguage pulumi.StringPtrInput
-	// An URL that may be associated with the user.
-	ProfileUrl pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The user's time zone.
-	Timezone pulumi.StringPtrInput
-	// The user's title.
-	Title pulumi.StringPtrInput
-	// The identifier for this user in the identity store.
-	UserId pulumi.StringPtrInput
-	// A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
-	//
-	// The following arguments are optional:
-	UserName pulumi.StringPtrInput
-	// The user type.
-	//
-	// > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
-	UserType pulumi.StringPtrInput
+	ProfileUrl        pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
+	Timezone          pulumi.StringPtrInput
+	Title             pulumi.StringPtrInput
+	UserId            pulumi.StringPtrInput
+	UserName          pulumi.StringPtrInput
+	UserType          pulumi.StringPtrInput
 }
 
 func (UserState) ElementType() reflect.Type {
@@ -231,78 +117,40 @@ func (UserState) ElementType() reflect.Type {
 }
 
 type userArgs struct {
-	// Details about the user's address. At most 1 address is allowed. Detailed below.
-	Addresses *UserAddresses `pulumi:"addresses"`
-	// The name that is typically displayed when the user is referenced.
-	DisplayName string `pulumi:"displayName"`
-	// Details about the user's email. At most 1 email is allowed. Detailed below.
-	Emails *UserEmails `pulumi:"emails"`
-	// The globally unique identifier for the identity store that this user is in.
-	IdentityStoreId string `pulumi:"identityStoreId"`
-	// The user's geographical region or location.
-	Locale *string `pulumi:"locale"`
-	// Details about the user's full name. Detailed below.
-	Name *UserName `pulumi:"name"`
-	// An alternate name for the user.
-	Nickname *string `pulumi:"nickname"`
-	// Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
-	PhoneNumbers *UserPhoneNumbers `pulumi:"phoneNumbers"`
-	// The preferred language of the user.
-	PreferredLanguage *string `pulumi:"preferredLanguage"`
-	// An URL that may be associated with the user.
-	ProfileUrl *string `pulumi:"profileUrl"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The user's time zone.
-	Timezone *string `pulumi:"timezone"`
-	// The user's title.
-	Title *string `pulumi:"title"`
-	// A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
-	//
-	// The following arguments are optional:
-	UserName string `pulumi:"userName"`
-	// The user type.
-	//
-	// > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
-	UserType *string `pulumi:"userType"`
+	Addresses         *UserAddresses    `pulumi:"addresses"`
+	DisplayName       string            `pulumi:"displayName"`
+	Emails            *UserEmails       `pulumi:"emails"`
+	IdentityStoreId   string            `pulumi:"identityStoreId"`
+	Locale            *string           `pulumi:"locale"`
+	Name              *UserName         `pulumi:"name"`
+	Nickname          *string           `pulumi:"nickname"`
+	PhoneNumbers      *UserPhoneNumbers `pulumi:"phoneNumbers"`
+	PreferredLanguage *string           `pulumi:"preferredLanguage"`
+	ProfileUrl        *string           `pulumi:"profileUrl"`
+	Region            *string           `pulumi:"region"`
+	Timezone          *string           `pulumi:"timezone"`
+	Title             *string           `pulumi:"title"`
+	UserName          string            `pulumi:"userName"`
+	UserType          *string           `pulumi:"userType"`
 }
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
-	// Details about the user's address. At most 1 address is allowed. Detailed below.
-	Addresses UserAddressesPtrInput
-	// The name that is typically displayed when the user is referenced.
-	DisplayName pulumi.StringInput
-	// Details about the user's email. At most 1 email is allowed. Detailed below.
-	Emails UserEmailsPtrInput
-	// The globally unique identifier for the identity store that this user is in.
-	IdentityStoreId pulumi.StringInput
-	// The user's geographical region or location.
-	Locale pulumi.StringPtrInput
-	// Details about the user's full name. Detailed below.
-	Name UserNamePtrInput
-	// An alternate name for the user.
-	Nickname pulumi.StringPtrInput
-	// Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
-	PhoneNumbers UserPhoneNumbersPtrInput
-	// The preferred language of the user.
+	Addresses         UserAddressesPtrInput
+	DisplayName       pulumi.StringInput
+	Emails            UserEmailsPtrInput
+	IdentityStoreId   pulumi.StringInput
+	Locale            pulumi.StringPtrInput
+	Name              UserNamePtrInput
+	Nickname          pulumi.StringPtrInput
+	PhoneNumbers      UserPhoneNumbersPtrInput
 	PreferredLanguage pulumi.StringPtrInput
-	// An URL that may be associated with the user.
-	ProfileUrl pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The user's time zone.
-	Timezone pulumi.StringPtrInput
-	// The user's title.
-	Title pulumi.StringPtrInput
-	// A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
-	//
-	// The following arguments are optional:
-	UserName pulumi.StringInput
-	// The user type.
-	//
-	// > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
-	UserType pulumi.StringPtrInput
+	ProfileUrl        pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
+	Timezone          pulumi.StringPtrInput
+	Title             pulumi.StringPtrInput
+	UserName          pulumi.StringInput
+	UserType          pulumi.StringPtrInput
 }
 
 func (UserArgs) ElementType() reflect.Type {
@@ -392,91 +240,70 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
-// Details about the user's address. At most 1 address is allowed. Detailed below.
 func (o UserOutput) Addresses() UserAddressesPtrOutput {
 	return o.ApplyT(func(v *User) UserAddressesPtrOutput { return v.Addresses }).(UserAddressesPtrOutput)
 }
 
-// The name that is typically displayed when the user is referenced.
 func (o UserOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Details about the user's email. At most 1 email is allowed. Detailed below.
 func (o UserOutput) Emails() UserEmailsPtrOutput {
 	return o.ApplyT(func(v *User) UserEmailsPtrOutput { return v.Emails }).(UserEmailsPtrOutput)
 }
 
-// A list of identifiers issued to this resource by an external identity provider.
 func (o UserOutput) ExternalIds() UserExternalIdArrayOutput {
 	return o.ApplyT(func(v *User) UserExternalIdArrayOutput { return v.ExternalIds }).(UserExternalIdArrayOutput)
 }
 
-// The globally unique identifier for the identity store that this user is in.
 func (o UserOutput) IdentityStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.IdentityStoreId }).(pulumi.StringOutput)
 }
 
-// The user's geographical region or location.
 func (o UserOutput) Locale() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Locale }).(pulumi.StringPtrOutput)
 }
 
-// Details about the user's full name. Detailed below.
 func (o UserOutput) Name() UserNameOutput {
 	return o.ApplyT(func(v *User) UserNameOutput { return v.Name }).(UserNameOutput)
 }
 
-// An alternate name for the user.
 func (o UserOutput) Nickname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Nickname }).(pulumi.StringPtrOutput)
 }
 
-// Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
 func (o UserOutput) PhoneNumbers() UserPhoneNumbersPtrOutput {
 	return o.ApplyT(func(v *User) UserPhoneNumbersPtrOutput { return v.PhoneNumbers }).(UserPhoneNumbersPtrOutput)
 }
 
-// The preferred language of the user.
 func (o UserOutput) PreferredLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.PreferredLanguage }).(pulumi.StringPtrOutput)
 }
 
-// An URL that may be associated with the user.
 func (o UserOutput) ProfileUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.ProfileUrl }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UserOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The user's time zone.
 func (o UserOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Timezone }).(pulumi.StringPtrOutput)
 }
 
-// The user's title.
 func (o UserOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Title }).(pulumi.StringPtrOutput)
 }
 
-// The identifier for this user in the identity store.
 func (o UserOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
 }
 
-// A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
-//
-// The following arguments are optional:
 func (o UserOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }
 
-// The user type.
-//
-// > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
 func (o UserOutput) UserType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.UserType }).(pulumi.StringPtrOutput)
 }

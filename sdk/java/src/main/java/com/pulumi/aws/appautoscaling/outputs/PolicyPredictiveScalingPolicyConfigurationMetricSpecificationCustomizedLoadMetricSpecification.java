@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecification {
-    /**
-     * @return One or more metric data queries to provide data points for a metric specification. See supported fields below.
-     * 
-     */
     private List<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery> metricDataQueries;
 
     private PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecification() {}
-    /**
-     * @return One or more metric data queries to provide data points for a metric specification. See supported fields below.
-     * 
-     */
     public List<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery> metricDataQueries() {
         return this.metricDataQueries;
     }

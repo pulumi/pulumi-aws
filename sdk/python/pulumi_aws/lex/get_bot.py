@@ -85,65 +85,41 @@ class GetBotResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the bot.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def checksum(self) -> _builtins.str:
-        """
-        Checksum of the bot used to identify a specific revision of the bot's `$LATEST` version.
-        """
         return pulumi.get(self, "checksum")
 
     @_builtins.property
     @pulumi.getter(name="childDirected")
     def child_directed(self) -> _builtins.bool:
-        """
-        If this Amazon Lex Bot is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
-        """
         return pulumi.get(self, "child_directed")
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> _builtins.str:
-        """
-        Date that the bot was created.
-        """
         return pulumi.get(self, "created_date")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the bot.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="detectSentiment")
     def detect_sentiment(self) -> _builtins.bool:
-        """
-        When set to true user utterances are sent to Amazon Comprehend for sentiment analysis.
-        """
         return pulumi.get(self, "detect_sentiment")
 
     @_builtins.property
     @pulumi.getter(name="enableModelImprovements")
     def enable_model_improvements(self) -> _builtins.bool:
-        """
-        Set to true if natural language understanding improvements are enabled.
-        """
         return pulumi.get(self, "enable_model_improvements")
 
     @_builtins.property
     @pulumi.getter(name="failureReason")
     def failure_reason(self) -> _builtins.str:
-        """
-        If the `status` is `FAILED`, the reason why the bot failed to build.
-        """
         return pulumi.get(self, "failure_reason")
 
     @_builtins.property
@@ -157,41 +133,26 @@ class GetBotResult:
     @_builtins.property
     @pulumi.getter(name="idleSessionTtlInSeconds")
     def idle_session_ttl_in_seconds(self) -> _builtins.int:
-        """
-        The maximum time in seconds that Amazon Lex retains the data gathered in a conversation.
-        """
         return pulumi.get(self, "idle_session_ttl_in_seconds")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> _builtins.str:
-        """
-        Date that the bot was updated.
-        """
         return pulumi.get(self, "last_updated_date")
 
     @_builtins.property
     @pulumi.getter
     def locale(self) -> _builtins.str:
-        """
-        Target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot.
-        """
         return pulumi.get(self, "locale")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the bot, case sensitive.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="nluIntentConfidenceThreshold")
     def nlu_intent_confidence_threshold(self) -> _builtins.float:
-        """
-        The threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot.
-        """
         return pulumi.get(self, "nlu_intent_confidence_threshold")
 
     @_builtins.property
@@ -202,25 +163,16 @@ class GetBotResult:
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the bot.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[_builtins.str]:
-        """
-        Version of the bot. For a new bot, the version is always `$LATEST`.
-        """
         return pulumi.get(self, "version")
 
     @_builtins.property
     @pulumi.getter(name="voiceId")
     def voice_id(self) -> _builtins.str:
-        """
-        Amazon Polly voice ID that the Amazon Lex Bot uses for voice interactions with the user.
-        """
         return pulumi.get(self, "voice_id")
 
 
@@ -255,22 +207,7 @@ def get_bot(name: Optional[_builtins.str] = None,
             version: Optional[_builtins.str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBotResult:
     """
-    Provides details about a specific Amazon Lex Bot.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    order_flowers_bot = aws.lex.get_bot(name="OrderFlowers",
-        version="$LATEST")
-    ```
-
-
-    :param _builtins.str name: Name of the bot. The name is case sensitive.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str version: Version or alias of the bot.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -303,22 +240,7 @@ def get_bot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                    version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBotResult]:
     """
-    Provides details about a specific Amazon Lex Bot.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    order_flowers_bot = aws.lex.get_bot(name="OrderFlowers",
-        version="$LATEST")
-    ```
-
-
-    :param _builtins.str name: Name of the bot. The name is case sensitive.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str version: Version or alias of the bot.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

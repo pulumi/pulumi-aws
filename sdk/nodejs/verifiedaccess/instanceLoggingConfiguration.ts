@@ -7,124 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing a Verified Access Logging Configuration.
- *
- * ## Example Usage
- *
- * ### With CloudWatch Logging
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.verifiedaccess.InstanceLoggingConfiguration("example", {
- *     accessLogs: {
- *         cloudwatchLogs: {
- *             enabled: true,
- *             logGroup: exampleAwsCloudwatchLogGroup.id,
- *         },
- *     },
- *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
- * });
- * ```
- *
- * ### With Kinesis Data Firehose Logging
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.verifiedaccess.InstanceLoggingConfiguration("example", {
- *     accessLogs: {
- *         kinesisDataFirehose: {
- *             deliveryStream: exampleAwsKinesisFirehoseDeliveryStream.name,
- *             enabled: true,
- *         },
- *     },
- *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
- * });
- * ```
- *
- * ### With S3 logging
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.verifiedaccess.InstanceLoggingConfiguration("example", {
- *     accessLogs: {
- *         s3: {
- *             bucketName: exampleAwsS3Bucket.id,
- *             enabled: true,
- *             prefix: "example",
- *         },
- *     },
- *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
- * });
- * ```
- *
- * ### With all three logging options
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.verifiedaccess.InstanceLoggingConfiguration("example", {
- *     accessLogs: {
- *         cloudwatchLogs: {
- *             enabled: true,
- *             logGroup: exampleAwsCloudwatchLogGroup.id,
- *         },
- *         kinesisDataFirehose: {
- *             deliveryStream: exampleAwsKinesisFirehoseDeliveryStream.name,
- *             enabled: true,
- *         },
- *         s3: {
- *             bucketName: exampleAwsS3Bucket.id,
- *             enabled: true,
- *         },
- *     },
- *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
- * });
- * ```
- *
- * ### With `includeTrustContext`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.verifiedaccess.InstanceLoggingConfiguration("example", {
- *     accessLogs: {
- *         includeTrustContext: true,
- *     },
- *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
- * });
- * ```
- *
- * ### With `logVersion`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.verifiedaccess.InstanceLoggingConfiguration("example", {
- *     accessLogs: {
- *         logVersion: "ocsf-1.0.0-rc.2",
- *     },
- *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Verified Access Logging Configuration using the Verified Access Instance `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration example vai-1234567890abcdef0
- * ```
- */
 export class InstanceLoggingConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing InstanceLoggingConfiguration resource's state with the given name, ID, and optional extra
@@ -153,17 +35,8 @@ export class InstanceLoggingConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === InstanceLoggingConfiguration.__pulumiType;
     }
 
-    /**
-     * A block that specifies the configuration options for Verified Access instances. Detailed below.
-     */
     declare public readonly accessLogs: pulumi.Output<outputs.verifiedaccess.InstanceLoggingConfigurationAccessLogs>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ID of the Verified Access instance.
-     */
     declare public readonly verifiedaccessInstanceId: pulumi.Output<string>;
 
     /**
@@ -203,17 +76,8 @@ export class InstanceLoggingConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering InstanceLoggingConfiguration resources.
  */
 export interface InstanceLoggingConfigurationState {
-    /**
-     * A block that specifies the configuration options for Verified Access instances. Detailed below.
-     */
     accessLogs?: pulumi.Input<inputs.verifiedaccess.InstanceLoggingConfigurationAccessLogs>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the Verified Access instance.
-     */
     verifiedaccessInstanceId?: pulumi.Input<string>;
 }
 
@@ -221,16 +85,7 @@ export interface InstanceLoggingConfigurationState {
  * The set of arguments for constructing a InstanceLoggingConfiguration resource.
  */
 export interface InstanceLoggingConfigurationArgs {
-    /**
-     * A block that specifies the configuration options for Verified Access instances. Detailed below.
-     */
     accessLogs: pulumi.Input<inputs.verifiedaccess.InstanceLoggingConfigurationAccessLogs>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the Verified Access instance.
-     */
     verifiedaccessInstanceId: pulumi.Input<string>;
 }

@@ -15,77 +15,37 @@ public final class PolicyTableAssociationState extends com.pulumi.resources.Reso
 
     public static final PolicyTableAssociationState Empty = new PolicyTableAssociationState();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Identifier of the resource
-     * 
-     */
     @Import(name="resourceId")
     private @Nullable Output<String> resourceId;
 
-    /**
-     * @return Identifier of the resource
-     * 
-     */
     public Optional<Output<String>> resourceId() {
         return Optional.ofNullable(this.resourceId);
     }
 
-    /**
-     * Type of the resource
-     * 
-     */
     @Import(name="resourceType")
     private @Nullable Output<String> resourceType;
 
-    /**
-     * @return Type of the resource
-     * 
-     */
     public Optional<Output<String>> resourceType() {
         return Optional.ofNullable(this.resourceType);
     }
 
-    /**
-     * Identifier of EC2 Transit Gateway Attachment.
-     * 
-     */
     @Import(name="transitGatewayAttachmentId")
     private @Nullable Output<String> transitGatewayAttachmentId;
 
-    /**
-     * @return Identifier of EC2 Transit Gateway Attachment.
-     * 
-     */
     public Optional<Output<String>> transitGatewayAttachmentId() {
         return Optional.ofNullable(this.transitGatewayAttachmentId);
     }
 
-    /**
-     * Identifier of EC2 Transit Gateway Policy Table.
-     * 
-     */
     @Import(name="transitGatewayPolicyTableId")
     private @Nullable Output<String> transitGatewayPolicyTableId;
 
-    /**
-     * @return Identifier of EC2 Transit Gateway Policy Table.
-     * 
-     */
     public Optional<Output<String>> transitGatewayPolicyTableId() {
         return Optional.ofNullable(this.transitGatewayPolicyTableId);
     }
@@ -118,107 +78,47 @@ public final class PolicyTableAssociationState extends com.pulumi.resources.Reso
             $ = new PolicyTableAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceId Identifier of the resource
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(@Nullable Output<String> resourceId) {
             $.resourceId = resourceId;
             return this;
         }
 
-        /**
-         * @param resourceId Identifier of the resource
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(String resourceId) {
             return resourceId(Output.of(resourceId));
         }
 
-        /**
-         * @param resourceType Type of the resource
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceType(@Nullable Output<String> resourceType) {
             $.resourceType = resourceType;
             return this;
         }
 
-        /**
-         * @param resourceType Type of the resource
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceType(String resourceType) {
             return resourceType(Output.of(resourceType));
         }
 
-        /**
-         * @param transitGatewayAttachmentId Identifier of EC2 Transit Gateway Attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayAttachmentId(@Nullable Output<String> transitGatewayAttachmentId) {
             $.transitGatewayAttachmentId = transitGatewayAttachmentId;
             return this;
         }
 
-        /**
-         * @param transitGatewayAttachmentId Identifier of EC2 Transit Gateway Attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayAttachmentId(String transitGatewayAttachmentId) {
             return transitGatewayAttachmentId(Output.of(transitGatewayAttachmentId));
         }
 
-        /**
-         * @param transitGatewayPolicyTableId Identifier of EC2 Transit Gateway Policy Table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayPolicyTableId(@Nullable Output<String> transitGatewayPolicyTableId) {
             $.transitGatewayPolicyTableId = transitGatewayPolicyTableId;
             return this;
         }
 
-        /**
-         * @param transitGatewayPolicyTableId Identifier of EC2 Transit Gateway Policy Table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayPolicyTableId(String transitGatewayPolicyTableId) {
             return transitGatewayPolicyTableId(Output.of(transitGatewayPolicyTableId));
         }

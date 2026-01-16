@@ -12,20 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// Using `pulumi import`, import exclusive management of inline policy assignments using the `user_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:iam/userPoliciesExclusive:UserPoliciesExclusive example MyUser
-// ```
 type UserPoliciesExclusive struct {
 	pulumi.CustomResourceState
 
-	// A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
 	PolicyNames pulumi.StringArrayOutput `pulumi:"policyNames"`
-	// IAM user name.
-	UserName pulumi.StringOutput `pulumi:"userName"`
+	UserName    pulumi.StringOutput      `pulumi:"userName"`
 }
 
 // NewUserPoliciesExclusive registers a new resource with the given unique name, arguments, and options.
@@ -64,17 +55,13 @@ func GetUserPoliciesExclusive(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserPoliciesExclusive resources.
 type userPoliciesExclusiveState struct {
-	// A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
 	PolicyNames []string `pulumi:"policyNames"`
-	// IAM user name.
-	UserName *string `pulumi:"userName"`
+	UserName    *string  `pulumi:"userName"`
 }
 
 type UserPoliciesExclusiveState struct {
-	// A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
 	PolicyNames pulumi.StringArrayInput
-	// IAM user name.
-	UserName pulumi.StringPtrInput
+	UserName    pulumi.StringPtrInput
 }
 
 func (UserPoliciesExclusiveState) ElementType() reflect.Type {
@@ -82,18 +69,14 @@ func (UserPoliciesExclusiveState) ElementType() reflect.Type {
 }
 
 type userPoliciesExclusiveArgs struct {
-	// A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
 	PolicyNames []string `pulumi:"policyNames"`
-	// IAM user name.
-	UserName string `pulumi:"userName"`
+	UserName    string   `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a UserPoliciesExclusive resource.
 type UserPoliciesExclusiveArgs struct {
-	// A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
 	PolicyNames pulumi.StringArrayInput
-	// IAM user name.
-	UserName pulumi.StringInput
+	UserName    pulumi.StringInput
 }
 
 func (UserPoliciesExclusiveArgs) ElementType() reflect.Type {
@@ -183,12 +166,10 @@ func (o UserPoliciesExclusiveOutput) ToUserPoliciesExclusiveOutputWithContext(ct
 	return o
 }
 
-// A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
 func (o UserPoliciesExclusiveOutput) PolicyNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserPoliciesExclusive) pulumi.StringArrayOutput { return v.PolicyNames }).(pulumi.StringArrayOutput)
 }
 
-// IAM user name.
 func (o UserPoliciesExclusiveOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoliciesExclusive) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }

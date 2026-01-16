@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppSync.Outputs
     [OutputType]
     public sealed class DataSourceRelationalDatabaseConfig
     {
-        /// <summary>
-        /// Amazon RDS HTTP endpoint configuration. See `HttpEndpointConfig` Block for details.
-        /// </summary>
         public readonly Outputs.DataSourceRelationalDatabaseConfigHttpEndpointConfig? HttpEndpointConfig;
-        /// <summary>
-        /// Source type for the relational database. Valid values: `RDS_HTTP_ENDPOINT`.
-        /// </summary>
         public readonly string? SourceType;
 
         [OutputConstructor]

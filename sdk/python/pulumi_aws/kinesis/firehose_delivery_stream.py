@@ -42,25 +42,6 @@ class FirehoseDeliveryStreamArgs:
                  version_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FirehoseDeliveryStream resource.
-        :param pulumi.Input[_builtins.str] destination: This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the Stream
-        :param pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationArgs'] elasticsearch_configuration: Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
-        :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationArgs'] extended_s3_configuration: Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
-        :param pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs'] http_endpoint_configuration: Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
-        :param pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationArgs'] iceberg_configuration: Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
-        :param pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs'] kinesis_source_configuration: The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
-        :param pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs'] msk_source_configuration: The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
-        :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
-        :param pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationArgs'] opensearch_configuration: Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
-        :param pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs'] opensearchserverless_configuration: Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
-        :param pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationArgs'] redshift_configuration: Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['FirehoseDeliveryStreamServerSideEncryptionArgs'] server_side_encryption: Encrypt at rest options. See `server_side_encryption` block below for details.
-        :param pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationArgs'] snowflake_configuration: Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
-        :param pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs'] splunk_configuration: Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
-               
-               **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "destination", destination)
         if arn is not None:
@@ -103,9 +84,6 @@ class FirehoseDeliveryStreamArgs:
     @_builtins.property
     @pulumi.getter
     def destination(self) -> pulumi.Input[_builtins.str]:
-        """
-        This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
-        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -115,9 +93,6 @@ class FirehoseDeliveryStreamArgs:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) specifying the Stream
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -136,9 +111,6 @@ class FirehoseDeliveryStreamArgs:
     @_builtins.property
     @pulumi.getter(name="elasticsearchConfiguration")
     def elasticsearch_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationArgs']]:
-        """
-        Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
-        """
         return pulumi.get(self, "elasticsearch_configuration")
 
     @elasticsearch_configuration.setter
@@ -148,9 +120,6 @@ class FirehoseDeliveryStreamArgs:
     @_builtins.property
     @pulumi.getter(name="extendedS3Configuration")
     def extended_s3_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationArgs']]:
-        """
-        Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
-        """
         return pulumi.get(self, "extended_s3_configuration")
 
     @extended_s3_configuration.setter
@@ -160,9 +129,6 @@ class FirehoseDeliveryStreamArgs:
     @_builtins.property
     @pulumi.getter(name="httpEndpointConfiguration")
     def http_endpoint_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']]:
-        """
-        Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
-        """
         return pulumi.get(self, "http_endpoint_configuration")
 
     @http_endpoint_configuration.setter
@@ -172,9 +138,6 @@ class FirehoseDeliveryStreamArgs:
     @_builtins.property
     @pulumi.getter(name="icebergConfiguration")
     def iceberg_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationArgs']]:
-        """
-        Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
-        """
         return pulumi.get(self, "iceberg_configuration")
 
     @iceberg_configuration.setter
@@ -184,9 +147,6 @@ class FirehoseDeliveryStreamArgs:
     @_builtins.property
     @pulumi.getter(name="kinesisSourceConfiguration")
     def kinesis_source_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']]:
-        """
-        The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
-        """
         return pulumi.get(self, "kinesis_source_configuration")
 
     @kinesis_source_configuration.setter
@@ -196,9 +156,6 @@ class FirehoseDeliveryStreamArgs:
     @_builtins.property
     @pulumi.getter(name="mskSourceConfiguration")
     def msk_source_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs']]:
-        """
-        The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
-        """
         return pulumi.get(self, "msk_source_configuration")
 
     @msk_source_configuration.setter
@@ -208,9 +165,6 @@ class FirehoseDeliveryStreamArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -220,9 +174,6 @@ class FirehoseDeliveryStreamArgs:
     @_builtins.property
     @pulumi.getter(name="opensearchConfiguration")
     def opensearch_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationArgs']]:
-        """
-        Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
-        """
         return pulumi.get(self, "opensearch_configuration")
 
     @opensearch_configuration.setter
@@ -232,9 +183,6 @@ class FirehoseDeliveryStreamArgs:
     @_builtins.property
     @pulumi.getter(name="opensearchserverlessConfiguration")
     def opensearchserverless_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']]:
-        """
-        Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
-        """
         return pulumi.get(self, "opensearchserverless_configuration")
 
     @opensearchserverless_configuration.setter
@@ -244,9 +192,6 @@ class FirehoseDeliveryStreamArgs:
     @_builtins.property
     @pulumi.getter(name="redshiftConfiguration")
     def redshift_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationArgs']]:
-        """
-        Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
-        """
         return pulumi.get(self, "redshift_configuration")
 
     @redshift_configuration.setter
@@ -256,9 +201,6 @@ class FirehoseDeliveryStreamArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -268,9 +210,6 @@ class FirehoseDeliveryStreamArgs:
     @_builtins.property
     @pulumi.getter(name="serverSideEncryption")
     def server_side_encryption(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamServerSideEncryptionArgs']]:
-        """
-        Encrypt at rest options. See `server_side_encryption` block below for details.
-        """
         return pulumi.get(self, "server_side_encryption")
 
     @server_side_encryption.setter
@@ -280,9 +219,6 @@ class FirehoseDeliveryStreamArgs:
     @_builtins.property
     @pulumi.getter(name="snowflakeConfiguration")
     def snowflake_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationArgs']]:
-        """
-        Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
-        """
         return pulumi.get(self, "snowflake_configuration")
 
     @snowflake_configuration.setter
@@ -292,11 +228,6 @@ class FirehoseDeliveryStreamArgs:
     @_builtins.property
     @pulumi.getter(name="splunkConfiguration")
     def splunk_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs']]:
-        """
-        Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
-
-        **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-        """
         return pulumi.get(self, "splunk_configuration")
 
     @splunk_configuration.setter
@@ -306,9 +237,6 @@ class FirehoseDeliveryStreamArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -350,26 +278,6 @@ class _FirehoseDeliveryStreamState:
                  version_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FirehoseDeliveryStream resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the Stream
-        :param pulumi.Input[_builtins.str] destination: This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
-        :param pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationArgs'] elasticsearch_configuration: Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
-        :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationArgs'] extended_s3_configuration: Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
-        :param pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs'] http_endpoint_configuration: Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
-        :param pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationArgs'] iceberg_configuration: Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
-        :param pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs'] kinesis_source_configuration: The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
-        :param pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs'] msk_source_configuration: The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
-        :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
-        :param pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationArgs'] opensearch_configuration: Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
-        :param pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs'] opensearchserverless_configuration: Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
-        :param pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationArgs'] redshift_configuration: Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['FirehoseDeliveryStreamServerSideEncryptionArgs'] server_side_encryption: Encrypt at rest options. See `server_side_encryption` block below for details.
-        :param pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationArgs'] snowflake_configuration: Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
-        :param pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs'] splunk_configuration: Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
-               
-               **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -415,9 +323,6 @@ class _FirehoseDeliveryStreamState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) specifying the Stream
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -427,9 +332,6 @@ class _FirehoseDeliveryStreamState:
     @_builtins.property
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
-        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -448,9 +350,6 @@ class _FirehoseDeliveryStreamState:
     @_builtins.property
     @pulumi.getter(name="elasticsearchConfiguration")
     def elasticsearch_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationArgs']]:
-        """
-        Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
-        """
         return pulumi.get(self, "elasticsearch_configuration")
 
     @elasticsearch_configuration.setter
@@ -460,9 +359,6 @@ class _FirehoseDeliveryStreamState:
     @_builtins.property
     @pulumi.getter(name="extendedS3Configuration")
     def extended_s3_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationArgs']]:
-        """
-        Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
-        """
         return pulumi.get(self, "extended_s3_configuration")
 
     @extended_s3_configuration.setter
@@ -472,9 +368,6 @@ class _FirehoseDeliveryStreamState:
     @_builtins.property
     @pulumi.getter(name="httpEndpointConfiguration")
     def http_endpoint_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']]:
-        """
-        Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
-        """
         return pulumi.get(self, "http_endpoint_configuration")
 
     @http_endpoint_configuration.setter
@@ -484,9 +377,6 @@ class _FirehoseDeliveryStreamState:
     @_builtins.property
     @pulumi.getter(name="icebergConfiguration")
     def iceberg_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationArgs']]:
-        """
-        Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
-        """
         return pulumi.get(self, "iceberg_configuration")
 
     @iceberg_configuration.setter
@@ -496,9 +386,6 @@ class _FirehoseDeliveryStreamState:
     @_builtins.property
     @pulumi.getter(name="kinesisSourceConfiguration")
     def kinesis_source_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']]:
-        """
-        The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
-        """
         return pulumi.get(self, "kinesis_source_configuration")
 
     @kinesis_source_configuration.setter
@@ -508,9 +395,6 @@ class _FirehoseDeliveryStreamState:
     @_builtins.property
     @pulumi.getter(name="mskSourceConfiguration")
     def msk_source_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs']]:
-        """
-        The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
-        """
         return pulumi.get(self, "msk_source_configuration")
 
     @msk_source_configuration.setter
@@ -520,9 +404,6 @@ class _FirehoseDeliveryStreamState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -532,9 +413,6 @@ class _FirehoseDeliveryStreamState:
     @_builtins.property
     @pulumi.getter(name="opensearchConfiguration")
     def opensearch_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationArgs']]:
-        """
-        Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
-        """
         return pulumi.get(self, "opensearch_configuration")
 
     @opensearch_configuration.setter
@@ -544,9 +422,6 @@ class _FirehoseDeliveryStreamState:
     @_builtins.property
     @pulumi.getter(name="opensearchserverlessConfiguration")
     def opensearchserverless_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']]:
-        """
-        Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
-        """
         return pulumi.get(self, "opensearchserverless_configuration")
 
     @opensearchserverless_configuration.setter
@@ -556,9 +431,6 @@ class _FirehoseDeliveryStreamState:
     @_builtins.property
     @pulumi.getter(name="redshiftConfiguration")
     def redshift_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationArgs']]:
-        """
-        Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
-        """
         return pulumi.get(self, "redshift_configuration")
 
     @redshift_configuration.setter
@@ -568,9 +440,6 @@ class _FirehoseDeliveryStreamState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -580,9 +449,6 @@ class _FirehoseDeliveryStreamState:
     @_builtins.property
     @pulumi.getter(name="serverSideEncryption")
     def server_side_encryption(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamServerSideEncryptionArgs']]:
-        """
-        Encrypt at rest options. See `server_side_encryption` block below for details.
-        """
         return pulumi.get(self, "server_side_encryption")
 
     @server_side_encryption.setter
@@ -592,9 +458,6 @@ class _FirehoseDeliveryStreamState:
     @_builtins.property
     @pulumi.getter(name="snowflakeConfiguration")
     def snowflake_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationArgs']]:
-        """
-        Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
-        """
         return pulumi.get(self, "snowflake_configuration")
 
     @snowflake_configuration.setter
@@ -604,11 +467,6 @@ class _FirehoseDeliveryStreamState:
     @_builtins.property
     @pulumi.getter(name="splunkConfiguration")
     def splunk_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs']]:
-        """
-        Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
-
-        **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-        """
         return pulumi.get(self, "splunk_configuration")
 
     @splunk_configuration.setter
@@ -618,9 +476,6 @@ class _FirehoseDeliveryStreamState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -630,9 +485,6 @@ class _FirehoseDeliveryStreamState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -676,656 +528,9 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                  version_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Kinesis Firehose Delivery Stream resource. Amazon Kinesis Firehose is a fully managed, elastic service to easily deliver real-time data streams to destinations such as Amazon S3 , Amazon Redshift and Snowflake.
-
-        For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
-
-        ## Example Usage
-
-        ### Extended S3 Destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket = aws.s3.Bucket("bucket", bucket="tf-test-bucket")
-        firehose_assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["firehose.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        firehose_role = aws.iam.Role("firehose_role",
-            name="firehose_test_role",
-            assume_role_policy=firehose_assume_role.json)
-        lambda_assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["lambda.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        lambda_iam = aws.iam.Role("lambda_iam",
-            name="lambda_iam",
-            assume_role_policy=lambda_assume_role.json)
-        lambda_processor = aws.lambda_.Function("lambda_processor",
-            code=pulumi.FileArchive("lambda.zip"),
-            name="firehose_lambda_processor",
-            role=lambda_iam.arn,
-            handler="exports.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS20D_X)
-        extended_s3_stream = aws.kinesis.FirehoseDeliveryStream("extended_s3_stream",
-            name="kinesis-firehose-extended-s3-test-stream",
-            destination="extended_s3",
-            extended_s3_configuration={
-                "role_arn": firehose_role.arn,
-                "bucket_arn": bucket.arn,
-                "processing_configuration": {
-                    "enabled": True,
-                    "processors": [{
-                        "type": "Lambda",
-                        "parameters": [{
-                            "parameter_name": "LambdaArn",
-                            "parameter_value": lambda_processor.arn.apply(lambda arn: f"{arn}:$LATEST"),
-                        }],
-                    }],
-                },
-            })
-        bucket_acl = aws.s3.BucketAcl("bucket_acl",
-            bucket=bucket.id,
-            acl="private")
-        ```
-
-        ### Extended S3 Destination with dynamic partitioning
-
-        These examples use built-in Firehose functionality, rather than requiring a lambda.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        extended_s3_stream = aws.kinesis.FirehoseDeliveryStream("extended_s3_stream",
-            name="kinesis-firehose-extended-s3-test-stream",
-            destination="extended_s3",
-            extended_s3_configuration={
-                "role_arn": firehose_role["arn"],
-                "bucket_arn": bucket["arn"],
-                "buffering_size": 64,
-                "dynamic_partitioning_configuration": {
-                    "enabled": True,
-                },
-                "prefix": "data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
-                "error_output_prefix": "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
-                "processing_configuration": {
-                    "enabled": True,
-                    "processors": [
-                        {
-                            "type": "RecordDeAggregation",
-                            "parameters": [{
-                                "parameter_name": "SubRecordType",
-                                "parameter_value": "JSON",
-                            }],
-                        },
-                        {
-                            "type": "AppendDelimiterToRecord",
-                        },
-                        {
-                            "type": "MetadataExtraction",
-                            "parameters": [
-                                {
-                                    "parameter_name": "JsonParsingEngine",
-                                    "parameter_value": "JQ-1.6",
-                                },
-                                {
-                                    "parameter_name": "MetadataExtractionQuery",
-                                    "parameter_value": "{customer_id:.customer_id}",
-                                },
-                            ],
-                        },
-                    ],
-                },
-            })
-        ```
-
-        Multiple Dynamic Partitioning Keys (maximum of 50) can be added by comma separating the `parameter_value`.
-
-        The following example adds the Dynamic Partitioning Keys: `store_id` and `customer_id` to the S3 prefix.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        extended_s3_stream = aws.kinesis.FirehoseDeliveryStream("extended_s3_stream",
-            name="kinesis-firehose-extended-s3-test-stream",
-            destination="extended_s3",
-            extended_s3_configuration={
-                "role_arn": firehose_role["arn"],
-                "bucket_arn": bucket["arn"],
-                "buffering_size": 64,
-                "dynamic_partitioning_configuration": {
-                    "enabled": True,
-                },
-                "prefix": "data/store_id=!{partitionKeyFromQuery:store_id}/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
-                "error_output_prefix": "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
-                "processing_configuration": {
-                    "enabled": True,
-                    "processors": [{
-                        "type": "MetadataExtraction",
-                        "parameters": [
-                            {
-                                "parameter_name": "JsonParsingEngine",
-                                "parameter_value": "JQ-1.6",
-                            },
-                            {
-                                "parameter_name": "MetadataExtractionQuery",
-                                "parameter_value": "{store_id:.store_id,customer_id:.customer_id}",
-                            },
-                        ],
-                    }],
-                },
-            })
-        ```
-
-        ### Redshift Destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_cluster = aws.redshift.Cluster("test_cluster",
-            cluster_identifier="tf-redshift-cluster",
-            database_name="test",
-            master_username="testuser",
-            master_password="T3stPass",
-            node_type="dc1.large",
-            cluster_type="single-node")
-        test_stream = aws.kinesis.FirehoseDeliveryStream("test_stream",
-            name="kinesis-firehose-test-stream",
-            destination="redshift",
-            redshift_configuration={
-                "role_arn": firehose_role["arn"],
-                "cluster_jdbcurl": pulumi.Output.all(
-                    endpoint=test_cluster.endpoint,
-                    database_name=test_cluster.database_name
-        ).apply(lambda resolved_outputs: f"jdbc:redshift://{resolved_outputs['endpoint']}/{resolved_outputs['database_name']}")
-        ,
-                "username": "testuser",
-                "password": "T3stPass",
-                "data_table_name": "test-table",
-                "copy_options": "delimiter '|'",
-                "data_table_columns": "test-col",
-                "s3_backup_mode": "Enabled",
-                "s3_configuration": {
-                    "role_arn": firehose_role["arn"],
-                    "bucket_arn": bucket["arn"],
-                    "buffering_size": 10,
-                    "buffering_interval": 400,
-                    "compression_format": "GZIP",
-                },
-                "s3_backup_configuration": {
-                    "role_arn": firehose_role["arn"],
-                    "bucket_arn": bucket["arn"],
-                    "buffering_size": 15,
-                    "buffering_interval": 300,
-                    "compression_format": "GZIP",
-                },
-            })
-        ```
-
-        ### Elasticsearch Destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_cluster = aws.elasticsearch.Domain("test_cluster", domain_name="firehose-es-test")
-        test_stream = aws.kinesis.FirehoseDeliveryStream("test_stream",
-            name="kinesis-firehose-test-stream",
-            destination="elasticsearch",
-            elasticsearch_configuration={
-                "domain_arn": test_cluster.arn,
-                "role_arn": firehose_role["arn"],
-                "index_name": "test",
-                "type_name": "test",
-                "s3_configuration": {
-                    "role_arn": firehose_role["arn"],
-                    "bucket_arn": bucket["arn"],
-                    "buffering_size": 10,
-                    "buffering_interval": 400,
-                    "compression_format": "GZIP",
-                },
-                "processing_configuration": {
-                    "enabled": True,
-                    "processors": [{
-                        "type": "Lambda",
-                        "parameters": [{
-                            "parameter_name": "LambdaArn",
-                            "parameter_value": f"{lambda_processor['arn']}:$LATEST",
-                        }],
-                    }],
-                },
-            })
-        ```
-
-        ### Elasticsearch Destination With VPC
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_cluster = aws.elasticsearch.Domain("test_cluster",
-            domain_name="es-test",
-            cluster_config={
-                "instance_count": 2,
-                "zone_awareness_enabled": True,
-                "instance_type": "t2.small.elasticsearch",
-            },
-            ebs_options={
-                "ebs_enabled": True,
-                "volume_size": 10,
-            },
-            vpc_options={
-                "security_group_ids": [first["id"]],
-                "subnet_ids": [
-                    first_aws_subnet["id"],
-                    second["id"],
-                ],
-            })
-        firehose_elasticsearch = aws.iam.get_policy_document_output(statements=[
-            {
-                "effect": "Allow",
-                "actions": ["es:*"],
-                "resources": [
-                    test_cluster.arn,
-                    test_cluster.arn.apply(lambda arn: f"{arn}/*"),
-                ],
-            },
-            {
-                "effect": "Allow",
-                "actions": [
-                    "ec2:DescribeVpcs",
-                    "ec2:DescribeVpcAttribute",
-                    "ec2:DescribeSubnets",
-                    "ec2:DescribeSecurityGroups",
-                    "ec2:DescribeNetworkInterfaces",
-                    "ec2:CreateNetworkInterface",
-                    "ec2:CreateNetworkInterfacePermission",
-                    "ec2:DeleteNetworkInterface",
-                ],
-                "resources": ["*"],
-            },
-        ])
-        firehose_elasticsearch_role_policy = aws.iam.RolePolicy("firehose-elasticsearch",
-            name="elasticsearch",
-            role=firehose["id"],
-            policy=firehose_elasticsearch.json)
-        test = aws.kinesis.FirehoseDeliveryStream("test",
-            name="kinesis-firehose-es",
-            destination="elasticsearch",
-            elasticsearch_configuration={
-                "domain_arn": test_cluster.arn,
-                "role_arn": firehose["arn"],
-                "index_name": "test",
-                "type_name": "test",
-                "s3_configuration": {
-                    "role_arn": firehose["arn"],
-                    "bucket_arn": bucket["arn"],
-                },
-                "vpc_config": {
-                    "subnet_ids": [
-                        first_aws_subnet["id"],
-                        second["id"],
-                    ],
-                    "security_group_ids": [first["id"]],
-                    "role_arn": firehose["arn"],
-                },
-            },
-            opts = pulumi.ResourceOptions(depends_on=[firehose_elasticsearch_role_policy]))
-        ```
-
-        ### OpenSearch Destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_cluster = aws.opensearch.Domain("test_cluster", domain_name="firehose-os-test")
-        test_stream = aws.kinesis.FirehoseDeliveryStream("test_stream",
-            name="kinesis-firehose-test-stream",
-            destination="opensearch",
-            opensearch_configuration={
-                "domain_arn": test_cluster.arn,
-                "role_arn": firehose_role["arn"],
-                "index_name": "test",
-                "s3_configuration": {
-                    "role_arn": firehose_role["arn"],
-                    "bucket_arn": bucket["arn"],
-                    "buffering_size": 10,
-                    "buffering_interval": 400,
-                    "compression_format": "GZIP",
-                },
-                "processing_configuration": {
-                    "enabled": True,
-                    "processors": [{
-                        "type": "Lambda",
-                        "parameters": [{
-                            "parameter_name": "LambdaArn",
-                            "parameter_value": f"{lambda_processor['arn']}:$LATEST",
-                        }],
-                    }],
-                },
-            })
-        ```
-
-        ### OpenSearch Destination With VPC
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_cluster = aws.opensearch.Domain("test_cluster",
-            domain_name="es-test",
-            cluster_config={
-                "instance_count": 2,
-                "zone_awareness_enabled": True,
-                "instance_type": "m4.large.search",
-            },
-            ebs_options={
-                "ebs_enabled": True,
-                "volume_size": 10,
-            },
-            vpc_options={
-                "security_group_ids": [first["id"]],
-                "subnet_ids": [
-                    first_aws_subnet["id"],
-                    second["id"],
-                ],
-            })
-        firehose_opensearch = aws.iam.RolePolicy("firehose-opensearch",
-            name="opensearch",
-            role=firehose["id"],
-            policy=pulumi.Output.all(
-                testClusterArn=test_cluster.arn,
-                testClusterArn1=test_cluster.arn
-        ).apply(lambda resolved_outputs: f\"\"\"{{
-          \\"Version\\": \\"2012-10-17\\",
-          \\"Statement\\": [
-            {{
-              \\"Effect\\": \\"Allow\\",
-              \\"Action\\": [
-                \\"es:*\\"
-              ],
-              \\"Resource\\": [
-                \\"{resolved_outputs['testClusterArn']}\\",
-                \\"{resolved_outputs['testClusterArn1']}/*\\"
-              ]
-                }},
-                {{
-                  \\"Effect\\": \\"Allow\\",
-                  \\"Action\\": [
-                    \\"ec2:DescribeVpcs\\",
-                    \\"ec2:DescribeVpcAttribute\\",
-                    \\"ec2:DescribeSubnets\\",
-                    \\"ec2:DescribeSecurityGroups\\",
-                    \\"ec2:DescribeNetworkInterfaces\\",
-                    \\"ec2:CreateNetworkInterface\\",
-                    \\"ec2:CreateNetworkInterfacePermission\\",
-                    \\"ec2:DeleteNetworkInterface\\"
-                  ],
-                  \\"Resource\\": [
-                    \\"*\\"
-                  ]
-                }}
-          ]
-        }}
-        \"\"\")
-        )
-        test = aws.kinesis.FirehoseDeliveryStream("test",
-            name="pulumi-kinesis-firehose-os",
-            destination="opensearch",
-            opensearch_configuration={
-                "domain_arn": test_cluster.arn,
-                "role_arn": firehose["arn"],
-                "index_name": "test",
-                "s3_configuration": {
-                    "role_arn": firehose["arn"],
-                    "bucket_arn": bucket["arn"],
-                },
-                "vpc_config": {
-                    "subnet_ids": [
-                        first_aws_subnet["id"],
-                        second["id"],
-                    ],
-                    "security_group_ids": [first["id"]],
-                    "role_arn": firehose["arn"],
-                },
-            },
-            opts = pulumi.ResourceOptions(depends_on=[firehose_opensearch]))
-        ```
-
-        ### OpenSearch Serverless Destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_collection = aws.opensearch.ServerlessCollection("test_collection", name="firehose-osserverless-test")
-        test_stream = aws.kinesis.FirehoseDeliveryStream("test_stream",
-            name="kinesis-firehose-test-stream",
-            destination="opensearchserverless",
-            opensearchserverless_configuration={
-                "collection_endpoint": test_collection.collection_endpoint,
-                "role_arn": firehose_role["arn"],
-                "index_name": "test",
-                "s3_configuration": {
-                    "role_arn": firehose_role["arn"],
-                    "bucket_arn": bucket["arn"],
-                    "buffering_size": 10,
-                    "buffering_interval": 400,
-                    "compression_format": "GZIP",
-                },
-                "processing_configuration": {
-                    "enabled": True,
-                    "processors": [{
-                        "type": "Lambda",
-                        "parameters": [{
-                            "parameter_name": "LambdaArn",
-                            "parameter_value": f"{lambda_processor['arn']}:$LATEST",
-                        }],
-                    }],
-                },
-            })
-        ```
-
-        ### Iceberg Destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_partition = aws.get_partition()
-        current_get_region = aws.get_region()
-        bucket = aws.s3.Bucket("bucket",
-            bucket="test-bucket",
-            force_destroy=True)
-        test = aws.glue.CatalogDatabase("test", name="test")
-        test_catalog_table = aws.glue.CatalogTable("test",
-            name="test",
-            database_name=test.name,
-            parameters={
-                "format": "parquet",
-            },
-            table_type="EXTERNAL_TABLE",
-            open_table_format_input={
-                "iceberg_input": {
-                    "metadata_operation": "CREATE",
-                    "version": "2",
-                },
-            },
-            storage_descriptor={
-                "location": bucket.id.apply(lambda id: f"s3://{id}"),
-                "columns": [{
-                    "name": "my_column_1",
-                    "type": "int",
-                }],
-            })
-        test_stream = aws.kinesis.FirehoseDeliveryStream("test_stream",
-            name="kinesis-firehose-test-stream",
-            destination="iceberg",
-            iceberg_configuration={
-                "role_arn": firehose_role["arn"],
-                "catalog_arn": f"arn:{current_get_partition.partition}:glue:{current_get_region.region}:{current.account_id}:catalog",
-                "buffering_size": 10,
-                "buffering_interval": 400,
-                "s3_configuration": {
-                    "role_arn": firehose_role["arn"],
-                    "bucket_arn": bucket.arn,
-                },
-                "destination_table_configurations": [{
-                    "database_name": test.name,
-                    "table_name": test_catalog_table.name,
-                }],
-                "processing_configuration": {
-                    "enabled": True,
-                    "processors": [{
-                        "type": "Lambda",
-                        "parameters": [{
-                            "parameter_name": "LambdaArn",
-                            "parameter_value": f"{lambda_processor['arn']}:$LATEST",
-                        }],
-                    }],
-                },
-            })
-        ```
-
-        ### Splunk Destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_stream = aws.kinesis.FirehoseDeliveryStream("test_stream",
-            name="kinesis-firehose-test-stream",
-            destination="splunk",
-            splunk_configuration={
-                "hec_endpoint": "https://http-inputs-mydomain.splunkcloud.com:443",
-                "hec_token": "51D4DA16-C61B-4F5F-8EC7-ED4301342A4A",
-                "hec_acknowledgment_timeout": 600,
-                "hec_endpoint_type": "Event",
-                "s3_backup_mode": "FailedEventsOnly",
-                "s3_configuration": {
-                    "role_arn": firehose["arn"],
-                    "bucket_arn": bucket["arn"],
-                    "buffering_size": 10,
-                    "buffering_interval": 400,
-                    "compression_format": "GZIP",
-                },
-            })
-        ```
-
-        ### HTTP Endpoint (e.g., New Relic) Destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_stream = aws.kinesis.FirehoseDeliveryStream("test_stream",
-            name="kinesis-firehose-test-stream",
-            destination="http_endpoint",
-            http_endpoint_configuration={
-                "url": "https://aws-api.newrelic.com/firehose/v1",
-                "name": "New Relic",
-                "access_key": "my-key",
-                "buffering_size": 15,
-                "buffering_interval": 600,
-                "role_arn": firehose["arn"],
-                "s3_backup_mode": "FailedDataOnly",
-                "s3_configuration": {
-                    "role_arn": firehose["arn"],
-                    "bucket_arn": bucket["arn"],
-                    "buffering_size": 10,
-                    "buffering_interval": 400,
-                    "compression_format": "GZIP",
-                },
-                "request_configuration": {
-                    "content_encoding": "GZIP",
-                    "common_attributes": [
-                        {
-                            "name": "testname",
-                            "value": "testvalue",
-                        },
-                        {
-                            "name": "testname2",
-                            "value": "testvalue2",
-                        },
-                    ],
-                },
-            })
-        ```
-
-        ### Snowflake Destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_snowflake_destination = aws.kinesis.FirehoseDeliveryStream("example_snowflake_destination",
-            name="example-snowflake-destination",
-            destination="snowflake",
-            snowflake_configuration={
-                "account_url": "https://example.snowflakecomputing.com",
-                "buffering_size": 15,
-                "buffering_interval": 600,
-                "database": "example-db",
-                "private_key": "...",
-                "role_arn": firehose["arn"],
-                "schema": "example-schema",
-                "table": "example-table",
-                "user": "example-usr",
-                "s3_configuration": {
-                    "role_arn": firehose["arn"],
-                    "bucket_arn": bucket["arn"],
-                    "buffering_size": 10,
-                    "buffering_interval": 400,
-                    "compression_format": "GZIP",
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Kinesis Firehose Delivery streams using the stream ARN. For example:
-
-        ```sh
-        $ pulumi import aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream foo arn:aws:firehose:us-east-1:XXX:deliverystream/example
-        ```
-        Note: Import does not work for stream destination `s3`. Consider using `extended_s3` since `s3` destination is deprecated.
-
+        Create a FirehoseDeliveryStream resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the Stream
-        :param pulumi.Input[_builtins.str] destination: This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamElasticsearchConfigurationArgs', 'FirehoseDeliveryStreamElasticsearchConfigurationArgsDict']] elasticsearch_configuration: Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamExtendedS3ConfigurationArgs', 'FirehoseDeliveryStreamExtendedS3ConfigurationArgsDict']] extended_s3_configuration: Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamHttpEndpointConfigurationArgs', 'FirehoseDeliveryStreamHttpEndpointConfigurationArgsDict']] http_endpoint_configuration: Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamIcebergConfigurationArgs', 'FirehoseDeliveryStreamIcebergConfigurationArgsDict']] iceberg_configuration: Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamKinesisSourceConfigurationArgs', 'FirehoseDeliveryStreamKinesisSourceConfigurationArgsDict']] kinesis_source_configuration: The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamMskSourceConfigurationArgs', 'FirehoseDeliveryStreamMskSourceConfigurationArgsDict']] msk_source_configuration: The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
-        :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamOpensearchConfigurationArgs', 'FirehoseDeliveryStreamOpensearchConfigurationArgsDict']] opensearch_configuration: Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs', 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgsDict']] opensearchserverless_configuration: Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamRedshiftConfigurationArgs', 'FirehoseDeliveryStreamRedshiftConfigurationArgsDict']] redshift_configuration: Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamServerSideEncryptionArgs', 'FirehoseDeliveryStreamServerSideEncryptionArgsDict']] server_side_encryption: Encrypt at rest options. See `server_side_encryption` block below for details.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamSnowflakeConfigurationArgs', 'FirehoseDeliveryStreamSnowflakeConfigurationArgsDict']] snowflake_configuration: Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamSplunkConfigurationArgs', 'FirehoseDeliveryStreamSplunkConfigurationArgsDict']] splunk_configuration: Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
-               
-               **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -1334,635 +539,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                  args: FirehoseDeliveryStreamArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Kinesis Firehose Delivery Stream resource. Amazon Kinesis Firehose is a fully managed, elastic service to easily deliver real-time data streams to destinations such as Amazon S3 , Amazon Redshift and Snowflake.
-
-        For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
-
-        ## Example Usage
-
-        ### Extended S3 Destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket = aws.s3.Bucket("bucket", bucket="tf-test-bucket")
-        firehose_assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["firehose.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        firehose_role = aws.iam.Role("firehose_role",
-            name="firehose_test_role",
-            assume_role_policy=firehose_assume_role.json)
-        lambda_assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["lambda.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        lambda_iam = aws.iam.Role("lambda_iam",
-            name="lambda_iam",
-            assume_role_policy=lambda_assume_role.json)
-        lambda_processor = aws.lambda_.Function("lambda_processor",
-            code=pulumi.FileArchive("lambda.zip"),
-            name="firehose_lambda_processor",
-            role=lambda_iam.arn,
-            handler="exports.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS20D_X)
-        extended_s3_stream = aws.kinesis.FirehoseDeliveryStream("extended_s3_stream",
-            name="kinesis-firehose-extended-s3-test-stream",
-            destination="extended_s3",
-            extended_s3_configuration={
-                "role_arn": firehose_role.arn,
-                "bucket_arn": bucket.arn,
-                "processing_configuration": {
-                    "enabled": True,
-                    "processors": [{
-                        "type": "Lambda",
-                        "parameters": [{
-                            "parameter_name": "LambdaArn",
-                            "parameter_value": lambda_processor.arn.apply(lambda arn: f"{arn}:$LATEST"),
-                        }],
-                    }],
-                },
-            })
-        bucket_acl = aws.s3.BucketAcl("bucket_acl",
-            bucket=bucket.id,
-            acl="private")
-        ```
-
-        ### Extended S3 Destination with dynamic partitioning
-
-        These examples use built-in Firehose functionality, rather than requiring a lambda.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        extended_s3_stream = aws.kinesis.FirehoseDeliveryStream("extended_s3_stream",
-            name="kinesis-firehose-extended-s3-test-stream",
-            destination="extended_s3",
-            extended_s3_configuration={
-                "role_arn": firehose_role["arn"],
-                "bucket_arn": bucket["arn"],
-                "buffering_size": 64,
-                "dynamic_partitioning_configuration": {
-                    "enabled": True,
-                },
-                "prefix": "data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
-                "error_output_prefix": "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
-                "processing_configuration": {
-                    "enabled": True,
-                    "processors": [
-                        {
-                            "type": "RecordDeAggregation",
-                            "parameters": [{
-                                "parameter_name": "SubRecordType",
-                                "parameter_value": "JSON",
-                            }],
-                        },
-                        {
-                            "type": "AppendDelimiterToRecord",
-                        },
-                        {
-                            "type": "MetadataExtraction",
-                            "parameters": [
-                                {
-                                    "parameter_name": "JsonParsingEngine",
-                                    "parameter_value": "JQ-1.6",
-                                },
-                                {
-                                    "parameter_name": "MetadataExtractionQuery",
-                                    "parameter_value": "{customer_id:.customer_id}",
-                                },
-                            ],
-                        },
-                    ],
-                },
-            })
-        ```
-
-        Multiple Dynamic Partitioning Keys (maximum of 50) can be added by comma separating the `parameter_value`.
-
-        The following example adds the Dynamic Partitioning Keys: `store_id` and `customer_id` to the S3 prefix.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        extended_s3_stream = aws.kinesis.FirehoseDeliveryStream("extended_s3_stream",
-            name="kinesis-firehose-extended-s3-test-stream",
-            destination="extended_s3",
-            extended_s3_configuration={
-                "role_arn": firehose_role["arn"],
-                "bucket_arn": bucket["arn"],
-                "buffering_size": 64,
-                "dynamic_partitioning_configuration": {
-                    "enabled": True,
-                },
-                "prefix": "data/store_id=!{partitionKeyFromQuery:store_id}/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
-                "error_output_prefix": "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
-                "processing_configuration": {
-                    "enabled": True,
-                    "processors": [{
-                        "type": "MetadataExtraction",
-                        "parameters": [
-                            {
-                                "parameter_name": "JsonParsingEngine",
-                                "parameter_value": "JQ-1.6",
-                            },
-                            {
-                                "parameter_name": "MetadataExtractionQuery",
-                                "parameter_value": "{store_id:.store_id,customer_id:.customer_id}",
-                            },
-                        ],
-                    }],
-                },
-            })
-        ```
-
-        ### Redshift Destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_cluster = aws.redshift.Cluster("test_cluster",
-            cluster_identifier="tf-redshift-cluster",
-            database_name="test",
-            master_username="testuser",
-            master_password="T3stPass",
-            node_type="dc1.large",
-            cluster_type="single-node")
-        test_stream = aws.kinesis.FirehoseDeliveryStream("test_stream",
-            name="kinesis-firehose-test-stream",
-            destination="redshift",
-            redshift_configuration={
-                "role_arn": firehose_role["arn"],
-                "cluster_jdbcurl": pulumi.Output.all(
-                    endpoint=test_cluster.endpoint,
-                    database_name=test_cluster.database_name
-        ).apply(lambda resolved_outputs: f"jdbc:redshift://{resolved_outputs['endpoint']}/{resolved_outputs['database_name']}")
-        ,
-                "username": "testuser",
-                "password": "T3stPass",
-                "data_table_name": "test-table",
-                "copy_options": "delimiter '|'",
-                "data_table_columns": "test-col",
-                "s3_backup_mode": "Enabled",
-                "s3_configuration": {
-                    "role_arn": firehose_role["arn"],
-                    "bucket_arn": bucket["arn"],
-                    "buffering_size": 10,
-                    "buffering_interval": 400,
-                    "compression_format": "GZIP",
-                },
-                "s3_backup_configuration": {
-                    "role_arn": firehose_role["arn"],
-                    "bucket_arn": bucket["arn"],
-                    "buffering_size": 15,
-                    "buffering_interval": 300,
-                    "compression_format": "GZIP",
-                },
-            })
-        ```
-
-        ### Elasticsearch Destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_cluster = aws.elasticsearch.Domain("test_cluster", domain_name="firehose-es-test")
-        test_stream = aws.kinesis.FirehoseDeliveryStream("test_stream",
-            name="kinesis-firehose-test-stream",
-            destination="elasticsearch",
-            elasticsearch_configuration={
-                "domain_arn": test_cluster.arn,
-                "role_arn": firehose_role["arn"],
-                "index_name": "test",
-                "type_name": "test",
-                "s3_configuration": {
-                    "role_arn": firehose_role["arn"],
-                    "bucket_arn": bucket["arn"],
-                    "buffering_size": 10,
-                    "buffering_interval": 400,
-                    "compression_format": "GZIP",
-                },
-                "processing_configuration": {
-                    "enabled": True,
-                    "processors": [{
-                        "type": "Lambda",
-                        "parameters": [{
-                            "parameter_name": "LambdaArn",
-                            "parameter_value": f"{lambda_processor['arn']}:$LATEST",
-                        }],
-                    }],
-                },
-            })
-        ```
-
-        ### Elasticsearch Destination With VPC
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_cluster = aws.elasticsearch.Domain("test_cluster",
-            domain_name="es-test",
-            cluster_config={
-                "instance_count": 2,
-                "zone_awareness_enabled": True,
-                "instance_type": "t2.small.elasticsearch",
-            },
-            ebs_options={
-                "ebs_enabled": True,
-                "volume_size": 10,
-            },
-            vpc_options={
-                "security_group_ids": [first["id"]],
-                "subnet_ids": [
-                    first_aws_subnet["id"],
-                    second["id"],
-                ],
-            })
-        firehose_elasticsearch = aws.iam.get_policy_document_output(statements=[
-            {
-                "effect": "Allow",
-                "actions": ["es:*"],
-                "resources": [
-                    test_cluster.arn,
-                    test_cluster.arn.apply(lambda arn: f"{arn}/*"),
-                ],
-            },
-            {
-                "effect": "Allow",
-                "actions": [
-                    "ec2:DescribeVpcs",
-                    "ec2:DescribeVpcAttribute",
-                    "ec2:DescribeSubnets",
-                    "ec2:DescribeSecurityGroups",
-                    "ec2:DescribeNetworkInterfaces",
-                    "ec2:CreateNetworkInterface",
-                    "ec2:CreateNetworkInterfacePermission",
-                    "ec2:DeleteNetworkInterface",
-                ],
-                "resources": ["*"],
-            },
-        ])
-        firehose_elasticsearch_role_policy = aws.iam.RolePolicy("firehose-elasticsearch",
-            name="elasticsearch",
-            role=firehose["id"],
-            policy=firehose_elasticsearch.json)
-        test = aws.kinesis.FirehoseDeliveryStream("test",
-            name="kinesis-firehose-es",
-            destination="elasticsearch",
-            elasticsearch_configuration={
-                "domain_arn": test_cluster.arn,
-                "role_arn": firehose["arn"],
-                "index_name": "test",
-                "type_name": "test",
-                "s3_configuration": {
-                    "role_arn": firehose["arn"],
-                    "bucket_arn": bucket["arn"],
-                },
-                "vpc_config": {
-                    "subnet_ids": [
-                        first_aws_subnet["id"],
-                        second["id"],
-                    ],
-                    "security_group_ids": [first["id"]],
-                    "role_arn": firehose["arn"],
-                },
-            },
-            opts = pulumi.ResourceOptions(depends_on=[firehose_elasticsearch_role_policy]))
-        ```
-
-        ### OpenSearch Destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_cluster = aws.opensearch.Domain("test_cluster", domain_name="firehose-os-test")
-        test_stream = aws.kinesis.FirehoseDeliveryStream("test_stream",
-            name="kinesis-firehose-test-stream",
-            destination="opensearch",
-            opensearch_configuration={
-                "domain_arn": test_cluster.arn,
-                "role_arn": firehose_role["arn"],
-                "index_name": "test",
-                "s3_configuration": {
-                    "role_arn": firehose_role["arn"],
-                    "bucket_arn": bucket["arn"],
-                    "buffering_size": 10,
-                    "buffering_interval": 400,
-                    "compression_format": "GZIP",
-                },
-                "processing_configuration": {
-                    "enabled": True,
-                    "processors": [{
-                        "type": "Lambda",
-                        "parameters": [{
-                            "parameter_name": "LambdaArn",
-                            "parameter_value": f"{lambda_processor['arn']}:$LATEST",
-                        }],
-                    }],
-                },
-            })
-        ```
-
-        ### OpenSearch Destination With VPC
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_cluster = aws.opensearch.Domain("test_cluster",
-            domain_name="es-test",
-            cluster_config={
-                "instance_count": 2,
-                "zone_awareness_enabled": True,
-                "instance_type": "m4.large.search",
-            },
-            ebs_options={
-                "ebs_enabled": True,
-                "volume_size": 10,
-            },
-            vpc_options={
-                "security_group_ids": [first["id"]],
-                "subnet_ids": [
-                    first_aws_subnet["id"],
-                    second["id"],
-                ],
-            })
-        firehose_opensearch = aws.iam.RolePolicy("firehose-opensearch",
-            name="opensearch",
-            role=firehose["id"],
-            policy=pulumi.Output.all(
-                testClusterArn=test_cluster.arn,
-                testClusterArn1=test_cluster.arn
-        ).apply(lambda resolved_outputs: f\"\"\"{{
-          \\"Version\\": \\"2012-10-17\\",
-          \\"Statement\\": [
-            {{
-              \\"Effect\\": \\"Allow\\",
-              \\"Action\\": [
-                \\"es:*\\"
-              ],
-              \\"Resource\\": [
-                \\"{resolved_outputs['testClusterArn']}\\",
-                \\"{resolved_outputs['testClusterArn1']}/*\\"
-              ]
-                }},
-                {{
-                  \\"Effect\\": \\"Allow\\",
-                  \\"Action\\": [
-                    \\"ec2:DescribeVpcs\\",
-                    \\"ec2:DescribeVpcAttribute\\",
-                    \\"ec2:DescribeSubnets\\",
-                    \\"ec2:DescribeSecurityGroups\\",
-                    \\"ec2:DescribeNetworkInterfaces\\",
-                    \\"ec2:CreateNetworkInterface\\",
-                    \\"ec2:CreateNetworkInterfacePermission\\",
-                    \\"ec2:DeleteNetworkInterface\\"
-                  ],
-                  \\"Resource\\": [
-                    \\"*\\"
-                  ]
-                }}
-          ]
-        }}
-        \"\"\")
-        )
-        test = aws.kinesis.FirehoseDeliveryStream("test",
-            name="pulumi-kinesis-firehose-os",
-            destination="opensearch",
-            opensearch_configuration={
-                "domain_arn": test_cluster.arn,
-                "role_arn": firehose["arn"],
-                "index_name": "test",
-                "s3_configuration": {
-                    "role_arn": firehose["arn"],
-                    "bucket_arn": bucket["arn"],
-                },
-                "vpc_config": {
-                    "subnet_ids": [
-                        first_aws_subnet["id"],
-                        second["id"],
-                    ],
-                    "security_group_ids": [first["id"]],
-                    "role_arn": firehose["arn"],
-                },
-            },
-            opts = pulumi.ResourceOptions(depends_on=[firehose_opensearch]))
-        ```
-
-        ### OpenSearch Serverless Destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_collection = aws.opensearch.ServerlessCollection("test_collection", name="firehose-osserverless-test")
-        test_stream = aws.kinesis.FirehoseDeliveryStream("test_stream",
-            name="kinesis-firehose-test-stream",
-            destination="opensearchserverless",
-            opensearchserverless_configuration={
-                "collection_endpoint": test_collection.collection_endpoint,
-                "role_arn": firehose_role["arn"],
-                "index_name": "test",
-                "s3_configuration": {
-                    "role_arn": firehose_role["arn"],
-                    "bucket_arn": bucket["arn"],
-                    "buffering_size": 10,
-                    "buffering_interval": 400,
-                    "compression_format": "GZIP",
-                },
-                "processing_configuration": {
-                    "enabled": True,
-                    "processors": [{
-                        "type": "Lambda",
-                        "parameters": [{
-                            "parameter_name": "LambdaArn",
-                            "parameter_value": f"{lambda_processor['arn']}:$LATEST",
-                        }],
-                    }],
-                },
-            })
-        ```
-
-        ### Iceberg Destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_partition = aws.get_partition()
-        current_get_region = aws.get_region()
-        bucket = aws.s3.Bucket("bucket",
-            bucket="test-bucket",
-            force_destroy=True)
-        test = aws.glue.CatalogDatabase("test", name="test")
-        test_catalog_table = aws.glue.CatalogTable("test",
-            name="test",
-            database_name=test.name,
-            parameters={
-                "format": "parquet",
-            },
-            table_type="EXTERNAL_TABLE",
-            open_table_format_input={
-                "iceberg_input": {
-                    "metadata_operation": "CREATE",
-                    "version": "2",
-                },
-            },
-            storage_descriptor={
-                "location": bucket.id.apply(lambda id: f"s3://{id}"),
-                "columns": [{
-                    "name": "my_column_1",
-                    "type": "int",
-                }],
-            })
-        test_stream = aws.kinesis.FirehoseDeliveryStream("test_stream",
-            name="kinesis-firehose-test-stream",
-            destination="iceberg",
-            iceberg_configuration={
-                "role_arn": firehose_role["arn"],
-                "catalog_arn": f"arn:{current_get_partition.partition}:glue:{current_get_region.region}:{current.account_id}:catalog",
-                "buffering_size": 10,
-                "buffering_interval": 400,
-                "s3_configuration": {
-                    "role_arn": firehose_role["arn"],
-                    "bucket_arn": bucket.arn,
-                },
-                "destination_table_configurations": [{
-                    "database_name": test.name,
-                    "table_name": test_catalog_table.name,
-                }],
-                "processing_configuration": {
-                    "enabled": True,
-                    "processors": [{
-                        "type": "Lambda",
-                        "parameters": [{
-                            "parameter_name": "LambdaArn",
-                            "parameter_value": f"{lambda_processor['arn']}:$LATEST",
-                        }],
-                    }],
-                },
-            })
-        ```
-
-        ### Splunk Destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_stream = aws.kinesis.FirehoseDeliveryStream("test_stream",
-            name="kinesis-firehose-test-stream",
-            destination="splunk",
-            splunk_configuration={
-                "hec_endpoint": "https://http-inputs-mydomain.splunkcloud.com:443",
-                "hec_token": "51D4DA16-C61B-4F5F-8EC7-ED4301342A4A",
-                "hec_acknowledgment_timeout": 600,
-                "hec_endpoint_type": "Event",
-                "s3_backup_mode": "FailedEventsOnly",
-                "s3_configuration": {
-                    "role_arn": firehose["arn"],
-                    "bucket_arn": bucket["arn"],
-                    "buffering_size": 10,
-                    "buffering_interval": 400,
-                    "compression_format": "GZIP",
-                },
-            })
-        ```
-
-        ### HTTP Endpoint (e.g., New Relic) Destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_stream = aws.kinesis.FirehoseDeliveryStream("test_stream",
-            name="kinesis-firehose-test-stream",
-            destination="http_endpoint",
-            http_endpoint_configuration={
-                "url": "https://aws-api.newrelic.com/firehose/v1",
-                "name": "New Relic",
-                "access_key": "my-key",
-                "buffering_size": 15,
-                "buffering_interval": 600,
-                "role_arn": firehose["arn"],
-                "s3_backup_mode": "FailedDataOnly",
-                "s3_configuration": {
-                    "role_arn": firehose["arn"],
-                    "bucket_arn": bucket["arn"],
-                    "buffering_size": 10,
-                    "buffering_interval": 400,
-                    "compression_format": "GZIP",
-                },
-                "request_configuration": {
-                    "content_encoding": "GZIP",
-                    "common_attributes": [
-                        {
-                            "name": "testname",
-                            "value": "testvalue",
-                        },
-                        {
-                            "name": "testname2",
-                            "value": "testvalue2",
-                        },
-                    ],
-                },
-            })
-        ```
-
-        ### Snowflake Destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_snowflake_destination = aws.kinesis.FirehoseDeliveryStream("example_snowflake_destination",
-            name="example-snowflake-destination",
-            destination="snowflake",
-            snowflake_configuration={
-                "account_url": "https://example.snowflakecomputing.com",
-                "buffering_size": 15,
-                "buffering_interval": 600,
-                "database": "example-db",
-                "private_key": "...",
-                "role_arn": firehose["arn"],
-                "schema": "example-schema",
-                "table": "example-table",
-                "user": "example-usr",
-                "s3_configuration": {
-                    "role_arn": firehose["arn"],
-                    "bucket_arn": bucket["arn"],
-                    "buffering_size": 10,
-                    "buffering_interval": 400,
-                    "compression_format": "GZIP",
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Kinesis Firehose Delivery streams using the stream ARN. For example:
-
-        ```sh
-        $ pulumi import aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream foo arn:aws:firehose:us-east-1:XXX:deliverystream/example
-        ```
-        Note: Import does not work for stream destination `s3`. Consider using `extended_s3` since `s3` destination is deprecated.
-
+        Create a FirehoseDeliveryStream resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param FirehoseDeliveryStreamArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -2065,26 +642,6 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the Stream
-        :param pulumi.Input[_builtins.str] destination: This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamElasticsearchConfigurationArgs', 'FirehoseDeliveryStreamElasticsearchConfigurationArgsDict']] elasticsearch_configuration: Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamExtendedS3ConfigurationArgs', 'FirehoseDeliveryStreamExtendedS3ConfigurationArgsDict']] extended_s3_configuration: Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamHttpEndpointConfigurationArgs', 'FirehoseDeliveryStreamHttpEndpointConfigurationArgsDict']] http_endpoint_configuration: Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamIcebergConfigurationArgs', 'FirehoseDeliveryStreamIcebergConfigurationArgsDict']] iceberg_configuration: Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamKinesisSourceConfigurationArgs', 'FirehoseDeliveryStreamKinesisSourceConfigurationArgsDict']] kinesis_source_configuration: The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamMskSourceConfigurationArgs', 'FirehoseDeliveryStreamMskSourceConfigurationArgsDict']] msk_source_configuration: The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
-        :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamOpensearchConfigurationArgs', 'FirehoseDeliveryStreamOpensearchConfigurationArgsDict']] opensearch_configuration: Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs', 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgsDict']] opensearchserverless_configuration: Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamRedshiftConfigurationArgs', 'FirehoseDeliveryStreamRedshiftConfigurationArgsDict']] redshift_configuration: Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamServerSideEncryptionArgs', 'FirehoseDeliveryStreamServerSideEncryptionArgsDict']] server_side_encryption: Encrypt at rest options. See `server_side_encryption` block below for details.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamSnowflakeConfigurationArgs', 'FirehoseDeliveryStreamSnowflakeConfigurationArgsDict']] snowflake_configuration: Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamSplunkConfigurationArgs', 'FirehoseDeliveryStreamSplunkConfigurationArgsDict']] splunk_configuration: Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
-               
-               **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -2115,17 +672,11 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) specifying the Stream
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def destination(self) -> pulumi.Output[_builtins.str]:
-        """
-        This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
-        """
         return pulumi.get(self, "destination")
 
     @_builtins.property
@@ -2136,131 +687,81 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="elasticsearchConfiguration")
     def elasticsearch_configuration(self) -> pulumi.Output[Optional['outputs.FirehoseDeliveryStreamElasticsearchConfiguration']]:
-        """
-        Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
-        """
         return pulumi.get(self, "elasticsearch_configuration")
 
     @_builtins.property
     @pulumi.getter(name="extendedS3Configuration")
     def extended_s3_configuration(self) -> pulumi.Output[Optional['outputs.FirehoseDeliveryStreamExtendedS3Configuration']]:
-        """
-        Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
-        """
         return pulumi.get(self, "extended_s3_configuration")
 
     @_builtins.property
     @pulumi.getter(name="httpEndpointConfiguration")
     def http_endpoint_configuration(self) -> pulumi.Output[Optional['outputs.FirehoseDeliveryStreamHttpEndpointConfiguration']]:
-        """
-        Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
-        """
         return pulumi.get(self, "http_endpoint_configuration")
 
     @_builtins.property
     @pulumi.getter(name="icebergConfiguration")
     def iceberg_configuration(self) -> pulumi.Output[Optional['outputs.FirehoseDeliveryStreamIcebergConfiguration']]:
-        """
-        Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
-        """
         return pulumi.get(self, "iceberg_configuration")
 
     @_builtins.property
     @pulumi.getter(name="kinesisSourceConfiguration")
     def kinesis_source_configuration(self) -> pulumi.Output[Optional['outputs.FirehoseDeliveryStreamKinesisSourceConfiguration']]:
-        """
-        The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
-        """
         return pulumi.get(self, "kinesis_source_configuration")
 
     @_builtins.property
     @pulumi.getter(name="mskSourceConfiguration")
     def msk_source_configuration(self) -> pulumi.Output[Optional['outputs.FirehoseDeliveryStreamMskSourceConfiguration']]:
-        """
-        The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
-        """
         return pulumi.get(self, "msk_source_configuration")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="opensearchConfiguration")
     def opensearch_configuration(self) -> pulumi.Output[Optional['outputs.FirehoseDeliveryStreamOpensearchConfiguration']]:
-        """
-        Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
-        """
         return pulumi.get(self, "opensearch_configuration")
 
     @_builtins.property
     @pulumi.getter(name="opensearchserverlessConfiguration")
     def opensearchserverless_configuration(self) -> pulumi.Output[Optional['outputs.FirehoseDeliveryStreamOpensearchserverlessConfiguration']]:
-        """
-        Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
-        """
         return pulumi.get(self, "opensearchserverless_configuration")
 
     @_builtins.property
     @pulumi.getter(name="redshiftConfiguration")
     def redshift_configuration(self) -> pulumi.Output[Optional['outputs.FirehoseDeliveryStreamRedshiftConfiguration']]:
-        """
-        Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
-        """
         return pulumi.get(self, "redshift_configuration")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="serverSideEncryption")
     def server_side_encryption(self) -> pulumi.Output[Optional['outputs.FirehoseDeliveryStreamServerSideEncryption']]:
-        """
-        Encrypt at rest options. See `server_side_encryption` block below for details.
-        """
         return pulumi.get(self, "server_side_encryption")
 
     @_builtins.property
     @pulumi.getter(name="snowflakeConfiguration")
     def snowflake_configuration(self) -> pulumi.Output[Optional['outputs.FirehoseDeliveryStreamSnowflakeConfiguration']]:
-        """
-        Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
-        """
         return pulumi.get(self, "snowflake_configuration")
 
     @_builtins.property
     @pulumi.getter(name="splunkConfiguration")
     def splunk_configuration(self) -> pulumi.Output[Optional['outputs.FirehoseDeliveryStreamSplunkConfiguration']]:
-        """
-        Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
-
-        **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-        """
         return pulumi.get(self, "splunk_configuration")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

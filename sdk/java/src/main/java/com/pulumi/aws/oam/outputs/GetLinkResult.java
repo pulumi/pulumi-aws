@@ -13,55 +13,23 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLinkResult {
-    /**
-     * @return ARN of the link.
-     * 
-     */
     private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Label that is assigned to this link.
-     * 
-     */
     private String label;
-    /**
-     * @return Human-readable name used to identify this source account when you are viewing data from it in the monitoring account.
-     * 
-     */
     private String labelTemplate;
-    /**
-     * @return Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
-     * 
-     */
     private List<GetLinkLinkConfiguration> linkConfigurations;
-    /**
-     * @return ID string that AWS generated as part of the link ARN.
-     * 
-     */
     private String linkId;
     private String linkIdentifier;
     private String region;
-    /**
-     * @return Types of data that the source account shares with the monitoring account.
-     * 
-     */
     private List<String> resourceTypes;
-    /**
-     * @return ARN of the sink that is used for this link.
-     * 
-     */
     private String sinkArn;
     private Map<String,String> tags;
 
     private GetLinkResult() {}
-    /**
-     * @return ARN of the link.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
@@ -72,31 +40,15 @@ public final class GetLinkResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Label that is assigned to this link.
-     * 
-     */
     public String label() {
         return this.label;
     }
-    /**
-     * @return Human-readable name used to identify this source account when you are viewing data from it in the monitoring account.
-     * 
-     */
     public String labelTemplate() {
         return this.labelTemplate;
     }
-    /**
-     * @return Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
-     * 
-     */
     public List<GetLinkLinkConfiguration> linkConfigurations() {
         return this.linkConfigurations;
     }
-    /**
-     * @return ID string that AWS generated as part of the link ARN.
-     * 
-     */
     public String linkId() {
         return this.linkId;
     }
@@ -106,17 +58,9 @@ public final class GetLinkResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Types of data that the source account shares with the monitoring account.
-     * 
-     */
     public List<String> resourceTypes() {
         return this.resourceTypes;
     }
-    /**
-     * @return ARN of the sink that is used for this link.
-     * 
-     */
     public String sinkArn() {
         return this.sinkArn;
     }

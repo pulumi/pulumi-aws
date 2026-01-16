@@ -14,49 +14,29 @@ namespace Pulumi.Aws.CostExplorer.Inputs
     {
         [Input("ands")]
         private InputList<Inputs.AnomalySubscriptionThresholdExpressionAndGetArgs>? _ands;
-
-        /// <summary>
-        /// Return results that match both Dimension objects.
-        /// </summary>
         public InputList<Inputs.AnomalySubscriptionThresholdExpressionAndGetArgs> Ands
         {
             get => _ands ?? (_ands = new InputList<Inputs.AnomalySubscriptionThresholdExpressionAndGetArgs>());
             set => _ands = value;
         }
 
-        /// <summary>
-        /// Configuration block for the filter that's based on  values. See Cost Category below.
-        /// </summary>
         [Input("costCategory")]
         public Input<Inputs.AnomalySubscriptionThresholdExpressionCostCategoryGetArgs>? CostCategory { get; set; }
 
-        /// <summary>
-        /// Configuration block for the specific Dimension to use for.
-        /// </summary>
         [Input("dimension")]
         public Input<Inputs.AnomalySubscriptionThresholdExpressionDimensionGetArgs>? Dimension { get; set; }
 
-        /// <summary>
-        /// Return results that do not match the Dimension object.
-        /// </summary>
         [Input("not")]
         public Input<Inputs.AnomalySubscriptionThresholdExpressionNotGetArgs>? Not { get; set; }
 
         [Input("ors")]
         private InputList<Inputs.AnomalySubscriptionThresholdExpressionOrGetArgs>? _ors;
-
-        /// <summary>
-        /// Return results that match either Dimension object.
-        /// </summary>
         public InputList<Inputs.AnomalySubscriptionThresholdExpressionOrGetArgs> Ors
         {
             get => _ors ?? (_ors = new InputList<Inputs.AnomalySubscriptionThresholdExpressionOrGetArgs>());
             set => _ors = value;
         }
 
-        /// <summary>
-        /// Configuration block for the specific Tag to use for. See Tags below.
-        /// </summary>
         [Input("tags")]
         public Input<Inputs.AnomalySubscriptionThresholdExpressionTagsGetArgs>? Tags { get; set; }
 

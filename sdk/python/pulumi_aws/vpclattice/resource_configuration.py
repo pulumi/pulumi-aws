@@ -36,20 +36,6 @@ class ResourceConfigurationArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourceConfiguration resource.
-        :param pulumi.Input[_builtins.bool] allow_association_to_shareable_service_network: Allow or Deny the association of this resource to a shareable service network.
-        :param pulumi.Input[_builtins.str] custom_domain_name: Custom domain name for your resource configuration. Additionally, provide a `domain_verification_id` to prove your ownership of a domain.
-        :param pulumi.Input[_builtins.str] domain_verification_id: The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
-        :param pulumi.Input[_builtins.str] name: Name for the Resource Configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] port_ranges: Port ranges to access the Resource either single port `80` or range `80-81` range.
-        :param pulumi.Input[_builtins.str] protocol: Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionArgs'] resource_configuration_definition: Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] resource_configuration_group_id: ID of Resource Configuration where `type` is `CHILD`.
-        :param pulumi.Input[_builtins.str] resource_gateway_identifier: ID of the Resource Gateway used to access the resource. MUST be specified if `resource_configuration_group_id` is not.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
         """
         if allow_association_to_shareable_service_network is not None:
             pulumi.set(__self__, "allow_association_to_shareable_service_network", allow_association_to_shareable_service_network)
@@ -81,9 +67,6 @@ class ResourceConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="allowAssociationToShareableServiceNetwork")
     def allow_association_to_shareable_service_network(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Allow or Deny the association of this resource to a shareable service network.
-        """
         return pulumi.get(self, "allow_association_to_shareable_service_network")
 
     @allow_association_to_shareable_service_network.setter
@@ -93,9 +76,6 @@ class ResourceConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="customDomainName")
     def custom_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Custom domain name for your resource configuration. Additionally, provide a `domain_verification_id` to prove your ownership of a domain.
-        """
         return pulumi.get(self, "custom_domain_name")
 
     @custom_domain_name.setter
@@ -105,9 +85,6 @@ class ResourceConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="domainVerificationId")
     def domain_verification_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
-        """
         return pulumi.get(self, "domain_verification_id")
 
     @domain_verification_id.setter
@@ -117,9 +94,6 @@ class ResourceConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name for the Resource Configuration.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -129,9 +103,6 @@ class ResourceConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="portRanges")
     def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Port ranges to access the Resource either single port `80` or range `80-81` range.
-        """
         return pulumi.get(self, "port_ranges")
 
     @port_ranges.setter
@@ -141,9 +112,6 @@ class ResourceConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
-        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -153,9 +121,6 @@ class ResourceConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -165,11 +130,6 @@ class ResourceConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationDefinition")
     def resource_configuration_definition(self) -> Optional[pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionArgs']]:
-        """
-        Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "resource_configuration_definition")
 
     @resource_configuration_definition.setter
@@ -179,9 +139,6 @@ class ResourceConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationGroupId")
     def resource_configuration_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of Resource Configuration where `type` is `CHILD`.
-        """
         return pulumi.get(self, "resource_configuration_group_id")
 
     @resource_configuration_group_id.setter
@@ -191,9 +148,6 @@ class ResourceConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="resourceGatewayIdentifier")
     def resource_gateway_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the Resource Gateway used to access the resource. MUST be specified if `resource_configuration_group_id` is not.
-        """
         return pulumi.get(self, "resource_gateway_identifier")
 
     @resource_gateway_identifier.setter
@@ -203,9 +157,6 @@ class ResourceConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -224,9 +175,6 @@ class ResourceConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -256,24 +204,6 @@ class _ResourceConfigurationState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourceConfiguration resources.
-        :param pulumi.Input[_builtins.bool] allow_association_to_shareable_service_network: Allow or Deny the association of this resource to a shareable service network.
-        :param pulumi.Input[_builtins.str] arn: ARN of the resource gateway.
-        :param pulumi.Input[_builtins.str] custom_domain_name: Custom domain name for your resource configuration. Additionally, provide a `domain_verification_id` to prove your ownership of a domain.
-        :param pulumi.Input[_builtins.str] domain_verification_arn: ARN of the domain verification.
-        :param pulumi.Input[_builtins.str] domain_verification_id: The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
-        :param pulumi.Input[_builtins.str] domain_verification_status: Domain verification status.
-        :param pulumi.Input[_builtins.str] name: Name for the Resource Configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] port_ranges: Port ranges to access the Resource either single port `80` or range `80-81` range.
-        :param pulumi.Input[_builtins.str] protocol: Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionArgs'] resource_configuration_definition: Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] resource_configuration_group_id: ID of Resource Configuration where `type` is `CHILD`.
-        :param pulumi.Input[_builtins.str] resource_gateway_identifier: ID of the Resource Gateway used to access the resource. MUST be specified if `resource_configuration_group_id` is not.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
         """
         if allow_association_to_shareable_service_network is not None:
             pulumi.set(__self__, "allow_association_to_shareable_service_network", allow_association_to_shareable_service_network)
@@ -313,9 +243,6 @@ class _ResourceConfigurationState:
     @_builtins.property
     @pulumi.getter(name="allowAssociationToShareableServiceNetwork")
     def allow_association_to_shareable_service_network(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Allow or Deny the association of this resource to a shareable service network.
-        """
         return pulumi.get(self, "allow_association_to_shareable_service_network")
 
     @allow_association_to_shareable_service_network.setter
@@ -325,9 +252,6 @@ class _ResourceConfigurationState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the resource gateway.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -337,9 +261,6 @@ class _ResourceConfigurationState:
     @_builtins.property
     @pulumi.getter(name="customDomainName")
     def custom_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Custom domain name for your resource configuration. Additionally, provide a `domain_verification_id` to prove your ownership of a domain.
-        """
         return pulumi.get(self, "custom_domain_name")
 
     @custom_domain_name.setter
@@ -349,9 +270,6 @@ class _ResourceConfigurationState:
     @_builtins.property
     @pulumi.getter(name="domainVerificationArn")
     def domain_verification_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the domain verification.
-        """
         return pulumi.get(self, "domain_verification_arn")
 
     @domain_verification_arn.setter
@@ -361,9 +279,6 @@ class _ResourceConfigurationState:
     @_builtins.property
     @pulumi.getter(name="domainVerificationId")
     def domain_verification_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
-        """
         return pulumi.get(self, "domain_verification_id")
 
     @domain_verification_id.setter
@@ -373,9 +288,6 @@ class _ResourceConfigurationState:
     @_builtins.property
     @pulumi.getter(name="domainVerificationStatus")
     def domain_verification_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Domain verification status.
-        """
         return pulumi.get(self, "domain_verification_status")
 
     @domain_verification_status.setter
@@ -385,9 +297,6 @@ class _ResourceConfigurationState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name for the Resource Configuration.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -397,9 +306,6 @@ class _ResourceConfigurationState:
     @_builtins.property
     @pulumi.getter(name="portRanges")
     def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Port ranges to access the Resource either single port `80` or range `80-81` range.
-        """
         return pulumi.get(self, "port_ranges")
 
     @port_ranges.setter
@@ -409,9 +315,6 @@ class _ResourceConfigurationState:
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
-        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -421,9 +324,6 @@ class _ResourceConfigurationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -433,11 +333,6 @@ class _ResourceConfigurationState:
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationDefinition")
     def resource_configuration_definition(self) -> Optional[pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionArgs']]:
-        """
-        Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "resource_configuration_definition")
 
     @resource_configuration_definition.setter
@@ -447,9 +342,6 @@ class _ResourceConfigurationState:
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationGroupId")
     def resource_configuration_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of Resource Configuration where `type` is `CHILD`.
-        """
         return pulumi.get(self, "resource_configuration_group_id")
 
     @resource_configuration_group_id.setter
@@ -459,9 +351,6 @@ class _ResourceConfigurationState:
     @_builtins.property
     @pulumi.getter(name="resourceGatewayIdentifier")
     def resource_gateway_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the Resource Gateway used to access the resource. MUST be specified if `resource_configuration_group_id` is not.
-        """
         return pulumi.get(self, "resource_gateway_identifier")
 
     @resource_gateway_identifier.setter
@@ -471,9 +360,6 @@ class _ResourceConfigurationState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -483,9 +369,6 @@ class _ResourceConfigurationState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -504,9 +387,6 @@ class _ResourceConfigurationState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -535,119 +415,9 @@ class ResourceConfiguration(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS VPC Lattice Resource Configuration.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.ResourceConfiguration("example",
-            name="Example",
-            resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
-            port_ranges=["80"],
-            protocol="TCP",
-            resource_configuration_definition={
-                "dns_resource": {
-                    "domain_name": "example.com",
-                    "ip_address_type": "IPV4",
-                },
-            },
-            tags={
-                "Environment": "Example",
-            })
-        ```
-
-        ### IP Address Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.ResourceConfiguration("example",
-            name="Example",
-            resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
-            port_ranges=["80"],
-            protocol="TCP",
-            resource_configuration_definition={
-                "ip_resource": {
-                    "ip_address": "10.0.0.1",
-                },
-            },
-            tags={
-                "Environment": "Example",
-            })
-        ```
-
-        ### With custom domain
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.DomainVerification("example", domain_name="example.com")
-        example_resource_configuration = aws.vpclattice.ResourceConfiguration("example",
-            name="Example",
-            resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
-            custom_domain_name="custom.example.com",
-            domain_verification_id=example.id,
-            port_ranges=["443"],
-            protocol="TCP",
-            resource_configuration_definition={
-                "dns_resource": {
-                    "domain_name": "test.example.com",
-                    "ip_address_type": "IPV4",
-                },
-            },
-            tags={
-                "Environment": "Example",
-            })
-        ```
-
-        ### ARN Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.vpclattice.ResourceConfiguration("test",
-            name="Example",
-            resource_gateway_identifier=test_aws_vpclattice_resource_gateway["id"],
-            type="ARN",
-            resource_configuration_definition={
-                "arn_resource": {
-                    "arn": example["arn"],
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import VPC Lattice Resource Configuration using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:vpclattice/resourceConfiguration:ResourceConfiguration example rcfg-1234567890abcdef1
-        ```
-
+        Create a ResourceConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] allow_association_to_shareable_service_network: Allow or Deny the association of this resource to a shareable service network.
-        :param pulumi.Input[_builtins.str] custom_domain_name: Custom domain name for your resource configuration. Additionally, provide a `domain_verification_id` to prove your ownership of a domain.
-        :param pulumi.Input[_builtins.str] domain_verification_id: The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
-        :param pulumi.Input[_builtins.str] name: Name for the Resource Configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] port_ranges: Port ranges to access the Resource either single port `80` or range `80-81` range.
-        :param pulumi.Input[_builtins.str] protocol: Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ResourceConfigurationResourceConfigurationDefinitionArgs', 'ResourceConfigurationResourceConfigurationDefinitionArgsDict']] resource_configuration_definition: Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] resource_configuration_group_id: ID of Resource Configuration where `type` is `CHILD`.
-        :param pulumi.Input[_builtins.str] resource_gateway_identifier: ID of the Resource Gateway used to access the resource. MUST be specified if `resource_configuration_group_id` is not.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
         """
         ...
     @overload
@@ -656,103 +426,7 @@ class ResourceConfiguration(pulumi.CustomResource):
                  args: Optional[ResourceConfigurationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS VPC Lattice Resource Configuration.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.ResourceConfiguration("example",
-            name="Example",
-            resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
-            port_ranges=["80"],
-            protocol="TCP",
-            resource_configuration_definition={
-                "dns_resource": {
-                    "domain_name": "example.com",
-                    "ip_address_type": "IPV4",
-                },
-            },
-            tags={
-                "Environment": "Example",
-            })
-        ```
-
-        ### IP Address Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.ResourceConfiguration("example",
-            name="Example",
-            resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
-            port_ranges=["80"],
-            protocol="TCP",
-            resource_configuration_definition={
-                "ip_resource": {
-                    "ip_address": "10.0.0.1",
-                },
-            },
-            tags={
-                "Environment": "Example",
-            })
-        ```
-
-        ### With custom domain
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.DomainVerification("example", domain_name="example.com")
-        example_resource_configuration = aws.vpclattice.ResourceConfiguration("example",
-            name="Example",
-            resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
-            custom_domain_name="custom.example.com",
-            domain_verification_id=example.id,
-            port_ranges=["443"],
-            protocol="TCP",
-            resource_configuration_definition={
-                "dns_resource": {
-                    "domain_name": "test.example.com",
-                    "ip_address_type": "IPV4",
-                },
-            },
-            tags={
-                "Environment": "Example",
-            })
-        ```
-
-        ### ARN Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.vpclattice.ResourceConfiguration("test",
-            name="Example",
-            resource_gateway_identifier=test_aws_vpclattice_resource_gateway["id"],
-            type="ARN",
-            resource_configuration_definition={
-                "arn_resource": {
-                    "arn": example["arn"],
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import VPC Lattice Resource Configuration using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:vpclattice/resourceConfiguration:ResourceConfiguration example rcfg-1234567890abcdef1
-        ```
-
+        Create a ResourceConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ResourceConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -841,24 +515,6 @@ class ResourceConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] allow_association_to_shareable_service_network: Allow or Deny the association of this resource to a shareable service network.
-        :param pulumi.Input[_builtins.str] arn: ARN of the resource gateway.
-        :param pulumi.Input[_builtins.str] custom_domain_name: Custom domain name for your resource configuration. Additionally, provide a `domain_verification_id` to prove your ownership of a domain.
-        :param pulumi.Input[_builtins.str] domain_verification_arn: ARN of the domain verification.
-        :param pulumi.Input[_builtins.str] domain_verification_id: The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
-        :param pulumi.Input[_builtins.str] domain_verification_status: Domain verification status.
-        :param pulumi.Input[_builtins.str] name: Name for the Resource Configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] port_ranges: Port ranges to access the Resource either single port `80` or range `80-81` range.
-        :param pulumi.Input[_builtins.str] protocol: Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ResourceConfigurationResourceConfigurationDefinitionArgs', 'ResourceConfigurationResourceConfigurationDefinitionArgsDict']] resource_configuration_definition: Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] resource_configuration_group_id: ID of Resource Configuration where `type` is `CHILD`.
-        :param pulumi.Input[_builtins.str] resource_gateway_identifier: ID of the Resource Gateway used to access the resource. MUST be specified if `resource_configuration_group_id` is not.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -886,123 +542,76 @@ class ResourceConfiguration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="allowAssociationToShareableServiceNetwork")
     def allow_association_to_shareable_service_network(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Allow or Deny the association of this resource to a shareable service network.
-        """
         return pulumi.get(self, "allow_association_to_shareable_service_network")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the resource gateway.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="customDomainName")
     def custom_domain_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Custom domain name for your resource configuration. Additionally, provide a `domain_verification_id` to prove your ownership of a domain.
-        """
         return pulumi.get(self, "custom_domain_name")
 
     @_builtins.property
     @pulumi.getter(name="domainVerificationArn")
     def domain_verification_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the domain verification.
-        """
         return pulumi.get(self, "domain_verification_arn")
 
     @_builtins.property
     @pulumi.getter(name="domainVerificationId")
     def domain_verification_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
-        """
         return pulumi.get(self, "domain_verification_id")
 
     @_builtins.property
     @pulumi.getter(name="domainVerificationStatus")
     def domain_verification_status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Domain verification status.
-        """
         return pulumi.get(self, "domain_verification_status")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name for the Resource Configuration.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="portRanges")
     def port_ranges(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        Port ranges to access the Resource either single port `80` or range `80-81` range.
-        """
         return pulumi.get(self, "port_ranges")
 
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> pulumi.Output[_builtins.str]:
-        """
-        Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
-        """
         return pulumi.get(self, "protocol")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationDefinition")
     def resource_configuration_definition(self) -> pulumi.Output[Optional['outputs.ResourceConfigurationResourceConfigurationDefinition']]:
-        """
-        Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "resource_configuration_definition")
 
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationGroupId")
     def resource_configuration_group_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ID of Resource Configuration where `type` is `CHILD`.
-        """
         return pulumi.get(self, "resource_configuration_group_id")
 
     @_builtins.property
     @pulumi.getter(name="resourceGatewayIdentifier")
     def resource_gateway_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the Resource Gateway used to access the resource. MUST be specified if `resource_configuration_group_id` is not.
-        """
         return pulumi.get(self, "resource_gateway_identifier")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
@@ -1013,8 +622,5 @@ class ResourceConfiguration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
-        """
         return pulumi.get(self, "type")
 

@@ -30,14 +30,6 @@ class BaselineArgs:
                  timeouts: Optional[pulumi.Input['BaselineTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Baseline resource.
-        :param pulumi.Input[_builtins.str] baseline_identifier: The ARN of the baseline to be enabled.
-        :param pulumi.Input[_builtins.str] baseline_version: The version of the baseline to be enabled.
-        :param pulumi.Input[_builtins.str] target_identifier: The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.
-               
-               The following arguments are optional:
-        :param pulumi.Input['BaselineParametersArgs'] parameters: A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "baseline_identifier", baseline_identifier)
         pulumi.set(__self__, "baseline_version", baseline_version)
@@ -54,9 +46,6 @@ class BaselineArgs:
     @_builtins.property
     @pulumi.getter(name="baselineIdentifier")
     def baseline_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the baseline to be enabled.
-        """
         return pulumi.get(self, "baseline_identifier")
 
     @baseline_identifier.setter
@@ -66,9 +55,6 @@ class BaselineArgs:
     @_builtins.property
     @pulumi.getter(name="baselineVersion")
     def baseline_version(self) -> pulumi.Input[_builtins.str]:
-        """
-        The version of the baseline to be enabled.
-        """
         return pulumi.get(self, "baseline_version")
 
     @baseline_version.setter
@@ -78,11 +64,6 @@ class BaselineArgs:
     @_builtins.property
     @pulumi.getter(name="targetIdentifier")
     def target_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "target_identifier")
 
     @target_identifier.setter
@@ -92,9 +73,6 @@ class BaselineArgs:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input['BaselineParametersArgs']]:
-        """
-        A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -104,9 +82,6 @@ class BaselineArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -116,9 +91,6 @@ class BaselineArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -150,16 +122,6 @@ class _BaselineState:
                  timeouts: Optional[pulumi.Input['BaselineTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Baseline resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Baseline.
-        :param pulumi.Input[_builtins.str] baseline_identifier: The ARN of the baseline to be enabled.
-        :param pulumi.Input[_builtins.str] baseline_version: The version of the baseline to be enabled.
-        :param pulumi.Input['BaselineParametersArgs'] parameters: A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the landing zone, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] target_identifier: The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.
-               
-               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -185,9 +147,6 @@ class _BaselineState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Baseline.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -197,9 +156,6 @@ class _BaselineState:
     @_builtins.property
     @pulumi.getter(name="baselineIdentifier")
     def baseline_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the baseline to be enabled.
-        """
         return pulumi.get(self, "baseline_identifier")
 
     @baseline_identifier.setter
@@ -209,9 +165,6 @@ class _BaselineState:
     @_builtins.property
     @pulumi.getter(name="baselineVersion")
     def baseline_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The version of the baseline to be enabled.
-        """
         return pulumi.get(self, "baseline_version")
 
     @baseline_version.setter
@@ -230,9 +183,6 @@ class _BaselineState:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input['BaselineParametersArgs']]:
-        """
-        A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -242,9 +192,6 @@ class _BaselineState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -254,9 +201,6 @@ class _BaselineState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -266,9 +210,6 @@ class _BaselineState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the landing zone, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -278,11 +219,6 @@ class _BaselineState:
     @_builtins.property
     @pulumi.getter(name="targetIdentifier")
     def target_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "target_identifier")
 
     @target_identifier.setter
@@ -314,44 +250,9 @@ class Baseline(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['BaselineTimeoutsArgs', 'BaselineTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Control Tower Baseline.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.controltower.Baseline("example",
-            baseline_identifier="arn:aws:controltower:us-east-1::baseline/17BSJV3IGJ2QSGA2",
-            baseline_version="4.0",
-            target_identifier=test["arn"],
-            parameters={
-                "key": "IdentityCenterEnabledBaselineArn",
-                "value": "arn:aws:controltower:us-east-1:664418989480:enabledbaseline/XALULM96QHI525UOC",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Control Tower Baseline using the `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:controltower/baseline:Baseline example arn:aws:controltower:us-east-1:012345678912:enabledbaseline/XALULM96QHI525UOC
-        ```
-
+        Create a Baseline resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] baseline_identifier: The ARN of the baseline to be enabled.
-        :param pulumi.Input[_builtins.str] baseline_version: The version of the baseline to be enabled.
-        :param pulumi.Input[Union['BaselineParametersArgs', 'BaselineParametersArgsDict']] parameters: A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] target_identifier: The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -360,34 +261,7 @@ class Baseline(pulumi.CustomResource):
                  args: BaselineArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Control Tower Baseline.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.controltower.Baseline("example",
-            baseline_identifier="arn:aws:controltower:us-east-1::baseline/17BSJV3IGJ2QSGA2",
-            baseline_version="4.0",
-            target_identifier=test["arn"],
-            parameters={
-                "key": "IdentityCenterEnabledBaselineArn",
-                "value": "arn:aws:controltower:us-east-1:664418989480:enabledbaseline/XALULM96QHI525UOC",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Control Tower Baseline using the `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:controltower/baseline:Baseline example arn:aws:controltower:us-east-1:012345678912:enabledbaseline/XALULM96QHI525UOC
-        ```
-
+        Create a Baseline resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BaselineArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -462,16 +336,6 @@ class Baseline(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Baseline.
-        :param pulumi.Input[_builtins.str] baseline_identifier: The ARN of the baseline to be enabled.
-        :param pulumi.Input[_builtins.str] baseline_version: The version of the baseline to be enabled.
-        :param pulumi.Input[Union['BaselineParametersArgs', 'BaselineParametersArgsDict']] parameters: A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the landing zone, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] target_identifier: The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -492,25 +356,16 @@ class Baseline(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Baseline.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="baselineIdentifier")
     def baseline_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the baseline to be enabled.
-        """
         return pulumi.get(self, "baseline_identifier")
 
     @_builtins.property
     @pulumi.getter(name="baselineVersion")
     def baseline_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        The version of the baseline to be enabled.
-        """
         return pulumi.get(self, "baseline_version")
 
     @_builtins.property
@@ -521,43 +376,26 @@ class Baseline(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional['outputs.BaselineParameters']]:
-        """
-        A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
-        """
         return pulumi.get(self, "parameters")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the landing zone, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="targetIdentifier")
     def target_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "target_identifier")
 
     @_builtins.property

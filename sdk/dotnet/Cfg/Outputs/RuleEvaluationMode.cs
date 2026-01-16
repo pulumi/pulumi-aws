@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Cfg.Outputs
     [OutputType]
     public sealed class RuleEvaluationMode
     {
-        /// <summary>
-        /// The mode of an evaluation.
-        /// </summary>
         public readonly string? Mode;
 
         [OutputConstructor]

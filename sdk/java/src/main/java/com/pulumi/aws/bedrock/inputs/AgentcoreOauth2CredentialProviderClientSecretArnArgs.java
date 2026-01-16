@@ -14,17 +14,9 @@ public final class AgentcoreOauth2CredentialProviderClientSecretArnArgs extends 
 
     public static final AgentcoreOauth2CredentialProviderClientSecretArnArgs Empty = new AgentcoreOauth2CredentialProviderClientSecretArnArgs();
 
-    /**
-     * ARN of the secret in AWS Secrets Manager.
-     * 
-     */
     @Import(name="secretArn", required=true)
     private Output<String> secretArn;
 
-    /**
-     * @return ARN of the secret in AWS Secrets Manager.
-     * 
-     */
     public Output<String> secretArn() {
         return this.secretArn;
     }
@@ -53,23 +45,11 @@ public final class AgentcoreOauth2CredentialProviderClientSecretArnArgs extends 
             $ = new AgentcoreOauth2CredentialProviderClientSecretArnArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param secretArn ARN of the secret in AWS Secrets Manager.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretArn(Output<String> secretArn) {
             $.secretArn = secretArn;
             return this;
         }
 
-        /**
-         * @param secretArn ARN of the secret in AWS Secrets Manager.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretArn(String secretArn) {
             return secretArn(Output.of(secretArn));
         }

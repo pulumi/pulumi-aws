@@ -15,41 +15,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponse {
-    /**
-     * @return Key of a custom response body to use.
-     * 
-     */
     private @Nullable String customResponseBodyKey;
-    /**
-     * @return HTTP response code to return (200-599).
-     * 
-     */
     private Integer responseCode;
-    /**
-     * @return Headers to include in the response. See below.
-     * 
-     */
     private @Nullable List<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseResponseHeader> responseHeaders;
 
     private WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponse() {}
-    /**
-     * @return Key of a custom response body to use.
-     * 
-     */
     public Optional<String> customResponseBodyKey() {
         return Optional.ofNullable(this.customResponseBodyKey);
     }
-    /**
-     * @return HTTP response code to return (200-599).
-     * 
-     */
     public Integer responseCode() {
         return this.responseCode;
     }
-    /**
-     * @return Headers to include in the response. See below.
-     * 
-     */
     public List<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseResponseHeader> responseHeaders() {
         return this.responseHeaders == null ? List.of() : this.responseHeaders;
     }

@@ -14,17 +14,9 @@ public final class IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess
 
     public static final IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs Empty = new IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs();
 
-    /**
-     * Determines whether read/write scope is enabled or disabled.
-     * 
-     */
     @Import(name="authorization", required=true)
     private Output<String> authorization;
 
-    /**
-     * @return Determines whether read/write scope is enabled or disabled.
-     * 
-     */
     public Output<String> authorization() {
         return this.authorization;
     }
@@ -53,23 +45,11 @@ public final class IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess
             $ = new IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authorization Determines whether read/write scope is enabled or disabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorization(Output<String> authorization) {
             $.authorization = authorization;
             return this;
         }
 
-        /**
-         * @param authorization Determines whether read/write scope is enabled or disabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorization(String authorization) {
             return authorization(Output.of(authorization));
         }

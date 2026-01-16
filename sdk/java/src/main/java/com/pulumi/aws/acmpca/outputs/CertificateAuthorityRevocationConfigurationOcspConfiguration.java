@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CertificateAuthorityRevocationConfigurationOcspConfiguration {
-    /**
-     * @return Boolean value that specifies whether a custom OCSP responder is enabled.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as &#34;http://&#34; or &#34;https://&#34;.
-     * 
-     */
     private @Nullable String ocspCustomCname;
 
     private CertificateAuthorityRevocationConfigurationOcspConfiguration() {}
-    /**
-     * @return Boolean value that specifies whether a custom OCSP responder is enabled.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as &#34;http://&#34; or &#34;https://&#34;.
-     * 
-     */
     public Optional<String> ocspCustomCname() {
         return Optional.ofNullable(this.ocspCustomCname);
     }

@@ -18,247 +18,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Elastic Container Registry Repository Creation Template.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.ecr.RepositoryCreationTemplate;
- * import com.pulumi.aws.ecr.RepositoryCreationTemplateArgs;
- * import com.pulumi.aws.ecr.inputs.RepositoryCreationTemplateEncryptionConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("new policy")
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("AWS")
- *                     .identifiers("123456789012")
- *                     .build())
- *                 .actions(                
- *                     "ecr:GetDownloadUrlForLayer",
- *                     "ecr:BatchGetImage",
- *                     "ecr:BatchCheckLayerAvailability",
- *                     "ecr:PutImage",
- *                     "ecr:InitiateLayerUpload",
- *                     "ecr:UploadLayerPart",
- *                     "ecr:CompleteLayerUpload",
- *                     "ecr:DescribeRepositories",
- *                     "ecr:GetRepositoryPolicy",
- *                     "ecr:ListImages",
- *                     "ecr:DeleteRepository",
- *                     "ecr:BatchDeleteImage",
- *                     "ecr:SetRepositoryPolicy",
- *                     "ecr:DeleteRepositoryPolicy")
- *                 .build())
- *             .build());
- * 
- *         var exampleRepositoryCreationTemplate = new RepositoryCreationTemplate("exampleRepositoryCreationTemplate", RepositoryCreationTemplateArgs.builder()
- *             .prefix("example")
- *             .description("An example template")
- *             .imageTagMutability("IMMUTABLE")
- *             .customRoleArn("arn:aws:iam::123456789012:role/example")
- *             .appliedFors("PULL_THROUGH_CACHE")
- *             .encryptionConfigurations(RepositoryCreationTemplateEncryptionConfigurationArgs.builder()
- *                 .encryptionType("AES256")
- *                 .build())
- *             .repositoryPolicy(example.json())
- *             .lifecyclePolicy("""
- * {
- *   \"rules\": [
- *     {
- *       \"rulePriority\": 1,
- *       \"description\": \"Expire images older than 14 days\",
- *       \"selection\": {
- *         \"tagStatus\": \"untagged\",
- *         \"countType\": \"sinceImagePushed\",
- *         \"countUnit\": \"days\",
- *         \"countNumber\": 14
- *       },
- *       \"action\": {
- *         \"type\": \"expire\"
- *       }
- *     }
- *   ]
- * }
- *             """)
- *             .resourceTags(Map.of("Foo", "Bar"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import the ECR Repository Creating Templates using the `prefix`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate example example
- * ```
- * 
- */
 @ResourceType(type="aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate")
 public class RepositoryCreationTemplate extends com.pulumi.resources.CustomResource {
-    /**
-     * Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
-     * 
-     */
     @Export(name="appliedFors", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> appliedFors;
 
-    /**
-     * @return Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
-     * 
-     */
     public Output<List<String>> appliedFors() {
         return this.appliedFors;
     }
-    /**
-     * A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
-     * 
-     */
     @Export(name="customRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customRoleArn;
 
-    /**
-     * @return A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
-     * 
-     */
     public Output<Optional<String>> customRoleArn() {
         return Codegen.optional(this.customRoleArn);
     }
-    /**
-     * The description for this template.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return The description for this template.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Encryption configuration for any created repositories. See below for schema.
-     * 
-     */
     @Export(name="encryptionConfigurations", refs={List.class,RepositoryCreationTemplateEncryptionConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RepositoryCreationTemplateEncryptionConfiguration>> encryptionConfigurations;
 
-    /**
-     * @return Encryption configuration for any created repositories. See below for schema.
-     * 
-     */
     public Output<Optional<List<RepositoryCreationTemplateEncryptionConfiguration>>> encryptionConfigurations() {
         return Codegen.optional(this.encryptionConfigurations);
     }
-    /**
-     * The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-     * 
-     */
     @Export(name="imageTagMutability", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> imageTagMutability;
 
-    /**
-     * @return The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-     * 
-     */
     public Output<Optional<String>> imageTagMutability() {
         return Codegen.optional(this.imageTagMutability);
     }
-    /**
-     * Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
-     * 
-     */
     @Export(name="imageTagMutabilityExclusionFilters", refs={List.class,RepositoryCreationTemplateImageTagMutabilityExclusionFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RepositoryCreationTemplateImageTagMutabilityExclusionFilter>> imageTagMutabilityExclusionFilters;
 
-    /**
-     * @return Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
-     * 
-     */
     public Output<Optional<List<RepositoryCreationTemplateImageTagMutabilityExclusionFilter>>> imageTagMutabilityExclusionFilters() {
         return Codegen.optional(this.imageTagMutabilityExclusionFilters);
     }
-    /**
-     * The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `lifecyclePolicy` argument.
-     * 
-     */
     @Export(name="lifecyclePolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> lifecyclePolicy;
 
-    /**
-     * @return The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `lifecyclePolicy` argument.
-     * 
-     */
     public Output<Optional<String>> lifecyclePolicy() {
         return Codegen.optional(this.lifecyclePolicy);
     }
-    /**
-     * The repository name prefix to match against. Use `ROOT` to match any prefix that doesn&#39;t explicitly match another template.
-     * 
-     */
     @Export(name="prefix", refs={String.class}, tree="[0]")
     private Output<String> prefix;
 
-    /**
-     * @return The repository name prefix to match against. Use `ROOT` to match any prefix that doesn&#39;t explicitly match another template.
-     * 
-     */
     public Output<String> prefix() {
         return this.prefix;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The registry ID the repository creation template applies to.
-     * 
-     */
     @Export(name="registryId", refs={String.class}, tree="[0]")
     private Output<String> registryId;
 
-    /**
-     * @return The registry ID the repository creation template applies to.
-     * 
-     */
     public Output<String> registryId() {
         return this.registryId;
     }
@@ -268,17 +86,9 @@ public class RepositoryCreationTemplate extends com.pulumi.resources.CustomResou
     public Output<Optional<String>> repositoryPolicy() {
         return Codegen.optional(this.repositoryPolicy);
     }
-    /**
-     * A map of tags to assign to any created repositories.
-     * 
-     */
     @Export(name="resourceTags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> resourceTags;
 
-    /**
-     * @return A map of tags to assign to any created repositories.
-     * 
-     */
     public Output<Optional<Map<String,String>>> resourceTags() {
         return Codegen.optional(this.resourceTags);
     }

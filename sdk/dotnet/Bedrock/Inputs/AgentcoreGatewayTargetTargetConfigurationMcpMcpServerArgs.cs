@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Endpoint for the MCP server target configuration.
-        /// </summary>
         [Input("endpoint", required: true)]
         public Input<string> Endpoint { get; set; } = null!;
 

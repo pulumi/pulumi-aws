@@ -16,81 +16,17 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Route 53 Profile.
- * 
- * ## Example Usage
- * 
- * ### Empty Profile
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.route53.ProfilesProfile;
- * import com.pulumi.aws.route53.ProfilesProfileArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ProfilesProfile("example", ProfilesProfileArgs.builder()
- *             .name("example")
- *             .tags(Map.of("Environment", "dev"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Route 53 Profiles Profile using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:route53/profilesProfile:ProfilesProfile example rp-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:route53/profilesProfile:ProfilesProfile")
 public class ProfilesProfile extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Profile.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Profile.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Name of the Profile.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the Profile.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -100,87 +36,39 @@ public class ProfilesProfile extends com.pulumi.resources.CustomResource {
     public Output<String> ownerId() {
         return this.ownerId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Share status of the Profile.
-     * 
-     */
     @Export(name="shareStatus", refs={String.class}, tree="[0]")
     private Output<String> shareStatus;
 
-    /**
-     * @return Share status of the Profile.
-     * 
-     */
     public Output<String> shareStatus() {
         return this.shareStatus;
     }
-    /**
-     * Status of the Profile.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return Status of the Profile.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * Status message of the Profile.
-     * 
-     */
     @Export(name="statusMessage", refs={String.class}, tree="[0]")
     private Output<String> statusMessage;
 
-    /**
-     * @return Status message of the Profile.
-     * 
-     */
     public Output<String> statusMessage() {
         return this.statusMessage;
     }
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

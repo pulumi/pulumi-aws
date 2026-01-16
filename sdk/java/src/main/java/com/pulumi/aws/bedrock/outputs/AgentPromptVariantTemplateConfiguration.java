@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentPromptVariantTemplateConfiguration {
-    /**
-     * @return Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
-     * 
-     */
     private @Nullable AgentPromptVariantTemplateConfigurationChat chat;
-    /**
-     * @return Contains configurations for the text in a message for a prompt. See Text Template Configuration
-     * 
-     */
     private @Nullable AgentPromptVariantTemplateConfigurationText text;
 
     private AgentPromptVariantTemplateConfiguration() {}
-    /**
-     * @return Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
-     * 
-     */
     public Optional<AgentPromptVariantTemplateConfigurationChat> chat() {
         return Optional.ofNullable(this.chat);
     }
-    /**
-     * @return Contains configurations for the text in a message for a prompt. See Text Template Configuration
-     * 
-     */
     public Optional<AgentPromptVariantTemplateConfigurationText> text() {
         return Optional.ofNullable(this.text);
     }

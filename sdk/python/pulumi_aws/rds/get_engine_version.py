@@ -138,9 +138,6 @@ class GetEngineVersionResult:
     @_builtins.property
     @pulumi.getter(name="defaultCharacterSet")
     def default_character_set(self) -> _builtins.str:
-        """
-        Default character set for new instances of the engine version.
-        """
         return pulumi.get(self, "default_character_set")
 
     @_builtins.property
@@ -156,17 +153,11 @@ class GetEngineVersionResult:
     @_builtins.property
     @pulumi.getter(name="engineDescription")
     def engine_description(self) -> _builtins.str:
-        """
-        Description of the engine.
-        """
         return pulumi.get(self, "engine_description")
 
     @_builtins.property
     @pulumi.getter(name="exportableLogTypes")
     def exportable_log_types(self) -> Sequence[_builtins.str]:
-        """
-        Set of log types that the engine version has available for export to CloudWatch Logs.
-        """
         return pulumi.get(self, "exportable_log_types")
 
     @_builtins.property
@@ -230,129 +221,81 @@ class GetEngineVersionResult:
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the engine version, either `available` or `deprecated`.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="supportedCharacterSets")
     def supported_character_sets(self) -> Sequence[_builtins.str]:
-        """
-        Set of character sets supported by th engine version.
-        """
         return pulumi.get(self, "supported_character_sets")
 
     @_builtins.property
     @pulumi.getter(name="supportedFeatureNames")
     def supported_feature_names(self) -> Sequence[_builtins.str]:
-        """
-        Set of features supported by the engine version.
-        """
         return pulumi.get(self, "supported_feature_names")
 
     @_builtins.property
     @pulumi.getter(name="supportedModes")
     def supported_modes(self) -> Sequence[_builtins.str]:
-        """
-        Set of supported engine version modes.
-        """
         return pulumi.get(self, "supported_modes")
 
     @_builtins.property
     @pulumi.getter(name="supportedTimezones")
     def supported_timezones(self) -> Sequence[_builtins.str]:
-        """
-        Set of the time zones supported by the engine version.
-        """
         return pulumi.get(self, "supported_timezones")
 
     @_builtins.property
     @pulumi.getter(name="supportsCertificateRotationWithoutRestart")
     def supports_certificate_rotation_without_restart(self) -> _builtins.bool:
-        """
-        Whether the certificates can be rotated without restarting the Aurora instance.
-        """
         return pulumi.get(self, "supports_certificate_rotation_without_restart")
 
     @_builtins.property
     @pulumi.getter(name="supportsGlobalDatabases")
     def supports_global_databases(self) -> _builtins.bool:
-        """
-        Whether you can use Aurora global databases with the engine version.
-        """
         return pulumi.get(self, "supports_global_databases")
 
     @_builtins.property
     @pulumi.getter(name="supportsIntegrations")
     def supports_integrations(self) -> _builtins.bool:
-        """
-        Whether the engine version supports integrations with other AWS services.
-        """
         return pulumi.get(self, "supports_integrations")
 
     @_builtins.property
     @pulumi.getter(name="supportsLimitlessDatabase")
     def supports_limitless_database(self) -> _builtins.bool:
-        """
-        Whether the engine version supports Aurora Limitless Database.
-        """
         return pulumi.get(self, "supports_limitless_database")
 
     @_builtins.property
     @pulumi.getter(name="supportsLocalWriteForwarding")
     def supports_local_write_forwarding(self) -> _builtins.bool:
-        """
-        Whether the engine version supports local write forwarding or not.
-        """
         return pulumi.get(self, "supports_local_write_forwarding")
 
     @_builtins.property
     @pulumi.getter(name="supportsLogExportsToCloudwatch")
     def supports_log_exports_to_cloudwatch(self) -> _builtins.bool:
-        """
-        Whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
-        """
         return pulumi.get(self, "supports_log_exports_to_cloudwatch")
 
     @_builtins.property
     @pulumi.getter(name="supportsParallelQuery")
     def supports_parallel_query(self) -> _builtins.bool:
-        """
-        Whether you can use Aurora parallel query with the engine version.
-        """
         return pulumi.get(self, "supports_parallel_query")
 
     @_builtins.property
     @pulumi.getter(name="supportsReadReplica")
     def supports_read_replica(self) -> _builtins.bool:
-        """
-        Whether the engine version supports read replicas.
-        """
         return pulumi.get(self, "supports_read_replica")
 
     @_builtins.property
     @pulumi.getter(name="validMajorTargets")
     def valid_major_targets(self) -> Sequence[_builtins.str]:
-        """
-        Set of versions that are valid major version upgrades for the engine version.
-        """
         return pulumi.get(self, "valid_major_targets")
 
     @_builtins.property
     @pulumi.getter(name="validMinorTargets")
     def valid_minor_targets(self) -> Sequence[_builtins.str]:
-        """
-        Set of versions that are valid minor version upgrades for the engine version.
-        """
         return pulumi.get(self, "valid_minor_targets")
 
     @_builtins.property
     @pulumi.getter(name="validUpgradeTargets")
     def valid_upgrade_targets(self) -> Sequence[_builtins.str]:
-        """
-        Set of versions that are valid major or minor upgrades for the engine version.
-        """
         return pulumi.get(self, "valid_upgrade_targets")
 
     @_builtins.property
@@ -363,17 +306,11 @@ class GetEngineVersionResult:
     @_builtins.property
     @pulumi.getter(name="versionActual")
     def version_actual(self) -> _builtins.str:
-        """
-        Complete engine version.
-        """
         return pulumi.get(self, "version_actual")
 
     @_builtins.property
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> _builtins.str:
-        """
-        Description of the engine version.
-        """
         return pulumi.get(self, "version_description")
 
 
@@ -435,53 +372,7 @@ def get_engine_version(default_only: Optional[_builtins.bool] = None,
                        version: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEngineVersionResult:
     """
-    Information about an RDS engine version.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.rds.get_engine_version(engine="mysql",
-        preferred_versions=[
-            "8.0.27",
-            "8.0.26",
-        ])
-    ```
-
-    ### With `filter`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.rds.get_engine_version(engine="aurora-postgresql",
-        version="10.14",
-        include_all=True,
-        filters=[{
-            "name": "engine-mode",
-            "values": ["serverless"],
-        }])
-    ```
-
-
-    :param _builtins.bool default_only: Whether the engine version must be an AWS-defined default version. Some engines have multiple default versions, such as for each major version. Using `default_only` may help avoid `multiple RDS engine versions` errors. See also `latest`.
-    :param _builtins.str engine: Database engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
-           
-           The following arguments are optional:
-    :param Sequence[Union['GetEngineVersionFilterArgs', 'GetEngineVersionFilterArgsDict']] filters: One or more name/value pairs to use in filtering versions. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
-    :param _builtins.bool has_major_target: Whether the engine version must have one or more major upgrade targets. Not including `has_major_target` or setting it to `false` doesn't imply that there's no corresponding major upgrade target for the engine version.
-    :param _builtins.bool has_minor_target: Whether the engine version must have one or more minor upgrade targets. Not including `has_minor_target` or setting it to `false` doesn't imply that there's no corresponding minor upgrade target for the engine version.
-    :param _builtins.bool include_all: Whether the engine version `status` can either be `deprecated` or `available`. When not set or set to `false`, the engine version `status` will always be `available`.
-    :param _builtins.bool latest: Whether the engine version is the most recent version matching the other criteria. This is different from `default_only` in important ways: "default" relies on AWS-defined defaults, the latest version isn't always the default, and AWS might have multiple default versions for an engine. As a result, `default_only` might not prevent errors from `multiple RDS engine versions`, while `latest` will. (`latest` can be used with `default_only`.) **Note:** The data source uses a best-effort approach at selecting the latest version. Due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `latest` may not always result in the engine version being the actual latest version.
-    :param _builtins.str parameter_group_family: Name of a specific database parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
-    :param Sequence[_builtins.str] preferred_major_targets: Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferred_major_targets`.
-    :param Sequence[_builtins.str] preferred_upgrade_targets: Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferred_upgrade_targets`.
-    :param Sequence[_builtins.str] preferred_versions: Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferred_versions`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['defaultOnly'] = default_only
@@ -551,53 +442,7 @@ def get_engine_version_output(default_only: Optional[pulumi.Input[Optional[_buil
                               version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEngineVersionResult]:
     """
-    Information about an RDS engine version.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.rds.get_engine_version(engine="mysql",
-        preferred_versions=[
-            "8.0.27",
-            "8.0.26",
-        ])
-    ```
-
-    ### With `filter`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.rds.get_engine_version(engine="aurora-postgresql",
-        version="10.14",
-        include_all=True,
-        filters=[{
-            "name": "engine-mode",
-            "values": ["serverless"],
-        }])
-    ```
-
-
-    :param _builtins.bool default_only: Whether the engine version must be an AWS-defined default version. Some engines have multiple default versions, such as for each major version. Using `default_only` may help avoid `multiple RDS engine versions` errors. See also `latest`.
-    :param _builtins.str engine: Database engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
-           
-           The following arguments are optional:
-    :param Sequence[Union['GetEngineVersionFilterArgs', 'GetEngineVersionFilterArgsDict']] filters: One or more name/value pairs to use in filtering versions. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
-    :param _builtins.bool has_major_target: Whether the engine version must have one or more major upgrade targets. Not including `has_major_target` or setting it to `false` doesn't imply that there's no corresponding major upgrade target for the engine version.
-    :param _builtins.bool has_minor_target: Whether the engine version must have one or more minor upgrade targets. Not including `has_minor_target` or setting it to `false` doesn't imply that there's no corresponding minor upgrade target for the engine version.
-    :param _builtins.bool include_all: Whether the engine version `status` can either be `deprecated` or `available`. When not set or set to `false`, the engine version `status` will always be `available`.
-    :param _builtins.bool latest: Whether the engine version is the most recent version matching the other criteria. This is different from `default_only` in important ways: "default" relies on AWS-defined defaults, the latest version isn't always the default, and AWS might have multiple default versions for an engine. As a result, `default_only` might not prevent errors from `multiple RDS engine versions`, while `latest` will. (`latest` can be used with `default_only`.) **Note:** The data source uses a best-effort approach at selecting the latest version. Due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `latest` may not always result in the engine version being the actual latest version.
-    :param _builtins.str parameter_group_family: Name of a specific database parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
-    :param Sequence[_builtins.str] preferred_major_targets: Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferred_major_targets`.
-    :param Sequence[_builtins.str] preferred_upgrade_targets: Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferred_upgrade_targets`.
-    :param Sequence[_builtins.str] preferred_versions: Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferred_versions`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['defaultOnly'] = default_only

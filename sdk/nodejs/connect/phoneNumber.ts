@@ -7,74 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Amazon Connect Phone Number resource. For more information see
- * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
- *
- * ## Example Usage
- *
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.connect.PhoneNumber("example", {
- *     targetArn: exampleAwsConnectInstance.arn,
- *     countryCode: "US",
- *     type: "DID",
- *     tags: {
- *         hello: "world",
- *     },
- * });
- * ```
- *
- * ### Description
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.connect.PhoneNumber("example", {
- *     targetArn: exampleAwsConnectInstance.arn,
- *     countryCode: "US",
- *     type: "DID",
- *     description: "example description",
- * });
- * ```
- *
- * ### Prefix to filter phone numbers
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.connect.PhoneNumber("example", {
- *     targetArn: exampleAwsConnectInstance.arn,
- *     countryCode: "US",
- *     type: "DID",
- *     prefix: "+18005",
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * * `id` - (String) ID of the connect phone number.
- *
- * #### Optional
- *
- * - `account_id` (String) AWS Account where this resource is managed.
- *
- * - `region` (String) Region where this resource is managed.
- *
- * Using `pulumi import`, import Amazon Connect Phone Numbers using its `id`. For example:
- *
- * % pulumi import aws_connect_phone_number.example 12345678-abcd-1234-efgh-9876543210ab
- */
 export class PhoneNumber extends pulumi.CustomResource {
     /**
      * Get an existing PhoneNumber resource's state with the given name, ID, and optional extra
@@ -103,49 +35,16 @@ export class PhoneNumber extends pulumi.CustomResource {
         return obj['__pulumiType'] === PhoneNumber.__pulumiType;
     }
 
-    /**
-     * The ARN of the phone number.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
-     */
     declare public readonly countryCode: pulumi.Output<string>;
-    /**
-     * The description of the phone number.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
-     */
     declare public /*out*/ readonly phoneNumber: pulumi.Output<string>;
-    /**
-     * The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
-     */
     declare public readonly prefix: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
-     */
     declare public /*out*/ readonly statuses: pulumi.Output<outputs.connect.PhoneNumberStatus[]>;
-    /**
-     * Tags to apply to the Phone Number. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
-     */
     declare public readonly targetArn: pulumi.Output<string>;
-    /**
-     * The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
-     */
     declare public readonly type: pulumi.Output<string>;
 
     /**
@@ -204,49 +103,16 @@ export class PhoneNumber extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PhoneNumber resources.
  */
 export interface PhoneNumberState {
-    /**
-     * The ARN of the phone number.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
-     */
     countryCode?: pulumi.Input<string>;
-    /**
-     * The description of the phone number.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
-     */
     phoneNumber?: pulumi.Input<string>;
-    /**
-     * The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
-     */
     prefix?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
-     */
     statuses?: pulumi.Input<pulumi.Input<inputs.connect.PhoneNumberStatus>[]>;
-    /**
-     * Tags to apply to the Phone Number. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
-     */
     targetArn?: pulumi.Input<string>;
-    /**
-     * The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
-     */
     type?: pulumi.Input<string>;
 }
 
@@ -254,32 +120,11 @@ export interface PhoneNumberState {
  * The set of arguments for constructing a PhoneNumber resource.
  */
 export interface PhoneNumberArgs {
-    /**
-     * The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
-     */
     countryCode: pulumi.Input<string>;
-    /**
-     * The description of the phone number.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
-     */
     prefix?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Tags to apply to the Phone Number. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
-     */
     targetArn: pulumi.Input<string>;
-    /**
-     * The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
-     */
     type: pulumi.Input<string>;
 }

@@ -12,56 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for associating accounts to existing Inspector instances.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/inspector2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := inspector2.NewMemberAssociation(ctx, "example", &inspector2.MemberAssociationArgs{
-//				AccountId: pulumi.String("123456789012"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Amazon Inspector Member Association using the `account_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
-// ```
 type MemberAssociation struct {
 	pulumi.CustomResourceState
 
-	// ID of the account to associate
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// Account ID of the delegated administrator account
+	AccountId               pulumi.StringOutput `pulumi:"accountId"`
 	DelegatedAdminAccountId pulumi.StringOutput `pulumi:"delegatedAdminAccountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Status of the member relationship
-	RelationshipStatus pulumi.StringOutput `pulumi:"relationshipStatus"`
-	// Date and time of the last update of the relationship
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	Region                  pulumi.StringOutput `pulumi:"region"`
+	RelationshipStatus      pulumi.StringOutput `pulumi:"relationshipStatus"`
+	UpdatedAt               pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
 // NewMemberAssociation registers a new resource with the given unique name, arguments, and options.
@@ -97,29 +55,19 @@ func GetMemberAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MemberAssociation resources.
 type memberAssociationState struct {
-	// ID of the account to associate
-	AccountId *string `pulumi:"accountId"`
-	// Account ID of the delegated administrator account
+	AccountId               *string `pulumi:"accountId"`
 	DelegatedAdminAccountId *string `pulumi:"delegatedAdminAccountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Status of the member relationship
-	RelationshipStatus *string `pulumi:"relationshipStatus"`
-	// Date and time of the last update of the relationship
-	UpdatedAt *string `pulumi:"updatedAt"`
+	Region                  *string `pulumi:"region"`
+	RelationshipStatus      *string `pulumi:"relationshipStatus"`
+	UpdatedAt               *string `pulumi:"updatedAt"`
 }
 
 type MemberAssociationState struct {
-	// ID of the account to associate
-	AccountId pulumi.StringPtrInput
-	// Account ID of the delegated administrator account
+	AccountId               pulumi.StringPtrInput
 	DelegatedAdminAccountId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Status of the member relationship
-	RelationshipStatus pulumi.StringPtrInput
-	// Date and time of the last update of the relationship
-	UpdatedAt pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
+	RelationshipStatus      pulumi.StringPtrInput
+	UpdatedAt               pulumi.StringPtrInput
 }
 
 func (MemberAssociationState) ElementType() reflect.Type {
@@ -127,18 +75,14 @@ func (MemberAssociationState) ElementType() reflect.Type {
 }
 
 type memberAssociationArgs struct {
-	// ID of the account to associate
-	AccountId string `pulumi:"accountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	AccountId string  `pulumi:"accountId"`
+	Region    *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a MemberAssociation resource.
 type MemberAssociationArgs struct {
-	// ID of the account to associate
 	AccountId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region    pulumi.StringPtrInput
 }
 
 func (MemberAssociationArgs) ElementType() reflect.Type {
@@ -228,27 +172,22 @@ func (o MemberAssociationOutput) ToMemberAssociationOutputWithContext(ctx contex
 	return o
 }
 
-// ID of the account to associate
 func (o MemberAssociationOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MemberAssociation) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// Account ID of the delegated administrator account
 func (o MemberAssociationOutput) DelegatedAdminAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MemberAssociation) pulumi.StringOutput { return v.DelegatedAdminAccountId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MemberAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MemberAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Status of the member relationship
 func (o MemberAssociationOutput) RelationshipStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *MemberAssociation) pulumi.StringOutput { return v.RelationshipStatus }).(pulumi.StringOutput)
 }
 
-// Date and time of the last update of the relationship
 func (o MemberAssociationOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *MemberAssociation) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }

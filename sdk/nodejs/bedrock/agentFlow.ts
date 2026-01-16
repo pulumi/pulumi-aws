@@ -7,123 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Bedrock Agents Flow.
- *
- * ## Example Usage
- *
- * The default definition:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.bedrock.AgentFlow("example", {
- *     name: "example",
- *     executionRoleArn: exampleAwsIamRole.arn,
- *     definition: {
- *         connections: [
- *             {
- *                 name: "FlowInputNodeFlowInputNode0ToPrompt_1PromptsNode0",
- *                 source: "FlowInputNode",
- *                 target: "Prompt_1",
- *                 type: "Data",
- *                 configuration: {
- *                     data: {
- *                         sourceOutput: "document",
- *                         targetInput: "topic",
- *                     },
- *                 },
- *             },
- *             {
- *                 name: "Prompt_1PromptsNode0ToFlowOutputNodeFlowOutputNode0",
- *                 source: "Prompt_1",
- *                 target: "FlowOutputNode",
- *                 type: "Data",
- *                 configuration: {
- *                     data: {
- *                         sourceOutput: "modelCompletion",
- *                         targetInput: "document",
- *                     },
- *                 },
- *             },
- *         ],
- *         nodes: [
- *             {
- *                 name: "FlowInputNode",
- *                 type: "Input",
- *                 configuration: {
- *                     input: {},
- *                 },
- *                 outputs: [{
- *                     name: "document",
- *                     type: "String",
- *                 }],
- *             },
- *             {
- *                 name: "Prompt_1",
- *                 type: "Prompt",
- *                 configuration: {
- *                     prompt: {
- *                         sourceConfiguration: {
- *                             inline: {
- *                                 modelId: "amazon.titan-text-express-v1",
- *                                 templateType: "TEXT",
- *                                 inferenceConfiguration: {
- *                                     text: {
- *                                         maxTokens: 2048,
- *                                         stopSequences: ["User:"],
- *                                         temperature: 0,
- *                                         topP: 0.8999999761581421,
- *                                     },
- *                                 },
- *                                 templateConfiguration: {
- *                                     text: {
- *                                         text: "Write a paragraph about {{topic}}.",
- *                                         inputVariables: [{
- *                                             name: "topic",
- *                                         }],
- *                                     },
- *                                 },
- *                             },
- *                         },
- *                     },
- *                 },
- *                 inputs: [{
- *                     expression: "$.data",
- *                     name: "topic",
- *                     type: "String",
- *                 }],
- *                 outputs: [{
- *                     name: "modelCompletion",
- *                     type: "String",
- *                 }],
- *             },
- *             {
- *                 name: "FlowOutputNode",
- *                 type: "Output",
- *                 configuration: {
- *                     output: {},
- *                 },
- *                 inputs: [{
- *                     expression: "$.data",
- *                     name: "document",
- *                     type: "String",
- *                 }],
- *             },
- *         ],
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Bedrock Agents Flow using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:bedrock/agentFlow:AgentFlow example ABCDEFGHIJ
- * ```
- */
 export class AgentFlow extends pulumi.CustomResource {
     /**
      * Get an existing AgentFlow resource's state with the given name, ID, and optional extra
@@ -152,60 +35,19 @@ export class AgentFlow extends pulumi.CustomResource {
         return obj['__pulumiType'] === AgentFlow.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the flow.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The time at which the flow was created.
-     */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the KMS key to encrypt the flow.
-     */
     declare public readonly customerEncryptionKeyArn: pulumi.Output<string | undefined>;
-    /**
-     * A definition of the nodes and connections between nodes in the flow. See Definition for more information.
-     */
     declare public readonly definition: pulumi.Output<outputs.bedrock.AgentFlowDefinition | undefined>;
-    /**
-     * A description for the flow.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The Amazon Resource Name (ARN) of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly executionRoleArn: pulumi.Output<string>;
-    /**
-     * A name for the flow.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The status of the flow.
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.bedrock.AgentFlowTimeouts | undefined>;
-    /**
-     * The time at which the flow was last updated.
-     */
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
-    /**
-     * The version of the flow.
-     */
     declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
@@ -264,60 +106,19 @@ export class AgentFlow extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AgentFlow resources.
  */
 export interface AgentFlowState {
-    /**
-     * The Amazon Resource Name (ARN) of the flow.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The time at which the flow was created.
-     */
     createdAt?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the KMS key to encrypt the flow.
-     */
     customerEncryptionKeyArn?: pulumi.Input<string>;
-    /**
-     * A definition of the nodes and connections between nodes in the flow. See Definition for more information.
-     */
     definition?: pulumi.Input<inputs.bedrock.AgentFlowDefinition>;
-    /**
-     * A description for the flow.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
-     *
-     * The following arguments are optional:
-     */
     executionRoleArn?: pulumi.Input<string>;
-    /**
-     * A name for the flow.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The status of the flow.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentFlowTimeouts>;
-    /**
-     * The time at which the flow was last updated.
-     */
     updatedAt?: pulumi.Input<string>;
-    /**
-     * The version of the flow.
-     */
     version?: pulumi.Input<string>;
 }
 
@@ -325,35 +126,12 @@ export interface AgentFlowState {
  * The set of arguments for constructing a AgentFlow resource.
  */
 export interface AgentFlowArgs {
-    /**
-     * The Amazon Resource Name (ARN) of the KMS key to encrypt the flow.
-     */
     customerEncryptionKeyArn?: pulumi.Input<string>;
-    /**
-     * A definition of the nodes and connections between nodes in the flow. See Definition for more information.
-     */
     definition?: pulumi.Input<inputs.bedrock.AgentFlowDefinition>;
-    /**
-     * A description for the flow.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
-     *
-     * The following arguments are optional:
-     */
     executionRoleArn: pulumi.Input<string>;
-    /**
-     * A name for the flow.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentFlowTimeouts>;
 }

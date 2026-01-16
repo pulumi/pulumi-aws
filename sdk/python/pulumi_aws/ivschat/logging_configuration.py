@@ -27,10 +27,6 @@ class LoggingConfigurationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LoggingConfiguration resource.
-        :param pulumi.Input['LoggingConfigurationDestinationConfigurationArgs'] destination_configuration: Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
-        :param pulumi.Input[_builtins.str] name: Logging Configuration name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if destination_configuration is not None:
             pulumi.set(__self__, "destination_configuration", destination_configuration)
@@ -44,9 +40,6 @@ class LoggingConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="destinationConfiguration")
     def destination_configuration(self) -> Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationArgs']]:
-        """
-        Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
-        """
         return pulumi.get(self, "destination_configuration")
 
     @destination_configuration.setter
@@ -56,9 +49,6 @@ class LoggingConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Logging Configuration name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -68,9 +58,6 @@ class LoggingConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -80,9 +67,6 @@ class LoggingConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -102,13 +86,6 @@ class _LoggingConfigurationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LoggingConfiguration resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Logging Configuration.
-        :param pulumi.Input['LoggingConfigurationDestinationConfigurationArgs'] destination_configuration: Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
-        :param pulumi.Input[_builtins.str] name: Logging Configuration name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] state: State of the Logging Configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -128,9 +105,6 @@ class _LoggingConfigurationState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Logging Configuration.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -140,9 +114,6 @@ class _LoggingConfigurationState:
     @_builtins.property
     @pulumi.getter(name="destinationConfiguration")
     def destination_configuration(self) -> Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationArgs']]:
-        """
-        Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
-        """
         return pulumi.get(self, "destination_configuration")
 
     @destination_configuration.setter
@@ -152,9 +123,6 @@ class _LoggingConfigurationState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Logging Configuration name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -164,9 +132,6 @@ class _LoggingConfigurationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -176,9 +141,6 @@ class _LoggingConfigurationState:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        State of the Logging Configuration.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -188,9 +150,6 @@ class _LoggingConfigurationState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -200,9 +159,6 @@ class _LoggingConfigurationState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -222,96 +178,9 @@ class LoggingConfiguration(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS IVS (Interactive Video) Chat Logging Configuration.
-
-        ## Example Usage
-
-        ### Basic Usage - Logging to CloudWatch
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudwatch.LogGroup("example")
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration={
-            "cloudwatch_logs": {
-                "log_group_name": example.name,
-            },
-        })
-        ```
-
-        ### Basic Usage - Logging to Kinesis Firehose with Extended S3
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket = aws.s3.Bucket("example", bucket_prefix="tf-ivschat-logging-bucket")
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["firehose.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        example_role = aws.iam.Role("example",
-            name="firehose_example_role",
-            assume_role_policy=assume_role.json)
-        example = aws.kinesis.FirehoseDeliveryStream("example",
-            name="pulumi-kinesis-firehose-extended-s3-example-stream",
-            destination="extended_s3",
-            extended_s3_configuration={
-                "role_arn": example_role.arn,
-                "bucket_arn": example_bucket.arn,
-            },
-            tags={
-                "LogDeliveryEnabled": "true",
-            })
-        example_bucket_acl = aws.s3.BucketAcl("example",
-            bucket=example_bucket.id,
-            acl="private")
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration={
-            "firehose": {
-                "delivery_stream_name": example.name,
-            },
-        })
-        ```
-
-        ### Basic Usage - Logging to S3
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.Bucket("example",
-            bucket_name="tf-ivschat-logging",
-            force_destroy=True)
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration={
-            "s3": {
-                "bucket_name": example.id,
-            },
-        })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the IVS Chat logging configuration.
-
-        Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For example:
-
-        % pulumi import aws_ivschat_logging_configuration.example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
-
+        Create a LoggingConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['LoggingConfigurationDestinationConfigurationArgs', 'LoggingConfigurationDestinationConfigurationArgsDict']] destination_configuration: Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
-        :param pulumi.Input[_builtins.str] name: Logging Configuration name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -320,90 +189,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                  args: Optional[LoggingConfigurationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS IVS (Interactive Video) Chat Logging Configuration.
-
-        ## Example Usage
-
-        ### Basic Usage - Logging to CloudWatch
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudwatch.LogGroup("example")
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration={
-            "cloudwatch_logs": {
-                "log_group_name": example.name,
-            },
-        })
-        ```
-
-        ### Basic Usage - Logging to Kinesis Firehose with Extended S3
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket = aws.s3.Bucket("example", bucket_prefix="tf-ivschat-logging-bucket")
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["firehose.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        example_role = aws.iam.Role("example",
-            name="firehose_example_role",
-            assume_role_policy=assume_role.json)
-        example = aws.kinesis.FirehoseDeliveryStream("example",
-            name="pulumi-kinesis-firehose-extended-s3-example-stream",
-            destination="extended_s3",
-            extended_s3_configuration={
-                "role_arn": example_role.arn,
-                "bucket_arn": example_bucket.arn,
-            },
-            tags={
-                "LogDeliveryEnabled": "true",
-            })
-        example_bucket_acl = aws.s3.BucketAcl("example",
-            bucket=example_bucket.id,
-            acl="private")
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration={
-            "firehose": {
-                "delivery_stream_name": example.name,
-            },
-        })
-        ```
-
-        ### Basic Usage - Logging to S3
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.Bucket("example",
-            bucket_name="tf-ivschat-logging",
-            force_destroy=True)
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration={
-            "s3": {
-                "bucket_name": example.id,
-            },
-        })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the IVS Chat logging configuration.
-
-        Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For example:
-
-        % pulumi import aws_ivschat_logging_configuration.example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
-
+        Create a LoggingConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LoggingConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -463,13 +249,6 @@ class LoggingConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Logging Configuration.
-        :param pulumi.Input[Union['LoggingConfigurationDestinationConfigurationArgs', 'LoggingConfigurationDestinationConfigurationArgsDict']] destination_configuration: Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
-        :param pulumi.Input[_builtins.str] name: Logging Configuration name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] state: State of the Logging Configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -487,56 +266,35 @@ class LoggingConfiguration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Logging Configuration.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="destinationConfiguration")
     def destination_configuration(self) -> pulumi.Output[Optional['outputs.LoggingConfigurationDestinationConfiguration']]:
-        """
-        Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
-        """
         return pulumi.get(self, "destination_configuration")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Logging Configuration name.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
-        """
-        State of the Logging Configuration.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

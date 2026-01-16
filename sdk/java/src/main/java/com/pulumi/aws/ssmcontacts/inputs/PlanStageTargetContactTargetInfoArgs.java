@@ -17,32 +17,16 @@ public final class PlanStageTargetContactTargetInfoArgs extends com.pulumi.resou
 
     public static final PlanStageTargetContactTargetInfoArgs Empty = new PlanStageTargetContactTargetInfoArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the contact.
-     * 
-     */
     @Import(name="contactId")
     private @Nullable Output<String> contactId;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the contact.
-     * 
-     */
     public Optional<Output<String>> contactId() {
         return Optional.ofNullable(this.contactId);
     }
 
-    /**
-     * A Boolean value determining if the contact&#39;s acknowledgement stops the progress of stages in the plan.
-     * 
-     */
     @Import(name="isEssential", required=true)
     private Output<Boolean> isEssential;
 
-    /**
-     * @return A Boolean value determining if the contact&#39;s acknowledgement stops the progress of stages in the plan.
-     * 
-     */
     public Output<Boolean> isEssential() {
         return this.isEssential;
     }
@@ -72,44 +56,20 @@ public final class PlanStageTargetContactTargetInfoArgs extends com.pulumi.resou
             $ = new PlanStageTargetContactTargetInfoArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param contactId The Amazon Resource Name (ARN) of the contact.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contactId(@Nullable Output<String> contactId) {
             $.contactId = contactId;
             return this;
         }
 
-        /**
-         * @param contactId The Amazon Resource Name (ARN) of the contact.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contactId(String contactId) {
             return contactId(Output.of(contactId));
         }
 
-        /**
-         * @param isEssential A Boolean value determining if the contact&#39;s acknowledgement stops the progress of stages in the plan.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isEssential(Output<Boolean> isEssential) {
             $.isEssential = isEssential;
             return this;
         }
 
-        /**
-         * @param isEssential A Boolean value determining if the contact&#39;s acknowledgement stops the progress of stages in the plan.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isEssential(Boolean isEssential) {
             return isEssential(Output.of(isEssential));
         }

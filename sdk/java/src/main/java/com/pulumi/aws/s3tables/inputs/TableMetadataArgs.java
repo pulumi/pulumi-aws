@@ -15,16 +15,14 @@ public final class TableMetadataArgs extends com.pulumi.resources.ResourceArgs {
     public static final TableMetadataArgs Empty = new TableMetadataArgs();
 
     /**
-     * Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format.
-     * See `iceberg` below.
+     * Iceberg metadata configuration.
      * 
      */
     @Import(name="iceberg", required=true)
     private Output<TableMetadataIcebergArgs> iceberg;
 
     /**
-     * @return Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format.
-     * See `iceberg` below.
+     * @return Iceberg metadata configuration.
      * 
      */
     public Output<TableMetadataIcebergArgs> iceberg() {
@@ -56,8 +54,7 @@ public final class TableMetadataArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iceberg Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format.
-         * See `iceberg` below.
+         * @param iceberg Iceberg metadata configuration.
          * 
          * @return builder
          * 
@@ -68,8 +65,7 @@ public final class TableMetadataArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iceberg Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format.
-         * See `iceberg` below.
+         * @param iceberg Iceberg metadata configuration.
          * 
          * @return builder
          * 

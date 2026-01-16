@@ -17,148 +17,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an Amazon FSx S3 Access Point attachment.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.fsx.S3AccessPointAttachment;
- * import com.pulumi.aws.fsx.S3AccessPointAttachmentArgs;
- * import com.pulumi.aws.fsx.inputs.S3AccessPointAttachmentOpenzfsConfigurationArgs;
- * import com.pulumi.aws.fsx.inputs.S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgs;
- * import com.pulumi.aws.fsx.inputs.S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUserArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new S3AccessPointAttachment("example", S3AccessPointAttachmentArgs.builder()
- *             .name("example-attachment")
- *             .type("OPENZFS")
- *             .openzfsConfiguration(S3AccessPointAttachmentOpenzfsConfigurationArgs.builder()
- *                 .volumeId(exampleAwsFsxOpenzfsVolume.id())
- *                 .fileSystemIdentity(S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgs.builder()
- *                     .type("POSIX")
- *                     .posixUser(S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUserArgs.builder()
- *                         .uid(1001)
- *                         .gid(1001)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import FSx S3 Access Point attachments using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:fsx/s3AccessPointAttachment:S3AccessPointAttachment example example-attachment
- * ```
- * 
- */
 @ResourceType(type="aws:fsx/s3AccessPointAttachment:S3AccessPointAttachment")
 public class S3AccessPointAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of the S3 access point.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the S3 access point.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
-     * 
-     */
     @Export(name="openzfsConfiguration", refs={S3AccessPointAttachmentOpenzfsConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ S3AccessPointAttachmentOpenzfsConfiguration> openzfsConfiguration;
 
-    /**
-     * @return Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
-     * 
-     */
     public Output<Optional<S3AccessPointAttachmentOpenzfsConfiguration>> openzfsConfiguration() {
         return Codegen.optional(this.openzfsConfiguration);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * S3 access point configuration. See `s3AccessPoint` Block for details.
-     * 
-     */
     @Export(name="s3AccessPoint", refs={S3AccessPointAttachmentS3AccessPoint.class}, tree="[0]")
     private Output</* @Nullable */ S3AccessPointAttachmentS3AccessPoint> s3AccessPoint;
 
-    /**
-     * @return S3 access point configuration. See `s3AccessPoint` Block for details.
-     * 
-     */
     public Output<Optional<S3AccessPointAttachmentS3AccessPoint>> s3AccessPoint() {
         return Codegen.optional(this.s3AccessPoint);
     }
-    /**
-     * S3 access point&#39;s alias.
-     * 
-     */
     @Export(name="s3AccessPointAlias", refs={String.class}, tree="[0]")
     private Output<String> s3AccessPointAlias;
 
-    /**
-     * @return S3 access point&#39;s alias.
-     * 
-     */
     public Output<String> s3AccessPointAlias() {
         return this.s3AccessPointAlias;
     }
-    /**
-     * S3 access point&#39;s ARN.
-     * 
-     */
     @Export(name="s3AccessPointArn", refs={String.class}, tree="[0]")
     private Output<String> s3AccessPointArn;
 
-    /**
-     * @return S3 access point&#39;s ARN.
-     * 
-     */
     public Output<String> s3AccessPointArn() {
         return this.s3AccessPointArn;
     }
@@ -168,21 +61,9 @@ public class S3AccessPointAttachment extends com.pulumi.resources.CustomResource
     public Output<Optional<S3AccessPointAttachmentTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * Type of S3 access point. Valid values: `OpenZFS`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return Type of S3 access point. Valid values: `OpenZFS`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }

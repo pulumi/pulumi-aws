@@ -15,17 +15,9 @@ public final class RouteSpecHttp2RouteMatchQueryParameterMatchArgs extends com.p
 
     public static final RouteSpecHttp2RouteMatchQueryParameterMatchArgs Empty = new RouteSpecHttp2RouteMatchQueryParameterMatchArgs();
 
-    /**
-     * The exact query parameter to match on.
-     * 
-     */
     @Import(name="exact")
     private @Nullable Output<String> exact;
 
-    /**
-     * @return The exact query parameter to match on.
-     * 
-     */
     public Optional<Output<String>> exact() {
         return Optional.ofNullable(this.exact);
     }
@@ -54,23 +46,11 @@ public final class RouteSpecHttp2RouteMatchQueryParameterMatchArgs extends com.p
             $ = new RouteSpecHttp2RouteMatchQueryParameterMatchArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param exact The exact query parameter to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exact(@Nullable Output<String> exact) {
             $.exact = exact;
             return this;
         }
 
-        /**
-         * @param exact The exact query parameter to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exact(String exact) {
             return exact(Output.of(exact));
         }

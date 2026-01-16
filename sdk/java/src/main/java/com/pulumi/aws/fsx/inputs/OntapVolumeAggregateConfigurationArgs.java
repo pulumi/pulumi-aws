@@ -17,47 +17,23 @@ public final class OntapVolumeAggregateConfigurationArgs extends com.pulumi.reso
 
     public static final OntapVolumeAggregateConfigurationArgs Empty = new OntapVolumeAggregateConfigurationArgs();
 
-    /**
-     * Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
-     * 
-     */
     @Import(name="aggregates")
     private @Nullable Output<List<String>> aggregates;
 
-    /**
-     * @return Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
-     * 
-     */
     public Optional<Output<List<String>>> aggregates() {
         return Optional.ofNullable(this.aggregates);
     }
 
-    /**
-     * Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
-     * 
-     */
     @Import(name="constituentsPerAggregate")
     private @Nullable Output<Integer> constituentsPerAggregate;
 
-    /**
-     * @return Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
-     * 
-     */
     public Optional<Output<Integer>> constituentsPerAggregate() {
         return Optional.ofNullable(this.constituentsPerAggregate);
     }
 
-    /**
-     * The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
-     * 
-     */
     @Import(name="totalConstituents")
     private @Nullable Output<Integer> totalConstituents;
 
-    /**
-     * @return The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
-     * 
-     */
     public Optional<Output<Integer>> totalConstituents() {
         return Optional.ofNullable(this.totalConstituents);
     }
@@ -88,75 +64,33 @@ public final class OntapVolumeAggregateConfigurationArgs extends com.pulumi.reso
             $ = new OntapVolumeAggregateConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param aggregates Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aggregates(@Nullable Output<List<String>> aggregates) {
             $.aggregates = aggregates;
             return this;
         }
 
-        /**
-         * @param aggregates Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aggregates(List<String> aggregates) {
             return aggregates(Output.of(aggregates));
         }
 
-        /**
-         * @param aggregates Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aggregates(String... aggregates) {
             return aggregates(List.of(aggregates));
         }
 
-        /**
-         * @param constituentsPerAggregate Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder constituentsPerAggregate(@Nullable Output<Integer> constituentsPerAggregate) {
             $.constituentsPerAggregate = constituentsPerAggregate;
             return this;
         }
 
-        /**
-         * @param constituentsPerAggregate Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder constituentsPerAggregate(Integer constituentsPerAggregate) {
             return constituentsPerAggregate(Output.of(constituentsPerAggregate));
         }
 
-        /**
-         * @param totalConstituents The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
-         * 
-         * @return builder
-         * 
-         */
         public Builder totalConstituents(@Nullable Output<Integer> totalConstituents) {
             $.totalConstituents = totalConstituents;
             return this;
         }
 
-        /**
-         * @param totalConstituents The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
-         * 
-         * @return builder
-         * 
-         */
         public Builder totalConstituents(Integer totalConstituents) {
             return totalConstituents(Output.of(totalConstituents));
         }

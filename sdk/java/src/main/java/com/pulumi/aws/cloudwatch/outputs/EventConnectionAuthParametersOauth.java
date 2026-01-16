@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventConnectionAuthParametersOauth {
-    /**
-     * @return The URL to the authorization endpoint.
-     * 
-     */
     private String authorizationEndpoint;
-    /**
-     * @return Contains the client parameters for OAuth authorization. Contains the following two parameters.
-     * 
-     */
     private @Nullable EventConnectionAuthParametersOauthClientParameters clientParameters;
-    /**
-     * @return A password for the authorization. Created and stored in AWS Secrets Manager.
-     * 
-     */
     private String httpMethod;
-    /**
-     * @return OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
-     * 
-     */
     private EventConnectionAuthParametersOauthOauthHttpParameters oauthHttpParameters;
 
     private EventConnectionAuthParametersOauth() {}
-    /**
-     * @return The URL to the authorization endpoint.
-     * 
-     */
     public String authorizationEndpoint() {
         return this.authorizationEndpoint;
     }
-    /**
-     * @return Contains the client parameters for OAuth authorization. Contains the following two parameters.
-     * 
-     */
     public Optional<EventConnectionAuthParametersOauthClientParameters> clientParameters() {
         return Optional.ofNullable(this.clientParameters);
     }
-    /**
-     * @return A password for the authorization. Created and stored in AWS Secrets Manager.
-     * 
-     */
     public String httpMethod() {
         return this.httpMethod;
     }
-    /**
-     * @return OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
-     * 
-     */
     public EventConnectionAuthParametersOauthOauthHttpParameters oauthHttpParameters() {
         return this.oauthHttpParameters;
     }

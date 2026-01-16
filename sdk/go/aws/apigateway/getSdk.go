@@ -11,39 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigateway.GetSdk(ctx, &apigateway.GetSdkArgs{
-//				RestApiId: exampleAwsApiGatewayStage.RestApiId,
-//				StageName: exampleAwsApiGatewayStage.StageName,
-//				SdkType:   "android",
-//				Parameters: map[string]interface{}{
-//					"groupId":         "example",
-//					"artifactId":      "example",
-//					"artifactVersion": "example",
-//					"invokerPackage":  "example",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetSdk(ctx *pulumi.Context, args *GetSdkArgs, opts ...pulumi.InvokeOption) (*GetSdkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSdkResult
@@ -56,26 +23,18 @@ func GetSdk(ctx *pulumi.Context, args *GetSdkArgs, opts ...pulumi.InvokeOption) 
 
 // A collection of arguments for invoking getSdk.
 type GetSdkArgs struct {
-	// Key-value map of query string parameters `sdkType` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
 	Parameters map[string]string `pulumi:"parameters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Identifier of the associated REST API.
-	RestApiId string `pulumi:"restApiId"`
-	// Language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
-	SdkType string `pulumi:"sdkType"`
-	// Name of the Stage that will be exported.
-	StageName string `pulumi:"stageName"`
+	Region     *string           `pulumi:"region"`
+	RestApiId  string            `pulumi:"restApiId"`
+	SdkType    string            `pulumi:"sdkType"`
+	StageName  string            `pulumi:"stageName"`
 }
 
 // A collection of values returned by getSdk.
 type GetSdkResult struct {
-	// SDK as a string.
-	Body string `pulumi:"body"`
-	// Content-disposition header value in the HTTP response.
+	Body               string `pulumi:"body"`
 	ContentDisposition string `pulumi:"contentDisposition"`
-	// Content-type header value in the HTTP response.
-	ContentType string `pulumi:"contentType"`
+	ContentType        string `pulumi:"contentType"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string            `pulumi:"id"`
 	Parameters map[string]string `pulumi:"parameters"`
@@ -96,16 +55,11 @@ func GetSdkOutput(ctx *pulumi.Context, args GetSdkOutputArgs, opts ...pulumi.Inv
 
 // A collection of arguments for invoking getSdk.
 type GetSdkOutputArgs struct {
-	// Key-value map of query string parameters `sdkType` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Identifier of the associated REST API.
-	RestApiId pulumi.StringInput `pulumi:"restApiId"`
-	// Language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
-	SdkType pulumi.StringInput `pulumi:"sdkType"`
-	// Name of the Stage that will be exported.
-	StageName pulumi.StringInput `pulumi:"stageName"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
+	RestApiId  pulumi.StringInput    `pulumi:"restApiId"`
+	SdkType    pulumi.StringInput    `pulumi:"sdkType"`
+	StageName  pulumi.StringInput    `pulumi:"stageName"`
 }
 
 func (GetSdkOutputArgs) ElementType() reflect.Type {
@@ -127,17 +81,14 @@ func (o GetSdkResultOutput) ToGetSdkResultOutputWithContext(ctx context.Context)
 	return o
 }
 
-// SDK as a string.
 func (o GetSdkResultOutput) Body() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSdkResult) string { return v.Body }).(pulumi.StringOutput)
 }
 
-// Content-disposition header value in the HTTP response.
 func (o GetSdkResultOutput) ContentDisposition() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSdkResult) string { return v.ContentDisposition }).(pulumi.StringOutput)
 }
 
-// Content-type header value in the HTTP response.
 func (o GetSdkResultOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSdkResult) string { return v.ContentType }).(pulumi.StringOutput)
 }

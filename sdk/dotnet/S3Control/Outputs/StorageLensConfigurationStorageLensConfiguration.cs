@@ -13,29 +13,11 @@ namespace Pulumi.Aws.S3Control.Outputs
     [OutputType]
     public sealed class StorageLensConfigurationStorageLensConfiguration
     {
-        /// <summary>
-        /// The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
-        /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevel AccountLevel;
-        /// <summary>
-        /// The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
-        /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationAwsOrg? AwsOrg;
-        /// <summary>
-        /// Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
-        /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationDataExport? DataExport;
-        /// <summary>
-        /// Whether the S3 Storage Lens configuration is enabled.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// What is excluded in this configuration. Conflicts with `Include`. See Exclude below for more details.
-        /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationExclude? Exclude;
-        /// <summary>
-        /// What is included in this configuration. Conflicts with `Exclude`. See Include below for more details.
-        /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationInclude? Include;
 
         [OutputConstructor]

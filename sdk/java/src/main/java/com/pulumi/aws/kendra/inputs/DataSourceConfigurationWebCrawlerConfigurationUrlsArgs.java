@@ -16,32 +16,16 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsArgs extend
 
     public static final DataSourceConfigurationWebCrawlerConfigurationUrlsArgs Empty = new DataSourceConfigurationWebCrawlerConfigurationUrlsArgs();
 
-    /**
-     * A block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
-     * 
-     */
     @Import(name="seedUrlConfiguration")
     private @Nullable Output<DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs> seedUrlConfiguration;
 
-    /**
-     * @return A block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
-     * 
-     */
     public Optional<Output<DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs>> seedUrlConfiguration() {
         return Optional.ofNullable(this.seedUrlConfiguration);
     }
 
-    /**
-     * A block that specifies the configuration of the sitemap URLs of the websites you want to crawl. Only URLs belonging to the same website host names are crawled. You can list up to `3` sitemap URLs. Detailed below.
-     * 
-     */
     @Import(name="siteMapsConfiguration")
     private @Nullable Output<DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs> siteMapsConfiguration;
 
-    /**
-     * @return A block that specifies the configuration of the sitemap URLs of the websites you want to crawl. Only URLs belonging to the same website host names are crawled. You can list up to `3` sitemap URLs. Detailed below.
-     * 
-     */
     public Optional<Output<DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs>> siteMapsConfiguration() {
         return Optional.ofNullable(this.siteMapsConfiguration);
     }
@@ -71,44 +55,20 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsArgs extend
             $ = new DataSourceConfigurationWebCrawlerConfigurationUrlsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param seedUrlConfiguration A block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder seedUrlConfiguration(@Nullable Output<DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs> seedUrlConfiguration) {
             $.seedUrlConfiguration = seedUrlConfiguration;
             return this;
         }
 
-        /**
-         * @param seedUrlConfiguration A block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder seedUrlConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs seedUrlConfiguration) {
             return seedUrlConfiguration(Output.of(seedUrlConfiguration));
         }
 
-        /**
-         * @param siteMapsConfiguration A block that specifies the configuration of the sitemap URLs of the websites you want to crawl. Only URLs belonging to the same website host names are crawled. You can list up to `3` sitemap URLs. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder siteMapsConfiguration(@Nullable Output<DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs> siteMapsConfiguration) {
             $.siteMapsConfiguration = siteMapsConfiguration;
             return this;
         }
 
-        /**
-         * @param siteMapsConfiguration A block that specifies the configuration of the sitemap URLs of the websites you want to crawl. Only URLs belonging to the same website host names are crawled. You can list up to `3` sitemap URLs. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder siteMapsConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs siteMapsConfiguration) {
             return siteMapsConfiguration(Output.of(siteMapsConfiguration));
         }

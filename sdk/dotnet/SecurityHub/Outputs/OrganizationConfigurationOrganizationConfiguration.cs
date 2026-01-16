@@ -13,9 +13,6 @@ namespace Pulumi.Aws.SecurityHub.Outputs
     [OutputType]
     public sealed class OrganizationConfigurationOrganizationConfiguration
     {
-        /// <summary>
-        /// Indicates whether the organization uses local or central configuration. If using central configuration, `AutoEnable` must be set to `False` and `AutoEnableStandards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
-        /// </summary>
         public readonly string ConfigurationType;
 
         [OutputConstructor]

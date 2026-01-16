@@ -9,99 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Transfer
 {
-    /// <summary>
-    /// Manages a host key for a server. This is an [_additional server host key_](https://docs.aws.amazon.com/transfer/latest/userguide/server-host-key-add.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Transfer.HostKey("example", new()
-    ///     {
-    ///         ServerId = exampleAwsTransferServer.Id,
-    ///         Description = "example additional host key",
-    ///         HostKeyBodyWo = @"# Private key PEM.
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import host keys using the `server_id` and `host_key_id` separated by `,`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:transfer/hostKey:HostKey example s-12345678,key-12345
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:transfer/hostKey:HostKey")]
     public partial class HostKey : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of host key.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Text description.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Private key portion of an SSH key pair.
-        /// </summary>
         [Output("hostKeyBody")]
         public Output<string?> HostKeyBody { get; private set; } = null!;
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `HostKeyBody` or `HostKeyBodyWo` must be configured.
         /// </summary>
         [Output("hostKeyBodyWo")]
         public Output<string?> HostKeyBodyWo { get; private set; } = null!;
 
-        /// <summary>
-        /// Public key fingerprint.
-        /// </summary>
         [Output("hostKeyFingerprint")]
         public Output<string> HostKeyFingerprint { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the host key.
-        /// </summary>
         [Output("hostKeyId")]
         public Output<string> HostKeyId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Server ID.
-        /// </summary>
         [Output("serverId")]
         public Output<string> ServerId { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -156,18 +96,11 @@ namespace Pulumi.Aws.Transfer
 
     public sealed class HostKeyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Text description.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("hostKeyBody")]
         private Input<string>? _hostKeyBody;
-
-        /// <summary>
-        /// Private key portion of an SSH key pair.
-        /// </summary>
         public Input<string>? HostKeyBody
         {
             get => _hostKeyBody;
@@ -183,7 +116,6 @@ namespace Pulumi.Aws.Transfer
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `HostKeyBody` or `HostKeyBodyWo` must be configured.
         /// </summary>
         public Input<string>? HostKeyBodyWo
         {
@@ -195,24 +127,14 @@ namespace Pulumi.Aws.Transfer
             }
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Server ID.
-        /// </summary>
         [Input("serverId", required: true)]
         public Input<string> ServerId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -227,24 +149,14 @@ namespace Pulumi.Aws.Transfer
 
     public sealed class HostKeyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of host key.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Text description.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("hostKeyBody")]
         private Input<string>? _hostKeyBody;
-
-        /// <summary>
-        /// Private key portion of an SSH key pair.
-        /// </summary>
         public Input<string>? HostKeyBody
         {
             get => _hostKeyBody;
@@ -260,7 +172,6 @@ namespace Pulumi.Aws.Transfer
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `HostKeyBody` or `HostKeyBodyWo` must be configured.
         /// </summary>
         public Input<string>? HostKeyBodyWo
         {
@@ -272,36 +183,20 @@ namespace Pulumi.Aws.Transfer
             }
         }
 
-        /// <summary>
-        /// Public key fingerprint.
-        /// </summary>
         [Input("hostKeyFingerprint")]
         public Input<string>? HostKeyFingerprint { get; set; }
 
-        /// <summary>
-        /// ID of the host key.
-        /// </summary>
         [Input("hostKeyId")]
         public Input<string>? HostKeyId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Server ID.
-        /// </summary>
         [Input("serverId")]
         public Input<string>? ServerId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -310,10 +205,6 @@ namespace Pulumi.Aws.Transfer
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

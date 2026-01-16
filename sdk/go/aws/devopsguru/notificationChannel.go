@@ -11,92 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS DevOps Guru Notification Channel.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/devopsguru"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := devopsguru.NewNotificationChannel(ctx, "example", &devopsguru.NotificationChannelArgs{
-//				Sns: &devopsguru.NotificationChannelSnsArgs{
-//					TopicArn: pulumi.Any(exampleAwsSnsTopic.Arn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Filters
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/devopsguru"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := devopsguru.NewNotificationChannel(ctx, "example", &devopsguru.NotificationChannelArgs{
-//				Sns: &devopsguru.NotificationChannelSnsArgs{
-//					TopicArn: pulumi.Any(exampleAwsSnsTopic.Arn),
-//				},
-//				Filters: &devopsguru.NotificationChannelFiltersArgs{
-//					MessageTypes: pulumi.StringArray{
-//						pulumi.String("NEW_INSIGHT"),
-//					},
-//					Severities: pulumi.StringArray{
-//						pulumi.String("HIGH"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import DevOps Guru Notification Channel using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:devopsguru/notificationChannel:NotificationChannel example id-12345678
-// ```
 type NotificationChannel struct {
 	pulumi.CustomResourceState
 
-	// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
 	Filters NotificationChannelFiltersPtrOutput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// SNS noficiation channel configurations. See the `sns` argument reference below.
-	//
-	// The following arguments are optional:
-	Sns NotificationChannelSnsPtrOutput `pulumi:"sns"`
+	Region  pulumi.StringOutput                 `pulumi:"region"`
+	Sns     NotificationChannelSnsPtrOutput     `pulumi:"sns"`
 }
 
 // NewNotificationChannel registers a new resource with the given unique name, arguments, and options.
@@ -129,25 +49,15 @@ func GetNotificationChannel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NotificationChannel resources.
 type notificationChannelState struct {
-	// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
 	Filters *NotificationChannelFilters `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// SNS noficiation channel configurations. See the `sns` argument reference below.
-	//
-	// The following arguments are optional:
-	Sns *NotificationChannelSns `pulumi:"sns"`
+	Region  *string                     `pulumi:"region"`
+	Sns     *NotificationChannelSns     `pulumi:"sns"`
 }
 
 type NotificationChannelState struct {
-	// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
 	Filters NotificationChannelFiltersPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// SNS noficiation channel configurations. See the `sns` argument reference below.
-	//
-	// The following arguments are optional:
-	Sns NotificationChannelSnsPtrInput
+	Region  pulumi.StringPtrInput
+	Sns     NotificationChannelSnsPtrInput
 }
 
 func (NotificationChannelState) ElementType() reflect.Type {
@@ -155,26 +65,16 @@ func (NotificationChannelState) ElementType() reflect.Type {
 }
 
 type notificationChannelArgs struct {
-	// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
 	Filters *NotificationChannelFilters `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// SNS noficiation channel configurations. See the `sns` argument reference below.
-	//
-	// The following arguments are optional:
-	Sns *NotificationChannelSns `pulumi:"sns"`
+	Region  *string                     `pulumi:"region"`
+	Sns     *NotificationChannelSns     `pulumi:"sns"`
 }
 
 // The set of arguments for constructing a NotificationChannel resource.
 type NotificationChannelArgs struct {
-	// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
 	Filters NotificationChannelFiltersPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// SNS noficiation channel configurations. See the `sns` argument reference below.
-	//
-	// The following arguments are optional:
-	Sns NotificationChannelSnsPtrInput
+	Region  pulumi.StringPtrInput
+	Sns     NotificationChannelSnsPtrInput
 }
 
 func (NotificationChannelArgs) ElementType() reflect.Type {
@@ -264,19 +164,14 @@ func (o NotificationChannelOutput) ToNotificationChannelOutputWithContext(ctx co
 	return o
 }
 
-// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
 func (o NotificationChannelOutput) Filters() NotificationChannelFiltersPtrOutput {
 	return o.ApplyT(func(v *NotificationChannel) NotificationChannelFiltersPtrOutput { return v.Filters }).(NotificationChannelFiltersPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NotificationChannelOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationChannel) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// SNS noficiation channel configurations. See the `sns` argument reference below.
-//
-// The following arguments are optional:
 func (o NotificationChannelOutput) Sns() NotificationChannelSnsPtrOutput {
 	return o.ApplyT(func(v *NotificationChannel) NotificationChannelSnsPtrOutput { return v.Sns }).(NotificationChannelSnsPtrOutput)
 }

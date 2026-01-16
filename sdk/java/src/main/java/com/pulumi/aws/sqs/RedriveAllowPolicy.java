@@ -13,113 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a SQS Queue Redrive Allow Policy resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sqs.Queue;
- * import com.pulumi.aws.sqs.QueueArgs;
- * import com.pulumi.aws.sqs.RedriveAllowPolicy;
- * import com.pulumi.aws.sqs.RedriveAllowPolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Queue("example", QueueArgs.builder()
- *             .name("examplequeue")
- *             .build());
- * 
- *         var src = new Queue("src", QueueArgs.builder()
- *             .name("srcqueue")
- *             .redrivePolicy(example.arn().applyValue(_arn -> serializeJson(
- *                 jsonObject(
- *                     jsonProperty("deadLetterTargetArn", _arn),
- *                     jsonProperty("maxReceiveCount", 4)
- *                 ))))
- *             .build());
- * 
- *         var exampleRedriveAllowPolicy = new RedriveAllowPolicy("exampleRedriveAllowPolicy", RedriveAllowPolicyArgs.builder()
- *             .queueUrl(example.id())
- *             .redriveAllowPolicy(src.arn().applyValue(_arn -> serializeJson(
- *                 jsonObject(
- *                     jsonProperty("redrivePermission", "byQueue"),
- *                     jsonProperty("sourceQueueArns", jsonArray(_arn))
- *                 ))))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SQS Queue Redrive Allow Policies using the queue URL. For example:
- * 
- * ```sh
- * $ pulumi import aws:sqs/redriveAllowPolicy:RedriveAllowPolicy test https://queue.amazonaws.com/123456789012/myqueue
- * ```
- * 
- */
 @ResourceType(type="aws:sqs/redriveAllowPolicy:RedriveAllowPolicy")
 public class RedriveAllowPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The URL of the SQS Queue to which to attach the policy
-     * 
-     */
     @Export(name="queueUrl", refs={String.class}, tree="[0]")
     private Output<String> queueUrl;
 
-    /**
-     * @return The URL of the SQS Queue to which to attach the policy
-     * 
-     */
     public Output<String> queueUrl() {
         return this.queueUrl;
     }
-    /**
-     * The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-     * 
-     */
     @Export(name="redriveAllowPolicy", refs={String.class}, tree="[0]")
     private Output<String> redriveAllowPolicy;
 
-    /**
-     * @return The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-     * 
-     */
     public Output<String> redriveAllowPolicy() {
         return this.redriveAllowPolicy;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

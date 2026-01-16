@@ -18,77 +18,37 @@ public final class CanaryRunConfigArgs extends com.pulumi.resources.ResourceArgs
 
     public static final CanaryRunConfigArgs Empty = new CanaryRunConfigArgs();
 
-    /**
-     * Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
-     * 
-     */
     @Import(name="activeTracing")
     private @Nullable Output<Boolean> activeTracing;
 
-    /**
-     * @return Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
-     * 
-     */
     public Optional<Output<Boolean>> activeTracing() {
         return Optional.ofNullable(this.activeTracing);
     }
 
-    /**
-     * Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
-     * 
-     */
     @Import(name="environmentVariables")
     private @Nullable Output<Map<String,String>> environmentVariables;
 
-    /**
-     * @return Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
-     * 
-     */
     public Optional<Output<Map<String,String>>> environmentVariables() {
         return Optional.ofNullable(this.environmentVariables);
     }
 
-    /**
-     * Amount of ephemeral storage (in MB) allocated for the canary run during execution. Defaults to 1024.
-     * 
-     */
     @Import(name="ephemeralStorage")
     private @Nullable Output<Integer> ephemeralStorage;
 
-    /**
-     * @return Amount of ephemeral storage (in MB) allocated for the canary run during execution. Defaults to 1024.
-     * 
-     */
     public Optional<Output<Integer>> ephemeralStorage() {
         return Optional.ofNullable(this.ephemeralStorage);
     }
 
-    /**
-     * Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
-     * 
-     */
     @Import(name="memoryInMb")
     private @Nullable Output<Integer> memoryInMb;
 
-    /**
-     * @return Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
-     * 
-     */
     public Optional<Output<Integer>> memoryInMb() {
         return Optional.ofNullable(this.memoryInMb);
     }
 
-    /**
-     * Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
-     * 
-     */
     @Import(name="timeoutInSeconds")
     private @Nullable Output<Integer> timeoutInSeconds;
 
-    /**
-     * @return Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
-     * 
-     */
     public Optional<Output<Integer>> timeoutInSeconds() {
         return Optional.ofNullable(this.timeoutInSeconds);
     }
@@ -121,107 +81,47 @@ public final class CanaryRunConfigArgs extends com.pulumi.resources.ResourceArgs
             $ = new CanaryRunConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param activeTracing Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
-         * 
-         * @return builder
-         * 
-         */
         public Builder activeTracing(@Nullable Output<Boolean> activeTracing) {
             $.activeTracing = activeTracing;
             return this;
         }
 
-        /**
-         * @param activeTracing Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
-         * 
-         * @return builder
-         * 
-         */
         public Builder activeTracing(Boolean activeTracing) {
             return activeTracing(Output.of(activeTracing));
         }
 
-        /**
-         * @param environmentVariables Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
-         * 
-         * @return builder
-         * 
-         */
         public Builder environmentVariables(@Nullable Output<Map<String,String>> environmentVariables) {
             $.environmentVariables = environmentVariables;
             return this;
         }
 
-        /**
-         * @param environmentVariables Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
-         * 
-         * @return builder
-         * 
-         */
         public Builder environmentVariables(Map<String,String> environmentVariables) {
             return environmentVariables(Output.of(environmentVariables));
         }
 
-        /**
-         * @param ephemeralStorage Amount of ephemeral storage (in MB) allocated for the canary run during execution. Defaults to 1024.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ephemeralStorage(@Nullable Output<Integer> ephemeralStorage) {
             $.ephemeralStorage = ephemeralStorage;
             return this;
         }
 
-        /**
-         * @param ephemeralStorage Amount of ephemeral storage (in MB) allocated for the canary run during execution. Defaults to 1024.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ephemeralStorage(Integer ephemeralStorage) {
             return ephemeralStorage(Output.of(ephemeralStorage));
         }
 
-        /**
-         * @param memoryInMb Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memoryInMb(@Nullable Output<Integer> memoryInMb) {
             $.memoryInMb = memoryInMb;
             return this;
         }
 
-        /**
-         * @param memoryInMb Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memoryInMb(Integer memoryInMb) {
             return memoryInMb(Output.of(memoryInMb));
         }
 
-        /**
-         * @param timeoutInSeconds Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeoutInSeconds(@Nullable Output<Integer> timeoutInSeconds) {
             $.timeoutInSeconds = timeoutInSeconds;
             return this;
         }
 
-        /**
-         * @param timeoutInSeconds Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeoutInSeconds(Integer timeoutInSeconds) {
             return timeoutInSeconds(Output.of(timeoutInSeconds));
         }

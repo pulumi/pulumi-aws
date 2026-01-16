@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class MemberDetectorFeatureAdditionalConfiguration {
-    /**
-     * @return The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
-     * 
-     */
     private String name;
-    /**
-     * @return The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     private String status;
 
     private MemberDetectorFeatureAdditionalConfiguration() {}
-    /**
-     * @return The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     public String status() {
         return this.status;
     }

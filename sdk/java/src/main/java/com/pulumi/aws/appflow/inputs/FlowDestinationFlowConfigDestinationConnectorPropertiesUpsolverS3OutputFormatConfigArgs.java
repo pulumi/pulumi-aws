@@ -18,47 +18,23 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
 
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs();
 
-    /**
-     * Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
-     * 
-     */
     @Import(name="aggregationConfig")
     private @Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgs> aggregationConfig;
 
-    /**
-     * @return Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
-     * 
-     */
     public Optional<Output<FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgs>> aggregationConfig() {
         return Optional.ofNullable(this.aggregationConfig);
     }
 
-    /**
-     * File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
-     * 
-     */
     @Import(name="fileType")
     private @Nullable Output<String> fileType;
 
-    /**
-     * @return File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
-     * 
-     */
     public Optional<Output<String>> fileType() {
         return Optional.ofNullable(this.fileType);
     }
 
-    /**
-     * Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
-     * 
-     */
     @Import(name="prefixConfig", required=true)
     private Output<FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs> prefixConfig;
 
-    /**
-     * @return Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
-     * 
-     */
     public Output<FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs> prefixConfig() {
         return this.prefixConfig;
     }
@@ -89,65 +65,29 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
             $ = new FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param aggregationConfig Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aggregationConfig(@Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgs> aggregationConfig) {
             $.aggregationConfig = aggregationConfig;
             return this;
         }
 
-        /**
-         * @param aggregationConfig Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aggregationConfig(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgs aggregationConfig) {
             return aggregationConfig(Output.of(aggregationConfig));
         }
 
-        /**
-         * @param fileType File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileType(@Nullable Output<String> fileType) {
             $.fileType = fileType;
             return this;
         }
 
-        /**
-         * @param fileType File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileType(String fileType) {
             return fileType(Output.of(fileType));
         }
 
-        /**
-         * @param prefixConfig Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefixConfig(Output<FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs> prefixConfig) {
             $.prefixConfig = prefixConfig;
             return this;
         }
 
-        /**
-         * @param prefixConfig Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefixConfig(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs prefixConfig) {
             return prefixConfig(Output.of(prefixConfig));
         }

@@ -12,17 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentAgentActionGroupApiSchemaGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
-        /// Only one of `Payload` or `S3` can be specified.
-        /// </summary>
         [Input("payload")]
         public Input<string>? Payload { get; set; }
 
-        /// <summary>
-        /// Details about the S3 object containing the OpenAPI schema for the action group. See `S3` Block for details.
-        /// Only one of `S3` or `Payload` can be specified.
-        /// </summary>
         [Input("s3")]
         public Input<Inputs.AgentAgentActionGroupApiSchemaS3GetArgs>? S3 { get; set; }
 

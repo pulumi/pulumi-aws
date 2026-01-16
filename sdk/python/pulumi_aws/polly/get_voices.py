@@ -56,9 +56,6 @@ class GetVoicesResult:
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        Amazon Polly assigned voice ID.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
@@ -69,9 +66,6 @@ class GetVoicesResult:
     @_builtins.property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> Optional[_builtins.str]:
-        """
-        Language code of the voice.
-        """
         return pulumi.get(self, "language_code")
 
     @_builtins.property
@@ -82,9 +76,6 @@ class GetVoicesResult:
     @_builtins.property
     @pulumi.getter
     def voices(self) -> Optional[Sequence['outputs.GetVoicesVoiceResult']]:
-        """
-        List of voices with their properties. See `voices` Attribute Reference below.
-        """
         return pulumi.get(self, "voices")
 
 
@@ -109,34 +100,7 @@ def get_voices(engine: Optional[_builtins.str] = None,
                voices: Optional[Sequence[Union['GetVoicesVoiceArgs', 'GetVoicesVoiceArgsDict']]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVoicesResult:
     """
-    Data source for managing an AWS Polly Voices.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.polly.get_voices()
-    ```
-
-    ### With Language Code
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.polly.get_voices(language_code="en-GB")
-    ```
-
-
-    :param _builtins.str engine: Engine used by Amazon Polly when processing input text for speech synthesis. Valid values are `standard`, `neural`, and `long-form`.
-    :param _builtins.bool include_additional_language_codes: Whether to return any bilingual voices that use the specified language as an additional language.
-    :param _builtins.str language_code: Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Sequence[Union['GetVoicesVoiceArgs', 'GetVoicesVoiceArgsDict']] voices: List of voices with their properties. See `voices` Attribute Reference below.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['engine'] = engine
@@ -161,34 +125,7 @@ def get_voices_output(engine: Optional[pulumi.Input[Optional[_builtins.str]]] = 
                       voices: Optional[pulumi.Input[Optional[Sequence[Union['GetVoicesVoiceArgs', 'GetVoicesVoiceArgsDict']]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVoicesResult]:
     """
-    Data source for managing an AWS Polly Voices.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.polly.get_voices()
-    ```
-
-    ### With Language Code
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.polly.get_voices(language_code="en-GB")
-    ```
-
-
-    :param _builtins.str engine: Engine used by Amazon Polly when processing input text for speech synthesis. Valid values are `standard`, `neural`, and `long-form`.
-    :param _builtins.bool include_additional_language_codes: Whether to return any bilingual voices that use the specified language as an additional language.
-    :param _builtins.str language_code: Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Sequence[Union['GetVoicesVoiceArgs', 'GetVoicesVoiceArgsDict']] voices: List of voices with their properties. See `voices` Attribute Reference below.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['engine'] = engine

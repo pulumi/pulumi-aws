@@ -14,47 +14,23 @@ public final class RepositoryAssociationRepositoryBitbucketArgs extends com.pulu
 
     public static final RepositoryAssociationRepositoryBitbucketArgs Empty = new RepositoryAssociationRepositoryBitbucketArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-     * 
-     */
     @Import(name="connectionArn", required=true)
     private Output<String> connectionArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-     * 
-     */
     public Output<String> connectionArn() {
         return this.connectionArn;
     }
 
-    /**
-     * The name of the third party source repository.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the third party source repository.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * The username for the account that owns the repository.
-     * 
-     */
     @Import(name="owner", required=true)
     private Output<String> owner;
 
-    /**
-     * @return The username for the account that owns the repository.
-     * 
-     */
     public Output<String> owner() {
         return this.owner;
     }
@@ -85,65 +61,29 @@ public final class RepositoryAssociationRepositoryBitbucketArgs extends com.pulu
             $ = new RepositoryAssociationRepositoryBitbucketArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param connectionArn The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionArn(Output<String> connectionArn) {
             $.connectionArn = connectionArn;
             return this;
         }
 
-        /**
-         * @param connectionArn The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionArn(String connectionArn) {
             return connectionArn(Output.of(connectionArn));
         }
 
-        /**
-         * @param name The name of the third party source repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the third party source repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param owner The username for the account that owns the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(Output<String> owner) {
             $.owner = owner;
             return this;
         }
 
-        /**
-         * @param owner The username for the account that owns the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(String owner) {
             return owner(Output.of(owner));
         }

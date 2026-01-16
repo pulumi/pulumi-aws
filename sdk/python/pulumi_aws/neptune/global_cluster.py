@@ -30,13 +30,6 @@ class GlobalClusterArgs:
                  storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a GlobalCluster resource.
-        :param pulumi.Input[_builtins.str] global_cluster_identifier: Global cluster identifier.
-        :param pulumi.Input[_builtins.bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
-        :param pulumi.Input[_builtins.str] engine: Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `source_db_cluster_identifier`.
-        :param pulumi.Input[_builtins.str] engine_version: Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source_db_cluster_identifier: ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
-        :param pulumi.Input[_builtins.bool] storage_encrypted: Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
         """
         pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
         if deletion_protection is not None:
@@ -55,9 +48,6 @@ class GlobalClusterArgs:
     @_builtins.property
     @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        Global cluster identifier.
-        """
         return pulumi.get(self, "global_cluster_identifier")
 
     @global_cluster_identifier.setter
@@ -67,9 +57,6 @@ class GlobalClusterArgs:
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
-        """
         return pulumi.get(self, "deletion_protection")
 
     @deletion_protection.setter
@@ -79,9 +66,6 @@ class GlobalClusterArgs:
     @_builtins.property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `source_db_cluster_identifier`.
-        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -91,9 +75,6 @@ class GlobalClusterArgs:
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -103,9 +84,6 @@ class GlobalClusterArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -115,9 +93,6 @@ class GlobalClusterArgs:
     @_builtins.property
     @pulumi.getter(name="sourceDbClusterIdentifier")
     def source_db_cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
-        """
         return pulumi.get(self, "source_db_cluster_identifier")
 
     @source_db_cluster_identifier.setter
@@ -127,9 +102,6 @@ class GlobalClusterArgs:
     @_builtins.property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
-        """
         return pulumi.get(self, "storage_encrypted")
 
     @storage_encrypted.setter
@@ -153,16 +125,6 @@ class _GlobalClusterState:
                  storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering GlobalCluster resources.
-        :param pulumi.Input[_builtins.str] arn: Global Cluster ARN
-        :param pulumi.Input[_builtins.bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
-        :param pulumi.Input[_builtins.str] engine: Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `source_db_cluster_identifier`.
-        :param pulumi.Input[_builtins.str] engine_version: Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-        :param pulumi.Input[_builtins.str] global_cluster_identifier: Global cluster identifier.
-        :param pulumi.Input[Sequence[pulumi.Input['GlobalClusterGlobalClusterMemberArgs']]] global_cluster_members: Set of objects containing Global Cluster members.
-        :param pulumi.Input[_builtins.str] global_cluster_resource_id: AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source_db_cluster_identifier: ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
-        :param pulumi.Input[_builtins.bool] storage_encrypted: Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -190,9 +152,6 @@ class _GlobalClusterState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Global Cluster ARN
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -202,9 +161,6 @@ class _GlobalClusterState:
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
-        """
         return pulumi.get(self, "deletion_protection")
 
     @deletion_protection.setter
@@ -214,9 +170,6 @@ class _GlobalClusterState:
     @_builtins.property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `source_db_cluster_identifier`.
-        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -226,9 +179,6 @@ class _GlobalClusterState:
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -238,9 +188,6 @@ class _GlobalClusterState:
     @_builtins.property
     @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Global cluster identifier.
-        """
         return pulumi.get(self, "global_cluster_identifier")
 
     @global_cluster_identifier.setter
@@ -250,9 +197,6 @@ class _GlobalClusterState:
     @_builtins.property
     @pulumi.getter(name="globalClusterMembers")
     def global_cluster_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalClusterGlobalClusterMemberArgs']]]]:
-        """
-        Set of objects containing Global Cluster members.
-        """
         return pulumi.get(self, "global_cluster_members")
 
     @global_cluster_members.setter
@@ -262,9 +206,6 @@ class _GlobalClusterState:
     @_builtins.property
     @pulumi.getter(name="globalClusterResourceId")
     def global_cluster_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
-        """
         return pulumi.get(self, "global_cluster_resource_id")
 
     @global_cluster_resource_id.setter
@@ -274,9 +215,6 @@ class _GlobalClusterState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -286,9 +224,6 @@ class _GlobalClusterState:
     @_builtins.property
     @pulumi.getter(name="sourceDbClusterIdentifier")
     def source_db_cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
-        """
         return pulumi.get(self, "source_db_cluster_identifier")
 
     @source_db_cluster_identifier.setter
@@ -307,9 +242,6 @@ class _GlobalClusterState:
     @_builtins.property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
-        """
         return pulumi.get(self, "storage_encrypted")
 
     @storage_encrypted.setter
@@ -332,81 +264,9 @@ class GlobalCluster(pulumi.CustomResource):
                  storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Manages a Neptune Global Cluster. A global cluster consists of one primary region and up to five read-only secondary regions. You issue write operations directly to the primary cluster in the primary region and Amazon Neptune automatically replicates the data to the secondary regions using dedicated infrastructure.
-
-        More information about Neptune Global Clusters can be found in the [Neptune User Guide](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-global-database.html).
-
-        ## Example Usage
-
-        ### New Neptune Global Cluster
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.neptune.GlobalCluster("example",
-            global_cluster_identifier="global-test",
-            engine="neptune",
-            engine_version="1.2.0.0")
-        primary = aws.neptune.Cluster("primary",
-            engine=example.engine,
-            engine_version=example.engine_version,
-            cluster_identifier="test-primary-cluster",
-            global_cluster_identifier=example.id,
-            neptune_subnet_group_name="default")
-        primary_cluster_instance = aws.neptune.ClusterInstance("primary",
-            engine=example.engine,
-            engine_version=example.engine_version,
-            identifier="test-primary-cluster-instance",
-            cluster_identifier=primary.id,
-            instance_class="db.r5.large",
-            neptune_subnet_group_name="default")
-        secondary = aws.neptune.Cluster("secondary",
-            engine=example.engine,
-            engine_version=example.engine_version,
-            cluster_identifier="test-secondary-cluster",
-            global_cluster_identifier=example.id,
-            neptune_subnet_group_name="default")
-        secondary_cluster_instance = aws.neptune.ClusterInstance("secondary",
-            engine=example.engine,
-            engine_version=example.engine_version,
-            identifier="test-secondary-cluster-instance",
-            cluster_identifier=secondary.id,
-            instance_class="db.r5.large",
-            neptune_subnet_group_name="default",
-            opts = pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
-        ```
-
-        ### New Global Cluster From Existing DB Cluster
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.neptune.Cluster("example")
-        example_global_cluster = aws.neptune.GlobalCluster("example",
-            global_cluster_identifier="example",
-            source_db_cluster_identifier=example.arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_neptune_global_cluster` using the Global Cluster identifier. For example:
-
-        ```sh
-        $ pulumi import aws:neptune/globalCluster:GlobalCluster example example
-        ```
-        Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
-
+        Create a GlobalCluster resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
-        :param pulumi.Input[_builtins.str] engine: Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `source_db_cluster_identifier`.
-        :param pulumi.Input[_builtins.str] engine_version: Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-        :param pulumi.Input[_builtins.str] global_cluster_identifier: Global cluster identifier.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source_db_cluster_identifier: ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
-        :param pulumi.Input[_builtins.bool] storage_encrypted: Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
         """
         ...
     @overload
@@ -415,72 +275,7 @@ class GlobalCluster(pulumi.CustomResource):
                  args: GlobalClusterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Neptune Global Cluster. A global cluster consists of one primary region and up to five read-only secondary regions. You issue write operations directly to the primary cluster in the primary region and Amazon Neptune automatically replicates the data to the secondary regions using dedicated infrastructure.
-
-        More information about Neptune Global Clusters can be found in the [Neptune User Guide](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-global-database.html).
-
-        ## Example Usage
-
-        ### New Neptune Global Cluster
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.neptune.GlobalCluster("example",
-            global_cluster_identifier="global-test",
-            engine="neptune",
-            engine_version="1.2.0.0")
-        primary = aws.neptune.Cluster("primary",
-            engine=example.engine,
-            engine_version=example.engine_version,
-            cluster_identifier="test-primary-cluster",
-            global_cluster_identifier=example.id,
-            neptune_subnet_group_name="default")
-        primary_cluster_instance = aws.neptune.ClusterInstance("primary",
-            engine=example.engine,
-            engine_version=example.engine_version,
-            identifier="test-primary-cluster-instance",
-            cluster_identifier=primary.id,
-            instance_class="db.r5.large",
-            neptune_subnet_group_name="default")
-        secondary = aws.neptune.Cluster("secondary",
-            engine=example.engine,
-            engine_version=example.engine_version,
-            cluster_identifier="test-secondary-cluster",
-            global_cluster_identifier=example.id,
-            neptune_subnet_group_name="default")
-        secondary_cluster_instance = aws.neptune.ClusterInstance("secondary",
-            engine=example.engine,
-            engine_version=example.engine_version,
-            identifier="test-secondary-cluster-instance",
-            cluster_identifier=secondary.id,
-            instance_class="db.r5.large",
-            neptune_subnet_group_name="default",
-            opts = pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
-        ```
-
-        ### New Global Cluster From Existing DB Cluster
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.neptune.Cluster("example")
-        example_global_cluster = aws.neptune.GlobalCluster("example",
-            global_cluster_identifier="example",
-            source_db_cluster_identifier=example.arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_neptune_global_cluster` using the Global Cluster identifier. For example:
-
-        ```sh
-        $ pulumi import aws:neptune/globalCluster:GlobalCluster example example
-        ```
-        Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
-
+        Create a GlobalCluster resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param GlobalClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -553,16 +348,6 @@ class GlobalCluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Global Cluster ARN
-        :param pulumi.Input[_builtins.bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
-        :param pulumi.Input[_builtins.str] engine: Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `source_db_cluster_identifier`.
-        :param pulumi.Input[_builtins.str] engine_version: Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-        :param pulumi.Input[_builtins.str] global_cluster_identifier: Global cluster identifier.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalClusterGlobalClusterMemberArgs', 'GlobalClusterGlobalClusterMemberArgsDict']]]] global_cluster_members: Set of objects containing Global Cluster members.
-        :param pulumi.Input[_builtins.str] global_cluster_resource_id: AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source_db_cluster_identifier: ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
-        :param pulumi.Input[_builtins.bool] storage_encrypted: Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -584,73 +369,46 @@ class GlobalCluster(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Global Cluster ARN
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
-        """
         return pulumi.get(self, "deletion_protection")
 
     @_builtins.property
     @pulumi.getter
     def engine(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `source_db_cluster_identifier`.
-        """
         return pulumi.get(self, "engine")
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-        """
         return pulumi.get(self, "engine_version")
 
     @_builtins.property
     @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        Global cluster identifier.
-        """
         return pulumi.get(self, "global_cluster_identifier")
 
     @_builtins.property
     @pulumi.getter(name="globalClusterMembers")
     def global_cluster_members(self) -> pulumi.Output[Sequence['outputs.GlobalClusterGlobalClusterMember']]:
-        """
-        Set of objects containing Global Cluster members.
-        """
         return pulumi.get(self, "global_cluster_members")
 
     @_builtins.property
     @pulumi.getter(name="globalClusterResourceId")
     def global_cluster_resource_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
-        """
         return pulumi.get(self, "global_cluster_resource_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="sourceDbClusterIdentifier")
     def source_db_cluster_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
-        """
         return pulumi.get(self, "source_db_cluster_identifier")
 
     @_builtins.property
@@ -661,8 +419,5 @@ class GlobalCluster(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
-        """
         return pulumi.get(self, "storage_encrypted")
 

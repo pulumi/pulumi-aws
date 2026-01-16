@@ -12,9 +12,6 @@ namespace Pulumi.Aws.TimestreamQuery.Inputs
 
     public sealed class ScheduledQueryNotificationConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for details about the Amazon Simple Notification Service (SNS) configuration. See below.
-        /// </summary>
         [Input("snsConfiguration", required: true)]
         public Input<Inputs.ScheduledQueryNotificationConfigurationSnsConfigurationGetArgs> SnsConfiguration { get; set; } = null!;
 

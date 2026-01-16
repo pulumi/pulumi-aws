@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppAutoScaling.Outputs
     [OutputType]
     public sealed class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecification
     {
-        /// <summary>
-        /// Metric type.
-        /// </summary>
         public readonly string PredefinedMetricType;
-        /// <summary>
-        /// Label that uniquely identifies a target group.
-        /// </summary>
         public readonly string? ResourceLabel;
 
         [OutputConstructor]

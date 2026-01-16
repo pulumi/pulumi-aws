@@ -16,107 +16,51 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
 
     public static final GetOrderableDbInstancePlainArgs Empty = new GetOrderableDbInstancePlainArgs();
 
-    /**
-     * DB engine. (Default: `neptune`)
-     * 
-     */
     @Import(name="engine")
     private @Nullable String engine;
 
-    /**
-     * @return DB engine. (Default: `neptune`)
-     * 
-     */
     public Optional<String> engine() {
         return Optional.ofNullable(this.engine);
     }
 
-    /**
-     * Version of the DB engine. For example, `1.0.1.0`, `1.0.1.2`, `1.0.2.2`, and `1.0.3.0`.
-     * 
-     */
     @Import(name="engineVersion")
     private @Nullable String engineVersion;
 
-    /**
-     * @return Version of the DB engine. For example, `1.0.1.0`, `1.0.1.2`, `1.0.2.2`, and `1.0.3.0`.
-     * 
-     */
     public Optional<String> engineVersion() {
         return Optional.ofNullable(this.engineVersion);
     }
 
-    /**
-     * DB instance class. Examples of classes are `db.r5.large`, `db.r5.xlarge`, `db.r4.large`, `db.r5.4xlarge`, `db.r5.12xlarge`, `db.r4.xlarge`, and `db.t3.medium`.
-     * 
-     */
     @Import(name="instanceClass")
     private @Nullable String instanceClass;
 
-    /**
-     * @return DB instance class. Examples of classes are `db.r5.large`, `db.r5.xlarge`, `db.r4.large`, `db.r5.4xlarge`, `db.r5.12xlarge`, `db.r4.xlarge`, and `db.t3.medium`.
-     * 
-     */
     public Optional<String> instanceClass() {
         return Optional.ofNullable(this.instanceClass);
     }
 
-    /**
-     * License model. (Default: `amazon-license`)
-     * 
-     */
     @Import(name="licenseModel")
     private @Nullable String licenseModel;
 
-    /**
-     * @return License model. (Default: `amazon-license`)
-     * 
-     */
     public Optional<String> licenseModel() {
         return Optional.ofNullable(this.licenseModel);
     }
 
-    /**
-     * Ordered list of preferred Neptune DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-     * 
-     */
     @Import(name="preferredInstanceClasses")
     private @Nullable List<String> preferredInstanceClasses;
 
-    /**
-     * @return Ordered list of preferred Neptune DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-     * 
-     */
     public Optional<List<String>> preferredInstanceClasses() {
         return Optional.ofNullable(this.preferredInstanceClasses);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Enable to show only VPC offerings.
-     * 
-     */
     @Import(name="vpc")
     private @Nullable Boolean vpc;
 
-    /**
-     * @return Enable to show only VPC offerings.
-     * 
-     */
     public Optional<Boolean> vpc() {
         return Optional.ofNullable(this.vpc);
     }
@@ -151,88 +95,40 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
             $ = new GetOrderableDbInstancePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param engine DB engine. (Default: `neptune`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder engine(@Nullable String engine) {
             $.engine = engine;
             return this;
         }
 
-        /**
-         * @param engineVersion Version of the DB engine. For example, `1.0.1.0`, `1.0.1.2`, `1.0.2.2`, and `1.0.3.0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder engineVersion(@Nullable String engineVersion) {
             $.engineVersion = engineVersion;
             return this;
         }
 
-        /**
-         * @param instanceClass DB instance class. Examples of classes are `db.r5.large`, `db.r5.xlarge`, `db.r4.large`, `db.r5.4xlarge`, `db.r5.12xlarge`, `db.r4.xlarge`, and `db.t3.medium`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceClass(@Nullable String instanceClass) {
             $.instanceClass = instanceClass;
             return this;
         }
 
-        /**
-         * @param licenseModel License model. (Default: `amazon-license`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder licenseModel(@Nullable String licenseModel) {
             $.licenseModel = licenseModel;
             return this;
         }
 
-        /**
-         * @param preferredInstanceClasses Ordered list of preferred Neptune DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preferredInstanceClasses(@Nullable List<String> preferredInstanceClasses) {
             $.preferredInstanceClasses = preferredInstanceClasses;
             return this;
         }
 
-        /**
-         * @param preferredInstanceClasses Ordered list of preferred Neptune DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preferredInstanceClasses(String... preferredInstanceClasses) {
             return preferredInstanceClasses(List.of(preferredInstanceClasses));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param vpc Enable to show only VPC offerings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpc(@Nullable Boolean vpc) {
             $.vpc = vpc;
             return this;

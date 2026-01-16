@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ContactsRotationRecurrenceMonthlySetting {
-    /**
-     * @return (Required) The day of the month when monthly recurring on-call rotations begin.
-     * 
-     */
     private Integer dayOfMonth;
-    /**
-     * @return (Required) The hand off time. See Hand Off Time for more details.
-     * 
-     */
     private @Nullable ContactsRotationRecurrenceMonthlySettingHandOffTime handOffTime;
 
     private ContactsRotationRecurrenceMonthlySetting() {}
-    /**
-     * @return (Required) The day of the month when monthly recurring on-call rotations begin.
-     * 
-     */
     public Integer dayOfMonth() {
         return this.dayOfMonth;
     }
-    /**
-     * @return (Required) The hand off time. See Hand Off Time for more details.
-     * 
-     */
     public Optional<ContactsRotationRecurrenceMonthlySettingHandOffTime> handOffTime() {
         return Optional.ofNullable(this.handOffTime);
     }

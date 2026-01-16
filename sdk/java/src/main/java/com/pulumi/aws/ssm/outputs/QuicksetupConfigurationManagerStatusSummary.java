@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class QuicksetupConfigurationManagerStatusSummary {
-    /**
-     * @return Current status.
-     * 
-     */
     private String status;
-    /**
-     * @return When applicable, returns an informational message relevant to the current status and status type of the status summary object.
-     * 
-     */
     private String statusMessage;
-    /**
-     * @return Type of a status summary.
-     * 
-     */
     private String statusType;
 
     private QuicksetupConfigurationManagerStatusSummary() {}
-    /**
-     * @return Current status.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return When applicable, returns an informational message relevant to the current status and status type of the status summary object.
-     * 
-     */
     public String statusMessage() {
         return this.statusMessage;
     }
-    /**
-     * @return Type of a status summary.
-     * 
-     */
     public String statusType() {
         return this.statusType;
     }

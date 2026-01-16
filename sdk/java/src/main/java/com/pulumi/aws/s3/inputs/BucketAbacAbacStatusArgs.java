@@ -14,21 +14,9 @@ public final class BucketAbacAbacStatusArgs extends com.pulumi.resources.Resourc
 
     public static final BucketAbacAbacStatusArgs Empty = new BucketAbacAbacStatusArgs();
 
-    /**
-     * ABAC status of the general purpose bucket.
-     * Valid values are `Enabled` and `Disabled`.
-     * By default, ABAC is disabled for all Amazon S3 general purpose buckets.
-     * 
-     */
     @Import(name="status", required=true)
     private Output<String> status;
 
-    /**
-     * @return ABAC status of the general purpose bucket.
-     * Valid values are `Enabled` and `Disabled`.
-     * By default, ABAC is disabled for all Amazon S3 general purpose buckets.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
@@ -57,27 +45,11 @@ public final class BucketAbacAbacStatusArgs extends com.pulumi.resources.Resourc
             $ = new BucketAbacAbacStatusArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param status ABAC status of the general purpose bucket.
-         * Valid values are `Enabled` and `Disabled`.
-         * By default, ABAC is disabled for all Amazon S3 general purpose buckets.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status ABAC status of the general purpose bucket.
-         * Valid values are `Enabled` and `Disabled`.
-         * By default, ABAC is disabled for all Amazon S3 general purpose buckets.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

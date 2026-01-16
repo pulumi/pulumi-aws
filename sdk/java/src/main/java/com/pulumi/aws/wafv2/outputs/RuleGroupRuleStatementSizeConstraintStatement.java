@@ -16,57 +16,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleGroupRuleStatementSizeConstraintStatement {
-    /**
-     * @return The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
-     * 
-     */
     private String comparisonOperator;
-    /**
-     * @return The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementSizeConstraintStatementFieldToMatch fieldToMatch;
-    /**
-     * @return The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
-     * 
-     */
     private Integer size;
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
-     * 
-     */
     private List<RuleGroupRuleStatementSizeConstraintStatementTextTransformation> textTransformations;
 
     private RuleGroupRuleStatementSizeConstraintStatement() {}
-    /**
-     * @return The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
-     * 
-     */
     public String comparisonOperator() {
         return this.comparisonOperator;
     }
-    /**
-     * @return The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementSizeConstraintStatementFieldToMatch> fieldToMatch() {
         return Optional.ofNullable(this.fieldToMatch);
     }
-    /**
-     * @return The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
-     * 
-     */
     public Integer size() {
         return this.size;
     }
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
-     * 
-     */
     public List<RuleGroupRuleStatementSizeConstraintStatementTextTransformation> textTransformations() {
         return this.textTransformations;
     }

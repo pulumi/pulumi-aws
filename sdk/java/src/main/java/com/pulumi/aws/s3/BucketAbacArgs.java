@@ -17,66 +17,30 @@ public final class BucketAbacArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final BucketAbacArgs Empty = new BucketAbacArgs();
 
-    /**
-     * ABAC status configuration. See `abacStatus` Block for details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="abacStatus")
     private @Nullable Output<BucketAbacAbacStatusArgs> abacStatus;
 
-    /**
-     * @return ABAC status configuration. See `abacStatus` Block for details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<BucketAbacAbacStatusArgs>> abacStatus() {
         return Optional.ofNullable(this.abacStatus);
     }
 
-    /**
-     * General purpose bucket that you want to create the metadata configuration for.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return General purpose bucket that you want to create the metadata configuration for.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * Account ID of the expected bucket owner.
-     * 
-     */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
-    /**
-     * @return Account ID of the expected bucket owner.
-     * 
-     */
     public Optional<Output<String>> expectedBucketOwner() {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -108,90 +72,38 @@ public final class BucketAbacArgs extends com.pulumi.resources.ResourceArgs {
             $ = new BucketAbacArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param abacStatus ABAC status configuration. See `abacStatus` Block for details.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder abacStatus(@Nullable Output<BucketAbacAbacStatusArgs> abacStatus) {
             $.abacStatus = abacStatus;
             return this;
         }
 
-        /**
-         * @param abacStatus ABAC status configuration. See `abacStatus` Block for details.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder abacStatus(BucketAbacAbacStatusArgs abacStatus) {
             return abacStatus(Output.of(abacStatus));
         }
 
-        /**
-         * @param bucket General purpose bucket that you want to create the metadata configuration for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket General purpose bucket that you want to create the metadata configuration for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param expectedBucketOwner Account ID of the expected bucket owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expectedBucketOwner(@Nullable Output<String> expectedBucketOwner) {
             $.expectedBucketOwner = expectedBucketOwner;
             return this;
         }
 
-        /**
-         * @param expectedBucketOwner Account ID of the expected bucket owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expectedBucketOwner(String expectedBucketOwner) {
             return expectedBucketOwner(Output.of(expectedBucketOwner));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

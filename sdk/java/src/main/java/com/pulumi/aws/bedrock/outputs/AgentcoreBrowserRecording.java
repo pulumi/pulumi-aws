@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreBrowserRecording {
-    /**
-     * @return Whether to enable recording for browser sessions. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return S3 location where browser session recordings are stored. See `s3Location` below.
-     * 
-     */
     private @Nullable AgentcoreBrowserRecordingS3Location s3Location;
 
     private AgentcoreBrowserRecording() {}
-    /**
-     * @return Whether to enable recording for browser sessions. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return S3 location where browser session recordings are stored. See `s3Location` below.
-     * 
-     */
     public Optional<AgentcoreBrowserRecordingS3Location> s3Location() {
         return Optional.ofNullable(this.s3Location);
     }

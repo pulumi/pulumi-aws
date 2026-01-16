@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn {
-    /**
-     * @return A reference to the data element in the streaming input or the reference data source.
-     * 
-     */
     private @Nullable String mapping;
-    /**
-     * @return The name of the column that is created in the in-application input stream or reference table.
-     * 
-     */
     private String name;
-    /**
-     * @return The type of column created in the in-application input stream or reference table.
-     * 
-     */
     private String sqlType;
 
     private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn() {}
-    /**
-     * @return A reference to the data element in the streaming input or the reference data source.
-     * 
-     */
     public Optional<String> mapping() {
         return Optional.ofNullable(this.mapping);
     }
-    /**
-     * @return The name of the column that is created in the in-application input stream or reference table.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The type of column created in the in-application input stream or reference table.
-     * 
-     */
     public String sqlType() {
         return this.sqlType;
     }

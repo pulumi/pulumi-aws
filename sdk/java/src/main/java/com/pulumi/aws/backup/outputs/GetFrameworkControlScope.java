@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFrameworkControlScope {
-    /**
-     * @return The ID of the only AWS resource that you want your control scope to contain.
-     * 
-     */
     private List<String> complianceResourceIds;
-    /**
-     * @return Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
-     * 
-     */
     private List<String> complianceResourceTypes;
-    /**
-     * @return Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetFrameworkControlScope() {}
-    /**
-     * @return The ID of the only AWS resource that you want your control scope to contain.
-     * 
-     */
     public List<String> complianceResourceIds() {
         return this.complianceResourceIds;
     }
-    /**
-     * @return Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
-     * 
-     */
     public List<String> complianceResourceTypes() {
         return this.complianceResourceTypes;
     }
-    /**
-     * @return Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

@@ -19,131 +19,35 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing AWS Data Exchange Revision Assets.
- * 
- * &gt; Note: This resource creates a new revision and adds associated assets. Destroying this resource will delete the revision and all associated assets.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.dataexchange.RevisionAssets;
- * import com.pulumi.aws.dataexchange.RevisionAssetsArgs;
- * import com.pulumi.aws.dataexchange.inputs.RevisionAssetsAssetArgs;
- * import com.pulumi.aws.dataexchange.inputs.RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs;
- * import com.pulumi.aws.dataexchange.inputs.RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RevisionAssets("example", RevisionAssetsArgs.builder()
- *             .dataSetId("example-data-set-id")
- *             .assets(RevisionAssetsAssetArgs.builder()
- *                 .createS3DataAccessFromS3Bucket(RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs.builder()
- *                     .assetSource(RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs.builder()
- *                         .bucket("example-bucket")
- *                         .build())
- *                     .build())
- *                 .build())
- *             .tags(Map.of("Environment", "Production"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:dataexchange/revisionAssets:RevisionAssets")
 public class RevisionAssets extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the Data Exchange Revision Assets.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the Data Exchange Revision Assets.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * A block to define the asset associated with the revision. See Asset for more details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="assets", refs={List.class,RevisionAssetsAsset.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RevisionAssetsAsset>> assets;
 
-    /**
-     * @return A block to define the asset associated with the revision. See Asset for more details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<List<RevisionAssetsAsset>>> assets() {
         return Codegen.optional(this.assets);
     }
-    /**
-     * A comment for the revision. Maximum length is 16,348 characters.
-     * 
-     */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
-    /**
-     * @return A comment for the revision. Maximum length is 16,348 characters.
-     * 
-     */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
-    /**
-     * The timestamp when the revision was created, in RFC3339 format.
-     * 
-     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
-    /**
-     * @return The timestamp when the revision was created, in RFC3339 format.
-     * 
-     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
-    /**
-     * Unique identifier for the data set associated with the revision.
-     * 
-     */
     @Export(name="dataSetId", refs={String.class}, tree="[0]")
     private Output<String> dataSetId;
 
-    /**
-     * @return Unique identifier for the data set associated with the revision.
-     * 
-     */
     public Output<String> dataSetId() {
         return this.dataSetId;
     }
@@ -159,45 +63,21 @@ public class RevisionAssets extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> forceDestroy() {
         return Codegen.optional(this.forceDestroy);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
@@ -207,17 +87,9 @@ public class RevisionAssets extends com.pulumi.resources.CustomResource {
     public Output<Optional<RevisionAssetsTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * The timestamp when the revision was last updated, in RFC3339 format.
-     * 
-     */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
-    /**
-     * @return The timestamp when the revision was last updated, in RFC3339 format.
-     * 
-     */
     public Output<String> updatedAt() {
         return this.updatedAt;
     }

@@ -9,54 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Cfg
 {
-    /// <summary>
-    /// Provides a resource to manage the AWS Config retention configuration.
-    /// The retention configuration defines the number of days that AWS Config stores historical information.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Cfg.RetentionConfiguration("example", new()
-    ///     {
-    ///         RetentionPeriodInDays = 90,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import the AWS Config retention configuration using the `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cfg/retentionConfiguration:RetentionConfiguration example default
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cfg/retentionConfiguration:RetentionConfiguration")]
     public partial class RetentionConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The name of the retention configuration object. The object is always named **default**.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The number of days AWS Config stores historical information.
-        /// </summary>
         [Output("retentionPeriodInDays")]
         public Output<int> RetentionPeriodInDays { get; private set; } = null!;
 
@@ -106,15 +67,9 @@ namespace Pulumi.Aws.Cfg
 
     public sealed class RetentionConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The number of days AWS Config stores historical information.
-        /// </summary>
         [Input("retentionPeriodInDays", required: true)]
         public Input<int> RetentionPeriodInDays { get; set; } = null!;
 
@@ -126,21 +81,12 @@ namespace Pulumi.Aws.Cfg
 
     public sealed class RetentionConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the retention configuration object. The object is always named **default**.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The number of days AWS Config stores historical information.
-        /// </summary>
         [Input("retentionPeriodInDays")]
         public Input<int>? RetentionPeriodInDays { get; set; }
 

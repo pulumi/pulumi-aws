@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class GetUserPoolEmailConfigurationResult
     {
-        /// <summary>
-        /// - Configuration set used for sending emails.
-        /// </summary>
         public readonly string ConfigurationSet;
-        /// <summary>
-        /// - Email sending account.
-        /// </summary>
         public readonly string EmailSendingAccount;
-        /// <summary>
-        /// - Email sender address.
-        /// </summary>
         public readonly string From;
-        /// <summary>
-        /// - Reply-to email address.
-        /// </summary>
         public readonly string ReplyToEmailAddress;
-        /// <summary>
-        /// - Source Amazon Resource Name (ARN) for emails.
-        /// </summary>
         public readonly string SourceArn;
 
         [OutputConstructor]

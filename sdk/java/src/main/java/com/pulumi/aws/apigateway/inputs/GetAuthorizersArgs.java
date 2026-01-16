@@ -16,32 +16,16 @@ public final class GetAuthorizersArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetAuthorizersArgs Empty = new GetAuthorizersArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the associated REST API.
-     * 
-     */
     @Import(name="restApiId", required=true)
     private Output<String> restApiId;
 
-    /**
-     * @return ID of the associated REST API.
-     * 
-     */
     public Output<String> restApiId() {
         return this.restApiId;
     }
@@ -71,44 +55,20 @@ public final class GetAuthorizersArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetAuthorizersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param restApiId ID of the associated REST API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restApiId(Output<String> restApiId) {
             $.restApiId = restApiId;
             return this;
         }
 
-        /**
-         * @param restApiId ID of the associated REST API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restApiId(String restApiId) {
             return restApiId(Output.of(restApiId));
         }

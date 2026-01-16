@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class WorkforceSourceIpConfig
     {
-        /// <summary>
-        /// A list of up to 10 CIDR values.
-        /// </summary>
         public readonly ImmutableArray<string> Cidrs;
 
         [OutputConstructor]

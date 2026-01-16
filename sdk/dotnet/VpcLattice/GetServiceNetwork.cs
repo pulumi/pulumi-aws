@@ -11,81 +11,12 @@ namespace Pulumi.Aws.VpcLattice
 {
     public static class GetServiceNetwork
     {
-        /// <summary>
-        /// Data source for managing an AWS VPC Lattice Service Network.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.VpcLattice.GetServiceNetwork.Invoke(new()
-        ///     {
-        ///         ServiceNetworkIdentifier = "snsa-01112223334445556",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetServiceNetworkResult> InvokeAsync(GetServiceNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceNetworkResult>("aws:vpclattice/getServiceNetwork:getServiceNetwork", args ?? new GetServiceNetworkArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS VPC Lattice Service Network.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.VpcLattice.GetServiceNetwork.Invoke(new()
-        ///     {
-        ///         ServiceNetworkIdentifier = "snsa-01112223334445556",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetServiceNetworkResult> Invoke(GetServiceNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceNetworkResult>("aws:vpclattice/getServiceNetwork:getServiceNetwork", args ?? new GetServiceNetworkInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS VPC Lattice Service Network.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.VpcLattice.GetServiceNetwork.Invoke(new()
-        ///     {
-        ///         ServiceNetworkIdentifier = "snsa-01112223334445556",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetServiceNetworkResult> Invoke(GetServiceNetworkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceNetworkResult>("aws:vpclattice/getServiceNetwork:getServiceNetwork", args ?? new GetServiceNetworkInvokeArgs(), options.WithDefaults());
     }
@@ -93,15 +24,9 @@ namespace Pulumi.Aws.VpcLattice
 
     public sealed class GetServiceNetworkArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// Identifier of the service network.
-        /// </summary>
         [Input("serviceNetworkIdentifier", required: true)]
         public string ServiceNetworkIdentifier { get; set; } = null!;
 
@@ -121,15 +46,9 @@ namespace Pulumi.Aws.VpcLattice
 
     public sealed class GetServiceNetworkInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Identifier of the service network.
-        /// </summary>
         [Input("serviceNetworkIdentifier", required: true)]
         public Input<string> ServiceNetworkIdentifier { get; set; } = null!;
 
@@ -151,37 +70,16 @@ namespace Pulumi.Aws.VpcLattice
     [OutputType]
     public sealed class GetServiceNetworkResult
     {
-        /// <summary>
-        /// ARN of the Service Network.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Authentication type for the service network. Either `NONE` or `AWS_IAM`.
-        /// </summary>
         public readonly string AuthType;
-        /// <summary>
-        /// Date and time the service network was created.
-        /// </summary>
         public readonly string CreatedAt;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Date and time the service network was last updated.
-        /// </summary>
         public readonly string LastUpdatedAt;
-        /// <summary>
-        /// Name of the service network.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Number of services associated with this service network.
-        /// </summary>
         public readonly int NumberOfAssociatedServices;
-        /// <summary>
-        /// Number of VPCs associated with this service network.
-        /// </summary>
         public readonly int NumberOfAssociatedVpcs;
         public readonly string Region;
         public readonly string ServiceNetworkIdentifier;

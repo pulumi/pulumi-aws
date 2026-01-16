@@ -10,31 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class StageAccessLogSettings {
-    /**
-     * @return ARN of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
-     * 
-     */
     private String destinationArn;
-    /**
-     * @return Formatting and values recorded in the logs.
-     * For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
-     * 
-     */
     private String format;
 
     private StageAccessLogSettings() {}
-    /**
-     * @return ARN of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
-     * 
-     */
     public String destinationArn() {
         return this.destinationArn;
     }
-    /**
-     * @return Formatting and values recorded in the logs.
-     * For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
-     * 
-     */
     public String format() {
         return this.format;
     }

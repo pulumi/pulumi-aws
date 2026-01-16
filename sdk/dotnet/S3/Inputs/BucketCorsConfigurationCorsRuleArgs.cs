@@ -14,10 +14,6 @@ namespace Pulumi.Aws.S3.Inputs
     {
         [Input("allowedHeaders")]
         private InputList<string>? _allowedHeaders;
-
-        /// <summary>
-        /// Set of Headers that are specified in the `Access-Control-Request-Headers` header.
-        /// </summary>
         public InputList<string> AllowedHeaders
         {
             get => _allowedHeaders ?? (_allowedHeaders = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.S3.Inputs
 
         [Input("allowedMethods", required: true)]
         private InputList<string>? _allowedMethods;
-
-        /// <summary>
-        /// Set of HTTP methods that you allow the origin to execute. Valid values are `GET`, `PUT`, `HEAD`, `POST`, and `DELETE`.
-        /// </summary>
         public InputList<string> AllowedMethods
         {
             get => _allowedMethods ?? (_allowedMethods = new InputList<string>());
@@ -38,10 +30,6 @@ namespace Pulumi.Aws.S3.Inputs
 
         [Input("allowedOrigins", required: true)]
         private InputList<string>? _allowedOrigins;
-
-        /// <summary>
-        /// Set of origins you want customers to be able to access the bucket from.
-        /// </summary>
         public InputList<string> AllowedOrigins
         {
             get => _allowedOrigins ?? (_allowedOrigins = new InputList<string>());
@@ -50,25 +38,15 @@ namespace Pulumi.Aws.S3.Inputs
 
         [Input("exposeHeaders")]
         private InputList<string>? _exposeHeaders;
-
-        /// <summary>
-        /// Set of headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
-        /// </summary>
         public InputList<string> ExposeHeaders
         {
             get => _exposeHeaders ?? (_exposeHeaders = new InputList<string>());
             set => _exposeHeaders = value;
         }
 
-        /// <summary>
-        /// Unique identifier for the rule. The value cannot be longer than 255 characters.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// Time in seconds that your browser is to cache the preflight response for the specified resource.
-        /// </summary>
         [Input("maxAgeSeconds")]
         public Input<int>? MaxAgeSeconds { get; set; }
 

@@ -16,36 +16,16 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperationArgs exte
 
     public static final GetLogDataProtectionPolicyDocumentStatementOperationArgs Empty = new GetLogDataProtectionPolicyDocumentStatementOperationArgs();
 
-    /**
-     * Configures the detection of sensitive data.
-     * 
-     */
     @Import(name="audit")
     private @Nullable Output<GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs> audit;
 
-    /**
-     * @return Configures the detection of sensitive data.
-     * 
-     */
     public Optional<Output<GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs>> audit() {
         return Optional.ofNullable(this.audit);
     }
 
-    /**
-     * Configures the masking of sensitive data.
-     * 
-     * &gt; Every policy statement must specify exactly one operation.
-     * 
-     */
     @Import(name="deidentify")
     private @Nullable Output<GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs> deidentify;
 
-    /**
-     * @return Configures the masking of sensitive data.
-     * 
-     * &gt; Every policy statement must specify exactly one operation.
-     * 
-     */
     public Optional<Output<GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs>> deidentify() {
         return Optional.ofNullable(this.deidentify);
     }
@@ -75,48 +55,20 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperationArgs exte
             $ = new GetLogDataProtectionPolicyDocumentStatementOperationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param audit Configures the detection of sensitive data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audit(@Nullable Output<GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs> audit) {
             $.audit = audit;
             return this;
         }
 
-        /**
-         * @param audit Configures the detection of sensitive data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audit(GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs audit) {
             return audit(Output.of(audit));
         }
 
-        /**
-         * @param deidentify Configures the masking of sensitive data.
-         * 
-         * &gt; Every policy statement must specify exactly one operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deidentify(@Nullable Output<GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs> deidentify) {
             $.deidentify = deidentify;
             return this;
         }
 
-        /**
-         * @param deidentify Configures the masking of sensitive data.
-         * 
-         * &gt; Every policy statement must specify exactly one operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deidentify(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs deidentify) {
             return deidentify(Output.of(deidentify));
         }

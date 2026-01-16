@@ -13,53 +13,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainAutoTuneOption {
-    /**
-     * @return Auto-Tune desired state for the domain.
-     * 
-     */
     private String desiredState;
-    /**
-     * @return A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
-     * 
-     */
     private List<GetDomainAutoTuneOptionMaintenanceSchedule> maintenanceSchedules;
-    /**
-     * @return Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
-     * 
-     */
     private String rollbackOnDisable;
-    /**
-     * @return Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain&#39;s configured daily off-peak window.
-     * 
-     */
     private Boolean useOffPeakWindow;
 
     private GetDomainAutoTuneOption() {}
-    /**
-     * @return Auto-Tune desired state for the domain.
-     * 
-     */
     public String desiredState() {
         return this.desiredState;
     }
-    /**
-     * @return A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
-     * 
-     */
     public List<GetDomainAutoTuneOptionMaintenanceSchedule> maintenanceSchedules() {
         return this.maintenanceSchedules;
     }
-    /**
-     * @return Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
-     * 
-     */
     public String rollbackOnDisable() {
         return this.rollbackOnDisable;
     }
-    /**
-     * @return Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain&#39;s configured daily off-peak window.
-     * 
-     */
     public Boolean useOffPeakWindow() {
         return this.useOffPeakWindow;
     }

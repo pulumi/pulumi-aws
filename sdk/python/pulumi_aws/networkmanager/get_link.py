@@ -62,25 +62,16 @@ class GetLinkResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the link.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def bandwidths(self) -> Sequence['outputs.GetLinkBandwidthResult']:
-        """
-        Upload speed and download speed of the link as documented below
-        """
         return pulumi.get(self, "bandwidths")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the link.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -104,33 +95,21 @@ class GetLinkResult:
     @_builtins.property
     @pulumi.getter(name="providerName")
     def provider_name(self) -> _builtins.str:
-        """
-        Provider of the link.
-        """
         return pulumi.get(self, "provider_name")
 
     @_builtins.property
     @pulumi.getter(name="siteId")
     def site_id(self) -> _builtins.str:
-        """
-        ID of the site.
-        """
         return pulumi.get(self, "site_id")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value tags for the link.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of the link.
-        """
         return pulumi.get(self, "type")
 
 
@@ -157,22 +136,7 @@ def get_link(global_network_id: Optional[_builtins.str] = None,
              tags: Optional[Mapping[str, _builtins.str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkResult:
     """
-    Provides details about an existing Network Manager link.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_link(global_network_id=global_network_id,
-        link_id=link_id)
-    ```
-
-
-    :param _builtins.str global_network_id: ID of the Global Network of the link to retrieve.
-    :param _builtins.str link_id: ID of the specific link to retrieve.
-    :param Mapping[str, _builtins.str] tags: Key-value tags for the link.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['globalNetworkId'] = global_network_id
@@ -197,22 +161,7 @@ def get_link_output(global_network_id: Optional[pulumi.Input[_builtins.str]] = N
                     tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkResult]:
     """
-    Provides details about an existing Network Manager link.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_link(global_network_id=global_network_id,
-        link_id=link_id)
-    ```
-
-
-    :param _builtins.str global_network_id: ID of the Global Network of the link to retrieve.
-    :param _builtins.str link_id: ID of the specific link to retrieve.
-    :param Mapping[str, _builtins.str] tags: Key-value tags for the link.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['globalNetworkId'] = global_network_id

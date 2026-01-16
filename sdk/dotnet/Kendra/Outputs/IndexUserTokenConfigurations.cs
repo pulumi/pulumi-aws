@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Kendra.Outputs
     [OutputType]
     public sealed class IndexUserTokenConfigurations
     {
-        /// <summary>
-        /// A block that specifies the information about the JSON token type configuration. Detailed below.
-        /// </summary>
         public readonly Outputs.IndexUserTokenConfigurationsJsonTokenTypeConfiguration? JsonTokenTypeConfiguration;
-        /// <summary>
-        /// A block that specifies the information about the JWT token type configuration. Detailed below.
-        /// </summary>
         public readonly Outputs.IndexUserTokenConfigurationsJwtTokenTypeConfiguration? JwtTokenTypeConfiguration;
 
         [OutputConstructor]

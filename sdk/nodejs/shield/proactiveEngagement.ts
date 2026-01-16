@@ -7,69 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing a AWS Shield Proactive Engagement.
- * Proactive engagement authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleRole = new aws.iam.Role("example", {
- *     name: "example-role",
- *     assumeRolePolicy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Sid: "",
- *             Effect: "Allow",
- *             Principal: {
- *                 Service: "drt.shield.amazonaws.com",
- *             },
- *             Action: "sts:AssumeRole",
- *         }],
- *     }),
- * });
- * const exampleDrtAccessRoleArnAssociation = new aws.shield.DrtAccessRoleArnAssociation("example", {roleArn: exampleRole.arn});
- * const example = new aws.shield.ProactiveEngagement("example", {
- *     enabled: true,
- *     emergencyContacts: [
- *         {
- *             contactNotes: "Notes",
- *             emailAddress: "contact1@example.com",
- *             phoneNumber: "+12358132134",
- *         },
- *         {
- *             contactNotes: "Notes 2",
- *             emailAddress: "contact2@example.com",
- *             phoneNumber: "+12358132134",
- *         },
- *     ],
- * }, {
- *     dependsOn: [exampleDrtAccessRoleArnAssociation],
- * });
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
- *     role: exampleRole.name,
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy",
- * });
- * const exampleProtectionGroup = new aws.shield.ProtectionGroup("example", {
- *     protectionGroupId: "example",
- *     aggregation: "MAX",
- *     pattern: "ALL",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Shield proactive engagement using the AWS account ID. For example:
- *
- * ```sh
- * $ pulumi import aws:shield/proactiveEngagement:ProactiveEngagement example 123456789012
- * ```
- */
 export class ProactiveEngagement extends pulumi.CustomResource {
     /**
      * Get an existing ProactiveEngagement resource's state with the given name, ID, and optional extra
@@ -98,13 +35,7 @@ export class ProactiveEngagement extends pulumi.CustomResource {
         return obj['__pulumiType'] === ProactiveEngagement.__pulumiType;
     }
 
-    /**
-     * One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
-     */
     declare public readonly emergencyContacts: pulumi.Output<outputs.shield.ProactiveEngagementEmergencyContact[] | undefined>;
-    /**
-     * Boolean value indicating if Proactive Engagement should be enabled or not.
-     */
     declare public readonly enabled: pulumi.Output<boolean>;
 
     /**
@@ -139,13 +70,7 @@ export class ProactiveEngagement extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ProactiveEngagement resources.
  */
 export interface ProactiveEngagementState {
-    /**
-     * One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
-     */
     emergencyContacts?: pulumi.Input<pulumi.Input<inputs.shield.ProactiveEngagementEmergencyContact>[]>;
-    /**
-     * Boolean value indicating if Proactive Engagement should be enabled or not.
-     */
     enabled?: pulumi.Input<boolean>;
 }
 
@@ -153,12 +78,6 @@ export interface ProactiveEngagementState {
  * The set of arguments for constructing a ProactiveEngagement resource.
  */
 export interface ProactiveEngagementArgs {
-    /**
-     * One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
-     */
     emergencyContacts?: pulumi.Input<pulumi.Input<inputs.shield.ProactiveEngagementEmergencyContact>[]>;
-    /**
-     * Boolean value indicating if Proactive Engagement should be enabled or not.
-     */
     enabled: pulumi.Input<boolean>;
 }

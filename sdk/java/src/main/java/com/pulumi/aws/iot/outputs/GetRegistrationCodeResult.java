@@ -16,10 +16,6 @@ public final class GetRegistrationCodeResult {
      */
     private String id;
     private String region;
-    /**
-     * @return The CA certificate registration code.
-     * 
-     */
     private String registrationCode;
 
     private GetRegistrationCodeResult() {}
@@ -33,10 +29,6 @@ public final class GetRegistrationCodeResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return The CA certificate registration code.
-     * 
-     */
     public String registrationCode() {
         return this.registrationCode;
     }

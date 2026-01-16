@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration
     {
-        /// <summary>
-        /// The unique identifier of the guardrail.
-        /// </summary>
         public readonly string GuardrailIdentifier;
-        /// <summary>
-        /// The version of the guardrail.
-        /// </summary>
         public readonly string GuardrailVersion;
 
         [OutputConstructor]

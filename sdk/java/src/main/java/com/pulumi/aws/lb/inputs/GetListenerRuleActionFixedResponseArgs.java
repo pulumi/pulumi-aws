@@ -14,47 +14,23 @@ public final class GetListenerRuleActionFixedResponseArgs extends com.pulumi.res
 
     public static final GetListenerRuleActionFixedResponseArgs Empty = new GetListenerRuleActionFixedResponseArgs();
 
-    /**
-     * Content type of the response.
-     * 
-     */
     @Import(name="contentType", required=true)
     private Output<String> contentType;
 
-    /**
-     * @return Content type of the response.
-     * 
-     */
     public Output<String> contentType() {
         return this.contentType;
     }
 
-    /**
-     * Message body of the response.
-     * 
-     */
     @Import(name="messageBody", required=true)
     private Output<String> messageBody;
 
-    /**
-     * @return Message body of the response.
-     * 
-     */
     public Output<String> messageBody() {
         return this.messageBody;
     }
 
-    /**
-     * The HTTP redirect code.
-     * 
-     */
     @Import(name="statusCode", required=true)
     private Output<String> statusCode;
 
-    /**
-     * @return The HTTP redirect code.
-     * 
-     */
     public Output<String> statusCode() {
         return this.statusCode;
     }
@@ -85,65 +61,29 @@ public final class GetListenerRuleActionFixedResponseArgs extends com.pulumi.res
             $ = new GetListenerRuleActionFixedResponseArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param contentType Content type of the response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentType(Output<String> contentType) {
             $.contentType = contentType;
             return this;
         }
 
-        /**
-         * @param contentType Content type of the response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentType(String contentType) {
             return contentType(Output.of(contentType));
         }
 
-        /**
-         * @param messageBody Message body of the response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messageBody(Output<String> messageBody) {
             $.messageBody = messageBody;
             return this;
         }
 
-        /**
-         * @param messageBody Message body of the response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messageBody(String messageBody) {
             return messageBody(Output.of(messageBody));
         }
 
-        /**
-         * @param statusCode The HTTP redirect code.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusCode(Output<String> statusCode) {
             $.statusCode = statusCode;
             return this;
         }
 
-        /**
-         * @param statusCode The HTTP redirect code.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusCode(String statusCode) {
             return statusCode(Output.of(statusCode));
         }

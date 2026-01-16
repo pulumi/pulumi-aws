@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScraperRoleConfiguration {
-    /**
-     * @return The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
-     * 
-     */
     private @Nullable String sourceRoleArn;
-    /**
-     * @return The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
-     * 
-     */
     private @Nullable String targetRoleArn;
 
     private ScraperRoleConfiguration() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
-     * 
-     */
     public Optional<String> sourceRoleArn() {
         return Optional.ofNullable(this.sourceRoleArn);
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
-     * 
-     */
     public Optional<String> targetRoleArn() {
         return Optional.ofNullable(this.targetRoleArn);
     }

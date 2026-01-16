@@ -14,19 +14,12 @@ namespace Pulumi.Aws.Eks.Inputs
     {
         [Input("namespaces")]
         private InputList<string>? _namespaces;
-
-        /// <summary>
-        /// The namespaces to which the access scope applies when type is namespace.
-        /// </summary>
         public InputList<string> Namespaces
         {
             get => _namespaces ?? (_namespaces = new InputList<string>());
             set => _namespaces = value;
         }
 
-        /// <summary>
-        /// Valid values are `Namespace` or `Cluster`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

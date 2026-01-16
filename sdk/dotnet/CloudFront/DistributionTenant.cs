@@ -9,194 +9,51 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudFront
 {
-    /// <summary>
-    /// Creates an Amazon CloudFront distribution tenant.
-    /// 
-    /// Distribution tenants allow you to create isolated configurations within a multi-tenant CloudFront distribution. Each tenant can have its own domains, customizations, and parameters while sharing the underlying distribution infrastructure.
-    /// 
-    /// For information about CloudFront distribution tenants, see the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-tenants.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Distribution Tenant
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudFront.DistributionTenant("example", new()
-    ///     {
-    ///         Name = "example-tenant",
-    ///         DistributionId = exampleAwsCloudfrontMultitenantDistribution.Id,
-    ///         Enabled = true,
-    ///         Domains = new[]
-    ///         {
-    ///             new Aws.CloudFront.Inputs.DistributionTenantDomainArgs
-    ///             {
-    ///                 Domain = "tenant.example.com",
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "production" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Distribution Tenant with Customizations
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudFront.DistributionTenant("example", new()
-    ///     {
-    ///         Name = "example-tenant",
-    ///         DistributionId = exampleAwsCloudfrontMultitenantDistribution.Id,
-    ///         Enabled = false,
-    ///         Domains = new[]
-    ///         {
-    ///             new Aws.CloudFront.Inputs.DistributionTenantDomainArgs
-    ///             {
-    ///                 Domain = "tenant.example.com",
-    ///             },
-    ///         },
-    ///         Customizations = new Aws.CloudFront.Inputs.DistributionTenantCustomizationsArgs
-    ///         {
-    ///             GeoRestriction = new Aws.CloudFront.Inputs.DistributionTenantCustomizationsGeoRestrictionArgs
-    ///             {
-    ///                 RestrictionType = "whitelist",
-    ///                 Locations = new[]
-    ///                 {
-    ///                     "US",
-    ///                     "CA",
-    ///                 },
-    ///             },
-    ///             Certificate = new Aws.CloudFront.Inputs.DistributionTenantCustomizationsCertificateArgs
-    ///             {
-    ///                 Arn = tenantCert.Arn,
-    ///             },
-    ///             WebAcl = new Aws.CloudFront.Inputs.DistributionTenantCustomizationsWebAclArgs
-    ///             {
-    ///                 Action = "override",
-    ///                 Arn = tenantWaf.Arn,
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "production" },
-    ///             { "Tenant", "example" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CloudFront Distribution Tenants using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cloudfront/distributionTenant:DistributionTenant example TENANT123EXAMPLE
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudfront/distributionTenant:DistributionTenant")]
     public partial class DistributionTenant : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the distribution tenant.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
-        /// </summary>
         [Output("connectionGroupId")]
         public Output<string> ConnectionGroupId { get; private set; } = null!;
 
-        /// <summary>
-        /// Customizations for the distribution tenant (maximum one).
-        /// </summary>
         [Output("customizations")]
         public Output<Outputs.DistributionTenantCustomizations?> Customizations { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the multi-tenant distribution.
-        /// </summary>
         [Output("distributionId")]
         public Output<string> DistributionId { get; private set; } = null!;
 
-        /// <summary>
-        /// Set of domains associated with the distribution tenant.
-        /// </summary>
         [Output("domains")]
         public Output<ImmutableArray<Outputs.DistributionTenantDomain>> Domains { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether the distribution tenant is enabled to serve traffic. Defaults to `True`.
-        /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Current version of the distribution tenant.
-        /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
-        /// <summary>
-        /// Managed certificate request for CloudFront managed ACM certificate (maximum one).
-        /// </summary>
         [Output("managedCertificateRequest")]
         public Output<Outputs.DistributionTenantManagedCertificateRequest?> ManagedCertificateRequest { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the distribution tenant.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Set of parameter values for the distribution tenant.
-        /// </summary>
         [Output("parameters")]
         public Output<ImmutableArray<Outputs.DistributionTenantParameter>> Parameters { get; private set; } = null!;
 
-        /// <summary>
-        /// Current status of the distribution tenant.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.DistributionTenantTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `False` will skip the process. Default: `True`.
-        /// </summary>
         [Output("waitForDeployment")]
         public Output<bool> WaitForDeployment { get; private set; } = null!;
 
@@ -246,60 +103,34 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class DistributionTenantArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
-        /// </summary>
         [Input("connectionGroupId")]
         public Input<string>? ConnectionGroupId { get; set; }
 
-        /// <summary>
-        /// Customizations for the distribution tenant (maximum one).
-        /// </summary>
         [Input("customizations")]
         public Input<Inputs.DistributionTenantCustomizationsArgs>? Customizations { get; set; }
 
-        /// <summary>
-        /// ID of the multi-tenant distribution.
-        /// </summary>
         [Input("distributionId", required: true)]
         public Input<string> DistributionId { get; set; } = null!;
 
         [Input("domains")]
         private InputList<Inputs.DistributionTenantDomainArgs>? _domains;
-
-        /// <summary>
-        /// Set of domains associated with the distribution tenant.
-        /// </summary>
         public InputList<Inputs.DistributionTenantDomainArgs> Domains
         {
             get => _domains ?? (_domains = new InputList<Inputs.DistributionTenantDomainArgs>());
             set => _domains = value;
         }
 
-        /// <summary>
-        /// Whether the distribution tenant is enabled to serve traffic. Defaults to `True`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Managed certificate request for CloudFront managed ACM certificate (maximum one).
-        /// </summary>
         [Input("managedCertificateRequest")]
         public Input<Inputs.DistributionTenantManagedCertificateRequestArgs>? ManagedCertificateRequest { get; set; }
 
-        /// <summary>
-        /// Name of the distribution tenant.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("parameters")]
         private InputList<Inputs.DistributionTenantParameterArgs>? _parameters;
-
-        /// <summary>
-        /// Set of parameter values for the distribution tenant.
-        /// </summary>
         public InputList<Inputs.DistributionTenantParameterArgs> Parameters
         {
             get => _parameters ?? (_parameters = new InputList<Inputs.DistributionTenantParameterArgs>());
@@ -308,10 +139,6 @@ namespace Pulumi.Aws.CloudFront
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -321,9 +148,6 @@ namespace Pulumi.Aws.CloudFront
         [Input("timeouts")]
         public Input<Inputs.DistributionTenantTimeoutsArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `False` will skip the process. Default: `True`.
-        /// </summary>
         [Input("waitForDeployment")]
         public Input<bool>? WaitForDeployment { get; set; }
 
@@ -335,90 +159,51 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class DistributionTenantState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the distribution tenant.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
-        /// </summary>
         [Input("connectionGroupId")]
         public Input<string>? ConnectionGroupId { get; set; }
 
-        /// <summary>
-        /// Customizations for the distribution tenant (maximum one).
-        /// </summary>
         [Input("customizations")]
         public Input<Inputs.DistributionTenantCustomizationsGetArgs>? Customizations { get; set; }
 
-        /// <summary>
-        /// ID of the multi-tenant distribution.
-        /// </summary>
         [Input("distributionId")]
         public Input<string>? DistributionId { get; set; }
 
         [Input("domains")]
         private InputList<Inputs.DistributionTenantDomainGetArgs>? _domains;
-
-        /// <summary>
-        /// Set of domains associated with the distribution tenant.
-        /// </summary>
         public InputList<Inputs.DistributionTenantDomainGetArgs> Domains
         {
             get => _domains ?? (_domains = new InputList<Inputs.DistributionTenantDomainGetArgs>());
             set => _domains = value;
         }
 
-        /// <summary>
-        /// Whether the distribution tenant is enabled to serve traffic. Defaults to `True`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Current version of the distribution tenant.
-        /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
-        /// <summary>
-        /// Managed certificate request for CloudFront managed ACM certificate (maximum one).
-        /// </summary>
         [Input("managedCertificateRequest")]
         public Input<Inputs.DistributionTenantManagedCertificateRequestGetArgs>? ManagedCertificateRequest { get; set; }
 
-        /// <summary>
-        /// Name of the distribution tenant.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("parameters")]
         private InputList<Inputs.DistributionTenantParameterGetArgs>? _parameters;
-
-        /// <summary>
-        /// Set of parameter values for the distribution tenant.
-        /// </summary>
         public InputList<Inputs.DistributionTenantParameterGetArgs> Parameters
         {
             get => _parameters ?? (_parameters = new InputList<Inputs.DistributionTenantParameterGetArgs>());
             set => _parameters = value;
         }
 
-        /// <summary>
-        /// Current status of the distribution tenant.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -427,10 +212,6 @@ namespace Pulumi.Aws.CloudFront
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -440,9 +221,6 @@ namespace Pulumi.Aws.CloudFront
         [Input("timeouts")]
         public Input<Inputs.DistributionTenantTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `False` will skip the process. Default: `True`.
-        /// </summary>
         [Input("waitForDeployment")]
         public Input<bool>? WaitForDeployment { get; set; }
 

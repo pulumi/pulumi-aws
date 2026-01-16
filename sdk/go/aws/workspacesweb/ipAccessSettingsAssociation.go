@@ -12,64 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS WorkSpaces Web IP Access Settings Association.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := workspacesweb.NewPortal(ctx, "example", &workspacesweb.PortalArgs{
-//				DisplayName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleIpAccessSettings, err := workspacesweb.NewIpAccessSettings(ctx, "example", &workspacesweb.IpAccessSettingsArgs{
-//				DisplayName: pulumi.String("example"),
-//				IpRules: workspacesweb.IpAccessSettingsIpRuleArray{
-//					&workspacesweb.IpAccessSettingsIpRuleArgs{
-//						IpRange: pulumi.String("10.0.0.0/16"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = workspacesweb.NewIpAccessSettingsAssociation(ctx, "example", &workspacesweb.IpAccessSettingsAssociationArgs{
-//				IpAccessSettingsArn: exampleIpAccessSettings.IpAccessSettingsArn,
-//				PortalArn:           example.PortalArn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type IpAccessSettingsAssociation struct {
 	pulumi.CustomResourceState
 
-	// ARN of the IP access settings to associate with the portal. Forces replacement if changed.
 	IpAccessSettingsArn pulumi.StringOutput `pulumi:"ipAccessSettingsArn"`
-	// ARN of the portal to associate with the IP access settings. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn pulumi.StringOutput `pulumi:"portalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	PortalArn           pulumi.StringOutput `pulumi:"portalArn"`
+	Region              pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewIpAccessSettingsAssociation registers a new resource with the given unique name, arguments, and options.
@@ -108,25 +56,15 @@ func GetIpAccessSettingsAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IpAccessSettingsAssociation resources.
 type ipAccessSettingsAssociationState struct {
-	// ARN of the IP access settings to associate with the portal. Forces replacement if changed.
 	IpAccessSettingsArn *string `pulumi:"ipAccessSettingsArn"`
-	// ARN of the portal to associate with the IP access settings. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn *string `pulumi:"portalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	PortalArn           *string `pulumi:"portalArn"`
+	Region              *string `pulumi:"region"`
 }
 
 type IpAccessSettingsAssociationState struct {
-	// ARN of the IP access settings to associate with the portal. Forces replacement if changed.
 	IpAccessSettingsArn pulumi.StringPtrInput
-	// ARN of the portal to associate with the IP access settings. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	PortalArn           pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
 }
 
 func (IpAccessSettingsAssociationState) ElementType() reflect.Type {
@@ -134,26 +72,16 @@ func (IpAccessSettingsAssociationState) ElementType() reflect.Type {
 }
 
 type ipAccessSettingsAssociationArgs struct {
-	// ARN of the IP access settings to associate with the portal. Forces replacement if changed.
-	IpAccessSettingsArn string `pulumi:"ipAccessSettingsArn"`
-	// ARN of the portal to associate with the IP access settings. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn string `pulumi:"portalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	IpAccessSettingsArn string  `pulumi:"ipAccessSettingsArn"`
+	PortalArn           string  `pulumi:"portalArn"`
+	Region              *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a IpAccessSettingsAssociation resource.
 type IpAccessSettingsAssociationArgs struct {
-	// ARN of the IP access settings to associate with the portal. Forces replacement if changed.
 	IpAccessSettingsArn pulumi.StringInput
-	// ARN of the portal to associate with the IP access settings. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	PortalArn           pulumi.StringInput
+	Region              pulumi.StringPtrInput
 }
 
 func (IpAccessSettingsAssociationArgs) ElementType() reflect.Type {
@@ -243,19 +171,14 @@ func (o IpAccessSettingsAssociationOutput) ToIpAccessSettingsAssociationOutputWi
 	return o
 }
 
-// ARN of the IP access settings to associate with the portal. Forces replacement if changed.
 func (o IpAccessSettingsAssociationOutput) IpAccessSettingsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpAccessSettingsAssociation) pulumi.StringOutput { return v.IpAccessSettingsArn }).(pulumi.StringOutput)
 }
 
-// ARN of the portal to associate with the IP access settings. Forces replacement if changed.
-//
-// The following arguments are optional:
 func (o IpAccessSettingsAssociationOutput) PortalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpAccessSettingsAssociation) pulumi.StringOutput { return v.PortalArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o IpAccessSettingsAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpAccessSettingsAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

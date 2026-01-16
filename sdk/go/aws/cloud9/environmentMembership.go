@@ -12,70 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an environment member to an AWS Cloud9 development environment.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloud9"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := cloud9.NewEnvironmentEC2(ctx, "test", &cloud9.EnvironmentEC2Args{
-//				InstanceType: pulumi.String("t2.micro"),
-//				Name:         pulumi.String("some-env"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testUser, err := iam.NewUser(ctx, "test", &iam.UserArgs{
-//				Name: pulumi.String("some-user"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloud9.NewEnvironmentMembership(ctx, "test", &cloud9.EnvironmentMembershipArgs{
-//				EnvironmentId: test.ID(),
-//				Permissions:   pulumi.String("read-only"),
-//				UserArn:       testUser.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Cloud9 environment membership using the `environment-id#user-arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
-// ```
 type EnvironmentMembership struct {
 	pulumi.CustomResourceState
 
-	// The ID of the environment that contains the environment member you want to add.
 	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
-	// The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
-	Permissions pulumi.StringOutput `pulumi:"permissions"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the environment member you want to add.
-	UserArn pulumi.StringOutput `pulumi:"userArn"`
-	// The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
-	UserId pulumi.StringOutput `pulumi:"userId"`
+	Permissions   pulumi.StringOutput `pulumi:"permissions"`
+	Region        pulumi.StringOutput `pulumi:"region"`
+	UserArn       pulumi.StringOutput `pulumi:"userArn"`
+	UserId        pulumi.StringOutput `pulumi:"userId"`
 }
 
 // NewEnvironmentMembership registers a new resource with the given unique name, arguments, and options.
@@ -117,29 +61,19 @@ func GetEnvironmentMembership(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EnvironmentMembership resources.
 type environmentMembershipState struct {
-	// The ID of the environment that contains the environment member you want to add.
 	EnvironmentId *string `pulumi:"environmentId"`
-	// The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
-	Permissions *string `pulumi:"permissions"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the environment member you want to add.
-	UserArn *string `pulumi:"userArn"`
-	// The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
-	UserId *string `pulumi:"userId"`
+	Permissions   *string `pulumi:"permissions"`
+	Region        *string `pulumi:"region"`
+	UserArn       *string `pulumi:"userArn"`
+	UserId        *string `pulumi:"userId"`
 }
 
 type EnvironmentMembershipState struct {
-	// The ID of the environment that contains the environment member you want to add.
 	EnvironmentId pulumi.StringPtrInput
-	// The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
-	Permissions pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the environment member you want to add.
-	UserArn pulumi.StringPtrInput
-	// The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
-	UserId pulumi.StringPtrInput
+	Permissions   pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
+	UserArn       pulumi.StringPtrInput
+	UserId        pulumi.StringPtrInput
 }
 
 func (EnvironmentMembershipState) ElementType() reflect.Type {
@@ -147,26 +81,18 @@ func (EnvironmentMembershipState) ElementType() reflect.Type {
 }
 
 type environmentMembershipArgs struct {
-	// The ID of the environment that contains the environment member you want to add.
-	EnvironmentId string `pulumi:"environmentId"`
-	// The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
-	Permissions string `pulumi:"permissions"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the environment member you want to add.
-	UserArn string `pulumi:"userArn"`
+	EnvironmentId string  `pulumi:"environmentId"`
+	Permissions   string  `pulumi:"permissions"`
+	Region        *string `pulumi:"region"`
+	UserArn       string  `pulumi:"userArn"`
 }
 
 // The set of arguments for constructing a EnvironmentMembership resource.
 type EnvironmentMembershipArgs struct {
-	// The ID of the environment that contains the environment member you want to add.
 	EnvironmentId pulumi.StringInput
-	// The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
-	Permissions pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the environment member you want to add.
-	UserArn pulumi.StringInput
+	Permissions   pulumi.StringInput
+	Region        pulumi.StringPtrInput
+	UserArn       pulumi.StringInput
 }
 
 func (EnvironmentMembershipArgs) ElementType() reflect.Type {
@@ -256,27 +182,22 @@ func (o EnvironmentMembershipOutput) ToEnvironmentMembershipOutputWithContext(ct
 	return o
 }
 
-// The ID of the environment that contains the environment member you want to add.
 func (o EnvironmentMembershipOutput) EnvironmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentMembership) pulumi.StringOutput { return v.EnvironmentId }).(pulumi.StringOutput)
 }
 
-// The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
 func (o EnvironmentMembershipOutput) Permissions() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentMembership) pulumi.StringOutput { return v.Permissions }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EnvironmentMembershipOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentMembership) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the environment member you want to add.
 func (o EnvironmentMembershipOutput) UserArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentMembership) pulumi.StringOutput { return v.UserArn }).(pulumi.StringOutput)
 }
 
-// The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
 func (o EnvironmentMembershipOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentMembership) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
 }

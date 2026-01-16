@@ -4,36 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages the content and status of IP rules.
- *
- * > Deletion of this resource clears all IP restrictions from a QuickSight account.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.quicksight.IpRestriction("example", {
- *     enabled: true,
- *     ipRestrictionRuleMap: {
- *         "108.56.166.202/32": "Allow self",
- *     },
- *     vpcIdRestrictionRuleMap: {
- *         [exampleAwsVpc.id]: "Main VPC",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import QuickSight IP restriction using the AWS account ID. For example:
- *
- * ```sh
- * $ pulumi import aws:quicksight/ipRestriction:IpRestriction example "012345678901"
- * ```
- */
 export class IpRestriction extends pulumi.CustomResource {
     /**
      * Get an existing IpRestriction resource's state with the given name, ID, and optional extra
@@ -63,25 +33,10 @@ export class IpRestriction extends pulumi.CustomResource {
     }
 
     declare public readonly awsAccountId: pulumi.Output<string>;
-    /**
-     * Whether IP rules are turned on.
-     */
     declare public readonly enabled: pulumi.Output<boolean>;
-    /**
-     * Map of allowed IPv4 CIDR ranges and descriptions.
-     */
     declare public readonly ipRestrictionRuleMap: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Map of allowed VPC endpoint IDs and descriptions.
-     */
     declare public readonly vpcEndpointIdRestrictionRuleMap: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
-     */
     declare public readonly vpcIdRestrictionRuleMap: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -125,25 +80,10 @@ export class IpRestriction extends pulumi.CustomResource {
  */
 export interface IpRestrictionState {
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * Whether IP rules are turned on.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Map of allowed IPv4 CIDR ranges and descriptions.
-     */
     ipRestrictionRuleMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of allowed VPC endpoint IDs and descriptions.
-     */
     vpcEndpointIdRestrictionRuleMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
-     */
     vpcIdRestrictionRuleMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -152,24 +92,9 @@ export interface IpRestrictionState {
  */
 export interface IpRestrictionArgs {
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * Whether IP rules are turned on.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Map of allowed IPv4 CIDR ranges and descriptions.
-     */
     ipRestrictionRuleMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of allowed VPC endpoint IDs and descriptions.
-     */
     vpcEndpointIdRestrictionRuleMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
-     */
     vpcIdRestrictionRuleMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

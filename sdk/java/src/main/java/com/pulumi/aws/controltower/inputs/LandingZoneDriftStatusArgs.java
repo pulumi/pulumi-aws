@@ -15,17 +15,9 @@ public final class LandingZoneDriftStatusArgs extends com.pulumi.resources.Resou
 
     public static final LandingZoneDriftStatusArgs Empty = new LandingZoneDriftStatusArgs();
 
-    /**
-     * The drift status of the landing zone.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The drift status of the landing zone.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -54,23 +46,11 @@ public final class LandingZoneDriftStatusArgs extends com.pulumi.resources.Resou
             $ = new LandingZoneDriftStatusArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param status The drift status of the landing zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The drift status of the landing zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreCodeInterpreterNetworkConfiguration {
-    /**
-     * @return Network mode for the code interpreter. Valid values: `PUBLIC`, `SANDBOX`, `VPC`.
-     * 
-     */
     private String networkMode;
-    /**
-     * @return VPC configuration. See `vpcConfig` below.
-     * 
-     */
     private @Nullable AgentcoreCodeInterpreterNetworkConfigurationVpcConfig vpcConfig;
 
     private AgentcoreCodeInterpreterNetworkConfiguration() {}
-    /**
-     * @return Network mode for the code interpreter. Valid values: `PUBLIC`, `SANDBOX`, `VPC`.
-     * 
-     */
     public String networkMode() {
         return this.networkMode;
     }
-    /**
-     * @return VPC configuration. See `vpcConfig` below.
-     * 
-     */
     public Optional<AgentcoreCodeInterpreterNetworkConfigurationVpcConfig> vpcConfig() {
         return Optional.ofNullable(this.vpcConfig);
     }

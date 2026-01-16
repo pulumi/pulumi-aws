@@ -12,21 +12,12 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class DistributionTenantCustomizationsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Certificate configuration for the tenant (maximum one).
-        /// </summary>
         [Input("certificate")]
         public Input<Inputs.DistributionTenantCustomizationsCertificateGetArgs>? Certificate { get; set; }
 
-        /// <summary>
-        /// Geographic restrictions configuration for the tenant (maximum one).
-        /// </summary>
         [Input("geoRestriction")]
         public Input<Inputs.DistributionTenantCustomizationsGeoRestrictionGetArgs>? GeoRestriction { get; set; }
 
-        /// <summary>
-        /// Web ACL configuration for the tenant (maximum one).
-        /// </summary>
         [Input("webAcl")]
         public Input<Inputs.DistributionTenantCustomizationsWebAclGetArgs>? WebAcl { get; set; }
 

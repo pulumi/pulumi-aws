@@ -15,17 +15,9 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
 
     public static final WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountArgs Empty = new WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountArgs();
 
-    /**
-     * Defines custom handling for the web request. See `customRequestHandling` below for details.
-     * 
-     */
     @Import(name="customRequestHandling")
     private @Nullable Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingArgs> customRequestHandling;
 
-    /**
-     * @return Defines custom handling for the web request. See `customRequestHandling` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingArgs>> customRequestHandling() {
         return Optional.ofNullable(this.customRequestHandling);
     }
@@ -54,23 +46,11 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
             $ = new WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customRequestHandling Defines custom handling for the web request. See `customRequestHandling` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customRequestHandling(@Nullable Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingArgs> customRequestHandling) {
             $.customRequestHandling = customRequestHandling;
             return this;
         }
 
-        /**
-         * @param customRequestHandling Defines custom handling for the web request. See `customRequestHandling` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customRequestHandling(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingArgs customRequestHandling) {
             return customRequestHandling(Output.of(customRequestHandling));
         }

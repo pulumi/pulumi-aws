@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings
     {
-        /// <summary>
-        /// Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
-        /// </summary>
         public readonly string? Status;
 
         [OutputConstructor]

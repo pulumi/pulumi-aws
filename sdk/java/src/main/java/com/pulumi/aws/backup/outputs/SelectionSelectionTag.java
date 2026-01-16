@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class SelectionSelectionTag {
-    /**
-     * @return Key for the filter.
-     * 
-     */
     private String key;
-    /**
-     * @return An operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
-     * 
-     */
     private String type;
-    /**
-     * @return Value for the filter.
-     * 
-     */
     private String value;
 
     private SelectionSelectionTag() {}
-    /**
-     * @return Key for the filter.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return An operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return Value for the filter.
-     * 
-     */
     public String value() {
         return this.value;
     }

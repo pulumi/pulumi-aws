@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for retrieving all cloud vm clusters AWS for Oracle Database@AWS.
-//
-// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/odb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := odb.GetCloudVmClusters(ctx, &odb.GetCloudVmClustersArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetCloudVmClusters(ctx *pulumi.Context, args *GetCloudVmClustersArgs, opts ...pulumi.InvokeOption) (*GetCloudVmClustersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCloudVmClustersResult
@@ -52,13 +23,11 @@ func GetCloudVmClusters(ctx *pulumi.Context, args *GetCloudVmClustersArgs, opts 
 
 // A collection of arguments for invoking getCloudVmClusters.
 type GetCloudVmClustersArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getCloudVmClusters.
 type GetCloudVmClustersResult struct {
-	// List of Cloud VM Clusters. It returns only basic information about the cloud VM clusters.
 	CloudVmClusters []GetCloudVmClustersCloudVmCluster `pulumi:"cloudVmClusters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
@@ -76,7 +45,6 @@ func GetCloudVmClustersOutput(ctx *pulumi.Context, args GetCloudVmClustersOutput
 
 // A collection of arguments for invoking getCloudVmClusters.
 type GetCloudVmClustersOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -99,7 +67,6 @@ func (o GetCloudVmClustersResultOutput) ToGetCloudVmClustersResultOutputWithCont
 	return o
 }
 
-// List of Cloud VM Clusters. It returns only basic information about the cloud VM clusters.
 func (o GetCloudVmClustersResultOutput) CloudVmClusters() GetCloudVmClustersCloudVmClusterArrayOutput {
 	return o.ApplyT(func(v GetCloudVmClustersResult) []GetCloudVmClustersCloudVmCluster { return v.CloudVmClusters }).(GetCloudVmClustersCloudVmClusterArrayOutput)
 }

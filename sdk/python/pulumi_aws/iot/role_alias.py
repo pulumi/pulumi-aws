@@ -26,11 +26,6 @@ class RoleAliasArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RoleAlias resource.
-        :param pulumi.Input[_builtins.str] alias: The name of the role alias.
-        :param pulumi.Input[_builtins.str] role_arn: The identity of the role to which the alias refers.
-        :param pulumi.Input[_builtins.int] credential_duration: The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "alias", alias)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -44,9 +39,6 @@ class RoleAliasArgs:
     @_builtins.property
     @pulumi.getter
     def alias(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the role alias.
-        """
         return pulumi.get(self, "alias")
 
     @alias.setter
@@ -56,9 +48,6 @@ class RoleAliasArgs:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The identity of the role to which the alias refers.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -68,9 +57,6 @@ class RoleAliasArgs:
     @_builtins.property
     @pulumi.getter(name="credentialDuration")
     def credential_duration(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
-        """
         return pulumi.get(self, "credential_duration")
 
     @credential_duration.setter
@@ -80,9 +66,6 @@ class RoleAliasArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -92,9 +75,6 @@ class RoleAliasArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -114,13 +94,6 @@ class _RoleAliasState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RoleAlias resources.
-        :param pulumi.Input[_builtins.str] alias: The name of the role alias.
-        :param pulumi.Input[_builtins.str] arn: The ARN assigned by AWS to this role alias.
-        :param pulumi.Input[_builtins.int] credential_duration: The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The identity of the role to which the alias refers.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
@@ -140,9 +113,6 @@ class _RoleAliasState:
     @_builtins.property
     @pulumi.getter
     def alias(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the role alias.
-        """
         return pulumi.get(self, "alias")
 
     @alias.setter
@@ -152,9 +122,6 @@ class _RoleAliasState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN assigned by AWS to this role alias.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -164,9 +131,6 @@ class _RoleAliasState:
     @_builtins.property
     @pulumi.getter(name="credentialDuration")
     def credential_duration(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
-        """
         return pulumi.get(self, "credential_duration")
 
     @credential_duration.setter
@@ -176,9 +140,6 @@ class _RoleAliasState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -188,9 +149,6 @@ class _RoleAliasState:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identity of the role to which the alias refers.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -200,9 +158,6 @@ class _RoleAliasState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -212,9 +167,6 @@ class _RoleAliasState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -235,25 +187,9 @@ class RoleAlias(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides an IoT role alias.
-
-        ## Example Usage
-
-        ## Import
-
-        Using `pulumi import`, import IOT Role Alias using the alias. For example:
-
-        ```sh
-        $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
-        ```
-
+        Create a RoleAlias resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] alias: The name of the role alias.
-        :param pulumi.Input[_builtins.int] credential_duration: The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The identity of the role to which the alias refers.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -262,18 +198,7 @@ class RoleAlias(pulumi.CustomResource):
                  args: RoleAliasArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an IoT role alias.
-
-        ## Example Usage
-
-        ## Import
-
-        Using `pulumi import`, import IOT Role Alias using the alias. For example:
-
-        ```sh
-        $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
-        ```
-
+        Create a RoleAlias resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RoleAliasArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -338,13 +263,6 @@ class RoleAlias(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] alias: The name of the role alias.
-        :param pulumi.Input[_builtins.str] arn: The ARN assigned by AWS to this role alias.
-        :param pulumi.Input[_builtins.int] credential_duration: The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The identity of the role to which the alias refers.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -362,56 +280,35 @@ class RoleAlias(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def alias(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the role alias.
-        """
         return pulumi.get(self, "alias")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN assigned by AWS to this role alias.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="credentialDuration")
     def credential_duration(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
-        """
         return pulumi.get(self, "credential_duration")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identity of the role to which the alias refers.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

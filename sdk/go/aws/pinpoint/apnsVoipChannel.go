@@ -12,93 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Pinpoint APNs VoIP Channel resource.
-//
-// > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/pinpoint"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			app, err := pinpoint.NewApp(ctx, "app", nil)
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "./certificate.pem",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile1, err := std.File(ctx, &std.FileArgs{
-//				Input: "./private_key.key",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pinpoint.NewApnsVoipChannel(ctx, "apns_voip", &pinpoint.ApnsVoipChannelArgs{
-//				ApplicationId: app.ApplicationId,
-//				Certificate:   pulumi.String(invokeFile.Result),
-//				PrivateKey:    pulumi.String(invokeFile1.Result),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Pinpoint APNs VoIP Channel using the `application-id`. For example:
-//
-// ```sh
-// $ pulumi import aws:pinpoint/apnsVoipChannel:ApnsVoipChannel apns_voip application-id
-// ```
 type ApnsVoipChannel struct {
 	pulumi.CustomResourceState
 
-	// The application ID.
-	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
-	// The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
-	BundleId pulumi.StringPtrOutput `pulumi:"bundleId"`
-	// The pem encoded TLS Certificate from Apple.
-	Certificate pulumi.StringPtrOutput `pulumi:"certificate"`
-	// The default authentication method used for APNs.
-	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
-	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
-	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
-	//
-	// One of the following sets of credentials is also required.
-	//
-	// If you choose to use __Certificate credentials__ you will have to provide:
+	ApplicationId               pulumi.StringOutput    `pulumi:"applicationId"`
+	BundleId                    pulumi.StringPtrOutput `pulumi:"bundleId"`
+	Certificate                 pulumi.StringPtrOutput `pulumi:"certificate"`
 	DefaultAuthenticationMethod pulumi.StringPtrOutput `pulumi:"defaultAuthenticationMethod"`
-	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// The Certificate Private Key file (ie. `.key` file).
-	//
-	// If you choose to use __Key credentials__ you will have to provide:
-	PrivateKey pulumi.StringPtrOutput `pulumi:"privateKey"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
-	TeamId pulumi.StringPtrOutput `pulumi:"teamId"`
-	// The `.p8` file that you download from your Apple developer account when you create an authentication key.
-	TokenKey pulumi.StringPtrOutput `pulumi:"tokenKey"`
-	// The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
-	TokenKeyId pulumi.StringPtrOutput `pulumi:"tokenKeyId"`
+	Enabled                     pulumi.BoolPtrOutput   `pulumi:"enabled"`
+	PrivateKey                  pulumi.StringPtrOutput `pulumi:"privateKey"`
+	Region                      pulumi.StringOutput    `pulumi:"region"`
+	TeamId                      pulumi.StringPtrOutput `pulumi:"teamId"`
+	TokenKey                    pulumi.StringPtrOutput `pulumi:"tokenKey"`
+	TokenKeyId                  pulumi.StringPtrOutput `pulumi:"tokenKeyId"`
 }
 
 // NewApnsVoipChannel registers a new resource with the given unique name, arguments, and options.
@@ -161,67 +87,29 @@ func GetApnsVoipChannel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApnsVoipChannel resources.
 type apnsVoipChannelState struct {
-	// The application ID.
-	ApplicationId *string `pulumi:"applicationId"`
-	// The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
-	BundleId *string `pulumi:"bundleId"`
-	// The pem encoded TLS Certificate from Apple.
-	Certificate *string `pulumi:"certificate"`
-	// The default authentication method used for APNs.
-	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
-	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
-	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
-	//
-	// One of the following sets of credentials is also required.
-	//
-	// If you choose to use __Certificate credentials__ you will have to provide:
+	ApplicationId               *string `pulumi:"applicationId"`
+	BundleId                    *string `pulumi:"bundleId"`
+	Certificate                 *string `pulumi:"certificate"`
 	DefaultAuthenticationMethod *string `pulumi:"defaultAuthenticationMethod"`
-	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// The Certificate Private Key file (ie. `.key` file).
-	//
-	// If you choose to use __Key credentials__ you will have to provide:
-	PrivateKey *string `pulumi:"privateKey"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
-	TeamId *string `pulumi:"teamId"`
-	// The `.p8` file that you download from your Apple developer account when you create an authentication key.
-	TokenKey *string `pulumi:"tokenKey"`
-	// The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
-	TokenKeyId *string `pulumi:"tokenKeyId"`
+	Enabled                     *bool   `pulumi:"enabled"`
+	PrivateKey                  *string `pulumi:"privateKey"`
+	Region                      *string `pulumi:"region"`
+	TeamId                      *string `pulumi:"teamId"`
+	TokenKey                    *string `pulumi:"tokenKey"`
+	TokenKeyId                  *string `pulumi:"tokenKeyId"`
 }
 
 type ApnsVoipChannelState struct {
-	// The application ID.
-	ApplicationId pulumi.StringPtrInput
-	// The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
-	BundleId pulumi.StringPtrInput
-	// The pem encoded TLS Certificate from Apple.
-	Certificate pulumi.StringPtrInput
-	// The default authentication method used for APNs.
-	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
-	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
-	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
-	//
-	// One of the following sets of credentials is also required.
-	//
-	// If you choose to use __Certificate credentials__ you will have to provide:
+	ApplicationId               pulumi.StringPtrInput
+	BundleId                    pulumi.StringPtrInput
+	Certificate                 pulumi.StringPtrInput
 	DefaultAuthenticationMethod pulumi.StringPtrInput
-	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled pulumi.BoolPtrInput
-	// The Certificate Private Key file (ie. `.key` file).
-	//
-	// If you choose to use __Key credentials__ you will have to provide:
-	PrivateKey pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
-	TeamId pulumi.StringPtrInput
-	// The `.p8` file that you download from your Apple developer account when you create an authentication key.
-	TokenKey pulumi.StringPtrInput
-	// The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
-	TokenKeyId pulumi.StringPtrInput
+	Enabled                     pulumi.BoolPtrInput
+	PrivateKey                  pulumi.StringPtrInput
+	Region                      pulumi.StringPtrInput
+	TeamId                      pulumi.StringPtrInput
+	TokenKey                    pulumi.StringPtrInput
+	TokenKeyId                  pulumi.StringPtrInput
 }
 
 func (ApnsVoipChannelState) ElementType() reflect.Type {
@@ -229,68 +117,30 @@ func (ApnsVoipChannelState) ElementType() reflect.Type {
 }
 
 type apnsVoipChannelArgs struct {
-	// The application ID.
-	ApplicationId string `pulumi:"applicationId"`
-	// The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
-	BundleId *string `pulumi:"bundleId"`
-	// The pem encoded TLS Certificate from Apple.
-	Certificate *string `pulumi:"certificate"`
-	// The default authentication method used for APNs.
-	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
-	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
-	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
-	//
-	// One of the following sets of credentials is also required.
-	//
-	// If you choose to use __Certificate credentials__ you will have to provide:
+	ApplicationId               string  `pulumi:"applicationId"`
+	BundleId                    *string `pulumi:"bundleId"`
+	Certificate                 *string `pulumi:"certificate"`
 	DefaultAuthenticationMethod *string `pulumi:"defaultAuthenticationMethod"`
-	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// The Certificate Private Key file (ie. `.key` file).
-	//
-	// If you choose to use __Key credentials__ you will have to provide:
-	PrivateKey *string `pulumi:"privateKey"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
-	TeamId *string `pulumi:"teamId"`
-	// The `.p8` file that you download from your Apple developer account when you create an authentication key.
-	TokenKey *string `pulumi:"tokenKey"`
-	// The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
-	TokenKeyId *string `pulumi:"tokenKeyId"`
+	Enabled                     *bool   `pulumi:"enabled"`
+	PrivateKey                  *string `pulumi:"privateKey"`
+	Region                      *string `pulumi:"region"`
+	TeamId                      *string `pulumi:"teamId"`
+	TokenKey                    *string `pulumi:"tokenKey"`
+	TokenKeyId                  *string `pulumi:"tokenKeyId"`
 }
 
 // The set of arguments for constructing a ApnsVoipChannel resource.
 type ApnsVoipChannelArgs struct {
-	// The application ID.
-	ApplicationId pulumi.StringInput
-	// The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
-	BundleId pulumi.StringPtrInput
-	// The pem encoded TLS Certificate from Apple.
-	Certificate pulumi.StringPtrInput
-	// The default authentication method used for APNs.
-	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
-	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
-	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
-	//
-	// One of the following sets of credentials is also required.
-	//
-	// If you choose to use __Certificate credentials__ you will have to provide:
+	ApplicationId               pulumi.StringInput
+	BundleId                    pulumi.StringPtrInput
+	Certificate                 pulumi.StringPtrInput
 	DefaultAuthenticationMethod pulumi.StringPtrInput
-	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled pulumi.BoolPtrInput
-	// The Certificate Private Key file (ie. `.key` file).
-	//
-	// If you choose to use __Key credentials__ you will have to provide:
-	PrivateKey pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
-	TeamId pulumi.StringPtrInput
-	// The `.p8` file that you download from your Apple developer account when you create an authentication key.
-	TokenKey pulumi.StringPtrInput
-	// The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
-	TokenKeyId pulumi.StringPtrInput
+	Enabled                     pulumi.BoolPtrInput
+	PrivateKey                  pulumi.StringPtrInput
+	Region                      pulumi.StringPtrInput
+	TeamId                      pulumi.StringPtrInput
+	TokenKey                    pulumi.StringPtrInput
+	TokenKeyId                  pulumi.StringPtrInput
 }
 
 func (ApnsVoipChannelArgs) ElementType() reflect.Type {
@@ -380,61 +230,42 @@ func (o ApnsVoipChannelOutput) ToApnsVoipChannelOutputWithContext(ctx context.Co
 	return o
 }
 
-// The application ID.
 func (o ApnsVoipChannelOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApnsVoipChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
-// The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
 func (o ApnsVoipChannelOutput) BundleId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsVoipChannel) pulumi.StringPtrOutput { return v.BundleId }).(pulumi.StringPtrOutput)
 }
 
-// The pem encoded TLS Certificate from Apple.
 func (o ApnsVoipChannelOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsVoipChannel) pulumi.StringPtrOutput { return v.Certificate }).(pulumi.StringPtrOutput)
 }
 
-// The default authentication method used for APNs.
-// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
-// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
-// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
-//
-// One of the following sets of credentials is also required.
-//
-// If you choose to use __Certificate credentials__ you will have to provide:
 func (o ApnsVoipChannelOutput) DefaultAuthenticationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsVoipChannel) pulumi.StringPtrOutput { return v.DefaultAuthenticationMethod }).(pulumi.StringPtrOutput)
 }
 
-// Whether the channel is enabled or disabled. Defaults to `true`.
 func (o ApnsVoipChannelOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApnsVoipChannel) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The Certificate Private Key file (ie. `.key` file).
-//
-// If you choose to use __Key credentials__ you will have to provide:
 func (o ApnsVoipChannelOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsVoipChannel) pulumi.StringPtrOutput { return v.PrivateKey }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ApnsVoipChannelOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApnsVoipChannel) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 func (o ApnsVoipChannelOutput) TeamId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsVoipChannel) pulumi.StringPtrOutput { return v.TeamId }).(pulumi.StringPtrOutput)
 }
 
-// The `.p8` file that you download from your Apple developer account when you create an authentication key.
 func (o ApnsVoipChannelOutput) TokenKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsVoipChannel) pulumi.StringPtrOutput { return v.TokenKey }).(pulumi.StringPtrOutput)
 }
 
-// The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
 func (o ApnsVoipChannelOutput) TokenKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsVoipChannel) pulumi.StringPtrOutput { return v.TokenKeyId }).(pulumi.StringPtrOutput)
 }

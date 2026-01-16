@@ -15,47 +15,23 @@ public final class RestApiPolicyState extends com.pulumi.resources.ResourceArgs 
 
     public static final RestApiPolicyState Empty = new RestApiPolicyState();
 
-    /**
-     * JSON formatted policy document that controls access to the API Gateway.
-     * 
-     */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
-    /**
-     * @return JSON formatted policy document that controls access to the API Gateway.
-     * 
-     */
     public Optional<Output<String>> policy() {
         return Optional.ofNullable(this.policy);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the REST API.
-     * 
-     */
     @Import(name="restApiId")
     private @Nullable Output<String> restApiId;
 
-    /**
-     * @return ID of the REST API.
-     * 
-     */
     public Optional<Output<String>> restApiId() {
         return Optional.ofNullable(this.restApiId);
     }
@@ -86,65 +62,29 @@ public final class RestApiPolicyState extends com.pulumi.resources.ResourceArgs 
             $ = new RestApiPolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policy JSON formatted policy document that controls access to the API Gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(@Nullable Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy JSON formatted policy document that controls access to the API Gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param restApiId ID of the REST API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restApiId(@Nullable Output<String> restApiId) {
             $.restApiId = restApiId;
             return this;
         }
 
-        /**
-         * @param restApiId ID of the REST API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restApiId(String restApiId) {
             return restApiId(Output.of(restApiId));
         }

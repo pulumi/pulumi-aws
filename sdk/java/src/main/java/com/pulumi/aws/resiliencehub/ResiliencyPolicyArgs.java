@@ -20,16 +20,14 @@ public final class ResiliencyPolicyArgs extends com.pulumi.resources.ResourceArg
     public static final ResiliencyPolicyArgs Empty = new ResiliencyPolicyArgs();
 
     /**
-     * Data Location Constraint of the Policy.
-     * Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
+     * Specifies a high-level geographical location constraint for where resilience policy data can be stored.
      * 
      */
     @Import(name="dataLocationConstraint")
     private @Nullable Output<String> dataLocationConstraint;
 
     /**
-     * @return Data Location Constraint of the Policy.
-     * Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
+     * @return Specifies a high-level geographical location constraint for where resilience policy data can be stored.
      * 
      */
     public Optional<Output<String>> dataLocationConstraint() {
@@ -37,14 +35,14 @@ public final class ResiliencyPolicyArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Description of Resiliency Policy.
+     * The description for the policy.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of Resiliency Policy.
+     * @return The description for the policy.
      * 
      */
     public Optional<Output<String>> description() {
@@ -52,18 +50,14 @@ public final class ResiliencyPolicyArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Name of Resiliency Policy.
-     * Must be between 2 and 60 characters long.
-     * Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
+     * The name of the policy.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of Resiliency Policy.
-     * Must be between 2 and 60 characters long.
-     * Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
+     * @return The name of the policy.
      * 
      */
     public Optional<Output<String>> name() {
@@ -71,65 +65,43 @@ public final class ResiliencyPolicyArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
-     * 
-     * The following arguments are optional:
+     * The resiliency failure policy.
      * 
      */
     @Import(name="policy")
     private @Nullable Output<ResiliencyPolicyPolicyArgs> policy;
 
     /**
-     * @return The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
-     * 
-     * The following arguments are optional:
+     * @return The resiliency failure policy.
      * 
      */
     public Optional<Output<ResiliencyPolicyPolicyArgs>> policy() {
         return Optional.ofNullable(this.policy);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
     /**
-     * Resiliency Policy Tier.
-     * Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
+     * The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
      * 
      */
     @Import(name="tier", required=true)
     private Output<String> tier;
 
     /**
-     * @return Resiliency Policy Tier.
-     * Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
+     * @return The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
      * 
      */
     public Output<String> tier() {
@@ -175,8 +147,7 @@ public final class ResiliencyPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dataLocationConstraint Data Location Constraint of the Policy.
-         * Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
+         * @param dataLocationConstraint Specifies a high-level geographical location constraint for where resilience policy data can be stored.
          * 
          * @return builder
          * 
@@ -187,8 +158,7 @@ public final class ResiliencyPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dataLocationConstraint Data Location Constraint of the Policy.
-         * Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
+         * @param dataLocationConstraint Specifies a high-level geographical location constraint for where resilience policy data can be stored.
          * 
          * @return builder
          * 
@@ -198,7 +168,7 @@ public final class ResiliencyPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param description Description of Resiliency Policy.
+         * @param description The description for the policy.
          * 
          * @return builder
          * 
@@ -209,7 +179,7 @@ public final class ResiliencyPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param description Description of Resiliency Policy.
+         * @param description The description for the policy.
          * 
          * @return builder
          * 
@@ -219,9 +189,7 @@ public final class ResiliencyPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Name of Resiliency Policy.
-         * Must be between 2 and 60 characters long.
-         * Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
+         * @param name The name of the policy.
          * 
          * @return builder
          * 
@@ -232,9 +200,7 @@ public final class ResiliencyPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Name of Resiliency Policy.
-         * Must be between 2 and 60 characters long.
-         * Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
+         * @param name The name of the policy.
          * 
          * @return builder
          * 
@@ -244,9 +210,7 @@ public final class ResiliencyPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param policy The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
-         * 
-         * The following arguments are optional:
+         * @param policy The resiliency failure policy.
          * 
          * @return builder
          * 
@@ -257,9 +221,7 @@ public final class ResiliencyPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param policy The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
-         * 
-         * The following arguments are optional:
+         * @param policy The resiliency failure policy.
          * 
          * @return builder
          * 
@@ -268,51 +230,26 @@ public final class ResiliencyPolicyArgs extends com.pulumi.resources.ResourceArg
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
         /**
-         * @param tier Resiliency Policy Tier.
-         * Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
+         * @param tier The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
          * 
          * @return builder
          * 
@@ -323,8 +260,7 @@ public final class ResiliencyPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tier Resiliency Policy Tier.
-         * Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
+         * @param tier The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
          * 
          * @return builder
          * 

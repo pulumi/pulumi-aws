@@ -24,102 +24,44 @@ public final class GetLocalGatewayRouteTablePlainArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * ID of the specific local gateway route table to retrieve.
-     * 
-     */
     @Import(name="localGatewayId")
     private @Nullable String localGatewayId;
 
-    /**
-     * @return ID of the specific local gateway route table to retrieve.
-     * 
-     */
     public Optional<String> localGatewayId() {
         return Optional.ofNullable(this.localGatewayId);
     }
 
-    /**
-     * Local Gateway Route Table Id assigned to desired local gateway route table
-     * 
-     */
     @Import(name="localGatewayRouteTableId")
     private @Nullable String localGatewayRouteTableId;
 
-    /**
-     * @return Local Gateway Route Table Id assigned to desired local gateway route table
-     * 
-     */
     public Optional<String> localGatewayRouteTableId() {
         return Optional.ofNullable(this.localGatewayRouteTableId);
     }
 
-    /**
-     * ARN of the Outpost the local gateway route table is associated with.
-     * 
-     */
     @Import(name="outpostArn")
     private @Nullable String outpostArn;
 
-    /**
-     * @return ARN of the Outpost the local gateway route table is associated with.
-     * 
-     */
     public Optional<String> outpostArn() {
         return Optional.ofNullable(this.outpostArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * State of the local gateway route table.
-     * 
-     */
     @Import(name="state")
     private @Nullable String state;
 
-    /**
-     * @return State of the local gateway route table.
-     * 
-     */
     public Optional<String> state() {
         return Optional.ofNullable(this.state);
     }
 
-    /**
-     * Mapping of tags, each pair of which must exactly match
-     * a pair on the desired local gateway route table.
-     * 
-     * The arguments of this data source act as filters for querying the available
-     * Local Gateway Route Tables in the current region. The given filters must match exactly one
-     * Local Gateway Route Table whose data will be exported as attributes.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Mapping of tags, each pair of which must exactly match
-     * a pair on the desired local gateway route table.
-     * 
-     * The arguments of this data source act as filters for querying the available
-     * Local Gateway Route Tables in the current region. The given filters must match exactly one
-     * Local Gateway Route Table whose data will be exported as attributes.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -163,72 +105,31 @@ public final class GetLocalGatewayRouteTablePlainArgs extends com.pulumi.resourc
             return filters(List.of(filters));
         }
 
-        /**
-         * @param localGatewayId ID of the specific local gateway route table to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder localGatewayId(@Nullable String localGatewayId) {
             $.localGatewayId = localGatewayId;
             return this;
         }
 
-        /**
-         * @param localGatewayRouteTableId Local Gateway Route Table Id assigned to desired local gateway route table
-         * 
-         * @return builder
-         * 
-         */
         public Builder localGatewayRouteTableId(@Nullable String localGatewayRouteTableId) {
             $.localGatewayRouteTableId = localGatewayRouteTableId;
             return this;
         }
 
-        /**
-         * @param outpostArn ARN of the Outpost the local gateway route table is associated with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outpostArn(@Nullable String outpostArn) {
             $.outpostArn = outpostArn;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param state State of the local gateway route table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(@Nullable String state) {
             $.state = state;
             return this;
         }
 
-        /**
-         * @param tags Mapping of tags, each pair of which must exactly match
-         * a pair on the desired local gateway route table.
-         * 
-         * The arguments of this data source act as filters for querying the available
-         * Local Gateway Route Tables in the current region. The given filters must match exactly one
-         * Local Gateway Route Table whose data will be exported as attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

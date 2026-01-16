@@ -18,186 +18,91 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Q Business Application resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.qbusiness.Application;
- * import com.pulumi.aws.qbusiness.ApplicationArgs;
- * import com.pulumi.aws.qbusiness.inputs.ApplicationAttachmentsConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Application("example", ApplicationArgs.builder()
- *             .displayName("example-app")
- *             .iamServiceRoleArn(exampleAwsIamRole.arn())
- *             .identityCenterInstanceArn(exampleAwsSsoadminInstances.arns()[0])
- *             .attachmentsConfiguration(ApplicationAttachmentsConfigurationArgs.builder()
- *                 .attachmentsControlMode("ENABLED")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import a Q Business Application using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:qbusiness/application:Application example id-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:qbusiness/application:Application")
 public class Application extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Q Business application.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Q Business application.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
-     * 
-     */
     @Export(name="attachmentsConfiguration", refs={ApplicationAttachmentsConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ApplicationAttachmentsConfiguration> attachmentsConfiguration;
 
-    /**
-     * @return Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
-     * 
-     */
     public Output<Optional<ApplicationAttachmentsConfiguration>> attachmentsConfiguration() {
         return Codegen.optional(this.attachmentsConfiguration);
     }
     /**
-     * Description of the Amazon Q application.
+     * A description of the Amazon Q application.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Description of the Amazon Q application.
+     * @return A description of the Amazon Q application.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * Name of the Amazon Q application.
+     * The display name of the Amazon Q application.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
-     * @return Name of the Amazon Q application.
+     * @return The display name of the Amazon Q application.
      * 
      */
     public Output<String> displayName() {
         return this.displayName;
     }
-    /**
-     * Information about encryption configuration. See `encryptionConfiguration` below.
-     * 
-     */
     @Export(name="encryptionConfiguration", refs={ApplicationEncryptionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ApplicationEncryptionConfiguration> encryptionConfiguration;
 
-    /**
-     * @return Information about encryption configuration. See `encryptionConfiguration` below.
-     * 
-     */
     public Output<Optional<ApplicationEncryptionConfiguration>> encryptionConfiguration() {
         return Codegen.optional(this.encryptionConfiguration);
     }
     /**
-     * ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+     * The Amazon Resource Name (ARN) of the IAM service role that provides permissions for the Amazon Q application.
      * 
      */
     @Export(name="iamServiceRoleArn", refs={String.class}, tree="[0]")
     private Output<String> iamServiceRoleArn;
 
     /**
-     * @return ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+     * @return The Amazon Resource Name (ARN) of the IAM service role that provides permissions for the Amazon Q application.
      * 
      */
     public Output<String> iamServiceRoleArn() {
         return this.iamServiceRoleArn;
     }
-    /**
-     * ARN of the AWS IAM Identity Center application attached to your Amazon Q Business application.
-     * 
-     */
     @Export(name="identityCenterApplicationArn", refs={String.class}, tree="[0]")
     private Output<String> identityCenterApplicationArn;
 
-    /**
-     * @return ARN of the AWS IAM Identity Center application attached to your Amazon Q Business application.
-     * 
-     */
     public Output<String> identityCenterApplicationArn() {
         return this.identityCenterApplicationArn;
     }
     /**
-     * ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
-     * 
-     * The following arguments are optional:
+     * ARN of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application
      * 
      */
     @Export(name="identityCenterInstanceArn", refs={String.class}, tree="[0]")
     private Output<String> identityCenterInstanceArn;
 
     /**
-     * @return ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
-     * 
-     * The following arguments are optional:
+     * @return ARN of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application
      * 
      */
     public Output<String> identityCenterInstanceArn() {
         return this.identityCenterInstanceArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
@@ -207,17 +112,9 @@ public class Application extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

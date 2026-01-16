@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppFabric.Outputs
     [OutputType]
     public sealed class IngestionDestinationDestinationConfigurationAuditLog
     {
-        /// <summary>
-        /// Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
-        /// </summary>
         public readonly Outputs.IngestionDestinationDestinationConfigurationAuditLogDestination? Destination;
 
         [OutputConstructor]

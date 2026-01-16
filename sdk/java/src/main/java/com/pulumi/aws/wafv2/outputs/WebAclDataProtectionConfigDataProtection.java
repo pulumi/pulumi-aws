@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclDataProtectionConfigDataProtection {
-    /**
-     * @return Specifies how to protect the field. Valid values are `SUBSTITUTION` or `HASH`.
-     * 
-     */
     private String action;
-    /**
-     * @return Boolean to specify whether to also exclude any rate-based rule details from the data protection you have enabled for a given field.
-     * 
-     */
     private @Nullable Boolean excludeRateBasedDetails;
-    /**
-     * @return Boolean to specify whether to also exclude any rule match details from the data protection you have enabled for a given field. AWS WAF logs these details for non-terminating matching rules and for the terminating matching rule.
-     * 
-     */
     private @Nullable Boolean excludeRuleMatchDetails;
-    /**
-     * @return Specifies the field type and optional keys to apply the protection behavior to. See `field` block below for details.
-     * 
-     */
     private WebAclDataProtectionConfigDataProtectionField field;
 
     private WebAclDataProtectionConfigDataProtection() {}
-    /**
-     * @return Specifies how to protect the field. Valid values are `SUBSTITUTION` or `HASH`.
-     * 
-     */
     public String action() {
         return this.action;
     }
-    /**
-     * @return Boolean to specify whether to also exclude any rate-based rule details from the data protection you have enabled for a given field.
-     * 
-     */
     public Optional<Boolean> excludeRateBasedDetails() {
         return Optional.ofNullable(this.excludeRateBasedDetails);
     }
-    /**
-     * @return Boolean to specify whether to also exclude any rule match details from the data protection you have enabled for a given field. AWS WAF logs these details for non-terminating matching rules and for the terminating matching rule.
-     * 
-     */
     public Optional<Boolean> excludeRuleMatchDetails() {
         return Optional.ofNullable(this.excludeRuleMatchDetails);
     }
-    /**
-     * @return Specifies the field type and optional keys to apply the protection behavior to. See `field` block below for details.
-     * 
-     */
     public WebAclDataProtectionConfigDataProtectionField field() {
         return this.field;
     }

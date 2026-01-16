@@ -87,33 +87,21 @@ class GetMountTargetResult:
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> _builtins.str:
-        """
-        The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
-        """
         return pulumi.get(self, "availability_zone_id")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneName")
     def availability_zone_name(self) -> _builtins.str:
-        """
-        The name of the Availability Zone (AZ) that the mount target resides in.
-        """
         return pulumi.get(self, "availability_zone_name")
 
     @_builtins.property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> _builtins.str:
-        """
-        DNS name for the EFS file system.
-        """
         return pulumi.get(self, "dns_name")
 
     @_builtins.property
     @pulumi.getter(name="fileSystemArn")
     def file_system_arn(self) -> _builtins.str:
-        """
-        Amazon Resource Name of the file system for which the mount target is intended.
-        """
         return pulumi.get(self, "file_system_arn")
 
     @_builtins.property
@@ -132,33 +120,21 @@ class GetMountTargetResult:
     @_builtins.property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> _builtins.str:
-        """
-        Address at which the file system may be mounted via the mount target.
-        """
         return pulumi.get(self, "ip_address")
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> _builtins.str:
-        """
-        IP address type for the mount target.
-        """
         return pulumi.get(self, "ip_address_type")
 
     @_builtins.property
     @pulumi.getter(name="ipv6Address")
     def ipv6_address(self) -> _builtins.str:
-        """
-        IPv6 address at which the file system may be mounted via the mount target.
-        """
         return pulumi.get(self, "ipv6_address")
 
     @_builtins.property
     @pulumi.getter(name="mountTargetDnsName")
     def mount_target_dns_name(self) -> _builtins.str:
-        """
-        The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
-        """
         return pulumi.get(self, "mount_target_dns_name")
 
     @_builtins.property
@@ -169,17 +145,11 @@ class GetMountTargetResult:
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> _builtins.str:
-        """
-        The ID of the network interface that Amazon EFS created when it created the mount target.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> _builtins.str:
-        """
-        AWS account ID that owns the resource.
-        """
         return pulumi.get(self, "owner_id")
 
     @_builtins.property
@@ -190,17 +160,11 @@ class GetMountTargetResult:
     @_builtins.property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Sequence[_builtins.str]:
-        """
-        List of VPC security group IDs attached to the mount target.
-        """
         return pulumi.get(self, "security_groups")
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> _builtins.str:
-        """
-        ID of the mount target's subnet.
-        """
         return pulumi.get(self, "subnet_id")
 
 
@@ -235,26 +199,7 @@ def get_mount_target(access_point_id: Optional[_builtins.str] = None,
                      region: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMountTargetResult:
     """
-    Provides information about an Elastic File System Mount Target (EFS).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    mount_target_id = config.get("mountTargetId")
-    if mount_target_id is None:
-        mount_target_id = ""
-    by_id = aws.efs.get_mount_target(mount_target_id=mount_target_id)
-    ```
-
-
-    :param _builtins.str access_point_id: ID or ARN of the access point whose mount target that you want to find. It must be included if a `file_system_id` and `mount_target_id` are not included.
-    :param _builtins.str file_system_id: ID or ARN of the file system whose mount target that you want to find. It must be included if an `access_point_id` and `mount_target_id` are not included.
-    :param _builtins.str mount_target_id: ID or ARN of the mount target that you want to find. It must be included in your request if an `access_point_id` and `file_system_id` are not included.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['accessPointId'] = access_point_id
@@ -288,26 +233,7 @@ def get_mount_target_output(access_point_id: Optional[pulumi.Input[Optional[_bui
                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMountTargetResult]:
     """
-    Provides information about an Elastic File System Mount Target (EFS).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    mount_target_id = config.get("mountTargetId")
-    if mount_target_id is None:
-        mount_target_id = ""
-    by_id = aws.efs.get_mount_target(mount_target_id=mount_target_id)
-    ```
-
-
-    :param _builtins.str access_point_id: ID or ARN of the access point whose mount target that you want to find. It must be included if a `file_system_id` and `mount_target_id` are not included.
-    :param _builtins.str file_system_id: ID or ARN of the file system whose mount target that you want to find. It must be included if an `access_point_id` and `mount_target_id` are not included.
-    :param _builtins.str mount_target_id: ID or ARN of the mount target that you want to find. It must be included in your request if an `access_point_id` and `file_system_id` are not included.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['accessPointId'] = access_point_id

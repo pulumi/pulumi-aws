@@ -19,10 +19,6 @@ public final class GetKafkaVersionResult {
     private String id;
     private @Nullable List<String> preferredVersions;
     private String region;
-    /**
-     * @return Status of the MSK Kafka version eg. `ACTIVE` or `DEPRECATED`.
-     * 
-     */
     private String status;
     private String version;
 
@@ -40,10 +36,6 @@ public final class GetKafkaVersionResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Status of the MSK Kafka version eg. `ACTIVE` or `DEPRECATED`.
-     * 
-     */
     public String status() {
         return this.status;
     }

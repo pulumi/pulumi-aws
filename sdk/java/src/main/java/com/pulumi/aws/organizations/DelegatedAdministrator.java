@@ -13,187 +13,59 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage an [AWS Organizations Delegated Administrator](https://docs.aws.amazon.com/organizations/latest/APIReference/API_RegisterDelegatedAdministrator.html).
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.organizations.DelegatedAdministrator;
- * import com.pulumi.aws.organizations.DelegatedAdministratorArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DelegatedAdministrator("example", DelegatedAdministratorArgs.builder()
- *             .accountId("123456789012")
- *             .servicePrincipal("principal")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * * `service_principal` (String) Service principal for the AWS service.
- * 
- * * `delegated_account_id` (String) Account ID to be designated as a delegated administrator.
- * 
- * #### Optional
- * 
- * * `account_id` (String) AWS Account where this resource is managed.
- * 
- * Using `pulumi import`, import `aws_organizations_delegated_administrator` using the account ID and its service principal. For example:
- * 
- * % pulumi import aws_organizations_delegated_administrator.example 123456789012/config.amazonaws.com
- * 
- */
 @ResourceType(type="aws:organizations/delegatedAdministrator:DelegatedAdministrator")
 public class DelegatedAdministrator extends com.pulumi.resources.CustomResource {
-    /**
-     * The account ID number of the member account in the organization to register as a delegated administrator.
-     * 
-     */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
-    /**
-     * @return The account ID number of the member account in the organization to register as a delegated administrator.
-     * 
-     */
     public Output<String> accountId() {
         return this.accountId;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The date when the account was made a delegated administrator.
-     * 
-     */
     @Export(name="delegationEnabledDate", refs={String.class}, tree="[0]")
     private Output<String> delegationEnabledDate;
 
-    /**
-     * @return The date when the account was made a delegated administrator.
-     * 
-     */
     public Output<String> delegationEnabledDate() {
         return this.delegationEnabledDate;
     }
-    /**
-     * The email address that is associated with the delegated administrator&#39;s AWS account.
-     * 
-     */
     @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
-    /**
-     * @return The email address that is associated with the delegated administrator&#39;s AWS account.
-     * 
-     */
     public Output<String> email() {
         return this.email;
     }
-    /**
-     * The method by which the delegated administrator&#39;s account joined the organization.
-     * 
-     */
     @Export(name="joinedMethod", refs={String.class}, tree="[0]")
     private Output<String> joinedMethod;
 
-    /**
-     * @return The method by which the delegated administrator&#39;s account joined the organization.
-     * 
-     */
     public Output<String> joinedMethod() {
         return this.joinedMethod;
     }
-    /**
-     * The date when the delegated administrator&#39;s account became a part of the organization.
-     * 
-     */
     @Export(name="joinedTimestamp", refs={String.class}, tree="[0]")
     private Output<String> joinedTimestamp;
 
-    /**
-     * @return The date when the delegated administrator&#39;s account became a part of the organization.
-     * 
-     */
     public Output<String> joinedTimestamp() {
         return this.joinedTimestamp;
     }
-    /**
-     * The friendly name of the delegated administrator&#39;s account.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The friendly name of the delegated administrator&#39;s account.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The service principal of the AWS service for which you want to make the member account a delegated administrator.
-     * 
-     */
     @Export(name="servicePrincipal", refs={String.class}, tree="[0]")
     private Output<String> servicePrincipal;
 
-    /**
-     * @return The service principal of the AWS service for which you want to make the member account a delegated administrator.
-     * 
-     */
     public Output<String> servicePrincipal() {
         return this.servicePrincipal;
     }
-    /**
-     * The status of the delegated administrator&#39;s account in the organization.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return The status of the delegated administrator&#39;s account in the organization.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }

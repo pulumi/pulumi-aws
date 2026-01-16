@@ -14,17 +14,9 @@ public final class DataQualityJobDefinitionJobResourcesArgs extends com.pulumi.r
 
     public static final DataQualityJobDefinitionJobResourcesArgs Empty = new DataQualityJobDefinitionJobResourcesArgs();
 
-    /**
-     * The configuration for the cluster resources used to run the processing job. Fields are documented below.
-     * 
-     */
     @Import(name="clusterConfig", required=true)
     private Output<DataQualityJobDefinitionJobResourcesClusterConfigArgs> clusterConfig;
 
-    /**
-     * @return The configuration for the cluster resources used to run the processing job. Fields are documented below.
-     * 
-     */
     public Output<DataQualityJobDefinitionJobResourcesClusterConfigArgs> clusterConfig() {
         return this.clusterConfig;
     }
@@ -53,23 +45,11 @@ public final class DataQualityJobDefinitionJobResourcesArgs extends com.pulumi.r
             $ = new DataQualityJobDefinitionJobResourcesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusterConfig The configuration for the cluster resources used to run the processing job. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterConfig(Output<DataQualityJobDefinitionJobResourcesClusterConfigArgs> clusterConfig) {
             $.clusterConfig = clusterConfig;
             return this;
         }
 
-        /**
-         * @param clusterConfig The configuration for the cluster resources used to run the processing job. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterConfig(DataQualityJobDefinitionJobResourcesClusterConfigArgs clusterConfig) {
             return clusterConfig(Output.of(clusterConfig));
         }

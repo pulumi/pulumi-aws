@@ -9,90 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Quicksight
 {
-    /// <summary>
-    /// Resource for managing an AWS QuickSight Namespace.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Quicksight.Namespace("example", new()
-    ///     {
-    ///         NameSpace = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import QuickSight Namespace using the AWS account ID and namespace separated by commas (`,`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:quicksight/namespace:Namespace example 123456789012,example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:quicksight/namespace:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Namespace.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Namespace AWS Region.
-        /// </summary>
         [Output("capacityRegion")]
         public Output<string> CapacityRegion { get; private set; } = null!;
 
-        /// <summary>
-        /// Creation status of the namespace.
-        /// </summary>
         [Output("creationStatus")]
         public Output<string> CreationStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
-        /// </summary>
         [Output("identityStore")]
         public Output<string> IdentityStore { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the namespace.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("namespace")]
         public Output<string> NameSpace { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -148,32 +91,17 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
-        /// </summary>
         [Input("identityStore")]
         public Input<string>? IdentityStore { get; set; }
 
-        /// <summary>
-        /// Name of the namespace.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("namespace", required: true)]
         public Input<string> NameSpace { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -191,53 +119,29 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class NamespaceState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Namespace.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// Namespace AWS Region.
-        /// </summary>
         [Input("capacityRegion")]
         public Input<string>? CapacityRegion { get; set; }
 
-        /// <summary>
-        /// Creation status of the namespace.
-        /// </summary>
         [Input("creationStatus")]
         public Input<string>? CreationStatus { get; set; }
 
-        /// <summary>
-        /// User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
-        /// </summary>
         [Input("identityStore")]
         public Input<string>? IdentityStore { get; set; }
 
-        /// <summary>
-        /// Name of the namespace.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("namespace")]
         public Input<string>? NameSpace { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -246,10 +150,6 @@ namespace Pulumi.Aws.Quicksight
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

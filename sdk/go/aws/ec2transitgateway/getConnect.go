@@ -11,68 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get information on an EC2 Transit Gateway Connect.
-//
-// ## Example Usage
-//
-// ### By Filter
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.LookupConnect(ctx, &ec2transitgateway.LookupConnectArgs{
-//				Filters: []ec2transitgateway.GetConnectFilter{
-//					{
-//						Name: "transport-transit-gateway-attachment-id",
-//						Values: []string{
-//							"tgw-attach-12345678",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### By Identifier
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.LookupConnect(ctx, &ec2transitgateway.LookupConnectArgs{
-//				TransitGatewayConnectId: pulumi.StringRef("tgw-attach-12345678"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupConnect(ctx *pulumi.Context, args *LookupConnectArgs, opts ...pulumi.InvokeOption) (*LookupConnectResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConnectResult
@@ -85,31 +23,23 @@ func LookupConnect(ctx *pulumi.Context, args *LookupConnectArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getConnect.
 type LookupConnectArgs struct {
-	// One or more configuration blocks containing name-values filters. Detailed below.
-	Filters []GetConnectFilter `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value tags for the EC2 Transit Gateway Connect
-	Tags map[string]string `pulumi:"tags"`
-	// Identifier of the EC2 Transit Gateway Connect.
-	TransitGatewayConnectId *string `pulumi:"transitGatewayConnectId"`
+	Filters                 []GetConnectFilter `pulumi:"filters"`
+	Region                  *string            `pulumi:"region"`
+	Tags                    map[string]string  `pulumi:"tags"`
+	TransitGatewayConnectId *string            `pulumi:"transitGatewayConnectId"`
 }
 
 // A collection of values returned by getConnect.
 type LookupConnectResult struct {
 	Filters []GetConnectFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Tunnel protocol
-	Protocol string `pulumi:"protocol"`
-	Region   string `pulumi:"region"`
-	// Key-value tags for the EC2 Transit Gateway Connect
+	Id                      string            `pulumi:"id"`
+	Protocol                string            `pulumi:"protocol"`
+	Region                  string            `pulumi:"region"`
 	Tags                    map[string]string `pulumi:"tags"`
 	TransitGatewayConnectId string            `pulumi:"transitGatewayConnectId"`
-	// EC2 Transit Gateway identifier
-	TransitGatewayId string `pulumi:"transitGatewayId"`
-	// The underlaying VPC attachment
-	TransportAttachmentId string `pulumi:"transportAttachmentId"`
+	TransitGatewayId        string            `pulumi:"transitGatewayId"`
+	TransportAttachmentId   string            `pulumi:"transportAttachmentId"`
 }
 
 func LookupConnectOutput(ctx *pulumi.Context, args LookupConnectOutputArgs, opts ...pulumi.InvokeOption) LookupConnectResultOutput {
@@ -123,14 +53,10 @@ func LookupConnectOutput(ctx *pulumi.Context, args LookupConnectOutputArgs, opts
 
 // A collection of arguments for invoking getConnect.
 type LookupConnectOutputArgs struct {
-	// One or more configuration blocks containing name-values filters. Detailed below.
-	Filters GetConnectFilterArrayInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Key-value tags for the EC2 Transit Gateway Connect
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Identifier of the EC2 Transit Gateway Connect.
-	TransitGatewayConnectId pulumi.StringPtrInput `pulumi:"transitGatewayConnectId"`
+	Filters                 GetConnectFilterArrayInput `pulumi:"filters"`
+	Region                  pulumi.StringPtrInput      `pulumi:"region"`
+	Tags                    pulumi.StringMapInput      `pulumi:"tags"`
+	TransitGatewayConnectId pulumi.StringPtrInput      `pulumi:"transitGatewayConnectId"`
 }
 
 func (LookupConnectOutputArgs) ElementType() reflect.Type {
@@ -161,7 +87,6 @@ func (o LookupConnectResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Tunnel protocol
 func (o LookupConnectResultOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectResult) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -170,7 +95,6 @@ func (o LookupConnectResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value tags for the EC2 Transit Gateway Connect
 func (o LookupConnectResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupConnectResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -179,12 +103,10 @@ func (o LookupConnectResultOutput) TransitGatewayConnectId() pulumi.StringOutput
 	return o.ApplyT(func(v LookupConnectResult) string { return v.TransitGatewayConnectId }).(pulumi.StringOutput)
 }
 
-// EC2 Transit Gateway identifier
 func (o LookupConnectResultOutput) TransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectResult) string { return v.TransitGatewayId }).(pulumi.StringOutput)
 }
 
-// The underlaying VPC attachment
 func (o LookupConnectResultOutput) TransportAttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectResult) string { return v.TransportAttachmentId }).(pulumi.StringOutput)
 }

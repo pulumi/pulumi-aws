@@ -15,21 +15,12 @@ namespace Pulumi.Aws.Ec2.Inputs
         [Input("attachmentId")]
         public Input<string>? AttachmentId { get; set; }
 
-        /// <summary>
-        /// Integer to define the devices index.
-        /// </summary>
         [Input("deviceIndex", required: true)]
         public Input<int> DeviceIndex { get; set; } = null!;
 
-        /// <summary>
-        /// ID of the instance to attach to.
-        /// </summary>
         [Input("instance", required: true)]
         public Input<string> Instance { get; set; } = null!;
 
-        /// <summary>
-        /// Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
-        /// </summary>
         [Input("networkCardIndex")]
         public Input<int>? NetworkCardIndex { get; set; }
 

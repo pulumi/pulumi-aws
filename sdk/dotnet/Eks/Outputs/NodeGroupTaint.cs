@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class NodeGroupTaint
     {
-        /// <summary>
-        /// The effect of the taint. Valid values: `NO_SCHEDULE`, `NO_EXECUTE`, `PREFER_NO_SCHEDULE`.
-        /// </summary>
         public readonly string Effect;
-        /// <summary>
-        /// The key of the taint. Maximum length of 63.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// The value of the taint. Maximum length of 63.
-        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

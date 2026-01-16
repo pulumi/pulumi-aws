@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LaunchTemplateNetworkInterfaceConnectionTrackingSpecification {
-    /**
-     * @return Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
-     * 
-     */
     private @Nullable Integer tcpEstablishedTimeout;
-    /**
-     * @return Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
-     * 
-     */
     private @Nullable Integer udpStreamTimeout;
-    /**
-     * @return Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
-     * 
-     */
     private @Nullable Integer udpTimeout;
 
     private LaunchTemplateNetworkInterfaceConnectionTrackingSpecification() {}
-    /**
-     * @return Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
-     * 
-     */
     public Optional<Integer> tcpEstablishedTimeout() {
         return Optional.ofNullable(this.tcpEstablishedTimeout);
     }
-    /**
-     * @return Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
-     * 
-     */
     public Optional<Integer> udpStreamTimeout() {
         return Optional.ofNullable(this.udpStreamTimeout);
     }
-    /**
-     * @return Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
-     * 
-     */
     public Optional<Integer> udpTimeout() {
         return Optional.ofNullable(this.udpTimeout);
     }

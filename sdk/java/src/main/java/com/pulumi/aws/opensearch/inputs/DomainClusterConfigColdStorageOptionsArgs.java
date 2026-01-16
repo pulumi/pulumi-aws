@@ -15,17 +15,9 @@ public final class DomainClusterConfigColdStorageOptionsArgs extends com.pulumi.
 
     public static final DomainClusterConfigColdStorageOptionsArgs Empty = new DomainClusterConfigColdStorageOptionsArgs();
 
-    /**
-     * Boolean to enable cold storage for an OpenSearch domain. Defaults to `false`. Master and ultrawarm nodes must be enabled for cold storage.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Boolean to enable cold storage for an OpenSearch domain. Defaults to `false`. Master and ultrawarm nodes must be enabled for cold storage.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -54,23 +46,11 @@ public final class DomainClusterConfigColdStorageOptionsArgs extends com.pulumi.
             $ = new DomainClusterConfigColdStorageOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Boolean to enable cold storage for an OpenSearch domain. Defaults to `false`. Master and ultrawarm nodes must be enabled for cold storage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Boolean to enable cold storage for an OpenSearch domain. Defaults to `false`. Master and ultrawarm nodes must be enabled for cold storage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

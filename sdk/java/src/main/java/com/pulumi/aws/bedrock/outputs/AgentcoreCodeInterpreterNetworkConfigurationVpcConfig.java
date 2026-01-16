@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentcoreCodeInterpreterNetworkConfigurationVpcConfig {
-    /**
-     * @return Security groups associated with the VPC configuration.
-     * 
-     */
     private List<String> securityGroups;
-    /**
-     * @return Subnets associated with the VPC configuration.
-     * 
-     */
     private List<String> subnets;
 
     private AgentcoreCodeInterpreterNetworkConfigurationVpcConfig() {}
-    /**
-     * @return Security groups associated with the VPC configuration.
-     * 
-     */
     public List<String> securityGroups() {
         return this.securityGroups;
     }
-    /**
-     * @return Subnets associated with the VPC configuration.
-     * 
-     */
     public List<String> subnets() {
         return this.subnets;
     }

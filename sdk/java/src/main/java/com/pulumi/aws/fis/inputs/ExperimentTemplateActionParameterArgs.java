@@ -14,36 +14,16 @@ public final class ExperimentTemplateActionParameterArgs extends com.pulumi.reso
 
     public static final ExperimentTemplateActionParameterArgs Empty = new ExperimentTemplateActionParameterArgs();
 
-    /**
-     * Parameter name.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return Parameter name.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * Parameter value.
-     * 
-     * For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return Parameter value.
-     * 
-     * For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -73,48 +53,20 @@ public final class ExperimentTemplateActionParameterArgs extends com.pulumi.reso
             $ = new ExperimentTemplateActionParameterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key Parameter name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Parameter name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param value Parameter value.
-         * 
-         * For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Parameter value.
-         * 
-         * For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

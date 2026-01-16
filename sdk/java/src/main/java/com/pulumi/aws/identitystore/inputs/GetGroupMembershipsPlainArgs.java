@@ -15,47 +15,23 @@ public final class GetGroupMembershipsPlainArgs extends com.pulumi.resources.Inv
 
     public static final GetGroupMembershipsPlainArgs Empty = new GetGroupMembershipsPlainArgs();
 
-    /**
-     * The identifier for a group in the Identity Store.
-     * 
-     */
     @Import(name="groupId", required=true)
     private String groupId;
 
-    /**
-     * @return The identifier for a group in the Identity Store.
-     * 
-     */
     public String groupId() {
         return this.groupId;
     }
 
-    /**
-     * Identity Store ID associated with the Single Sign-On Instance.
-     * 
-     */
     @Import(name="identityStoreId", required=true)
     private String identityStoreId;
 
-    /**
-     * @return Identity Store ID associated with the Single Sign-On Instance.
-     * 
-     */
     public String identityStoreId() {
         return this.identityStoreId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -86,34 +62,16 @@ public final class GetGroupMembershipsPlainArgs extends com.pulumi.resources.Inv
             $ = new GetGroupMembershipsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param groupId The identifier for a group in the Identity Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupId(String groupId) {
             $.groupId = groupId;
             return this;
         }
 
-        /**
-         * @param identityStoreId Identity Store ID associated with the Single Sign-On Instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityStoreId(String identityStoreId) {
             $.identityStoreId = identityStoreId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

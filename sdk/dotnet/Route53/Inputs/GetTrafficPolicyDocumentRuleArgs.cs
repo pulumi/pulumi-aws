@@ -14,28 +14,17 @@ namespace Pulumi.Aws.Route53.Inputs
     {
         [Input("geoProximityLocations")]
         private InputList<Inputs.GetTrafficPolicyDocumentRuleGeoProximityLocationInputArgs>? _geoProximityLocations;
-
-        /// <summary>
-        /// Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `Geoproximity` type. See below
-        /// </summary>
         public InputList<Inputs.GetTrafficPolicyDocumentRuleGeoProximityLocationInputArgs> GeoProximityLocations
         {
             get => _geoProximityLocations ?? (_geoProximityLocations = new InputList<Inputs.GetTrafficPolicyDocumentRuleGeoProximityLocationInputArgs>());
             set => _geoProximityLocations = value;
         }
 
-        /// <summary>
-        /// ID of a rule you want to assign.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
         [Input("items")]
         private InputList<Inputs.GetTrafficPolicyDocumentRuleItemInputArgs>? _items;
-
-        /// <summary>
-        /// Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `Multivalue` type. See below
-        /// </summary>
         public InputList<Inputs.GetTrafficPolicyDocumentRuleItemInputArgs> Items
         {
             get => _items ?? (_items = new InputList<Inputs.GetTrafficPolicyDocumentRuleItemInputArgs>());
@@ -44,19 +33,12 @@ namespace Pulumi.Aws.Route53.Inputs
 
         [Input("locations")]
         private InputList<Inputs.GetTrafficPolicyDocumentRuleLocationInputArgs>? _locations;
-
-        /// <summary>
-        /// Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `Geo` type. See below
-        /// </summary>
         public InputList<Inputs.GetTrafficPolicyDocumentRuleLocationInputArgs> Locations
         {
             get => _locations ?? (_locations = new InputList<Inputs.GetTrafficPolicyDocumentRuleLocationInputArgs>());
             set => _locations = value;
         }
 
-        /// <summary>
-        /// Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `Failover` type. See below
-        /// </summary>
         [Input("primary")]
         public Input<Inputs.GetTrafficPolicyDocumentRulePrimaryInputArgs>? Primary { get; set; }
 
@@ -68,15 +50,9 @@ namespace Pulumi.Aws.Route53.Inputs
             set => _regions = value;
         }
 
-        /// <summary>
-        /// Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `Failover` type. See below
-        /// </summary>
         [Input("secondary")]
         public Input<Inputs.GetTrafficPolicyDocumentRuleSecondaryInputArgs>? Secondary { get; set; }
 
-        /// <summary>
-        /// Type of the rule.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

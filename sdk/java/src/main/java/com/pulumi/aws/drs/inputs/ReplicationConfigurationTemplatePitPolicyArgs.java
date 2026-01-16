@@ -18,77 +18,37 @@ public final class ReplicationConfigurationTemplatePitPolicyArgs extends com.pul
 
     public static final ReplicationConfigurationTemplatePitPolicyArgs Empty = new ReplicationConfigurationTemplatePitPolicyArgs();
 
-    /**
-     * Whether this rule is enabled or not.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether this rule is enabled or not.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * How often, in the chosen units, a snapshot should be taken.
-     * 
-     */
     @Import(name="interval", required=true)
     private Output<Integer> interval;
 
-    /**
-     * @return How often, in the chosen units, a snapshot should be taken.
-     * 
-     */
     public Output<Integer> interval() {
         return this.interval;
     }
 
-    /**
-     * Duration to retain a snapshot for, in the chosen `units`.
-     * 
-     */
     @Import(name="retentionDuration", required=true)
     private Output<Integer> retentionDuration;
 
-    /**
-     * @return Duration to retain a snapshot for, in the chosen `units`.
-     * 
-     */
     public Output<Integer> retentionDuration() {
         return this.retentionDuration;
     }
 
-    /**
-     * ID of the rule. Valid values are integers.
-     * 
-     */
     @Import(name="ruleId")
     private @Nullable Output<Integer> ruleId;
 
-    /**
-     * @return ID of the rule. Valid values are integers.
-     * 
-     */
     public Optional<Output<Integer>> ruleId() {
         return Optional.ofNullable(this.ruleId);
     }
 
-    /**
-     * Units used to measure the `interval` and `retentionDuration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
-     * 
-     */
     @Import(name="units", required=true)
     private Output<String> units;
 
-    /**
-     * @return Units used to measure the `interval` and `retentionDuration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
-     * 
-     */
     public Output<String> units() {
         return this.units;
     }
@@ -121,107 +81,47 @@ public final class ReplicationConfigurationTemplatePitPolicyArgs extends com.pul
             $ = new ReplicationConfigurationTemplatePitPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Whether this rule is enabled or not.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether this rule is enabled or not.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param interval How often, in the chosen units, a snapshot should be taken.
-         * 
-         * @return builder
-         * 
-         */
         public Builder interval(Output<Integer> interval) {
             $.interval = interval;
             return this;
         }
 
-        /**
-         * @param interval How often, in the chosen units, a snapshot should be taken.
-         * 
-         * @return builder
-         * 
-         */
         public Builder interval(Integer interval) {
             return interval(Output.of(interval));
         }
 
-        /**
-         * @param retentionDuration Duration to retain a snapshot for, in the chosen `units`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionDuration(Output<Integer> retentionDuration) {
             $.retentionDuration = retentionDuration;
             return this;
         }
 
-        /**
-         * @param retentionDuration Duration to retain a snapshot for, in the chosen `units`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionDuration(Integer retentionDuration) {
             return retentionDuration(Output.of(retentionDuration));
         }
 
-        /**
-         * @param ruleId ID of the rule. Valid values are integers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleId(@Nullable Output<Integer> ruleId) {
             $.ruleId = ruleId;
             return this;
         }
 
-        /**
-         * @param ruleId ID of the rule. Valid values are integers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleId(Integer ruleId) {
             return ruleId(Output.of(ruleId));
         }
 
-        /**
-         * @param units Units used to measure the `interval` and `retentionDuration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder units(Output<String> units) {
             $.units = units;
             return this;
         }
 
-        /**
-         * @param units Units used to measure the `interval` and `retentionDuration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder units(String units) {
             return units(Output.of(units));
         }

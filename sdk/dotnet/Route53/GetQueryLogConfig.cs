@@ -11,177 +11,12 @@ namespace Pulumi.Aws.Route53
 {
     public static class GetQueryLogConfig
     {
-        /// <summary>
-        /// `aws.route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetQueryLogConfig.Invoke(new()
-        ///     {
-        ///         ResolverQueryLogConfigId = "rqlc-1abc2345ef678g91h",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetQueryLogConfig.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Route53.Inputs.GetQueryLogConfigFilterInputArgs
-        ///             {
-        ///                 Name = "Name",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "shared-query-log-config",
-        ///                 },
-        ///             },
-        ///             new Aws.Route53.Inputs.GetQueryLogConfigFilterInputArgs
-        ///             {
-        ///                 Name = "ShareStatus",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "SHARED_WITH_ME",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetQueryLogConfigResult> InvokeAsync(GetQueryLogConfigArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueryLogConfigResult>("aws:route53/getQueryLogConfig:getQueryLogConfig", args ?? new GetQueryLogConfigArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetQueryLogConfig.Invoke(new()
-        ///     {
-        ///         ResolverQueryLogConfigId = "rqlc-1abc2345ef678g91h",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetQueryLogConfig.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Route53.Inputs.GetQueryLogConfigFilterInputArgs
-        ///             {
-        ///                 Name = "Name",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "shared-query-log-config",
-        ///                 },
-        ///             },
-        ///             new Aws.Route53.Inputs.GetQueryLogConfigFilterInputArgs
-        ///             {
-        ///                 Name = "ShareStatus",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "SHARED_WITH_ME",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetQueryLogConfigResult> Invoke(GetQueryLogConfigInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueryLogConfigResult>("aws:route53/getQueryLogConfig:getQueryLogConfig", args ?? new GetQueryLogConfigInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetQueryLogConfig.Invoke(new()
-        ///     {
-        ///         ResolverQueryLogConfigId = "rqlc-1abc2345ef678g91h",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetQueryLogConfig.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Route53.Inputs.GetQueryLogConfigFilterInputArgs
-        ///             {
-        ///                 Name = "Name",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "shared-query-log-config",
-        ///                 },
-        ///             },
-        ///             new Aws.Route53.Inputs.GetQueryLogConfigFilterInputArgs
-        ///             {
-        ///                 Name = "ShareStatus",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "SHARED_WITH_ME",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetQueryLogConfigResult> Invoke(GetQueryLogConfigInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueryLogConfigResult>("aws:route53/getQueryLogConfig:getQueryLogConfig", args ?? new GetQueryLogConfigInvokeArgs(), options.WithDefaults());
     }
@@ -191,42 +26,23 @@ namespace Pulumi.Aws.Route53
     {
         [Input("filters")]
         private List<Inputs.GetQueryLogConfigFilterArgs>? _filters;
-
-        /// <summary>
-        /// One or more name/value pairs to use as filters. There are
-        /// several valid keys, for a full reference, check out
-        /// [Route53resolver Filter value in the AWS API reference][1].
-        /// </summary>
         public List<Inputs.GetQueryLogConfigFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetQueryLogConfigFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// The name of the query logging configuration.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// ID of the Route53 Resolver Query Logging Configuration.
-        /// </summary>
         [Input("resolverQueryLogConfigId")]
         public string? ResolverQueryLogConfigId { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the service.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -243,42 +59,23 @@ namespace Pulumi.Aws.Route53
     {
         [Input("filters")]
         private InputList<Inputs.GetQueryLogConfigFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// One or more name/value pairs to use as filters. There are
-        /// several valid keys, for a full reference, check out
-        /// [Route53resolver Filter value in the AWS API reference][1].
-        /// </summary>
         public InputList<Inputs.GetQueryLogConfigFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetQueryLogConfigFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// The name of the query logging configuration.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the Route53 Resolver Query Logging Configuration.
-        /// </summary>
         [Input("resolverQueryLogConfigId")]
         public Input<string>? ResolverQueryLogConfigId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the service.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -295,36 +92,18 @@ namespace Pulumi.Aws.Route53
     [OutputType]
     public sealed class GetQueryLogConfigResult
     {
-        /// <summary>
-        /// Computed ARN of the Route53 Resolver Query Logging Configuration.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The ARN of the resource that you want Resolver to send query logs: an Amazon S3 bucket, a CloudWatch Logs log group or a Kinesis Data Firehose delivery stream.
-        /// </summary>
         public readonly string DestinationArn;
         public readonly ImmutableArray<Outputs.GetQueryLogConfigFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The name of the query logging configuration.
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// The AWS account ID for the account that created the query logging configuration.
-        /// </summary>
         public readonly string OwnerId;
         public readonly string Region;
         public readonly string? ResolverQueryLogConfigId;
-        /// <summary>
-        /// An indication of whether the query logging configuration is shared with other AWS accounts or was shared with the current account by another AWS account.
-        /// </summary>
         public readonly string ShareStatus;
-        /// <summary>
-        /// Map of tags to assign to the service.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

@@ -9,93 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sagemaker
 {
-    /// <summary>
-    /// Provides a SageMaker AI Model Package Group Policy resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var exampleModelPackageGroup = new Aws.Sagemaker.ModelPackageGroup("example", new()
-    ///     {
-    ///         ModelPackageGroupName = "example",
-    ///     });
-    /// 
-    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
-    ///             {
-    ///                 Sid = "AddPermModelPackageGroup",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sagemaker:DescribeModelPackage",
-    ///                     "sagemaker:ListModelPackages",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     exampleModelPackageGroup.Arn,
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
-    ///                     {
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///                         },
-    ///                         Type = "AWS",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleModelPackageGroupPolicy = new Aws.Sagemaker.ModelPackageGroupPolicy("example", new()
-    ///     {
-    ///         ModelPackageGroupName = exampleModelPackageGroup.ModelPackageGroupName,
-    ///         ResourcePolicy = Output.JsonSerialize(Output.Create(Std.Jsondecode.Invoke(new()
-    ///         {
-    ///             Input = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///         }).Apply(invoke =&gt; invoke.Result))),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SageMaker AI Model Package Groups using the `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy")]
     public partial class ModelPackageGroupPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The name of the model package group.
-        /// </summary>
         [Output("modelPackageGroupName")]
         public Output<string> ModelPackageGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -148,15 +67,9 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class ModelPackageGroupPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the model package group.
-        /// </summary>
         [Input("modelPackageGroupName", required: true)]
         public Input<string> ModelPackageGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -171,15 +84,9 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class ModelPackageGroupPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the model package group.
-        /// </summary>
         [Input("modelPackageGroupName")]
         public Input<string>? ModelPackageGroupName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

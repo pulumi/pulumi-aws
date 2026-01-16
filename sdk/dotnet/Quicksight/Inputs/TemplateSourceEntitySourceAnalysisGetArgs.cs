@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class TemplateSourceEntitySourceAnalysisGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource.
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
         [Input("dataSetReferences", required: true)]
         private InputList<Inputs.TemplateSourceEntitySourceAnalysisDataSetReferenceGetArgs>? _dataSetReferences;
-
-        /// <summary>
-        /// A list of dataset references used as placeholders in the template. See data_set_references.
-        /// </summary>
         public InputList<Inputs.TemplateSourceEntitySourceAnalysisDataSetReferenceGetArgs> DataSetReferences
         {
             get => _dataSetReferences ?? (_dataSetReferences = new InputList<Inputs.TemplateSourceEntitySourceAnalysisDataSetReferenceGetArgs>());

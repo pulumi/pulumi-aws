@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventEndpointRoutingConfigFailoverConfigSecondary {
-    /**
-     * @return The name of the secondary Region.
-     * 
-     */
     private @Nullable String route;
 
     private EventEndpointRoutingConfigFailoverConfigSecondary() {}
-    /**
-     * @return The name of the secondary Region.
-     * 
-     */
     public Optional<String> route() {
         return Optional.ofNullable(this.route);
     }

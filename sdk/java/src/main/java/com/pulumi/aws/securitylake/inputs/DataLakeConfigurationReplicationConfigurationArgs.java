@@ -16,32 +16,16 @@ public final class DataLakeConfigurationReplicationConfigurationArgs extends com
 
     public static final DataLakeConfigurationReplicationConfigurationArgs Empty = new DataLakeConfigurationReplicationConfigurationArgs();
 
-    /**
-     * Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Amazon S3 buckets that are configured for object replication can be owned by the same AWS account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different AWS Regions or within the same Region as the source bucket.
-     * 
-     */
     @Import(name="regions")
     private @Nullable Output<List<String>> regions;
 
-    /**
-     * @return Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Amazon S3 buckets that are configured for object replication can be owned by the same AWS account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different AWS Regions or within the same Region as the source bucket.
-     * 
-     */
     public Optional<Output<List<String>>> regions() {
         return Optional.ofNullable(this.regions);
     }
 
-    /**
-     * Replication settings for the Amazon S3 buckets. This parameter uses the AWS Identity and Access Management (IAM) role you created that is managed by Security Lake, to ensure the replication setting is correct.
-     * 
-     */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
-    /**
-     * @return Replication settings for the Amazon S3 buckets. This parameter uses the AWS Identity and Access Management (IAM) role you created that is managed by Security Lake, to ensure the replication setting is correct.
-     * 
-     */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
@@ -71,54 +55,24 @@ public final class DataLakeConfigurationReplicationConfigurationArgs extends com
             $ = new DataLakeConfigurationReplicationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param regions Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Amazon S3 buckets that are configured for object replication can be owned by the same AWS account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different AWS Regions or within the same Region as the source bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(@Nullable Output<List<String>> regions) {
             $.regions = regions;
             return this;
         }
 
-        /**
-         * @param regions Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Amazon S3 buckets that are configured for object replication can be owned by the same AWS account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different AWS Regions or within the same Region as the source bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(List<String> regions) {
             return regions(Output.of(regions));
         }
 
-        /**
-         * @param regions Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Amazon S3 buckets that are configured for object replication can be owned by the same AWS account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different AWS Regions or within the same Region as the source bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(String... regions) {
             return regions(List.of(regions));
         }
 
-        /**
-         * @param roleArn Replication settings for the Amazon S3 buckets. This parameter uses the AWS Identity and Access Management (IAM) role you created that is managed by Security Lake, to ensure the replication setting is correct.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn Replication settings for the Amazon S3 buckets. This parameter uses the AWS Identity and Access Management (IAM) role you created that is managed by Security Lake, to ensure the replication setting is correct.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

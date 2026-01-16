@@ -15,47 +15,23 @@ public final class BudgetResourceAssociationState extends com.pulumi.resources.R
 
     public static final BudgetResourceAssociationState Empty = new BudgetResourceAssociationState();
 
-    /**
-     * Budget name.
-     * 
-     */
     @Import(name="budgetName")
     private @Nullable Output<String> budgetName;
 
-    /**
-     * @return Budget name.
-     * 
-     */
     public Optional<Output<String>> budgetName() {
         return Optional.ofNullable(this.budgetName);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Resource identifier.
-     * 
-     */
     @Import(name="resourceId")
     private @Nullable Output<String> resourceId;
 
-    /**
-     * @return Resource identifier.
-     * 
-     */
     public Optional<Output<String>> resourceId() {
         return Optional.ofNullable(this.resourceId);
     }
@@ -86,65 +62,29 @@ public final class BudgetResourceAssociationState extends com.pulumi.resources.R
             $ = new BudgetResourceAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param budgetName Budget name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder budgetName(@Nullable Output<String> budgetName) {
             $.budgetName = budgetName;
             return this;
         }
 
-        /**
-         * @param budgetName Budget name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder budgetName(String budgetName) {
             return budgetName(Output.of(budgetName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceId Resource identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(@Nullable Output<String> resourceId) {
             $.resourceId = resourceId;
             return this;
         }
 
-        /**
-         * @param resourceId Resource identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(String resourceId) {
             return resourceId(Output.of(resourceId));
         }

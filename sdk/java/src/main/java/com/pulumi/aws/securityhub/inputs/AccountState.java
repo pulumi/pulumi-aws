@@ -16,77 +16,37 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
 
     public static final AccountState Empty = new AccountState();
 
-    /**
-     * ARN of the SecurityHub Hub created in the account.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the SecurityHub Hub created in the account.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
-     * 
-     */
     @Import(name="autoEnableControls")
     private @Nullable Output<Boolean> autoEnableControls;
 
-    /**
-     * @return Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
-     * 
-     */
     public Optional<Output<Boolean>> autoEnableControls() {
         return Optional.ofNullable(this.autoEnableControls);
     }
 
-    /**
-     * Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
-     * 
-     */
     @Import(name="controlFindingGenerator")
     private @Nullable Output<String> controlFindingGenerator;
 
-    /**
-     * @return Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
-     * 
-     */
     public Optional<Output<String>> controlFindingGenerator() {
         return Optional.ofNullable(this.controlFindingGenerator);
     }
 
-    /**
-     * Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
-     * 
-     */
     @Import(name="enableDefaultStandards")
     private @Nullable Output<Boolean> enableDefaultStandards;
 
-    /**
-     * @return Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> enableDefaultStandards() {
         return Optional.ofNullable(this.enableDefaultStandards);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -119,107 +79,47 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
             $ = new AccountState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the SecurityHub Hub created in the account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the SecurityHub Hub created in the account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param autoEnableControls Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoEnableControls(@Nullable Output<Boolean> autoEnableControls) {
             $.autoEnableControls = autoEnableControls;
             return this;
         }
 
-        /**
-         * @param autoEnableControls Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoEnableControls(Boolean autoEnableControls) {
             return autoEnableControls(Output.of(autoEnableControls));
         }
 
-        /**
-         * @param controlFindingGenerator Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder controlFindingGenerator(@Nullable Output<String> controlFindingGenerator) {
             $.controlFindingGenerator = controlFindingGenerator;
             return this;
         }
 
-        /**
-         * @param controlFindingGenerator Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder controlFindingGenerator(String controlFindingGenerator) {
             return controlFindingGenerator(Output.of(controlFindingGenerator));
         }
 
-        /**
-         * @param enableDefaultStandards Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableDefaultStandards(@Nullable Output<Boolean> enableDefaultStandards) {
             $.enableDefaultStandards = enableDefaultStandards;
             return this;
         }
 
-        /**
-         * @param enableDefaultStandards Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableDefaultStandards(Boolean enableDefaultStandards) {
             return enableDefaultStandards(Output.of(enableDefaultStandards));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -58,9 +58,6 @@ class GetProductResult:
     @_builtins.property
     @pulumi.getter
     def result(self) -> _builtins.str:
-        """
-        Set to the product returned from the API.
-        """
         return pulumi.get(self, "result")
 
     @_builtins.property
@@ -85,68 +82,7 @@ def get_product(filters: Optional[Sequence[Union['GetProductFilterArgs', 'GetPro
                 service_code: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductResult:
     """
-    Use this data source to get the pricing information of all products in AWS.
-    This data source is only available in a us-east-1 or ap-south-1 provider.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.pricing.get_product(service_code="AmazonEC2",
-        filters=[
-            {
-                "field": "instanceType",
-                "value": "c5.xlarge",
-            },
-            {
-                "field": "operatingSystem",
-                "value": "Linux",
-            },
-            {
-                "field": "location",
-                "value": "US East (N. Virginia)",
-            },
-            {
-                "field": "preInstalledSw",
-                "value": "NA",
-            },
-            {
-                "field": "licenseModel",
-                "value": "No License required",
-            },
-            {
-                "field": "tenancy",
-                "value": "Shared",
-            },
-            {
-                "field": "capacitystatus",
-                "value": "Used",
-            },
-        ])
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.pricing.get_product(service_code="AmazonRedshift",
-        filters=[
-            {
-                "field": "instanceType",
-                "value": "ds1.xlarge",
-            },
-            {
-                "field": "location",
-                "value": "US East (N. Virginia)",
-            },
-        ])
-    ```
-
-
-    :param Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict']] filters: List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
-    :param _builtins.str service_code: Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -163,68 +99,7 @@ def get_product_output(filters: Optional[pulumi.Input[Sequence[Union['GetProduct
                        service_code: Optional[pulumi.Input[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProductResult]:
     """
-    Use this data source to get the pricing information of all products in AWS.
-    This data source is only available in a us-east-1 or ap-south-1 provider.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.pricing.get_product(service_code="AmazonEC2",
-        filters=[
-            {
-                "field": "instanceType",
-                "value": "c5.xlarge",
-            },
-            {
-                "field": "operatingSystem",
-                "value": "Linux",
-            },
-            {
-                "field": "location",
-                "value": "US East (N. Virginia)",
-            },
-            {
-                "field": "preInstalledSw",
-                "value": "NA",
-            },
-            {
-                "field": "licenseModel",
-                "value": "No License required",
-            },
-            {
-                "field": "tenancy",
-                "value": "Shared",
-            },
-            {
-                "field": "capacitystatus",
-                "value": "Used",
-            },
-        ])
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.pricing.get_product(service_code="AmazonRedshift",
-        filters=[
-            {
-                "field": "instanceType",
-                "value": "ds1.xlarge",
-            },
-            {
-                "field": "location",
-                "value": "US East (N. Virginia)",
-            },
-        ])
-    ```
-
-
-    :param Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict']] filters: List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
-    :param _builtins.str service_code: Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class V2modelsIntentDialogCodeHook {
-    /**
-     * @return Enables the dialog code hook so that it processes user requests.
-     * 
-     */
     private Boolean enabled;
 
     private V2modelsIntentDialogCodeHook() {}
-    /**
-     * @return Enables the dialog code hook so that it processes user requests.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }

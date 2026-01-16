@@ -11,65 +11,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InstanceVerifiedAccessTrustProvider {
-    /**
-     * @return A description for the AWS Verified Access Instance.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return The type of device-based trust provider.
-     * 
-     */
     private @Nullable String deviceTrustProviderType;
-    /**
-     * @return The type of trust provider (user- or device-based).
-     * 
-     */
     private @Nullable String trustProviderType;
-    /**
-     * @return The type of user-based trust provider.
-     * 
-     */
     private @Nullable String userTrustProviderType;
-    /**
-     * @return The ID of the trust provider.
-     * 
-     */
     private @Nullable String verifiedAccessTrustProviderId;
 
     private InstanceVerifiedAccessTrustProvider() {}
-    /**
-     * @return A description for the AWS Verified Access Instance.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return The type of device-based trust provider.
-     * 
-     */
     public Optional<String> deviceTrustProviderType() {
         return Optional.ofNullable(this.deviceTrustProviderType);
     }
-    /**
-     * @return The type of trust provider (user- or device-based).
-     * 
-     */
     public Optional<String> trustProviderType() {
         return Optional.ofNullable(this.trustProviderType);
     }
-    /**
-     * @return The type of user-based trust provider.
-     * 
-     */
     public Optional<String> userTrustProviderType() {
         return Optional.ofNullable(this.userTrustProviderType);
     }
-    /**
-     * @return The ID of the trust provider.
-     * 
-     */
     public Optional<String> verifiedAccessTrustProviderId() {
         return Optional.ofNullable(this.verifiedAccessTrustProviderId);
     }

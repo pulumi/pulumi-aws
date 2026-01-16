@@ -13,37 +13,13 @@ namespace Pulumi.Aws.IdentityStore.Outputs
     [OutputType]
     public sealed class GetUsersUserAddressResult
     {
-        /// <summary>
-        /// Country that this address is in.
-        /// </summary>
         public readonly string Country;
-        /// <summary>
-        /// Name that is typically displayed when the name is shown for display.
-        /// </summary>
         public readonly string Formatted;
-        /// <summary>
-        /// Address locality.
-        /// </summary>
         public readonly string Locality;
-        /// <summary>
-        /// Postal code of the address.
-        /// </summary>
         public readonly string PostalCode;
-        /// <summary>
-        /// When `True`, this is the primary phone number associated with the user.
-        /// </summary>
         public readonly bool Primary;
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         public readonly string Region;
-        /// <summary>
-        /// Street of the address.
-        /// </summary>
         public readonly string StreetAddress;
-        /// <summary>
-        /// Type of phone number.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

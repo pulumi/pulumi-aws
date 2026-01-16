@@ -11,41 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.NewOutboundWebIdentityFederation(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import IAM Outbound Web Identity Federation resources using the AWS account ID. For example:
-//
-// ```sh
-// $ pulumi import aws:iam/outboundWebIdentityFederation:OutboundWebIdentityFederation example 123456789012
-// ```
 type OutboundWebIdentityFederation struct {
 	pulumi.CustomResourceState
 
-	// A unique issuer URL for your AWS account that hosts the OpenID Connect (OIDC) discovery endpoints.
 	IssuerIdentifier pulumi.StringOutput `pulumi:"issuerIdentifier"`
 }
 
@@ -79,12 +47,10 @@ func GetOutboundWebIdentityFederation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OutboundWebIdentityFederation resources.
 type outboundWebIdentityFederationState struct {
-	// A unique issuer URL for your AWS account that hosts the OpenID Connect (OIDC) discovery endpoints.
 	IssuerIdentifier *string `pulumi:"issuerIdentifier"`
 }
 
 type OutboundWebIdentityFederationState struct {
-	// A unique issuer URL for your AWS account that hosts the OpenID Connect (OIDC) discovery endpoints.
 	IssuerIdentifier pulumi.StringPtrInput
 }
 
@@ -186,7 +152,6 @@ func (o OutboundWebIdentityFederationOutput) ToOutboundWebIdentityFederationOutp
 	return o
 }
 
-// A unique issuer URL for your AWS account that hosts the OpenID Connect (OIDC) discovery endpoints.
 func (o OutboundWebIdentityFederationOutput) IssuerIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutboundWebIdentityFederation) pulumi.StringOutput { return v.IssuerIdentifier }).(pulumi.StringOutput)
 }

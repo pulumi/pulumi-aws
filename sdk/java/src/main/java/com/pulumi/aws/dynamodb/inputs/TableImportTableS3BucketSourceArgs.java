@@ -16,47 +16,23 @@ public final class TableImportTableS3BucketSourceArgs extends com.pulumi.resourc
 
     public static final TableImportTableS3BucketSourceArgs Empty = new TableImportTableS3BucketSourceArgs();
 
-    /**
-     * The S3 bucket that is being imported from.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return The S3 bucket that is being imported from.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * The account number of the S3 bucket that is being imported from.
-     * 
-     */
     @Import(name="bucketOwner")
     private @Nullable Output<String> bucketOwner;
 
-    /**
-     * @return The account number of the S3 bucket that is being imported from.
-     * 
-     */
     public Optional<Output<String>> bucketOwner() {
         return Optional.ofNullable(this.bucketOwner);
     }
 
-    /**
-     * The key prefix shared by all S3 Objects that are being imported.
-     * 
-     */
     @Import(name="keyPrefix")
     private @Nullable Output<String> keyPrefix;
 
-    /**
-     * @return The key prefix shared by all S3 Objects that are being imported.
-     * 
-     */
     public Optional<Output<String>> keyPrefix() {
         return Optional.ofNullable(this.keyPrefix);
     }
@@ -87,65 +63,29 @@ public final class TableImportTableS3BucketSourceArgs extends com.pulumi.resourc
             $ = new TableImportTableS3BucketSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket The S3 bucket that is being imported from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket The S3 bucket that is being imported from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param bucketOwner The account number of the S3 bucket that is being imported from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketOwner(@Nullable Output<String> bucketOwner) {
             $.bucketOwner = bucketOwner;
             return this;
         }
 
-        /**
-         * @param bucketOwner The account number of the S3 bucket that is being imported from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketOwner(String bucketOwner) {
             return bucketOwner(Output.of(bucketOwner));
         }
 
-        /**
-         * @param keyPrefix The key prefix shared by all S3 Objects that are being imported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyPrefix(@Nullable Output<String> keyPrefix) {
             $.keyPrefix = keyPrefix;
             return this;
         }
 
-        /**
-         * @param keyPrefix The key prefix shared by all S3 Objects that are being imported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyPrefix(String keyPrefix) {
             return keyPrefix(Output.of(keyPrefix));
         }

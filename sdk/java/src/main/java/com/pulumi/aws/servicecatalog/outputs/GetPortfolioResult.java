@@ -14,88 +14,40 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetPortfolioResult {
     private @Nullable String acceptLanguage;
-    /**
-     * @return Portfolio ARN.
-     * 
-     */
     private String arn;
-    /**
-     * @return Time the portfolio was created.
-     * 
-     */
     private String createdTime;
-    /**
-     * @return Description of the portfolio
-     * 
-     */
     private String description;
     private String id;
-    /**
-     * @return Portfolio name.
-     * 
-     */
     private String name;
-    /**
-     * @return Name of the person or organization who owns the portfolio.
-     * 
-     */
     private String providerName;
     private String region;
-    /**
-     * @return Tags applied to the portfolio.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetPortfolioResult() {}
     public Optional<String> acceptLanguage() {
         return Optional.ofNullable(this.acceptLanguage);
     }
-    /**
-     * @return Portfolio ARN.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Time the portfolio was created.
-     * 
-     */
     public String createdTime() {
         return this.createdTime;
     }
-    /**
-     * @return Description of the portfolio
-     * 
-     */
     public String description() {
         return this.description;
     }
     public String id() {
         return this.id;
     }
-    /**
-     * @return Portfolio name.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Name of the person or organization who owns the portfolio.
-     * 
-     */
     public String providerName() {
         return this.providerName;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Tags applied to the portfolio.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

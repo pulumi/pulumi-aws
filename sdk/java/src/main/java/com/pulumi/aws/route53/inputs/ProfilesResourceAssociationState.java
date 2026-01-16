@@ -16,17 +16,9 @@ public final class ProfilesResourceAssociationState extends com.pulumi.resources
 
     public static final ProfilesResourceAssociationState Empty = new ProfilesResourceAssociationState();
 
-    /**
-     * Name of the Profile Resource Association.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the Profile Resource Association.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -38,107 +30,51 @@ public final class ProfilesResourceAssociationState extends com.pulumi.resources
         return Optional.ofNullable(this.ownerId);
     }
 
-    /**
-     * ID of the profile associated with the VPC.
-     * 
-     */
     @Import(name="profileId")
     private @Nullable Output<String> profileId;
 
-    /**
-     * @return ID of the profile associated with the VPC.
-     * 
-     */
     public Optional<Output<String>> profileId() {
         return Optional.ofNullable(this.profileId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Resource ID of the resource to be associated with the profile.
-     * 
-     */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
-    /**
-     * @return Resource ID of the resource to be associated with the profile.
-     * 
-     */
     public Optional<Output<String>> resourceArn() {
         return Optional.ofNullable(this.resourceArn);
     }
 
-    /**
-     * Resource properties for the resource to be associated with the profile.
-     * 
-     */
     @Import(name="resourceProperties")
     private @Nullable Output<String> resourceProperties;
 
-    /**
-     * @return Resource properties for the resource to be associated with the profile.
-     * 
-     */
     public Optional<Output<String>> resourceProperties() {
         return Optional.ofNullable(this.resourceProperties);
     }
 
-    /**
-     * Type of resource associated with the profile.
-     * 
-     */
     @Import(name="resourceType")
     private @Nullable Output<String> resourceType;
 
-    /**
-     * @return Type of resource associated with the profile.
-     * 
-     */
     public Optional<Output<String>> resourceType() {
         return Optional.ofNullable(this.resourceType);
     }
 
-    /**
-     * Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
-    /**
-     * Status message of the Profile Resource Association.
-     * 
-     */
     @Import(name="statusMessage")
     private @Nullable Output<String> statusMessage;
 
-    /**
-     * @return Status message of the Profile Resource Association.
-     * 
-     */
     public Optional<Output<String>> statusMessage() {
         return Optional.ofNullable(this.statusMessage);
     }
@@ -183,23 +119,11 @@ public final class ProfilesResourceAssociationState extends com.pulumi.resources
             $ = new ProfilesResourceAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the Profile Resource Association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the Profile Resource Association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
@@ -213,149 +137,65 @@ public final class ProfilesResourceAssociationState extends com.pulumi.resources
             return ownerId(Output.of(ownerId));
         }
 
-        /**
-         * @param profileId ID of the profile associated with the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder profileId(@Nullable Output<String> profileId) {
             $.profileId = profileId;
             return this;
         }
 
-        /**
-         * @param profileId ID of the profile associated with the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder profileId(String profileId) {
             return profileId(Output.of(profileId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceArn Resource ID of the resource to be associated with the profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(@Nullable Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn Resource ID of the resource to be associated with the profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }
 
-        /**
-         * @param resourceProperties Resource properties for the resource to be associated with the profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceProperties(@Nullable Output<String> resourceProperties) {
             $.resourceProperties = resourceProperties;
             return this;
         }
 
-        /**
-         * @param resourceProperties Resource properties for the resource to be associated with the profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceProperties(String resourceProperties) {
             return resourceProperties(Output.of(resourceProperties));
         }
 
-        /**
-         * @param resourceType Type of resource associated with the profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceType(@Nullable Output<String> resourceType) {
             $.resourceType = resourceType;
             return this;
         }
 
-        /**
-         * @param resourceType Type of resource associated with the profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceType(String resourceType) {
             return resourceType(Output.of(resourceType));
         }
 
-        /**
-         * @param status Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param statusMessage Status message of the Profile Resource Association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusMessage(@Nullable Output<String> statusMessage) {
             $.statusMessage = statusMessage;
             return this;
         }
 
-        /**
-         * @param statusMessage Status message of the Profile Resource Association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusMessage(String statusMessage) {
             return statusMessage(Output.of(statusMessage));
         }

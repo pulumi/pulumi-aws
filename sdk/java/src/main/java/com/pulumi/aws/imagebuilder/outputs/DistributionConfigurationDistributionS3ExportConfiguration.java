@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionConfigurationDistributionS3ExportConfiguration {
-    /**
-     * @return The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
-     * 
-     */
     private String diskImageFormat;
-    /**
-     * @return The name of the IAM role to use for exporting.
-     * 
-     */
     private String roleName;
-    /**
-     * @return The name of the S3 bucket to store the exported image in. The bucket needs to exist before the export configuration is created.
-     * 
-     */
     private String s3Bucket;
-    /**
-     * @return The prefix for the exported image.
-     * 
-     */
     private @Nullable String s3Prefix;
 
     private DistributionConfigurationDistributionS3ExportConfiguration() {}
-    /**
-     * @return The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
-     * 
-     */
     public String diskImageFormat() {
         return this.diskImageFormat;
     }
-    /**
-     * @return The name of the IAM role to use for exporting.
-     * 
-     */
     public String roleName() {
         return this.roleName;
     }
-    /**
-     * @return The name of the S3 bucket to store the exported image in. The bucket needs to exist before the export configuration is created.
-     * 
-     */
     public String s3Bucket() {
         return this.s3Bucket;
     }
-    /**
-     * @return The prefix for the exported image.
-     * 
-     */
     public Optional<String> s3Prefix() {
         return Optional.ofNullable(this.s3Prefix);
     }

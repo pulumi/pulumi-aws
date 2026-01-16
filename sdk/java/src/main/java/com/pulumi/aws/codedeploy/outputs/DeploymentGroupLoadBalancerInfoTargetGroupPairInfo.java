@@ -15,41 +15,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfo {
-    /**
-     * @return Configuration block for the production traffic route (documented below).
-     * 
-     */
     private DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute prodTrafficRoute;
-    /**
-     * @return Configuration blocks for a target group within a target group pair (documented below).
-     * 
-     */
     private List<DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup> targetGroups;
-    /**
-     * @return Configuration block for the test traffic route (documented below).
-     * 
-     */
     private @Nullable DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute testTrafficRoute;
 
     private DeploymentGroupLoadBalancerInfoTargetGroupPairInfo() {}
-    /**
-     * @return Configuration block for the production traffic route (documented below).
-     * 
-     */
     public DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute prodTrafficRoute() {
         return this.prodTrafficRoute;
     }
-    /**
-     * @return Configuration blocks for a target group within a target group pair (documented below).
-     * 
-     */
     public List<DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup> targetGroups() {
         return this.targetGroups;
     }
-    /**
-     * @return Configuration block for the test traffic route (documented below).
-     * 
-     */
     public Optional<DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute> testTrafficRoute() {
         return Optional.ofNullable(this.testTrafficRoute);
     }

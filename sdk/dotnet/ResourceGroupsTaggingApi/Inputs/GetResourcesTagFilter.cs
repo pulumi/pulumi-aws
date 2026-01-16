@@ -12,18 +12,11 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi.Inputs
 
     public sealed class GetResourcesTagFilterArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// One part of a key-value pair that makes up a tag.
-        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
         [Input("values")]
         private List<string>? _values;
-
-        /// <summary>
-        /// Optional part of a key-value pair that make up a tag.
-        /// </summary>
         public List<string> Values
         {
             get => _values ?? (_values = new List<string>());

@@ -12,60 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Glue Registry resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewRegistry(ctx, "example", &glue.RegistryArgs{
-//				RegistryName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the Glue registry.
-//
-// Using `pulumi import`, import Glue Registries using `arn`. For example:
-//
-// % pulumi import aws_glue_registry.example arn:aws:glue:us-west-2:123456789012:registry/example
 type Registry struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of Glue Registry.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A description of the registry.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The Name of the registry.
-	RegistryName pulumi.StringOutput `pulumi:"registryName"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn          pulumi.StringOutput    `pulumi:"arn"`
+	Description  pulumi.StringPtrOutput `pulumi:"description"`
+	Region       pulumi.StringOutput    `pulumi:"region"`
+	RegistryName pulumi.StringOutput    `pulumi:"registryName"`
+	Tags         pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll      pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewRegistry registers a new resource with the given unique name, arguments, and options.
@@ -101,33 +56,21 @@ func GetRegistry(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Registry resources.
 type registryState struct {
-	// Amazon Resource Name (ARN) of Glue Registry.
-	Arn *string `pulumi:"arn"`
-	// A description of the registry.
-	Description *string `pulumi:"description"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Name of the registry.
-	RegistryName *string `pulumi:"registryName"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn          *string           `pulumi:"arn"`
+	Description  *string           `pulumi:"description"`
+	Region       *string           `pulumi:"region"`
+	RegistryName *string           `pulumi:"registryName"`
+	Tags         map[string]string `pulumi:"tags"`
+	TagsAll      map[string]string `pulumi:"tagsAll"`
 }
 
 type RegistryState struct {
-	// Amazon Resource Name (ARN) of Glue Registry.
-	Arn pulumi.StringPtrInput
-	// A description of the registry.
-	Description pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Name of the registry.
+	Arn          pulumi.StringPtrInput
+	Description  pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
 	RegistryName pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Tags         pulumi.StringMapInput
+	TagsAll      pulumi.StringMapInput
 }
 
 func (RegistryState) ElementType() reflect.Type {
@@ -135,26 +78,18 @@ func (RegistryState) ElementType() reflect.Type {
 }
 
 type registryArgs struct {
-	// A description of the registry.
-	Description *string `pulumi:"description"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Name of the registry.
-	RegistryName string `pulumi:"registryName"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Description  *string           `pulumi:"description"`
+	Region       *string           `pulumi:"region"`
+	RegistryName string            `pulumi:"registryName"`
+	Tags         map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Registry resource.
 type RegistryArgs struct {
-	// A description of the registry.
-	Description pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Name of the registry.
+	Description  pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
 	RegistryName pulumi.StringInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags         pulumi.StringMapInput
 }
 
 func (RegistryArgs) ElementType() reflect.Type {
@@ -244,32 +179,26 @@ func (o RegistryOutput) ToRegistryOutputWithContext(ctx context.Context) Registr
 	return o
 }
 
-// Amazon Resource Name (ARN) of Glue Registry.
 func (o RegistryOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A description of the registry.
 func (o RegistryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RegistryOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Name of the registry.
 func (o RegistryOutput) RegistryName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.RegistryName }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RegistryOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RegistryOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

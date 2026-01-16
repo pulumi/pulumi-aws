@@ -7,50 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource for managing a VPC (Virtual Private Cloud) Route Server.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.vpc.RouteServer("test", {
- *     amazonSideAsn: 65534,
- *     tags: {
- *         Name: "Test",
- *     },
- * });
- * ```
- *
- * ### Persist Route and SNS Notification
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.vpc.RouteServer("test", {
- *     amazonSideAsn: 65534,
- *     persistRoutes: "enable",
- *     persistRoutesDuration: 2,
- *     snsNotificationsEnabled: true,
- *     tags: {
- *         Name: "Main Route Server",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import VPC (Virtual Private Cloud) Route Server using the `route_server_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:vpc/routeServer:RouteServer example rs-12345678
- * ```
- */
 export class RouteServer extends pulumi.CustomResource {
     /**
      * Get an existing RouteServer resource's state with the given name, ID, and optional extra
@@ -79,47 +35,15 @@ export class RouteServer extends pulumi.CustomResource {
         return obj['__pulumiType'] === RouteServer.__pulumiType;
     }
 
-    /**
-     * The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly amazonSideAsn: pulumi.Output<number>;
-    /**
-     * The ARN of the route server.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
-     */
     declare public readonly persistRoutes: pulumi.Output<string>;
-    /**
-     * The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
-     */
     declare public readonly persistRoutesDuration: pulumi.Output<number | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The unique identifier of the route server.
-     */
     declare public /*out*/ readonly routeServerId: pulumi.Output<string>;
-    /**
-     * Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
-     */
     declare public readonly snsNotificationsEnabled: pulumi.Output<boolean>;
-    /**
-     * The ARN of the SNS topic where notifications are published.
-     */
     declare public /*out*/ readonly snsTopicArn: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.vpc.RouteServerTimeouts | undefined>;
 
@@ -173,47 +97,15 @@ export class RouteServer extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RouteServer resources.
  */
 export interface RouteServerState {
-    /**
-     * The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
-     *
-     * The following arguments are optional:
-     */
     amazonSideAsn?: pulumi.Input<number>;
-    /**
-     * The ARN of the route server.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
-     */
     persistRoutes?: pulumi.Input<string>;
-    /**
-     * The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
-     */
     persistRoutesDuration?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The unique identifier of the route server.
-     */
     routeServerId?: pulumi.Input<string>;
-    /**
-     * Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
-     */
     snsNotificationsEnabled?: pulumi.Input<boolean>;
-    /**
-     * The ARN of the SNS topic where notifications are published.
-     */
     snsTopicArn?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.vpc.RouteServerTimeouts>;
 }
@@ -222,31 +114,11 @@ export interface RouteServerState {
  * The set of arguments for constructing a RouteServer resource.
  */
 export interface RouteServerArgs {
-    /**
-     * The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
-     *
-     * The following arguments are optional:
-     */
     amazonSideAsn: pulumi.Input<number>;
-    /**
-     * Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
-     */
     persistRoutes?: pulumi.Input<string>;
-    /**
-     * The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
-     */
     persistRoutesDuration?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
-     */
     snsNotificationsEnabled?: pulumi.Input<boolean>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.vpc.RouteServerTimeouts>;
 }

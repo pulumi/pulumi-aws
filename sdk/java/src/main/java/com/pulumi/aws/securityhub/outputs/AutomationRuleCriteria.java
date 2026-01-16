@@ -48,461 +48,157 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AutomationRuleCriteria {
-    /**
-     * @return The AWS account ID in which a finding was generated. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaAwsAccountId> awsAccountIds;
-    /**
-     * @return The name of the AWS account in which a finding was generated. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaAwsAccountName> awsAccountNames;
-    /**
-     * @return The name of the company for the product that generated the finding. For control-based findings, the company is AWS. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaCompanyName> companyNames;
-    /**
-     * @return The unique identifier of a standard in which a control is enabled. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaComplianceAssociatedStandardsId> complianceAssociatedStandardsIds;
-    /**
-     * @return The security control ID for which a finding was generated. Security control IDs are the same across standards. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaComplianceSecurityControlId> complianceSecurityControlIds;
-    /**
-     * @return The result of a security check. This field is only used for findings generated from controls. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaComplianceStatus> complianceStatuses;
-    /**
-     * @return The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaConfidence> confidences;
-    /**
-     * @return A timestamp that indicates when this finding record was created. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaCreatedAt> createdAts;
-    /**
-     * @return The level of importance that is assigned to the resources that are associated with a finding. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaCriticality> criticalities;
-    /**
-     * @return A finding&#39;s description. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaDescription> descriptions;
-    /**
-     * @return A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaFirstObservedAt> firstObservedAts;
-    /**
-     * @return The identifier for the solution-specific component that generated a finding. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaGeneratorId> generatorIds;
-    /**
-     * @return The product-specific identifier for a finding. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaId> ids;
-    /**
-     * @return A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaLastObservedAt> lastObservedAts;
-    /**
-     * @return The text of a user-defined note that&#39;s added to a finding. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaNoteText> noteTexts;
-    /**
-     * @return The timestamp of when the note was updated. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaNoteUpdatedAt> noteUpdatedAts;
-    /**
-     * @return The principal that created a note. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaNoteUpdatedBy> noteUpdatedBies;
-    /**
-     * @return The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaProductArn> productArns;
-    /**
-     * @return Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaProductName> productNames;
-    /**
-     * @return Provides the current state of a finding. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaRecordState> recordStates;
-    /**
-     * @return The product-generated identifier for a related finding.  Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaRelatedFindingsId> relatedFindingsIds;
-    /**
-     * @return The ARN for the product that generated a related finding. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaRelatedFindingsProductArn> relatedFindingsProductArns;
-    /**
-     * @return The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaResourceApplicationArn> resourceApplicationArns;
-    /**
-     * @return The name of the application that is related to a finding. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaResourceApplicationName> resourceApplicationNames;
-    /**
-     * @return Custom fields and values about the resource that a finding pertains to. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaResourceDetailsOther> resourceDetailsOthers;
-    /**
-     * @return The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaResourceId> resourceIds;
-    /**
-     * @return The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions. Each AWS account is scoped to one partition. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaResourcePartition> resourcePartitions;
-    /**
-     * @return The AWS Region where the resource that a finding pertains to is located. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaResourceRegion> resourceRegions;
-    /**
-     * @return A list of AWS tags associated with a resource at the time the finding was processed. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaResourceTag> resourceTags;
-    /**
-     * @return The type of resource that the finding pertains to. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaResourceType> resourceTypes;
-    /**
-     * @return The severity value of the finding. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaSeverityLabel> severityLabels;
-    /**
-     * @return Provides a URL that links to a page about the current finding in the finding product. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaSourceUrl> sourceUrls;
-    /**
-     * @return A finding&#39;s title. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaTitle> titles;
-    /**
-     * @return One or more finding types in the format of namespace/category/classifier that classify a finding. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaType> types;
-    /**
-     * @return A timestamp that indicates when the finding record was most recently updated. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaUpdatedAt> updatedAts;
-    /**
-     * @return A list of user-defined name and value string pairs added to a finding. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaUserDefinedField> userDefinedFields;
-    /**
-     * @return Provides the veracity of a finding. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaVerificationState> verificationStates;
-    /**
-     * @return Provides information about the status of the investigation into a finding. Documented below.
-     * 
-     */
     private @Nullable List<AutomationRuleCriteriaWorkflowStatus> workflowStatuses;
 
     private AutomationRuleCriteria() {}
-    /**
-     * @return The AWS account ID in which a finding was generated. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaAwsAccountId> awsAccountIds() {
         return this.awsAccountIds == null ? List.of() : this.awsAccountIds;
     }
-    /**
-     * @return The name of the AWS account in which a finding was generated. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaAwsAccountName> awsAccountNames() {
         return this.awsAccountNames == null ? List.of() : this.awsAccountNames;
     }
-    /**
-     * @return The name of the company for the product that generated the finding. For control-based findings, the company is AWS. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaCompanyName> companyNames() {
         return this.companyNames == null ? List.of() : this.companyNames;
     }
-    /**
-     * @return The unique identifier of a standard in which a control is enabled. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaComplianceAssociatedStandardsId> complianceAssociatedStandardsIds() {
         return this.complianceAssociatedStandardsIds == null ? List.of() : this.complianceAssociatedStandardsIds;
     }
-    /**
-     * @return The security control ID for which a finding was generated. Security control IDs are the same across standards. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaComplianceSecurityControlId> complianceSecurityControlIds() {
         return this.complianceSecurityControlIds == null ? List.of() : this.complianceSecurityControlIds;
     }
-    /**
-     * @return The result of a security check. This field is only used for findings generated from controls. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaComplianceStatus> complianceStatuses() {
         return this.complianceStatuses == null ? List.of() : this.complianceStatuses;
     }
-    /**
-     * @return The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaConfidence> confidences() {
         return this.confidences == null ? List.of() : this.confidences;
     }
-    /**
-     * @return A timestamp that indicates when this finding record was created. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaCreatedAt> createdAts() {
         return this.createdAts == null ? List.of() : this.createdAts;
     }
-    /**
-     * @return The level of importance that is assigned to the resources that are associated with a finding. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaCriticality> criticalities() {
         return this.criticalities == null ? List.of() : this.criticalities;
     }
-    /**
-     * @return A finding&#39;s description. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaDescription> descriptions() {
         return this.descriptions == null ? List.of() : this.descriptions;
     }
-    /**
-     * @return A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaFirstObservedAt> firstObservedAts() {
         return this.firstObservedAts == null ? List.of() : this.firstObservedAts;
     }
-    /**
-     * @return The identifier for the solution-specific component that generated a finding. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaGeneratorId> generatorIds() {
         return this.generatorIds == null ? List.of() : this.generatorIds;
     }
-    /**
-     * @return The product-specific identifier for a finding. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaId> ids() {
         return this.ids == null ? List.of() : this.ids;
     }
-    /**
-     * @return A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaLastObservedAt> lastObservedAts() {
         return this.lastObservedAts == null ? List.of() : this.lastObservedAts;
     }
-    /**
-     * @return The text of a user-defined note that&#39;s added to a finding. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaNoteText> noteTexts() {
         return this.noteTexts == null ? List.of() : this.noteTexts;
     }
-    /**
-     * @return The timestamp of when the note was updated. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaNoteUpdatedAt> noteUpdatedAts() {
         return this.noteUpdatedAts == null ? List.of() : this.noteUpdatedAts;
     }
-    /**
-     * @return The principal that created a note. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaNoteUpdatedBy> noteUpdatedBies() {
         return this.noteUpdatedBies == null ? List.of() : this.noteUpdatedBies;
     }
-    /**
-     * @return The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaProductArn> productArns() {
         return this.productArns == null ? List.of() : this.productArns;
     }
-    /**
-     * @return Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaProductName> productNames() {
         return this.productNames == null ? List.of() : this.productNames;
     }
-    /**
-     * @return Provides the current state of a finding. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaRecordState> recordStates() {
         return this.recordStates == null ? List.of() : this.recordStates;
     }
-    /**
-     * @return The product-generated identifier for a related finding.  Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaRelatedFindingsId> relatedFindingsIds() {
         return this.relatedFindingsIds == null ? List.of() : this.relatedFindingsIds;
     }
-    /**
-     * @return The ARN for the product that generated a related finding. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaRelatedFindingsProductArn> relatedFindingsProductArns() {
         return this.relatedFindingsProductArns == null ? List.of() : this.relatedFindingsProductArns;
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaResourceApplicationArn> resourceApplicationArns() {
         return this.resourceApplicationArns == null ? List.of() : this.resourceApplicationArns;
     }
-    /**
-     * @return The name of the application that is related to a finding. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaResourceApplicationName> resourceApplicationNames() {
         return this.resourceApplicationNames == null ? List.of() : this.resourceApplicationNames;
     }
-    /**
-     * @return Custom fields and values about the resource that a finding pertains to. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaResourceDetailsOther> resourceDetailsOthers() {
         return this.resourceDetailsOthers == null ? List.of() : this.resourceDetailsOthers;
     }
-    /**
-     * @return The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaResourceId> resourceIds() {
         return this.resourceIds == null ? List.of() : this.resourceIds;
     }
-    /**
-     * @return The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions. Each AWS account is scoped to one partition. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaResourcePartition> resourcePartitions() {
         return this.resourcePartitions == null ? List.of() : this.resourcePartitions;
     }
-    /**
-     * @return The AWS Region where the resource that a finding pertains to is located. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaResourceRegion> resourceRegions() {
         return this.resourceRegions == null ? List.of() : this.resourceRegions;
     }
-    /**
-     * @return A list of AWS tags associated with a resource at the time the finding was processed. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaResourceTag> resourceTags() {
         return this.resourceTags == null ? List.of() : this.resourceTags;
     }
-    /**
-     * @return The type of resource that the finding pertains to. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaResourceType> resourceTypes() {
         return this.resourceTypes == null ? List.of() : this.resourceTypes;
     }
-    /**
-     * @return The severity value of the finding. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaSeverityLabel> severityLabels() {
         return this.severityLabels == null ? List.of() : this.severityLabels;
     }
-    /**
-     * @return Provides a URL that links to a page about the current finding in the finding product. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaSourceUrl> sourceUrls() {
         return this.sourceUrls == null ? List.of() : this.sourceUrls;
     }
-    /**
-     * @return A finding&#39;s title. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaTitle> titles() {
         return this.titles == null ? List.of() : this.titles;
     }
-    /**
-     * @return One or more finding types in the format of namespace/category/classifier that classify a finding. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaType> types() {
         return this.types == null ? List.of() : this.types;
     }
-    /**
-     * @return A timestamp that indicates when the finding record was most recently updated. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaUpdatedAt> updatedAts() {
         return this.updatedAts == null ? List.of() : this.updatedAts;
     }
-    /**
-     * @return A list of user-defined name and value string pairs added to a finding. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaUserDefinedField> userDefinedFields() {
         return this.userDefinedFields == null ? List.of() : this.userDefinedFields;
     }
-    /**
-     * @return Provides the veracity of a finding. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaVerificationState> verificationStates() {
         return this.verificationStates == null ? List.of() : this.verificationStates;
     }
-    /**
-     * @return Provides information about the status of the investigation into a finding. Documented below.
-     * 
-     */
     public List<AutomationRuleCriteriaWorkflowStatus> workflowStatuses() {
         return this.workflowStatuses == null ? List.of() : this.workflowStatuses;
     }

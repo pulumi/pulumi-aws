@@ -15,47 +15,23 @@ public final class MaintenanceWindowTaskTaskInvocationParametersLambdaParameters
 
     public static final MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs Empty = new MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs();
 
-    /**
-     * Pass client-specific information to the Lambda function that you are invoking.
-     * 
-     */
     @Import(name="clientContext")
     private @Nullable Output<String> clientContext;
 
-    /**
-     * @return Pass client-specific information to the Lambda function that you are invoking.
-     * 
-     */
     public Optional<Output<String>> clientContext() {
         return Optional.ofNullable(this.clientContext);
     }
 
-    /**
-     * JSON to provide to your Lambda function as input.
-     * 
-     */
     @Import(name="payload")
     private @Nullable Output<String> payload;
 
-    /**
-     * @return JSON to provide to your Lambda function as input.
-     * 
-     */
     public Optional<Output<String>> payload() {
         return Optional.ofNullable(this.payload);
     }
 
-    /**
-     * Specify a Lambda function version or alias name.
-     * 
-     */
     @Import(name="qualifier")
     private @Nullable Output<String> qualifier;
 
-    /**
-     * @return Specify a Lambda function version or alias name.
-     * 
-     */
     public Optional<Output<String>> qualifier() {
         return Optional.ofNullable(this.qualifier);
     }
@@ -86,65 +62,29 @@ public final class MaintenanceWindowTaskTaskInvocationParametersLambdaParameters
             $ = new MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clientContext Pass client-specific information to the Lambda function that you are invoking.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientContext(@Nullable Output<String> clientContext) {
             $.clientContext = clientContext;
             return this;
         }
 
-        /**
-         * @param clientContext Pass client-specific information to the Lambda function that you are invoking.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientContext(String clientContext) {
             return clientContext(Output.of(clientContext));
         }
 
-        /**
-         * @param payload JSON to provide to your Lambda function as input.
-         * 
-         * @return builder
-         * 
-         */
         public Builder payload(@Nullable Output<String> payload) {
             $.payload = payload;
             return this;
         }
 
-        /**
-         * @param payload JSON to provide to your Lambda function as input.
-         * 
-         * @return builder
-         * 
-         */
         public Builder payload(String payload) {
             return payload(Output.of(payload));
         }
 
-        /**
-         * @param qualifier Specify a Lambda function version or alias name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder qualifier(@Nullable Output<String> qualifier) {
             $.qualifier = qualifier;
             return this;
         }
 
-        /**
-         * @param qualifier Specify a Lambda function version or alias name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder qualifier(String qualifier) {
             return qualifier(Output.of(qualifier));
         }

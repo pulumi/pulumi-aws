@@ -14,7 +14,7 @@ namespace Pulumi.Aws.LightSail.Outputs
     public sealed class DistributionDefaultCacheBehavior
     {
         /// <summary>
-        /// Cache behavior of the distribution. Valid values: `Cache`, `dont-cache`.
+        /// The cache behavior of the distribution.
         /// </summary>
         public readonly string Behavior;
 

@@ -13,54 +13,22 @@ import java.util.Objects;
 @CustomType
 public final class GetVpcLinkResult {
     private String arn;
-    /**
-     * @return Description of the VPC link.
-     * 
-     */
     private String description;
-    /**
-     * @return Set to the ID of the found API Gateway VPC Link.
-     * 
-     */
     private String id;
     private String name;
     private String region;
-    /**
-     * @return Status of the VPC link.
-     * 
-     */
     private String status;
-    /**
-     * @return Status message of the VPC link.
-     * 
-     */
     private String statusMessage;
-    /**
-     * @return Key-value map of resource tags
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
-     * 
-     */
     private List<String> targetArns;
 
     private GetVpcLinkResult() {}
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Description of the VPC link.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Set to the ID of the found API Gateway VPC Link.
-     * 
-     */
     public String id() {
         return this.id;
     }
@@ -70,31 +38,15 @@ public final class GetVpcLinkResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Status of the VPC link.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Status message of the VPC link.
-     * 
-     */
     public String statusMessage() {
         return this.statusMessage;
     }
-    /**
-     * @return Key-value map of resource tags
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
-     * 
-     */
     public List<String> targetArns() {
         return this.targetArns;
     }

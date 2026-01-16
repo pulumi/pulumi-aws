@@ -14,158 +14,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Amazon Connect User Hierarchy Structure resource. For more information see
- * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
- * 
- * ## Example Usage
- * 
- * ### Basic
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.connect.UserHierarchyStructure;
- * import com.pulumi.aws.connect.UserHierarchyStructureArgs;
- * import com.pulumi.aws.connect.inputs.UserHierarchyStructureHierarchyStructureArgs;
- * import com.pulumi.aws.connect.inputs.UserHierarchyStructureHierarchyStructureLevelOneArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new UserHierarchyStructure("example", UserHierarchyStructureArgs.builder()
- *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
- *             .hierarchyStructure(UserHierarchyStructureHierarchyStructureArgs.builder()
- *                 .levelOne(UserHierarchyStructureHierarchyStructureLevelOneArgs.builder()
- *                     .name("levelone")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### With Five Levels
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.connect.UserHierarchyStructure;
- * import com.pulumi.aws.connect.UserHierarchyStructureArgs;
- * import com.pulumi.aws.connect.inputs.UserHierarchyStructureHierarchyStructureArgs;
- * import com.pulumi.aws.connect.inputs.UserHierarchyStructureHierarchyStructureLevelOneArgs;
- * import com.pulumi.aws.connect.inputs.UserHierarchyStructureHierarchyStructureLevelTwoArgs;
- * import com.pulumi.aws.connect.inputs.UserHierarchyStructureHierarchyStructureLevelThreeArgs;
- * import com.pulumi.aws.connect.inputs.UserHierarchyStructureHierarchyStructureLevelFourArgs;
- * import com.pulumi.aws.connect.inputs.UserHierarchyStructureHierarchyStructureLevelFiveArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new UserHierarchyStructure("example", UserHierarchyStructureArgs.builder()
- *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
- *             .hierarchyStructure(UserHierarchyStructureHierarchyStructureArgs.builder()
- *                 .levelOne(UserHierarchyStructureHierarchyStructureLevelOneArgs.builder()
- *                     .name("levelone")
- *                     .build())
- *                 .levelTwo(UserHierarchyStructureHierarchyStructureLevelTwoArgs.builder()
- *                     .name("leveltwo")
- *                     .build())
- *                 .levelThree(UserHierarchyStructureHierarchyStructureLevelThreeArgs.builder()
- *                     .name("levelthree")
- *                     .build())
- *                 .levelFour(UserHierarchyStructureHierarchyStructureLevelFourArgs.builder()
- *                     .name("levelfour")
- *                     .build())
- *                 .levelFive(UserHierarchyStructureHierarchyStructureLevelFiveArgs.builder()
- *                     .name("levelfive")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Amazon Connect User Hierarchy Structures using the `instance_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
- * ```
- * 
- */
 @ResourceType(type="aws:connect/userHierarchyStructure:UserHierarchyStructure")
 public class UserHierarchyStructure extends com.pulumi.resources.CustomResource {
-    /**
-     * A block that defines the hierarchy structure&#39;s levels. The `hierarchyStructure` block is documented below.
-     * 
-     */
     @Export(name="hierarchyStructure", refs={UserHierarchyStructureHierarchyStructure.class}, tree="[0]")
     private Output<UserHierarchyStructureHierarchyStructure> hierarchyStructure;
 
-    /**
-     * @return A block that defines the hierarchy structure&#39;s levels. The `hierarchyStructure` block is documented below.
-     * 
-     */
     public Output<UserHierarchyStructureHierarchyStructure> hierarchyStructure() {
         return this.hierarchyStructure;
     }
-    /**
-     * Specifies the identifier of the hosting Amazon Connect Instance.
-     * 
-     */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
-    /**
-     * @return Specifies the identifier of the hosting Amazon Connect Instance.
-     * 
-     */
     public Output<String> instanceId() {
         return this.instanceId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

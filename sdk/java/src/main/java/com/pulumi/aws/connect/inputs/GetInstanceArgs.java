@@ -16,66 +16,30 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetInstanceArgs Empty = new GetInstanceArgs();
 
-    /**
-     * Returns information on a specific connect instance by alias
-     * 
-     * &gt; **NOTE:** One of either `instanceId` or `instanceAlias` is required.
-     * 
-     */
     @Import(name="instanceAlias")
     private @Nullable Output<String> instanceAlias;
 
-    /**
-     * @return Returns information on a specific connect instance by alias
-     * 
-     * &gt; **NOTE:** One of either `instanceId` or `instanceAlias` is required.
-     * 
-     */
     public Optional<Output<String>> instanceAlias() {
         return Optional.ofNullable(this.instanceAlias);
     }
 
-    /**
-     * Returns information on a specific connect instance by id
-     * 
-     */
     @Import(name="instanceId")
     private @Nullable Output<String> instanceId;
 
-    /**
-     * @return Returns information on a specific connect instance by id
-     * 
-     */
     public Optional<Output<String>> instanceId() {
         return Optional.ofNullable(this.instanceId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assigned to the instance.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assigned to the instance.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -107,90 +71,38 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetInstanceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instanceAlias Returns information on a specific connect instance by alias
-         * 
-         * &gt; **NOTE:** One of either `instanceId` or `instanceAlias` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceAlias(@Nullable Output<String> instanceAlias) {
             $.instanceAlias = instanceAlias;
             return this;
         }
 
-        /**
-         * @param instanceAlias Returns information on a specific connect instance by alias
-         * 
-         * &gt; **NOTE:** One of either `instanceId` or `instanceAlias` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceAlias(String instanceAlias) {
             return instanceAlias(Output.of(instanceAlias));
         }
 
-        /**
-         * @param instanceId Returns information on a specific connect instance by id
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceId(@Nullable Output<String> instanceId) {
             $.instanceId = instanceId;
             return this;
         }
 
-        /**
-         * @param instanceId Returns information on a specific connect instance by id
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assigned to the instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assigned to the instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

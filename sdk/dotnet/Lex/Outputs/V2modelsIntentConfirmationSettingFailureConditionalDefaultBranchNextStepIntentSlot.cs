@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIntentSlot
     {
-        /// <summary>
-        /// Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-        /// </summary>
         public readonly string MapBlockKey;
-        /// <summary>
-        /// When the shape value is `List`, `Values` contains a list of slot values. When the value is `Scalar`, `Value` contains a single value.
-        /// </summary>
         public readonly string? Shape;
-        /// <summary>
-        /// Configuration block for the current value of the slot. See `Value`.
-        /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIntentSlotValue? Value;
 
         [OutputConstructor]

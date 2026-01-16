@@ -15,17 +15,9 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyArgs extends com
 
     public static final VirtualGatewaySpecBackendDefaultsClientPolicyArgs Empty = new VirtualGatewaySpecBackendDefaultsClientPolicyArgs();
 
-    /**
-     * Transport Layer Security (TLS) client policy.
-     * 
-     */
     @Import(name="tls")
     private @Nullable Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs> tls;
 
-    /**
-     * @return Transport Layer Security (TLS) client policy.
-     * 
-     */
     public Optional<Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs>> tls() {
         return Optional.ofNullable(this.tls);
     }
@@ -54,23 +46,11 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyArgs extends com
             $ = new VirtualGatewaySpecBackendDefaultsClientPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param tls Transport Layer Security (TLS) client policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tls(@Nullable Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs> tls) {
             $.tls = tls;
             return this;
         }
 
-        /**
-         * @param tls Transport Layer Security (TLS) client policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tls(VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs tls) {
             return tls(Output.of(tls));
         }

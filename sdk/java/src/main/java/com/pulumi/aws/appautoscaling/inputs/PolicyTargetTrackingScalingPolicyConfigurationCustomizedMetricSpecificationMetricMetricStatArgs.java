@@ -17,47 +17,23 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
 
     public static final PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs Empty = new PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs();
 
-    /**
-     * Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-     * 
-     */
     @Import(name="metric", required=true)
     private Output<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs> metric;
 
-    /**
-     * @return Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-     * 
-     */
     public Output<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs> metric() {
         return this.metric;
     }
 
-    /**
-     * Statistic of the metrics to return.
-     * 
-     */
     @Import(name="stat", required=true)
     private Output<String> stat;
 
-    /**
-     * @return Statistic of the metrics to return.
-     * 
-     */
     public Output<String> stat() {
         return this.stat;
     }
 
-    /**
-     * Unit of the metrics to return.
-     * 
-     */
     @Import(name="unit")
     private @Nullable Output<String> unit;
 
-    /**
-     * @return Unit of the metrics to return.
-     * 
-     */
     public Optional<Output<String>> unit() {
         return Optional.ofNullable(this.unit);
     }
@@ -88,65 +64,29 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
             $ = new PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param metric Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metric(Output<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs> metric) {
             $.metric = metric;
             return this;
         }
 
-        /**
-         * @param metric Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metric(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs metric) {
             return metric(Output.of(metric));
         }
 
-        /**
-         * @param stat Statistic of the metrics to return.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stat(Output<String> stat) {
             $.stat = stat;
             return this;
         }
 
-        /**
-         * @param stat Statistic of the metrics to return.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stat(String stat) {
             return stat(Output.of(stat));
         }
 
-        /**
-         * @param unit Unit of the metrics to return.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(@Nullable Output<String> unit) {
             $.unit = unit;
             return this;
         }
 
-        /**
-         * @param unit Unit of the metrics to return.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(String unit) {
             return unit(Output.of(unit));
         }

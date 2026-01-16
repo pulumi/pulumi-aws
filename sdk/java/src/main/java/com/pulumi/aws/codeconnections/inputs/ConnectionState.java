@@ -17,62 +17,30 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
 
     public static final ConnectionState Empty = new ConnectionState();
 
-    /**
-     * The codeconnections connection ARN.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The codeconnections connection ARN.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
-     * 
-     */
     @Import(name="connectionStatus")
     private @Nullable Output<String> connectionStatus;
 
-    /**
-     * @return The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
-     * 
-     */
     public Optional<Output<String>> connectionStatus() {
         return Optional.ofNullable(this.connectionStatus);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
-     * 
-     */
     @Import(name="hostArn")
     private @Nullable Output<String> hostArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
-     * 
-     */
     public Optional<Output<String>> hostArn() {
         return Optional.ofNullable(this.hostArn);
     }
 
-    /**
-     * The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -84,62 +52,30 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.ownerAccountId);
     }
 
-    /**
-     * The name of the external provider where your third-party code repository is configured. Changing `providerType` will create a new resource. Conflicts with `hostArn`.
-     * 
-     */
     @Import(name="providerType")
     private @Nullable Output<String> providerType;
 
-    /**
-     * @return The name of the external provider where your third-party code repository is configured. Changing `providerType` will create a new resource. Conflicts with `hostArn`.
-     * 
-     */
     public Optional<Output<String>> providerType() {
         return Optional.ofNullable(this.providerType);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -184,86 +120,38 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
             $ = new ConnectionState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The codeconnections connection ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The codeconnections connection ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param connectionStatus The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionStatus(@Nullable Output<String> connectionStatus) {
             $.connectionStatus = connectionStatus;
             return this;
         }
 
-        /**
-         * @param connectionStatus The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionStatus(String connectionStatus) {
             return connectionStatus(Output.of(connectionStatus));
         }
 
-        /**
-         * @param hostArn The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostArn(@Nullable Output<String> hostArn) {
             $.hostArn = hostArn;
             return this;
         }
 
-        /**
-         * @param hostArn The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostArn(String hostArn) {
             return hostArn(Output.of(hostArn));
         }
 
-        /**
-         * @param name The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
@@ -277,86 +165,38 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
             return ownerAccountId(Output.of(ownerAccountId));
         }
 
-        /**
-         * @param providerType The name of the external provider where your third-party code repository is configured. Changing `providerType` will create a new resource. Conflicts with `hostArn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerType(@Nullable Output<String> providerType) {
             $.providerType = providerType;
             return this;
         }
 
-        /**
-         * @param providerType The name of the external provider where your third-party code repository is configured. Changing `providerType` will create a new resource. Conflicts with `hostArn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerType(String providerType) {
             return providerType(Output.of(providerType));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

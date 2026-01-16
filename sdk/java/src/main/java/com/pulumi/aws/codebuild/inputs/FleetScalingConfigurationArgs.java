@@ -25,47 +25,23 @@ public final class FleetScalingConfigurationArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.desiredCapacity);
     }
 
-    /**
-     * Maximum number of instances in the ﬂeet when auto-scaling.
-     * 
-     */
     @Import(name="maxCapacity")
     private @Nullable Output<Integer> maxCapacity;
 
-    /**
-     * @return Maximum number of instances in the ﬂeet when auto-scaling.
-     * 
-     */
     public Optional<Output<Integer>> maxCapacity() {
         return Optional.ofNullable(this.maxCapacity);
     }
 
-    /**
-     * Scaling type for a compute fleet. Valid value: `TARGET_TRACKING_SCALING`.
-     * 
-     */
     @Import(name="scalingType")
     private @Nullable Output<String> scalingType;
 
-    /**
-     * @return Scaling type for a compute fleet. Valid value: `TARGET_TRACKING_SCALING`.
-     * 
-     */
     public Optional<Output<String>> scalingType() {
         return Optional.ofNullable(this.scalingType);
     }
 
-    /**
-     * Configuration block. Detailed below.
-     * 
-     */
     @Import(name="targetTrackingScalingConfigs")
     private @Nullable Output<List<FleetScalingConfigurationTargetTrackingScalingConfigArgs>> targetTrackingScalingConfigs;
 
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     public Optional<Output<List<FleetScalingConfigurationTargetTrackingScalingConfigArgs>>> targetTrackingScalingConfigs() {
         return Optional.ofNullable(this.targetTrackingScalingConfigs);
     }
@@ -106,75 +82,33 @@ public final class FleetScalingConfigurationArgs extends com.pulumi.resources.Re
             return desiredCapacity(Output.of(desiredCapacity));
         }
 
-        /**
-         * @param maxCapacity Maximum number of instances in the ﬂeet when auto-scaling.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxCapacity(@Nullable Output<Integer> maxCapacity) {
             $.maxCapacity = maxCapacity;
             return this;
         }
 
-        /**
-         * @param maxCapacity Maximum number of instances in the ﬂeet when auto-scaling.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxCapacity(Integer maxCapacity) {
             return maxCapacity(Output.of(maxCapacity));
         }
 
-        /**
-         * @param scalingType Scaling type for a compute fleet. Valid value: `TARGET_TRACKING_SCALING`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scalingType(@Nullable Output<String> scalingType) {
             $.scalingType = scalingType;
             return this;
         }
 
-        /**
-         * @param scalingType Scaling type for a compute fleet. Valid value: `TARGET_TRACKING_SCALING`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scalingType(String scalingType) {
             return scalingType(Output.of(scalingType));
         }
 
-        /**
-         * @param targetTrackingScalingConfigs Configuration block. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetTrackingScalingConfigs(@Nullable Output<List<FleetScalingConfigurationTargetTrackingScalingConfigArgs>> targetTrackingScalingConfigs) {
             $.targetTrackingScalingConfigs = targetTrackingScalingConfigs;
             return this;
         }
 
-        /**
-         * @param targetTrackingScalingConfigs Configuration block. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetTrackingScalingConfigs(List<FleetScalingConfigurationTargetTrackingScalingConfigArgs> targetTrackingScalingConfigs) {
             return targetTrackingScalingConfigs(Output.of(targetTrackingScalingConfigs));
         }
 
-        /**
-         * @param targetTrackingScalingConfigs Configuration block. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetTrackingScalingConfigs(FleetScalingConfigurationTargetTrackingScalingConfigArgs... targetTrackingScalingConfigs) {
             return targetTrackingScalingConfigs(List.of(targetTrackingScalingConfigs));
         }

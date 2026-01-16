@@ -12,89 +12,33 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterVpcConfig {
-    /**
-     * @return The cluster security group that was created by Amazon EKS for the cluster.
-     * 
-     */
     private String clusterSecurityGroupId;
-    /**
-     * @return Indicates whether or not the Amazon EKS private API server endpoint is enabled.
-     * 
-     */
     private Boolean endpointPrivateAccess;
-    /**
-     * @return Indicates whether or not the Amazon EKS public API server endpoint is enabled.
-     * 
-     */
     private Boolean endpointPublicAccess;
-    /**
-     * @return List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint.
-     * 
-     */
     private List<String> publicAccessCidrs;
-    /**
-     * @return List of security group IDs
-     * 
-     */
     private List<String> securityGroupIds;
-    /**
-     * @return List of subnet IDs
-     * 
-     */
     private List<String> subnetIds;
-    /**
-     * @return The VPC associated with your cluster.
-     * 
-     */
     private String vpcId;
 
     private GetClusterVpcConfig() {}
-    /**
-     * @return The cluster security group that was created by Amazon EKS for the cluster.
-     * 
-     */
     public String clusterSecurityGroupId() {
         return this.clusterSecurityGroupId;
     }
-    /**
-     * @return Indicates whether or not the Amazon EKS private API server endpoint is enabled.
-     * 
-     */
     public Boolean endpointPrivateAccess() {
         return this.endpointPrivateAccess;
     }
-    /**
-     * @return Indicates whether or not the Amazon EKS public API server endpoint is enabled.
-     * 
-     */
     public Boolean endpointPublicAccess() {
         return this.endpointPublicAccess;
     }
-    /**
-     * @return List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint.
-     * 
-     */
     public List<String> publicAccessCidrs() {
         return this.publicAccessCidrs;
     }
-    /**
-     * @return List of security group IDs
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * @return List of subnet IDs
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
-    /**
-     * @return The VPC associated with your cluster.
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }

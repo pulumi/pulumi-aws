@@ -15,65 +15,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInstanceStorageConfigStorageConfig {
-    /**
-     * @return A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
-     * 
-     */
     private List<GetInstanceStorageConfigStorageConfigKinesisFirehoseConfig> kinesisFirehoseConfigs;
-    /**
-     * @return A block that specifies the configuration of the Kinesis data stream. Documented below.
-     * 
-     */
     private List<GetInstanceStorageConfigStorageConfigKinesisStreamConfig> kinesisStreamConfigs;
-    /**
-     * @return A block that specifies the configuration of the Kinesis video stream. Documented below.
-     * 
-     */
     private List<GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig> kinesisVideoStreamConfigs;
-    /**
-     * @return A block that specifies the configuration of S3 Bucket. Documented below.
-     * 
-     */
     private List<GetInstanceStorageConfigStorageConfigS3Config> s3Configs;
-    /**
-     * @return A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
-     * 
-     */
     private String storageType;
 
     private GetInstanceStorageConfigStorageConfig() {}
-    /**
-     * @return A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
-     * 
-     */
     public List<GetInstanceStorageConfigStorageConfigKinesisFirehoseConfig> kinesisFirehoseConfigs() {
         return this.kinesisFirehoseConfigs;
     }
-    /**
-     * @return A block that specifies the configuration of the Kinesis data stream. Documented below.
-     * 
-     */
     public List<GetInstanceStorageConfigStorageConfigKinesisStreamConfig> kinesisStreamConfigs() {
         return this.kinesisStreamConfigs;
     }
-    /**
-     * @return A block that specifies the configuration of the Kinesis video stream. Documented below.
-     * 
-     */
     public List<GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig> kinesisVideoStreamConfigs() {
         return this.kinesisVideoStreamConfigs;
     }
-    /**
-     * @return A block that specifies the configuration of S3 Bucket. Documented below.
-     * 
-     */
     public List<GetInstanceStorageConfigStorageConfigS3Config> s3Configs() {
         return this.s3Configs;
     }
-    /**
-     * @return A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
-     * 
-     */
     public String storageType() {
         return this.storageType;
     }

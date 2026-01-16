@@ -10,31 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ProjectEnvironmentRegistryCredential {
-    /**
-     * @return ARN or name of credentials created using AWS Secrets Manager.
-     * 
-     */
     private String credential;
-    /**
-     * @return Service that created the credentials to access a private Docker registry. Valid
-     * value: `SECRETS_MANAGER` (AWS Secrets Manager).
-     * 
-     */
     private String credentialProvider;
 
     private ProjectEnvironmentRegistryCredential() {}
-    /**
-     * @return ARN or name of credentials created using AWS Secrets Manager.
-     * 
-     */
     public String credential() {
         return this.credential;
     }
-    /**
-     * @return Service that created the credentials to access a private Docker registry. Valid
-     * value: `SECRETS_MANAGER` (AWS Secrets Manager).
-     * 
-     */
     public String credentialProvider() {
         return this.credentialProvider;
     }

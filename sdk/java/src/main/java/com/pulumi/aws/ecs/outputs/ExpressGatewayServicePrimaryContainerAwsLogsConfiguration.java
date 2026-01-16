@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ExpressGatewayServicePrimaryContainerAwsLogsConfiguration {
-    /**
-     * @return CloudWatch log group name.
-     * 
-     */
     private String logGroup;
-    /**
-     * @return Prefix for log stream names. If not specified, a default prefix will be used.
-     * 
-     */
     private String logStreamPrefix;
 
     private ExpressGatewayServicePrimaryContainerAwsLogsConfiguration() {}
-    /**
-     * @return CloudWatch log group name.
-     * 
-     */
     public String logGroup() {
         return this.logGroup;
     }
-    /**
-     * @return Prefix for log stream names. If not specified, a default prefix will be used.
-     * 
-     */
     public String logStreamPrefix() {
         return this.logStreamPrefix;
     }

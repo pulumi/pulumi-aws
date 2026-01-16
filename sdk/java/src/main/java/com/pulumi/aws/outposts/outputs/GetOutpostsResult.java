@@ -11,10 +11,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOutpostsResult {
-    /**
-     * @return Set of Amazon Resource Names (ARNs).
-     * 
-     */
     private List<String> arns;
     private String availabilityZone;
     private String availabilityZoneId;
@@ -23,20 +19,12 @@ public final class GetOutpostsResult {
      * 
      */
     private String id;
-    /**
-     * @return Set of identifiers.
-     * 
-     */
     private List<String> ids;
     private String ownerId;
     private String region;
     private String siteId;
 
     private GetOutpostsResult() {}
-    /**
-     * @return Set of Amazon Resource Names (ARNs).
-     * 
-     */
     public List<String> arns() {
         return this.arns;
     }
@@ -53,10 +41,6 @@ public final class GetOutpostsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Set of identifiers.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }

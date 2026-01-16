@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSetLogicalTableMapDataTransformCastColumnTypeOperation {
-    /**
-     * @return Column name.
-     * 
-     */
     private String columnName;
-    /**
-     * @return When casting a column from string to datetime type, you can supply a string in a format supported by Amazon QuickSight to denote the source data format.
-     * 
-     */
     private @Nullable String format;
-    /**
-     * @return New column data type. Valid values are `STRING`, `INTEGER`, `DECIMAL`, `DATETIME`.
-     * 
-     */
     private String newColumnType;
 
     private DataSetLogicalTableMapDataTransformCastColumnTypeOperation() {}
-    /**
-     * @return Column name.
-     * 
-     */
     public String columnName() {
         return this.columnName;
     }
-    /**
-     * @return When casting a column from string to datetime type, you can supply a string in a format supported by Amazon QuickSight to denote the source data format.
-     * 
-     */
     public Optional<String> format() {
         return Optional.ofNullable(this.format);
     }
-    /**
-     * @return New column data type. Valid values are `STRING`, `INTEGER`, `DECIMAL`, `DATETIME`.
-     * 
-     */
     public String newColumnType() {
         return this.newColumnType;
     }

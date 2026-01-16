@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebhookPullRequestBuildPolicy {
-    /**
-     * @return List of repository roles that have approval privileges for pull request builds when comment approval is required. This argument must be specified only when `requiresCommentApproval` is not `DISABLED`. See the [AWS documentation](https://docs.aws.amazon.com/codebuild/latest/userguide/pull-request-build-policy.html#pull-request-build-policy.configuration) for valid values and defaults.
-     * 
-     */
     private @Nullable List<String> approverRoles;
-    /**
-     * @return Specifies when comment-based approval is required before triggering a build on pull requests. Valid values are: `DISABLED`, `ALL_PULL_REQUESTS`, and `FORK_PULL_REQUESTS`.
-     * 
-     */
     private String requiresCommentApproval;
 
     private WebhookPullRequestBuildPolicy() {}
-    /**
-     * @return List of repository roles that have approval privileges for pull request builds when comment approval is required. This argument must be specified only when `requiresCommentApproval` is not `DISABLED`. See the [AWS documentation](https://docs.aws.amazon.com/codebuild/latest/userguide/pull-request-build-policy.html#pull-request-build-policy.configuration) for valid values and defaults.
-     * 
-     */
     public List<String> approverRoles() {
         return this.approverRoles == null ? List.of() : this.approverRoles;
     }
-    /**
-     * @return Specifies when comment-based approval is required before triggering a build on pull requests. Valid values are: `DISABLED`, `ALL_PULL_REQUESTS`, and `FORK_PULL_REQUESTS`.
-     * 
-     */
     public String requiresCommentApproval() {
         return this.requiresCommentApproval;
     }

@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Organizations
 {
     public static class GetAccount
     {
-        /// <summary>
-        /// Get information about an account in an organization.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Organizations.GetAccount.Invoke(new()
-        ///     {
-        ///         AccountId = "AWS ACCOUNT ID",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("aws:organizations/getAccount:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get information about an account in an organization.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Organizations.GetAccount.Invoke(new()
-        ///     {
-        ///         AccountId = "AWS ACCOUNT ID",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("aws:organizations/getAccount:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get information about an account in an organization.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Organizations.GetAccount.Invoke(new()
-        ///     {
-        ///         AccountId = "AWS ACCOUNT ID",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("aws:organizations/getAccount:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
@@ -93,18 +24,11 @@ namespace Pulumi.Aws.Organizations
 
     public sealed class GetAccountArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Account ID number of a delegated administrator account in the organization.
-        /// </summary>
         [Input("accountId", required: true)]
         public string AccountId { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags for the resource.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -119,18 +43,11 @@ namespace Pulumi.Aws.Organizations
 
     public sealed class GetAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Account ID number of a delegated administrator account in the organization.
-        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags for the resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -148,41 +65,17 @@ namespace Pulumi.Aws.Organizations
     public sealed class GetAccountResult
     {
         public readonly string AccountId;
-        /// <summary>
-        /// ARN of the organization.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Email address of the owner assigned to the new member account.
-        /// </summary>
         public readonly string Email;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Method by which the account joined the organization.
-        /// </summary>
         public readonly string JoinedMethod;
-        /// <summary>
-        /// Date the account became a part of the organization.
-        /// </summary>
         public readonly string JoinedTimestamp;
-        /// <summary>
-        /// Friendly name for the member account.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Parent Organizational Unit ID or Root ID for the account.
-        /// </summary>
         public readonly string ParentId;
-        /// <summary>
-        /// State of the account in the organization.
-        /// </summary>
         public readonly string State;
-        /// <summary>
-        /// Map of tags for the resource.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

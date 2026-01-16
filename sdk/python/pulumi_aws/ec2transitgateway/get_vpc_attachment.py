@@ -72,25 +72,16 @@ class GetVpcAttachmentResult:
     @_builtins.property
     @pulumi.getter(name="applianceModeSupport")
     def appliance_mode_support(self) -> _builtins.str:
-        """
-        Whether Appliance Mode support is enabled.
-        """
         return pulumi.get(self, "appliance_mode_support")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the attachment.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="dnsSupport")
     def dns_support(self) -> _builtins.str:
-        """
-        Whether DNS support is enabled.
-        """
         return pulumi.get(self, "dns_support")
 
     @_builtins.property
@@ -101,17 +92,11 @@ class GetVpcAttachmentResult:
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        EC2 Transit Gateway VPC Attachment identifier
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="ipv6Support")
     def ipv6_support(self) -> _builtins.str:
-        """
-        Whether IPv6 support is enabled.
-        """
         return pulumi.get(self, "ipv6_support")
 
     @_builtins.property
@@ -122,49 +107,31 @@ class GetVpcAttachmentResult:
     @_builtins.property
     @pulumi.getter(name="securityGroupReferencingSupport")
     def security_group_referencing_support(self) -> _builtins.str:
-        """
-        Whether Security Group Referencing Support is enabled.
-        """
         return pulumi.get(self, "security_group_referencing_support")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[_builtins.str]:
-        """
-        Identifiers of EC2 Subnets.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value tags for the EC2 Transit Gateway VPC Attachment
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> _builtins.str:
-        """
-        EC2 Transit Gateway identifier
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> _builtins.str:
-        """
-        Identifier of EC2 VPC.
-        """
         return pulumi.get(self, "vpc_id")
 
     @_builtins.property
     @pulumi.getter(name="vpcOwnerId")
     def vpc_owner_id(self) -> _builtins.str:
-        """
-        Identifier of the AWS account that owns the EC2 VPC.
-        """
         return pulumi.get(self, "vpc_owner_id")
 
 
@@ -195,38 +162,7 @@ def get_vpc_attachment(filters: Optional[Sequence[Union['GetVpcAttachmentFilterA
                        tags: Optional[Mapping[str, _builtins.str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcAttachmentResult:
     """
-    Get information on an EC2 Transit Gateway VPC Attachment.
-
-    !> **Warning:** Using the `ec2transitgateway.VpcAttachment` data source in combination with  `ec2transitgateway.RouteTablePropagation` or `ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `id` attribute directly from the `ec2transitgateway.VpcAttachment` _resource_. For example, `transit_gateway_attachment_id  = aws_ec2_transit_gateway_vpc_attachment.example.id`.
-
-    ## Example Usage
-
-    ### By Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_vpc_attachment(filters=[{
-        "name": "vpc-id",
-        "values": ["vpc-12345678"],
-    }])
-    ```
-
-    ### By Identifier
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_vpc_attachment(id="tgw-attach-12345678")
-    ```
-
-
-    :param Sequence[Union['GetVpcAttachmentFilterArgs', 'GetVpcAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
-    :param _builtins.str id: Identifier of the EC2 Transit Gateway VPC Attachment.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -256,38 +192,7 @@ def get_vpc_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[U
                               tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcAttachmentResult]:
     """
-    Get information on an EC2 Transit Gateway VPC Attachment.
-
-    !> **Warning:** Using the `ec2transitgateway.VpcAttachment` data source in combination with  `ec2transitgateway.RouteTablePropagation` or `ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `id` attribute directly from the `ec2transitgateway.VpcAttachment` _resource_. For example, `transit_gateway_attachment_id  = aws_ec2_transit_gateway_vpc_attachment.example.id`.
-
-    ## Example Usage
-
-    ### By Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_vpc_attachment(filters=[{
-        "name": "vpc-id",
-        "values": ["vpc-12345678"],
-    }])
-    ```
-
-    ### By Identifier
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_vpc_attachment(id="tgw-attach-12345678")
-    ```
-
-
-    :param Sequence[Union['GetVpcAttachmentFilterArgs', 'GetVpcAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
-    :param _builtins.str id: Identifier of the EC2 Transit Gateway VPC Attachment.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

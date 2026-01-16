@@ -17,32 +17,16 @@ public final class TargetGroupAttachmentTargetArgs extends com.pulumi.resources.
 
     public static final TargetGroupAttachmentTargetArgs Empty = new TargetGroupAttachmentTargetArgs();
 
-    /**
-     * The ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return The ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
 
-    /**
-     * This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
-     * 
-     */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
-    /**
-     * @return This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
-     * 
-     */
     public Optional<Output<Integer>> port() {
         return Optional.ofNullable(this.port);
     }
@@ -72,44 +56,20 @@ public final class TargetGroupAttachmentTargetArgs extends com.pulumi.resources.
             $ = new TargetGroupAttachmentTargetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id The ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id The ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param port This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(@Nullable Output<Integer> port) {
             $.port = port;
             return this;
         }
 
-        /**
-         * @param port This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(Integer port) {
             return port(Output.of(port));
         }

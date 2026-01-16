@@ -17,10 +17,6 @@ public final class GetNetworksResult {
      * 
      */
     private String id;
-    /**
-     * @return List of odb networks returns basic information about odb networks.
-     * 
-     */
     private List<GetNetworksOdbNetwork> odbNetworks;
     private String region;
 
@@ -32,10 +28,6 @@ public final class GetNetworksResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of odb networks returns basic information about odb networks.
-     * 
-     */
     public List<GetNetworksOdbNetwork> odbNetworks() {
         return this.odbNetworks;
     }

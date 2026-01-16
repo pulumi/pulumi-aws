@@ -9,39 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DirectConnect
 {
-    /// <summary>
-    /// Provides a confirmation of the creation of the specified hosted connection on an interconnect.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var confirmation = new Aws.DirectConnect.ConnectionConfirmation("confirmation", new()
-    ///     {
-    ///         ConnectionId = "dxcon-ffabc123",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:directconnect/connectionConfirmation:ConnectionConfirmation")]
     public partial class ConnectionConfirmation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ID of the hosted connection.
-        /// </summary>
         [Output("connectionId")]
         public Output<string> ConnectionId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -91,15 +64,9 @@ namespace Pulumi.Aws.DirectConnect
 
     public sealed class ConnectionConfirmationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the hosted connection.
-        /// </summary>
         [Input("connectionId", required: true)]
         public Input<string> ConnectionId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -111,15 +78,9 @@ namespace Pulumi.Aws.DirectConnect
 
     public sealed class ConnectionConfirmationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the hosted connection.
-        /// </summary>
         [Input("connectionId")]
         public Input<string>? ConnectionId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

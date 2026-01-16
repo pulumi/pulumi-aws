@@ -14,17 +14,9 @@ public final class EndpointConfigurationProductionVariantRoutingConfigArgs exten
 
     public static final EndpointConfigurationProductionVariantRoutingConfigArgs Empty = new EndpointConfigurationProductionVariantRoutingConfigArgs();
 
-    /**
-     * How the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
-     * 
-     */
     @Import(name="routingStrategy", required=true)
     private Output<String> routingStrategy;
 
-    /**
-     * @return How the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
-     * 
-     */
     public Output<String> routingStrategy() {
         return this.routingStrategy;
     }
@@ -53,23 +45,11 @@ public final class EndpointConfigurationProductionVariantRoutingConfigArgs exten
             $ = new EndpointConfigurationProductionVariantRoutingConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param routingStrategy How the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingStrategy(Output<String> routingStrategy) {
             $.routingStrategy = routingStrategy;
             return this;
         }
 
-        /**
-         * @param routingStrategy How the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingStrategy(String routingStrategy) {
             return routingStrategy(Output.of(routingStrategy));
         }

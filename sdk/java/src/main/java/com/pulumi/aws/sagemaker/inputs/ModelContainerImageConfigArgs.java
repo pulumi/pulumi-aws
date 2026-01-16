@@ -17,32 +17,16 @@ public final class ModelContainerImageConfigArgs extends com.pulumi.resources.Re
 
     public static final ModelContainerImageConfigArgs Empty = new ModelContainerImageConfigArgs();
 
-    /**
-     * Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
-     * 
-     */
     @Import(name="repositoryAccessMode", required=true)
     private Output<String> repositoryAccessMode;
 
-    /**
-     * @return Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
-     * 
-     */
     public Output<String> repositoryAccessMode() {
         return this.repositoryAccessMode;
     }
 
-    /**
-     * Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
-     * 
-     */
     @Import(name="repositoryAuthConfig")
     private @Nullable Output<ModelContainerImageConfigRepositoryAuthConfigArgs> repositoryAuthConfig;
 
-    /**
-     * @return Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
-     * 
-     */
     public Optional<Output<ModelContainerImageConfigRepositoryAuthConfigArgs>> repositoryAuthConfig() {
         return Optional.ofNullable(this.repositoryAuthConfig);
     }
@@ -72,44 +56,20 @@ public final class ModelContainerImageConfigArgs extends com.pulumi.resources.Re
             $ = new ModelContainerImageConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param repositoryAccessMode Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryAccessMode(Output<String> repositoryAccessMode) {
             $.repositoryAccessMode = repositoryAccessMode;
             return this;
         }
 
-        /**
-         * @param repositoryAccessMode Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryAccessMode(String repositoryAccessMode) {
             return repositoryAccessMode(Output.of(repositoryAccessMode));
         }
 
-        /**
-         * @param repositoryAuthConfig Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryAuthConfig(@Nullable Output<ModelContainerImageConfigRepositoryAuthConfigArgs> repositoryAuthConfig) {
             $.repositoryAuthConfig = repositoryAuthConfig;
             return this;
         }
 
-        /**
-         * @param repositoryAuthConfig Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryAuthConfig(ModelContainerImageConfigRepositoryAuthConfigArgs repositoryAuthConfig) {
             return repositoryAuthConfig(Output.of(repositoryAuthConfig));
         }

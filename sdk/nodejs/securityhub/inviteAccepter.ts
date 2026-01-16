@@ -4,37 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * > **Note:** AWS accounts can only be associated with a single Security Hub master account. Destroying this resource will disassociate the member account from the master account.
- *
- * Accepts a Security Hub invitation.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.securityhub.Account("example", {});
- * const exampleMember = new aws.securityhub.Member("example", {
- *     accountId: "123456789012",
- *     email: "example@example.com",
- *     invite: true,
- * });
- * const invitee = new aws.securityhub.Account("invitee", {});
- * const inviteeInviteAccepter = new aws.securityhub.InviteAccepter("invitee", {masterId: exampleMember.masterId}, {
- *     dependsOn: [invitee],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Security Hub invite acceptance using the account ID. For example:
- *
- * ```sh
- * $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
- * ```
- */
 export class InviteAccepter extends pulumi.CustomResource {
     /**
      * Get an existing InviteAccepter resource's state with the given name, ID, and optional extra
@@ -63,17 +32,8 @@ export class InviteAccepter extends pulumi.CustomResource {
         return obj['__pulumiType'] === InviteAccepter.__pulumiType;
     }
 
-    /**
-     * The ID of the invitation.
-     */
     declare public /*out*/ readonly invitationId: pulumi.Output<string>;
-    /**
-     * The account ID of the master Security Hub account whose invitation you're accepting.
-     */
     declare public readonly masterId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -110,17 +70,8 @@ export class InviteAccepter extends pulumi.CustomResource {
  * Input properties used for looking up and filtering InviteAccepter resources.
  */
 export interface InviteAccepterState {
-    /**
-     * The ID of the invitation.
-     */
     invitationId?: pulumi.Input<string>;
-    /**
-     * The account ID of the master Security Hub account whose invitation you're accepting.
-     */
     masterId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -128,12 +79,6 @@ export interface InviteAccepterState {
  * The set of arguments for constructing a InviteAccepter resource.
  */
 export interface InviteAccepterArgs {
-    /**
-     * The account ID of the master Security Hub account whose invitation you're accepting.
-     */
     masterId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

@@ -55,17 +55,11 @@ class GetIpRangesResult:
     @_builtins.property
     @pulumi.getter(name="cidrBlocks")
     def cidr_blocks(self) -> Sequence[_builtins.str]:
-        """
-        Lexically ordered list of CIDR blocks.
-        """
         return pulumi.get(self, "cidr_blocks")
 
     @_builtins.property
     @pulumi.getter(name="createDate")
     def create_date(self) -> _builtins.str:
-        """
-        Publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
-        """
         return pulumi.get(self, "create_date")
 
     @_builtins.property
@@ -76,9 +70,6 @@ class GetIpRangesResult:
     @_builtins.property
     @pulumi.getter(name="ipv6CidrBlocks")
     def ipv6_cidr_blocks(self) -> Sequence[_builtins.str]:
-        """
-        Lexically ordered list of IPv6 CIDR blocks.
-        """
         return pulumi.get(self, "ipv6_cidr_blocks")
 
     @_builtins.property
@@ -94,10 +85,6 @@ class GetIpRangesResult:
     @_builtins.property
     @pulumi.getter(name="syncToken")
     def sync_token(self) -> _builtins.int:
-        """
-        Publication time of the IP ranges, in Unix epoch time format
-        (e.g., `1470267965`).
-        """
         return pulumi.get(self, "sync_token")
 
     @_builtins.property
@@ -128,47 +115,7 @@ def get_ip_ranges(id: Optional[_builtins.str] = None,
                   url: Optional[_builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpRangesResult:
     """
-    Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    european_ec2 = aws.get_ip_ranges(regions=[
-            "eu-west-1",
-            "eu-central-1",
-        ],
-        services=["ec2"])
-    from_europe = aws.ec2.SecurityGroup("from_europe",
-        name="from_europe",
-        ingress=[{
-            "from_port": 443,
-            "to_port": 443,
-            "protocol": "tcp",
-            "cidr_blocks": european_ec2.cidr_blocks,
-            "ipv6_cidr_blocks": european_ec2.ipv6_cidr_blocks,
-        }],
-        tags={
-            "CreateDate": european_ec2.create_date,
-            "SyncToken": european_ec2.sync_token,
-        })
-    ```
-
-
-    :param Sequence[_builtins.str] regions: Filter IP ranges by regions (or include all regions, if
-           omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
-           (e.g., `eu-central-1`)
-    :param Sequence[_builtins.str] services: Filter IP ranges by services. Valid items are `amazon`
-           (for amazon.com), `amazon_connect`, `api_gateway`, `cloud9`, `cloudfront`,
-           `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
-           `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
-           [`service` attribute][2] documentation for other possible values.
-           
-           > **NOTE:** If the specified combination of regions and services does not yield any
-           CIDR blocks, this call will fail.
-    :param _builtins.str url: Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -193,47 +140,7 @@ def get_ip_ranges_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = N
                          url: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpRangesResult]:
     """
-    Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    european_ec2 = aws.get_ip_ranges(regions=[
-            "eu-west-1",
-            "eu-central-1",
-        ],
-        services=["ec2"])
-    from_europe = aws.ec2.SecurityGroup("from_europe",
-        name="from_europe",
-        ingress=[{
-            "from_port": 443,
-            "to_port": 443,
-            "protocol": "tcp",
-            "cidr_blocks": european_ec2.cidr_blocks,
-            "ipv6_cidr_blocks": european_ec2.ipv6_cidr_blocks,
-        }],
-        tags={
-            "CreateDate": european_ec2.create_date,
-            "SyncToken": european_ec2.sync_token,
-        })
-    ```
-
-
-    :param Sequence[_builtins.str] regions: Filter IP ranges by regions (or include all regions, if
-           omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
-           (e.g., `eu-central-1`)
-    :param Sequence[_builtins.str] services: Filter IP ranges by services. Valid items are `amazon`
-           (for amazon.com), `amazon_connect`, `api_gateway`, `cloud9`, `cloudfront`,
-           `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
-           `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
-           [`service` attribute][2] documentation for other possible values.
-           
-           > **NOTE:** If the specified combination of regions and services does not yield any
-           CIDR blocks, this call will fail.
-    :param _builtins.str url: Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

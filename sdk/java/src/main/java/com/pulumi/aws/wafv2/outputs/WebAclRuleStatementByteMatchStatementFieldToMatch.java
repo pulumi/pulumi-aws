@@ -25,173 +25,61 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementByteMatchStatementFieldToMatch {
-    /**
-     * @return Inspect all query arguments.
-     * 
-     */
     private @Nullable WebAclRuleStatementByteMatchStatementFieldToMatchAllQueryArguments allQueryArguments;
-    /**
-     * @return Inspect the request body, which immediately follows the request headers. See `body` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementByteMatchStatementFieldToMatchBody body;
-    /**
-     * @return Inspect the cookies in the web request. See `cookies` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementByteMatchStatementFieldToMatchCookies cookies;
-    /**
-     * @return Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
-     * 
-     */
     private @Nullable List<WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder> headerOrders;
-    /**
-     * @return Inspect the request headers. See `headers` below for details.
-     * 
-     */
     private @Nullable List<WebAclRuleStatementByteMatchStatementFieldToMatchHeader> headers;
-    /**
-     * @return Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
-    /**
-     * @return Inspect the JA3 fingerprint. See `ja4Fingerprint` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint ja4Fingerprint;
-    /**
-     * @return Inspect the request body as JSON. See `jsonBody` for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody jsonBody;
-    /**
-     * @return Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-     * 
-     */
     private @Nullable WebAclRuleStatementByteMatchStatementFieldToMatchMethod method;
-    /**
-     * @return Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-     * 
-     */
     private @Nullable WebAclRuleStatementByteMatchStatementFieldToMatchQueryString queryString;
-    /**
-     * @return Inspect a single header. See `singleHeader` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader singleHeader;
-    /**
-     * @return Inspect a single query argument. See `singleQueryArgument` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument singleQueryArgument;
-    /**
-     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uriFragment` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementByteMatchStatementFieldToMatchUriFragment uriFragment;
-    /**
-     * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
-     * 
-     */
     private @Nullable WebAclRuleStatementByteMatchStatementFieldToMatchUriPath uriPath;
 
     private WebAclRuleStatementByteMatchStatementFieldToMatch() {}
-    /**
-     * @return Inspect all query arguments.
-     * 
-     */
     public Optional<WebAclRuleStatementByteMatchStatementFieldToMatchAllQueryArguments> allQueryArguments() {
         return Optional.ofNullable(this.allQueryArguments);
     }
-    /**
-     * @return Inspect the request body, which immediately follows the request headers. See `body` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementByteMatchStatementFieldToMatchBody> body() {
         return Optional.ofNullable(this.body);
     }
-    /**
-     * @return Inspect the cookies in the web request. See `cookies` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementByteMatchStatementFieldToMatchCookies> cookies() {
         return Optional.ofNullable(this.cookies);
     }
-    /**
-     * @return Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
-     * 
-     */
     public List<WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder> headerOrders() {
         return this.headerOrders == null ? List.of() : this.headerOrders;
     }
-    /**
-     * @return Inspect the request headers. See `headers` below for details.
-     * 
-     */
     public List<WebAclRuleStatementByteMatchStatementFieldToMatchHeader> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
-    /**
-     * @return Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint> ja3Fingerprint() {
         return Optional.ofNullable(this.ja3Fingerprint);
     }
-    /**
-     * @return Inspect the JA3 fingerprint. See `ja4Fingerprint` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint> ja4Fingerprint() {
         return Optional.ofNullable(this.ja4Fingerprint);
     }
-    /**
-     * @return Inspect the request body as JSON. See `jsonBody` for details.
-     * 
-     */
     public Optional<WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody> jsonBody() {
         return Optional.ofNullable(this.jsonBody);
     }
-    /**
-     * @return Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-     * 
-     */
     public Optional<WebAclRuleStatementByteMatchStatementFieldToMatchMethod> method() {
         return Optional.ofNullable(this.method);
     }
-    /**
-     * @return Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-     * 
-     */
     public Optional<WebAclRuleStatementByteMatchStatementFieldToMatchQueryString> queryString() {
         return Optional.ofNullable(this.queryString);
     }
-    /**
-     * @return Inspect a single header. See `singleHeader` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader> singleHeader() {
         return Optional.ofNullable(this.singleHeader);
     }
-    /**
-     * @return Inspect a single query argument. See `singleQueryArgument` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument> singleQueryArgument() {
         return Optional.ofNullable(this.singleQueryArgument);
     }
-    /**
-     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uriFragment` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementByteMatchStatementFieldToMatchUriFragment> uriFragment() {
         return Optional.ofNullable(this.uriFragment);
     }
-    /**
-     * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
-     * 
-     */
     public Optional<WebAclRuleStatementByteMatchStatementFieldToMatchUriPath> uriPath() {
         return Optional.ofNullable(this.uriPath);
     }

@@ -12,33 +12,18 @@ namespace Pulumi.Aws.S3Control.Inputs
 
     public sealed class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// S3 Storage Lens activity metrics. See Activity Metrics above for more details.
-        /// </summary>
         [Input("activityMetrics")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsGetArgs>? ActivityMetrics { get; set; }
 
-        /// <summary>
-        /// Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics above for more details.
-        /// </summary>
         [Input("advancedCostOptimizationMetrics")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsGetArgs>? AdvancedCostOptimizationMetrics { get; set; }
 
-        /// <summary>
-        /// Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics above for more details.
-        /// </summary>
         [Input("advancedDataProtectionMetrics")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsGetArgs>? AdvancedDataProtectionMetrics { get; set; }
 
-        /// <summary>
-        /// Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics above for more details.
-        /// </summary>
         [Input("detailedStatusCodeMetrics")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsGetArgs>? DetailedStatusCodeMetrics { get; set; }
 
-        /// <summary>
-        /// Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
-        /// </summary>
         [Input("prefixLevel")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelGetArgs>? PrefixLevel { get; set; }
 

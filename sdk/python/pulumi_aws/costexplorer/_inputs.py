@@ -204,13 +204,7 @@ MYPY = False
 if not MYPY:
     class AnomalySubscriptionSubscriberArgsDict(TypedDict):
         address: pulumi.Input[_builtins.str]
-        """
-        The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
-        """
         type: pulumi.Input[_builtins.str]
-        """
-        The type of subscription. Valid Values: `SNS` | `EMAIL`.
-        """
 elif False:
     AnomalySubscriptionSubscriberArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -219,19 +213,12 @@ class AnomalySubscriptionSubscriberArgs:
     def __init__(__self__, *,
                  address: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] address: The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
-        :param pulumi.Input[_builtins.str] type: The type of subscription. Valid Values: `SNS` | `EMAIL`.
-        """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def address(self) -> pulumi.Input[_builtins.str]:
-        """
-        The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
-        """
         return pulumi.get(self, "address")
 
     @address.setter
@@ -241,9 +228,6 @@ class AnomalySubscriptionSubscriberArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of subscription. Valid Values: `SNS` | `EMAIL`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -254,29 +238,11 @@ class AnomalySubscriptionSubscriberArgs:
 if not MYPY:
     class AnomalySubscriptionThresholdExpressionArgsDict(TypedDict):
         ands: NotRequired[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionAndArgsDict']]]]
-        """
-        Return results that match both Dimension objects.
-        """
         cost_category: NotRequired[pulumi.Input['AnomalySubscriptionThresholdExpressionCostCategoryArgsDict']]
-        """
-        Configuration block for the filter that's based on  values. See Cost Category below.
-        """
         dimension: NotRequired[pulumi.Input['AnomalySubscriptionThresholdExpressionDimensionArgsDict']]
-        """
-        Configuration block for the specific Dimension to use for.
-        """
         not_: NotRequired[pulumi.Input['AnomalySubscriptionThresholdExpressionNotArgsDict']]
-        """
-        Return results that do not match the Dimension object.
-        """
         ors: NotRequired[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionOrArgsDict']]]]
-        """
-        Return results that match either Dimension object.
-        """
         tags: NotRequired[pulumi.Input['AnomalySubscriptionThresholdExpressionTagsArgsDict']]
-        """
-        Configuration block for the specific Tag to use for. See Tags below.
-        """
 elif False:
     AnomalySubscriptionThresholdExpressionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -289,14 +255,6 @@ class AnomalySubscriptionThresholdExpressionArgs:
                  not_: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotArgs']] = None,
                  ors: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionOrArgs']]]] = None,
                  tags: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionTagsArgs']] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionAndArgs']]] ands: Return results that match both Dimension objects.
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionCostCategoryArgs'] cost_category: Configuration block for the filter that's based on  values. See Cost Category below.
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionDimensionArgs'] dimension: Configuration block for the specific Dimension to use for.
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionNotArgs'] not_: Return results that do not match the Dimension object.
-        :param pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionOrArgs']]] ors: Return results that match either Dimension object.
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionTagsArgs'] tags: Configuration block for the specific Tag to use for. See Tags below.
-        """
         if ands is not None:
             pulumi.set(__self__, "ands", ands)
         if cost_category is not None:
@@ -313,9 +271,6 @@ class AnomalySubscriptionThresholdExpressionArgs:
     @_builtins.property
     @pulumi.getter
     def ands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionAndArgs']]]]:
-        """
-        Return results that match both Dimension objects.
-        """
         return pulumi.get(self, "ands")
 
     @ands.setter
@@ -325,9 +280,6 @@ class AnomalySubscriptionThresholdExpressionArgs:
     @_builtins.property
     @pulumi.getter(name="costCategory")
     def cost_category(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionCostCategoryArgs']]:
-        """
-        Configuration block for the filter that's based on  values. See Cost Category below.
-        """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
@@ -337,9 +289,6 @@ class AnomalySubscriptionThresholdExpressionArgs:
     @_builtins.property
     @pulumi.getter
     def dimension(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionDimensionArgs']]:
-        """
-        Configuration block for the specific Dimension to use for.
-        """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
@@ -349,9 +298,6 @@ class AnomalySubscriptionThresholdExpressionArgs:
     @_builtins.property
     @pulumi.getter(name="not")
     def not_(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotArgs']]:
-        """
-        Return results that do not match the Dimension object.
-        """
         return pulumi.get(self, "not_")
 
     @not_.setter
@@ -361,9 +307,6 @@ class AnomalySubscriptionThresholdExpressionArgs:
     @_builtins.property
     @pulumi.getter
     def ors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionOrArgs']]]]:
-        """
-        Return results that match either Dimension object.
-        """
         return pulumi.get(self, "ors")
 
     @ors.setter
@@ -373,9 +316,6 @@ class AnomalySubscriptionThresholdExpressionArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionTagsArgs']]:
-        """
-        Configuration block for the specific Tag to use for. See Tags below.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -386,17 +326,8 @@ class AnomalySubscriptionThresholdExpressionArgs:
 if not MYPY:
     class AnomalySubscriptionThresholdExpressionAndArgsDict(TypedDict):
         cost_category: NotRequired[pulumi.Input['AnomalySubscriptionThresholdExpressionAndCostCategoryArgsDict']]
-        """
-        Configuration block for the filter that's based on  values. See Cost Category below.
-        """
         dimension: NotRequired[pulumi.Input['AnomalySubscriptionThresholdExpressionAndDimensionArgsDict']]
-        """
-        Configuration block for the specific Dimension to use for.
-        """
         tags: NotRequired[pulumi.Input['AnomalySubscriptionThresholdExpressionAndTagsArgsDict']]
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
 elif False:
     AnomalySubscriptionThresholdExpressionAndArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -406,11 +337,6 @@ class AnomalySubscriptionThresholdExpressionAndArgs:
                  cost_category: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionAndCostCategoryArgs']] = None,
                  dimension: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionAndDimensionArgs']] = None,
                  tags: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionAndTagsArgs']] = None):
-        """
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionAndCostCategoryArgs'] cost_category: Configuration block for the filter that's based on  values. See Cost Category below.
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionAndDimensionArgs'] dimension: Configuration block for the specific Dimension to use for.
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionAndTagsArgs'] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
         if dimension is not None:
@@ -421,9 +347,6 @@ class AnomalySubscriptionThresholdExpressionAndArgs:
     @_builtins.property
     @pulumi.getter(name="costCategory")
     def cost_category(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionAndCostCategoryArgs']]:
-        """
-        Configuration block for the filter that's based on  values. See Cost Category below.
-        """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
@@ -433,9 +356,6 @@ class AnomalySubscriptionThresholdExpressionAndArgs:
     @_builtins.property
     @pulumi.getter
     def dimension(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionAndDimensionArgs']]:
-        """
-        Configuration block for the specific Dimension to use for.
-        """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
@@ -445,9 +365,6 @@ class AnomalySubscriptionThresholdExpressionAndArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionAndTagsArgs']]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -458,17 +375,8 @@ class AnomalySubscriptionThresholdExpressionAndArgs:
 if not MYPY:
     class AnomalySubscriptionThresholdExpressionAndCostCategoryArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     AnomalySubscriptionThresholdExpressionAndCostCategoryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -478,11 +386,6 @@ class AnomalySubscriptionThresholdExpressionAndCostCategoryArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -493,9 +396,6 @@ class AnomalySubscriptionThresholdExpressionAndCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -505,9 +405,6 @@ class AnomalySubscriptionThresholdExpressionAndCostCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -517,9 +414,6 @@ class AnomalySubscriptionThresholdExpressionAndCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -530,17 +424,8 @@ class AnomalySubscriptionThresholdExpressionAndCostCategoryArgs:
 if not MYPY:
     class AnomalySubscriptionThresholdExpressionAndDimensionArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     AnomalySubscriptionThresholdExpressionAndDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -550,11 +435,6 @@ class AnomalySubscriptionThresholdExpressionAndDimensionArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -565,9 +445,6 @@ class AnomalySubscriptionThresholdExpressionAndDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -577,9 +454,6 @@ class AnomalySubscriptionThresholdExpressionAndDimensionArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -589,9 +463,6 @@ class AnomalySubscriptionThresholdExpressionAndDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -602,17 +473,8 @@ class AnomalySubscriptionThresholdExpressionAndDimensionArgs:
 if not MYPY:
     class AnomalySubscriptionThresholdExpressionAndTagsArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key for the tag.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     AnomalySubscriptionThresholdExpressionAndTagsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -622,11 +484,6 @@ class AnomalySubscriptionThresholdExpressionAndTagsArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Key for the tag.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -637,9 +494,6 @@ class AnomalySubscriptionThresholdExpressionAndTagsArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Key for the tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -649,9 +503,6 @@ class AnomalySubscriptionThresholdExpressionAndTagsArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -661,9 +512,6 @@ class AnomalySubscriptionThresholdExpressionAndTagsArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -674,17 +522,8 @@ class AnomalySubscriptionThresholdExpressionAndTagsArgs:
 if not MYPY:
     class AnomalySubscriptionThresholdExpressionCostCategoryArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     AnomalySubscriptionThresholdExpressionCostCategoryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -694,11 +533,6 @@ class AnomalySubscriptionThresholdExpressionCostCategoryArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -709,9 +543,6 @@ class AnomalySubscriptionThresholdExpressionCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -721,9 +552,6 @@ class AnomalySubscriptionThresholdExpressionCostCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -733,9 +561,6 @@ class AnomalySubscriptionThresholdExpressionCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -746,17 +571,8 @@ class AnomalySubscriptionThresholdExpressionCostCategoryArgs:
 if not MYPY:
     class AnomalySubscriptionThresholdExpressionDimensionArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     AnomalySubscriptionThresholdExpressionDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -766,11 +582,6 @@ class AnomalySubscriptionThresholdExpressionDimensionArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -781,9 +592,6 @@ class AnomalySubscriptionThresholdExpressionDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -793,9 +601,6 @@ class AnomalySubscriptionThresholdExpressionDimensionArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -805,9 +610,6 @@ class AnomalySubscriptionThresholdExpressionDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -818,17 +620,8 @@ class AnomalySubscriptionThresholdExpressionDimensionArgs:
 if not MYPY:
     class AnomalySubscriptionThresholdExpressionNotArgsDict(TypedDict):
         cost_category: NotRequired[pulumi.Input['AnomalySubscriptionThresholdExpressionNotCostCategoryArgsDict']]
-        """
-        Configuration block for the filter that's based on  values. See Cost Category below.
-        """
         dimension: NotRequired[pulumi.Input['AnomalySubscriptionThresholdExpressionNotDimensionArgsDict']]
-        """
-        Configuration block for the specific Dimension to use for.
-        """
         tags: NotRequired[pulumi.Input['AnomalySubscriptionThresholdExpressionNotTagsArgsDict']]
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
 elif False:
     AnomalySubscriptionThresholdExpressionNotArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -838,11 +631,6 @@ class AnomalySubscriptionThresholdExpressionNotArgs:
                  cost_category: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotCostCategoryArgs']] = None,
                  dimension: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotDimensionArgs']] = None,
                  tags: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotTagsArgs']] = None):
-        """
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionNotCostCategoryArgs'] cost_category: Configuration block for the filter that's based on  values. See Cost Category below.
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionNotDimensionArgs'] dimension: Configuration block for the specific Dimension to use for.
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionNotTagsArgs'] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
         if dimension is not None:
@@ -853,9 +641,6 @@ class AnomalySubscriptionThresholdExpressionNotArgs:
     @_builtins.property
     @pulumi.getter(name="costCategory")
     def cost_category(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotCostCategoryArgs']]:
-        """
-        Configuration block for the filter that's based on  values. See Cost Category below.
-        """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
@@ -865,9 +650,6 @@ class AnomalySubscriptionThresholdExpressionNotArgs:
     @_builtins.property
     @pulumi.getter
     def dimension(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotDimensionArgs']]:
-        """
-        Configuration block for the specific Dimension to use for.
-        """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
@@ -877,9 +659,6 @@ class AnomalySubscriptionThresholdExpressionNotArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotTagsArgs']]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -890,17 +669,8 @@ class AnomalySubscriptionThresholdExpressionNotArgs:
 if not MYPY:
     class AnomalySubscriptionThresholdExpressionNotCostCategoryArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     AnomalySubscriptionThresholdExpressionNotCostCategoryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -910,11 +680,6 @@ class AnomalySubscriptionThresholdExpressionNotCostCategoryArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -925,9 +690,6 @@ class AnomalySubscriptionThresholdExpressionNotCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -937,9 +699,6 @@ class AnomalySubscriptionThresholdExpressionNotCostCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -949,9 +708,6 @@ class AnomalySubscriptionThresholdExpressionNotCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -962,17 +718,8 @@ class AnomalySubscriptionThresholdExpressionNotCostCategoryArgs:
 if not MYPY:
     class AnomalySubscriptionThresholdExpressionNotDimensionArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     AnomalySubscriptionThresholdExpressionNotDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -982,11 +729,6 @@ class AnomalySubscriptionThresholdExpressionNotDimensionArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -997,9 +739,6 @@ class AnomalySubscriptionThresholdExpressionNotDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1009,9 +748,6 @@ class AnomalySubscriptionThresholdExpressionNotDimensionArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -1021,9 +757,6 @@ class AnomalySubscriptionThresholdExpressionNotDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -1034,17 +767,8 @@ class AnomalySubscriptionThresholdExpressionNotDimensionArgs:
 if not MYPY:
     class AnomalySubscriptionThresholdExpressionNotTagsArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key for the tag.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     AnomalySubscriptionThresholdExpressionNotTagsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1054,11 +778,6 @@ class AnomalySubscriptionThresholdExpressionNotTagsArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Key for the tag.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -1069,9 +788,6 @@ class AnomalySubscriptionThresholdExpressionNotTagsArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Key for the tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1081,9 +797,6 @@ class AnomalySubscriptionThresholdExpressionNotTagsArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -1093,9 +806,6 @@ class AnomalySubscriptionThresholdExpressionNotTagsArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -1106,17 +816,8 @@ class AnomalySubscriptionThresholdExpressionNotTagsArgs:
 if not MYPY:
     class AnomalySubscriptionThresholdExpressionOrArgsDict(TypedDict):
         cost_category: NotRequired[pulumi.Input['AnomalySubscriptionThresholdExpressionOrCostCategoryArgsDict']]
-        """
-        Configuration block for the filter that's based on  values. See Cost Category below.
-        """
         dimension: NotRequired[pulumi.Input['AnomalySubscriptionThresholdExpressionOrDimensionArgsDict']]
-        """
-        Configuration block for the specific Dimension to use for.
-        """
         tags: NotRequired[pulumi.Input['AnomalySubscriptionThresholdExpressionOrTagsArgsDict']]
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
 elif False:
     AnomalySubscriptionThresholdExpressionOrArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1126,11 +827,6 @@ class AnomalySubscriptionThresholdExpressionOrArgs:
                  cost_category: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionOrCostCategoryArgs']] = None,
                  dimension: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionOrDimensionArgs']] = None,
                  tags: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionOrTagsArgs']] = None):
-        """
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionOrCostCategoryArgs'] cost_category: Configuration block for the filter that's based on  values. See Cost Category below.
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionOrDimensionArgs'] dimension: Configuration block for the specific Dimension to use for.
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionOrTagsArgs'] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
         if dimension is not None:
@@ -1141,9 +837,6 @@ class AnomalySubscriptionThresholdExpressionOrArgs:
     @_builtins.property
     @pulumi.getter(name="costCategory")
     def cost_category(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionOrCostCategoryArgs']]:
-        """
-        Configuration block for the filter that's based on  values. See Cost Category below.
-        """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
@@ -1153,9 +846,6 @@ class AnomalySubscriptionThresholdExpressionOrArgs:
     @_builtins.property
     @pulumi.getter
     def dimension(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionOrDimensionArgs']]:
-        """
-        Configuration block for the specific Dimension to use for.
-        """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
@@ -1165,9 +855,6 @@ class AnomalySubscriptionThresholdExpressionOrArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionOrTagsArgs']]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -1178,17 +865,8 @@ class AnomalySubscriptionThresholdExpressionOrArgs:
 if not MYPY:
     class AnomalySubscriptionThresholdExpressionOrCostCategoryArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     AnomalySubscriptionThresholdExpressionOrCostCategoryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1198,11 +876,6 @@ class AnomalySubscriptionThresholdExpressionOrCostCategoryArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -1213,9 +886,6 @@ class AnomalySubscriptionThresholdExpressionOrCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1225,9 +895,6 @@ class AnomalySubscriptionThresholdExpressionOrCostCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -1237,9 +904,6 @@ class AnomalySubscriptionThresholdExpressionOrCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -1250,17 +914,8 @@ class AnomalySubscriptionThresholdExpressionOrCostCategoryArgs:
 if not MYPY:
     class AnomalySubscriptionThresholdExpressionOrDimensionArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     AnomalySubscriptionThresholdExpressionOrDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1270,11 +925,6 @@ class AnomalySubscriptionThresholdExpressionOrDimensionArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -1285,9 +935,6 @@ class AnomalySubscriptionThresholdExpressionOrDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1297,9 +944,6 @@ class AnomalySubscriptionThresholdExpressionOrDimensionArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -1309,9 +953,6 @@ class AnomalySubscriptionThresholdExpressionOrDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -1322,17 +963,8 @@ class AnomalySubscriptionThresholdExpressionOrDimensionArgs:
 if not MYPY:
     class AnomalySubscriptionThresholdExpressionOrTagsArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key for the tag.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     AnomalySubscriptionThresholdExpressionOrTagsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1342,11 +974,6 @@ class AnomalySubscriptionThresholdExpressionOrTagsArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Key for the tag.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -1357,9 +984,6 @@ class AnomalySubscriptionThresholdExpressionOrTagsArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Key for the tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1369,9 +993,6 @@ class AnomalySubscriptionThresholdExpressionOrTagsArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -1381,9 +1002,6 @@ class AnomalySubscriptionThresholdExpressionOrTagsArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -1394,17 +1012,8 @@ class AnomalySubscriptionThresholdExpressionOrTagsArgs:
 if not MYPY:
     class AnomalySubscriptionThresholdExpressionTagsArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key for the tag.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     AnomalySubscriptionThresholdExpressionTagsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1414,11 +1023,6 @@ class AnomalySubscriptionThresholdExpressionTagsArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Key for the tag.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -1429,9 +1033,6 @@ class AnomalySubscriptionThresholdExpressionTagsArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Key for the tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1441,9 +1042,6 @@ class AnomalySubscriptionThresholdExpressionTagsArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -1453,9 +1051,6 @@ class AnomalySubscriptionThresholdExpressionTagsArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -1466,21 +1061,9 @@ class AnomalySubscriptionThresholdExpressionTagsArgs:
 if not MYPY:
     class CostCategoryRuleArgsDict(TypedDict):
         inherited_value: NotRequired[pulumi.Input['CostCategoryRuleInheritedValueArgsDict']]
-        """
-        Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
-        """
         rule: NotRequired[pulumi.Input['CostCategoryRuleRuleArgsDict']]
-        """
-        Configuration block for the `Expression` object used to categorize costs. See below.
-        """
         type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        You can define the CostCategoryRule rule type as either `REGULAR` or `INHERITED_VALUE`.
-        """
         value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Default value for the cost category.
-        """
 elif False:
     CostCategoryRuleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1491,12 +1074,6 @@ class CostCategoryRuleArgs:
                  rule: Optional[pulumi.Input['CostCategoryRuleRuleArgs']] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  value: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input['CostCategoryRuleInheritedValueArgs'] inherited_value: Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
-        :param pulumi.Input['CostCategoryRuleRuleArgs'] rule: Configuration block for the `Expression` object used to categorize costs. See below.
-        :param pulumi.Input[_builtins.str] type: You can define the CostCategoryRule rule type as either `REGULAR` or `INHERITED_VALUE`.
-        :param pulumi.Input[_builtins.str] value: Default value for the cost category.
-        """
         if inherited_value is not None:
             pulumi.set(__self__, "inherited_value", inherited_value)
         if rule is not None:
@@ -1509,9 +1086,6 @@ class CostCategoryRuleArgs:
     @_builtins.property
     @pulumi.getter(name="inheritedValue")
     def inherited_value(self) -> Optional[pulumi.Input['CostCategoryRuleInheritedValueArgs']]:
-        """
-        Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
-        """
         return pulumi.get(self, "inherited_value")
 
     @inherited_value.setter
@@ -1521,9 +1095,6 @@ class CostCategoryRuleArgs:
     @_builtins.property
     @pulumi.getter
     def rule(self) -> Optional[pulumi.Input['CostCategoryRuleRuleArgs']]:
-        """
-        Configuration block for the `Expression` object used to categorize costs. See below.
-        """
         return pulumi.get(self, "rule")
 
     @rule.setter
@@ -1533,9 +1104,6 @@ class CostCategoryRuleArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        You can define the CostCategoryRule rule type as either `REGULAR` or `INHERITED_VALUE`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1545,9 +1113,6 @@ class CostCategoryRuleArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Default value for the cost category.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1558,13 +1123,7 @@ class CostCategoryRuleArgs:
 if not MYPY:
     class CostCategoryRuleInheritedValueArgsDict(TypedDict):
         dimension_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key to extract cost category values.
-        """
         dimension_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the dimension that's used to group costs. If you specify `LINKED_ACCOUNT_NAME`, the cost category value is based on account name. If you specify `TAG`, the cost category value will be based on the value of the specified tag key. Valid values are `LINKED_ACCOUNT_NAME`, `TAG`
-        """
 elif False:
     CostCategoryRuleInheritedValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1573,10 +1132,6 @@ class CostCategoryRuleInheritedValueArgs:
     def __init__(__self__, *,
                  dimension_key: Optional[pulumi.Input[_builtins.str]] = None,
                  dimension_name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] dimension_key: Key to extract cost category values.
-        :param pulumi.Input[_builtins.str] dimension_name: Name of the dimension that's used to group costs. If you specify `LINKED_ACCOUNT_NAME`, the cost category value is based on account name. If you specify `TAG`, the cost category value will be based on the value of the specified tag key. Valid values are `LINKED_ACCOUNT_NAME`, `TAG`
-        """
         if dimension_key is not None:
             pulumi.set(__self__, "dimension_key", dimension_key)
         if dimension_name is not None:
@@ -1585,9 +1140,6 @@ class CostCategoryRuleInheritedValueArgs:
     @_builtins.property
     @pulumi.getter(name="dimensionKey")
     def dimension_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Key to extract cost category values.
-        """
         return pulumi.get(self, "dimension_key")
 
     @dimension_key.setter
@@ -1597,9 +1149,6 @@ class CostCategoryRuleInheritedValueArgs:
     @_builtins.property
     @pulumi.getter(name="dimensionName")
     def dimension_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the dimension that's used to group costs. If you specify `LINKED_ACCOUNT_NAME`, the cost category value is based on account name. If you specify `TAG`, the cost category value will be based on the value of the specified tag key. Valid values are `LINKED_ACCOUNT_NAME`, `TAG`
-        """
         return pulumi.get(self, "dimension_name")
 
     @dimension_name.setter
@@ -1610,29 +1159,11 @@ class CostCategoryRuleInheritedValueArgs:
 if not MYPY:
     class CostCategoryRuleRuleArgsDict(TypedDict):
         ands: NotRequired[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleAndArgsDict']]]]
-        """
-        Return results that match both `Dimension` objects.
-        """
         cost_category: NotRequired[pulumi.Input['CostCategoryRuleRuleCostCategoryArgsDict']]
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
-        """
         dimension: NotRequired[pulumi.Input['CostCategoryRuleRuleDimensionArgsDict']]
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        """
         not_: NotRequired[pulumi.Input['CostCategoryRuleRuleNotArgsDict']]
-        """
-        Return results that match both `Dimension` object.
-        """
         ors: NotRequired[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleOrArgsDict']]]]
-        """
-        Return results that match both `Dimension` object.
-        """
         tags: NotRequired[pulumi.Input['CostCategoryRuleRuleTagsArgsDict']]
-        """
-        Configuration block for the specific `Tag` to use for `Expression`. See below.
-        """
 elif False:
     CostCategoryRuleRuleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1645,14 +1176,6 @@ class CostCategoryRuleRuleArgs:
                  not_: Optional[pulumi.Input['CostCategoryRuleRuleNotArgs']] = None,
                  ors: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleOrArgs']]]] = None,
                  tags: Optional[pulumi.Input['CostCategoryRuleRuleTagsArgs']] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleAndArgs']]] ands: Return results that match both `Dimension` objects.
-        :param pulumi.Input['CostCategoryRuleRuleCostCategoryArgs'] cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
-        :param pulumi.Input['CostCategoryRuleRuleDimensionArgs'] dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param pulumi.Input['CostCategoryRuleRuleNotArgs'] not_: Return results that match both `Dimension` object.
-        :param pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleOrArgs']]] ors: Return results that match both `Dimension` object.
-        :param pulumi.Input['CostCategoryRuleRuleTagsArgs'] tags: Configuration block for the specific `Tag` to use for `Expression`. See below.
-        """
         if ands is not None:
             pulumi.set(__self__, "ands", ands)
         if cost_category is not None:
@@ -1669,9 +1192,6 @@ class CostCategoryRuleRuleArgs:
     @_builtins.property
     @pulumi.getter
     def ands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleAndArgs']]]]:
-        """
-        Return results that match both `Dimension` objects.
-        """
         return pulumi.get(self, "ands")
 
     @ands.setter
@@ -1681,9 +1201,6 @@ class CostCategoryRuleRuleArgs:
     @_builtins.property
     @pulumi.getter(name="costCategory")
     def cost_category(self) -> Optional[pulumi.Input['CostCategoryRuleRuleCostCategoryArgs']]:
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
-        """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
@@ -1693,9 +1210,6 @@ class CostCategoryRuleRuleArgs:
     @_builtins.property
     @pulumi.getter
     def dimension(self) -> Optional[pulumi.Input['CostCategoryRuleRuleDimensionArgs']]:
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
@@ -1705,9 +1219,6 @@ class CostCategoryRuleRuleArgs:
     @_builtins.property
     @pulumi.getter(name="not")
     def not_(self) -> Optional[pulumi.Input['CostCategoryRuleRuleNotArgs']]:
-        """
-        Return results that match both `Dimension` object.
-        """
         return pulumi.get(self, "not_")
 
     @not_.setter
@@ -1717,9 +1228,6 @@ class CostCategoryRuleRuleArgs:
     @_builtins.property
     @pulumi.getter
     def ors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleOrArgs']]]]:
-        """
-        Return results that match both `Dimension` object.
-        """
         return pulumi.get(self, "ors")
 
     @ors.setter
@@ -1729,9 +1237,6 @@ class CostCategoryRuleRuleArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input['CostCategoryRuleRuleTagsArgs']]:
-        """
-        Configuration block for the specific `Tag` to use for `Expression`. See below.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -1742,29 +1247,11 @@ class CostCategoryRuleRuleArgs:
 if not MYPY:
     class CostCategoryRuleRuleAndArgsDict(TypedDict):
         ands: NotRequired[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleAndAndArgsDict']]]]
-        """
-        Return results that match both `Dimension` objects.
-        """
         cost_category: NotRequired[pulumi.Input['CostCategoryRuleRuleAndCostCategoryArgsDict']]
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
-        """
         dimension: NotRequired[pulumi.Input['CostCategoryRuleRuleAndDimensionArgsDict']]
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        """
         not_: NotRequired[pulumi.Input['CostCategoryRuleRuleAndNotArgsDict']]
-        """
-        Return results that match both `Dimension` object.
-        """
         ors: NotRequired[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleAndOrArgsDict']]]]
-        """
-        Return results that match both `Dimension` object.
-        """
         tags: NotRequired[pulumi.Input['CostCategoryRuleRuleAndTagsArgsDict']]
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
 elif False:
     CostCategoryRuleRuleAndArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1777,14 +1264,6 @@ class CostCategoryRuleRuleAndArgs:
                  not_: Optional[pulumi.Input['CostCategoryRuleRuleAndNotArgs']] = None,
                  ors: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleAndOrArgs']]]] = None,
                  tags: Optional[pulumi.Input['CostCategoryRuleRuleAndTagsArgs']] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleAndAndArgs']]] ands: Return results that match both `Dimension` objects.
-        :param pulumi.Input['CostCategoryRuleRuleAndCostCategoryArgs'] cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
-        :param pulumi.Input['CostCategoryRuleRuleAndDimensionArgs'] dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param pulumi.Input['CostCategoryRuleRuleAndNotArgs'] not_: Return results that match both `Dimension` object.
-        :param pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleAndOrArgs']]] ors: Return results that match both `Dimension` object.
-        :param pulumi.Input['CostCategoryRuleRuleAndTagsArgs'] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         if ands is not None:
             pulumi.set(__self__, "ands", ands)
         if cost_category is not None:
@@ -1801,9 +1280,6 @@ class CostCategoryRuleRuleAndArgs:
     @_builtins.property
     @pulumi.getter
     def ands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleAndAndArgs']]]]:
-        """
-        Return results that match both `Dimension` objects.
-        """
         return pulumi.get(self, "ands")
 
     @ands.setter
@@ -1813,9 +1289,6 @@ class CostCategoryRuleRuleAndArgs:
     @_builtins.property
     @pulumi.getter(name="costCategory")
     def cost_category(self) -> Optional[pulumi.Input['CostCategoryRuleRuleAndCostCategoryArgs']]:
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
-        """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
@@ -1825,9 +1298,6 @@ class CostCategoryRuleRuleAndArgs:
     @_builtins.property
     @pulumi.getter
     def dimension(self) -> Optional[pulumi.Input['CostCategoryRuleRuleAndDimensionArgs']]:
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
@@ -1837,9 +1307,6 @@ class CostCategoryRuleRuleAndArgs:
     @_builtins.property
     @pulumi.getter(name="not")
     def not_(self) -> Optional[pulumi.Input['CostCategoryRuleRuleAndNotArgs']]:
-        """
-        Return results that match both `Dimension` object.
-        """
         return pulumi.get(self, "not_")
 
     @not_.setter
@@ -1849,9 +1316,6 @@ class CostCategoryRuleRuleAndArgs:
     @_builtins.property
     @pulumi.getter
     def ors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleAndOrArgs']]]]:
-        """
-        Return results that match both `Dimension` object.
-        """
         return pulumi.get(self, "ors")
 
     @ors.setter
@@ -1861,9 +1325,6 @@ class CostCategoryRuleRuleAndArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input['CostCategoryRuleRuleAndTagsArgs']]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -1874,17 +1335,8 @@ class CostCategoryRuleRuleAndArgs:
 if not MYPY:
     class CostCategoryRuleRuleAndAndArgsDict(TypedDict):
         cost_category: NotRequired[pulumi.Input['CostCategoryRuleRuleAndAndCostCategoryArgsDict']]
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
-        """
         dimension: NotRequired[pulumi.Input['CostCategoryRuleRuleAndAndDimensionArgsDict']]
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        """
         tags: NotRequired[pulumi.Input['CostCategoryRuleRuleAndAndTagsArgsDict']]
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
 elif False:
     CostCategoryRuleRuleAndAndArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1894,11 +1346,6 @@ class CostCategoryRuleRuleAndAndArgs:
                  cost_category: Optional[pulumi.Input['CostCategoryRuleRuleAndAndCostCategoryArgs']] = None,
                  dimension: Optional[pulumi.Input['CostCategoryRuleRuleAndAndDimensionArgs']] = None,
                  tags: Optional[pulumi.Input['CostCategoryRuleRuleAndAndTagsArgs']] = None):
-        """
-        :param pulumi.Input['CostCategoryRuleRuleAndAndCostCategoryArgs'] cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
-        :param pulumi.Input['CostCategoryRuleRuleAndAndDimensionArgs'] dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param pulumi.Input['CostCategoryRuleRuleAndAndTagsArgs'] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
         if dimension is not None:
@@ -1909,9 +1356,6 @@ class CostCategoryRuleRuleAndAndArgs:
     @_builtins.property
     @pulumi.getter(name="costCategory")
     def cost_category(self) -> Optional[pulumi.Input['CostCategoryRuleRuleAndAndCostCategoryArgs']]:
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
-        """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
@@ -1921,9 +1365,6 @@ class CostCategoryRuleRuleAndAndArgs:
     @_builtins.property
     @pulumi.getter
     def dimension(self) -> Optional[pulumi.Input['CostCategoryRuleRuleAndAndDimensionArgs']]:
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
@@ -1933,9 +1374,6 @@ class CostCategoryRuleRuleAndAndArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input['CostCategoryRuleRuleAndAndTagsArgs']]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -1946,17 +1384,8 @@ class CostCategoryRuleRuleAndAndArgs:
 if not MYPY:
     class CostCategoryRuleRuleAndAndCostCategoryArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleAndAndCostCategoryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1966,11 +1395,6 @@ class CostCategoryRuleRuleAndAndCostCategoryArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -1981,9 +1405,6 @@ class CostCategoryRuleRuleAndAndCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1993,9 +1414,6 @@ class CostCategoryRuleRuleAndAndCostCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -2005,9 +1423,6 @@ class CostCategoryRuleRuleAndAndCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -2018,17 +1433,8 @@ class CostCategoryRuleRuleAndAndCostCategoryArgs:
 if not MYPY:
     class CostCategoryRuleRuleAndAndDimensionArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleAndAndDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2038,11 +1444,6 @@ class CostCategoryRuleRuleAndAndDimensionArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -2053,9 +1454,6 @@ class CostCategoryRuleRuleAndAndDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2065,9 +1463,6 @@ class CostCategoryRuleRuleAndAndDimensionArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -2077,9 +1472,6 @@ class CostCategoryRuleRuleAndAndDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -2090,17 +1482,8 @@ class CostCategoryRuleRuleAndAndDimensionArgs:
 if not MYPY:
     class CostCategoryRuleRuleAndAndTagsArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key for the tag.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleAndAndTagsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2110,11 +1493,6 @@ class CostCategoryRuleRuleAndAndTagsArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Key for the tag.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -2125,9 +1503,6 @@ class CostCategoryRuleRuleAndAndTagsArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Key for the tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2137,9 +1512,6 @@ class CostCategoryRuleRuleAndAndTagsArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -2149,9 +1521,6 @@ class CostCategoryRuleRuleAndAndTagsArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -2162,17 +1531,8 @@ class CostCategoryRuleRuleAndAndTagsArgs:
 if not MYPY:
     class CostCategoryRuleRuleAndCostCategoryArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleAndCostCategoryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2182,11 +1542,6 @@ class CostCategoryRuleRuleAndCostCategoryArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -2197,9 +1552,6 @@ class CostCategoryRuleRuleAndCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2209,9 +1561,6 @@ class CostCategoryRuleRuleAndCostCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -2221,9 +1570,6 @@ class CostCategoryRuleRuleAndCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -2234,17 +1580,8 @@ class CostCategoryRuleRuleAndCostCategoryArgs:
 if not MYPY:
     class CostCategoryRuleRuleAndDimensionArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleAndDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2254,11 +1591,6 @@ class CostCategoryRuleRuleAndDimensionArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -2269,9 +1601,6 @@ class CostCategoryRuleRuleAndDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2281,9 +1610,6 @@ class CostCategoryRuleRuleAndDimensionArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -2293,9 +1619,6 @@ class CostCategoryRuleRuleAndDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -2306,17 +1629,8 @@ class CostCategoryRuleRuleAndDimensionArgs:
 if not MYPY:
     class CostCategoryRuleRuleAndNotArgsDict(TypedDict):
         cost_category: NotRequired[pulumi.Input['CostCategoryRuleRuleAndNotCostCategoryArgsDict']]
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
-        """
         dimension: NotRequired[pulumi.Input['CostCategoryRuleRuleAndNotDimensionArgsDict']]
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        """
         tags: NotRequired[pulumi.Input['CostCategoryRuleRuleAndNotTagsArgsDict']]
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
 elif False:
     CostCategoryRuleRuleAndNotArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2326,11 +1640,6 @@ class CostCategoryRuleRuleAndNotArgs:
                  cost_category: Optional[pulumi.Input['CostCategoryRuleRuleAndNotCostCategoryArgs']] = None,
                  dimension: Optional[pulumi.Input['CostCategoryRuleRuleAndNotDimensionArgs']] = None,
                  tags: Optional[pulumi.Input['CostCategoryRuleRuleAndNotTagsArgs']] = None):
-        """
-        :param pulumi.Input['CostCategoryRuleRuleAndNotCostCategoryArgs'] cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
-        :param pulumi.Input['CostCategoryRuleRuleAndNotDimensionArgs'] dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param pulumi.Input['CostCategoryRuleRuleAndNotTagsArgs'] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
         if dimension is not None:
@@ -2341,9 +1650,6 @@ class CostCategoryRuleRuleAndNotArgs:
     @_builtins.property
     @pulumi.getter(name="costCategory")
     def cost_category(self) -> Optional[pulumi.Input['CostCategoryRuleRuleAndNotCostCategoryArgs']]:
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
-        """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
@@ -2353,9 +1659,6 @@ class CostCategoryRuleRuleAndNotArgs:
     @_builtins.property
     @pulumi.getter
     def dimension(self) -> Optional[pulumi.Input['CostCategoryRuleRuleAndNotDimensionArgs']]:
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
@@ -2365,9 +1668,6 @@ class CostCategoryRuleRuleAndNotArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input['CostCategoryRuleRuleAndNotTagsArgs']]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -2378,17 +1678,8 @@ class CostCategoryRuleRuleAndNotArgs:
 if not MYPY:
     class CostCategoryRuleRuleAndNotCostCategoryArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleAndNotCostCategoryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2398,11 +1689,6 @@ class CostCategoryRuleRuleAndNotCostCategoryArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -2413,9 +1699,6 @@ class CostCategoryRuleRuleAndNotCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2425,9 +1708,6 @@ class CostCategoryRuleRuleAndNotCostCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -2437,9 +1717,6 @@ class CostCategoryRuleRuleAndNotCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -2450,17 +1727,8 @@ class CostCategoryRuleRuleAndNotCostCategoryArgs:
 if not MYPY:
     class CostCategoryRuleRuleAndNotDimensionArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleAndNotDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2470,11 +1738,6 @@ class CostCategoryRuleRuleAndNotDimensionArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -2485,9 +1748,6 @@ class CostCategoryRuleRuleAndNotDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2497,9 +1757,6 @@ class CostCategoryRuleRuleAndNotDimensionArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -2509,9 +1766,6 @@ class CostCategoryRuleRuleAndNotDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -2522,17 +1776,8 @@ class CostCategoryRuleRuleAndNotDimensionArgs:
 if not MYPY:
     class CostCategoryRuleRuleAndNotTagsArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key for the tag.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleAndNotTagsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2542,11 +1787,6 @@ class CostCategoryRuleRuleAndNotTagsArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Key for the tag.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -2557,9 +1797,6 @@ class CostCategoryRuleRuleAndNotTagsArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Key for the tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2569,9 +1806,6 @@ class CostCategoryRuleRuleAndNotTagsArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -2581,9 +1815,6 @@ class CostCategoryRuleRuleAndNotTagsArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -2594,17 +1825,8 @@ class CostCategoryRuleRuleAndNotTagsArgs:
 if not MYPY:
     class CostCategoryRuleRuleAndOrArgsDict(TypedDict):
         cost_category: NotRequired[pulumi.Input['CostCategoryRuleRuleAndOrCostCategoryArgsDict']]
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
-        """
         dimension: NotRequired[pulumi.Input['CostCategoryRuleRuleAndOrDimensionArgsDict']]
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        """
         tags: NotRequired[pulumi.Input['CostCategoryRuleRuleAndOrTagsArgsDict']]
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
 elif False:
     CostCategoryRuleRuleAndOrArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2614,11 +1836,6 @@ class CostCategoryRuleRuleAndOrArgs:
                  cost_category: Optional[pulumi.Input['CostCategoryRuleRuleAndOrCostCategoryArgs']] = None,
                  dimension: Optional[pulumi.Input['CostCategoryRuleRuleAndOrDimensionArgs']] = None,
                  tags: Optional[pulumi.Input['CostCategoryRuleRuleAndOrTagsArgs']] = None):
-        """
-        :param pulumi.Input['CostCategoryRuleRuleAndOrCostCategoryArgs'] cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
-        :param pulumi.Input['CostCategoryRuleRuleAndOrDimensionArgs'] dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param pulumi.Input['CostCategoryRuleRuleAndOrTagsArgs'] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
         if dimension is not None:
@@ -2629,9 +1846,6 @@ class CostCategoryRuleRuleAndOrArgs:
     @_builtins.property
     @pulumi.getter(name="costCategory")
     def cost_category(self) -> Optional[pulumi.Input['CostCategoryRuleRuleAndOrCostCategoryArgs']]:
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
-        """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
@@ -2641,9 +1855,6 @@ class CostCategoryRuleRuleAndOrArgs:
     @_builtins.property
     @pulumi.getter
     def dimension(self) -> Optional[pulumi.Input['CostCategoryRuleRuleAndOrDimensionArgs']]:
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
@@ -2653,9 +1864,6 @@ class CostCategoryRuleRuleAndOrArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input['CostCategoryRuleRuleAndOrTagsArgs']]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -2666,17 +1874,8 @@ class CostCategoryRuleRuleAndOrArgs:
 if not MYPY:
     class CostCategoryRuleRuleAndOrCostCategoryArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleAndOrCostCategoryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2686,11 +1885,6 @@ class CostCategoryRuleRuleAndOrCostCategoryArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -2701,9 +1895,6 @@ class CostCategoryRuleRuleAndOrCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2713,9 +1904,6 @@ class CostCategoryRuleRuleAndOrCostCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -2725,9 +1913,6 @@ class CostCategoryRuleRuleAndOrCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -2738,17 +1923,8 @@ class CostCategoryRuleRuleAndOrCostCategoryArgs:
 if not MYPY:
     class CostCategoryRuleRuleAndOrDimensionArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleAndOrDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2758,11 +1934,6 @@ class CostCategoryRuleRuleAndOrDimensionArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -2773,9 +1944,6 @@ class CostCategoryRuleRuleAndOrDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2785,9 +1953,6 @@ class CostCategoryRuleRuleAndOrDimensionArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -2797,9 +1962,6 @@ class CostCategoryRuleRuleAndOrDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -2810,17 +1972,8 @@ class CostCategoryRuleRuleAndOrDimensionArgs:
 if not MYPY:
     class CostCategoryRuleRuleAndOrTagsArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key for the tag.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleAndOrTagsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2830,11 +1983,6 @@ class CostCategoryRuleRuleAndOrTagsArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Key for the tag.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -2845,9 +1993,6 @@ class CostCategoryRuleRuleAndOrTagsArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Key for the tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2857,9 +2002,6 @@ class CostCategoryRuleRuleAndOrTagsArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -2869,9 +2011,6 @@ class CostCategoryRuleRuleAndOrTagsArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -2882,17 +2021,8 @@ class CostCategoryRuleRuleAndOrTagsArgs:
 if not MYPY:
     class CostCategoryRuleRuleAndTagsArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key for the tag.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleAndTagsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2902,11 +2032,6 @@ class CostCategoryRuleRuleAndTagsArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Key for the tag.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -2917,9 +2042,6 @@ class CostCategoryRuleRuleAndTagsArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Key for the tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2929,9 +2051,6 @@ class CostCategoryRuleRuleAndTagsArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -2941,9 +2060,6 @@ class CostCategoryRuleRuleAndTagsArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -2954,17 +2070,8 @@ class CostCategoryRuleRuleAndTagsArgs:
 if not MYPY:
     class CostCategoryRuleRuleCostCategoryArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleCostCategoryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2974,11 +2081,6 @@ class CostCategoryRuleRuleCostCategoryArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -2989,9 +2091,6 @@ class CostCategoryRuleRuleCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -3001,9 +2100,6 @@ class CostCategoryRuleRuleCostCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -3013,9 +2109,6 @@ class CostCategoryRuleRuleCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -3026,17 +2119,8 @@ class CostCategoryRuleRuleCostCategoryArgs:
 if not MYPY:
     class CostCategoryRuleRuleDimensionArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3046,11 +2130,6 @@ class CostCategoryRuleRuleDimensionArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -3061,9 +2140,6 @@ class CostCategoryRuleRuleDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -3073,9 +2149,6 @@ class CostCategoryRuleRuleDimensionArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -3085,9 +2158,6 @@ class CostCategoryRuleRuleDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -3098,29 +2168,11 @@ class CostCategoryRuleRuleDimensionArgs:
 if not MYPY:
     class CostCategoryRuleRuleNotArgsDict(TypedDict):
         ands: NotRequired[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleNotAndArgsDict']]]]
-        """
-        Return results that match both `Dimension` objects.
-        """
         cost_category: NotRequired[pulumi.Input['CostCategoryRuleRuleNotCostCategoryArgsDict']]
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
-        """
         dimension: NotRequired[pulumi.Input['CostCategoryRuleRuleNotDimensionArgsDict']]
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        """
         not_: NotRequired[pulumi.Input['CostCategoryRuleRuleNotNotArgsDict']]
-        """
-        Return results that match both `Dimension` object.
-        """
         ors: NotRequired[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleNotOrArgsDict']]]]
-        """
-        Return results that match both `Dimension` object.
-        """
         tags: NotRequired[pulumi.Input['CostCategoryRuleRuleNotTagsArgsDict']]
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
 elif False:
     CostCategoryRuleRuleNotArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3133,14 +2185,6 @@ class CostCategoryRuleRuleNotArgs:
                  not_: Optional[pulumi.Input['CostCategoryRuleRuleNotNotArgs']] = None,
                  ors: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleNotOrArgs']]]] = None,
                  tags: Optional[pulumi.Input['CostCategoryRuleRuleNotTagsArgs']] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleNotAndArgs']]] ands: Return results that match both `Dimension` objects.
-        :param pulumi.Input['CostCategoryRuleRuleNotCostCategoryArgs'] cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
-        :param pulumi.Input['CostCategoryRuleRuleNotDimensionArgs'] dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param pulumi.Input['CostCategoryRuleRuleNotNotArgs'] not_: Return results that match both `Dimension` object.
-        :param pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleNotOrArgs']]] ors: Return results that match both `Dimension` object.
-        :param pulumi.Input['CostCategoryRuleRuleNotTagsArgs'] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         if ands is not None:
             pulumi.set(__self__, "ands", ands)
         if cost_category is not None:
@@ -3157,9 +2201,6 @@ class CostCategoryRuleRuleNotArgs:
     @_builtins.property
     @pulumi.getter
     def ands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleNotAndArgs']]]]:
-        """
-        Return results that match both `Dimension` objects.
-        """
         return pulumi.get(self, "ands")
 
     @ands.setter
@@ -3169,9 +2210,6 @@ class CostCategoryRuleRuleNotArgs:
     @_builtins.property
     @pulumi.getter(name="costCategory")
     def cost_category(self) -> Optional[pulumi.Input['CostCategoryRuleRuleNotCostCategoryArgs']]:
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
-        """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
@@ -3181,9 +2219,6 @@ class CostCategoryRuleRuleNotArgs:
     @_builtins.property
     @pulumi.getter
     def dimension(self) -> Optional[pulumi.Input['CostCategoryRuleRuleNotDimensionArgs']]:
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
@@ -3193,9 +2228,6 @@ class CostCategoryRuleRuleNotArgs:
     @_builtins.property
     @pulumi.getter(name="not")
     def not_(self) -> Optional[pulumi.Input['CostCategoryRuleRuleNotNotArgs']]:
-        """
-        Return results that match both `Dimension` object.
-        """
         return pulumi.get(self, "not_")
 
     @not_.setter
@@ -3205,9 +2237,6 @@ class CostCategoryRuleRuleNotArgs:
     @_builtins.property
     @pulumi.getter
     def ors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleNotOrArgs']]]]:
-        """
-        Return results that match both `Dimension` object.
-        """
         return pulumi.get(self, "ors")
 
     @ors.setter
@@ -3217,9 +2246,6 @@ class CostCategoryRuleRuleNotArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input['CostCategoryRuleRuleNotTagsArgs']]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -3230,17 +2256,8 @@ class CostCategoryRuleRuleNotArgs:
 if not MYPY:
     class CostCategoryRuleRuleNotAndArgsDict(TypedDict):
         cost_category: NotRequired[pulumi.Input['CostCategoryRuleRuleNotAndCostCategoryArgsDict']]
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
-        """
         dimension: NotRequired[pulumi.Input['CostCategoryRuleRuleNotAndDimensionArgsDict']]
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        """
         tags: NotRequired[pulumi.Input['CostCategoryRuleRuleNotAndTagsArgsDict']]
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
 elif False:
     CostCategoryRuleRuleNotAndArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3250,11 +2267,6 @@ class CostCategoryRuleRuleNotAndArgs:
                  cost_category: Optional[pulumi.Input['CostCategoryRuleRuleNotAndCostCategoryArgs']] = None,
                  dimension: Optional[pulumi.Input['CostCategoryRuleRuleNotAndDimensionArgs']] = None,
                  tags: Optional[pulumi.Input['CostCategoryRuleRuleNotAndTagsArgs']] = None):
-        """
-        :param pulumi.Input['CostCategoryRuleRuleNotAndCostCategoryArgs'] cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
-        :param pulumi.Input['CostCategoryRuleRuleNotAndDimensionArgs'] dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param pulumi.Input['CostCategoryRuleRuleNotAndTagsArgs'] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
         if dimension is not None:
@@ -3265,9 +2277,6 @@ class CostCategoryRuleRuleNotAndArgs:
     @_builtins.property
     @pulumi.getter(name="costCategory")
     def cost_category(self) -> Optional[pulumi.Input['CostCategoryRuleRuleNotAndCostCategoryArgs']]:
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
-        """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
@@ -3277,9 +2286,6 @@ class CostCategoryRuleRuleNotAndArgs:
     @_builtins.property
     @pulumi.getter
     def dimension(self) -> Optional[pulumi.Input['CostCategoryRuleRuleNotAndDimensionArgs']]:
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
@@ -3289,9 +2295,6 @@ class CostCategoryRuleRuleNotAndArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input['CostCategoryRuleRuleNotAndTagsArgs']]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -3302,17 +2305,8 @@ class CostCategoryRuleRuleNotAndArgs:
 if not MYPY:
     class CostCategoryRuleRuleNotAndCostCategoryArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleNotAndCostCategoryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3322,11 +2316,6 @@ class CostCategoryRuleRuleNotAndCostCategoryArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -3337,9 +2326,6 @@ class CostCategoryRuleRuleNotAndCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -3349,9 +2335,6 @@ class CostCategoryRuleRuleNotAndCostCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -3361,9 +2344,6 @@ class CostCategoryRuleRuleNotAndCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -3374,17 +2354,8 @@ class CostCategoryRuleRuleNotAndCostCategoryArgs:
 if not MYPY:
     class CostCategoryRuleRuleNotAndDimensionArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleNotAndDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3394,11 +2365,6 @@ class CostCategoryRuleRuleNotAndDimensionArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -3409,9 +2375,6 @@ class CostCategoryRuleRuleNotAndDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -3421,9 +2384,6 @@ class CostCategoryRuleRuleNotAndDimensionArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -3433,9 +2393,6 @@ class CostCategoryRuleRuleNotAndDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -3446,17 +2403,8 @@ class CostCategoryRuleRuleNotAndDimensionArgs:
 if not MYPY:
     class CostCategoryRuleRuleNotAndTagsArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key for the tag.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleNotAndTagsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3466,11 +2414,6 @@ class CostCategoryRuleRuleNotAndTagsArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Key for the tag.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -3481,9 +2424,6 @@ class CostCategoryRuleRuleNotAndTagsArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Key for the tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -3493,9 +2433,6 @@ class CostCategoryRuleRuleNotAndTagsArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -3505,9 +2442,6 @@ class CostCategoryRuleRuleNotAndTagsArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -3518,17 +2452,8 @@ class CostCategoryRuleRuleNotAndTagsArgs:
 if not MYPY:
     class CostCategoryRuleRuleNotCostCategoryArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleNotCostCategoryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3538,11 +2463,6 @@ class CostCategoryRuleRuleNotCostCategoryArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -3553,9 +2473,6 @@ class CostCategoryRuleRuleNotCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -3565,9 +2482,6 @@ class CostCategoryRuleRuleNotCostCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -3577,9 +2491,6 @@ class CostCategoryRuleRuleNotCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -3590,17 +2501,8 @@ class CostCategoryRuleRuleNotCostCategoryArgs:
 if not MYPY:
     class CostCategoryRuleRuleNotDimensionArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleNotDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3610,11 +2512,6 @@ class CostCategoryRuleRuleNotDimensionArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -3625,9 +2522,6 @@ class CostCategoryRuleRuleNotDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -3637,9 +2531,6 @@ class CostCategoryRuleRuleNotDimensionArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -3649,9 +2540,6 @@ class CostCategoryRuleRuleNotDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -3662,17 +2550,8 @@ class CostCategoryRuleRuleNotDimensionArgs:
 if not MYPY:
     class CostCategoryRuleRuleNotNotArgsDict(TypedDict):
         cost_category: NotRequired[pulumi.Input['CostCategoryRuleRuleNotNotCostCategoryArgsDict']]
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
-        """
         dimension: NotRequired[pulumi.Input['CostCategoryRuleRuleNotNotDimensionArgsDict']]
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        """
         tags: NotRequired[pulumi.Input['CostCategoryRuleRuleNotNotTagsArgsDict']]
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
 elif False:
     CostCategoryRuleRuleNotNotArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3682,11 +2561,6 @@ class CostCategoryRuleRuleNotNotArgs:
                  cost_category: Optional[pulumi.Input['CostCategoryRuleRuleNotNotCostCategoryArgs']] = None,
                  dimension: Optional[pulumi.Input['CostCategoryRuleRuleNotNotDimensionArgs']] = None,
                  tags: Optional[pulumi.Input['CostCategoryRuleRuleNotNotTagsArgs']] = None):
-        """
-        :param pulumi.Input['CostCategoryRuleRuleNotNotCostCategoryArgs'] cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
-        :param pulumi.Input['CostCategoryRuleRuleNotNotDimensionArgs'] dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param pulumi.Input['CostCategoryRuleRuleNotNotTagsArgs'] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
         if dimension is not None:
@@ -3697,9 +2571,6 @@ class CostCategoryRuleRuleNotNotArgs:
     @_builtins.property
     @pulumi.getter(name="costCategory")
     def cost_category(self) -> Optional[pulumi.Input['CostCategoryRuleRuleNotNotCostCategoryArgs']]:
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
-        """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
@@ -3709,9 +2580,6 @@ class CostCategoryRuleRuleNotNotArgs:
     @_builtins.property
     @pulumi.getter
     def dimension(self) -> Optional[pulumi.Input['CostCategoryRuleRuleNotNotDimensionArgs']]:
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
@@ -3721,9 +2589,6 @@ class CostCategoryRuleRuleNotNotArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input['CostCategoryRuleRuleNotNotTagsArgs']]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -3734,17 +2599,8 @@ class CostCategoryRuleRuleNotNotArgs:
 if not MYPY:
     class CostCategoryRuleRuleNotNotCostCategoryArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleNotNotCostCategoryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3754,11 +2610,6 @@ class CostCategoryRuleRuleNotNotCostCategoryArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -3769,9 +2620,6 @@ class CostCategoryRuleRuleNotNotCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -3781,9 +2629,6 @@ class CostCategoryRuleRuleNotNotCostCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -3793,9 +2638,6 @@ class CostCategoryRuleRuleNotNotCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -3806,17 +2648,8 @@ class CostCategoryRuleRuleNotNotCostCategoryArgs:
 if not MYPY:
     class CostCategoryRuleRuleNotNotDimensionArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleNotNotDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3826,11 +2659,6 @@ class CostCategoryRuleRuleNotNotDimensionArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -3841,9 +2669,6 @@ class CostCategoryRuleRuleNotNotDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -3853,9 +2678,6 @@ class CostCategoryRuleRuleNotNotDimensionArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -3865,9 +2687,6 @@ class CostCategoryRuleRuleNotNotDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -3878,17 +2697,8 @@ class CostCategoryRuleRuleNotNotDimensionArgs:
 if not MYPY:
     class CostCategoryRuleRuleNotNotTagsArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key for the tag.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleNotNotTagsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3898,11 +2708,6 @@ class CostCategoryRuleRuleNotNotTagsArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Key for the tag.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -3913,9 +2718,6 @@ class CostCategoryRuleRuleNotNotTagsArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Key for the tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -3925,9 +2727,6 @@ class CostCategoryRuleRuleNotNotTagsArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -3937,9 +2736,6 @@ class CostCategoryRuleRuleNotNotTagsArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -3950,17 +2746,8 @@ class CostCategoryRuleRuleNotNotTagsArgs:
 if not MYPY:
     class CostCategoryRuleRuleNotOrArgsDict(TypedDict):
         cost_category: NotRequired[pulumi.Input['CostCategoryRuleRuleNotOrCostCategoryArgsDict']]
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
-        """
         dimension: NotRequired[pulumi.Input['CostCategoryRuleRuleNotOrDimensionArgsDict']]
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        """
         tags: NotRequired[pulumi.Input['CostCategoryRuleRuleNotOrTagsArgsDict']]
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
 elif False:
     CostCategoryRuleRuleNotOrArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3970,11 +2757,6 @@ class CostCategoryRuleRuleNotOrArgs:
                  cost_category: Optional[pulumi.Input['CostCategoryRuleRuleNotOrCostCategoryArgs']] = None,
                  dimension: Optional[pulumi.Input['CostCategoryRuleRuleNotOrDimensionArgs']] = None,
                  tags: Optional[pulumi.Input['CostCategoryRuleRuleNotOrTagsArgs']] = None):
-        """
-        :param pulumi.Input['CostCategoryRuleRuleNotOrCostCategoryArgs'] cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
-        :param pulumi.Input['CostCategoryRuleRuleNotOrDimensionArgs'] dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param pulumi.Input['CostCategoryRuleRuleNotOrTagsArgs'] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
         if dimension is not None:
@@ -3985,9 +2767,6 @@ class CostCategoryRuleRuleNotOrArgs:
     @_builtins.property
     @pulumi.getter(name="costCategory")
     def cost_category(self) -> Optional[pulumi.Input['CostCategoryRuleRuleNotOrCostCategoryArgs']]:
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
-        """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
@@ -3997,9 +2776,6 @@ class CostCategoryRuleRuleNotOrArgs:
     @_builtins.property
     @pulumi.getter
     def dimension(self) -> Optional[pulumi.Input['CostCategoryRuleRuleNotOrDimensionArgs']]:
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
@@ -4009,9 +2785,6 @@ class CostCategoryRuleRuleNotOrArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input['CostCategoryRuleRuleNotOrTagsArgs']]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -4022,17 +2795,8 @@ class CostCategoryRuleRuleNotOrArgs:
 if not MYPY:
     class CostCategoryRuleRuleNotOrCostCategoryArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleNotOrCostCategoryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4042,11 +2806,6 @@ class CostCategoryRuleRuleNotOrCostCategoryArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -4057,9 +2816,6 @@ class CostCategoryRuleRuleNotOrCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -4069,9 +2825,6 @@ class CostCategoryRuleRuleNotOrCostCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -4081,9 +2834,6 @@ class CostCategoryRuleRuleNotOrCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -4094,17 +2844,8 @@ class CostCategoryRuleRuleNotOrCostCategoryArgs:
 if not MYPY:
     class CostCategoryRuleRuleNotOrDimensionArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleNotOrDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4114,11 +2855,6 @@ class CostCategoryRuleRuleNotOrDimensionArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -4129,9 +2865,6 @@ class CostCategoryRuleRuleNotOrDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -4141,9 +2874,6 @@ class CostCategoryRuleRuleNotOrDimensionArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -4153,9 +2883,6 @@ class CostCategoryRuleRuleNotOrDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -4166,17 +2893,8 @@ class CostCategoryRuleRuleNotOrDimensionArgs:
 if not MYPY:
     class CostCategoryRuleRuleNotOrTagsArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key for the tag.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleNotOrTagsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4186,11 +2904,6 @@ class CostCategoryRuleRuleNotOrTagsArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Key for the tag.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -4201,9 +2914,6 @@ class CostCategoryRuleRuleNotOrTagsArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Key for the tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -4213,9 +2923,6 @@ class CostCategoryRuleRuleNotOrTagsArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -4225,9 +2932,6 @@ class CostCategoryRuleRuleNotOrTagsArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -4238,17 +2942,8 @@ class CostCategoryRuleRuleNotOrTagsArgs:
 if not MYPY:
     class CostCategoryRuleRuleNotTagsArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key for the tag.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleNotTagsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4258,11 +2953,6 @@ class CostCategoryRuleRuleNotTagsArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Key for the tag.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -4273,9 +2963,6 @@ class CostCategoryRuleRuleNotTagsArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Key for the tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -4285,9 +2972,6 @@ class CostCategoryRuleRuleNotTagsArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -4297,9 +2981,6 @@ class CostCategoryRuleRuleNotTagsArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -4310,29 +2991,11 @@ class CostCategoryRuleRuleNotTagsArgs:
 if not MYPY:
     class CostCategoryRuleRuleOrArgsDict(TypedDict):
         ands: NotRequired[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleOrAndArgsDict']]]]
-        """
-        Return results that match both `Dimension` objects.
-        """
         cost_category: NotRequired[pulumi.Input['CostCategoryRuleRuleOrCostCategoryArgsDict']]
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
-        """
         dimension: NotRequired[pulumi.Input['CostCategoryRuleRuleOrDimensionArgsDict']]
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        """
         not_: NotRequired[pulumi.Input['CostCategoryRuleRuleOrNotArgsDict']]
-        """
-        Return results that match both `Dimension` object.
-        """
         ors: NotRequired[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleOrOrArgsDict']]]]
-        """
-        Return results that match both `Dimension` object.
-        """
         tags: NotRequired[pulumi.Input['CostCategoryRuleRuleOrTagsArgsDict']]
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
 elif False:
     CostCategoryRuleRuleOrArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4345,14 +3008,6 @@ class CostCategoryRuleRuleOrArgs:
                  not_: Optional[pulumi.Input['CostCategoryRuleRuleOrNotArgs']] = None,
                  ors: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleOrOrArgs']]]] = None,
                  tags: Optional[pulumi.Input['CostCategoryRuleRuleOrTagsArgs']] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleOrAndArgs']]] ands: Return results that match both `Dimension` objects.
-        :param pulumi.Input['CostCategoryRuleRuleOrCostCategoryArgs'] cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
-        :param pulumi.Input['CostCategoryRuleRuleOrDimensionArgs'] dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param pulumi.Input['CostCategoryRuleRuleOrNotArgs'] not_: Return results that match both `Dimension` object.
-        :param pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleOrOrArgs']]] ors: Return results that match both `Dimension` object.
-        :param pulumi.Input['CostCategoryRuleRuleOrTagsArgs'] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         if ands is not None:
             pulumi.set(__self__, "ands", ands)
         if cost_category is not None:
@@ -4369,9 +3024,6 @@ class CostCategoryRuleRuleOrArgs:
     @_builtins.property
     @pulumi.getter
     def ands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleOrAndArgs']]]]:
-        """
-        Return results that match both `Dimension` objects.
-        """
         return pulumi.get(self, "ands")
 
     @ands.setter
@@ -4381,9 +3033,6 @@ class CostCategoryRuleRuleOrArgs:
     @_builtins.property
     @pulumi.getter(name="costCategory")
     def cost_category(self) -> Optional[pulumi.Input['CostCategoryRuleRuleOrCostCategoryArgs']]:
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
-        """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
@@ -4393,9 +3042,6 @@ class CostCategoryRuleRuleOrArgs:
     @_builtins.property
     @pulumi.getter
     def dimension(self) -> Optional[pulumi.Input['CostCategoryRuleRuleOrDimensionArgs']]:
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
@@ -4405,9 +3051,6 @@ class CostCategoryRuleRuleOrArgs:
     @_builtins.property
     @pulumi.getter(name="not")
     def not_(self) -> Optional[pulumi.Input['CostCategoryRuleRuleOrNotArgs']]:
-        """
-        Return results that match both `Dimension` object.
-        """
         return pulumi.get(self, "not_")
 
     @not_.setter
@@ -4417,9 +3060,6 @@ class CostCategoryRuleRuleOrArgs:
     @_builtins.property
     @pulumi.getter
     def ors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleOrOrArgs']]]]:
-        """
-        Return results that match both `Dimension` object.
-        """
         return pulumi.get(self, "ors")
 
     @ors.setter
@@ -4429,9 +3069,6 @@ class CostCategoryRuleRuleOrArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input['CostCategoryRuleRuleOrTagsArgs']]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -4442,17 +3079,8 @@ class CostCategoryRuleRuleOrArgs:
 if not MYPY:
     class CostCategoryRuleRuleOrAndArgsDict(TypedDict):
         cost_category: NotRequired[pulumi.Input['CostCategoryRuleRuleOrAndCostCategoryArgsDict']]
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
-        """
         dimension: NotRequired[pulumi.Input['CostCategoryRuleRuleOrAndDimensionArgsDict']]
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        """
         tags: NotRequired[pulumi.Input['CostCategoryRuleRuleOrAndTagsArgsDict']]
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
 elif False:
     CostCategoryRuleRuleOrAndArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4462,11 +3090,6 @@ class CostCategoryRuleRuleOrAndArgs:
                  cost_category: Optional[pulumi.Input['CostCategoryRuleRuleOrAndCostCategoryArgs']] = None,
                  dimension: Optional[pulumi.Input['CostCategoryRuleRuleOrAndDimensionArgs']] = None,
                  tags: Optional[pulumi.Input['CostCategoryRuleRuleOrAndTagsArgs']] = None):
-        """
-        :param pulumi.Input['CostCategoryRuleRuleOrAndCostCategoryArgs'] cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
-        :param pulumi.Input['CostCategoryRuleRuleOrAndDimensionArgs'] dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param pulumi.Input['CostCategoryRuleRuleOrAndTagsArgs'] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
         if dimension is not None:
@@ -4477,9 +3100,6 @@ class CostCategoryRuleRuleOrAndArgs:
     @_builtins.property
     @pulumi.getter(name="costCategory")
     def cost_category(self) -> Optional[pulumi.Input['CostCategoryRuleRuleOrAndCostCategoryArgs']]:
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
-        """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
@@ -4489,9 +3109,6 @@ class CostCategoryRuleRuleOrAndArgs:
     @_builtins.property
     @pulumi.getter
     def dimension(self) -> Optional[pulumi.Input['CostCategoryRuleRuleOrAndDimensionArgs']]:
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
@@ -4501,9 +3118,6 @@ class CostCategoryRuleRuleOrAndArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input['CostCategoryRuleRuleOrAndTagsArgs']]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -4514,17 +3128,8 @@ class CostCategoryRuleRuleOrAndArgs:
 if not MYPY:
     class CostCategoryRuleRuleOrAndCostCategoryArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleOrAndCostCategoryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4534,11 +3139,6 @@ class CostCategoryRuleRuleOrAndCostCategoryArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -4549,9 +3149,6 @@ class CostCategoryRuleRuleOrAndCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -4561,9 +3158,6 @@ class CostCategoryRuleRuleOrAndCostCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -4573,9 +3167,6 @@ class CostCategoryRuleRuleOrAndCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -4586,17 +3177,8 @@ class CostCategoryRuleRuleOrAndCostCategoryArgs:
 if not MYPY:
     class CostCategoryRuleRuleOrAndDimensionArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleOrAndDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4606,11 +3188,6 @@ class CostCategoryRuleRuleOrAndDimensionArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -4621,9 +3198,6 @@ class CostCategoryRuleRuleOrAndDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -4633,9 +3207,6 @@ class CostCategoryRuleRuleOrAndDimensionArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -4645,9 +3216,6 @@ class CostCategoryRuleRuleOrAndDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -4658,17 +3226,8 @@ class CostCategoryRuleRuleOrAndDimensionArgs:
 if not MYPY:
     class CostCategoryRuleRuleOrAndTagsArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key for the tag.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleOrAndTagsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4678,11 +3237,6 @@ class CostCategoryRuleRuleOrAndTagsArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Key for the tag.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -4693,9 +3247,6 @@ class CostCategoryRuleRuleOrAndTagsArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Key for the tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -4705,9 +3256,6 @@ class CostCategoryRuleRuleOrAndTagsArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -4717,9 +3265,6 @@ class CostCategoryRuleRuleOrAndTagsArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -4730,17 +3275,8 @@ class CostCategoryRuleRuleOrAndTagsArgs:
 if not MYPY:
     class CostCategoryRuleRuleOrCostCategoryArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleOrCostCategoryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4750,11 +3286,6 @@ class CostCategoryRuleRuleOrCostCategoryArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -4765,9 +3296,6 @@ class CostCategoryRuleRuleOrCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -4777,9 +3305,6 @@ class CostCategoryRuleRuleOrCostCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -4789,9 +3314,6 @@ class CostCategoryRuleRuleOrCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -4802,17 +3324,8 @@ class CostCategoryRuleRuleOrCostCategoryArgs:
 if not MYPY:
     class CostCategoryRuleRuleOrDimensionArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleOrDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4822,11 +3335,6 @@ class CostCategoryRuleRuleOrDimensionArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -4837,9 +3345,6 @@ class CostCategoryRuleRuleOrDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -4849,9 +3354,6 @@ class CostCategoryRuleRuleOrDimensionArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -4861,9 +3363,6 @@ class CostCategoryRuleRuleOrDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -4874,17 +3373,8 @@ class CostCategoryRuleRuleOrDimensionArgs:
 if not MYPY:
     class CostCategoryRuleRuleOrNotArgsDict(TypedDict):
         cost_category: NotRequired[pulumi.Input['CostCategoryRuleRuleOrNotCostCategoryArgsDict']]
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
-        """
         dimension: NotRequired[pulumi.Input['CostCategoryRuleRuleOrNotDimensionArgsDict']]
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        """
         tags: NotRequired[pulumi.Input['CostCategoryRuleRuleOrNotTagsArgsDict']]
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
 elif False:
     CostCategoryRuleRuleOrNotArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4894,11 +3384,6 @@ class CostCategoryRuleRuleOrNotArgs:
                  cost_category: Optional[pulumi.Input['CostCategoryRuleRuleOrNotCostCategoryArgs']] = None,
                  dimension: Optional[pulumi.Input['CostCategoryRuleRuleOrNotDimensionArgs']] = None,
                  tags: Optional[pulumi.Input['CostCategoryRuleRuleOrNotTagsArgs']] = None):
-        """
-        :param pulumi.Input['CostCategoryRuleRuleOrNotCostCategoryArgs'] cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
-        :param pulumi.Input['CostCategoryRuleRuleOrNotDimensionArgs'] dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param pulumi.Input['CostCategoryRuleRuleOrNotTagsArgs'] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
         if dimension is not None:
@@ -4909,9 +3394,6 @@ class CostCategoryRuleRuleOrNotArgs:
     @_builtins.property
     @pulumi.getter(name="costCategory")
     def cost_category(self) -> Optional[pulumi.Input['CostCategoryRuleRuleOrNotCostCategoryArgs']]:
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
-        """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
@@ -4921,9 +3403,6 @@ class CostCategoryRuleRuleOrNotArgs:
     @_builtins.property
     @pulumi.getter
     def dimension(self) -> Optional[pulumi.Input['CostCategoryRuleRuleOrNotDimensionArgs']]:
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
@@ -4933,9 +3412,6 @@ class CostCategoryRuleRuleOrNotArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input['CostCategoryRuleRuleOrNotTagsArgs']]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -4946,17 +3422,8 @@ class CostCategoryRuleRuleOrNotArgs:
 if not MYPY:
     class CostCategoryRuleRuleOrNotCostCategoryArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleOrNotCostCategoryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4966,11 +3433,6 @@ class CostCategoryRuleRuleOrNotCostCategoryArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -4981,9 +3443,6 @@ class CostCategoryRuleRuleOrNotCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -4993,9 +3452,6 @@ class CostCategoryRuleRuleOrNotCostCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -5005,9 +3461,6 @@ class CostCategoryRuleRuleOrNotCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -5018,17 +3471,8 @@ class CostCategoryRuleRuleOrNotCostCategoryArgs:
 if not MYPY:
     class CostCategoryRuleRuleOrNotDimensionArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleOrNotDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -5038,11 +3482,6 @@ class CostCategoryRuleRuleOrNotDimensionArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -5053,9 +3492,6 @@ class CostCategoryRuleRuleOrNotDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -5065,9 +3501,6 @@ class CostCategoryRuleRuleOrNotDimensionArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -5077,9 +3510,6 @@ class CostCategoryRuleRuleOrNotDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -5090,17 +3520,8 @@ class CostCategoryRuleRuleOrNotDimensionArgs:
 if not MYPY:
     class CostCategoryRuleRuleOrNotTagsArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key for the tag.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleOrNotTagsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -5110,11 +3531,6 @@ class CostCategoryRuleRuleOrNotTagsArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Key for the tag.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -5125,9 +3541,6 @@ class CostCategoryRuleRuleOrNotTagsArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Key for the tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -5137,9 +3550,6 @@ class CostCategoryRuleRuleOrNotTagsArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -5149,9 +3559,6 @@ class CostCategoryRuleRuleOrNotTagsArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -5162,17 +3569,8 @@ class CostCategoryRuleRuleOrNotTagsArgs:
 if not MYPY:
     class CostCategoryRuleRuleOrOrArgsDict(TypedDict):
         cost_category: NotRequired[pulumi.Input['CostCategoryRuleRuleOrOrCostCategoryArgsDict']]
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
-        """
         dimension: NotRequired[pulumi.Input['CostCategoryRuleRuleOrOrDimensionArgsDict']]
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        """
         tags: NotRequired[pulumi.Input['CostCategoryRuleRuleOrOrTagsArgsDict']]
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
 elif False:
     CostCategoryRuleRuleOrOrArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -5182,11 +3580,6 @@ class CostCategoryRuleRuleOrOrArgs:
                  cost_category: Optional[pulumi.Input['CostCategoryRuleRuleOrOrCostCategoryArgs']] = None,
                  dimension: Optional[pulumi.Input['CostCategoryRuleRuleOrOrDimensionArgs']] = None,
                  tags: Optional[pulumi.Input['CostCategoryRuleRuleOrOrTagsArgs']] = None):
-        """
-        :param pulumi.Input['CostCategoryRuleRuleOrOrCostCategoryArgs'] cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
-        :param pulumi.Input['CostCategoryRuleRuleOrOrDimensionArgs'] dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param pulumi.Input['CostCategoryRuleRuleOrOrTagsArgs'] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
         if dimension is not None:
@@ -5197,9 +3590,6 @@ class CostCategoryRuleRuleOrOrArgs:
     @_builtins.property
     @pulumi.getter(name="costCategory")
     def cost_category(self) -> Optional[pulumi.Input['CostCategoryRuleRuleOrOrCostCategoryArgs']]:
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
-        """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
@@ -5209,9 +3599,6 @@ class CostCategoryRuleRuleOrOrArgs:
     @_builtins.property
     @pulumi.getter
     def dimension(self) -> Optional[pulumi.Input['CostCategoryRuleRuleOrOrDimensionArgs']]:
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
@@ -5221,9 +3608,6 @@ class CostCategoryRuleRuleOrOrArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input['CostCategoryRuleRuleOrOrTagsArgs']]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -5234,17 +3618,8 @@ class CostCategoryRuleRuleOrOrArgs:
 if not MYPY:
     class CostCategoryRuleRuleOrOrCostCategoryArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleOrOrCostCategoryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -5254,11 +3629,6 @@ class CostCategoryRuleRuleOrOrCostCategoryArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -5269,9 +3639,6 @@ class CostCategoryRuleRuleOrOrCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -5281,9 +3648,6 @@ class CostCategoryRuleRuleOrOrCostCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -5293,9 +3657,6 @@ class CostCategoryRuleRuleOrOrCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -5306,17 +3667,8 @@ class CostCategoryRuleRuleOrOrCostCategoryArgs:
 if not MYPY:
     class CostCategoryRuleRuleOrOrDimensionArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleOrOrDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -5326,11 +3678,6 @@ class CostCategoryRuleRuleOrOrDimensionArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Unique name of the Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -5341,9 +3688,6 @@ class CostCategoryRuleRuleOrOrDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -5353,9 +3697,6 @@ class CostCategoryRuleRuleOrOrDimensionArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -5365,9 +3706,6 @@ class CostCategoryRuleRuleOrOrDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -5378,17 +3716,8 @@ class CostCategoryRuleRuleOrOrDimensionArgs:
 if not MYPY:
     class CostCategoryRuleRuleOrOrTagsArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key for the tag.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleOrOrTagsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -5398,11 +3727,6 @@ class CostCategoryRuleRuleOrOrTagsArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Key for the tag.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -5413,9 +3737,6 @@ class CostCategoryRuleRuleOrOrTagsArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Key for the tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -5425,9 +3746,6 @@ class CostCategoryRuleRuleOrOrTagsArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -5437,9 +3755,6 @@ class CostCategoryRuleRuleOrOrTagsArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -5450,17 +3765,8 @@ class CostCategoryRuleRuleOrOrTagsArgs:
 if not MYPY:
     class CostCategoryRuleRuleOrTagsArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key for the tag.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleOrTagsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -5470,11 +3776,6 @@ class CostCategoryRuleRuleOrTagsArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Key for the tag.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -5485,9 +3786,6 @@ class CostCategoryRuleRuleOrTagsArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Key for the tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -5497,9 +3795,6 @@ class CostCategoryRuleRuleOrTagsArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -5509,9 +3804,6 @@ class CostCategoryRuleRuleOrTagsArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -5522,17 +3814,8 @@ class CostCategoryRuleRuleOrTagsArgs:
 if not MYPY:
     class CostCategoryRuleRuleTagsArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key for the tag.
-        """
         match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     CostCategoryRuleRuleTagsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -5542,11 +3825,6 @@ class CostCategoryRuleRuleTagsArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: Key for the tag.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -5557,9 +3835,6 @@ class CostCategoryRuleRuleTagsArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Key for the tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -5569,9 +3844,6 @@ class CostCategoryRuleRuleTagsArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -5581,9 +3853,6 @@ class CostCategoryRuleRuleTagsArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -5594,21 +3863,9 @@ class CostCategoryRuleRuleTagsArgs:
 if not MYPY:
     class CostCategorySplitChargeRuleArgsDict(TypedDict):
         method: pulumi.Input[_builtins.str]
-        """
-        Method that's used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
-        """
         source: pulumi.Input[_builtins.str]
-        """
-        Cost Category value that you want to split.
-        """
         targets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Cost Category values that you want to split costs across. These values can't be used as a source in other split charge rules.
-        """
         parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleParameterArgsDict']]]]
-        """
-        Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
-        """
 elif False:
     CostCategorySplitChargeRuleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -5619,12 +3876,6 @@ class CostCategorySplitChargeRuleArgs:
                  source: pulumi.Input[_builtins.str],
                  targets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleParameterArgs']]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] method: Method that's used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
-        :param pulumi.Input[_builtins.str] source: Cost Category value that you want to split.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] targets: Cost Category values that you want to split costs across. These values can't be used as a source in other split charge rules.
-        :param pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleParameterArgs']]] parameters: Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
-        """
         pulumi.set(__self__, "method", method)
         pulumi.set(__self__, "source", source)
         pulumi.set(__self__, "targets", targets)
@@ -5634,9 +3885,6 @@ class CostCategorySplitChargeRuleArgs:
     @_builtins.property
     @pulumi.getter
     def method(self) -> pulumi.Input[_builtins.str]:
-        """
-        Method that's used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
-        """
         return pulumi.get(self, "method")
 
     @method.setter
@@ -5646,9 +3894,6 @@ class CostCategorySplitChargeRuleArgs:
     @_builtins.property
     @pulumi.getter
     def source(self) -> pulumi.Input[_builtins.str]:
-        """
-        Cost Category value that you want to split.
-        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -5658,9 +3903,6 @@ class CostCategorySplitChargeRuleArgs:
     @_builtins.property
     @pulumi.getter
     def targets(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Cost Category values that you want to split costs across. These values can't be used as a source in other split charge rules.
-        """
         return pulumi.get(self, "targets")
 
     @targets.setter
@@ -5670,9 +3912,6 @@ class CostCategorySplitChargeRuleArgs:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleParameterArgs']]]]:
-        """
-        Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -5683,13 +3922,7 @@ class CostCategorySplitChargeRuleArgs:
 if not MYPY:
     class CostCategorySplitChargeRuleParameterArgsDict(TypedDict):
         type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Parameter type.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Parameter values.
-        """
 elif False:
     CostCategorySplitChargeRuleParameterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -5698,10 +3931,6 @@ class CostCategorySplitChargeRuleParameterArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] type: Parameter type.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Parameter values.
-        """
         if type is not None:
             pulumi.set(__self__, "type", type)
         if values is not None:
@@ -5710,9 +3939,6 @@ class CostCategorySplitChargeRuleParameterArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Parameter type.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -5722,9 +3948,6 @@ class CostCategorySplitChargeRuleParameterArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Parameter values.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -5735,29 +3958,11 @@ class CostCategorySplitChargeRuleParameterArgs:
 if not MYPY:
     class GetTagsFilterArgsDict(TypedDict):
         ands: NotRequired[Sequence['GetTagsFilterAndArgsDict']]
-        """
-        Return results that match both `Dimension` objects.
-        """
         cost_category: NotRequired['GetTagsFilterCostCategoryArgsDict']
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See `cost_category` block below for details.
-        """
         dimension: NotRequired['GetTagsFilterDimensionArgsDict']
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-        """
         not_: NotRequired['GetTagsFilterNotArgsDict']
-        """
-        Return results that match both `Dimension` object.
-        """
         ors: NotRequired[Sequence['GetTagsFilterOrArgsDict']]
-        """
-        Return results that match both `Dimension` object.
-        """
         tags: NotRequired['GetTagsFilterTagsArgsDict']
-        """
-        Tags that match your request.
-        """
 elif False:
     GetTagsFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -5770,14 +3975,6 @@ class GetTagsFilterArgs:
                  not_: Optional['GetTagsFilterNotArgs'] = None,
                  ors: Optional[Sequence['GetTagsFilterOrArgs']] = None,
                  tags: Optional['GetTagsFilterTagsArgs'] = None):
-        """
-        :param Sequence['GetTagsFilterAndArgs'] ands: Return results that match both `Dimension` objects.
-        :param 'GetTagsFilterCostCategoryArgs' cost_category: Configuration block for the filter that's based on `CostCategory` values. See `cost_category` block below for details.
-        :param 'GetTagsFilterDimensionArgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-        :param 'GetTagsFilterNotArgs' not_: Return results that match both `Dimension` object.
-        :param Sequence['GetTagsFilterOrArgs'] ors: Return results that match both `Dimension` object.
-        :param 'GetTagsFilterTagsArgs' tags: Tags that match your request.
-        """
         if ands is not None:
             pulumi.set(__self__, "ands", ands)
         if cost_category is not None:
@@ -5794,9 +3991,6 @@ class GetTagsFilterArgs:
     @_builtins.property
     @pulumi.getter
     def ands(self) -> Optional[Sequence['GetTagsFilterAndArgs']]:
-        """
-        Return results that match both `Dimension` objects.
-        """
         return pulumi.get(self, "ands")
 
     @ands.setter
@@ -5806,9 +4000,6 @@ class GetTagsFilterArgs:
     @_builtins.property
     @pulumi.getter(name="costCategory")
     def cost_category(self) -> Optional['GetTagsFilterCostCategoryArgs']:
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See `cost_category` block below for details.
-        """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
@@ -5818,9 +4009,6 @@ class GetTagsFilterArgs:
     @_builtins.property
     @pulumi.getter
     def dimension(self) -> Optional['GetTagsFilterDimensionArgs']:
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-        """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
@@ -5830,9 +4018,6 @@ class GetTagsFilterArgs:
     @_builtins.property
     @pulumi.getter(name="not")
     def not_(self) -> Optional['GetTagsFilterNotArgs']:
-        """
-        Return results that match both `Dimension` object.
-        """
         return pulumi.get(self, "not_")
 
     @not_.setter
@@ -5842,9 +4027,6 @@ class GetTagsFilterArgs:
     @_builtins.property
     @pulumi.getter
     def ors(self) -> Optional[Sequence['GetTagsFilterOrArgs']]:
-        """
-        Return results that match both `Dimension` object.
-        """
         return pulumi.get(self, "ors")
 
     @ors.setter
@@ -5854,9 +4036,6 @@ class GetTagsFilterArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional['GetTagsFilterTagsArgs']:
-        """
-        Tags that match your request.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -5867,17 +4046,8 @@ class GetTagsFilterArgs:
 if not MYPY:
     class GetTagsFilterAndArgsDict(TypedDict):
         cost_category: NotRequired['GetTagsFilterAndCostCategoryArgsDict']
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See `cost_category` block below for details.
-        """
         dimension: NotRequired['GetTagsFilterAndDimensionArgsDict']
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-        """
         tags: NotRequired['GetTagsFilterAndTagsArgsDict']
-        """
-        Tags that match your request.
-        """
 elif False:
     GetTagsFilterAndArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -5887,11 +4057,6 @@ class GetTagsFilterAndArgs:
                  cost_category: Optional['GetTagsFilterAndCostCategoryArgs'] = None,
                  dimension: Optional['GetTagsFilterAndDimensionArgs'] = None,
                  tags: Optional['GetTagsFilterAndTagsArgs'] = None):
-        """
-        :param 'GetTagsFilterAndCostCategoryArgs' cost_category: Configuration block for the filter that's based on `CostCategory` values. See `cost_category` block below for details.
-        :param 'GetTagsFilterAndDimensionArgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-        :param 'GetTagsFilterAndTagsArgs' tags: Tags that match your request.
-        """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
         if dimension is not None:
@@ -5902,9 +4067,6 @@ class GetTagsFilterAndArgs:
     @_builtins.property
     @pulumi.getter(name="costCategory")
     def cost_category(self) -> Optional['GetTagsFilterAndCostCategoryArgs']:
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See `cost_category` block below for details.
-        """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
@@ -5914,9 +4076,6 @@ class GetTagsFilterAndArgs:
     @_builtins.property
     @pulumi.getter
     def dimension(self) -> Optional['GetTagsFilterAndDimensionArgs']:
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-        """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
@@ -5926,9 +4085,6 @@ class GetTagsFilterAndArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional['GetTagsFilterAndTagsArgs']:
-        """
-        Tags that match your request.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -5939,17 +4095,8 @@ class GetTagsFilterAndArgs:
 if not MYPY:
     class GetTagsFilterAndCostCategoryArgsDict(TypedDict):
         key: NotRequired[_builtins.str]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[Sequence[_builtins.str]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[Sequence[_builtins.str]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     GetTagsFilterAndCostCategoryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -5959,11 +4106,6 @@ class GetTagsFilterAndCostCategoryArgs:
                  key: Optional[_builtins.str] = None,
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str key: Unique name of the Cost Category.
-        :param Sequence[_builtins.str] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param Sequence[_builtins.str] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -5974,9 +4116,6 @@ class GetTagsFilterAndCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -5986,9 +4125,6 @@ class GetTagsFilterAndCostCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -5998,9 +4134,6 @@ class GetTagsFilterAndCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -6011,17 +4144,8 @@ class GetTagsFilterAndCostCategoryArgs:
 if not MYPY:
     class GetTagsFilterAndDimensionArgsDict(TypedDict):
         key: NotRequired[_builtins.str]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[Sequence[_builtins.str]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[Sequence[_builtins.str]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     GetTagsFilterAndDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6031,11 +4155,6 @@ class GetTagsFilterAndDimensionArgs:
                  key: Optional[_builtins.str] = None,
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str key: Unique name of the Cost Category.
-        :param Sequence[_builtins.str] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param Sequence[_builtins.str] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -6046,9 +4165,6 @@ class GetTagsFilterAndDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -6058,9 +4174,6 @@ class GetTagsFilterAndDimensionArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -6070,9 +4183,6 @@ class GetTagsFilterAndDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -6132,17 +4242,8 @@ class GetTagsFilterAndTagsArgs:
 if not MYPY:
     class GetTagsFilterCostCategoryArgsDict(TypedDict):
         key: NotRequired[_builtins.str]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[Sequence[_builtins.str]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[Sequence[_builtins.str]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     GetTagsFilterCostCategoryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6152,11 +4253,6 @@ class GetTagsFilterCostCategoryArgs:
                  key: Optional[_builtins.str] = None,
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str key: Unique name of the Cost Category.
-        :param Sequence[_builtins.str] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param Sequence[_builtins.str] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -6167,9 +4263,6 @@ class GetTagsFilterCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -6179,9 +4272,6 @@ class GetTagsFilterCostCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -6191,9 +4281,6 @@ class GetTagsFilterCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -6204,17 +4291,8 @@ class GetTagsFilterCostCategoryArgs:
 if not MYPY:
     class GetTagsFilterDimensionArgsDict(TypedDict):
         key: NotRequired[_builtins.str]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[Sequence[_builtins.str]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[Sequence[_builtins.str]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     GetTagsFilterDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6224,11 +4302,6 @@ class GetTagsFilterDimensionArgs:
                  key: Optional[_builtins.str] = None,
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str key: Unique name of the Cost Category.
-        :param Sequence[_builtins.str] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param Sequence[_builtins.str] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -6239,9 +4312,6 @@ class GetTagsFilterDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -6251,9 +4321,6 @@ class GetTagsFilterDimensionArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -6263,9 +4330,6 @@ class GetTagsFilterDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -6276,17 +4340,8 @@ class GetTagsFilterDimensionArgs:
 if not MYPY:
     class GetTagsFilterNotArgsDict(TypedDict):
         cost_category: NotRequired['GetTagsFilterNotCostCategoryArgsDict']
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See `cost_category` block below for details.
-        """
         dimension: NotRequired['GetTagsFilterNotDimensionArgsDict']
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-        """
         tags: NotRequired['GetTagsFilterNotTagsArgsDict']
-        """
-        Tags that match your request.
-        """
 elif False:
     GetTagsFilterNotArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6296,11 +4351,6 @@ class GetTagsFilterNotArgs:
                  cost_category: Optional['GetTagsFilterNotCostCategoryArgs'] = None,
                  dimension: Optional['GetTagsFilterNotDimensionArgs'] = None,
                  tags: Optional['GetTagsFilterNotTagsArgs'] = None):
-        """
-        :param 'GetTagsFilterNotCostCategoryArgs' cost_category: Configuration block for the filter that's based on `CostCategory` values. See `cost_category` block below for details.
-        :param 'GetTagsFilterNotDimensionArgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-        :param 'GetTagsFilterNotTagsArgs' tags: Tags that match your request.
-        """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
         if dimension is not None:
@@ -6311,9 +4361,6 @@ class GetTagsFilterNotArgs:
     @_builtins.property
     @pulumi.getter(name="costCategory")
     def cost_category(self) -> Optional['GetTagsFilterNotCostCategoryArgs']:
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See `cost_category` block below for details.
-        """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
@@ -6323,9 +4370,6 @@ class GetTagsFilterNotArgs:
     @_builtins.property
     @pulumi.getter
     def dimension(self) -> Optional['GetTagsFilterNotDimensionArgs']:
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-        """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
@@ -6335,9 +4379,6 @@ class GetTagsFilterNotArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional['GetTagsFilterNotTagsArgs']:
-        """
-        Tags that match your request.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -6348,17 +4389,8 @@ class GetTagsFilterNotArgs:
 if not MYPY:
     class GetTagsFilterNotCostCategoryArgsDict(TypedDict):
         key: NotRequired[_builtins.str]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[Sequence[_builtins.str]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[Sequence[_builtins.str]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     GetTagsFilterNotCostCategoryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6368,11 +4400,6 @@ class GetTagsFilterNotCostCategoryArgs:
                  key: Optional[_builtins.str] = None,
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str key: Unique name of the Cost Category.
-        :param Sequence[_builtins.str] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param Sequence[_builtins.str] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -6383,9 +4410,6 @@ class GetTagsFilterNotCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -6395,9 +4419,6 @@ class GetTagsFilterNotCostCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -6407,9 +4428,6 @@ class GetTagsFilterNotCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -6420,17 +4438,8 @@ class GetTagsFilterNotCostCategoryArgs:
 if not MYPY:
     class GetTagsFilterNotDimensionArgsDict(TypedDict):
         key: NotRequired[_builtins.str]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[Sequence[_builtins.str]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[Sequence[_builtins.str]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     GetTagsFilterNotDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6440,11 +4449,6 @@ class GetTagsFilterNotDimensionArgs:
                  key: Optional[_builtins.str] = None,
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str key: Unique name of the Cost Category.
-        :param Sequence[_builtins.str] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param Sequence[_builtins.str] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -6455,9 +4459,6 @@ class GetTagsFilterNotDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -6467,9 +4468,6 @@ class GetTagsFilterNotDimensionArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -6479,9 +4477,6 @@ class GetTagsFilterNotDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -6541,17 +4536,8 @@ class GetTagsFilterNotTagsArgs:
 if not MYPY:
     class GetTagsFilterOrArgsDict(TypedDict):
         cost_category: NotRequired['GetTagsFilterOrCostCategoryArgsDict']
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See `cost_category` block below for details.
-        """
         dimension: NotRequired['GetTagsFilterOrDimensionArgsDict']
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-        """
         tags: NotRequired['GetTagsFilterOrTagsArgsDict']
-        """
-        Tags that match your request.
-        """
 elif False:
     GetTagsFilterOrArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6561,11 +4547,6 @@ class GetTagsFilterOrArgs:
                  cost_category: Optional['GetTagsFilterOrCostCategoryArgs'] = None,
                  dimension: Optional['GetTagsFilterOrDimensionArgs'] = None,
                  tags: Optional['GetTagsFilterOrTagsArgs'] = None):
-        """
-        :param 'GetTagsFilterOrCostCategoryArgs' cost_category: Configuration block for the filter that's based on `CostCategory` values. See `cost_category` block below for details.
-        :param 'GetTagsFilterOrDimensionArgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-        :param 'GetTagsFilterOrTagsArgs' tags: Tags that match your request.
-        """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
         if dimension is not None:
@@ -6576,9 +4557,6 @@ class GetTagsFilterOrArgs:
     @_builtins.property
     @pulumi.getter(name="costCategory")
     def cost_category(self) -> Optional['GetTagsFilterOrCostCategoryArgs']:
-        """
-        Configuration block for the filter that's based on `CostCategory` values. See `cost_category` block below for details.
-        """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
@@ -6588,9 +4566,6 @@ class GetTagsFilterOrArgs:
     @_builtins.property
     @pulumi.getter
     def dimension(self) -> Optional['GetTagsFilterOrDimensionArgs']:
-        """
-        Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-        """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
@@ -6600,9 +4575,6 @@ class GetTagsFilterOrArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional['GetTagsFilterOrTagsArgs']:
-        """
-        Tags that match your request.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -6613,17 +4585,8 @@ class GetTagsFilterOrArgs:
 if not MYPY:
     class GetTagsFilterOrCostCategoryArgsDict(TypedDict):
         key: NotRequired[_builtins.str]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[Sequence[_builtins.str]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[Sequence[_builtins.str]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     GetTagsFilterOrCostCategoryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6633,11 +4596,6 @@ class GetTagsFilterOrCostCategoryArgs:
                  key: Optional[_builtins.str] = None,
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str key: Unique name of the Cost Category.
-        :param Sequence[_builtins.str] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param Sequence[_builtins.str] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -6648,9 +4606,6 @@ class GetTagsFilterOrCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -6660,9 +4615,6 @@ class GetTagsFilterOrCostCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -6672,9 +4624,6 @@ class GetTagsFilterOrCostCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -6685,17 +4634,8 @@ class GetTagsFilterOrCostCategoryArgs:
 if not MYPY:
     class GetTagsFilterOrDimensionArgsDict(TypedDict):
         key: NotRequired[_builtins.str]
-        """
-        Unique name of the Cost Category.
-        """
         match_options: NotRequired[Sequence[_builtins.str]]
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         values: NotRequired[Sequence[_builtins.str]]
-        """
-        Specific value of the Cost Category.
-        """
 elif False:
     GetTagsFilterOrDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6705,11 +4645,6 @@ class GetTagsFilterOrDimensionArgs:
                  key: Optional[_builtins.str] = None,
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str key: Unique name of the Cost Category.
-        :param Sequence[_builtins.str] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        :param Sequence[_builtins.str] values: Specific value of the Cost Category.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if match_options is not None:
@@ -6720,9 +4655,6 @@ class GetTagsFilterOrDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
-        """
-        Unique name of the Cost Category.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -6732,9 +4664,6 @@ class GetTagsFilterOrDimensionArgs:
     @_builtins.property
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
@@ -6744,9 +4673,6 @@ class GetTagsFilterOrDimensionArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Specific value of the Cost Category.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -6855,13 +4781,7 @@ class GetTagsFilterTagsArgs:
 if not MYPY:
     class GetTagsSortByArgsDict(TypedDict):
         key: NotRequired[_builtins.str]
-        """
-        key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
-        """
         sort_order: NotRequired[_builtins.str]
-        """
-        order that's used to sort the data. Valid values are: `ASCENDING`,  `DESCENDING`.
-        """
 elif False:
     GetTagsSortByArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6870,10 +4790,6 @@ class GetTagsSortByArgs:
     def __init__(__self__, *,
                  key: Optional[_builtins.str] = None,
                  sort_order: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str key: key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
-        :param _builtins.str sort_order: order that's used to sort the data. Valid values are: `ASCENDING`,  `DESCENDING`.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if sort_order is not None:
@@ -6882,9 +4798,6 @@ class GetTagsSortByArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
-        """
-        key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -6894,9 +4807,6 @@ class GetTagsSortByArgs:
     @_builtins.property
     @pulumi.getter(name="sortOrder")
     def sort_order(self) -> Optional[_builtins.str]:
-        """
-        order that's used to sort the data. Valid values are: `ASCENDING`,  `DESCENDING`.
-        """
         return pulumi.get(self, "sort_order")
 
     @sort_order.setter
@@ -6907,13 +4817,7 @@ class GetTagsSortByArgs:
 if not MYPY:
     class GetTagsTimePeriodArgsDict(TypedDict):
         end: _builtins.str
-        """
-        Beginning of the time period.
-        """
         start: _builtins.str
-        """
-        End of the time period.
-        """
 elif False:
     GetTagsTimePeriodArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6922,19 +4826,12 @@ class GetTagsTimePeriodArgs:
     def __init__(__self__, *,
                  end: _builtins.str,
                  start: _builtins.str):
-        """
-        :param _builtins.str end: Beginning of the time period.
-        :param _builtins.str start: End of the time period.
-        """
         pulumi.set(__self__, "end", end)
         pulumi.set(__self__, "start", start)
 
     @_builtins.property
     @pulumi.getter
     def end(self) -> _builtins.str:
-        """
-        Beginning of the time period.
-        """
         return pulumi.get(self, "end")
 
     @end.setter
@@ -6944,9 +4841,6 @@ class GetTagsTimePeriodArgs:
     @_builtins.property
     @pulumi.getter
     def start(self) -> _builtins.str:
-        """
-        End of the time period.
-        """
         return pulumi.get(self, "start")
 
     @start.setter

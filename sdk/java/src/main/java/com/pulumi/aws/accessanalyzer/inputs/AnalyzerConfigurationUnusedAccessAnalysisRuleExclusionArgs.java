@@ -17,32 +17,16 @@ public final class AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs ex
 
     public static final AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs Empty = new AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs();
 
-    /**
-     * List of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
-     * 
-     */
     @Import(name="accountIds")
     private @Nullable Output<List<String>> accountIds;
 
-    /**
-     * @return List of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
-     * 
-     */
     public Optional<Output<List<String>>> accountIds() {
         return Optional.ofNullable(this.accountIds);
     }
 
-    /**
-     * List of key-value pairs for resource tags to exclude from the analysis.
-     * 
-     */
     @Import(name="resourceTags")
     private @Nullable Output<List<Map<String,String>>> resourceTags;
 
-    /**
-     * @return List of key-value pairs for resource tags to exclude from the analysis.
-     * 
-     */
     public Optional<Output<List<Map<String,String>>>> resourceTags() {
         return Optional.ofNullable(this.resourceTags);
     }
@@ -72,64 +56,28 @@ public final class AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs ex
             $ = new AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountIds List of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountIds(@Nullable Output<List<String>> accountIds) {
             $.accountIds = accountIds;
             return this;
         }
 
-        /**
-         * @param accountIds List of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountIds(List<String> accountIds) {
             return accountIds(Output.of(accountIds));
         }
 
-        /**
-         * @param accountIds List of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountIds(String... accountIds) {
             return accountIds(List.of(accountIds));
         }
 
-        /**
-         * @param resourceTags List of key-value pairs for resource tags to exclude from the analysis.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTags(@Nullable Output<List<Map<String,String>>> resourceTags) {
             $.resourceTags = resourceTags;
             return this;
         }
 
-        /**
-         * @param resourceTags List of key-value pairs for resource tags to exclude from the analysis.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTags(List<Map<String,String>> resourceTags) {
             return resourceTags(Output.of(resourceTags));
         }
 
-        /**
-         * @param resourceTags List of key-value pairs for resource tags to exclude from the analysis.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTags(Map<String,String>... resourceTags) {
             return resourceTags(List.of(resourceTags));
         }

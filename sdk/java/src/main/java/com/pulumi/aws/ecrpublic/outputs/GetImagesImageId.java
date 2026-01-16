@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetImagesImageId {
     /**
-     * @return Digest of the image manifest.
+     * @return Image digest.
      * 
      */
     private @Nullable String imageDigest;
     /**
-     * @return Tag used for the image.
+     * @return Image tag.
      * 
      */
     private @Nullable String imageTag;
 
     private GetImagesImageId() {}
     /**
-     * @return Digest of the image manifest.
+     * @return Image digest.
      * 
      */
     public Optional<String> imageDigest() {
         return Optional.ofNullable(this.imageDigest);
     }
     /**
-     * @return Tag used for the image.
+     * @return Image tag.
      * 
      */
     public Optional<String> imageTag() {

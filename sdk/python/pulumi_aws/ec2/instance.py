@@ -73,59 +73,6 @@ class InstanceArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Instance resource.
-        :param pulumi.Input[_builtins.str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
-        :param pulumi.Input[_builtins.bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
-        :param pulumi.Input[_builtins.str] availability_zone: AZ to start the instance in.
-        :param pulumi.Input['InstanceCapacityReservationSpecificationArgs'] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-        :param pulumi.Input['InstanceCpuOptionsArgs'] cpu_options: The CPU options for the instance. See CPU Options below for more details.
-        :param pulumi.Input['InstanceCreditSpecificationArgs'] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
-        :param pulumi.Input[_builtins.bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
-        :param pulumi.Input[_builtins.bool] disable_api_termination: If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceEbsBlockDeviceArgs']]] ebs_block_devices: One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
-        :param pulumi.Input[_builtins.bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
-        :param pulumi.Input[_builtins.bool] enable_primary_ipv6: Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
-        :param pulumi.Input['InstanceEnclaveOptionsArgs'] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceEphemeralBlockDeviceArgs']]] ephemeral_block_devices: One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
-        :param pulumi.Input[_builtins.bool] force_destroy: Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-        :param pulumi.Input[_builtins.bool] get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
-        :param pulumi.Input[_builtins.bool] hibernation: If true, the launched EC2 instance will support hibernation.
-        :param pulumi.Input[_builtins.str] host_id: ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
-        :param pulumi.Input[_builtins.str] host_resource_group_arn: ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
-        :param pulumi.Input[_builtins.str] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-        :param pulumi.Input[_builtins.str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
-        :param pulumi.Input['InstanceInstanceMarketOptionsArgs'] instance_market_options: Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
-        :param pulumi.Input[Union[_builtins.str, 'InstanceType']] instance_type: Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
-        :param pulumi.Input[_builtins.int] ipv6_address_count: Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
-        :param pulumi.Input[_builtins.str] key_name: Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
-        :param pulumi.Input['InstanceLaunchTemplateArgs'] launch_template: Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
-        :param pulumi.Input['InstanceMaintenanceOptionsArgs'] maintenance_options: Maintenance and recovery options for the instance. See Maintenance Options below for more details.
-        :param pulumi.Input['InstanceMetadataOptionsArgs'] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
-        :param pulumi.Input[_builtins.bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
-        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in. Conflicts with `placement_group_id`.
-        :param pulumi.Input[_builtins.str] placement_group_id: Placement Group ID to start the instance in. Conflicts with `placement_group`.
-        :param pulumi.Input[_builtins.int] placement_partition_number: Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
-        :param pulumi.Input['InstancePrimaryNetworkInterfaceArgs'] primary_network_interface: The primary network interface. See Primary Network Interface below.
-        :param pulumi.Input['InstancePrivateDnsNameOptionsArgs'] private_dns_name_options: Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
-        :param pulumi.Input[_builtins.str] private_ip: Private IP address to associate with the instance in a VPC.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['InstanceRootBlockDeviceArgs'] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_private_ips: List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: List of security group names to associate with.
-               
-               > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
-        :param pulumi.Input[_builtins.bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
-        :param pulumi.Input[_builtins.str] subnet_id: VPC Subnet ID to launch in.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union[_builtins.str, 'Tenancy']] tenancy: Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
-        :param pulumi.Input[_builtins.str] user_data: User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
-        :param pulumi.Input[_builtins.str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
-        :param pulumi.Input[_builtins.bool] user_data_replace_on_change: When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] volume_tags: Map of tags to assign, at instance-creation time, to root and EBS volumes.
-               
-               > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of security group IDs to associate with.
         """
         if ami is not None:
             pulumi.set(__self__, "ami", ami)
@@ -235,9 +182,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter
     def ami(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
-        """
         return pulumi.get(self, "ami")
 
     @ami.setter
@@ -247,9 +191,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="associatePublicIpAddress")
     def associate_public_ip_address(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to associate a public IP address with an instance in a VPC.
-        """
         return pulumi.get(self, "associate_public_ip_address")
 
     @associate_public_ip_address.setter
@@ -259,9 +200,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AZ to start the instance in.
-        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -271,9 +209,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="capacityReservationSpecification")
     def capacity_reservation_specification(self) -> Optional[pulumi.Input['InstanceCapacityReservationSpecificationArgs']]:
-        """
-        Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-        """
         return pulumi.get(self, "capacity_reservation_specification")
 
     @capacity_reservation_specification.setter
@@ -283,9 +218,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="cpuOptions")
     def cpu_options(self) -> Optional[pulumi.Input['InstanceCpuOptionsArgs']]:
-        """
-        The CPU options for the instance. See CPU Options below for more details.
-        """
         return pulumi.get(self, "cpu_options")
 
     @cpu_options.setter
@@ -295,9 +227,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="creditSpecification")
     def credit_specification(self) -> Optional[pulumi.Input['InstanceCreditSpecificationArgs']]:
-        """
-        Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
-        """
         return pulumi.get(self, "credit_specification")
 
     @credit_specification.setter
@@ -307,9 +236,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="disableApiStop")
     def disable_api_stop(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
-        """
         return pulumi.get(self, "disable_api_stop")
 
     @disable_api_stop.setter
@@ -319,9 +245,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="disableApiTermination")
     def disable_api_termination(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
-        """
         return pulumi.get(self, "disable_api_termination")
 
     @disable_api_termination.setter
@@ -331,9 +254,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="ebsBlockDevices")
     def ebs_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceEbsBlockDeviceArgs']]]]:
-        """
-        One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
-        """
         return pulumi.get(self, "ebs_block_devices")
 
     @ebs_block_devices.setter
@@ -343,9 +263,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="ebsOptimized")
     def ebs_optimized(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
-        """
         return pulumi.get(self, "ebs_optimized")
 
     @ebs_optimized.setter
@@ -355,9 +272,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="enablePrimaryIpv6")
     def enable_primary_ipv6(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
-        """
         return pulumi.get(self, "enable_primary_ipv6")
 
     @enable_primary_ipv6.setter
@@ -367,9 +281,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="enclaveOptions")
     def enclave_options(self) -> Optional[pulumi.Input['InstanceEnclaveOptionsArgs']]:
-        """
-        Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
-        """
         return pulumi.get(self, "enclave_options")
 
     @enclave_options.setter
@@ -379,9 +290,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="ephemeralBlockDevices")
     def ephemeral_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceEphemeralBlockDeviceArgs']]]]:
-        """
-        One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
-        """
         return pulumi.get(self, "ephemeral_block_devices")
 
     @ephemeral_block_devices.setter
@@ -391,9 +299,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-        """
         return pulumi.get(self, "force_destroy")
 
     @force_destroy.setter
@@ -403,9 +308,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="getPasswordData")
     def get_password_data(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
-        """
         return pulumi.get(self, "get_password_data")
 
     @get_password_data.setter
@@ -415,9 +317,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter
     def hibernation(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true, the launched EC2 instance will support hibernation.
-        """
         return pulumi.get(self, "hibernation")
 
     @hibernation.setter
@@ -427,9 +326,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="hostId")
     def host_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
-        """
         return pulumi.get(self, "host_id")
 
     @host_id.setter
@@ -439,9 +335,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="hostResourceGroupArn")
     def host_resource_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
-        """
         return pulumi.get(self, "host_resource_group_arn")
 
     @host_resource_group_arn.setter
@@ -451,9 +344,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="iamInstanceProfile")
     def iam_instance_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-        """
         return pulumi.get(self, "iam_instance_profile")
 
     @iam_instance_profile.setter
@@ -463,9 +353,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="instanceInitiatedShutdownBehavior")
     def instance_initiated_shutdown_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
-        """
         return pulumi.get(self, "instance_initiated_shutdown_behavior")
 
     @instance_initiated_shutdown_behavior.setter
@@ -475,9 +362,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="instanceMarketOptions")
     def instance_market_options(self) -> Optional[pulumi.Input['InstanceInstanceMarketOptionsArgs']]:
-        """
-        Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
-        """
         return pulumi.get(self, "instance_market_options")
 
     @instance_market_options.setter
@@ -487,9 +371,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'InstanceType']]]:
-        """
-        Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -499,9 +380,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="ipv6AddressCount")
     def ipv6_address_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
-        """
         return pulumi.get(self, "ipv6_address_count")
 
     @ipv6_address_count.setter
@@ -511,9 +389,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="ipv6Addresses")
     def ipv6_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
-        """
         return pulumi.get(self, "ipv6_addresses")
 
     @ipv6_addresses.setter
@@ -523,9 +398,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="keyName")
     def key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
-        """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
@@ -535,9 +407,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> Optional[pulumi.Input['InstanceLaunchTemplateArgs']]:
-        """
-        Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
-        """
         return pulumi.get(self, "launch_template")
 
     @launch_template.setter
@@ -547,9 +416,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="maintenanceOptions")
     def maintenance_options(self) -> Optional[pulumi.Input['InstanceMaintenanceOptionsArgs']]:
-        """
-        Maintenance and recovery options for the instance. See Maintenance Options below for more details.
-        """
         return pulumi.get(self, "maintenance_options")
 
     @maintenance_options.setter
@@ -559,9 +425,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="metadataOptions")
     def metadata_options(self) -> Optional[pulumi.Input['InstanceMetadataOptionsArgs']]:
-        """
-        Customize the metadata options of the instance. See Metadata Options below for more details.
-        """
         return pulumi.get(self, "metadata_options")
 
     @metadata_options.setter
@@ -571,9 +434,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter
     def monitoring(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
-        """
         return pulumi.get(self, "monitoring")
 
     @monitoring.setter
@@ -584,9 +444,6 @@ class InstanceArgs:
     @pulumi.getter(name="networkInterfaces")
     @_utilities.deprecated("""network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.""")
     def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]]]:
-        """
-        Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
-        """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
@@ -596,9 +453,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="placementGroup")
     def placement_group(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Placement Group to start the instance in. Conflicts with `placement_group_id`.
-        """
         return pulumi.get(self, "placement_group")
 
     @placement_group.setter
@@ -608,9 +462,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="placementGroupId")
     def placement_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Placement Group ID to start the instance in. Conflicts with `placement_group`.
-        """
         return pulumi.get(self, "placement_group_id")
 
     @placement_group_id.setter
@@ -620,9 +471,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="placementPartitionNumber")
     def placement_partition_number(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
-        """
         return pulumi.get(self, "placement_partition_number")
 
     @placement_partition_number.setter
@@ -632,9 +480,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="primaryNetworkInterface")
     def primary_network_interface(self) -> Optional[pulumi.Input['InstancePrimaryNetworkInterfaceArgs']]:
-        """
-        The primary network interface. See Primary Network Interface below.
-        """
         return pulumi.get(self, "primary_network_interface")
 
     @primary_network_interface.setter
@@ -644,9 +489,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="privateDnsNameOptions")
     def private_dns_name_options(self) -> Optional[pulumi.Input['InstancePrivateDnsNameOptionsArgs']]:
-        """
-        Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
-        """
         return pulumi.get(self, "private_dns_name_options")
 
     @private_dns_name_options.setter
@@ -656,9 +498,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Private IP address to associate with the instance in a VPC.
-        """
         return pulumi.get(self, "private_ip")
 
     @private_ip.setter
@@ -668,9 +507,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -680,9 +516,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="rootBlockDevice")
     def root_block_device(self) -> Optional[pulumi.Input['InstanceRootBlockDeviceArgs']]:
-        """
-        Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
-        """
         return pulumi.get(self, "root_block_device")
 
     @root_block_device.setter
@@ -692,9 +525,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="secondaryPrivateIps")
     def secondary_private_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
-        """
         return pulumi.get(self, "secondary_private_ips")
 
     @secondary_private_ips.setter
@@ -705,11 +535,6 @@ class InstanceArgs:
     @pulumi.getter(name="securityGroups")
     @_utilities.deprecated("""Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.""")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of security group names to associate with.
-
-        > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
-        """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
@@ -719,9 +544,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="sourceDestCheck")
     def source_dest_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
-        """
         return pulumi.get(self, "source_dest_check")
 
     @source_dest_check.setter
@@ -731,9 +553,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        VPC Subnet ID to launch in.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -743,9 +562,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -755,9 +571,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter
     def tenancy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Tenancy']]]:
-        """
-        Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
-        """
         return pulumi.get(self, "tenancy")
 
     @tenancy.setter
@@ -767,9 +580,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="userData")
     def user_data(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
-        """
         return pulumi.get(self, "user_data")
 
     @user_data.setter
@@ -779,9 +589,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="userDataBase64")
     def user_data_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
-        """
         return pulumi.get(self, "user_data_base64")
 
     @user_data_base64.setter
@@ -791,9 +598,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="userDataReplaceOnChange")
     def user_data_replace_on_change(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
-        """
         return pulumi.get(self, "user_data_replace_on_change")
 
     @user_data_replace_on_change.setter
@@ -803,11 +607,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="volumeTags")
     def volume_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign, at instance-creation time, to root and EBS volumes.
-
-        > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
-        """
         return pulumi.get(self, "volume_tags")
 
     @volume_tags.setter
@@ -817,9 +616,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of security group IDs to associate with.
-        """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
@@ -892,70 +688,6 @@ class _InstanceState:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Instance resources.
-        :param pulumi.Input[_builtins.str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
-        :param pulumi.Input[_builtins.str] arn: ARN of the instance.
-        :param pulumi.Input[_builtins.bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
-        :param pulumi.Input[_builtins.str] availability_zone: AZ to start the instance in.
-        :param pulumi.Input['InstanceCapacityReservationSpecificationArgs'] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-        :param pulumi.Input['InstanceCpuOptionsArgs'] cpu_options: The CPU options for the instance. See CPU Options below for more details.
-        :param pulumi.Input['InstanceCreditSpecificationArgs'] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
-        :param pulumi.Input[_builtins.bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
-        :param pulumi.Input[_builtins.bool] disable_api_termination: If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceEbsBlockDeviceArgs']]] ebs_block_devices: One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
-        :param pulumi.Input[_builtins.bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
-        :param pulumi.Input[_builtins.bool] enable_primary_ipv6: Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
-        :param pulumi.Input['InstanceEnclaveOptionsArgs'] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceEphemeralBlockDeviceArgs']]] ephemeral_block_devices: One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
-        :param pulumi.Input[_builtins.bool] force_destroy: Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-        :param pulumi.Input[_builtins.bool] get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
-        :param pulumi.Input[_builtins.bool] hibernation: If true, the launched EC2 instance will support hibernation.
-        :param pulumi.Input[_builtins.str] host_id: ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
-        :param pulumi.Input[_builtins.str] host_resource_group_arn: ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
-        :param pulumi.Input[_builtins.str] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-        :param pulumi.Input[_builtins.str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
-        :param pulumi.Input[_builtins.str] instance_lifecycle: Indicates whether this is a Spot Instance or a Scheduled Instance.
-        :param pulumi.Input['InstanceInstanceMarketOptionsArgs'] instance_market_options: Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
-        :param pulumi.Input[_builtins.str] instance_state: State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
-        :param pulumi.Input[Union[_builtins.str, 'InstanceType']] instance_type: Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
-        :param pulumi.Input[_builtins.int] ipv6_address_count: Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
-        :param pulumi.Input[_builtins.str] key_name: Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
-        :param pulumi.Input['InstanceLaunchTemplateArgs'] launch_template: Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
-        :param pulumi.Input['InstanceMaintenanceOptionsArgs'] maintenance_options: Maintenance and recovery options for the instance. See Maintenance Options below for more details.
-        :param pulumi.Input['InstanceMetadataOptionsArgs'] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
-        :param pulumi.Input[_builtins.bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
-        :param pulumi.Input[_builtins.str] outpost_arn: ARN of the Outpost the instance is assigned to.
-        :param pulumi.Input[_builtins.str] password_data: Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `get_password_data` is true. Note that this encrypted value will be stored in the state file, as with all exported attributes. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
-        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in. Conflicts with `placement_group_id`.
-        :param pulumi.Input[_builtins.str] placement_group_id: Placement Group ID to start the instance in. Conflicts with `placement_group`.
-        :param pulumi.Input[_builtins.int] placement_partition_number: Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
-        :param pulumi.Input['InstancePrimaryNetworkInterfaceArgs'] primary_network_interface: The primary network interface. See Primary Network Interface below.
-        :param pulumi.Input[_builtins.str] primary_network_interface_id: ID of the instance's primary network interface.
-        :param pulumi.Input[_builtins.str] private_dns: Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
-        :param pulumi.Input['InstancePrivateDnsNameOptionsArgs'] private_dns_name_options: Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
-        :param pulumi.Input[_builtins.str] private_ip: Private IP address to associate with the instance in a VPC.
-        :param pulumi.Input[_builtins.str] public_dns: Public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
-        :param pulumi.Input[_builtins.str] public_ip: Public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `public_ip` as this field will change after the EIP is attached.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['InstanceRootBlockDeviceArgs'] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_private_ips: List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: List of security group names to associate with.
-               
-               > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
-        :param pulumi.Input[_builtins.bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
-        :param pulumi.Input[_builtins.str] spot_instance_request_id: If the request is a Spot Instance request, the ID of the request.
-        :param pulumi.Input[_builtins.str] subnet_id: VPC Subnet ID to launch in.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union[_builtins.str, 'Tenancy']] tenancy: Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
-        :param pulumi.Input[_builtins.str] user_data: User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
-        :param pulumi.Input[_builtins.str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
-        :param pulumi.Input[_builtins.bool] user_data_replace_on_change: When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] volume_tags: Map of tags to assign, at instance-creation time, to root and EBS volumes.
-               
-               > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of security group IDs to associate with.
         """
         if ami is not None:
             pulumi.set(__self__, "ami", ami)
@@ -1087,9 +819,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter
     def ami(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
-        """
         return pulumi.get(self, "ami")
 
     @ami.setter
@@ -1099,9 +828,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the instance.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -1111,9 +837,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="associatePublicIpAddress")
     def associate_public_ip_address(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to associate a public IP address with an instance in a VPC.
-        """
         return pulumi.get(self, "associate_public_ip_address")
 
     @associate_public_ip_address.setter
@@ -1123,9 +846,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AZ to start the instance in.
-        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -1135,9 +855,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="capacityReservationSpecification")
     def capacity_reservation_specification(self) -> Optional[pulumi.Input['InstanceCapacityReservationSpecificationArgs']]:
-        """
-        Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-        """
         return pulumi.get(self, "capacity_reservation_specification")
 
     @capacity_reservation_specification.setter
@@ -1147,9 +864,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="cpuOptions")
     def cpu_options(self) -> Optional[pulumi.Input['InstanceCpuOptionsArgs']]:
-        """
-        The CPU options for the instance. See CPU Options below for more details.
-        """
         return pulumi.get(self, "cpu_options")
 
     @cpu_options.setter
@@ -1159,9 +873,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="creditSpecification")
     def credit_specification(self) -> Optional[pulumi.Input['InstanceCreditSpecificationArgs']]:
-        """
-        Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
-        """
         return pulumi.get(self, "credit_specification")
 
     @credit_specification.setter
@@ -1171,9 +882,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="disableApiStop")
     def disable_api_stop(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
-        """
         return pulumi.get(self, "disable_api_stop")
 
     @disable_api_stop.setter
@@ -1183,9 +891,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="disableApiTermination")
     def disable_api_termination(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
-        """
         return pulumi.get(self, "disable_api_termination")
 
     @disable_api_termination.setter
@@ -1195,9 +900,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="ebsBlockDevices")
     def ebs_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceEbsBlockDeviceArgs']]]]:
-        """
-        One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
-        """
         return pulumi.get(self, "ebs_block_devices")
 
     @ebs_block_devices.setter
@@ -1207,9 +909,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="ebsOptimized")
     def ebs_optimized(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
-        """
         return pulumi.get(self, "ebs_optimized")
 
     @ebs_optimized.setter
@@ -1219,9 +918,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="enablePrimaryIpv6")
     def enable_primary_ipv6(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
-        """
         return pulumi.get(self, "enable_primary_ipv6")
 
     @enable_primary_ipv6.setter
@@ -1231,9 +927,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="enclaveOptions")
     def enclave_options(self) -> Optional[pulumi.Input['InstanceEnclaveOptionsArgs']]:
-        """
-        Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
-        """
         return pulumi.get(self, "enclave_options")
 
     @enclave_options.setter
@@ -1243,9 +936,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="ephemeralBlockDevices")
     def ephemeral_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceEphemeralBlockDeviceArgs']]]]:
-        """
-        One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
-        """
         return pulumi.get(self, "ephemeral_block_devices")
 
     @ephemeral_block_devices.setter
@@ -1255,9 +945,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-        """
         return pulumi.get(self, "force_destroy")
 
     @force_destroy.setter
@@ -1267,9 +954,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="getPasswordData")
     def get_password_data(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
-        """
         return pulumi.get(self, "get_password_data")
 
     @get_password_data.setter
@@ -1279,9 +963,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter
     def hibernation(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true, the launched EC2 instance will support hibernation.
-        """
         return pulumi.get(self, "hibernation")
 
     @hibernation.setter
@@ -1291,9 +972,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="hostId")
     def host_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
-        """
         return pulumi.get(self, "host_id")
 
     @host_id.setter
@@ -1303,9 +981,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="hostResourceGroupArn")
     def host_resource_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
-        """
         return pulumi.get(self, "host_resource_group_arn")
 
     @host_resource_group_arn.setter
@@ -1315,9 +990,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="iamInstanceProfile")
     def iam_instance_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-        """
         return pulumi.get(self, "iam_instance_profile")
 
     @iam_instance_profile.setter
@@ -1327,9 +999,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="instanceInitiatedShutdownBehavior")
     def instance_initiated_shutdown_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
-        """
         return pulumi.get(self, "instance_initiated_shutdown_behavior")
 
     @instance_initiated_shutdown_behavior.setter
@@ -1339,9 +1008,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="instanceLifecycle")
     def instance_lifecycle(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether this is a Spot Instance or a Scheduled Instance.
-        """
         return pulumi.get(self, "instance_lifecycle")
 
     @instance_lifecycle.setter
@@ -1351,9 +1017,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="instanceMarketOptions")
     def instance_market_options(self) -> Optional[pulumi.Input['InstanceInstanceMarketOptionsArgs']]:
-        """
-        Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
-        """
         return pulumi.get(self, "instance_market_options")
 
     @instance_market_options.setter
@@ -1363,9 +1026,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="instanceState")
     def instance_state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
-        """
         return pulumi.get(self, "instance_state")
 
     @instance_state.setter
@@ -1375,9 +1035,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'InstanceType']]]:
-        """
-        Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -1387,9 +1044,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="ipv6AddressCount")
     def ipv6_address_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
-        """
         return pulumi.get(self, "ipv6_address_count")
 
     @ipv6_address_count.setter
@@ -1399,9 +1053,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="ipv6Addresses")
     def ipv6_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
-        """
         return pulumi.get(self, "ipv6_addresses")
 
     @ipv6_addresses.setter
@@ -1411,9 +1062,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="keyName")
     def key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
-        """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
@@ -1423,9 +1071,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> Optional[pulumi.Input['InstanceLaunchTemplateArgs']]:
-        """
-        Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
-        """
         return pulumi.get(self, "launch_template")
 
     @launch_template.setter
@@ -1435,9 +1080,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="maintenanceOptions")
     def maintenance_options(self) -> Optional[pulumi.Input['InstanceMaintenanceOptionsArgs']]:
-        """
-        Maintenance and recovery options for the instance. See Maintenance Options below for more details.
-        """
         return pulumi.get(self, "maintenance_options")
 
     @maintenance_options.setter
@@ -1447,9 +1089,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="metadataOptions")
     def metadata_options(self) -> Optional[pulumi.Input['InstanceMetadataOptionsArgs']]:
-        """
-        Customize the metadata options of the instance. See Metadata Options below for more details.
-        """
         return pulumi.get(self, "metadata_options")
 
     @metadata_options.setter
@@ -1459,9 +1098,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter
     def monitoring(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
-        """
         return pulumi.get(self, "monitoring")
 
     @monitoring.setter
@@ -1472,9 +1108,6 @@ class _InstanceState:
     @pulumi.getter(name="networkInterfaces")
     @_utilities.deprecated("""network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.""")
     def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]]]:
-        """
-        Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
-        """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
@@ -1484,9 +1117,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Outpost the instance is assigned to.
-        """
         return pulumi.get(self, "outpost_arn")
 
     @outpost_arn.setter
@@ -1496,9 +1126,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="passwordData")
     def password_data(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `get_password_data` is true. Note that this encrypted value will be stored in the state file, as with all exported attributes. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
-        """
         return pulumi.get(self, "password_data")
 
     @password_data.setter
@@ -1508,9 +1135,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="placementGroup")
     def placement_group(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Placement Group to start the instance in. Conflicts with `placement_group_id`.
-        """
         return pulumi.get(self, "placement_group")
 
     @placement_group.setter
@@ -1520,9 +1144,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="placementGroupId")
     def placement_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Placement Group ID to start the instance in. Conflicts with `placement_group`.
-        """
         return pulumi.get(self, "placement_group_id")
 
     @placement_group_id.setter
@@ -1532,9 +1153,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="placementPartitionNumber")
     def placement_partition_number(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
-        """
         return pulumi.get(self, "placement_partition_number")
 
     @placement_partition_number.setter
@@ -1544,9 +1162,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="primaryNetworkInterface")
     def primary_network_interface(self) -> Optional[pulumi.Input['InstancePrimaryNetworkInterfaceArgs']]:
-        """
-        The primary network interface. See Primary Network Interface below.
-        """
         return pulumi.get(self, "primary_network_interface")
 
     @primary_network_interface.setter
@@ -1556,9 +1171,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="primaryNetworkInterfaceId")
     def primary_network_interface_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the instance's primary network interface.
-        """
         return pulumi.get(self, "primary_network_interface_id")
 
     @primary_network_interface_id.setter
@@ -1568,9 +1180,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="privateDns")
     def private_dns(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
-        """
         return pulumi.get(self, "private_dns")
 
     @private_dns.setter
@@ -1580,9 +1189,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="privateDnsNameOptions")
     def private_dns_name_options(self) -> Optional[pulumi.Input['InstancePrivateDnsNameOptionsArgs']]:
-        """
-        Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
-        """
         return pulumi.get(self, "private_dns_name_options")
 
     @private_dns_name_options.setter
@@ -1592,9 +1198,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Private IP address to associate with the instance in a VPC.
-        """
         return pulumi.get(self, "private_ip")
 
     @private_ip.setter
@@ -1604,9 +1207,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="publicDns")
     def public_dns(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
-        """
         return pulumi.get(self, "public_dns")
 
     @public_dns.setter
@@ -1616,9 +1216,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="publicIp")
     def public_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `public_ip` as this field will change after the EIP is attached.
-        """
         return pulumi.get(self, "public_ip")
 
     @public_ip.setter
@@ -1628,9 +1225,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -1640,9 +1234,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="rootBlockDevice")
     def root_block_device(self) -> Optional[pulumi.Input['InstanceRootBlockDeviceArgs']]:
-        """
-        Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
-        """
         return pulumi.get(self, "root_block_device")
 
     @root_block_device.setter
@@ -1652,9 +1243,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="secondaryPrivateIps")
     def secondary_private_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
-        """
         return pulumi.get(self, "secondary_private_ips")
 
     @secondary_private_ips.setter
@@ -1665,11 +1253,6 @@ class _InstanceState:
     @pulumi.getter(name="securityGroups")
     @_utilities.deprecated("""Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.""")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of security group names to associate with.
-
-        > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
-        """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
@@ -1679,9 +1262,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="sourceDestCheck")
     def source_dest_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
-        """
         return pulumi.get(self, "source_dest_check")
 
     @source_dest_check.setter
@@ -1691,9 +1271,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="spotInstanceRequestId")
     def spot_instance_request_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        If the request is a Spot Instance request, the ID of the request.
-        """
         return pulumi.get(self, "spot_instance_request_id")
 
     @spot_instance_request_id.setter
@@ -1703,9 +1280,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        VPC Subnet ID to launch in.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -1715,9 +1289,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -1727,9 +1298,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -1739,9 +1307,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter
     def tenancy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Tenancy']]]:
-        """
-        Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
-        """
         return pulumi.get(self, "tenancy")
 
     @tenancy.setter
@@ -1751,9 +1316,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="userData")
     def user_data(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
-        """
         return pulumi.get(self, "user_data")
 
     @user_data.setter
@@ -1763,9 +1325,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="userDataBase64")
     def user_data_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
-        """
         return pulumi.get(self, "user_data_base64")
 
     @user_data_base64.setter
@@ -1775,9 +1334,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="userDataReplaceOnChange")
     def user_data_replace_on_change(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
-        """
         return pulumi.get(self, "user_data_replace_on_change")
 
     @user_data_replace_on_change.setter
@@ -1787,11 +1343,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="volumeTags")
     def volume_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign, at instance-creation time, to root and EBS volumes.
-
-        > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
-        """
         return pulumi.get(self, "volume_tags")
 
     @volume_tags.setter
@@ -1801,9 +1352,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of security group IDs to associate with.
-        """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
@@ -1868,258 +1416,9 @@ class Instance(pulumi.CustomResource):
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides an EC2 instance resource. This allows instances to be created, updated, and deleted.
-
-        ## Example Usage
-
-        ### Basic example using AMI lookup
-
-        Using a data source
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ubuntu = aws.ec2.get_ami(most_recent=True,
-            filters=[
-                {
-                    "name": "name",
-                    "values": ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"],
-                },
-                {
-                    "name": "virtualization-type",
-                    "values": ["hvm"],
-                },
-            ],
-            owners=["099720109477"])
-        example = aws.ec2.Instance("example",
-            ami=ubuntu.id,
-            instance_type=aws.ec2.InstanceType.T3_MICRO,
-            tags={
-                "Name": "HelloWorld",
-            })
-        ```
-
-        Using AWS Systems Manager Parameter Store
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.Instance("example",
-            ami="resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64",
-            instance_type=aws.ec2.InstanceType.T3_MICRO,
-            tags={
-                "Name": "HelloWorld",
-            })
-        ```
-
-        ### Spot instance example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.get_ami(most_recent=True,
-            owners=["amazon"],
-            filters=[
-                {
-                    "name": "architecture",
-                    "values": ["arm64"],
-                },
-                {
-                    "name": "name",
-                    "values": ["al2023-ami-2023*"],
-                },
-            ])
-        example_instance = aws.ec2.Instance("example",
-            ami=example.id,
-            instance_market_options={
-                "market_type": "spot",
-                "spot_options": {
-                    "max_price": "0.0031",
-                },
-            },
-            instance_type=aws.ec2.InstanceType.T4G_NANO,
-            tags={
-                "Name": "test-spot",
-            })
-        ```
-
-        ### Network and credit specification example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        my_vpc = aws.ec2.Vpc("my_vpc",
-            cidr_block="172.16.0.0/16",
-            tags={
-                "Name": "tf-example",
-            })
-        my_subnet = aws.ec2.Subnet("my_subnet",
-            vpc_id=my_vpc.id,
-            cidr_block="172.16.10.0/24",
-            availability_zone="us-west-2a",
-            tags={
-                "Name": "tf-example",
-            })
-        example = aws.ec2.NetworkInterface("example",
-            subnet_id=my_subnet.id,
-            private_ips=["172.16.10.100"],
-            tags={
-                "Name": "primary_network_interface",
-            })
-        example_instance = aws.ec2.Instance("example",
-            ami="ami-005e54dee72cc1d00",
-            instance_type=aws.ec2.InstanceType.T2_MICRO,
-            primary_network_interface={
-                "network_interface_id": example.id,
-            },
-            credit_specification={
-                "cpu_credits": "unlimited",
-            })
-        ```
-
-        ### CPU options example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.Vpc("example",
-            cidr_block="172.16.0.0/16",
-            tags={
-                "Name": "tf-example",
-            })
-        example_subnet = aws.ec2.Subnet("example",
-            vpc_id=example.id,
-            cidr_block="172.16.10.0/24",
-            availability_zone="us-east-2a",
-            tags={
-                "Name": "tf-example",
-            })
-        amzn_linux_2023_ami = aws.ec2.get_ami(most_recent=True,
-            owners=["amazon"],
-            filters=[{
-                "name": "name",
-                "values": ["al2023-ami-2023.*-x86_64"],
-            }])
-        example_instance = aws.ec2.Instance("example",
-            ami=amzn_linux_2023_ami.id,
-            instance_type=aws.ec2.InstanceType.C6A_2_X_LARGE,
-            subnet_id=example_subnet.id,
-            cpu_options={
-                "core_count": 2,
-                "threads_per_core": 2,
-            },
-            tags={
-                "Name": "tf-example",
-            })
-        ```
-
-        ### Host resource group or License Manager registered AMI example
-
-        A host resource group is a collection of Dedicated Hosts that you can manage as a single entity. As you launch instances, License Manager allocates the hosts and launches instances on them based on the settings that you configured. You can add existing Dedicated Hosts to a host resource group and take advantage of automated host management through License Manager.
-
-        > **NOTE:** A dedicated host is automatically associated with a License Manager host resource group if **Allocate hosts automatically** is enabled. Otherwise, use the `host_resource_group_arn` argument to explicitly associate the instance with the host resource group.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        this = aws.ec2.Instance("this",
-            ami="ami-0dcc1e21636832c5d",
-            instance_type=aws.ec2.InstanceType.M5_LARGE,
-            host_resource_group_arn="arn:aws:resource-groups:us-west-2:123456789012:group/win-testhost",
-            tenancy="host")
-        ```
-
-        ## Tag Guide
-
-        These are the five types of tags you might encounter relative to an `ec2.Instance`:
-
-        1. **Instance tags**: Applied to instances but not to `ebs_block_device` and `root_block_device` volumes.
-        2. **Default tags**: Applied to the instance and to `ebs_block_device` and `root_block_device` volumes.
-        3. **Volume tags**: Applied during creation to `ebs_block_device` and `root_block_device` volumes.
-        4. **Root block device tags**: Applied only to the `root_block_device` volume. These conflict with `volume_tags`.
-        5. **EBS block device tags**: Applied only to the specific `ebs_block_device` volume you configure them for and cannot be updated. These conflict with `volume_tags`.
-
-        Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `id` - (String) ID of the instance.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
-        Using `pulumi import`, import instances using the `id`. For example:
-
-        % pulumi import aws_instance.web i-12345678
-
+        Create a Instance resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
-        :param pulumi.Input[_builtins.bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
-        :param pulumi.Input[_builtins.str] availability_zone: AZ to start the instance in.
-        :param pulumi.Input[Union['InstanceCapacityReservationSpecificationArgs', 'InstanceCapacityReservationSpecificationArgsDict']] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-        :param pulumi.Input[Union['InstanceCpuOptionsArgs', 'InstanceCpuOptionsArgsDict']] cpu_options: The CPU options for the instance. See CPU Options below for more details.
-        :param pulumi.Input[Union['InstanceCreditSpecificationArgs', 'InstanceCreditSpecificationArgsDict']] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
-        :param pulumi.Input[_builtins.bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
-        :param pulumi.Input[_builtins.bool] disable_api_termination: If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceEbsBlockDeviceArgs', 'InstanceEbsBlockDeviceArgsDict']]]] ebs_block_devices: One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
-        :param pulumi.Input[_builtins.bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
-        :param pulumi.Input[_builtins.bool] enable_primary_ipv6: Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
-        :param pulumi.Input[Union['InstanceEnclaveOptionsArgs', 'InstanceEnclaveOptionsArgsDict']] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceEphemeralBlockDeviceArgs', 'InstanceEphemeralBlockDeviceArgsDict']]]] ephemeral_block_devices: One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
-        :param pulumi.Input[_builtins.bool] force_destroy: Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-        :param pulumi.Input[_builtins.bool] get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
-        :param pulumi.Input[_builtins.bool] hibernation: If true, the launched EC2 instance will support hibernation.
-        :param pulumi.Input[_builtins.str] host_id: ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
-        :param pulumi.Input[_builtins.str] host_resource_group_arn: ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
-        :param pulumi.Input[_builtins.str] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-        :param pulumi.Input[_builtins.str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
-        :param pulumi.Input[Union['InstanceInstanceMarketOptionsArgs', 'InstanceInstanceMarketOptionsArgsDict']] instance_market_options: Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
-        :param pulumi.Input[Union[_builtins.str, 'InstanceType']] instance_type: Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
-        :param pulumi.Input[_builtins.int] ipv6_address_count: Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
-        :param pulumi.Input[_builtins.str] key_name: Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
-        :param pulumi.Input[Union['InstanceLaunchTemplateArgs', 'InstanceLaunchTemplateArgsDict']] launch_template: Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
-        :param pulumi.Input[Union['InstanceMaintenanceOptionsArgs', 'InstanceMaintenanceOptionsArgsDict']] maintenance_options: Maintenance and recovery options for the instance. See Maintenance Options below for more details.
-        :param pulumi.Input[Union['InstanceMetadataOptionsArgs', 'InstanceMetadataOptionsArgsDict']] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
-        :param pulumi.Input[_builtins.bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceNetworkInterfaceArgs', 'InstanceNetworkInterfaceArgsDict']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
-        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in. Conflicts with `placement_group_id`.
-        :param pulumi.Input[_builtins.str] placement_group_id: Placement Group ID to start the instance in. Conflicts with `placement_group`.
-        :param pulumi.Input[_builtins.int] placement_partition_number: Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
-        :param pulumi.Input[Union['InstancePrimaryNetworkInterfaceArgs', 'InstancePrimaryNetworkInterfaceArgsDict']] primary_network_interface: The primary network interface. See Primary Network Interface below.
-        :param pulumi.Input[Union['InstancePrivateDnsNameOptionsArgs', 'InstancePrivateDnsNameOptionsArgsDict']] private_dns_name_options: Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
-        :param pulumi.Input[_builtins.str] private_ip: Private IP address to associate with the instance in a VPC.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['InstanceRootBlockDeviceArgs', 'InstanceRootBlockDeviceArgsDict']] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_private_ips: List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: List of security group names to associate with.
-               
-               > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
-        :param pulumi.Input[_builtins.bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
-        :param pulumi.Input[_builtins.str] subnet_id: VPC Subnet ID to launch in.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union[_builtins.str, 'Tenancy']] tenancy: Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
-        :param pulumi.Input[_builtins.str] user_data: User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
-        :param pulumi.Input[_builtins.str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
-        :param pulumi.Input[_builtins.bool] user_data_replace_on_change: When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] volume_tags: Map of tags to assign, at instance-creation time, to root and EBS volumes.
-               
-               > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of security group IDs to associate with.
         """
         ...
     @overload
@@ -2128,203 +1427,7 @@ class Instance(pulumi.CustomResource):
                  args: Optional[InstanceArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an EC2 instance resource. This allows instances to be created, updated, and deleted.
-
-        ## Example Usage
-
-        ### Basic example using AMI lookup
-
-        Using a data source
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ubuntu = aws.ec2.get_ami(most_recent=True,
-            filters=[
-                {
-                    "name": "name",
-                    "values": ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"],
-                },
-                {
-                    "name": "virtualization-type",
-                    "values": ["hvm"],
-                },
-            ],
-            owners=["099720109477"])
-        example = aws.ec2.Instance("example",
-            ami=ubuntu.id,
-            instance_type=aws.ec2.InstanceType.T3_MICRO,
-            tags={
-                "Name": "HelloWorld",
-            })
-        ```
-
-        Using AWS Systems Manager Parameter Store
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.Instance("example",
-            ami="resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64",
-            instance_type=aws.ec2.InstanceType.T3_MICRO,
-            tags={
-                "Name": "HelloWorld",
-            })
-        ```
-
-        ### Spot instance example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.get_ami(most_recent=True,
-            owners=["amazon"],
-            filters=[
-                {
-                    "name": "architecture",
-                    "values": ["arm64"],
-                },
-                {
-                    "name": "name",
-                    "values": ["al2023-ami-2023*"],
-                },
-            ])
-        example_instance = aws.ec2.Instance("example",
-            ami=example.id,
-            instance_market_options={
-                "market_type": "spot",
-                "spot_options": {
-                    "max_price": "0.0031",
-                },
-            },
-            instance_type=aws.ec2.InstanceType.T4G_NANO,
-            tags={
-                "Name": "test-spot",
-            })
-        ```
-
-        ### Network and credit specification example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        my_vpc = aws.ec2.Vpc("my_vpc",
-            cidr_block="172.16.0.0/16",
-            tags={
-                "Name": "tf-example",
-            })
-        my_subnet = aws.ec2.Subnet("my_subnet",
-            vpc_id=my_vpc.id,
-            cidr_block="172.16.10.0/24",
-            availability_zone="us-west-2a",
-            tags={
-                "Name": "tf-example",
-            })
-        example = aws.ec2.NetworkInterface("example",
-            subnet_id=my_subnet.id,
-            private_ips=["172.16.10.100"],
-            tags={
-                "Name": "primary_network_interface",
-            })
-        example_instance = aws.ec2.Instance("example",
-            ami="ami-005e54dee72cc1d00",
-            instance_type=aws.ec2.InstanceType.T2_MICRO,
-            primary_network_interface={
-                "network_interface_id": example.id,
-            },
-            credit_specification={
-                "cpu_credits": "unlimited",
-            })
-        ```
-
-        ### CPU options example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.Vpc("example",
-            cidr_block="172.16.0.0/16",
-            tags={
-                "Name": "tf-example",
-            })
-        example_subnet = aws.ec2.Subnet("example",
-            vpc_id=example.id,
-            cidr_block="172.16.10.0/24",
-            availability_zone="us-east-2a",
-            tags={
-                "Name": "tf-example",
-            })
-        amzn_linux_2023_ami = aws.ec2.get_ami(most_recent=True,
-            owners=["amazon"],
-            filters=[{
-                "name": "name",
-                "values": ["al2023-ami-2023.*-x86_64"],
-            }])
-        example_instance = aws.ec2.Instance("example",
-            ami=amzn_linux_2023_ami.id,
-            instance_type=aws.ec2.InstanceType.C6A_2_X_LARGE,
-            subnet_id=example_subnet.id,
-            cpu_options={
-                "core_count": 2,
-                "threads_per_core": 2,
-            },
-            tags={
-                "Name": "tf-example",
-            })
-        ```
-
-        ### Host resource group or License Manager registered AMI example
-
-        A host resource group is a collection of Dedicated Hosts that you can manage as a single entity. As you launch instances, License Manager allocates the hosts and launches instances on them based on the settings that you configured. You can add existing Dedicated Hosts to a host resource group and take advantage of automated host management through License Manager.
-
-        > **NOTE:** A dedicated host is automatically associated with a License Manager host resource group if **Allocate hosts automatically** is enabled. Otherwise, use the `host_resource_group_arn` argument to explicitly associate the instance with the host resource group.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        this = aws.ec2.Instance("this",
-            ami="ami-0dcc1e21636832c5d",
-            instance_type=aws.ec2.InstanceType.M5_LARGE,
-            host_resource_group_arn="arn:aws:resource-groups:us-west-2:123456789012:group/win-testhost",
-            tenancy="host")
-        ```
-
-        ## Tag Guide
-
-        These are the five types of tags you might encounter relative to an `ec2.Instance`:
-
-        1. **Instance tags**: Applied to instances but not to `ebs_block_device` and `root_block_device` volumes.
-        2. **Default tags**: Applied to the instance and to `ebs_block_device` and `root_block_device` volumes.
-        3. **Volume tags**: Applied during creation to `ebs_block_device` and `root_block_device` volumes.
-        4. **Root block device tags**: Applied only to the `root_block_device` volume. These conflict with `volume_tags`.
-        5. **EBS block device tags**: Applied only to the specific `ebs_block_device` volume you configure them for and cannot be updated. These conflict with `volume_tags`.
-
-        Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `id` - (String) ID of the instance.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
-        Using `pulumi import`, import instances using the `id`. For example:
-
-        % pulumi import aws_instance.web i-12345678
-
+        Create a Instance resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -2535,70 +1638,6 @@ class Instance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
-        :param pulumi.Input[_builtins.str] arn: ARN of the instance.
-        :param pulumi.Input[_builtins.bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
-        :param pulumi.Input[_builtins.str] availability_zone: AZ to start the instance in.
-        :param pulumi.Input[Union['InstanceCapacityReservationSpecificationArgs', 'InstanceCapacityReservationSpecificationArgsDict']] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-        :param pulumi.Input[Union['InstanceCpuOptionsArgs', 'InstanceCpuOptionsArgsDict']] cpu_options: The CPU options for the instance. See CPU Options below for more details.
-        :param pulumi.Input[Union['InstanceCreditSpecificationArgs', 'InstanceCreditSpecificationArgsDict']] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
-        :param pulumi.Input[_builtins.bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
-        :param pulumi.Input[_builtins.bool] disable_api_termination: If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceEbsBlockDeviceArgs', 'InstanceEbsBlockDeviceArgsDict']]]] ebs_block_devices: One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
-        :param pulumi.Input[_builtins.bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
-        :param pulumi.Input[_builtins.bool] enable_primary_ipv6: Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
-        :param pulumi.Input[Union['InstanceEnclaveOptionsArgs', 'InstanceEnclaveOptionsArgsDict']] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceEphemeralBlockDeviceArgs', 'InstanceEphemeralBlockDeviceArgsDict']]]] ephemeral_block_devices: One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
-        :param pulumi.Input[_builtins.bool] force_destroy: Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-        :param pulumi.Input[_builtins.bool] get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
-        :param pulumi.Input[_builtins.bool] hibernation: If true, the launched EC2 instance will support hibernation.
-        :param pulumi.Input[_builtins.str] host_id: ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
-        :param pulumi.Input[_builtins.str] host_resource_group_arn: ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
-        :param pulumi.Input[_builtins.str] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-        :param pulumi.Input[_builtins.str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
-        :param pulumi.Input[_builtins.str] instance_lifecycle: Indicates whether this is a Spot Instance or a Scheduled Instance.
-        :param pulumi.Input[Union['InstanceInstanceMarketOptionsArgs', 'InstanceInstanceMarketOptionsArgsDict']] instance_market_options: Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
-        :param pulumi.Input[_builtins.str] instance_state: State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
-        :param pulumi.Input[Union[_builtins.str, 'InstanceType']] instance_type: Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
-        :param pulumi.Input[_builtins.int] ipv6_address_count: Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
-        :param pulumi.Input[_builtins.str] key_name: Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
-        :param pulumi.Input[Union['InstanceLaunchTemplateArgs', 'InstanceLaunchTemplateArgsDict']] launch_template: Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
-        :param pulumi.Input[Union['InstanceMaintenanceOptionsArgs', 'InstanceMaintenanceOptionsArgsDict']] maintenance_options: Maintenance and recovery options for the instance. See Maintenance Options below for more details.
-        :param pulumi.Input[Union['InstanceMetadataOptionsArgs', 'InstanceMetadataOptionsArgsDict']] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
-        :param pulumi.Input[_builtins.bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceNetworkInterfaceArgs', 'InstanceNetworkInterfaceArgsDict']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
-        :param pulumi.Input[_builtins.str] outpost_arn: ARN of the Outpost the instance is assigned to.
-        :param pulumi.Input[_builtins.str] password_data: Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `get_password_data` is true. Note that this encrypted value will be stored in the state file, as with all exported attributes. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
-        :param pulumi.Input[_builtins.str] placement_group: Placement Group to start the instance in. Conflicts with `placement_group_id`.
-        :param pulumi.Input[_builtins.str] placement_group_id: Placement Group ID to start the instance in. Conflicts with `placement_group`.
-        :param pulumi.Input[_builtins.int] placement_partition_number: Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
-        :param pulumi.Input[Union['InstancePrimaryNetworkInterfaceArgs', 'InstancePrimaryNetworkInterfaceArgsDict']] primary_network_interface: The primary network interface. See Primary Network Interface below.
-        :param pulumi.Input[_builtins.str] primary_network_interface_id: ID of the instance's primary network interface.
-        :param pulumi.Input[_builtins.str] private_dns: Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
-        :param pulumi.Input[Union['InstancePrivateDnsNameOptionsArgs', 'InstancePrivateDnsNameOptionsArgsDict']] private_dns_name_options: Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
-        :param pulumi.Input[_builtins.str] private_ip: Private IP address to associate with the instance in a VPC.
-        :param pulumi.Input[_builtins.str] public_dns: Public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
-        :param pulumi.Input[_builtins.str] public_ip: Public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `public_ip` as this field will change after the EIP is attached.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['InstanceRootBlockDeviceArgs', 'InstanceRootBlockDeviceArgsDict']] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_private_ips: List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: List of security group names to associate with.
-               
-               > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
-        :param pulumi.Input[_builtins.bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
-        :param pulumi.Input[_builtins.str] spot_instance_request_id: If the request is a Spot Instance request, the ID of the request.
-        :param pulumi.Input[_builtins.str] subnet_id: VPC Subnet ID to launch in.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union[_builtins.str, 'Tenancy']] tenancy: Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
-        :param pulumi.Input[_builtins.str] user_data: User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
-        :param pulumi.Input[_builtins.str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
-        :param pulumi.Input[_builtins.bool] user_data_replace_on_change: When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] volume_tags: Map of tags to assign, at instance-creation time, to root and EBS volumes.
-               
-               > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of security group IDs to associate with.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -2669,486 +1708,302 @@ class Instance(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def ami(self) -> pulumi.Output[_builtins.str]:
-        """
-        AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
-        """
         return pulumi.get(self, "ami")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the instance.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="associatePublicIpAddress")
     def associate_public_ip_address(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether to associate a public IP address with an instance in a VPC.
-        """
         return pulumi.get(self, "associate_public_ip_address")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[_builtins.str]:
-        """
-        AZ to start the instance in.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="capacityReservationSpecification")
     def capacity_reservation_specification(self) -> pulumi.Output['outputs.InstanceCapacityReservationSpecification']:
-        """
-        Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-        """
         return pulumi.get(self, "capacity_reservation_specification")
 
     @_builtins.property
     @pulumi.getter(name="cpuOptions")
     def cpu_options(self) -> pulumi.Output['outputs.InstanceCpuOptions']:
-        """
-        The CPU options for the instance. See CPU Options below for more details.
-        """
         return pulumi.get(self, "cpu_options")
 
     @_builtins.property
     @pulumi.getter(name="creditSpecification")
     def credit_specification(self) -> pulumi.Output[Optional['outputs.InstanceCreditSpecification']]:
-        """
-        Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
-        """
         return pulumi.get(self, "credit_specification")
 
     @_builtins.property
     @pulumi.getter(name="disableApiStop")
     def disable_api_stop(self) -> pulumi.Output[_builtins.bool]:
-        """
-        If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
-        """
         return pulumi.get(self, "disable_api_stop")
 
     @_builtins.property
     @pulumi.getter(name="disableApiTermination")
     def disable_api_termination(self) -> pulumi.Output[_builtins.bool]:
-        """
-        If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
-        """
         return pulumi.get(self, "disable_api_termination")
 
     @_builtins.property
     @pulumi.getter(name="ebsBlockDevices")
     def ebs_block_devices(self) -> pulumi.Output[Sequence['outputs.InstanceEbsBlockDevice']]:
-        """
-        One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
-        """
         return pulumi.get(self, "ebs_block_devices")
 
     @_builtins.property
     @pulumi.getter(name="ebsOptimized")
     def ebs_optimized(self) -> pulumi.Output[_builtins.bool]:
-        """
-        If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
-        """
         return pulumi.get(self, "ebs_optimized")
 
     @_builtins.property
     @pulumi.getter(name="enablePrimaryIpv6")
     def enable_primary_ipv6(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
-        """
         return pulumi.get(self, "enable_primary_ipv6")
 
     @_builtins.property
     @pulumi.getter(name="enclaveOptions")
     def enclave_options(self) -> pulumi.Output['outputs.InstanceEnclaveOptions']:
-        """
-        Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
-        """
         return pulumi.get(self, "enclave_options")
 
     @_builtins.property
     @pulumi.getter(name="ephemeralBlockDevices")
     def ephemeral_block_devices(self) -> pulumi.Output[Sequence['outputs.InstanceEphemeralBlockDevice']]:
-        """
-        One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
-        """
         return pulumi.get(self, "ephemeral_block_devices")
 
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-        """
         return pulumi.get(self, "force_destroy")
 
     @_builtins.property
     @pulumi.getter(name="getPasswordData")
     def get_password_data(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
-        """
         return pulumi.get(self, "get_password_data")
 
     @_builtins.property
     @pulumi.getter
     def hibernation(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        If true, the launched EC2 instance will support hibernation.
-        """
         return pulumi.get(self, "hibernation")
 
     @_builtins.property
     @pulumi.getter(name="hostId")
     def host_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
-        """
         return pulumi.get(self, "host_id")
 
     @_builtins.property
     @pulumi.getter(name="hostResourceGroupArn")
     def host_resource_group_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
-        """
         return pulumi.get(self, "host_resource_group_arn")
 
     @_builtins.property
     @pulumi.getter(name="iamInstanceProfile")
     def iam_instance_profile(self) -> pulumi.Output[_builtins.str]:
-        """
-        IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-        """
         return pulumi.get(self, "iam_instance_profile")
 
     @_builtins.property
     @pulumi.getter(name="instanceInitiatedShutdownBehavior")
     def instance_initiated_shutdown_behavior(self) -> pulumi.Output[_builtins.str]:
-        """
-        Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
-        """
         return pulumi.get(self, "instance_initiated_shutdown_behavior")
 
     @_builtins.property
     @pulumi.getter(name="instanceLifecycle")
     def instance_lifecycle(self) -> pulumi.Output[_builtins.str]:
-        """
-        Indicates whether this is a Spot Instance or a Scheduled Instance.
-        """
         return pulumi.get(self, "instance_lifecycle")
 
     @_builtins.property
     @pulumi.getter(name="instanceMarketOptions")
     def instance_market_options(self) -> pulumi.Output['outputs.InstanceInstanceMarketOptions']:
-        """
-        Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
-        """
         return pulumi.get(self, "instance_market_options")
 
     @_builtins.property
     @pulumi.getter(name="instanceState")
     def instance_state(self) -> pulumi.Output[_builtins.str]:
-        """
-        State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
-        """
         return pulumi.get(self, "instance_state")
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
-        """
         return pulumi.get(self, "instance_type")
 
     @_builtins.property
     @pulumi.getter(name="ipv6AddressCount")
     def ipv6_address_count(self) -> pulumi.Output[_builtins.int]:
-        """
-        Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
-        """
         return pulumi.get(self, "ipv6_address_count")
 
     @_builtins.property
     @pulumi.getter(name="ipv6Addresses")
     def ipv6_addresses(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
-        """
         return pulumi.get(self, "ipv6_addresses")
 
     @_builtins.property
     @pulumi.getter(name="keyName")
     def key_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
-        """
         return pulumi.get(self, "key_name")
 
     @_builtins.property
     @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> pulumi.Output[Optional['outputs.InstanceLaunchTemplate']]:
-        """
-        Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
-        """
         return pulumi.get(self, "launch_template")
 
     @_builtins.property
     @pulumi.getter(name="maintenanceOptions")
     def maintenance_options(self) -> pulumi.Output['outputs.InstanceMaintenanceOptions']:
-        """
-        Maintenance and recovery options for the instance. See Maintenance Options below for more details.
-        """
         return pulumi.get(self, "maintenance_options")
 
     @_builtins.property
     @pulumi.getter(name="metadataOptions")
     def metadata_options(self) -> pulumi.Output['outputs.InstanceMetadataOptions']:
-        """
-        Customize the metadata options of the instance. See Metadata Options below for more details.
-        """
         return pulumi.get(self, "metadata_options")
 
     @_builtins.property
     @pulumi.getter
     def monitoring(self) -> pulumi.Output[_builtins.bool]:
-        """
-        If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
-        """
         return pulumi.get(self, "monitoring")
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
     @_utilities.deprecated("""network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the ec2.NetworkInterfaceAttachment resource.""")
     def network_interfaces(self) -> pulumi.Output[Sequence['outputs.InstanceNetworkInterface']]:
-        """
-        Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
-        """
         return pulumi.get(self, "network_interfaces")
 
     @_builtins.property
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Outpost the instance is assigned to.
-        """
         return pulumi.get(self, "outpost_arn")
 
     @_builtins.property
     @pulumi.getter(name="passwordData")
     def password_data(self) -> pulumi.Output[_builtins.str]:
-        """
-        Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `get_password_data` is true. Note that this encrypted value will be stored in the state file, as with all exported attributes. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
-        """
         return pulumi.get(self, "password_data")
 
     @_builtins.property
     @pulumi.getter(name="placementGroup")
     def placement_group(self) -> pulumi.Output[_builtins.str]:
-        """
-        Placement Group to start the instance in. Conflicts with `placement_group_id`.
-        """
         return pulumi.get(self, "placement_group")
 
     @_builtins.property
     @pulumi.getter(name="placementGroupId")
     def placement_group_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Placement Group ID to start the instance in. Conflicts with `placement_group`.
-        """
         return pulumi.get(self, "placement_group_id")
 
     @_builtins.property
     @pulumi.getter(name="placementPartitionNumber")
     def placement_partition_number(self) -> pulumi.Output[_builtins.int]:
-        """
-        Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
-        """
         return pulumi.get(self, "placement_partition_number")
 
     @_builtins.property
     @pulumi.getter(name="primaryNetworkInterface")
     def primary_network_interface(self) -> pulumi.Output['outputs.InstancePrimaryNetworkInterface']:
-        """
-        The primary network interface. See Primary Network Interface below.
-        """
         return pulumi.get(self, "primary_network_interface")
 
     @_builtins.property
     @pulumi.getter(name="primaryNetworkInterfaceId")
     def primary_network_interface_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the instance's primary network interface.
-        """
         return pulumi.get(self, "primary_network_interface_id")
 
     @_builtins.property
     @pulumi.getter(name="privateDns")
     def private_dns(self) -> pulumi.Output[_builtins.str]:
-        """
-        Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
-        """
         return pulumi.get(self, "private_dns")
 
     @_builtins.property
     @pulumi.getter(name="privateDnsNameOptions")
     def private_dns_name_options(self) -> pulumi.Output['outputs.InstancePrivateDnsNameOptions']:
-        """
-        Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
-        """
         return pulumi.get(self, "private_dns_name_options")
 
     @_builtins.property
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> pulumi.Output[_builtins.str]:
-        """
-        Private IP address to associate with the instance in a VPC.
-        """
         return pulumi.get(self, "private_ip")
 
     @_builtins.property
     @pulumi.getter(name="publicDns")
     def public_dns(self) -> pulumi.Output[_builtins.str]:
-        """
-        Public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
-        """
         return pulumi.get(self, "public_dns")
 
     @_builtins.property
     @pulumi.getter(name="publicIp")
     def public_ip(self) -> pulumi.Output[_builtins.str]:
-        """
-        Public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `public_ip` as this field will change after the EIP is attached.
-        """
         return pulumi.get(self, "public_ip")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="rootBlockDevice")
     def root_block_device(self) -> pulumi.Output['outputs.InstanceRootBlockDevice']:
-        """
-        Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
-        """
         return pulumi.get(self, "root_block_device")
 
     @_builtins.property
     @pulumi.getter(name="secondaryPrivateIps")
     def secondary_private_ips(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
-        """
         return pulumi.get(self, "secondary_private_ips")
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
     @_utilities.deprecated("""Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.""")
     def security_groups(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of security group names to associate with.
-
-        > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
-        """
         return pulumi.get(self, "security_groups")
 
     @_builtins.property
     @pulumi.getter(name="sourceDestCheck")
     def source_dest_check(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
-        """
         return pulumi.get(self, "source_dest_check")
 
     @_builtins.property
     @pulumi.getter(name="spotInstanceRequestId")
     def spot_instance_request_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        If the request is a Spot Instance request, the ID of the request.
-        """
         return pulumi.get(self, "spot_instance_request_id")
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        VPC Subnet ID to launch in.
-        """
         return pulumi.get(self, "subnet_id")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def tenancy(self) -> pulumi.Output[_builtins.str]:
-        """
-        Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
-        """
         return pulumi.get(self, "tenancy")
 
     @_builtins.property
     @pulumi.getter(name="userData")
     def user_data(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
-        """
         return pulumi.get(self, "user_data")
 
     @_builtins.property
     @pulumi.getter(name="userDataBase64")
     def user_data_base64(self) -> pulumi.Output[_builtins.str]:
-        """
-        Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
-        """
         return pulumi.get(self, "user_data_base64")
 
     @_builtins.property
     @pulumi.getter(name="userDataReplaceOnChange")
     def user_data_replace_on_change(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
-        """
         return pulumi.get(self, "user_data_replace_on_change")
 
     @_builtins.property
     @pulumi.getter(name="volumeTags")
     def volume_tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign, at instance-creation time, to root and EBS volumes.
-
-        > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
-        """
         return pulumi.get(self, "volume_tags")
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of security group IDs to associate with.
-        """
         return pulumi.get(self, "vpc_security_group_ids")
 

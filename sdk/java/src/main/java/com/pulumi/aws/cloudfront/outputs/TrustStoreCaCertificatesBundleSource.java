@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TrustStoreCaCertificatesBundleSource {
-    /**
-     * @return Configuration block for the S3 location of the CA certificates bundle. See `caCertificatesBundleS3Location` below.
-     * 
-     */
     private @Nullable TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location caCertificatesBundleS3Location;
 
     private TrustStoreCaCertificatesBundleSource() {}
-    /**
-     * @return Configuration block for the S3 location of the CA certificates bundle. See `caCertificatesBundleS3Location` below.
-     * 
-     */
     public Optional<TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location> caCertificatesBundleS3Location() {
         return Optional.ofNullable(this.caCertificatesBundleS3Location);
     }

@@ -17,83 +17,17 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an [AWS Mainframe Modernization Deployment.](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-deploy.html)
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.m2.Deployment;
- * import com.pulumi.aws.m2.DeploymentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new Deployment("test", DeploymentArgs.builder()
- *             .environmentId("01234567890abcdef012345678")
- *             .applicationId("34567890abcdef012345678012")
- *             .applicationVersion(1)
- *             .start(true)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Mainframe Modernization Deployment using the `APPLICATION-ID,DEPLOYMENT-ID`. For example:
- * 
- * ```sh
- * $ pulumi import aws:m2/deployment:Deployment example APPLICATION-ID,DEPLOYMENT-ID
- * ```
- * 
- */
 @ResourceType(type="aws:m2/deployment:Deployment")
 public class Deployment extends com.pulumi.resources.CustomResource {
-    /**
-     * Application to deploy.
-     * 
-     */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
-    /**
-     * @return Application to deploy.
-     * 
-     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
-    /**
-     * Version to application to deploy
-     * 
-     */
     @Export(name="applicationVersion", refs={Integer.class}, tree="[0]")
     private Output<Integer> applicationVersion;
 
-    /**
-     * @return Version to application to deploy
-     * 
-     */
     public Output<Integer> applicationVersion() {
         return this.applicationVersion;
     }
@@ -103,17 +37,9 @@ public class Deployment extends com.pulumi.resources.CustomResource {
     public Output<String> deploymentId() {
         return this.deploymentId;
     }
-    /**
-     * Environment to deploy application to.
-     * 
-     */
     @Export(name="environmentId", refs={String.class}, tree="[0]")
     private Output<String> environmentId;
 
-    /**
-     * @return Environment to deploy application to.
-     * 
-     */
     public Output<String> environmentId() {
         return this.environmentId;
     }
@@ -123,31 +49,15 @@ public class Deployment extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> forceStop() {
         return Codegen.optional(this.forceStop);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Start the application once deployed.
-     * 
-     */
     @Export(name="start", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> start;
 
-    /**
-     * @return Start the application once deployed.
-     * 
-     */
     public Output<Boolean> start() {
         return this.start;
     }

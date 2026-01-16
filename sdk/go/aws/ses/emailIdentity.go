@@ -12,49 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an SES email identity resource
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ses"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.NewEmailIdentity(ctx, "example", &ses.EmailIdentityArgs{
-//				Email: pulumi.String("email@example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SES email identities using the email address. For example:
-//
-// ```sh
-// $ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
-// ```
 type EmailIdentity struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the email identity.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The email address to assign to SES.
-	Email pulumi.StringOutput `pulumi:"email"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Arn    pulumi.StringOutput `pulumi:"arn"`
+	Email  pulumi.StringOutput `pulumi:"email"`
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -91,20 +53,14 @@ func GetEmailIdentity(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EmailIdentity resources.
 type emailIdentityState struct {
-	// The ARN of the email identity.
-	Arn *string `pulumi:"arn"`
-	// The email address to assign to SES.
-	Email *string `pulumi:"email"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Arn    *string `pulumi:"arn"`
+	Email  *string `pulumi:"email"`
 	Region *string `pulumi:"region"`
 }
 
 type EmailIdentityState struct {
-	// The ARN of the email identity.
-	Arn pulumi.StringPtrInput
-	// The email address to assign to SES.
-	Email pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Arn    pulumi.StringPtrInput
+	Email  pulumi.StringPtrInput
 	Region pulumi.StringPtrInput
 }
 
@@ -113,17 +69,13 @@ func (EmailIdentityState) ElementType() reflect.Type {
 }
 
 type emailIdentityArgs struct {
-	// The email address to assign to SES.
-	Email string `pulumi:"email"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Email  string  `pulumi:"email"`
 	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a EmailIdentity resource.
 type EmailIdentityArgs struct {
-	// The email address to assign to SES.
-	Email pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Email  pulumi.StringInput
 	Region pulumi.StringPtrInput
 }
 
@@ -214,17 +166,14 @@ func (o EmailIdentityOutput) ToEmailIdentityOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The ARN of the email identity.
 func (o EmailIdentityOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The email address to assign to SES.
 func (o EmailIdentityOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EmailIdentityOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

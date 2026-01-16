@@ -4,23 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides details about a Kinesis Stream Consumer.
- *
- * For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.kinesis.getStreamConsumer({
- *     name: "example-consumer",
- *     streamArn: exampleAwsKinesisStream.arn,
- * });
- * ```
- */
 export function getStreamConsumer(args: GetStreamConsumerArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamConsumerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kinesis/getStreamConsumer:getStreamConsumer", {
@@ -36,21 +19,9 @@ export function getStreamConsumer(args: GetStreamConsumerArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getStreamConsumer.
  */
 export interface GetStreamConsumerArgs {
-    /**
-     * ARN of the stream consumer.
-     */
     arn?: string;
-    /**
-     * Name of the stream consumer.
-     */
     name?: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * ARN of the data stream the consumer is registered with.
-     */
     streamArn: string;
     tags?: {[key: string]: string};
 }
@@ -60,9 +31,6 @@ export interface GetStreamConsumerArgs {
  */
 export interface GetStreamConsumerResult {
     readonly arn: string;
-    /**
-     * Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
-     */
     readonly creationTimestamp: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -70,30 +38,10 @@ export interface GetStreamConsumerResult {
     readonly id: string;
     readonly name: string;
     readonly region: string;
-    /**
-     * Current status of the stream consumer.
-     */
     readonly status: string;
     readonly streamArn: string;
     readonly tags: {[key: string]: string};
 }
-/**
- * Provides details about a Kinesis Stream Consumer.
- *
- * For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.kinesis.getStreamConsumer({
- *     name: "example-consumer",
- *     streamArn: exampleAwsKinesisStream.arn,
- * });
- * ```
- */
 export function getStreamConsumerOutput(args: GetStreamConsumerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStreamConsumerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:kinesis/getStreamConsumer:getStreamConsumer", {
@@ -109,21 +57,9 @@ export function getStreamConsumerOutput(args: GetStreamConsumerOutputArgs, opts?
  * A collection of arguments for invoking getStreamConsumer.
  */
 export interface GetStreamConsumerOutputArgs {
-    /**
-     * ARN of the stream consumer.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Name of the stream consumer.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the data stream the consumer is registered with.
-     */
     streamArn: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

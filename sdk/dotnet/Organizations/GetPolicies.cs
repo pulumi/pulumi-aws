@@ -11,99 +11,12 @@ namespace Pulumi.Aws.Organizations
 {
     public static class GetPolicies
     {
-        /// <summary>
-        /// Data source for managing an AWS Organizations Policies.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// using Std = Pulumi.Std;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Organizations.GetPolicies.Invoke(new()
-        ///     {
-        ///         Filter = "SERVICE_CONTROL_POLICY",
-        ///     });
-        /// 
-        ///     var exampleGetPolicy = Std.Toset.Invoke(new()
-        ///     {
-        ///         Input = example.Apply(getPoliciesResult =&gt; getPoliciesResult.Ids),
-        ///     }).Apply(invoke =&gt; );
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetPoliciesResult> InvokeAsync(GetPoliciesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPoliciesResult>("aws:organizations/getPolicies:getPolicies", args ?? new GetPoliciesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Organizations Policies.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// using Std = Pulumi.Std;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Organizations.GetPolicies.Invoke(new()
-        ///     {
-        ///         Filter = "SERVICE_CONTROL_POLICY",
-        ///     });
-        /// 
-        ///     var exampleGetPolicy = Std.Toset.Invoke(new()
-        ///     {
-        ///         Input = example.Apply(getPoliciesResult =&gt; getPoliciesResult.Ids),
-        ///     }).Apply(invoke =&gt; );
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPoliciesResult> Invoke(GetPoliciesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoliciesResult>("aws:organizations/getPolicies:getPolicies", args ?? new GetPoliciesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Organizations Policies.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// using Std = Pulumi.Std;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Organizations.GetPolicies.Invoke(new()
-        ///     {
-        ///         Filter = "SERVICE_CONTROL_POLICY",
-        ///     });
-        /// 
-        ///     var exampleGetPolicy = Std.Toset.Invoke(new()
-        ///     {
-        ///         Input = example.Apply(getPoliciesResult =&gt; getPoliciesResult.Ids),
-        ///     }).Apply(invoke =&gt; );
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPoliciesResult> Invoke(GetPoliciesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoliciesResult>("aws:organizations/getPolicies:getPolicies", args ?? new GetPoliciesInvokeArgs(), options.WithDefaults());
     }
@@ -111,9 +24,6 @@ namespace Pulumi.Aws.Organizations
 
     public sealed class GetPoliciesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The type of policies to be returned in the response. Valid values are `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
-        /// </summary>
         [Input("filter", required: true)]
         public string Filter { get; set; } = null!;
 
@@ -125,9 +35,6 @@ namespace Pulumi.Aws.Organizations
 
     public sealed class GetPoliciesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The type of policies to be returned in the response. Valid values are `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
-        /// </summary>
         [Input("filter", required: true)]
         public Input<string> Filter { get; set; } = null!;
 
@@ -146,9 +53,6 @@ namespace Pulumi.Aws.Organizations
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// List of all the policy ids found.
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
 
         [OutputConstructor]

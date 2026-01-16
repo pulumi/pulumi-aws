@@ -55,17 +55,11 @@ class GetDocumentResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def content(self) -> _builtins.str:
-        """
-        The content for the SSM document in JSON or YAML format.
-        """
         return pulumi.get(self, "content")
 
     @_builtins.property
@@ -76,9 +70,6 @@ class GetDocumentResult:
     @_builtins.property
     @pulumi.getter(name="documentType")
     def document_type(self) -> _builtins.str:
-        """
-        The type of the document.
-        """
         return pulumi.get(self, "document_type")
 
     @_builtins.property
@@ -127,36 +118,7 @@ def get_document(document_format: Optional[_builtins.str] = None,
                  region: Optional[_builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDocumentResult:
     """
-    Gets the contents of the specified Systems Manager document.
-
-    ## Example Usage
-
-    To get the contents of the document owned by AWS.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.ssm.get_document(name="AWS-GatherSoftwareInventory",
-        document_format="YAML")
-    pulumi.export("content", foo.content)
-    ```
-
-    To get the contents of the custom document.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ssm.get_document(name=test_aws_ssm_document["name"],
-        document_format="JSON")
-    ```
-
-
-    :param _builtins.str document_format: The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
-    :param _builtins.str document_version: The document version.
-    :param _builtins.str name: The name of the document.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['documentFormat'] = document_format
@@ -181,36 +143,7 @@ def get_document_output(document_format: Optional[pulumi.Input[Optional[_builtin
                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDocumentResult]:
     """
-    Gets the contents of the specified Systems Manager document.
-
-    ## Example Usage
-
-    To get the contents of the document owned by AWS.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.ssm.get_document(name="AWS-GatherSoftwareInventory",
-        document_format="YAML")
-    pulumi.export("content", foo.content)
-    ```
-
-    To get the contents of the custom document.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ssm.get_document(name=test_aws_ssm_document["name"],
-        document_format="JSON")
-    ```
-
-
-    :param _builtins.str document_format: The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
-    :param _builtins.str document_version: The document version.
-    :param _builtins.str name: The name of the document.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['documentFormat'] = document_format

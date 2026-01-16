@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class RevisionAssetsAssetImportAssetsFromS3AssetSource {
-    /**
-     * @return The name of the S3 bucket.
-     * 
-     */
     private String bucket;
-    /**
-     * @return The key of the object in the S3 bucket.
-     * 
-     */
     private String key;
 
     private RevisionAssetsAssetImportAssetsFromS3AssetSource() {}
-    /**
-     * @return The name of the S3 bucket.
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }
-    /**
-     * @return The key of the object in the S3 bucket.
-     * 
-     */
     public String key() {
         return this.key;
     }

@@ -26,11 +26,6 @@ class RequestValidatorArgs:
                  validate_request_parameters: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RequestValidator resource.
-        :param pulumi.Input[_builtins.str] rest_api: ID of the associated Rest API
-        :param pulumi.Input[_builtins.str] name: Name of the request validator
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] validate_request_body: Boolean whether to validate request body. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] validate_request_parameters: Boolean whether to validate request parameters. Defaults to `false`.
         """
         pulumi.set(__self__, "rest_api", rest_api)
         if name is not None:
@@ -45,9 +40,6 @@ class RequestValidatorArgs:
     @_builtins.property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the associated Rest API
-        """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
@@ -57,9 +49,6 @@ class RequestValidatorArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the request validator
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -69,9 +58,6 @@ class RequestValidatorArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -81,9 +67,6 @@ class RequestValidatorArgs:
     @_builtins.property
     @pulumi.getter(name="validateRequestBody")
     def validate_request_body(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean whether to validate request body. Defaults to `false`.
-        """
         return pulumi.get(self, "validate_request_body")
 
     @validate_request_body.setter
@@ -93,9 +76,6 @@ class RequestValidatorArgs:
     @_builtins.property
     @pulumi.getter(name="validateRequestParameters")
     def validate_request_parameters(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean whether to validate request parameters. Defaults to `false`.
-        """
         return pulumi.get(self, "validate_request_parameters")
 
     @validate_request_parameters.setter
@@ -113,11 +93,6 @@ class _RequestValidatorState:
                  validate_request_parameters: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering RequestValidator resources.
-        :param pulumi.Input[_builtins.str] name: Name of the request validator
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rest_api: ID of the associated Rest API
-        :param pulumi.Input[_builtins.bool] validate_request_body: Boolean whether to validate request body. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] validate_request_parameters: Boolean whether to validate request parameters. Defaults to `false`.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -133,9 +108,6 @@ class _RequestValidatorState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the request validator
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -145,9 +117,6 @@ class _RequestValidatorState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -157,9 +126,6 @@ class _RequestValidatorState:
     @_builtins.property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the associated Rest API
-        """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
@@ -169,9 +135,6 @@ class _RequestValidatorState:
     @_builtins.property
     @pulumi.getter(name="validateRequestBody")
     def validate_request_body(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean whether to validate request body. Defaults to `false`.
-        """
         return pulumi.get(self, "validate_request_body")
 
     @validate_request_body.setter
@@ -181,9 +144,6 @@ class _RequestValidatorState:
     @_builtins.property
     @pulumi.getter(name="validateRequestParameters")
     def validate_request_parameters(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean whether to validate request parameters. Defaults to `false`.
-        """
         return pulumi.get(self, "validate_request_parameters")
 
     @validate_request_parameters.setter
@@ -204,36 +164,9 @@ class RequestValidator(pulumi.CustomResource):
                  validate_request_parameters: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Manages an API Gateway Request Validator.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigateway.RequestValidator("example",
-            name="example",
-            rest_api=example_aws_api_gateway_rest_api["id"],
-            validate_request_body=True,
-            validate_request_parameters=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_api_gateway_request_validator` using `REST-API-ID/REQUEST-VALIDATOR-ID`. For example:
-
-        ```sh
-        $ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
-        ```
-
+        Create a RequestValidator resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: Name of the request validator
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rest_api: ID of the associated Rest API
-        :param pulumi.Input[_builtins.bool] validate_request_body: Boolean whether to validate request body. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] validate_request_parameters: Boolean whether to validate request parameters. Defaults to `false`.
         """
         ...
     @overload
@@ -242,29 +175,7 @@ class RequestValidator(pulumi.CustomResource):
                  args: RequestValidatorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an API Gateway Request Validator.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigateway.RequestValidator("example",
-            name="example",
-            rest_api=example_aws_api_gateway_rest_api["id"],
-            validate_request_body=True,
-            validate_request_parameters=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_api_gateway_request_validator` using `REST-API-ID/REQUEST-VALIDATOR-ID`. For example:
-
-        ```sh
-        $ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
-        ```
-
+        Create a RequestValidator resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RequestValidatorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -323,11 +234,6 @@ class RequestValidator(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: Name of the request validator
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rest_api: ID of the associated Rest API
-        :param pulumi.Input[_builtins.bool] validate_request_body: Boolean whether to validate request body. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] validate_request_parameters: Boolean whether to validate request parameters. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -343,40 +249,25 @@ class RequestValidator(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the request validator
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the associated Rest API
-        """
         return pulumi.get(self, "rest_api")
 
     @_builtins.property
     @pulumi.getter(name="validateRequestBody")
     def validate_request_body(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Boolean whether to validate request body. Defaults to `false`.
-        """
         return pulumi.get(self, "validate_request_body")
 
     @_builtins.property
     @pulumi.getter(name="validateRequestParameters")
     def validate_request_parameters(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Boolean whether to validate request parameters. Defaults to `false`.
-        """
         return pulumi.get(self, "validate_request_parameters")
 

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class NetworkInsightsPathFilterAtDestinationDestinationPortRangeGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The first port in the range.
-        /// </summary>
         [Input("fromPort")]
         public Input<int>? FromPort { get; set; }
 
-        /// <summary>
-        /// The last port in the range.
-        /// </summary>
         [Input("toPort")]
         public Input<int>? ToPort { get; set; }
 

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallenge {
-    /**
-     * @return Custom handling for challenge requests. See below.
-     * 
-     */
     private @Nullable WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandling customRequestHandling;
 
     private WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallenge() {}
-    /**
-     * @return Custom handling for challenge requests. See below.
-     * 
-     */
     public Optional<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandling> customRequestHandling() {
         return Optional.ofNullable(this.customRequestHandling);
     }

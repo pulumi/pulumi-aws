@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification {
-    /**
-     * @return Metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.
-     * 
-     */
     private String predefinedScalingMetricType;
-    /**
-     * @return Identifies the resource associated with the metric type.
-     * 
-     */
     private @Nullable String resourceLabel;
 
     private ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification() {}
-    /**
-     * @return Metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.
-     * 
-     */
     public String predefinedScalingMetricType() {
         return this.predefinedScalingMetricType;
     }
-    /**
-     * @return Identifies the resource associated with the metric type.
-     * 
-     */
     public Optional<String> resourceLabel() {
         return Optional.ofNullable(this.resourceLabel);
     }

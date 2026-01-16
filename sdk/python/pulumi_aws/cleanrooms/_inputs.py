@@ -190,12 +190,6 @@ if not MYPY:
     class MembershipDefaultResultConfigurationArgsDict(TypedDict):
         output_configuration: NotRequired[pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationArgsDict']]
         role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the IAM role which will be used to create the membership.
-        - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
-        - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
-        - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
-        """
 elif False:
     MembershipDefaultResultConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -204,12 +198,6 @@ class MembershipDefaultResultConfigurationArgs:
     def __init__(__self__, *,
                  output_configuration: Optional[pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationArgs']] = None,
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role which will be used to create the membership.
-               - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
-               - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
-               - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
-        """
         if output_configuration is not None:
             pulumi.set(__self__, "output_configuration", output_configuration)
         if role_arn is not None:
@@ -227,12 +215,6 @@ class MembershipDefaultResultConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the IAM role which will be used to create the membership.
-        - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
-        - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
-        - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -336,9 +318,6 @@ class MembershipPaymentConfigurationArgs:
 if not MYPY:
     class MembershipPaymentConfigurationQueryComputeArgsDict(TypedDict):
         is_responsible: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether the collaboration member has accepted to pay for query compute costs.
-        """
 elif False:
     MembershipPaymentConfigurationQueryComputeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -346,17 +325,11 @@ elif False:
 class MembershipPaymentConfigurationQueryComputeArgs:
     def __init__(__self__, *,
                  is_responsible: pulumi.Input[_builtins.bool]):
-        """
-        :param pulumi.Input[_builtins.bool] is_responsible: Indicates whether the collaboration member has accepted to pay for query compute costs.
-        """
         pulumi.set(__self__, "is_responsible", is_responsible)
 
     @_builtins.property
     @pulumi.getter(name="isResponsible")
     def is_responsible(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Indicates whether the collaboration member has accepted to pay for query compute costs.
-        """
         return pulumi.get(self, "is_responsible")
 
     @is_responsible.setter

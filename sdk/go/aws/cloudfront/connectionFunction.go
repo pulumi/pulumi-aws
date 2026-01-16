@@ -12,181 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS CloudFront Connection Function.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewConnectionFunction(ctx, "example", &cloudfront.ConnectionFunctionArgs{
-//				Name:                   pulumi.String("example-connection-function"),
-//				ConnectionFunctionCode: pulumi.String("function handler(event) { return event.request; }"),
-//				ConnectionFunctionConfig: &cloudfront.ConnectionFunctionConnectionFunctionConfigArgs{
-//					Runtime: pulumi.String("cloudfront-js-2.0"),
-//					Comment: pulumi.String("Example connection function"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Publish Enabled
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewConnectionFunction(ctx, "example", &cloudfront.ConnectionFunctionArgs{
-//				Name:                   pulumi.String("example-connection-function"),
-//				ConnectionFunctionCode: pulumi.String("function handler(event) { return event.request; }"),
-//				ConnectionFunctionConfig: &cloudfront.ConnectionFunctionConnectionFunctionConfigArgs{
-//					Runtime: pulumi.String("cloudfront-js-2.0"),
-//					Comment: pulumi.String("Example connection function"),
-//				},
-//				Publish: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Key Value Store Associations
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := cloudfront.NewKeyValueStore(ctx, "example", &cloudfront.KeyValueStoreArgs{
-//				Name:    pulumi.String("example-kvs"),
-//				Comment: pulumi.String("Example key value store"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudfront.NewConnectionFunction(ctx, "example", &cloudfront.ConnectionFunctionArgs{
-//				Name:                   pulumi.String("example-connection-function"),
-//				ConnectionFunctionCode: pulumi.String("function handler(event) { return event.request; }"),
-//				ConnectionFunctionConfig: &cloudfront.ConnectionFunctionConnectionFunctionConfigArgs{
-//					Runtime: pulumi.String("cloudfront-js-2.0"),
-//					Comment: pulumi.String("Example connection function"),
-//					KeyValueStoreAssociation: &cloudfront.ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs{
-//						KeyValueStoreArn: example.Arn,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Tags
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewConnectionFunction(ctx, "example", &cloudfront.ConnectionFunctionArgs{
-//				Name:                   pulumi.String("example-connection-function"),
-//				ConnectionFunctionCode: pulumi.String("function handler(event) { return event.request; }"),
-//				ConnectionFunctionConfig: &cloudfront.ConnectionFunctionConnectionFunctionConfigArgs{
-//					Runtime: pulumi.String("cloudfront-js-2.0"),
-//					Comment: pulumi.String("Example connection function"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("production"),
-//					"Team":        pulumi.String("web"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudFront Connection Function using the function ID. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudfront/connectionFunction:ConnectionFunction example E1PA6795UKMFR9
-// ```
 type ConnectionFunction struct {
 	pulumi.CustomResourceState
 
-	// ARN of the connection function.
-	ConnectionFunctionArn pulumi.StringOutput `pulumi:"connectionFunctionArn"`
-	// Code for the connection function. Maximum length is 40960 characters.
-	ConnectionFunctionCode pulumi.StringOutput `pulumi:"connectionFunctionCode"`
-	// Configuration information for the connection function. See `connectionFunctionConfig` below.
+	ConnectionFunctionArn    pulumi.StringOutput                                 `pulumi:"connectionFunctionArn"`
+	ConnectionFunctionCode   pulumi.StringOutput                                 `pulumi:"connectionFunctionCode"`
 	ConnectionFunctionConfig ConnectionFunctionConnectionFunctionConfigPtrOutput `pulumi:"connectionFunctionConfig"`
-	// ETag of the connection function.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// ETag of the function's LIVE stage. Will be empty if the function has not been published.
-	LiveStageEtag pulumi.StringOutput `pulumi:"liveStageEtag"`
-	// Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Whether to publish the function to the `LIVE` stage after creation or update. Defaults to `false`.
-	Publish pulumi.BoolOutput `pulumi:"publish"`
-	// Status of the connection function.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Etag                     pulumi.StringOutput                                 `pulumi:"etag"`
+	LiveStageEtag            pulumi.StringOutput                                 `pulumi:"liveStageEtag"`
+	Name                     pulumi.StringOutput                                 `pulumi:"name"`
+	Publish                  pulumi.BoolOutput                                   `pulumi:"publish"`
+	Status                   pulumi.StringOutput                                 `pulumi:"status"`
+	Tags                     pulumi.StringMapOutput                              `pulumi:"tags"`
+	TagsAll                  pulumi.StringMapOutput                              `pulumi:"tagsAll"`
 }
 
 // NewConnectionFunction registers a new resource with the given unique name, arguments, and options.
@@ -222,53 +60,29 @@ func GetConnectionFunction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConnectionFunction resources.
 type connectionFunctionState struct {
-	// ARN of the connection function.
-	ConnectionFunctionArn *string `pulumi:"connectionFunctionArn"`
-	// Code for the connection function. Maximum length is 40960 characters.
-	ConnectionFunctionCode *string `pulumi:"connectionFunctionCode"`
-	// Configuration information for the connection function. See `connectionFunctionConfig` below.
+	ConnectionFunctionArn    *string                                     `pulumi:"connectionFunctionArn"`
+	ConnectionFunctionCode   *string                                     `pulumi:"connectionFunctionCode"`
 	ConnectionFunctionConfig *ConnectionFunctionConnectionFunctionConfig `pulumi:"connectionFunctionConfig"`
-	// ETag of the connection function.
-	Etag *string `pulumi:"etag"`
-	// ETag of the function's LIVE stage. Will be empty if the function has not been published.
-	LiveStageEtag *string `pulumi:"liveStageEtag"`
-	// Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Whether to publish the function to the `LIVE` stage after creation or update. Defaults to `false`.
-	Publish *bool `pulumi:"publish"`
-	// Status of the connection function.
-	Status *string `pulumi:"status"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Etag                     *string                                     `pulumi:"etag"`
+	LiveStageEtag            *string                                     `pulumi:"liveStageEtag"`
+	Name                     *string                                     `pulumi:"name"`
+	Publish                  *bool                                       `pulumi:"publish"`
+	Status                   *string                                     `pulumi:"status"`
+	Tags                     map[string]string                           `pulumi:"tags"`
+	TagsAll                  map[string]string                           `pulumi:"tagsAll"`
 }
 
 type ConnectionFunctionState struct {
-	// ARN of the connection function.
-	ConnectionFunctionArn pulumi.StringPtrInput
-	// Code for the connection function. Maximum length is 40960 characters.
-	ConnectionFunctionCode pulumi.StringPtrInput
-	// Configuration information for the connection function. See `connectionFunctionConfig` below.
+	ConnectionFunctionArn    pulumi.StringPtrInput
+	ConnectionFunctionCode   pulumi.StringPtrInput
 	ConnectionFunctionConfig ConnectionFunctionConnectionFunctionConfigPtrInput
-	// ETag of the connection function.
-	Etag pulumi.StringPtrInput
-	// ETag of the function's LIVE stage. Will be empty if the function has not been published.
-	LiveStageEtag pulumi.StringPtrInput
-	// Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Whether to publish the function to the `LIVE` stage after creation or update. Defaults to `false`.
-	Publish pulumi.BoolPtrInput
-	// Status of the connection function.
-	Status pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Etag                     pulumi.StringPtrInput
+	LiveStageEtag            pulumi.StringPtrInput
+	Name                     pulumi.StringPtrInput
+	Publish                  pulumi.BoolPtrInput
+	Status                   pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
+	TagsAll                  pulumi.StringMapInput
 }
 
 func (ConnectionFunctionState) ElementType() reflect.Type {
@@ -276,34 +90,20 @@ func (ConnectionFunctionState) ElementType() reflect.Type {
 }
 
 type connectionFunctionArgs struct {
-	// Code for the connection function. Maximum length is 40960 characters.
-	ConnectionFunctionCode string `pulumi:"connectionFunctionCode"`
-	// Configuration information for the connection function. See `connectionFunctionConfig` below.
+	ConnectionFunctionCode   string                                      `pulumi:"connectionFunctionCode"`
 	ConnectionFunctionConfig *ConnectionFunctionConnectionFunctionConfig `pulumi:"connectionFunctionConfig"`
-	// Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Whether to publish the function to the `LIVE` stage after creation or update. Defaults to `false`.
-	Publish *bool `pulumi:"publish"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Name                     *string                                     `pulumi:"name"`
+	Publish                  *bool                                       `pulumi:"publish"`
+	Tags                     map[string]string                           `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ConnectionFunction resource.
 type ConnectionFunctionArgs struct {
-	// Code for the connection function. Maximum length is 40960 characters.
-	ConnectionFunctionCode pulumi.StringInput
-	// Configuration information for the connection function. See `connectionFunctionConfig` below.
+	ConnectionFunctionCode   pulumi.StringInput
 	ConnectionFunctionConfig ConnectionFunctionConnectionFunctionConfigPtrInput
-	// Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Whether to publish the function to the `LIVE` stage after creation or update. Defaults to `false`.
-	Publish pulumi.BoolPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name                     pulumi.StringPtrInput
+	Publish                  pulumi.BoolPtrInput
+	Tags                     pulumi.StringMapInput
 }
 
 func (ConnectionFunctionArgs) ElementType() reflect.Type {
@@ -393,56 +193,44 @@ func (o ConnectionFunctionOutput) ToConnectionFunctionOutputWithContext(ctx cont
 	return o
 }
 
-// ARN of the connection function.
 func (o ConnectionFunctionOutput) ConnectionFunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionFunction) pulumi.StringOutput { return v.ConnectionFunctionArn }).(pulumi.StringOutput)
 }
 
-// Code for the connection function. Maximum length is 40960 characters.
 func (o ConnectionFunctionOutput) ConnectionFunctionCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionFunction) pulumi.StringOutput { return v.ConnectionFunctionCode }).(pulumi.StringOutput)
 }
 
-// Configuration information for the connection function. See `connectionFunctionConfig` below.
 func (o ConnectionFunctionOutput) ConnectionFunctionConfig() ConnectionFunctionConnectionFunctionConfigPtrOutput {
 	return o.ApplyT(func(v *ConnectionFunction) ConnectionFunctionConnectionFunctionConfigPtrOutput {
 		return v.ConnectionFunctionConfig
 	}).(ConnectionFunctionConnectionFunctionConfigPtrOutput)
 }
 
-// ETag of the connection function.
 func (o ConnectionFunctionOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionFunction) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
-// ETag of the function's LIVE stage. Will be empty if the function has not been published.
 func (o ConnectionFunctionOutput) LiveStageEtag() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionFunction) pulumi.StringOutput { return v.LiveStageEtag }).(pulumi.StringOutput)
 }
 
-// Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
-//
-// The following arguments are optional:
 func (o ConnectionFunctionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionFunction) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Whether to publish the function to the `LIVE` stage after creation or update. Defaults to `false`.
 func (o ConnectionFunctionOutput) Publish() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ConnectionFunction) pulumi.BoolOutput { return v.Publish }).(pulumi.BoolOutput)
 }
 
-// Status of the connection function.
 func (o ConnectionFunctionOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionFunction) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ConnectionFunctionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConnectionFunction) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ConnectionFunctionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConnectionFunction) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

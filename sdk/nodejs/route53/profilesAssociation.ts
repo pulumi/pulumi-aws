@@ -7,37 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Route 53 Profiles Association.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.route53.ProfilesProfile("example", {name: "example"});
- * const exampleVpc = new aws.ec2.Vpc("example", {cidr: "10.0.0.0/16"});
- * const exampleProfilesAssociation = new aws.route53.ProfilesAssociation("example", {
- *     name: "example",
- *     profileId: example.id,
- *     resourceId: exampleVpc.id,
- *     tags: {
- *         Environment: "dev",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Route 53 Profiles Association using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:route53/profilesAssociation:ProfilesAssociation example rpa-id-12345678
- * ```
- */
 export class ProfilesAssociation extends pulumi.CustomResource {
     /**
      * Get an existing ProfilesAssociation resource's state with the given name, ID, and optional extra
@@ -67,38 +36,14 @@ export class ProfilesAssociation extends pulumi.CustomResource {
     }
 
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)`.
-     */
     declare public readonly name: pulumi.Output<string>;
     declare public /*out*/ readonly ownerId: pulumi.Output<string>;
-    /**
-     * ID of the profile associated with the VPC.
-     */
     declare public readonly profileId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Resource ID of the VPC the profile to be associated with.
-     */
     declare public readonly resourceId: pulumi.Output<string>;
-    /**
-     * Status of the Profile Association.
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
-    /**
-     * Status message of the Profile Association.
-     */
     declare public /*out*/ readonly statusMessage: pulumi.Output<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.route53.ProfilesAssociationTimeouts | undefined>;
 
@@ -156,38 +101,14 @@ export class ProfilesAssociation extends pulumi.CustomResource {
  */
 export interface ProfilesAssociationState {
     arn?: pulumi.Input<string>;
-    /**
-     * Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)`.
-     */
     name?: pulumi.Input<string>;
     ownerId?: pulumi.Input<string>;
-    /**
-     * ID of the profile associated with the VPC.
-     */
     profileId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Resource ID of the VPC the profile to be associated with.
-     */
     resourceId?: pulumi.Input<string>;
-    /**
-     * Status of the Profile Association.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * Status message of the Profile Association.
-     */
     statusMessage?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.route53.ProfilesAssociationTimeouts>;
 }
@@ -196,25 +117,10 @@ export interface ProfilesAssociationState {
  * The set of arguments for constructing a ProfilesAssociation resource.
  */
 export interface ProfilesAssociationArgs {
-    /**
-     * Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)`.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * ID of the profile associated with the VPC.
-     */
     profileId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Resource ID of the VPC the profile to be associated with.
-     */
     resourceId: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.route53.ProfilesAssociationTimeouts>;
 }

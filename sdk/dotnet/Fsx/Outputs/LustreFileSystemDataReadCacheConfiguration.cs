@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Fsx.Outputs
     [OutputType]
     public sealed class LustreFileSystemDataReadCacheConfiguration
     {
-        /// <summary>
-        /// Size of the file system's SSD read cache, in gibibytes (GiB). Required when the `SizingMode` is `USER_PROVISIONED`.
-        /// </summary>
         public readonly int? Size;
-        /// <summary>
-        /// Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
-        /// </summary>
         public readonly string SizingMode;
 
         [OutputConstructor]

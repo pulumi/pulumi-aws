@@ -17,181 +17,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Audit Manager Framework.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.auditmanager.Framework;
- * import com.pulumi.aws.auditmanager.FrameworkArgs;
- * import com.pulumi.aws.auditmanager.inputs.FrameworkControlSetArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new Framework("test", FrameworkArgs.builder()
- *             .name("example")
- *             .controlSets(FrameworkControlSetArgs.builder()
- *                 .name("example")
- *                 .controls(                
- *                     FrameworkControlSetControlArgs.builder()
- *                         .id(test1.id())
- *                         .build(),
- *                     FrameworkControlSetControlArgs.builder()
- *                         .id(test2.id())
- *                         .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Audit Manager Framework using the framework `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:auditmanager/framework:Framework example abc123-de45
- * ```
- * 
- */
 @ResourceType(type="aws:auditmanager/framework:Framework")
 public class Framework extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the framework.
-     * * `control_sets[*].id` - Unique identifier for the framework control set.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the framework.
-     * * `control_sets[*].id` - Unique identifier for the framework control set.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
-     * 
-     */
     @Export(name="complianceType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> complianceType;
 
-    /**
-     * @return Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
-     * 
-     */
     public Output<Optional<String>> complianceType() {
         return Codegen.optional(this.complianceType);
     }
-    /**
-     * Configuration block(s) for the control sets that are associated with the framework. See `controlSets` Block below for details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="controlSets", refs={List.class,FrameworkControlSet.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FrameworkControlSet>> controlSets;
 
-    /**
-     * @return Configuration block(s) for the control sets that are associated with the framework. See `controlSets` Block below for details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<List<FrameworkControlSet>>> controlSets() {
         return Codegen.optional(this.controlSets);
     }
-    /**
-     * Description of the framework.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the framework.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Framework type, such as a custom framework or a standard framework.
-     * 
-     */
     @Export(name="frameworkType", refs={String.class}, tree="[0]")
     private Output<String> frameworkType;
 
-    /**
-     * @return Framework type, such as a custom framework or a standard framework.
-     * 
-     */
     public Output<String> frameworkType() {
         return this.frameworkType;
     }
-    /**
-     * Name of the framework.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the framework.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A map of tags to assign to the framework. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the framework. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

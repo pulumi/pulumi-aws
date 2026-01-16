@@ -16,32 +16,16 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
 
     public static final IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs Empty = new IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs();
 
-    /**
-     * The access token aud claim values that you want to accept in your policy store.
-     * 
-     */
     @Import(name="audiences")
     private @Nullable Output<List<String>> audiences;
 
-    /**
-     * @return The access token aud claim values that you want to accept in your policy store.
-     * 
-     */
     public Optional<Output<List<String>>> audiences() {
         return Optional.ofNullable(this.audiences);
     }
 
-    /**
-     * The claim that determines the principal in OIDC access tokens.
-     * 
-     */
     @Import(name="principalIdClaim")
     private @Nullable Output<String> principalIdClaim;
 
-    /**
-     * @return The claim that determines the principal in OIDC access tokens.
-     * 
-     */
     public Optional<Output<String>> principalIdClaim() {
         return Optional.ofNullable(this.principalIdClaim);
     }
@@ -71,54 +55,24 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
             $ = new IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param audiences The access token aud claim values that you want to accept in your policy store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audiences(@Nullable Output<List<String>> audiences) {
             $.audiences = audiences;
             return this;
         }
 
-        /**
-         * @param audiences The access token aud claim values that you want to accept in your policy store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audiences(List<String> audiences) {
             return audiences(Output.of(audiences));
         }
 
-        /**
-         * @param audiences The access token aud claim values that you want to accept in your policy store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audiences(String... audiences) {
             return audiences(List.of(audiences));
         }
 
-        /**
-         * @param principalIdClaim The claim that determines the principal in OIDC access tokens.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalIdClaim(@Nullable Output<String> principalIdClaim) {
             $.principalIdClaim = principalIdClaim;
             return this;
         }
 
-        /**
-         * @param principalIdClaim The claim that determines the principal in OIDC access tokens.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalIdClaim(String principalIdClaim) {
             return principalIdClaim(Output.of(principalIdClaim));
         }

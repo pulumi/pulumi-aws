@@ -9,70 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Pinpoint
 {
-    /// <summary>
-    /// Provides a Pinpoint Baidu Channel resource.
-    /// 
-    /// &gt; **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var app = new Aws.Pinpoint.App("app");
-    /// 
-    ///     var channel = new Aws.Pinpoint.BaiduChannel("channel", new()
-    ///     {
-    ///         ApplicationId = app.ApplicationId,
-    ///         ApiKey = "",
-    ///         SecretKey = "",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Pinpoint Baidu Channel using the `application-id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:pinpoint/baiduChannel:BaiduChannel")]
     public partial class BaiduChannel : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Platform credential API key from Baidu.
-        /// </summary>
         [Output("apiKey")]
         public Output<string> ApiKey { get; private set; } = null!;
 
-        /// <summary>
-        /// The application ID.
-        /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether to enable the channel. Defaults to `True`.
-        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Platform credential Secret key from Baidu.
-        /// </summary>
         [Output("secretKey")]
         public Output<string> SecretKey { get; private set; } = null!;
 
@@ -129,10 +80,6 @@ namespace Pulumi.Aws.Pinpoint
     {
         [Input("apiKey", required: true)]
         private Input<string>? _apiKey;
-
-        /// <summary>
-        /// Platform credential API key from Baidu.
-        /// </summary>
         public Input<string>? ApiKey
         {
             get => _apiKey;
@@ -143,30 +90,17 @@ namespace Pulumi.Aws.Pinpoint
             }
         }
 
-        /// <summary>
-        /// The application ID.
-        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies whether to enable the channel. Defaults to `True`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("secretKey", required: true)]
         private Input<string>? _secretKey;
-
-        /// <summary>
-        /// Platform credential Secret key from Baidu.
-        /// </summary>
         public Input<string>? SecretKey
         {
             get => _secretKey;
@@ -187,10 +121,6 @@ namespace Pulumi.Aws.Pinpoint
     {
         [Input("apiKey")]
         private Input<string>? _apiKey;
-
-        /// <summary>
-        /// Platform credential API key from Baidu.
-        /// </summary>
         public Input<string>? ApiKey
         {
             get => _apiKey;
@@ -201,30 +131,17 @@ namespace Pulumi.Aws.Pinpoint
             }
         }
 
-        /// <summary>
-        /// The application ID.
-        /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
 
-        /// <summary>
-        /// Specifies whether to enable the channel. Defaults to `True`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("secretKey")]
         private Input<string>? _secretKey;
-
-        /// <summary>
-        /// Platform credential Secret key from Baidu.
-        /// </summary>
         public Input<string>? SecretKey
         {
             get => _secretKey;

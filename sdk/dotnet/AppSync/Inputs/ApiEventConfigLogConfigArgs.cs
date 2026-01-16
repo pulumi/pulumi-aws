@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppSync.Inputs
 
     public sealed class ApiEventConfigLogConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the IAM role for CloudWatch logs.
-        /// </summary>
         [Input("cloudwatchLogsRoleArn", required: true)]
         public Input<string> CloudwatchLogsRoleArn { get; set; } = null!;
 
-        /// <summary>
-        /// Log level. Valid values: `NONE`, `ERROR`, `ALL`, `INFO`, `DEBUG`.
-        /// </summary>
         [Input("logLevel", required: true)]
         public Input<string> LogLevel { get; set; } = null!;
 

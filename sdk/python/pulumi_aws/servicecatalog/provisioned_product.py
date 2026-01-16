@@ -38,23 +38,6 @@ class ProvisionedProductArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ProvisionedProduct resource.
-        :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[_builtins.bool] ignore_errors: _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
-        :param pulumi.Input[_builtins.str] name: User-friendly name of the provisioned product.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_arns: Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
-        :param pulumi.Input[_builtins.str] path_id: Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog_get_launch_paths`. When required, you must provide `path_id` or `path_name`, but not both.
-        :param pulumi.Input[_builtins.str] path_name: Name of the path. You must provide `path_id` or `path_name`, but not both.
-        :param pulumi.Input[_builtins.str] product_id: Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
-        :param pulumi.Input[_builtins.str] product_name: Name of the product. You must provide `product_id` or `product_name`, but not both.
-        :param pulumi.Input[_builtins.str] provisioning_artifact_id: Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
-        :param pulumi.Input[_builtins.str] provisioning_artifact_name: Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
-        :param pulumi.Input[Sequence[pulumi.Input['ProvisionedProductProvisioningParameterArgs']]] provisioning_parameters: Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] retain_physical_resources: _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
-        :param pulumi.Input['ProvisionedProductStackSetProvisioningPreferencesArgs'] stack_set_provisioning_preferences: Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if accept_language is not None:
             pulumi.set(__self__, "accept_language", accept_language)
@@ -90,9 +73,6 @@ class ProvisionedProductArgs:
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
@@ -102,9 +82,6 @@ class ProvisionedProductArgs:
     @_builtins.property
     @pulumi.getter(name="ignoreErrors")
     def ignore_errors(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
-        """
         return pulumi.get(self, "ignore_errors")
 
     @ignore_errors.setter
@@ -114,11 +91,6 @@ class ProvisionedProductArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        User-friendly name of the provisioned product.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -128,9 +100,6 @@ class ProvisionedProductArgs:
     @_builtins.property
     @pulumi.getter(name="notificationArns")
     def notification_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
-        """
         return pulumi.get(self, "notification_arns")
 
     @notification_arns.setter
@@ -140,9 +109,6 @@ class ProvisionedProductArgs:
     @_builtins.property
     @pulumi.getter(name="pathId")
     def path_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog_get_launch_paths`. When required, you must provide `path_id` or `path_name`, but not both.
-        """
         return pulumi.get(self, "path_id")
 
     @path_id.setter
@@ -152,9 +118,6 @@ class ProvisionedProductArgs:
     @_builtins.property
     @pulumi.getter(name="pathName")
     def path_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the path. You must provide `path_id` or `path_name`, but not both.
-        """
         return pulumi.get(self, "path_name")
 
     @path_name.setter
@@ -164,9 +127,6 @@ class ProvisionedProductArgs:
     @_builtins.property
     @pulumi.getter(name="productId")
     def product_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
-        """
         return pulumi.get(self, "product_id")
 
     @product_id.setter
@@ -176,9 +136,6 @@ class ProvisionedProductArgs:
     @_builtins.property
     @pulumi.getter(name="productName")
     def product_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the product. You must provide `product_id` or `product_name`, but not both.
-        """
         return pulumi.get(self, "product_name")
 
     @product_name.setter
@@ -188,9 +145,6 @@ class ProvisionedProductArgs:
     @_builtins.property
     @pulumi.getter(name="provisioningArtifactId")
     def provisioning_artifact_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
-        """
         return pulumi.get(self, "provisioning_artifact_id")
 
     @provisioning_artifact_id.setter
@@ -200,9 +154,6 @@ class ProvisionedProductArgs:
     @_builtins.property
     @pulumi.getter(name="provisioningArtifactName")
     def provisioning_artifact_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
-        """
         return pulumi.get(self, "provisioning_artifact_name")
 
     @provisioning_artifact_name.setter
@@ -212,9 +163,6 @@ class ProvisionedProductArgs:
     @_builtins.property
     @pulumi.getter(name="provisioningParameters")
     def provisioning_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProvisionedProductProvisioningParameterArgs']]]]:
-        """
-        Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
-        """
         return pulumi.get(self, "provisioning_parameters")
 
     @provisioning_parameters.setter
@@ -224,9 +172,6 @@ class ProvisionedProductArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -236,9 +181,6 @@ class ProvisionedProductArgs:
     @_builtins.property
     @pulumi.getter(name="retainPhysicalResources")
     def retain_physical_resources(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
-        """
         return pulumi.get(self, "retain_physical_resources")
 
     @retain_physical_resources.setter
@@ -248,9 +190,6 @@ class ProvisionedProductArgs:
     @_builtins.property
     @pulumi.getter(name="stackSetProvisioningPreferences")
     def stack_set_provisioning_preferences(self) -> Optional[pulumi.Input['ProvisionedProductStackSetProvisioningPreferencesArgs']]:
-        """
-        Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
-        """
         return pulumi.get(self, "stack_set_provisioning_preferences")
 
     @stack_set_provisioning_preferences.setter
@@ -260,9 +199,6 @@ class ProvisionedProductArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -302,35 +238,6 @@ class _ProvisionedProductState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProvisionedProduct resources.
-        :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[_builtins.str] arn: ARN of the provisioned product.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cloudwatch_dashboard_names: Set of CloudWatch dashboards that were created when provisioning the product.
-        :param pulumi.Input[_builtins.str] created_time: Time when the provisioned product was created.
-        :param pulumi.Input[_builtins.bool] ignore_errors: _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
-        :param pulumi.Input[_builtins.str] last_provisioning_record_id: Record identifier of the last request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
-        :param pulumi.Input[_builtins.str] last_record_id: Record identifier of the last request performed on this provisioned product.
-        :param pulumi.Input[_builtins.str] last_successful_provisioning_record_id: Record identifier of the last successful request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
-        :param pulumi.Input[_builtins.str] launch_role_arn: ARN of the launch role associated with the provisioned product.
-        :param pulumi.Input[_builtins.str] name: User-friendly name of the provisioned product.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_arns: Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
-        :param pulumi.Input[Sequence[pulumi.Input['ProvisionedProductOutputArgs']]] outputs: The set of outputs for the product created.
-        :param pulumi.Input[_builtins.str] path_id: Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog_get_launch_paths`. When required, you must provide `path_id` or `path_name`, but not both.
-        :param pulumi.Input[_builtins.str] path_name: Name of the path. You must provide `path_id` or `path_name`, but not both.
-        :param pulumi.Input[_builtins.str] product_id: Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
-        :param pulumi.Input[_builtins.str] product_name: Name of the product. You must provide `product_id` or `product_name`, but not both.
-        :param pulumi.Input[_builtins.str] provisioning_artifact_id: Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
-        :param pulumi.Input[_builtins.str] provisioning_artifact_name: Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
-        :param pulumi.Input[Sequence[pulumi.Input['ProvisionedProductProvisioningParameterArgs']]] provisioning_parameters: Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] retain_physical_resources: _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
-        :param pulumi.Input['ProvisionedProductStackSetProvisioningPreferencesArgs'] stack_set_provisioning_preferences: Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
-        :param pulumi.Input[_builtins.str] status: Current status of the provisioned product. See meanings below.
-        :param pulumi.Input[_builtins.str] status_message: Current status message of the provisioned product.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: Type of provisioned product. Valid values are `CFN_STACK` and `CFN_STACKSET`.
         """
         if accept_language is not None:
             pulumi.set(__self__, "accept_language", accept_language)
@@ -390,9 +297,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
@@ -402,9 +306,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the provisioned product.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -414,9 +315,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter(name="cloudwatchDashboardNames")
     def cloudwatch_dashboard_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Set of CloudWatch dashboards that were created when provisioning the product.
-        """
         return pulumi.get(self, "cloudwatch_dashboard_names")
 
     @cloudwatch_dashboard_names.setter
@@ -426,9 +324,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Time when the provisioned product was created.
-        """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
@@ -438,9 +333,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter(name="ignoreErrors")
     def ignore_errors(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
-        """
         return pulumi.get(self, "ignore_errors")
 
     @ignore_errors.setter
@@ -450,9 +342,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter(name="lastProvisioningRecordId")
     def last_provisioning_record_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Record identifier of the last request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
-        """
         return pulumi.get(self, "last_provisioning_record_id")
 
     @last_provisioning_record_id.setter
@@ -462,9 +351,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter(name="lastRecordId")
     def last_record_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Record identifier of the last request performed on this provisioned product.
-        """
         return pulumi.get(self, "last_record_id")
 
     @last_record_id.setter
@@ -474,9 +360,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter(name="lastSuccessfulProvisioningRecordId")
     def last_successful_provisioning_record_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Record identifier of the last successful request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
-        """
         return pulumi.get(self, "last_successful_provisioning_record_id")
 
     @last_successful_provisioning_record_id.setter
@@ -486,9 +369,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter(name="launchRoleArn")
     def launch_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the launch role associated with the provisioned product.
-        """
         return pulumi.get(self, "launch_role_arn")
 
     @launch_role_arn.setter
@@ -498,11 +378,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        User-friendly name of the provisioned product.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -512,9 +387,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter(name="notificationArns")
     def notification_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
-        """
         return pulumi.get(self, "notification_arns")
 
     @notification_arns.setter
@@ -524,9 +396,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter
     def outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProvisionedProductOutputArgs']]]]:
-        """
-        The set of outputs for the product created.
-        """
         return pulumi.get(self, "outputs")
 
     @outputs.setter
@@ -536,9 +405,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter(name="pathId")
     def path_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog_get_launch_paths`. When required, you must provide `path_id` or `path_name`, but not both.
-        """
         return pulumi.get(self, "path_id")
 
     @path_id.setter
@@ -548,9 +414,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter(name="pathName")
     def path_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the path. You must provide `path_id` or `path_name`, but not both.
-        """
         return pulumi.get(self, "path_name")
 
     @path_name.setter
@@ -560,9 +423,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter(name="productId")
     def product_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
-        """
         return pulumi.get(self, "product_id")
 
     @product_id.setter
@@ -572,9 +432,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter(name="productName")
     def product_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the product. You must provide `product_id` or `product_name`, but not both.
-        """
         return pulumi.get(self, "product_name")
 
     @product_name.setter
@@ -584,9 +441,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter(name="provisioningArtifactId")
     def provisioning_artifact_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
-        """
         return pulumi.get(self, "provisioning_artifact_id")
 
     @provisioning_artifact_id.setter
@@ -596,9 +450,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter(name="provisioningArtifactName")
     def provisioning_artifact_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
-        """
         return pulumi.get(self, "provisioning_artifact_name")
 
     @provisioning_artifact_name.setter
@@ -608,9 +459,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter(name="provisioningParameters")
     def provisioning_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProvisionedProductProvisioningParameterArgs']]]]:
-        """
-        Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
-        """
         return pulumi.get(self, "provisioning_parameters")
 
     @provisioning_parameters.setter
@@ -620,9 +468,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -632,9 +477,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter(name="retainPhysicalResources")
     def retain_physical_resources(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
-        """
         return pulumi.get(self, "retain_physical_resources")
 
     @retain_physical_resources.setter
@@ -644,9 +486,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter(name="stackSetProvisioningPreferences")
     def stack_set_provisioning_preferences(self) -> Optional[pulumi.Input['ProvisionedProductStackSetProvisioningPreferencesArgs']]:
-        """
-        Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
-        """
         return pulumi.get(self, "stack_set_provisioning_preferences")
 
     @stack_set_provisioning_preferences.setter
@@ -656,9 +495,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Current status of the provisioned product. See meanings below.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -668,9 +504,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Current status message of the provisioned product.
-        """
         return pulumi.get(self, "status_message")
 
     @status_message.setter
@@ -680,9 +513,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -692,9 +522,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -704,9 +531,6 @@ class _ProvisionedProductState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of provisioned product. Valid values are `CFN_STACK` and `CFN_STACKSET`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -737,64 +561,9 @@ class ProvisionedProduct(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        This resource provisions and manages a Service Catalog provisioned product.
-
-        A provisioned product is a resourced instance of a product. For example, provisioning a product based on a CloudFormation template launches a CloudFormation stack and its underlying resources.
-
-        Like this resource, the `aws_servicecatalog_record` data source also provides information about a provisioned product. Although a Service Catalog record provides some overlapping information with this resource, a record is tied to a provisioned product event, such as provisioning, termination, and updating.
-
-        > **Tip:** If you include conflicted keys as tags, AWS will report an error, "Parameter validation failed: Missing required parameter in Tags[N]:Value".
-
-        > **Tip:** A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.ProvisionedProduct("example",
-            name="example",
-            product_name="Example product",
-            provisioning_artifact_name="Example version",
-            provisioning_parameters=[{
-                "key": "foo",
-                "value": "bar",
-            }],
-            tags={
-                "foo": "bar",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_servicecatalog_provisioned_product` using the provisioned product ID. For example:
-
-        ```sh
-        $ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste
-        ```
-
+        Create a ProvisionedProduct resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[_builtins.bool] ignore_errors: _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
-        :param pulumi.Input[_builtins.str] name: User-friendly name of the provisioned product.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_arns: Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
-        :param pulumi.Input[_builtins.str] path_id: Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog_get_launch_paths`. When required, you must provide `path_id` or `path_name`, but not both.
-        :param pulumi.Input[_builtins.str] path_name: Name of the path. You must provide `path_id` or `path_name`, but not both.
-        :param pulumi.Input[_builtins.str] product_id: Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
-        :param pulumi.Input[_builtins.str] product_name: Name of the product. You must provide `product_id` or `product_name`, but not both.
-        :param pulumi.Input[_builtins.str] provisioning_artifact_id: Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
-        :param pulumi.Input[_builtins.str] provisioning_artifact_name: Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProvisionedProductProvisioningParameterArgs', 'ProvisionedProductProvisioningParameterArgsDict']]]] provisioning_parameters: Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] retain_physical_resources: _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
-        :param pulumi.Input[Union['ProvisionedProductStackSetProvisioningPreferencesArgs', 'ProvisionedProductStackSetProvisioningPreferencesArgsDict']] stack_set_provisioning_preferences: Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -803,45 +572,7 @@ class ProvisionedProduct(pulumi.CustomResource):
                  args: Optional[ProvisionedProductArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource provisions and manages a Service Catalog provisioned product.
-
-        A provisioned product is a resourced instance of a product. For example, provisioning a product based on a CloudFormation template launches a CloudFormation stack and its underlying resources.
-
-        Like this resource, the `aws_servicecatalog_record` data source also provides information about a provisioned product. Although a Service Catalog record provides some overlapping information with this resource, a record is tied to a provisioned product event, such as provisioning, termination, and updating.
-
-        > **Tip:** If you include conflicted keys as tags, AWS will report an error, "Parameter validation failed: Missing required parameter in Tags[N]:Value".
-
-        > **Tip:** A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.ProvisionedProduct("example",
-            name="example",
-            product_name="Example product",
-            provisioning_artifact_name="Example version",
-            provisioning_parameters=[{
-                "key": "foo",
-                "value": "bar",
-            }],
-            tags={
-                "foo": "bar",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_servicecatalog_provisioned_product` using the provisioned product ID. For example:
-
-        ```sh
-        $ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste
-        ```
-
+        Create a ProvisionedProduct resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ProvisionedProductArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -952,35 +683,6 @@ class ProvisionedProduct(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[_builtins.str] arn: ARN of the provisioned product.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cloudwatch_dashboard_names: Set of CloudWatch dashboards that were created when provisioning the product.
-        :param pulumi.Input[_builtins.str] created_time: Time when the provisioned product was created.
-        :param pulumi.Input[_builtins.bool] ignore_errors: _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
-        :param pulumi.Input[_builtins.str] last_provisioning_record_id: Record identifier of the last request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
-        :param pulumi.Input[_builtins.str] last_record_id: Record identifier of the last request performed on this provisioned product.
-        :param pulumi.Input[_builtins.str] last_successful_provisioning_record_id: Record identifier of the last successful request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
-        :param pulumi.Input[_builtins.str] launch_role_arn: ARN of the launch role associated with the provisioned product.
-        :param pulumi.Input[_builtins.str] name: User-friendly name of the provisioned product.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_arns: Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProvisionedProductOutputArgs', 'ProvisionedProductOutputArgsDict']]]] outputs: The set of outputs for the product created.
-        :param pulumi.Input[_builtins.str] path_id: Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog_get_launch_paths`. When required, you must provide `path_id` or `path_name`, but not both.
-        :param pulumi.Input[_builtins.str] path_name: Name of the path. You must provide `path_id` or `path_name`, but not both.
-        :param pulumi.Input[_builtins.str] product_id: Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
-        :param pulumi.Input[_builtins.str] product_name: Name of the product. You must provide `product_id` or `product_name`, but not both.
-        :param pulumi.Input[_builtins.str] provisioning_artifact_id: Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
-        :param pulumi.Input[_builtins.str] provisioning_artifact_name: Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProvisionedProductProvisioningParameterArgs', 'ProvisionedProductProvisioningParameterArgsDict']]]] provisioning_parameters: Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] retain_physical_resources: _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
-        :param pulumi.Input[Union['ProvisionedProductStackSetProvisioningPreferencesArgs', 'ProvisionedProductStackSetProvisioningPreferencesArgsDict']] stack_set_provisioning_preferences: Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
-        :param pulumi.Input[_builtins.str] status: Current status of the provisioned product. See meanings below.
-        :param pulumi.Input[_builtins.str] status_message: Current status message of the provisioned product.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: Type of provisioned product. Valid values are `CFN_STACK` and `CFN_STACKSET`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1018,218 +720,135 @@ class ProvisionedProduct(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        """
         return pulumi.get(self, "accept_language")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the provisioned product.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchDashboardNames")
     def cloudwatch_dashboard_names(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        Set of CloudWatch dashboards that were created when provisioning the product.
-        """
         return pulumi.get(self, "cloudwatch_dashboard_names")
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Time when the provisioned product was created.
-        """
         return pulumi.get(self, "created_time")
 
     @_builtins.property
     @pulumi.getter(name="ignoreErrors")
     def ignore_errors(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
-        """
         return pulumi.get(self, "ignore_errors")
 
     @_builtins.property
     @pulumi.getter(name="lastProvisioningRecordId")
     def last_provisioning_record_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Record identifier of the last request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
-        """
         return pulumi.get(self, "last_provisioning_record_id")
 
     @_builtins.property
     @pulumi.getter(name="lastRecordId")
     def last_record_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Record identifier of the last request performed on this provisioned product.
-        """
         return pulumi.get(self, "last_record_id")
 
     @_builtins.property
     @pulumi.getter(name="lastSuccessfulProvisioningRecordId")
     def last_successful_provisioning_record_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Record identifier of the last successful request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
-        """
         return pulumi.get(self, "last_successful_provisioning_record_id")
 
     @_builtins.property
     @pulumi.getter(name="launchRoleArn")
     def launch_role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the launch role associated with the provisioned product.
-        """
         return pulumi.get(self, "launch_role_arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        User-friendly name of the provisioned product.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="notificationArns")
     def notification_arns(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
-        """
         return pulumi.get(self, "notification_arns")
 
     @_builtins.property
     @pulumi.getter
     def outputs(self) -> pulumi.Output[Sequence['outputs.ProvisionedProductOutput']]:
-        """
-        The set of outputs for the product created.
-        """
         return pulumi.get(self, "outputs")
 
     @_builtins.property
     @pulumi.getter(name="pathId")
     def path_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog_get_launch_paths`. When required, you must provide `path_id` or `path_name`, but not both.
-        """
         return pulumi.get(self, "path_id")
 
     @_builtins.property
     @pulumi.getter(name="pathName")
     def path_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Name of the path. You must provide `path_id` or `path_name`, but not both.
-        """
         return pulumi.get(self, "path_name")
 
     @_builtins.property
     @pulumi.getter(name="productId")
     def product_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
-        """
         return pulumi.get(self, "product_id")
 
     @_builtins.property
     @pulumi.getter(name="productName")
     def product_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Name of the product. You must provide `product_id` or `product_name`, but not both.
-        """
         return pulumi.get(self, "product_name")
 
     @_builtins.property
     @pulumi.getter(name="provisioningArtifactId")
     def provisioning_artifact_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
-        """
         return pulumi.get(self, "provisioning_artifact_id")
 
     @_builtins.property
     @pulumi.getter(name="provisioningArtifactName")
     def provisioning_artifact_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
-        """
         return pulumi.get(self, "provisioning_artifact_name")
 
     @_builtins.property
     @pulumi.getter(name="provisioningParameters")
     def provisioning_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.ProvisionedProductProvisioningParameter']]]:
-        """
-        Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
-        """
         return pulumi.get(self, "provisioning_parameters")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="retainPhysicalResources")
     def retain_physical_resources(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
-        """
         return pulumi.get(self, "retain_physical_resources")
 
     @_builtins.property
     @pulumi.getter(name="stackSetProvisioningPreferences")
     def stack_set_provisioning_preferences(self) -> pulumi.Output[Optional['outputs.ProvisionedProductStackSetProvisioningPreferences']]:
-        """
-        Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
-        """
         return pulumi.get(self, "stack_set_provisioning_preferences")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Current status of the provisioned product. See meanings below.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> pulumi.Output[_builtins.str]:
-        """
-        Current status message of the provisioned product.
-        """
         return pulumi.get(self, "status_message")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of provisioned product. Valid values are `CFN_STACK` and `CFN_STACKSET`.
-        """
         return pulumi.get(self, "type")
 

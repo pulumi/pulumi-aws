@@ -13,13 +13,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     [OutputType]
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat
     {
-        /// <summary>
-        /// Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-        /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters MappingParameters;
-        /// <summary>
-        /// The type of record format. Valid values: `CSV`, `JSON`.
-        /// </summary>
         public readonly string RecordFormatType;
 
         [OutputConstructor]

@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScalingPlanScalingInstructionPredefinedLoadMetricSpecification {
-    /**
-     * @return Metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
-     * 
-     */
     private String predefinedLoadMetricType;
-    /**
-     * @return Identifies the resource associated with the metric type.
-     * 
-     */
     private @Nullable String resourceLabel;
 
     private ScalingPlanScalingInstructionPredefinedLoadMetricSpecification() {}
-    /**
-     * @return Metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
-     * 
-     */
     public String predefinedLoadMetricType() {
         return this.predefinedLoadMetricType;
     }
-    /**
-     * @return Identifies the resource associated with the metric type.
-     * 
-     */
     public Optional<String> resourceLabel() {
         return Optional.ofNullable(this.resourceLabel);
     }

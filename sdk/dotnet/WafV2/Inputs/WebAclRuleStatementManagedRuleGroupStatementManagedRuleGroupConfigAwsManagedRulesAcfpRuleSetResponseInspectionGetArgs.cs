@@ -12,27 +12,15 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configures inspection of the response body. See `BodyContains` for more details.
-        /// </summary>
         [Input("bodyContains")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContainsGetArgs>? BodyContains { get; set; }
 
-        /// <summary>
-        /// Configures inspection of the response header.See `Header` for more details.
-        /// </summary>
         [Input("header")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeaderGetArgs>? Header { get; set; }
 
-        /// <summary>
-        /// Configures inspection of the response JSON. See `Json` for more details.
-        /// </summary>
         [Input("json")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJsonGetArgs>? Json { get; set; }
 
-        /// <summary>
-        /// Configures inspection of the response status code.See `StatusCode` for more details.
-        /// </summary>
         [Input("statusCode")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCodeGetArgs>? StatusCode { get; set; }
 

@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionViewerMtlsConfigTrustStoreConfig {
-    /**
-     * @return Whether to advertise the trust store CA names to clients. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean advertiseTrustStoreCaNames;
-    /**
-     * @return Whether to ignore certificate expiry for viewer mTLS. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean ignoreCertificateExpiry;
-    /**
-     * @return Identifier of the trust store to use for viewer mTLS.
-     * 
-     */
     private String trustStoreId;
 
     private DistributionViewerMtlsConfigTrustStoreConfig() {}
-    /**
-     * @return Whether to advertise the trust store CA names to clients. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> advertiseTrustStoreCaNames() {
         return Optional.ofNullable(this.advertiseTrustStoreCaNames);
     }
-    /**
-     * @return Whether to ignore certificate expiry for viewer mTLS. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> ignoreCertificateExpiry() {
         return Optional.ofNullable(this.ignoreCertificateExpiry);
     }
-    /**
-     * @return Identifier of the trust store to use for viewer mTLS.
-     * 
-     */
     public String trustStoreId() {
         return this.trustStoreId;
     }

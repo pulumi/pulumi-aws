@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ContainerRecipeInstanceConfigurationBlockDeviceMapping {
-    /**
-     * @return Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
-     * 
-     */
     private @Nullable String deviceName;
-    /**
-     * @return Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
-     * 
-     */
     private @Nullable ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs ebs;
-    /**
-     * @return Set to `true` to remove a mapping from the parent image.
-     * 
-     */
     private @Nullable Boolean noDevice;
-    /**
-     * @return Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
-     * 
-     */
     private @Nullable String virtualName;
 
     private ContainerRecipeInstanceConfigurationBlockDeviceMapping() {}
-    /**
-     * @return Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
-     * 
-     */
     public Optional<String> deviceName() {
         return Optional.ofNullable(this.deviceName);
     }
-    /**
-     * @return Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
-     * 
-     */
     public Optional<ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs> ebs() {
         return Optional.ofNullable(this.ebs);
     }
-    /**
-     * @return Set to `true` to remove a mapping from the parent image.
-     * 
-     */
     public Optional<Boolean> noDevice() {
         return Optional.ofNullable(this.noDevice);
     }
-    /**
-     * @return Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
-     * 
-     */
     public Optional<String> virtualName() {
         return Optional.ofNullable(this.virtualName);
     }

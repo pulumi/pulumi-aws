@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TargetGroupConfigHealthCheckMatcher {
-    /**
-     * @return The HTTP codes to use when checking for a successful response from a target.
-     * 
-     */
     private @Nullable String value;
 
     private TargetGroupConfigHealthCheckMatcher() {}
-    /**
-     * @return The HTTP codes to use when checking for a successful response from a target.
-     * 
-     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

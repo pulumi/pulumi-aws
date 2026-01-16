@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration {
-    /**
-     * @return Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` block for details.
-     * 
-     */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration provisionedConfiguration;
-    /**
-     * @return Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` block for details.
-     * 
-     */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration serverlessConfiguration;
-    /**
-     * @return Type of query engine. Valid values: `SERVERLESS`, `PROVISIONED`.
-     * 
-     */
     private String type;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration() {}
-    /**
-     * @return Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` block for details.
-     * 
-     */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration> provisionedConfiguration() {
         return Optional.ofNullable(this.provisionedConfiguration);
     }
-    /**
-     * @return Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` block for details.
-     * 
-     */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration> serverlessConfiguration() {
         return Optional.ofNullable(this.serverlessConfiguration);
     }
-    /**
-     * @return Type of query engine. Valid values: `SERVERLESS`, `PROVISIONED`.
-     * 
-     */
     public String type() {
         return this.type;
     }

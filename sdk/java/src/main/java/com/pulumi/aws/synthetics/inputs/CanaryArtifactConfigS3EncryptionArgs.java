@@ -15,32 +15,16 @@ public final class CanaryArtifactConfigS3EncryptionArgs extends com.pulumi.resou
 
     public static final CanaryArtifactConfigS3EncryptionArgs Empty = new CanaryArtifactConfigS3EncryptionArgs();
 
-    /**
-     * The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
-     * 
-     */
     @Import(name="encryptionMode")
     private @Nullable Output<String> encryptionMode;
 
-    /**
-     * @return The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
-     * 
-     */
     public Optional<Output<String>> encryptionMode() {
         return Optional.ofNullable(this.encryptionMode);
     }
 
-    /**
-     * The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryptionMode`.
-     * 
-     */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
-    /**
-     * @return The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryptionMode`.
-     * 
-     */
     public Optional<Output<String>> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
@@ -70,44 +54,20 @@ public final class CanaryArtifactConfigS3EncryptionArgs extends com.pulumi.resou
             $ = new CanaryArtifactConfigS3EncryptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param encryptionMode The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionMode(@Nullable Output<String> encryptionMode) {
             $.encryptionMode = encryptionMode;
             return this;
         }
 
-        /**
-         * @param encryptionMode The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionMode(String encryptionMode) {
             return encryptionMode(Output.of(encryptionMode));
         }
 
-        /**
-         * @param kmsKeyArn The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryptionMode`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
-        /**
-         * @param kmsKeyArn The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryptionMode`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }

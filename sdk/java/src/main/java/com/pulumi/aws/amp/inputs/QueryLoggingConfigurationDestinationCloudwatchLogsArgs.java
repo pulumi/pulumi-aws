@@ -14,17 +14,9 @@ public final class QueryLoggingConfigurationDestinationCloudwatchLogsArgs extend
 
     public static final QueryLoggingConfigurationDestinationCloudwatchLogsArgs Empty = new QueryLoggingConfigurationDestinationCloudwatchLogsArgs();
 
-    /**
-     * The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
-     * 
-     */
     @Import(name="logGroupArn", required=true)
     private Output<String> logGroupArn;
 
-    /**
-     * @return The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
-     * 
-     */
     public Output<String> logGroupArn() {
         return this.logGroupArn;
     }
@@ -53,23 +45,11 @@ public final class QueryLoggingConfigurationDestinationCloudwatchLogsArgs extend
             $ = new QueryLoggingConfigurationDestinationCloudwatchLogsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param logGroupArn The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupArn(Output<String> logGroupArn) {
             $.logGroupArn = logGroupArn;
             return this;
         }
 
-        /**
-         * @param logGroupArn The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupArn(String logGroupArn) {
             return logGroupArn(Output.of(logGroupArn));
         }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Maximum. May be a decimal number, e.g. `0.5`.
-        /// </summary>
         [Input("max")]
         public Input<double>? Max { get; set; }
 
-        /// <summary>
-        /// Minimum. May be a decimal number, e.g. `0.5`.
-        /// </summary>
         [Input("min")]
         public Input<double>? Min { get; set; }
 

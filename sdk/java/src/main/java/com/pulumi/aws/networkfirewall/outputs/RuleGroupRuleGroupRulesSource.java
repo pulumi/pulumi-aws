@@ -15,53 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleGroupRuleGroupRulesSource {
-    /**
-     * @return A configuration block containing **stateful** inspection criteria for a domain list rule group. See Rules Source List below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleGroupRulesSourceRulesSourceList rulesSourceList;
-    /**
-     * @return Stateful inspection criteria, provided in Suricata compatible rules. These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn’t have a separate action setting.
-     * 
-     */
     private @Nullable String rulesString;
-    /**
-     * @return Set of configuration blocks containing **stateful** inspection criteria for 5-tuple rules to be used together in a rule group. See Stateful Rule below for details.
-     * 
-     */
     private @Nullable List<RuleGroupRuleGroupRulesSourceStatefulRule> statefulRules;
-    /**
-     * @return A configuration block containing **stateless** inspection criteria for a stateless rule group. See Stateless Rules and Custom Actions below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions statelessRulesAndCustomActions;
 
     private RuleGroupRuleGroupRulesSource() {}
-    /**
-     * @return A configuration block containing **stateful** inspection criteria for a domain list rule group. See Rules Source List below for details.
-     * 
-     */
     public Optional<RuleGroupRuleGroupRulesSourceRulesSourceList> rulesSourceList() {
         return Optional.ofNullable(this.rulesSourceList);
     }
-    /**
-     * @return Stateful inspection criteria, provided in Suricata compatible rules. These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn’t have a separate action setting.
-     * 
-     */
     public Optional<String> rulesString() {
         return Optional.ofNullable(this.rulesString);
     }
-    /**
-     * @return Set of configuration blocks containing **stateful** inspection criteria for 5-tuple rules to be used together in a rule group. See Stateful Rule below for details.
-     * 
-     */
     public List<RuleGroupRuleGroupRulesSourceStatefulRule> statefulRules() {
         return this.statefulRules == null ? List.of() : this.statefulRules;
     }
-    /**
-     * @return A configuration block containing **stateless** inspection criteria for a stateless rule group. See Stateless Rules and Custom Actions below for details.
-     * 
-     */
     public Optional<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions> statelessRulesAndCustomActions() {
         return Optional.ofNullable(this.statelessRulesAndCustomActions);
     }

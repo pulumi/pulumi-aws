@@ -13,41 +13,14 @@ namespace Pulumi.Aws.SecurityHub.Outputs
     [OutputType]
     public sealed class GetStandardsControlAssociationsStandardsControlAssociationResult
     {
-        /// <summary>
-        /// Enablement status of a control in a specific standard.
-        /// </summary>
         public readonly string AssociationStatus;
-        /// <summary>
-        /// List of underlying requirements in the compliance framework related to the standard.
-        /// </summary>
         public readonly ImmutableArray<string> RelatedRequirements;
-        /// <summary>
-        /// ARN of the security control.
-        /// </summary>
         public readonly string SecurityControlArn;
-        /// <summary>
-        /// The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
-        /// </summary>
         public readonly string SecurityControlId;
-        /// <summary>
-        /// ARN of the standard.
-        /// </summary>
         public readonly string StandardsArn;
-        /// <summary>
-        /// Description of the standard.
-        /// </summary>
         public readonly string StandardsControlDescription;
-        /// <summary>
-        /// Title of the standard.
-        /// </summary>
         public readonly string StandardsControlTitle;
-        /// <summary>
-        /// Last time that a control's enablement status in a specified standard was updated.
-        /// </summary>
         public readonly string UpdatedAt;
-        /// <summary>
-        /// Reason for updating a control's enablement status in a specified standard.
-        /// </summary>
         public readonly string UpdatedReason;
 
         [OutputConstructor]

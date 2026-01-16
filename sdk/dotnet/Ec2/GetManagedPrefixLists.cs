@@ -11,96 +11,12 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetManagedPrefixLists
     {
-        /// <summary>
-        /// This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following returns all managed prefix lists filtered by tags
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var testEnv = Aws.Ec2.GetManagedPrefixLists.Invoke(new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "Env", "test" },
-        ///         },
-        ///     });
-        /// 
-        ///     var testEnvGetManagedPrefixList = ;
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetManagedPrefixListsResult> InvokeAsync(GetManagedPrefixListsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedPrefixListsResult>("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", args ?? new GetManagedPrefixListsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following returns all managed prefix lists filtered by tags
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var testEnv = Aws.Ec2.GetManagedPrefixLists.Invoke(new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "Env", "test" },
-        ///         },
-        ///     });
-        /// 
-        ///     var testEnvGetManagedPrefixList = ;
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetManagedPrefixListsResult> Invoke(GetManagedPrefixListsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedPrefixListsResult>("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", args ?? new GetManagedPrefixListsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following returns all managed prefix lists filtered by tags
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var testEnv = Aws.Ec2.GetManagedPrefixLists.Invoke(new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "Env", "test" },
-        ///         },
-        ///     });
-        /// 
-        ///     var testEnvGetManagedPrefixList = ;
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetManagedPrefixListsResult> Invoke(GetManagedPrefixListsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedPrefixListsResult>("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", args ?? new GetManagedPrefixListsInvokeArgs(), options.WithDefaults());
     }
@@ -110,32 +26,17 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private List<Inputs.GetManagedPrefixListsFilterArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public List<Inputs.GetManagedPrefixListsFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetManagedPrefixListsFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired .
-        /// 
-        /// More complex filters can be expressed using one or more `Filter` sub-blocks,
-        /// which take the following arguments:
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -152,32 +53,17 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private InputList<Inputs.GetManagedPrefixListsFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public InputList<Inputs.GetManagedPrefixListsFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetManagedPrefixListsFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired .
-        /// 
-        /// More complex filters can be expressed using one or more `Filter` sub-blocks,
-        /// which take the following arguments:
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -199,9 +85,6 @@ namespace Pulumi.Aws.Ec2
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// List of all the managed prefix list ids found.
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string Region;
         public readonly ImmutableDictionary<string, string> Tags;

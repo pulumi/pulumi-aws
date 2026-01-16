@@ -9,180 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Acm
 {
-    /// <summary>
-    /// The ACM certificate resource allows requesting and management of certificates
-    /// from the Amazon Certificate Manager.
-    /// 
-    /// ACM certificates can be created in three ways:
-    /// Amazon-issued, where AWS provides the certificate authority and automatically manages renewal;
-    /// imported certificates, issued by another certificate authority;
-    /// and private certificates, issued using an ACM Private Certificate Authority.
-    /// 
-    /// ## Amazon-Issued Certificates
-    /// 
-    /// For Amazon-issued certificates, this resource deals with requesting certificates and managing their attributes and life-cycle.
-    /// This resource does not deal with validation of a certificate but can provide inputs
-    /// for other resources implementing the validation.
-    /// It does not wait for a certificate to be issued.
-    /// Use a `aws.acm.CertificateValidation` resource for this.
-    /// 
-    /// Most commonly, this resource is used together with `aws.route53.Record` and
-    /// `aws.acm.CertificateValidation` to request a DNS validated certificate,
-    /// deploy the required validation records and wait for validation to complete.
-    /// 
-    /// Domain validation through email is also supported but should be avoided as it requires a manual step outside of this provider.
-    /// 
-    /// ## Certificates Imported from Other Certificate Authority
-    /// 
-    /// Imported certificates can be used to make certificates created with an external certificate authority available for AWS services.
-    /// 
-    /// As they are not managed by AWS, imported certificates are not eligible for automatic renewal.
-    /// New certificate materials can be supplied to an existing imported certificate to update it in place.
-    /// 
-    /// ## Private Certificates
-    /// 
-    /// Private certificates are issued by an ACM Private Certificate Authority, which can be created using the resource type `aws.acmpca.CertificateAuthority`.
-    /// 
-    /// Private certificates created using this resource are eligible for managed renewal if they have been exported or associated with another AWS service.
-    /// See [managed renewal documentation](https://docs.aws.amazon.com/acm/latest/userguide/managed-renewal.html) for more information.
-    /// By default, a certificate is valid for 395 days and the managed renewal process will start 60 days before expiration.
-    /// To renew the certificate earlier than 60 days before expiration, configure `EarlyRenewalDuration`.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Custom Domain Validation Options
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var cert = new Aws.Acm.Certificate("cert", new()
-    ///     {
-    ///         DomainName = "testing.example.com",
-    ///         ValidationMethod = "EMAIL",
-    ///         ValidationOptions = new[]
-    ///         {
-    ///             new Aws.Acm.Inputs.CertificateValidationOptionArgs
-    ///             {
-    ///                 DomainName = "testing.example.com",
-    ///                 ValidationDomain = "example.com",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Existing Certificate Body Import
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Tls = Pulumi.Tls;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Tls.PrivateKey("example", new()
-    ///     {
-    ///         Algorithm = "RSA",
-    ///     });
-    /// 
-    ///     var exampleSelfSignedCert = new Tls.SelfSignedCert("example", new()
-    ///     {
-    ///         KeyAlgorithm = "RSA",
-    ///         PrivateKeyPem = example.PrivateKeyPem,
-    ///         Subject = new[]
-    ///         {
-    ///             
-    ///             {
-    ///                 { "commonName", "example.com" },
-    ///                 { "organization", "ACME Examples, Inc" },
-    ///             },
-    ///         },
-    ///         ValidityPeriodHours = 12,
-    ///         AllowedUses = new[]
-    ///         {
-    ///             "key_encipherment",
-    ///             "digital_signature",
-    ///             "server_auth",
-    ///         },
-    ///     });
-    /// 
-    ///     var cert = new Aws.Acm.Certificate("cert", new()
-    ///     {
-    ///         PrivateKey = example.PrivateKeyPem,
-    ///         CertificateBody = exampleSelfSignedCert.CertPem,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Referencing DomainValidationOptions With ForEach Based Resources
-    /// 
-    /// See the `aws.acm.CertificateValidation` resource for a full example of performing DNS validation.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new List&lt;Aws.Route53.Record&gt;();
-    ///     foreach (var range in .ToDictionary(item =&gt; {
-    ///         var dvo = item.Value;
-    ///         return dvo.DomainName;
-    ///     }, item =&gt; {
-    ///         var dvo = item.Value;
-    ///         return 
-    ///         {
-    ///             { "name", dvo.ResourceRecordName },
-    ///             { "record", dvo.ResourceRecordValue },
-    ///             { "type", dvo.ResourceRecordType },
-    ///         };
-    ///     }).Select(pair =&gt; new { pair.Key, pair.Value }))
-    ///     {
-    ///         example.Add(new Aws.Route53.Record($"example-{range.Key}", new()
-    ///         {
-    ///             AllowOverwrite = true,
-    ///             Name = range.Value.Name,
-    ///             Records = new[]
-    ///             {
-    ///                 range.Value.Record,
-    ///             },
-    ///             Ttl = 60,
-    ///             Type = System.Enum.Parse&lt;Aws.Route53.RecordType&gt;(range.Value.Type),
-    ///             ZoneId = exampleAwsRoute53Zone.ZoneId,
-    ///         }));
-    ///     }
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) ARN of the certificate.
-    /// 
-    /// Using `pulumi import`, import certificates using their ARN. For example:
-    /// 
-    /// % pulumi import aws_acm_certificate.example arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
-    /// </summary>
     [AwsResourceType("aws:acm/certificate:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the certificate
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -195,17 +24,9 @@ namespace Pulumi.Aws.Acm
         [Output("certificateChain")]
         public Output<string?> CertificateChain { get; private set; } = null!;
 
-        /// <summary>
-        /// Fully qualified domain name (FQDN) in the certificate.
-        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
-        /// <summary>
-        /// Set of domain validation objects which can be used to complete certificate validation.
-        /// Can have more than one element, e.g., if SANs are defined.
-        /// Only set if `DNS`-validation was used.
-        /// </summary>
         [Output("domainValidationOptions")]
         public Output<ImmutableArray<Outputs.CertificateDomainValidationOption>> DomainValidationOptions { get; private set; } = null!;
 
@@ -215,79 +36,45 @@ namespace Pulumi.Aws.Acm
         [Output("keyAlgorithm")]
         public Output<string> KeyAlgorithm { get; private set; } = null!;
 
-        /// <summary>
-        /// Expiration date and time of the certificate.
-        /// </summary>
         [Output("notAfter")]
         public Output<string> NotAfter { get; private set; } = null!;
 
-        /// <summary>
-        /// Start of the validity period of the certificate.
-        /// </summary>
         [Output("notBefore")]
         public Output<string> NotBefore { get; private set; } = null!;
 
         [Output("options")]
         public Output<Outputs.CertificateOptions> Options { get; private set; } = null!;
 
-        /// <summary>
-        /// `True` if a Private certificate eligible for managed renewal is within the `EarlyRenewalDuration` period.
-        /// </summary>
         [Output("pendingRenewal")]
         public Output<bool> PendingRenewal { get; private set; } = null!;
 
         [Output("privateKey")]
         public Output<string?> PrivateKey { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// * Creating an Amazon issued certificate
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether the certificate is eligible for managed renewal.
-        /// </summary>
         [Output("renewalEligibility")]
         public Output<string> RenewalEligibility { get; private set; } = null!;
 
-        /// <summary>
-        /// Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
-        /// </summary>
         [Output("renewalSummaries")]
         public Output<ImmutableArray<Outputs.CertificateRenewalSummary>> RenewalSummaries { get; private set; } = null!;
 
-        /// <summary>
-        /// Status of the certificate.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         [Output("subjectAlternativeNames")]
         public Output<ImmutableArray<string>> SubjectAlternativeNames { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Source of the certificate.
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
-        /// <summary>
-        /// List of addresses that received a validation email. Only set if `EMAIL` validation was used.
-        /// </summary>
         [Output("validationEmails")]
         public Output<ImmutableArray<string>> ValidationEmails { get; private set; } = null!;
 
@@ -356,9 +143,6 @@ namespace Pulumi.Aws.Acm
         [Input("certificateChain")]
         public Input<string>? CertificateChain { get; set; }
 
-        /// <summary>
-        /// Fully qualified domain name (FQDN) in the certificate.
-        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
@@ -383,10 +167,6 @@ namespace Pulumi.Aws.Acm
             }
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// * Creating an Amazon issued certificate
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -400,10 +180,6 @@ namespace Pulumi.Aws.Acm
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -429,9 +205,6 @@ namespace Pulumi.Aws.Acm
 
     public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the certificate
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
@@ -444,20 +217,11 @@ namespace Pulumi.Aws.Acm
         [Input("certificateChain")]
         public Input<string>? CertificateChain { get; set; }
 
-        /// <summary>
-        /// Fully qualified domain name (FQDN) in the certificate.
-        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
         [Input("domainValidationOptions")]
         private InputList<Inputs.CertificateDomainValidationOptionGetArgs>? _domainValidationOptions;
-
-        /// <summary>
-        /// Set of domain validation objects which can be used to complete certificate validation.
-        /// Can have more than one element, e.g., if SANs are defined.
-        /// Only set if `DNS`-validation was used.
-        /// </summary>
         public InputList<Inputs.CertificateDomainValidationOptionGetArgs> DomainValidationOptions
         {
             get => _domainValidationOptions ?? (_domainValidationOptions = new InputList<Inputs.CertificateDomainValidationOptionGetArgs>());
@@ -470,24 +234,15 @@ namespace Pulumi.Aws.Acm
         [Input("keyAlgorithm")]
         public Input<string>? KeyAlgorithm { get; set; }
 
-        /// <summary>
-        /// Expiration date and time of the certificate.
-        /// </summary>
         [Input("notAfter")]
         public Input<string>? NotAfter { get; set; }
 
-        /// <summary>
-        /// Start of the validity period of the certificate.
-        /// </summary>
         [Input("notBefore")]
         public Input<string>? NotBefore { get; set; }
 
         [Input("options")]
         public Input<Inputs.CertificateOptionsGetArgs>? Options { get; set; }
 
-        /// <summary>
-        /// `True` if a Private certificate eligible for managed renewal is within the `EarlyRenewalDuration` period.
-        /// </summary>
         [Input("pendingRenewal")]
         public Input<bool>? PendingRenewal { get; set; }
 
@@ -503,34 +258,20 @@ namespace Pulumi.Aws.Acm
             }
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// * Creating an Amazon issued certificate
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Whether the certificate is eligible for managed renewal.
-        /// </summary>
         [Input("renewalEligibility")]
         public Input<string>? RenewalEligibility { get; set; }
 
         [Input("renewalSummaries")]
         private InputList<Inputs.CertificateRenewalSummaryGetArgs>? _renewalSummaries;
-
-        /// <summary>
-        /// Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
-        /// </summary>
         public InputList<Inputs.CertificateRenewalSummaryGetArgs> RenewalSummaries
         {
             get => _renewalSummaries ?? (_renewalSummaries = new InputList<Inputs.CertificateRenewalSummaryGetArgs>());
             set => _renewalSummaries = value;
         }
 
-        /// <summary>
-        /// Status of the certificate.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
@@ -544,10 +285,6 @@ namespace Pulumi.Aws.Acm
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -556,28 +293,17 @@ namespace Pulumi.Aws.Acm
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Source of the certificate.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         [Input("validationEmails")]
         private InputList<string>? _validationEmails;
-
-        /// <summary>
-        /// List of addresses that received a validation email. Only set if `EMAIL` validation was used.
-        /// </summary>
         public InputList<string> ValidationEmails
         {
             get => _validationEmails ?? (_validationEmails = new InputList<string>());

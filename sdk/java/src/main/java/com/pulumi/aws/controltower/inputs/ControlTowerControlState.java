@@ -17,81 +17,37 @@ public final class ControlTowerControlState extends com.pulumi.resources.Resourc
 
     public static final ControlTowerControlState Empty = new ControlTowerControlState();
 
-    /**
-     * The ARN of the EnabledControl resource.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The ARN of the EnabledControl resource.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
-     * 
-     */
     @Import(name="controlIdentifier")
     private @Nullable Output<String> controlIdentifier;
 
-    /**
-     * @return The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
-     * 
-     */
     public Optional<Output<String>> controlIdentifier() {
         return Optional.ofNullable(this.controlIdentifier);
     }
 
-    /**
-     * Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
-     * 
-     */
     @Import(name="parameters")
     private @Nullable Output<List<ControlTowerControlParameterArgs>> parameters;
 
-    /**
-     * @return Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
-     * 
-     */
     public Optional<Output<List<ControlTowerControlParameterArgs>>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ARN of the organizational unit.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="targetIdentifier")
     private @Nullable Output<String> targetIdentifier;
 
-    /**
-     * @return The ARN of the organizational unit.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> targetIdentifier() {
         return Optional.ofNullable(this.targetIdentifier);
     }
@@ -124,121 +80,51 @@ public final class ControlTowerControlState extends com.pulumi.resources.Resourc
             $ = new ControlTowerControlState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The ARN of the EnabledControl resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The ARN of the EnabledControl resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param controlIdentifier The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
-         * 
-         * @return builder
-         * 
-         */
         public Builder controlIdentifier(@Nullable Output<String> controlIdentifier) {
             $.controlIdentifier = controlIdentifier;
             return this;
         }
 
-        /**
-         * @param controlIdentifier The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
-         * 
-         * @return builder
-         * 
-         */
         public Builder controlIdentifier(String controlIdentifier) {
             return controlIdentifier(Output.of(controlIdentifier));
         }
 
-        /**
-         * @param parameters Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(@Nullable Output<List<ControlTowerControlParameterArgs>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
-        /**
-         * @param parameters Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(List<ControlTowerControlParameterArgs> parameters) {
             return parameters(Output.of(parameters));
         }
 
-        /**
-         * @param parameters Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(ControlTowerControlParameterArgs... parameters) {
             return parameters(List.of(parameters));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param targetIdentifier The ARN of the organizational unit.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetIdentifier(@Nullable Output<String> targetIdentifier) {
             $.targetIdentifier = targetIdentifier;
             return this;
         }
 
-        /**
-         * @param targetIdentifier The ARN of the organizational unit.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetIdentifier(String targetIdentifier) {
             return targetIdentifier(Output.of(targetIdentifier));
         }

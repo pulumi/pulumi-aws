@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ParameterGroupParameter {
-    /**
-     * @return The name of the Redshift parameter.
-     * 
-     */
     private String name;
-    /**
-     * @return The value of the Redshift parameter.
-     * 
-     */
     private String value;
 
     private ParameterGroupParameter() {}
-    /**
-     * @return The name of the Redshift parameter.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The value of the Redshift parameter.
-     * 
-     */
     public String value() {
         return this.value;
     }

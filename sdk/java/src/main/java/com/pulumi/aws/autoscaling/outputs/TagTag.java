@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class TagTag {
-    /**
-     * @return Tag name.
-     * 
-     */
     private String key;
-    /**
-     * @return Whether to propagate the tags to instances launched by the ASG.
-     * 
-     */
     private Boolean propagateAtLaunch;
-    /**
-     * @return Tag value.
-     * 
-     */
     private String value;
 
     private TagTag() {}
-    /**
-     * @return Tag name.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return Whether to propagate the tags to instances launched by the ASG.
-     * 
-     */
     public Boolean propagateAtLaunch() {
         return this.propagateAtLaunch;
     }
-    /**
-     * @return Tag value.
-     * 
-     */
     public String value() {
         return this.value;
     }

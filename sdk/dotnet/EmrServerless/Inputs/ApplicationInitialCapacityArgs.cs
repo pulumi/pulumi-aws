@@ -12,15 +12,9 @@ namespace Pulumi.Aws.EmrServerless.Inputs
 
     public sealed class ApplicationInitialCapacityArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The initial capacity configuration per worker.
-        /// </summary>
         [Input("initialCapacityConfig")]
         public Input<Inputs.ApplicationInitialCapacityInitialCapacityConfigArgs>? InitialCapacityConfig { get; set; }
 
-        /// <summary>
-        /// The worker type for an analytics framework. For Spark applications, the key can either be set to `Driver` or `Executor`. For Hive applications, it can be set to `HiveDriver` or `TezTask`.
-        /// </summary>
         [Input("initialCapacityType", required: true)]
         public Input<string> InitialCapacityType { get; set; } = null!;
 

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.S3Tables.Inputs
 
     public sealed class TableReplicationRuleDestinationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of destination table bucket to replicate source tables to.
-        /// </summary>
         [Input("destinationTableBucketArn", required: true)]
         public Input<string> DestinationTableBucketArn { get; set; } = null!;
 

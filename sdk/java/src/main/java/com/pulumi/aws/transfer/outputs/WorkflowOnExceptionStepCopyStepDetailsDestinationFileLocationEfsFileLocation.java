@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation {
-    /**
-     * @return The ID of the file system, assigned by Amazon EFS.
-     * 
-     */
     private @Nullable String fileSystemId;
-    /**
-     * @return The pathname for the folder being used by a workflow.
-     * 
-     */
     private @Nullable String path;
 
     private WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation() {}
-    /**
-     * @return The ID of the file system, assigned by Amazon EFS.
-     * 
-     */
     public Optional<String> fileSystemId() {
         return Optional.ofNullable(this.fileSystemId);
     }
-    /**
-     * @return The pathname for the folder being used by a workflow.
-     * 
-     */
     public Optional<String> path() {
         return Optional.ofNullable(this.path);
     }

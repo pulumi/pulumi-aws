@@ -9,97 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudWatch
 {
-    /// <summary>
-    /// Provides a CloudWatch Logs destination policy resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testDestination = new Aws.CloudWatch.LogDestination("test_destination", new()
-    ///     {
-    ///         Name = "test_destination",
-    ///         RoleArn = iamForCloudwatch.Arn,
-    ///         TargetArn = kinesisForCloudwatch.Arn,
-    ///     });
-    /// 
-    ///     var testDestinationPolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "123456789012",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "logs:PutSubscriptionFilter",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     testDestination.Arn,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var testDestinationPolicyLogDestinationPolicy = new Aws.CloudWatch.LogDestinationPolicy("test_destination_policy", new()
-    ///     {
-    ///         DestinationName = testDestination.Name,
-    ///         AccessPolicy = testDestinationPolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CloudWatch Logs destination policies using the `destination_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy")]
     public partial class LogDestinationPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The policy document. This is a JSON formatted string.
-        /// </summary>
         [Output("accessPolicy")]
         public Output<string> AccessPolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// A name for the subscription filter
-        /// </summary>
         [Output("destinationName")]
         public Output<string> DestinationName { get; private set; } = null!;
 
-        /// <summary>
-        /// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
-        /// </summary>
         [Output("forceUpdate")]
         public Output<bool?> ForceUpdate { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -149,27 +70,15 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogDestinationPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The policy document. This is a JSON formatted string.
-        /// </summary>
         [Input("accessPolicy", required: true)]
         public Input<string> AccessPolicy { get; set; } = null!;
 
-        /// <summary>
-        /// A name for the subscription filter
-        /// </summary>
         [Input("destinationName", required: true)]
         public Input<string> DestinationName { get; set; } = null!;
 
-        /// <summary>
-        /// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
-        /// </summary>
         [Input("forceUpdate")]
         public Input<bool>? ForceUpdate { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -181,27 +90,15 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogDestinationPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The policy document. This is a JSON formatted string.
-        /// </summary>
         [Input("accessPolicy")]
         public Input<string>? AccessPolicy { get; set; }
 
-        /// <summary>
-        /// A name for the subscription filter
-        /// </summary>
         [Input("destinationName")]
         public Input<string>? DestinationName { get; set; }
 
-        /// <summary>
-        /// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
-        /// </summary>
         [Input("forceUpdate")]
         public Input<bool>? ForceUpdate { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

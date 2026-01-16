@@ -11,36 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve information about EMR Release Labels.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emr.GetReleaseLabels(ctx, &emr.GetReleaseLabelsArgs{
-//				Filters: emr.GetReleaseLabelsFilters{
-//					Application: pulumi.StringRef("spark@2.1.0"),
-//					Prefix:      pulumi.StringRef("emr-5"),
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetReleaseLabels(ctx *pulumi.Context, args *GetReleaseLabelsArgs, opts ...pulumi.InvokeOption) (*GetReleaseLabelsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetReleaseLabelsResult
@@ -53,19 +23,16 @@ func GetReleaseLabels(ctx *pulumi.Context, args *GetReleaseLabelsArgs, opts ...p
 
 // A collection of arguments for invoking getReleaseLabels.
 type GetReleaseLabelsArgs struct {
-	// Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
 	Filters *GetReleaseLabelsFilters `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region  *string                  `pulumi:"region"`
 }
 
 // A collection of values returned by getReleaseLabels.
 type GetReleaseLabelsResult struct {
 	Filters *GetReleaseLabelsFilters `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
-	// Returned release labels.
+	Id            string   `pulumi:"id"`
+	Region        string   `pulumi:"region"`
 	ReleaseLabels []string `pulumi:"releaseLabels"`
 }
 
@@ -80,10 +47,8 @@ func GetReleaseLabelsOutput(ctx *pulumi.Context, args GetReleaseLabelsOutputArgs
 
 // A collection of arguments for invoking getReleaseLabels.
 type GetReleaseLabelsOutputArgs struct {
-	// Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
 	Filters GetReleaseLabelsFiltersPtrInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Region  pulumi.StringPtrInput           `pulumi:"region"`
 }
 
 func (GetReleaseLabelsOutputArgs) ElementType() reflect.Type {
@@ -118,7 +83,6 @@ func (o GetReleaseLabelsResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReleaseLabelsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Returned release labels.
 func (o GetReleaseLabelsResultOutput) ReleaseLabels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetReleaseLabelsResult) []string { return v.ReleaseLabels }).(pulumi.StringArrayOutput)
 }

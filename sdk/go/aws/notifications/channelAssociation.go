@@ -12,64 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS User Notifications Channel Association. This resource associates a channel (such as an email contact) with a notification configuration.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/notifications"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := notifications.NewNotificationConfiguration(ctx, "example", &notifications.NotificationConfigurationArgs{
-//				Name:        pulumi.String("example-notification-config"),
-//				Description: pulumi.String("Example notification configuration"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleContactsEmailContact, err := notifications.NewContactsEmailContact(ctx, "example", &notifications.ContactsEmailContactArgs{
-//				Name:         pulumi.String("example-contact"),
-//				EmailAddress: pulumi.String("example@example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = notifications.NewChannelAssociation(ctx, "example", &notifications.ChannelAssociationArgs{
-//				Arn:                          exampleContactsEmailContact.Arn,
-//				NotificationConfigurationArn: example.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import User Notifications Channel Association using the `notification_configuration_arn,channel_arn` format. For example:
-//
-// ```sh
-// $ pulumi import aws:notifications/channelAssociation:ChannelAssociation example arn:aws:notifications:us-west-2:123456789012:configuration:example-notification-config,arn:aws:notificationscontacts:us-west-2:123456789012:emailcontact:example-contact
-// ```
 type ChannelAssociation struct {
 	pulumi.CustomResourceState
 
-	// ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// ARN of the notification configuration to associate the channel with.
+	Arn                          pulumi.StringOutput `pulumi:"arn"`
 	NotificationConfigurationArn pulumi.StringOutput `pulumi:"notificationConfigurationArn"`
 }
 
@@ -109,16 +55,12 @@ func GetChannelAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ChannelAssociation resources.
 type channelAssociationState struct {
-	// ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
-	Arn *string `pulumi:"arn"`
-	// ARN of the notification configuration to associate the channel with.
+	Arn                          *string `pulumi:"arn"`
 	NotificationConfigurationArn *string `pulumi:"notificationConfigurationArn"`
 }
 
 type ChannelAssociationState struct {
-	// ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
-	Arn pulumi.StringPtrInput
-	// ARN of the notification configuration to associate the channel with.
+	Arn                          pulumi.StringPtrInput
 	NotificationConfigurationArn pulumi.StringPtrInput
 }
 
@@ -127,17 +69,13 @@ func (ChannelAssociationState) ElementType() reflect.Type {
 }
 
 type channelAssociationArgs struct {
-	// ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
-	Arn string `pulumi:"arn"`
-	// ARN of the notification configuration to associate the channel with.
+	Arn                          string `pulumi:"arn"`
 	NotificationConfigurationArn string `pulumi:"notificationConfigurationArn"`
 }
 
 // The set of arguments for constructing a ChannelAssociation resource.
 type ChannelAssociationArgs struct {
-	// ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
-	Arn pulumi.StringInput
-	// ARN of the notification configuration to associate the channel with.
+	Arn                          pulumi.StringInput
 	NotificationConfigurationArn pulumi.StringInput
 }
 
@@ -228,12 +166,10 @@ func (o ChannelAssociationOutput) ToChannelAssociationOutputWithContext(ctx cont
 	return o
 }
 
-// ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
 func (o ChannelAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// ARN of the notification configuration to associate the channel with.
 func (o ChannelAssociationOutput) NotificationConfigurationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelAssociation) pulumi.StringOutput { return v.NotificationConfigurationArn }).(pulumi.StringOutput)
 }

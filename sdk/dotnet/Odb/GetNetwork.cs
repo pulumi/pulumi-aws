@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Odb
 {
     public static class GetNetwork
     {
-        /// <summary>
-        /// Data source for to retrieve network resource in AWS for Oracle Database@AWS.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Odb.GetNetwork.Invoke(new()
-        ///     {
-        ///         Id = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetNetworkResult> InvokeAsync(GetNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkResult>("aws:odb/getNetwork:getNetwork", args ?? new GetNetworkArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for to retrieve network resource in AWS for Oracle Database@AWS.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Odb.GetNetwork.Invoke(new()
-        ///     {
-        ///         Id = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetNetworkResult> Invoke(GetNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkResult>("aws:odb/getNetwork:getNetwork", args ?? new GetNetworkInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for to retrieve network resource in AWS for Oracle Database@AWS.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Odb.GetNetwork.Invoke(new()
-        ///     {
-        ///         Id = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetNetworkResult> Invoke(GetNetworkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkResult>("aws:odb/getNetwork:getNetwork", args ?? new GetNetworkInvokeArgs(), options.WithDefaults());
     }
@@ -93,17 +24,9 @@ namespace Pulumi.Aws.Odb
 
     public sealed class GetNetworkArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Unique identifier of the odb network resource.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -115,17 +38,9 @@ namespace Pulumi.Aws.Odb
 
     public sealed class GetNetworkInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Unique identifier of the odb network resource.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -139,87 +54,27 @@ namespace Pulumi.Aws.Odb
     [OutputType]
     public sealed class GetNetworkResult
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the odb network resource.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The availability zone where the ODB network is located.
-        /// </summary>
         public readonly string AvailabilityZone;
-        /// <summary>
-        /// The AZ ID of the AZ where the ODB network is located.
-        /// </summary>
         public readonly string AvailabilityZoneId;
-        /// <summary>
-        /// The CIDR range of the backup subnet for the ODB network.
-        /// </summary>
         public readonly string BackupSubnetCidr;
-        /// <summary>
-        /// The CIDR notation for the network resource.
-        /// </summary>
         public readonly string ClientSubnetCidr;
-        /// <summary>
-        /// The date and time when the ODB network was created.
-        /// </summary>
         public readonly string CreatedAt;
-        /// <summary>
-        /// The name of the custom domain that the network is located.
-        /// </summary>
         public readonly string CustomDomainName;
-        /// <summary>
-        /// The default DNS prefix for the network resource.
-        /// </summary>
         public readonly string DefaultDnsPrefix;
-        /// <summary>
-        /// Display name for the network resource.
-        /// </summary>
         public readonly string DisplayName;
-        /// <summary>
-        /// Unique identifier of the odb network resource.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The managed services configuration for the ODB network.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkManagedServiceResult> ManagedServices;
         public readonly ImmutableArray<Outputs.GetNetworkOciDnsForwardingConfigResult> OciDnsForwardingConfigs;
-        /// <summary>
-        /// The unique identifier of the OCI network anchor for the ODB network.
-        /// </summary>
         public readonly string OciNetworkAnchorId;
-        /// <summary>
-        /// The URL of the OCI network anchor for the ODB network.
-        /// </summary>
         public readonly string OciNetworkAnchorUrl;
-        /// <summary>
-        /// The name of the OCI resource anchor for the ODB network.
-        /// </summary>
         public readonly string OciResourceAnchorName;
-        /// <summary>
-        /// The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
-        /// </summary>
         public readonly string OciVcnId;
-        /// <summary>
-        /// The URL of the OCI VCN for the ODB network.
-        /// </summary>
         public readonly string OciVcnUrl;
-        /// <summary>
-        /// The list of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
-        /// </summary>
         public readonly ImmutableArray<string> PeeredCidrs;
-        /// <summary>
-        /// The amount of progress made on the current operation on the ODB network, expressed as a percentage.
-        /// </summary>
         public readonly double PercentProgress;
         public readonly string Region;
-        /// <summary>
-        /// The status of the network resource.
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Additional information about the current status of the ODB network.
-        /// </summary>
         public readonly string StatusReason;
         public readonly ImmutableDictionary<string, string> Tags;
 

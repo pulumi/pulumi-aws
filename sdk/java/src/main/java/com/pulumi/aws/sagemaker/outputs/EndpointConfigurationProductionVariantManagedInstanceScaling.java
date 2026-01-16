@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EndpointConfigurationProductionVariantManagedInstanceScaling {
-    /**
-     * @return Maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
-     * 
-     */
     private @Nullable Integer maxInstanceCount;
-    /**
-     * @return Minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
-     * 
-     */
     private @Nullable Integer minInstanceCount;
-    /**
-     * @return Whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     private @Nullable String status;
 
     private EndpointConfigurationProductionVariantManagedInstanceScaling() {}
-    /**
-     * @return Maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
-     * 
-     */
     public Optional<Integer> maxInstanceCount() {
         return Optional.ofNullable(this.maxInstanceCount);
     }
-    /**
-     * @return Minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
-     * 
-     */
     public Optional<Integer> minInstanceCount() {
         return Optional.ofNullable(this.minInstanceCount);
     }
-    /**
-     * @return Whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }

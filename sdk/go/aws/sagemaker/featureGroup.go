@@ -12,83 +12,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker AI Feature Group resource.
-//
-// ## Example Usage
-//
-// Basic usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewFeatureGroup(ctx, "example", &sagemaker.FeatureGroupArgs{
-//				FeatureGroupName:            pulumi.String("example"),
-//				RecordIdentifierFeatureName: pulumi.String("example"),
-//				EventTimeFeatureName:        pulumi.String("example"),
-//				RoleArn:                     pulumi.Any(test.Arn),
-//				FeatureDefinitions: sagemaker.FeatureGroupFeatureDefinitionArray{
-//					&sagemaker.FeatureGroupFeatureDefinitionArgs{
-//						FeatureName: pulumi.String("example"),
-//						FeatureType: pulumi.String("String"),
-//					},
-//				},
-//				OnlineStoreConfig: &sagemaker.FeatureGroupOnlineStoreConfigArgs{
-//					EnableOnlineStore: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Feature Groups using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
-// ```
 type FeatureGroup struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A free-form description of a Feature Group.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of the feature that stores the EventTime of a Record in a Feature Group.
-	EventTimeFeatureName pulumi.StringOutput `pulumi:"eventTimeFeatureName"`
-	// A list of Feature names and types. See Feature Definition Below.
-	FeatureDefinitions FeatureGroupFeatureDefinitionArrayOutput `pulumi:"featureDefinitions"`
-	// The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
-	FeatureGroupName pulumi.StringOutput `pulumi:"featureGroupName"`
-	// The Offline Feature Store Configuration. See Offline Store Config Below.
-	OfflineStoreConfig FeatureGroupOfflineStoreConfigPtrOutput `pulumi:"offlineStoreConfig"`
-	// The Online Feature Store Configuration. See Online Store Config Below.
-	OnlineStoreConfig FeatureGroupOnlineStoreConfigPtrOutput `pulumi:"onlineStoreConfig"`
-	// The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
-	RecordIdentifierFeatureName pulumi.StringOutput `pulumi:"recordIdentifierFeatureName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll          pulumi.StringMapOutput             `pulumi:"tagsAll"`
-	ThroughputConfig FeatureGroupThroughputConfigOutput `pulumi:"throughputConfig"`
+	Arn                         pulumi.StringOutput                      `pulumi:"arn"`
+	Description                 pulumi.StringPtrOutput                   `pulumi:"description"`
+	EventTimeFeatureName        pulumi.StringOutput                      `pulumi:"eventTimeFeatureName"`
+	FeatureDefinitions          FeatureGroupFeatureDefinitionArrayOutput `pulumi:"featureDefinitions"`
+	FeatureGroupName            pulumi.StringOutput                      `pulumi:"featureGroupName"`
+	OfflineStoreConfig          FeatureGroupOfflineStoreConfigPtrOutput  `pulumi:"offlineStoreConfig"`
+	OnlineStoreConfig           FeatureGroupOnlineStoreConfigPtrOutput   `pulumi:"onlineStoreConfig"`
+	RecordIdentifierFeatureName pulumi.StringOutput                      `pulumi:"recordIdentifierFeatureName"`
+	Region                      pulumi.StringOutput                      `pulumi:"region"`
+	RoleArn                     pulumi.StringOutput                      `pulumi:"roleArn"`
+	Tags                        pulumi.StringMapOutput                   `pulumi:"tags"`
+	TagsAll                     pulumi.StringMapOutput                   `pulumi:"tagsAll"`
+	ThroughputConfig            FeatureGroupThroughputConfigOutput       `pulumi:"throughputConfig"`
 }
 
 // NewFeatureGroup registers a new resource with the given unique name, arguments, and options.
@@ -136,59 +75,35 @@ func GetFeatureGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FeatureGroup resources.
 type featureGroupState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
-	Arn *string `pulumi:"arn"`
-	// A free-form description of a Feature Group.
-	Description *string `pulumi:"description"`
-	// The name of the feature that stores the EventTime of a Record in a Feature Group.
-	EventTimeFeatureName *string `pulumi:"eventTimeFeatureName"`
-	// A list of Feature names and types. See Feature Definition Below.
-	FeatureDefinitions []FeatureGroupFeatureDefinition `pulumi:"featureDefinitions"`
-	// The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
-	FeatureGroupName *string `pulumi:"featureGroupName"`
-	// The Offline Feature Store Configuration. See Offline Store Config Below.
-	OfflineStoreConfig *FeatureGroupOfflineStoreConfig `pulumi:"offlineStoreConfig"`
-	// The Online Feature Store Configuration. See Online Store Config Below.
-	OnlineStoreConfig *FeatureGroupOnlineStoreConfig `pulumi:"onlineStoreConfig"`
-	// The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
-	RecordIdentifierFeatureName *string `pulumi:"recordIdentifierFeatureName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
-	RoleArn *string `pulumi:"roleArn"`
-	// Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll          map[string]string             `pulumi:"tagsAll"`
-	ThroughputConfig *FeatureGroupThroughputConfig `pulumi:"throughputConfig"`
+	Arn                         *string                         `pulumi:"arn"`
+	Description                 *string                         `pulumi:"description"`
+	EventTimeFeatureName        *string                         `pulumi:"eventTimeFeatureName"`
+	FeatureDefinitions          []FeatureGroupFeatureDefinition `pulumi:"featureDefinitions"`
+	FeatureGroupName            *string                         `pulumi:"featureGroupName"`
+	OfflineStoreConfig          *FeatureGroupOfflineStoreConfig `pulumi:"offlineStoreConfig"`
+	OnlineStoreConfig           *FeatureGroupOnlineStoreConfig  `pulumi:"onlineStoreConfig"`
+	RecordIdentifierFeatureName *string                         `pulumi:"recordIdentifierFeatureName"`
+	Region                      *string                         `pulumi:"region"`
+	RoleArn                     *string                         `pulumi:"roleArn"`
+	Tags                        map[string]string               `pulumi:"tags"`
+	TagsAll                     map[string]string               `pulumi:"tagsAll"`
+	ThroughputConfig            *FeatureGroupThroughputConfig   `pulumi:"throughputConfig"`
 }
 
 type FeatureGroupState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
-	Arn pulumi.StringPtrInput
-	// A free-form description of a Feature Group.
-	Description pulumi.StringPtrInput
-	// The name of the feature that stores the EventTime of a Record in a Feature Group.
-	EventTimeFeatureName pulumi.StringPtrInput
-	// A list of Feature names and types. See Feature Definition Below.
-	FeatureDefinitions FeatureGroupFeatureDefinitionArrayInput
-	// The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
-	FeatureGroupName pulumi.StringPtrInput
-	// The Offline Feature Store Configuration. See Offline Store Config Below.
-	OfflineStoreConfig FeatureGroupOfflineStoreConfigPtrInput
-	// The Online Feature Store Configuration. See Online Store Config Below.
-	OnlineStoreConfig FeatureGroupOnlineStoreConfigPtrInput
-	// The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
+	Arn                         pulumi.StringPtrInput
+	Description                 pulumi.StringPtrInput
+	EventTimeFeatureName        pulumi.StringPtrInput
+	FeatureDefinitions          FeatureGroupFeatureDefinitionArrayInput
+	FeatureGroupName            pulumi.StringPtrInput
+	OfflineStoreConfig          FeatureGroupOfflineStoreConfigPtrInput
+	OnlineStoreConfig           FeatureGroupOnlineStoreConfigPtrInput
 	RecordIdentifierFeatureName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
-	RoleArn pulumi.StringPtrInput
-	// Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll          pulumi.StringMapInput
-	ThroughputConfig FeatureGroupThroughputConfigPtrInput
+	Region                      pulumi.StringPtrInput
+	RoleArn                     pulumi.StringPtrInput
+	Tags                        pulumi.StringMapInput
+	TagsAll                     pulumi.StringMapInput
+	ThroughputConfig            FeatureGroupThroughputConfigPtrInput
 }
 
 func (FeatureGroupState) ElementType() reflect.Type {
@@ -196,52 +111,32 @@ func (FeatureGroupState) ElementType() reflect.Type {
 }
 
 type featureGroupArgs struct {
-	// A free-form description of a Feature Group.
-	Description *string `pulumi:"description"`
-	// The name of the feature that stores the EventTime of a Record in a Feature Group.
-	EventTimeFeatureName string `pulumi:"eventTimeFeatureName"`
-	// A list of Feature names and types. See Feature Definition Below.
-	FeatureDefinitions []FeatureGroupFeatureDefinition `pulumi:"featureDefinitions"`
-	// The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
-	FeatureGroupName string `pulumi:"featureGroupName"`
-	// The Offline Feature Store Configuration. See Offline Store Config Below.
-	OfflineStoreConfig *FeatureGroupOfflineStoreConfig `pulumi:"offlineStoreConfig"`
-	// The Online Feature Store Configuration. See Online Store Config Below.
-	OnlineStoreConfig *FeatureGroupOnlineStoreConfig `pulumi:"onlineStoreConfig"`
-	// The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
-	RecordIdentifierFeatureName string `pulumi:"recordIdentifierFeatureName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
-	RoleArn string `pulumi:"roleArn"`
-	// Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags             map[string]string             `pulumi:"tags"`
-	ThroughputConfig *FeatureGroupThroughputConfig `pulumi:"throughputConfig"`
+	Description                 *string                         `pulumi:"description"`
+	EventTimeFeatureName        string                          `pulumi:"eventTimeFeatureName"`
+	FeatureDefinitions          []FeatureGroupFeatureDefinition `pulumi:"featureDefinitions"`
+	FeatureGroupName            string                          `pulumi:"featureGroupName"`
+	OfflineStoreConfig          *FeatureGroupOfflineStoreConfig `pulumi:"offlineStoreConfig"`
+	OnlineStoreConfig           *FeatureGroupOnlineStoreConfig  `pulumi:"onlineStoreConfig"`
+	RecordIdentifierFeatureName string                          `pulumi:"recordIdentifierFeatureName"`
+	Region                      *string                         `pulumi:"region"`
+	RoleArn                     string                          `pulumi:"roleArn"`
+	Tags                        map[string]string               `pulumi:"tags"`
+	ThroughputConfig            *FeatureGroupThroughputConfig   `pulumi:"throughputConfig"`
 }
 
 // The set of arguments for constructing a FeatureGroup resource.
 type FeatureGroupArgs struct {
-	// A free-form description of a Feature Group.
-	Description pulumi.StringPtrInput
-	// The name of the feature that stores the EventTime of a Record in a Feature Group.
-	EventTimeFeatureName pulumi.StringInput
-	// A list of Feature names and types. See Feature Definition Below.
-	FeatureDefinitions FeatureGroupFeatureDefinitionArrayInput
-	// The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
-	FeatureGroupName pulumi.StringInput
-	// The Offline Feature Store Configuration. See Offline Store Config Below.
-	OfflineStoreConfig FeatureGroupOfflineStoreConfigPtrInput
-	// The Online Feature Store Configuration. See Online Store Config Below.
-	OnlineStoreConfig FeatureGroupOnlineStoreConfigPtrInput
-	// The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
+	Description                 pulumi.StringPtrInput
+	EventTimeFeatureName        pulumi.StringInput
+	FeatureDefinitions          FeatureGroupFeatureDefinitionArrayInput
+	FeatureGroupName            pulumi.StringInput
+	OfflineStoreConfig          FeatureGroupOfflineStoreConfigPtrInput
+	OnlineStoreConfig           FeatureGroupOnlineStoreConfigPtrInput
 	RecordIdentifierFeatureName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
-	RoleArn pulumi.StringInput
-	// Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags             pulumi.StringMapInput
-	ThroughputConfig FeatureGroupThroughputConfigPtrInput
+	Region                      pulumi.StringPtrInput
+	RoleArn                     pulumi.StringInput
+	Tags                        pulumi.StringMapInput
+	ThroughputConfig            FeatureGroupThroughputConfigPtrInput
 }
 
 func (FeatureGroupArgs) ElementType() reflect.Type {
@@ -331,62 +226,50 @@ func (o FeatureGroupOutput) ToFeatureGroupOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
 func (o FeatureGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FeatureGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A free-form description of a Feature Group.
 func (o FeatureGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FeatureGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the feature that stores the EventTime of a Record in a Feature Group.
 func (o FeatureGroupOutput) EventTimeFeatureName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FeatureGroup) pulumi.StringOutput { return v.EventTimeFeatureName }).(pulumi.StringOutput)
 }
 
-// A list of Feature names and types. See Feature Definition Below.
 func (o FeatureGroupOutput) FeatureDefinitions() FeatureGroupFeatureDefinitionArrayOutput {
 	return o.ApplyT(func(v *FeatureGroup) FeatureGroupFeatureDefinitionArrayOutput { return v.FeatureDefinitions }).(FeatureGroupFeatureDefinitionArrayOutput)
 }
 
-// The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
 func (o FeatureGroupOutput) FeatureGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FeatureGroup) pulumi.StringOutput { return v.FeatureGroupName }).(pulumi.StringOutput)
 }
 
-// The Offline Feature Store Configuration. See Offline Store Config Below.
 func (o FeatureGroupOutput) OfflineStoreConfig() FeatureGroupOfflineStoreConfigPtrOutput {
 	return o.ApplyT(func(v *FeatureGroup) FeatureGroupOfflineStoreConfigPtrOutput { return v.OfflineStoreConfig }).(FeatureGroupOfflineStoreConfigPtrOutput)
 }
 
-// The Online Feature Store Configuration. See Online Store Config Below.
 func (o FeatureGroupOutput) OnlineStoreConfig() FeatureGroupOnlineStoreConfigPtrOutput {
 	return o.ApplyT(func(v *FeatureGroup) FeatureGroupOnlineStoreConfigPtrOutput { return v.OnlineStoreConfig }).(FeatureGroupOnlineStoreConfigPtrOutput)
 }
 
-// The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
 func (o FeatureGroupOutput) RecordIdentifierFeatureName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FeatureGroup) pulumi.StringOutput { return v.RecordIdentifierFeatureName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FeatureGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *FeatureGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
 func (o FeatureGroupOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FeatureGroup) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o FeatureGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FeatureGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o FeatureGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FeatureGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

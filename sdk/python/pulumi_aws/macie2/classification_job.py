@@ -35,18 +35,6 @@ class ClassificationJobArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ClassificationJob resource.
-        :param pulumi.Input[_builtins.str] job_type: The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
-        :param pulumi.Input['ClassificationJobS3JobDefinitionArgs'] s3_job_definition: The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] custom_data_identifier_ids: The custom data identifiers to use for data analysis and classification.
-        :param pulumi.Input[_builtins.str] description: A custom description of the job. The description can contain as many as 200 characters.
-        :param pulumi.Input[_builtins.bool] initial_run: Specifies whether to analyze all existing, eligible objects immediately after the job is created.
-        :param pulumi.Input[_builtins.str] job_status: The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
-        :param pulumi.Input[_builtins.str] name: A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] sampling_percentage: The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
-        :param pulumi.Input['ClassificationJobScheduleFrequencyArgs'] schedule_frequency: The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "job_type", job_type)
         pulumi.set(__self__, "s3_job_definition", s3_job_definition)
@@ -74,9 +62,6 @@ class ClassificationJobArgs:
     @_builtins.property
     @pulumi.getter(name="jobType")
     def job_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
-        """
         return pulumi.get(self, "job_type")
 
     @job_type.setter
@@ -86,9 +71,6 @@ class ClassificationJobArgs:
     @_builtins.property
     @pulumi.getter(name="s3JobDefinition")
     def s3_job_definition(self) -> pulumi.Input['ClassificationJobS3JobDefinitionArgs']:
-        """
-        The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
-        """
         return pulumi.get(self, "s3_job_definition")
 
     @s3_job_definition.setter
@@ -98,9 +80,6 @@ class ClassificationJobArgs:
     @_builtins.property
     @pulumi.getter(name="customDataIdentifierIds")
     def custom_data_identifier_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The custom data identifiers to use for data analysis and classification.
-        """
         return pulumi.get(self, "custom_data_identifier_ids")
 
     @custom_data_identifier_ids.setter
@@ -110,9 +89,6 @@ class ClassificationJobArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A custom description of the job. The description can contain as many as 200 characters.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -122,9 +98,6 @@ class ClassificationJobArgs:
     @_builtins.property
     @pulumi.getter(name="initialRun")
     def initial_run(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether to analyze all existing, eligible objects immediately after the job is created.
-        """
         return pulumi.get(self, "initial_run")
 
     @initial_run.setter
@@ -134,9 +107,6 @@ class ClassificationJobArgs:
     @_builtins.property
     @pulumi.getter(name="jobStatus")
     def job_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
-        """
         return pulumi.get(self, "job_status")
 
     @job_status.setter
@@ -146,9 +116,6 @@ class ClassificationJobArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -158,9 +125,6 @@ class ClassificationJobArgs:
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -170,9 +134,6 @@ class ClassificationJobArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -182,9 +143,6 @@ class ClassificationJobArgs:
     @_builtins.property
     @pulumi.getter(name="samplingPercentage")
     def sampling_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
-        """
         return pulumi.get(self, "sampling_percentage")
 
     @sampling_percentage.setter
@@ -194,9 +152,6 @@ class ClassificationJobArgs:
     @_builtins.property
     @pulumi.getter(name="scheduleFrequency")
     def schedule_frequency(self) -> Optional[pulumi.Input['ClassificationJobScheduleFrequencyArgs']]:
-        """
-        The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
-        """
         return pulumi.get(self, "schedule_frequency")
 
     @schedule_frequency.setter
@@ -206,9 +161,6 @@ class ClassificationJobArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -238,21 +190,6 @@ class _ClassificationJobState:
                  user_paused_details: Optional[pulumi.Input[Sequence[pulumi.Input['ClassificationJobUserPausedDetailArgs']]]] = None):
         """
         Input properties used for looking up and filtering ClassificationJob resources.
-        :param pulumi.Input[_builtins.str] created_at: The date and time, in UTC and extended RFC 3339 format, when the job was created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] custom_data_identifier_ids: The custom data identifiers to use for data analysis and classification.
-        :param pulumi.Input[_builtins.str] description: A custom description of the job. The description can contain as many as 200 characters.
-        :param pulumi.Input[_builtins.bool] initial_run: Specifies whether to analyze all existing, eligible objects immediately after the job is created.
-        :param pulumi.Input[_builtins.str] job_status: The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
-        :param pulumi.Input[_builtins.str] job_type: The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
-        :param pulumi.Input[_builtins.str] name: A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['ClassificationJobS3JobDefinitionArgs'] s3_job_definition: The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
-        :param pulumi.Input[_builtins.int] sampling_percentage: The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
-        :param pulumi.Input['ClassificationJobScheduleFrequencyArgs'] schedule_frequency: The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input['ClassificationJobUserPausedDetailArgs']]] user_paused_details: If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -292,9 +229,6 @@ class _ClassificationJobState:
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date and time, in UTC and extended RFC 3339 format, when the job was created.
-        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -304,9 +238,6 @@ class _ClassificationJobState:
     @_builtins.property
     @pulumi.getter(name="customDataIdentifierIds")
     def custom_data_identifier_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The custom data identifiers to use for data analysis and classification.
-        """
         return pulumi.get(self, "custom_data_identifier_ids")
 
     @custom_data_identifier_ids.setter
@@ -316,9 +247,6 @@ class _ClassificationJobState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A custom description of the job. The description can contain as many as 200 characters.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -328,9 +256,6 @@ class _ClassificationJobState:
     @_builtins.property
     @pulumi.getter(name="initialRun")
     def initial_run(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether to analyze all existing, eligible objects immediately after the job is created.
-        """
         return pulumi.get(self, "initial_run")
 
     @initial_run.setter
@@ -358,9 +283,6 @@ class _ClassificationJobState:
     @_builtins.property
     @pulumi.getter(name="jobStatus")
     def job_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
-        """
         return pulumi.get(self, "job_status")
 
     @job_status.setter
@@ -370,9 +292,6 @@ class _ClassificationJobState:
     @_builtins.property
     @pulumi.getter(name="jobType")
     def job_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
-        """
         return pulumi.get(self, "job_type")
 
     @job_type.setter
@@ -382,9 +301,6 @@ class _ClassificationJobState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -394,9 +310,6 @@ class _ClassificationJobState:
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -406,9 +319,6 @@ class _ClassificationJobState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -418,9 +328,6 @@ class _ClassificationJobState:
     @_builtins.property
     @pulumi.getter(name="s3JobDefinition")
     def s3_job_definition(self) -> Optional[pulumi.Input['ClassificationJobS3JobDefinitionArgs']]:
-        """
-        The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
-        """
         return pulumi.get(self, "s3_job_definition")
 
     @s3_job_definition.setter
@@ -430,9 +337,6 @@ class _ClassificationJobState:
     @_builtins.property
     @pulumi.getter(name="samplingPercentage")
     def sampling_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
-        """
         return pulumi.get(self, "sampling_percentage")
 
     @sampling_percentage.setter
@@ -442,9 +346,6 @@ class _ClassificationJobState:
     @_builtins.property
     @pulumi.getter(name="scheduleFrequency")
     def schedule_frequency(self) -> Optional[pulumi.Input['ClassificationJobScheduleFrequencyArgs']]:
-        """
-        The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
-        """
         return pulumi.get(self, "schedule_frequency")
 
     @schedule_frequency.setter
@@ -454,9 +355,6 @@ class _ClassificationJobState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -466,9 +364,6 @@ class _ClassificationJobState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -478,9 +373,6 @@ class _ClassificationJobState:
     @_builtins.property
     @pulumi.getter(name="userPausedDetails")
     def user_paused_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClassificationJobUserPausedDetailArgs']]]]:
-        """
-        If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
-        """
         return pulumi.get(self, "user_paused_details")
 
     @user_paused_details.setter
@@ -508,49 +400,9 @@ class ClassificationJob(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a resource to manage an [AWS Macie Classification Job](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.macie2.Account("test")
-        test_classification_job = aws.macie2.ClassificationJob("test",
-            job_type="ONE_TIME",
-            name="NAME OF THE CLASSIFICATION JOB",
-            s3_job_definition={
-                "bucket_definitions": [{
-                    "account_id": "ACCOUNT ID",
-                    "buckets": ["S3 BUCKET NAME"],
-                }],
-            },
-            opts = pulumi.ResourceOptions(depends_on=[test]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_macie2_classification_job` using the id. For example:
-
-        ```sh
-        $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
-        ```
-
+        Create a ClassificationJob resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] custom_data_identifier_ids: The custom data identifiers to use for data analysis and classification.
-        :param pulumi.Input[_builtins.str] description: A custom description of the job. The description can contain as many as 200 characters.
-        :param pulumi.Input[_builtins.bool] initial_run: Specifies whether to analyze all existing, eligible objects immediately after the job is created.
-        :param pulumi.Input[_builtins.str] job_status: The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
-        :param pulumi.Input[_builtins.str] job_type: The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
-        :param pulumi.Input[_builtins.str] name: A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ClassificationJobS3JobDefinitionArgs', 'ClassificationJobS3JobDefinitionArgsDict']] s3_job_definition: The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
-        :param pulumi.Input[_builtins.int] sampling_percentage: The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
-        :param pulumi.Input[Union['ClassificationJobScheduleFrequencyArgs', 'ClassificationJobScheduleFrequencyArgsDict']] schedule_frequency: The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -559,35 +411,7 @@ class ClassificationJob(pulumi.CustomResource):
                  args: ClassificationJobArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage an [AWS Macie Classification Job](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.macie2.Account("test")
-        test_classification_job = aws.macie2.ClassificationJob("test",
-            job_type="ONE_TIME",
-            name="NAME OF THE CLASSIFICATION JOB",
-            s3_job_definition={
-                "bucket_definitions": [{
-                    "account_id": "ACCOUNT ID",
-                    "buckets": ["S3 BUCKET NAME"],
-                }],
-            },
-            opts = pulumi.ResourceOptions(depends_on=[test]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_macie2_classification_job` using the id. For example:
-
-        ```sh
-        $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
-        ```
-
+        Create a ClassificationJob resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ClassificationJobArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -679,21 +503,6 @@ class ClassificationJob(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] created_at: The date and time, in UTC and extended RFC 3339 format, when the job was created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] custom_data_identifier_ids: The custom data identifiers to use for data analysis and classification.
-        :param pulumi.Input[_builtins.str] description: A custom description of the job. The description can contain as many as 200 characters.
-        :param pulumi.Input[_builtins.bool] initial_run: Specifies whether to analyze all existing, eligible objects immediately after the job is created.
-        :param pulumi.Input[_builtins.str] job_status: The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
-        :param pulumi.Input[_builtins.str] job_type: The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
-        :param pulumi.Input[_builtins.str] name: A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ClassificationJobS3JobDefinitionArgs', 'ClassificationJobS3JobDefinitionArgsDict']] s3_job_definition: The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
-        :param pulumi.Input[_builtins.int] sampling_percentage: The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
-        :param pulumi.Input[Union['ClassificationJobScheduleFrequencyArgs', 'ClassificationJobScheduleFrequencyArgsDict']] schedule_frequency: The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ClassificationJobUserPausedDetailArgs', 'ClassificationJobUserPausedDetailArgsDict']]]] user_paused_details: If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -721,33 +530,21 @@ class ClassificationJob(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date and time, in UTC and extended RFC 3339 format, when the job was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter(name="customDataIdentifierIds")
     def custom_data_identifier_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        The custom data identifiers to use for data analysis and classification.
-        """
         return pulumi.get(self, "custom_data_identifier_ids")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
-        """
-        A custom description of the job. The description can contain as many as 200 characters.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="initialRun")
     def initial_run(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Specifies whether to analyze all existing, eligible objects immediately after the job is created.
-        """
         return pulumi.get(self, "initial_run")
 
     @_builtins.property
@@ -763,88 +560,55 @@ class ClassificationJob(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="jobStatus")
     def job_status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
-        """
         return pulumi.get(self, "job_status")
 
     @_builtins.property
     @pulumi.getter(name="jobType")
     def job_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
-        """
         return pulumi.get(self, "job_type")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[_builtins.str]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="s3JobDefinition")
     def s3_job_definition(self) -> pulumi.Output['outputs.ClassificationJobS3JobDefinition']:
-        """
-        The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
-        """
         return pulumi.get(self, "s3_job_definition")
 
     @_builtins.property
     @pulumi.getter(name="samplingPercentage")
     def sampling_percentage(self) -> pulumi.Output[_builtins.int]:
-        """
-        The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
-        """
         return pulumi.get(self, "sampling_percentage")
 
     @_builtins.property
     @pulumi.getter(name="scheduleFrequency")
     def schedule_frequency(self) -> pulumi.Output['outputs.ClassificationJobScheduleFrequency']:
-        """
-        The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
-        """
         return pulumi.get(self, "schedule_frequency")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="userPausedDetails")
     def user_paused_details(self) -> pulumi.Output[Sequence['outputs.ClassificationJobUserPausedDetail']]:
-        """
-        If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
-        """
         return pulumi.get(self, "user_paused_details")
 

@@ -13,127 +13,35 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage an AWS CloudTrail Delegated Administrator.
- * 
- * ## Example Usage
- * 
- * Basic usage:
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.cloudtrail.OrganizationDelegatedAdminAccount;
- * import com.pulumi.aws.cloudtrail.OrganizationDelegatedAdminAccountArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var delegated = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         var example = new OrganizationDelegatedAdminAccount("example", OrganizationDelegatedAdminAccountArgs.builder()
- *             .accountId(delegated.accountId())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import delegated administrators using the delegate account `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudtrail/organizationDelegatedAdminAccount:OrganizationDelegatedAdminAccount example 12345678901
- * ```
- * 
- */
 @ResourceType(type="aws:cloudtrail/organizationDelegatedAdminAccount:OrganizationDelegatedAdminAccount")
 public class OrganizationDelegatedAdminAccount extends com.pulumi.resources.CustomResource {
-    /**
-     * An organization member account ID that you want to designate as a delegated administrator.
-     * 
-     */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
-    /**
-     * @return An organization member account ID that you want to designate as a delegated administrator.
-     * 
-     */
     public Output<String> accountId() {
         return this.accountId;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The email address that is associated with the delegated administrator&#39;s AWS account.
-     * 
-     */
     @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
-    /**
-     * @return The email address that is associated with the delegated administrator&#39;s AWS account.
-     * 
-     */
     public Output<String> email() {
         return this.email;
     }
-    /**
-     * The friendly name of the delegated administrator&#39;s account.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The friendly name of the delegated administrator&#39;s account.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The AWS CloudTrail service principal name.
-     * 
-     */
     @Export(name="servicePrincipal", refs={String.class}, tree="[0]")
     private Output<String> servicePrincipal;
 
-    /**
-     * @return The AWS CloudTrail service principal name.
-     * 
-     */
     public Output<String> servicePrincipal() {
         return this.servicePrincipal;
     }

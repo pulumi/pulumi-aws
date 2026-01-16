@@ -12,15 +12,9 @@ namespace Pulumi.Aws.EmrServerless.Inputs
 
     public sealed class ApplicationInteractiveConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
-        /// </summary>
         [Input("livyEndpointEnabled")]
         public Input<bool>? LivyEndpointEnabled { get; set; }
 
-        /// <summary>
-        /// Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
-        /// </summary>
         [Input("studioEnabled")]
         public Input<bool>? StudioEnabled { get; set; }
 

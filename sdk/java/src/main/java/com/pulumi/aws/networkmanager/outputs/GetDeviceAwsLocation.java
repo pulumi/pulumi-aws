@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDeviceAwsLocation {
-    /**
-     * @return ARN of the subnet that the device is located in.
-     * 
-     */
     private String subnetArn;
-    /**
-     * @return Zone that the device is located in.
-     * 
-     */
     private String zone;
 
     private GetDeviceAwsLocation() {}
-    /**
-     * @return ARN of the subnet that the device is located in.
-     * 
-     */
     public String subnetArn() {
         return this.subnetArn;
     }
-    /**
-     * @return Zone that the device is located in.
-     * 
-     */
     public String zone() {
         return this.zone;
     }

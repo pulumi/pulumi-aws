@@ -40,14 +40,8 @@ MYPY = False
 if not MYPY:
     class EnvironmentLastUpdatedArgsDict(TypedDict):
         created_at: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Created At date of the MWAA Environment
-        """
         errors: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvironmentLastUpdatedErrorArgsDict']]]]
         status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The status of the Amazon MWAA Environment
-        """
 elif False:
     EnvironmentLastUpdatedArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -57,10 +51,6 @@ class EnvironmentLastUpdatedArgs:
                  created_at: Optional[pulumi.Input[_builtins.str]] = None,
                  errors: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentLastUpdatedErrorArgs']]]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] created_at: The Created At date of the MWAA Environment
-        :param pulumi.Input[_builtins.str] status: The status of the Amazon MWAA Environment
-        """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
         if errors is not None:
@@ -71,9 +61,6 @@ class EnvironmentLastUpdatedArgs:
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Created At date of the MWAA Environment
-        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -92,9 +79,6 @@ class EnvironmentLastUpdatedArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status of the Amazon MWAA Environment
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -141,25 +125,10 @@ class EnvironmentLastUpdatedErrorArgs:
 if not MYPY:
     class EnvironmentLoggingConfigurationArgsDict(TypedDict):
         dag_processing_logs: NotRequired[pulumi.Input['EnvironmentLoggingConfigurationDagProcessingLogsArgsDict']]
-        """
-        (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
-        """
         scheduler_logs: NotRequired[pulumi.Input['EnvironmentLoggingConfigurationSchedulerLogsArgsDict']]
-        """
-        Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
-        """
         task_logs: NotRequired[pulumi.Input['EnvironmentLoggingConfigurationTaskLogsArgsDict']]
-        """
-        Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
-        """
         webserver_logs: NotRequired[pulumi.Input['EnvironmentLoggingConfigurationWebserverLogsArgsDict']]
-        """
-        Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
-        """
         worker_logs: NotRequired[pulumi.Input['EnvironmentLoggingConfigurationWorkerLogsArgsDict']]
-        """
-        Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
-        """
 elif False:
     EnvironmentLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -171,13 +140,6 @@ class EnvironmentLoggingConfigurationArgs:
                  task_logs: Optional[pulumi.Input['EnvironmentLoggingConfigurationTaskLogsArgs']] = None,
                  webserver_logs: Optional[pulumi.Input['EnvironmentLoggingConfigurationWebserverLogsArgs']] = None,
                  worker_logs: Optional[pulumi.Input['EnvironmentLoggingConfigurationWorkerLogsArgs']] = None):
-        """
-        :param pulumi.Input['EnvironmentLoggingConfigurationDagProcessingLogsArgs'] dag_processing_logs: (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
-        :param pulumi.Input['EnvironmentLoggingConfigurationSchedulerLogsArgs'] scheduler_logs: Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
-        :param pulumi.Input['EnvironmentLoggingConfigurationTaskLogsArgs'] task_logs: Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
-        :param pulumi.Input['EnvironmentLoggingConfigurationWebserverLogsArgs'] webserver_logs: Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
-        :param pulumi.Input['EnvironmentLoggingConfigurationWorkerLogsArgs'] worker_logs: Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
-        """
         if dag_processing_logs is not None:
             pulumi.set(__self__, "dag_processing_logs", dag_processing_logs)
         if scheduler_logs is not None:
@@ -192,9 +154,6 @@ class EnvironmentLoggingConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="dagProcessingLogs")
     def dag_processing_logs(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationDagProcessingLogsArgs']]:
-        """
-        (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
-        """
         return pulumi.get(self, "dag_processing_logs")
 
     @dag_processing_logs.setter
@@ -204,9 +163,6 @@ class EnvironmentLoggingConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="schedulerLogs")
     def scheduler_logs(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationSchedulerLogsArgs']]:
-        """
-        Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
-        """
         return pulumi.get(self, "scheduler_logs")
 
     @scheduler_logs.setter
@@ -216,9 +172,6 @@ class EnvironmentLoggingConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="taskLogs")
     def task_logs(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationTaskLogsArgs']]:
-        """
-        Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
-        """
         return pulumi.get(self, "task_logs")
 
     @task_logs.setter
@@ -228,9 +181,6 @@ class EnvironmentLoggingConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="webserverLogs")
     def webserver_logs(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationWebserverLogsArgs']]:
-        """
-        Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
-        """
         return pulumi.get(self, "webserver_logs")
 
     @webserver_logs.setter
@@ -240,9 +190,6 @@ class EnvironmentLoggingConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="workerLogs")
     def worker_logs(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationWorkerLogsArgs']]:
-        """
-        Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
-        """
         return pulumi.get(self, "worker_logs")
 
     @worker_logs.setter
@@ -254,13 +201,7 @@ if not MYPY:
     class EnvironmentLoggingConfigurationDagProcessingLogsArgsDict(TypedDict):
         cloud_watch_log_group_arn: NotRequired[pulumi.Input[_builtins.str]]
         enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enabling or disabling the collection of logs
-        """
         log_level: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-        """
 elif False:
     EnvironmentLoggingConfigurationDagProcessingLogsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -270,10 +211,6 @@ class EnvironmentLoggingConfigurationDagProcessingLogsArgs:
                  cloud_watch_log_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  log_level: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] enabled: Enabling or disabling the collection of logs
-        :param pulumi.Input[_builtins.str] log_level: Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-        """
         if cloud_watch_log_group_arn is not None:
             pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         if enabled is not None:
@@ -293,9 +230,6 @@ class EnvironmentLoggingConfigurationDagProcessingLogsArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enabling or disabling the collection of logs
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -305,9 +239,6 @@ class EnvironmentLoggingConfigurationDagProcessingLogsArgs:
     @_builtins.property
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-        """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
@@ -319,13 +250,7 @@ if not MYPY:
     class EnvironmentLoggingConfigurationSchedulerLogsArgsDict(TypedDict):
         cloud_watch_log_group_arn: NotRequired[pulumi.Input[_builtins.str]]
         enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enabling or disabling the collection of logs
-        """
         log_level: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-        """
 elif False:
     EnvironmentLoggingConfigurationSchedulerLogsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -335,10 +260,6 @@ class EnvironmentLoggingConfigurationSchedulerLogsArgs:
                  cloud_watch_log_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  log_level: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] enabled: Enabling or disabling the collection of logs
-        :param pulumi.Input[_builtins.str] log_level: Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-        """
         if cloud_watch_log_group_arn is not None:
             pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         if enabled is not None:
@@ -358,9 +279,6 @@ class EnvironmentLoggingConfigurationSchedulerLogsArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enabling or disabling the collection of logs
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -370,9 +288,6 @@ class EnvironmentLoggingConfigurationSchedulerLogsArgs:
     @_builtins.property
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-        """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
@@ -384,13 +299,7 @@ if not MYPY:
     class EnvironmentLoggingConfigurationTaskLogsArgsDict(TypedDict):
         cloud_watch_log_group_arn: NotRequired[pulumi.Input[_builtins.str]]
         enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enabling or disabling the collection of logs
-        """
         log_level: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-        """
 elif False:
     EnvironmentLoggingConfigurationTaskLogsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -400,10 +309,6 @@ class EnvironmentLoggingConfigurationTaskLogsArgs:
                  cloud_watch_log_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  log_level: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] enabled: Enabling or disabling the collection of logs
-        :param pulumi.Input[_builtins.str] log_level: Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-        """
         if cloud_watch_log_group_arn is not None:
             pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         if enabled is not None:
@@ -423,9 +328,6 @@ class EnvironmentLoggingConfigurationTaskLogsArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enabling or disabling the collection of logs
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -435,9 +337,6 @@ class EnvironmentLoggingConfigurationTaskLogsArgs:
     @_builtins.property
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-        """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
@@ -449,13 +348,7 @@ if not MYPY:
     class EnvironmentLoggingConfigurationWebserverLogsArgsDict(TypedDict):
         cloud_watch_log_group_arn: NotRequired[pulumi.Input[_builtins.str]]
         enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enabling or disabling the collection of logs
-        """
         log_level: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-        """
 elif False:
     EnvironmentLoggingConfigurationWebserverLogsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -465,10 +358,6 @@ class EnvironmentLoggingConfigurationWebserverLogsArgs:
                  cloud_watch_log_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  log_level: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] enabled: Enabling or disabling the collection of logs
-        :param pulumi.Input[_builtins.str] log_level: Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-        """
         if cloud_watch_log_group_arn is not None:
             pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         if enabled is not None:
@@ -488,9 +377,6 @@ class EnvironmentLoggingConfigurationWebserverLogsArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enabling or disabling the collection of logs
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -500,9 +386,6 @@ class EnvironmentLoggingConfigurationWebserverLogsArgs:
     @_builtins.property
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-        """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
@@ -514,13 +397,7 @@ if not MYPY:
     class EnvironmentLoggingConfigurationWorkerLogsArgsDict(TypedDict):
         cloud_watch_log_group_arn: NotRequired[pulumi.Input[_builtins.str]]
         enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enabling or disabling the collection of logs
-        """
         log_level: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-        """
 elif False:
     EnvironmentLoggingConfigurationWorkerLogsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -530,10 +407,6 @@ class EnvironmentLoggingConfigurationWorkerLogsArgs:
                  cloud_watch_log_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  log_level: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] enabled: Enabling or disabling the collection of logs
-        :param pulumi.Input[_builtins.str] log_level: Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-        """
         if cloud_watch_log_group_arn is not None:
             pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         if enabled is not None:
@@ -553,9 +426,6 @@ class EnvironmentLoggingConfigurationWorkerLogsArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enabling or disabling the collection of logs
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -565,9 +435,6 @@ class EnvironmentLoggingConfigurationWorkerLogsArgs:
     @_builtins.property
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-        """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
@@ -578,13 +445,7 @@ class EnvironmentLoggingConfigurationWorkerLogsArgs:
 if not MYPY:
     class EnvironmentNetworkConfigurationArgsDict(TypedDict):
         security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Security groups IDs for the environment. At least one of the security group needs to allow MWAA resources to talk to each other, otherwise MWAA cannot be provisioned.
-        """
         subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The private subnet IDs in which the environment should be created. MWAA requires two subnets.
-        """
 elif False:
     EnvironmentNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -593,19 +454,12 @@ class EnvironmentNetworkConfigurationArgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Security groups IDs for the environment. At least one of the security group needs to allow MWAA resources to talk to each other, otherwise MWAA cannot be provisioned.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The private subnet IDs in which the environment should be created. MWAA requires two subnets.
-        """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Security groups IDs for the environment. At least one of the security group needs to allow MWAA resources to talk to each other, otherwise MWAA cannot be provisioned.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -615,9 +469,6 @@ class EnvironmentNetworkConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        The private subnet IDs in which the environment should be created. MWAA requires two subnets.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter

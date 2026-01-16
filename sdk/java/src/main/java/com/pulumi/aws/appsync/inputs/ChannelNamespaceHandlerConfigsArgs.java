@@ -16,32 +16,16 @@ public final class ChannelNamespaceHandlerConfigsArgs extends com.pulumi.resourc
 
     public static final ChannelNamespaceHandlerConfigsArgs Empty = new ChannelNamespaceHandlerConfigsArgs();
 
-    /**
-     * Handler configuration. See Handler Config below.
-     * 
-     */
     @Import(name="onPublish")
     private @Nullable Output<ChannelNamespaceHandlerConfigsOnPublishArgs> onPublish;
 
-    /**
-     * @return Handler configuration. See Handler Config below.
-     * 
-     */
     public Optional<Output<ChannelNamespaceHandlerConfigsOnPublishArgs>> onPublish() {
         return Optional.ofNullable(this.onPublish);
     }
 
-    /**
-     * Handler configuration. See Handler Config below.
-     * 
-     */
     @Import(name="onSubscribe")
     private @Nullable Output<ChannelNamespaceHandlerConfigsOnSubscribeArgs> onSubscribe;
 
-    /**
-     * @return Handler configuration. See Handler Config below.
-     * 
-     */
     public Optional<Output<ChannelNamespaceHandlerConfigsOnSubscribeArgs>> onSubscribe() {
         return Optional.ofNullable(this.onSubscribe);
     }
@@ -71,44 +55,20 @@ public final class ChannelNamespaceHandlerConfigsArgs extends com.pulumi.resourc
             $ = new ChannelNamespaceHandlerConfigsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param onPublish Handler configuration. See Handler Config below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onPublish(@Nullable Output<ChannelNamespaceHandlerConfigsOnPublishArgs> onPublish) {
             $.onPublish = onPublish;
             return this;
         }
 
-        /**
-         * @param onPublish Handler configuration. See Handler Config below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onPublish(ChannelNamespaceHandlerConfigsOnPublishArgs onPublish) {
             return onPublish(Output.of(onPublish));
         }
 
-        /**
-         * @param onSubscribe Handler configuration. See Handler Config below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onSubscribe(@Nullable Output<ChannelNamespaceHandlerConfigsOnSubscribeArgs> onSubscribe) {
             $.onSubscribe = onSubscribe;
             return this;
         }
 
-        /**
-         * @param onSubscribe Handler configuration. See Handler Config below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onSubscribe(ChannelNamespaceHandlerConfigsOnSubscribeArgs onSubscribe) {
             return onSubscribe(Output.of(onSubscribe));
         }

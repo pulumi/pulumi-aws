@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Amp.Outputs
     [OutputType]
     public sealed class WorkspaceConfigurationLimitsPerLabelSetLimits
     {
-        /// <summary>
-        /// Maximum number of active time series that can be ingested for metrics matching the label set.
-        /// </summary>
         public readonly int MaxSeries;
 
         [OutputConstructor]

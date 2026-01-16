@@ -46,9 +46,6 @@ class GetUserPoolsResult:
     @_builtins.property
     @pulumi.getter
     def arns(self) -> Sequence[_builtins.str]:
-        """
-        Set of cognito user pool Amazon Resource Names (ARNs).
-        """
         return pulumi.get(self, "arns")
 
     @_builtins.property
@@ -62,9 +59,6 @@ class GetUserPoolsResult:
     @_builtins.property
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
-        """
-        Set of cognito user pool ids.
-        """
         return pulumi.get(self, "ids")
 
     @_builtins.property
@@ -95,26 +89,7 @@ def get_user_pools(name: Optional[_builtins.str] = None,
                    region: Optional[_builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserPoolsResult:
     """
-    Use this data source to get a list of cognito user pools.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.apigateway.get_rest_api(name=api_gateway_name)
-    selected_get_user_pools = aws.cognito.get_user_pools(name=cognito_user_pool_name)
-    cognito = aws.apigateway.Authorizer("cognito",
-        name="cognito",
-        type="COGNITO_USER_POOLS",
-        rest_api=selected.id,
-        provider_arns=selected_get_user_pools.arns)
-    ```
-
-
-    :param _builtins.str name: Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -132,26 +107,7 @@ def get_user_pools_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolsResult]:
     """
-    Use this data source to get a list of cognito user pools.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.apigateway.get_rest_api(name=api_gateway_name)
-    selected_get_user_pools = aws.cognito.get_user_pools(name=cognito_user_pool_name)
-    cognito = aws.apigateway.Authorizer("cognito",
-        name="cognito",
-        type="COGNITO_USER_POOLS",
-        rest_api=selected.id,
-        provider_arns=selected_get_user_pools.arns)
-    ```
-
-
-    :param _builtins.str name: Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

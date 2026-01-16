@@ -15,77 +15,37 @@ public final class ManagedPolicyAttachmentState extends com.pulumi.resources.Res
 
     public static final ManagedPolicyAttachmentState Empty = new ManagedPolicyAttachmentState();
 
-    /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     * 
-     */
     @Import(name="instanceArn")
     private @Nullable Output<String> instanceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     * 
-     */
     public Optional<Output<String>> instanceArn() {
         return Optional.ofNullable(this.instanceArn);
     }
 
-    /**
-     * The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
-     * 
-     */
     @Import(name="managedPolicyArn")
     private @Nullable Output<String> managedPolicyArn;
 
-    /**
-     * @return The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
-     * 
-     */
     public Optional<Output<String>> managedPolicyArn() {
         return Optional.ofNullable(this.managedPolicyArn);
     }
 
-    /**
-     * The name of the IAM Managed Policy.
-     * 
-     */
     @Import(name="managedPolicyName")
     private @Nullable Output<String> managedPolicyName;
 
-    /**
-     * @return The name of the IAM Managed Policy.
-     * 
-     */
     public Optional<Output<String>> managedPolicyName() {
         return Optional.ofNullable(this.managedPolicyName);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
-     * 
-     */
     @Import(name="permissionSetArn")
     private @Nullable Output<String> permissionSetArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Permission Set.
-     * 
-     */
     public Optional<Output<String>> permissionSetArn() {
         return Optional.ofNullable(this.permissionSetArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -118,107 +78,47 @@ public final class ManagedPolicyAttachmentState extends com.pulumi.resources.Res
             $ = new ManagedPolicyAttachmentState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instanceArn The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceArn(@Nullable Output<String> instanceArn) {
             $.instanceArn = instanceArn;
             return this;
         }
 
-        /**
-         * @param instanceArn The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceArn(String instanceArn) {
             return instanceArn(Output.of(instanceArn));
         }
 
-        /**
-         * @param managedPolicyArn The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedPolicyArn(@Nullable Output<String> managedPolicyArn) {
             $.managedPolicyArn = managedPolicyArn;
             return this;
         }
 
-        /**
-         * @param managedPolicyArn The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedPolicyArn(String managedPolicyArn) {
             return managedPolicyArn(Output.of(managedPolicyArn));
         }
 
-        /**
-         * @param managedPolicyName The name of the IAM Managed Policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedPolicyName(@Nullable Output<String> managedPolicyName) {
             $.managedPolicyName = managedPolicyName;
             return this;
         }
 
-        /**
-         * @param managedPolicyName The name of the IAM Managed Policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedPolicyName(String managedPolicyName) {
             return managedPolicyName(Output.of(managedPolicyName));
         }
 
-        /**
-         * @param permissionSetArn The Amazon Resource Name (ARN) of the Permission Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissionSetArn(@Nullable Output<String> permissionSetArn) {
             $.permissionSetArn = permissionSetArn;
             return this;
         }
 
-        /**
-         * @param permissionSetArn The Amazon Resource Name (ARN) of the Permission Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissionSetArn(String permissionSetArn) {
             return permissionSetArn(Output.of(permissionSetArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

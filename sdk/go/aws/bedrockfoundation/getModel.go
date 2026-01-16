@@ -11,39 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS Bedrock Foundation Model.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrockfoundation"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := bedrockfoundation.GetModels(ctx, &bedrockfoundation.GetModelsArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = bedrockfoundation.GetModel(ctx, &bedrockfoundation.GetModelArgs{
-//				ModelId: test.ModelSummaries[0].ModelId,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetModel(ctx *pulumi.Context, args *GetModelArgs, opts ...pulumi.InvokeOption) (*GetModelResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetModelResult
@@ -56,33 +23,23 @@ func GetModel(ctx *pulumi.Context, args *GetModelArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getModel.
 type GetModelArgs struct {
-	// Model identifier.
-	ModelId string `pulumi:"modelId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	ModelId string  `pulumi:"modelId"`
+	Region  *string `pulumi:"region"`
 }
 
 // A collection of values returned by getModel.
 type GetModelResult struct {
-	// Customizations that the model supports.
-	CustomizationsSupporteds []string `pulumi:"customizationsSupporteds"`
-	Id                       string   `pulumi:"id"`
-	// Inference types that the model supports.
-	InferenceTypesSupporteds []string `pulumi:"inferenceTypesSupporteds"`
-	// Input modalities that the model supports.
-	InputModalities []string `pulumi:"inputModalities"`
-	// Model ARN.
-	ModelArn string `pulumi:"modelArn"`
-	ModelId  string `pulumi:"modelId"`
-	// Model name.
-	ModelName string `pulumi:"modelName"`
-	// Output modalities that the model supports.
-	OutputModalities []string `pulumi:"outputModalities"`
-	// Model provider name.
-	ProviderName string `pulumi:"providerName"`
-	Region       string `pulumi:"region"`
-	// Indicates whether the model supports streaming.
-	ResponseStreamingSupported bool `pulumi:"responseStreamingSupported"`
+	CustomizationsSupporteds   []string `pulumi:"customizationsSupporteds"`
+	Id                         string   `pulumi:"id"`
+	InferenceTypesSupporteds   []string `pulumi:"inferenceTypesSupporteds"`
+	InputModalities            []string `pulumi:"inputModalities"`
+	ModelArn                   string   `pulumi:"modelArn"`
+	ModelId                    string   `pulumi:"modelId"`
+	ModelName                  string   `pulumi:"modelName"`
+	OutputModalities           []string `pulumi:"outputModalities"`
+	ProviderName               string   `pulumi:"providerName"`
+	Region                     string   `pulumi:"region"`
+	ResponseStreamingSupported bool     `pulumi:"responseStreamingSupported"`
 }
 
 func GetModelOutput(ctx *pulumi.Context, args GetModelOutputArgs, opts ...pulumi.InvokeOption) GetModelResultOutput {
@@ -96,10 +53,8 @@ func GetModelOutput(ctx *pulumi.Context, args GetModelOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getModel.
 type GetModelOutputArgs struct {
-	// Model identifier.
-	ModelId pulumi.StringInput `pulumi:"modelId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	ModelId pulumi.StringInput    `pulumi:"modelId"`
+	Region  pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetModelOutputArgs) ElementType() reflect.Type {
@@ -121,7 +76,6 @@ func (o GetModelResultOutput) ToGetModelResultOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Customizations that the model supports.
 func (o GetModelResultOutput) CustomizationsSupporteds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetModelResult) []string { return v.CustomizationsSupporteds }).(pulumi.StringArrayOutput)
 }
@@ -130,17 +84,14 @@ func (o GetModelResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetModelResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Inference types that the model supports.
 func (o GetModelResultOutput) InferenceTypesSupporteds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetModelResult) []string { return v.InferenceTypesSupporteds }).(pulumi.StringArrayOutput)
 }
 
-// Input modalities that the model supports.
 func (o GetModelResultOutput) InputModalities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetModelResult) []string { return v.InputModalities }).(pulumi.StringArrayOutput)
 }
 
-// Model ARN.
 func (o GetModelResultOutput) ModelArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetModelResult) string { return v.ModelArn }).(pulumi.StringOutput)
 }
@@ -149,17 +100,14 @@ func (o GetModelResultOutput) ModelId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetModelResult) string { return v.ModelId }).(pulumi.StringOutput)
 }
 
-// Model name.
 func (o GetModelResultOutput) ModelName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetModelResult) string { return v.ModelName }).(pulumi.StringOutput)
 }
 
-// Output modalities that the model supports.
 func (o GetModelResultOutput) OutputModalities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetModelResult) []string { return v.OutputModalities }).(pulumi.StringArrayOutput)
 }
 
-// Model provider name.
 func (o GetModelResultOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetModelResult) string { return v.ProviderName }).(pulumi.StringOutput)
 }
@@ -168,7 +116,6 @@ func (o GetModelResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetModelResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Indicates whether the model supports streaming.
 func (o GetModelResultOutput) ResponseStreamingSupported() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetModelResult) bool { return v.ResponseStreamingSupported }).(pulumi.BoolOutput)
 }

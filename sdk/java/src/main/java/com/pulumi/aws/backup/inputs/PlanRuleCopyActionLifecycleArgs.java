@@ -16,47 +16,23 @@ public final class PlanRuleCopyActionLifecycleArgs extends com.pulumi.resources.
 
     public static final PlanRuleCopyActionLifecycleArgs Empty = new PlanRuleCopyActionLifecycleArgs();
 
-    /**
-     * Specifies the number of days after creation that a recovery point is moved to cold storage.
-     * 
-     */
     @Import(name="coldStorageAfter")
     private @Nullable Output<Integer> coldStorageAfter;
 
-    /**
-     * @return Specifies the number of days after creation that a recovery point is moved to cold storage.
-     * 
-     */
     public Optional<Output<Integer>> coldStorageAfter() {
         return Optional.ofNullable(this.coldStorageAfter);
     }
 
-    /**
-     * Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
-     * 
-     */
     @Import(name="deleteAfter")
     private @Nullable Output<Integer> deleteAfter;
 
-    /**
-     * @return Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
-     * 
-     */
     public Optional<Output<Integer>> deleteAfter() {
         return Optional.ofNullable(this.deleteAfter);
     }
 
-    /**
-     * This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
-     * 
-     */
     @Import(name="optInToArchiveForSupportedResources")
     private @Nullable Output<Boolean> optInToArchiveForSupportedResources;
 
-    /**
-     * @return This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
-     * 
-     */
     public Optional<Output<Boolean>> optInToArchiveForSupportedResources() {
         return Optional.ofNullable(this.optInToArchiveForSupportedResources);
     }
@@ -87,65 +63,29 @@ public final class PlanRuleCopyActionLifecycleArgs extends com.pulumi.resources.
             $ = new PlanRuleCopyActionLifecycleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param coldStorageAfter Specifies the number of days after creation that a recovery point is moved to cold storage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coldStorageAfter(@Nullable Output<Integer> coldStorageAfter) {
             $.coldStorageAfter = coldStorageAfter;
             return this;
         }
 
-        /**
-         * @param coldStorageAfter Specifies the number of days after creation that a recovery point is moved to cold storage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coldStorageAfter(Integer coldStorageAfter) {
             return coldStorageAfter(Output.of(coldStorageAfter));
         }
 
-        /**
-         * @param deleteAfter Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deleteAfter(@Nullable Output<Integer> deleteAfter) {
             $.deleteAfter = deleteAfter;
             return this;
         }
 
-        /**
-         * @param deleteAfter Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deleteAfter(Integer deleteAfter) {
             return deleteAfter(Output.of(deleteAfter));
         }
 
-        /**
-         * @param optInToArchiveForSupportedResources This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder optInToArchiveForSupportedResources(@Nullable Output<Boolean> optInToArchiveForSupportedResources) {
             $.optInToArchiveForSupportedResources = optInToArchiveForSupportedResources;
             return this;
         }
 
-        /**
-         * @param optInToArchiveForSupportedResources This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder optInToArchiveForSupportedResources(Boolean optInToArchiveForSupportedResources) {
             return optInToArchiveForSupportedResources(Output.of(optInToArchiveForSupportedResources));
         }

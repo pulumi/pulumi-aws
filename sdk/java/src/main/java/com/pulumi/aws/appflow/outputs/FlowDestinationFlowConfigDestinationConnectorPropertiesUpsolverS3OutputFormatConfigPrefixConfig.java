@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig {
-    /**
-     * @return Determines the level of granularity that&#39;s included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
-     * 
-     */
     private @Nullable String prefixFormat;
-    /**
-     * @return Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
-     * 
-     */
     private @Nullable List<String> prefixHierarchies;
-    /**
-     * @return Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
-     * 
-     */
     private String prefixType;
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig() {}
-    /**
-     * @return Determines the level of granularity that&#39;s included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
-     * 
-     */
     public Optional<String> prefixFormat() {
         return Optional.ofNullable(this.prefixFormat);
     }
-    /**
-     * @return Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
-     * 
-     */
     public List<String> prefixHierarchies() {
         return this.prefixHierarchies == null ? List.of() : this.prefixHierarchies;
     }
-    /**
-     * @return Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
-     * 
-     */
     public String prefixType() {
         return this.prefixType;
     }

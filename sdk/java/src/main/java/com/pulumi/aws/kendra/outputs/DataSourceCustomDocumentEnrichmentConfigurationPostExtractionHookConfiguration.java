@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration {
-    /**
-     * @return A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
-     * 
-     */
     private @Nullable DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition invocationCondition;
-    /**
-     * @return The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
-     * 
-     */
     private String lambdaArn;
-    /**
-     * @return Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
-     * 
-     */
     private String s3Bucket;
 
     private DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration() {}
-    /**
-     * @return A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
-     * 
-     */
     public Optional<DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition> invocationCondition() {
         return Optional.ofNullable(this.invocationCondition);
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
-     * 
-     */
     public String lambdaArn() {
         return this.lambdaArn;
     }
-    /**
-     * @return Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
-     * 
-     */
     public String s3Bucket() {
         return this.s3Bucket;
     }

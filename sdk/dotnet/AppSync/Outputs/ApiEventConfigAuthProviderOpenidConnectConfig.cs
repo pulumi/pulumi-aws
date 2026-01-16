@@ -13,21 +13,9 @@ namespace Pulumi.Aws.AppSync.Outputs
     [OutputType]
     public sealed class ApiEventConfigAuthProviderOpenidConnectConfig
     {
-        /// <summary>
-        /// TTL in seconds for the authentication token.
-        /// </summary>
         public readonly int? AuthTtl;
-        /// <summary>
-        /// Client ID for the OpenID Connect provider.
-        /// </summary>
         public readonly string? ClientId;
-        /// <summary>
-        /// TTL in seconds for the issued at time.
-        /// </summary>
         public readonly int? IatTtl;
-        /// <summary>
-        /// Issuer URL for the OpenID Connect provider.
-        /// </summary>
         public readonly string Issuer;
 
         [OutputConstructor]

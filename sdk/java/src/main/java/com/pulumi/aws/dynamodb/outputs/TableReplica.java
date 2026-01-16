@@ -13,129 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TableReplica {
-    /**
-     * @return ARN of the table
-     * 
-     */
     private @Nullable String arn;
-    /**
-     * @return Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
-     * 
-     */
     private @Nullable String consistencyMode;
-    /**
-     * @return Whether deletion protection is enabled (true) or disabled (false) on the replica. Default is `false`.
-     * 
-     */
     private @Nullable Boolean deletionProtectionEnabled;
-    /**
-     * @return ARN of the CMK that should be used for the AWS KMS encryption.
-     * This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
-     * **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
-     * **Note:** Changing this value will recreate the replica.
-     * 
-     */
     private @Nullable String kmsKeyArn;
-    /**
-     * @return Whether to enable Point In Time Recovery for the replica. Default is `false`.
-     * 
-     */
     private @Nullable Boolean pointInTimeRecovery;
-    /**
-     * @return Whether to propagate the global table&#39;s tags to a replica.
-     * Default is `false`.
-     * Changes to tags only move in one direction: from global (source) to replica.
-     * Tag drift on a replica will not trigger an update.
-     * Tag changes on the global table are propagated to replicas.
-     * Changing from `true` to `false` on a subsequent `apply` leaves replica tags as-is and no longer manages them.
-     * 
-     */
     private @Nullable Boolean propagateTags;
-    /**
-     * @return Region name of the replica.
-     * 
-     */
     private String regionName;
-    /**
-     * @return ARN of the Table Stream. Only available when `streamEnabled = true`
-     * 
-     */
     private @Nullable String streamArn;
-    /**
-     * @return Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
-     * 
-     */
     private @Nullable String streamLabel;
 
     private TableReplica() {}
-    /**
-     * @return ARN of the table
-     * 
-     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
-    /**
-     * @return Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
-     * 
-     */
     public Optional<String> consistencyMode() {
         return Optional.ofNullable(this.consistencyMode);
     }
-    /**
-     * @return Whether deletion protection is enabled (true) or disabled (false) on the replica. Default is `false`.
-     * 
-     */
     public Optional<Boolean> deletionProtectionEnabled() {
         return Optional.ofNullable(this.deletionProtectionEnabled);
     }
-    /**
-     * @return ARN of the CMK that should be used for the AWS KMS encryption.
-     * This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
-     * **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
-     * **Note:** Changing this value will recreate the replica.
-     * 
-     */
     public Optional<String> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
-    /**
-     * @return Whether to enable Point In Time Recovery for the replica. Default is `false`.
-     * 
-     */
     public Optional<Boolean> pointInTimeRecovery() {
         return Optional.ofNullable(this.pointInTimeRecovery);
     }
-    /**
-     * @return Whether to propagate the global table&#39;s tags to a replica.
-     * Default is `false`.
-     * Changes to tags only move in one direction: from global (source) to replica.
-     * Tag drift on a replica will not trigger an update.
-     * Tag changes on the global table are propagated to replicas.
-     * Changing from `true` to `false` on a subsequent `apply` leaves replica tags as-is and no longer manages them.
-     * 
-     */
     public Optional<Boolean> propagateTags() {
         return Optional.ofNullable(this.propagateTags);
     }
-    /**
-     * @return Region name of the replica.
-     * 
-     */
     public String regionName() {
         return this.regionName;
     }
-    /**
-     * @return ARN of the Table Stream. Only available when `streamEnabled = true`
-     * 
-     */
     public Optional<String> streamArn() {
         return Optional.ofNullable(this.streamArn);
     }
-    /**
-     * @return Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
-     * 
-     */
     public Optional<String> streamLabel() {
         return Optional.ofNullable(this.streamLabel);
     }

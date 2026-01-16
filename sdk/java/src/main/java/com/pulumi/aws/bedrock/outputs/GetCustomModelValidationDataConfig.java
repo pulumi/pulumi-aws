@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCustomModelValidationDataConfig {
-    /**
-     * @return Information about the validators.
-     * 
-     */
     private List<GetCustomModelValidationDataConfigValidator> validators;
 
     private GetCustomModelValidationDataConfig() {}
-    /**
-     * @return Information about the validators.
-     * 
-     */
     public List<GetCustomModelValidationDataConfigValidator> validators() {
         return this.validators;
     }

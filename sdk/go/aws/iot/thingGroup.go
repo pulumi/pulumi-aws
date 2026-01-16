@@ -11,79 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS IoT Thing Group.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iot"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			parent, err := iot.NewThingGroup(ctx, "parent", &iot.ThingGroupArgs{
-//				Name: pulumi.String("parent"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iot.NewThingGroup(ctx, "example", &iot.ThingGroupArgs{
-//				Name:            pulumi.String("example"),
-//				ParentGroupName: parent.Name,
-//				Properties: &iot.ThingGroupPropertiesArgs{
-//					AttributePayload: &iot.ThingGroupPropertiesAttributePayloadArgs{
-//						Attributes: pulumi.StringMap{
-//							"One": pulumi.String("11111"),
-//							"Two": pulumi.String("TwoTwo"),
-//						},
-//					},
-//					Description: pulumi.String("This is my thing group"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"managed": pulumi.String("true"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import IoT Things Groups using the name. For example:
-//
-// ```sh
-// $ pulumi import aws:iot/thingGroup:ThingGroup example example
-// ```
 type ThingGroup struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Thing Group.
-	Arn       pulumi.StringOutput           `pulumi:"arn"`
-	Metadatas ThingGroupMetadataArrayOutput `pulumi:"metadatas"`
-	// The name of the Thing Group.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the parent Thing Group.
-	ParentGroupName pulumi.StringPtrOutput `pulumi:"parentGroupName"`
-	// The Thing Group properties. Defined below.
-	Properties ThingGroupPropertiesPtrOutput `pulumi:"properties"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value mapping of resource tags
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The current version of the Thing Group record in the registry.
-	Version pulumi.IntOutput `pulumi:"version"`
+	Arn             pulumi.StringOutput           `pulumi:"arn"`
+	Metadatas       ThingGroupMetadataArrayOutput `pulumi:"metadatas"`
+	Name            pulumi.StringOutput           `pulumi:"name"`
+	ParentGroupName pulumi.StringPtrOutput        `pulumi:"parentGroupName"`
+	Properties      ThingGroupPropertiesPtrOutput `pulumi:"properties"`
+	Region          pulumi.StringOutput           `pulumi:"region"`
+	Tags            pulumi.StringMapOutput        `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput        `pulumi:"tagsAll"`
+	Version         pulumi.IntOutput              `pulumi:"version"`
 }
 
 // NewThingGroup registers a new resource with the given unique name, arguments, and options.
@@ -116,41 +55,27 @@ func GetThingGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ThingGroup resources.
 type thingGroupState struct {
-	// The ARN of the Thing Group.
-	Arn       *string              `pulumi:"arn"`
-	Metadatas []ThingGroupMetadata `pulumi:"metadatas"`
-	// The name of the Thing Group.
-	Name *string `pulumi:"name"`
-	// The name of the parent Thing Group.
-	ParentGroupName *string `pulumi:"parentGroupName"`
-	// The Thing Group properties. Defined below.
-	Properties *ThingGroupProperties `pulumi:"properties"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The current version of the Thing Group record in the registry.
-	Version *int `pulumi:"version"`
+	Arn             *string               `pulumi:"arn"`
+	Metadatas       []ThingGroupMetadata  `pulumi:"metadatas"`
+	Name            *string               `pulumi:"name"`
+	ParentGroupName *string               `pulumi:"parentGroupName"`
+	Properties      *ThingGroupProperties `pulumi:"properties"`
+	Region          *string               `pulumi:"region"`
+	Tags            map[string]string     `pulumi:"tags"`
+	TagsAll         map[string]string     `pulumi:"tagsAll"`
+	Version         *int                  `pulumi:"version"`
 }
 
 type ThingGroupState struct {
-	// The ARN of the Thing Group.
-	Arn       pulumi.StringPtrInput
-	Metadatas ThingGroupMetadataArrayInput
-	// The name of the Thing Group.
-	Name pulumi.StringPtrInput
-	// The name of the parent Thing Group.
+	Arn             pulumi.StringPtrInput
+	Metadatas       ThingGroupMetadataArrayInput
+	Name            pulumi.StringPtrInput
 	ParentGroupName pulumi.StringPtrInput
-	// The Thing Group properties. Defined below.
-	Properties ThingGroupPropertiesPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
-	// The current version of the Thing Group record in the registry.
-	Version pulumi.IntPtrInput
+	Properties      ThingGroupPropertiesPtrInput
+	Region          pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
+	Version         pulumi.IntPtrInput
 }
 
 func (ThingGroupState) ElementType() reflect.Type {
@@ -158,30 +83,20 @@ func (ThingGroupState) ElementType() reflect.Type {
 }
 
 type thingGroupArgs struct {
-	// The name of the Thing Group.
-	Name *string `pulumi:"name"`
-	// The name of the parent Thing Group.
-	ParentGroupName *string `pulumi:"parentGroupName"`
-	// The Thing Group properties. Defined below.
-	Properties *ThingGroupProperties `pulumi:"properties"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags
-	Tags map[string]string `pulumi:"tags"`
+	Name            *string               `pulumi:"name"`
+	ParentGroupName *string               `pulumi:"parentGroupName"`
+	Properties      *ThingGroupProperties `pulumi:"properties"`
+	Region          *string               `pulumi:"region"`
+	Tags            map[string]string     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ThingGroup resource.
 type ThingGroupArgs struct {
-	// The name of the Thing Group.
-	Name pulumi.StringPtrInput
-	// The name of the parent Thing Group.
+	Name            pulumi.StringPtrInput
 	ParentGroupName pulumi.StringPtrInput
-	// The Thing Group properties. Defined below.
-	Properties ThingGroupPropertiesPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags
-	Tags pulumi.StringMapInput
+	Properties      ThingGroupPropertiesPtrInput
+	Region          pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
 }
 
 func (ThingGroupArgs) ElementType() reflect.Type {
@@ -271,7 +186,6 @@ func (o ThingGroupOutput) ToThingGroupOutputWithContext(ctx context.Context) Thi
 	return o
 }
 
-// The ARN of the Thing Group.
 func (o ThingGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThingGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -280,27 +194,22 @@ func (o ThingGroupOutput) Metadatas() ThingGroupMetadataArrayOutput {
 	return o.ApplyT(func(v *ThingGroup) ThingGroupMetadataArrayOutput { return v.Metadatas }).(ThingGroupMetadataArrayOutput)
 }
 
-// The name of the Thing Group.
 func (o ThingGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThingGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the parent Thing Group.
 func (o ThingGroupOutput) ParentGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThingGroup) pulumi.StringPtrOutput { return v.ParentGroupName }).(pulumi.StringPtrOutput)
 }
 
-// The Thing Group properties. Defined below.
 func (o ThingGroupOutput) Properties() ThingGroupPropertiesPtrOutput {
 	return o.ApplyT(func(v *ThingGroup) ThingGroupPropertiesPtrOutput { return v.Properties }).(ThingGroupPropertiesPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ThingGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThingGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags
 func (o ThingGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ThingGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -309,7 +218,6 @@ func (o ThingGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ThingGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The current version of the Thing Group record in the registry.
 func (o ThingGroupOutput) Version() pulumi.IntOutput {
 	return o.ApplyT(func(v *ThingGroup) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
 }

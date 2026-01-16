@@ -16,197 +16,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a MemoryDB Subnet Group.
- * 
- * More information about subnet groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/subnetgroups.html).
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.ec2.Subnet;
- * import com.pulumi.aws.ec2.SubnetArgs;
- * import com.pulumi.aws.memorydb.SubnetGroup;
- * import com.pulumi.aws.memorydb.SubnetGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Vpc("example", VpcArgs.builder()
- *             .cidrBlock("10.0.0.0/16")
- *             .build());
- * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
- *             .vpcId(example.id())
- *             .cidrBlock("10.0.0.0/24")
- *             .availabilityZone("us-west-2a")
- *             .build());
- * 
- *         var exampleSubnetGroup = new SubnetGroup("exampleSubnetGroup", SubnetGroupArgs.builder()
- *             .name("my-subnet-group")
- *             .subnetIds(exampleSubnet.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import a subnet group using its `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:memorydb/subnetGroup:SubnetGroup example my-subnet-group
- * ```
- * 
- */
 @ResourceType(type="aws:memorydb/subnetGroup:SubnetGroup")
 public class SubnetGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the subnet group.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the subnet group.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Description for the subnet group. Defaults to `&#34;Managed by Pulumi&#34;`.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description for the subnet group. Defaults to `&#34;Managed by Pulumi&#34;`.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
-    /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     public Output<String> namePrefix() {
         return this.namePrefix;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
-    /**
-     * @return Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The VPC in which the subnet group exists.
-     * 
-     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
-    /**
-     * @return The VPC in which the subnet group exists.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }

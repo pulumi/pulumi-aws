@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
- *
- * > **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignoreChanges` if this is undesirable.
- *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.ec2.getIpamPreviewNextCidr({
- *     ipamPoolId: testAwsVpcIpamPool.id,
- *     netmaskLength: 28,
- * });
- * const testVpcIpamPoolCidrAllocation = new aws.ec2.VpcIpamPoolCidrAllocation("test", {
- *     ipamPoolId: testAwsVpcIpamPool.id,
- *     cidr: test.then(test => test.cidr),
- * });
- * ```
- */
 export function getIpamPreviewNextCidr(args: GetIpamPreviewNextCidrArgs, opts?: pulumi.InvokeOptions): Promise<GetIpamPreviewNextCidrResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", {
@@ -41,21 +18,9 @@ export function getIpamPreviewNextCidr(args: GetIpamPreviewNextCidrArgs, opts?: 
  * A collection of arguments for invoking getIpamPreviewNextCidr.
  */
 export interface GetIpamPreviewNextCidrArgs {
-    /**
-     * Exclude a particular CIDR range from being returned by the pool.
-     */
     disallowedCidrs?: string[];
-    /**
-     * ID of the pool to which you want to assign a CIDR.
-     */
     ipamPoolId: string;
-    /**
-     * Netmask length of the CIDR you would like to preview from the IPAM pool.
-     */
     netmaskLength?: number;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -63,9 +28,6 @@ export interface GetIpamPreviewNextCidrArgs {
  * A collection of values returned by getIpamPreviewNextCidr.
  */
 export interface GetIpamPreviewNextCidrResult {
-    /**
-     * Previewed CIDR from the pool.
-     */
     readonly cidr: string;
     readonly disallowedCidrs?: string[];
     /**
@@ -76,29 +38,6 @@ export interface GetIpamPreviewNextCidrResult {
     readonly netmaskLength?: number;
     readonly region: string;
 }
-/**
- * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
- *
- * > **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignoreChanges` if this is undesirable.
- *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.ec2.getIpamPreviewNextCidr({
- *     ipamPoolId: testAwsVpcIpamPool.id,
- *     netmaskLength: 28,
- * });
- * const testVpcIpamPoolCidrAllocation = new aws.ec2.VpcIpamPoolCidrAllocation("test", {
- *     ipamPoolId: testAwsVpcIpamPool.id,
- *     cidr: test.then(test => test.cidr),
- * });
- * ```
- */
 export function getIpamPreviewNextCidrOutput(args: GetIpamPreviewNextCidrOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIpamPreviewNextCidrResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", {
@@ -113,20 +52,8 @@ export function getIpamPreviewNextCidrOutput(args: GetIpamPreviewNextCidrOutputA
  * A collection of arguments for invoking getIpamPreviewNextCidr.
  */
 export interface GetIpamPreviewNextCidrOutputArgs {
-    /**
-     * Exclude a particular CIDR range from being returned by the pool.
-     */
     disallowedCidrs?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * ID of the pool to which you want to assign a CIDR.
-     */
     ipamPoolId: pulumi.Input<string>;
-    /**
-     * Netmask length of the CIDR you would like to preview from the IPAM pool.
-     */
     netmaskLength?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

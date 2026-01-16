@@ -19,47 +19,23 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs();
 
-    /**
-     * Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
-     * 
-     */
     @Import(name="recordColumns", required=true)
     private Output<List<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs>> recordColumns;
 
-    /**
-     * @return Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
-     * 
-     */
     public Output<List<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs>> recordColumns() {
         return this.recordColumns;
     }
 
-    /**
-     * Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-     * 
-     */
     @Import(name="recordEncoding")
     private @Nullable Output<String> recordEncoding;
 
-    /**
-     * @return Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-     * 
-     */
     public Optional<Output<String>> recordEncoding() {
         return Optional.ofNullable(this.recordEncoding);
     }
 
-    /**
-     * Specifies the format of the records on the streaming source.
-     * 
-     */
     @Import(name="recordFormat", required=true)
     private Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs> recordFormat;
 
-    /**
-     * @return Specifies the format of the records on the streaming source.
-     * 
-     */
     public Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs> recordFormat() {
         return this.recordFormat;
     }
@@ -90,75 +66,33 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             $ = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param recordColumns Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordColumns(Output<List<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs>> recordColumns) {
             $.recordColumns = recordColumns;
             return this;
         }
 
-        /**
-         * @param recordColumns Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordColumns(List<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs> recordColumns) {
             return recordColumns(Output.of(recordColumns));
         }
 
-        /**
-         * @param recordColumns Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordColumns(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs... recordColumns) {
             return recordColumns(List.of(recordColumns));
         }
 
-        /**
-         * @param recordEncoding Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordEncoding(@Nullable Output<String> recordEncoding) {
             $.recordEncoding = recordEncoding;
             return this;
         }
 
-        /**
-         * @param recordEncoding Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordEncoding(String recordEncoding) {
             return recordEncoding(Output.of(recordEncoding));
         }
 
-        /**
-         * @param recordFormat Specifies the format of the records on the streaming source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordFormat(Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs> recordFormat) {
             $.recordFormat = recordFormat;
             return this;
         }
 
-        /**
-         * @param recordFormat Specifies the format of the records on the streaming source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordFormat(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs recordFormat) {
             return recordFormat(Output.of(recordFormat));
         }

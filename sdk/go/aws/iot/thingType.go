@@ -11,58 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates and manages an AWS IoT Thing Type.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iot"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iot.NewThingType(ctx, "foo", &iot.ThingTypeArgs{
-//				Name: pulumi.String("my_iot_thing"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import IOT Thing Types using the name. For example:
-//
-// ```sh
-// $ pulumi import aws:iot/thingType:ThingType example example
-// ```
 type ThingType struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the created AWS IoT Thing Type.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Whether the thing type is deprecated. If true, no new things could be associated with this type.
-	Deprecated pulumi.BoolPtrOutput `pulumi:"deprecated"`
-	// The name of the thing type.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// , Configuration block that can contain the following properties of the thing type:
+	Arn        pulumi.StringOutput          `pulumi:"arn"`
+	Deprecated pulumi.BoolPtrOutput         `pulumi:"deprecated"`
+	Name       pulumi.StringOutput          `pulumi:"name"`
 	Properties ThingTypePropertiesPtrOutput `pulumi:"properties"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Region     pulumi.StringOutput          `pulumi:"region"`
+	Tags       pulumi.StringMapOutput       `pulumi:"tags"`
+	TagsAll    pulumi.StringMapOutput       `pulumi:"tagsAll"`
 }
 
 // NewThingType registers a new resource with the given unique name, arguments, and options.
@@ -95,37 +53,23 @@ func GetThingType(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ThingType resources.
 type thingTypeState struct {
-	// The ARN of the created AWS IoT Thing Type.
-	Arn *string `pulumi:"arn"`
-	// Whether the thing type is deprecated. If true, no new things could be associated with this type.
-	Deprecated *bool `pulumi:"deprecated"`
-	// The name of the thing type.
-	Name *string `pulumi:"name"`
-	// , Configuration block that can contain the following properties of the thing type:
+	Arn        *string              `pulumi:"arn"`
+	Deprecated *bool                `pulumi:"deprecated"`
+	Name       *string              `pulumi:"name"`
 	Properties *ThingTypeProperties `pulumi:"properties"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Region     *string              `pulumi:"region"`
+	Tags       map[string]string    `pulumi:"tags"`
+	TagsAll    map[string]string    `pulumi:"tagsAll"`
 }
 
 type ThingTypeState struct {
-	// The ARN of the created AWS IoT Thing Type.
-	Arn pulumi.StringPtrInput
-	// Whether the thing type is deprecated. If true, no new things could be associated with this type.
+	Arn        pulumi.StringPtrInput
 	Deprecated pulumi.BoolPtrInput
-	// The name of the thing type.
-	Name pulumi.StringPtrInput
-	// , Configuration block that can contain the following properties of the thing type:
+	Name       pulumi.StringPtrInput
 	Properties ThingTypePropertiesPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Region     pulumi.StringPtrInput
+	Tags       pulumi.StringMapInput
+	TagsAll    pulumi.StringMapInput
 }
 
 func (ThingTypeState) ElementType() reflect.Type {
@@ -133,30 +77,20 @@ func (ThingTypeState) ElementType() reflect.Type {
 }
 
 type thingTypeArgs struct {
-	// Whether the thing type is deprecated. If true, no new things could be associated with this type.
-	Deprecated *bool `pulumi:"deprecated"`
-	// The name of the thing type.
-	Name *string `pulumi:"name"`
-	// , Configuration block that can contain the following properties of the thing type:
+	Deprecated *bool                `pulumi:"deprecated"`
+	Name       *string              `pulumi:"name"`
 	Properties *ThingTypeProperties `pulumi:"properties"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags map[string]string `pulumi:"tags"`
+	Region     *string              `pulumi:"region"`
+	Tags       map[string]string    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ThingType resource.
 type ThingTypeArgs struct {
-	// Whether the thing type is deprecated. If true, no new things could be associated with this type.
 	Deprecated pulumi.BoolPtrInput
-	// The name of the thing type.
-	Name pulumi.StringPtrInput
-	// , Configuration block that can contain the following properties of the thing type:
+	Name       pulumi.StringPtrInput
 	Properties ThingTypePropertiesPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags pulumi.StringMapInput
+	Region     pulumi.StringPtrInput
+	Tags       pulumi.StringMapInput
 }
 
 func (ThingTypeArgs) ElementType() reflect.Type {
@@ -246,37 +180,30 @@ func (o ThingTypeOutput) ToThingTypeOutputWithContext(ctx context.Context) Thing
 	return o
 }
 
-// The ARN of the created AWS IoT Thing Type.
 func (o ThingTypeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThingType) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Whether the thing type is deprecated. If true, no new things could be associated with this type.
 func (o ThingTypeOutput) Deprecated() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ThingType) pulumi.BoolPtrOutput { return v.Deprecated }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the thing type.
 func (o ThingTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThingType) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// , Configuration block that can contain the following properties of the thing type:
 func (o ThingTypeOutput) Properties() ThingTypePropertiesPtrOutput {
 	return o.ApplyT(func(v *ThingType) ThingTypePropertiesPtrOutput { return v.Properties }).(ThingTypePropertiesPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ThingTypeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThingType) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 func (o ThingTypeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ThingType) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ThingTypeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ThingType) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

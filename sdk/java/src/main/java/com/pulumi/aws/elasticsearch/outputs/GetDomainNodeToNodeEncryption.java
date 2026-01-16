@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainNodeToNodeEncryption {
-    /**
-     * @return Whether node to node encryption is enabled.
-     * 
-     */
     private Boolean enabled;
 
     private GetDomainNodeToNodeEncryption() {}
-    /**
-     * @return Whether node to node encryption is enabled.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }

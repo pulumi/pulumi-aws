@@ -19,256 +19,83 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS DataZone Environment.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.datazone.Environment;
- * import com.pulumi.aws.datazone.EnvironmentArgs;
- * import com.pulumi.aws.datazone.inputs.EnvironmentUserParameterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Environment("example", EnvironmentArgs.builder()
- *             .name("example")
- *             .blueprintIdentifier(test.environmentBlueprintId())
- *             .profileIdentifier(testAwsDatazoneEnvironmentProfile.id())
- *             .projectIdentifier(testAwsDatazoneProject.id())
- *             .domainIdentifier(testAwsDatazoneDomain.id())
- *             .userParameters(            
- *                 EnvironmentUserParameterArgs.builder()
- *                     .name("consumerGlueDbName")
- *                     .value("consumer")
- *                     .build(),
- *                 EnvironmentUserParameterArgs.builder()
- *                     .name("producerGlueDbName")
- *                     .value("producer")
- *                     .build(),
- *                 EnvironmentUserParameterArgs.builder()
- *                     .name("workgroupName")
- *                     .value("workgroup")
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import DataZone Environment using the `domain_idntifier,id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:datazone/environment:Environment example dzd_d2i7tzk3tnjjf4,5vpywijpwryec0
- * ```
- * 
- */
 @ResourceType(type="aws:datazone/environment:Environment")
 public class Environment extends com.pulumi.resources.CustomResource {
-    /**
-     * The ID of the Amazon Web Services account where the environment exists
-     * 
-     */
     @Export(name="accountIdentifier", refs={String.class}, tree="[0]")
     private Output<String> accountIdentifier;
 
-    /**
-     * @return The ID of the Amazon Web Services account where the environment exists
-     * 
-     */
     public Output<String> accountIdentifier() {
         return this.accountIdentifier;
     }
-    /**
-     * The Amazon Web Services region where the environment exists.
-     * 
-     */
     @Export(name="accountRegion", refs={String.class}, tree="[0]")
     private Output<String> accountRegion;
 
-    /**
-     * @return The Amazon Web Services region where the environment exists.
-     * 
-     */
     public Output<String> accountRegion() {
         return this.accountRegion;
     }
-    /**
-     * The blueprint with which the environment is created.
-     * 
-     */
     @Export(name="blueprintIdentifier", refs={String.class}, tree="[0]")
     private Output<String> blueprintIdentifier;
 
-    /**
-     * @return The blueprint with which the environment is created.
-     * 
-     */
     public Output<String> blueprintIdentifier() {
         return this.blueprintIdentifier;
     }
-    /**
-     * The time the environment was created.
-     * 
-     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
-    /**
-     * @return The time the environment was created.
-     * 
-     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
-    /**
-     * The user who created the environment.
-     * 
-     */
     @Export(name="createdBy", refs={String.class}, tree="[0]")
     private Output<String> createdBy;
 
-    /**
-     * @return The user who created the environment.
-     * 
-     */
     public Output<String> createdBy() {
         return this.createdBy;
     }
-    /**
-     * The description of the environment.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return The description of the environment.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The ID of the domain where the environment exists.
-     * 
-     */
     @Export(name="domainIdentifier", refs={String.class}, tree="[0]")
     private Output<String> domainIdentifier;
 
-    /**
-     * @return The ID of the domain where the environment exists.
-     * 
-     */
     public Output<String> domainIdentifier() {
         return this.domainIdentifier;
     }
-    /**
-     * The business glossary terms that can be used in this environment.
-     * 
-     */
     @Export(name="glossaryTerms", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> glossaryTerms;
 
-    /**
-     * @return The business glossary terms that can be used in this environment.
-     * 
-     */
     public Output<Optional<List<String>>> glossaryTerms() {
         return Codegen.optional(this.glossaryTerms);
     }
-    /**
-     * The details of the last deployment of the environment.
-     * 
-     */
     @Export(name="lastDeployments", refs={List.class,EnvironmentLastDeployment.class}, tree="[0,1]")
     private Output<List<EnvironmentLastDeployment>> lastDeployments;
 
-    /**
-     * @return The details of the last deployment of the environment.
-     * 
-     */
     public Output<List<EnvironmentLastDeployment>> lastDeployments() {
         return this.lastDeployments;
     }
-    /**
-     * The name of the environment.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the environment.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The ID of the profile with which the environment is created.
-     * 
-     */
     @Export(name="profileIdentifier", refs={String.class}, tree="[0]")
     private Output<String> profileIdentifier;
 
-    /**
-     * @return The ID of the profile with which the environment is created.
-     * 
-     */
     public Output<String> profileIdentifier() {
         return this.profileIdentifier;
     }
-    /**
-     * The ID of the project where the environment exists.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="projectIdentifier", refs={String.class}, tree="[0]")
     private Output<String> projectIdentifier;
 
-    /**
-     * @return The ID of the project where the environment exists.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> projectIdentifier() {
         return this.projectIdentifier;
     }
-    /**
-     * The provider of the environment.
-     * 
-     */
     @Export(name="providerEnvironment", refs={String.class}, tree="[0]")
     private Output<String> providerEnvironment;
 
-    /**
-     * @return The provider of the environment.
-     * 
-     */
     public Output<String> providerEnvironment() {
         return this.providerEnvironment;
     }
@@ -278,17 +105,9 @@ public class Environment extends com.pulumi.resources.CustomResource {
     public Output<List<EnvironmentProvisionedResource>> provisionedResources() {
         return this.provisionedResources;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
@@ -298,21 +117,9 @@ public class Environment extends com.pulumi.resources.CustomResource {
     public Output<Optional<EnvironmentTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * The user parameters that are used in the environment.
-     * See User Parameters for more information.
-     * Changing these values recreates the resource.
-     * 
-     */
     @Export(name="userParameters", refs={List.class,EnvironmentUserParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EnvironmentUserParameter>> userParameters;
 
-    /**
-     * @return The user parameters that are used in the environment.
-     * See User Parameters for more information.
-     * Changing these values recreates the resource.
-     * 
-     */
     public Output<Optional<List<EnvironmentUserParameter>>> userParameters() {
         return Codegen.optional(this.userParameters);
     }

@@ -14,17 +14,9 @@ public final class GetAccessKeysArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetAccessKeysArgs Empty = new GetAccessKeysArgs();
 
-    /**
-     * Name of the IAM user associated with the access keys.
-     * 
-     */
     @Import(name="user", required=true)
     private Output<String> user;
 
-    /**
-     * @return Name of the IAM user associated with the access keys.
-     * 
-     */
     public Output<String> user() {
         return this.user;
     }
@@ -53,23 +45,11 @@ public final class GetAccessKeysArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetAccessKeysArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param user Name of the IAM user associated with the access keys.
-         * 
-         * @return builder
-         * 
-         */
         public Builder user(Output<String> user) {
             $.user = user;
             return this;
         }
 
-        /**
-         * @param user Name of the IAM user associated with the access keys.
-         * 
-         * @return builder
-         * 
-         */
         public Builder user(String user) {
             return user(Output.of(user));
         }

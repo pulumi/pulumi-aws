@@ -19,47 +19,23 @@ public final class VirtualGatewaySpecArgs extends com.pulumi.resources.ResourceA
 
     public static final VirtualGatewaySpecArgs Empty = new VirtualGatewaySpecArgs();
 
-    /**
-     * Defaults for backends.
-     * 
-     */
     @Import(name="backendDefaults")
     private @Nullable Output<VirtualGatewaySpecBackendDefaultsArgs> backendDefaults;
 
-    /**
-     * @return Defaults for backends.
-     * 
-     */
     public Optional<Output<VirtualGatewaySpecBackendDefaultsArgs>> backendDefaults() {
         return Optional.ofNullable(this.backendDefaults);
     }
 
-    /**
-     * Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
-     * 
-     */
     @Import(name="listeners", required=true)
     private Output<List<VirtualGatewaySpecListenerArgs>> listeners;
 
-    /**
-     * @return Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
-     * 
-     */
     public Output<List<VirtualGatewaySpecListenerArgs>> listeners() {
         return this.listeners;
     }
 
-    /**
-     * Inbound and outbound access logging information for the virtual gateway.
-     * 
-     */
     @Import(name="logging")
     private @Nullable Output<VirtualGatewaySpecLoggingArgs> logging;
 
-    /**
-     * @return Inbound and outbound access logging information for the virtual gateway.
-     * 
-     */
     public Optional<Output<VirtualGatewaySpecLoggingArgs>> logging() {
         return Optional.ofNullable(this.logging);
     }
@@ -90,75 +66,33 @@ public final class VirtualGatewaySpecArgs extends com.pulumi.resources.ResourceA
             $ = new VirtualGatewaySpecArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param backendDefaults Defaults for backends.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backendDefaults(@Nullable Output<VirtualGatewaySpecBackendDefaultsArgs> backendDefaults) {
             $.backendDefaults = backendDefaults;
             return this;
         }
 
-        /**
-         * @param backendDefaults Defaults for backends.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backendDefaults(VirtualGatewaySpecBackendDefaultsArgs backendDefaults) {
             return backendDefaults(Output.of(backendDefaults));
         }
 
-        /**
-         * @param listeners Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
-         * 
-         * @return builder
-         * 
-         */
         public Builder listeners(Output<List<VirtualGatewaySpecListenerArgs>> listeners) {
             $.listeners = listeners;
             return this;
         }
 
-        /**
-         * @param listeners Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
-         * 
-         * @return builder
-         * 
-         */
         public Builder listeners(List<VirtualGatewaySpecListenerArgs> listeners) {
             return listeners(Output.of(listeners));
         }
 
-        /**
-         * @param listeners Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
-         * 
-         * @return builder
-         * 
-         */
         public Builder listeners(VirtualGatewaySpecListenerArgs... listeners) {
             return listeners(List.of(listeners));
         }
 
-        /**
-         * @param logging Inbound and outbound access logging information for the virtual gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logging(@Nullable Output<VirtualGatewaySpecLoggingArgs> logging) {
             $.logging = logging;
             return this;
         }
 
-        /**
-         * @param logging Inbound and outbound access logging information for the virtual gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logging(VirtualGatewaySpecLoggingArgs logging) {
             return logging(Output.of(logging));
         }

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.AppFabric.Inputs
     {
         [Input("apiKey", required: true)]
         private Input<string>? _apiKey;
-
-        /// <summary>
-        /// Contains API key credential information.
-        /// </summary>
         public Input<string>? ApiKey
         {
             get => _apiKey;

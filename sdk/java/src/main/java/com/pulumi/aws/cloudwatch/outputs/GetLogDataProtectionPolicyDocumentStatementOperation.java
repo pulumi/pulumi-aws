@@ -12,33 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLogDataProtectionPolicyDocumentStatementOperation {
-    /**
-     * @return Configures the detection of sensitive data.
-     * 
-     */
     private @Nullable GetLogDataProtectionPolicyDocumentStatementOperationAudit audit;
-    /**
-     * @return Configures the masking of sensitive data.
-     * 
-     * &gt; Every policy statement must specify exactly one operation.
-     * 
-     */
     private @Nullable GetLogDataProtectionPolicyDocumentStatementOperationDeidentify deidentify;
 
     private GetLogDataProtectionPolicyDocumentStatementOperation() {}
-    /**
-     * @return Configures the detection of sensitive data.
-     * 
-     */
     public Optional<GetLogDataProtectionPolicyDocumentStatementOperationAudit> audit() {
         return Optional.ofNullable(this.audit);
     }
-    /**
-     * @return Configures the masking of sensitive data.
-     * 
-     * &gt; Every policy statement must specify exactly one operation.
-     * 
-     */
     public Optional<GetLogDataProtectionPolicyDocumentStatementOperationDeidentify> deidentify() {
         return Optional.ofNullable(this.deidentify);
     }

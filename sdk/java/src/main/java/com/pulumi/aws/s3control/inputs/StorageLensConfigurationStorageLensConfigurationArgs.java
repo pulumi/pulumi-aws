@@ -21,92 +21,44 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs extends 
 
     public static final StorageLensConfigurationStorageLensConfigurationArgs Empty = new StorageLensConfigurationStorageLensConfigurationArgs();
 
-    /**
-     * The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
-     * 
-     */
     @Import(name="accountLevel", required=true)
     private Output<StorageLensConfigurationStorageLensConfigurationAccountLevelArgs> accountLevel;
 
-    /**
-     * @return The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
-     * 
-     */
     public Output<StorageLensConfigurationStorageLensConfigurationAccountLevelArgs> accountLevel() {
         return this.accountLevel;
     }
 
-    /**
-     * The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
-     * 
-     */
     @Import(name="awsOrg")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationAwsOrgArgs> awsOrg;
 
-    /**
-     * @return The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
-     * 
-     */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationAwsOrgArgs>> awsOrg() {
         return Optional.ofNullable(this.awsOrg);
     }
 
-    /**
-     * Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
-     * 
-     */
     @Import(name="dataExport")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationDataExportArgs> dataExport;
 
-    /**
-     * @return Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
-     * 
-     */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationDataExportArgs>> dataExport() {
         return Optional.ofNullable(this.dataExport);
     }
 
-    /**
-     * Whether the S3 Storage Lens configuration is enabled.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Whether the S3 Storage Lens configuration is enabled.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
 
-    /**
-     * What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
-     * 
-     */
     @Import(name="exclude")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationExcludeArgs> exclude;
 
-    /**
-     * @return What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
-     * 
-     */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationExcludeArgs>> exclude() {
         return Optional.ofNullable(this.exclude);
     }
 
-    /**
-     * What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
-     * 
-     */
     @Import(name="include")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationIncludeArgs> include;
 
-    /**
-     * @return What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
-     * 
-     */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationIncludeArgs>> include() {
         return Optional.ofNullable(this.include);
     }
@@ -140,128 +92,56 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs extends 
             $ = new StorageLensConfigurationStorageLensConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountLevel The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountLevel(Output<StorageLensConfigurationStorageLensConfigurationAccountLevelArgs> accountLevel) {
             $.accountLevel = accountLevel;
             return this;
         }
 
-        /**
-         * @param accountLevel The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountLevel(StorageLensConfigurationStorageLensConfigurationAccountLevelArgs accountLevel) {
             return accountLevel(Output.of(accountLevel));
         }
 
-        /**
-         * @param awsOrg The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsOrg(@Nullable Output<StorageLensConfigurationStorageLensConfigurationAwsOrgArgs> awsOrg) {
             $.awsOrg = awsOrg;
             return this;
         }
 
-        /**
-         * @param awsOrg The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsOrg(StorageLensConfigurationStorageLensConfigurationAwsOrgArgs awsOrg) {
             return awsOrg(Output.of(awsOrg));
         }
 
-        /**
-         * @param dataExport Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataExport(@Nullable Output<StorageLensConfigurationStorageLensConfigurationDataExportArgs> dataExport) {
             $.dataExport = dataExport;
             return this;
         }
 
-        /**
-         * @param dataExport Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataExport(StorageLensConfigurationStorageLensConfigurationDataExportArgs dataExport) {
             return dataExport(Output.of(dataExport));
         }
 
-        /**
-         * @param enabled Whether the S3 Storage Lens configuration is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether the S3 Storage Lens configuration is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param exclude What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exclude(@Nullable Output<StorageLensConfigurationStorageLensConfigurationExcludeArgs> exclude) {
             $.exclude = exclude;
             return this;
         }
 
-        /**
-         * @param exclude What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exclude(StorageLensConfigurationStorageLensConfigurationExcludeArgs exclude) {
             return exclude(Output.of(exclude));
         }
 
-        /**
-         * @param include What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder include(@Nullable Output<StorageLensConfigurationStorageLensConfigurationIncludeArgs> include) {
             $.include = include;
             return this;
         }
 
-        /**
-         * @param include What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder include(StorageLensConfigurationStorageLensConfigurationIncludeArgs include) {
             return include(Output.of(include));
         }

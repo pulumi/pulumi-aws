@@ -7,22 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * > **NOTE:** The AWS Region specified by a provider must always be one of the Regions specified for the replication set.
- *
- * Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssmincidents.getReplicationSet({});
- * ```
- */
 export function getReplicationSet(args?: GetReplicationSetArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationSetResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -35,9 +19,6 @@ export function getReplicationSet(args?: GetReplicationSetArgs, opts?: pulumi.In
  * A collection of arguments for invoking getReplicationSet.
  */
 export interface GetReplicationSetArgs {
-    /**
-     * All tags applied to the replication set.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -45,62 +26,22 @@ export interface GetReplicationSetArgs {
  * A collection of values returned by getReplicationSet.
  */
 export interface GetReplicationSetResult {
-    /**
-     * The Amazon Resource Name (ARN) of the replication set.
-     */
     readonly arn: string;
-    /**
-     * The ARN of the user who created the replication set.
-     */
     readonly createdBy: string;
-    /**
-     * If `true`, the last remaining Region in a replication set can’t be deleted.
-     */
     readonly deletionProtected: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * The ARN of the user who last modified the replication set.
-     */
     readonly lastModifiedBy: string;
     /**
-     * (**Deprecated**) The replication set's Regions. Use `regions` instead.
-     *
      * @deprecated region is deprecated. Use regions instead.
      */
     readonly region: outputs.ssmincidents.GetReplicationSetRegion[];
-    /**
-     * The replication set's Regions.
-     */
     readonly regions: outputs.ssmincidents.GetReplicationSetRegion[];
-    /**
-     * The current status of the Region.
-     * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-     */
     readonly status: string;
-    /**
-     * All tags applied to the replication set.
-     */
     readonly tags: {[key: string]: string};
 }
-/**
- * > **NOTE:** The AWS Region specified by a provider must always be one of the Regions specified for the replication set.
- *
- * Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssmincidents.getReplicationSet({});
- * ```
- */
 export function getReplicationSetOutput(args?: GetReplicationSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationSetResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -113,8 +54,5 @@ export function getReplicationSetOutput(args?: GetReplicationSetOutputArgs, opts
  * A collection of arguments for invoking getReplicationSet.
  */
 export interface GetReplicationSetOutputArgs {
-    /**
-     * All tags applied to the replication set.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

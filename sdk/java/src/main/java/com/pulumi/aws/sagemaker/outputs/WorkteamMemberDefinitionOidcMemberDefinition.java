@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class WorkteamMemberDefinitionOidcMemberDefinition {
-    /**
-     * @return A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
-     * 
-     */
     private List<String> groups;
 
     private WorkteamMemberDefinitionOidcMemberDefinition() {}
-    /**
-     * @return A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
-     * 
-     */
     public List<String> groups() {
         return this.groups;
     }

@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an Amazon API Gateway Version 2 integration response.
- * More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
- *
- * ## Example Usage
- *
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.apigatewayv2.IntegrationResponse("example", {
- *     apiId: exampleAwsApigatewayv2Api.id,
- *     integrationId: exampleAwsApigatewayv2Integration.id,
- *     integrationResponseKey: "/200/",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_apigatewayv2_integration_response` using the API identifier, integration identifier and integration response identifier. For example:
- *
- * ```sh
- * $ pulumi import aws:apigatewayv2/integrationResponse:IntegrationResponse example aabbccddee/1122334/998877
- * ```
- */
 export class IntegrationResponse extends pulumi.CustomResource {
     /**
      * Get an existing IntegrationResponse resource's state with the given name, ID, and optional extra
@@ -59,33 +32,12 @@ export class IntegrationResponse extends pulumi.CustomResource {
         return obj['__pulumiType'] === IntegrationResponse.__pulumiType;
     }
 
-    /**
-     * API identifier.
-     */
     declare public readonly apiId: pulumi.Output<string>;
-    /**
-     * How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
-     */
     declare public readonly contentHandlingStrategy: pulumi.Output<string | undefined>;
-    /**
-     * Identifier of the `aws.apigatewayv2.Integration`.
-     */
     declare public readonly integrationId: pulumi.Output<string>;
-    /**
-     * Integration response key.
-     */
     declare public readonly integrationResponseKey: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
-     */
     declare public readonly responseTemplates: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
-     */
     declare public readonly templateSelectionExpression: pulumi.Output<string | undefined>;
 
     /**
@@ -136,33 +88,12 @@ export class IntegrationResponse extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IntegrationResponse resources.
  */
 export interface IntegrationResponseState {
-    /**
-     * API identifier.
-     */
     apiId?: pulumi.Input<string>;
-    /**
-     * How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
-     */
     contentHandlingStrategy?: pulumi.Input<string>;
-    /**
-     * Identifier of the `aws.apigatewayv2.Integration`.
-     */
     integrationId?: pulumi.Input<string>;
-    /**
-     * Integration response key.
-     */
     integrationResponseKey?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
-     */
     responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
-     */
     templateSelectionExpression?: pulumi.Input<string>;
 }
 
@@ -170,32 +101,11 @@ export interface IntegrationResponseState {
  * The set of arguments for constructing a IntegrationResponse resource.
  */
 export interface IntegrationResponseArgs {
-    /**
-     * API identifier.
-     */
     apiId: pulumi.Input<string>;
-    /**
-     * How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
-     */
     contentHandlingStrategy?: pulumi.Input<string>;
-    /**
-     * Identifier of the `aws.apigatewayv2.Integration`.
-     */
     integrationId: pulumi.Input<string>;
-    /**
-     * Integration response key.
-     */
     integrationResponseKey: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
-     */
     responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
-     */
     templateSelectionExpression?: pulumi.Input<string>;
 }

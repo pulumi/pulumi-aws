@@ -17,92 +17,44 @@ public final class RoutingProfileQueueConfigArgs extends com.pulumi.resources.Re
 
     public static final RoutingProfileQueueConfigArgs Empty = new RoutingProfileQueueConfigArgs();
 
-    /**
-     * Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
-     * 
-     */
     @Import(name="channel", required=true)
     private Output<String> channel;
 
-    /**
-     * @return Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
-     * 
-     */
     public Output<String> channel() {
         return this.channel;
     }
 
-    /**
-     * Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
-     * 
-     */
     @Import(name="delay", required=true)
     private Output<Integer> delay;
 
-    /**
-     * @return Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
-     * 
-     */
     public Output<Integer> delay() {
         return this.delay;
     }
 
-    /**
-     * Specifies the order in which contacts are to be handled for the queue.
-     * 
-     */
     @Import(name="priority", required=true)
     private Output<Integer> priority;
 
-    /**
-     * @return Specifies the order in which contacts are to be handled for the queue.
-     * 
-     */
     public Output<Integer> priority() {
         return this.priority;
     }
 
-    /**
-     * ARN for the queue.
-     * 
-     */
     @Import(name="queueArn")
     private @Nullable Output<String> queueArn;
 
-    /**
-     * @return ARN for the queue.
-     * 
-     */
     public Optional<Output<String>> queueArn() {
         return Optional.ofNullable(this.queueArn);
     }
 
-    /**
-     * Specifies the identifier for the queue.
-     * 
-     */
     @Import(name="queueId", required=true)
     private Output<String> queueId;
 
-    /**
-     * @return Specifies the identifier for the queue.
-     * 
-     */
     public Output<String> queueId() {
         return this.queueId;
     }
 
-    /**
-     * Name for the queue.
-     * 
-     */
     @Import(name="queueName")
     private @Nullable Output<String> queueName;
 
-    /**
-     * @return Name for the queue.
-     * 
-     */
     public Optional<Output<String>> queueName() {
         return Optional.ofNullable(this.queueName);
     }
@@ -136,128 +88,56 @@ public final class RoutingProfileQueueConfigArgs extends com.pulumi.resources.Re
             $ = new RoutingProfileQueueConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param channel Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder channel(Output<String> channel) {
             $.channel = channel;
             return this;
         }
 
-        /**
-         * @param channel Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder channel(String channel) {
             return channel(Output.of(channel));
         }
 
-        /**
-         * @param delay Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
-         * 
-         * @return builder
-         * 
-         */
         public Builder delay(Output<Integer> delay) {
             $.delay = delay;
             return this;
         }
 
-        /**
-         * @param delay Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
-         * 
-         * @return builder
-         * 
-         */
         public Builder delay(Integer delay) {
             return delay(Output.of(delay));
         }
 
-        /**
-         * @param priority Specifies the order in which contacts are to be handled for the queue.
-         * 
-         * @return builder
-         * 
-         */
         public Builder priority(Output<Integer> priority) {
             $.priority = priority;
             return this;
         }
 
-        /**
-         * @param priority Specifies the order in which contacts are to be handled for the queue.
-         * 
-         * @return builder
-         * 
-         */
         public Builder priority(Integer priority) {
             return priority(Output.of(priority));
         }
 
-        /**
-         * @param queueArn ARN for the queue.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queueArn(@Nullable Output<String> queueArn) {
             $.queueArn = queueArn;
             return this;
         }
 
-        /**
-         * @param queueArn ARN for the queue.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queueArn(String queueArn) {
             return queueArn(Output.of(queueArn));
         }
 
-        /**
-         * @param queueId Specifies the identifier for the queue.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queueId(Output<String> queueId) {
             $.queueId = queueId;
             return this;
         }
 
-        /**
-         * @param queueId Specifies the identifier for the queue.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queueId(String queueId) {
             return queueId(Output.of(queueId));
         }
 
-        /**
-         * @param queueName Name for the queue.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queueName(@Nullable Output<String> queueName) {
             $.queueName = queueName;
             return this;
         }
 
-        /**
-         * @param queueName Name for the queue.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queueName(String queueName) {
             return queueName(Output.of(queueName));
         }

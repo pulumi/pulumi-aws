@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreAgentRuntimeWorkloadIdentityDetail
     {
-        /// <summary>
-        /// ARN of the workload identity.
-        /// </summary>
         public readonly string WorkloadIdentityArn;
 
         [OutputConstructor]

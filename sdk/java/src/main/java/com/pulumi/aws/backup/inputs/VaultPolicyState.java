@@ -15,62 +15,30 @@ public final class VaultPolicyState extends com.pulumi.resources.ResourceArgs {
 
     public static final VaultPolicyState Empty = new VaultPolicyState();
 
-    /**
-     * The ARN of the vault.
-     * 
-     */
     @Import(name="backupVaultArn")
     private @Nullable Output<String> backupVaultArn;
 
-    /**
-     * @return The ARN of the vault.
-     * 
-     */
     public Optional<Output<String>> backupVaultArn() {
         return Optional.ofNullable(this.backupVaultArn);
     }
 
-    /**
-     * Name of the backup vault to add policy for.
-     * 
-     */
     @Import(name="backupVaultName")
     private @Nullable Output<String> backupVaultName;
 
-    /**
-     * @return Name of the backup vault to add policy for.
-     * 
-     */
     public Optional<Output<String>> backupVaultName() {
         return Optional.ofNullable(this.backupVaultName);
     }
 
-    /**
-     * The backup vault access policy document in JSON format.
-     * 
-     */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
-    /**
-     * @return The backup vault access policy document in JSON format.
-     * 
-     */
     public Optional<Output<String>> policy() {
         return Optional.ofNullable(this.policy);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -102,86 +70,38 @@ public final class VaultPolicyState extends com.pulumi.resources.ResourceArgs {
             $ = new VaultPolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param backupVaultArn The ARN of the vault.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backupVaultArn(@Nullable Output<String> backupVaultArn) {
             $.backupVaultArn = backupVaultArn;
             return this;
         }
 
-        /**
-         * @param backupVaultArn The ARN of the vault.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backupVaultArn(String backupVaultArn) {
             return backupVaultArn(Output.of(backupVaultArn));
         }
 
-        /**
-         * @param backupVaultName Name of the backup vault to add policy for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backupVaultName(@Nullable Output<String> backupVaultName) {
             $.backupVaultName = backupVaultName;
             return this;
         }
 
-        /**
-         * @param backupVaultName Name of the backup vault to add policy for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backupVaultName(String backupVaultName) {
             return backupVaultName(Output.of(backupVaultName));
         }
 
-        /**
-         * @param policy The backup vault access policy document in JSON format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(@Nullable Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy The backup vault access policy document in JSON format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

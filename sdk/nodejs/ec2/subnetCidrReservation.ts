@@ -4,30 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a subnet CIDR reservation resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.SubnetCidrReservation("example", {
- *     cidrBlock: "10.0.0.16/28",
- *     reservationType: "prefix",
- *     subnetId: exampleAwsSubnet.id,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Existing CIDR reservations using `SUBNET_ID:RESERVATION_ID`. For example:
- *
- * ```sh
- * $ pulumi import aws:ec2/subnetCidrReservation:SubnetCidrReservation example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
- * ```
- */
 export class SubnetCidrReservation extends pulumi.CustomResource {
     /**
      * Get an existing SubnetCidrReservation resource's state with the given name, ID, and optional extra
@@ -56,29 +32,11 @@ export class SubnetCidrReservation extends pulumi.CustomResource {
         return obj['__pulumiType'] === SubnetCidrReservation.__pulumiType;
     }
 
-    /**
-     * The CIDR block for the reservation.
-     */
     declare public readonly cidrBlock: pulumi.Output<string>;
-    /**
-     * A brief description of the reservation.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * ID of the AWS account that owns this CIDR reservation.
-     */
     declare public /*out*/ readonly ownerId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The type of reservation to create. Valid values: `explicit`, `prefix`
-     */
     declare public readonly reservationType: pulumi.Output<string>;
-    /**
-     * The ID of the subnet to create the reservation for.
-     */
     declare public readonly subnetId: pulumi.Output<string>;
 
     /**
@@ -127,29 +85,11 @@ export class SubnetCidrReservation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SubnetCidrReservation resources.
  */
 export interface SubnetCidrReservationState {
-    /**
-     * The CIDR block for the reservation.
-     */
     cidrBlock?: pulumi.Input<string>;
-    /**
-     * A brief description of the reservation.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * ID of the AWS account that owns this CIDR reservation.
-     */
     ownerId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The type of reservation to create. Valid values: `explicit`, `prefix`
-     */
     reservationType?: pulumi.Input<string>;
-    /**
-     * The ID of the subnet to create the reservation for.
-     */
     subnetId?: pulumi.Input<string>;
 }
 
@@ -157,24 +97,9 @@ export interface SubnetCidrReservationState {
  * The set of arguments for constructing a SubnetCidrReservation resource.
  */
 export interface SubnetCidrReservationArgs {
-    /**
-     * The CIDR block for the reservation.
-     */
     cidrBlock: pulumi.Input<string>;
-    /**
-     * A brief description of the reservation.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The type of reservation to create. Valid values: `explicit`, `prefix`
-     */
     reservationType: pulumi.Input<string>;
-    /**
-     * The ID of the subnet to create the reservation for.
-     */
     subnetId: pulumi.Input<string>;
 }

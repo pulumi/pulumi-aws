@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BotAliasConversationLogs {
-    /**
-     * @return The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
-     * 
-     */
     private String iamRoleArn;
-    /**
-     * @return The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
-     * 
-     */
     private @Nullable List<BotAliasConversationLogsLogSetting> logSettings;
 
     private BotAliasConversationLogs() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
-     * 
-     */
     public String iamRoleArn() {
         return this.iamRoleArn;
     }
-    /**
-     * @return The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
-     * 
-     */
     public List<BotAliasConversationLogsLogSetting> logSettings() {
         return this.logSettings == null ? List.of() : this.logSettings;
     }

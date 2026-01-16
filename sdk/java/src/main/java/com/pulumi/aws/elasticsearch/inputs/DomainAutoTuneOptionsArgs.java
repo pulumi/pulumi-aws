@@ -18,47 +18,23 @@ public final class DomainAutoTuneOptionsArgs extends com.pulumi.resources.Resour
 
     public static final DomainAutoTuneOptionsArgs Empty = new DomainAutoTuneOptionsArgs();
 
-    /**
-     * The Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
-     * 
-     */
     @Import(name="desiredState", required=true)
     private Output<String> desiredState;
 
-    /**
-     * @return The Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
-     * 
-     */
     public Output<String> desiredState() {
         return this.desiredState;
     }
 
-    /**
-     * Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
-     * 
-     */
     @Import(name="maintenanceSchedules")
     private @Nullable Output<List<DomainAutoTuneOptionsMaintenanceScheduleArgs>> maintenanceSchedules;
 
-    /**
-     * @return Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
-     * 
-     */
     public Optional<Output<List<DomainAutoTuneOptionsMaintenanceScheduleArgs>>> maintenanceSchedules() {
         return Optional.ofNullable(this.maintenanceSchedules);
     }
 
-    /**
-     * Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
-     * 
-     */
     @Import(name="rollbackOnDisable")
     private @Nullable Output<String> rollbackOnDisable;
 
-    /**
-     * @return Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
-     * 
-     */
     public Optional<Output<String>> rollbackOnDisable() {
         return Optional.ofNullable(this.rollbackOnDisable);
     }
@@ -89,75 +65,33 @@ public final class DomainAutoTuneOptionsArgs extends com.pulumi.resources.Resour
             $ = new DomainAutoTuneOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param desiredState The Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder desiredState(Output<String> desiredState) {
             $.desiredState = desiredState;
             return this;
         }
 
-        /**
-         * @param desiredState The Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder desiredState(String desiredState) {
             return desiredState(Output.of(desiredState));
         }
 
-        /**
-         * @param maintenanceSchedules Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maintenanceSchedules(@Nullable Output<List<DomainAutoTuneOptionsMaintenanceScheduleArgs>> maintenanceSchedules) {
             $.maintenanceSchedules = maintenanceSchedules;
             return this;
         }
 
-        /**
-         * @param maintenanceSchedules Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maintenanceSchedules(List<DomainAutoTuneOptionsMaintenanceScheduleArgs> maintenanceSchedules) {
             return maintenanceSchedules(Output.of(maintenanceSchedules));
         }
 
-        /**
-         * @param maintenanceSchedules Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maintenanceSchedules(DomainAutoTuneOptionsMaintenanceScheduleArgs... maintenanceSchedules) {
             return maintenanceSchedules(List.of(maintenanceSchedules));
         }
 
-        /**
-         * @param rollbackOnDisable Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rollbackOnDisable(@Nullable Output<String> rollbackOnDisable) {
             $.rollbackOnDisable = rollbackOnDisable;
             return this;
         }
 
-        /**
-         * @param rollbackOnDisable Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rollbackOnDisable(String rollbackOnDisable) {
             return rollbackOnDisable(Output.of(rollbackOnDisable));
         }

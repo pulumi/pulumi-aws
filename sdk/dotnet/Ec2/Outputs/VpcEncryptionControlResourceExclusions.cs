@@ -13,37 +13,13 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class VpcEncryptionControlResourceExclusions
     {
-        /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
-        /// </summary>
         public readonly Outputs.VpcEncryptionControlResourceExclusionsEgressOnlyInternetGateway EgressOnlyInternetGateway;
-        /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for Elastic File System (EFS).
-        /// </summary>
         public readonly Outputs.VpcEncryptionControlResourceExclusionsElasticFileSystem ElasticFileSystem;
-        /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for Internet Gateways.
-        /// </summary>
         public readonly Outputs.VpcEncryptionControlResourceExclusionsInternetGateway InternetGateway;
-        /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for Lambda Functions.
-        /// </summary>
         public readonly Outputs.VpcEncryptionControlResourceExclusionsLambda Lambda;
-        /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for NAT Gateways.
-        /// </summary>
         public readonly Outputs.VpcEncryptionControlResourceExclusionsNatGateway NatGateway;
-        /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for Virtual Private Gateways.
-        /// </summary>
         public readonly Outputs.VpcEncryptionControlResourceExclusionsVirtualPrivateGateway VirtualPrivateGateway;
-        /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for VPC Lattice.
-        /// </summary>
         public readonly Outputs.VpcEncryptionControlResourceExclusionsVpcLattice VpcLattice;
-        /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for peered VPCs.
-        /// </summary>
         public readonly Outputs.VpcEncryptionControlResourceExclusionsVpcPeering VpcPeering;
 
         [OutputConstructor]

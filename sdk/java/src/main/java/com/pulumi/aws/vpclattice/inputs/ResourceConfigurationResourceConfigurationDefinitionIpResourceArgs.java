@@ -14,17 +14,9 @@ public final class ResourceConfigurationResourceConfigurationDefinitionIpResourc
 
     public static final ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs Empty = new ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs();
 
-    /**
-     * The IP Address of the Resource for this configuration.
-     * 
-     */
     @Import(name="ipAddress", required=true)
     private Output<String> ipAddress;
 
-    /**
-     * @return The IP Address of the Resource for this configuration.
-     * 
-     */
     public Output<String> ipAddress() {
         return this.ipAddress;
     }
@@ -53,23 +45,11 @@ public final class ResourceConfigurationResourceConfigurationDefinitionIpResourc
             $ = new ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ipAddress The IP Address of the Resource for this configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddress(Output<String> ipAddress) {
             $.ipAddress = ipAddress;
             return this;
         }
 
-        /**
-         * @param ipAddress The IP Address of the Resource for this configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddress(String ipAddress) {
             return ipAddress(Output.of(ipAddress));
         }

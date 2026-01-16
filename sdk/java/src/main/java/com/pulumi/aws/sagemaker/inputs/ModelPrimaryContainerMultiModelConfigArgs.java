@@ -15,17 +15,9 @@ public final class ModelPrimaryContainerMultiModelConfigArgs extends com.pulumi.
 
     public static final ModelPrimaryContainerMultiModelConfigArgs Empty = new ModelPrimaryContainerMultiModelConfigArgs();
 
-    /**
-     * Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`. Allowed values are: `Enabled` and `Disabled`.
-     * 
-     */
     @Import(name="modelCacheSetting")
     private @Nullable Output<String> modelCacheSetting;
 
-    /**
-     * @return Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`. Allowed values are: `Enabled` and `Disabled`.
-     * 
-     */
     public Optional<Output<String>> modelCacheSetting() {
         return Optional.ofNullable(this.modelCacheSetting);
     }
@@ -54,23 +46,11 @@ public final class ModelPrimaryContainerMultiModelConfigArgs extends com.pulumi.
             $ = new ModelPrimaryContainerMultiModelConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param modelCacheSetting Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`. Allowed values are: `Enabled` and `Disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelCacheSetting(@Nullable Output<String> modelCacheSetting) {
             $.modelCacheSetting = modelCacheSetting;
             return this;
         }
 
-        /**
-         * @param modelCacheSetting Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`. Allowed values are: `Enabled` and `Disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelCacheSetting(String modelCacheSetting) {
             return modelCacheSetting(Output.of(modelCacheSetting));
         }

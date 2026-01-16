@@ -18,77 +18,37 @@ public final class EndpointAuthorizationArgs extends com.pulumi.resources.Resour
 
     public static final EndpointAuthorizationArgs Empty = new EndpointAuthorizationArgs();
 
-    /**
-     * The Amazon Web Services account ID to grant access to.
-     * 
-     */
     @Import(name="account", required=true)
     private Output<String> account;
 
-    /**
-     * @return The Amazon Web Services account ID to grant access to.
-     * 
-     */
     public Output<String> account() {
         return this.account;
     }
 
-    /**
-     * The cluster identifier of the cluster to grant access to.
-     * 
-     */
     @Import(name="clusterIdentifier", required=true)
     private Output<String> clusterIdentifier;
 
-    /**
-     * @return The cluster identifier of the cluster to grant access to.
-     * 
-     */
     public Output<String> clusterIdentifier() {
         return this.clusterIdentifier;
     }
 
-    /**
-     * Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
-     * 
-     */
     @Import(name="forceDelete")
     private @Nullable Output<Boolean> forceDelete;
 
-    /**
-     * @return Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> forceDelete() {
         return Optional.ofNullable(this.forceDelete);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
-     * 
-     */
     @Import(name="vpcIds")
     private @Nullable Output<List<String>> vpcIds;
 
-    /**
-     * @return The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
-     * 
-     */
     public Optional<Output<List<String>>> vpcIds() {
         return Optional.ofNullable(this.vpcIds);
     }
@@ -121,117 +81,51 @@ public final class EndpointAuthorizationArgs extends com.pulumi.resources.Resour
             $ = new EndpointAuthorizationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param account The Amazon Web Services account ID to grant access to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder account(Output<String> account) {
             $.account = account;
             return this;
         }
 
-        /**
-         * @param account The Amazon Web Services account ID to grant access to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder account(String account) {
             return account(Output.of(account));
         }
 
-        /**
-         * @param clusterIdentifier The cluster identifier of the cluster to grant access to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterIdentifier(Output<String> clusterIdentifier) {
             $.clusterIdentifier = clusterIdentifier;
             return this;
         }
 
-        /**
-         * @param clusterIdentifier The cluster identifier of the cluster to grant access to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterIdentifier(String clusterIdentifier) {
             return clusterIdentifier(Output.of(clusterIdentifier));
         }
 
-        /**
-         * @param forceDelete Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forceDelete(@Nullable Output<Boolean> forceDelete) {
             $.forceDelete = forceDelete;
             return this;
         }
 
-        /**
-         * @param forceDelete Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forceDelete(Boolean forceDelete) {
             return forceDelete(Output.of(forceDelete));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param vpcIds The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcIds(@Nullable Output<List<String>> vpcIds) {
             $.vpcIds = vpcIds;
             return this;
         }
 
-        /**
-         * @param vpcIds The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcIds(List<String> vpcIds) {
             return vpcIds(Output.of(vpcIds));
         }
 
-        /**
-         * @param vpcIds The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcIds(String... vpcIds) {
             return vpcIds(List.of(vpcIds));
         }

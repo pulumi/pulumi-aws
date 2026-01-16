@@ -14,10 +14,8 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ApplicationPortalOptions struct {
-	// Sign-in options for the access portal. See `signInOptions` below.
 	SignInOptions *ApplicationPortalOptionsSignInOptions `pulumi:"signInOptions"`
-	// Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
-	Visibility *string `pulumi:"visibility"`
+	Visibility    *string                                `pulumi:"visibility"`
 }
 
 // ApplicationPortalOptionsInput is an input type that accepts ApplicationPortalOptionsArgs and ApplicationPortalOptionsOutput values.
@@ -32,10 +30,8 @@ type ApplicationPortalOptionsInput interface {
 }
 
 type ApplicationPortalOptionsArgs struct {
-	// Sign-in options for the access portal. See `signInOptions` below.
 	SignInOptions ApplicationPortalOptionsSignInOptionsPtrInput `pulumi:"signInOptions"`
-	// Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
-	Visibility pulumi.StringPtrInput `pulumi:"visibility"`
+	Visibility    pulumi.StringPtrInput                         `pulumi:"visibility"`
 }
 
 func (ApplicationPortalOptionsArgs) ElementType() reflect.Type {
@@ -115,12 +111,10 @@ func (o ApplicationPortalOptionsOutput) ToApplicationPortalOptionsPtrOutputWithC
 	}).(ApplicationPortalOptionsPtrOutput)
 }
 
-// Sign-in options for the access portal. See `signInOptions` below.
 func (o ApplicationPortalOptionsOutput) SignInOptions() ApplicationPortalOptionsSignInOptionsPtrOutput {
 	return o.ApplyT(func(v ApplicationPortalOptions) *ApplicationPortalOptionsSignInOptions { return v.SignInOptions }).(ApplicationPortalOptionsSignInOptionsPtrOutput)
 }
 
-// Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
 func (o ApplicationPortalOptionsOutput) Visibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPortalOptions) *string { return v.Visibility }).(pulumi.StringPtrOutput)
 }
@@ -149,7 +143,6 @@ func (o ApplicationPortalOptionsPtrOutput) Elem() ApplicationPortalOptionsOutput
 	}).(ApplicationPortalOptionsOutput)
 }
 
-// Sign-in options for the access portal. See `signInOptions` below.
 func (o ApplicationPortalOptionsPtrOutput) SignInOptions() ApplicationPortalOptionsSignInOptionsPtrOutput {
 	return o.ApplyT(func(v *ApplicationPortalOptions) *ApplicationPortalOptionsSignInOptions {
 		if v == nil {
@@ -159,7 +152,6 @@ func (o ApplicationPortalOptionsPtrOutput) SignInOptions() ApplicationPortalOpti
 	}).(ApplicationPortalOptionsSignInOptionsPtrOutput)
 }
 
-// Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
 func (o ApplicationPortalOptionsPtrOutput) Visibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationPortalOptions) *string {
 		if v == nil {
@@ -170,13 +162,8 @@ func (o ApplicationPortalOptionsPtrOutput) Visibility() pulumi.StringPtrOutput {
 }
 
 type ApplicationPortalOptionsSignInOptions struct {
-	// URL that accepts authentication requests for an application.
 	ApplicationUrl *string `pulumi:"applicationUrl"`
-	// Determines how IAM Identity Center navigates the user to the target application.
-	// Valid values are `APPLICATION` and `IDENTITY_CENTER`.
-	// If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `applicationUrl`.
-	// If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
-	Origin string `pulumi:"origin"`
+	Origin         string  `pulumi:"origin"`
 }
 
 // ApplicationPortalOptionsSignInOptionsInput is an input type that accepts ApplicationPortalOptionsSignInOptionsArgs and ApplicationPortalOptionsSignInOptionsOutput values.
@@ -191,13 +178,8 @@ type ApplicationPortalOptionsSignInOptionsInput interface {
 }
 
 type ApplicationPortalOptionsSignInOptionsArgs struct {
-	// URL that accepts authentication requests for an application.
 	ApplicationUrl pulumi.StringPtrInput `pulumi:"applicationUrl"`
-	// Determines how IAM Identity Center navigates the user to the target application.
-	// Valid values are `APPLICATION` and `IDENTITY_CENTER`.
-	// If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `applicationUrl`.
-	// If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
-	Origin pulumi.StringInput `pulumi:"origin"`
+	Origin         pulumi.StringInput    `pulumi:"origin"`
 }
 
 func (ApplicationPortalOptionsSignInOptionsArgs) ElementType() reflect.Type {
@@ -277,15 +259,10 @@ func (o ApplicationPortalOptionsSignInOptionsOutput) ToApplicationPortalOptionsS
 	}).(ApplicationPortalOptionsSignInOptionsPtrOutput)
 }
 
-// URL that accepts authentication requests for an application.
 func (o ApplicationPortalOptionsSignInOptionsOutput) ApplicationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPortalOptionsSignInOptions) *string { return v.ApplicationUrl }).(pulumi.StringPtrOutput)
 }
 
-// Determines how IAM Identity Center navigates the user to the target application.
-// Valid values are `APPLICATION` and `IDENTITY_CENTER`.
-// If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `applicationUrl`.
-// If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
 func (o ApplicationPortalOptionsSignInOptionsOutput) Origin() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationPortalOptionsSignInOptions) string { return v.Origin }).(pulumi.StringOutput)
 }
@@ -314,7 +291,6 @@ func (o ApplicationPortalOptionsSignInOptionsPtrOutput) Elem() ApplicationPortal
 	}).(ApplicationPortalOptionsSignInOptionsOutput)
 }
 
-// URL that accepts authentication requests for an application.
 func (o ApplicationPortalOptionsSignInOptionsPtrOutput) ApplicationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationPortalOptionsSignInOptions) *string {
 		if v == nil {
@@ -324,10 +300,6 @@ func (o ApplicationPortalOptionsSignInOptionsPtrOutput) ApplicationUrl() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Determines how IAM Identity Center navigates the user to the target application.
-// Valid values are `APPLICATION` and `IDENTITY_CENTER`.
-// If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `applicationUrl`.
-// If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
 func (o ApplicationPortalOptionsSignInOptionsPtrOutput) Origin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationPortalOptionsSignInOptions) *string {
 		if v == nil {
@@ -338,9 +310,7 @@ func (o ApplicationPortalOptionsSignInOptionsPtrOutput) Origin() pulumi.StringPt
 }
 
 type CustomerManagedPolicyAttachmentCustomerManagedPolicyReference struct {
-	// Name of the customer managed IAM Policy to be attached.
-	Name string `pulumi:"name"`
-	// The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
+	Name string  `pulumi:"name"`
 	Path *string `pulumi:"path"`
 }
 
@@ -356,9 +326,7 @@ type CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceInput interfac
 }
 
 type CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs struct {
-	// Name of the customer managed IAM Policy to be attached.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
+	Name pulumi.StringInput    `pulumi:"name"`
 	Path pulumi.StringPtrInput `pulumi:"path"`
 }
 
@@ -439,12 +407,10 @@ func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutput) ToC
 	}).(CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput)
 }
 
-// Name of the customer managed IAM Policy to be attached.
 func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomerManagedPolicyAttachmentCustomerManagedPolicyReference) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
 func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomerManagedPolicyAttachmentCustomerManagedPolicyReference) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -473,7 +439,6 @@ func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput) 
 	}).(CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutput)
 }
 
-// Name of the customer managed IAM Policy to be attached.
 func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomerManagedPolicyAttachmentCustomerManagedPolicyReference) *string {
 		if v == nil {
@@ -483,7 +448,6 @@ func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
 func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomerManagedPolicyAttachmentCustomerManagedPolicyReference) *string {
 		if v == nil {
@@ -494,9 +458,7 @@ func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput) 
 }
 
 type InstanceAccessControlAttributesAttribute struct {
-	// The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
-	Key string `pulumi:"key"`
-	// The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
+	Key    string                                          `pulumi:"key"`
 	Values []InstanceAccessControlAttributesAttributeValue `pulumi:"values"`
 }
 
@@ -512,9 +474,7 @@ type InstanceAccessControlAttributesAttributeInput interface {
 }
 
 type InstanceAccessControlAttributesAttributeArgs struct {
-	// The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
+	Key    pulumi.StringInput                                      `pulumi:"key"`
 	Values InstanceAccessControlAttributesAttributeValueArrayInput `pulumi:"values"`
 }
 
@@ -569,12 +529,10 @@ func (o InstanceAccessControlAttributesAttributeOutput) ToInstanceAccessControlA
 	return o
 }
 
-// The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
 func (o InstanceAccessControlAttributesAttributeOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceAccessControlAttributesAttribute) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
 func (o InstanceAccessControlAttributesAttributeOutput) Values() InstanceAccessControlAttributesAttributeValueArrayOutput {
 	return o.ApplyT(func(v InstanceAccessControlAttributesAttribute) []InstanceAccessControlAttributesAttributeValue {
 		return v.Values
@@ -602,7 +560,6 @@ func (o InstanceAccessControlAttributesAttributeArrayOutput) Index(i pulumi.IntI
 }
 
 type InstanceAccessControlAttributesAttributeValue struct {
-	// The identity source to use when mapping a specified attribute to AWS SSO.
 	Sources []string `pulumi:"sources"`
 }
 
@@ -618,7 +575,6 @@ type InstanceAccessControlAttributesAttributeValueInput interface {
 }
 
 type InstanceAccessControlAttributesAttributeValueArgs struct {
-	// The identity source to use when mapping a specified attribute to AWS SSO.
 	Sources pulumi.StringArrayInput `pulumi:"sources"`
 }
 
@@ -673,7 +629,6 @@ func (o InstanceAccessControlAttributesAttributeValueOutput) ToInstanceAccessCon
 	return o
 }
 
-// The identity source to use when mapping a specified attribute to AWS SSO.
 func (o InstanceAccessControlAttributesAttributeValueOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InstanceAccessControlAttributesAttributeValue) []string { return v.Sources }).(pulumi.StringArrayOutput)
 }
@@ -699,10 +654,8 @@ func (o InstanceAccessControlAttributesAttributeValueArrayOutput) Index(i pulumi
 }
 
 type PermissionsBoundaryAttachmentPermissionsBoundary struct {
-	// Specifies the name and path of a customer managed policy. See below.
 	CustomerManagedPolicyReference *PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference `pulumi:"customerManagedPolicyReference"`
-	// AWS-managed IAM policy ARN to use as the permissions boundary.
-	ManagedPolicyArn *string `pulumi:"managedPolicyArn"`
+	ManagedPolicyArn               *string                                                                         `pulumi:"managedPolicyArn"`
 }
 
 // PermissionsBoundaryAttachmentPermissionsBoundaryInput is an input type that accepts PermissionsBoundaryAttachmentPermissionsBoundaryArgs and PermissionsBoundaryAttachmentPermissionsBoundaryOutput values.
@@ -717,10 +670,8 @@ type PermissionsBoundaryAttachmentPermissionsBoundaryInput interface {
 }
 
 type PermissionsBoundaryAttachmentPermissionsBoundaryArgs struct {
-	// Specifies the name and path of a customer managed policy. See below.
 	CustomerManagedPolicyReference PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrInput `pulumi:"customerManagedPolicyReference"`
-	// AWS-managed IAM policy ARN to use as the permissions boundary.
-	ManagedPolicyArn pulumi.StringPtrInput `pulumi:"managedPolicyArn"`
+	ManagedPolicyArn               pulumi.StringPtrInput                                                                  `pulumi:"managedPolicyArn"`
 }
 
 func (PermissionsBoundaryAttachmentPermissionsBoundaryArgs) ElementType() reflect.Type {
@@ -800,14 +751,12 @@ func (o PermissionsBoundaryAttachmentPermissionsBoundaryOutput) ToPermissionsBou
 	}).(PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput)
 }
 
-// Specifies the name and path of a customer managed policy. See below.
 func (o PermissionsBoundaryAttachmentPermissionsBoundaryOutput) CustomerManagedPolicyReference() PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput {
 	return o.ApplyT(func(v PermissionsBoundaryAttachmentPermissionsBoundary) *PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference {
 		return v.CustomerManagedPolicyReference
 	}).(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput)
 }
 
-// AWS-managed IAM policy ARN to use as the permissions boundary.
 func (o PermissionsBoundaryAttachmentPermissionsBoundaryOutput) ManagedPolicyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsBoundaryAttachmentPermissionsBoundary) *string { return v.ManagedPolicyArn }).(pulumi.StringPtrOutput)
 }
@@ -836,7 +785,6 @@ func (o PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput) Elem() Permis
 	}).(PermissionsBoundaryAttachmentPermissionsBoundaryOutput)
 }
 
-// Specifies the name and path of a customer managed policy. See below.
 func (o PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput) CustomerManagedPolicyReference() PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput {
 	return o.ApplyT(func(v *PermissionsBoundaryAttachmentPermissionsBoundary) *PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference {
 		if v == nil {
@@ -846,7 +794,6 @@ func (o PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput) CustomerManag
 	}).(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput)
 }
 
-// AWS-managed IAM policy ARN to use as the permissions boundary.
 func (o PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput) ManagedPolicyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PermissionsBoundaryAttachmentPermissionsBoundary) *string {
 		if v == nil {
@@ -857,9 +804,7 @@ func (o PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput) ManagedPolicy
 }
 
 type PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference struct {
-	// Name of the customer managed IAM Policy to be attached.
-	Name string `pulumi:"name"`
-	// The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
+	Name string  `pulumi:"name"`
 	Path *string `pulumi:"path"`
 }
 
@@ -875,9 +820,7 @@ type PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRefere
 }
 
 type PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs struct {
-	// Name of the customer managed IAM Policy to be attached.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
+	Name pulumi.StringInput    `pulumi:"name"`
 	Path pulumi.StringPtrInput `pulumi:"path"`
 }
 
@@ -958,14 +901,12 @@ func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRef
 	}).(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput)
 }
 
-// Name of the customer managed IAM Policy to be attached.
 func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference) string {
 		return v.Name
 	}).(pulumi.StringOutput)
 }
 
-// The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
 func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference) *string {
 		return v.Path
@@ -996,7 +937,6 @@ func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRef
 	}).(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput)
 }
 
-// Name of the customer managed IAM Policy to be attached.
 func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference) *string {
 		if v == nil {
@@ -1006,7 +946,6 @@ func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRef
 	}).(pulumi.StringPtrOutput)
 }
 
-// The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
 func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference) *string {
 		if v == nil {
@@ -1017,7 +956,6 @@ func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRef
 }
 
 type TrustedTokenIssuerTrustedTokenIssuerConfiguration struct {
-	// A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
 	OidcJwtConfiguration *TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration `pulumi:"oidcJwtConfiguration"`
 }
 
@@ -1033,7 +971,6 @@ type TrustedTokenIssuerTrustedTokenIssuerConfigurationInput interface {
 }
 
 type TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs struct {
-	// A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
 	OidcJwtConfiguration TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrInput `pulumi:"oidcJwtConfiguration"`
 }
 
@@ -1114,7 +1051,6 @@ func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput) ToTrustedTokenI
 	}).(TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput)
 }
 
-// A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
 func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput) OidcJwtConfiguration() TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput {
 	return o.ApplyT(func(v TrustedTokenIssuerTrustedTokenIssuerConfiguration) *TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration {
 		return v.OidcJwtConfiguration
@@ -1145,7 +1081,6 @@ func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput) Elem() Trust
 	}).(TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput)
 }
 
-// A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
 func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput) OidcJwtConfiguration() TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput {
 	return o.ApplyT(func(v *TrustedTokenIssuerTrustedTokenIssuerConfiguration) *TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration {
 		if v == nil {
@@ -1156,14 +1091,10 @@ func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput) OidcJwtConfi
 }
 
 type TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration struct {
-	// Specifies the path of the source attribute in the JWT from the trusted token issuer.
-	ClaimAttributePath string `pulumi:"claimAttributePath"`
-	// Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `claimAttributePath` when a trusted token issuer token is exchanged for an IAM Identity Center token.
+	ClaimAttributePath         string `pulumi:"claimAttributePath"`
 	IdentityStoreAttributePath string `pulumi:"identityStoreAttributePath"`
-	// Specifies the URL that IAM Identity Center uses for OpenID Discovery. OpenID Discovery is used to obtain the information required to verify the tokens that the trusted token issuer generates.
-	IssuerUrl string `pulumi:"issuerUrl"`
-	// The method that the trusted token issuer can use to retrieve the JSON Web Key Set used to verify a JWT. Valid values are `OPEN_ID_DISCOVERY`
-	JwksRetrievalOption string `pulumi:"jwksRetrievalOption"`
+	IssuerUrl                  string `pulumi:"issuerUrl"`
+	JwksRetrievalOption        string `pulumi:"jwksRetrievalOption"`
 }
 
 // TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationInput is an input type that accepts TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs and TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput values.
@@ -1178,14 +1109,10 @@ type TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationInput 
 }
 
 type TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs struct {
-	// Specifies the path of the source attribute in the JWT from the trusted token issuer.
-	ClaimAttributePath pulumi.StringInput `pulumi:"claimAttributePath"`
-	// Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `claimAttributePath` when a trusted token issuer token is exchanged for an IAM Identity Center token.
+	ClaimAttributePath         pulumi.StringInput `pulumi:"claimAttributePath"`
 	IdentityStoreAttributePath pulumi.StringInput `pulumi:"identityStoreAttributePath"`
-	// Specifies the URL that IAM Identity Center uses for OpenID Discovery. OpenID Discovery is used to obtain the information required to verify the tokens that the trusted token issuer generates.
-	IssuerUrl pulumi.StringInput `pulumi:"issuerUrl"`
-	// The method that the trusted token issuer can use to retrieve the JSON Web Key Set used to verify a JWT. Valid values are `OPEN_ID_DISCOVERY`
-	JwksRetrievalOption pulumi.StringInput `pulumi:"jwksRetrievalOption"`
+	IssuerUrl                  pulumi.StringInput `pulumi:"issuerUrl"`
+	JwksRetrievalOption        pulumi.StringInput `pulumi:"jwksRetrievalOption"`
 }
 
 func (TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs) ElementType() reflect.Type {
@@ -1265,28 +1192,24 @@ func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOut
 	}).(TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput)
 }
 
-// Specifies the path of the source attribute in the JWT from the trusted token issuer.
 func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput) ClaimAttributePath() pulumi.StringOutput {
 	return o.ApplyT(func(v TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration) string {
 		return v.ClaimAttributePath
 	}).(pulumi.StringOutput)
 }
 
-// Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `claimAttributePath` when a trusted token issuer token is exchanged for an IAM Identity Center token.
 func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput) IdentityStoreAttributePath() pulumi.StringOutput {
 	return o.ApplyT(func(v TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration) string {
 		return v.IdentityStoreAttributePath
 	}).(pulumi.StringOutput)
 }
 
-// Specifies the URL that IAM Identity Center uses for OpenID Discovery. OpenID Discovery is used to obtain the information required to verify the tokens that the trusted token issuer generates.
 func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput) IssuerUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration) string {
 		return v.IssuerUrl
 	}).(pulumi.StringOutput)
 }
 
-// The method that the trusted token issuer can use to retrieve the JSON Web Key Set used to verify a JWT. Valid values are `OPEN_ID_DISCOVERY`
 func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput) JwksRetrievalOption() pulumi.StringOutput {
 	return o.ApplyT(func(v TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration) string {
 		return v.JwksRetrievalOption
@@ -1317,7 +1240,6 @@ func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtr
 	}).(TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput)
 }
 
-// Specifies the path of the source attribute in the JWT from the trusted token issuer.
 func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput) ClaimAttributePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration) *string {
 		if v == nil {
@@ -1327,7 +1249,6 @@ func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `claimAttributePath` when a trusted token issuer token is exchanged for an IAM Identity Center token.
 func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput) IdentityStoreAttributePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration) *string {
 		if v == nil {
@@ -1337,7 +1258,6 @@ func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the URL that IAM Identity Center uses for OpenID Discovery. OpenID Discovery is used to obtain the information required to verify the tokens that the trusted token issuer generates.
 func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput) IssuerUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration) *string {
 		if v == nil {
@@ -1347,7 +1267,6 @@ func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The method that the trusted token issuer can use to retrieve the JSON Web Key Set used to verify a JWT. Valid values are `OPEN_ID_DISCOVERY`
 func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput) JwksRetrievalOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration) *string {
 		if v == nil {
@@ -1358,12 +1277,9 @@ func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtr
 }
 
 type GetApplicationAssignmentsApplicationAssignment struct {
-	// ARN of the application.
 	ApplicationArn string `pulumi:"applicationArn"`
-	// An identifier for an object in IAM Identity Center, such as a user or group.
-	PrincipalId string `pulumi:"principalId"`
-	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-	PrincipalType string `pulumi:"principalType"`
+	PrincipalId    string `pulumi:"principalId"`
+	PrincipalType  string `pulumi:"principalType"`
 }
 
 // GetApplicationAssignmentsApplicationAssignmentInput is an input type that accepts GetApplicationAssignmentsApplicationAssignmentArgs and GetApplicationAssignmentsApplicationAssignmentOutput values.
@@ -1378,12 +1294,9 @@ type GetApplicationAssignmentsApplicationAssignmentInput interface {
 }
 
 type GetApplicationAssignmentsApplicationAssignmentArgs struct {
-	// ARN of the application.
 	ApplicationArn pulumi.StringInput `pulumi:"applicationArn"`
-	// An identifier for an object in IAM Identity Center, such as a user or group.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-	PrincipalType pulumi.StringInput `pulumi:"principalType"`
+	PrincipalId    pulumi.StringInput `pulumi:"principalId"`
+	PrincipalType  pulumi.StringInput `pulumi:"principalType"`
 }
 
 func (GetApplicationAssignmentsApplicationAssignmentArgs) ElementType() reflect.Type {
@@ -1437,17 +1350,14 @@ func (o GetApplicationAssignmentsApplicationAssignmentOutput) ToGetApplicationAs
 	return o
 }
 
-// ARN of the application.
 func (o GetApplicationAssignmentsApplicationAssignmentOutput) ApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationAssignmentsApplicationAssignment) string { return v.ApplicationArn }).(pulumi.StringOutput)
 }
 
-// An identifier for an object in IAM Identity Center, such as a user or group.
 func (o GetApplicationAssignmentsApplicationAssignmentOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationAssignmentsApplicationAssignment) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 func (o GetApplicationAssignmentsApplicationAssignmentOutput) PrincipalType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationAssignmentsApplicationAssignment) string { return v.PrincipalType }).(pulumi.StringOutput)
 }
@@ -1673,12 +1583,9 @@ func (o GetApplicationPortalOptionSignInOptionArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetApplicationProvidersApplicationProvider struct {
-	// ARN of the application provider.
-	ApplicationProviderArn string `pulumi:"applicationProviderArn"`
-	// An object describing how IAM Identity Center represents the application provider in the portal. See `displayData` below.
-	DisplayDatas []GetApplicationProvidersApplicationProviderDisplayData `pulumi:"displayDatas"`
-	// Protocol that the application provider uses to perform federation. Valid values are `SAML` and `OAUTH`.
-	FederationProtocol string `pulumi:"federationProtocol"`
+	ApplicationProviderArn string                                                  `pulumi:"applicationProviderArn"`
+	DisplayDatas           []GetApplicationProvidersApplicationProviderDisplayData `pulumi:"displayDatas"`
+	FederationProtocol     string                                                  `pulumi:"federationProtocol"`
 }
 
 // GetApplicationProvidersApplicationProviderInput is an input type that accepts GetApplicationProvidersApplicationProviderArgs and GetApplicationProvidersApplicationProviderOutput values.
@@ -1693,12 +1600,9 @@ type GetApplicationProvidersApplicationProviderInput interface {
 }
 
 type GetApplicationProvidersApplicationProviderArgs struct {
-	// ARN of the application provider.
-	ApplicationProviderArn pulumi.StringInput `pulumi:"applicationProviderArn"`
-	// An object describing how IAM Identity Center represents the application provider in the portal. See `displayData` below.
-	DisplayDatas GetApplicationProvidersApplicationProviderDisplayDataArrayInput `pulumi:"displayDatas"`
-	// Protocol that the application provider uses to perform federation. Valid values are `SAML` and `OAUTH`.
-	FederationProtocol pulumi.StringInput `pulumi:"federationProtocol"`
+	ApplicationProviderArn pulumi.StringInput                                              `pulumi:"applicationProviderArn"`
+	DisplayDatas           GetApplicationProvidersApplicationProviderDisplayDataArrayInput `pulumi:"displayDatas"`
+	FederationProtocol     pulumi.StringInput                                              `pulumi:"federationProtocol"`
 }
 
 func (GetApplicationProvidersApplicationProviderArgs) ElementType() reflect.Type {
@@ -1752,19 +1656,16 @@ func (o GetApplicationProvidersApplicationProviderOutput) ToGetApplicationProvid
 	return o
 }
 
-// ARN of the application provider.
 func (o GetApplicationProvidersApplicationProviderOutput) ApplicationProviderArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationProvidersApplicationProvider) string { return v.ApplicationProviderArn }).(pulumi.StringOutput)
 }
 
-// An object describing how IAM Identity Center represents the application provider in the portal. See `displayData` below.
 func (o GetApplicationProvidersApplicationProviderOutput) DisplayDatas() GetApplicationProvidersApplicationProviderDisplayDataArrayOutput {
 	return o.ApplyT(func(v GetApplicationProvidersApplicationProvider) []GetApplicationProvidersApplicationProviderDisplayData {
 		return v.DisplayDatas
 	}).(GetApplicationProvidersApplicationProviderDisplayDataArrayOutput)
 }
 
-// Protocol that the application provider uses to perform federation. Valid values are `SAML` and `OAUTH`.
 func (o GetApplicationProvidersApplicationProviderOutput) FederationProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationProvidersApplicationProvider) string { return v.FederationProtocol }).(pulumi.StringOutput)
 }
@@ -1790,12 +1691,9 @@ func (o GetApplicationProvidersApplicationProviderArrayOutput) Index(i pulumi.In
 }
 
 type GetApplicationProvidersApplicationProviderDisplayData struct {
-	// Description of the application provider.
 	Description string `pulumi:"description"`
-	// Name of the application provider.
 	DisplayName string `pulumi:"displayName"`
-	// URL that points to an icon that represents the application provider.
-	IconUrl string `pulumi:"iconUrl"`
+	IconUrl     string `pulumi:"iconUrl"`
 }
 
 // GetApplicationProvidersApplicationProviderDisplayDataInput is an input type that accepts GetApplicationProvidersApplicationProviderDisplayDataArgs and GetApplicationProvidersApplicationProviderDisplayDataOutput values.
@@ -1810,12 +1708,9 @@ type GetApplicationProvidersApplicationProviderDisplayDataInput interface {
 }
 
 type GetApplicationProvidersApplicationProviderDisplayDataArgs struct {
-	// Description of the application provider.
 	Description pulumi.StringInput `pulumi:"description"`
-	// Name of the application provider.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// URL that points to an icon that represents the application provider.
-	IconUrl pulumi.StringInput `pulumi:"iconUrl"`
+	IconUrl     pulumi.StringInput `pulumi:"iconUrl"`
 }
 
 func (GetApplicationProvidersApplicationProviderDisplayDataArgs) ElementType() reflect.Type {
@@ -1869,17 +1764,14 @@ func (o GetApplicationProvidersApplicationProviderDisplayDataOutput) ToGetApplic
 	return o
 }
 
-// Description of the application provider.
 func (o GetApplicationProvidersApplicationProviderDisplayDataOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationProvidersApplicationProviderDisplayData) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Name of the application provider.
 func (o GetApplicationProvidersApplicationProviderDisplayDataOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationProvidersApplicationProviderDisplayData) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// URL that points to an icon that represents the application provider.
 func (o GetApplicationProvidersApplicationProviderDisplayDataOutput) IconUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationProvidersApplicationProviderDisplayData) string { return v.IconUrl }).(pulumi.StringOutput)
 }
@@ -1905,12 +1797,9 @@ func (o GetApplicationProvidersApplicationProviderDisplayDataArrayOutput) Index(
 }
 
 type GetPrincipalApplicationAssignmentsApplicationAssignment struct {
-	// ARN of the application.
 	ApplicationArn string `pulumi:"applicationArn"`
-	// An identifier for an object in IAM Identity Center, such as a user or group.
-	PrincipalId string `pulumi:"principalId"`
-	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-	PrincipalType string `pulumi:"principalType"`
+	PrincipalId    string `pulumi:"principalId"`
+	PrincipalType  string `pulumi:"principalType"`
 }
 
 // GetPrincipalApplicationAssignmentsApplicationAssignmentInput is an input type that accepts GetPrincipalApplicationAssignmentsApplicationAssignmentArgs and GetPrincipalApplicationAssignmentsApplicationAssignmentOutput values.
@@ -1925,12 +1814,9 @@ type GetPrincipalApplicationAssignmentsApplicationAssignmentInput interface {
 }
 
 type GetPrincipalApplicationAssignmentsApplicationAssignmentArgs struct {
-	// ARN of the application.
 	ApplicationArn pulumi.StringInput `pulumi:"applicationArn"`
-	// An identifier for an object in IAM Identity Center, such as a user or group.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-	PrincipalType pulumi.StringInput `pulumi:"principalType"`
+	PrincipalId    pulumi.StringInput `pulumi:"principalId"`
+	PrincipalType  pulumi.StringInput `pulumi:"principalType"`
 }
 
 func (GetPrincipalApplicationAssignmentsApplicationAssignmentArgs) ElementType() reflect.Type {
@@ -1984,17 +1870,14 @@ func (o GetPrincipalApplicationAssignmentsApplicationAssignmentOutput) ToGetPrin
 	return o
 }
 
-// ARN of the application.
 func (o GetPrincipalApplicationAssignmentsApplicationAssignmentOutput) ApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrincipalApplicationAssignmentsApplicationAssignment) string { return v.ApplicationArn }).(pulumi.StringOutput)
 }
 
-// An identifier for an object in IAM Identity Center, such as a user or group.
 func (o GetPrincipalApplicationAssignmentsApplicationAssignmentOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrincipalApplicationAssignmentsApplicationAssignment) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 func (o GetPrincipalApplicationAssignmentsApplicationAssignmentOutput) PrincipalType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrincipalApplicationAssignmentsApplicationAssignment) string { return v.PrincipalType }).(pulumi.StringOutput)
 }

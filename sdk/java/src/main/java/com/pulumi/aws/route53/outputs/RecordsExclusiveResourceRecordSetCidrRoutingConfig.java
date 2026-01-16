@@ -10,37 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class RecordsExclusiveResourceRecordSetCidrRoutingConfig {
-    /**
-     * @return CIDR collection ID.
-     * See the `aws.route53.CidrCollection` resource for more details.
-     * 
-     */
     private String collectionId;
-    /**
-     * @return CIDR collection location name.
-     * See the `aws.route53.CidrLocation` resource for more details.
-     * A `locationName` with an asterisk `&#34;*&#34;` can be used to create a default CIDR record.
-     * `collectionId` is still required for a default record.
-     * 
-     */
     private String locationName;
 
     private RecordsExclusiveResourceRecordSetCidrRoutingConfig() {}
-    /**
-     * @return CIDR collection ID.
-     * See the `aws.route53.CidrCollection` resource for more details.
-     * 
-     */
     public String collectionId() {
         return this.collectionId;
     }
-    /**
-     * @return CIDR collection location name.
-     * See the `aws.route53.CidrLocation` resource for more details.
-     * A `locationName` with an asterisk `&#34;*&#34;` can be used to create a default CIDR record.
-     * `collectionId` is still required for a default record.
-     * 
-     */
     public String locationName() {
         return this.locationName;
     }

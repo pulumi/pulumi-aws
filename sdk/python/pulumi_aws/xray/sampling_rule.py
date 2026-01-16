@@ -35,20 +35,6 @@ class SamplingRuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SamplingRule resource.
-        :param pulumi.Input[_builtins.float] fixed_rate: The percentage of matching requests to instrument, after the reservoir is exhausted.
-        :param pulumi.Input[_builtins.str] host: Matches the hostname from a request URL.
-        :param pulumi.Input[_builtins.str] http_method: Matches the HTTP method of a request.
-        :param pulumi.Input[_builtins.int] priority: The priority of the sampling rule.
-        :param pulumi.Input[_builtins.int] reservoir_size: A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
-        :param pulumi.Input[_builtins.str] resource_arn: Matches the ARN of the AWS resource on which the service runs.
-        :param pulumi.Input[_builtins.str] service_name: Matches the `name` that the service uses to identify itself in segments.
-        :param pulumi.Input[_builtins.str] service_type: Matches the `origin` that the service uses to identify its type in segments.
-        :param pulumi.Input[_builtins.str] url_path: Matches the path from a request URL.
-        :param pulumi.Input[_builtins.int] version: The version of the sampling rule format (`1` )
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: Matches attributes derived from the request.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rule_name: The name of the sampling rule.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         pulumi.set(__self__, "fixed_rate", fixed_rate)
         pulumi.set(__self__, "host", host)
@@ -72,9 +58,6 @@ class SamplingRuleArgs:
     @_builtins.property
     @pulumi.getter(name="fixedRate")
     def fixed_rate(self) -> pulumi.Input[_builtins.float]:
-        """
-        The percentage of matching requests to instrument, after the reservoir is exhausted.
-        """
         return pulumi.get(self, "fixed_rate")
 
     @fixed_rate.setter
@@ -84,9 +67,6 @@ class SamplingRuleArgs:
     @_builtins.property
     @pulumi.getter
     def host(self) -> pulumi.Input[_builtins.str]:
-        """
-        Matches the hostname from a request URL.
-        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -96,9 +76,6 @@ class SamplingRuleArgs:
     @_builtins.property
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> pulumi.Input[_builtins.str]:
-        """
-        Matches the HTTP method of a request.
-        """
         return pulumi.get(self, "http_method")
 
     @http_method.setter
@@ -108,9 +85,6 @@ class SamplingRuleArgs:
     @_builtins.property
     @pulumi.getter
     def priority(self) -> pulumi.Input[_builtins.int]:
-        """
-        The priority of the sampling rule.
-        """
         return pulumi.get(self, "priority")
 
     @priority.setter
@@ -120,9 +94,6 @@ class SamplingRuleArgs:
     @_builtins.property
     @pulumi.getter(name="reservoirSize")
     def reservoir_size(self) -> pulumi.Input[_builtins.int]:
-        """
-        A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
-        """
         return pulumi.get(self, "reservoir_size")
 
     @reservoir_size.setter
@@ -132,9 +103,6 @@ class SamplingRuleArgs:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        Matches the ARN of the AWS resource on which the service runs.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -144,9 +112,6 @@ class SamplingRuleArgs:
     @_builtins.property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Matches the `name` that the service uses to identify itself in segments.
-        """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
@@ -156,9 +121,6 @@ class SamplingRuleArgs:
     @_builtins.property
     @pulumi.getter(name="serviceType")
     def service_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Matches the `origin` that the service uses to identify its type in segments.
-        """
         return pulumi.get(self, "service_type")
 
     @service_type.setter
@@ -168,9 +130,6 @@ class SamplingRuleArgs:
     @_builtins.property
     @pulumi.getter(name="urlPath")
     def url_path(self) -> pulumi.Input[_builtins.str]:
-        """
-        Matches the path from a request URL.
-        """
         return pulumi.get(self, "url_path")
 
     @url_path.setter
@@ -180,9 +139,6 @@ class SamplingRuleArgs:
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Input[_builtins.int]:
-        """
-        The version of the sampling rule format (`1` )
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -192,9 +148,6 @@ class SamplingRuleArgs:
     @_builtins.property
     @pulumi.getter
     def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Matches attributes derived from the request.
-        """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
@@ -204,9 +157,6 @@ class SamplingRuleArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -216,9 +166,6 @@ class SamplingRuleArgs:
     @_builtins.property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the sampling rule.
-        """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
@@ -228,9 +175,6 @@ class SamplingRuleArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -259,22 +203,6 @@ class _SamplingRuleState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering SamplingRule resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the sampling rule.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: Matches attributes derived from the request.
-        :param pulumi.Input[_builtins.float] fixed_rate: The percentage of matching requests to instrument, after the reservoir is exhausted.
-        :param pulumi.Input[_builtins.str] host: Matches the hostname from a request URL.
-        :param pulumi.Input[_builtins.str] http_method: Matches the HTTP method of a request.
-        :param pulumi.Input[_builtins.int] priority: The priority of the sampling rule.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] reservoir_size: A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
-        :param pulumi.Input[_builtins.str] resource_arn: Matches the ARN of the AWS resource on which the service runs.
-        :param pulumi.Input[_builtins.str] rule_name: The name of the sampling rule.
-        :param pulumi.Input[_builtins.str] service_name: Matches the `name` that the service uses to identify itself in segments.
-        :param pulumi.Input[_builtins.str] service_type: Matches the `origin` that the service uses to identify its type in segments.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] url_path: Matches the path from a request URL.
-        :param pulumi.Input[_builtins.int] version: The version of the sampling rule format (`1` )
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -312,9 +240,6 @@ class _SamplingRuleState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the sampling rule.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -324,9 +249,6 @@ class _SamplingRuleState:
     @_builtins.property
     @pulumi.getter
     def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Matches attributes derived from the request.
-        """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
@@ -336,9 +258,6 @@ class _SamplingRuleState:
     @_builtins.property
     @pulumi.getter(name="fixedRate")
     def fixed_rate(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        The percentage of matching requests to instrument, after the reservoir is exhausted.
-        """
         return pulumi.get(self, "fixed_rate")
 
     @fixed_rate.setter
@@ -348,9 +267,6 @@ class _SamplingRuleState:
     @_builtins.property
     @pulumi.getter
     def host(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Matches the hostname from a request URL.
-        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -360,9 +276,6 @@ class _SamplingRuleState:
     @_builtins.property
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Matches the HTTP method of a request.
-        """
         return pulumi.get(self, "http_method")
 
     @http_method.setter
@@ -372,9 +285,6 @@ class _SamplingRuleState:
     @_builtins.property
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The priority of the sampling rule.
-        """
         return pulumi.get(self, "priority")
 
     @priority.setter
@@ -384,9 +294,6 @@ class _SamplingRuleState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -396,9 +303,6 @@ class _SamplingRuleState:
     @_builtins.property
     @pulumi.getter(name="reservoirSize")
     def reservoir_size(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
-        """
         return pulumi.get(self, "reservoir_size")
 
     @reservoir_size.setter
@@ -408,9 +312,6 @@ class _SamplingRuleState:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Matches the ARN of the AWS resource on which the service runs.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -420,9 +321,6 @@ class _SamplingRuleState:
     @_builtins.property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the sampling rule.
-        """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
@@ -432,9 +330,6 @@ class _SamplingRuleState:
     @_builtins.property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Matches the `name` that the service uses to identify itself in segments.
-        """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
@@ -444,9 +339,6 @@ class _SamplingRuleState:
     @_builtins.property
     @pulumi.getter(name="serviceType")
     def service_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Matches the `origin` that the service uses to identify its type in segments.
-        """
         return pulumi.get(self, "service_type")
 
     @service_type.setter
@@ -456,9 +348,6 @@ class _SamplingRuleState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -468,9 +357,6 @@ class _SamplingRuleState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -480,9 +366,6 @@ class _SamplingRuleState:
     @_builtins.property
     @pulumi.getter(name="urlPath")
     def url_path(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Matches the path from a request URL.
-        """
         return pulumi.get(self, "url_path")
 
     @url_path.setter
@@ -492,9 +375,6 @@ class _SamplingRuleState:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The version of the sampling rule format (`1` )
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -524,55 +404,9 @@ class SamplingRule(pulumi.CustomResource):
                  version: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
-        Creates and manages an AWS XRay Sampling Rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.xray.SamplingRule("example",
-            rule_name="example",
-            priority=9999,
-            version=1,
-            reservoir_size=1,
-            fixed_rate=0.05,
-            url_path="*",
-            host="*",
-            http_method="*",
-            service_type="*",
-            service_name="*",
-            resource_arn="*",
-            attributes={
-                "Hello": "Tris",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import XRay Sampling Rules using the name. For example:
-
-        ```sh
-        $ pulumi import aws:xray/samplingRule:SamplingRule example example
-        ```
-
+        Create a SamplingRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: Matches attributes derived from the request.
-        :param pulumi.Input[_builtins.float] fixed_rate: The percentage of matching requests to instrument, after the reservoir is exhausted.
-        :param pulumi.Input[_builtins.str] host: Matches the hostname from a request URL.
-        :param pulumi.Input[_builtins.str] http_method: Matches the HTTP method of a request.
-        :param pulumi.Input[_builtins.int] priority: The priority of the sampling rule.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] reservoir_size: A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
-        :param pulumi.Input[_builtins.str] resource_arn: Matches the ARN of the AWS resource on which the service runs.
-        :param pulumi.Input[_builtins.str] rule_name: The name of the sampling rule.
-        :param pulumi.Input[_builtins.str] service_name: Matches the `name` that the service uses to identify itself in segments.
-        :param pulumi.Input[_builtins.str] service_type: Matches the `origin` that the service uses to identify its type in segments.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[_builtins.str] url_path: Matches the path from a request URL.
-        :param pulumi.Input[_builtins.int] version: The version of the sampling rule format (`1` )
         """
         ...
     @overload
@@ -581,39 +415,7 @@ class SamplingRule(pulumi.CustomResource):
                  args: SamplingRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates and manages an AWS XRay Sampling Rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.xray.SamplingRule("example",
-            rule_name="example",
-            priority=9999,
-            version=1,
-            reservoir_size=1,
-            fixed_rate=0.05,
-            url_path="*",
-            host="*",
-            http_method="*",
-            service_type="*",
-            service_name="*",
-            resource_arn="*",
-            attributes={
-                "Hello": "Tris",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import XRay Sampling Rules using the name. For example:
-
-        ```sh
-        $ pulumi import aws:xray/samplingRule:SamplingRule example example
-        ```
-
+        Create a SamplingRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SamplingRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -721,22 +523,6 @@ class SamplingRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the sampling rule.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: Matches attributes derived from the request.
-        :param pulumi.Input[_builtins.float] fixed_rate: The percentage of matching requests to instrument, after the reservoir is exhausted.
-        :param pulumi.Input[_builtins.str] host: Matches the hostname from a request URL.
-        :param pulumi.Input[_builtins.str] http_method: Matches the HTTP method of a request.
-        :param pulumi.Input[_builtins.int] priority: The priority of the sampling rule.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] reservoir_size: A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
-        :param pulumi.Input[_builtins.str] resource_arn: Matches the ARN of the AWS resource on which the service runs.
-        :param pulumi.Input[_builtins.str] rule_name: The name of the sampling rule.
-        :param pulumi.Input[_builtins.str] service_name: Matches the `name` that the service uses to identify itself in segments.
-        :param pulumi.Input[_builtins.str] service_type: Matches the `origin` that the service uses to identify its type in segments.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] url_path: Matches the path from a request URL.
-        :param pulumi.Input[_builtins.int] version: The version of the sampling rule format (`1` )
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -763,128 +549,80 @@ class SamplingRule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the sampling rule.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def attributes(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Matches attributes derived from the request.
-        """
         return pulumi.get(self, "attributes")
 
     @_builtins.property
     @pulumi.getter(name="fixedRate")
     def fixed_rate(self) -> pulumi.Output[_builtins.float]:
-        """
-        The percentage of matching requests to instrument, after the reservoir is exhausted.
-        """
         return pulumi.get(self, "fixed_rate")
 
     @_builtins.property
     @pulumi.getter
     def host(self) -> pulumi.Output[_builtins.str]:
-        """
-        Matches the hostname from a request URL.
-        """
         return pulumi.get(self, "host")
 
     @_builtins.property
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> pulumi.Output[_builtins.str]:
-        """
-        Matches the HTTP method of a request.
-        """
         return pulumi.get(self, "http_method")
 
     @_builtins.property
     @pulumi.getter
     def priority(self) -> pulumi.Output[_builtins.int]:
-        """
-        The priority of the sampling rule.
-        """
         return pulumi.get(self, "priority")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="reservoirSize")
     def reservoir_size(self) -> pulumi.Output[_builtins.int]:
-        """
-        A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
-        """
         return pulumi.get(self, "reservoir_size")
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Matches the ARN of the AWS resource on which the service runs.
-        """
         return pulumi.get(self, "resource_arn")
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The name of the sampling rule.
-        """
         return pulumi.get(self, "rule_name")
 
     @_builtins.property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Matches the `name` that the service uses to identify itself in segments.
-        """
         return pulumi.get(self, "service_name")
 
     @_builtins.property
     @pulumi.getter(name="serviceType")
     def service_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Matches the `origin` that the service uses to identify its type in segments.
-        """
         return pulumi.get(self, "service_type")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="urlPath")
     def url_path(self) -> pulumi.Output[_builtins.str]:
-        """
-        Matches the path from a request URL.
-        """
         return pulumi.get(self, "url_path")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.int]:
-        """
-        The version of the sampling rule format (`1` )
-        """
         return pulumi.get(self, "version")
 

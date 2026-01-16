@@ -7,62 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage a default route table of a VPC. This resource can manage the default route table of the default or a non-default VPC.
- *
- * > **NOTE:** This is an advanced resource with special caveats. Please read this document in its entirety before using this resource. The `aws.ec2.DefaultRouteTable` resource behaves differently from normal resources. This provider does not _create_ this resource but instead attempts to "adopt" it into management. **Do not** use both `aws.ec2.DefaultRouteTable` to manage a default route table **and** `aws.ec2.MainRouteTableAssociation` with the same VPC due to possible route conflicts. See aws.ec2.MainRouteTableAssociation documentation for more details.
- *
- * Every VPC has a default route table that can be managed but not destroyed. When the provider first adopts a default route table, it **immediately removes all defined routes**. It then proceeds to create any routes specified in the configuration. This step is required so that only the routes specified in the configuration exist in the default route table.
- *
- * For more information, see the Amazon VPC User Guide on [Route Tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html). For information about managing normal route tables in this provider, see `aws.ec2.RouteTable`.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.DefaultRouteTable("example", {
- *     defaultRouteTableId: exampleAwsVpc.defaultRouteTableId,
- *     routes: [
- *         {
- *             cidrBlock: "10.0.1.0/24",
- *             gatewayId: exampleAwsInternetGateway.id,
- *         },
- *         {
- *             ipv6CidrBlock: "::/0",
- *             egressOnlyGatewayId: exampleAwsEgressOnlyInternetGateway.id,
- *         },
- *     ],
- *     tags: {
- *         Name: "example",
- *     },
- * });
- * ```
- *
- * To subsequently remove all managed routes:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.DefaultRouteTable("example", {
- *     defaultRouteTableId: exampleAwsVpc.defaultRouteTableId,
- *     routes: [],
- *     tags: {
- *         Name: "example",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
- * ```
- */
 export class DefaultRouteTable extends pulumi.CustomResource {
     /**
      * Get an existing DefaultRouteTable resource's state with the given name, ID, and optional extra
@@ -91,43 +35,14 @@ export class DefaultRouteTable extends pulumi.CustomResource {
         return obj['__pulumiType'] === DefaultRouteTable.__pulumiType;
     }
 
-    /**
-     * The ARN of the route table.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * ID of the default route table.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly defaultRouteTableId: pulumi.Output<string>;
-    /**
-     * ID of the AWS account that owns the route table.
-     */
     declare public /*out*/ readonly ownerId: pulumi.Output<string>;
-    /**
-     * List of virtual gateways for propagation.
-     */
     declare public readonly propagatingVgws: pulumi.Output<string[] | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Set of objects. Detailed below
-     */
     declare public readonly routes: pulumi.Output<outputs.ec2.DefaultRouteTableRoute[]>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * ID of the VPC.
-     */
     declare public /*out*/ readonly vpcId: pulumi.Output<string>;
 
     /**
@@ -176,43 +91,14 @@ export class DefaultRouteTable extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DefaultRouteTable resources.
  */
 export interface DefaultRouteTableState {
-    /**
-     * The ARN of the route table.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * ID of the default route table.
-     *
-     * The following arguments are optional:
-     */
     defaultRouteTableId?: pulumi.Input<string>;
-    /**
-     * ID of the AWS account that owns the route table.
-     */
     ownerId?: pulumi.Input<string>;
-    /**
-     * List of virtual gateways for propagation.
-     */
     propagatingVgws?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Set of objects. Detailed below
-     */
     routes?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultRouteTableRoute>[]>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * ID of the VPC.
-     */
     vpcId?: pulumi.Input<string>;
 }
 
@@ -220,26 +106,9 @@ export interface DefaultRouteTableState {
  * The set of arguments for constructing a DefaultRouteTable resource.
  */
 export interface DefaultRouteTableArgs {
-    /**
-     * ID of the default route table.
-     *
-     * The following arguments are optional:
-     */
     defaultRouteTableId: pulumi.Input<string>;
-    /**
-     * List of virtual gateways for propagation.
-     */
     propagatingVgws?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Set of objects. Detailed below
-     */
     routes?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultRouteTableRoute>[]>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

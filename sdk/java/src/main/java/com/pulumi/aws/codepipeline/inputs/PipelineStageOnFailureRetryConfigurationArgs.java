@@ -15,17 +15,9 @@ public final class PipelineStageOnFailureRetryConfigurationArgs extends com.pulu
 
     public static final PipelineStageOnFailureRetryConfigurationArgs Empty = new PipelineStageOnFailureRetryConfigurationArgs();
 
-    /**
-     * The method that you want to configure for automatic stage retry on stage failure. You can specify to retry only failed action in the stage or all actions in the stage. Possible values are `FAILED_ACTIONS` and `ALL_ACTIONS`.
-     * 
-     */
     @Import(name="retryMode")
     private @Nullable Output<String> retryMode;
 
-    /**
-     * @return The method that you want to configure for automatic stage retry on stage failure. You can specify to retry only failed action in the stage or all actions in the stage. Possible values are `FAILED_ACTIONS` and `ALL_ACTIONS`.
-     * 
-     */
     public Optional<Output<String>> retryMode() {
         return Optional.ofNullable(this.retryMode);
     }
@@ -54,23 +46,11 @@ public final class PipelineStageOnFailureRetryConfigurationArgs extends com.pulu
             $ = new PipelineStageOnFailureRetryConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param retryMode The method that you want to configure for automatic stage retry on stage failure. You can specify to retry only failed action in the stage or all actions in the stage. Possible values are `FAILED_ACTIONS` and `ALL_ACTIONS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retryMode(@Nullable Output<String> retryMode) {
             $.retryMode = retryMode;
             return this;
         }
 
-        /**
-         * @param retryMode The method that you want to configure for automatic stage retry on stage failure. You can specify to retry only failed action in the stage or all actions in the stage. Possible values are `FAILED_ACTIONS` and `ALL_ACTIONS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retryMode(String retryMode) {
             return retryMode(Output.of(retryMode));
         }

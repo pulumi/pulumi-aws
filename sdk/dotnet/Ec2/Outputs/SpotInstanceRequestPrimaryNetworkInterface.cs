@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class SpotInstanceRequestPrimaryNetworkInterface
     {
-        /// <summary>
-        /// Whether the network interface will be deleted when the instance terminates.
-        /// </summary>
         public readonly bool? DeleteOnTermination;
-        /// <summary>
-        /// ID of the network interface to attach.
-        /// </summary>
         public readonly string? NetworkInterfaceId;
 
         [OutputConstructor]

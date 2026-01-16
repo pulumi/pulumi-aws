@@ -14,104 +14,16 @@ public final class GetReceivedLicensesFilter extends com.pulumi.resources.Invoke
 
     public static final GetReceivedLicensesFilter Empty = new GetReceivedLicensesFilter();
 
-    /**
-     * Name of the field to filter by, as defined by
-     * [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
-     * For example, if filtering using `ProductSKU`, use:
-     * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
-     * import com.pulumi.aws.licensemanager.inputs.GetReceivedLicensesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var selected = LicensemanagerFunctions.getReceivedLicenses(GetReceivedLicensesArgs.builder()
-     *             .filters(GetReceivedLicensesFilterArgs.builder()
-     *                 .name("ProductSKU")
-     *                 .values("")
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the field to filter by, as defined by
-     * [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
-     * For example, if filtering using `ProductSKU`, use:
-     * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
-     * import com.pulumi.aws.licensemanager.inputs.GetReceivedLicensesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var selected = LicensemanagerFunctions.getReceivedLicenses(GetReceivedLicensesArgs.builder()
-     *             .filters(GetReceivedLicensesFilterArgs.builder()
-     *                 .name("ProductSKU")
-     *                 .values("")
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Set of values that are accepted for the given field.
-     * 
-     */
     @Import(name="values", required=true)
     private List<String> values;
 
-    /**
-     * @return Set of values that are accepted for the given field.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }
@@ -141,70 +53,16 @@ public final class GetReceivedLicensesFilter extends com.pulumi.resources.Invoke
             $ = new GetReceivedLicensesFilter(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
-         * For example, if filtering using `ProductSKU`, use:
-         * 
-         * <pre>
-         * {@code
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
-         * import com.pulumi.aws.licensemanager.inputs.GetReceivedLicensesArgs;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *         final var selected = LicensemanagerFunctions.getReceivedLicenses(GetReceivedLicensesArgs.builder()
-         *             .filters(GetReceivedLicensesFilterArgs.builder()
-         *                 .name("ProductSKU")
-         *                 .values("")
-         *                 .build())
-         *             .build());
-         * 
-         *     }
-         * }
-         * }
-         * </pre>
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param values Set of values that are accepted for the given field.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values Set of values that are accepted for the given field.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

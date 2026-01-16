@@ -15,17 +15,9 @@ public final class ThemeConfigurationTypographyFontFamilyArgs extends com.pulumi
 
     public static final ThemeConfigurationTypographyFontFamilyArgs Empty = new ThemeConfigurationTypographyFontFamilyArgs();
 
-    /**
-     * Font family name.
-     * 
-     */
     @Import(name="fontFamily")
     private @Nullable Output<String> fontFamily;
 
-    /**
-     * @return Font family name.
-     * 
-     */
     public Optional<Output<String>> fontFamily() {
         return Optional.ofNullable(this.fontFamily);
     }
@@ -54,23 +46,11 @@ public final class ThemeConfigurationTypographyFontFamilyArgs extends com.pulumi
             $ = new ThemeConfigurationTypographyFontFamilyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fontFamily Font family name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fontFamily(@Nullable Output<String> fontFamily) {
             $.fontFamily = fontFamily;
             return this;
         }
 
-        /**
-         * @param fontFamily Font family name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fontFamily(String fontFamily) {
             return fontFamily(Output.of(fontFamily));
         }

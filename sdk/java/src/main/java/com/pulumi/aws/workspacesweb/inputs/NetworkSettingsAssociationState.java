@@ -15,51 +15,23 @@ public final class NetworkSettingsAssociationState extends com.pulumi.resources.
 
     public static final NetworkSettingsAssociationState Empty = new NetworkSettingsAssociationState();
 
-    /**
-     * ARN of the network settings to associate with the portal. Forces replacement if changed.
-     * 
-     */
     @Import(name="networkSettingsArn")
     private @Nullable Output<String> networkSettingsArn;
 
-    /**
-     * @return ARN of the network settings to associate with the portal. Forces replacement if changed.
-     * 
-     */
     public Optional<Output<String>> networkSettingsArn() {
         return Optional.ofNullable(this.networkSettingsArn);
     }
 
-    /**
-     * ARN of the portal to associate with the network settings. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="portalArn")
     private @Nullable Output<String> portalArn;
 
-    /**
-     * @return ARN of the portal to associate with the network settings. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> portalArn() {
         return Optional.ofNullable(this.portalArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -90,69 +62,29 @@ public final class NetworkSettingsAssociationState extends com.pulumi.resources.
             $ = new NetworkSettingsAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param networkSettingsArn ARN of the network settings to associate with the portal. Forces replacement if changed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkSettingsArn(@Nullable Output<String> networkSettingsArn) {
             $.networkSettingsArn = networkSettingsArn;
             return this;
         }
 
-        /**
-         * @param networkSettingsArn ARN of the network settings to associate with the portal. Forces replacement if changed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkSettingsArn(String networkSettingsArn) {
             return networkSettingsArn(Output.of(networkSettingsArn));
         }
 
-        /**
-         * @param portalArn ARN of the portal to associate with the network settings. Forces replacement if changed.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder portalArn(@Nullable Output<String> portalArn) {
             $.portalArn = portalArn;
             return this;
         }
 
-        /**
-         * @param portalArn ARN of the portal to associate with the network settings. Forces replacement if changed.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder portalArn(String portalArn) {
             return portalArn(Output.of(portalArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

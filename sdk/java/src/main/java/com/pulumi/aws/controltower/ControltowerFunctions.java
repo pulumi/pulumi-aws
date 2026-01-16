@@ -15,48 +15,18 @@ import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class ControltowerFunctions {
-    /**
-     * List of Control Tower controls applied to an OU.
-     * 
-     * ## Example Usage
-     * 
-     */
     public static Output<GetControlsResult> getControls(GetControlsArgs args) {
         return getControls(args, InvokeOptions.Empty);
     }
-    /**
-     * List of Control Tower controls applied to an OU.
-     * 
-     * ## Example Usage
-     * 
-     */
     public static CompletableFuture<GetControlsResult> getControlsPlain(GetControlsPlainArgs args) {
         return getControlsPlain(args, InvokeOptions.Empty);
     }
-    /**
-     * List of Control Tower controls applied to an OU.
-     * 
-     * ## Example Usage
-     * 
-     */
     public static Output<GetControlsResult> getControls(GetControlsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:controltower/getControls:getControls", TypeShape.of(GetControlsResult.class), args, Utilities.withVersion(options));
     }
-    /**
-     * List of Control Tower controls applied to an OU.
-     * 
-     * ## Example Usage
-     * 
-     */
     public static Output<GetControlsResult> getControls(GetControlsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:controltower/getControls:getControls", TypeShape.of(GetControlsResult.class), args, Utilities.withVersion(options));
     }
-    /**
-     * List of Control Tower controls applied to an OU.
-     * 
-     * ## Example Usage
-     * 
-     */
     public static CompletableFuture<GetControlsResult> getControlsPlain(GetControlsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:controltower/getControls:getControls", TypeShape.of(GetControlsResult.class), args, Utilities.withVersion(options));
     }

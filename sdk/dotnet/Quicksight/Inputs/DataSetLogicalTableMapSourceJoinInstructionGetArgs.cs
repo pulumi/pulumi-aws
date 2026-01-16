@@ -12,39 +12,21 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DataSetLogicalTableMapSourceJoinInstructionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Join key properties of the left operand. See left_join_key_properties.
-        /// </summary>
         [Input("leftJoinKeyProperties")]
         public Input<Inputs.DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesGetArgs>? LeftJoinKeyProperties { get; set; }
 
-        /// <summary>
-        /// Operand on the left side of a join.
-        /// </summary>
         [Input("leftOperand", required: true)]
         public Input<string> LeftOperand { get; set; } = null!;
 
-        /// <summary>
-        /// Join instructions provided in the ON clause of a join.
-        /// </summary>
         [Input("onClause", required: true)]
         public Input<string> OnClause { get; set; } = null!;
 
-        /// <summary>
-        /// Join key properties of the right operand. See right_join_key_properties.
-        /// </summary>
         [Input("rightJoinKeyProperties")]
         public Input<Inputs.DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesGetArgs>? RightJoinKeyProperties { get; set; }
 
-        /// <summary>
-        /// Operand on the right side of a join.
-        /// </summary>
         [Input("rightOperand", required: true)]
         public Input<string> RightOperand { get; set; } = null!;
 
-        /// <summary>
-        /// Type of join. Valid values are `INNER`, `OUTER`, `LEFT`, and `RIGHT`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

@@ -12,53 +12,25 @@ import java.util.Objects;
 @CustomType
 public final class GetConnectionResult {
     private String arn;
-    /**
-     * @return CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
-     * 
-     */
     private String connectionStatus;
-    /**
-     * @return ARN of the host associated with the connection.
-     * 
-     */
     private String hostArn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Name of the CodeStar Connection. The name is unique in the calling AWS account.
-     * 
-     */
     private String name;
-    /**
-     * @return Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket`, `GitHub` and `GitLab`. For connections to GitHub Enterprise Server or GitLab Self-Managed instances, you must create an aws.codestarconnections.Host resource and use `hostArn` instead.
-     * 
-     */
     private String providerType;
     private String region;
-    /**
-     * @return Map of key-value resource tags to associate with the resource.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetConnectionResult() {}
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
-     * 
-     */
     public String connectionStatus() {
         return this.connectionStatus;
     }
-    /**
-     * @return ARN of the host associated with the connection.
-     * 
-     */
     public String hostArn() {
         return this.hostArn;
     }
@@ -69,27 +41,15 @@ public final class GetConnectionResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the CodeStar Connection. The name is unique in the calling AWS account.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket`, `GitHub` and `GitLab`. For connections to GitHub Enterprise Server or GitLab Self-Managed instances, you must create an aws.codestarconnections.Host resource and use `hostArn` instead.
-     * 
-     */
     public String providerType() {
         return this.providerType;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Map of key-value resource tags to associate with the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

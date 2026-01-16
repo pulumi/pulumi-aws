@@ -16,32 +16,16 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
 
     public static final ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs Empty = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs();
 
-    /**
-     * If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
-     * 
-     */
     @Import(name="ocrLanguage")
     private @Nullable Output<String> ocrLanguage;
 
-    /**
-     * @return If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
-     * 
-     */
     public Optional<Output<String>> ocrLanguage() {
         return Optional.ofNullable(this.ocrLanguage);
     }
 
-    /**
-     * When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
-     * 
-     */
     @Import(name="pid")
     private @Nullable Output<Integer> pid;
 
-    /**
-     * @return When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
-     * 
-     */
     public Optional<Output<Integer>> pid() {
         return Optional.ofNullable(this.pid);
     }
@@ -71,44 +55,20 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
             $ = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ocrLanguage If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ocrLanguage(@Nullable Output<String> ocrLanguage) {
             $.ocrLanguage = ocrLanguage;
             return this;
         }
 
-        /**
-         * @param ocrLanguage If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ocrLanguage(String ocrLanguage) {
             return ocrLanguage(Output.of(ocrLanguage));
         }
 
-        /**
-         * @param pid When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pid(@Nullable Output<Integer> pid) {
             $.pid = pid;
             return this;
         }
 
-        /**
-         * @param pid When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pid(Integer pid) {
             return pid(Output.of(pid));
         }

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.RedShift.Inputs
 
     public sealed class ScheduledActionTargetActionPauseClusterGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The identifier of the cluster to be paused.
-        /// </summary>
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;
 

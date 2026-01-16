@@ -12,88 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Elastic Transcoder pipeline resource.
-//
-// > **Warning:** This resource is deprecated. Use [AWS Elemental MediaConvert](https://aws.amazon.com/blogs/media/migrating-workflows-from-amazon-elastic-transcoder-to-aws-elemental-mediaconvert/) instead. AWS will [discontinue support for Amazon Elastic Transcoder](https://aws.amazon.com/blogs/media/support-for-amazon-elastic-transcoder-ending-soon/), effective November 13, 2025.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elastictranscoder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elastictranscoder.NewPipeline(ctx, "bar", &elastictranscoder.PipelineArgs{
-//				InputBucket: pulumi.Any(inputBucket.Id),
-//				Name:        pulumi.String("aws_elastictranscoder_pipeline_my_test_"),
-//				Role:        pulumi.Any(testRole.Arn),
-//				ContentConfig: &elastictranscoder.PipelineContentConfigArgs{
-//					Bucket:       pulumi.Any(contentBucket.Id),
-//					StorageClass: pulumi.String("Standard"),
-//				},
-//				ThumbnailConfig: &elastictranscoder.PipelineThumbnailConfigArgs{
-//					Bucket:       pulumi.Any(thumbBucket.Id),
-//					StorageClass: pulumi.String("Standard"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Elastic Transcoder pipelines using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
-// ```
 type Pipeline struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Elastictranscoder pipeline.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
-	AwsKmsKeyArn pulumi.StringPtrOutput `pulumi:"awsKmsKeyArn"`
-	// The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
-	ContentConfig PipelineContentConfigOutput `pulumi:"contentConfig"`
-	// The permissions for the `contentConfig` object. (documented below)
-	ContentConfigPermissions PipelineContentConfigPermissionArrayOutput `pulumi:"contentConfigPermissions"`
-	// The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
-	InputBucket pulumi.StringOutput `pulumi:"inputBucket"`
-	// The name of the pipeline. Maximum 40 characters
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
-	Notifications PipelineNotificationsPtrOutput `pulumi:"notifications"`
-	// The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
-	OutputBucket pulumi.StringOutput `pulumi:"outputBucket"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
-	Role pulumi.StringOutput `pulumi:"role"`
-	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
-	ThumbnailConfig PipelineThumbnailConfigOutput `pulumi:"thumbnailConfig"`
-	// The permissions for the `thumbnailConfig` object. (documented below)
-	//
-	// See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
-	//
-	// The `contentConfig` object specifies information about the Amazon S3 bucket in
-	// which you want Elastic Transcoder to save transcoded files and playlists: which
-	// bucket to use, and the storage class that you want to assign to the files. If
-	// you specify values for `contentConfig`, you must also specify values for
-	// `thumbnailConfig`. If you specify values for `contentConfig` and
-	// `thumbnailConfig`, omit the `outputBucket` object.
+	Arn                        pulumi.StringOutput                          `pulumi:"arn"`
+	AwsKmsKeyArn               pulumi.StringPtrOutput                       `pulumi:"awsKmsKeyArn"`
+	ContentConfig              PipelineContentConfigOutput                  `pulumi:"contentConfig"`
+	ContentConfigPermissions   PipelineContentConfigPermissionArrayOutput   `pulumi:"contentConfigPermissions"`
+	InputBucket                pulumi.StringOutput                          `pulumi:"inputBucket"`
+	Name                       pulumi.StringOutput                          `pulumi:"name"`
+	Notifications              PipelineNotificationsPtrOutput               `pulumi:"notifications"`
+	OutputBucket               pulumi.StringOutput                          `pulumi:"outputBucket"`
+	Region                     pulumi.StringOutput                          `pulumi:"region"`
+	Role                       pulumi.StringOutput                          `pulumi:"role"`
+	ThumbnailConfig            PipelineThumbnailConfigOutput                `pulumi:"thumbnailConfig"`
 	ThumbnailConfigPermissions PipelineThumbnailConfigPermissionArrayOutput `pulumi:"thumbnailConfigPermissions"`
 }
 
@@ -133,74 +65,32 @@ func GetPipeline(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Pipeline resources.
 type pipelineState struct {
-	// The ARN of the Elastictranscoder pipeline.
-	Arn *string `pulumi:"arn"`
-	// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
-	AwsKmsKeyArn *string `pulumi:"awsKmsKeyArn"`
-	// The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
-	ContentConfig *PipelineContentConfig `pulumi:"contentConfig"`
-	// The permissions for the `contentConfig` object. (documented below)
-	ContentConfigPermissions []PipelineContentConfigPermission `pulumi:"contentConfigPermissions"`
-	// The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
-	InputBucket *string `pulumi:"inputBucket"`
-	// The name of the pipeline. Maximum 40 characters
-	Name *string `pulumi:"name"`
-	// The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
-	Notifications *PipelineNotifications `pulumi:"notifications"`
-	// The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
-	OutputBucket *string `pulumi:"outputBucket"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
-	Role *string `pulumi:"role"`
-	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
-	ThumbnailConfig *PipelineThumbnailConfig `pulumi:"thumbnailConfig"`
-	// The permissions for the `thumbnailConfig` object. (documented below)
-	//
-	// See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
-	//
-	// The `contentConfig` object specifies information about the Amazon S3 bucket in
-	// which you want Elastic Transcoder to save transcoded files and playlists: which
-	// bucket to use, and the storage class that you want to assign to the files. If
-	// you specify values for `contentConfig`, you must also specify values for
-	// `thumbnailConfig`. If you specify values for `contentConfig` and
-	// `thumbnailConfig`, omit the `outputBucket` object.
+	Arn                        *string                             `pulumi:"arn"`
+	AwsKmsKeyArn               *string                             `pulumi:"awsKmsKeyArn"`
+	ContentConfig              *PipelineContentConfig              `pulumi:"contentConfig"`
+	ContentConfigPermissions   []PipelineContentConfigPermission   `pulumi:"contentConfigPermissions"`
+	InputBucket                *string                             `pulumi:"inputBucket"`
+	Name                       *string                             `pulumi:"name"`
+	Notifications              *PipelineNotifications              `pulumi:"notifications"`
+	OutputBucket               *string                             `pulumi:"outputBucket"`
+	Region                     *string                             `pulumi:"region"`
+	Role                       *string                             `pulumi:"role"`
+	ThumbnailConfig            *PipelineThumbnailConfig            `pulumi:"thumbnailConfig"`
 	ThumbnailConfigPermissions []PipelineThumbnailConfigPermission `pulumi:"thumbnailConfigPermissions"`
 }
 
 type PipelineState struct {
-	// The ARN of the Elastictranscoder pipeline.
-	Arn pulumi.StringPtrInput
-	// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
-	AwsKmsKeyArn pulumi.StringPtrInput
-	// The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
-	ContentConfig PipelineContentConfigPtrInput
-	// The permissions for the `contentConfig` object. (documented below)
-	ContentConfigPermissions PipelineContentConfigPermissionArrayInput
-	// The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
-	InputBucket pulumi.StringPtrInput
-	// The name of the pipeline. Maximum 40 characters
-	Name pulumi.StringPtrInput
-	// The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
-	Notifications PipelineNotificationsPtrInput
-	// The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
-	OutputBucket pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
-	Role pulumi.StringPtrInput
-	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
-	ThumbnailConfig PipelineThumbnailConfigPtrInput
-	// The permissions for the `thumbnailConfig` object. (documented below)
-	//
-	// See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
-	//
-	// The `contentConfig` object specifies information about the Amazon S3 bucket in
-	// which you want Elastic Transcoder to save transcoded files and playlists: which
-	// bucket to use, and the storage class that you want to assign to the files. If
-	// you specify values for `contentConfig`, you must also specify values for
-	// `thumbnailConfig`. If you specify values for `contentConfig` and
-	// `thumbnailConfig`, omit the `outputBucket` object.
+	Arn                        pulumi.StringPtrInput
+	AwsKmsKeyArn               pulumi.StringPtrInput
+	ContentConfig              PipelineContentConfigPtrInput
+	ContentConfigPermissions   PipelineContentConfigPermissionArrayInput
+	InputBucket                pulumi.StringPtrInput
+	Name                       pulumi.StringPtrInput
+	Notifications              PipelineNotificationsPtrInput
+	OutputBucket               pulumi.StringPtrInput
+	Region                     pulumi.StringPtrInput
+	Role                       pulumi.StringPtrInput
+	ThumbnailConfig            PipelineThumbnailConfigPtrInput
 	ThumbnailConfigPermissions PipelineThumbnailConfigPermissionArrayInput
 }
 
@@ -209,71 +99,31 @@ func (PipelineState) ElementType() reflect.Type {
 }
 
 type pipelineArgs struct {
-	// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
-	AwsKmsKeyArn *string `pulumi:"awsKmsKeyArn"`
-	// The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
-	ContentConfig *PipelineContentConfig `pulumi:"contentConfig"`
-	// The permissions for the `contentConfig` object. (documented below)
-	ContentConfigPermissions []PipelineContentConfigPermission `pulumi:"contentConfigPermissions"`
-	// The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
-	InputBucket string `pulumi:"inputBucket"`
-	// The name of the pipeline. Maximum 40 characters
-	Name *string `pulumi:"name"`
-	// The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
-	Notifications *PipelineNotifications `pulumi:"notifications"`
-	// The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
-	OutputBucket *string `pulumi:"outputBucket"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
-	Role string `pulumi:"role"`
-	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
-	ThumbnailConfig *PipelineThumbnailConfig `pulumi:"thumbnailConfig"`
-	// The permissions for the `thumbnailConfig` object. (documented below)
-	//
-	// See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
-	//
-	// The `contentConfig` object specifies information about the Amazon S3 bucket in
-	// which you want Elastic Transcoder to save transcoded files and playlists: which
-	// bucket to use, and the storage class that you want to assign to the files. If
-	// you specify values for `contentConfig`, you must also specify values for
-	// `thumbnailConfig`. If you specify values for `contentConfig` and
-	// `thumbnailConfig`, omit the `outputBucket` object.
+	AwsKmsKeyArn               *string                             `pulumi:"awsKmsKeyArn"`
+	ContentConfig              *PipelineContentConfig              `pulumi:"contentConfig"`
+	ContentConfigPermissions   []PipelineContentConfigPermission   `pulumi:"contentConfigPermissions"`
+	InputBucket                string                              `pulumi:"inputBucket"`
+	Name                       *string                             `pulumi:"name"`
+	Notifications              *PipelineNotifications              `pulumi:"notifications"`
+	OutputBucket               *string                             `pulumi:"outputBucket"`
+	Region                     *string                             `pulumi:"region"`
+	Role                       string                              `pulumi:"role"`
+	ThumbnailConfig            *PipelineThumbnailConfig            `pulumi:"thumbnailConfig"`
 	ThumbnailConfigPermissions []PipelineThumbnailConfigPermission `pulumi:"thumbnailConfigPermissions"`
 }
 
 // The set of arguments for constructing a Pipeline resource.
 type PipelineArgs struct {
-	// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
-	AwsKmsKeyArn pulumi.StringPtrInput
-	// The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
-	ContentConfig PipelineContentConfigPtrInput
-	// The permissions for the `contentConfig` object. (documented below)
-	ContentConfigPermissions PipelineContentConfigPermissionArrayInput
-	// The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
-	InputBucket pulumi.StringInput
-	// The name of the pipeline. Maximum 40 characters
-	Name pulumi.StringPtrInput
-	// The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
-	Notifications PipelineNotificationsPtrInput
-	// The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
-	OutputBucket pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
-	Role pulumi.StringInput
-	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
-	ThumbnailConfig PipelineThumbnailConfigPtrInput
-	// The permissions for the `thumbnailConfig` object. (documented below)
-	//
-	// See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
-	//
-	// The `contentConfig` object specifies information about the Amazon S3 bucket in
-	// which you want Elastic Transcoder to save transcoded files and playlists: which
-	// bucket to use, and the storage class that you want to assign to the files. If
-	// you specify values for `contentConfig`, you must also specify values for
-	// `thumbnailConfig`. If you specify values for `contentConfig` and
-	// `thumbnailConfig`, omit the `outputBucket` object.
+	AwsKmsKeyArn               pulumi.StringPtrInput
+	ContentConfig              PipelineContentConfigPtrInput
+	ContentConfigPermissions   PipelineContentConfigPermissionArrayInput
+	InputBucket                pulumi.StringInput
+	Name                       pulumi.StringPtrInput
+	Notifications              PipelineNotificationsPtrInput
+	OutputBucket               pulumi.StringPtrInput
+	Region                     pulumi.StringPtrInput
+	Role                       pulumi.StringInput
+	ThumbnailConfig            PipelineThumbnailConfigPtrInput
 	ThumbnailConfigPermissions PipelineThumbnailConfigPermissionArrayInput
 }
 
@@ -364,71 +214,50 @@ func (o PipelineOutput) ToPipelineOutputWithContext(ctx context.Context) Pipelin
 	return o
 }
 
-// The ARN of the Elastictranscoder pipeline.
 func (o PipelineOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
 func (o PipelineOutput) AwsKmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.AwsKmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
 func (o PipelineOutput) ContentConfig() PipelineContentConfigOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineContentConfigOutput { return v.ContentConfig }).(PipelineContentConfigOutput)
 }
 
-// The permissions for the `contentConfig` object. (documented below)
 func (o PipelineOutput) ContentConfigPermissions() PipelineContentConfigPermissionArrayOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineContentConfigPermissionArrayOutput { return v.ContentConfigPermissions }).(PipelineContentConfigPermissionArrayOutput)
 }
 
-// The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
 func (o PipelineOutput) InputBucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.InputBucket }).(pulumi.StringOutput)
 }
 
-// The name of the pipeline. Maximum 40 characters
 func (o PipelineOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
 func (o PipelineOutput) Notifications() PipelineNotificationsPtrOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineNotificationsPtrOutput { return v.Notifications }).(PipelineNotificationsPtrOutput)
 }
 
-// The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
 func (o PipelineOutput) OutputBucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.OutputBucket }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PipelineOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
 func (o PipelineOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
 }
 
-// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
 func (o PipelineOutput) ThumbnailConfig() PipelineThumbnailConfigOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineThumbnailConfigOutput { return v.ThumbnailConfig }).(PipelineThumbnailConfigOutput)
 }
 
-// The permissions for the `thumbnailConfig` object. (documented below)
-//
-// See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
-//
-// The `contentConfig` object specifies information about the Amazon S3 bucket in
-// which you want Elastic Transcoder to save transcoded files and playlists: which
-// bucket to use, and the storage class that you want to assign to the files. If
-// you specify values for `contentConfig`, you must also specify values for
-// `thumbnailConfig`. If you specify values for `contentConfig` and
-// `thumbnailConfig`, omit the `outputBucket` object.
 func (o PipelineOutput) ThumbnailConfigPermissions() PipelineThumbnailConfigPermissionArrayOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineThumbnailConfigPermissionArrayOutput { return v.ThumbnailConfigPermissions }).(PipelineThumbnailConfigPermissionArrayOutput)
 }

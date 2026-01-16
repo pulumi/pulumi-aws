@@ -9,47 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Rds
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import DB proxy default target groups using the `db_proxy_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup")]
     public partial class ProxyDefaultTargetGroup : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) representing the target group.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The settings that determine the size and behavior of the connection pool for the target group.
-        /// </summary>
         [Output("connectionPoolConfig")]
         public Output<Outputs.ProxyDefaultTargetGroupConnectionPoolConfig> ConnectionPoolConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the RDS DB Proxy.
-        /// </summary>
         [Output("dbProxyName")]
         public Output<string> DbProxyName { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the default target group.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -99,21 +73,12 @@ namespace Pulumi.Aws.Rds
 
     public sealed class ProxyDefaultTargetGroupArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The settings that determine the size and behavior of the connection pool for the target group.
-        /// </summary>
         [Input("connectionPoolConfig")]
         public Input<Inputs.ProxyDefaultTargetGroupConnectionPoolConfigArgs>? ConnectionPoolConfig { get; set; }
 
-        /// <summary>
-        /// Name of the RDS DB Proxy.
-        /// </summary>
         [Input("dbProxyName", required: true)]
         public Input<string> DbProxyName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -125,33 +90,18 @@ namespace Pulumi.Aws.Rds
 
     public sealed class ProxyDefaultTargetGroupState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) representing the target group.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The settings that determine the size and behavior of the connection pool for the target group.
-        /// </summary>
         [Input("connectionPoolConfig")]
         public Input<Inputs.ProxyDefaultTargetGroupConnectionPoolConfigGetArgs>? ConnectionPoolConfig { get; set; }
 
-        /// <summary>
-        /// Name of the RDS DB Proxy.
-        /// </summary>
         [Input("dbProxyName")]
         public Input<string>? DbProxyName { get; set; }
 
-        /// <summary>
-        /// The name of the default target group.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

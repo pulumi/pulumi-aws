@@ -13,11 +13,6 @@ namespace Pulumi.Aws.Chime.Outputs
     [OutputType]
     public sealed class SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration
     {
-        /// <summary>
-        /// ARN for KMS Key.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public readonly string KmsKeyArn;
 
         [OutputConstructor]

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     [OutputType]
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn
     {
-        /// <summary>
-        /// A reference to the data element in the streaming input or the reference data source.
-        /// </summary>
         public readonly string? Mapping;
-        /// <summary>
-        /// The name of the column that is created in the in-application input stream or reference table.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The type of column created in the in-application input stream or reference table.
-        /// </summary>
         public readonly string SqlType;
 
         [OutputConstructor]

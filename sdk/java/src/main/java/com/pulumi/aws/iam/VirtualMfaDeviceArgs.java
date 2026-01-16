@@ -17,47 +17,23 @@ public final class VirtualMfaDeviceArgs extends com.pulumi.resources.ResourceArg
 
     public static final VirtualMfaDeviceArgs Empty = new VirtualMfaDeviceArgs();
 
-    /**
-     * Path for the virtual MFA device.
-     * 
-     */
     @Import(name="path")
     private @Nullable Output<String> path;
 
-    /**
-     * @return Path for the virtual MFA device.
-     * 
-     */
     public Optional<Output<String>> path() {
         return Optional.ofNullable(this.path);
     }
 
-    /**
-     * Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
-     * 
-     */
     @Import(name="virtualMfaDeviceName", required=true)
     private Output<String> virtualMfaDeviceName;
 
-    /**
-     * @return Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
-     * 
-     */
     public Output<String> virtualMfaDeviceName() {
         return this.virtualMfaDeviceName;
     }
@@ -88,65 +64,29 @@ public final class VirtualMfaDeviceArgs extends com.pulumi.resources.ResourceArg
             $ = new VirtualMfaDeviceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param path Path for the virtual MFA device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(@Nullable Output<String> path) {
             $.path = path;
             return this;
         }
 
-        /**
-         * @param path Path for the virtual MFA device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(String path) {
             return path(Output.of(path));
         }
 
-        /**
-         * @param tags Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param virtualMfaDeviceName Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualMfaDeviceName(Output<String> virtualMfaDeviceName) {
             $.virtualMfaDeviceName = virtualMfaDeviceName;
             return this;
         }
 
-        /**
-         * @param virtualMfaDeviceName Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualMfaDeviceName(String virtualMfaDeviceName) {
             return virtualMfaDeviceName(Output.of(virtualMfaDeviceName));
         }

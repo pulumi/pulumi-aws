@@ -16,47 +16,23 @@ public final class SnapshotScheduleAssociationArgs extends com.pulumi.resources.
 
     public static final SnapshotScheduleAssociationArgs Empty = new SnapshotScheduleAssociationArgs();
 
-    /**
-     * The cluster identifier.
-     * 
-     */
     @Import(name="clusterIdentifier", required=true)
     private Output<String> clusterIdentifier;
 
-    /**
-     * @return The cluster identifier.
-     * 
-     */
     public Output<String> clusterIdentifier() {
         return this.clusterIdentifier;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The snapshot schedule identifier.
-     * 
-     */
     @Import(name="scheduleIdentifier", required=true)
     private Output<String> scheduleIdentifier;
 
-    /**
-     * @return The snapshot schedule identifier.
-     * 
-     */
     public Output<String> scheduleIdentifier() {
         return this.scheduleIdentifier;
     }
@@ -87,65 +63,29 @@ public final class SnapshotScheduleAssociationArgs extends com.pulumi.resources.
             $ = new SnapshotScheduleAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusterIdentifier The cluster identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterIdentifier(Output<String> clusterIdentifier) {
             $.clusterIdentifier = clusterIdentifier;
             return this;
         }
 
-        /**
-         * @param clusterIdentifier The cluster identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterIdentifier(String clusterIdentifier) {
             return clusterIdentifier(Output.of(clusterIdentifier));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param scheduleIdentifier The snapshot schedule identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scheduleIdentifier(Output<String> scheduleIdentifier) {
             $.scheduleIdentifier = scheduleIdentifier;
             return this;
         }
 
-        /**
-         * @param scheduleIdentifier The snapshot schedule identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scheduleIdentifier(String scheduleIdentifier) {
             return scheduleIdentifier(Output.of(scheduleIdentifier));
         }

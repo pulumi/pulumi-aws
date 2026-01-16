@@ -14,12 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ViewDataFilterExpression struct {
-	// Dimension to use for `expression`. Refer to #dimensions for more details.
 	Dimensions *ViewDataFilterExpressionDimensions `pulumi:"dimensions"`
-	// List of key value map specifying tags associated to the billing view being created.
-	Tags []ViewDataFilterExpressionTag `pulumi:"tags"`
-	// Time range to use for `expression`. Refer to #time-range for more details.
-	TimeRange *ViewDataFilterExpressionTimeRange `pulumi:"timeRange"`
+	Tags       []ViewDataFilterExpressionTag       `pulumi:"tags"`
+	TimeRange  *ViewDataFilterExpressionTimeRange  `pulumi:"timeRange"`
 }
 
 // ViewDataFilterExpressionInput is an input type that accepts ViewDataFilterExpressionArgs and ViewDataFilterExpressionOutput values.
@@ -34,12 +31,9 @@ type ViewDataFilterExpressionInput interface {
 }
 
 type ViewDataFilterExpressionArgs struct {
-	// Dimension to use for `expression`. Refer to #dimensions for more details.
 	Dimensions ViewDataFilterExpressionDimensionsPtrInput `pulumi:"dimensions"`
-	// List of key value map specifying tags associated to the billing view being created.
-	Tags ViewDataFilterExpressionTagArrayInput `pulumi:"tags"`
-	// Time range to use for `expression`. Refer to #time-range for more details.
-	TimeRange ViewDataFilterExpressionTimeRangePtrInput `pulumi:"timeRange"`
+	Tags       ViewDataFilterExpressionTagArrayInput      `pulumi:"tags"`
+	TimeRange  ViewDataFilterExpressionTimeRangePtrInput  `pulumi:"timeRange"`
 }
 
 func (ViewDataFilterExpressionArgs) ElementType() reflect.Type {
@@ -119,17 +113,14 @@ func (o ViewDataFilterExpressionOutput) ToViewDataFilterExpressionPtrOutputWithC
 	}).(ViewDataFilterExpressionPtrOutput)
 }
 
-// Dimension to use for `expression`. Refer to #dimensions for more details.
 func (o ViewDataFilterExpressionOutput) Dimensions() ViewDataFilterExpressionDimensionsPtrOutput {
 	return o.ApplyT(func(v ViewDataFilterExpression) *ViewDataFilterExpressionDimensions { return v.Dimensions }).(ViewDataFilterExpressionDimensionsPtrOutput)
 }
 
-// List of key value map specifying tags associated to the billing view being created.
 func (o ViewDataFilterExpressionOutput) Tags() ViewDataFilterExpressionTagArrayOutput {
 	return o.ApplyT(func(v ViewDataFilterExpression) []ViewDataFilterExpressionTag { return v.Tags }).(ViewDataFilterExpressionTagArrayOutput)
 }
 
-// Time range to use for `expression`. Refer to #time-range for more details.
 func (o ViewDataFilterExpressionOutput) TimeRange() ViewDataFilterExpressionTimeRangePtrOutput {
 	return o.ApplyT(func(v ViewDataFilterExpression) *ViewDataFilterExpressionTimeRange { return v.TimeRange }).(ViewDataFilterExpressionTimeRangePtrOutput)
 }
@@ -158,7 +149,6 @@ func (o ViewDataFilterExpressionPtrOutput) Elem() ViewDataFilterExpressionOutput
 	}).(ViewDataFilterExpressionOutput)
 }
 
-// Dimension to use for `expression`. Refer to #dimensions for more details.
 func (o ViewDataFilterExpressionPtrOutput) Dimensions() ViewDataFilterExpressionDimensionsPtrOutput {
 	return o.ApplyT(func(v *ViewDataFilterExpression) *ViewDataFilterExpressionDimensions {
 		if v == nil {
@@ -168,7 +158,6 @@ func (o ViewDataFilterExpressionPtrOutput) Dimensions() ViewDataFilterExpression
 	}).(ViewDataFilterExpressionDimensionsPtrOutput)
 }
 
-// List of key value map specifying tags associated to the billing view being created.
 func (o ViewDataFilterExpressionPtrOutput) Tags() ViewDataFilterExpressionTagArrayOutput {
 	return o.ApplyT(func(v *ViewDataFilterExpression) []ViewDataFilterExpressionTag {
 		if v == nil {
@@ -178,7 +167,6 @@ func (o ViewDataFilterExpressionPtrOutput) Tags() ViewDataFilterExpressionTagArr
 	}).(ViewDataFilterExpressionTagArrayOutput)
 }
 
-// Time range to use for `expression`. Refer to #time-range for more details.
 func (o ViewDataFilterExpressionPtrOutput) TimeRange() ViewDataFilterExpressionTimeRangePtrOutput {
 	return o.ApplyT(func(v *ViewDataFilterExpression) *ViewDataFilterExpressionTimeRange {
 		if v == nil {
@@ -189,9 +177,7 @@ func (o ViewDataFilterExpressionPtrOutput) TimeRange() ViewDataFilterExpressionT
 }
 
 type ViewDataFilterExpressionDimensions struct {
-	// Key of the dimension. Possible values are `LINKED_ACCOUNT`.
-	Key string `pulumi:"key"`
-	// List of metadata values that you can use to filter and group your results.
+	Key    string   `pulumi:"key"`
 	Values []string `pulumi:"values"`
 }
 
@@ -207,9 +193,7 @@ type ViewDataFilterExpressionDimensionsInput interface {
 }
 
 type ViewDataFilterExpressionDimensionsArgs struct {
-	// Key of the dimension. Possible values are `LINKED_ACCOUNT`.
-	Key pulumi.StringInput `pulumi:"key"`
-	// List of metadata values that you can use to filter and group your results.
+	Key    pulumi.StringInput      `pulumi:"key"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -290,12 +274,10 @@ func (o ViewDataFilterExpressionDimensionsOutput) ToViewDataFilterExpressionDime
 	}).(ViewDataFilterExpressionDimensionsPtrOutput)
 }
 
-// Key of the dimension. Possible values are `LINKED_ACCOUNT`.
 func (o ViewDataFilterExpressionDimensionsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ViewDataFilterExpressionDimensions) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// List of metadata values that you can use to filter and group your results.
 func (o ViewDataFilterExpressionDimensionsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ViewDataFilterExpressionDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -324,7 +306,6 @@ func (o ViewDataFilterExpressionDimensionsPtrOutput) Elem() ViewDataFilterExpres
 	}).(ViewDataFilterExpressionDimensionsOutput)
 }
 
-// Key of the dimension. Possible values are `LINKED_ACCOUNT`.
 func (o ViewDataFilterExpressionDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ViewDataFilterExpressionDimensions) *string {
 		if v == nil {
@@ -334,7 +315,6 @@ func (o ViewDataFilterExpressionDimensionsPtrOutput) Key() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of metadata values that you can use to filter and group your results.
 func (o ViewDataFilterExpressionDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ViewDataFilterExpressionDimensions) []string {
 		if v == nil {
@@ -345,9 +325,7 @@ func (o ViewDataFilterExpressionDimensionsPtrOutput) Values() pulumi.StringArray
 }
 
 type ViewDataFilterExpressionTag struct {
-	// Key of the tag.
-	Key string `pulumi:"key"`
-	// List of values for the tag.
+	Key    string   `pulumi:"key"`
 	Values []string `pulumi:"values"`
 }
 
@@ -363,9 +341,7 @@ type ViewDataFilterExpressionTagInput interface {
 }
 
 type ViewDataFilterExpressionTagArgs struct {
-	// Key of the tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// List of values for the tag.
+	Key    pulumi.StringInput      `pulumi:"key"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -420,12 +396,10 @@ func (o ViewDataFilterExpressionTagOutput) ToViewDataFilterExpressionTagOutputWi
 	return o
 }
 
-// Key of the tag.
 func (o ViewDataFilterExpressionTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ViewDataFilterExpressionTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// List of values for the tag.
 func (o ViewDataFilterExpressionTagOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ViewDataFilterExpressionTag) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -451,7 +425,6 @@ func (o ViewDataFilterExpressionTagArrayOutput) Index(i pulumi.IntInput) ViewDat
 }
 
 type ViewDataFilterExpressionTimeRange struct {
-	// Inclusive end date of the time range.
 	BeginDateInclusive string `pulumi:"beginDateInclusive"`
 	EndDateInclusive   string `pulumi:"endDateInclusive"`
 }
@@ -468,7 +441,6 @@ type ViewDataFilterExpressionTimeRangeInput interface {
 }
 
 type ViewDataFilterExpressionTimeRangeArgs struct {
-	// Inclusive end date of the time range.
 	BeginDateInclusive pulumi.StringInput `pulumi:"beginDateInclusive"`
 	EndDateInclusive   pulumi.StringInput `pulumi:"endDateInclusive"`
 }
@@ -550,7 +522,6 @@ func (o ViewDataFilterExpressionTimeRangeOutput) ToViewDataFilterExpressionTimeR
 	}).(ViewDataFilterExpressionTimeRangePtrOutput)
 }
 
-// Inclusive end date of the time range.
 func (o ViewDataFilterExpressionTimeRangeOutput) BeginDateInclusive() pulumi.StringOutput {
 	return o.ApplyT(func(v ViewDataFilterExpressionTimeRange) string { return v.BeginDateInclusive }).(pulumi.StringOutput)
 }
@@ -583,7 +554,6 @@ func (o ViewDataFilterExpressionTimeRangePtrOutput) Elem() ViewDataFilterExpress
 	}).(ViewDataFilterExpressionTimeRangeOutput)
 }
 
-// Inclusive end date of the time range.
 func (o ViewDataFilterExpressionTimeRangePtrOutput) BeginDateInclusive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ViewDataFilterExpressionTimeRange) *string {
 		if v == nil {
@@ -778,15 +748,11 @@ func (o ViewTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type GetViewsBillingView struct {
-	// ARN of the billing view.
 	Arn             string `pulumi:"arn"`
 	BillingViewType string `pulumi:"billingViewType"`
-	// Description of the billing view.
-	Description string `pulumi:"description"`
-	// Name of the billing view.
-	Name string `pulumi:"name"`
-	// Account ID of the billing view owner.
-	OwnerAccountId string `pulumi:"ownerAccountId"`
+	Description     string `pulumi:"description"`
+	Name            string `pulumi:"name"`
+	OwnerAccountId  string `pulumi:"ownerAccountId"`
 }
 
 // GetViewsBillingViewInput is an input type that accepts GetViewsBillingViewArgs and GetViewsBillingViewOutput values.
@@ -801,15 +767,11 @@ type GetViewsBillingViewInput interface {
 }
 
 type GetViewsBillingViewArgs struct {
-	// ARN of the billing view.
 	Arn             pulumi.StringInput `pulumi:"arn"`
 	BillingViewType pulumi.StringInput `pulumi:"billingViewType"`
-	// Description of the billing view.
-	Description pulumi.StringInput `pulumi:"description"`
-	// Name of the billing view.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Account ID of the billing view owner.
-	OwnerAccountId pulumi.StringInput `pulumi:"ownerAccountId"`
+	Description     pulumi.StringInput `pulumi:"description"`
+	Name            pulumi.StringInput `pulumi:"name"`
+	OwnerAccountId  pulumi.StringInput `pulumi:"ownerAccountId"`
 }
 
 func (GetViewsBillingViewArgs) ElementType() reflect.Type {
@@ -863,7 +825,6 @@ func (o GetViewsBillingViewOutput) ToGetViewsBillingViewOutputWithContext(ctx co
 	return o
 }
 
-// ARN of the billing view.
 func (o GetViewsBillingViewOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetViewsBillingView) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -872,17 +833,14 @@ func (o GetViewsBillingViewOutput) BillingViewType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetViewsBillingView) string { return v.BillingViewType }).(pulumi.StringOutput)
 }
 
-// Description of the billing view.
 func (o GetViewsBillingViewOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetViewsBillingView) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Name of the billing view.
 func (o GetViewsBillingViewOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetViewsBillingView) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Account ID of the billing view owner.
 func (o GetViewsBillingViewOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetViewsBillingView) string { return v.OwnerAccountId }).(pulumi.StringOutput)
 }

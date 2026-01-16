@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InstanceInstanceMarketOptions {
-    /**
-     * @return Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spotOptions` is specified.
-     * 
-     */
     private @Nullable String marketType;
-    /**
-     * @return Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
-     * 
-     */
     private @Nullable InstanceInstanceMarketOptionsSpotOptions spotOptions;
 
     private InstanceInstanceMarketOptions() {}
-    /**
-     * @return Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spotOptions` is specified.
-     * 
-     */
     public Optional<String> marketType() {
         return Optional.ofNullable(this.marketType);
     }
-    /**
-     * @return Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
-     * 
-     */
     public Optional<InstanceInstanceMarketOptionsSpotOptions> spotOptions() {
         return Optional.ofNullable(this.spotOptions);
     }

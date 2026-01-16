@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class DomainDomainSettingsDockerSettingsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates whether the domain can access Docker. Valid values are `ENABLED` and `DISABLED`.
-        /// </summary>
         [Input("enableDockerAccess")]
         public Input<string>? EnableDockerAccess { get; set; }
 
         [Input("vpcOnlyTrustedAccounts")]
         private InputList<string>? _vpcOnlyTrustedAccounts;
-
-        /// <summary>
-        /// The list of Amazon Web Services accounts that are trusted when the domain is created in VPC-only mode.
-        /// </summary>
         public InputList<string> VpcOnlyTrustedAccounts
         {
             get => _vpcOnlyTrustedAccounts ?? (_vpcOnlyTrustedAccounts = new InputList<string>());

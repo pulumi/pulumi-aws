@@ -12,196 +12,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker AI Domain resource.
-//
-// ## Example Usage
-//
-// ### Basic usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"sagemaker.amazonaws.com",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				Name:             pulumi.String("example"),
-//				Path:             pulumi.String("/"),
-//				AssumeRolePolicy: pulumi.String(example.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sagemaker.NewDomain(ctx, "example", &sagemaker.DomainArgs{
-//				DomainName: pulumi.String("example"),
-//				AuthMode:   pulumi.String("IAM"),
-//				VpcId:      pulumi.Any(exampleAwsVpc.Id),
-//				SubnetIds: pulumi.StringArray{
-//					exampleAwsSubnet.Id,
-//				},
-//				DefaultUserSettings: &sagemaker.DomainDefaultUserSettingsArgs{
-//					ExecutionRole: exampleRole.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Using Custom Images
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := sagemaker.NewImage(ctx, "example", &sagemaker.ImageArgs{
-//				ImageName: pulumi.String("example"),
-//				RoleArn:   pulumi.Any(exampleAwsIamRole.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAppImageConfig, err := sagemaker.NewAppImageConfig(ctx, "example", &sagemaker.AppImageConfigArgs{
-//				AppImageConfigName: pulumi.String("example"),
-//				KernelGatewayImageConfig: &sagemaker.AppImageConfigKernelGatewayImageConfigArgs{
-//					KernelSpecs: sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArray{
-//						&sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs{
-//							Name: pulumi.String("example"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleImageVersion, err := sagemaker.NewImageVersion(ctx, "example", &sagemaker.ImageVersionArgs{
-//				ImageName: example.ID(),
-//				BaseImage: pulumi.String("base-image"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sagemaker.NewDomain(ctx, "example", &sagemaker.DomainArgs{
-//				DomainName: pulumi.String("example"),
-//				AuthMode:   pulumi.String("IAM"),
-//				VpcId:      pulumi.Any(exampleAwsVpc.Id),
-//				SubnetIds: pulumi.StringArray{
-//					exampleAwsSubnet.Id,
-//				},
-//				DefaultUserSettings: &sagemaker.DomainDefaultUserSettingsArgs{
-//					ExecutionRole: pulumi.Any(exampleAwsIamRole.Arn),
-//					KernelGatewayAppSettings: &sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs{
-//						CustomImages: sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArray{
-//							&sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs{
-//								AppImageConfigName: exampleAppImageConfig.AppImageConfigName,
-//								ImageName:          exampleImageVersion.ImageName,
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SageMaker AI Domains using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
-// ```
 type Domain struct {
 	pulumi.CustomResourceState
 
-	// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
-	AppNetworkAccessType pulumi.StringPtrOutput `pulumi:"appNetworkAccessType"`
-	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
-	AppSecurityGroupManagement pulumi.StringPtrOutput `pulumi:"appSecurityGroupManagement"`
-	// The Amazon Resource Name (ARN) assigned by AWS to this Domain.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
-	AuthMode pulumi.StringOutput `pulumi:"authMode"`
-	// The default space settings. See `defaultSpaceSettings` Block below.
-	DefaultSpaceSettings DomainDefaultSpaceSettingsPtrOutput `pulumi:"defaultSpaceSettings"`
-	// The default user settings. See `defaultUserSettings` Block below.
-	DefaultUserSettings DomainDefaultUserSettingsOutput `pulumi:"defaultUserSettings"`
-	// The domain name.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// The domain settings. See `domainSettings` Block below.
-	DomainSettings DomainDomainSettingsPtrOutput `pulumi:"domainSettings"`
-	// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
-	HomeEfsFileSystemId pulumi.StringOutput `pulumi:"homeEfsFileSystemId"`
-	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
-	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
-	RetentionPolicy DomainRetentionPolicyPtrOutput `pulumi:"retentionPolicy"`
-	// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
-	SecurityGroupIdForDomainBoundary pulumi.StringOutput `pulumi:"securityGroupIdForDomainBoundary"`
-	// The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
-	SingleSignOnApplicationArn pulumi.StringOutput `pulumi:"singleSignOnApplicationArn"`
-	// The SSO managed application instance ID.
-	SingleSignOnManagedApplicationInstanceId pulumi.StringOutput `pulumi:"singleSignOnManagedApplicationInstanceId"`
-	// The VPC subnets that Studio uses for communication.
-	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
-	TagPropagation pulumi.StringPtrOutput `pulumi:"tagPropagation"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The domain's URL.
-	Url pulumi.StringOutput `pulumi:"url"`
-	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-	//
-	// The following arguments are optional:
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	AppNetworkAccessType                     pulumi.StringPtrOutput              `pulumi:"appNetworkAccessType"`
+	AppSecurityGroupManagement               pulumi.StringPtrOutput              `pulumi:"appSecurityGroupManagement"`
+	Arn                                      pulumi.StringOutput                 `pulumi:"arn"`
+	AuthMode                                 pulumi.StringOutput                 `pulumi:"authMode"`
+	DefaultSpaceSettings                     DomainDefaultSpaceSettingsPtrOutput `pulumi:"defaultSpaceSettings"`
+	DefaultUserSettings                      DomainDefaultUserSettingsOutput     `pulumi:"defaultUserSettings"`
+	DomainName                               pulumi.StringOutput                 `pulumi:"domainName"`
+	DomainSettings                           DomainDomainSettingsPtrOutput       `pulumi:"domainSettings"`
+	HomeEfsFileSystemId                      pulumi.StringOutput                 `pulumi:"homeEfsFileSystemId"`
+	KmsKeyId                                 pulumi.StringPtrOutput              `pulumi:"kmsKeyId"`
+	Region                                   pulumi.StringOutput                 `pulumi:"region"`
+	RetentionPolicy                          DomainRetentionPolicyPtrOutput      `pulumi:"retentionPolicy"`
+	SecurityGroupIdForDomainBoundary         pulumi.StringOutput                 `pulumi:"securityGroupIdForDomainBoundary"`
+	SingleSignOnApplicationArn               pulumi.StringOutput                 `pulumi:"singleSignOnApplicationArn"`
+	SingleSignOnManagedApplicationInstanceId pulumi.StringOutput                 `pulumi:"singleSignOnManagedApplicationInstanceId"`
+	SubnetIds                                pulumi.StringArrayOutput            `pulumi:"subnetIds"`
+	TagPropagation                           pulumi.StringPtrOutput              `pulumi:"tagPropagation"`
+	Tags                                     pulumi.StringMapOutput              `pulumi:"tags"`
+	TagsAll                                  pulumi.StringMapOutput              `pulumi:"tagsAll"`
+	Url                                      pulumi.StringOutput                 `pulumi:"url"`
+	VpcId                                    pulumi.StringOutput                 `pulumi:"vpcId"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -249,97 +83,51 @@ func GetDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Domain resources.
 type domainState struct {
-	// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
-	AppNetworkAccessType *string `pulumi:"appNetworkAccessType"`
-	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
-	AppSecurityGroupManagement *string `pulumi:"appSecurityGroupManagement"`
-	// The Amazon Resource Name (ARN) assigned by AWS to this Domain.
-	Arn *string `pulumi:"arn"`
-	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
-	AuthMode *string `pulumi:"authMode"`
-	// The default space settings. See `defaultSpaceSettings` Block below.
-	DefaultSpaceSettings *DomainDefaultSpaceSettings `pulumi:"defaultSpaceSettings"`
-	// The default user settings. See `defaultUserSettings` Block below.
-	DefaultUserSettings *DomainDefaultUserSettings `pulumi:"defaultUserSettings"`
-	// The domain name.
-	DomainName *string `pulumi:"domainName"`
-	// The domain settings. See `domainSettings` Block below.
-	DomainSettings *DomainDomainSettings `pulumi:"domainSettings"`
-	// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
-	HomeEfsFileSystemId *string `pulumi:"homeEfsFileSystemId"`
-	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
-	RetentionPolicy *DomainRetentionPolicy `pulumi:"retentionPolicy"`
-	// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
-	SecurityGroupIdForDomainBoundary *string `pulumi:"securityGroupIdForDomainBoundary"`
-	// The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
-	SingleSignOnApplicationArn *string `pulumi:"singleSignOnApplicationArn"`
-	// The SSO managed application instance ID.
-	SingleSignOnManagedApplicationInstanceId *string `pulumi:"singleSignOnManagedApplicationInstanceId"`
-	// The VPC subnets that Studio uses for communication.
-	SubnetIds []string `pulumi:"subnetIds"`
-	// Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
-	TagPropagation *string `pulumi:"tagPropagation"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The domain's URL.
-	Url *string `pulumi:"url"`
-	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-	//
-	// The following arguments are optional:
-	VpcId *string `pulumi:"vpcId"`
+	AppNetworkAccessType                     *string                     `pulumi:"appNetworkAccessType"`
+	AppSecurityGroupManagement               *string                     `pulumi:"appSecurityGroupManagement"`
+	Arn                                      *string                     `pulumi:"arn"`
+	AuthMode                                 *string                     `pulumi:"authMode"`
+	DefaultSpaceSettings                     *DomainDefaultSpaceSettings `pulumi:"defaultSpaceSettings"`
+	DefaultUserSettings                      *DomainDefaultUserSettings  `pulumi:"defaultUserSettings"`
+	DomainName                               *string                     `pulumi:"domainName"`
+	DomainSettings                           *DomainDomainSettings       `pulumi:"domainSettings"`
+	HomeEfsFileSystemId                      *string                     `pulumi:"homeEfsFileSystemId"`
+	KmsKeyId                                 *string                     `pulumi:"kmsKeyId"`
+	Region                                   *string                     `pulumi:"region"`
+	RetentionPolicy                          *DomainRetentionPolicy      `pulumi:"retentionPolicy"`
+	SecurityGroupIdForDomainBoundary         *string                     `pulumi:"securityGroupIdForDomainBoundary"`
+	SingleSignOnApplicationArn               *string                     `pulumi:"singleSignOnApplicationArn"`
+	SingleSignOnManagedApplicationInstanceId *string                     `pulumi:"singleSignOnManagedApplicationInstanceId"`
+	SubnetIds                                []string                    `pulumi:"subnetIds"`
+	TagPropagation                           *string                     `pulumi:"tagPropagation"`
+	Tags                                     map[string]string           `pulumi:"tags"`
+	TagsAll                                  map[string]string           `pulumi:"tagsAll"`
+	Url                                      *string                     `pulumi:"url"`
+	VpcId                                    *string                     `pulumi:"vpcId"`
 }
 
 type DomainState struct {
-	// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
-	AppNetworkAccessType pulumi.StringPtrInput
-	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
-	AppSecurityGroupManagement pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) assigned by AWS to this Domain.
-	Arn pulumi.StringPtrInput
-	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
-	AuthMode pulumi.StringPtrInput
-	// The default space settings. See `defaultSpaceSettings` Block below.
-	DefaultSpaceSettings DomainDefaultSpaceSettingsPtrInput
-	// The default user settings. See `defaultUserSettings` Block below.
-	DefaultUserSettings DomainDefaultUserSettingsPtrInput
-	// The domain name.
-	DomainName pulumi.StringPtrInput
-	// The domain settings. See `domainSettings` Block below.
-	DomainSettings DomainDomainSettingsPtrInput
-	// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
-	HomeEfsFileSystemId pulumi.StringPtrInput
-	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
-	KmsKeyId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
-	RetentionPolicy DomainRetentionPolicyPtrInput
-	// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
-	SecurityGroupIdForDomainBoundary pulumi.StringPtrInput
-	// The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
-	SingleSignOnApplicationArn pulumi.StringPtrInput
-	// The SSO managed application instance ID.
+	AppNetworkAccessType                     pulumi.StringPtrInput
+	AppSecurityGroupManagement               pulumi.StringPtrInput
+	Arn                                      pulumi.StringPtrInput
+	AuthMode                                 pulumi.StringPtrInput
+	DefaultSpaceSettings                     DomainDefaultSpaceSettingsPtrInput
+	DefaultUserSettings                      DomainDefaultUserSettingsPtrInput
+	DomainName                               pulumi.StringPtrInput
+	DomainSettings                           DomainDomainSettingsPtrInput
+	HomeEfsFileSystemId                      pulumi.StringPtrInput
+	KmsKeyId                                 pulumi.StringPtrInput
+	Region                                   pulumi.StringPtrInput
+	RetentionPolicy                          DomainRetentionPolicyPtrInput
+	SecurityGroupIdForDomainBoundary         pulumi.StringPtrInput
+	SingleSignOnApplicationArn               pulumi.StringPtrInput
 	SingleSignOnManagedApplicationInstanceId pulumi.StringPtrInput
-	// The VPC subnets that Studio uses for communication.
-	SubnetIds pulumi.StringArrayInput
-	// Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
-	TagPropagation pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The domain's URL.
-	Url pulumi.StringPtrInput
-	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-	//
-	// The following arguments are optional:
-	VpcId pulumi.StringPtrInput
+	SubnetIds                                pulumi.StringArrayInput
+	TagPropagation                           pulumi.StringPtrInput
+	Tags                                     pulumi.StringMapInput
+	TagsAll                                  pulumi.StringMapInput
+	Url                                      pulumi.StringPtrInput
+	VpcId                                    pulumi.StringPtrInput
 }
 
 func (DomainState) ElementType() reflect.Type {
@@ -347,70 +135,38 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
-	// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
-	AppNetworkAccessType *string `pulumi:"appNetworkAccessType"`
-	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
-	AppSecurityGroupManagement *string `pulumi:"appSecurityGroupManagement"`
-	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
-	AuthMode string `pulumi:"authMode"`
-	// The default space settings. See `defaultSpaceSettings` Block below.
-	DefaultSpaceSettings *DomainDefaultSpaceSettings `pulumi:"defaultSpaceSettings"`
-	// The default user settings. See `defaultUserSettings` Block below.
-	DefaultUserSettings DomainDefaultUserSettings `pulumi:"defaultUserSettings"`
-	// The domain name.
-	DomainName string `pulumi:"domainName"`
-	// The domain settings. See `domainSettings` Block below.
-	DomainSettings *DomainDomainSettings `pulumi:"domainSettings"`
-	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
-	RetentionPolicy *DomainRetentionPolicy `pulumi:"retentionPolicy"`
-	// The VPC subnets that Studio uses for communication.
-	SubnetIds []string `pulumi:"subnetIds"`
-	// Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
-	TagPropagation *string `pulumi:"tagPropagation"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-	//
-	// The following arguments are optional:
-	VpcId string `pulumi:"vpcId"`
+	AppNetworkAccessType       *string                     `pulumi:"appNetworkAccessType"`
+	AppSecurityGroupManagement *string                     `pulumi:"appSecurityGroupManagement"`
+	AuthMode                   string                      `pulumi:"authMode"`
+	DefaultSpaceSettings       *DomainDefaultSpaceSettings `pulumi:"defaultSpaceSettings"`
+	DefaultUserSettings        DomainDefaultUserSettings   `pulumi:"defaultUserSettings"`
+	DomainName                 string                      `pulumi:"domainName"`
+	DomainSettings             *DomainDomainSettings       `pulumi:"domainSettings"`
+	KmsKeyId                   *string                     `pulumi:"kmsKeyId"`
+	Region                     *string                     `pulumi:"region"`
+	RetentionPolicy            *DomainRetentionPolicy      `pulumi:"retentionPolicy"`
+	SubnetIds                  []string                    `pulumi:"subnetIds"`
+	TagPropagation             *string                     `pulumi:"tagPropagation"`
+	Tags                       map[string]string           `pulumi:"tags"`
+	VpcId                      string                      `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
-	// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
-	AppNetworkAccessType pulumi.StringPtrInput
-	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+	AppNetworkAccessType       pulumi.StringPtrInput
 	AppSecurityGroupManagement pulumi.StringPtrInput
-	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
-	AuthMode pulumi.StringInput
-	// The default space settings. See `defaultSpaceSettings` Block below.
-	DefaultSpaceSettings DomainDefaultSpaceSettingsPtrInput
-	// The default user settings. See `defaultUserSettings` Block below.
-	DefaultUserSettings DomainDefaultUserSettingsInput
-	// The domain name.
-	DomainName pulumi.StringInput
-	// The domain settings. See `domainSettings` Block below.
-	DomainSettings DomainDomainSettingsPtrInput
-	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
-	KmsKeyId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
-	RetentionPolicy DomainRetentionPolicyPtrInput
-	// The VPC subnets that Studio uses for communication.
-	SubnetIds pulumi.StringArrayInput
-	// Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
-	TagPropagation pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-	//
-	// The following arguments are optional:
-	VpcId pulumi.StringInput
+	AuthMode                   pulumi.StringInput
+	DefaultSpaceSettings       DomainDefaultSpaceSettingsPtrInput
+	DefaultUserSettings        DomainDefaultUserSettingsInput
+	DomainName                 pulumi.StringInput
+	DomainSettings             DomainDomainSettingsPtrInput
+	KmsKeyId                   pulumi.StringPtrInput
+	Region                     pulumi.StringPtrInput
+	RetentionPolicy            DomainRetentionPolicyPtrInput
+	SubnetIds                  pulumi.StringArrayInput
+	TagPropagation             pulumi.StringPtrInput
+	Tags                       pulumi.StringMapInput
+	VpcId                      pulumi.StringInput
 }
 
 func (DomainArgs) ElementType() reflect.Type {
@@ -500,109 +256,86 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 	return o
 }
 
-// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
 func (o DomainOutput) AppNetworkAccessType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.AppNetworkAccessType }).(pulumi.StringPtrOutput)
 }
 
-// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
 func (o DomainOutput) AppSecurityGroupManagement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.AppSecurityGroupManagement }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this Domain.
 func (o DomainOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
 func (o DomainOutput) AuthMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.AuthMode }).(pulumi.StringOutput)
 }
 
-// The default space settings. See `defaultSpaceSettings` Block below.
 func (o DomainOutput) DefaultSpaceSettings() DomainDefaultSpaceSettingsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainDefaultSpaceSettingsPtrOutput { return v.DefaultSpaceSettings }).(DomainDefaultSpaceSettingsPtrOutput)
 }
 
-// The default user settings. See `defaultUserSettings` Block below.
 func (o DomainOutput) DefaultUserSettings() DomainDefaultUserSettingsOutput {
 	return o.ApplyT(func(v *Domain) DomainDefaultUserSettingsOutput { return v.DefaultUserSettings }).(DomainDefaultUserSettingsOutput)
 }
 
-// The domain name.
 func (o DomainOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The domain settings. See `domainSettings` Block below.
 func (o DomainOutput) DomainSettings() DomainDomainSettingsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainDomainSettingsPtrOutput { return v.DomainSettings }).(DomainDomainSettingsPtrOutput)
 }
 
-// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
 func (o DomainOutput) HomeEfsFileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.HomeEfsFileSystemId }).(pulumi.StringOutput)
 }
 
-// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
 func (o DomainOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DomainOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
 func (o DomainOutput) RetentionPolicy() DomainRetentionPolicyPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainRetentionPolicyPtrOutput { return v.RetentionPolicy }).(DomainRetentionPolicyPtrOutput)
 }
 
-// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
 func (o DomainOutput) SecurityGroupIdForDomainBoundary() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.SecurityGroupIdForDomainBoundary }).(pulumi.StringOutput)
 }
 
-// The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
 func (o DomainOutput) SingleSignOnApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.SingleSignOnApplicationArn }).(pulumi.StringOutput)
 }
 
-// The SSO managed application instance ID.
 func (o DomainOutput) SingleSignOnManagedApplicationInstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.SingleSignOnManagedApplicationInstanceId }).(pulumi.StringOutput)
 }
 
-// The VPC subnets that Studio uses for communication.
 func (o DomainOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
 func (o DomainOutput) TagPropagation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.TagPropagation }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DomainOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DomainOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The domain's URL.
 func (o DomainOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }
 
-// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-//
-// The following arguments are optional:
 func (o DomainOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

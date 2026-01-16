@@ -12,116 +12,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS EC2 Image Builder Workflow.
-//
-// > Image Builder manages the workflows for the distribution stage. Therefore, using the DISTRIBUTION workflow type results in an error.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/imagebuilder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.NewWorkflow(ctx, "example", &imagebuilder.WorkflowArgs{
-//				Name:    pulumi.String("example"),
-//				Version: pulumi.String("1.0.0"),
-//				Type:    pulumi.String("TEST"),
-//				Data: pulumi.String(`name: example
-//
-// description: Workflow to test an image
-// schemaVersion: 1.0
-//
-// parameters:
-//   - name: waitForActionAtEnd
-//     type: boolean
-//
-// steps:
-//
-//   - name: LaunchTestInstance
-//     action: LaunchInstance
-//     onFailure: Abort
-//     inputs:
-//     waitFor: \"ssmAgent\"
-//
-//   - name: TerminateTestInstance
-//     action: TerminateInstance
-//     onFailure: Continue
-//     inputs:
-//     instanceId.$: \"$.stepOutputs.LaunchTestInstance.instanceId\"
-//
-//   - name: WaitForActionAtEnd
-//     action: WaitForAction
-//     if:
-//     booleanEquals: true
-//     value: \"$.parameters.waitForActionAtEnd\"
-//
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the Image Builder workflow.
-//
-// Using `pulumi import`, import EC2 Image Builder Workflow using the `arn`. For example:
-//
-// % pulumi import aws_imagebuilder_workflow.example arn:aws:imagebuilder:us-east-1:aws:workflow/test/example/1.0.1/1
-//
-// Certain resource arguments, such as `uri`, cannot be read via the API and imported into Terraform. Terraform will display a difference for these arguments the first run after import if declared in the Terraform configuration for an imported resource.
 type Workflow struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the workflow.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Change description of the workflow.
+	Arn               pulumi.StringOutput    `pulumi:"arn"`
 	ChangeDescription pulumi.StringPtrOutput `pulumi:"changeDescription"`
-	// Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
-	Data pulumi.StringOutput `pulumi:"data"`
-	// Date the workflow was created.
-	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
-	// Description of the workflow.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
-	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// Name of the workflow.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Owner of the workflow.
-	Owner pulumi.StringOutput `pulumi:"owner"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of resource tags for the workflow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Type of the workflow. Valid values: `BUILD`, `TEST`.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
-	Uri pulumi.StringPtrOutput `pulumi:"uri"`
-	// Version of the workflow.
-	//
-	// The following arguments are optional:
-	Version pulumi.StringOutput `pulumi:"version"`
+	Data              pulumi.StringOutput    `pulumi:"data"`
+	DateCreated       pulumi.StringOutput    `pulumi:"dateCreated"`
+	Description       pulumi.StringPtrOutput `pulumi:"description"`
+	KmsKeyId          pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	Owner             pulumi.StringOutput    `pulumi:"owner"`
+	Region            pulumi.StringOutput    `pulumi:"region"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll           pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
+	Uri               pulumi.StringPtrOutput `pulumi:"uri"`
+	Version           pulumi.StringOutput    `pulumi:"version"`
 }
 
 // NewWorkflow registers a new resource with the given unique name, arguments, and options.
@@ -160,67 +67,37 @@ func GetWorkflow(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workflow resources.
 type workflowState struct {
-	// Amazon Resource Name (ARN) of the workflow.
-	Arn *string `pulumi:"arn"`
-	// Change description of the workflow.
-	ChangeDescription *string `pulumi:"changeDescription"`
-	// Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
-	Data *string `pulumi:"data"`
-	// Date the workflow was created.
-	DateCreated *string `pulumi:"dateCreated"`
-	// Description of the workflow.
-	Description *string `pulumi:"description"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Name of the workflow.
-	Name *string `pulumi:"name"`
-	// Owner of the workflow.
-	Owner *string `pulumi:"owner"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags for the workflow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Type of the workflow. Valid values: `BUILD`, `TEST`.
-	Type *string `pulumi:"type"`
-	// S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
-	Uri *string `pulumi:"uri"`
-	// Version of the workflow.
-	//
-	// The following arguments are optional:
-	Version *string `pulumi:"version"`
+	Arn               *string           `pulumi:"arn"`
+	ChangeDescription *string           `pulumi:"changeDescription"`
+	Data              *string           `pulumi:"data"`
+	DateCreated       *string           `pulumi:"dateCreated"`
+	Description       *string           `pulumi:"description"`
+	KmsKeyId          *string           `pulumi:"kmsKeyId"`
+	Name              *string           `pulumi:"name"`
+	Owner             *string           `pulumi:"owner"`
+	Region            *string           `pulumi:"region"`
+	Tags              map[string]string `pulumi:"tags"`
+	TagsAll           map[string]string `pulumi:"tagsAll"`
+	Type              *string           `pulumi:"type"`
+	Uri               *string           `pulumi:"uri"`
+	Version           *string           `pulumi:"version"`
 }
 
 type WorkflowState struct {
-	// Amazon Resource Name (ARN) of the workflow.
-	Arn pulumi.StringPtrInput
-	// Change description of the workflow.
+	Arn               pulumi.StringPtrInput
 	ChangeDescription pulumi.StringPtrInput
-	// Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
-	Data pulumi.StringPtrInput
-	// Date the workflow was created.
-	DateCreated pulumi.StringPtrInput
-	// Description of the workflow.
-	Description pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
-	KmsKeyId pulumi.StringPtrInput
-	// Name of the workflow.
-	Name pulumi.StringPtrInput
-	// Owner of the workflow.
-	Owner pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags for the workflow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
-	// Type of the workflow. Valid values: `BUILD`, `TEST`.
-	Type pulumi.StringPtrInput
-	// S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
-	Uri pulumi.StringPtrInput
-	// Version of the workflow.
-	//
-	// The following arguments are optional:
-	Version pulumi.StringPtrInput
+	Data              pulumi.StringPtrInput
+	DateCreated       pulumi.StringPtrInput
+	Description       pulumi.StringPtrInput
+	KmsKeyId          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	Owner             pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	TagsAll           pulumi.StringMapInput
+	Type              pulumi.StringPtrInput
+	Uri               pulumi.StringPtrInput
+	Version           pulumi.StringPtrInput
 }
 
 func (WorkflowState) ElementType() reflect.Type {
@@ -228,54 +105,30 @@ func (WorkflowState) ElementType() reflect.Type {
 }
 
 type workflowArgs struct {
-	// Change description of the workflow.
-	ChangeDescription *string `pulumi:"changeDescription"`
-	// Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
-	Data *string `pulumi:"data"`
-	// Description of the workflow.
-	Description *string `pulumi:"description"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Name of the workflow.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags for the workflow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of the workflow. Valid values: `BUILD`, `TEST`.
-	Type string `pulumi:"type"`
-	// S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
-	Uri *string `pulumi:"uri"`
-	// Version of the workflow.
-	//
-	// The following arguments are optional:
-	Version string `pulumi:"version"`
+	ChangeDescription *string           `pulumi:"changeDescription"`
+	Data              *string           `pulumi:"data"`
+	Description       *string           `pulumi:"description"`
+	KmsKeyId          *string           `pulumi:"kmsKeyId"`
+	Name              *string           `pulumi:"name"`
+	Region            *string           `pulumi:"region"`
+	Tags              map[string]string `pulumi:"tags"`
+	Type              string            `pulumi:"type"`
+	Uri               *string           `pulumi:"uri"`
+	Version           string            `pulumi:"version"`
 }
 
 // The set of arguments for constructing a Workflow resource.
 type WorkflowArgs struct {
-	// Change description of the workflow.
 	ChangeDescription pulumi.StringPtrInput
-	// Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
-	Data pulumi.StringPtrInput
-	// Description of the workflow.
-	Description pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
-	KmsKeyId pulumi.StringPtrInput
-	// Name of the workflow.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags for the workflow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Type of the workflow. Valid values: `BUILD`, `TEST`.
-	Type pulumi.StringInput
-	// S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
-	Uri pulumi.StringPtrInput
-	// Version of the workflow.
-	//
-	// The following arguments are optional:
-	Version pulumi.StringInput
+	Data              pulumi.StringPtrInput
+	Description       pulumi.StringPtrInput
+	KmsKeyId          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	Type              pulumi.StringInput
+	Uri               pulumi.StringPtrInput
+	Version           pulumi.StringInput
 }
 
 func (WorkflowArgs) ElementType() reflect.Type {
@@ -365,52 +218,42 @@ func (o WorkflowOutput) ToWorkflowOutputWithContext(ctx context.Context) Workflo
 	return o
 }
 
-// Amazon Resource Name (ARN) of the workflow.
 func (o WorkflowOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Change description of the workflow.
 func (o WorkflowOutput) ChangeDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.ChangeDescription }).(pulumi.StringPtrOutput)
 }
 
-// Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
 func (o WorkflowOutput) Data() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Data }).(pulumi.StringOutput)
 }
 
-// Date the workflow was created.
 func (o WorkflowOutput) DateCreated() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.DateCreated }).(pulumi.StringOutput)
 }
 
-// Description of the workflow.
 func (o WorkflowOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
 func (o WorkflowOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Name of the workflow.
 func (o WorkflowOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Owner of the workflow.
 func (o WorkflowOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WorkflowOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags for the workflow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o WorkflowOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -419,19 +262,14 @@ func (o WorkflowOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Type of the workflow. Valid values: `BUILD`, `TEST`.
 func (o WorkflowOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
 func (o WorkflowOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
-// Version of the workflow.
-//
-// The following arguments are optional:
 func (o WorkflowOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecification {
-    /**
-     * @return Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
-     * 
-     */
     private String predefinedMetricType;
-    /**
-     * @return Label that uniquely identifies a specific target group from which to determine the total and average request count.
-     * 
-     */
     private @Nullable String resourceLabel;
 
     private PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecification() {}
-    /**
-     * @return Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
-     * 
-     */
     public String predefinedMetricType() {
         return this.predefinedMetricType;
     }
-    /**
-     * @return Label that uniquely identifies a specific target group from which to determine the total and average request count.
-     * 
-     */
     public Optional<String> resourceLabel() {
         return Optional.ofNullable(this.resourceLabel);
     }

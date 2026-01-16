@@ -12,21 +12,12 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
 
     public sealed class DomainAdvancedSecurityOptionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether advanced security is enabled.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
-        /// <summary>
-        /// Whether the internal user database is enabled. If not set, defaults to `False` by the AWS API.
-        /// </summary>
         [Input("internalUserDatabaseEnabled")]
         public Input<bool>? InternalUserDatabaseEnabled { get; set; }
 
-        /// <summary>
-        /// Configuration block for the main user. Detailed below.
-        /// </summary>
         [Input("masterUserOptions")]
         public Input<Inputs.DomainAdvancedSecurityOptionsMasterUserOptionsArgs>? MasterUserOptions { get; set; }
 

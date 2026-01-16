@@ -15,51 +15,23 @@ public final class GetRouterConfigurationPlainArgs extends com.pulumi.resources.
 
     public static final GetRouterConfigurationPlainArgs Empty = new GetRouterConfigurationPlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
-     * 
-     * There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
-     * 
-     */
     @Import(name="routerTypeIdentifier", required=true)
     private String routerTypeIdentifier;
 
-    /**
-     * @return ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
-     * 
-     * There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
-     * 
-     */
     public String routerTypeIdentifier() {
         return this.routerTypeIdentifier;
     }
 
-    /**
-     * ID of the Direct Connect Virtual Interface
-     * 
-     */
     @Import(name="virtualInterfaceId", required=true)
     private String virtualInterfaceId;
 
-    /**
-     * @return ID of the Direct Connect Virtual Interface
-     * 
-     */
     public String virtualInterfaceId() {
         return this.virtualInterfaceId;
     }
@@ -90,36 +62,16 @@ public final class GetRouterConfigurationPlainArgs extends com.pulumi.resources.
             $ = new GetRouterConfigurationPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param routerTypeIdentifier ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
-         * 
-         * There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
-         * 
-         * @return builder
-         * 
-         */
         public Builder routerTypeIdentifier(String routerTypeIdentifier) {
             $.routerTypeIdentifier = routerTypeIdentifier;
             return this;
         }
 
-        /**
-         * @param virtualInterfaceId ID of the Direct Connect Virtual Interface
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualInterfaceId(String virtualInterfaceId) {
             $.virtualInterfaceId = virtualInterfaceId;
             return this;

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class GetClusterStorageConfigResult
     {
-        /// <summary>
-        /// Contains block storage configuration for EKS Auto Mode enabled cluster.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterStorageConfigBlockStorageResult> BlockStorages;
 
         [OutputConstructor]

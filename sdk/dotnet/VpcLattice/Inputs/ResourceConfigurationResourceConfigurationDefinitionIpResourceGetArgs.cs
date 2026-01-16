@@ -12,9 +12,6 @@ namespace Pulumi.Aws.VpcLattice.Inputs
 
     public sealed class ResourceConfigurationResourceConfigurationDefinitionIpResourceGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The IP Address of the Resource for this configuration.
-        /// </summary>
         [Input("ipAddress", required: true)]
         public Input<string> IpAddress { get; set; } = null!;
 

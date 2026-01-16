@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig {
-    /**
-     * @return Name of the Amazon S3 bucket.
-     * 
-     */
     private @Nullable String bucketName;
-    /**
-     * @return Amazon S3 bucket prefix.
-     * 
-     */
     private @Nullable String bucketPrefix;
-    /**
-     * @return If the flow should fail after the first instance of a failure when attempting to place data in the destination.
-     * 
-     */
     private @Nullable Boolean failOnFirstDestinationError;
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig() {}
-    /**
-     * @return Name of the Amazon S3 bucket.
-     * 
-     */
     public Optional<String> bucketName() {
         return Optional.ofNullable(this.bucketName);
     }
-    /**
-     * @return Amazon S3 bucket prefix.
-     * 
-     */
     public Optional<String> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
-    /**
-     * @return If the flow should fail after the first instance of a failure when attempting to place data in the destination.
-     * 
-     */
     public Optional<Boolean> failOnFirstDestinationError() {
         return Optional.ofNullable(this.failOnFirstDestinationError);
     }

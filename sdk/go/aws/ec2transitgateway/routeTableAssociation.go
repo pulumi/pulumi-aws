@@ -12,187 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an EC2 Transit Gateway Route Table association.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.NewRouteTableAssociation(ctx, "example", &ec2transitgateway.RouteTableAssociationArgs{
-//				TransitGatewayAttachmentId: pulumi.Any(exampleAwsEc2TransitGatewayVpcAttachment.Id),
-//				TransitGatewayRouteTableId: pulumi.Any(exampleAwsEc2TransitGatewayRouteTable.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Direct Connect Gateway Association
-//
-// When associating a Direct Connect Gateway attachment, reference the `transitGatewayAttachmentId` attribute directly from the `directconnect.GatewayAssociation` resource (available in v6.5.0+):
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := directconnect.NewGateway(ctx, "example", &directconnect.GatewayArgs{
-//				Name:          pulumi.String("example"),
-//				AmazonSideAsn: pulumi.String("64512"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "example", &ec2transitgateway.TransitGatewayArgs{
-//				Description: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleGatewayAssociation, err := directconnect.NewGatewayAssociation(ctx, "example", &directconnect.GatewayAssociationArgs{
-//				DxGatewayId:         example.ID(),
-//				AssociatedGatewayId: exampleTransitGateway.ID(),
-//				AllowedPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleRouteTable, err := ec2transitgateway.NewRouteTable(ctx, "example", &ec2transitgateway.RouteTableArgs{
-//				TransitGatewayId: exampleTransitGateway.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// Correct: Reference the attachment ID directly from the association resource
-//			_, err = ec2transitgateway.NewRouteTableAssociation(ctx, "example", &ec2transitgateway.RouteTableAssociationArgs{
-//				TransitGatewayAttachmentId: exampleGatewayAssociation.TransitGatewayAttachmentId,
-//				TransitGatewayRouteTableId: exampleRouteTable.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// > **NOTE:** Avoid using the `ec2transitgateway.getDirectConnectGatewayAttachment` data source to retrieve the attachment ID, as this can cause unnecessary resource recreation when unrelated attributes of the Direct Connect Gateway association change (such as `allowedPrefixes`). Always reference the `transitGatewayAttachmentId` attribute directly from the `directconnect.GatewayAssociation` resource when available.
-//
-// ### VPC Attachment Association
-//
-// For VPC attachments, always reference the attachment resource's `id` attribute directly. Avoid using data sources or lifecycle rules that might cause the attachment ID to become unknown during planning:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := ec2.NewSubnet(ctx, "example", &ec2.SubnetArgs{
-//				VpcId:     example.ID(),
-//				CidrBlock: pulumi.String("10.0.1.0/24"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "example", &ec2transitgateway.TransitGatewayArgs{
-//				Description: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpcAttachment, err := ec2transitgateway.NewVpcAttachment(ctx, "example", &ec2transitgateway.VpcAttachmentArgs{
-//				SubnetIds: pulumi.StringArray{
-//					exampleSubnet.ID(),
-//				},
-//				TransitGatewayId: exampleTransitGateway.ID(),
-//				VpcId:            example.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleRouteTable, err := ec2transitgateway.NewRouteTable(ctx, "example", &ec2transitgateway.RouteTableArgs{
-//				TransitGatewayId: exampleTransitGateway.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// Correct: Reference the VPC attachment ID directly
-//			_, err = ec2transitgateway.NewRouteTableAssociation(ctx, "example", &ec2transitgateway.RouteTableAssociationArgs{
-//				TransitGatewayAttachmentId: exampleVpcAttachment.ID(),
-//				TransitGatewayRouteTableId: exampleRouteTable.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// > **NOTE:** When the `transitGatewayAttachmentId` changes (for example, when a VPC attachment is replaced), this resource will be recreated. This is the correct behavior to maintain consistency between the attachment and its route table association.
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_ec2_transit_gateway_route_table_association` using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
-// ```
 type RouteTableAssociation struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
+	Region                     pulumi.StringOutput  `pulumi:"region"`
 	ReplaceExistingAssociation pulumi.BoolPtrOutput `pulumi:"replaceExistingAssociation"`
-	// Identifier of the resource
-	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	// Type of the resource
-	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
-	// Identifier of EC2 Transit Gateway Attachment.
-	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
-	// Identifier of EC2 Transit Gateway Route Table.
-	TransitGatewayRouteTableId pulumi.StringOutput `pulumi:"transitGatewayRouteTableId"`
+	ResourceId                 pulumi.StringOutput  `pulumi:"resourceId"`
+	ResourceType               pulumi.StringOutput  `pulumi:"resourceType"`
+	TransitGatewayAttachmentId pulumi.StringOutput  `pulumi:"transitGatewayAttachmentId"`
+	TransitGatewayRouteTableId pulumi.StringOutput  `pulumi:"transitGatewayRouteTableId"`
 }
 
 // NewRouteTableAssociation registers a new resource with the given unique name, arguments, and options.
@@ -231,32 +59,20 @@ func GetRouteTableAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RouteTableAssociation resources.
 type routeTableAssociationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
-	ReplaceExistingAssociation *bool `pulumi:"replaceExistingAssociation"`
-	// Identifier of the resource
-	ResourceId *string `pulumi:"resourceId"`
-	// Type of the resource
-	ResourceType *string `pulumi:"resourceType"`
-	// Identifier of EC2 Transit Gateway Attachment.
+	Region                     *string `pulumi:"region"`
+	ReplaceExistingAssociation *bool   `pulumi:"replaceExistingAssociation"`
+	ResourceId                 *string `pulumi:"resourceId"`
+	ResourceType               *string `pulumi:"resourceType"`
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
-	// Identifier of EC2 Transit Gateway Route Table.
 	TransitGatewayRouteTableId *string `pulumi:"transitGatewayRouteTableId"`
 }
 
 type RouteTableAssociationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
+	Region                     pulumi.StringPtrInput
 	ReplaceExistingAssociation pulumi.BoolPtrInput
-	// Identifier of the resource
-	ResourceId pulumi.StringPtrInput
-	// Type of the resource
-	ResourceType pulumi.StringPtrInput
-	// Identifier of EC2 Transit Gateway Attachment.
+	ResourceId                 pulumi.StringPtrInput
+	ResourceType               pulumi.StringPtrInput
 	TransitGatewayAttachmentId pulumi.StringPtrInput
-	// Identifier of EC2 Transit Gateway Route Table.
 	TransitGatewayRouteTableId pulumi.StringPtrInput
 }
 
@@ -265,25 +81,17 @@ func (RouteTableAssociationState) ElementType() reflect.Type {
 }
 
 type routeTableAssociationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
-	ReplaceExistingAssociation *bool `pulumi:"replaceExistingAssociation"`
-	// Identifier of EC2 Transit Gateway Attachment.
-	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`
-	// Identifier of EC2 Transit Gateway Route Table.
-	TransitGatewayRouteTableId string `pulumi:"transitGatewayRouteTableId"`
+	Region                     *string `pulumi:"region"`
+	ReplaceExistingAssociation *bool   `pulumi:"replaceExistingAssociation"`
+	TransitGatewayAttachmentId string  `pulumi:"transitGatewayAttachmentId"`
+	TransitGatewayRouteTableId string  `pulumi:"transitGatewayRouteTableId"`
 }
 
 // The set of arguments for constructing a RouteTableAssociation resource.
 type RouteTableAssociationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
+	Region                     pulumi.StringPtrInput
 	ReplaceExistingAssociation pulumi.BoolPtrInput
-	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId pulumi.StringInput
-	// Identifier of EC2 Transit Gateway Route Table.
 	TransitGatewayRouteTableId pulumi.StringInput
 }
 
@@ -374,32 +182,26 @@ func (o RouteTableAssociationOutput) ToRouteTableAssociationOutputWithContext(ct
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RouteTableAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTableAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
 func (o RouteTableAssociationOutput) ReplaceExistingAssociation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RouteTableAssociation) pulumi.BoolPtrOutput { return v.ReplaceExistingAssociation }).(pulumi.BoolPtrOutput)
 }
 
-// Identifier of the resource
 func (o RouteTableAssociationOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTableAssociation) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// Type of the resource
 func (o RouteTableAssociationOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTableAssociation) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Identifier of EC2 Transit Gateway Attachment.
 func (o RouteTableAssociationOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTableAssociation) pulumi.StringOutput { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
 }
 
-// Identifier of EC2 Transit Gateway Route Table.
 func (o RouteTableAssociationOutput) TransitGatewayRouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTableAssociation) pulumi.StringOutput { return v.TransitGatewayRouteTableId }).(pulumi.StringOutput)
 }

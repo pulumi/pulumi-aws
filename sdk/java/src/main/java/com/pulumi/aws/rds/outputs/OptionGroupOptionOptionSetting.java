@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class OptionGroupOptionOptionSetting {
-    /**
-     * @return Name of the setting.
-     * 
-     */
     private String name;
-    /**
-     * @return Value of the setting.
-     * 
-     */
     private String value;
 
     private OptionGroupOptionOptionSetting() {}
-    /**
-     * @return Name of the setting.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Value of the setting.
-     * 
-     */
     public String value() {
         return this.value;
     }

@@ -13,17 +13,9 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperationAuditFind
 
     public static final GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3 Empty = new GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3();
 
-    /**
-     * Name of the S3 Bucket to send findings to.
-     * 
-     */
     @Import(name="bucket", required=true)
     private String bucket;
 
-    /**
-     * @return Name of the S3 Bucket to send findings to.
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }
@@ -52,12 +44,6 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperationAuditFind
             $ = new GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket Name of the S3 Bucket to send findings to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             $.bucket = bucket;
             return this;

@@ -14,9 +14,6 @@ namespace Pulumi.Aws.Signer.Outputs
     public sealed class SigningJobDestinationS3
     {
         public readonly string Bucket;
-        /// <summary>
-        /// An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
-        /// </summary>
         public readonly string? Prefix;
 
         [OutputConstructor]

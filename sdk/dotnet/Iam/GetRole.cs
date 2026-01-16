@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Iam
 {
     public static class GetRole
     {
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// IAM role. By using this data source, you can reference IAM role
-        /// properties without having to hard code ARNs as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetRole.Invoke(new()
-        ///     {
-        ///         Name = "an_example_role_name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetRoleResult> InvokeAsync(GetRoleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("aws:iam/getRole:getRole", args ?? new GetRoleArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// IAM role. By using this data source, you can reference IAM role
-        /// properties without having to hard code ARNs as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetRole.Invoke(new()
-        ///     {
-        ///         Name = "an_example_role_name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetRoleResult> Invoke(GetRoleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleResult>("aws:iam/getRole:getRole", args ?? new GetRoleInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// IAM role. By using this data source, you can reference IAM role
-        /// properties without having to hard code ARNs as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetRole.Invoke(new()
-        ///     {
-        ///         Name = "an_example_role_name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetRoleResult> Invoke(GetRoleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleResult>("aws:iam/getRole:getRole", args ?? new GetRoleInvokeArgs(), options.WithDefaults());
     }
@@ -93,18 +24,11 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GetRoleArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Friendly IAM role name to match.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Tags attached to the role.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -119,18 +43,11 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GetRoleInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Friendly IAM role name to match.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags attached to the role.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -147,50 +64,20 @@ namespace Pulumi.Aws.Iam
     [OutputType]
     public sealed class GetRoleResult
     {
-        /// <summary>
-        /// ARN of the role.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Policy document associated with the role.
-        /// </summary>
         public readonly string AssumeRolePolicy;
-        /// <summary>
-        /// Creation date of the role in RFC 3339 format.
-        /// </summary>
         public readonly string CreateDate;
-        /// <summary>
-        /// Description for the role.
-        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Maximum session duration.
-        /// </summary>
         public readonly int MaxSessionDuration;
         public readonly string Name;
-        /// <summary>
-        /// Path to the role.
-        /// </summary>
         public readonly string Path;
-        /// <summary>
-        /// The ARN of the policy that is used to set the permissions boundary for the role.
-        /// </summary>
         public readonly string PermissionsBoundary;
-        /// <summary>
-        /// Contains information about the last time that an IAM role was used. See `RoleLastUsed` for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetRoleRoleLastUsedResult> RoleLastUseds;
-        /// <summary>
-        /// Tags attached to the role.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Stable and unique string identifying the role.
-        /// </summary>
         public readonly string UniqueId;
 
         [OutputConstructor]

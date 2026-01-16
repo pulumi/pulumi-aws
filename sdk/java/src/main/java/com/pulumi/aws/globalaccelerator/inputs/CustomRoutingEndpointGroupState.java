@@ -18,77 +18,37 @@ public final class CustomRoutingEndpointGroupState extends com.pulumi.resources.
 
     public static final CustomRoutingEndpointGroupState Empty = new CustomRoutingEndpointGroupState();
 
-    /**
-     * The Amazon Resource Name (ARN) of the custom routing endpoint group.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the custom routing endpoint group.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
-     * 
-     */
     @Import(name="destinationConfigurations")
     private @Nullable Output<List<CustomRoutingEndpointGroupDestinationConfigurationArgs>> destinationConfigurations;
 
-    /**
-     * @return The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
-     * 
-     */
     public Optional<Output<List<CustomRoutingEndpointGroupDestinationConfigurationArgs>>> destinationConfigurations() {
         return Optional.ofNullable(this.destinationConfigurations);
     }
 
-    /**
-     * The list of endpoint objects. Fields documented below.
-     * 
-     */
     @Import(name="endpointConfigurations")
     private @Nullable Output<List<CustomRoutingEndpointGroupEndpointConfigurationArgs>> endpointConfigurations;
 
-    /**
-     * @return The list of endpoint objects. Fields documented below.
-     * 
-     */
     public Optional<Output<List<CustomRoutingEndpointGroupEndpointConfigurationArgs>>> endpointConfigurations() {
         return Optional.ofNullable(this.endpointConfigurations);
     }
 
-    /**
-     * The name of the AWS Region where the custom routing endpoint group is located.
-     * 
-     */
     @Import(name="endpointGroupRegion")
     private @Nullable Output<String> endpointGroupRegion;
 
-    /**
-     * @return The name of the AWS Region where the custom routing endpoint group is located.
-     * 
-     */
     public Optional<Output<String>> endpointGroupRegion() {
         return Optional.ofNullable(this.endpointGroupRegion);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the custom routing listener.
-     * 
-     */
     @Import(name="listenerArn")
     private @Nullable Output<String> listenerArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the custom routing listener.
-     * 
-     */
     public Optional<Output<String>> listenerArn() {
         return Optional.ofNullable(this.listenerArn);
     }
@@ -121,127 +81,55 @@ public final class CustomRoutingEndpointGroupState extends com.pulumi.resources.
             $ = new CustomRoutingEndpointGroupState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the custom routing endpoint group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the custom routing endpoint group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param destinationConfigurations The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationConfigurations(@Nullable Output<List<CustomRoutingEndpointGroupDestinationConfigurationArgs>> destinationConfigurations) {
             $.destinationConfigurations = destinationConfigurations;
             return this;
         }
 
-        /**
-         * @param destinationConfigurations The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationConfigurations(List<CustomRoutingEndpointGroupDestinationConfigurationArgs> destinationConfigurations) {
             return destinationConfigurations(Output.of(destinationConfigurations));
         }
 
-        /**
-         * @param destinationConfigurations The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationConfigurations(CustomRoutingEndpointGroupDestinationConfigurationArgs... destinationConfigurations) {
             return destinationConfigurations(List.of(destinationConfigurations));
         }
 
-        /**
-         * @param endpointConfigurations The list of endpoint objects. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointConfigurations(@Nullable Output<List<CustomRoutingEndpointGroupEndpointConfigurationArgs>> endpointConfigurations) {
             $.endpointConfigurations = endpointConfigurations;
             return this;
         }
 
-        /**
-         * @param endpointConfigurations The list of endpoint objects. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointConfigurations(List<CustomRoutingEndpointGroupEndpointConfigurationArgs> endpointConfigurations) {
             return endpointConfigurations(Output.of(endpointConfigurations));
         }
 
-        /**
-         * @param endpointConfigurations The list of endpoint objects. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointConfigurations(CustomRoutingEndpointGroupEndpointConfigurationArgs... endpointConfigurations) {
             return endpointConfigurations(List.of(endpointConfigurations));
         }
 
-        /**
-         * @param endpointGroupRegion The name of the AWS Region where the custom routing endpoint group is located.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointGroupRegion(@Nullable Output<String> endpointGroupRegion) {
             $.endpointGroupRegion = endpointGroupRegion;
             return this;
         }
 
-        /**
-         * @param endpointGroupRegion The name of the AWS Region where the custom routing endpoint group is located.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointGroupRegion(String endpointGroupRegion) {
             return endpointGroupRegion(Output.of(endpointGroupRegion));
         }
 
-        /**
-         * @param listenerArn The Amazon Resource Name (ARN) of the custom routing listener.
-         * 
-         * @return builder
-         * 
-         */
         public Builder listenerArn(@Nullable Output<String> listenerArn) {
             $.listenerArn = listenerArn;
             return this;
         }
 
-        /**
-         * @param listenerArn The Amazon Resource Name (ARN) of the custom routing listener.
-         * 
-         * @return builder
-         * 
-         */
         public Builder listenerArn(String listenerArn) {
             return listenerArn(Output.of(listenerArn));
         }

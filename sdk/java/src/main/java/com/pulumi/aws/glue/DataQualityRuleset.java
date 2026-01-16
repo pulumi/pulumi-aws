@@ -16,316 +16,71 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Glue Data Quality Ruleset Resource. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/glue-data-quality.html) for a full explanation of the Glue Data Quality Ruleset functionality
- * 
- * ## Example Usage
- * 
- * ### Basic
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.DataQualityRuleset;
- * import com.pulumi.aws.glue.DataQualityRulesetArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataQualityRuleset("example", DataQualityRulesetArgs.builder()
- *             .name("example")
- *             .ruleset("Rules = [Completeness \"colA\" between 0.4 and 0.8]")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### With description
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.DataQualityRuleset;
- * import com.pulumi.aws.glue.DataQualityRulesetArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataQualityRuleset("example", DataQualityRulesetArgs.builder()
- *             .name("example")
- *             .description("example")
- *             .ruleset("Rules = [Completeness \"colA\" between 0.4 and 0.8]")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### With tags
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.DataQualityRuleset;
- * import com.pulumi.aws.glue.DataQualityRulesetArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataQualityRuleset("example", DataQualityRulesetArgs.builder()
- *             .name("example")
- *             .ruleset("Rules = [Completeness \"colA\" between 0.4 and 0.8]")
- *             .tags(Map.of("hello", "world"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### With targetTable
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.DataQualityRuleset;
- * import com.pulumi.aws.glue.DataQualityRulesetArgs;
- * import com.pulumi.aws.glue.inputs.DataQualityRulesetTargetTableArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataQualityRuleset("example", DataQualityRulesetArgs.builder()
- *             .name("example")
- *             .ruleset("Rules = [Completeness \"colA\" between 0.4 and 0.8]")
- *             .targetTable(DataQualityRulesetTargetTableArgs.builder()
- *                 .databaseName(exampleAwsGlueCatalogDatabase.name())
- *                 .tableName(exampleAwsGlueCatalogTable.name())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Glue Data Quality Ruleset using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:glue/dataQualityRuleset:DataQualityRuleset example exampleName
- * ```
- * 
- */
 @ResourceType(type="aws:glue/dataQualityRuleset:DataQualityRuleset")
 public class DataQualityRuleset extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Glue Data Quality Ruleset.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Glue Data Quality Ruleset.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The time and date that this data quality ruleset was created.
-     * 
-     */
     @Export(name="createdOn", refs={String.class}, tree="[0]")
     private Output<String> createdOn;
 
-    /**
-     * @return The time and date that this data quality ruleset was created.
-     * 
-     */
     public Output<String> createdOn() {
         return this.createdOn;
     }
-    /**
-     * Description of the data quality ruleset.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the data quality ruleset.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The time and date that this data quality ruleset was created.
-     * 
-     */
     @Export(name="lastModifiedOn", refs={String.class}, tree="[0]")
     private Output<String> lastModifiedOn;
 
-    /**
-     * @return The time and date that this data quality ruleset was created.
-     * 
-     */
     public Output<String> lastModifiedOn() {
         return this.lastModifiedOn;
     }
-    /**
-     * Name of the data quality ruleset.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the data quality ruleset.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
-     * 
-     */
     @Export(name="recommendationRunId", refs={String.class}, tree="[0]")
     private Output<String> recommendationRunId;
 
-    /**
-     * @return When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
-     * 
-     */
     public Output<String> recommendationRunId() {
         return this.recommendationRunId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
-     * 
-     */
     @Export(name="ruleset", refs={String.class}, tree="[0]")
     private Output<String> ruleset;
 
-    /**
-     * @return A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
-     * 
-     */
     public Output<String> ruleset() {
         return this.ruleset;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
-     * 
-     */
     @Export(name="targetTable", refs={DataQualityRulesetTargetTable.class}, tree="[0]")
     private Output</* @Nullable */ DataQualityRulesetTargetTable> targetTable;
 
-    /**
-     * @return A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
-     * 
-     */
     public Output<Optional<DataQualityRulesetTargetTable>> targetTable() {
         return Codegen.optional(this.targetTable);
     }

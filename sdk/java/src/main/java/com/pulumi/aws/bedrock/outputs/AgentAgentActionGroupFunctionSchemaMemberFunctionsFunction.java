@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction {
-    /**
-     * @return Description of the function and its purpose.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return Name for the function.
-     * 
-     */
     private String name;
-    /**
-     * @return Parameters that the agent elicits from the user to fulfill the function. See `parameters` Block for details.
-     * 
-     */
     private @Nullable List<AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter> parameters;
 
     private AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction() {}
-    /**
-     * @return Description of the function and its purpose.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return Name for the function.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Parameters that the agent elicits from the user to fulfill the function. See `parameters` Block for details.
-     * 
-     */
     public List<AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter> parameters() {
         return this.parameters == null ? List.of() : this.parameters;
     }

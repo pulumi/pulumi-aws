@@ -62,25 +62,16 @@ class GetGroupResult:
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the specified group.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> _builtins.str:
-        """
-        Group's display name value.
-        """
         return pulumi.get(self, "display_name")
 
     @_builtins.property
     @pulumi.getter(name="externalIds")
     def external_ids(self) -> Sequence['outputs.GetGroupExternalIdResult']:
-        """
-        List of identifiers issued to this resource by an external identity provider.
-        """
         return pulumi.get(self, "external_ids")
 
     @_builtins.property
@@ -129,34 +120,7 @@ def get_group(alternate_identifier: Optional[Union['GetGroupAlternateIdentifierA
               region: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
-    Use this data source to get an Identity Store Group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssoadmin.get_instances()
-    example_get_group = aws.identitystore.get_group(identity_store_id=example.identity_store_ids[0],
-        alternate_identifier={
-            "unique_attribute": {
-                "attribute_path": "DisplayName",
-                "attribute_value": "ExampleGroup",
-            },
-        })
-    pulumi.export("groupId", example_get_group.group_id)
-    ```
-
-
-    :param Union['GetGroupAlternateIdentifierArgs', 'GetGroupAlternateIdentifierArgsDict'] alternate_identifier: A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
-    :param _builtins.str group_id: The identifier for a group in the Identity Store.
-           
-           > Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
-    :param _builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['alternateIdentifier'] = alternate_identifier
@@ -181,34 +145,7 @@ def get_group_output(alternate_identifier: Optional[pulumi.Input[Optional[Union[
                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
     """
-    Use this data source to get an Identity Store Group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssoadmin.get_instances()
-    example_get_group = aws.identitystore.get_group(identity_store_id=example.identity_store_ids[0],
-        alternate_identifier={
-            "unique_attribute": {
-                "attribute_path": "DisplayName",
-                "attribute_value": "ExampleGroup",
-            },
-        })
-    pulumi.export("groupId", example_get_group.group_id)
-    ```
-
-
-    :param Union['GetGroupAlternateIdentifierArgs', 'GetGroupAlternateIdentifierArgsDict'] alternate_identifier: A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
-    :param _builtins.str group_id: The identifier for a group in the Identity Store.
-           
-           > Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
-    :param _builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['alternateIdentifier'] = alternate_identifier

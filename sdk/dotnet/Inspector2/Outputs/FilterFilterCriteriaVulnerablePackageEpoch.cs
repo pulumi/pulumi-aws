@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Inspector2.Outputs
     [OutputType]
     public sealed class FilterFilterCriteriaVulnerablePackageEpoch
     {
-        /// <summary>
-        /// (Optional) Lower bound of the range, inclusive.
-        /// </summary>
         public readonly double LowerInclusive;
-        /// <summary>
-        /// (Optional) Upper bound of the range, inclusive.
-        /// </summary>
         public readonly double UpperInclusive;
 
         [OutputConstructor]

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSetColumnGroupGeoSpatialColumnGroup
     {
-        /// <summary>
-        /// Columns in this hierarchy.
-        /// </summary>
         public readonly ImmutableArray<string> Columns;
-        /// <summary>
-        /// Country code. Valid values are `US`.
-        /// </summary>
         public readonly string CountryCode;
-        /// <summary>
-        /// A display name for the hierarchy.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

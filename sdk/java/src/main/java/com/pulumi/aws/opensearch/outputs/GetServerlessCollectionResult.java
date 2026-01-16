@@ -11,106 +11,38 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServerlessCollectionResult {
-    /**
-     * @return Amazon Resource Name (ARN) of the collection.
-     * 
-     */
     private String arn;
-    /**
-     * @return Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
-     * 
-     */
     private String collectionEndpoint;
-    /**
-     * @return Date the Collection was created.
-     * 
-     */
     private String createdDate;
-    /**
-     * @return Collection-specific endpoint used to access OpenSearch Dashboards.
-     * 
-     */
     private String dashboardEndpoint;
-    /**
-     * @return Description of the collection.
-     * 
-     */
     private String description;
-    /**
-     * @return A failure code associated with the collection.
-     * 
-     */
     private String failureCode;
     private String failureMessage;
     private String id;
-    /**
-     * @return The ARN of the Amazon Web Services KMS key used to encrypt the collection.
-     * 
-     */
     private String kmsKeyArn;
-    /**
-     * @return Date the Collection was last modified.
-     * 
-     */
     private String lastModifiedDate;
     private String name;
     private String region;
-    /**
-     * @return Indicates whether standby replicas should be used for a collection.
-     * 
-     */
     private String standbyReplicas;
-    /**
-     * @return A map of tags to assign to the collection.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Type of collection.
-     * 
-     */
     private String type;
 
     private GetServerlessCollectionResult() {}
-    /**
-     * @return Amazon Resource Name (ARN) of the collection.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
-     * 
-     */
     public String collectionEndpoint() {
         return this.collectionEndpoint;
     }
-    /**
-     * @return Date the Collection was created.
-     * 
-     */
     public String createdDate() {
         return this.createdDate;
     }
-    /**
-     * @return Collection-specific endpoint used to access OpenSearch Dashboards.
-     * 
-     */
     public String dashboardEndpoint() {
         return this.dashboardEndpoint;
     }
-    /**
-     * @return Description of the collection.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return A failure code associated with the collection.
-     * 
-     */
     public String failureCode() {
         return this.failureCode;
     }
@@ -120,17 +52,9 @@ public final class GetServerlessCollectionResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The ARN of the Amazon Web Services KMS key used to encrypt the collection.
-     * 
-     */
     public String kmsKeyArn() {
         return this.kmsKeyArn;
     }
-    /**
-     * @return Date the Collection was last modified.
-     * 
-     */
     public String lastModifiedDate() {
         return this.lastModifiedDate;
     }
@@ -140,24 +64,12 @@ public final class GetServerlessCollectionResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Indicates whether standby replicas should be used for a collection.
-     * 
-     */
     public String standbyReplicas() {
         return this.standbyReplicas;
     }
-    /**
-     * @return A map of tags to assign to the collection.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Type of collection.
-     * 
-     */
     public String type() {
         return this.type;
     }

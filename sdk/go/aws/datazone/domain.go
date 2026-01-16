@@ -12,286 +12,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS DataZone Domain.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datazone"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
-//							"sts:AssumeRole",
-//							"sts:TagSession",
-//						},
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "datazone.amazonaws.com",
-//						},
-//					},
-//					map[string]interface{}{
-//						"Action": []string{
-//							"sts:AssumeRole",
-//							"sts:TagSession",
-//						},
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "cloudformation.amazonaws.com",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			domainExecutionRole, err := iam.NewRole(ctx, "domain_execution_role", &iam.RoleArgs{
-//				Name:             pulumi.String("my_domain_execution_role"),
-//				AssumeRolePolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON1, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
-//							"datazone:*",
-//							"ram:*",
-//							"sso:*",
-//							"kms:*",
-//						},
-//						"Effect":   "Allow",
-//						"Resource": "*",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json1 := string(tmpJSON1)
-//			_, err = iam.NewRolePolicy(ctx, "domain_execution_role", &iam.RolePolicyArgs{
-//				Role:   domainExecutionRole.Name,
-//				Policy: pulumi.String(json1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datazone.NewDomain(ctx, "example", &datazone.DomainArgs{
-//				Name:                pulumi.String("example"),
-//				DomainExecutionRole: domainExecutionRole.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### V2 Domain
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datazone"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// // IAM role for Domain Execution
-// assumeRoleDomainExecution, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "sts:AssumeRole",
-// "sts:TagSession",
-// "sts:SetContext",
-// },
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "Service",
-// Identifiers: []string{
-// "datazone.amazonaws.com",
-// },
-// },
-// },
-// Conditions: []iam.GetPolicyDocumentStatementCondition{
-// {
-// Test: "StringEquals",
-// Values: interface{}{
-// current.AccountId,
-// },
-// Variable: "aws:SourceAccount",
-// },
-// {
-// Test: "ForAllValues:StringLike",
-// Values: []string{
-// "datazone*",
-// },
-// Variable: "aws:TagKeys",
-// },
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// domainExecution, err := iam.NewRole(ctx, "domain_execution", &iam.RoleArgs{
-// AssumeRolePolicy: pulumi.String(assumeRoleDomainExecution.Json),
-// Name: pulumi.String("example-domain-execution-role"),
-// })
-// if err != nil {
-// return err
-// }
-// domainExecutionRole, err := iam.LookupPolicy(ctx, &iam.LookupPolicyArgs{
-// Name: pulumi.StringRef("SageMakerStudioDomainExecutionRolePolicy"),
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = iam.NewRolePolicyAttachment(ctx, "domain_execution", &iam.RolePolicyAttachmentArgs{
-// PolicyArn: pulumi.String(domainExecutionRole.Arn),
-// Role: domainExecution.Name,
-// })
-// if err != nil {
-// return err
-// }
-// // IAM role for Domain Service
-// assumeRoleDomainService, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "sts:AssumeRole",
-// },
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "Service",
-// Identifiers: []string{
-// "datazone.amazonaws.com",
-// },
-// },
-// },
-// Conditions: []iam.GetPolicyDocumentStatementCondition{
-// {
-// Test: "StringEquals",
-// Values: interface{}{
-// current.AccountId,
-// },
-// Variable: "aws:SourceAccount",
-// },
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// domainService, err := iam.NewRole(ctx, "domain_service", &iam.RoleArgs{
-// AssumeRolePolicy: pulumi.String(assumeRoleDomainService.Json),
-// Name: pulumi.String("example-domain-service-role"),
-// })
-// if err != nil {
-// return err
-// }
-// domainServiceRole, err := iam.LookupPolicy(ctx, &iam.LookupPolicyArgs{
-// Name: pulumi.StringRef("SageMakerStudioDomainServiceRolePolicy"),
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = iam.NewRolePolicyAttachment(ctx, "domain_service", &iam.RolePolicyAttachmentArgs{
-// PolicyArn: pulumi.String(domainServiceRole.Arn),
-// Role: domainService.Name,
-// })
-// if err != nil {
-// return err
-// }
-// // DataZone Domain V2
-// _, err = datazone.NewDomain(ctx, "example", &datazone.DomainArgs{
-// Name: pulumi.String("example-domain"),
-// DomainExecutionRole: domainExecution.Arn,
-// DomainVersion: pulumi.String("V2"),
-// ServiceRole: domainService.Arn,
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import DataZone Domain using the `domain_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:datazone/domain:Domain example domain-id-12345678
-// ```
 type Domain struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Domain.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Description of the Domain.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// ARN of the role used by DataZone to configure the Domain.
-	//
-	// The following arguments are optional:
-	DomainExecutionRole pulumi.StringOutput `pulumi:"domainExecutionRole"`
-	// Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
-	DomainVersion pulumi.StringOutput `pulumi:"domainVersion"`
-	// ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
-	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
-	// Name of the Domain.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// URL of the data portal for the Domain.
-	PortalUrl pulumi.StringOutput `pulumi:"portalUrl"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ID of the root domain unit.
-	RootDomainUnitId pulumi.StringOutput `pulumi:"rootDomainUnitId"`
-	// ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
-	ServiceRole pulumi.StringPtrOutput `pulumi:"serviceRole"`
-	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
-	SingleSignOn DomainSingleSignOnPtrOutput `pulumi:"singleSignOn"`
-	// Whether to skip the deletion check for the Domain.
-	SkipDeletionCheck pulumi.BoolPtrOutput   `pulumi:"skipDeletionCheck"`
-	Tags              pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput  `pulumi:"tagsAll"`
-	Timeouts DomainTimeoutsPtrOutput `pulumi:"timeouts"`
+	Arn                 pulumi.StringOutput         `pulumi:"arn"`
+	Description         pulumi.StringPtrOutput      `pulumi:"description"`
+	DomainExecutionRole pulumi.StringOutput         `pulumi:"domainExecutionRole"`
+	DomainVersion       pulumi.StringOutput         `pulumi:"domainVersion"`
+	KmsKeyIdentifier    pulumi.StringPtrOutput      `pulumi:"kmsKeyIdentifier"`
+	Name                pulumi.StringOutput         `pulumi:"name"`
+	PortalUrl           pulumi.StringOutput         `pulumi:"portalUrl"`
+	Region              pulumi.StringOutput         `pulumi:"region"`
+	RootDomainUnitId    pulumi.StringOutput         `pulumi:"rootDomainUnitId"`
+	ServiceRole         pulumi.StringPtrOutput      `pulumi:"serviceRole"`
+	SingleSignOn        DomainSingleSignOnPtrOutput `pulumi:"singleSignOn"`
+	SkipDeletionCheck   pulumi.BoolPtrOutput        `pulumi:"skipDeletionCheck"`
+	Tags                pulumi.StringMapOutput      `pulumi:"tags"`
+	TagsAll             pulumi.StringMapOutput      `pulumi:"tagsAll"`
+	Timeouts            DomainTimeoutsPtrOutput     `pulumi:"timeouts"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -327,69 +65,39 @@ func GetDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Domain resources.
 type domainState struct {
-	// ARN of the Domain.
-	Arn *string `pulumi:"arn"`
-	// Description of the Domain.
-	Description *string `pulumi:"description"`
-	// ARN of the role used by DataZone to configure the Domain.
-	//
-	// The following arguments are optional:
-	DomainExecutionRole *string `pulumi:"domainExecutionRole"`
-	// Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
-	DomainVersion *string `pulumi:"domainVersion"`
-	// ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
-	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
-	// Name of the Domain.
-	Name *string `pulumi:"name"`
-	// URL of the data portal for the Domain.
-	PortalUrl *string `pulumi:"portalUrl"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the root domain unit.
-	RootDomainUnitId *string `pulumi:"rootDomainUnitId"`
-	// ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
-	ServiceRole *string `pulumi:"serviceRole"`
-	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
-	SingleSignOn *DomainSingleSignOn `pulumi:"singleSignOn"`
-	// Whether to skip the deletion check for the Domain.
-	SkipDeletionCheck *bool             `pulumi:"skipDeletionCheck"`
-	Tags              map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string `pulumi:"tagsAll"`
-	Timeouts *DomainTimeouts   `pulumi:"timeouts"`
+	Arn                 *string             `pulumi:"arn"`
+	Description         *string             `pulumi:"description"`
+	DomainExecutionRole *string             `pulumi:"domainExecutionRole"`
+	DomainVersion       *string             `pulumi:"domainVersion"`
+	KmsKeyIdentifier    *string             `pulumi:"kmsKeyIdentifier"`
+	Name                *string             `pulumi:"name"`
+	PortalUrl           *string             `pulumi:"portalUrl"`
+	Region              *string             `pulumi:"region"`
+	RootDomainUnitId    *string             `pulumi:"rootDomainUnitId"`
+	ServiceRole         *string             `pulumi:"serviceRole"`
+	SingleSignOn        *DomainSingleSignOn `pulumi:"singleSignOn"`
+	SkipDeletionCheck   *bool               `pulumi:"skipDeletionCheck"`
+	Tags                map[string]string   `pulumi:"tags"`
+	TagsAll             map[string]string   `pulumi:"tagsAll"`
+	Timeouts            *DomainTimeouts     `pulumi:"timeouts"`
 }
 
 type DomainState struct {
-	// ARN of the Domain.
-	Arn pulumi.StringPtrInput
-	// Description of the Domain.
-	Description pulumi.StringPtrInput
-	// ARN of the role used by DataZone to configure the Domain.
-	//
-	// The following arguments are optional:
+	Arn                 pulumi.StringPtrInput
+	Description         pulumi.StringPtrInput
 	DomainExecutionRole pulumi.StringPtrInput
-	// Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
-	DomainVersion pulumi.StringPtrInput
-	// ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
-	KmsKeyIdentifier pulumi.StringPtrInput
-	// Name of the Domain.
-	Name pulumi.StringPtrInput
-	// URL of the data portal for the Domain.
-	PortalUrl pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the root domain unit.
-	RootDomainUnitId pulumi.StringPtrInput
-	// ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
-	ServiceRole pulumi.StringPtrInput
-	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
-	SingleSignOn DomainSingleSignOnPtrInput
-	// Whether to skip the deletion check for the Domain.
-	SkipDeletionCheck pulumi.BoolPtrInput
-	Tags              pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts DomainTimeoutsPtrInput
+	DomainVersion       pulumi.StringPtrInput
+	KmsKeyIdentifier    pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
+	PortalUrl           pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
+	RootDomainUnitId    pulumi.StringPtrInput
+	ServiceRole         pulumi.StringPtrInput
+	SingleSignOn        DomainSingleSignOnPtrInput
+	SkipDeletionCheck   pulumi.BoolPtrInput
+	Tags                pulumi.StringMapInput
+	TagsAll             pulumi.StringMapInput
+	Timeouts            DomainTimeoutsPtrInput
 }
 
 func (DomainState) ElementType() reflect.Type {
@@ -397,54 +105,32 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
-	// Description of the Domain.
-	Description *string `pulumi:"description"`
-	// ARN of the role used by DataZone to configure the Domain.
-	//
-	// The following arguments are optional:
-	DomainExecutionRole string `pulumi:"domainExecutionRole"`
-	// Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
-	DomainVersion *string `pulumi:"domainVersion"`
-	// ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
-	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
-	// Name of the Domain.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
-	ServiceRole *string `pulumi:"serviceRole"`
-	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
-	SingleSignOn *DomainSingleSignOn `pulumi:"singleSignOn"`
-	// Whether to skip the deletion check for the Domain.
-	SkipDeletionCheck *bool             `pulumi:"skipDeletionCheck"`
-	Tags              map[string]string `pulumi:"tags"`
-	Timeouts          *DomainTimeouts   `pulumi:"timeouts"`
+	Description         *string             `pulumi:"description"`
+	DomainExecutionRole string              `pulumi:"domainExecutionRole"`
+	DomainVersion       *string             `pulumi:"domainVersion"`
+	KmsKeyIdentifier    *string             `pulumi:"kmsKeyIdentifier"`
+	Name                *string             `pulumi:"name"`
+	Region              *string             `pulumi:"region"`
+	ServiceRole         *string             `pulumi:"serviceRole"`
+	SingleSignOn        *DomainSingleSignOn `pulumi:"singleSignOn"`
+	SkipDeletionCheck   *bool               `pulumi:"skipDeletionCheck"`
+	Tags                map[string]string   `pulumi:"tags"`
+	Timeouts            *DomainTimeouts     `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
-	// Description of the Domain.
-	Description pulumi.StringPtrInput
-	// ARN of the role used by DataZone to configure the Domain.
-	//
-	// The following arguments are optional:
+	Description         pulumi.StringPtrInput
 	DomainExecutionRole pulumi.StringInput
-	// Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
-	DomainVersion pulumi.StringPtrInput
-	// ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
-	KmsKeyIdentifier pulumi.StringPtrInput
-	// Name of the Domain.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
-	ServiceRole pulumi.StringPtrInput
-	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
-	SingleSignOn DomainSingleSignOnPtrInput
-	// Whether to skip the deletion check for the Domain.
-	SkipDeletionCheck pulumi.BoolPtrInput
-	Tags              pulumi.StringMapInput
-	Timeouts          DomainTimeoutsPtrInput
+	DomainVersion       pulumi.StringPtrInput
+	KmsKeyIdentifier    pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
+	ServiceRole         pulumi.StringPtrInput
+	SingleSignOn        DomainSingleSignOnPtrInput
+	SkipDeletionCheck   pulumi.BoolPtrInput
+	Tags                pulumi.StringMapInput
+	Timeouts            DomainTimeoutsPtrInput
 }
 
 func (DomainArgs) ElementType() reflect.Type {
@@ -534,64 +220,50 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 	return o
 }
 
-// ARN of the Domain.
 func (o DomainOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the Domain.
 func (o DomainOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the role used by DataZone to configure the Domain.
-//
-// The following arguments are optional:
 func (o DomainOutput) DomainExecutionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainExecutionRole }).(pulumi.StringOutput)
 }
 
-// Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
 func (o DomainOutput) DomainVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainVersion }).(pulumi.StringOutput)
 }
 
-// ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
 func (o DomainOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// Name of the Domain.
 func (o DomainOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// URL of the data portal for the Domain.
 func (o DomainOutput) PortalUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.PortalUrl }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DomainOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ID of the root domain unit.
 func (o DomainOutput) RootDomainUnitId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.RootDomainUnitId }).(pulumi.StringOutput)
 }
 
-// ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
 func (o DomainOutput) ServiceRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.ServiceRole }).(pulumi.StringPtrOutput)
 }
 
-// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
 func (o DomainOutput) SingleSignOn() DomainSingleSignOnPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainSingleSignOnPtrOutput { return v.SingleSignOn }).(DomainSingleSignOnPtrOutput)
 }
 
-// Whether to skip the deletion check for the Domain.
 func (o DomainOutput) SkipDeletionCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.BoolPtrOutput { return v.SkipDeletionCheck }).(pulumi.BoolPtrOutput)
 }
@@ -600,7 +272,6 @@ func (o DomainOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DomainOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

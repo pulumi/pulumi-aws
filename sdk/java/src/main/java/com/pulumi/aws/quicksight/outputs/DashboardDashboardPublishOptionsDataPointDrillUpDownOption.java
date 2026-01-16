@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardDashboardPublishOptionsDataPointDrillUpDownOption {
-    /**
-     * @return Availability status. Possibles values: ENABLED, DISABLED.
-     * 
-     */
     private @Nullable String availabilityStatus;
 
     private DashboardDashboardPublishOptionsDataPointDrillUpDownOption() {}
-    /**
-     * @return Availability status. Possibles values: ENABLED, DISABLED.
-     * 
-     */
     public Optional<String> availabilityStatus() {
         return Optional.ofNullable(this.availabilityStatus);
     }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Keyspaces.Outputs
     [OutputType]
     public sealed class KeyspaceReplicationSpecification
     {
-        /// <summary>
-        /// Replication regions. If `ReplicationStrategy` is `MULTI_REGION`, `RegionList` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
-        /// </summary>
         public readonly ImmutableArray<string> RegionLists;
-        /// <summary>
-        /// Replication strategy. Valid values: `SINGLE_REGION` and `MULTI_REGION`.
-        /// </summary>
         public readonly string? ReplicationStrategy;
 
         [OutputConstructor]

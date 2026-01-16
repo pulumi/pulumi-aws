@@ -14,10 +14,6 @@ namespace Pulumi.Aws.S3Tables.Inputs
     {
         [Input("destinations")]
         private InputList<Inputs.TableBucketReplicationRuleDestinationGetArgs>? _destinations;
-
-        /// <summary>
-        /// Replication destination. See Destination below for more details.
-        /// </summary>
         public InputList<Inputs.TableBucketReplicationRuleDestinationGetArgs> Destinations
         {
             get => _destinations ?? (_destinations = new InputList<Inputs.TableBucketReplicationRuleDestinationGetArgs>());

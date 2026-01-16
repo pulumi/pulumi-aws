@@ -16,32 +16,16 @@ public final class RuleGroupEncryptionConfigurationArgs extends com.pulumi.resou
 
     public static final RuleGroupEncryptionConfigurationArgs Empty = new RuleGroupEncryptionConfigurationArgs();
 
-    /**
-     * The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you&#39;re using a key that&#39;s managed by another account. If you&#39;re using a key managed by another account, then specify the key ARN.
-     * 
-     */
     @Import(name="keyId")
     private @Nullable Output<String> keyId;
 
-    /**
-     * @return The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you&#39;re using a key that&#39;s managed by another account. If you&#39;re using a key managed by another account, then specify the key ARN.
-     * 
-     */
     public Optional<Output<String>> keyId() {
         return Optional.ofNullable(this.keyId);
     }
 
-    /**
-     * The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -71,44 +55,20 @@ public final class RuleGroupEncryptionConfigurationArgs extends com.pulumi.resou
             $ = new RuleGroupEncryptionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param keyId The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you&#39;re using a key that&#39;s managed by another account. If you&#39;re using a key managed by another account, then specify the key ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyId(@Nullable Output<String> keyId) {
             $.keyId = keyId;
             return this;
         }
 
-        /**
-         * @param keyId The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you&#39;re using a key that&#39;s managed by another account. If you&#39;re using a key managed by another account, then specify the key ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyId(String keyId) {
             return keyId(Output.of(keyId));
         }
 
-        /**
-         * @param type The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

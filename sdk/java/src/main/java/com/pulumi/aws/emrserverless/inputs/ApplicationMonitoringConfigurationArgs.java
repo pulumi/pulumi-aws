@@ -18,62 +18,30 @@ public final class ApplicationMonitoringConfigurationArgs extends com.pulumi.res
 
     public static final ApplicationMonitoringConfigurationArgs Empty = new ApplicationMonitoringConfigurationArgs();
 
-    /**
-     * The Amazon CloudWatch configuration for monitoring logs.
-     * 
-     */
     @Import(name="cloudwatchLoggingConfiguration")
     private @Nullable Output<ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs> cloudwatchLoggingConfiguration;
 
-    /**
-     * @return The Amazon CloudWatch configuration for monitoring logs.
-     * 
-     */
     public Optional<Output<ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs>> cloudwatchLoggingConfiguration() {
         return Optional.ofNullable(this.cloudwatchLoggingConfiguration);
     }
 
-    /**
-     * The managed log persistence configuration for monitoring logs.
-     * 
-     */
     @Import(name="managedPersistenceMonitoringConfiguration")
     private @Nullable Output<ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs> managedPersistenceMonitoringConfiguration;
 
-    /**
-     * @return The managed log persistence configuration for monitoring logs.
-     * 
-     */
     public Optional<Output<ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs>> managedPersistenceMonitoringConfiguration() {
         return Optional.ofNullable(this.managedPersistenceMonitoringConfiguration);
     }
 
-    /**
-     * The Prometheus configuration for monitoring metrics.
-     * 
-     */
     @Import(name="prometheusMonitoringConfiguration")
     private @Nullable Output<ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs> prometheusMonitoringConfiguration;
 
-    /**
-     * @return The Prometheus configuration for monitoring metrics.
-     * 
-     */
     public Optional<Output<ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs>> prometheusMonitoringConfiguration() {
         return Optional.ofNullable(this.prometheusMonitoringConfiguration);
     }
 
-    /**
-     * The Amazon S3 configuration for monitoring log publishing.
-     * 
-     */
     @Import(name="s3MonitoringConfiguration")
     private @Nullable Output<ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs> s3MonitoringConfiguration;
 
-    /**
-     * @return The Amazon S3 configuration for monitoring log publishing.
-     * 
-     */
     public Optional<Output<ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs>> s3MonitoringConfiguration() {
         return Optional.ofNullable(this.s3MonitoringConfiguration);
     }
@@ -105,86 +73,38 @@ public final class ApplicationMonitoringConfigurationArgs extends com.pulumi.res
             $ = new ApplicationMonitoringConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudwatchLoggingConfiguration The Amazon CloudWatch configuration for monitoring logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLoggingConfiguration(@Nullable Output<ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs> cloudwatchLoggingConfiguration) {
             $.cloudwatchLoggingConfiguration = cloudwatchLoggingConfiguration;
             return this;
         }
 
-        /**
-         * @param cloudwatchLoggingConfiguration The Amazon CloudWatch configuration for monitoring logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLoggingConfiguration(ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs cloudwatchLoggingConfiguration) {
             return cloudwatchLoggingConfiguration(Output.of(cloudwatchLoggingConfiguration));
         }
 
-        /**
-         * @param managedPersistenceMonitoringConfiguration The managed log persistence configuration for monitoring logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedPersistenceMonitoringConfiguration(@Nullable Output<ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs> managedPersistenceMonitoringConfiguration) {
             $.managedPersistenceMonitoringConfiguration = managedPersistenceMonitoringConfiguration;
             return this;
         }
 
-        /**
-         * @param managedPersistenceMonitoringConfiguration The managed log persistence configuration for monitoring logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedPersistenceMonitoringConfiguration(ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs managedPersistenceMonitoringConfiguration) {
             return managedPersistenceMonitoringConfiguration(Output.of(managedPersistenceMonitoringConfiguration));
         }
 
-        /**
-         * @param prometheusMonitoringConfiguration The Prometheus configuration for monitoring metrics.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prometheusMonitoringConfiguration(@Nullable Output<ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs> prometheusMonitoringConfiguration) {
             $.prometheusMonitoringConfiguration = prometheusMonitoringConfiguration;
             return this;
         }
 
-        /**
-         * @param prometheusMonitoringConfiguration The Prometheus configuration for monitoring metrics.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prometheusMonitoringConfiguration(ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs prometheusMonitoringConfiguration) {
             return prometheusMonitoringConfiguration(Output.of(prometheusMonitoringConfiguration));
         }
 
-        /**
-         * @param s3MonitoringConfiguration The Amazon S3 configuration for monitoring log publishing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3MonitoringConfiguration(@Nullable Output<ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs> s3MonitoringConfiguration) {
             $.s3MonitoringConfiguration = s3MonitoringConfiguration;
             return this;
         }
 
-        /**
-         * @param s3MonitoringConfiguration The Amazon S3 configuration for monitoring log publishing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3MonitoringConfiguration(ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs s3MonitoringConfiguration) {
             return s3MonitoringConfiguration(Output.of(s3MonitoringConfiguration));
         }

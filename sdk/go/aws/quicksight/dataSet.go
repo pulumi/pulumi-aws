@@ -12,326 +12,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing a QuickSight Data Set.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewDataSet(ctx, "example", &quicksight.DataSetArgs{
-//				DataSetId:  pulumi.String("example-id"),
-//				Name:       pulumi.String("example-name"),
-//				ImportMode: pulumi.String("SPICE"),
-//				PhysicalTableMaps: quicksight.DataSetPhysicalTableMapArray{
-//					&quicksight.DataSetPhysicalTableMapArgs{
-//						PhysicalTableMapId: pulumi.String("example-id"),
-//						S3Source: &quicksight.DataSetPhysicalTableMapS3SourceArgs{
-//							DataSourceArn: pulumi.Any(exampleAwsQuicksightDataSource.Arn),
-//							InputColumns: quicksight.DataSetPhysicalTableMapS3SourceInputColumnArray{
-//								&quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs{
-//									Name: pulumi.String("Column1"),
-//									Type: pulumi.String("STRING"),
-//								},
-//							},
-//							UploadSettings: &quicksight.DataSetPhysicalTableMapS3SourceUploadSettingsArgs{
-//								Format: pulumi.String("JSON"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Column Level Permission Rules
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewDataSet(ctx, "example", &quicksight.DataSetArgs{
-//				DataSetId:  pulumi.String("example-id"),
-//				Name:       pulumi.String("example-name"),
-//				ImportMode: pulumi.String("SPICE"),
-//				PhysicalTableMaps: quicksight.DataSetPhysicalTableMapArray{
-//					&quicksight.DataSetPhysicalTableMapArgs{
-//						PhysicalTableMapId: pulumi.String("example-id"),
-//						S3Source: &quicksight.DataSetPhysicalTableMapS3SourceArgs{
-//							DataSourceArn: pulumi.Any(exampleAwsQuicksightDataSource.Arn),
-//							InputColumns: quicksight.DataSetPhysicalTableMapS3SourceInputColumnArray{
-//								&quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs{
-//									Name: pulumi.String("Column1"),
-//									Type: pulumi.String("STRING"),
-//								},
-//							},
-//							UploadSettings: &quicksight.DataSetPhysicalTableMapS3SourceUploadSettingsArgs{
-//								Format: pulumi.String("JSON"),
-//							},
-//						},
-//					},
-//				},
-//				ColumnLevelPermissionRules: quicksight.DataSetColumnLevelPermissionRuleArray{
-//					&quicksight.DataSetColumnLevelPermissionRuleArgs{
-//						ColumnNames: pulumi.StringArray{
-//							pulumi.String("Column1"),
-//						},
-//						Principals: pulumi.StringArray{
-//							exampleAwsQuicksightUser.Arn,
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Field Folders
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewDataSet(ctx, "example", &quicksight.DataSetArgs{
-//				DataSetId:  pulumi.String("example-id"),
-//				Name:       pulumi.String("example-name"),
-//				ImportMode: pulumi.String("SPICE"),
-//				PhysicalTableMaps: quicksight.DataSetPhysicalTableMapArray{
-//					&quicksight.DataSetPhysicalTableMapArgs{
-//						PhysicalTableMapId: pulumi.String("example-id"),
-//						S3Source: &quicksight.DataSetPhysicalTableMapS3SourceArgs{
-//							DataSourceArn: pulumi.Any(exampleAwsQuicksightDataSource.Arn),
-//							InputColumns: quicksight.DataSetPhysicalTableMapS3SourceInputColumnArray{
-//								&quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs{
-//									Name: pulumi.String("Column1"),
-//									Type: pulumi.String("STRING"),
-//								},
-//							},
-//							UploadSettings: &quicksight.DataSetPhysicalTableMapS3SourceUploadSettingsArgs{
-//								Format: pulumi.String("JSON"),
-//							},
-//						},
-//					},
-//				},
-//				FieldFolders: quicksight.DataSetFieldFolderArray{
-//					&quicksight.DataSetFieldFolderArgs{
-//						FieldFoldersId: pulumi.String("example-id"),
-//						Columns: pulumi.StringArray{
-//							pulumi.String("Column1"),
-//						},
-//						Description: pulumi.String("example description"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Permissions
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewDataSet(ctx, "example", &quicksight.DataSetArgs{
-//				DataSetId:  pulumi.String("example-id"),
-//				Name:       pulumi.String("example-name"),
-//				ImportMode: pulumi.String("SPICE"),
-//				PhysicalTableMaps: quicksight.DataSetPhysicalTableMapArray{
-//					&quicksight.DataSetPhysicalTableMapArgs{
-//						PhysicalTableMapId: pulumi.String("example-id"),
-//						S3Source: &quicksight.DataSetPhysicalTableMapS3SourceArgs{
-//							DataSourceArn: pulumi.Any(exampleAwsQuicksightDataSource.Arn),
-//							InputColumns: quicksight.DataSetPhysicalTableMapS3SourceInputColumnArray{
-//								&quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs{
-//									Name: pulumi.String("Column1"),
-//									Type: pulumi.String("STRING"),
-//								},
-//							},
-//							UploadSettings: &quicksight.DataSetPhysicalTableMapS3SourceUploadSettingsArgs{
-//								Format: pulumi.String("JSON"),
-//							},
-//						},
-//					},
-//				},
-//				Permissions: quicksight.DataSetPermissionArray{
-//					&quicksight.DataSetPermissionArgs{
-//						Actions: pulumi.StringArray{
-//							pulumi.String("quicksight:DescribeDataSet"),
-//							pulumi.String("quicksight:DescribeDataSetPermissions"),
-//							pulumi.String("quicksight:PassDataSet"),
-//							pulumi.String("quicksight:DescribeIngestion"),
-//							pulumi.String("quicksight:ListIngestions"),
-//						},
-//						Principal: pulumi.Any(exampleAwsQuicksightUser.Arn),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Row Level Permission Tag Configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewDataSet(ctx, "example", &quicksight.DataSetArgs{
-//				DataSetId:  pulumi.String("example-id"),
-//				Name:       pulumi.String("example-name"),
-//				ImportMode: pulumi.String("SPICE"),
-//				PhysicalTableMaps: quicksight.DataSetPhysicalTableMapArray{
-//					&quicksight.DataSetPhysicalTableMapArgs{
-//						PhysicalTableMapId: pulumi.String("example-id"),
-//						S3Source: &quicksight.DataSetPhysicalTableMapS3SourceArgs{
-//							DataSourceArn: pulumi.Any(exampleAwsQuicksightDataSource.Arn),
-//							InputColumns: quicksight.DataSetPhysicalTableMapS3SourceInputColumnArray{
-//								&quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs{
-//									Name: pulumi.String("Column1"),
-//									Type: pulumi.String("STRING"),
-//								},
-//							},
-//							UploadSettings: &quicksight.DataSetPhysicalTableMapS3SourceUploadSettingsArgs{
-//								Format: pulumi.String("JSON"),
-//							},
-//						},
-//					},
-//				},
-//				RowLevelPermissionTagConfiguration: &quicksight.DataSetRowLevelPermissionTagConfigurationArgs{
-//					Status: pulumi.String("ENABLED"),
-//					TagRules: quicksight.DataSetRowLevelPermissionTagConfigurationTagRuleArray{
-//						&quicksight.DataSetRowLevelPermissionTagConfigurationTagRuleArgs{
-//							ColumnName:             pulumi.String("Column1"),
-//							TagKey:                 pulumi.String("tagkey"),
-//							MatchAllValue:          pulumi.String("*"),
-//							TagMultiValueDelimiter: pulumi.String(","),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import a QuickSight Data Set using the AWS account ID and data set ID separated by a comma (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:quicksight/dataSet:DataSet example 123456789012,example-id
-// ```
 type DataSet struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the data set.
-	Arn          pulumi.StringOutput `pulumi:"arn"`
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
-	ColumnGroups DataSetColumnGroupArrayOutput `pulumi:"columnGroups"`
-	// A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
-	ColumnLevelPermissionRules DataSetColumnLevelPermissionRuleArrayOutput `pulumi:"columnLevelPermissionRules"`
-	// Identifier for the data set.
-	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
-	// The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
-	DataSetUsageConfiguration DataSetDataSetUsageConfigurationOutput `pulumi:"dataSetUsageConfiguration"`
-	// The folder that contains fields and nested subfolders for your dataset. See field_folders.
-	FieldFolders DataSetFieldFolderArrayOutput `pulumi:"fieldFolders"`
-	// Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
-	ImportMode pulumi.StringOutput `pulumi:"importMode"`
-	// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
-	LogicalTableMaps DataSetLogicalTableMapArrayOutput `pulumi:"logicalTableMaps"`
-	// Display name for the dataset.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `outputColumns` Block below.
-	OutputColumns DataSetOutputColumnArrayOutput `pulumi:"outputColumns"`
-	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
-	Permissions DataSetPermissionArrayOutput `pulumi:"permissions"`
-	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-	PhysicalTableMaps DataSetPhysicalTableMapArrayOutput `pulumi:"physicalTableMaps"`
-	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
-	RefreshProperties DataSetRefreshPropertiesPtrOutput `pulumi:"refreshProperties"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
-	RowLevelPermissionDataSet DataSetRowLevelPermissionDataSetPtrOutput `pulumi:"rowLevelPermissionDataSet"`
-	// The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
+	Arn                                pulumi.StringOutput                                `pulumi:"arn"`
+	AwsAccountId                       pulumi.StringOutput                                `pulumi:"awsAccountId"`
+	ColumnGroups                       DataSetColumnGroupArrayOutput                      `pulumi:"columnGroups"`
+	ColumnLevelPermissionRules         DataSetColumnLevelPermissionRuleArrayOutput        `pulumi:"columnLevelPermissionRules"`
+	DataSetId                          pulumi.StringOutput                                `pulumi:"dataSetId"`
+	DataSetUsageConfiguration          DataSetDataSetUsageConfigurationOutput             `pulumi:"dataSetUsageConfiguration"`
+	FieldFolders                       DataSetFieldFolderArrayOutput                      `pulumi:"fieldFolders"`
+	ImportMode                         pulumi.StringOutput                                `pulumi:"importMode"`
+	LogicalTableMaps                   DataSetLogicalTableMapArrayOutput                  `pulumi:"logicalTableMaps"`
+	Name                               pulumi.StringOutput                                `pulumi:"name"`
+	OutputColumns                      DataSetOutputColumnArrayOutput                     `pulumi:"outputColumns"`
+	Permissions                        DataSetPermissionArrayOutput                       `pulumi:"permissions"`
+	PhysicalTableMaps                  DataSetPhysicalTableMapArrayOutput                 `pulumi:"physicalTableMaps"`
+	RefreshProperties                  DataSetRefreshPropertiesPtrOutput                  `pulumi:"refreshProperties"`
+	Region                             pulumi.StringOutput                                `pulumi:"region"`
+	RowLevelPermissionDataSet          DataSetRowLevelPermissionDataSetPtrOutput          `pulumi:"rowLevelPermissionDataSet"`
 	RowLevelPermissionTagConfiguration DataSetRowLevelPermissionTagConfigurationPtrOutput `pulumi:"rowLevelPermissionTagConfiguration"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Tags                               pulumi.StringMapOutput                             `pulumi:"tags"`
+	TagsAll                            pulumi.StringMapOutput                             `pulumi:"tagsAll"`
 }
 
 // NewDataSet registers a new resource with the given unique name, arguments, and options.
@@ -370,87 +72,47 @@ func GetDataSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataSet resources.
 type dataSetState struct {
-	// Amazon Resource Name (ARN) of the data set.
-	Arn          *string `pulumi:"arn"`
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
-	ColumnGroups []DataSetColumnGroup `pulumi:"columnGroups"`
-	// A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
-	ColumnLevelPermissionRules []DataSetColumnLevelPermissionRule `pulumi:"columnLevelPermissionRules"`
-	// Identifier for the data set.
-	DataSetId *string `pulumi:"dataSetId"`
-	// The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
-	DataSetUsageConfiguration *DataSetDataSetUsageConfiguration `pulumi:"dataSetUsageConfiguration"`
-	// The folder that contains fields and nested subfolders for your dataset. See field_folders.
-	FieldFolders []DataSetFieldFolder `pulumi:"fieldFolders"`
-	// Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
-	ImportMode *string `pulumi:"importMode"`
-	// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
-	LogicalTableMaps []DataSetLogicalTableMap `pulumi:"logicalTableMaps"`
-	// Display name for the dataset.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `outputColumns` Block below.
-	OutputColumns []DataSetOutputColumn `pulumi:"outputColumns"`
-	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
-	Permissions []DataSetPermission `pulumi:"permissions"`
-	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-	PhysicalTableMaps []DataSetPhysicalTableMap `pulumi:"physicalTableMaps"`
-	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
-	RefreshProperties *DataSetRefreshProperties `pulumi:"refreshProperties"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
-	RowLevelPermissionDataSet *DataSetRowLevelPermissionDataSet `pulumi:"rowLevelPermissionDataSet"`
-	// The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
+	Arn                                *string                                    `pulumi:"arn"`
+	AwsAccountId                       *string                                    `pulumi:"awsAccountId"`
+	ColumnGroups                       []DataSetColumnGroup                       `pulumi:"columnGroups"`
+	ColumnLevelPermissionRules         []DataSetColumnLevelPermissionRule         `pulumi:"columnLevelPermissionRules"`
+	DataSetId                          *string                                    `pulumi:"dataSetId"`
+	DataSetUsageConfiguration          *DataSetDataSetUsageConfiguration          `pulumi:"dataSetUsageConfiguration"`
+	FieldFolders                       []DataSetFieldFolder                       `pulumi:"fieldFolders"`
+	ImportMode                         *string                                    `pulumi:"importMode"`
+	LogicalTableMaps                   []DataSetLogicalTableMap                   `pulumi:"logicalTableMaps"`
+	Name                               *string                                    `pulumi:"name"`
+	OutputColumns                      []DataSetOutputColumn                      `pulumi:"outputColumns"`
+	Permissions                        []DataSetPermission                        `pulumi:"permissions"`
+	PhysicalTableMaps                  []DataSetPhysicalTableMap                  `pulumi:"physicalTableMaps"`
+	RefreshProperties                  *DataSetRefreshProperties                  `pulumi:"refreshProperties"`
+	Region                             *string                                    `pulumi:"region"`
+	RowLevelPermissionDataSet          *DataSetRowLevelPermissionDataSet          `pulumi:"rowLevelPermissionDataSet"`
 	RowLevelPermissionTagConfiguration *DataSetRowLevelPermissionTagConfiguration `pulumi:"rowLevelPermissionTagConfiguration"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags                               map[string]string                          `pulumi:"tags"`
+	TagsAll                            map[string]string                          `pulumi:"tagsAll"`
 }
 
 type DataSetState struct {
-	// Amazon Resource Name (ARN) of the data set.
-	Arn          pulumi.StringPtrInput
-	AwsAccountId pulumi.StringPtrInput
-	// Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
-	ColumnGroups DataSetColumnGroupArrayInput
-	// A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
-	ColumnLevelPermissionRules DataSetColumnLevelPermissionRuleArrayInput
-	// Identifier for the data set.
-	DataSetId pulumi.StringPtrInput
-	// The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
-	DataSetUsageConfiguration DataSetDataSetUsageConfigurationPtrInput
-	// The folder that contains fields and nested subfolders for your dataset. See field_folders.
-	FieldFolders DataSetFieldFolderArrayInput
-	// Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
-	ImportMode pulumi.StringPtrInput
-	// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
-	LogicalTableMaps DataSetLogicalTableMapArrayInput
-	// Display name for the dataset.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `outputColumns` Block below.
-	OutputColumns DataSetOutputColumnArrayInput
-	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
-	Permissions DataSetPermissionArrayInput
-	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-	PhysicalTableMaps DataSetPhysicalTableMapArrayInput
-	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
-	RefreshProperties DataSetRefreshPropertiesPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
-	RowLevelPermissionDataSet DataSetRowLevelPermissionDataSetPtrInput
-	// The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
+	Arn                                pulumi.StringPtrInput
+	AwsAccountId                       pulumi.StringPtrInput
+	ColumnGroups                       DataSetColumnGroupArrayInput
+	ColumnLevelPermissionRules         DataSetColumnLevelPermissionRuleArrayInput
+	DataSetId                          pulumi.StringPtrInput
+	DataSetUsageConfiguration          DataSetDataSetUsageConfigurationPtrInput
+	FieldFolders                       DataSetFieldFolderArrayInput
+	ImportMode                         pulumi.StringPtrInput
+	LogicalTableMaps                   DataSetLogicalTableMapArrayInput
+	Name                               pulumi.StringPtrInput
+	OutputColumns                      DataSetOutputColumnArrayInput
+	Permissions                        DataSetPermissionArrayInput
+	PhysicalTableMaps                  DataSetPhysicalTableMapArrayInput
+	RefreshProperties                  DataSetRefreshPropertiesPtrInput
+	Region                             pulumi.StringPtrInput
+	RowLevelPermissionDataSet          DataSetRowLevelPermissionDataSetPtrInput
 	RowLevelPermissionTagConfiguration DataSetRowLevelPermissionTagConfigurationPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Tags                               pulumi.StringMapInput
+	TagsAll                            pulumi.StringMapInput
 }
 
 func (DataSetState) ElementType() reflect.Type {
@@ -458,76 +120,42 @@ func (DataSetState) ElementType() reflect.Type {
 }
 
 type dataSetArgs struct {
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
-	ColumnGroups []DataSetColumnGroup `pulumi:"columnGroups"`
-	// A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
-	ColumnLevelPermissionRules []DataSetColumnLevelPermissionRule `pulumi:"columnLevelPermissionRules"`
-	// Identifier for the data set.
-	DataSetId string `pulumi:"dataSetId"`
-	// The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
-	DataSetUsageConfiguration *DataSetDataSetUsageConfiguration `pulumi:"dataSetUsageConfiguration"`
-	// The folder that contains fields and nested subfolders for your dataset. See field_folders.
-	FieldFolders []DataSetFieldFolder `pulumi:"fieldFolders"`
-	// Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
-	ImportMode string `pulumi:"importMode"`
-	// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
-	LogicalTableMaps []DataSetLogicalTableMap `pulumi:"logicalTableMaps"`
-	// Display name for the dataset.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
-	Permissions []DataSetPermission `pulumi:"permissions"`
-	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-	PhysicalTableMaps []DataSetPhysicalTableMap `pulumi:"physicalTableMaps"`
-	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
-	RefreshProperties *DataSetRefreshProperties `pulumi:"refreshProperties"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
-	RowLevelPermissionDataSet *DataSetRowLevelPermissionDataSet `pulumi:"rowLevelPermissionDataSet"`
-	// The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
+	AwsAccountId                       *string                                    `pulumi:"awsAccountId"`
+	ColumnGroups                       []DataSetColumnGroup                       `pulumi:"columnGroups"`
+	ColumnLevelPermissionRules         []DataSetColumnLevelPermissionRule         `pulumi:"columnLevelPermissionRules"`
+	DataSetId                          string                                     `pulumi:"dataSetId"`
+	DataSetUsageConfiguration          *DataSetDataSetUsageConfiguration          `pulumi:"dataSetUsageConfiguration"`
+	FieldFolders                       []DataSetFieldFolder                       `pulumi:"fieldFolders"`
+	ImportMode                         string                                     `pulumi:"importMode"`
+	LogicalTableMaps                   []DataSetLogicalTableMap                   `pulumi:"logicalTableMaps"`
+	Name                               *string                                    `pulumi:"name"`
+	Permissions                        []DataSetPermission                        `pulumi:"permissions"`
+	PhysicalTableMaps                  []DataSetPhysicalTableMap                  `pulumi:"physicalTableMaps"`
+	RefreshProperties                  *DataSetRefreshProperties                  `pulumi:"refreshProperties"`
+	Region                             *string                                    `pulumi:"region"`
+	RowLevelPermissionDataSet          *DataSetRowLevelPermissionDataSet          `pulumi:"rowLevelPermissionDataSet"`
 	RowLevelPermissionTagConfiguration *DataSetRowLevelPermissionTagConfiguration `pulumi:"rowLevelPermissionTagConfiguration"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags                               map[string]string                          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DataSet resource.
 type DataSetArgs struct {
-	AwsAccountId pulumi.StringPtrInput
-	// Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
-	ColumnGroups DataSetColumnGroupArrayInput
-	// A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
-	ColumnLevelPermissionRules DataSetColumnLevelPermissionRuleArrayInput
-	// Identifier for the data set.
-	DataSetId pulumi.StringInput
-	// The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
-	DataSetUsageConfiguration DataSetDataSetUsageConfigurationPtrInput
-	// The folder that contains fields and nested subfolders for your dataset. See field_folders.
-	FieldFolders DataSetFieldFolderArrayInput
-	// Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
-	ImportMode pulumi.StringInput
-	// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
-	LogicalTableMaps DataSetLogicalTableMapArrayInput
-	// Display name for the dataset.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
-	Permissions DataSetPermissionArrayInput
-	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-	PhysicalTableMaps DataSetPhysicalTableMapArrayInput
-	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
-	RefreshProperties DataSetRefreshPropertiesPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
-	RowLevelPermissionDataSet DataSetRowLevelPermissionDataSetPtrInput
-	// The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
+	AwsAccountId                       pulumi.StringPtrInput
+	ColumnGroups                       DataSetColumnGroupArrayInput
+	ColumnLevelPermissionRules         DataSetColumnLevelPermissionRuleArrayInput
+	DataSetId                          pulumi.StringInput
+	DataSetUsageConfiguration          DataSetDataSetUsageConfigurationPtrInput
+	FieldFolders                       DataSetFieldFolderArrayInput
+	ImportMode                         pulumi.StringInput
+	LogicalTableMaps                   DataSetLogicalTableMapArrayInput
+	Name                               pulumi.StringPtrInput
+	Permissions                        DataSetPermissionArrayInput
+	PhysicalTableMaps                  DataSetPhysicalTableMapArrayInput
+	RefreshProperties                  DataSetRefreshPropertiesPtrInput
+	Region                             pulumi.StringPtrInput
+	RowLevelPermissionDataSet          DataSetRowLevelPermissionDataSetPtrInput
 	RowLevelPermissionTagConfiguration DataSetRowLevelPermissionTagConfigurationPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags                               pulumi.StringMapInput
 }
 
 func (DataSetArgs) ElementType() reflect.Type {
@@ -617,7 +245,6 @@ func (o DataSetOutput) ToDataSetOutputWithContext(ctx context.Context) DataSetOu
 	return o
 }
 
-// Amazon Resource Name (ARN) of the data set.
 func (o DataSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -626,91 +253,72 @@ func (o DataSetOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
 func (o DataSetOutput) ColumnGroups() DataSetColumnGroupArrayOutput {
 	return o.ApplyT(func(v *DataSet) DataSetColumnGroupArrayOutput { return v.ColumnGroups }).(DataSetColumnGroupArrayOutput)
 }
 
-// A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
 func (o DataSetOutput) ColumnLevelPermissionRules() DataSetColumnLevelPermissionRuleArrayOutput {
 	return o.ApplyT(func(v *DataSet) DataSetColumnLevelPermissionRuleArrayOutput { return v.ColumnLevelPermissionRules }).(DataSetColumnLevelPermissionRuleArrayOutput)
 }
 
-// Identifier for the data set.
 func (o DataSetOutput) DataSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
 }
 
-// The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
 func (o DataSetOutput) DataSetUsageConfiguration() DataSetDataSetUsageConfigurationOutput {
 	return o.ApplyT(func(v *DataSet) DataSetDataSetUsageConfigurationOutput { return v.DataSetUsageConfiguration }).(DataSetDataSetUsageConfigurationOutput)
 }
 
-// The folder that contains fields and nested subfolders for your dataset. See field_folders.
 func (o DataSetOutput) FieldFolders() DataSetFieldFolderArrayOutput {
 	return o.ApplyT(func(v *DataSet) DataSetFieldFolderArrayOutput { return v.FieldFolders }).(DataSetFieldFolderArrayOutput)
 }
 
-// Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
 func (o DataSetOutput) ImportMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.ImportMode }).(pulumi.StringOutput)
 }
 
-// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
 func (o DataSetOutput) LogicalTableMaps() DataSetLogicalTableMapArrayOutput {
 	return o.ApplyT(func(v *DataSet) DataSetLogicalTableMapArrayOutput { return v.LogicalTableMaps }).(DataSetLogicalTableMapArrayOutput)
 }
 
-// Display name for the dataset.
-//
-// The following arguments are optional:
 func (o DataSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `outputColumns` Block below.
 func (o DataSetOutput) OutputColumns() DataSetOutputColumnArrayOutput {
 	return o.ApplyT(func(v *DataSet) DataSetOutputColumnArrayOutput { return v.OutputColumns }).(DataSetOutputColumnArrayOutput)
 }
 
-// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 func (o DataSetOutput) Permissions() DataSetPermissionArrayOutput {
 	return o.ApplyT(func(v *DataSet) DataSetPermissionArrayOutput { return v.Permissions }).(DataSetPermissionArrayOutput)
 }
 
-// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
 func (o DataSetOutput) PhysicalTableMaps() DataSetPhysicalTableMapArrayOutput {
 	return o.ApplyT(func(v *DataSet) DataSetPhysicalTableMapArrayOutput { return v.PhysicalTableMaps }).(DataSetPhysicalTableMapArrayOutput)
 }
 
-// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
 func (o DataSetOutput) RefreshProperties() DataSetRefreshPropertiesPtrOutput {
 	return o.ApplyT(func(v *DataSet) DataSetRefreshPropertiesPtrOutput { return v.RefreshProperties }).(DataSetRefreshPropertiesPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DataSetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
 func (o DataSetOutput) RowLevelPermissionDataSet() DataSetRowLevelPermissionDataSetPtrOutput {
 	return o.ApplyT(func(v *DataSet) DataSetRowLevelPermissionDataSetPtrOutput { return v.RowLevelPermissionDataSet }).(DataSetRowLevelPermissionDataSetPtrOutput)
 }
 
-// The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
 func (o DataSetOutput) RowLevelPermissionTagConfiguration() DataSetRowLevelPermissionTagConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSet) DataSetRowLevelPermissionTagConfigurationPtrOutput {
 		return v.RowLevelPermissionTagConfiguration
 	}).(DataSetRowLevelPermissionTagConfigurationPtrOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DataSetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DataSetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

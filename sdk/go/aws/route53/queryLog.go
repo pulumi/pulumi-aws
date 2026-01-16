@@ -12,112 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Route53 query logging configuration resource.
-//
-// > **NOTE:** There are restrictions on the configuration of query logging. Notably,
-// the CloudWatch log group must be in the `us-east-1` region,
-// a permissive CloudWatch log resource policy must be in place, and
-// the Route53 hosted zone must be public.
-// See [Configuring Logging for DNS Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html?console_help=true#query-logs-configuring) for additional details.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Example Route53 zone with query logging
-//			exampleCom, err := route53.NewZone(ctx, "example_com", &route53.ZoneArgs{
-//				Name: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			awsRoute53ExampleCom, err := cloudwatch.NewLogGroup(ctx, "aws_route53_example_com", &cloudwatch.LogGroupArgs{
-//				Name: exampleCom.Name.ApplyT(func(name string) (string, error) {
-//					return fmt.Sprintf("/aws/route53/%v", name), nil
-//				}).(pulumi.StringOutput),
-//				RetentionInDays: pulumi.Int(30),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// Example CloudWatch log resource policy to allow Route53 to write logs
-//			// to any log group under /aws/route53/*
-//			route53_query_logging_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Actions: []string{
-//							"logs:CreateLogStream",
-//							"logs:PutLogEvents",
-//						},
-//						Resources: []string{
-//							"arn:aws:logs:*:*:log-group:/aws/route53/*",
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Identifiers: []string{
-//									"route53.amazonaws.com",
-//								},
-//								Type: "Service",
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			route53_query_logging_policyLogResourcePolicy, err := cloudwatch.NewLogResourcePolicy(ctx, "route53-query-logging-policy", &cloudwatch.LogResourcePolicyArgs{
-//				PolicyDocument: pulumi.String(route53_query_logging_policy.Json),
-//				PolicyName:     pulumi.String("route53-query-logging-policy"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewQueryLog(ctx, "example_com", &route53.QueryLogArgs{
-//				CloudwatchLogGroupArn: awsRoute53ExampleCom.Arn,
-//				ZoneId:                exampleCom.ZoneId,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				route53_query_logging_policyLogResourcePolicy,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Route53 query logging configurations using their ID. For example:
-//
-// ```sh
-// $ pulumi import aws:route53/queryLog:QueryLog example_com xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-// ```
 type QueryLog struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the Query Logging Config.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// CloudWatch log group ARN to send query logs.
+	Arn                   pulumi.StringOutput `pulumi:"arn"`
 	CloudwatchLogGroupArn pulumi.StringOutput `pulumi:"cloudwatchLogGroupArn"`
-	// Route53 hosted zone ID to enable query logs.
-	ZoneId pulumi.StringOutput `pulumi:"zoneId"`
+	ZoneId                pulumi.StringOutput `pulumi:"zoneId"`
 }
 
 // NewQueryLog registers a new resource with the given unique name, arguments, and options.
@@ -156,21 +56,15 @@ func GetQueryLog(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering QueryLog resources.
 type queryLogState struct {
-	// The Amazon Resource Name (ARN) of the Query Logging Config.
-	Arn *string `pulumi:"arn"`
-	// CloudWatch log group ARN to send query logs.
+	Arn                   *string `pulumi:"arn"`
 	CloudwatchLogGroupArn *string `pulumi:"cloudwatchLogGroupArn"`
-	// Route53 hosted zone ID to enable query logs.
-	ZoneId *string `pulumi:"zoneId"`
+	ZoneId                *string `pulumi:"zoneId"`
 }
 
 type QueryLogState struct {
-	// The Amazon Resource Name (ARN) of the Query Logging Config.
-	Arn pulumi.StringPtrInput
-	// CloudWatch log group ARN to send query logs.
+	Arn                   pulumi.StringPtrInput
 	CloudwatchLogGroupArn pulumi.StringPtrInput
-	// Route53 hosted zone ID to enable query logs.
-	ZoneId pulumi.StringPtrInput
+	ZoneId                pulumi.StringPtrInput
 }
 
 func (QueryLogState) ElementType() reflect.Type {
@@ -178,18 +72,14 @@ func (QueryLogState) ElementType() reflect.Type {
 }
 
 type queryLogArgs struct {
-	// CloudWatch log group ARN to send query logs.
 	CloudwatchLogGroupArn string `pulumi:"cloudwatchLogGroupArn"`
-	// Route53 hosted zone ID to enable query logs.
-	ZoneId string `pulumi:"zoneId"`
+	ZoneId                string `pulumi:"zoneId"`
 }
 
 // The set of arguments for constructing a QueryLog resource.
 type QueryLogArgs struct {
-	// CloudWatch log group ARN to send query logs.
 	CloudwatchLogGroupArn pulumi.StringInput
-	// Route53 hosted zone ID to enable query logs.
-	ZoneId pulumi.StringInput
+	ZoneId                pulumi.StringInput
 }
 
 func (QueryLogArgs) ElementType() reflect.Type {
@@ -279,17 +169,14 @@ func (o QueryLogOutput) ToQueryLogOutputWithContext(ctx context.Context) QueryLo
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Query Logging Config.
 func (o QueryLogOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueryLog) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// CloudWatch log group ARN to send query logs.
 func (o QueryLogOutput) CloudwatchLogGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueryLog) pulumi.StringOutput { return v.CloudwatchLogGroupArn }).(pulumi.StringOutput)
 }
 
-// Route53 hosted zone ID to enable query logs.
 func (o QueryLogOutput) ZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueryLog) pulumi.StringOutput { return v.ZoneId }).(pulumi.StringOutput)
 }

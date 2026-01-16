@@ -4,15 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Import
- *
- * Using `pulumi import`, import exclusive management of inline policy assignments using the `user_name`. For example:
- *
- * ```sh
- * $ pulumi import aws:iam/userPoliciesExclusive:UserPoliciesExclusive example MyUser
- * ```
- */
 export class UserPoliciesExclusive extends pulumi.CustomResource {
     /**
      * Get an existing UserPoliciesExclusive resource's state with the given name, ID, and optional extra
@@ -41,13 +32,7 @@ export class UserPoliciesExclusive extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserPoliciesExclusive.__pulumiType;
     }
 
-    /**
-     * A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
-     */
     declare public readonly policyNames: pulumi.Output<string[]>;
-    /**
-     * IAM user name.
-     */
     declare public readonly userName: pulumi.Output<string>;
 
     /**
@@ -85,13 +70,7 @@ export class UserPoliciesExclusive extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserPoliciesExclusive resources.
  */
 export interface UserPoliciesExclusiveState {
-    /**
-     * A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
-     */
     policyNames?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * IAM user name.
-     */
     userName?: pulumi.Input<string>;
 }
 
@@ -99,12 +78,6 @@ export interface UserPoliciesExclusiveState {
  * The set of arguments for constructing a UserPoliciesExclusive resource.
  */
 export interface UserPoliciesExclusiveArgs {
-    /**
-     * A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
-     */
     policyNames: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * IAM user name.
-     */
     userName: pulumi.Input<string>;
 }

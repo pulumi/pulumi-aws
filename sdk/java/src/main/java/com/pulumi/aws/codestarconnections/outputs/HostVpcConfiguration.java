@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class HostVpcConfiguration {
-    /**
-     * @return ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-     * 
-     */
     private List<String> securityGroupIds;
-    /**
-     * @return The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-     * 
-     */
     private List<String> subnetIds;
-    /**
-     * @return The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
-     * 
-     */
     private @Nullable String tlsCertificate;
-    /**
-     * @return The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
-     * 
-     */
     private String vpcId;
 
     private HostVpcConfiguration() {}
-    /**
-     * @return ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * @return The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
-    /**
-     * @return The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
-     * 
-     */
     public Optional<String> tlsCertificate() {
         return Optional.ofNullable(this.tlsCertificate);
     }
-    /**
-     * @return The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }

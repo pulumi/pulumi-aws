@@ -24,11 +24,6 @@ class LbCertificateAttachmentArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LbCertificateAttachment resource.
-        :param pulumi.Input[_builtins.str] certificate_name: Name of your SSL/TLS certificate.
-        :param pulumi.Input[_builtins.str] lb_name: Name of the load balancer to which you want to associate the SSL/TLS certificate.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "certificate_name", certificate_name)
         pulumi.set(__self__, "lb_name", lb_name)
@@ -38,9 +33,6 @@ class LbCertificateAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="certificateName")
     def certificate_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of your SSL/TLS certificate.
-        """
         return pulumi.get(self, "certificate_name")
 
     @certificate_name.setter
@@ -50,11 +42,6 @@ class LbCertificateAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="lbName")
     def lb_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the load balancer to which you want to associate the SSL/TLS certificate.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "lb_name")
 
     @lb_name.setter
@@ -64,9 +51,6 @@ class LbCertificateAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -82,11 +66,6 @@ class _LbCertificateAttachmentState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LbCertificateAttachment resources.
-        :param pulumi.Input[_builtins.str] certificate_name: Name of your SSL/TLS certificate.
-        :param pulumi.Input[_builtins.str] lb_name: Name of the load balancer to which you want to associate the SSL/TLS certificate.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if certificate_name is not None:
             pulumi.set(__self__, "certificate_name", certificate_name)
@@ -98,9 +77,6 @@ class _LbCertificateAttachmentState:
     @_builtins.property
     @pulumi.getter(name="certificateName")
     def certificate_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of your SSL/TLS certificate.
-        """
         return pulumi.get(self, "certificate_name")
 
     @certificate_name.setter
@@ -110,11 +86,6 @@ class _LbCertificateAttachmentState:
     @_builtins.property
     @pulumi.getter(name="lbName")
     def lb_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the load balancer to which you want to associate the SSL/TLS certificate.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "lb_name")
 
     @lb_name.setter
@@ -124,9 +95,6 @@ class _LbCertificateAttachmentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -145,47 +113,9 @@ class LbCertificateAttachment(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a Lightsail Load Balancer Certificate attachment to a Lightsail Load Balancer.
-
-        Use this resource to attach a validated SSL/TLS certificate to a Lightsail Load Balancer to enable HTTPS traffic. The certificate must be validated before it can be attached to the load balancer.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lightsail.Lb("example",
-            name="example-load-balancer",
-            health_check_path="/",
-            instance_port=80,
-            tags={
-                "foo": "bar",
-            })
-        example_lb_certificate = aws.lightsail.LbCertificate("example",
-            name="example-load-balancer-certificate",
-            lb_name=example.id,
-            domain_name="example.com")
-        example_lb_certificate_attachment = aws.lightsail.LbCertificateAttachment("example",
-            lb_name=example.name,
-            certificate_name=example_lb_certificate.name)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_lightsail_lb_certificate_attachment` using the name attribute. For example:
-
-        ```sh
-        $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment example example-load-balancer,example-certificate
-        ```
-
+        Create a LbCertificateAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] certificate_name: Name of your SSL/TLS certificate.
-        :param pulumi.Input[_builtins.str] lb_name: Name of the load balancer to which you want to associate the SSL/TLS certificate.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -194,40 +124,7 @@ class LbCertificateAttachment(pulumi.CustomResource):
                  args: LbCertificateAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Lightsail Load Balancer Certificate attachment to a Lightsail Load Balancer.
-
-        Use this resource to attach a validated SSL/TLS certificate to a Lightsail Load Balancer to enable HTTPS traffic. The certificate must be validated before it can be attached to the load balancer.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lightsail.Lb("example",
-            name="example-load-balancer",
-            health_check_path="/",
-            instance_port=80,
-            tags={
-                "foo": "bar",
-            })
-        example_lb_certificate = aws.lightsail.LbCertificate("example",
-            name="example-load-balancer-certificate",
-            lb_name=example.id,
-            domain_name="example.com")
-        example_lb_certificate_attachment = aws.lightsail.LbCertificateAttachment("example",
-            lb_name=example.name,
-            certificate_name=example_lb_certificate.name)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_lightsail_lb_certificate_attachment` using the name attribute. For example:
-
-        ```sh
-        $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment example example-load-balancer,example-certificate
-        ```
-
+        Create a LbCertificateAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LbCertificateAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -282,11 +179,6 @@ class LbCertificateAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] certificate_name: Name of your SSL/TLS certificate.
-        :param pulumi.Input[_builtins.str] lb_name: Name of the load balancer to which you want to associate the SSL/TLS certificate.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -300,26 +192,15 @@ class LbCertificateAttachment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="certificateName")
     def certificate_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of your SSL/TLS certificate.
-        """
         return pulumi.get(self, "certificate_name")
 
     @_builtins.property
     @pulumi.getter(name="lbName")
     def lb_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the load balancer to which you want to associate the SSL/TLS certificate.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "lb_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

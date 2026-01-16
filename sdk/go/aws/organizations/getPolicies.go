@@ -11,11 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS Organizations Policies.
-//
-// ## Example Usage
-//
-// ### Basic Usage
 func GetPolicies(ctx *pulumi.Context, args *GetPoliciesArgs, opts ...pulumi.InvokeOption) (*GetPoliciesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPoliciesResult
@@ -28,7 +23,6 @@ func GetPolicies(ctx *pulumi.Context, args *GetPoliciesArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getPolicies.
 type GetPoliciesArgs struct {
-	// The type of policies to be returned in the response. Valid values are `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
 	Filter string `pulumi:"filter"`
 }
 
@@ -36,8 +30,7 @@ type GetPoliciesArgs struct {
 type GetPoliciesResult struct {
 	Filter string `pulumi:"filter"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// List of all the policy ids found.
+	Id  string   `pulumi:"id"`
 	Ids []string `pulumi:"ids"`
 }
 
@@ -52,7 +45,6 @@ func GetPoliciesOutput(ctx *pulumi.Context, args GetPoliciesOutputArgs, opts ...
 
 // A collection of arguments for invoking getPolicies.
 type GetPoliciesOutputArgs struct {
-	// The type of policies to be returned in the response. Valid values are `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
 	Filter pulumi.StringInput `pulumi:"filter"`
 }
 
@@ -84,7 +76,6 @@ func (o GetPoliciesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoliciesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of all the policy ids found.
 func (o GetPoliciesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPoliciesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

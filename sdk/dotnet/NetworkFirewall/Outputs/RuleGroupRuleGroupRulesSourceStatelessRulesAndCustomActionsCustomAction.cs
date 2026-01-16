@@ -13,13 +13,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction
     {
-        /// <summary>
-        /// A configuration block describing the custom action associated with the `ActionName`. See Action Definition below for details.
-        /// </summary>
         public readonly Outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinition ActionDefinition;
-        /// <summary>
-        /// A friendly name of the custom action.
-        /// </summary>
         public readonly string ActionName;
 
         [OutputConstructor]

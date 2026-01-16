@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration {
-    /**
-     * @return SQS queue to deliver results.
-     * 
-     */
     private String insightsTarget;
 
     private MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration() {}
-    /**
-     * @return SQS queue to deliver results.
-     * 
-     */
     public String insightsTarget() {
         return this.insightsTarget;
     }

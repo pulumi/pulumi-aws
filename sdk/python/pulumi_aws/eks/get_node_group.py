@@ -98,25 +98,16 @@ class GetNodeGroupResult:
     @_builtins.property
     @pulumi.getter(name="amiType")
     def ami_type(self) -> _builtins.str:
-        """
-        Type of Amazon Machine Image (AMI) associated with the EKS Node Group.
-        """
         return pulumi.get(self, "ami_type")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the EKS Node Group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="capacityType")
     def capacity_type(self) -> _builtins.str:
-        """
-        Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`.
-        """
         return pulumi.get(self, "capacity_type")
 
     @_builtins.property
@@ -127,9 +118,6 @@ class GetNodeGroupResult:
     @_builtins.property
     @pulumi.getter(name="diskSize")
     def disk_size(self) -> _builtins.int:
-        """
-        Disk size in GiB for worker nodes.
-        """
         return pulumi.get(self, "disk_size")
 
     @_builtins.property
@@ -143,25 +131,16 @@ class GetNodeGroupResult:
     @_builtins.property
     @pulumi.getter(name="instanceTypes")
     def instance_types(self) -> Sequence[_builtins.str]:
-        """
-        Set of instance types associated with the EKS Node Group.
-        """
         return pulumi.get(self, "instance_types")
 
     @_builtins.property
     @pulumi.getter
     def labels(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
-        """
         return pulumi.get(self, "labels")
 
     @_builtins.property
     @pulumi.getter(name="launchTemplates")
     def launch_templates(self) -> Sequence['outputs.GetNodeGroupLaunchTemplateResult']:
-        """
-        Nested attribute containing information about the launch template used to create the EKS Node Group.
-        """
         return pulumi.get(self, "launch_templates")
 
     @_builtins.property
@@ -172,9 +151,6 @@ class GetNodeGroupResult:
     @_builtins.property
     @pulumi.getter(name="nodeRoleArn")
     def node_role_arn(self) -> _builtins.str:
-        """
-        ARN of the IAM Role that provides permissions for the EKS Node Group.
-        """
         return pulumi.get(self, "node_role_arn")
 
     @_builtins.property
@@ -185,65 +161,41 @@ class GetNodeGroupResult:
     @_builtins.property
     @pulumi.getter(name="releaseVersion")
     def release_version(self) -> _builtins.str:
-        """
-        AMI version of the EKS Node Group.
-        """
         return pulumi.get(self, "release_version")
 
     @_builtins.property
     @pulumi.getter(name="remoteAccesses")
     def remote_accesses(self) -> Sequence['outputs.GetNodeGroupRemoteAccessResult']:
-        """
-        Configuration block with remote access settings.
-        """
         return pulumi.get(self, "remote_accesses")
 
     @_builtins.property
     @pulumi.getter
     def resources(self) -> Sequence['outputs.GetNodeGroupResourceResult']:
-        """
-        List of objects containing information about underlying resources.
-        """
         return pulumi.get(self, "resources")
 
     @_builtins.property
     @pulumi.getter(name="scalingConfigs")
     def scaling_configs(self) -> Sequence['outputs.GetNodeGroupScalingConfigResult']:
-        """
-        Configuration block with scaling settings.
-        """
         return pulumi.get(self, "scaling_configs")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the EKS Node Group.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[_builtins.str]:
-        """
-        Identifiers of EC2 Subnets to associate with the EKS Node Group.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value map of resource tags.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter
     def taints(self) -> Sequence['outputs.GetNodeGroupTaintResult']:
-        """
-        List of objects containing information about taints applied to the nodes in the EKS Node Group.
-        """
         return pulumi.get(self, "taints")
 
     @_builtins.property
@@ -254,9 +206,6 @@ class GetNodeGroupResult:
     @_builtins.property
     @pulumi.getter
     def version(self) -> _builtins.str:
-        """
-        Kubernetes version.
-        """
         return pulumi.get(self, "version")
 
 
@@ -296,23 +245,7 @@ def get_node_group(cluster_name: Optional[_builtins.str] = None,
                    tags: Optional[Mapping[str, _builtins.str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNodeGroupResult:
     """
-    Retrieve information about an EKS Node Group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.eks.get_node_group(cluster_name="example",
-        node_group_name="example")
-    ```
-
-
-    :param _builtins.str cluster_name: Name of the cluster.
-    :param _builtins.str node_group_name: Name of the node group.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
@@ -351,23 +284,7 @@ def get_node_group_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = 
                           tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNodeGroupResult]:
     """
-    Retrieve information about an EKS Node Group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.eks.get_node_group(cluster_name="example",
-        node_group_name="example")
-    ```
-
-
-    :param _builtins.str cluster_name: Name of the cluster.
-    :param _builtins.str node_group_name: Name of the node group.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name

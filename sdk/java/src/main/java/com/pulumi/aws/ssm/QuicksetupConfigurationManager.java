@@ -19,137 +19,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS SSM Quick Setup Configuration Manager.
- * 
- * ## Example Usage
- * 
- * ### Patch Policy Configuration Type
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SSM Quick Setup Configuration Manager using the `manager_arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager example arn:aws:ssm-quicksetup:us-east-1:012345678901:configuration-manager/abcd-1234
- * ```
- * 
- */
 @ResourceType(type="aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager")
 public class QuicksetupConfigurationManager extends com.pulumi.resources.CustomResource {
-    /**
-     * Definition of the Quick Setup configuration that the configuration manager deploys. See `configurationDefinition` below.
-     * 
-     */
     @Export(name="configurationDefinition", refs={QuicksetupConfigurationManagerConfigurationDefinition.class}, tree="[0]")
     private Output</* @Nullable */ QuicksetupConfigurationManagerConfigurationDefinition> configurationDefinition;
 
-    /**
-     * @return Definition of the Quick Setup configuration that the configuration manager deploys. See `configurationDefinition` below.
-     * 
-     */
     public Output<Optional<QuicksetupConfigurationManagerConfigurationDefinition>> configurationDefinition() {
         return Codegen.optional(this.configurationDefinition);
     }
-    /**
-     * Description of the configuration manager.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
-    /**
-     * @return Description of the configuration manager.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * ARN of the Configuration Manager.
-     * 
-     */
     @Export(name="managerArn", refs={String.class}, tree="[0]")
     private Output<String> managerArn;
 
-    /**
-     * @return ARN of the Configuration Manager.
-     * 
-     */
     public Output<String> managerArn() {
         return this.managerArn;
     }
-    /**
-     * Configuration manager name.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Configuration manager name.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `statusSummaries` below.
-     * 
-     */
     @Export(name="statusSummaries", refs={List.class,QuicksetupConfigurationManagerStatusSummary.class}, tree="[0,1]")
     private Output<List<QuicksetupConfigurationManagerStatusSummary>> statusSummaries;
 
-    /**
-     * @return A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `statusSummaries` below.
-     * 
-     */
     public Output<List<QuicksetupConfigurationManagerStatusSummary>> statusSummaries() {
         return this.statusSummaries;
     }
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

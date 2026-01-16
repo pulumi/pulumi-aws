@@ -11,21 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InstanceEnclaveOptions {
-    /**
-     * @return Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
-     * 
-     * For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
-     * 
-     */
     private @Nullable Boolean enabled;
 
     private InstanceEnclaveOptions() {}
-    /**
-     * @return Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
-     * 
-     * For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }

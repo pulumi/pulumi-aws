@@ -11,55 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage an [AWS Detective Graph](https://docs.aws.amazon.com/detective/latest/APIReference/API_CreateGraph.html). As an AWS account may own only one Detective graph per region, provisioning multiple Detective graphs requires a separate provider configuration for each graph.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/detective"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := detective.NewGraph(ctx, "example", &detective.GraphArgs{
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example-detective-graph"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_detective_graph` using the ARN. For example:
-//
-// ```sh
-// $ pulumi import aws:detective/graph:Graph example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
-// ```
 type Graph struct {
 	pulumi.CustomResourceState
 
-	// Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// ARN of the Detective Graph.
-	GraphArn pulumi.StringOutput `pulumi:"graphArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	CreatedTime pulumi.StringOutput    `pulumi:"createdTime"`
+	GraphArn    pulumi.StringOutput    `pulumi:"graphArn"`
+	Region      pulumi.StringOutput    `pulumi:"region"`
+	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewGraph registers a new resource with the given unique name, arguments, and options.
@@ -92,27 +51,19 @@ func GetGraph(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Graph resources.
 type graphState struct {
-	// Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
-	CreatedTime *string `pulumi:"createdTime"`
-	// ARN of the Detective Graph.
-	GraphArn *string `pulumi:"graphArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	CreatedTime *string           `pulumi:"createdTime"`
+	GraphArn    *string           `pulumi:"graphArn"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
 }
 
 type GraphState struct {
-	// Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
 	CreatedTime pulumi.StringPtrInput
-	// ARN of the Detective Graph.
-	GraphArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	GraphArn    pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 }
 
 func (GraphState) ElementType() reflect.Type {
@@ -120,18 +71,14 @@ func (GraphState) ElementType() reflect.Type {
 }
 
 type graphArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Graph resource.
 type GraphArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags   pulumi.StringMapInput
 }
 
 func (GraphArgs) ElementType() reflect.Type {
@@ -221,22 +168,18 @@ func (o GraphOutput) ToGraphOutputWithContext(ctx context.Context) GraphOutput {
 	return o
 }
 
-// Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
 func (o GraphOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Graph) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// ARN of the Detective Graph.
 func (o GraphOutput) GraphArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Graph) pulumi.StringOutput { return v.GraphArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GraphOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Graph) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o GraphOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Graph) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

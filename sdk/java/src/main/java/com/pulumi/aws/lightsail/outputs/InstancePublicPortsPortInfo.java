@@ -13,77 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InstancePublicPortsPortInfo {
-    /**
-     * @return Set of CIDR aliases that define access for a preconfigured range of IP addresses.
-     * 
-     */
     private @Nullable List<String> cidrListAliases;
-    /**
-     * @return Set of IPv4 addresses or ranges of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
-     * 
-     */
     private @Nullable List<String> cidrs;
-    /**
-     * @return First port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-     * 
-     */
     private Integer fromPort;
-    /**
-     * @return Set of IPv6 addresses or ranges of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
-     * 
-     */
     private @Nullable List<String> ipv6Cidrs;
-    /**
-     * @return IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`, `icmpv6`. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-     * 
-     */
     private String protocol;
-    /**
-     * @return Last port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-     * 
-     */
     private Integer toPort;
 
     private InstancePublicPortsPortInfo() {}
-    /**
-     * @return Set of CIDR aliases that define access for a preconfigured range of IP addresses.
-     * 
-     */
     public List<String> cidrListAliases() {
         return this.cidrListAliases == null ? List.of() : this.cidrListAliases;
     }
-    /**
-     * @return Set of IPv4 addresses or ranges of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
-     * 
-     */
     public List<String> cidrs() {
         return this.cidrs == null ? List.of() : this.cidrs;
     }
-    /**
-     * @return First port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-     * 
-     */
     public Integer fromPort() {
         return this.fromPort;
     }
-    /**
-     * @return Set of IPv6 addresses or ranges of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
-     * 
-     */
     public List<String> ipv6Cidrs() {
         return this.ipv6Cidrs == null ? List.of() : this.ipv6Cidrs;
     }
-    /**
-     * @return IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`, `icmpv6`. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-     * 
-     */
     public String protocol() {
         return this.protocol;
     }
-    /**
-     * @return Last port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-     * 
-     */
     public Integer toPort() {
         return this.toPort;
     }

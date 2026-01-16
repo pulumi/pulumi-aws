@@ -9,108 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Inspector2
 {
-    /// <summary>
-    /// Resource for managing an AWS Inspector Filter.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Inspector2.Filter("example", new()
-    ///     {
-    ///         Name = "test",
-    ///         Action = "NONE",
-    ///         FilterCriterias = new[]
-    ///         {
-    ///             new Aws.Inspector2.Inputs.FilterFilterCriteriaArgs
-    ///             {
-    ///                 AwsAccountIds = new[]
-    ///                 {
-    ///                     new Aws.Inspector2.Inputs.FilterFilterCriteriaAwsAccountIdArgs
-    ///                     {
-    ///                         Comparison = "EQUALS",
-    ///                         Value = "111222333444",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Inspector Filter using the `arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:inspector2/filter:Filter example "arn:aws:inspector2:us-east-1:111222333444:owner/111222333444/filter/abcdefgh12345678"
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:inspector2/filter:Filter")]
     public partial class Filter : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Action to be applied to the findings that maatch the filter. Possible values are `NONE` and `SUPPRESS`
-        /// </summary>
         [Output("action")]
         public Output<string> Action { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the Filter.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Description
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Details on the filter criteria. Documented below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("filterCriterias")]
         public Output<ImmutableArray<Outputs.FilterFilterCriteria>> FilterCriterias { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the filter.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Reason for creating the filter
-        /// </summary>
         [Output("reason")]
         public Output<string?> Reason { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -160,56 +85,31 @@ namespace Pulumi.Aws.Inspector2
 
     public sealed class FilterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Action to be applied to the findings that maatch the filter. Possible values are `NONE` and `SUPPRESS`
-        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
-        /// <summary>
-        /// Description
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("filterCriterias")]
         private InputList<Inputs.FilterFilterCriteriaArgs>? _filterCriterias;
-
-        /// <summary>
-        /// Details on the filter criteria. Documented below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaArgs> FilterCriterias
         {
             get => _filterCriterias ?? (_filterCriterias = new InputList<Inputs.FilterFilterCriteriaArgs>());
             set => _filterCriterias = value;
         }
 
-        /// <summary>
-        /// Name of the filter.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Reason for creating the filter
-        /// </summary>
         [Input("reason")]
         public Input<string>? Reason { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -224,62 +124,34 @@ namespace Pulumi.Aws.Inspector2
 
     public sealed class FilterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Action to be applied to the findings that maatch the filter. Possible values are `NONE` and `SUPPRESS`
-        /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 
-        /// <summary>
-        /// ARN of the Filter.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Description
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("filterCriterias")]
         private InputList<Inputs.FilterFilterCriteriaGetArgs>? _filterCriterias;
-
-        /// <summary>
-        /// Details on the filter criteria. Documented below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaGetArgs> FilterCriterias
         {
             get => _filterCriterias ?? (_filterCriterias = new InputList<Inputs.FilterFilterCriteriaGetArgs>());
             set => _filterCriterias = value;
         }
 
-        /// <summary>
-        /// Name of the filter.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Reason for creating the filter
-        /// </summary>
         [Input("reason")]
         public Input<string>? Reason { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -288,10 +160,6 @@ namespace Pulumi.Aws.Inspector2
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

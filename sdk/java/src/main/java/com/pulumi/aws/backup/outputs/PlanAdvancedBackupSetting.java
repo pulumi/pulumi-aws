@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class PlanAdvancedBackupSetting {
-    /**
-     * @return Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = &#34;enabled&#34; }` to enable Windows VSS backup option and create a VSS Windows backup.
-     * 
-     */
     private Map<String,String> backupOptions;
-    /**
-     * @return The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
-     * 
-     */
     private String resourceType;
 
     private PlanAdvancedBackupSetting() {}
-    /**
-     * @return Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = &#34;enabled&#34; }` to enable Windows VSS backup option and create a VSS Windows backup.
-     * 
-     */
     public Map<String,String> backupOptions() {
         return this.backupOptions;
     }
-    /**
-     * @return The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
-     * 
-     */
     public String resourceType() {
         return this.resourceType;
     }

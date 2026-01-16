@@ -11,117 +11,12 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetAmiIds
     {
-        /// <summary>
-        /// Use this data source to get a list of AMI IDs matching the specified criteria.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ubuntu = Aws.Ec2.GetAmiIds.Invoke(new()
-        ///     {
-        ///         Owners = new[]
-        ///         {
-        ///             "099720109477",
-        ///         },
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetAmiIdsFilterInputArgs
-        ///             {
-        ///                 Name = "name",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "ubuntu/images/ubuntu-*-*-amd64-server-*",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetAmiIdsResult> InvokeAsync(GetAmiIdsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAmiIdsResult>("aws:ec2/getAmiIds:getAmiIds", args ?? new GetAmiIdsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get a list of AMI IDs matching the specified criteria.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ubuntu = Aws.Ec2.GetAmiIds.Invoke(new()
-        ///     {
-        ///         Owners = new[]
-        ///         {
-        ///             "099720109477",
-        ///         },
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetAmiIdsFilterInputArgs
-        ///             {
-        ///                 Name = "name",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "ubuntu/images/ubuntu-*-*-amd64-server-*",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetAmiIdsResult> Invoke(GetAmiIdsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAmiIdsResult>("aws:ec2/getAmiIds:getAmiIds", args ?? new GetAmiIdsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get a list of AMI IDs matching the specified criteria.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ubuntu = Aws.Ec2.GetAmiIds.Invoke(new()
-        ///     {
-        ///         Owners = new[]
-        ///         {
-        ///             "099720109477",
-        ///         },
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetAmiIdsFilterInputArgs
-        ///             {
-        ///                 Name = "name",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "ubuntu/images/ubuntu-*-*-amd64-server-*",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetAmiIdsResult> Invoke(GetAmiIdsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAmiIdsResult>("aws:ec2/getAmiIds:getAmiIds", args ?? new GetAmiIdsInvokeArgs(), options.WithDefaults());
     }
@@ -131,11 +26,6 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("executableUsers")]
         private List<string>? _executableUsers;
-
-        /// <summary>
-        /// Limit search to users with *explicit* launch
-        /// permission on  the image. Valid items are the numeric account ID or `Self`.
-        /// </summary>
         public List<string> ExecutableUsers
         {
             get => _executableUsers ?? (_executableUsers = new List<string>());
@@ -144,57 +34,29 @@ namespace Pulumi.Aws.Ec2
 
         [Input("filters")]
         private List<Inputs.GetAmiIdsFilterArgs>? _filters;
-
-        /// <summary>
-        /// One or more name/value pairs to filter off of. There
-        /// are several valid keys, for a full reference, check out
-        /// [describe-images in the AWS CLI reference][1].
-        /// </summary>
         public List<Inputs.GetAmiIdsFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetAmiIdsFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// If true, all deprecated AMIs are included in the response.
-        /// If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `False`.
-        /// </summary>
         [Input("includeDeprecated")]
         public bool? IncludeDeprecated { get; set; }
 
-        /// <summary>
-        /// Regex string to apply to the AMI list returned
-        /// by AWS. This allows more advanced filtering not supported from the AWS API.
-        /// This filtering is done locally on what AWS returns, and could have a performance
-        /// impact if the result is large. Combine this with other
-        /// options to narrow down the list AWS returns.
-        /// </summary>
         [Input("nameRegex")]
         public string? NameRegex { get; set; }
 
         [Input("owners", required: true)]
         private List<string>? _owners;
-
-        /// <summary>
-        /// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `Self` (the current account), or an AWS owner alias (e.g., `Amazon`, `aws-marketplace`, `Microsoft`).
-        /// </summary>
         public List<string> Owners
         {
             get => _owners ?? (_owners = new List<string>());
             set => _owners = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// Used to sort AMIs by creation time.
-        /// If no value is specified, the default value is `False`.
-        /// </summary>
         [Input("sortAscending")]
         public bool? SortAscending { get; set; }
 
@@ -208,11 +70,6 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("executableUsers")]
         private InputList<string>? _executableUsers;
-
-        /// <summary>
-        /// Limit search to users with *explicit* launch
-        /// permission on  the image. Valid items are the numeric account ID or `Self`.
-        /// </summary>
         public InputList<string> ExecutableUsers
         {
             get => _executableUsers ?? (_executableUsers = new InputList<string>());
@@ -221,57 +78,29 @@ namespace Pulumi.Aws.Ec2
 
         [Input("filters")]
         private InputList<Inputs.GetAmiIdsFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// One or more name/value pairs to filter off of. There
-        /// are several valid keys, for a full reference, check out
-        /// [describe-images in the AWS CLI reference][1].
-        /// </summary>
         public InputList<Inputs.GetAmiIdsFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetAmiIdsFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// If true, all deprecated AMIs are included in the response.
-        /// If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `False`.
-        /// </summary>
         [Input("includeDeprecated")]
         public Input<bool>? IncludeDeprecated { get; set; }
 
-        /// <summary>
-        /// Regex string to apply to the AMI list returned
-        /// by AWS. This allows more advanced filtering not supported from the AWS API.
-        /// This filtering is done locally on what AWS returns, and could have a performance
-        /// impact if the result is large. Combine this with other
-        /// options to narrow down the list AWS returns.
-        /// </summary>
         [Input("nameRegex")]
         public Input<string>? NameRegex { get; set; }
 
         [Input("owners", required: true)]
         private InputList<string>? _owners;
-
-        /// <summary>
-        /// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `Self` (the current account), or an AWS owner alias (e.g., `Amazon`, `aws-marketplace`, `Microsoft`).
-        /// </summary>
         public InputList<string> Owners
         {
             get => _owners ?? (_owners = new InputList<string>());
             set => _owners = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Used to sort AMIs by creation time.
-        /// If no value is specified, the default value is `False`.
-        /// </summary>
         [Input("sortAscending")]
         public Input<bool>? SortAscending { get; set; }
 
@@ -291,9 +120,6 @@ namespace Pulumi.Aws.Ec2
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// is set to the list of AMI IDs, sorted by creation time according to `SortAscending`.
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly bool? IncludeDeprecated;
         public readonly string? NameRegex;

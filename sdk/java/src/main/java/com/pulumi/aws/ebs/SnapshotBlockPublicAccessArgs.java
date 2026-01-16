@@ -16,32 +16,16 @@ public final class SnapshotBlockPublicAccessArgs extends com.pulumi.resources.Re
 
     public static final SnapshotBlockPublicAccessArgs Empty = new SnapshotBlockPublicAccessArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The mode in which to enable &#34;Block public access for snapshots&#34; for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
-     * 
-     */
     @Import(name="state", required=true)
     private Output<String> state;
 
-    /**
-     * @return The mode in which to enable &#34;Block public access for snapshots&#34; for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
-     * 
-     */
     public Output<String> state() {
         return this.state;
     }
@@ -71,44 +55,20 @@ public final class SnapshotBlockPublicAccessArgs extends com.pulumi.resources.Re
             $ = new SnapshotBlockPublicAccessArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param state The mode in which to enable &#34;Block public access for snapshots&#34; for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(Output<String> state) {
             $.state = state;
             return this;
         }
 
-        /**
-         * @param state The mode in which to enable &#34;Block public access for snapshots&#34; for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(String state) {
             return state(Output.of(state));
         }

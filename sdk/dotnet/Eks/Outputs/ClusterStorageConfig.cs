@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class ClusterStorageConfig
     {
-        /// <summary>
-        /// Configuration block with block storage configuration for the cluster. Detailed below.
-        /// </summary>
         public readonly Outputs.ClusterStorageConfigBlockStorage? BlockStorage;
 
         [OutputConstructor]

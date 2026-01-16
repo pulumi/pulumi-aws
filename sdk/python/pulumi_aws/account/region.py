@@ -24,9 +24,6 @@ class RegionArgs:
                  account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Region resource.
-        :param pulumi.Input[_builtins.bool] enabled: Whether the region is enabled.
-        :param pulumi.Input[_builtins.str] region_name: The region name to manage.
-        :param pulumi.Input[_builtins.str] account_id: The ID of the target account when managing member accounts. Will manage current user's account by default if omitted. To use this parameter, the caller must be an identity in the organization's management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "region_name", region_name)
@@ -36,9 +33,6 @@ class RegionArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Whether the region is enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -48,9 +42,6 @@ class RegionArgs:
     @_builtins.property
     @pulumi.getter(name="regionName")
     def region_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The region name to manage.
-        """
         return pulumi.get(self, "region_name")
 
     @region_name.setter
@@ -60,9 +51,6 @@ class RegionArgs:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the target account when managing member accounts. Will manage current user's account by default if omitted. To use this parameter, the caller must be an identity in the organization's management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -79,10 +67,6 @@ class _RegionState:
                  region_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Region resources.
-        :param pulumi.Input[_builtins.str] account_id: The ID of the target account when managing member accounts. Will manage current user's account by default if omitted. To use this parameter, the caller must be an identity in the organization's management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
-        :param pulumi.Input[_builtins.bool] enabled: Whether the region is enabled.
-        :param pulumi.Input[_builtins.str] opt_status: The region opt status.
-        :param pulumi.Input[_builtins.str] region_name: The region name to manage.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -96,9 +80,6 @@ class _RegionState:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the target account when managing member accounts. Will manage current user's account by default if omitted. To use this parameter, the caller must be an identity in the organization's management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -108,9 +89,6 @@ class _RegionState:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the region is enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -120,9 +98,6 @@ class _RegionState:
     @_builtins.property
     @pulumi.getter(name="optStatus")
     def opt_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The region opt status.
-        """
         return pulumi.get(self, "opt_status")
 
     @opt_status.setter
@@ -132,9 +107,6 @@ class _RegionState:
     @_builtins.property
     @pulumi.getter(name="regionName")
     def region_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The region name to manage.
-        """
         return pulumi.get(self, "region_name")
 
     @region_name.setter
@@ -153,32 +125,9 @@ class Region(pulumi.CustomResource):
                  region_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Enable (Opt-In) or Disable (Opt-Out) a particular Region for an AWS account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.account.Region("example",
-            region_name="ap-southeast-3",
-            enabled=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`. For example:
-
-        ```sh
-        $ pulumi import aws:account/region:Region example ap-southeast-3
-        ```
-
+        Create a Region resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: The ID of the target account when managing member accounts. Will manage current user's account by default if omitted. To use this parameter, the caller must be an identity in the organization's management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
-        :param pulumi.Input[_builtins.bool] enabled: Whether the region is enabled.
-        :param pulumi.Input[_builtins.str] region_name: The region name to manage.
         """
         ...
     @overload
@@ -187,27 +136,7 @@ class Region(pulumi.CustomResource):
                  args: RegionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Enable (Opt-In) or Disable (Opt-Out) a particular Region for an AWS account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.account.Region("example",
-            region_name="ap-southeast-3",
-            enabled=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`. For example:
-
-        ```sh
-        $ pulumi import aws:account/region:Region example ap-southeast-3
-        ```
-
+        Create a Region resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RegionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -264,10 +193,6 @@ class Region(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: The ID of the target account when managing member accounts. Will manage current user's account by default if omitted. To use this parameter, the caller must be an identity in the organization's management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
-        :param pulumi.Input[_builtins.bool] enabled: Whether the region is enabled.
-        :param pulumi.Input[_builtins.str] opt_status: The region opt status.
-        :param pulumi.Input[_builtins.str] region_name: The region name to manage.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -282,32 +207,20 @@ class Region(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The ID of the target account when managing member accounts. Will manage current user's account by default if omitted. To use this parameter, the caller must be an identity in the organization's management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
-        """
         return pulumi.get(self, "account_id")
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether the region is enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="optStatus")
     def opt_status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The region opt status.
-        """
         return pulumi.get(self, "opt_status")
 
     @_builtins.property
     @pulumi.getter(name="regionName")
     def region_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The region name to manage.
-        """
         return pulumi.get(self, "region_name")
 

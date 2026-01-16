@@ -36,45 +36,6 @@ class VpcEncryptionControlArgs:
                  vpc_peering_exclusion: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcEncryptionControl resource.
-        :param pulumi.Input[_builtins.str] mode: Mode to enable for VPC Encryption Control.
-               Valid values are `monitor` or `enforce`.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC the VPC Encryption Control is linked to.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] egress_only_internet_gateway_exclusion: Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] elastic_file_system_exclusion: Whether to exclude Elastic File System (EFS) from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] internet_gateway_exclusion: Whether to exclude Internet Gateways from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] lambda_exclusion: Whether to exclude Lambda Functions from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] nat_gateway_exclusion: Whether to exclude NAT Gateways from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] virtual_private_gateway_exclusion: Whether to exclude Virtual Private Gateways from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] vpc_lattice_exclusion: Whether to exclude VPC Lattice from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] vpc_peering_exclusion: Whether to exclude peered VPCs from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
         """
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -104,10 +65,6 @@ class VpcEncryptionControlArgs:
     @_builtins.property
     @pulumi.getter
     def mode(self) -> pulumi.Input[_builtins.str]:
-        """
-        Mode to enable for VPC Encryption Control.
-        Valid values are `monitor` or `enforce`.
-        """
         return pulumi.get(self, "mode")
 
     @mode.setter
@@ -117,11 +74,6 @@ class VpcEncryptionControlArgs:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the VPC the VPC Encryption Control is linked to.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -131,12 +83,6 @@ class VpcEncryptionControlArgs:
     @_builtins.property
     @pulumi.getter(name="egressOnlyInternetGatewayExclusion")
     def egress_only_internet_gateway_exclusion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
-        Valid values are `disable` or `enable`.
-        Default is `disable`.
-        Only valid when `mode` is `enforce`.
-        """
         return pulumi.get(self, "egress_only_internet_gateway_exclusion")
 
     @egress_only_internet_gateway_exclusion.setter
@@ -146,12 +92,6 @@ class VpcEncryptionControlArgs:
     @_builtins.property
     @pulumi.getter(name="elasticFileSystemExclusion")
     def elastic_file_system_exclusion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether to exclude Elastic File System (EFS) from encryption enforcement.
-        Valid values are `disable` or `enable`.
-        Default is `disable`.
-        Only valid when `mode` is `enforce`.
-        """
         return pulumi.get(self, "elastic_file_system_exclusion")
 
     @elastic_file_system_exclusion.setter
@@ -161,12 +101,6 @@ class VpcEncryptionControlArgs:
     @_builtins.property
     @pulumi.getter(name="internetGatewayExclusion")
     def internet_gateway_exclusion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether to exclude Internet Gateways from encryption enforcement.
-        Valid values are `disable` or `enable`.
-        Default is `disable`.
-        Only valid when `mode` is `enforce`.
-        """
         return pulumi.get(self, "internet_gateway_exclusion")
 
     @internet_gateway_exclusion.setter
@@ -176,12 +110,6 @@ class VpcEncryptionControlArgs:
     @_builtins.property
     @pulumi.getter(name="lambdaExclusion")
     def lambda_exclusion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether to exclude Lambda Functions from encryption enforcement.
-        Valid values are `disable` or `enable`.
-        Default is `disable`.
-        Only valid when `mode` is `enforce`.
-        """
         return pulumi.get(self, "lambda_exclusion")
 
     @lambda_exclusion.setter
@@ -191,12 +119,6 @@ class VpcEncryptionControlArgs:
     @_builtins.property
     @pulumi.getter(name="natGatewayExclusion")
     def nat_gateway_exclusion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether to exclude NAT Gateways from encryption enforcement.
-        Valid values are `disable` or `enable`.
-        Default is `disable`.
-        Only valid when `mode` is `enforce`.
-        """
         return pulumi.get(self, "nat_gateway_exclusion")
 
     @nat_gateway_exclusion.setter
@@ -206,9 +128,6 @@ class VpcEncryptionControlArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -218,9 +137,6 @@ class VpcEncryptionControlArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -239,12 +155,6 @@ class VpcEncryptionControlArgs:
     @_builtins.property
     @pulumi.getter(name="virtualPrivateGatewayExclusion")
     def virtual_private_gateway_exclusion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether to exclude Virtual Private Gateways from encryption enforcement.
-        Valid values are `disable` or `enable`.
-        Default is `disable`.
-        Only valid when `mode` is `enforce`.
-        """
         return pulumi.get(self, "virtual_private_gateway_exclusion")
 
     @virtual_private_gateway_exclusion.setter
@@ -254,12 +164,6 @@ class VpcEncryptionControlArgs:
     @_builtins.property
     @pulumi.getter(name="vpcLatticeExclusion")
     def vpc_lattice_exclusion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether to exclude VPC Lattice from encryption enforcement.
-        Valid values are `disable` or `enable`.
-        Default is `disable`.
-        Only valid when `mode` is `enforce`.
-        """
         return pulumi.get(self, "vpc_lattice_exclusion")
 
     @vpc_lattice_exclusion.setter
@@ -269,12 +173,6 @@ class VpcEncryptionControlArgs:
     @_builtins.property
     @pulumi.getter(name="vpcPeeringExclusion")
     def vpc_peering_exclusion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether to exclude peered VPCs from encryption enforcement.
-        Valid values are `disable` or `enable`.
-        Default is `disable`.
-        Only valid when `mode` is `enforce`.
-        """
         return pulumi.get(self, "vpc_peering_exclusion")
 
     @vpc_peering_exclusion.setter
@@ -304,51 +202,6 @@ class _VpcEncryptionControlState:
                  vpc_peering_exclusion: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcEncryptionControl resources.
-        :param pulumi.Input[_builtins.str] egress_only_internet_gateway_exclusion: Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] elastic_file_system_exclusion: Whether to exclude Elastic File System (EFS) from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] internet_gateway_exclusion: Whether to exclude Internet Gateways from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] lambda_exclusion: Whether to exclude Lambda Functions from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] mode: Mode to enable for VPC Encryption Control.
-               Valid values are `monitor` or `enforce`.
-        :param pulumi.Input[_builtins.str] nat_gateway_exclusion: Whether to exclude NAT Gateways from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['VpcEncryptionControlResourceExclusionsArgs'] resource_exclusions: State of exclusions from encryption enforcement.
-               Will be `nil` if `mode` is `monitor`.
-               See `resource_exclusions` below
-        :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.
-        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the state of the VPC Encryption Control.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] virtual_private_gateway_exclusion: Whether to exclude Virtual Private Gateways from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC the VPC Encryption Control is linked to.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] vpc_lattice_exclusion: Whether to exclude VPC Lattice from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] vpc_peering_exclusion: Whether to exclude peered VPCs from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
         """
         if egress_only_internet_gateway_exclusion is not None:
             pulumi.set(__self__, "egress_only_internet_gateway_exclusion", egress_only_internet_gateway_exclusion)
@@ -388,12 +241,6 @@ class _VpcEncryptionControlState:
     @_builtins.property
     @pulumi.getter(name="egressOnlyInternetGatewayExclusion")
     def egress_only_internet_gateway_exclusion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
-        Valid values are `disable` or `enable`.
-        Default is `disable`.
-        Only valid when `mode` is `enforce`.
-        """
         return pulumi.get(self, "egress_only_internet_gateway_exclusion")
 
     @egress_only_internet_gateway_exclusion.setter
@@ -403,12 +250,6 @@ class _VpcEncryptionControlState:
     @_builtins.property
     @pulumi.getter(name="elasticFileSystemExclusion")
     def elastic_file_system_exclusion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether to exclude Elastic File System (EFS) from encryption enforcement.
-        Valid values are `disable` or `enable`.
-        Default is `disable`.
-        Only valid when `mode` is `enforce`.
-        """
         return pulumi.get(self, "elastic_file_system_exclusion")
 
     @elastic_file_system_exclusion.setter
@@ -418,12 +259,6 @@ class _VpcEncryptionControlState:
     @_builtins.property
     @pulumi.getter(name="internetGatewayExclusion")
     def internet_gateway_exclusion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether to exclude Internet Gateways from encryption enforcement.
-        Valid values are `disable` or `enable`.
-        Default is `disable`.
-        Only valid when `mode` is `enforce`.
-        """
         return pulumi.get(self, "internet_gateway_exclusion")
 
     @internet_gateway_exclusion.setter
@@ -433,12 +268,6 @@ class _VpcEncryptionControlState:
     @_builtins.property
     @pulumi.getter(name="lambdaExclusion")
     def lambda_exclusion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether to exclude Lambda Functions from encryption enforcement.
-        Valid values are `disable` or `enable`.
-        Default is `disable`.
-        Only valid when `mode` is `enforce`.
-        """
         return pulumi.get(self, "lambda_exclusion")
 
     @lambda_exclusion.setter
@@ -448,10 +277,6 @@ class _VpcEncryptionControlState:
     @_builtins.property
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Mode to enable for VPC Encryption Control.
-        Valid values are `monitor` or `enforce`.
-        """
         return pulumi.get(self, "mode")
 
     @mode.setter
@@ -461,12 +286,6 @@ class _VpcEncryptionControlState:
     @_builtins.property
     @pulumi.getter(name="natGatewayExclusion")
     def nat_gateway_exclusion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether to exclude NAT Gateways from encryption enforcement.
-        Valid values are `disable` or `enable`.
-        Default is `disable`.
-        Only valid when `mode` is `enforce`.
-        """
         return pulumi.get(self, "nat_gateway_exclusion")
 
     @nat_gateway_exclusion.setter
@@ -476,9 +295,6 @@ class _VpcEncryptionControlState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -488,11 +304,6 @@ class _VpcEncryptionControlState:
     @_builtins.property
     @pulumi.getter(name="resourceExclusions")
     def resource_exclusions(self) -> Optional[pulumi.Input['VpcEncryptionControlResourceExclusionsArgs']]:
-        """
-        State of exclusions from encryption enforcement.
-        Will be `nil` if `mode` is `monitor`.
-        See `resource_exclusions` below
-        """
         return pulumi.get(self, "resource_exclusions")
 
     @resource_exclusions.setter
@@ -502,9 +313,6 @@ class _VpcEncryptionControlState:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The current state of the VPC Encryption Control.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -514,9 +322,6 @@ class _VpcEncryptionControlState:
     @_builtins.property
     @pulumi.getter(name="stateMessage")
     def state_message(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A message providing additional information about the state of the VPC Encryption Control.
-        """
         return pulumi.get(self, "state_message")
 
     @state_message.setter
@@ -526,9 +331,6 @@ class _VpcEncryptionControlState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -538,9 +340,6 @@ class _VpcEncryptionControlState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -559,12 +358,6 @@ class _VpcEncryptionControlState:
     @_builtins.property
     @pulumi.getter(name="virtualPrivateGatewayExclusion")
     def virtual_private_gateway_exclusion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether to exclude Virtual Private Gateways from encryption enforcement.
-        Valid values are `disable` or `enable`.
-        Default is `disable`.
-        Only valid when `mode` is `enforce`.
-        """
         return pulumi.get(self, "virtual_private_gateway_exclusion")
 
     @virtual_private_gateway_exclusion.setter
@@ -574,11 +367,6 @@ class _VpcEncryptionControlState:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the VPC the VPC Encryption Control is linked to.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -588,12 +376,6 @@ class _VpcEncryptionControlState:
     @_builtins.property
     @pulumi.getter(name="vpcLatticeExclusion")
     def vpc_lattice_exclusion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether to exclude VPC Lattice from encryption enforcement.
-        Valid values are `disable` or `enable`.
-        Default is `disable`.
-        Only valid when `mode` is `enforce`.
-        """
         return pulumi.get(self, "vpc_lattice_exclusion")
 
     @vpc_lattice_exclusion.setter
@@ -603,12 +385,6 @@ class _VpcEncryptionControlState:
     @_builtins.property
     @pulumi.getter(name="vpcPeeringExclusion")
     def vpc_peering_exclusion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether to exclude peered VPCs from encryption enforcement.
-        Valid values are `disable` or `enable`.
-        Default is `disable`.
-        Only valid when `mode` is `enforce`.
-        """
         return pulumi.get(self, "vpc_peering_exclusion")
 
     @vpc_peering_exclusion.setter
@@ -637,71 +413,9 @@ class VpcEncryptionControl(pulumi.CustomResource):
                  vpc_peering_exclusion: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a VPC Encryption Control.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_vpc = aws.ec2.Vpc("example", cidr_block="10.1.0.0/16")
-        example = aws.ec2.VpcEncryptionControl("example",
-            vpc_id=example_vpc.id,
-            mode="monitor")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import VPC Encryption Control using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/vpcEncryptionControl:VpcEncryptionControl example vpcec-12345678901234567
-        ```
-
+        Create a VpcEncryptionControl resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] egress_only_internet_gateway_exclusion: Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] elastic_file_system_exclusion: Whether to exclude Elastic File System (EFS) from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] internet_gateway_exclusion: Whether to exclude Internet Gateways from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] lambda_exclusion: Whether to exclude Lambda Functions from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] mode: Mode to enable for VPC Encryption Control.
-               Valid values are `monitor` or `enforce`.
-        :param pulumi.Input[_builtins.str] nat_gateway_exclusion: Whether to exclude NAT Gateways from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] virtual_private_gateway_exclusion: Whether to exclude Virtual Private Gateways from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC the VPC Encryption Control is linked to.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] vpc_lattice_exclusion: Whether to exclude VPC Lattice from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] vpc_peering_exclusion: Whether to exclude peered VPCs from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
         """
         ...
     @overload
@@ -710,30 +424,7 @@ class VpcEncryptionControl(pulumi.CustomResource):
                  args: VpcEncryptionControlArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a VPC Encryption Control.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_vpc = aws.ec2.Vpc("example", cidr_block="10.1.0.0/16")
-        example = aws.ec2.VpcEncryptionControl("example",
-            vpc_id=example_vpc.id,
-            mode="monitor")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import VPC Encryption Control using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/vpcEncryptionControl:VpcEncryptionControl example vpcec-12345678901234567
-        ```
-
+        Create a VpcEncryptionControl resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VpcEncryptionControlArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -828,51 +519,6 @@ class VpcEncryptionControl(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] egress_only_internet_gateway_exclusion: Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] elastic_file_system_exclusion: Whether to exclude Elastic File System (EFS) from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] internet_gateway_exclusion: Whether to exclude Internet Gateways from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] lambda_exclusion: Whether to exclude Lambda Functions from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] mode: Mode to enable for VPC Encryption Control.
-               Valid values are `monitor` or `enforce`.
-        :param pulumi.Input[_builtins.str] nat_gateway_exclusion: Whether to exclude NAT Gateways from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['VpcEncryptionControlResourceExclusionsArgs', 'VpcEncryptionControlResourceExclusionsArgsDict']] resource_exclusions: State of exclusions from encryption enforcement.
-               Will be `nil` if `mode` is `monitor`.
-               See `resource_exclusions` below
-        :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.
-        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the state of the VPC Encryption Control.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] virtual_private_gateway_exclusion: Whether to exclude Virtual Private Gateways from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC the VPC Encryption Control is linked to.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] vpc_lattice_exclusion: Whether to exclude VPC Lattice from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
-        :param pulumi.Input[_builtins.str] vpc_peering_exclusion: Whether to exclude peered VPCs from encryption enforcement.
-               Valid values are `disable` or `enable`.
-               Default is `disable`.
-               Only valid when `mode` is `enforce`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -900,115 +546,61 @@ class VpcEncryptionControl(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="egressOnlyInternetGatewayExclusion")
     def egress_only_internet_gateway_exclusion(self) -> pulumi.Output[_builtins.str]:
-        """
-        Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
-        Valid values are `disable` or `enable`.
-        Default is `disable`.
-        Only valid when `mode` is `enforce`.
-        """
         return pulumi.get(self, "egress_only_internet_gateway_exclusion")
 
     @_builtins.property
     @pulumi.getter(name="elasticFileSystemExclusion")
     def elastic_file_system_exclusion(self) -> pulumi.Output[_builtins.str]:
-        """
-        Whether to exclude Elastic File System (EFS) from encryption enforcement.
-        Valid values are `disable` or `enable`.
-        Default is `disable`.
-        Only valid when `mode` is `enforce`.
-        """
         return pulumi.get(self, "elastic_file_system_exclusion")
 
     @_builtins.property
     @pulumi.getter(name="internetGatewayExclusion")
     def internet_gateway_exclusion(self) -> pulumi.Output[_builtins.str]:
-        """
-        Whether to exclude Internet Gateways from encryption enforcement.
-        Valid values are `disable` or `enable`.
-        Default is `disable`.
-        Only valid when `mode` is `enforce`.
-        """
         return pulumi.get(self, "internet_gateway_exclusion")
 
     @_builtins.property
     @pulumi.getter(name="lambdaExclusion")
     def lambda_exclusion(self) -> pulumi.Output[_builtins.str]:
-        """
-        Whether to exclude Lambda Functions from encryption enforcement.
-        Valid values are `disable` or `enable`.
-        Default is `disable`.
-        Only valid when `mode` is `enforce`.
-        """
         return pulumi.get(self, "lambda_exclusion")
 
     @_builtins.property
     @pulumi.getter
     def mode(self) -> pulumi.Output[_builtins.str]:
-        """
-        Mode to enable for VPC Encryption Control.
-        Valid values are `monitor` or `enforce`.
-        """
         return pulumi.get(self, "mode")
 
     @_builtins.property
     @pulumi.getter(name="natGatewayExclusion")
     def nat_gateway_exclusion(self) -> pulumi.Output[_builtins.str]:
-        """
-        Whether to exclude NAT Gateways from encryption enforcement.
-        Valid values are `disable` or `enable`.
-        Default is `disable`.
-        Only valid when `mode` is `enforce`.
-        """
         return pulumi.get(self, "nat_gateway_exclusion")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceExclusions")
     def resource_exclusions(self) -> pulumi.Output['outputs.VpcEncryptionControlResourceExclusions']:
-        """
-        State of exclusions from encryption enforcement.
-        Will be `nil` if `mode` is `monitor`.
-        See `resource_exclusions` below
-        """
         return pulumi.get(self, "resource_exclusions")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
-        """
-        The current state of the VPC Encryption Control.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter(name="stateMessage")
     def state_message(self) -> pulumi.Output[_builtins.str]:
-        """
-        A message providing additional information about the state of the VPC Encryption Control.
-        """
         return pulumi.get(self, "state_message")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
@@ -1019,43 +611,20 @@ class VpcEncryptionControl(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="virtualPrivateGatewayExclusion")
     def virtual_private_gateway_exclusion(self) -> pulumi.Output[_builtins.str]:
-        """
-        Whether to exclude Virtual Private Gateways from encryption enforcement.
-        Valid values are `disable` or `enable`.
-        Default is `disable`.
-        Only valid when `mode` is `enforce`.
-        """
         return pulumi.get(self, "virtual_private_gateway_exclusion")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the VPC the VPC Encryption Control is linked to.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vpc_id")
 
     @_builtins.property
     @pulumi.getter(name="vpcLatticeExclusion")
     def vpc_lattice_exclusion(self) -> pulumi.Output[_builtins.str]:
-        """
-        Whether to exclude VPC Lattice from encryption enforcement.
-        Valid values are `disable` or `enable`.
-        Default is `disable`.
-        Only valid when `mode` is `enforce`.
-        """
         return pulumi.get(self, "vpc_lattice_exclusion")
 
     @_builtins.property
     @pulumi.getter(name="vpcPeeringExclusion")
     def vpc_peering_exclusion(self) -> pulumi.Output[_builtins.str]:
-        """
-        Whether to exclude peered VPCs from encryption enforcement.
-        Valid values are `disable` or `enable`.
-        Default is `disable`.
-        Only valid when `mode` is `enforce`.
-        """
         return pulumi.get(self, "vpc_peering_exclusion")
 

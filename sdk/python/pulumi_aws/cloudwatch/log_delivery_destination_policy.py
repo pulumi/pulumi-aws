@@ -24,9 +24,6 @@ class LogDeliveryDestinationPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogDeliveryDestinationPolicy resource.
-        :param pulumi.Input[_builtins.str] delivery_destination_name: The name of the delivery destination to assign this policy to.
-        :param pulumi.Input[_builtins.str] delivery_destination_policy: The contents of the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "delivery_destination_name", delivery_destination_name)
         pulumi.set(__self__, "delivery_destination_policy", delivery_destination_policy)
@@ -36,9 +33,6 @@ class LogDeliveryDestinationPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="deliveryDestinationName")
     def delivery_destination_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the delivery destination to assign this policy to.
-        """
         return pulumi.get(self, "delivery_destination_name")
 
     @delivery_destination_name.setter
@@ -48,9 +42,6 @@ class LogDeliveryDestinationPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="deliveryDestinationPolicy")
     def delivery_destination_policy(self) -> pulumi.Input[_builtins.str]:
-        """
-        The contents of the policy.
-        """
         return pulumi.get(self, "delivery_destination_policy")
 
     @delivery_destination_policy.setter
@@ -60,9 +51,6 @@ class LogDeliveryDestinationPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +66,6 @@ class _LogDeliveryDestinationPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogDeliveryDestinationPolicy resources.
-        :param pulumi.Input[_builtins.str] delivery_destination_name: The name of the delivery destination to assign this policy to.
-        :param pulumi.Input[_builtins.str] delivery_destination_policy: The contents of the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if delivery_destination_name is not None:
             pulumi.set(__self__, "delivery_destination_name", delivery_destination_name)
@@ -92,9 +77,6 @@ class _LogDeliveryDestinationPolicyState:
     @_builtins.property
     @pulumi.getter(name="deliveryDestinationName")
     def delivery_destination_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the delivery destination to assign this policy to.
-        """
         return pulumi.get(self, "delivery_destination_name")
 
     @delivery_destination_name.setter
@@ -104,9 +86,6 @@ class _LogDeliveryDestinationPolicyState:
     @_builtins.property
     @pulumi.getter(name="deliveryDestinationPolicy")
     def delivery_destination_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The contents of the policy.
-        """
         return pulumi.get(self, "delivery_destination_policy")
 
     @delivery_destination_policy.setter
@@ -116,9 +95,6 @@ class _LogDeliveryDestinationPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -137,34 +113,9 @@ class LogDeliveryDestinationPolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS CloudWatch Logs Delivery Destination Policy.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudwatch.LogDeliveryDestinationPolicy("example",
-            delivery_destination_name=example_aws_cloudwatch_log_delivery_destination["name"],
-            delivery_destination_policy=example_aws_iam_policy_document["json"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudWatch Logs Delivery Destination Policy using the `delivery_destination_name`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudwatch/logDeliveryDestinationPolicy:LogDeliveryDestinationPolicy example example
-        ```
-
+        Create a LogDeliveryDestinationPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] delivery_destination_name: The name of the delivery destination to assign this policy to.
-        :param pulumi.Input[_builtins.str] delivery_destination_policy: The contents of the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -173,29 +124,7 @@ class LogDeliveryDestinationPolicy(pulumi.CustomResource):
                  args: LogDeliveryDestinationPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS CloudWatch Logs Delivery Destination Policy.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudwatch.LogDeliveryDestinationPolicy("example",
-            delivery_destination_name=example_aws_cloudwatch_log_delivery_destination["name"],
-            delivery_destination_policy=example_aws_iam_policy_document["json"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudWatch Logs Delivery Destination Policy using the `delivery_destination_name`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudwatch/logDeliveryDestinationPolicy:LogDeliveryDestinationPolicy example example
-        ```
-
+        Create a LogDeliveryDestinationPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LogDeliveryDestinationPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -250,9 +179,6 @@ class LogDeliveryDestinationPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] delivery_destination_name: The name of the delivery destination to assign this policy to.
-        :param pulumi.Input[_builtins.str] delivery_destination_policy: The contents of the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -266,24 +192,15 @@ class LogDeliveryDestinationPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="deliveryDestinationName")
     def delivery_destination_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the delivery destination to assign this policy to.
-        """
         return pulumi.get(self, "delivery_destination_name")
 
     @_builtins.property
     @pulumi.getter(name="deliveryDestinationPolicy")
     def delivery_destination_policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        The contents of the policy.
-        """
         return pulumi.get(self, "delivery_destination_policy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

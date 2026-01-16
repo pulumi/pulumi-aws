@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBillingServiceAccountResult {
-    /**
-     * @return ARN of the AWS billing service account.
-     * 
-     */
     private String arn;
-    /**
-     * @return ID of the AWS billing service account.
-     * 
-     */
     private String id;
 
     private GetBillingServiceAccountResult() {}
-    /**
-     * @return ARN of the AWS billing service account.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return ID of the AWS billing service account.
-     * 
-     */
     public String id() {
         return this.id;
     }

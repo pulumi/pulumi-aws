@@ -16,47 +16,23 @@ public final class TopicRuleKinesisArgs extends com.pulumi.resources.ResourceArg
 
     public static final TopicRuleKinesisArgs Empty = new TopicRuleKinesisArgs();
 
-    /**
-     * The partition key.
-     * 
-     */
     @Import(name="partitionKey")
     private @Nullable Output<String> partitionKey;
 
-    /**
-     * @return The partition key.
-     * 
-     */
     public Optional<Output<String>> partitionKey() {
         return Optional.ofNullable(this.partitionKey);
     }
 
-    /**
-     * The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
 
-    /**
-     * The name of the Amazon Kinesis stream.
-     * 
-     */
     @Import(name="streamName", required=true)
     private Output<String> streamName;
 
-    /**
-     * @return The name of the Amazon Kinesis stream.
-     * 
-     */
     public Output<String> streamName() {
         return this.streamName;
     }
@@ -87,65 +63,29 @@ public final class TopicRuleKinesisArgs extends com.pulumi.resources.ResourceArg
             $ = new TopicRuleKinesisArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param partitionKey The partition key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder partitionKey(@Nullable Output<String> partitionKey) {
             $.partitionKey = partitionKey;
             return this;
         }
 
-        /**
-         * @param partitionKey The partition key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder partitionKey(String partitionKey) {
             return partitionKey(Output.of(partitionKey));
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param streamName The name of the Amazon Kinesis stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder streamName(Output<String> streamName) {
             $.streamName = streamName;
             return this;
         }
 
-        /**
-         * @param streamName The name of the Amazon Kinesis stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder streamName(String streamName) {
             return streamName(Output.of(streamName));
         }

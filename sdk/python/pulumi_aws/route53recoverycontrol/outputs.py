@@ -24,10 +24,6 @@ class ClusterClusterEndpoint(dict):
     def __init__(__self__, *,
                  endpoint: Optional[_builtins.str] = None,
                  region: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str endpoint: Cluster endpoint.
-        :param _builtins.str region: Region of the endpoint.
-        """
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
         if region is not None:
@@ -36,17 +32,11 @@ class ClusterClusterEndpoint(dict):
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> Optional[_builtins.str]:
-        """
-        Cluster endpoint.
-        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[_builtins.str]:
-        """
-        Region of the endpoint.
-        """
         return pulumi.get(self, "region")
 
 
@@ -56,11 +46,6 @@ class SafetyRuleRuleConfig(dict):
                  inverted: _builtins.bool,
                  threshold: _builtins.int,
                  type: _builtins.str):
-        """
-        :param _builtins.bool inverted: Logical negation of the rule.
-        :param _builtins.int threshold: Number of controls that must be set when you specify an `ATLEAST` type rule.
-        :param _builtins.str type: Rule type. Valid values are `ATLEAST`, `AND`, and `OR`.
-        """
         pulumi.set(__self__, "inverted", inverted)
         pulumi.set(__self__, "threshold", threshold)
         pulumi.set(__self__, "type", type)
@@ -68,25 +53,16 @@ class SafetyRuleRuleConfig(dict):
     @_builtins.property
     @pulumi.getter
     def inverted(self) -> _builtins.bool:
-        """
-        Logical negation of the rule.
-        """
         return pulumi.get(self, "inverted")
 
     @_builtins.property
     @pulumi.getter
     def threshold(self) -> _builtins.int:
-        """
-        Number of controls that must be set when you specify an `ATLEAST` type rule.
-        """
         return pulumi.get(self, "threshold")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Rule type. Valid values are `ATLEAST`, `AND`, and `OR`.
-        """
         return pulumi.get(self, "type")
 
 

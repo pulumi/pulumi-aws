@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AppSync.Inputs
 
     public sealed class ChannelNamespaceSubscribeAuthModeGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
-        /// </summary>
         [Input("authType", required: true)]
         public Input<string> AuthType { get; set; } = null!;
 

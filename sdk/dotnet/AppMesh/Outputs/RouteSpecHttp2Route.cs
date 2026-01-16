@@ -13,21 +13,9 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class RouteSpecHttp2Route
     {
-        /// <summary>
-        /// Action to take if a match is determined.
-        /// </summary>
         public readonly Outputs.RouteSpecHttp2RouteAction Action;
-        /// <summary>
-        /// Criteria for determining an HTTP request match.
-        /// </summary>
         public readonly Outputs.RouteSpecHttp2RouteMatch Match;
-        /// <summary>
-        /// Retry policy.
-        /// </summary>
         public readonly Outputs.RouteSpecHttp2RouteRetryPolicy? RetryPolicy;
-        /// <summary>
-        /// Types of timeouts.
-        /// </summary>
         public readonly Outputs.RouteSpecHttp2RouteTimeout? Timeout;
 
         [OutputConstructor]

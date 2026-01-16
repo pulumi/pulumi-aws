@@ -17,96 +17,44 @@ public final class SiteState extends com.pulumi.resources.ResourceArgs {
 
     public static final SiteState Empty = new SiteState();
 
-    /**
-     * Site ARN.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return Site ARN.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Description of the Site.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the Site.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * ID of the Global Network to create the site in.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="globalNetworkId")
     private @Nullable Output<String> globalNetworkId;
 
-    /**
-     * @return ID of the Global Network to create the site in.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> globalNetworkId() {
         return Optional.ofNullable(this.globalNetworkId);
     }
 
-    /**
-     * Site location. See below.
-     * 
-     */
     @Import(name="location")
     private @Nullable Output<SiteLocationArgs> location;
 
-    /**
-     * @return Site location. See below.
-     * 
-     */
     public Optional<Output<SiteLocationArgs>> location() {
         return Optional.ofNullable(this.location);
     }
 
-    /**
-     * Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -140,132 +88,56 @@ public final class SiteState extends com.pulumi.resources.ResourceArgs {
             $ = new SiteState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Site ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn Site ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param description Description of the Site.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the Site.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param globalNetworkId ID of the Global Network to create the site in.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(@Nullable Output<String> globalNetworkId) {
             $.globalNetworkId = globalNetworkId;
             return this;
         }
 
-        /**
-         * @param globalNetworkId ID of the Global Network to create the site in.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(String globalNetworkId) {
             return globalNetworkId(Output.of(globalNetworkId));
         }
 
-        /**
-         * @param location Site location. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder location(@Nullable Output<SiteLocationArgs> location) {
             $.location = location;
             return this;
         }
 
-        /**
-         * @param location Site location. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder location(SiteLocationArgs location) {
             return location(Output.of(location));
         }
 
-        /**
-         * @param tags Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

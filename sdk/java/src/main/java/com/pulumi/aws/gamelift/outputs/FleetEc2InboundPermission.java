@@ -11,53 +11,21 @@ import java.util.Objects;
 
 @CustomType
 public final class FleetEc2InboundPermission {
-    /**
-     * @return Starting value for a range of allowed port numbers.
-     * 
-     */
     private Integer fromPort;
-    /**
-     * @return Range of allowed IP addresses expressed in CIDR notationE.g., `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
-     * 
-     */
     private String ipRange;
-    /**
-     * @return Network communication protocol used by the fleetE.g., `TCP` or `UDP`
-     * 
-     */
     private String protocol;
-    /**
-     * @return Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `fromPort`.
-     * 
-     */
     private Integer toPort;
 
     private FleetEc2InboundPermission() {}
-    /**
-     * @return Starting value for a range of allowed port numbers.
-     * 
-     */
     public Integer fromPort() {
         return this.fromPort;
     }
-    /**
-     * @return Range of allowed IP addresses expressed in CIDR notationE.g., `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
-     * 
-     */
     public String ipRange() {
         return this.ipRange;
     }
-    /**
-     * @return Network communication protocol used by the fleetE.g., `TCP` or `UDP`
-     * 
-     */
     public String protocol() {
         return this.protocol;
     }
-    /**
-     * @return Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `fromPort`.
-     * 
-     */
     public Integer toPort() {
         return this.toPort;
     }

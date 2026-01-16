@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentPromptVariantGenAiResourceAgent {
-    /**
-     * @return ARN of the agent with which to use the prompt.
-     * 
-     */
     private String agentIdentifier;
 
     private AgentPromptVariantGenAiResourceAgent() {}
-    /**
-     * @return ARN of the agent with which to use the prompt.
-     * 
-     */
     public String agentIdentifier() {
         return this.agentIdentifier;
     }

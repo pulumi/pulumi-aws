@@ -183,89 +183,56 @@ class GetInstanceResult:
     @_builtins.property
     @pulumi.getter
     def ami(self) -> _builtins.str:
-        """
-        ID of the AMI used to launch the instance.
-        """
         return pulumi.get(self, "ami")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the instance.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="associatePublicIpAddress")
     def associate_public_ip_address(self) -> _builtins.bool:
-        """
-        Whether or not the Instance is associated with a public IP address or not (Boolean).
-        """
         return pulumi.get(self, "associate_public_ip_address")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> _builtins.str:
-        """
-        Availability zone of the Instance.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="creditSpecifications")
     def credit_specifications(self) -> Sequence['outputs.GetInstanceCreditSpecificationResult']:
-        """
-        Credit specification of the Instance.
-        """
         return pulumi.get(self, "credit_specifications")
 
     @_builtins.property
     @pulumi.getter(name="disableApiStop")
     def disable_api_stop(self) -> _builtins.bool:
-        """
-        Whether or not EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) is enabled (Boolean).
-        """
         return pulumi.get(self, "disable_api_stop")
 
     @_builtins.property
     @pulumi.getter(name="disableApiTermination")
     def disable_api_termination(self) -> _builtins.bool:
-        """
-        Whether or not [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination) is enabled (Boolean).
-        """
         return pulumi.get(self, "disable_api_termination")
 
     @_builtins.property
     @pulumi.getter(name="ebsBlockDevices")
     def ebs_block_devices(self) -> Sequence['outputs.GetInstanceEbsBlockDeviceResult']:
-        """
-        EBS block device mappings of the Instance.
-        """
         return pulumi.get(self, "ebs_block_devices")
 
     @_builtins.property
     @pulumi.getter(name="ebsOptimized")
     def ebs_optimized(self) -> _builtins.bool:
-        """
-        Whether the Instance is EBS optimized or not (Boolean).
-        """
         return pulumi.get(self, "ebs_optimized")
 
     @_builtins.property
     @pulumi.getter(name="enclaveOptions")
     def enclave_options(self) -> Sequence['outputs.GetInstanceEnclaveOptionResult']:
-        """
-        Enclave options of the instance.
-        """
         return pulumi.get(self, "enclave_options")
 
     @_builtins.property
     @pulumi.getter(name="ephemeralBlockDevices")
     def ephemeral_block_devices(self) -> Sequence['outputs.GetInstanceEphemeralBlockDeviceResult']:
-        """
-        Ephemeral block device mappings of the Instance.
-        """
         return pulumi.get(self, "ephemeral_block_devices")
 
     @_builtins.property
@@ -286,25 +253,16 @@ class GetInstanceResult:
     @_builtins.property
     @pulumi.getter(name="hostId")
     def host_id(self) -> _builtins.str:
-        """
-        ID of the dedicated host the instance will be assigned to.
-        """
         return pulumi.get(self, "host_id")
 
     @_builtins.property
     @pulumi.getter(name="hostResourceGroupArn")
     def host_resource_group_arn(self) -> _builtins.str:
-        """
-        ARN of the host resource group the instance is associated with.
-        """
         return pulumi.get(self, "host_resource_group_arn")
 
     @_builtins.property
     @pulumi.getter(name="iamInstanceProfile")
     def iam_instance_profile(self) -> _builtins.str:
-        """
-        Name of the instance profile associated with the Instance.
-        """
         return pulumi.get(self, "iam_instance_profile")
 
     @_builtins.property
@@ -323,9 +281,6 @@ class GetInstanceResult:
     @_builtins.property
     @pulumi.getter(name="instanceState")
     def instance_state(self) -> _builtins.str:
-        """
-        State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
-        """
         return pulumi.get(self, "instance_state")
 
     @_builtins.property
@@ -336,145 +291,91 @@ class GetInstanceResult:
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> _builtins.str:
-        """
-        Type of the Instance.
-        """
         return pulumi.get(self, "instance_type")
 
     @_builtins.property
     @pulumi.getter(name="ipv6Addresses")
     def ipv6_addresses(self) -> Sequence[_builtins.str]:
-        """
-        IPv6 addresses associated to the Instance, if applicable. **NOTE**: Unlike the IPv4 address, this doesn't change if you attach an EIP to the instance.
-        """
         return pulumi.get(self, "ipv6_addresses")
 
     @_builtins.property
     @pulumi.getter(name="keyName")
     def key_name(self) -> _builtins.str:
-        """
-        Key name of the Instance.
-        """
         return pulumi.get(self, "key_name")
 
     @_builtins.property
     @pulumi.getter(name="launchTime")
     def launch_time(self) -> _builtins.str:
-        """
-        Time the instance was launched.
-        """
         return pulumi.get(self, "launch_time")
 
     @_builtins.property
     @pulumi.getter(name="maintenanceOptions")
     def maintenance_options(self) -> Sequence['outputs.GetInstanceMaintenanceOptionResult']:
-        """
-        Maintenance and recovery options for the instance.
-        """
         return pulumi.get(self, "maintenance_options")
 
     @_builtins.property
     @pulumi.getter(name="metadataOptions")
     def metadata_options(self) -> Sequence['outputs.GetInstanceMetadataOptionResult']:
-        """
-        Metadata options of the Instance.
-        """
         return pulumi.get(self, "metadata_options")
 
     @_builtins.property
     @pulumi.getter
     def monitoring(self) -> _builtins.bool:
-        """
-        Whether detailed monitoring is enabled or disabled for the Instance (Boolean).
-        """
         return pulumi.get(self, "monitoring")
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> _builtins.str:
-        """
-        ID of the network interface that was created with the Instance.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @_builtins.property
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> _builtins.str:
-        """
-        ARN of the Outpost.
-        """
         return pulumi.get(self, "outpost_arn")
 
     @_builtins.property
     @pulumi.getter(name="passwordData")
     def password_data(self) -> _builtins.str:
-        """
-        Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `get_password_data` is true. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
-        """
         return pulumi.get(self, "password_data")
 
     @_builtins.property
     @pulumi.getter(name="placementGroup")
     def placement_group(self) -> _builtins.str:
-        """
-        Placement group of the Instance.
-        """
         return pulumi.get(self, "placement_group")
 
     @_builtins.property
     @pulumi.getter(name="placementGroupId")
     def placement_group_id(self) -> _builtins.str:
-        """
-        Placement group ID of the Instance.
-        """
         return pulumi.get(self, "placement_group_id")
 
     @_builtins.property
     @pulumi.getter(name="placementPartitionNumber")
     def placement_partition_number(self) -> _builtins.int:
-        """
-        Number of the partition the instance is in.
-        """
         return pulumi.get(self, "placement_partition_number")
 
     @_builtins.property
     @pulumi.getter(name="privateDns")
     def private_dns(self) -> _builtins.str:
-        """
-        Private DNS name assigned to the Instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
-        """
         return pulumi.get(self, "private_dns")
 
     @_builtins.property
     @pulumi.getter(name="privateDnsNameOptions")
     def private_dns_name_options(self) -> Sequence['outputs.GetInstancePrivateDnsNameOptionResult']:
-        """
-        Options for the instance hostname.
-        """
         return pulumi.get(self, "private_dns_name_options")
 
     @_builtins.property
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> _builtins.str:
-        """
-        Private IP address assigned to the Instance.
-        """
         return pulumi.get(self, "private_ip")
 
     @_builtins.property
     @pulumi.getter(name="publicDns")
     def public_dns(self) -> _builtins.str:
-        """
-        Public DNS name assigned to the Instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
-        """
         return pulumi.get(self, "public_dns")
 
     @_builtins.property
     @pulumi.getter(name="publicIp")
     def public_ip(self) -> _builtins.str:
-        """
-        Public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an `ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
-        """
         return pulumi.get(self, "public_ip")
 
     @_builtins.property
@@ -485,81 +386,51 @@ class GetInstanceResult:
     @_builtins.property
     @pulumi.getter(name="rootBlockDevices")
     def root_block_devices(self) -> Sequence['outputs.GetInstanceRootBlockDeviceResult']:
-        """
-        Root block device mappings of the Instance
-        """
         return pulumi.get(self, "root_block_devices")
 
     @_builtins.property
     @pulumi.getter(name="secondaryPrivateIps")
     def secondary_private_ips(self) -> Sequence[_builtins.str]:
-        """
-        Secondary private IPv4 addresses assigned to the instance's primary network interface (eth0) in a VPC.
-        """
         return pulumi.get(self, "secondary_private_ips")
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Sequence[_builtins.str]:
-        """
-        Associated security groups.
-        """
         return pulumi.get(self, "security_groups")
 
     @_builtins.property
     @pulumi.getter(name="sourceDestCheck")
     def source_dest_check(self) -> _builtins.bool:
-        """
-        Whether the network interface performs source/destination checking (Boolean).
-        """
         return pulumi.get(self, "source_dest_check")
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> _builtins.str:
-        """
-        VPC subnet ID.
-        """
         return pulumi.get(self, "subnet_id")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags assigned to the Instance.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter
     def tenancy(self) -> _builtins.str:
-        """
-        Tenancy of the instance: `dedicated`, `default`, `host`.
-        """
         return pulumi.get(self, "tenancy")
 
     @_builtins.property
     @pulumi.getter(name="userData")
     def user_data(self) -> _builtins.str:
-        """
-        SHA-1 hash of User Data supplied to the Instance.
-        """
         return pulumi.get(self, "user_data")
 
     @_builtins.property
     @pulumi.getter(name="userDataBase64")
     def user_data_base64(self) -> _builtins.str:
-        """
-        Base64 encoded contents of User Data supplied to the Instance. This attribute is only exported if `get_user_data` is true.
-        """
         return pulumi.get(self, "user_data_base64")
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Sequence[_builtins.str]:
-        """
-        Associated security groups in a non-default VPC.
-        """
         return pulumi.get(self, "vpc_security_group_ids")
 
 
@@ -630,45 +501,7 @@ def get_instance(filters: Optional[Sequence[Union['GetInstanceFilterArgs', 'GetI
                  tags: Optional[Mapping[str, _builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceResult:
     """
-    Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.ec2.get_instance(instance_id="i-instanceid",
-        filters=[
-            {
-                "name": "image-id",
-                "values": ["ami-xxxxxxxx"],
-            },
-            {
-                "name": "tag:Name",
-                "values": ["instance-name-tag"],
-            },
-        ])
-    ```
-
-
-    :param Sequence[Union['GetInstanceFilterArgs', 'GetInstanceFilterArgsDict']] filters: One or more filters to apply to the search.
-           If multiple `filter` blocks are provided, they all must be true.
-           For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
-           See `filter` Block below.
-    :param _builtins.bool get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
-    :param _builtins.bool get_user_data: Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
-           
-           > **NOTE:** At least one of `filter`, `instance_tags`, or `instance_id` must be specified.
-           
-           > **NOTE:** If anything other than a single match is returned by the search,
-           this call will fail. Ensure that your search is specific enough to return
-           a single Instance ID only.
-    :param _builtins.str instance_id: Specify the exact Instance ID with which to populate the data source.
-    :param Mapping[str, _builtins.str] instance_tags: Map of tags, each pair of which must
-           exactly match a pair on the desired Instance.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the Instance.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -741,45 +574,7 @@ def get_instance_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
                         tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceResult]:
     """
-    Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.ec2.get_instance(instance_id="i-instanceid",
-        filters=[
-            {
-                "name": "image-id",
-                "values": ["ami-xxxxxxxx"],
-            },
-            {
-                "name": "tag:Name",
-                "values": ["instance-name-tag"],
-            },
-        ])
-    ```
-
-
-    :param Sequence[Union['GetInstanceFilterArgs', 'GetInstanceFilterArgsDict']] filters: One or more filters to apply to the search.
-           If multiple `filter` blocks are provided, they all must be true.
-           For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
-           See `filter` Block below.
-    :param _builtins.bool get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
-    :param _builtins.bool get_user_data: Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
-           
-           > **NOTE:** At least one of `filter`, `instance_tags`, or `instance_id` must be specified.
-           
-           > **NOTE:** If anything other than a single match is returned by the search,
-           this call will fail. Ensure that your search is specific enough to return
-           a single Instance ID only.
-    :param _builtins.str instance_id: Specify the exact Instance ID with which to populate the data source.
-    :param Mapping[str, _builtins.str] instance_tags: Map of tags, each pair of which must
-           exactly match a pair on the desired Instance.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the Instance.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType {
-    /**
-     * @return The worker type. Valid values are `SPARK_DRIVER`, `SPARK_EXECUTOR`, `HIVE_DRIVER`, and `TEZ_TASK`.
-     * 
-     */
     private String name;
-    /**
-     * @return The list of log types to publish. Valid values are `STDOUT`, `STDERR`, `HIVE_LOG`, `TEZ_AM`, and `SYSTEM_LOGS`.
-     * 
-     */
     private List<String> values;
 
     private ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType() {}
-    /**
-     * @return The worker type. Valid values are `SPARK_DRIVER`, `SPARK_EXECUTOR`, `HIVE_DRIVER`, and `TEZ_TASK`.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The list of log types to publish. Valid values are `STDOUT`, `STDERR`, `HIVE_LOG`, `TEZ_AM`, and `SYSTEM_LOGS`.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

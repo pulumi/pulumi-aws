@@ -16,177 +16,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS DataSync FSx Lustre Location.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.datasync.LocationFsxLustre;
- * import com.pulumi.aws.datasync.LocationFsxLustreArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new LocationFsxLustre("example", LocationFsxLustreArgs.builder()
- *             .fsxFilesystemArn(exampleAwsFsxLustreFileSystem.arn())
- *             .securityGroupArns(exampleAwsSecurityGroup.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_datasync_location_fsx_lustre_file_system` using the `DataSync-ARN#FSx-Lustre-ARN`. For example:
- * 
- * ```sh
- * $ pulumi import aws:datasync/locationFsxLustre:LocationFsxLustre example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:476956259333:file-system/fs-08e04cd442c1bb94a
- * ```
- * 
- */
 @ResourceType(type="aws:datasync/locationFsxLustre:LocationFsxLustre")
 public class LocationFsxLustre extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the DataSync Location.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The time that the FSx for Lustre location was created.
-     * 
-     */
     @Export(name="creationTime", refs={String.class}, tree="[0]")
     private Output<String> creationTime;
 
-    /**
-     * @return The time that the FSx for Lustre location was created.
-     * 
-     */
     public Output<String> creationTime() {
         return this.creationTime;
     }
-    /**
-     * The Amazon Resource Name (ARN) for the FSx for Lustre file system.
-     * 
-     */
     @Export(name="fsxFilesystemArn", refs={String.class}, tree="[0]")
     private Output<String> fsxFilesystemArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) for the FSx for Lustre file system.
-     * 
-     */
     public Output<String> fsxFilesystemArn() {
         return this.fsxFilesystemArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
-     * 
-     */
     @Export(name="securityGroupArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupArns;
 
-    /**
-     * @return The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
-     * 
-     */
     public Output<List<String>> securityGroupArns() {
         return this.securityGroupArns;
     }
-    /**
-     * Subdirectory to perform actions as source or destination.
-     * 
-     */
     @Export(name="subdirectory", refs={String.class}, tree="[0]")
     private Output<String> subdirectory;
 
-    /**
-     * @return Subdirectory to perform actions as source or destination.
-     * 
-     */
     public Output<String> subdirectory() {
         return this.subdirectory;
     }
-    /**
-     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The URL of the FSx for Lustre location that was described.
-     * 
-     */
     @Export(name="uri", refs={String.class}, tree="[0]")
     private Output<String> uri;
 
-    /**
-     * @return The URL of the FSx for Lustre location that was described.
-     * 
-     */
     public Output<String> uri() {
         return this.uri;
     }

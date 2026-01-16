@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleRetentionPeriod {
-    /**
-     * @return Unit of time in which the retention period is measured. Currently, only DAYS is supported.
-     * 
-     */
     private String retentionPeriodUnit;
-    /**
-     * @return Period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
-     * 
-     */
     private Integer retentionPeriodValue;
 
     private RuleRetentionPeriod() {}
-    /**
-     * @return Unit of time in which the retention period is measured. Currently, only DAYS is supported.
-     * 
-     */
     public String retentionPeriodUnit() {
         return this.retentionPeriodUnit;
     }
-    /**
-     * @return Period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
-     * 
-     */
     public Integer retentionPeriodValue() {
         return this.retentionPeriodValue;
     }

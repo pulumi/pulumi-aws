@@ -14,147 +14,35 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a DynamoDB table item resource
- * 
- * &gt; **Note:** This resource is not meant to be used for managing large amounts of data in your table, it is not designed to scale.
- *   You should perform **regular backups** of all data in the table, see [AWS docs for more](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BackupRestore.html).
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.dynamodb.Table;
- * import com.pulumi.aws.dynamodb.TableArgs;
- * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
- * import com.pulumi.aws.dynamodb.TableItem;
- * import com.pulumi.aws.dynamodb.TableItemArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleTable = new Table("exampleTable", TableArgs.builder()
- *             .name("example-name")
- *             .readCapacity(10)
- *             .writeCapacity(10)
- *             .hashKey("exampleHashKey")
- *             .attributes(TableAttributeArgs.builder()
- *                 .name("exampleHashKey")
- *                 .type("S")
- *                 .build())
- *             .build());
- * 
- *         var example = new TableItem("example", TableItemArgs.builder()
- *             .tableName(exampleTable.name())
- *             .hashKey(exampleTable.hashKey())
- *             .item("""
- * {
- *   \"exampleHashKey\": {\"S\": \"something\"},
- *   \"one\": {\"N\": \"11111\"},
- *   \"two\": {\"N\": \"22222\"},
- *   \"three\": {\"N\": \"33333\"},
- *   \"four\": {\"N\": \"44444\"}
- * }
- *             """)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * You cannot import DynamoDB table items.
- * 
- */
 @ResourceType(type="aws:dynamodb/tableItem:TableItem")
 public class TableItem extends com.pulumi.resources.CustomResource {
-    /**
-     * Hash key to use for lookups and identification of the item
-     * 
-     */
     @Export(name="hashKey", refs={String.class}, tree="[0]")
     private Output<String> hashKey;
 
-    /**
-     * @return Hash key to use for lookups and identification of the item
-     * 
-     */
     public Output<String> hashKey() {
         return this.hashKey;
     }
-    /**
-     * JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
-     * 
-     */
     @Export(name="item", refs={String.class}, tree="[0]")
     private Output<String> item;
 
-    /**
-     * @return JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
-     * 
-     */
     public Output<String> item() {
         return this.item;
     }
-    /**
-     * Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
-     * 
-     */
     @Export(name="rangeKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> rangeKey;
 
-    /**
-     * @return Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
-     * 
-     */
     public Output<Optional<String>> rangeKey() {
         return Codegen.optional(this.rangeKey);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Name of the table to contain the item.
-     * 
-     * &gt; **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
-     * 
-     */
     @Export(name="tableName", refs={String.class}, tree="[0]")
     private Output<String> tableName;
 
-    /**
-     * @return Name of the table to contain the item.
-     * 
-     * &gt; **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
-     * 
-     */
     public Output<String> tableName() {
         return this.tableName;
     }

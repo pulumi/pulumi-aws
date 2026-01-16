@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class LoadBalancerMinimumLoadBalancerCapacity {
-    /**
-     * @return The number of capacity units.
-     * 
-     */
     private Integer capacityUnits;
 
     private LoadBalancerMinimumLoadBalancerCapacity() {}
-    /**
-     * @return The number of capacity units.
-     * 
-     */
     public Integer capacityUnits() {
         return this.capacityUnits;
     }

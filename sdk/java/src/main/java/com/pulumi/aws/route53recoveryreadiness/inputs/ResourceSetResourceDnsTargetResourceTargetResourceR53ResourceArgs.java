@@ -15,32 +15,16 @@ public final class ResourceSetResourceDnsTargetResourceTargetResourceR53Resource
 
     public static final ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs Empty = new ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs();
 
-    /**
-     * Domain name that is targeted.
-     * 
-     */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
-    /**
-     * @return Domain name that is targeted.
-     * 
-     */
     public Optional<Output<String>> domainName() {
         return Optional.ofNullable(this.domainName);
     }
 
-    /**
-     * Resource record set ID that is targeted.
-     * 
-     */
     @Import(name="recordSetId")
     private @Nullable Output<String> recordSetId;
 
-    /**
-     * @return Resource record set ID that is targeted.
-     * 
-     */
     public Optional<Output<String>> recordSetId() {
         return Optional.ofNullable(this.recordSetId);
     }
@@ -70,44 +54,20 @@ public final class ResourceSetResourceDnsTargetResourceTargetResourceR53Resource
             $ = new ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domainName Domain name that is targeted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(@Nullable Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName Domain name that is targeted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param recordSetId Resource record set ID that is targeted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordSetId(@Nullable Output<String> recordSetId) {
             $.recordSetId = recordSetId;
             return this;
         }
 
-        /**
-         * @param recordSetId Resource record set ID that is targeted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordSetId(String recordSetId) {
             return recordSetId(Output.of(recordSetId));
         }

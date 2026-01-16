@@ -7,64 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * This resource can be useful for getting back a set of subnet IDs.
- *
- * ## Example Usage
- *
- * The following shows outputting all CIDR blocks for every subnet ID in a VPC.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = aws.ec2.getSubnets({
- *     filters: [{
- *         name: "vpc-id",
- *         values: [vpcId],
- *     }],
- * });
- * const exampleGetSubnet = example.then(example => std.toset({
- *     input: example.ids,
- * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.ec2.getSubnet({
- *     id: __value,
- * }) })));
- * export const subnetCidrBlocks = exampleGetSubnet.apply(exampleGetSubnet => Object.values(exampleGetSubnet).map(s => (s.cidrBlock)));
- * ```
- *
- * The following example retrieves a set of all subnets in a VPC with a custom
- * tag of `Tier` set to a value of "Private" so that the `aws.ec2.Instance` resource
- * can loop through the subnets, putting instances across availability zones.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * export = async () => {
- *     const _private = await aws.ec2.getSubnets({
- *         filters: [{
- *             name: "vpc-id",
- *             values: [vpcId],
- *         }],
- *         tags: {
- *             Tier: "Private",
- *         },
- *     });
- *     const app: aws.ec2.Instance[] = [];
- *     for (const range of std.toset({
- *         input: _private.ids,
- *     }).result.map((v, k) => ({key: k, value: v}))) {
- *         app.push(new aws.ec2.Instance(`app-${range.key}`, {
- *             ami: ami,
- *             instanceType: aws.ec2.InstanceType.T2_Micro,
- *             subnetId: range.value,
- *         }));
- *     }
- * }
- * ```
- */
 export function getSubnets(args?: GetSubnetsArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -79,18 +21,8 @@ export function getSubnets(args?: GetSubnetsArgs, opts?: pulumi.InvokeOptions): 
  * A collection of arguments for invoking getSubnets.
  */
 export interface GetSubnetsArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: inputs.ec2.GetSubnetsFilter[];
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired subnets.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -103,71 +35,10 @@ export interface GetSubnetsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * List of all the subnet ids found.
-     */
     readonly ids: string[];
     readonly region: string;
     readonly tags: {[key: string]: string};
 }
-/**
- * This resource can be useful for getting back a set of subnet IDs.
- *
- * ## Example Usage
- *
- * The following shows outputting all CIDR blocks for every subnet ID in a VPC.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = aws.ec2.getSubnets({
- *     filters: [{
- *         name: "vpc-id",
- *         values: [vpcId],
- *     }],
- * });
- * const exampleGetSubnet = example.then(example => std.toset({
- *     input: example.ids,
- * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.ec2.getSubnet({
- *     id: __value,
- * }) })));
- * export const subnetCidrBlocks = exampleGetSubnet.apply(exampleGetSubnet => Object.values(exampleGetSubnet).map(s => (s.cidrBlock)));
- * ```
- *
- * The following example retrieves a set of all subnets in a VPC with a custom
- * tag of `Tier` set to a value of "Private" so that the `aws.ec2.Instance` resource
- * can loop through the subnets, putting instances across availability zones.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * export = async () => {
- *     const _private = await aws.ec2.getSubnets({
- *         filters: [{
- *             name: "vpc-id",
- *             values: [vpcId],
- *         }],
- *         tags: {
- *             Tier: "Private",
- *         },
- *     });
- *     const app: aws.ec2.Instance[] = [];
- *     for (const range of std.toset({
- *         input: _private.ids,
- *     }).result.map((v, k) => ({key: k, value: v}))) {
- *         app.push(new aws.ec2.Instance(`app-${range.key}`, {
- *             ami: ami,
- *             instanceType: aws.ec2.InstanceType.T2_Micro,
- *             subnetId: range.value,
- *         }));
- *     }
- * }
- * ```
- */
 export function getSubnetsOutput(args?: GetSubnetsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubnetsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -182,17 +53,7 @@ export function getSubnetsOutput(args?: GetSubnetsOutputArgs, opts?: pulumi.Invo
  * A collection of arguments for invoking getSubnets.
  */
 export interface GetSubnetsOutputArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetSubnetsFilterArgs>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired subnets.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

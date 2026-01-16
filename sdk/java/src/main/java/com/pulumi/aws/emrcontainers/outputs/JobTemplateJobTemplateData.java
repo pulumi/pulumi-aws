@@ -15,65 +15,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class JobTemplateJobTemplateData {
-    /**
-     * @return The configuration settings that are used to override defaults configuration.
-     * 
-     */
     private @Nullable JobTemplateJobTemplateDataConfigurationOverrides configurationOverrides;
-    /**
-     * @return The execution role ARN of the job run.
-     * 
-     */
     private String executionRoleArn;
-    /**
-     * @return Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either sparkSqlJobDriver or sparkSubmitJobDriver.
-     * 
-     */
     private JobTemplateJobTemplateDataJobDriver jobDriver;
-    /**
-     * @return The tags assigned to jobs started using the job template.
-     * 
-     */
     private @Nullable Map<String,String> jobTags;
-    /**
-     * @return The release version of Amazon EMR.
-     * 
-     */
     private String releaseLabel;
 
     private JobTemplateJobTemplateData() {}
-    /**
-     * @return The configuration settings that are used to override defaults configuration.
-     * 
-     */
     public Optional<JobTemplateJobTemplateDataConfigurationOverrides> configurationOverrides() {
         return Optional.ofNullable(this.configurationOverrides);
     }
-    /**
-     * @return The execution role ARN of the job run.
-     * 
-     */
     public String executionRoleArn() {
         return this.executionRoleArn;
     }
-    /**
-     * @return Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either sparkSqlJobDriver or sparkSubmitJobDriver.
-     * 
-     */
     public JobTemplateJobTemplateDataJobDriver jobDriver() {
         return this.jobDriver;
     }
-    /**
-     * @return The tags assigned to jobs started using the job template.
-     * 
-     */
     public Map<String,String> jobTags() {
         return this.jobTags == null ? Map.of() : this.jobTags;
     }
-    /**
-     * @return The release version of Amazon EMR.
-     * 
-     */
     public String releaseLabel() {
         return this.releaseLabel;
     }

@@ -67,25 +67,16 @@ class GetCertificateResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def certificate(self) -> _builtins.str:
-        """
-        ACM-issued certificate.
-        """
         return pulumi.get(self, "certificate")
 
     @_builtins.property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> _builtins.str:
-        """
-        Certificates forming the requested ACM-issued certificate's chain of trust. The chain consists of the certificate of the issuing CA and the intermediate certificates of any other subordinate CAs.
-        """
         return pulumi.get(self, "certificate_chain")
 
     @_builtins.property
@@ -119,9 +110,6 @@ class GetCertificateResult:
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the found certificate.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
@@ -132,9 +120,6 @@ class GetCertificateResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Mapping of tags for the resource.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -172,37 +157,7 @@ def get_certificate(domain: Optional[_builtins.str] = None,
                     types: Optional[Sequence[_builtins.str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
-    Use this data source to get the ARN of a certificate in AWS Certificate Manager (ACM).
-    You can reference the certificate by domain or tags without having to hard code the ARNs as input.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    # Find a certificate that is issued
-    issued = aws.acm.get_certificate(domain="tf.example.com",
-        statuses=["ISSUED"])
-    # Find a certificate issued by (not imported into) ACM
-    amazon_issued = aws.acm.get_certificate(domain="tf.example.com",
-        types=["AMAZON_ISSUED"],
-        most_recent=True)
-    # Find a RSA 4096 bit certificate
-    rsa4096 = aws.acm.get_certificate(domain="tf.example.com",
-        key_types=["RSA_4096"])
-    ```
-
-
-    :param _builtins.str domain: Domain of the certificate to look up. If set and no certificate is found with this name, an error will be returned.
-    :param Sequence[_builtins.str] key_types: List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
-    :param _builtins.bool most_recent: If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Sequence[_builtins.str] statuses: List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
-           `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
-           are returned.
-    :param Mapping[str, _builtins.str] tags: A mapping of tags, each pair of which must exactly match a pair on the desired certificates.
-    :param Sequence[_builtins.str] types: List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['domain'] = domain
@@ -237,37 +192,7 @@ def get_certificate_output(domain: Optional[pulumi.Input[Optional[_builtins.str]
                            types: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
-    Use this data source to get the ARN of a certificate in AWS Certificate Manager (ACM).
-    You can reference the certificate by domain or tags without having to hard code the ARNs as input.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    # Find a certificate that is issued
-    issued = aws.acm.get_certificate(domain="tf.example.com",
-        statuses=["ISSUED"])
-    # Find a certificate issued by (not imported into) ACM
-    amazon_issued = aws.acm.get_certificate(domain="tf.example.com",
-        types=["AMAZON_ISSUED"],
-        most_recent=True)
-    # Find a RSA 4096 bit certificate
-    rsa4096 = aws.acm.get_certificate(domain="tf.example.com",
-        key_types=["RSA_4096"])
-    ```
-
-
-    :param _builtins.str domain: Domain of the certificate to look up. If set and no certificate is found with this name, an error will be returned.
-    :param Sequence[_builtins.str] key_types: List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
-    :param _builtins.bool most_recent: If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Sequence[_builtins.str] statuses: List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
-           `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
-           are returned.
-    :param Mapping[str, _builtins.str] tags: A mapping of tags, each pair of which must exactly match a pair on the desired certificates.
-    :param Sequence[_builtins.str] types: List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['domain'] = domain

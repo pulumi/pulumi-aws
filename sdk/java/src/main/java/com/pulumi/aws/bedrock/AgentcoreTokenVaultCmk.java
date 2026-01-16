@@ -15,98 +15,23 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages the AWS KMS customer master key (CMK) for a token vault.
- * 
- * &gt; Deletion of this resource will not modify the CMK, only remove the resource from state.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.bedrock.AgentcoreTokenVaultCmk;
- * import com.pulumi.aws.bedrock.AgentcoreTokenVaultCmkArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreTokenVaultCmkKmsConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AgentcoreTokenVaultCmk("example", AgentcoreTokenVaultCmkArgs.builder()
- *             .kmsConfiguration(AgentcoreTokenVaultCmkKmsConfigurationArgs.builder()
- *                 .keyType("CustomerManagedKey")
- *                 .kmsKeyArn(exampleAwsKmsKey.arn())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import token vault CMKs using the token vault ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:bedrock/agentcoreTokenVaultCmk:AgentcoreTokenVaultCmk example &#34;default&#34;
- * ```
- * 
- */
 @ResourceType(type="aws:bedrock/agentcoreTokenVaultCmk:AgentcoreTokenVaultCmk")
 public class AgentcoreTokenVaultCmk extends com.pulumi.resources.CustomResource {
-    /**
-     * KMS configuration for the token vault. See `kmsConfiguration` below.
-     * 
-     */
     @Export(name="kmsConfiguration", refs={AgentcoreTokenVaultCmkKmsConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AgentcoreTokenVaultCmkKmsConfiguration> kmsConfiguration;
 
-    /**
-     * @return KMS configuration for the token vault. See `kmsConfiguration` below.
-     * 
-     */
     public Output<Optional<AgentcoreTokenVaultCmkKmsConfiguration>> kmsConfiguration() {
         return Codegen.optional(this.kmsConfiguration);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Token vault ID. Defaults to `default`.
-     * 
-     */
     @Export(name="tokenVaultId", refs={String.class}, tree="[0]")
     private Output<String> tokenVaultId;
 
-    /**
-     * @return Token vault ID. Defaults to `default`.
-     * 
-     */
     public Output<String> tokenVaultId() {
         return this.tokenVaultId;
     }

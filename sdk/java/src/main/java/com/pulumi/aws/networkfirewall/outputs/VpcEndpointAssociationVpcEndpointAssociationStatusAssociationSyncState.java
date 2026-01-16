@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncState {
-    /**
-     * @return Nested list describing the attachment status of the firewall&#39;s VPC Endpoint Association with a single VPC subnet.
-     * 
-     */
     private List<VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachment> attachments;
-    /**
-     * @return The Availability Zone where the subnet is configured.
-     * 
-     */
     private String availabilityZone;
 
     private VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncState() {}
-    /**
-     * @return Nested list describing the attachment status of the firewall&#39;s VPC Endpoint Association with a single VPC subnet.
-     * 
-     */
     public List<VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachment> attachments() {
         return this.attachments;
     }
-    /**
-     * @return The Availability Zone where the subnet is configured.
-     * 
-     */
     public String availabilityZone() {
         return this.availabilityZone;
     }

@@ -12,33 +12,20 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DataSetLogicalTableMapArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A display name for the logical table.
-        /// </summary>
         [Input("alias", required: true)]
         public Input<string> Alias { get; set; } = null!;
 
         [Input("dataTransforms")]
         private InputList<Inputs.DataSetLogicalTableMapDataTransformArgs>? _dataTransforms;
-
-        /// <summary>
-        /// Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
-        /// </summary>
         public InputList<Inputs.DataSetLogicalTableMapDataTransformArgs> DataTransforms
         {
             get => _dataTransforms ?? (_dataTransforms = new InputList<Inputs.DataSetLogicalTableMapDataTransformArgs>());
             set => _dataTransforms = value;
         }
 
-        /// <summary>
-        /// Key of the logical table map.
-        /// </summary>
         [Input("logicalTableMapId", required: true)]
         public Input<string> LogicalTableMapId { get; set; } = null!;
 
-        /// <summary>
-        /// Source of this logical table. See source.
-        /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.DataSetLogicalTableMapSourceArgs> Source { get; set; } = null!;
 

@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ResponseHeadersPolicySecurityHeadersConfigXssProtection {
-    /**
-     * @return Whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
-     * 
-     */
     private @Nullable Boolean modeBlock;
-    /**
-     * @return Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
-     * 
-     */
     private Boolean override;
-    /**
-     * @return A Boolean value that determines the value of the `X-XSS-Protection` HTTP response header. When this setting is `true`, the value of the `X-XSS-Protection` header is `1`. When this setting is `false`, the value of the `X-XSS-Protection` header is `0`.
-     * 
-     */
     private Boolean protection;
-    /**
-     * @return A reporting URI, which CloudFront uses as the value of the report directive in the `X-XSS-Protection` header. You cannot specify a `reportUri` when `modeBlock` is `true`.
-     * 
-     */
     private @Nullable String reportUri;
 
     private ResponseHeadersPolicySecurityHeadersConfigXssProtection() {}
-    /**
-     * @return Whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
-     * 
-     */
     public Optional<Boolean> modeBlock() {
         return Optional.ofNullable(this.modeBlock);
     }
-    /**
-     * @return Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
-     * 
-     */
     public Boolean override() {
         return this.override;
     }
-    /**
-     * @return A Boolean value that determines the value of the `X-XSS-Protection` HTTP response header. When this setting is `true`, the value of the `X-XSS-Protection` header is `1`. When this setting is `false`, the value of the `X-XSS-Protection` header is `0`.
-     * 
-     */
     public Boolean protection() {
         return this.protection;
     }
-    /**
-     * @return A reporting URI, which CloudFront uses as the value of the report directive in the `X-XSS-Protection` header. You cannot specify a `reportUri` when `modeBlock` is `true`.
-     * 
-     */
     public Optional<String> reportUri() {
         return Optional.ofNullable(this.reportUri);
     }

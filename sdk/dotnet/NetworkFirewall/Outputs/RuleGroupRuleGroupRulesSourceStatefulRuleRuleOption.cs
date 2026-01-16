@@ -13,14 +13,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption
     {
-        /// <summary>
-        /// Keyword defined by open source detection systems like Snort or Suricata for stateful rule inspection.
-        /// See [Snort General Rule Options](http://manual-snort-org.s3-website-us-east-1.amazonaws.com/node31.html) or [Suricata Rule Options](https://suricata.readthedocs.io/en/suricata-5.0.1/rules/intro.html#rule-options) for more details.
-        /// </summary>
         public readonly string Keyword;
-        /// <summary>
-        /// Set of strings for additional settings to use in stateful rule inspection.
-        /// </summary>
         public readonly ImmutableArray<string> Settings;
 
         [OutputConstructor]

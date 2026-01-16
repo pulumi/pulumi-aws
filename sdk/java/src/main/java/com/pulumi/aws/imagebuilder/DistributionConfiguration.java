@@ -17,200 +17,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an Image Builder Distribution Configuration.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.imagebuilder.DistributionConfiguration;
- * import com.pulumi.aws.imagebuilder.DistributionConfigurationArgs;
- * import com.pulumi.aws.imagebuilder.inputs.DistributionConfigurationDistributionArgs;
- * import com.pulumi.aws.imagebuilder.inputs.DistributionConfigurationDistributionAmiDistributionConfigurationArgs;
- * import com.pulumi.aws.imagebuilder.inputs.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DistributionConfiguration("example", DistributionConfigurationArgs.builder()
- *             .name("example")
- *             .distributions(DistributionConfigurationDistributionArgs.builder()
- *                 .amiDistributionConfiguration(DistributionConfigurationDistributionAmiDistributionConfigurationArgs.builder()
- *                     .amiTags(Map.of("CostCenter", "IT"))
- *                     .name("example-{{ imagebuilder:buildDate }}")
- *                     .launchPermission(DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs.builder()
- *                         .userIds("123456789012")
- *                         .build())
- *                     .build())
- *                 .launchTemplateConfigurations(DistributionConfigurationDistributionLaunchTemplateConfigurationArgs.builder()
- *                     .launchTemplateId("lt-0aaa1bcde2ff3456")
- *                     .build())
- *                 .region("us-east-1")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Image Builder distribution configuration.
- * 
- * Using `pulumi import`, import `aws_imagebuilder_distribution_configurations` resources using the Amazon Resource Name (ARN). For example:
- * 
- * % pulumi import aws_imagebuilder_distribution_configuration.example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
- * 
- */
 @ResourceType(type="aws:imagebuilder/distributionConfiguration:DistributionConfiguration")
 public class DistributionConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * (Required) Amazon Resource Name (ARN) of the distribution configuration.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return (Required) Amazon Resource Name (ARN) of the distribution configuration.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Date the distribution configuration was created.
-     * 
-     */
     @Export(name="dateCreated", refs={String.class}, tree="[0]")
     private Output<String> dateCreated;
 
-    /**
-     * @return Date the distribution configuration was created.
-     * 
-     */
     public Output<String> dateCreated() {
         return this.dateCreated;
     }
-    /**
-     * Date the distribution configuration was updated.
-     * 
-     */
     @Export(name="dateUpdated", refs={String.class}, tree="[0]")
     private Output<String> dateUpdated;
 
-    /**
-     * @return Date the distribution configuration was updated.
-     * 
-     */
     public Output<String> dateUpdated() {
         return this.dateUpdated;
     }
-    /**
-     * Description of the distribution configuration.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the distribution configuration.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * One or more configuration blocks with distribution settings. Detailed below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="distributions", refs={List.class,DistributionConfigurationDistribution.class}, tree="[0,1]")
     private Output<List<DistributionConfigurationDistribution>> distributions;
 
-    /**
-     * @return One or more configuration blocks with distribution settings. Detailed below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<List<DistributionConfigurationDistribution>> distributions() {
         return this.distributions;
     }
-    /**
-     * Name of the distribution configuration.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the distribution configuration.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value map of resource tags for the distribution configuration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags for the distribution configuration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

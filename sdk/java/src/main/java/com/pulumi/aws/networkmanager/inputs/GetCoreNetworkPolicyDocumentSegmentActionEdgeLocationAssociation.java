@@ -14,47 +14,23 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociat
 
     public static final GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation Empty = new GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation();
 
-    /**
-     * The AWS Region code for the first edge location in the association (e.g., `us-east-1`).
-     * 
-     */
     @Import(name="edgeLocation", required=true)
     private String edgeLocation;
 
-    /**
-     * @return The AWS Region code for the first edge location in the association (e.g., `us-east-1`).
-     * 
-     */
     public String edgeLocation() {
         return this.edgeLocation;
     }
 
-    /**
-     * The AWS Region code for the second edge location in the association (e.g., `us-west-2`).
-     * 
-     */
     @Import(name="peerEdgeLocation", required=true)
     private String peerEdgeLocation;
 
-    /**
-     * @return The AWS Region code for the second edge location in the association (e.g., `us-west-2`).
-     * 
-     */
     public String peerEdgeLocation() {
         return this.peerEdgeLocation;
     }
 
-    /**
-     * A set of routing policy names to apply to this edge location pair.
-     * 
-     */
     @Import(name="routingPolicyNames", required=true)
     private List<String> routingPolicyNames;
 
-    /**
-     * @return A set of routing policy names to apply to this edge location pair.
-     * 
-     */
     public List<String> routingPolicyNames() {
         return this.routingPolicyNames;
     }
@@ -85,45 +61,21 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociat
             $ = new GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param edgeLocation The AWS Region code for the first edge location in the association (e.g., `us-east-1`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeLocation(String edgeLocation) {
             $.edgeLocation = edgeLocation;
             return this;
         }
 
-        /**
-         * @param peerEdgeLocation The AWS Region code for the second edge location in the association (e.g., `us-west-2`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder peerEdgeLocation(String peerEdgeLocation) {
             $.peerEdgeLocation = peerEdgeLocation;
             return this;
         }
 
-        /**
-         * @param routingPolicyNames A set of routing policy names to apply to this edge location pair.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyNames(List<String> routingPolicyNames) {
             $.routingPolicyNames = routingPolicyNames;
             return this;
         }
 
-        /**
-         * @param routingPolicyNames A set of routing policy names to apply to this edge location pair.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyNames(String... routingPolicyNames) {
             return routingPolicyNames(List.of(routingPolicyNames));
         }

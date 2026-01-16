@@ -13,85 +13,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServerlessSecurityConfigResult {
-    /**
-     * @return The version of the security configuration.
-     * 
-     */
     private String configVersion;
-    /**
-     * @return The date the configuration was created.
-     * 
-     */
     private String createdDate;
-    /**
-     * @return The description of the security configuration.
-     * 
-     */
     private String description;
     private String id;
-    /**
-     * @return The date the configuration was last modified.
-     * 
-     */
     private String lastModifiedDate;
     private String region;
-    /**
-     * @return SAML options for the security configuration.
-     * 
-     */
     private @Nullable List<GetServerlessSecurityConfigSamlOption> samlOptions;
-    /**
-     * @return The type of security configuration.
-     * 
-     */
     private String type;
 
     private GetServerlessSecurityConfigResult() {}
-    /**
-     * @return The version of the security configuration.
-     * 
-     */
     public String configVersion() {
         return this.configVersion;
     }
-    /**
-     * @return The date the configuration was created.
-     * 
-     */
     public String createdDate() {
         return this.createdDate;
     }
-    /**
-     * @return The description of the security configuration.
-     * 
-     */
     public String description() {
         return this.description;
     }
     public String id() {
         return this.id;
     }
-    /**
-     * @return The date the configuration was last modified.
-     * 
-     */
     public String lastModifiedDate() {
         return this.lastModifiedDate;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return SAML options for the security configuration.
-     * 
-     */
     public List<GetServerlessSecurityConfigSamlOption> samlOptions() {
         return this.samlOptions == null ? List.of() : this.samlOptions;
     }
-    /**
-     * @return The type of security configuration.
-     * 
-     */
     public String type() {
         return this.type;
     }

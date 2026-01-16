@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ResolverSyncConfig {
-    /**
-     * @return Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
-     * 
-     */
     private @Nullable String conflictDetection;
-    /**
-     * @return Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
-     * 
-     */
     private @Nullable String conflictHandler;
-    /**
-     * @return Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
-     * 
-     */
     private @Nullable ResolverSyncConfigLambdaConflictHandlerConfig lambdaConflictHandlerConfig;
 
     private ResolverSyncConfig() {}
-    /**
-     * @return Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
-     * 
-     */
     public Optional<String> conflictDetection() {
         return Optional.ofNullable(this.conflictDetection);
     }
-    /**
-     * @return Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
-     * 
-     */
     public Optional<String> conflictHandler() {
         return Optional.ofNullable(this.conflictHandler);
     }
-    /**
-     * @return Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
-     * 
-     */
     public Optional<ResolverSyncConfigLambdaConflictHandlerConfig> lambdaConflictHandlerConfig() {
         return Optional.ofNullable(this.lambdaConflictHandlerConfig);
     }

@@ -23,8 +23,6 @@ class GroupPolicyAttachmentsExclusiveArgs:
                  policy_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The set of arguments for constructing a GroupPolicyAttachmentsExclusive resource.
-        :param pulumi.Input[_builtins.str] group_name: IAM group name.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_arns: A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
         """
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "policy_arns", policy_arns)
@@ -32,9 +30,6 @@ class GroupPolicyAttachmentsExclusiveArgs:
     @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        IAM group name.
-        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -44,9 +39,6 @@ class GroupPolicyAttachmentsExclusiveArgs:
     @_builtins.property
     @pulumi.getter(name="policyArns")
     def policy_arns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
-        """
         return pulumi.get(self, "policy_arns")
 
     @policy_arns.setter
@@ -61,8 +53,6 @@ class _GroupPolicyAttachmentsExclusiveState:
                  policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering GroupPolicyAttachmentsExclusive resources.
-        :param pulumi.Input[_builtins.str] group_name: IAM group name.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_arns: A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
         """
         if group_name is not None:
             pulumi.set(__self__, "group_name", group_name)
@@ -72,9 +62,6 @@ class _GroupPolicyAttachmentsExclusiveState:
     @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        IAM group name.
-        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -84,9 +71,6 @@ class _GroupPolicyAttachmentsExclusiveState:
     @_builtins.property
     @pulumi.getter(name="policyArns")
     def policy_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
-        """
         return pulumi.get(self, "policy_arns")
 
     @policy_arns.setter
@@ -104,18 +88,9 @@ class GroupPolicyAttachmentsExclusive(pulumi.CustomResource):
                  policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        ## Import
-
-        Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `group_name`. For example:
-
-        ```sh
-        $ pulumi import aws:iam/groupPolicyAttachmentsExclusive:GroupPolicyAttachmentsExclusive example MyGroup
-        ```
-
+        Create a GroupPolicyAttachmentsExclusive resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] group_name: IAM group name.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_arns: A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
         """
         ...
     @overload
@@ -124,14 +99,7 @@ class GroupPolicyAttachmentsExclusive(pulumi.CustomResource):
                  args: GroupPolicyAttachmentsExclusiveArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
-
-        Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `group_name`. For example:
-
-        ```sh
-        $ pulumi import aws:iam/groupPolicyAttachmentsExclusive:GroupPolicyAttachmentsExclusive example MyGroup
-        ```
-
+        Create a GroupPolicyAttachmentsExclusive resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param GroupPolicyAttachmentsExclusiveArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,8 +151,6 @@ class GroupPolicyAttachmentsExclusive(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] group_name: IAM group name.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_arns: A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -197,16 +163,10 @@ class GroupPolicyAttachmentsExclusive(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        IAM group name.
-        """
         return pulumi.get(self, "group_name")
 
     @_builtins.property
     @pulumi.getter(name="policyArns")
     def policy_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
-        """
         return pulumi.get(self, "policy_arns")
 

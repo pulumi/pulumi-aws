@@ -11,57 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a WAF Regional SQL Injection Match Set Resource for use with Application Load Balancer.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafregional"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafregional.NewSqlInjectionMatchSet(ctx, "sql_injection_match_set", &wafregional.SqlInjectionMatchSetArgs{
-//				Name: pulumi.String("tf-sql_injection_match_set"),
-//				SqlInjectionMatchTuples: wafregional.SqlInjectionMatchSetSqlInjectionMatchTupleArray{
-//					&wafregional.SqlInjectionMatchSetSqlInjectionMatchTupleArgs{
-//						TextTransformation: pulumi.String("URL_DECODE"),
-//						FieldToMatch: &wafregional.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs{
-//							Type: pulumi.String("QUERY_STRING"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import WAF Regional Sql Injection Match Set using the id. For example:
-//
-// ```sh
-// $ pulumi import aws:wafregional/sqlInjectionMatchSet:SqlInjectionMatchSet sql_injection_match_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-// ```
 type SqlInjectionMatchSet struct {
 	pulumi.CustomResourceState
 
-	// The name or description of the SizeConstraintSet.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+	Name                    pulumi.StringOutput                                   `pulumi:"name"`
+	Region                  pulumi.StringOutput                                   `pulumi:"region"`
 	SqlInjectionMatchTuples SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput `pulumi:"sqlInjectionMatchTuples"`
 }
 
@@ -95,20 +49,14 @@ func GetSqlInjectionMatchSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlInjectionMatchSet resources.
 type sqlInjectionMatchSetState struct {
-	// The name or description of the SizeConstraintSet.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+	Name                    *string                                      `pulumi:"name"`
+	Region                  *string                                      `pulumi:"region"`
 	SqlInjectionMatchTuples []SqlInjectionMatchSetSqlInjectionMatchTuple `pulumi:"sqlInjectionMatchTuples"`
 }
 
 type SqlInjectionMatchSetState struct {
-	// The name or description of the SizeConstraintSet.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+	Name                    pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
 	SqlInjectionMatchTuples SqlInjectionMatchSetSqlInjectionMatchTupleArrayInput
 }
 
@@ -117,21 +65,15 @@ func (SqlInjectionMatchSetState) ElementType() reflect.Type {
 }
 
 type sqlInjectionMatchSetArgs struct {
-	// The name or description of the SizeConstraintSet.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+	Name                    *string                                      `pulumi:"name"`
+	Region                  *string                                      `pulumi:"region"`
 	SqlInjectionMatchTuples []SqlInjectionMatchSetSqlInjectionMatchTuple `pulumi:"sqlInjectionMatchTuples"`
 }
 
 // The set of arguments for constructing a SqlInjectionMatchSet resource.
 type SqlInjectionMatchSetArgs struct {
-	// The name or description of the SizeConstraintSet.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+	Name                    pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
 	SqlInjectionMatchTuples SqlInjectionMatchSetSqlInjectionMatchTupleArrayInput
 }
 
@@ -222,17 +164,14 @@ func (o SqlInjectionMatchSetOutput) ToSqlInjectionMatchSetOutputWithContext(ctx 
 	return o
 }
 
-// The name or description of the SizeConstraintSet.
 func (o SqlInjectionMatchSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SqlInjectionMatchSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SqlInjectionMatchSetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SqlInjectionMatchSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
 func (o SqlInjectionMatchSetOutput) SqlInjectionMatchTuples() SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput {
 	return o.ApplyT(func(v *SqlInjectionMatchSet) SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput {
 		return v.SqlInjectionMatchTuples

@@ -17,32 +17,16 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocat
 
     public static final GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs Empty = new GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs();
 
-    /**
-     * ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asnRanges`
-     * 
-     */
     @Import(name="asn")
     private @Nullable Output<String> asn;
 
-    /**
-     * @return ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asnRanges`
-     * 
-     */
     public Optional<Output<String>> asn() {
         return Optional.ofNullable(this.asn);
     }
 
-    /**
-     * The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `insideCidrBlocks`.
-     * 
-     */
     @Import(name="insideCidrBlocks")
     private @Nullable Output<List<String>> insideCidrBlocks;
 
-    /**
-     * @return The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `insideCidrBlocks`.
-     * 
-     */
     public Optional<Output<List<String>>> insideCidrBlocks() {
         return Optional.ofNullable(this.insideCidrBlocks);
     }
@@ -80,54 +64,24 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocat
             $ = new GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param asn ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asnRanges`
-         * 
-         * @return builder
-         * 
-         */
         public Builder asn(@Nullable Output<String> asn) {
             $.asn = asn;
             return this;
         }
 
-        /**
-         * @param asn ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asnRanges`
-         * 
-         * @return builder
-         * 
-         */
         public Builder asn(String asn) {
             return asn(Output.of(asn));
         }
 
-        /**
-         * @param insideCidrBlocks The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `insideCidrBlocks`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insideCidrBlocks(@Nullable Output<List<String>> insideCidrBlocks) {
             $.insideCidrBlocks = insideCidrBlocks;
             return this;
         }
 
-        /**
-         * @param insideCidrBlocks The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `insideCidrBlocks`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insideCidrBlocks(List<String> insideCidrBlocks) {
             return insideCidrBlocks(Output.of(insideCidrBlocks));
         }
 
-        /**
-         * @param insideCidrBlocks The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `insideCidrBlocks`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insideCidrBlocks(String... insideCidrBlocks) {
             return insideCidrBlocks(List.of(insideCidrBlocks));
         }

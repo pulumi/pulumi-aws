@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount
     {
-        /// <summary>
-        /// Maximum. Set to `0` to exclude instance types with accelerators.
-        /// </summary>
         public readonly int? Max;
-        /// <summary>
-        /// Minimum.
-        /// </summary>
         public readonly int? Min;
 
         [OutputConstructor]

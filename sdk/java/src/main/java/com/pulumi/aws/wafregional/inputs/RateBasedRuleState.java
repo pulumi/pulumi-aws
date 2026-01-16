@@ -19,137 +19,65 @@ public final class RateBasedRuleState extends com.pulumi.resources.ResourceArgs 
 
     public static final RateBasedRuleState Empty = new RateBasedRuleState();
 
-    /**
-     * The ARN of the WAF Regional Rate Based Rule.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The ARN of the WAF Regional Rate Based Rule.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The name or description for the Amazon CloudWatch metric of this rule.
-     * 
-     */
     @Import(name="metricName")
     private @Nullable Output<String> metricName;
 
-    /**
-     * @return The name or description for the Amazon CloudWatch metric of this rule.
-     * 
-     */
     public Optional<Output<String>> metricName() {
         return Optional.ofNullable(this.metricName);
     }
 
-    /**
-     * The name or description of the rule.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name or description of the rule.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The objects to include in a rule (documented below).
-     * 
-     */
     @Import(name="predicates")
     private @Nullable Output<List<RateBasedRulePredicateArgs>> predicates;
 
-    /**
-     * @return The objects to include in a rule (documented below).
-     * 
-     */
     public Optional<Output<List<RateBasedRulePredicateArgs>>> predicates() {
         return Optional.ofNullable(this.predicates);
     }
 
-    /**
-     * Valid value is IP.
-     * 
-     */
     @Import(name="rateKey")
     private @Nullable Output<String> rateKey;
 
-    /**
-     * @return Valid value is IP.
-     * 
-     */
     public Optional<Output<String>> rateKey() {
         return Optional.ofNullable(this.rateKey);
     }
 
-    /**
-     * The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
-     * 
-     */
     @Import(name="rateLimit")
     private @Nullable Output<Integer> rateLimit;
 
-    /**
-     * @return The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
-     * 
-     */
     public Optional<Output<Integer>> rateLimit() {
         return Optional.ofNullable(this.rateLimit);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -186,201 +114,87 @@ public final class RateBasedRuleState extends com.pulumi.resources.ResourceArgs 
             $ = new RateBasedRuleState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The ARN of the WAF Regional Rate Based Rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The ARN of the WAF Regional Rate Based Rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param metricName The name or description for the Amazon CloudWatch metric of this rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(@Nullable Output<String> metricName) {
             $.metricName = metricName;
             return this;
         }
 
-        /**
-         * @param metricName The name or description for the Amazon CloudWatch metric of this rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(String metricName) {
             return metricName(Output.of(metricName));
         }
 
-        /**
-         * @param name The name or description of the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name or description of the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param predicates The objects to include in a rule (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder predicates(@Nullable Output<List<RateBasedRulePredicateArgs>> predicates) {
             $.predicates = predicates;
             return this;
         }
 
-        /**
-         * @param predicates The objects to include in a rule (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder predicates(List<RateBasedRulePredicateArgs> predicates) {
             return predicates(Output.of(predicates));
         }
 
-        /**
-         * @param predicates The objects to include in a rule (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder predicates(RateBasedRulePredicateArgs... predicates) {
             return predicates(List.of(predicates));
         }
 
-        /**
-         * @param rateKey Valid value is IP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rateKey(@Nullable Output<String> rateKey) {
             $.rateKey = rateKey;
             return this;
         }
 
-        /**
-         * @param rateKey Valid value is IP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rateKey(String rateKey) {
             return rateKey(Output.of(rateKey));
         }
 
-        /**
-         * @param rateLimit The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rateLimit(@Nullable Output<Integer> rateLimit) {
             $.rateLimit = rateLimit;
             return this;
         }
 
-        /**
-         * @param rateLimit The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rateLimit(Integer rateLimit) {
             return rateLimit(Output.of(rateLimit));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

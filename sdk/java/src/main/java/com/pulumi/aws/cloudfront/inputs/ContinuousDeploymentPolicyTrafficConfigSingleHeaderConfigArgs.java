@@ -14,32 +14,16 @@ public final class ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs
 
     public static final ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs Empty = new ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs();
 
-    /**
-     * Request header name to send to the staging distribution. The header must contain the prefix `aws-cf-cd-`.
-     * 
-     */
     @Import(name="header", required=true)
     private Output<String> header;
 
-    /**
-     * @return Request header name to send to the staging distribution. The header must contain the prefix `aws-cf-cd-`.
-     * 
-     */
     public Output<String> header() {
         return this.header;
     }
 
-    /**
-     * Request header value.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return Request header value.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -69,44 +53,20 @@ public final class ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs
             $ = new ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param header Request header name to send to the staging distribution. The header must contain the prefix `aws-cf-cd-`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder header(Output<String> header) {
             $.header = header;
             return this;
         }
 
-        /**
-         * @param header Request header name to send to the staging distribution. The header must contain the prefix `aws-cf-cd-`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder header(String header) {
             return header(Output.of(header));
         }
 
-        /**
-         * @param value Request header value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Request header value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

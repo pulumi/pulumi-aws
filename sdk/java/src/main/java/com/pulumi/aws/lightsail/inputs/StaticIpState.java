@@ -15,81 +15,37 @@ public final class StaticIpState extends com.pulumi.resources.ResourceArgs {
 
     public static final StaticIpState Empty = new StaticIpState();
 
-    /**
-     * ARN of the Lightsail static IP.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the Lightsail static IP.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Allocated static IP address.
-     * 
-     */
     @Import(name="ipAddress")
     private @Nullable Output<String> ipAddress;
 
-    /**
-     * @return Allocated static IP address.
-     * 
-     */
     public Optional<Output<String>> ipAddress() {
         return Optional.ofNullable(this.ipAddress);
     }
 
-    /**
-     * Name for the allocated static IP.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name for the allocated static IP.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
-     * 
-     */
     @Import(name="supportCode")
     private @Nullable Output<String> supportCode;
 
-    /**
-     * @return Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
-     * 
-     */
     public Optional<Output<String>> supportCode() {
         return Optional.ofNullable(this.supportCode);
     }
@@ -122,111 +78,47 @@ public final class StaticIpState extends com.pulumi.resources.ResourceArgs {
             $ = new StaticIpState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the Lightsail static IP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the Lightsail static IP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param ipAddress Allocated static IP address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddress(@Nullable Output<String> ipAddress) {
             $.ipAddress = ipAddress;
             return this;
         }
 
-        /**
-         * @param ipAddress Allocated static IP address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddress(String ipAddress) {
             return ipAddress(Output.of(ipAddress));
         }
 
-        /**
-         * @param name Name for the allocated static IP.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name for the allocated static IP.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param supportCode Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
-         * 
-         * @return builder
-         * 
-         */
         public Builder supportCode(@Nullable Output<String> supportCode) {
             $.supportCode = supportCode;
             return this;
         }
 
-        /**
-         * @param supportCode Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
-         * 
-         * @return builder
-         * 
-         */
         public Builder supportCode(String supportCode) {
             return supportCode(Output.of(supportCode));
         }

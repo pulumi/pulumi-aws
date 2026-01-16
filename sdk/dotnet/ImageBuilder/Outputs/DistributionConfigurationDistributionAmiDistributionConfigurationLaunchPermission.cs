@@ -13,21 +13,9 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission
     {
-        /// <summary>
-        /// Set of AWS Organization ARNs to assign.
-        /// </summary>
         public readonly ImmutableArray<string> OrganizationArns;
-        /// <summary>
-        /// Set of AWS Organizational Unit ARNs to assign.
-        /// </summary>
         public readonly ImmutableArray<string> OrganizationalUnitArns;
-        /// <summary>
-        /// Set of EC2 launch permission user groups to assign. Use `All` to distribute a public AMI.
-        /// </summary>
         public readonly ImmutableArray<string> UserGroups;
-        /// <summary>
-        /// Set of AWS Account identifiers to assign.
-        /// </summary>
         public readonly ImmutableArray<string> UserIds;
 
         [OutputConstructor]

@@ -12,160 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Agents for Amazon Bedrock Agent Alias.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// currentGetRegion, err := aws.GetRegion(ctx, &aws.GetRegionArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// exampleAgentTrust, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "sts:AssumeRole",
-// },
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Identifiers: []string{
-// "bedrock.amazonaws.com",
-// },
-// Type: "Service",
-// },
-// },
-// Conditions: []iam.GetPolicyDocumentStatementCondition{
-// {
-// Test: "StringEquals",
-// Values: interface{}{
-// current.AccountId,
-// },
-// Variable: "aws:SourceAccount",
-// },
-// {
-// Test: "ArnLike",
-// Values: []string{
-// fmt.Sprintf("arn:%v:bedrock:%v:%v:agent/*", currentGetPartition.Partition, currentGetRegion.Region, current.AccountId),
-// },
-// Variable: "AWS:SourceArn",
-// },
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// exampleAgentPermissions, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "bedrock:InvokeModel",
-// },
-// Resources: []string{
-// fmt.Sprintf("arn:%v:bedrock:%v::foundation-model/anthropic.claude-v2", currentGetPartition.Partition, currentGetRegion.Region),
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-// AssumeRolePolicy: pulumi.String(exampleAgentTrust.Json),
-// NamePrefix: pulumi.String("AmazonBedrockExecutionRoleForAgents_"),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
-// Policy: pulumi.String(exampleAgentPermissions.Json),
-// Role: example.ID(),
-// })
-// if err != nil {
-// return err
-// }
-// exampleAgentAgent, err := bedrock.NewAgentAgent(ctx, "example", &bedrock.AgentAgentArgs{
-// AgentName: pulumi.String("my-agent-name"),
-// AgentResourceRoleArn: example.Arn,
-// IdleTtl: 500,
-// FoundationModel: pulumi.String("anthropic.claude-v2"),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = bedrock.NewAgentAgentAlias(ctx, "example", &bedrock.AgentAgentAliasArgs{
-// AgentAliasName: pulumi.String("my-agent-alias"),
-// AgentId: exampleAgentAgent.AgentId,
-// Description: pulumi.String("Test Alias"),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Agents for Amazon Bedrock Agent Alias using the alias ID and the agent ID separated by `,`. For example:
-//
-// ```sh
-// $ pulumi import aws:bedrock/agentAgentAlias:AgentAgentAlias example 66IVY0GUTF,GGRRAED6JP
-// ```
 type AgentAgentAlias struct {
 	pulumi.CustomResourceState
 
-	// ARN of the alias.
-	AgentAliasArn pulumi.StringOutput `pulumi:"agentAliasArn"`
-	// Unique identifier of the alias.
-	AgentAliasId pulumi.StringOutput `pulumi:"agentAliasId"`
-	// Name of the alias.
-	AgentAliasName pulumi.StringOutput `pulumi:"agentAliasName"`
-	// Identifier of the agent to create an alias for.
-	//
-	// The following arguments are optional:
-	AgentId pulumi.StringOutput `pulumi:"agentId"`
-	// Description of the alias.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
+	AgentAliasArn         pulumi.StringOutput                            `pulumi:"agentAliasArn"`
+	AgentAliasId          pulumi.StringOutput                            `pulumi:"agentAliasId"`
+	AgentAliasName        pulumi.StringOutput                            `pulumi:"agentAliasName"`
+	AgentId               pulumi.StringOutput                            `pulumi:"agentId"`
+	Description           pulumi.StringPtrOutput                         `pulumi:"description"`
+	Region                pulumi.StringOutput                            `pulumi:"region"`
 	RoutingConfigurations AgentAgentAliasRoutingConfigurationArrayOutput `pulumi:"routingConfigurations"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput           `pulumi:"tagsAll"`
-	Timeouts AgentAgentAliasTimeoutsPtrOutput `pulumi:"timeouts"`
+	Tags                  pulumi.StringMapOutput                         `pulumi:"tags"`
+	TagsAll               pulumi.StringMapOutput                         `pulumi:"tagsAll"`
+	Timeouts              AgentAgentAliasTimeoutsPtrOutput               `pulumi:"timeouts"`
 }
 
 // NewAgentAgentAlias registers a new resource with the given unique name, arguments, and options.
@@ -204,51 +63,29 @@ func GetAgentAgentAlias(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentAgentAlias resources.
 type agentAgentAliasState struct {
-	// ARN of the alias.
-	AgentAliasArn *string `pulumi:"agentAliasArn"`
-	// Unique identifier of the alias.
-	AgentAliasId *string `pulumi:"agentAliasId"`
-	// Name of the alias.
-	AgentAliasName *string `pulumi:"agentAliasName"`
-	// Identifier of the agent to create an alias for.
-	//
-	// The following arguments are optional:
-	AgentId *string `pulumi:"agentId"`
-	// Description of the alias.
-	Description *string `pulumi:"description"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
+	AgentAliasArn         *string                               `pulumi:"agentAliasArn"`
+	AgentAliasId          *string                               `pulumi:"agentAliasId"`
+	AgentAliasName        *string                               `pulumi:"agentAliasName"`
+	AgentId               *string                               `pulumi:"agentId"`
+	Description           *string                               `pulumi:"description"`
+	Region                *string                               `pulumi:"region"`
 	RoutingConfigurations []AgentAgentAliasRoutingConfiguration `pulumi:"routingConfigurations"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string        `pulumi:"tagsAll"`
-	Timeouts *AgentAgentAliasTimeouts `pulumi:"timeouts"`
+	Tags                  map[string]string                     `pulumi:"tags"`
+	TagsAll               map[string]string                     `pulumi:"tagsAll"`
+	Timeouts              *AgentAgentAliasTimeouts              `pulumi:"timeouts"`
 }
 
 type AgentAgentAliasState struct {
-	// ARN of the alias.
-	AgentAliasArn pulumi.StringPtrInput
-	// Unique identifier of the alias.
-	AgentAliasId pulumi.StringPtrInput
-	// Name of the alias.
-	AgentAliasName pulumi.StringPtrInput
-	// Identifier of the agent to create an alias for.
-	//
-	// The following arguments are optional:
-	AgentId pulumi.StringPtrInput
-	// Description of the alias.
-	Description pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
+	AgentAliasArn         pulumi.StringPtrInput
+	AgentAliasId          pulumi.StringPtrInput
+	AgentAliasName        pulumi.StringPtrInput
+	AgentId               pulumi.StringPtrInput
+	Description           pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
 	RoutingConfigurations AgentAgentAliasRoutingConfigurationArrayInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts AgentAgentAliasTimeoutsPtrInput
+	Tags                  pulumi.StringMapInput
+	TagsAll               pulumi.StringMapInput
+	Timeouts              AgentAgentAliasTimeoutsPtrInput
 }
 
 func (AgentAgentAliasState) ElementType() reflect.Type {
@@ -256,40 +93,24 @@ func (AgentAgentAliasState) ElementType() reflect.Type {
 }
 
 type agentAgentAliasArgs struct {
-	// Name of the alias.
-	AgentAliasName string `pulumi:"agentAliasName"`
-	// Identifier of the agent to create an alias for.
-	//
-	// The following arguments are optional:
-	AgentId string `pulumi:"agentId"`
-	// Description of the alias.
-	Description *string `pulumi:"description"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
+	AgentAliasName        string                                `pulumi:"agentAliasName"`
+	AgentId               string                                `pulumi:"agentId"`
+	Description           *string                               `pulumi:"description"`
+	Region                *string                               `pulumi:"region"`
 	RoutingConfigurations []AgentAgentAliasRoutingConfiguration `pulumi:"routingConfigurations"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string        `pulumi:"tags"`
-	Timeouts *AgentAgentAliasTimeouts `pulumi:"timeouts"`
+	Tags                  map[string]string                     `pulumi:"tags"`
+	Timeouts              *AgentAgentAliasTimeouts              `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a AgentAgentAlias resource.
 type AgentAgentAliasArgs struct {
-	// Name of the alias.
-	AgentAliasName pulumi.StringInput
-	// Identifier of the agent to create an alias for.
-	//
-	// The following arguments are optional:
-	AgentId pulumi.StringInput
-	// Description of the alias.
-	Description pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
+	AgentAliasName        pulumi.StringInput
+	AgentId               pulumi.StringInput
+	Description           pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
 	RoutingConfigurations AgentAgentAliasRoutingConfigurationArrayInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts AgentAgentAliasTimeoutsPtrInput
+	Tags                  pulumi.StringMapInput
+	Timeouts              AgentAgentAliasTimeoutsPtrInput
 }
 
 func (AgentAgentAliasArgs) ElementType() reflect.Type {
@@ -379,51 +200,40 @@ func (o AgentAgentAliasOutput) ToAgentAgentAliasOutputWithContext(ctx context.Co
 	return o
 }
 
-// ARN of the alias.
 func (o AgentAgentAliasOutput) AgentAliasArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentAlias) pulumi.StringOutput { return v.AgentAliasArn }).(pulumi.StringOutput)
 }
 
-// Unique identifier of the alias.
 func (o AgentAgentAliasOutput) AgentAliasId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentAlias) pulumi.StringOutput { return v.AgentAliasId }).(pulumi.StringOutput)
 }
 
-// Name of the alias.
 func (o AgentAgentAliasOutput) AgentAliasName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentAlias) pulumi.StringOutput { return v.AgentAliasName }).(pulumi.StringOutput)
 }
 
-// Identifier of the agent to create an alias for.
-//
-// The following arguments are optional:
 func (o AgentAgentAliasOutput) AgentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentAlias) pulumi.StringOutput { return v.AgentId }).(pulumi.StringOutput)
 }
 
-// Description of the alias.
 func (o AgentAgentAliasOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentAgentAlias) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AgentAgentAliasOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentAlias) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
 func (o AgentAgentAliasOutput) RoutingConfigurations() AgentAgentAliasRoutingConfigurationArrayOutput {
 	return o.ApplyT(func(v *AgentAgentAlias) AgentAgentAliasRoutingConfigurationArrayOutput {
 		return v.RoutingConfigurations
 	}).(AgentAgentAliasRoutingConfigurationArrayOutput)
 }
 
-// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AgentAgentAliasOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentAgentAlias) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AgentAgentAliasOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentAgentAlias) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

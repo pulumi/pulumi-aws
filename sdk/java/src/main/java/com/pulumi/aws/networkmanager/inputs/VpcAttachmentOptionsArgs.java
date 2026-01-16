@@ -15,62 +15,30 @@ public final class VpcAttachmentOptionsArgs extends com.pulumi.resources.Resourc
 
     public static final VpcAttachmentOptionsArgs Empty = new VpcAttachmentOptionsArgs();
 
-    /**
-     * Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-     * 
-     */
     @Import(name="applianceModeSupport")
     private @Nullable Output<Boolean> applianceModeSupport;
 
-    /**
-     * @return Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-     * 
-     */
     public Optional<Output<Boolean>> applianceModeSupport() {
         return Optional.ofNullable(this.applianceModeSupport);
     }
 
-    /**
-     * Whether to enable DNS support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-     * 
-     */
     @Import(name="dnsSupport")
     private @Nullable Output<Boolean> dnsSupport;
 
-    /**
-     * @return Whether to enable DNS support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-     * 
-     */
     public Optional<Output<Boolean>> dnsSupport() {
         return Optional.ofNullable(this.dnsSupport);
     }
 
-    /**
-     * Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-     * 
-     */
     @Import(name="ipv6Support")
     private @Nullable Output<Boolean> ipv6Support;
 
-    /**
-     * @return Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-     * 
-     */
     public Optional<Output<Boolean>> ipv6Support() {
         return Optional.ofNullable(this.ipv6Support);
     }
 
-    /**
-     * Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-     * 
-     */
     @Import(name="securityGroupReferencingSupport")
     private @Nullable Output<Boolean> securityGroupReferencingSupport;
 
-    /**
-     * @return Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-     * 
-     */
     public Optional<Output<Boolean>> securityGroupReferencingSupport() {
         return Optional.ofNullable(this.securityGroupReferencingSupport);
     }
@@ -102,86 +70,38 @@ public final class VpcAttachmentOptionsArgs extends com.pulumi.resources.Resourc
             $ = new VpcAttachmentOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applianceModeSupport Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applianceModeSupport(@Nullable Output<Boolean> applianceModeSupport) {
             $.applianceModeSupport = applianceModeSupport;
             return this;
         }
 
-        /**
-         * @param applianceModeSupport Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applianceModeSupport(Boolean applianceModeSupport) {
             return applianceModeSupport(Output.of(applianceModeSupport));
         }
 
-        /**
-         * @param dnsSupport Whether to enable DNS support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsSupport(@Nullable Output<Boolean> dnsSupport) {
             $.dnsSupport = dnsSupport;
             return this;
         }
 
-        /**
-         * @param dnsSupport Whether to enable DNS support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsSupport(Boolean dnsSupport) {
             return dnsSupport(Output.of(dnsSupport));
         }
 
-        /**
-         * @param ipv6Support Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipv6Support(@Nullable Output<Boolean> ipv6Support) {
             $.ipv6Support = ipv6Support;
             return this;
         }
 
-        /**
-         * @param ipv6Support Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipv6Support(Boolean ipv6Support) {
             return ipv6Support(Output.of(ipv6Support));
         }
 
-        /**
-         * @param securityGroupReferencingSupport Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupReferencingSupport(@Nullable Output<Boolean> securityGroupReferencingSupport) {
             $.securityGroupReferencingSupport = securityGroupReferencingSupport;
             return this;
         }
 
-        /**
-         * @param securityGroupReferencingSupport Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupReferencingSupport(Boolean securityGroupReferencingSupport) {
             return securityGroupReferencingSupport(Output.of(securityGroupReferencingSupport));
         }

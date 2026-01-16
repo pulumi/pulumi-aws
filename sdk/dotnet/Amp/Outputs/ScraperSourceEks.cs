@@ -14,13 +14,7 @@ namespace Pulumi.Aws.Amp.Outputs
     public sealed class ScraperSourceEks
     {
         public readonly string ClusterArn;
-        /// <summary>
-        /// List of the security group IDs for the Amazon EKS cluster VPC configuration.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// List of subnet IDs. Must be in at least two different availability zones.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
 
         [OutputConstructor]

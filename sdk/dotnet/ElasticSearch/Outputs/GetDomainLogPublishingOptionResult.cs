@@ -13,17 +13,8 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
     [OutputType]
     public sealed class GetDomainLogPublishingOptionResult
     {
-        /// <summary>
-        /// The CloudWatch Log Group where the logs are published.
-        /// </summary>
         public readonly string CloudwatchLogGroupArn;
-        /// <summary>
-        /// Whether node to node encryption is enabled.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// The type of Elasticsearch log being published.
-        /// </summary>
         public readonly string LogType;
 
         [OutputConstructor]

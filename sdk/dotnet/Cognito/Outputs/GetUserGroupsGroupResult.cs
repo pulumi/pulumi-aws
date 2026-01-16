@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class GetUserGroupsGroupResult
     {
-        /// <summary>
-        /// Description of the user group.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Name of the user group.
-        /// </summary>
         public readonly string GroupName;
-        /// <summary>
-        /// Precedence of the user group.
-        /// </summary>
         public readonly int Precedence;
-        /// <summary>
-        /// ARN of the IAM role to be associated with the user group.
-        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

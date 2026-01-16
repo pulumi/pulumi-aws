@@ -12,202 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Lambda Layer Version Permission. Use this resource to share Lambda Layers with other AWS accounts, organizations, or make them publicly accessible.
-//
-// For information about Lambda Layer Permissions and how to use them, see [Using Resource-based Policies for AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer).
-//
-// > **Note:** Setting `skipDestroy` to `true` means that the AWS Provider will not destroy any layer version permission, even when running `pulumi destroy`. Layer version permissions are thus intentional dangling resources that are not managed by Pulumi and may incur extra expense in your AWS account.
-//
-// ## Example Usage
-//
-// ### Share Layer with Specific Account
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Lambda layer to share
-//			example, err := lambda.NewLayerVersion(ctx, "example", &lambda.LayerVersionArgs{
-//				Code:        pulumi.NewFileArchive("layer.zip"),
-//				LayerName:   pulumi.String("shared_utilities"),
-//				Description: pulumi.String("Common utilities for Lambda functions"),
-//				CompatibleRuntimes: pulumi.StringArray{
-//					pulumi.String("nodejs20.x"),
-//					pulumi.String("python3.12"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// Grant permission to specific AWS account
-//			_, err = lambda.NewLayerVersionPermission(ctx, "example", &lambda.LayerVersionPermissionArgs{
-//				LayerName:     example.LayerName,
-//				VersionNumber: example.Version,
-//				Principal:     pulumi.String("123456789012"),
-//				Action:        pulumi.String("lambda:GetLayerVersion"),
-//				StatementId:   pulumi.String("dev-account-access"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Share Layer with Organization
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewLayerVersionPermission(ctx, "example", &lambda.LayerVersionPermissionArgs{
-//				LayerName:      pulumi.Any(exampleAwsLambdaLayerVersion.LayerName),
-//				VersionNumber:  pulumi.Any(exampleAwsLambdaLayerVersion.Version),
-//				Principal:      pulumi.String("*"),
-//				OrganizationId: pulumi.String("o-1234567890"),
-//				Action:         pulumi.String("lambda:GetLayerVersion"),
-//				StatementId:    pulumi.String("org-wide-access"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Share Layer Publicly
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewLayerVersionPermission(ctx, "example", &lambda.LayerVersionPermissionArgs{
-//				LayerName:     pulumi.Any(exampleAwsLambdaLayerVersion.LayerName),
-//				VersionNumber: pulumi.Any(exampleAwsLambdaLayerVersion.Version),
-//				Principal:     pulumi.String("*"),
-//				Action:        pulumi.String("lambda:GetLayerVersion"),
-//				StatementId:   pulumi.String("public-access"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Multiple Account Access
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Share with multiple specific accounts
-//			_, err := lambda.NewLayerVersionPermission(ctx, "dev_account", &lambda.LayerVersionPermissionArgs{
-//				LayerName:     pulumi.Any(example.LayerName),
-//				VersionNumber: pulumi.Any(example.Version),
-//				Principal:     pulumi.String("111111111111"),
-//				Action:        pulumi.String("lambda:GetLayerVersion"),
-//				StatementId:   pulumi.String("dev-account"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lambda.NewLayerVersionPermission(ctx, "staging_account", &lambda.LayerVersionPermissionArgs{
-//				LayerName:     pulumi.Any(example.LayerName),
-//				VersionNumber: pulumi.Any(example.Version),
-//				Principal:     pulumi.String("222222222222"),
-//				Action:        pulumi.String("lambda:GetLayerVersion"),
-//				StatementId:   pulumi.String("staging-account"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lambda.NewLayerVersionPermission(ctx, "prod_account", &lambda.LayerVersionPermissionArgs{
-//				LayerName:     pulumi.Any(example.LayerName),
-//				VersionNumber: pulumi.Any(example.Version),
-//				Principal:     pulumi.String("333333333333"),
-//				Action:        pulumi.String("lambda:GetLayerVersion"),
-//				StatementId:   pulumi.String("prod-account"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// For backwards compatibility, the following legacy `pulumi import` command is also supported:
-//
-// ```sh
-// $ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456789012:layer:shared_utilities,1
-// ```
 type LayerVersionPermission struct {
 	pulumi.CustomResourceState
 
-	// Action that will be allowed. `lambda:GetLayerVersion` is the standard value for layer access.
-	Action pulumi.StringOutput `pulumi:"action"`
-	// Name or ARN of the Lambda Layer.
-	LayerName pulumi.StringOutput `pulumi:"layerName"`
-	// AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organizationId` is provided.
+	Action         pulumi.StringOutput    `pulumi:"action"`
+	LayerName      pulumi.StringOutput    `pulumi:"layerName"`
 	OrganizationId pulumi.StringPtrOutput `pulumi:"organizationId"`
-	// Full Lambda Layer Permission policy.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// AWS account ID that should be able to use your Lambda Layer. Use `*` to share with all AWS accounts.
-	Principal pulumi.StringOutput `pulumi:"principal"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Unique identifier for the current revision of the policy.
-	RevisionId pulumi.StringOutput `pulumi:"revisionId"`
-	// Whether to retain the permission when the resource is destroyed. Default is `false`.
-	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
-	// Unique identifier for the permission statement.
-	StatementId pulumi.StringOutput `pulumi:"statementId"`
-	// Version of Lambda Layer to grant access to. Note: permissions only apply to a single version of a layer.
-	//
-	// The following arguments are optional:
-	VersionNumber pulumi.IntOutput `pulumi:"versionNumber"`
+	Policy         pulumi.StringOutput    `pulumi:"policy"`
+	Principal      pulumi.StringOutput    `pulumi:"principal"`
+	Region         pulumi.StringOutput    `pulumi:"region"`
+	RevisionId     pulumi.StringOutput    `pulumi:"revisionId"`
+	SkipDestroy    pulumi.BoolPtrOutput   `pulumi:"skipDestroy"`
+	StatementId    pulumi.StringOutput    `pulumi:"statementId"`
+	VersionNumber  pulumi.IntOutput       `pulumi:"versionNumber"`
 }
 
 // NewLayerVersionPermission registers a new resource with the given unique name, arguments, and options.
@@ -255,53 +72,29 @@ func GetLayerVersionPermission(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LayerVersionPermission resources.
 type layerVersionPermissionState struct {
-	// Action that will be allowed. `lambda:GetLayerVersion` is the standard value for layer access.
-	Action *string `pulumi:"action"`
-	// Name or ARN of the Lambda Layer.
-	LayerName *string `pulumi:"layerName"`
-	// AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organizationId` is provided.
+	Action         *string `pulumi:"action"`
+	LayerName      *string `pulumi:"layerName"`
 	OrganizationId *string `pulumi:"organizationId"`
-	// Full Lambda Layer Permission policy.
-	Policy *string `pulumi:"policy"`
-	// AWS account ID that should be able to use your Lambda Layer. Use `*` to share with all AWS accounts.
-	Principal *string `pulumi:"principal"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Unique identifier for the current revision of the policy.
-	RevisionId *string `pulumi:"revisionId"`
-	// Whether to retain the permission when the resource is destroyed. Default is `false`.
-	SkipDestroy *bool `pulumi:"skipDestroy"`
-	// Unique identifier for the permission statement.
-	StatementId *string `pulumi:"statementId"`
-	// Version of Lambda Layer to grant access to. Note: permissions only apply to a single version of a layer.
-	//
-	// The following arguments are optional:
-	VersionNumber *int `pulumi:"versionNumber"`
+	Policy         *string `pulumi:"policy"`
+	Principal      *string `pulumi:"principal"`
+	Region         *string `pulumi:"region"`
+	RevisionId     *string `pulumi:"revisionId"`
+	SkipDestroy    *bool   `pulumi:"skipDestroy"`
+	StatementId    *string `pulumi:"statementId"`
+	VersionNumber  *int    `pulumi:"versionNumber"`
 }
 
 type LayerVersionPermissionState struct {
-	// Action that will be allowed. `lambda:GetLayerVersion` is the standard value for layer access.
-	Action pulumi.StringPtrInput
-	// Name or ARN of the Lambda Layer.
-	LayerName pulumi.StringPtrInput
-	// AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organizationId` is provided.
+	Action         pulumi.StringPtrInput
+	LayerName      pulumi.StringPtrInput
 	OrganizationId pulumi.StringPtrInput
-	// Full Lambda Layer Permission policy.
-	Policy pulumi.StringPtrInput
-	// AWS account ID that should be able to use your Lambda Layer. Use `*` to share with all AWS accounts.
-	Principal pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Unique identifier for the current revision of the policy.
-	RevisionId pulumi.StringPtrInput
-	// Whether to retain the permission when the resource is destroyed. Default is `false`.
-	SkipDestroy pulumi.BoolPtrInput
-	// Unique identifier for the permission statement.
-	StatementId pulumi.StringPtrInput
-	// Version of Lambda Layer to grant access to. Note: permissions only apply to a single version of a layer.
-	//
-	// The following arguments are optional:
-	VersionNumber pulumi.IntPtrInput
+	Policy         pulumi.StringPtrInput
+	Principal      pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
+	RevisionId     pulumi.StringPtrInput
+	SkipDestroy    pulumi.BoolPtrInput
+	StatementId    pulumi.StringPtrInput
+	VersionNumber  pulumi.IntPtrInput
 }
 
 func (LayerVersionPermissionState) ElementType() reflect.Type {
@@ -309,46 +102,26 @@ func (LayerVersionPermissionState) ElementType() reflect.Type {
 }
 
 type layerVersionPermissionArgs struct {
-	// Action that will be allowed. `lambda:GetLayerVersion` is the standard value for layer access.
-	Action string `pulumi:"action"`
-	// Name or ARN of the Lambda Layer.
-	LayerName string `pulumi:"layerName"`
-	// AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organizationId` is provided.
+	Action         string  `pulumi:"action"`
+	LayerName      string  `pulumi:"layerName"`
 	OrganizationId *string `pulumi:"organizationId"`
-	// AWS account ID that should be able to use your Lambda Layer. Use `*` to share with all AWS accounts.
-	Principal string `pulumi:"principal"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Whether to retain the permission when the resource is destroyed. Default is `false`.
-	SkipDestroy *bool `pulumi:"skipDestroy"`
-	// Unique identifier for the permission statement.
-	StatementId string `pulumi:"statementId"`
-	// Version of Lambda Layer to grant access to. Note: permissions only apply to a single version of a layer.
-	//
-	// The following arguments are optional:
-	VersionNumber int `pulumi:"versionNumber"`
+	Principal      string  `pulumi:"principal"`
+	Region         *string `pulumi:"region"`
+	SkipDestroy    *bool   `pulumi:"skipDestroy"`
+	StatementId    string  `pulumi:"statementId"`
+	VersionNumber  int     `pulumi:"versionNumber"`
 }
 
 // The set of arguments for constructing a LayerVersionPermission resource.
 type LayerVersionPermissionArgs struct {
-	// Action that will be allowed. `lambda:GetLayerVersion` is the standard value for layer access.
-	Action pulumi.StringInput
-	// Name or ARN of the Lambda Layer.
-	LayerName pulumi.StringInput
-	// AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organizationId` is provided.
+	Action         pulumi.StringInput
+	LayerName      pulumi.StringInput
 	OrganizationId pulumi.StringPtrInput
-	// AWS account ID that should be able to use your Lambda Layer. Use `*` to share with all AWS accounts.
-	Principal pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Whether to retain the permission when the resource is destroyed. Default is `false`.
-	SkipDestroy pulumi.BoolPtrInput
-	// Unique identifier for the permission statement.
-	StatementId pulumi.StringInput
-	// Version of Lambda Layer to grant access to. Note: permissions only apply to a single version of a layer.
-	//
-	// The following arguments are optional:
-	VersionNumber pulumi.IntInput
+	Principal      pulumi.StringInput
+	Region         pulumi.StringPtrInput
+	SkipDestroy    pulumi.BoolPtrInput
+	StatementId    pulumi.StringInput
+	VersionNumber  pulumi.IntInput
 }
 
 func (LayerVersionPermissionArgs) ElementType() reflect.Type {
@@ -438,54 +211,42 @@ func (o LayerVersionPermissionOutput) ToLayerVersionPermissionOutputWithContext(
 	return o
 }
 
-// Action that will be allowed. `lambda:GetLayerVersion` is the standard value for layer access.
 func (o LayerVersionPermissionOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringOutput { return v.Action }).(pulumi.StringOutput)
 }
 
-// Name or ARN of the Lambda Layer.
 func (o LayerVersionPermissionOutput) LayerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringOutput { return v.LayerName }).(pulumi.StringOutput)
 }
 
-// AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organizationId` is provided.
 func (o LayerVersionPermissionOutput) OrganizationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringPtrOutput { return v.OrganizationId }).(pulumi.StringPtrOutput)
 }
 
-// Full Lambda Layer Permission policy.
 func (o LayerVersionPermissionOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// AWS account ID that should be able to use your Lambda Layer. Use `*` to share with all AWS accounts.
 func (o LayerVersionPermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LayerVersionPermissionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Unique identifier for the current revision of the policy.
 func (o LayerVersionPermissionOutput) RevisionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringOutput { return v.RevisionId }).(pulumi.StringOutput)
 }
 
-// Whether to retain the permission when the resource is destroyed. Default is `false`.
 func (o LayerVersionPermissionOutput) SkipDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LayerVersionPermission) pulumi.BoolPtrOutput { return v.SkipDestroy }).(pulumi.BoolPtrOutput)
 }
 
-// Unique identifier for the permission statement.
 func (o LayerVersionPermissionOutput) StatementId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringOutput { return v.StatementId }).(pulumi.StringOutput)
 }
 
-// Version of Lambda Layer to grant access to. Note: permissions only apply to a single version of a layer.
-//
-// The following arguments are optional:
 func (o LayerVersionPermissionOutput) VersionNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *LayerVersionPermission) pulumi.IntOutput { return v.VersionNumber }).(pulumi.IntOutput)
 }

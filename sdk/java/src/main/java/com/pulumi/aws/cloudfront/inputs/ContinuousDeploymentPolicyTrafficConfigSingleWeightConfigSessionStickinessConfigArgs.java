@@ -14,32 +14,16 @@ public final class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSess
 
     public static final ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs Empty = new ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs();
 
-    /**
-     * The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` - `3600` (5–60 minutes). The value must be less than or equal to `maximumTtl`.
-     * 
-     */
     @Import(name="idleTtl", required=true)
     private Output<Integer> idleTtl;
 
-    /**
-     * @return The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` - `3600` (5–60 minutes). The value must be less than or equal to `maximumTtl`.
-     * 
-     */
     public Output<Integer> idleTtl() {
         return this.idleTtl;
     }
 
-    /**
-     * The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` - `3600` (5–60 minutes). The value must be greater than or equal to `idleTtl`.
-     * 
-     */
     @Import(name="maximumTtl", required=true)
     private Output<Integer> maximumTtl;
 
-    /**
-     * @return The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` - `3600` (5–60 minutes). The value must be greater than or equal to `idleTtl`.
-     * 
-     */
     public Output<Integer> maximumTtl() {
         return this.maximumTtl;
     }
@@ -69,44 +53,20 @@ public final class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSess
             $ = new ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param idleTtl The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` - `3600` (5–60 minutes). The value must be less than or equal to `maximumTtl`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idleTtl(Output<Integer> idleTtl) {
             $.idleTtl = idleTtl;
             return this;
         }
 
-        /**
-         * @param idleTtl The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` - `3600` (5–60 minutes). The value must be less than or equal to `maximumTtl`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idleTtl(Integer idleTtl) {
             return idleTtl(Output.of(idleTtl));
         }
 
-        /**
-         * @param maximumTtl The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` - `3600` (5–60 minutes). The value must be greater than or equal to `idleTtl`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumTtl(Output<Integer> maximumTtl) {
             $.maximumTtl = maximumTtl;
             return this;
         }
 
-        /**
-         * @param maximumTtl The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` - `3600` (5–60 minutes). The value must be greater than or equal to `idleTtl`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumTtl(Integer maximumTtl) {
             return maximumTtl(Output.of(maximumTtl));
         }

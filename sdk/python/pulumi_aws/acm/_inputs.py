@@ -30,21 +30,9 @@ MYPY = False
 if not MYPY:
     class CertificateDomainValidationOptionArgsDict(TypedDict):
         domain_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fully qualified domain name (FQDN) in the certificate.
-        """
         resource_record_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the DNS record to create to validate the certificate
-        """
         resource_record_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of DNS record to create
-        """
         resource_record_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value the DNS record needs to have
-        """
 elif False:
     CertificateDomainValidationOptionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -55,12 +43,6 @@ class CertificateDomainValidationOptionArgs:
                  resource_record_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_record_type: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_record_value: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] domain_name: Fully qualified domain name (FQDN) in the certificate.
-        :param pulumi.Input[_builtins.str] resource_record_name: The name of the DNS record to create to validate the certificate
-        :param pulumi.Input[_builtins.str] resource_record_type: The type of DNS record to create
-        :param pulumi.Input[_builtins.str] resource_record_value: The value the DNS record needs to have
-        """
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
         if resource_record_name is not None:
@@ -73,9 +55,6 @@ class CertificateDomainValidationOptionArgs:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Fully qualified domain name (FQDN) in the certificate.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -85,9 +64,6 @@ class CertificateDomainValidationOptionArgs:
     @_builtins.property
     @pulumi.getter(name="resourceRecordName")
     def resource_record_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the DNS record to create to validate the certificate
-        """
         return pulumi.get(self, "resource_record_name")
 
     @resource_record_name.setter
@@ -97,9 +73,6 @@ class CertificateDomainValidationOptionArgs:
     @_builtins.property
     @pulumi.getter(name="resourceRecordType")
     def resource_record_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of DNS record to create
-        """
         return pulumi.get(self, "resource_record_type")
 
     @resource_record_type.setter
@@ -109,9 +82,6 @@ class CertificateDomainValidationOptionArgs:
     @_builtins.property
     @pulumi.getter(name="resourceRecordValue")
     def resource_record_value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The value the DNS record needs to have
-        """
         return pulumi.get(self, "resource_record_value")
 
     @resource_record_value.setter
@@ -122,13 +92,7 @@ class CertificateDomainValidationOptionArgs:
 if not MYPY:
     class CertificateOptionsArgsDict(TypedDict):
         certificate_transparency_logging_preference: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
-        """
         export: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
-        """
 elif False:
     CertificateOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -137,10 +101,6 @@ class CertificateOptionsArgs:
     def __init__(__self__, *,
                  certificate_transparency_logging_preference: Optional[pulumi.Input[_builtins.str]] = None,
                  export: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] certificate_transparency_logging_preference: Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
-        :param pulumi.Input[_builtins.str] export: Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
-        """
         if certificate_transparency_logging_preference is not None:
             pulumi.set(__self__, "certificate_transparency_logging_preference", certificate_transparency_logging_preference)
         if export is not None:
@@ -149,9 +109,6 @@ class CertificateOptionsArgs:
     @_builtins.property
     @pulumi.getter(name="certificateTransparencyLoggingPreference")
     def certificate_transparency_logging_preference(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
-        """
         return pulumi.get(self, "certificate_transparency_logging_preference")
 
     @certificate_transparency_logging_preference.setter
@@ -161,9 +118,6 @@ class CertificateOptionsArgs:
     @_builtins.property
     @pulumi.getter
     def export(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
-        """
         return pulumi.get(self, "export")
 
     @export.setter
@@ -174,13 +128,7 @@ class CertificateOptionsArgs:
 if not MYPY:
     class CertificateRenewalSummaryArgsDict(TypedDict):
         renewal_status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The status of ACM's managed renewal of the certificate
-        """
         renewal_status_reason: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reason that a renewal request was unsuccessful or is pending
-        """
         updated_at: NotRequired[pulumi.Input[_builtins.str]]
 elif False:
     CertificateRenewalSummaryArgsDict: TypeAlias = Mapping[str, Any]
@@ -191,10 +139,6 @@ class CertificateRenewalSummaryArgs:
                  renewal_status: Optional[pulumi.Input[_builtins.str]] = None,
                  renewal_status_reason: Optional[pulumi.Input[_builtins.str]] = None,
                  updated_at: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] renewal_status: The status of ACM's managed renewal of the certificate
-        :param pulumi.Input[_builtins.str] renewal_status_reason: The reason that a renewal request was unsuccessful or is pending
-        """
         if renewal_status is not None:
             pulumi.set(__self__, "renewal_status", renewal_status)
         if renewal_status_reason is not None:
@@ -205,9 +149,6 @@ class CertificateRenewalSummaryArgs:
     @_builtins.property
     @pulumi.getter(name="renewalStatus")
     def renewal_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status of ACM's managed renewal of the certificate
-        """
         return pulumi.get(self, "renewal_status")
 
     @renewal_status.setter
@@ -217,9 +158,6 @@ class CertificateRenewalSummaryArgs:
     @_builtins.property
     @pulumi.getter(name="renewalStatusReason")
     def renewal_status_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The reason that a renewal request was unsuccessful or is pending
-        """
         return pulumi.get(self, "renewal_status_reason")
 
     @renewal_status_reason.setter
@@ -239,13 +177,7 @@ class CertificateRenewalSummaryArgs:
 if not MYPY:
     class CertificateValidationOptionArgsDict(TypedDict):
         domain_name: pulumi.Input[_builtins.str]
-        """
-        Fully qualified domain name (FQDN) in the certificate.
-        """
         validation_domain: pulumi.Input[_builtins.str]
-        """
-        Domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domain_name` value or a superdomain of the `domain_name` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
-        """
 elif False:
     CertificateValidationOptionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -254,19 +186,12 @@ class CertificateValidationOptionArgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[_builtins.str],
                  validation_domain: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] domain_name: Fully qualified domain name (FQDN) in the certificate.
-        :param pulumi.Input[_builtins.str] validation_domain: Domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domain_name` value or a superdomain of the `domain_name` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
-        """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "validation_domain", validation_domain)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Fully qualified domain name (FQDN) in the certificate.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -276,9 +201,6 @@ class CertificateValidationOptionArgs:
     @_builtins.property
     @pulumi.getter(name="validationDomain")
     def validation_domain(self) -> pulumi.Input[_builtins.str]:
-        """
-        Domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domain_name` value or a superdomain of the `domain_name` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
-        """
         return pulumi.get(self, "validation_domain")
 
     @validation_domain.setter

@@ -18,86 +18,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides an S3 bucket Object Lock configuration resource. For more information about Object Locking, go to [Using S3 Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html) in the Amazon S3 User Guide.
- * 
- * &gt; This resource can be used enable Object Lock for **new** and **existing** buckets.
- * 
- * &gt; This resource cannot be used with S3 directory buckets.
- * 
- * ## Example Usage
- * 
- * ### Object Lock configuration for new or existing buckets
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.BucketVersioning;
- * import com.pulumi.aws.s3.BucketVersioningArgs;
- * import com.pulumi.aws.s3.inputs.BucketVersioningVersioningConfigurationArgs;
- * import com.pulumi.aws.s3.BucketObjectLockConfiguration;
- * import com.pulumi.aws.s3.BucketObjectLockConfigurationArgs;
- * import com.pulumi.aws.s3.inputs.BucketObjectLockConfigurationRuleArgs;
- * import com.pulumi.aws.s3.inputs.BucketObjectLockConfigurationRuleDefaultRetentionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Bucket("example", BucketArgs.builder()
- *             .bucket("mybucket")
- *             .build());
- * 
- *         var exampleBucketVersioning = new BucketVersioning("exampleBucketVersioning", BucketVersioningArgs.builder()
- *             .bucket(example.id())
- *             .versioningConfiguration(BucketVersioningVersioningConfigurationArgs.builder()
- *                 .status("Enabled")
- *                 .build())
- *             .build());
- * 
- *         var exampleBucketObjectLockConfiguration = new BucketObjectLockConfiguration("exampleBucketObjectLockConfiguration", BucketObjectLockConfigurationArgs.builder()
- *             .bucket(example.id())
- *             .rule(BucketObjectLockConfigurationRuleArgs.builder()
- *                 .defaultRetention(BucketObjectLockConfigurationRuleDefaultRetentionArgs.builder()
- *                     .mode("COMPLIANCE")
- *                     .days(5)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner`, separated by a comma (`,`). For example:
- * 
- * __Using `pulumi import`__, import an S3 bucket Object Lock Configuration using one of two forms. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`. For example:
- * 
- * ```sh
- * $ pulumi import aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2 example bucket-name
- * ```
- * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner`, separated by a comma (`,`). For example:
- * 
- * ```sh
- * $ pulumi import aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2 example bucket-name,123456789012
- * ```
- * 
  * @deprecated
  * aws.s3/bucketobjectlockconfigurationv2.BucketObjectLockConfigurationV2 has been deprecated in favor of aws.s3/bucketobjectlockconfiguration.BucketObjectLockConfiguration
  * 
@@ -105,89 +25,39 @@ import javax.annotation.Nullable;
 @Deprecated /* aws.s3/bucketobjectlockconfigurationv2.BucketObjectLockConfigurationV2 has been deprecated in favor of aws.s3/bucketobjectlockconfiguration.BucketObjectLockConfiguration */
 @ResourceType(type="aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2")
 public class BucketObjectLockConfigurationV2 extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of the bucket.
-     * 
-     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
-    /**
-     * @return Name of the bucket.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
-    /**
-     * Account ID of the expected bucket owner.
-     * 
-     */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
-    /**
-     * @return Account ID of the expected bucket owner.
-     * 
-     */
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
     }
-    /**
-     * Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
-     * 
-     */
     @Export(name="objectLockEnabled", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> objectLockEnabled;
 
-    /**
-     * @return Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
-     * 
-     */
     public Output<Optional<String>> objectLockEnabled() {
         return Codegen.optional(this.objectLockEnabled);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Configuration block for specifying the Object Lock rule for the specified object. See below.
-     * 
-     */
     @Export(name="rule", refs={BucketObjectLockConfigurationV2Rule.class}, tree="[0]")
     private Output</* @Nullable */ BucketObjectLockConfigurationV2Rule> rule;
 
-    /**
-     * @return Configuration block for specifying the Object Lock rule for the specified object. See below.
-     * 
-     */
     public Output<Optional<BucketObjectLockConfigurationV2Rule>> rule() {
         return Codegen.optional(this.rule);
     }
-    /**
-     * This argument is deprecated and no longer needed to enable Object Lock.
-     * To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioning` resource.
-     * 
-     */
     @Export(name="token", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> token;
 
-    /**
-     * @return This argument is deprecated and no longer needed to enable Object Lock.
-     * To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioning` resource.
-     * 
-     */
     public Output<Optional<String>> token() {
         return Codegen.optional(this.token);
     }

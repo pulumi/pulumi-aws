@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class HumanTaskUIUiTemplate {
-    /**
-     * @return The content of the Liquid template for the worker user interface.
-     * 
-     */
     private @Nullable String content;
-    /**
-     * @return The SHA-256 digest of the contents of the template.
-     * 
-     */
     private @Nullable String contentSha256;
-    /**
-     * @return The URL for the user interface template.
-     * 
-     */
     private @Nullable String url;
 
     private HumanTaskUIUiTemplate() {}
-    /**
-     * @return The content of the Liquid template for the worker user interface.
-     * 
-     */
     public Optional<String> content() {
         return Optional.ofNullable(this.content);
     }
-    /**
-     * @return The SHA-256 digest of the contents of the template.
-     * 
-     */
     public Optional<String> contentSha256() {
         return Optional.ofNullable(this.contentSha256);
     }
-    /**
-     * @return The URL for the user interface template.
-     * 
-     */
     public Optional<String> url() {
         return Optional.ofNullable(this.url);
     }

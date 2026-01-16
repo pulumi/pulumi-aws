@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceIntegrationKmsServerSideEncryption {
-    /**
-     * @return KMS key ID. This value can be a key ID, key ARN, alias name, or alias ARN.
-     * 
-     */
     private @Nullable String kmsKeyId;
-    /**
-     * @return Specifies whether KMS integration is enabled. Valid values are `DISABLED` and `ENABLED`.
-     * 
-     */
     private @Nullable String optInStatus;
-    /**
-     * @return Type of KMS key used. Valid values are `CUSTOMER_MANAGED_KEY` and `AWS_OWNED_KMS_KEY`.
-     * 
-     */
     private @Nullable String type;
 
     private ServiceIntegrationKmsServerSideEncryption() {}
-    /**
-     * @return KMS key ID. This value can be a key ID, key ARN, alias name, or alias ARN.
-     * 
-     */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
-    /**
-     * @return Specifies whether KMS integration is enabled. Valid values are `DISABLED` and `ENABLED`.
-     * 
-     */
     public Optional<String> optInStatus() {
         return Optional.ofNullable(this.optInStatus);
     }
-    /**
-     * @return Type of KMS key used. Valid values are `CUSTOMER_MANAGED_KEY` and `AWS_OWNED_KMS_KEY`.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

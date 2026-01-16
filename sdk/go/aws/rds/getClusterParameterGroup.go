@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about an RDS cluster parameter group.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.LookupClusterParameterGroup(ctx, &rds.LookupClusterParameterGroupArgs{
-//				Name: "default.postgres15",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupClusterParameterGroup(ctx *pulumi.Context, args *LookupClusterParameterGroupArgs, opts ...pulumi.InvokeOption) (*LookupClusterParameterGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupClusterParameterGroupResult
@@ -50,20 +23,15 @@ func LookupClusterParameterGroup(ctx *pulumi.Context, args *LookupClusterParamet
 
 // A collection of arguments for invoking getClusterParameterGroup.
 type LookupClusterParameterGroupArgs struct {
-	// DB cluster parameter group name.
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   string  `pulumi:"name"`
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getClusterParameterGroup.
 type LookupClusterParameterGroupResult struct {
-	// ARN of the cluster parameter group.
-	Arn string `pulumi:"arn"`
-	// Description of the cluster parameter group.
+	Arn         string `pulumi:"arn"`
 	Description string `pulumi:"description"`
-	// Family of the cluster parameter group.
-	Family string `pulumi:"family"`
+	Family      string `pulumi:"family"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
 	Name   string `pulumi:"name"`
@@ -81,9 +49,7 @@ func LookupClusterParameterGroupOutput(ctx *pulumi.Context, args LookupClusterPa
 
 // A collection of arguments for invoking getClusterParameterGroup.
 type LookupClusterParameterGroupOutputArgs struct {
-	// DB cluster parameter group name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringInput    `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -106,17 +72,14 @@ func (o LookupClusterParameterGroupResultOutput) ToLookupClusterParameterGroupRe
 	return o
 }
 
-// ARN of the cluster parameter group.
 func (o LookupClusterParameterGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterParameterGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the cluster parameter group.
 func (o LookupClusterParameterGroupResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterParameterGroupResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Family of the cluster parameter group.
 func (o LookupClusterParameterGroupResultOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterParameterGroupResult) string { return v.Family }).(pulumi.StringOutput)
 }

@@ -9,103 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DeviceFarm
 {
-    /// <summary>
-    /// Provides a resource to manage AWS Device Farm Device Pools.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DeviceFarm.DevicePool("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         ProjectArn = exampleAwsDevicefarmProject.Arn,
-    ///         Rules = new[]
-    ///         {
-    ///             new Aws.DeviceFarm.Inputs.DevicePoolRuleArgs
-    ///             {
-    ///                 Attribute = "OS_VERSION",
-    ///                 Operator = "EQUALS",
-    ///                 Value = "\"AVAILABLE\"",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the Device Farm device pool.
-    /// 
-    /// Using `pulumi import`, import DeviceFarm Device Pools using their ARN. For example:
-    /// 
-    /// % pulumi import aws_devicefarm_device_pool.example arn:aws:devicefarm:us-west-2:123456789012:devicepool:4fa784c7-ccb4-4dbf-ba4f-02198320daa1/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
-    /// </summary>
     [AwsResourceType("aws:devicefarm/devicePool:DevicePool")]
     public partial class DevicePool : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name of this Device Pool
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The device pool's description.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The number of devices that Device Farm can add to your device pool.
-        /// </summary>
         [Output("maxDevices")]
         public Output<int?> MaxDevices { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Device Pool
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the project for the device pool.
-        /// </summary>
         [Output("projectArn")]
         public Output<string> ProjectArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The device pool's rules. See Rule.
-        /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.DevicePoolRule>> Rules { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -158,42 +88,23 @@ namespace Pulumi.Aws.DeviceFarm
 
     public sealed class DevicePoolArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The device pool's description.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The number of devices that Device Farm can add to your device pool.
-        /// </summary>
         [Input("maxDevices")]
         public Input<int>? MaxDevices { get; set; }
 
-        /// <summary>
-        /// The name of the Device Pool
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The ARN of the project for the device pool.
-        /// </summary>
         [Input("projectArn", required: true)]
         public Input<string> ProjectArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("rules", required: true)]
         private InputList<Inputs.DevicePoolRuleArgs>? _rules;
-
-        /// <summary>
-        /// The device pool's rules. See Rule.
-        /// </summary>
         public InputList<Inputs.DevicePoolRuleArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.DevicePoolRuleArgs>());
@@ -202,10 +113,6 @@ namespace Pulumi.Aws.DeviceFarm
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -220,48 +127,26 @@ namespace Pulumi.Aws.DeviceFarm
 
     public sealed class DevicePoolState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name of this Device Pool
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The device pool's description.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The number of devices that Device Farm can add to your device pool.
-        /// </summary>
         [Input("maxDevices")]
         public Input<int>? MaxDevices { get; set; }
 
-        /// <summary>
-        /// The name of the Device Pool
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The ARN of the project for the device pool.
-        /// </summary>
         [Input("projectArn")]
         public Input<string>? ProjectArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.DevicePoolRuleGetArgs>? _rules;
-
-        /// <summary>
-        /// The device pool's rules. See Rule.
-        /// </summary>
         public InputList<Inputs.DevicePoolRuleGetArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.DevicePoolRuleGetArgs>());
@@ -270,10 +155,6 @@ namespace Pulumi.Aws.DeviceFarm
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -282,10 +163,6 @@ namespace Pulumi.Aws.DeviceFarm
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

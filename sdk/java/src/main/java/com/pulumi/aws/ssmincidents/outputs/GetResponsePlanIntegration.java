@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResponsePlanIntegration {
-    /**
-     * @return Details about the PagerDuty configuration for a response plan. The following values are supported:
-     * 
-     */
     private List<GetResponsePlanIntegrationPagerduty> pagerduties;
 
     private GetResponsePlanIntegration() {}
-    /**
-     * @return Details about the PagerDuty configuration for a response plan. The following values are supported:
-     * 
-     */
     public List<GetResponsePlanIntegrationPagerduty> pagerduties() {
         return this.pagerduties;
     }

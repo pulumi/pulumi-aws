@@ -17,62 +17,30 @@ public final class PipelineArtifactStoreArgs extends com.pulumi.resources.Resour
 
     public static final PipelineArtifactStoreArgs Empty = new PipelineArtifactStoreArgs();
 
-    /**
-     * The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don&#39;t specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryptionKey` block is documented below.
-     * 
-     */
     @Import(name="encryptionKey")
     private @Nullable Output<PipelineArtifactStoreEncryptionKeyArgs> encryptionKey;
 
-    /**
-     * @return The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don&#39;t specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryptionKey` block is documented below.
-     * 
-     */
     public Optional<Output<PipelineArtifactStoreEncryptionKeyArgs>> encryptionKey() {
         return Optional.ofNullable(this.encryptionKey);
     }
 
-    /**
-     * The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
-     * 
-     */
     @Import(name="location", required=true)
     private Output<String> location;
 
-    /**
-     * @return The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
-     * 
-     */
     public Output<String> location() {
         return this.location;
     }
 
-    /**
-     * The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The type of the artifact store, such as Amazon S3
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The type of the artifact store, such as Amazon S3
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -104,86 +72,38 @@ public final class PipelineArtifactStoreArgs extends com.pulumi.resources.Resour
             $ = new PipelineArtifactStoreArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param encryptionKey The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don&#39;t specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryptionKey` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionKey(@Nullable Output<PipelineArtifactStoreEncryptionKeyArgs> encryptionKey) {
             $.encryptionKey = encryptionKey;
             return this;
         }
 
-        /**
-         * @param encryptionKey The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don&#39;t specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryptionKey` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionKey(PipelineArtifactStoreEncryptionKeyArgs encryptionKey) {
             return encryptionKey(Output.of(encryptionKey));
         }
 
-        /**
-         * @param location The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder location(Output<String> location) {
             $.location = location;
             return this;
         }
 
-        /**
-         * @param location The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder location(String location) {
             return location(Output.of(location));
         }
 
-        /**
-         * @param region The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param type The type of the artifact store, such as Amazon S3
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of the artifact store, such as Amazon S3
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

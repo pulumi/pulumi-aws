@@ -16,170 +16,17 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Kendra FAQ.
- * 
- * ## Example Usage
- * 
- * ### Basic
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kendra.Faq;
- * import com.pulumi.aws.kendra.FaqArgs;
- * import com.pulumi.aws.kendra.inputs.FaqS3PathArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Faq("example", FaqArgs.builder()
- *             .indexId(exampleAwsKendraIndex.id())
- *             .name("Example")
- *             .roleArn(exampleAwsIamRole.arn())
- *             .s3Path(FaqS3PathArgs.builder()
- *                 .bucket(exampleAwsS3Bucket.id())
- *                 .key(exampleAwsS3Object.key())
- *                 .build())
- *             .tags(Map.of("Name", "Example Kendra Faq"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### With File Format
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kendra.Faq;
- * import com.pulumi.aws.kendra.FaqArgs;
- * import com.pulumi.aws.kendra.inputs.FaqS3PathArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Faq("example", FaqArgs.builder()
- *             .indexId(exampleAwsKendraIndex.id())
- *             .name("Example")
- *             .fileFormat("CSV")
- *             .roleArn(exampleAwsIamRole.arn())
- *             .s3Path(FaqS3PathArgs.builder()
- *                 .bucket(exampleAwsS3Bucket.id())
- *                 .key(exampleAwsS3Object.key())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### With Language Code
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kendra.Faq;
- * import com.pulumi.aws.kendra.FaqArgs;
- * import com.pulumi.aws.kendra.inputs.FaqS3PathArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Faq("example", FaqArgs.builder()
- *             .indexId(exampleAwsKendraIndex.id())
- *             .name("Example")
- *             .languageCode("en")
- *             .roleArn(exampleAwsIamRole.arn())
- *             .s3Path(FaqS3PathArgs.builder()
- *                 .bucket(exampleAwsS3Bucket.id())
- *                 .key(exampleAwsS3Object.key())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_kendra_faq` using the unique identifiers of the FAQ and index separated by a slash (`/`). For example:
- * 
- * ```sh
- * $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
- * ```
- * 
- */
 @ResourceType(type="aws:kendra/faq:Faq")
 public class Faq extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the FAQ.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the FAQ.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The Unix datetime that the FAQ was created.
-     * 
-     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
-    /**
-     * @return The Unix datetime that the FAQ was created.
-     * 
-     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
@@ -189,31 +36,15 @@ public class Faq extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * When the Status field value is `FAILED`, this contains a message that explains why.
-     * 
-     */
     @Export(name="errorMessage", refs={String.class}, tree="[0]")
     private Output<String> errorMessage;
 
-    /**
-     * @return When the Status field value is `FAILED`, this contains a message that explains why.
-     * 
-     */
     public Output<String> errorMessage() {
         return this.errorMessage;
     }
-    /**
-     * The identifier of the FAQ.
-     * 
-     */
     @Export(name="faqId", refs={String.class}, tree="[0]")
     private Output<String> faqId;
 
-    /**
-     * @return The identifier of the FAQ.
-     * 
-     */
     public Output<String> faqId() {
         return this.faqId;
     }
@@ -223,17 +54,9 @@ public class Faq extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> fileFormat() {
         return Codegen.optional(this.fileFormat);
     }
-    /**
-     * The identifier of the index for a FAQ.
-     * 
-     */
     @Export(name="indexId", refs={String.class}, tree="[0]")
     private Output<String> indexId;
 
-    /**
-     * @return The identifier of the index for a FAQ.
-     * 
-     */
     public Output<String> indexId() {
         return this.indexId;
     }
@@ -243,17 +66,9 @@ public class Faq extends com.pulumi.resources.CustomResource {
     public Output<String> languageCode() {
         return this.languageCode;
     }
-    /**
-     * The name that should be associated with the FAQ.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name that should be associated with the FAQ.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -263,45 +78,21 @@ public class Faq extends com.pulumi.resources.CustomResource {
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
-    /**
-     * The S3 location of the FAQ input data. Detailed below.
-     * 
-     */
     @Export(name="s3Path", refs={FaqS3Path.class}, tree="[0]")
     private Output<FaqS3Path> s3Path;
 
-    /**
-     * @return The S3 location of the FAQ input data. Detailed below.
-     * 
-     */
     public Output<FaqS3Path> s3Path() {
         return this.s3Path;
     }
-    /**
-     * The status of the FAQ. It is ready to use when the status is ACTIVE.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return The status of the FAQ. It is ready to use when the status is ACTIVE.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
@@ -311,31 +102,15 @@ public class Faq extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The date and time that the FAQ was last updated.
-     * 
-     */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
-    /**
-     * @return The date and time that the FAQ was last updated.
-     * 
-     */
     public Output<String> updatedAt() {
         return this.updatedAt;
     }

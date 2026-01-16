@@ -28,13 +28,6 @@ class VectorsVectorBucketArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VectorsVectorBucket resource.
-        :param pulumi.Input[_builtins.str] vector_bucket_name: Name of the vector bucket.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['VectorsVectorBucketEncryptionConfigurationArgs']]] encryption_configurations: Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
-        :param pulumi.Input[_builtins.bool] force_destroy: Boolean that indicates all indexes and vectors should be deleted from the vector bucket *when the vector bucket is destroyed* so that the vector bucket can be destroyed without error. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the vector bucket or destroying the vector bucket, this flag will not work.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "vector_bucket_name", vector_bucket_name)
         if encryption_configurations is not None:
@@ -49,11 +42,6 @@ class VectorsVectorBucketArgs:
     @_builtins.property
     @pulumi.getter(name="vectorBucketName")
     def vector_bucket_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the vector bucket.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vector_bucket_name")
 
     @vector_bucket_name.setter
@@ -63,9 +51,6 @@ class VectorsVectorBucketArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionConfigurations")
     def encryption_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VectorsVectorBucketEncryptionConfigurationArgs']]]]:
-        """
-        Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
-        """
         return pulumi.get(self, "encryption_configurations")
 
     @encryption_configurations.setter
@@ -75,9 +60,6 @@ class VectorsVectorBucketArgs:
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean that indicates all indexes and vectors should be deleted from the vector bucket *when the vector bucket is destroyed* so that the vector bucket can be destroyed without error. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the vector bucket or destroying the vector bucket, this flag will not work.
-        """
         return pulumi.get(self, "force_destroy")
 
     @force_destroy.setter
@@ -87,9 +69,6 @@ class VectorsVectorBucketArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -99,9 +78,6 @@ class VectorsVectorBucketArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -122,16 +98,6 @@ class _VectorsVectorBucketState:
                  vector_bucket_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VectorsVectorBucket resources.
-        :param pulumi.Input[_builtins.str] creation_time: Date and time when the vector bucket was created.
-        :param pulumi.Input[Sequence[pulumi.Input['VectorsVectorBucketEncryptionConfigurationArgs']]] encryption_configurations: Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
-        :param pulumi.Input[_builtins.bool] force_destroy: Boolean that indicates all indexes and vectors should be deleted from the vector bucket *when the vector bucket is destroyed* so that the vector bucket can be destroyed without error. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the vector bucket or destroying the vector bucket, this flag will not work.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vector_bucket_arn: ARN of the vector bucket.
-        :param pulumi.Input[_builtins.str] vector_bucket_name: Name of the vector bucket.
-               
-               The following arguments are optional:
         """
         if creation_time is not None:
             pulumi.set(__self__, "creation_time", creation_time)
@@ -153,9 +119,6 @@ class _VectorsVectorBucketState:
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date and time when the vector bucket was created.
-        """
         return pulumi.get(self, "creation_time")
 
     @creation_time.setter
@@ -165,9 +128,6 @@ class _VectorsVectorBucketState:
     @_builtins.property
     @pulumi.getter(name="encryptionConfigurations")
     def encryption_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VectorsVectorBucketEncryptionConfigurationArgs']]]]:
-        """
-        Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
-        """
         return pulumi.get(self, "encryption_configurations")
 
     @encryption_configurations.setter
@@ -177,9 +137,6 @@ class _VectorsVectorBucketState:
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean that indicates all indexes and vectors should be deleted from the vector bucket *when the vector bucket is destroyed* so that the vector bucket can be destroyed without error. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the vector bucket or destroying the vector bucket, this flag will not work.
-        """
         return pulumi.get(self, "force_destroy")
 
     @force_destroy.setter
@@ -189,9 +146,6 @@ class _VectorsVectorBucketState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -201,9 +155,6 @@ class _VectorsVectorBucketState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -213,9 +164,6 @@ class _VectorsVectorBucketState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -225,9 +173,6 @@ class _VectorsVectorBucketState:
     @_builtins.property
     @pulumi.getter(name="vectorBucketArn")
     def vector_bucket_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the vector bucket.
-        """
         return pulumi.get(self, "vector_bucket_arn")
 
     @vector_bucket_arn.setter
@@ -237,11 +182,6 @@ class _VectorsVectorBucketState:
     @_builtins.property
     @pulumi.getter(name="vectorBucketName")
     def vector_bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the vector bucket.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vector_bucket_name")
 
     @vector_bucket_name.setter
@@ -262,50 +202,9 @@ class VectorsVectorBucket(pulumi.CustomResource):
                  vector_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an Amazon S3 Vectors Vector Bucket.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.VectorsVectorBucket("example", vector_bucket_name="example-bucket")
-        ```
-
-        ### Encryption
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.VectorsVectorBucket("example",
-            vector_bucket_name="example-bucket",
-            encryption_configurations=[{
-                "sse_type": "aws:kms",
-                "kms_key_arn": example_aws_kms_key["arn"],
-            }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import S3 Vectors Vector Bucket using the `vector_bucket_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:s3/vectorsVectorBucket:VectorsVectorBucket example arn:aws:s3vectors:us-west-2:123456789012:bucket/example-bucket
-        ```
-
+        Create a VectorsVectorBucket resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VectorsVectorBucketEncryptionConfigurationArgs', 'VectorsVectorBucketEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
-        :param pulumi.Input[_builtins.bool] force_destroy: Boolean that indicates all indexes and vectors should be deleted from the vector bucket *when the vector bucket is destroyed* so that the vector bucket can be destroyed without error. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the vector bucket or destroying the vector bucket, this flag will not work.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vector_bucket_name: Name of the vector bucket.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -314,41 +213,7 @@ class VectorsVectorBucket(pulumi.CustomResource):
                  args: VectorsVectorBucketArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an Amazon S3 Vectors Vector Bucket.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.VectorsVectorBucket("example", vector_bucket_name="example-bucket")
-        ```
-
-        ### Encryption
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.VectorsVectorBucket("example",
-            vector_bucket_name="example-bucket",
-            encryption_configurations=[{
-                "sse_type": "aws:kms",
-                "kms_key_arn": example_aws_kms_key["arn"],
-            }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import S3 Vectors Vector Bucket using the `vector_bucket_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:s3/vectorsVectorBucket:VectorsVectorBucket example arn:aws:s3vectors:us-west-2:123456789012:bucket/example-bucket
-        ```
-
+        Create a VectorsVectorBucket resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VectorsVectorBucketArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -413,16 +278,6 @@ class VectorsVectorBucket(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] creation_time: Date and time when the vector bucket was created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VectorsVectorBucketEncryptionConfigurationArgs', 'VectorsVectorBucketEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
-        :param pulumi.Input[_builtins.bool] force_destroy: Boolean that indicates all indexes and vectors should be deleted from the vector bucket *when the vector bucket is destroyed* so that the vector bucket can be destroyed without error. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the vector bucket or destroying the vector bucket, this flag will not work.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vector_bucket_arn: ARN of the vector bucket.
-        :param pulumi.Input[_builtins.str] vector_bucket_name: Name of the vector bucket.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -441,66 +296,40 @@ class VectorsVectorBucket(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date and time when the vector bucket was created.
-        """
         return pulumi.get(self, "creation_time")
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfigurations")
     def encryption_configurations(self) -> pulumi.Output[Sequence['outputs.VectorsVectorBucketEncryptionConfiguration']]:
-        """
-        Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
-        """
         return pulumi.get(self, "encryption_configurations")
 
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Boolean that indicates all indexes and vectors should be deleted from the vector bucket *when the vector bucket is destroyed* so that the vector bucket can be destroyed without error. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the vector bucket or destroying the vector bucket, this flag will not work.
-        """
         return pulumi.get(self, "force_destroy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="vectorBucketArn")
     def vector_bucket_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the vector bucket.
-        """
         return pulumi.get(self, "vector_bucket_arn")
 
     @_builtins.property
     @pulumi.getter(name="vectorBucketName")
     def vector_bucket_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the vector bucket.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vector_bucket_name")
 

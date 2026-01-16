@@ -15,62 +15,30 @@ public final class GetAuthPolicyPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetAuthPolicyPlainArgs Empty = new GetAuthPolicyPlainArgs();
 
-    /**
-     * The auth policy. The policy string in JSON must not contain newlines or blank lines.
-     * 
-     */
     @Import(name="policy")
     private @Nullable String policy;
 
-    /**
-     * @return The auth policy. The policy string in JSON must not contain newlines or blank lines.
-     * 
-     */
     public Optional<String> policy() {
         return Optional.ofNullable(this.policy);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
-     * 
-     */
     @Import(name="resourceIdentifier", required=true)
     private String resourceIdentifier;
 
-    /**
-     * @return The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
-     * 
-     */
     public String resourceIdentifier() {
         return this.resourceIdentifier;
     }
 
-    /**
-     * The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
-     * 
-     */
     @Import(name="state")
     private @Nullable String state;
 
-    /**
-     * @return The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
-     * 
-     */
     public Optional<String> state() {
         return Optional.ofNullable(this.state);
     }
@@ -102,45 +70,21 @@ public final class GetAuthPolicyPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetAuthPolicyPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policy The auth policy. The policy string in JSON must not contain newlines or blank lines.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(@Nullable String policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param resourceIdentifier The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceIdentifier(String resourceIdentifier) {
             $.resourceIdentifier = resourceIdentifier;
             return this;
         }
 
-        /**
-         * @param state The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(@Nullable String state) {
             $.state = state;
             return this;

@@ -14,32 +14,16 @@ public final class InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArg
 
     public static final InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs Empty = new InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs();
 
-    /**
-     * The type of encryption. Valid Values: `KMS`.
-     * 
-     */
     @Import(name="encryptionType", required=true)
     private Output<String> encryptionType;
 
-    /**
-     * @return The type of encryption. Valid Values: `KMS`.
-     * 
-     */
     public Output<String> encryptionType() {
         return this.encryptionType;
     }
 
-    /**
-     * The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
-     * 
-     */
     @Import(name="keyId", required=true)
     private Output<String> keyId;
 
-    /**
-     * @return The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
-     * 
-     */
     public Output<String> keyId() {
         return this.keyId;
     }
@@ -69,44 +53,20 @@ public final class InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArg
             $ = new InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param encryptionType The type of encryption. Valid Values: `KMS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionType(Output<String> encryptionType) {
             $.encryptionType = encryptionType;
             return this;
         }
 
-        /**
-         * @param encryptionType The type of encryption. Valid Values: `KMS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionType(String encryptionType) {
             return encryptionType(Output.of(encryptionType));
         }
 
-        /**
-         * @param keyId The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyId(Output<String> keyId) {
             $.keyId = keyId;
             return this;
         }
 
-        /**
-         * @param keyId The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyId(String keyId) {
             return keyId(Output.of(keyId));
         }

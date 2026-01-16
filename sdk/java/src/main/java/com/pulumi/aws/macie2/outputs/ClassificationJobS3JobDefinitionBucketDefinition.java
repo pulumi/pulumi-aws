@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ClassificationJobS3JobDefinitionBucketDefinition {
-    /**
-     * @return The unique identifier for the AWS account that owns the buckets.
-     * 
-     */
     private String accountId;
-    /**
-     * @return An array that lists the names of the buckets.
-     * 
-     */
     private List<String> buckets;
 
     private ClassificationJobS3JobDefinitionBucketDefinition() {}
-    /**
-     * @return The unique identifier for the AWS account that owns the buckets.
-     * 
-     */
     public String accountId() {
         return this.accountId;
     }
-    /**
-     * @return An array that lists the names of the buckets.
-     * 
-     */
     public List<String> buckets() {
         return this.buckets;
     }

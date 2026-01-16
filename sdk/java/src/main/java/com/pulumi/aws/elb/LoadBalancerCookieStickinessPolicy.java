@@ -17,137 +17,35 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a load balancer cookie stickiness policy, which allows an ELB to control the sticky session lifetime of the browser.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.elb.LoadBalancer;
- * import com.pulumi.aws.elb.LoadBalancerArgs;
- * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
- * import com.pulumi.aws.elb.LoadBalancerCookieStickinessPolicy;
- * import com.pulumi.aws.elb.LoadBalancerCookieStickinessPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var lb = new LoadBalancer("lb", LoadBalancerArgs.builder()
- *             .name("test-lb")
- *             .availabilityZones("us-east-1a")
- *             .listeners(LoadBalancerListenerArgs.builder()
- *                 .instancePort(8000)
- *                 .instanceProtocol("http")
- *                 .lbPort(80)
- *                 .lbProtocol("http")
- *                 .build())
- *             .build());
- * 
- *         var foo = new LoadBalancerCookieStickinessPolicy("foo", LoadBalancerCookieStickinessPolicyArgs.builder()
- *             .name("foo-policy")
- *             .loadBalancer(lb.id())
- *             .lbPort(80)
- *             .cookieExpirationPeriod(600)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:elb/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy")
 public class LoadBalancerCookieStickinessPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The time period after which
-     * the session cookie should be considered stale, expressed in seconds.
-     * 
-     */
     @Export(name="cookieExpirationPeriod", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> cookieExpirationPeriod;
 
-    /**
-     * @return The time period after which
-     * the session cookie should be considered stale, expressed in seconds.
-     * 
-     */
     public Output<Optional<Integer>> cookieExpirationPeriod() {
         return Codegen.optional(this.cookieExpirationPeriod);
     }
-    /**
-     * The load balancer port to which the policy
-     * should be applied. This must be an active listener on the load
-     * balancer.
-     * 
-     */
     @Export(name="lbPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> lbPort;
 
-    /**
-     * @return The load balancer port to which the policy
-     * should be applied. This must be an active listener on the load
-     * balancer.
-     * 
-     */
     public Output<Integer> lbPort() {
         return this.lbPort;
     }
-    /**
-     * The load balancer to which the policy
-     * should be attached.
-     * 
-     */
     @Export(name="loadBalancer", refs={String.class}, tree="[0]")
     private Output<String> loadBalancer;
 
-    /**
-     * @return The load balancer to which the policy
-     * should be attached.
-     * 
-     */
     public Output<String> loadBalancer() {
         return this.loadBalancer;
     }
-    /**
-     * The name of the stickiness policy.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the stickiness policy.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppFabric.Inputs
 
     public sealed class AppAuthorizationConnectionAuthRequestGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
-        /// </summary>
         [Input("code", required: true)]
         public Input<string> Code { get; set; } = null!;
 
-        /// <summary>
-        /// The redirect URL that is specified in the AuthURL and the application client.
-        /// </summary>
         [Input("redirectUri", required: true)]
         public Input<string> RedirectUri { get; set; } = null!;
 

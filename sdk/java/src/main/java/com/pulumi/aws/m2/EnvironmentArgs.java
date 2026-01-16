@@ -36,47 +36,23 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Engine type must be `microfocus` or `bluage`.
-     * 
-     */
     @Import(name="engineType", required=true)
     private Output<String> engineType;
 
-    /**
-     * @return Engine type must be `microfocus` or `bluage`.
-     * 
-     */
     public Output<String> engineType() {
         return this.engineType;
     }
 
-    /**
-     * The specific version of the engine for the Environment.
-     * 
-     */
     @Import(name="engineVersion")
     private @Nullable Output<String> engineVersion;
 
-    /**
-     * @return The specific version of the engine for the Environment.
-     * 
-     */
     public Optional<Output<String>> engineVersion() {
         return Optional.ofNullable(this.engineVersion);
     }
 
-    /**
-     * Force update the environment even if applications are running.
-     * 
-     */
     @Import(name="forceUpdate")
     private @Nullable Output<Boolean> forceUpdate;
 
-    /**
-     * @return Force update the environment even if applications are running.
-     * 
-     */
     public Optional<Output<Boolean>> forceUpdate() {
         return Optional.ofNullable(this.forceUpdate);
     }
@@ -88,111 +64,51 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.highAvailabilityConfig);
     }
 
-    /**
-     * M2 Instance Type.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="instanceType", required=true)
     private Output<String> instanceType;
 
-    /**
-     * @return M2 Instance Type.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> instanceType() {
         return this.instanceType;
     }
 
-    /**
-     * ARN of the KMS key to use for the Environment.
-     * 
-     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
-    /**
-     * @return ARN of the KMS key to use for the Environment.
-     * 
-     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
 
-    /**
-     * Name of the runtime environment. Must be unique within the account.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the runtime environment. Must be unique within the account.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
-     * 
-     */
     @Import(name="preferredMaintenanceWindow")
     private @Nullable Output<String> preferredMaintenanceWindow;
 
-    /**
-     * @return Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
-     * 
-     */
     public Optional<Output<String>> preferredMaintenanceWindow() {
         return Optional.ofNullable(this.preferredMaintenanceWindow);
     }
 
-    /**
-     * Allow applications deployed to this environment to be publicly accessible.
-     * 
-     */
     @Import(name="publiclyAccessible")
     private @Nullable Output<Boolean> publiclyAccessible;
 
-    /**
-     * @return Allow applications deployed to this environment to be publicly accessible.
-     * 
-     */
     public Optional<Output<Boolean>> publiclyAccessible() {
         return Optional.ofNullable(this.publiclyAccessible);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * List of security group ids.
-     * 
-     */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
-    /**
-     * @return List of security group ids.
-     * 
-     */
     public Optional<Output<List<String>>> securityGroupIds() {
         return Optional.ofNullable(this.securityGroupIds);
     }
@@ -204,32 +120,16 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.storageConfiguration);
     }
 
-    /**
-     * List of subnet ids to deploy environment to.
-     * 
-     */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
-    /**
-     * @return List of subnet ids to deploy environment to.
-     * 
-     */
     public Optional<Output<List<String>>> subnetIds() {
         return Optional.ofNullable(this.subnetIds);
     }
 
-    /**
-     * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -299,65 +199,29 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
             return description(Output.of(description));
         }
 
-        /**
-         * @param engineType Engine type must be `microfocus` or `bluage`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder engineType(Output<String> engineType) {
             $.engineType = engineType;
             return this;
         }
 
-        /**
-         * @param engineType Engine type must be `microfocus` or `bluage`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder engineType(String engineType) {
             return engineType(Output.of(engineType));
         }
 
-        /**
-         * @param engineVersion The specific version of the engine for the Environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder engineVersion(@Nullable Output<String> engineVersion) {
             $.engineVersion = engineVersion;
             return this;
         }
 
-        /**
-         * @param engineVersion The specific version of the engine for the Environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder engineVersion(String engineVersion) {
             return engineVersion(Output.of(engineVersion));
         }
 
-        /**
-         * @param forceUpdate Force update the environment even if applications are running.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forceUpdate(@Nullable Output<Boolean> forceUpdate) {
             $.forceUpdate = forceUpdate;
             return this;
         }
 
-        /**
-         * @param forceUpdate Force update the environment even if applications are running.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forceUpdate(Boolean forceUpdate) {
             return forceUpdate(Output.of(forceUpdate));
         }
@@ -371,163 +235,69 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
             return highAvailabilityConfig(Output.of(highAvailabilityConfig));
         }
 
-        /**
-         * @param instanceType M2 Instance Type.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceType(Output<String> instanceType) {
             $.instanceType = instanceType;
             return this;
         }
 
-        /**
-         * @param instanceType M2 Instance Type.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceType(String instanceType) {
             return instanceType(Output.of(instanceType));
         }
 
-        /**
-         * @param kmsKeyId ARN of the KMS key to use for the Environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId ARN of the KMS key to use for the Environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }
 
-        /**
-         * @param name Name of the runtime environment. Must be unique within the account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the runtime environment. Must be unique within the account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param preferredMaintenanceWindow Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preferredMaintenanceWindow(@Nullable Output<String> preferredMaintenanceWindow) {
             $.preferredMaintenanceWindow = preferredMaintenanceWindow;
             return this;
         }
 
-        /**
-         * @param preferredMaintenanceWindow Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preferredMaintenanceWindow(String preferredMaintenanceWindow) {
             return preferredMaintenanceWindow(Output.of(preferredMaintenanceWindow));
         }
 
-        /**
-         * @param publiclyAccessible Allow applications deployed to this environment to be publicly accessible.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publiclyAccessible(@Nullable Output<Boolean> publiclyAccessible) {
             $.publiclyAccessible = publiclyAccessible;
             return this;
         }
 
-        /**
-         * @param publiclyAccessible Allow applications deployed to this environment to be publicly accessible.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publiclyAccessible(Boolean publiclyAccessible) {
             return publiclyAccessible(Output.of(publiclyAccessible));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param securityGroupIds List of security group ids.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(@Nullable Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
-        /**
-         * @param securityGroupIds List of security group ids.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
-        /**
-         * @param securityGroupIds List of security group ids.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
@@ -541,54 +311,24 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
             return storageConfiguration(Output.of(storageConfiguration));
         }
 
-        /**
-         * @param subnetIds List of subnet ids to deploy environment to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(@Nullable Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
-        /**
-         * @param subnetIds List of subnet ids to deploy environment to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
-        /**
-         * @param subnetIds List of subnet ids to deploy environment to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
 
-        /**
-         * @param tags Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

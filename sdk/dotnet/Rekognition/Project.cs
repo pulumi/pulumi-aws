@@ -9,102 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Rekognition
 {
-    /// <summary>
-    /// Resource for managing an AWS Rekognition Project.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Content Moderation
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Rekognition.Project("example", new()
-    ///     {
-    ///         Name = "example-project",
-    ///         AutoUpdate = "ENABLED",
-    ///         Feature = "CONTENT_MODERATION",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Custom Labels
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Rekognition.Project("example", new()
-    ///     {
-    ///         Name = "example-project",
-    ///         Feature = "CUSTOM_LABELS",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Rekognition Project using the `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:rekognition/project:Project example project-id-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:rekognition/project:Project")]
     public partial class Project : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Project.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `Feature` is `CONTENT_MODERATION`, but do not set otherwise.
-        /// </summary>
         [Output("autoUpdate")]
         public Output<string> AutoUpdate { get; private set; } = null!;
 
-        /// <summary>
-        /// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
-        /// </summary>
         [Output("feature")]
         public Output<string?> Feature { get; private set; } = null!;
 
-        /// <summary>
-        /// Desired name of the project.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -157,38 +82,20 @@ namespace Pulumi.Aws.Rekognition
 
     public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `Feature` is `CONTENT_MODERATION`, but do not set otherwise.
-        /// </summary>
         [Input("autoUpdate")]
         public Input<string>? AutoUpdate { get; set; }
 
-        /// <summary>
-        /// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
-        /// </summary>
         [Input("feature")]
         public Input<string>? Feature { get; set; }
 
-        /// <summary>
-        /// Desired name of the project.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -206,44 +113,23 @@ namespace Pulumi.Aws.Rekognition
 
     public sealed class ProjectState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Project.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `Feature` is `CONTENT_MODERATION`, but do not set otherwise.
-        /// </summary>
         [Input("autoUpdate")]
         public Input<string>? AutoUpdate { get; set; }
 
-        /// <summary>
-        /// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
-        /// </summary>
         [Input("feature")]
         public Input<string>? Feature { get; set; }
 
-        /// <summary>
-        /// Desired name of the project.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -252,10 +138,6 @@ namespace Pulumi.Aws.Rekognition
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

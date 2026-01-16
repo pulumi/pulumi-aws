@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Msk.Inputs
 
     public sealed class ClusterLoggingInfoBrokerLogsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for Cloudwatch Logs settings. See LoggingInfo broker_logs CloudwatchLogs Argument Reference below.
-        /// </summary>
         [Input("cloudwatchLogs")]
         public Input<Inputs.ClusterLoggingInfoBrokerLogsCloudwatchLogsGetArgs>? CloudwatchLogs { get; set; }
 
-        /// <summary>
-        /// Configuration block for Kinesis Data Firehose settings. See LoggingInfo broker_logs firehose Argument Reference below.
-        /// </summary>
         [Input("firehose")]
         public Input<Inputs.ClusterLoggingInfoBrokerLogsFirehoseGetArgs>? Firehose { get; set; }
 
-        /// <summary>
-        /// Configuration block for S3 settings. See LoggingInfo broker_logs s3 Argument Reference below.
-        /// </summary>
         [Input("s3")]
         public Input<Inputs.ClusterLoggingInfoBrokerLogsS3GetArgs>? S3 { get; set; }
 

@@ -15,131 +15,35 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Service Catalog self-service action.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.servicecatalog.ServiceAction;
- * import com.pulumi.aws.servicecatalog.ServiceActionArgs;
- * import com.pulumi.aws.servicecatalog.inputs.ServiceActionDefinitionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ServiceAction("example", ServiceActionArgs.builder()
- *             .description("Motor generator unit")
- *             .name("MGU")
- *             .definition(ServiceActionDefinitionArgs.builder()
- *                 .name("AWS-RestartEC2Instance")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_servicecatalog_service_action` using the service action ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
- * ```
- * 
- */
 @ResourceType(type="aws:servicecatalog/serviceAction:ServiceAction")
 public class ServiceAction extends com.pulumi.resources.CustomResource {
-    /**
-     * Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
-     * 
-     */
     @Export(name="acceptLanguage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> acceptLanguage;
 
-    /**
-     * @return Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
-     * 
-     */
     public Output<Optional<String>> acceptLanguage() {
         return Codegen.optional(this.acceptLanguage);
     }
-    /**
-     * Self-service action definition configuration block. Detailed below.
-     * 
-     */
     @Export(name="definition", refs={ServiceActionDefinition.class}, tree="[0]")
     private Output<ServiceActionDefinition> definition;
 
-    /**
-     * @return Self-service action definition configuration block. Detailed below.
-     * 
-     */
     public Output<ServiceActionDefinition> definition() {
         return this.definition;
     }
-    /**
-     * Self-service action description.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
-    /**
-     * @return Self-service action description.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * Self-service action name.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Self-service action name.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

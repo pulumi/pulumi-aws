@@ -12,72 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS SSO Admin Application Access Scope.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleApplication, err := ssoadmin.NewApplication(ctx, "example", &ssoadmin.ApplicationArgs{
-//				Name:                   pulumi.String("example"),
-//				ApplicationProviderArn: pulumi.String("arn:aws:sso::aws:applicationProvider/custom"),
-//				InstanceArn:            pulumi.String(example.Arns[0]),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssoadmin.NewApplicationAccessScope(ctx, "example", &ssoadmin.ApplicationAccessScopeArgs{
-//				ApplicationArn: exampleApplication.Arn,
-//				AuthorizedTargets: pulumi.StringArray{
-//					pulumi.String("arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012"),
-//				},
-//				Scope: pulumi.String("sso:account:access"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SSO Admin Application Access Scope using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ssoadmin/applicationAccessScope:ApplicationAccessScope example arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012,sso:account:access
-// ```
 type ApplicationAccessScope struct {
 	pulumi.CustomResourceState
 
-	// Specifies the ARN of the application with the access scope with the targets to add or update.
-	ApplicationArn pulumi.StringOutput `pulumi:"applicationArn"`
-	// Specifies an array list of ARNs that represent the authorized targets for this access scope.
+	ApplicationArn    pulumi.StringOutput      `pulumi:"applicationArn"`
 	AuthorizedTargets pulumi.StringArrayOutput `pulumi:"authorizedTargets"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Specifies the name of the access scope to be associated with the specified targets.
-	//
-	// The following arguments are optional:
-	Scope pulumi.StringOutput `pulumi:"scope"`
+	Region            pulumi.StringOutput      `pulumi:"region"`
+	Scope             pulumi.StringOutput      `pulumi:"scope"`
 }
 
 // NewApplicationAccessScope registers a new resource with the given unique name, arguments, and options.
@@ -116,29 +57,17 @@ func GetApplicationAccessScope(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApplicationAccessScope resources.
 type applicationAccessScopeState struct {
-	// Specifies the ARN of the application with the access scope with the targets to add or update.
-	ApplicationArn *string `pulumi:"applicationArn"`
-	// Specifies an array list of ARNs that represent the authorized targets for this access scope.
+	ApplicationArn    *string  `pulumi:"applicationArn"`
 	AuthorizedTargets []string `pulumi:"authorizedTargets"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Specifies the name of the access scope to be associated with the specified targets.
-	//
-	// The following arguments are optional:
-	Scope *string `pulumi:"scope"`
+	Region            *string  `pulumi:"region"`
+	Scope             *string  `pulumi:"scope"`
 }
 
 type ApplicationAccessScopeState struct {
-	// Specifies the ARN of the application with the access scope with the targets to add or update.
-	ApplicationArn pulumi.StringPtrInput
-	// Specifies an array list of ARNs that represent the authorized targets for this access scope.
+	ApplicationArn    pulumi.StringPtrInput
 	AuthorizedTargets pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Specifies the name of the access scope to be associated with the specified targets.
-	//
-	// The following arguments are optional:
-	Scope pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
+	Scope             pulumi.StringPtrInput
 }
 
 func (ApplicationAccessScopeState) ElementType() reflect.Type {
@@ -146,30 +75,18 @@ func (ApplicationAccessScopeState) ElementType() reflect.Type {
 }
 
 type applicationAccessScopeArgs struct {
-	// Specifies the ARN of the application with the access scope with the targets to add or update.
-	ApplicationArn string `pulumi:"applicationArn"`
-	// Specifies an array list of ARNs that represent the authorized targets for this access scope.
+	ApplicationArn    string   `pulumi:"applicationArn"`
 	AuthorizedTargets []string `pulumi:"authorizedTargets"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Specifies the name of the access scope to be associated with the specified targets.
-	//
-	// The following arguments are optional:
-	Scope string `pulumi:"scope"`
+	Region            *string  `pulumi:"region"`
+	Scope             string   `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a ApplicationAccessScope resource.
 type ApplicationAccessScopeArgs struct {
-	// Specifies the ARN of the application with the access scope with the targets to add or update.
-	ApplicationArn pulumi.StringInput
-	// Specifies an array list of ARNs that represent the authorized targets for this access scope.
+	ApplicationArn    pulumi.StringInput
 	AuthorizedTargets pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Specifies the name of the access scope to be associated with the specified targets.
-	//
-	// The following arguments are optional:
-	Scope pulumi.StringInput
+	Region            pulumi.StringPtrInput
+	Scope             pulumi.StringInput
 }
 
 func (ApplicationAccessScopeArgs) ElementType() reflect.Type {
@@ -259,24 +176,18 @@ func (o ApplicationAccessScopeOutput) ToApplicationAccessScopeOutputWithContext(
 	return o
 }
 
-// Specifies the ARN of the application with the access scope with the targets to add or update.
 func (o ApplicationAccessScopeOutput) ApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationAccessScope) pulumi.StringOutput { return v.ApplicationArn }).(pulumi.StringOutput)
 }
 
-// Specifies an array list of ARNs that represent the authorized targets for this access scope.
 func (o ApplicationAccessScopeOutput) AuthorizedTargets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApplicationAccessScope) pulumi.StringArrayOutput { return v.AuthorizedTargets }).(pulumi.StringArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ApplicationAccessScopeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationAccessScope) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the access scope to be associated with the specified targets.
-//
-// The following arguments are optional:
 func (o ApplicationAccessScopeOutput) Scope() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationAccessScope) pulumi.StringOutput { return v.Scope }).(pulumi.StringOutput)
 }

@@ -21,221 +21,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Elastic Transcoder preset resource.
- * 
- * &gt; **Warning:** This resource is deprecated. Use [AWS Elemental MediaConvert](https://aws.amazon.com/blogs/media/migrating-workflows-from-amazon-elastic-transcoder-to-aws-elemental-mediaconvert/) instead. AWS will [discontinue support for Amazon Elastic Transcoder](https://aws.amazon.com/blogs/media/support-for-amazon-elastic-transcoder-ending-soon/), effective November 13, 2025.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.elastictranscoder.Preset;
- * import com.pulumi.aws.elastictranscoder.PresetArgs;
- * import com.pulumi.aws.elastictranscoder.inputs.PresetAudioArgs;
- * import com.pulumi.aws.elastictranscoder.inputs.PresetAudioCodecOptionsArgs;
- * import com.pulumi.aws.elastictranscoder.inputs.PresetVideoArgs;
- * import com.pulumi.aws.elastictranscoder.inputs.PresetVideoWatermarkArgs;
- * import com.pulumi.aws.elastictranscoder.inputs.PresetThumbnailsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var bar = new Preset("bar", PresetArgs.builder()
- *             .container("mp4")
- *             .description("Sample Preset")
- *             .name("sample_preset")
- *             .audio(PresetAudioArgs.builder()
- *                 .audioPackingMode("SingleTrack")
- *                 .bitRate("96")
- *                 .channels("2")
- *                 .codec("AAC")
- *                 .sampleRate("44100")
- *                 .build())
- *             .audioCodecOptions(PresetAudioCodecOptionsArgs.builder()
- *                 .profile("AAC-LC")
- *                 .build())
- *             .video(PresetVideoArgs.builder()
- *                 .bitRate("1600")
- *                 .codec("H.264")
- *                 .displayAspectRatio("16:9")
- *                 .fixedGop("false")
- *                 .frameRate("auto")
- *                 .maxFrameRate("60")
- *                 .keyframesMaxDist("240")
- *                 .maxHeight("auto")
- *                 .maxWidth("auto")
- *                 .paddingPolicy("Pad")
- *                 .sizingPolicy("Fit")
- *                 .build())
- *             .videoCodecOptions(Map.ofEntries(
- *                 Map.entry("Profile", "main"),
- *                 Map.entry("Level", "2.2"),
- *                 Map.entry("MaxReferenceFrames", "3"),
- *                 Map.entry("InterlacedMode", "Progressive"),
- *                 Map.entry("ColorSpaceConversionMode", "None")
- *             ))
- *             .videoWatermarks(PresetVideoWatermarkArgs.builder()
- *                 .id("Test")
- *                 .maxWidth("20%")
- *                 .maxHeight("20%")
- *                 .sizingPolicy("ShrinkToFit")
- *                 .horizontalAlign("Right")
- *                 .horizontalOffset("10px")
- *                 .verticalAlign("Bottom")
- *                 .verticalOffset("10px")
- *                 .opacity("55.5")
- *                 .target("Content")
- *                 .build())
- *             .thumbnails(PresetThumbnailsArgs.builder()
- *                 .format("png")
- *                 .interval("120")
- *                 .maxWidth("auto")
- *                 .maxHeight("auto")
- *                 .paddingPolicy("Pad")
- *                 .sizingPolicy("Fit")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Elastic Transcoder presets using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
- * ```
- * 
- */
 @ResourceType(type="aws:elastictranscoder/preset:Preset")
 public class Preset extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Audio parameters object (documented below).
-     * 
-     */
     @Export(name="audio", refs={PresetAudio.class}, tree="[0]")
     private Output</* @Nullable */ PresetAudio> audio;
 
-    /**
-     * @return Audio parameters object (documented below).
-     * 
-     */
     public Output<Optional<PresetAudio>> audio() {
         return Codegen.optional(this.audio);
     }
-    /**
-     * Codec options for the audio parameters (documented below)
-     * 
-     */
     @Export(name="audioCodecOptions", refs={PresetAudioCodecOptions.class}, tree="[0]")
     private Output<PresetAudioCodecOptions> audioCodecOptions;
 
-    /**
-     * @return Codec options for the audio parameters (documented below)
-     * 
-     */
     public Output<PresetAudioCodecOptions> audioCodecOptions() {
         return this.audioCodecOptions;
     }
-    /**
-     * The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
-     * 
-     */
     @Export(name="container", refs={String.class}, tree="[0]")
     private Output<String> container;
 
-    /**
-     * @return The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
-     * 
-     */
     public Output<String> container() {
         return this.container;
     }
-    /**
-     * A description of the preset (maximum 255 characters)
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A description of the preset (maximum 255 characters)
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The name of the preset. (maximum 40 characters)
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the preset. (maximum 40 characters)
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Thumbnail parameters object (documented below)
-     * 
-     */
     @Export(name="thumbnails", refs={PresetThumbnails.class}, tree="[0]")
     private Output</* @Nullable */ PresetThumbnails> thumbnails;
 
-    /**
-     * @return Thumbnail parameters object (documented below)
-     * 
-     */
     public Output<Optional<PresetThumbnails>> thumbnails() {
         return Codegen.optional(this.thumbnails);
     }
@@ -245,49 +77,21 @@ public class Preset extends com.pulumi.resources.CustomResource {
     public Output<String> type() {
         return this.type;
     }
-    /**
-     * Video parameters object (documented below)
-     * 
-     */
     @Export(name="video", refs={PresetVideo.class}, tree="[0]")
     private Output</* @Nullable */ PresetVideo> video;
 
-    /**
-     * @return Video parameters object (documented below)
-     * 
-     */
     public Output<Optional<PresetVideo>> video() {
         return Codegen.optional(this.video);
     }
-    /**
-     * Codec options for the video parameters
-     * 
-     * See [&#34;Create Preset&#34;](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
-     * 
-     */
     @Export(name="videoCodecOptions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> videoCodecOptions;
 
-    /**
-     * @return Codec options for the video parameters
-     * 
-     * See [&#34;Create Preset&#34;](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
-     * 
-     */
     public Output<Optional<Map<String,String>>> videoCodecOptions() {
         return Codegen.optional(this.videoCodecOptions);
     }
-    /**
-     * Watermark parameters for the video parameters (documented below)
-     * 
-     */
     @Export(name="videoWatermarks", refs={List.class,PresetVideoWatermark.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PresetVideoWatermark>> videoWatermarks;
 
-    /**
-     * @return Watermark parameters for the video parameters (documented below)
-     * 
-     */
     public Output<Optional<List<PresetVideoWatermark>>> videoWatermarks() {
         return Codegen.optional(this.videoWatermarks);
     }

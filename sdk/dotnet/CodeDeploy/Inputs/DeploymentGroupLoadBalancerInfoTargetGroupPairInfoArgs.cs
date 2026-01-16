@@ -12,27 +12,17 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
 
     public sealed class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for the production traffic route (documented below).
-        /// </summary>
         [Input("prodTrafficRoute", required: true)]
         public Input<Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs> ProdTrafficRoute { get; set; } = null!;
 
         [Input("targetGroups", required: true)]
         private InputList<Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs>? _targetGroups;
-
-        /// <summary>
-        /// Configuration blocks for a target group within a target group pair (documented below).
-        /// </summary>
         public InputList<Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs> TargetGroups
         {
             get => _targetGroups ?? (_targetGroups = new InputList<Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs>());
             set => _targetGroups = value;
         }
 
-        /// <summary>
-        /// Configuration block for the test traffic route (documented below).
-        /// </summary>
         [Input("testTrafficRoute")]
         public Input<Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs>? TestTrafficRoute { get; set; }
 

@@ -11,62 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about a specific VPC NAT Gateway.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.LookupNatGateway(ctx, &ec2.LookupNatGatewayArgs{
-//				SubnetId: pulumi.StringRef(public.Id),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With tags
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.LookupNatGateway(ctx, &ec2.LookupNatGatewayArgs{
-//				SubnetId: pulumi.StringRef(public.Id),
-//				Tags: map[string]interface{}{
-//					"Name": "gw NAT",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupNatGateway(ctx *pulumi.Context, args *LookupNatGatewayArgs, opts ...pulumi.InvokeOption) (*LookupNatGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNatGatewayResult
@@ -79,66 +23,39 @@ func LookupNatGateway(ctx *pulumi.Context, args *LookupNatGatewayArgs, opts ...p
 
 // A collection of arguments for invoking getNatGateway.
 type LookupNatGatewayArgs struct {
-	// Custom filter block as described below.
-	//
-	// The arguments of this data source act as filters for querying the available
-	// NAT Gateways in the current Region. The given filters must match exactly one
-	// NAT Gateway whose data will be exported as attributes.
-	Filters []GetNatGatewayFilter `pulumi:"filters"`
-	// ID of the specific NAT Gateway to retrieve.
-	Id *string `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// State of the NAT Gateway (pending | failed | available | deleting | deleted ).
-	State *string `pulumi:"state"`
-	// ID of subnet that the NAT Gateway resides in.
-	SubnetId *string `pulumi:"subnetId"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired NAT Gateway.
-	Tags map[string]string `pulumi:"tags"`
-	// ID of the VPC that the NAT Gateway resides in.
-	VpcId *string `pulumi:"vpcId"`
+	Filters  []GetNatGatewayFilter `pulumi:"filters"`
+	Id       *string               `pulumi:"id"`
+	Region   *string               `pulumi:"region"`
+	State    *string               `pulumi:"state"`
+	SubnetId *string               `pulumi:"subnetId"`
+	Tags     map[string]string     `pulumi:"tags"`
+	VpcId    *string               `pulumi:"vpcId"`
 }
 
 // A collection of values returned by getNatGateway.
 type LookupNatGatewayResult struct {
-	// Allocation ID of the Elastic IP address.
-	AllocationId string `pulumi:"allocationId"`
-	// Association ID of the Elastic IP address.
-	AssociationId string `pulumi:"associationId"`
-	// (regional NAT gateways only) Indicates whether AWS automatically manages AZ coverage.
-	AutoProvisionZones string `pulumi:"autoProvisionZones"`
-	// (regional NAT gateways only) Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
-	AutoScalingIps string `pulumi:"autoScalingIps"`
-	// Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway.
-	AvailabilityMode string `pulumi:"availabilityMode"`
-	// (regional NAT gateways only) Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway.
-	AvailabilityZoneAddresses []GetNatGatewayAvailabilityZoneAddress `pulumi:"availabilityZoneAddresses"`
-	// Connectivity type of the NAT Gateway.
-	ConnectivityType string                `pulumi:"connectivityType"`
-	Filters          []GetNatGatewayFilter `pulumi:"filters"`
-	Id               string                `pulumi:"id"`
-	// ID of the network interface.
-	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
-	// (zonal NAT gateways only) Private IP address of the selected NAT Gateway.
-	PrivateIp string `pulumi:"privateIp"`
-	// Public IP address.
-	PublicIp string `pulumi:"publicIp"`
-	Region   string `pulumi:"region"`
-	// (regional NAT gateways only) Repeatable blocks for information about the IP addresses and network interface associated with the regional NAT gateway.
-	RegionalNatGatewayAddresses []GetNatGatewayRegionalNatGatewayAddress `pulumi:"regionalNatGatewayAddresses"`
-	// (regional NAT gateways only) ID of the automatically created route table.
-	RouteTableId string `pulumi:"routeTableId"`
-	// (zonal NAT gateways only) Secondary allocation EIP IDs for the selected NAT Gateway.
-	SecondaryAllocationIds []string `pulumi:"secondaryAllocationIds"`
-	// (zonal NAT gateways only) The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
-	SecondaryPrivateIpAddressCount int `pulumi:"secondaryPrivateIpAddressCount"`
-	// (zonal NAT gateways only) Secondary private IPv4 addresses assigned to the selected NAT Gateway.
-	SecondaryPrivateIpAddresses []string          `pulumi:"secondaryPrivateIpAddresses"`
-	State                       string            `pulumi:"state"`
-	SubnetId                    string            `pulumi:"subnetId"`
-	Tags                        map[string]string `pulumi:"tags"`
-	VpcId                       string            `pulumi:"vpcId"`
+	AllocationId                   string                                   `pulumi:"allocationId"`
+	AssociationId                  string                                   `pulumi:"associationId"`
+	AutoProvisionZones             string                                   `pulumi:"autoProvisionZones"`
+	AutoScalingIps                 string                                   `pulumi:"autoScalingIps"`
+	AvailabilityMode               string                                   `pulumi:"availabilityMode"`
+	AvailabilityZoneAddresses      []GetNatGatewayAvailabilityZoneAddress   `pulumi:"availabilityZoneAddresses"`
+	ConnectivityType               string                                   `pulumi:"connectivityType"`
+	Filters                        []GetNatGatewayFilter                    `pulumi:"filters"`
+	Id                             string                                   `pulumi:"id"`
+	NetworkInterfaceId             string                                   `pulumi:"networkInterfaceId"`
+	PrivateIp                      string                                   `pulumi:"privateIp"`
+	PublicIp                       string                                   `pulumi:"publicIp"`
+	Region                         string                                   `pulumi:"region"`
+	RegionalNatGatewayAddresses    []GetNatGatewayRegionalNatGatewayAddress `pulumi:"regionalNatGatewayAddresses"`
+	RouteTableId                   string                                   `pulumi:"routeTableId"`
+	SecondaryAllocationIds         []string                                 `pulumi:"secondaryAllocationIds"`
+	SecondaryPrivateIpAddressCount int                                      `pulumi:"secondaryPrivateIpAddressCount"`
+	SecondaryPrivateIpAddresses    []string                                 `pulumi:"secondaryPrivateIpAddresses"`
+	State                          string                                   `pulumi:"state"`
+	SubnetId                       string                                   `pulumi:"subnetId"`
+	Tags                           map[string]string                        `pulumi:"tags"`
+	VpcId                          string                                   `pulumi:"vpcId"`
 }
 
 func LookupNatGatewayOutput(ctx *pulumi.Context, args LookupNatGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupNatGatewayResultOutput {
@@ -152,25 +69,13 @@ func LookupNatGatewayOutput(ctx *pulumi.Context, args LookupNatGatewayOutputArgs
 
 // A collection of arguments for invoking getNatGateway.
 type LookupNatGatewayOutputArgs struct {
-	// Custom filter block as described below.
-	//
-	// The arguments of this data source act as filters for querying the available
-	// NAT Gateways in the current Region. The given filters must match exactly one
-	// NAT Gateway whose data will be exported as attributes.
-	Filters GetNatGatewayFilterArrayInput `pulumi:"filters"`
-	// ID of the specific NAT Gateway to retrieve.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// State of the NAT Gateway (pending | failed | available | deleting | deleted ).
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// ID of subnet that the NAT Gateway resides in.
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired NAT Gateway.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// ID of the VPC that the NAT Gateway resides in.
-	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+	Filters  GetNatGatewayFilterArrayInput `pulumi:"filters"`
+	Id       pulumi.StringPtrInput         `pulumi:"id"`
+	Region   pulumi.StringPtrInput         `pulumi:"region"`
+	State    pulumi.StringPtrInput         `pulumi:"state"`
+	SubnetId pulumi.StringPtrInput         `pulumi:"subnetId"`
+	Tags     pulumi.StringMapInput         `pulumi:"tags"`
+	VpcId    pulumi.StringPtrInput         `pulumi:"vpcId"`
 }
 
 func (LookupNatGatewayOutputArgs) ElementType() reflect.Type {
@@ -192,39 +97,32 @@ func (o LookupNatGatewayResultOutput) ToLookupNatGatewayResultOutputWithContext(
 	return o
 }
 
-// Allocation ID of the Elastic IP address.
 func (o LookupNatGatewayResultOutput) AllocationId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.AllocationId }).(pulumi.StringOutput)
 }
 
-// Association ID of the Elastic IP address.
 func (o LookupNatGatewayResultOutput) AssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.AssociationId }).(pulumi.StringOutput)
 }
 
-// (regional NAT gateways only) Indicates whether AWS automatically manages AZ coverage.
 func (o LookupNatGatewayResultOutput) AutoProvisionZones() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.AutoProvisionZones }).(pulumi.StringOutput)
 }
 
-// (regional NAT gateways only) Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
 func (o LookupNatGatewayResultOutput) AutoScalingIps() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.AutoScalingIps }).(pulumi.StringOutput)
 }
 
-// Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway.
 func (o LookupNatGatewayResultOutput) AvailabilityMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.AvailabilityMode }).(pulumi.StringOutput)
 }
 
-// (regional NAT gateways only) Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway.
 func (o LookupNatGatewayResultOutput) AvailabilityZoneAddresses() GetNatGatewayAvailabilityZoneAddressArrayOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) []GetNatGatewayAvailabilityZoneAddress {
 		return v.AvailabilityZoneAddresses
 	}).(GetNatGatewayAvailabilityZoneAddressArrayOutput)
 }
 
-// Connectivity type of the NAT Gateway.
 func (o LookupNatGatewayResultOutput) ConnectivityType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.ConnectivityType }).(pulumi.StringOutput)
 }
@@ -237,17 +135,14 @@ func (o LookupNatGatewayResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// ID of the network interface.
 func (o LookupNatGatewayResultOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
 }
 
-// (zonal NAT gateways only) Private IP address of the selected NAT Gateway.
 func (o LookupNatGatewayResultOutput) PrivateIp() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.PrivateIp }).(pulumi.StringOutput)
 }
 
-// Public IP address.
 func (o LookupNatGatewayResultOutput) PublicIp() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.PublicIp }).(pulumi.StringOutput)
 }
@@ -256,29 +151,24 @@ func (o LookupNatGatewayResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// (regional NAT gateways only) Repeatable blocks for information about the IP addresses and network interface associated with the regional NAT gateway.
 func (o LookupNatGatewayResultOutput) RegionalNatGatewayAddresses() GetNatGatewayRegionalNatGatewayAddressArrayOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) []GetNatGatewayRegionalNatGatewayAddress {
 		return v.RegionalNatGatewayAddresses
 	}).(GetNatGatewayRegionalNatGatewayAddressArrayOutput)
 }
 
-// (regional NAT gateways only) ID of the automatically created route table.
 func (o LookupNatGatewayResultOutput) RouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.RouteTableId }).(pulumi.StringOutput)
 }
 
-// (zonal NAT gateways only) Secondary allocation EIP IDs for the selected NAT Gateway.
 func (o LookupNatGatewayResultOutput) SecondaryAllocationIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) []string { return v.SecondaryAllocationIds }).(pulumi.StringArrayOutput)
 }
 
-// (zonal NAT gateways only) The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
 func (o LookupNatGatewayResultOutput) SecondaryPrivateIpAddressCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) int { return v.SecondaryPrivateIpAddressCount }).(pulumi.IntOutput)
 }
 
-// (zonal NAT gateways only) Secondary private IPv4 addresses assigned to the selected NAT Gateway.
 func (o LookupNatGatewayResultOutput) SecondaryPrivateIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) []string { return v.SecondaryPrivateIpAddresses }).(pulumi.StringArrayOutput)
 }

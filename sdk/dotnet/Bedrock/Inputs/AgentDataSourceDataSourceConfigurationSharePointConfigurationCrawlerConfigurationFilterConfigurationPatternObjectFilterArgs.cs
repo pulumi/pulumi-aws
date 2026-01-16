@@ -14,12 +14,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
     {
         [Input("filters")]
         private InputList<Inputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs>? _filters;
-
-        /// <summary>
-        /// The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-        /// 
-        /// Each filter object should contain the following configuration:
-        /// </summary>
         public InputList<Inputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs>());

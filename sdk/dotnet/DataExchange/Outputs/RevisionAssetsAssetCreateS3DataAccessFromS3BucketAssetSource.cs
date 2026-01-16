@@ -13,17 +13,8 @@ namespace Pulumi.Aws.DataExchange.Outputs
     [OutputType]
     public sealed class RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource
     {
-        /// <summary>
-        /// The name of the S3 bucket.
-        /// </summary>
         public readonly string Bucket;
-        /// <summary>
-        /// List of key prefixes in the S3 bucket.
-        /// </summary>
         public readonly ImmutableArray<string> KeyPrefixes;
-        /// <summary>
-        /// List of object keys in the S3 bucket.
-        /// </summary>
         public readonly ImmutableArray<string> Keys;
         public readonly ImmutableArray<Outputs.RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrant> KmsKeysToGrants;
 

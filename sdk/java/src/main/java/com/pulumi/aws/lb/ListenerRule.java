@@ -21,137 +21,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Load Balancer Listener Rule resource.
- * 
- * &gt; **Note:** `aws.alb.ListenerRule` is known as `aws.lb.ListenerRule`. The functionality is identical.
- * 
- */
 @ResourceType(type="aws:lb/listenerRule:ListenerRule")
 public class ListenerRule extends com.pulumi.resources.CustomResource {
-    /**
-     * An Action block. Action blocks are documented below.
-     * 
-     */
     @Export(name="actions", refs={List.class,ListenerRuleAction.class}, tree="[0,1]")
     private Output<List<ListenerRuleAction>> actions;
 
-    /**
-     * @return An Action block. Action blocks are documented below.
-     * 
-     */
     public Output<List<ListenerRuleAction>> actions() {
         return this.actions;
     }
-    /**
-     * The ARN of the rule (matches `id`)
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the rule (matches `id`)
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
-     * 
-     */
     @Export(name="conditions", refs={List.class,ListenerRuleCondition.class}, tree="[0,1]")
     private Output<List<ListenerRuleCondition>> conditions;
 
-    /**
-     * @return A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
-     * 
-     */
     public Output<List<ListenerRuleCondition>> conditions() {
         return this.conditions;
     }
-    /**
-     * The ARN of the listener to which to attach the rule.
-     * 
-     */
     @Export(name="listenerArn", refs={String.class}, tree="[0]")
     private Output<String> listenerArn;
 
-    /**
-     * @return The ARN of the listener to which to attach the rule.
-     * 
-     */
     public Output<String> listenerArn() {
         return this.listenerArn;
     }
-    /**
-     * The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can&#39;t have multiple rules with the same priority.
-     * 
-     */
     @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output<Integer> priority;
 
-    /**
-     * @return The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can&#39;t have multiple rules with the same priority.
-     * 
-     */
     public Output<Integer> priority() {
         return this.priority;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
-     * 
-     */
     @Export(name="transforms", refs={List.class,ListenerRuleTransform.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ListenerRuleTransform>> transforms;
 
-    /**
-     * @return Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
-     * 
-     */
     public Output<Optional<List<ListenerRuleTransform>>> transforms() {
         return Codegen.optional(this.transforms);
     }

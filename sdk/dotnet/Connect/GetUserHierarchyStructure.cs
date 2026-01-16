@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Connect
 {
     public static class GetUserHierarchyStructure
     {
-        /// <summary>
-        /// Provides details about a specific Amazon Connect User Hierarchy Structure
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Connect.GetUserHierarchyStructure.Invoke(new()
-        ///     {
-        ///         InstanceId = testAwsConnectInstance.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetUserHierarchyStructureResult> InvokeAsync(GetUserHierarchyStructureArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserHierarchyStructureResult>("aws:connect/getUserHierarchyStructure:getUserHierarchyStructure", args ?? new GetUserHierarchyStructureArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a specific Amazon Connect User Hierarchy Structure
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Connect.GetUserHierarchyStructure.Invoke(new()
-        ///     {
-        ///         InstanceId = testAwsConnectInstance.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetUserHierarchyStructureResult> Invoke(GetUserHierarchyStructureInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserHierarchyStructureResult>("aws:connect/getUserHierarchyStructure:getUserHierarchyStructure", args ?? new GetUserHierarchyStructureInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a specific Amazon Connect User Hierarchy Structure
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Connect.GetUserHierarchyStructure.Invoke(new()
-        ///     {
-        ///         InstanceId = testAwsConnectInstance.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetUserHierarchyStructureResult> Invoke(GetUserHierarchyStructureInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserHierarchyStructureResult>("aws:connect/getUserHierarchyStructure:getUserHierarchyStructure", args ?? new GetUserHierarchyStructureInvokeArgs(), options.WithDefaults());
     }
@@ -87,15 +24,9 @@ namespace Pulumi.Aws.Connect
 
     public sealed class GetUserHierarchyStructureArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Reference to the hosting Amazon Connect Instance
-        /// </summary>
         [Input("instanceId", required: true)]
         public string InstanceId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -107,15 +38,9 @@ namespace Pulumi.Aws.Connect
 
     public sealed class GetUserHierarchyStructureInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Reference to the hosting Amazon Connect Instance
-        /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -129,9 +54,6 @@ namespace Pulumi.Aws.Connect
     [OutputType]
     public sealed class GetUserHierarchyStructureResult
     {
-        /// <summary>
-        /// Block that defines the hierarchy structure's levels. The `HierarchyStructure` block is documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetUserHierarchyStructureHierarchyStructureResult> HierarchyStructures;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

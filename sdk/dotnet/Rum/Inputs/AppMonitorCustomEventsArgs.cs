@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Rum.Inputs
 
     public sealed class AppMonitorCustomEventsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies whether this app monitor allows the web client to define and send custom events. The default is for custom events to be `DISABLED`. Valid values are `DISABLED` and `ENABLED`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

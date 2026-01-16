@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class VirtualServiceSpecProviderVirtualRouter {
-    /**
-     * @return Name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
-     * 
-     */
     private String virtualRouterName;
 
     private VirtualServiceSpecProviderVirtualRouter() {}
-    /**
-     * @return Name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
-     * 
-     */
     public String virtualRouterName() {
         return this.virtualRouterName;
     }

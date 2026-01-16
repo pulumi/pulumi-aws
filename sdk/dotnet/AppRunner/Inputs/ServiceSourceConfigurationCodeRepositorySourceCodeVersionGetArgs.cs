@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppRunner.Inputs
 
     public sealed class ServiceSourceConfigurationCodeRepositorySourceCodeVersionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        /// <summary>
-        /// Source code version. For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

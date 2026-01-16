@@ -27,12 +27,6 @@ class DataCatalogArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DataCatalog resource.
-        :param pulumi.Input[_builtins.str] description: Description of the data catalog.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
-        :param pulumi.Input[_builtins.str] type: Type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
-        :param pulumi.Input[_builtins.str] name: Name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "parameters", parameters)
@@ -47,9 +41,6 @@ class DataCatalogArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[_builtins.str]:
-        """
-        Description of the data catalog.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -59,9 +50,6 @@ class DataCatalogArgs:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]:
-        """
-        Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -71,9 +59,6 @@ class DataCatalogArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -83,9 +68,6 @@ class DataCatalogArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -95,9 +77,6 @@ class DataCatalogArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -107,9 +86,6 @@ class DataCatalogArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -130,14 +106,6 @@ class _DataCatalogState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataCatalog resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the data catalog.
-        :param pulumi.Input[_builtins.str] description: Description of the data catalog.
-        :param pulumi.Input[_builtins.str] name: Name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: Type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -159,9 +127,6 @@ class _DataCatalogState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the data catalog.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -171,9 +136,6 @@ class _DataCatalogState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the data catalog.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -183,9 +145,6 @@ class _DataCatalogState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -195,9 +154,6 @@ class _DataCatalogState:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -207,9 +163,6 @@ class _DataCatalogState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -219,9 +172,6 @@ class _DataCatalogState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -231,9 +181,6 @@ class _DataCatalogState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -243,9 +190,6 @@ class _DataCatalogState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -267,92 +211,9 @@ class DataCatalog(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an Athena data catalog.
-
-        More information about Athena and Athena data catalogs can be found in the [Athena User Guide](https://docs.aws.amazon.com/athena/latest/ug/what-is.html).
-
-        > **Tip:** for a more detailed explanation on the usage of `parameters`, see the [DataCatalog API documentation](https://docs.aws.amazon.com/athena/latest/APIReference/API_DataCatalog.html)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.athena.DataCatalog("example",
-            name="athena-data-catalog",
-            description="Example Athena data catalog",
-            type="LAMBDA",
-            parameters={
-                "function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function",
-            },
-            tags={
-                "Name": "example-athena-data-catalog",
-            })
-        ```
-
-        ### Hive based Data Catalog
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.athena.DataCatalog("example",
-            name="hive-data-catalog",
-            description="Hive based Data Catalog",
-            type="HIVE",
-            parameters={
-                "metadata-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function",
-            })
-        ```
-
-        ### Glue based Data Catalog
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.athena.DataCatalog("example",
-            name="glue-data-catalog",
-            description="Glue based Data Catalog",
-            type="GLUE",
-            parameters={
-                "catalog-id": "123456789012",
-            })
-        ```
-
-        ### Lambda based Data Catalog
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.athena.DataCatalog("example",
-            name="lambda-data-catalog",
-            description="Lambda based Data Catalog",
-            type="LAMBDA",
-            parameters={
-                "metadata-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-1",
-                "record-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-2",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import data catalogs using their `name`. For example:
-
-        ```sh
-        $ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
-        ```
-
+        Create a DataCatalog resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Description of the data catalog.
-        :param pulumi.Input[_builtins.str] name: Name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: Type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
         """
         ...
     @overload
@@ -361,84 +222,7 @@ class DataCatalog(pulumi.CustomResource):
                  args: DataCatalogArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Athena data catalog.
-
-        More information about Athena and Athena data catalogs can be found in the [Athena User Guide](https://docs.aws.amazon.com/athena/latest/ug/what-is.html).
-
-        > **Tip:** for a more detailed explanation on the usage of `parameters`, see the [DataCatalog API documentation](https://docs.aws.amazon.com/athena/latest/APIReference/API_DataCatalog.html)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.athena.DataCatalog("example",
-            name="athena-data-catalog",
-            description="Example Athena data catalog",
-            type="LAMBDA",
-            parameters={
-                "function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function",
-            },
-            tags={
-                "Name": "example-athena-data-catalog",
-            })
-        ```
-
-        ### Hive based Data Catalog
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.athena.DataCatalog("example",
-            name="hive-data-catalog",
-            description="Hive based Data Catalog",
-            type="HIVE",
-            parameters={
-                "metadata-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function",
-            })
-        ```
-
-        ### Glue based Data Catalog
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.athena.DataCatalog("example",
-            name="glue-data-catalog",
-            description="Glue based Data Catalog",
-            type="GLUE",
-            parameters={
-                "catalog-id": "123456789012",
-            })
-        ```
-
-        ### Lambda based Data Catalog
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.athena.DataCatalog("example",
-            name="lambda-data-catalog",
-            description="Lambda based Data Catalog",
-            type="LAMBDA",
-            parameters={
-                "metadata-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-1",
-                "record-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-2",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import data catalogs using their `name`. For example:
-
-        ```sh
-        $ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
-        ```
-
+        Create a DataCatalog resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DataCatalogArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -508,14 +292,6 @@ class DataCatalog(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the data catalog.
-        :param pulumi.Input[_builtins.str] description: Description of the data catalog.
-        :param pulumi.Input[_builtins.str] name: Name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: Type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -534,64 +310,40 @@ class DataCatalog(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the data catalog.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
-        """
-        Description of the data catalog.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
-        """
         return pulumi.get(self, "parameters")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
-        """
         return pulumi.get(self, "type")
 

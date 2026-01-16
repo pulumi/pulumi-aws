@@ -15,17 +15,9 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationArgs 
 
     public static final CatalogTableOptimizerConfigurationRetentionConfigurationArgs Empty = new CatalogTableOptimizerConfigurationRetentionConfigurationArgs();
 
-    /**
-     * The configuration for an Iceberg snapshot retention optimizer.
-     * 
-     */
     @Import(name="icebergConfiguration")
     private @Nullable Output<CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs> icebergConfiguration;
 
-    /**
-     * @return The configuration for an Iceberg snapshot retention optimizer.
-     * 
-     */
     public Optional<Output<CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs>> icebergConfiguration() {
         return Optional.ofNullable(this.icebergConfiguration);
     }
@@ -54,23 +46,11 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationArgs 
             $ = new CatalogTableOptimizerConfigurationRetentionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param icebergConfiguration The configuration for an Iceberg snapshot retention optimizer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder icebergConfiguration(@Nullable Output<CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs> icebergConfiguration) {
             $.icebergConfiguration = icebergConfiguration;
             return this;
         }
 
-        /**
-         * @param icebergConfiguration The configuration for an Iceberg snapshot retention optimizer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder icebergConfiguration(CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs icebergConfiguration) {
             return icebergConfiguration(Output.of(icebergConfiguration));
         }

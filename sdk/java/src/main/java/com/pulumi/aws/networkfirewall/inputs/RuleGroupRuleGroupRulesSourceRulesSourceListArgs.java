@@ -15,47 +15,23 @@ public final class RuleGroupRuleGroupRulesSourceRulesSourceListArgs extends com.
 
     public static final RuleGroupRuleGroupRulesSourceRulesSourceListArgs Empty = new RuleGroupRuleGroupRulesSourceRulesSourceListArgs();
 
-    /**
-     * String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
-     * 
-     */
     @Import(name="generatedRulesType", required=true)
     private Output<String> generatedRulesType;
 
-    /**
-     * @return String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
-     * 
-     */
     public Output<String> generatedRulesType() {
         return this.generatedRulesType;
     }
 
-    /**
-     * Set of types of domain specifications that are provided in the `targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
-     * 
-     */
     @Import(name="targetTypes", required=true)
     private Output<List<String>> targetTypes;
 
-    /**
-     * @return Set of types of domain specifications that are provided in the `targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
-     * 
-     */
     public Output<List<String>> targetTypes() {
         return this.targetTypes;
     }
 
-    /**
-     * Set of domains that you want to inspect for in your traffic flows.
-     * 
-     */
     @Import(name="targets", required=true)
     private Output<List<String>> targets;
 
-    /**
-     * @return Set of domains that you want to inspect for in your traffic flows.
-     * 
-     */
     public Output<List<String>> targets() {
         return this.targets;
     }
@@ -86,85 +62,37 @@ public final class RuleGroupRuleGroupRulesSourceRulesSourceListArgs extends com.
             $ = new RuleGroupRuleGroupRulesSourceRulesSourceListArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param generatedRulesType String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder generatedRulesType(Output<String> generatedRulesType) {
             $.generatedRulesType = generatedRulesType;
             return this;
         }
 
-        /**
-         * @param generatedRulesType String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder generatedRulesType(String generatedRulesType) {
             return generatedRulesType(Output.of(generatedRulesType));
         }
 
-        /**
-         * @param targetTypes Set of types of domain specifications that are provided in the `targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetTypes(Output<List<String>> targetTypes) {
             $.targetTypes = targetTypes;
             return this;
         }
 
-        /**
-         * @param targetTypes Set of types of domain specifications that are provided in the `targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetTypes(List<String> targetTypes) {
             return targetTypes(Output.of(targetTypes));
         }
 
-        /**
-         * @param targetTypes Set of types of domain specifications that are provided in the `targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetTypes(String... targetTypes) {
             return targetTypes(List.of(targetTypes));
         }
 
-        /**
-         * @param targets Set of domains that you want to inspect for in your traffic flows.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targets(Output<List<String>> targets) {
             $.targets = targets;
             return this;
         }
 
-        /**
-         * @param targets Set of domains that you want to inspect for in your traffic flows.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targets(List<String> targets) {
             return targets(Output.of(targets));
         }
 
-        /**
-         * @param targets Set of domains that you want to inspect for in your traffic flows.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targets(String... targets) {
             return targets(List.of(targets));
         }

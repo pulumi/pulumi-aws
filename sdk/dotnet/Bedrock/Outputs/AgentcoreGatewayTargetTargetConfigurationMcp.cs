@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcp
     {
-        /// <summary>
-        /// Lambda function target configuration. See `Lambda` below.
-        /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambda? Lambda;
-        /// <summary>
-        /// MCP server target configuration. See `McpServer` below.
-        /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServer? McpServer;
-        /// <summary>
-        /// OpenAPI schema-based target configuration. See `ApiSchemaConfiguration` below.
-        /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema? OpenApiSchema;
-        /// <summary>
-        /// Smithy model-based target configuration. See `ApiSchemaConfiguration` below.
-        /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel? SmithyModel;
 
         [OutputConstructor]

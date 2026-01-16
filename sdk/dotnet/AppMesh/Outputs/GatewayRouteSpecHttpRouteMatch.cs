@@ -13,29 +13,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GatewayRouteSpecHttpRouteMatch
     {
-        /// <summary>
-        /// Client request headers to match on.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GatewayRouteSpecHttpRouteMatchHeader> Headers;
-        /// <summary>
-        /// Host name to match on.
-        /// </summary>
         public readonly Outputs.GatewayRouteSpecHttpRouteMatchHostname? Hostname;
-        /// <summary>
-        /// Client request path to match on.
-        /// </summary>
         public readonly Outputs.GatewayRouteSpecHttpRouteMatchPath? Path;
-        /// <summary>
-        /// The port number to match from the request.
-        /// </summary>
         public readonly int? Port;
-        /// <summary>
-        /// Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
-        /// </summary>
         public readonly string? Prefix;
-        /// <summary>
-        /// Client request query parameters to match on.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GatewayRouteSpecHttpRouteMatchQueryParameter> QueryParameters;
 
         [OutputConstructor]

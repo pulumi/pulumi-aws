@@ -7,64 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS BCM Data Exports Export.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const currentGetPartition = aws.getPartition({});
- * const test = new aws.bcmdata.Export("test", {"export": {
- *     name: "testexample",
- *     dataQueries: [{
- *         queryStatement: "SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT",
- *         tableConfigurations: {
- *             COST_AND_USAGE_REPORT: {
- *                 BILLING_VIEW_ARN: Promise.all([currentGetPartition, current]).then(([currentGetPartition, current]) => `arn:${currentGetPartition.partition}:billing::${current.accountId}:billingview/primary`),
- *                 TIME_GRANULARITY: "HOURLY",
- *                 INCLUDE_RESOURCES: "FALSE",
- *                 INCLUDE_MANUAL_DISCOUNT_COMPATIBILITY: "FALSE",
- *                 INCLUDE_SPLIT_COST_ALLOCATION_DATA: "FALSE",
- *             },
- *         },
- *     }],
- *     destinationConfigurations: [{
- *         s3Destinations: [{
- *             s3Bucket: testAwsS3Bucket.bucket,
- *             s3Prefix: testAwsS3Bucket.bucketPrefix,
- *             s3Region: testAwsS3Bucket.region,
- *             s3OutputConfigurations: [{
- *                 overwrite: "OVERWRITE_REPORT",
- *                 format: "TEXT_OR_CSV",
- *                 compression: "GZIP",
- *                 outputType: "CUSTOM",
- *             }],
- *         }],
- *     }],
- *     refreshCadences: [{
- *         frequency: "SYNCHRONOUS",
- *     }],
- * }});
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the BCM Data Exports export.
- *
- * Using `pulumi import`, import BCM Data Exports Export using the export ARN. For example:
- *
- * % pulumi import aws_bcmdataexports_export.example arn:aws:bcm-data-exports:us-east-1:123456789012:export/CostUsageReport-9f1c75f3-f982-4d9a-b936-1e7ecab814b7
- */
 export class Export extends pulumi.CustomResource {
     /**
      * Get an existing Export resource's state with the given name, ID, and optional extra
@@ -93,18 +35,8 @@ export class Export extends pulumi.CustomResource {
         return obj['__pulumiType'] === Export.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) for this export.
-     * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-     */
     declare public readonly export: pulumi.Output<outputs.bcmdata.ExportExport | undefined>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.bcmdata.ExportTimeouts | undefined>;
@@ -144,18 +76,8 @@ export class Export extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Export resources.
  */
 export interface ExportState {
-    /**
-     * Amazon Resource Name (ARN) for this export.
-     * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-     */
     export?: pulumi.Input<inputs.bcmdata.ExportExport>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.bcmdata.ExportTimeouts>;
@@ -165,13 +87,7 @@ export interface ExportState {
  * The set of arguments for constructing a Export resource.
  */
 export interface ExportArgs {
-    /**
-     * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-     */
     export?: pulumi.Input<inputs.bcmdata.ExportExport>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.bcmdata.ExportTimeouts>;
 }

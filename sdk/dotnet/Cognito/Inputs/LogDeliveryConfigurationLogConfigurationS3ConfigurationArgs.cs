@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Cognito.Inputs
 
     public sealed class LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the S3 bucket to which the logs should be delivered.
-        /// </summary>
         [Input("bucketArn")]
         public Input<string>? BucketArn { get; set; }
 

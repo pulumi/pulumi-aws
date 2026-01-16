@@ -16,32 +16,16 @@ public final class ConnectorSftpConfigArgs extends com.pulumi.resources.Resource
 
     public static final ConnectorSftpConfigArgs Empty = new ConnectorSftpConfigArgs();
 
-    /**
-     * A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
-     * 
-     */
     @Import(name="trustedHostKeys")
     private @Nullable Output<List<String>> trustedHostKeys;
 
-    /**
-     * @return A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
-     * 
-     */
     public Optional<Output<List<String>>> trustedHostKeys() {
         return Optional.ofNullable(this.trustedHostKeys);
     }
 
-    /**
-     * The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
-     * 
-     */
     @Import(name="userSecretId")
     private @Nullable Output<String> userSecretId;
 
-    /**
-     * @return The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
-     * 
-     */
     public Optional<Output<String>> userSecretId() {
         return Optional.ofNullable(this.userSecretId);
     }
@@ -71,54 +55,24 @@ public final class ConnectorSftpConfigArgs extends com.pulumi.resources.Resource
             $ = new ConnectorSftpConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param trustedHostKeys A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
-         * 
-         * @return builder
-         * 
-         */
         public Builder trustedHostKeys(@Nullable Output<List<String>> trustedHostKeys) {
             $.trustedHostKeys = trustedHostKeys;
             return this;
         }
 
-        /**
-         * @param trustedHostKeys A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
-         * 
-         * @return builder
-         * 
-         */
         public Builder trustedHostKeys(List<String> trustedHostKeys) {
             return trustedHostKeys(Output.of(trustedHostKeys));
         }
 
-        /**
-         * @param trustedHostKeys A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
-         * 
-         * @return builder
-         * 
-         */
         public Builder trustedHostKeys(String... trustedHostKeys) {
             return trustedHostKeys(List.of(trustedHostKeys));
         }
 
-        /**
-         * @param userSecretId The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userSecretId(@Nullable Output<String> userSecretId) {
             $.userSecretId = userSecretId;
             return this;
         }
 
-        /**
-         * @param userSecretId The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userSecretId(String userSecretId) {
             return userSecretId(Output.of(userSecretId));
         }

@@ -12,79 +12,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages the specified primary contact information associated with an AWS Account.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/account"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := account.NewPrimaryContact(ctx, "test", &account.PrimaryContactArgs{
-//				AddressLine1:     pulumi.String("123 Any Street"),
-//				City:             pulumi.String("Seattle"),
-//				CompanyName:      pulumi.String("Example Corp, Inc."),
-//				CountryCode:      pulumi.String("US"),
-//				DistrictOrCounty: pulumi.String("King"),
-//				FullName:         pulumi.String("My Name"),
-//				PhoneNumber:      pulumi.String("+64211111111"),
-//				PostalCode:       pulumi.String("98101"),
-//				StateOrRegion:    pulumi.String("WA"),
-//				WebsiteUrl:       pulumi.String("https://www.examplecorp.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import the Primary Contact using the `account_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
-// ```
 type PrimaryContact struct {
 	pulumi.CustomResourceState
 
-	// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
-	AccountId pulumi.StringPtrOutput `pulumi:"accountId"`
-	// The first line of the primary contact address.
-	AddressLine1 pulumi.StringOutput `pulumi:"addressLine1"`
-	// The second line of the primary contact address, if any.
-	AddressLine2 pulumi.StringPtrOutput `pulumi:"addressLine2"`
-	// The third line of the primary contact address, if any.
-	AddressLine3 pulumi.StringPtrOutput `pulumi:"addressLine3"`
-	// The city of the primary contact address.
-	City pulumi.StringOutput `pulumi:"city"`
-	// The name of the company associated with the primary contact information, if any.
-	CompanyName pulumi.StringPtrOutput `pulumi:"companyName"`
-	// The ISO-3166 two-letter country code for the primary contact address.
-	CountryCode pulumi.StringOutput `pulumi:"countryCode"`
-	// The district or county of the primary contact address, if any.
+	AccountId        pulumi.StringPtrOutput `pulumi:"accountId"`
+	AddressLine1     pulumi.StringOutput    `pulumi:"addressLine1"`
+	AddressLine2     pulumi.StringPtrOutput `pulumi:"addressLine2"`
+	AddressLine3     pulumi.StringPtrOutput `pulumi:"addressLine3"`
+	City             pulumi.StringOutput    `pulumi:"city"`
+	CompanyName      pulumi.StringPtrOutput `pulumi:"companyName"`
+	CountryCode      pulumi.StringOutput    `pulumi:"countryCode"`
 	DistrictOrCounty pulumi.StringPtrOutput `pulumi:"districtOrCounty"`
-	// The full name of the primary contact address.
-	FullName pulumi.StringOutput `pulumi:"fullName"`
-	// The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
-	PhoneNumber pulumi.StringOutput `pulumi:"phoneNumber"`
-	// The postal code of the primary contact address.
-	PostalCode pulumi.StringOutput `pulumi:"postalCode"`
-	// The state or region of the primary contact address. This field is required in selected countries.
-	StateOrRegion pulumi.StringPtrOutput `pulumi:"stateOrRegion"`
-	// The URL of the website associated with the primary contact information, if any.
-	WebsiteUrl pulumi.StringPtrOutput `pulumi:"websiteUrl"`
+	FullName         pulumi.StringOutput    `pulumi:"fullName"`
+	PhoneNumber      pulumi.StringOutput    `pulumi:"phoneNumber"`
+	PostalCode       pulumi.StringOutput    `pulumi:"postalCode"`
+	StateOrRegion    pulumi.StringPtrOutput `pulumi:"stateOrRegion"`
+	WebsiteUrl       pulumi.StringPtrOutput `pulumi:"websiteUrl"`
 }
 
 // NewPrimaryContact registers a new resource with the given unique name, arguments, and options.
@@ -135,61 +78,35 @@ func GetPrimaryContact(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrimaryContact resources.
 type primaryContactState struct {
-	// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
-	AccountId *string `pulumi:"accountId"`
-	// The first line of the primary contact address.
-	AddressLine1 *string `pulumi:"addressLine1"`
-	// The second line of the primary contact address, if any.
-	AddressLine2 *string `pulumi:"addressLine2"`
-	// The third line of the primary contact address, if any.
-	AddressLine3 *string `pulumi:"addressLine3"`
-	// The city of the primary contact address.
-	City *string `pulumi:"city"`
-	// The name of the company associated with the primary contact information, if any.
-	CompanyName *string `pulumi:"companyName"`
-	// The ISO-3166 two-letter country code for the primary contact address.
-	CountryCode *string `pulumi:"countryCode"`
-	// The district or county of the primary contact address, if any.
+	AccountId        *string `pulumi:"accountId"`
+	AddressLine1     *string `pulumi:"addressLine1"`
+	AddressLine2     *string `pulumi:"addressLine2"`
+	AddressLine3     *string `pulumi:"addressLine3"`
+	City             *string `pulumi:"city"`
+	CompanyName      *string `pulumi:"companyName"`
+	CountryCode      *string `pulumi:"countryCode"`
 	DistrictOrCounty *string `pulumi:"districtOrCounty"`
-	// The full name of the primary contact address.
-	FullName *string `pulumi:"fullName"`
-	// The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
-	PhoneNumber *string `pulumi:"phoneNumber"`
-	// The postal code of the primary contact address.
-	PostalCode *string `pulumi:"postalCode"`
-	// The state or region of the primary contact address. This field is required in selected countries.
-	StateOrRegion *string `pulumi:"stateOrRegion"`
-	// The URL of the website associated with the primary contact information, if any.
-	WebsiteUrl *string `pulumi:"websiteUrl"`
+	FullName         *string `pulumi:"fullName"`
+	PhoneNumber      *string `pulumi:"phoneNumber"`
+	PostalCode       *string `pulumi:"postalCode"`
+	StateOrRegion    *string `pulumi:"stateOrRegion"`
+	WebsiteUrl       *string `pulumi:"websiteUrl"`
 }
 
 type PrimaryContactState struct {
-	// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
-	AccountId pulumi.StringPtrInput
-	// The first line of the primary contact address.
-	AddressLine1 pulumi.StringPtrInput
-	// The second line of the primary contact address, if any.
-	AddressLine2 pulumi.StringPtrInput
-	// The third line of the primary contact address, if any.
-	AddressLine3 pulumi.StringPtrInput
-	// The city of the primary contact address.
-	City pulumi.StringPtrInput
-	// The name of the company associated with the primary contact information, if any.
-	CompanyName pulumi.StringPtrInput
-	// The ISO-3166 two-letter country code for the primary contact address.
-	CountryCode pulumi.StringPtrInput
-	// The district or county of the primary contact address, if any.
+	AccountId        pulumi.StringPtrInput
+	AddressLine1     pulumi.StringPtrInput
+	AddressLine2     pulumi.StringPtrInput
+	AddressLine3     pulumi.StringPtrInput
+	City             pulumi.StringPtrInput
+	CompanyName      pulumi.StringPtrInput
+	CountryCode      pulumi.StringPtrInput
 	DistrictOrCounty pulumi.StringPtrInput
-	// The full name of the primary contact address.
-	FullName pulumi.StringPtrInput
-	// The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
-	PhoneNumber pulumi.StringPtrInput
-	// The postal code of the primary contact address.
-	PostalCode pulumi.StringPtrInput
-	// The state or region of the primary contact address. This field is required in selected countries.
-	StateOrRegion pulumi.StringPtrInput
-	// The URL of the website associated with the primary contact information, if any.
-	WebsiteUrl pulumi.StringPtrInput
+	FullName         pulumi.StringPtrInput
+	PhoneNumber      pulumi.StringPtrInput
+	PostalCode       pulumi.StringPtrInput
+	StateOrRegion    pulumi.StringPtrInput
+	WebsiteUrl       pulumi.StringPtrInput
 }
 
 func (PrimaryContactState) ElementType() reflect.Type {
@@ -197,62 +114,36 @@ func (PrimaryContactState) ElementType() reflect.Type {
 }
 
 type primaryContactArgs struct {
-	// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
-	AccountId *string `pulumi:"accountId"`
-	// The first line of the primary contact address.
-	AddressLine1 string `pulumi:"addressLine1"`
-	// The second line of the primary contact address, if any.
-	AddressLine2 *string `pulumi:"addressLine2"`
-	// The third line of the primary contact address, if any.
-	AddressLine3 *string `pulumi:"addressLine3"`
-	// The city of the primary contact address.
-	City string `pulumi:"city"`
-	// The name of the company associated with the primary contact information, if any.
-	CompanyName *string `pulumi:"companyName"`
-	// The ISO-3166 two-letter country code for the primary contact address.
-	CountryCode string `pulumi:"countryCode"`
-	// The district or county of the primary contact address, if any.
+	AccountId        *string `pulumi:"accountId"`
+	AddressLine1     string  `pulumi:"addressLine1"`
+	AddressLine2     *string `pulumi:"addressLine2"`
+	AddressLine3     *string `pulumi:"addressLine3"`
+	City             string  `pulumi:"city"`
+	CompanyName      *string `pulumi:"companyName"`
+	CountryCode      string  `pulumi:"countryCode"`
 	DistrictOrCounty *string `pulumi:"districtOrCounty"`
-	// The full name of the primary contact address.
-	FullName string `pulumi:"fullName"`
-	// The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
-	PhoneNumber string `pulumi:"phoneNumber"`
-	// The postal code of the primary contact address.
-	PostalCode string `pulumi:"postalCode"`
-	// The state or region of the primary contact address. This field is required in selected countries.
-	StateOrRegion *string `pulumi:"stateOrRegion"`
-	// The URL of the website associated with the primary contact information, if any.
-	WebsiteUrl *string `pulumi:"websiteUrl"`
+	FullName         string  `pulumi:"fullName"`
+	PhoneNumber      string  `pulumi:"phoneNumber"`
+	PostalCode       string  `pulumi:"postalCode"`
+	StateOrRegion    *string `pulumi:"stateOrRegion"`
+	WebsiteUrl       *string `pulumi:"websiteUrl"`
 }
 
 // The set of arguments for constructing a PrimaryContact resource.
 type PrimaryContactArgs struct {
-	// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
-	AccountId pulumi.StringPtrInput
-	// The first line of the primary contact address.
-	AddressLine1 pulumi.StringInput
-	// The second line of the primary contact address, if any.
-	AddressLine2 pulumi.StringPtrInput
-	// The third line of the primary contact address, if any.
-	AddressLine3 pulumi.StringPtrInput
-	// The city of the primary contact address.
-	City pulumi.StringInput
-	// The name of the company associated with the primary contact information, if any.
-	CompanyName pulumi.StringPtrInput
-	// The ISO-3166 two-letter country code for the primary contact address.
-	CountryCode pulumi.StringInput
-	// The district or county of the primary contact address, if any.
+	AccountId        pulumi.StringPtrInput
+	AddressLine1     pulumi.StringInput
+	AddressLine2     pulumi.StringPtrInput
+	AddressLine3     pulumi.StringPtrInput
+	City             pulumi.StringInput
+	CompanyName      pulumi.StringPtrInput
+	CountryCode      pulumi.StringInput
 	DistrictOrCounty pulumi.StringPtrInput
-	// The full name of the primary contact address.
-	FullName pulumi.StringInput
-	// The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
-	PhoneNumber pulumi.StringInput
-	// The postal code of the primary contact address.
-	PostalCode pulumi.StringInput
-	// The state or region of the primary contact address. This field is required in selected countries.
-	StateOrRegion pulumi.StringPtrInput
-	// The URL of the website associated with the primary contact information, if any.
-	WebsiteUrl pulumi.StringPtrInput
+	FullName         pulumi.StringInput
+	PhoneNumber      pulumi.StringInput
+	PostalCode       pulumi.StringInput
+	StateOrRegion    pulumi.StringPtrInput
+	WebsiteUrl       pulumi.StringPtrInput
 }
 
 func (PrimaryContactArgs) ElementType() reflect.Type {
@@ -342,67 +233,54 @@ func (o PrimaryContactOutput) ToPrimaryContactOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
 func (o PrimaryContactOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrimaryContact) pulumi.StringPtrOutput { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
-// The first line of the primary contact address.
 func (o PrimaryContactOutput) AddressLine1() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrimaryContact) pulumi.StringOutput { return v.AddressLine1 }).(pulumi.StringOutput)
 }
 
-// The second line of the primary contact address, if any.
 func (o PrimaryContactOutput) AddressLine2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrimaryContact) pulumi.StringPtrOutput { return v.AddressLine2 }).(pulumi.StringPtrOutput)
 }
 
-// The third line of the primary contact address, if any.
 func (o PrimaryContactOutput) AddressLine3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrimaryContact) pulumi.StringPtrOutput { return v.AddressLine3 }).(pulumi.StringPtrOutput)
 }
 
-// The city of the primary contact address.
 func (o PrimaryContactOutput) City() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrimaryContact) pulumi.StringOutput { return v.City }).(pulumi.StringOutput)
 }
 
-// The name of the company associated with the primary contact information, if any.
 func (o PrimaryContactOutput) CompanyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrimaryContact) pulumi.StringPtrOutput { return v.CompanyName }).(pulumi.StringPtrOutput)
 }
 
-// The ISO-3166 two-letter country code for the primary contact address.
 func (o PrimaryContactOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrimaryContact) pulumi.StringOutput { return v.CountryCode }).(pulumi.StringOutput)
 }
 
-// The district or county of the primary contact address, if any.
 func (o PrimaryContactOutput) DistrictOrCounty() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrimaryContact) pulumi.StringPtrOutput { return v.DistrictOrCounty }).(pulumi.StringPtrOutput)
 }
 
-// The full name of the primary contact address.
 func (o PrimaryContactOutput) FullName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrimaryContact) pulumi.StringOutput { return v.FullName }).(pulumi.StringOutput)
 }
 
-// The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
 func (o PrimaryContactOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrimaryContact) pulumi.StringOutput { return v.PhoneNumber }).(pulumi.StringOutput)
 }
 
-// The postal code of the primary contact address.
 func (o PrimaryContactOutput) PostalCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrimaryContact) pulumi.StringOutput { return v.PostalCode }).(pulumi.StringOutput)
 }
 
-// The state or region of the primary contact address. This field is required in selected countries.
 func (o PrimaryContactOutput) StateOrRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrimaryContact) pulumi.StringPtrOutput { return v.StateOrRegion }).(pulumi.StringPtrOutput)
 }
 
-// The URL of the website associated with the primary contact information, if any.
 func (o PrimaryContactOutput) WebsiteUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrimaryContact) pulumi.StringPtrOutput { return v.WebsiteUrl }).(pulumi.StringPtrOutput)
 }

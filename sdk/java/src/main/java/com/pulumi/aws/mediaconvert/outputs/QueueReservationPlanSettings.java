@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class QueueReservationPlanSettings {
-    /**
-     * @return The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
-     * 
-     */
     private String commitment;
-    /**
-     * @return Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
-     * 
-     */
     private String renewalType;
-    /**
-     * @return Specifies the number of reserved transcode slots (RTS) for queue.
-     * 
-     */
     private Integer reservedSlots;
 
     private QueueReservationPlanSettings() {}
-    /**
-     * @return The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
-     * 
-     */
     public String commitment() {
         return this.commitment;
     }
-    /**
-     * @return Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
-     * 
-     */
     public String renewalType() {
         return this.renewalType;
     }
-    /**
-     * @return Specifies the number of reserved transcode slots (RTS) for queue.
-     * 
-     */
     public Integer reservedSlots() {
         return this.reservedSlots;
     }

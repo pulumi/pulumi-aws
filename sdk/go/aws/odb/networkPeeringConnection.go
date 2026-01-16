@@ -12,74 +12,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/odb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := odb.NewNetworkPeeringConnection(ctx, "example", &odb.NetworkPeeringConnectionArgs{
-//				DisplayName:   pulumi.String("example"),
-//				OdbNetworkId:  pulumi.String("my-odb-network-id"),
-//				PeerNetworkId: pulumi.String("my-vpc-id"),
-//				Tags: pulumi.StringMap{
-//					"env": pulumi.String("dev"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import odb network peering using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:odb/networkPeeringConnection:NetworkPeeringConnection example example
-// ```
 type NetworkPeeringConnection struct {
 	pulumi.CustomResourceState
 
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Created time of the ODB network peering connection.
+	// Created time of the odb network peering connection.
 	CreatedAt   pulumi.StringOutput `pulumi:"createdAt"`
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// ARN of the odb network peering connection.
 	OdbNetworkArn pulumi.StringOutput `pulumi:"odbNetworkArn"`
 	OdbNetworkId  pulumi.StringOutput `pulumi:"odbNetworkId"`
-	// Type of the ODB peering connection.
+	// Type of the odb peering connection.
 	OdbPeeringConnectionType pulumi.StringOutput `pulumi:"odbPeeringConnectionType"`
 	// ARN of the peer network peering connection.
 	PeerNetworkArn pulumi.StringOutput `pulumi:"peerNetworkArn"`
 	PeerNetworkId  pulumi.StringOutput `pulumi:"peerNetworkId"`
-	// Progress of the ODB network peering connection.
+	// Progress of the odb network peering connection.
 	PercentProgress pulumi.Float64Output `pulumi:"percentProgress"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Status of the ODB network peering connection.
+	Region          pulumi.StringOutput  `pulumi:"region"`
+	// Status of the odb network peering connection.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// The reason for the current status of the ODB peering connection.
-	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including inherited tags.
-	TagsAll  pulumi.StringMapOutput                    `pulumi:"tagsAll"`
-	Timeouts NetworkPeeringConnectionTimeoutsPtrOutput `pulumi:"timeouts"`
+	// The reason for the current status of the ODB peering connection..
+	StatusReason pulumi.StringOutput                       `pulumi:"statusReason"`
+	Tags         pulumi.StringMapOutput                    `pulumi:"tags"`
+	TagsAll      pulumi.StringMapOutput                    `pulumi:"tagsAll"`
+	Timeouts     NetworkPeeringConnectionTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewNetworkPeeringConnection registers a new resource with the given unique name, arguments, and options.
@@ -119,58 +76,52 @@ func GetNetworkPeeringConnection(ctx *pulumi.Context,
 // Input properties used for looking up and filtering NetworkPeeringConnection resources.
 type networkPeeringConnectionState struct {
 	Arn *string `pulumi:"arn"`
-	// Created time of the ODB network peering connection.
+	// Created time of the odb network peering connection.
 	CreatedAt   *string `pulumi:"createdAt"`
 	DisplayName *string `pulumi:"displayName"`
 	// ARN of the odb network peering connection.
 	OdbNetworkArn *string `pulumi:"odbNetworkArn"`
 	OdbNetworkId  *string `pulumi:"odbNetworkId"`
-	// Type of the ODB peering connection.
+	// Type of the odb peering connection.
 	OdbPeeringConnectionType *string `pulumi:"odbPeeringConnectionType"`
 	// ARN of the peer network peering connection.
 	PeerNetworkArn *string `pulumi:"peerNetworkArn"`
 	PeerNetworkId  *string `pulumi:"peerNetworkId"`
-	// Progress of the ODB network peering connection.
+	// Progress of the odb network peering connection.
 	PercentProgress *float64 `pulumi:"percentProgress"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Status of the ODB network peering connection.
+	Region          *string  `pulumi:"region"`
+	// Status of the odb network peering connection.
 	Status *string `pulumi:"status"`
-	// The reason for the current status of the ODB peering connection.
-	StatusReason *string `pulumi:"statusReason"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including inherited tags.
-	TagsAll  map[string]string                 `pulumi:"tagsAll"`
-	Timeouts *NetworkPeeringConnectionTimeouts `pulumi:"timeouts"`
+	// The reason for the current status of the ODB peering connection..
+	StatusReason *string                           `pulumi:"statusReason"`
+	Tags         map[string]string                 `pulumi:"tags"`
+	TagsAll      map[string]string                 `pulumi:"tagsAll"`
+	Timeouts     *NetworkPeeringConnectionTimeouts `pulumi:"timeouts"`
 }
 
 type NetworkPeeringConnectionState struct {
 	Arn pulumi.StringPtrInput
-	// Created time of the ODB network peering connection.
+	// Created time of the odb network peering connection.
 	CreatedAt   pulumi.StringPtrInput
 	DisplayName pulumi.StringPtrInput
 	// ARN of the odb network peering connection.
 	OdbNetworkArn pulumi.StringPtrInput
 	OdbNetworkId  pulumi.StringPtrInput
-	// Type of the ODB peering connection.
+	// Type of the odb peering connection.
 	OdbPeeringConnectionType pulumi.StringPtrInput
 	// ARN of the peer network peering connection.
 	PeerNetworkArn pulumi.StringPtrInput
 	PeerNetworkId  pulumi.StringPtrInput
-	// Progress of the ODB network peering connection.
+	// Progress of the odb network peering connection.
 	PercentProgress pulumi.Float64PtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Status of the ODB network peering connection.
+	Region          pulumi.StringPtrInput
+	// Status of the odb network peering connection.
 	Status pulumi.StringPtrInput
-	// The reason for the current status of the ODB peering connection.
+	// The reason for the current status of the ODB peering connection..
 	StatusReason pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including inherited tags.
-	TagsAll  pulumi.StringMapInput
-	Timeouts NetworkPeeringConnectionTimeoutsPtrInput
+	Tags         pulumi.StringMapInput
+	TagsAll      pulumi.StringMapInput
+	Timeouts     NetworkPeeringConnectionTimeoutsPtrInput
 }
 
 func (NetworkPeeringConnectionState) ElementType() reflect.Type {
@@ -180,14 +131,12 @@ func (NetworkPeeringConnectionState) ElementType() reflect.Type {
 type networkPeeringConnectionArgs struct {
 	DisplayName string `pulumi:"displayName"`
 	// ARN of the odb network peering connection.
-	OdbNetworkArn *string `pulumi:"odbNetworkArn"`
-	OdbNetworkId  *string `pulumi:"odbNetworkId"`
-	PeerNetworkId string  `pulumi:"peerNetworkId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string                 `pulumi:"tags"`
-	Timeouts *NetworkPeeringConnectionTimeouts `pulumi:"timeouts"`
+	OdbNetworkArn *string                           `pulumi:"odbNetworkArn"`
+	OdbNetworkId  *string                           `pulumi:"odbNetworkId"`
+	PeerNetworkId string                            `pulumi:"peerNetworkId"`
+	Region        *string                           `pulumi:"region"`
+	Tags          map[string]string                 `pulumi:"tags"`
+	Timeouts      *NetworkPeeringConnectionTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a NetworkPeeringConnection resource.
@@ -197,11 +146,9 @@ type NetworkPeeringConnectionArgs struct {
 	OdbNetworkArn pulumi.StringPtrInput
 	OdbNetworkId  pulumi.StringPtrInput
 	PeerNetworkId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts NetworkPeeringConnectionTimeoutsPtrInput
+	Region        pulumi.StringPtrInput
+	Tags          pulumi.StringMapInput
+	Timeouts      NetworkPeeringConnectionTimeoutsPtrInput
 }
 
 func (NetworkPeeringConnectionArgs) ElementType() reflect.Type {
@@ -295,7 +242,7 @@ func (o NetworkPeeringConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkPeeringConnection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Created time of the ODB network peering connection.
+// Created time of the odb network peering connection.
 func (o NetworkPeeringConnectionOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkPeeringConnection) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
@@ -313,7 +260,7 @@ func (o NetworkPeeringConnectionOutput) OdbNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkPeeringConnection) pulumi.StringOutput { return v.OdbNetworkId }).(pulumi.StringOutput)
 }
 
-// Type of the ODB peering connection.
+// Type of the odb peering connection.
 func (o NetworkPeeringConnectionOutput) OdbPeeringConnectionType() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkPeeringConnection) pulumi.StringOutput { return v.OdbPeeringConnectionType }).(pulumi.StringOutput)
 }
@@ -327,32 +274,29 @@ func (o NetworkPeeringConnectionOutput) PeerNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkPeeringConnection) pulumi.StringOutput { return v.PeerNetworkId }).(pulumi.StringOutput)
 }
 
-// Progress of the ODB network peering connection.
+// Progress of the odb network peering connection.
 func (o NetworkPeeringConnectionOutput) PercentProgress() pulumi.Float64Output {
 	return o.ApplyT(func(v *NetworkPeeringConnection) pulumi.Float64Output { return v.PercentProgress }).(pulumi.Float64Output)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NetworkPeeringConnectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkPeeringConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Status of the ODB network peering connection.
+// Status of the odb network peering connection.
 func (o NetworkPeeringConnectionOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkPeeringConnection) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// The reason for the current status of the ODB peering connection.
+// The reason for the current status of the ODB peering connection..
 func (o NetworkPeeringConnectionOutput) StatusReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkPeeringConnection) pulumi.StringOutput { return v.StatusReason }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o NetworkPeeringConnectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkPeeringConnection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including inherited tags.
 func (o NetworkPeeringConnectionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkPeeringConnection) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

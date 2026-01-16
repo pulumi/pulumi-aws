@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class TopicRuleErrorActionTimestreamTimestamp
     {
-        /// <summary>
-        /// The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
-        /// </summary>
         public readonly string Unit;
-        /// <summary>
-        /// An expression that returns a long epoch time value.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

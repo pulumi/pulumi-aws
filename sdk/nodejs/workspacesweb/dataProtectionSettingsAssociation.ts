@@ -4,25 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS WorkSpaces Web Data Protection Settings Association.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.workspacesweb.Portal("example", {displayName: "example"});
- * const exampleDataProtectionSettings = new aws.workspacesweb.DataProtectionSettings("example", {displayName: "example"});
- * const exampleDataProtectionSettingsAssociation = new aws.workspacesweb.DataProtectionSettingsAssociation("example", {
- *     dataProtectionSettingsArn: exampleDataProtectionSettings.dataProtectionSettingsArn,
- *     portalArn: example.portalArn,
- * });
- * ```
- */
 export class DataProtectionSettingsAssociation extends pulumi.CustomResource {
     /**
      * Get an existing DataProtectionSettingsAssociation resource's state with the given name, ID, and optional extra
@@ -51,19 +32,8 @@ export class DataProtectionSettingsAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === DataProtectionSettingsAssociation.__pulumiType;
     }
 
-    /**
-     * ARN of the data protection settings to associate with the portal. Forces replacement if changed.
-     */
     declare public readonly dataProtectionSettingsArn: pulumi.Output<string>;
-    /**
-     * ARN of the portal to associate with the data protection settings. Forces replacement if changed.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly portalArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -103,19 +73,8 @@ export class DataProtectionSettingsAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DataProtectionSettingsAssociation resources.
  */
 export interface DataProtectionSettingsAssociationState {
-    /**
-     * ARN of the data protection settings to associate with the portal. Forces replacement if changed.
-     */
     dataProtectionSettingsArn?: pulumi.Input<string>;
-    /**
-     * ARN of the portal to associate with the data protection settings. Forces replacement if changed.
-     *
-     * The following arguments are optional:
-     */
     portalArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -123,18 +82,7 @@ export interface DataProtectionSettingsAssociationState {
  * The set of arguments for constructing a DataProtectionSettingsAssociation resource.
  */
 export interface DataProtectionSettingsAssociationArgs {
-    /**
-     * ARN of the data protection settings to associate with the portal. Forces replacement if changed.
-     */
     dataProtectionSettingsArn: pulumi.Input<string>;
-    /**
-     * ARN of the portal to associate with the data protection settings. Forces replacement if changed.
-     *
-     * The following arguments are optional:
-     */
     portalArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

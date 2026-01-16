@@ -13,21 +13,9 @@ namespace Pulumi.Aws.EmrServerless.Outputs
     [OutputType]
     public sealed class ApplicationMonitoringConfiguration
     {
-        /// <summary>
-        /// The Amazon CloudWatch configuration for monitoring logs.
-        /// </summary>
         public readonly Outputs.ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration? CloudwatchLoggingConfiguration;
-        /// <summary>
-        /// The managed log persistence configuration for monitoring logs.
-        /// </summary>
         public readonly Outputs.ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration? ManagedPersistenceMonitoringConfiguration;
-        /// <summary>
-        /// The Prometheus configuration for monitoring metrics.
-        /// </summary>
         public readonly Outputs.ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration? PrometheusMonitoringConfiguration;
-        /// <summary>
-        /// The Amazon S3 configuration for monitoring log publishing.
-        /// </summary>
         public readonly Outputs.ApplicationMonitoringConfigurationS3MonitoringConfiguration? S3MonitoringConfiguration;
 
         [OutputConstructor]

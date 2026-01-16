@@ -13,25 +13,10 @@ namespace Pulumi.Aws.EmrContainers.Outputs
     [OutputType]
     public sealed class JobTemplateJobTemplateData
     {
-        /// <summary>
-        /// The configuration settings that are used to override defaults configuration.
-        /// </summary>
         public readonly Outputs.JobTemplateJobTemplateDataConfigurationOverrides? ConfigurationOverrides;
-        /// <summary>
-        /// The execution role ARN of the job run.
-        /// </summary>
         public readonly string ExecutionRoleArn;
-        /// <summary>
-        /// Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either sparkSqlJobDriver or sparkSubmitJobDriver.
-        /// </summary>
         public readonly Outputs.JobTemplateJobTemplateDataJobDriver JobDriver;
-        /// <summary>
-        /// The tags assigned to jobs started using the job template.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? JobTags;
-        /// <summary>
-        /// The release version of Amazon EMR.
-        /// </summary>
         public readonly string ReleaseLabel;
 
         [OutputConstructor]

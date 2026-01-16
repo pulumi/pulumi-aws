@@ -15,154 +15,72 @@ public final class GetListenerRuleActionAuthenticateOidc extends com.pulumi.reso
 
     public static final GetListenerRuleActionAuthenticateOidc Empty = new GetListenerRuleActionAuthenticateOidc();
 
-    /**
-     * Set of additional parameters for the request.
-     * Detailed below.
-     * 
-     */
     @Import(name="authenticationRequestExtraParams", required=true)
     private Map<String,String> authenticationRequestExtraParams;
 
-    /**
-     * @return Set of additional parameters for the request.
-     * Detailed below.
-     * 
-     */
     public Map<String,String> authenticationRequestExtraParams() {
         return this.authenticationRequestExtraParams;
     }
 
-    /**
-     * The authorization endpoint of the IdP.
-     * 
-     */
     @Import(name="authorizationEndpoint", required=true)
     private String authorizationEndpoint;
 
-    /**
-     * @return The authorization endpoint of the IdP.
-     * 
-     */
     public String authorizationEndpoint() {
         return this.authorizationEndpoint;
     }
 
-    /**
-     * OAuth 2.0 client identifier.
-     * 
-     */
     @Import(name="clientId", required=true)
     private String clientId;
 
-    /**
-     * @return OAuth 2.0 client identifier.
-     * 
-     */
     public String clientId() {
         return this.clientId;
     }
 
-    /**
-     * Issuer of the JWT.
-     * 
-     */
     @Import(name="issuer", required=true)
     private String issuer;
 
-    /**
-     * @return Issuer of the JWT.
-     * 
-     */
     public String issuer() {
         return this.issuer;
     }
 
-    /**
-     * Behavior when the client is not authenticated.
-     * 
-     */
     @Import(name="onUnauthenticatedRequest", required=true)
     private String onUnauthenticatedRequest;
 
-    /**
-     * @return Behavior when the client is not authenticated.
-     * 
-     */
     public String onUnauthenticatedRequest() {
         return this.onUnauthenticatedRequest;
     }
 
-    /**
-     * Set of user claims requested.
-     * 
-     */
     @Import(name="scope", required=true)
     private String scope;
 
-    /**
-     * @return Set of user claims requested.
-     * 
-     */
     public String scope() {
         return this.scope;
     }
 
-    /**
-     * Name of the cookie used to maintain session information.
-     * 
-     */
     @Import(name="sessionCookieName", required=true)
     private String sessionCookieName;
 
-    /**
-     * @return Name of the cookie used to maintain session information.
-     * 
-     */
     public String sessionCookieName() {
         return this.sessionCookieName;
     }
 
-    /**
-     * Maximum duration of the authentication session in seconds.
-     * 
-     */
     @Import(name="sessionTimeout", required=true)
     private Integer sessionTimeout;
 
-    /**
-     * @return Maximum duration of the authentication session in seconds.
-     * 
-     */
     public Integer sessionTimeout() {
         return this.sessionTimeout;
     }
 
-    /**
-     * The token endpoint of the IdP.
-     * 
-     */
     @Import(name="tokenEndpoint", required=true)
     private String tokenEndpoint;
 
-    /**
-     * @return The token endpoint of the IdP.
-     * 
-     */
     public String tokenEndpoint() {
         return this.tokenEndpoint;
     }
 
-    /**
-     * The user info endpoint of the IdP.
-     * 
-     */
     @Import(name="userInfoEndpoint", required=true)
     private String userInfoEndpoint;
 
-    /**
-     * @return The user info endpoint of the IdP.
-     * 
-     */
     public String userInfoEndpoint() {
         return this.userInfoEndpoint;
     }
@@ -200,112 +118,51 @@ public final class GetListenerRuleActionAuthenticateOidc extends com.pulumi.reso
             $ = new GetListenerRuleActionAuthenticateOidc(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authenticationRequestExtraParams Set of additional parameters for the request.
-         * Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationRequestExtraParams(Map<String,String> authenticationRequestExtraParams) {
             $.authenticationRequestExtraParams = authenticationRequestExtraParams;
             return this;
         }
 
-        /**
-         * @param authorizationEndpoint The authorization endpoint of the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationEndpoint(String authorizationEndpoint) {
             $.authorizationEndpoint = authorizationEndpoint;
             return this;
         }
 
-        /**
-         * @param clientId OAuth 2.0 client identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientId(String clientId) {
             $.clientId = clientId;
             return this;
         }
 
-        /**
-         * @param issuer Issuer of the JWT.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issuer(String issuer) {
             $.issuer = issuer;
             return this;
         }
 
-        /**
-         * @param onUnauthenticatedRequest Behavior when the client is not authenticated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onUnauthenticatedRequest(String onUnauthenticatedRequest) {
             $.onUnauthenticatedRequest = onUnauthenticatedRequest;
             return this;
         }
 
-        /**
-         * @param scope Set of user claims requested.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scope(String scope) {
             $.scope = scope;
             return this;
         }
 
-        /**
-         * @param sessionCookieName Name of the cookie used to maintain session information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sessionCookieName(String sessionCookieName) {
             $.sessionCookieName = sessionCookieName;
             return this;
         }
 
-        /**
-         * @param sessionTimeout Maximum duration of the authentication session in seconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sessionTimeout(Integer sessionTimeout) {
             $.sessionTimeout = sessionTimeout;
             return this;
         }
 
-        /**
-         * @param tokenEndpoint The token endpoint of the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tokenEndpoint(String tokenEndpoint) {
             $.tokenEndpoint = tokenEndpoint;
             return this;
         }
 
-        /**
-         * @param userInfoEndpoint The user info endpoint of the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userInfoEndpoint(String userInfoEndpoint) {
             $.userInfoEndpoint = userInfoEndpoint;
             return this;

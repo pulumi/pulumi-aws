@@ -12,21 +12,12 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Settings specific to the container type of the file. See Container Settings for more details.
-        /// </summary>
         [Input("containerSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs>? ContainerSettings { get; set; }
 
-        /// <summary>
-        /// Output file extension.
-        /// </summary>
         [Input("extension")]
         public Input<string>? Extension { get; set; }
 
-        /// <summary>
-        /// String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-        /// </summary>
         [Input("nameModifier")]
         public Input<string>? NameModifier { get; set; }
 

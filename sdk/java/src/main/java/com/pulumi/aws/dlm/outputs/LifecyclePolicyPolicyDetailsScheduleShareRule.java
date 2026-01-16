@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LifecyclePolicyPolicyDetailsScheduleShareRule {
-    /**
-     * @return The IDs of the AWS accounts with which to share the snapshots.
-     * 
-     */
     private List<String> targetAccounts;
-    /**
-     * @return The period after which snapshots that are shared with other AWS accounts are automatically unshared.
-     * 
-     */
     private @Nullable Integer unshareInterval;
-    /**
-     * @return The unit of time for the automatic unsharing interval. Valid values are `DAYS`, `WEEKS`, `MONTHS`, `YEARS`.
-     * 
-     */
     private @Nullable String unshareIntervalUnit;
 
     private LifecyclePolicyPolicyDetailsScheduleShareRule() {}
-    /**
-     * @return The IDs of the AWS accounts with which to share the snapshots.
-     * 
-     */
     public List<String> targetAccounts() {
         return this.targetAccounts;
     }
-    /**
-     * @return The period after which snapshots that are shared with other AWS accounts are automatically unshared.
-     * 
-     */
     public Optional<Integer> unshareInterval() {
         return Optional.ofNullable(this.unshareInterval);
     }
-    /**
-     * @return The unit of time for the automatic unsharing interval. Valid values are `DAYS`, `WEEKS`, `MONTHS`, `YEARS`.
-     * 
-     */
     public Optional<String> unshareIntervalUnit() {
         return Optional.ofNullable(this.unshareIntervalUnit);
     }

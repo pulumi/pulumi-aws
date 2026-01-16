@@ -16,110 +16,44 @@ public final class NotificationConfigurationState extends com.pulumi.resources.R
 
     public static final NotificationConfigurationState Empty = new NotificationConfigurationState();
 
-    /**
-     * Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
-     * aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don&#39;t aggregate
-     * notifications). Default: `NONE`.
-     * 
-     */
     @Import(name="aggregationDuration")
     private @Nullable Output<String> aggregationDuration;
 
-    /**
-     * @return Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
-     * aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don&#39;t aggregate
-     * notifications). Default: `NONE`.
-     * 
-     */
     public Optional<Output<String>> aggregationDuration() {
         return Optional.ofNullable(this.aggregationDuration);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the NotificationConfiguration.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the NotificationConfiguration.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
-     * maximum length of 256.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
-     * maximum length of 256.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Name of the NotificationConfiguration. Supports RFC 3986&#39;s unreserved characters. Length
-     * constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\-]+`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the NotificationConfiguration. Supports RFC 3986&#39;s unreserved characters. Length
-     * constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\-]+`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-     * configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those
-     * defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-     * configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those
-     * defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags`
-     * configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags`
-     * configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -153,146 +87,56 @@ public final class NotificationConfigurationState extends com.pulumi.resources.R
             $ = new NotificationConfigurationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param aggregationDuration Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
-         * aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don&#39;t aggregate
-         * notifications). Default: `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aggregationDuration(@Nullable Output<String> aggregationDuration) {
             $.aggregationDuration = aggregationDuration;
             return this;
         }
 
-        /**
-         * @param aggregationDuration Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
-         * aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don&#39;t aggregate
-         * notifications). Default: `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aggregationDuration(String aggregationDuration) {
             return aggregationDuration(Output.of(aggregationDuration));
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the NotificationConfiguration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the NotificationConfiguration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param description Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
-         * maximum length of 256.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
-         * maximum length of 256.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param name Name of the NotificationConfiguration. Supports RFC 3986&#39;s unreserved characters. Length
-         * constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\-]+`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the NotificationConfiguration. Supports RFC 3986&#39;s unreserved characters. Length
-         * constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\-]+`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-         * configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those
-         * defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-         * configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those
-         * defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags`
-         * configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags`
-         * configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

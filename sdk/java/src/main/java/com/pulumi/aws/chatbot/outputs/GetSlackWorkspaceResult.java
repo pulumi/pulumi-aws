@@ -16,10 +16,6 @@ public final class GetSlackWorkspaceResult {
      */
     private String id;
     private String region;
-    /**
-     * @return ID of the Slack Workspace assigned by AWS Chatbot.
-     * 
-     */
     private String slackTeamId;
     private String slackTeamName;
 
@@ -34,10 +30,6 @@ public final class GetSlackWorkspaceResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return ID of the Slack Workspace assigned by AWS Chatbot.
-     * 
-     */
     public String slackTeamId() {
         return this.slackTeamId;
     }

@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Lists the provisioning artifacts for the specified product.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.GetProvisioningArtifacts(ctx, &servicecatalog.GetProvisioningArtifactsArgs{
-//				ProductId: "prod-yakog5pdriver",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetProvisioningArtifacts(ctx *pulumi.Context, args *GetProvisioningArtifactsArgs, opts ...pulumi.InvokeOption) (*GetProvisioningArtifactsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetProvisioningArtifactsResult
@@ -52,23 +23,17 @@ func GetProvisioningArtifacts(ctx *pulumi.Context, args *GetProvisioningArtifact
 
 // A collection of arguments for invoking getProvisioningArtifacts.
 type GetProvisioningArtifactsArgs struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`
-	// Product identifier.
-	//
-	// The following arguments are optional:
-	ProductId string `pulumi:"productId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	ProductId      string  `pulumi:"productId"`
+	Region         *string `pulumi:"region"`
 }
 
 // A collection of values returned by getProvisioningArtifacts.
 type GetProvisioningArtifactsResult struct {
 	AcceptLanguage *string `pulumi:"acceptLanguage"`
 	// The provider-assigned unique ID for this managed resource.
-	Id        string `pulumi:"id"`
-	ProductId string `pulumi:"productId"`
-	// List with information about the provisioning artifacts. See details below.
+	Id                          string                                               `pulumi:"id"`
+	ProductId                   string                                               `pulumi:"productId"`
 	ProvisioningArtifactDetails []GetProvisioningArtifactsProvisioningArtifactDetail `pulumi:"provisioningArtifactDetails"`
 	Region                      string                                               `pulumi:"region"`
 }
@@ -84,14 +49,9 @@ func GetProvisioningArtifactsOutput(ctx *pulumi.Context, args GetProvisioningArt
 
 // A collection of arguments for invoking getProvisioningArtifacts.
 type GetProvisioningArtifactsOutputArgs struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage pulumi.StringPtrInput `pulumi:"acceptLanguage"`
-	// Product identifier.
-	//
-	// The following arguments are optional:
-	ProductId pulumi.StringInput `pulumi:"productId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	ProductId      pulumi.StringInput    `pulumi:"productId"`
+	Region         pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetProvisioningArtifactsOutputArgs) ElementType() reflect.Type {
@@ -126,7 +86,6 @@ func (o GetProvisioningArtifactsResultOutput) ProductId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProvisioningArtifactsResult) string { return v.ProductId }).(pulumi.StringOutput)
 }
 
-// List with information about the provisioning artifacts. See details below.
 func (o GetProvisioningArtifactsResultOutput) ProvisioningArtifactDetails() GetProvisioningArtifactsProvisioningArtifactDetailArrayOutput {
 	return o.ApplyT(func(v GetProvisioningArtifactsResult) []GetProvisioningArtifactsProvisioningArtifactDetail {
 		return v.ProvisioningArtifactDetails

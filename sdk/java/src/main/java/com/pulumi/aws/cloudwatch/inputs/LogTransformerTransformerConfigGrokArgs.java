@@ -16,32 +16,16 @@ public final class LogTransformerTransformerConfigGrokArgs extends com.pulumi.re
 
     public static final LogTransformerTransformerConfigGrokArgs Empty = new LogTransformerTransformerConfigGrokArgs();
 
-    /**
-     * Specifies the grok pattern to match against the log event.
-     * 
-     */
     @Import(name="match", required=true)
     private Output<String> match;
 
-    /**
-     * @return Specifies the grok pattern to match against the log event.
-     * 
-     */
     public Output<String> match() {
         return this.match;
     }
 
-    /**
-     * Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
-     * 
-     */
     @Import(name="source")
     private @Nullable Output<String> source;
 
-    /**
-     * @return Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
-     * 
-     */
     public Optional<Output<String>> source() {
         return Optional.ofNullable(this.source);
     }
@@ -71,44 +55,20 @@ public final class LogTransformerTransformerConfigGrokArgs extends com.pulumi.re
             $ = new LogTransformerTransformerConfigGrokArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param match Specifies the grok pattern to match against the log event.
-         * 
-         * @return builder
-         * 
-         */
         public Builder match(Output<String> match) {
             $.match = match;
             return this;
         }
 
-        /**
-         * @param match Specifies the grok pattern to match against the log event.
-         * 
-         * @return builder
-         * 
-         */
         public Builder match(String match) {
             return match(Output.of(match));
         }
 
-        /**
-         * @param source Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(@Nullable Output<String> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(String source) {
             return source(Output.of(source));
         }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3GetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Account ID of the S3 bucket owner.
-        /// </summary>
         [Input("bucketOwnerAccountId")]
         public Input<string>? BucketOwnerAccountId { get; set; }
 
-        /// <summary>
-        /// S3 URI where the schema is stored.
-        /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }
 

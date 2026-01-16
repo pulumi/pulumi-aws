@@ -17,32 +17,16 @@ public final class LifecyclePolicyPolicyDetailExclusionRulesArgs extends com.pul
 
     public static final LifecyclePolicyPolicyDetailExclusionRulesArgs Empty = new LifecyclePolicyPolicyDetailExclusionRulesArgs();
 
-    /**
-     * Lists configuration values that apply to AMIs that Image Builder should exclude from the lifecycle action. Detailed below.
-     * 
-     */
     @Import(name="amis")
     private @Nullable Output<LifecyclePolicyPolicyDetailExclusionRulesAmisArgs> amis;
 
-    /**
-     * @return Lists configuration values that apply to AMIs that Image Builder should exclude from the lifecycle action. Detailed below.
-     * 
-     */
     public Optional<Output<LifecyclePolicyPolicyDetailExclusionRulesAmisArgs>> amis() {
         return Optional.ofNullable(this.amis);
     }
 
-    /**
-     * Contains a list of tags that Image Builder uses to skip lifecycle actions for Image Builder image resources that have them.
-     * 
-     */
     @Import(name="tagMap")
     private @Nullable Output<Map<String,String>> tagMap;
 
-    /**
-     * @return Contains a list of tags that Image Builder uses to skip lifecycle actions for Image Builder image resources that have them.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagMap() {
         return Optional.ofNullable(this.tagMap);
     }
@@ -72,44 +56,20 @@ public final class LifecyclePolicyPolicyDetailExclusionRulesArgs extends com.pul
             $ = new LifecyclePolicyPolicyDetailExclusionRulesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param amis Lists configuration values that apply to AMIs that Image Builder should exclude from the lifecycle action. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amis(@Nullable Output<LifecyclePolicyPolicyDetailExclusionRulesAmisArgs> amis) {
             $.amis = amis;
             return this;
         }
 
-        /**
-         * @param amis Lists configuration values that apply to AMIs that Image Builder should exclude from the lifecycle action. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amis(LifecyclePolicyPolicyDetailExclusionRulesAmisArgs amis) {
             return amis(Output.of(amis));
         }
 
-        /**
-         * @param tagMap Contains a list of tags that Image Builder uses to skip lifecycle actions for Image Builder image resources that have them.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagMap(@Nullable Output<Map<String,String>> tagMap) {
             $.tagMap = tagMap;
             return this;
         }
 
-        /**
-         * @param tagMap Contains a list of tags that Image Builder uses to skip lifecycle actions for Image Builder image resources that have them.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagMap(Map<String,String> tagMap) {
             return tagMap(Output.of(tagMap));
         }

@@ -25,32 +25,16 @@ public final class ThesaurusArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The identifier of the index for a thesaurus.
-     * 
-     */
     @Import(name="indexId", required=true)
     private Output<String> indexId;
 
-    /**
-     * @return The identifier of the index for a thesaurus.
-     * 
-     */
     public Output<String> indexId() {
         return this.indexId;
     }
 
-    /**
-     * The name for the thesaurus.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name for the thesaurus.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -62,32 +46,16 @@ public final class ThesaurusArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
 
-    /**
-     * The S3 path where your thesaurus file sits in S3. Detailed below.
-     * 
-     */
     @Import(name="sourceS3Path", required=true)
     private Output<ThesaurusSourceS3PathArgs> sourceS3Path;
 
-    /**
-     * @return The S3 path where your thesaurus file sits in S3. Detailed below.
-     * 
-     */
     public Output<ThesaurusSourceS3PathArgs> sourceS3Path() {
         return this.sourceS3Path;
     }
@@ -138,44 +106,20 @@ public final class ThesaurusArgs extends com.pulumi.resources.ResourceArgs {
             return description(Output.of(description));
         }
 
-        /**
-         * @param indexId The identifier of the index for a thesaurus.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexId(Output<String> indexId) {
             $.indexId = indexId;
             return this;
         }
 
-        /**
-         * @param indexId The identifier of the index for a thesaurus.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexId(String indexId) {
             return indexId(Output.of(indexId));
         }
 
-        /**
-         * @param name The name for the thesaurus.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name for the thesaurus.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
@@ -189,44 +133,20 @@ public final class ThesaurusArgs extends com.pulumi.resources.ResourceArgs {
             return region(Output.of(region));
         }
 
-        /**
-         * @param roleArn The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param sourceS3Path The S3 path where your thesaurus file sits in S3. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceS3Path(Output<ThesaurusSourceS3PathArgs> sourceS3Path) {
             $.sourceS3Path = sourceS3Path;
             return this;
         }
 
-        /**
-         * @param sourceS3Path The S3 path where your thesaurus file sits in S3. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceS3Path(ThesaurusSourceS3PathArgs sourceS3Path) {
             return sourceS3Path(Output.of(sourceS3Path));
         }

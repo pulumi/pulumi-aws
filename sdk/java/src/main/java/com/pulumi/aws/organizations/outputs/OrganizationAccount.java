@@ -11,44 +11,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrganizationAccount {
-    /**
-     * @return ARN of the root.
-     * 
-     */
     private @Nullable String arn;
-    /**
-     * @return Email of the account.
-     * 
-     */
     private @Nullable String email;
-    /**
-     * @return Identifier of the root.
-     * 
-     */
     private @Nullable String id;
-    /**
-     * @return Method by which the account joined the organization.
-     * 
-     */
     private @Nullable String joinedMethod;
-    /**
-     * @return Date the account became a part of the organization.
-     * 
-     */
     private @Nullable String joinedTimestamp;
-    /**
-     * @return Name of the policy type.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return State of the account.
-     * 
-     */
     private @Nullable String state;
     /**
-     * @return Status of the policy type as it relates to the associated root.
-     * 
      * @deprecated
      * status is deprecated. Use state instead.
      * 
@@ -57,58 +27,28 @@ public final class OrganizationAccount {
     private @Nullable String status;
 
     private OrganizationAccount() {}
-    /**
-     * @return ARN of the root.
-     * 
-     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
-    /**
-     * @return Email of the account.
-     * 
-     */
     public Optional<String> email() {
         return Optional.ofNullable(this.email);
     }
-    /**
-     * @return Identifier of the root.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return Method by which the account joined the organization.
-     * 
-     */
     public Optional<String> joinedMethod() {
         return Optional.ofNullable(this.joinedMethod);
     }
-    /**
-     * @return Date the account became a part of the organization.
-     * 
-     */
     public Optional<String> joinedTimestamp() {
         return Optional.ofNullable(this.joinedTimestamp);
     }
-    /**
-     * @return Name of the policy type.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return State of the account.
-     * 
-     */
     public Optional<String> state() {
         return Optional.ofNullable(this.state);
     }
     /**
-     * @return Status of the policy type as it relates to the associated root.
-     * 
      * @deprecated
      * status is deprecated. Use state instead.
      * 

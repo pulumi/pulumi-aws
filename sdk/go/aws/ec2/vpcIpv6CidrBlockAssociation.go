@@ -12,85 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to associate additional IPv6 CIDR blocks with a VPC.
-//
-// The `ec2.VpcIpv6CidrBlockAssociation` resource allows IPv6 CIDR blocks to be added to the VPC.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := ec2.NewVpc(ctx, "test", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpcIpv6CidrBlockAssociation(ctx, "test", &ec2.VpcIpv6CidrBlockAssociationArgs{
-//				Ipv6IpamPoolId: pulumi.Any(testAwsVpcIpamPool.Id),
-//				VpcId:          test.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// or
-//
-// or
-//
-// Using `pulumi import`, import `aws_vpc_ipv6_cidr_block_association` using the VPC CIDR association ID and optionally the IPv6 IPAM pool ID and netmask length. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation example vpc-cidr-assoc-0754129087e149dcd
-// ```
-// or
-//
-// ```sh
-// $ pulumi import aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation example vpc-cidr-assoc-0754129087e149dcd,ipam-pool-0611d1d6bbc05ce60
-// ```
-// or
-//
-// ```sh
-// $ pulumi import aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation example vpc-cidr-assoc-0754129087e149dcd,ipam-pool-0611d1d6bbc05ce60,56
-// ```
 type VpcIpv6CidrBlockAssociation struct {
 	pulumi.CustomResourceState
 
-	// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`, `ipv6Pool`, `ipv6CidrBlock` and `ipv6NetmaskLength`.
-	AssignGeneratedIpv6CidrBlock pulumi.BoolOutput `pulumi:"assignGeneratedIpv6CidrBlock"`
-	// The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
-	IpSource pulumi.StringOutput `pulumi:"ipSource"`
-	// Public IPv6 addresses are those advertised on the internet from AWS. Private IP addresses are not and cannot be advertised on the internet from AWS. Values: `public`, `private`.
-	Ipv6AddressAttribute pulumi.StringOutput `pulumi:"ipv6AddressAttribute"`
-	// The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and the IPAM pool does not have `allocationDefaultNetmask` set. Conflicts with `assignGeneratedIpv6CidrBlock`.
-	Ipv6CidrBlock pulumi.StringOutput `pulumi:"ipv6CidrBlock"`
-	// The ID of an IPv6 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Conflict with `assignGeneratedIpv6CidrBlock` and `ipv6Pool`.
-	Ipv6IpamPoolId pulumi.StringPtrOutput `pulumi:"ipv6IpamPoolId"`
-	// The netmask length of the IPv6 CIDR you want to allocate to this VPC. Requires specifying a `ipv6IpamPoolId`. This parameter is optional if the IPAM pool has `allocationDefaultNetmask` set, otherwise it or `ipv6CidrBlock` are required. Conflicts with `ipv6CidrBlock`.
-	Ipv6NetmaskLength pulumi.IntPtrOutput `pulumi:"ipv6NetmaskLength"`
-	// The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assignGeneratedIpv6CidrBlock` and `ipv6IpamPoolId`.
-	Ipv6Pool pulumi.StringOutput `pulumi:"ipv6Pool"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The ID of the VPC to make the association with.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	AssignGeneratedIpv6CidrBlock pulumi.BoolOutput      `pulumi:"assignGeneratedIpv6CidrBlock"`
+	IpSource                     pulumi.StringOutput    `pulumi:"ipSource"`
+	Ipv6AddressAttribute         pulumi.StringOutput    `pulumi:"ipv6AddressAttribute"`
+	Ipv6CidrBlock                pulumi.StringOutput    `pulumi:"ipv6CidrBlock"`
+	Ipv6IpamPoolId               pulumi.StringPtrOutput `pulumi:"ipv6IpamPoolId"`
+	Ipv6NetmaskLength            pulumi.IntPtrOutput    `pulumi:"ipv6NetmaskLength"`
+	Ipv6Pool                     pulumi.StringOutput    `pulumi:"ipv6Pool"`
+	Region                       pulumi.StringOutput    `pulumi:"region"`
+	VpcId                        pulumi.StringOutput    `pulumi:"vpcId"`
 }
 
 // NewVpcIpv6CidrBlockAssociation registers a new resource with the given unique name, arguments, and options.
@@ -126,45 +59,27 @@ func GetVpcIpv6CidrBlockAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcIpv6CidrBlockAssociation resources.
 type vpcIpv6CidrBlockAssociationState struct {
-	// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`, `ipv6Pool`, `ipv6CidrBlock` and `ipv6NetmaskLength`.
-	AssignGeneratedIpv6CidrBlock *bool `pulumi:"assignGeneratedIpv6CidrBlock"`
-	// The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
-	IpSource *string `pulumi:"ipSource"`
-	// Public IPv6 addresses are those advertised on the internet from AWS. Private IP addresses are not and cannot be advertised on the internet from AWS. Values: `public`, `private`.
-	Ipv6AddressAttribute *string `pulumi:"ipv6AddressAttribute"`
-	// The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and the IPAM pool does not have `allocationDefaultNetmask` set. Conflicts with `assignGeneratedIpv6CidrBlock`.
-	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
-	// The ID of an IPv6 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Conflict with `assignGeneratedIpv6CidrBlock` and `ipv6Pool`.
-	Ipv6IpamPoolId *string `pulumi:"ipv6IpamPoolId"`
-	// The netmask length of the IPv6 CIDR you want to allocate to this VPC. Requires specifying a `ipv6IpamPoolId`. This parameter is optional if the IPAM pool has `allocationDefaultNetmask` set, otherwise it or `ipv6CidrBlock` are required. Conflicts with `ipv6CidrBlock`.
-	Ipv6NetmaskLength *int `pulumi:"ipv6NetmaskLength"`
-	// The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assignGeneratedIpv6CidrBlock` and `ipv6IpamPoolId`.
-	Ipv6Pool *string `pulumi:"ipv6Pool"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the VPC to make the association with.
-	VpcId *string `pulumi:"vpcId"`
+	AssignGeneratedIpv6CidrBlock *bool   `pulumi:"assignGeneratedIpv6CidrBlock"`
+	IpSource                     *string `pulumi:"ipSource"`
+	Ipv6AddressAttribute         *string `pulumi:"ipv6AddressAttribute"`
+	Ipv6CidrBlock                *string `pulumi:"ipv6CidrBlock"`
+	Ipv6IpamPoolId               *string `pulumi:"ipv6IpamPoolId"`
+	Ipv6NetmaskLength            *int    `pulumi:"ipv6NetmaskLength"`
+	Ipv6Pool                     *string `pulumi:"ipv6Pool"`
+	Region                       *string `pulumi:"region"`
+	VpcId                        *string `pulumi:"vpcId"`
 }
 
 type VpcIpv6CidrBlockAssociationState struct {
-	// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`, `ipv6Pool`, `ipv6CidrBlock` and `ipv6NetmaskLength`.
 	AssignGeneratedIpv6CidrBlock pulumi.BoolPtrInput
-	// The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
-	IpSource pulumi.StringPtrInput
-	// Public IPv6 addresses are those advertised on the internet from AWS. Private IP addresses are not and cannot be advertised on the internet from AWS. Values: `public`, `private`.
-	Ipv6AddressAttribute pulumi.StringPtrInput
-	// The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and the IPAM pool does not have `allocationDefaultNetmask` set. Conflicts with `assignGeneratedIpv6CidrBlock`.
-	Ipv6CidrBlock pulumi.StringPtrInput
-	// The ID of an IPv6 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Conflict with `assignGeneratedIpv6CidrBlock` and `ipv6Pool`.
-	Ipv6IpamPoolId pulumi.StringPtrInput
-	// The netmask length of the IPv6 CIDR you want to allocate to this VPC. Requires specifying a `ipv6IpamPoolId`. This parameter is optional if the IPAM pool has `allocationDefaultNetmask` set, otherwise it or `ipv6CidrBlock` are required. Conflicts with `ipv6CidrBlock`.
-	Ipv6NetmaskLength pulumi.IntPtrInput
-	// The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assignGeneratedIpv6CidrBlock` and `ipv6IpamPoolId`.
-	Ipv6Pool pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the VPC to make the association with.
-	VpcId pulumi.StringPtrInput
+	IpSource                     pulumi.StringPtrInput
+	Ipv6AddressAttribute         pulumi.StringPtrInput
+	Ipv6CidrBlock                pulumi.StringPtrInput
+	Ipv6IpamPoolId               pulumi.StringPtrInput
+	Ipv6NetmaskLength            pulumi.IntPtrInput
+	Ipv6Pool                     pulumi.StringPtrInput
+	Region                       pulumi.StringPtrInput
+	VpcId                        pulumi.StringPtrInput
 }
 
 func (VpcIpv6CidrBlockAssociationState) ElementType() reflect.Type {
@@ -172,38 +87,24 @@ func (VpcIpv6CidrBlockAssociationState) ElementType() reflect.Type {
 }
 
 type vpcIpv6CidrBlockAssociationArgs struct {
-	// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`, `ipv6Pool`, `ipv6CidrBlock` and `ipv6NetmaskLength`.
-	AssignGeneratedIpv6CidrBlock *bool `pulumi:"assignGeneratedIpv6CidrBlock"`
-	// The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and the IPAM pool does not have `allocationDefaultNetmask` set. Conflicts with `assignGeneratedIpv6CidrBlock`.
-	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
-	// The ID of an IPv6 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Conflict with `assignGeneratedIpv6CidrBlock` and `ipv6Pool`.
-	Ipv6IpamPoolId *string `pulumi:"ipv6IpamPoolId"`
-	// The netmask length of the IPv6 CIDR you want to allocate to this VPC. Requires specifying a `ipv6IpamPoolId`. This parameter is optional if the IPAM pool has `allocationDefaultNetmask` set, otherwise it or `ipv6CidrBlock` are required. Conflicts with `ipv6CidrBlock`.
-	Ipv6NetmaskLength *int `pulumi:"ipv6NetmaskLength"`
-	// The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assignGeneratedIpv6CidrBlock` and `ipv6IpamPoolId`.
-	Ipv6Pool *string `pulumi:"ipv6Pool"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the VPC to make the association with.
-	VpcId string `pulumi:"vpcId"`
+	AssignGeneratedIpv6CidrBlock *bool   `pulumi:"assignGeneratedIpv6CidrBlock"`
+	Ipv6CidrBlock                *string `pulumi:"ipv6CidrBlock"`
+	Ipv6IpamPoolId               *string `pulumi:"ipv6IpamPoolId"`
+	Ipv6NetmaskLength            *int    `pulumi:"ipv6NetmaskLength"`
+	Ipv6Pool                     *string `pulumi:"ipv6Pool"`
+	Region                       *string `pulumi:"region"`
+	VpcId                        string  `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a VpcIpv6CidrBlockAssociation resource.
 type VpcIpv6CidrBlockAssociationArgs struct {
-	// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`, `ipv6Pool`, `ipv6CidrBlock` and `ipv6NetmaskLength`.
 	AssignGeneratedIpv6CidrBlock pulumi.BoolPtrInput
-	// The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and the IPAM pool does not have `allocationDefaultNetmask` set. Conflicts with `assignGeneratedIpv6CidrBlock`.
-	Ipv6CidrBlock pulumi.StringPtrInput
-	// The ID of an IPv6 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Conflict with `assignGeneratedIpv6CidrBlock` and `ipv6Pool`.
-	Ipv6IpamPoolId pulumi.StringPtrInput
-	// The netmask length of the IPv6 CIDR you want to allocate to this VPC. Requires specifying a `ipv6IpamPoolId`. This parameter is optional if the IPAM pool has `allocationDefaultNetmask` set, otherwise it or `ipv6CidrBlock` are required. Conflicts with `ipv6CidrBlock`.
-	Ipv6NetmaskLength pulumi.IntPtrInput
-	// The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assignGeneratedIpv6CidrBlock` and `ipv6IpamPoolId`.
-	Ipv6Pool pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the VPC to make the association with.
-	VpcId pulumi.StringInput
+	Ipv6CidrBlock                pulumi.StringPtrInput
+	Ipv6IpamPoolId               pulumi.StringPtrInput
+	Ipv6NetmaskLength            pulumi.IntPtrInput
+	Ipv6Pool                     pulumi.StringPtrInput
+	Region                       pulumi.StringPtrInput
+	VpcId                        pulumi.StringInput
 }
 
 func (VpcIpv6CidrBlockAssociationArgs) ElementType() reflect.Type {
@@ -293,47 +194,38 @@ func (o VpcIpv6CidrBlockAssociationOutput) ToVpcIpv6CidrBlockAssociationOutputWi
 	return o
 }
 
-// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`, `ipv6Pool`, `ipv6CidrBlock` and `ipv6NetmaskLength`.
 func (o VpcIpv6CidrBlockAssociationOutput) AssignGeneratedIpv6CidrBlock() pulumi.BoolOutput {
 	return o.ApplyT(func(v *VpcIpv6CidrBlockAssociation) pulumi.BoolOutput { return v.AssignGeneratedIpv6CidrBlock }).(pulumi.BoolOutput)
 }
 
-// The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
 func (o VpcIpv6CidrBlockAssociationOutput) IpSource() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpv6CidrBlockAssociation) pulumi.StringOutput { return v.IpSource }).(pulumi.StringOutput)
 }
 
-// Public IPv6 addresses are those advertised on the internet from AWS. Private IP addresses are not and cannot be advertised on the internet from AWS. Values: `public`, `private`.
 func (o VpcIpv6CidrBlockAssociationOutput) Ipv6AddressAttribute() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpv6CidrBlockAssociation) pulumi.StringOutput { return v.Ipv6AddressAttribute }).(pulumi.StringOutput)
 }
 
-// The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and the IPAM pool does not have `allocationDefaultNetmask` set. Conflicts with `assignGeneratedIpv6CidrBlock`.
 func (o VpcIpv6CidrBlockAssociationOutput) Ipv6CidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpv6CidrBlockAssociation) pulumi.StringOutput { return v.Ipv6CidrBlock }).(pulumi.StringOutput)
 }
 
-// The ID of an IPv6 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Conflict with `assignGeneratedIpv6CidrBlock` and `ipv6Pool`.
 func (o VpcIpv6CidrBlockAssociationOutput) Ipv6IpamPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcIpv6CidrBlockAssociation) pulumi.StringPtrOutput { return v.Ipv6IpamPoolId }).(pulumi.StringPtrOutput)
 }
 
-// The netmask length of the IPv6 CIDR you want to allocate to this VPC. Requires specifying a `ipv6IpamPoolId`. This parameter is optional if the IPAM pool has `allocationDefaultNetmask` set, otherwise it or `ipv6CidrBlock` are required. Conflicts with `ipv6CidrBlock`.
 func (o VpcIpv6CidrBlockAssociationOutput) Ipv6NetmaskLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpcIpv6CidrBlockAssociation) pulumi.IntPtrOutput { return v.Ipv6NetmaskLength }).(pulumi.IntPtrOutput)
 }
 
-// The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assignGeneratedIpv6CidrBlock` and `ipv6IpamPoolId`.
 func (o VpcIpv6CidrBlockAssociationOutput) Ipv6Pool() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpv6CidrBlockAssociation) pulumi.StringOutput { return v.Ipv6Pool }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcIpv6CidrBlockAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpv6CidrBlockAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ID of the VPC to make the association with.
 func (o VpcIpv6CidrBlockAssociationOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpv6CidrBlockAssociation) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

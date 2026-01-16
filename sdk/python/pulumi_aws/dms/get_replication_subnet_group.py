@@ -76,9 +76,6 @@ class GetReplicationSubnetGroupResult:
     @_builtins.property
     @pulumi.getter(name="replicationSubnetGroupDescription")
     def replication_subnet_group_description(self) -> _builtins.str:
-        """
-        Description for the subnet group.
-        """
         return pulumi.get(self, "replication_subnet_group_description")
 
     @_builtins.property
@@ -94,9 +91,6 @@ class GetReplicationSubnetGroupResult:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[_builtins.str]:
-        """
-        List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
@@ -107,9 +101,6 @@ class GetReplicationSubnetGroupResult:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> _builtins.str:
-        """
-        The ID of the VPC the subnet group is in.
-        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -135,22 +126,7 @@ def get_replication_subnet_group(region: Optional[_builtins.str] = None,
                                  tags: Optional[Mapping[str, _builtins.str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationSubnetGroupResult:
     """
-    Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.dms.get_replication_subnet_group(replication_subnet_group_id=test_aws_dms_replication_subnet_group["replicationSubnetGroupId"])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str replication_subnet_group_id: Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -174,22 +150,7 @@ def get_replication_subnet_group_output(region: Optional[pulumi.Input[Optional[_
                                         tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationSubnetGroupResult]:
     """
-    Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.dms.get_replication_subnet_group(replication_subnet_group_id=test_aws_dms_replication_subnet_group["replicationSubnetGroupId"])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str replication_subnet_group_id: Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

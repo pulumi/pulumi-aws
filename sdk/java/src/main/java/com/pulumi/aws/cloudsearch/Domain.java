@@ -19,216 +19,65 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an CloudSearch domain resource.
- * 
- * The provider waits for the domain to become `Active` when applying a configuration.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudsearch.Domain;
- * import com.pulumi.aws.cloudsearch.DomainArgs;
- * import com.pulumi.aws.cloudsearch.inputs.DomainScalingParametersArgs;
- * import com.pulumi.aws.cloudsearch.inputs.DomainIndexFieldArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Domain("example", DomainArgs.builder()
- *             .name("example-domain")
- *             .scalingParameters(DomainScalingParametersArgs.builder()
- *                 .desiredInstanceType("search.medium")
- *                 .build())
- *             .indexFields(            
- *                 DomainIndexFieldArgs.builder()
- *                     .name("headline")
- *                     .type("text")
- *                     .search(true)
- *                     .return_(true)
- *                     .sort(true)
- *                     .highlight(false)
- *                     .analysisScheme("_en_default_")
- *                     .build(),
- *                 DomainIndexFieldArgs.builder()
- *                     .name("price")
- *                     .type("double")
- *                     .search(true)
- *                     .facet(true)
- *                     .return_(true)
- *                     .sort(true)
- *                     .sourceFields("headline")
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CloudSearch Domains using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudsearch/domain:Domain example example-domain
- * ```
- * 
- */
 @ResourceType(type="aws:cloudsearch/domain:Domain")
 public class Domain extends com.pulumi.resources.CustomResource {
-    /**
-     * The domain&#39;s ARN.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The domain&#39;s ARN.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The service endpoint for updating documents in a search domain.
-     * 
-     */
     @Export(name="documentServiceEndpoint", refs={String.class}, tree="[0]")
     private Output<String> documentServiceEndpoint;
 
-    /**
-     * @return The service endpoint for updating documents in a search domain.
-     * 
-     */
     public Output<String> documentServiceEndpoint() {
         return this.documentServiceEndpoint;
     }
-    /**
-     * An internally generated unique identifier for the domain.
-     * 
-     */
     @Export(name="domainId", refs={String.class}, tree="[0]")
     private Output<String> domainId;
 
-    /**
-     * @return An internally generated unique identifier for the domain.
-     * 
-     */
     public Output<String> domainId() {
         return this.domainId;
     }
-    /**
-     * Domain endpoint options. Documented below.
-     * 
-     */
     @Export(name="endpointOptions", refs={DomainEndpointOptions.class}, tree="[0]")
     private Output<DomainEndpointOptions> endpointOptions;
 
-    /**
-     * @return Domain endpoint options. Documented below.
-     * 
-     */
     public Output<DomainEndpointOptions> endpointOptions() {
         return this.endpointOptions;
     }
-    /**
-     * The index fields for documents added to the domain. Documented below.
-     * 
-     */
     @Export(name="indexFields", refs={List.class,DomainIndexField.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DomainIndexField>> indexFields;
 
-    /**
-     * @return The index fields for documents added to the domain. Documented below.
-     * 
-     */
     public Output<Optional<List<DomainIndexField>>> indexFields() {
         return Codegen.optional(this.indexFields);
     }
-    /**
-     * Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
-     * 
-     */
     @Export(name="multiAz", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> multiAz;
 
-    /**
-     * @return Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
-     * 
-     */
     public Output<Boolean> multiAz() {
         return this.multiAz;
     }
-    /**
-     * The name of the CloudSearch domain.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the CloudSearch domain.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Domain scaling parameters. Documented below.
-     * 
-     */
     @Export(name="scalingParameters", refs={DomainScalingParameters.class}, tree="[0]")
     private Output<DomainScalingParameters> scalingParameters;
 
-    /**
-     * @return Domain scaling parameters. Documented below.
-     * 
-     */
     public Output<DomainScalingParameters> scalingParameters() {
         return this.scalingParameters;
     }
-    /**
-     * The service endpoint for requesting search results from a search domain.
-     * 
-     */
     @Export(name="searchServiceEndpoint", refs={String.class}, tree="[0]")
     private Output<String> searchServiceEndpoint;
 
-    /**
-     * @return The service endpoint for requesting search results from a search domain.
-     * 
-     */
     public Output<String> searchServiceEndpoint() {
         return this.searchServiceEndpoint;
     }

@@ -14,13 +14,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce
     {
         public readonly string? InstanceUrl;
-        /// <summary>
-        /// Indicates whether the connector profile applies to a sandbox or production environment.
-        /// </summary>
         public readonly bool? IsSandboxEnvironment;
-        /// <summary>
-        /// Indicates whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce. Amazon AppFlow sends private calls through AWS PrivateLink. These calls travel through AWS infrastructure without being exposed to the public internet.
-        /// </summary>
         public readonly bool? UsePrivatelinkForMetadataAndAuthorization;
 
         [OutputConstructor]

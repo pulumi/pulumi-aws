@@ -67,12 +67,6 @@ class CertificateDomainValidationOption(dict):
                  resource_record_name: Optional[_builtins.str] = None,
                  resource_record_type: Optional[_builtins.str] = None,
                  resource_record_value: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str domain_name: Domain name for which the certificate should be issued.
-        :param _builtins.str resource_record_name: Name of the DNS record to create to validate the certificate.
-        :param _builtins.str resource_record_type: Type of DNS record to create to validate the certificate.
-        :param _builtins.str resource_record_value: Value of the DNS record to create to validate the certificate.
-        """
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
         if resource_record_name is not None:
@@ -85,33 +79,21 @@ class CertificateDomainValidationOption(dict):
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[_builtins.str]:
-        """
-        Domain name for which the certificate should be issued.
-        """
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
     @pulumi.getter(name="resourceRecordName")
     def resource_record_name(self) -> Optional[_builtins.str]:
-        """
-        Name of the DNS record to create to validate the certificate.
-        """
         return pulumi.get(self, "resource_record_name")
 
     @_builtins.property
     @pulumi.getter(name="resourceRecordType")
     def resource_record_type(self) -> Optional[_builtins.str]:
-        """
-        Type of DNS record to create to validate the certificate.
-        """
         return pulumi.get(self, "resource_record_type")
 
     @_builtins.property
     @pulumi.getter(name="resourceRecordValue")
     def resource_record_value(self) -> Optional[_builtins.str]:
-        """
-        Value of the DNS record to create to validate the certificate.
-        """
         return pulumi.get(self, "resource_record_value")
 
 
@@ -140,13 +122,6 @@ class ContainerServiceDeploymentVersionContainer(dict):
                  commands: Optional[Sequence[_builtins.str]] = None,
                  environment: Optional[Mapping[str, _builtins.str]] = None,
                  ports: Optional[Mapping[str, _builtins.str]] = None):
-        """
-        :param _builtins.str container_name: Name of the container.
-        :param _builtins.str image: Name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don't start with a colon. For example, `nginx:latest` or `nginx`.
-        :param Sequence[_builtins.str] commands: Launch command for the container. A list of strings.
-        :param Mapping[str, _builtins.str] environment: Key-value map of the environment variables of the container.
-        :param Mapping[str, _builtins.str] ports: Key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
-        """
         pulumi.set(__self__, "container_name", container_name)
         pulumi.set(__self__, "image", image)
         if commands is not None:
@@ -159,41 +134,26 @@ class ContainerServiceDeploymentVersionContainer(dict):
     @_builtins.property
     @pulumi.getter(name="containerName")
     def container_name(self) -> _builtins.str:
-        """
-        Name of the container.
-        """
         return pulumi.get(self, "container_name")
 
     @_builtins.property
     @pulumi.getter
     def image(self) -> _builtins.str:
-        """
-        Name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don't start with a colon. For example, `nginx:latest` or `nginx`.
-        """
         return pulumi.get(self, "image")
 
     @_builtins.property
     @pulumi.getter
     def commands(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Launch command for the container. A list of strings.
-        """
         return pulumi.get(self, "commands")
 
     @_builtins.property
     @pulumi.getter
     def environment(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        Key-value map of the environment variables of the container.
-        """
         return pulumi.get(self, "environment")
 
     @_builtins.property
     @pulumi.getter
     def ports(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        Key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
-        """
         return pulumi.get(self, "ports")
 
 
@@ -224,11 +184,6 @@ class ContainerServiceDeploymentVersionPublicEndpoint(dict):
                  container_name: _builtins.str,
                  container_port: _builtins.int,
                  health_check: 'outputs.ContainerServiceDeploymentVersionPublicEndpointHealthCheck'):
-        """
-        :param _builtins.str container_name: Name of the container for the endpoint.
-        :param _builtins.int container_port: Port of the container to which traffic is forwarded to.
-        :param 'ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs' health_check: Configuration block that describes the health check configuration of the container. See below.
-        """
         pulumi.set(__self__, "container_name", container_name)
         pulumi.set(__self__, "container_port", container_port)
         pulumi.set(__self__, "health_check", health_check)
@@ -236,25 +191,16 @@ class ContainerServiceDeploymentVersionPublicEndpoint(dict):
     @_builtins.property
     @pulumi.getter(name="containerName")
     def container_name(self) -> _builtins.str:
-        """
-        Name of the container for the endpoint.
-        """
         return pulumi.get(self, "container_name")
 
     @_builtins.property
     @pulumi.getter(name="containerPort")
     def container_port(self) -> _builtins.int:
-        """
-        Port of the container to which traffic is forwarded to.
-        """
         return pulumi.get(self, "container_port")
 
     @_builtins.property
     @pulumi.getter(name="healthCheck")
     def health_check(self) -> 'outputs.ContainerServiceDeploymentVersionPublicEndpointHealthCheck':
-        """
-        Configuration block that describes the health check configuration of the container. See below.
-        """
         return pulumi.get(self, "health_check")
 
 
@@ -292,14 +238,6 @@ class ContainerServiceDeploymentVersionPublicEndpointHealthCheck(dict):
                  success_codes: Optional[_builtins.str] = None,
                  timeout_seconds: Optional[_builtins.int] = None,
                  unhealthy_threshold: Optional[_builtins.int] = None):
-        """
-        :param _builtins.int healthy_threshold: Number of consecutive health check successes required before moving the container to the Healthy state. Defaults to 2.
-        :param _builtins.int interval_seconds: Approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
-        :param _builtins.str path: Path on the container on which to perform the health check. Defaults to "/".
-        :param _builtins.str success_codes: HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to "200-499".
-        :param _builtins.int timeout_seconds: Amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
-        :param _builtins.int unhealthy_threshold: Number of consecutive health check failures required before moving the container to the Unhealthy state. Defaults to 2.
-        """
         if healthy_threshold is not None:
             pulumi.set(__self__, "healthy_threshold", healthy_threshold)
         if interval_seconds is not None:
@@ -316,49 +254,31 @@ class ContainerServiceDeploymentVersionPublicEndpointHealthCheck(dict):
     @_builtins.property
     @pulumi.getter(name="healthyThreshold")
     def healthy_threshold(self) -> Optional[_builtins.int]:
-        """
-        Number of consecutive health check successes required before moving the container to the Healthy state. Defaults to 2.
-        """
         return pulumi.get(self, "healthy_threshold")
 
     @_builtins.property
     @pulumi.getter(name="intervalSeconds")
     def interval_seconds(self) -> Optional[_builtins.int]:
-        """
-        Approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
-        """
         return pulumi.get(self, "interval_seconds")
 
     @_builtins.property
     @pulumi.getter
     def path(self) -> Optional[_builtins.str]:
-        """
-        Path on the container on which to perform the health check. Defaults to "/".
-        """
         return pulumi.get(self, "path")
 
     @_builtins.property
     @pulumi.getter(name="successCodes")
     def success_codes(self) -> Optional[_builtins.str]:
-        """
-        HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to "200-499".
-        """
         return pulumi.get(self, "success_codes")
 
     @_builtins.property
     @pulumi.getter(name="timeoutSeconds")
     def timeout_seconds(self) -> Optional[_builtins.int]:
-        """
-        Amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
-        """
         return pulumi.get(self, "timeout_seconds")
 
     @_builtins.property
     @pulumi.getter(name="unhealthyThreshold")
     def unhealthy_threshold(self) -> Optional[_builtins.int]:
-        """
-        Number of consecutive health check failures required before moving the container to the Unhealthy state. Defaults to 2.
-        """
         return pulumi.get(self, "unhealthy_threshold")
 
 
@@ -383,18 +303,12 @@ class ContainerServicePrivateRegistryAccess(dict):
 
     def __init__(__self__, *,
                  ecr_image_puller_role: Optional['outputs.ContainerServicePrivateRegistryAccessEcrImagePullerRole'] = None):
-        """
-        :param 'ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs' ecr_image_puller_role: Configuration to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
-        """
         if ecr_image_puller_role is not None:
             pulumi.set(__self__, "ecr_image_puller_role", ecr_image_puller_role)
 
     @_builtins.property
     @pulumi.getter(name="ecrImagePullerRole")
     def ecr_image_puller_role(self) -> Optional['outputs.ContainerServicePrivateRegistryAccessEcrImagePullerRole']:
-        """
-        Configuration to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
-        """
         return pulumi.get(self, "ecr_image_puller_role")
 
 
@@ -422,10 +336,6 @@ class ContainerServicePrivateRegistryAccessEcrImagePullerRole(dict):
     def __init__(__self__, *,
                  is_active: Optional[_builtins.bool] = None,
                  principal_arn: Optional[_builtins.str] = None):
-        """
-        :param _builtins.bool is_active: Whether to activate the role. Defaults to `false`.
-        :param _builtins.str principal_arn: Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
-        """
         if is_active is not None:
             pulumi.set(__self__, "is_active", is_active)
         if principal_arn is not None:
@@ -434,17 +344,11 @@ class ContainerServicePrivateRegistryAccessEcrImagePullerRole(dict):
     @_builtins.property
     @pulumi.getter(name="isActive")
     def is_active(self) -> Optional[_builtins.bool]:
-        """
-        Whether to activate the role. Defaults to `false`.
-        """
         return pulumi.get(self, "is_active")
 
     @_builtins.property
     @pulumi.getter(name="principalArn")
     def principal_arn(self) -> Optional[_builtins.str]:
-        """
-        Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
-        """
         return pulumi.get(self, "principal_arn")
 
 
@@ -452,17 +356,11 @@ class ContainerServicePrivateRegistryAccessEcrImagePullerRole(dict):
 class ContainerServicePublicDomainNames(dict):
     def __init__(__self__, *,
                  certificates: Sequence['outputs.ContainerServicePublicDomainNamesCertificate']):
-        """
-        :param Sequence['ContainerServicePublicDomainNamesCertificateArgs'] certificates: Set of certificate configurations for the public domain names. Each element contains the following attributes:
-        """
         pulumi.set(__self__, "certificates", certificates)
 
     @_builtins.property
     @pulumi.getter
     def certificates(self) -> Sequence['outputs.ContainerServicePublicDomainNamesCertificate']:
-        """
-        Set of certificate configurations for the public domain names. Each element contains the following attributes:
-        """
         return pulumi.get(self, "certificates")
 
 
@@ -490,27 +388,17 @@ class ContainerServicePublicDomainNamesCertificate(dict):
     def __init__(__self__, *,
                  certificate_name: _builtins.str,
                  domain_names: Sequence[_builtins.str]):
-        """
-        :param _builtins.str certificate_name: Name of the certificate.
-        :param Sequence[_builtins.str] domain_names: List of domain names for the certificate.
-        """
         pulumi.set(__self__, "certificate_name", certificate_name)
         pulumi.set(__self__, "domain_names", domain_names)
 
     @_builtins.property
     @pulumi.getter(name="certificateName")
     def certificate_name(self) -> _builtins.str:
-        """
-        Name of the certificate.
-        """
         return pulumi.get(self, "certificate_name")
 
     @_builtins.property
     @pulumi.getter(name="domainNames")
     def domain_names(self) -> Sequence[_builtins.str]:
-        """
-        List of domain names for the certificate.
-        """
         return pulumi.get(self, "domain_names")
 
 
@@ -520,8 +408,8 @@ class DistributionCacheBehavior(dict):
                  behavior: _builtins.str,
                  path: _builtins.str):
         """
-        :param _builtins.str behavior: Cache behavior for the specified path. Valid values: `cache`, `dont-cache`.
-        :param _builtins.str path: Path to a directory or file to cache, or not cache. Use an asterisk symbol to specify wildcard directories (`path/to/assets/*`), and file types (`*.html`, `*.jpg`, `*.js`). Directories and file paths are case-sensitive.
+        :param _builtins.str behavior: The cache behavior for the specified path.
+        :param _builtins.str path: The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (path/to/assets/*), and file types (*.html, *jpg, *js). Directories and file paths are case-sensitive.
         """
         pulumi.set(__self__, "behavior", behavior)
         pulumi.set(__self__, "path", path)
@@ -530,7 +418,7 @@ class DistributionCacheBehavior(dict):
     @pulumi.getter
     def behavior(self) -> _builtins.str:
         """
-        Cache behavior for the specified path. Valid values: `cache`, `dont-cache`.
+        The cache behavior for the specified path.
         """
         return pulumi.get(self, "behavior")
 
@@ -538,7 +426,7 @@ class DistributionCacheBehavior(dict):
     @pulumi.getter
     def path(self) -> _builtins.str:
         """
-        Path to a directory or file to cache, or not cache. Use an asterisk symbol to specify wildcard directories (`path/to/assets/*`), and file types (`*.html`, `*.jpg`, `*.js`). Directories and file paths are case-sensitive.
+        The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (path/to/assets/*), and file types (*.html, *jpg, *js). Directories and file paths are case-sensitive.
         """
         return pulumi.get(self, "path")
 
@@ -586,14 +474,14 @@ class DistributionCacheBehaviorSettings(dict):
                  maximum_ttl: Optional[_builtins.int] = None,
                  minimum_ttl: Optional[_builtins.int] = None):
         """
-        :param _builtins.str allowed_http_methods: HTTP methods that are processed and forwarded to the distribution's origin.
-        :param _builtins.str cached_http_methods: HTTP method responses that are cached by your distribution.
-        :param _builtins.int default_ttl: Default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
-        :param 'DistributionCacheBehaviorSettingsForwardedCookiesArgs' forwarded_cookies: Cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. See below.
-        :param 'DistributionCacheBehaviorSettingsForwardedHeadersArgs' forwarded_headers: Headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. See below.
-        :param 'DistributionCacheBehaviorSettingsForwardedQueryStringsArgs' forwarded_query_strings: Query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. See below.
-        :param _builtins.int maximum_ttl: Maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
-        :param _builtins.int minimum_ttl: Minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+        :param _builtins.str allowed_http_methods: The HTTP methods that are processed and forwarded to the distribution's origin.
+        :param _builtins.str cached_http_methods: The HTTP method responses that are cached by your distribution.
+        :param _builtins.int default_ttl: The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
+        :param 'DistributionCacheBehaviorSettingsForwardedCookiesArgs' forwarded_cookies: An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded.
+        :param 'DistributionCacheBehaviorSettingsForwardedHeadersArgs' forwarded_headers: An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded.
+        :param 'DistributionCacheBehaviorSettingsForwardedQueryStringsArgs' forwarded_query_strings: An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded.
+        :param _builtins.int maximum_ttl: The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+        :param _builtins.int minimum_ttl: The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
         """
         if allowed_http_methods is not None:
             pulumi.set(__self__, "allowed_http_methods", allowed_http_methods)
@@ -616,7 +504,7 @@ class DistributionCacheBehaviorSettings(dict):
     @pulumi.getter(name="allowedHttpMethods")
     def allowed_http_methods(self) -> Optional[_builtins.str]:
         """
-        HTTP methods that are processed and forwarded to the distribution's origin.
+        The HTTP methods that are processed and forwarded to the distribution's origin.
         """
         return pulumi.get(self, "allowed_http_methods")
 
@@ -624,7 +512,7 @@ class DistributionCacheBehaviorSettings(dict):
     @pulumi.getter(name="cachedHttpMethods")
     def cached_http_methods(self) -> Optional[_builtins.str]:
         """
-        HTTP method responses that are cached by your distribution.
+        The HTTP method responses that are cached by your distribution.
         """
         return pulumi.get(self, "cached_http_methods")
 
@@ -632,7 +520,7 @@ class DistributionCacheBehaviorSettings(dict):
     @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> Optional[_builtins.int]:
         """
-        Default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
+        The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
         """
         return pulumi.get(self, "default_ttl")
 
@@ -640,7 +528,7 @@ class DistributionCacheBehaviorSettings(dict):
     @pulumi.getter(name="forwardedCookies")
     def forwarded_cookies(self) -> Optional['outputs.DistributionCacheBehaviorSettingsForwardedCookies']:
         """
-        Cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. See below.
+        An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded.
         """
         return pulumi.get(self, "forwarded_cookies")
 
@@ -648,7 +536,7 @@ class DistributionCacheBehaviorSettings(dict):
     @pulumi.getter(name="forwardedHeaders")
     def forwarded_headers(self) -> Optional['outputs.DistributionCacheBehaviorSettingsForwardedHeaders']:
         """
-        Headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. See below.
+        An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded.
         """
         return pulumi.get(self, "forwarded_headers")
 
@@ -656,7 +544,7 @@ class DistributionCacheBehaviorSettings(dict):
     @pulumi.getter(name="forwardedQueryStrings")
     def forwarded_query_strings(self) -> Optional['outputs.DistributionCacheBehaviorSettingsForwardedQueryStrings']:
         """
-        Query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. See below.
+        An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded.
         """
         return pulumi.get(self, "forwarded_query_strings")
 
@@ -664,7 +552,7 @@ class DistributionCacheBehaviorSettings(dict):
     @pulumi.getter(name="maximumTtl")
     def maximum_ttl(self) -> Optional[_builtins.int]:
         """
-        Maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+        The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
         """
         return pulumi.get(self, "maximum_ttl")
 
@@ -672,7 +560,7 @@ class DistributionCacheBehaviorSettings(dict):
     @pulumi.getter(name="minimumTtl")
     def minimum_ttl(self) -> Optional[_builtins.int]:
         """
-        Minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+        The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
         """
         return pulumi.get(self, "minimum_ttl")
 
@@ -700,8 +588,8 @@ class DistributionCacheBehaviorSettingsForwardedCookies(dict):
                  cookies_allow_lists: Optional[Sequence[_builtins.str]] = None,
                  option: Optional[_builtins.str] = None):
         """
-        :param Sequence[_builtins.str] cookies_allow_lists: Specific cookies to forward to your distribution's origin.
-        :param _builtins.str option: Which cookies to forward to the distribution's origin for a cache behavior. Valid values: `all`, `none`, `allow-list`.
+        :param Sequence[_builtins.str] cookies_allow_lists: The specific cookies to forward to your distribution's origin.
+        :param _builtins.str option: Specifies which cookies to forward to the distribution's origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
         """
         if cookies_allow_lists is not None:
             pulumi.set(__self__, "cookies_allow_lists", cookies_allow_lists)
@@ -712,7 +600,7 @@ class DistributionCacheBehaviorSettingsForwardedCookies(dict):
     @pulumi.getter(name="cookiesAllowLists")
     def cookies_allow_lists(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Specific cookies to forward to your distribution's origin.
+        The specific cookies to forward to your distribution's origin.
         """
         return pulumi.get(self, "cookies_allow_lists")
 
@@ -720,7 +608,7 @@ class DistributionCacheBehaviorSettingsForwardedCookies(dict):
     @pulumi.getter
     def option(self) -> Optional[_builtins.str]:
         """
-        Which cookies to forward to the distribution's origin for a cache behavior. Valid values: `all`, `none`, `allow-list`.
+        Specifies which cookies to forward to the distribution's origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
         """
         return pulumi.get(self, "option")
 
@@ -748,8 +636,8 @@ class DistributionCacheBehaviorSettingsForwardedHeaders(dict):
                  headers_allow_lists: Optional[Sequence[_builtins.str]] = None,
                  option: Optional[_builtins.str] = None):
         """
-        :param Sequence[_builtins.str] headers_allow_lists: Specific headers to forward to your distribution's origin.
-        :param _builtins.str option: Headers that you want your distribution to forward to your origin and base caching on. Valid values: `default`, `allow-list`, `all`.
+        :param Sequence[_builtins.str] headers_allow_lists: The specific headers to forward to your distribution's origin.
+        :param _builtins.str option: The headers that you want your distribution to forward to your origin and base caching on.
         """
         if headers_allow_lists is not None:
             pulumi.set(__self__, "headers_allow_lists", headers_allow_lists)
@@ -760,7 +648,7 @@ class DistributionCacheBehaviorSettingsForwardedHeaders(dict):
     @pulumi.getter(name="headersAllowLists")
     def headers_allow_lists(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Specific headers to forward to your distribution's origin.
+        The specific headers to forward to your distribution's origin.
         """
         return pulumi.get(self, "headers_allow_lists")
 
@@ -768,7 +656,7 @@ class DistributionCacheBehaviorSettingsForwardedHeaders(dict):
     @pulumi.getter
     def option(self) -> Optional[_builtins.str]:
         """
-        Headers that you want your distribution to forward to your origin and base caching on. Valid values: `default`, `allow-list`, `all`.
+        The headers that you want your distribution to forward to your origin and base caching on.
         """
         return pulumi.get(self, "option")
 
@@ -796,8 +684,8 @@ class DistributionCacheBehaviorSettingsForwardedQueryStrings(dict):
                  option: Optional[_builtins.bool] = None,
                  query_strings_allowed_lists: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.bool option: Whether the distribution forwards and caches based on query strings.
-        :param Sequence[_builtins.str] query_strings_allowed_lists: Specific query strings that the distribution forwards to the origin.
+        :param _builtins.bool option: Indicates whether the distribution forwards and caches based on query strings.
+        :param Sequence[_builtins.str] query_strings_allowed_lists: The specific query strings that the distribution forwards to the origin.
         """
         if option is not None:
             pulumi.set(__self__, "option", option)
@@ -808,7 +696,7 @@ class DistributionCacheBehaviorSettingsForwardedQueryStrings(dict):
     @pulumi.getter
     def option(self) -> Optional[_builtins.bool]:
         """
-        Whether the distribution forwards and caches based on query strings.
+        Indicates whether the distribution forwards and caches based on query strings.
         """
         return pulumi.get(self, "option")
 
@@ -816,7 +704,7 @@ class DistributionCacheBehaviorSettingsForwardedQueryStrings(dict):
     @pulumi.getter(name="queryStringsAllowedLists")
     def query_strings_allowed_lists(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Specific query strings that the distribution forwards to the origin.
+        The specific query strings that the distribution forwards to the origin.
         """
         return pulumi.get(self, "query_strings_allowed_lists")
 
@@ -826,7 +714,7 @@ class DistributionDefaultCacheBehavior(dict):
     def __init__(__self__, *,
                  behavior: _builtins.str):
         """
-        :param _builtins.str behavior: Cache behavior of the distribution. Valid values: `cache`, `dont-cache`.
+        :param _builtins.str behavior: The cache behavior of the distribution.
         """
         pulumi.set(__self__, "behavior", behavior)
 
@@ -834,7 +722,7 @@ class DistributionDefaultCacheBehavior(dict):
     @pulumi.getter
     def behavior(self) -> _builtins.str:
         """
-        Cache behavior of the distribution. Valid values: `cache`, `dont-cache`.
+        The cache behavior of the distribution.
         """
         return pulumi.get(self, "behavior")
 
@@ -864,8 +752,8 @@ class DistributionLocation(dict):
                  availability_zone: _builtins.str,
                  region_name: _builtins.str):
         """
-        :param _builtins.str availability_zone: Availability Zone. Follows the format us-east-2a (case-sensitive).
-        :param _builtins.str region_name: AWS Region name.
+        :param _builtins.str availability_zone: The Availability Zone.
+        :param _builtins.str region_name: The AWS Region name.
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
         pulumi.set(__self__, "region_name", region_name)
@@ -874,7 +762,7 @@ class DistributionLocation(dict):
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> _builtins.str:
         """
-        Availability Zone. Follows the format us-east-2a (case-sensitive).
+        The Availability Zone.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -882,7 +770,7 @@ class DistributionLocation(dict):
     @pulumi.getter(name="regionName")
     def region_name(self) -> _builtins.str:
         """
-        AWS Region name.
+        The AWS Region name.
         """
         return pulumi.get(self, "region_name")
 
@@ -916,10 +804,10 @@ class DistributionOrigin(dict):
                  protocol_policy: Optional[_builtins.str] = None,
                  resource_type: Optional[_builtins.str] = None):
         """
-        :param _builtins.str name: Name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
-        :param _builtins.str region_name: AWS Region name of the origin resource.
-        :param _builtins.str protocol_policy: Protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
-        :param _builtins.str resource_type: Lightsail resource type (e.g., Distribution).
+        :param _builtins.str name: The name of the origin resource.
+        :param _builtins.str region_name: The AWS Region name of the origin resource.
+        :param _builtins.str protocol_policy: The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
+        :param _builtins.str resource_type: The resource type of the origin resource (e.g., Instance).
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "region_name", region_name)
@@ -932,7 +820,7 @@ class DistributionOrigin(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
+        The name of the origin resource.
         """
         return pulumi.get(self, "name")
 
@@ -940,7 +828,7 @@ class DistributionOrigin(dict):
     @pulumi.getter(name="regionName")
     def region_name(self) -> _builtins.str:
         """
-        AWS Region name of the origin resource.
+        The AWS Region name of the origin resource.
         """
         return pulumi.get(self, "region_name")
 
@@ -948,7 +836,7 @@ class DistributionOrigin(dict):
     @pulumi.getter(name="protocolPolicy")
     def protocol_policy(self) -> Optional[_builtins.str]:
         """
-        Protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
+        The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
         """
         return pulumi.get(self, "protocol_policy")
 
@@ -956,7 +844,7 @@ class DistributionOrigin(dict):
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[_builtins.str]:
         """
-        Lightsail resource type (e.g., Distribution).
+        The resource type of the origin resource (e.g., Instance).
         """
         return pulumi.get(self, "resource_type")
 
@@ -984,11 +872,6 @@ class InstanceAddOn(dict):
                  snapshot_time: _builtins.str,
                  status: _builtins.str,
                  type: _builtins.str):
-        """
-        :param _builtins.str snapshot_time: Daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
-        :param _builtins.str status: Status of the add-on. Valid values: `Enabled`, `Disabled`.
-        :param _builtins.str type: Add-on type. There is currently only one valid type `AutoSnapshot`.
-        """
         pulumi.set(__self__, "snapshot_time", snapshot_time)
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "type", type)
@@ -996,25 +879,16 @@ class InstanceAddOn(dict):
     @_builtins.property
     @pulumi.getter(name="snapshotTime")
     def snapshot_time(self) -> _builtins.str:
-        """
-        Daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
-        """
         return pulumi.get(self, "snapshot_time")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the add-on. Valid values: `Enabled`, `Disabled`.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Add-on type. There is currently only one valid type `AutoSnapshot`.
-        """
         return pulumi.get(self, "type")
 
 
@@ -1050,14 +924,6 @@ class InstancePublicPortsPortInfo(dict):
                  cidr_list_aliases: Optional[Sequence[_builtins.str]] = None,
                  cidrs: Optional[Sequence[_builtins.str]] = None,
                  ipv6_cidrs: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.int from_port: First port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-        :param _builtins.str protocol: IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`, `icmpv6`. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-        :param _builtins.int to_port: Last port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-        :param Sequence[_builtins.str] cidr_list_aliases: Set of CIDR aliases that define access for a preconfigured range of IP addresses.
-        :param Sequence[_builtins.str] cidrs: Set of IPv4 addresses or ranges of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
-        :param Sequence[_builtins.str] ipv6_cidrs: Set of IPv6 addresses or ranges of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
-        """
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "to_port", to_port)
@@ -1071,49 +937,31 @@ class InstancePublicPortsPortInfo(dict):
     @_builtins.property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> _builtins.int:
-        """
-        First port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-        """
         return pulumi.get(self, "from_port")
 
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> _builtins.str:
-        """
-        IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`, `icmpv6`. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-        """
         return pulumi.get(self, "protocol")
 
     @_builtins.property
     @pulumi.getter(name="toPort")
     def to_port(self) -> _builtins.int:
-        """
-        Last port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-        """
         return pulumi.get(self, "to_port")
 
     @_builtins.property
     @pulumi.getter(name="cidrListAliases")
     def cidr_list_aliases(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Set of CIDR aliases that define access for a preconfigured range of IP addresses.
-        """
         return pulumi.get(self, "cidr_list_aliases")
 
     @_builtins.property
     @pulumi.getter
     def cidrs(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Set of IPv4 addresses or ranges of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
-        """
         return pulumi.get(self, "cidrs")
 
     @_builtins.property
     @pulumi.getter(name="ipv6Cidrs")
     def ipv6_cidrs(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Set of IPv6 addresses or ranges of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
-        """
         return pulumi.get(self, "ipv6_cidrs")
 
 
@@ -1147,9 +995,6 @@ class LbCertificateDomainValidationRecord(dict):
                  resource_record_name: Optional[_builtins.str] = None,
                  resource_record_type: Optional[_builtins.str] = None,
                  resource_record_value: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str domain_name: Domain name (e.g., example.com) for your SSL/TLS certificate.
-        """
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
         if resource_record_name is not None:
@@ -1162,9 +1007,6 @@ class LbCertificateDomainValidationRecord(dict):
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[_builtins.str]:
-        """
-        Domain name (e.g., example.com) for your SSL/TLS certificate.
-        """
         return pulumi.get(self, "domain_name")
 
     @_builtins.property

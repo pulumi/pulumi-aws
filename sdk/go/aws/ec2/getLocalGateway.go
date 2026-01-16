@@ -11,38 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about an EC2 Local Gateway.
-//
-// ## Example Usage
-//
-// The following example shows how one might accept a local gateway id as a variable.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			localGatewayId := cfg.RequireObject("localGatewayId")
-//			_, err := ec2.GetLocalGateway(ctx, &ec2.GetLocalGatewayArgs{
-//				Id: pulumi.StringRef(localGatewayId),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetLocalGateway(ctx *pulumi.Context, args *GetLocalGatewayArgs, opts ...pulumi.InvokeOption) (*GetLocalGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocalGatewayResult
@@ -55,36 +23,22 @@ func GetLocalGateway(ctx *pulumi.Context, args *GetLocalGatewayArgs, opts ...pul
 
 // A collection of arguments for invoking getLocalGateway.
 type GetLocalGatewayArgs struct {
-	// Custom filter block as described below.
 	Filters []GetLocalGatewayFilter `pulumi:"filters"`
-	// Id of the specific Local Gateway to retrieve.
-	Id *string `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Current state of the desired Local Gateway.
-	// Can be either `"pending"` or `"available"`.
-	State *string `pulumi:"state"`
-	// Mapping of tags, each pair of which must exactly match
-	// a pair on the desired Local Gateway.
-	//
-	// The arguments of this data source act as filters for querying the available
-	// Local Gateways in the current region. The given filters must match exactly one
-	// Local Gateway whose data will be exported as attributes.
-	Tags map[string]string `pulumi:"tags"`
+	Id      *string                 `pulumi:"id"`
+	Region  *string                 `pulumi:"region"`
+	State   *string                 `pulumi:"state"`
+	Tags    map[string]string       `pulumi:"tags"`
 }
 
 // A collection of values returned by getLocalGateway.
 type GetLocalGatewayResult struct {
-	Filters []GetLocalGatewayFilter `pulumi:"filters"`
-	Id      string                  `pulumi:"id"`
-	// ARN of Outpost
-	OutpostArn string `pulumi:"outpostArn"`
-	// AWS account identifier that owns the Local Gateway.
-	OwnerId string `pulumi:"ownerId"`
-	Region  string `pulumi:"region"`
-	// State of the local gateway.
-	State string            `pulumi:"state"`
-	Tags  map[string]string `pulumi:"tags"`
+	Filters    []GetLocalGatewayFilter `pulumi:"filters"`
+	Id         string                  `pulumi:"id"`
+	OutpostArn string                  `pulumi:"outpostArn"`
+	OwnerId    string                  `pulumi:"ownerId"`
+	Region     string                  `pulumi:"region"`
+	State      string                  `pulumi:"state"`
+	Tags       map[string]string       `pulumi:"tags"`
 }
 
 func GetLocalGatewayOutput(ctx *pulumi.Context, args GetLocalGatewayOutputArgs, opts ...pulumi.InvokeOption) GetLocalGatewayResultOutput {
@@ -98,22 +52,11 @@ func GetLocalGatewayOutput(ctx *pulumi.Context, args GetLocalGatewayOutputArgs, 
 
 // A collection of arguments for invoking getLocalGateway.
 type GetLocalGatewayOutputArgs struct {
-	// Custom filter block as described below.
 	Filters GetLocalGatewayFilterArrayInput `pulumi:"filters"`
-	// Id of the specific Local Gateway to retrieve.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Current state of the desired Local Gateway.
-	// Can be either `"pending"` or `"available"`.
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// Mapping of tags, each pair of which must exactly match
-	// a pair on the desired Local Gateway.
-	//
-	// The arguments of this data source act as filters for querying the available
-	// Local Gateways in the current region. The given filters must match exactly one
-	// Local Gateway whose data will be exported as attributes.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Id      pulumi.StringPtrInput           `pulumi:"id"`
+	Region  pulumi.StringPtrInput           `pulumi:"region"`
+	State   pulumi.StringPtrInput           `pulumi:"state"`
+	Tags    pulumi.StringMapInput           `pulumi:"tags"`
 }
 
 func (GetLocalGatewayOutputArgs) ElementType() reflect.Type {
@@ -143,12 +86,10 @@ func (o GetLocalGatewayResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocalGatewayResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// ARN of Outpost
 func (o GetLocalGatewayResultOutput) OutpostArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocalGatewayResult) string { return v.OutpostArn }).(pulumi.StringOutput)
 }
 
-// AWS account identifier that owns the Local Gateway.
 func (o GetLocalGatewayResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocalGatewayResult) string { return v.OwnerId }).(pulumi.StringOutput)
 }
@@ -157,7 +98,6 @@ func (o GetLocalGatewayResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocalGatewayResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// State of the local gateway.
 func (o GetLocalGatewayResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocalGatewayResult) string { return v.State }).(pulumi.StringOutput)
 }

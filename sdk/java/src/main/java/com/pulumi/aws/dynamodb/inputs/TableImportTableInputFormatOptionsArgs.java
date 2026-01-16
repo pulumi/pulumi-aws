@@ -15,17 +15,9 @@ public final class TableImportTableInputFormatOptionsArgs extends com.pulumi.res
 
     public static final TableImportTableInputFormatOptionsArgs Empty = new TableImportTableInputFormatOptionsArgs();
 
-    /**
-     * This block contains the processing options for the CSV file being imported:
-     * 
-     */
     @Import(name="csv")
     private @Nullable Output<TableImportTableInputFormatOptionsCsvArgs> csv;
 
-    /**
-     * @return This block contains the processing options for the CSV file being imported:
-     * 
-     */
     public Optional<Output<TableImportTableInputFormatOptionsCsvArgs>> csv() {
         return Optional.ofNullable(this.csv);
     }
@@ -54,23 +46,11 @@ public final class TableImportTableInputFormatOptionsArgs extends com.pulumi.res
             $ = new TableImportTableInputFormatOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param csv This block contains the processing options for the CSV file being imported:
-         * 
-         * @return builder
-         * 
-         */
         public Builder csv(@Nullable Output<TableImportTableInputFormatOptionsCsvArgs> csv) {
             $.csv = csv;
             return this;
         }
 
-        /**
-         * @param csv This block contains the processing options for the CSV file being imported:
-         * 
-         * @return builder
-         * 
-         */
         public Builder csv(TableImportTableInputFormatOptionsCsvArgs csv) {
             return csv(Output.of(csv));
         }

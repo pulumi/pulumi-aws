@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CapacityProviderAutoScalingGroupProvider {
-    /**
-     * @return ARN of the associated auto scaling group.
-     * 
-     */
     private String autoScalingGroupArn;
-    /**
-     * @return Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
-     * 
-     */
     private @Nullable String managedDraining;
-    /**
-     * @return Configuration block defining the parameters of the auto scaling. Detailed below.
-     * 
-     */
     private @Nullable CapacityProviderAutoScalingGroupProviderManagedScaling managedScaling;
-    /**
-     * @return Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     private @Nullable String managedTerminationProtection;
 
     private CapacityProviderAutoScalingGroupProvider() {}
-    /**
-     * @return ARN of the associated auto scaling group.
-     * 
-     */
     public String autoScalingGroupArn() {
         return this.autoScalingGroupArn;
     }
-    /**
-     * @return Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
-     * 
-     */
     public Optional<String> managedDraining() {
         return Optional.ofNullable(this.managedDraining);
     }
-    /**
-     * @return Configuration block defining the parameters of the auto scaling. Detailed below.
-     * 
-     */
     public Optional<CapacityProviderAutoScalingGroupProviderManagedScaling> managedScaling() {
         return Optional.ofNullable(this.managedScaling);
     }
-    /**
-     * @return Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public Optional<String> managedTerminationProtection() {
         return Optional.ofNullable(this.managedTerminationProtection);
     }

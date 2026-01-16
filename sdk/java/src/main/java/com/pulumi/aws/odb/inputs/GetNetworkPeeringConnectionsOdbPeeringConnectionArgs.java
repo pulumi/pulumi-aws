@@ -14,77 +14,37 @@ public final class GetNetworkPeeringConnectionsOdbPeeringConnectionArgs extends 
 
     public static final GetNetworkPeeringConnectionsOdbPeeringConnectionArgs Empty = new GetNetworkPeeringConnectionsOdbPeeringConnectionArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) for the  ODB network peering connection.
-     * 
-     */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) for the  ODB network peering connection.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
 
-    /**
-     * Display name of the ODB network peering connection.
-     * 
-     */
     @Import(name="displayName", required=true)
     private Output<String> displayName;
 
-    /**
-     * @return Display name of the ODB network peering connection.
-     * 
-     */
     public Output<String> displayName() {
         return this.displayName;
     }
 
-    /**
-     * The unique identifier of the  ODB network peering connection.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return The unique identifier of the  ODB network peering connection.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
 
-    /**
-     * ARN of the ODB network peering connection.
-     * 
-     */
     @Import(name="odbNetworkArn", required=true)
     private Output<String> odbNetworkArn;
 
-    /**
-     * @return ARN of the ODB network peering connection.
-     * 
-     */
     public Output<String> odbNetworkArn() {
         return this.odbNetworkArn;
     }
 
-    /**
-     * ARN of the peer network peering connection.
-     * 
-     */
     @Import(name="peerNetworkArn", required=true)
     private Output<String> peerNetworkArn;
 
-    /**
-     * @return ARN of the peer network peering connection.
-     * 
-     */
     public Output<String> peerNetworkArn() {
         return this.peerNetworkArn;
     }
@@ -117,107 +77,47 @@ public final class GetNetworkPeeringConnectionsOdbPeeringConnectionArgs extends 
             $ = new GetNetworkPeeringConnectionsOdbPeeringConnectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) for the  ODB network peering connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) for the  ODB network peering connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param displayName Display name of the ODB network peering connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder displayName(Output<String> displayName) {
             $.displayName = displayName;
             return this;
         }
 
-        /**
-         * @param displayName Display name of the ODB network peering connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
         }
 
-        /**
-         * @param id The unique identifier of the  ODB network peering connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id The unique identifier of the  ODB network peering connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param odbNetworkArn ARN of the ODB network peering connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder odbNetworkArn(Output<String> odbNetworkArn) {
             $.odbNetworkArn = odbNetworkArn;
             return this;
         }
 
-        /**
-         * @param odbNetworkArn ARN of the ODB network peering connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder odbNetworkArn(String odbNetworkArn) {
             return odbNetworkArn(Output.of(odbNetworkArn));
         }
 
-        /**
-         * @param peerNetworkArn ARN of the peer network peering connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder peerNetworkArn(Output<String> peerNetworkArn) {
             $.peerNetworkArn = peerNetworkArn;
             return this;
         }
 
-        /**
-         * @param peerNetworkArn ARN of the peer network peering connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder peerNetworkArn(String peerNetworkArn) {
             return peerNetworkArn(Output.of(peerNetworkArn));
         }

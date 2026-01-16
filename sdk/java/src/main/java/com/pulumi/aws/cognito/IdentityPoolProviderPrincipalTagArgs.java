@@ -18,77 +18,37 @@ public final class IdentityPoolProviderPrincipalTagArgs extends com.pulumi.resou
 
     public static final IdentityPoolProviderPrincipalTagArgs Empty = new IdentityPoolProviderPrincipalTagArgs();
 
-    /**
-     * An identity pool ID.
-     * 
-     */
     @Import(name="identityPoolId", required=true)
     private Output<String> identityPoolId;
 
-    /**
-     * @return An identity pool ID.
-     * 
-     */
     public Output<String> identityPoolId() {
         return this.identityPoolId;
     }
 
-    /**
-     * The name of the identity provider.
-     * 
-     */
     @Import(name="identityProviderName", required=true)
     private Output<String> identityProviderName;
 
-    /**
-     * @return The name of the identity provider.
-     * 
-     */
     public Output<String> identityProviderName() {
         return this.identityProviderName;
     }
 
-    /**
-     * String to string map of variables.
-     * 
-     */
     @Import(name="principalTags")
     private @Nullable Output<Map<String,String>> principalTags;
 
-    /**
-     * @return String to string map of variables.
-     * 
-     */
     public Optional<Output<Map<String,String>>> principalTags() {
         return Optional.ofNullable(this.principalTags);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * use default (username and clientID) attribute mappings.
-     * 
-     */
     @Import(name="useDefaults")
     private @Nullable Output<Boolean> useDefaults;
 
-    /**
-     * @return use default (username and clientID) attribute mappings.
-     * 
-     */
     public Optional<Output<Boolean>> useDefaults() {
         return Optional.ofNullable(this.useDefaults);
     }
@@ -121,107 +81,47 @@ public final class IdentityPoolProviderPrincipalTagArgs extends com.pulumi.resou
             $ = new IdentityPoolProviderPrincipalTagArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param identityPoolId An identity pool ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityPoolId(Output<String> identityPoolId) {
             $.identityPoolId = identityPoolId;
             return this;
         }
 
-        /**
-         * @param identityPoolId An identity pool ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityPoolId(String identityPoolId) {
             return identityPoolId(Output.of(identityPoolId));
         }
 
-        /**
-         * @param identityProviderName The name of the identity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProviderName(Output<String> identityProviderName) {
             $.identityProviderName = identityProviderName;
             return this;
         }
 
-        /**
-         * @param identityProviderName The name of the identity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProviderName(String identityProviderName) {
             return identityProviderName(Output.of(identityProviderName));
         }
 
-        /**
-         * @param principalTags String to string map of variables.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalTags(@Nullable Output<Map<String,String>> principalTags) {
             $.principalTags = principalTags;
             return this;
         }
 
-        /**
-         * @param principalTags String to string map of variables.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalTags(Map<String,String> principalTags) {
             return principalTags(Output.of(principalTags));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param useDefaults use default (username and clientID) attribute mappings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder useDefaults(@Nullable Output<Boolean> useDefaults) {
             $.useDefaults = useDefaults;
             return this;
         }
 
-        /**
-         * @param useDefaults use default (username and clientID) attribute mappings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder useDefaults(Boolean useDefaults) {
             return useDefaults(Output.of(useDefaults));
         }

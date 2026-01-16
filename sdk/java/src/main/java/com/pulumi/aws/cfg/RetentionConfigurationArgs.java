@@ -17,32 +17,16 @@ public final class RetentionConfigurationArgs extends com.pulumi.resources.Resou
 
     public static final RetentionConfigurationArgs Empty = new RetentionConfigurationArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The number of days AWS Config stores historical information.
-     * 
-     */
     @Import(name="retentionPeriodInDays", required=true)
     private Output<Integer> retentionPeriodInDays;
 
-    /**
-     * @return The number of days AWS Config stores historical information.
-     * 
-     */
     public Output<Integer> retentionPeriodInDays() {
         return this.retentionPeriodInDays;
     }
@@ -72,44 +56,20 @@ public final class RetentionConfigurationArgs extends com.pulumi.resources.Resou
             $ = new RetentionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param retentionPeriodInDays The number of days AWS Config stores historical information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionPeriodInDays(Output<Integer> retentionPeriodInDays) {
             $.retentionPeriodInDays = retentionPeriodInDays;
             return this;
         }
 
-        /**
-         * @param retentionPeriodInDays The number of days AWS Config stores historical information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionPeriodInDays(Integer retentionPeriodInDays) {
             return retentionPeriodInDays(Output.of(retentionPeriodInDays));
         }

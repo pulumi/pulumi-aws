@@ -10,19 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ListenerRuleMatch {
-    /**
-     * @return The HTTP criteria that a rule must match.
-     * See `httpMatch` Block for details.
-     * 
-     */
     private ListenerRuleMatchHttpMatch httpMatch;
 
     private ListenerRuleMatch() {}
-    /**
-     * @return The HTTP criteria that a rule must match.
-     * See `httpMatch` Block for details.
-     * 
-     */
     public ListenerRuleMatchHttpMatch httpMatch() {
         return this.httpMatch;
     }

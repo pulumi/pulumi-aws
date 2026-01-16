@@ -15,9 +15,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
         [Input("comparison", required: true)]
         public Input<string> Comparison { get; set; } = null!;
 
-        /// <summary>
-        /// The key of the map filter.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 

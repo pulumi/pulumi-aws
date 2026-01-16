@@ -13,137 +13,49 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSupportedInstanceTypesSupportedInstanceType {
-    /**
-     * @return CPU architecture.
-     * 
-     */
     private String architecture;
-    /**
-     * @return Indicates whether the instance type supports Amazon EBS optimization.
-     * 
-     */
     private Boolean ebsOptimizedAvailable;
-    /**
-     * @return Indicates whether the instance type uses Amazon EBS optimization by default.
-     * 
-     */
     private Boolean ebsOptimizedByDefault;
-    /**
-     * @return Indicates whether the instance type only supports Amazon EBS.
-     * 
-     */
     private Boolean ebsStorageOnly;
-    /**
-     * @return The Amazon EC2 family and generation for the instance type.
-     * 
-     */
     private String instanceFamilyId;
-    /**
-     * @return Indicates whether the instance type only supports 64-bit architecture.
-     * 
-     */
     private Boolean is64BitsOnly;
-    /**
-     * @return Memory that is available to Amazon EMR from the instance type.
-     * 
-     */
     private Double memoryGb;
-    /**
-     * @return Number of disks for the instance type.
-     * 
-     */
     private Integer numberOfDisks;
-    /**
-     * @return Storage capacity of the instance type.
-     * 
-     */
     private Integer storageGb;
-    /**
-     * @return Amazon EC2 instance type. For example, `m5.xlarge`.
-     * 
-     */
     private String type;
-    /**
-     * @return The number of vCPUs available for the instance type.
-     * 
-     */
     private Integer vcpu;
 
     private GetSupportedInstanceTypesSupportedInstanceType() {}
-    /**
-     * @return CPU architecture.
-     * 
-     */
     public String architecture() {
         return this.architecture;
     }
-    /**
-     * @return Indicates whether the instance type supports Amazon EBS optimization.
-     * 
-     */
     public Boolean ebsOptimizedAvailable() {
         return this.ebsOptimizedAvailable;
     }
-    /**
-     * @return Indicates whether the instance type uses Amazon EBS optimization by default.
-     * 
-     */
     public Boolean ebsOptimizedByDefault() {
         return this.ebsOptimizedByDefault;
     }
-    /**
-     * @return Indicates whether the instance type only supports Amazon EBS.
-     * 
-     */
     public Boolean ebsStorageOnly() {
         return this.ebsStorageOnly;
     }
-    /**
-     * @return The Amazon EC2 family and generation for the instance type.
-     * 
-     */
     public String instanceFamilyId() {
         return this.instanceFamilyId;
     }
-    /**
-     * @return Indicates whether the instance type only supports 64-bit architecture.
-     * 
-     */
     public Boolean is64BitsOnly() {
         return this.is64BitsOnly;
     }
-    /**
-     * @return Memory that is available to Amazon EMR from the instance type.
-     * 
-     */
     public Double memoryGb() {
         return this.memoryGb;
     }
-    /**
-     * @return Number of disks for the instance type.
-     * 
-     */
     public Integer numberOfDisks() {
         return this.numberOfDisks;
     }
-    /**
-     * @return Storage capacity of the instance type.
-     * 
-     */
     public Integer storageGb() {
         return this.storageGb;
     }
-    /**
-     * @return Amazon EC2 instance type. For example, `m5.xlarge`.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return The number of vCPUs available for the instance type.
-     * 
-     */
     public Integer vcpu() {
         return this.vcpu;
     }

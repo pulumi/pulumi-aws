@@ -16,32 +16,16 @@ public final class WebAclDefaultActionArgs extends com.pulumi.resources.Resource
 
     public static final WebAclDefaultActionArgs Empty = new WebAclDefaultActionArgs();
 
-    /**
-     * Specifies that AWS WAF should allow requests by default. See `allow` below for details.
-     * 
-     */
     @Import(name="allow")
     private @Nullable Output<WebAclDefaultActionAllowArgs> allow;
 
-    /**
-     * @return Specifies that AWS WAF should allow requests by default. See `allow` below for details.
-     * 
-     */
     public Optional<Output<WebAclDefaultActionAllowArgs>> allow() {
         return Optional.ofNullable(this.allow);
     }
 
-    /**
-     * Specifies that AWS WAF should block requests by default. See `block` below for details.
-     * 
-     */
     @Import(name="block")
     private @Nullable Output<WebAclDefaultActionBlockArgs> block;
 
-    /**
-     * @return Specifies that AWS WAF should block requests by default. See `block` below for details.
-     * 
-     */
     public Optional<Output<WebAclDefaultActionBlockArgs>> block() {
         return Optional.ofNullable(this.block);
     }
@@ -71,44 +55,20 @@ public final class WebAclDefaultActionArgs extends com.pulumi.resources.Resource
             $ = new WebAclDefaultActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allow Specifies that AWS WAF should allow requests by default. See `allow` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allow(@Nullable Output<WebAclDefaultActionAllowArgs> allow) {
             $.allow = allow;
             return this;
         }
 
-        /**
-         * @param allow Specifies that AWS WAF should allow requests by default. See `allow` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allow(WebAclDefaultActionAllowArgs allow) {
             return allow(Output.of(allow));
         }
 
-        /**
-         * @param block Specifies that AWS WAF should block requests by default. See `block` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder block(@Nullable Output<WebAclDefaultActionBlockArgs> block) {
             $.block = block;
             return this;
         }
 
-        /**
-         * @param block Specifies that AWS WAF should block requests by default. See `block` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder block(WebAclDefaultActionBlockArgs block) {
             return block(Output.of(block));
         }

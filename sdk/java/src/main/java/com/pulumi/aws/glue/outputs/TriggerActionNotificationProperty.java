@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TriggerActionNotificationProperty {
-    /**
-     * @return After a job run starts, the number of minutes to wait before sending a job run delay notification.
-     * 
-     */
     private @Nullable Integer notifyDelayAfter;
 
     private TriggerActionNotificationProperty() {}
-    /**
-     * @return After a job run starts, the number of minutes to wait before sending a job run delay notification.
-     * 
-     */
     public Optional<Integer> notifyDelayAfter() {
         return Optional.ofNullable(this.notifyDelayAfter);
     }

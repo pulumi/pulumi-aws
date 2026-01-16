@@ -13,9 +13,6 @@ namespace Pulumi.Aws.IdentityStore.Outputs
     [OutputType]
     public sealed class GetGroupMembershipsGroupMembershipMemberIdResult
     {
-        /// <summary>
-        /// User identifier of the group member.
-        /// </summary>
         public readonly string UserId;
 
         [OutputConstructor]

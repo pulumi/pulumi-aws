@@ -9,82 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ecs
 {
-    /// <summary>
-    /// Provides an ECS default account setting for a specific ECS Resource name within a specific region. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html).
-    /// 
-    /// &gt; **NOTE:** The AWS API does not delete this resource. When you run `Destroy`, the provider will attempt to disable the setting.
-    /// 
-    /// &gt; **NOTE:** Your AWS account may not support disabling `containerInstanceLongArnFormat`, `serviceLongArnFormat`, and `taskLongArnFormat`. If your account does not support disabling these, "destroying" this resource will not disable the setting nor cause a provider error. However, the AWS Provider will log an AWS error: `InvalidParameterException: You can no longer disable Long Arn settings`.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Enable the long task ARN format
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Ecs.AccountSettingDefault("test", new()
-    ///     {
-    ///         Name = "taskLongArnFormat",
-    ///         Value = "enabled",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Set the default log driver mode to non-blocking
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Ecs.AccountSettingDefault("test", new()
-    ///     {
-    ///         Name = "defaultLogDriverMode",
-    ///         Value = "non-blocking",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import ECS Account Setting defaults using the `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ecs/accountSettingDefault:AccountSettingDefault")]
     public partial class AccountSettingDefault : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of the account setting to set.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         [Output("principalArn")]
         public Output<string> PrincipalArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// State of the setting.
-        /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
 
@@ -134,21 +70,12 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class AccountSettingDefaultArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the account setting to set.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// State of the setting.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
@@ -160,24 +87,15 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class AccountSettingDefaultState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the account setting to set.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("principalArn")]
         public Input<string>? PrincipalArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// State of the setting.
-        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

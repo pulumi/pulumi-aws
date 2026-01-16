@@ -31,14 +31,6 @@ class UserDefinedFunctionArgs:
                  resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]] = None):
         """
         The set of arguments for constructing a UserDefinedFunction resource.
-        :param pulumi.Input[_builtins.str] class_name: The Java class that contains the function code.
-        :param pulumi.Input[_builtins.str] database_name: The name of the Database to create the Function.
-        :param pulumi.Input[_builtins.str] owner_name: The owner of the function.
-        :param pulumi.Input[_builtins.str] owner_type: The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
-        :param pulumi.Input[_builtins.str] catalog_id: ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
-        :param pulumi.Input[_builtins.str] name: The name of the function.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
         """
         pulumi.set(__self__, "class_name", class_name)
         pulumi.set(__self__, "database_name", database_name)
@@ -56,9 +48,6 @@ class UserDefinedFunctionArgs:
     @_builtins.property
     @pulumi.getter(name="className")
     def class_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Java class that contains the function code.
-        """
         return pulumi.get(self, "class_name")
 
     @class_name.setter
@@ -68,9 +57,6 @@ class UserDefinedFunctionArgs:
     @_builtins.property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Database to create the Function.
-        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -80,9 +66,6 @@ class UserDefinedFunctionArgs:
     @_builtins.property
     @pulumi.getter(name="ownerName")
     def owner_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The owner of the function.
-        """
         return pulumi.get(self, "owner_name")
 
     @owner_name.setter
@@ -92,9 +75,6 @@ class UserDefinedFunctionArgs:
     @_builtins.property
     @pulumi.getter(name="ownerType")
     def owner_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
-        """
         return pulumi.get(self, "owner_type")
 
     @owner_type.setter
@@ -104,9 +84,6 @@ class UserDefinedFunctionArgs:
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -116,9 +93,6 @@ class UserDefinedFunctionArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the function.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -128,9 +102,6 @@ class UserDefinedFunctionArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -140,9 +111,6 @@ class UserDefinedFunctionArgs:
     @_builtins.property
     @pulumi.getter(name="resourceUris")
     def resource_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]]:
-        """
-        The configuration block for Resource URIs. See resource uris below for more details.
-        """
         return pulumi.get(self, "resource_uris")
 
     @resource_uris.setter
@@ -165,16 +133,6 @@ class _UserDefinedFunctionState:
                  resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]] = None):
         """
         Input properties used for looking up and filtering UserDefinedFunction resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Glue User Defined Function.
-        :param pulumi.Input[_builtins.str] catalog_id: ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
-        :param pulumi.Input[_builtins.str] class_name: The Java class that contains the function code.
-        :param pulumi.Input[_builtins.str] create_time: The time at which the function was created.
-        :param pulumi.Input[_builtins.str] database_name: The name of the Database to create the Function.
-        :param pulumi.Input[_builtins.str] name: The name of the function.
-        :param pulumi.Input[_builtins.str] owner_name: The owner of the function.
-        :param pulumi.Input[_builtins.str] owner_type: The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -200,9 +158,6 @@ class _UserDefinedFunctionState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the Glue User Defined Function.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -212,9 +167,6 @@ class _UserDefinedFunctionState:
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -224,9 +176,6 @@ class _UserDefinedFunctionState:
     @_builtins.property
     @pulumi.getter(name="className")
     def class_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Java class that contains the function code.
-        """
         return pulumi.get(self, "class_name")
 
     @class_name.setter
@@ -236,9 +185,6 @@ class _UserDefinedFunctionState:
     @_builtins.property
     @pulumi.getter(name="createTime")
     def create_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The time at which the function was created.
-        """
         return pulumi.get(self, "create_time")
 
     @create_time.setter
@@ -248,9 +194,6 @@ class _UserDefinedFunctionState:
     @_builtins.property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Database to create the Function.
-        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -260,9 +203,6 @@ class _UserDefinedFunctionState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the function.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -272,9 +212,6 @@ class _UserDefinedFunctionState:
     @_builtins.property
     @pulumi.getter(name="ownerName")
     def owner_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The owner of the function.
-        """
         return pulumi.get(self, "owner_name")
 
     @owner_name.setter
@@ -284,9 +221,6 @@ class _UserDefinedFunctionState:
     @_builtins.property
     @pulumi.getter(name="ownerType")
     def owner_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
-        """
         return pulumi.get(self, "owner_type")
 
     @owner_type.setter
@@ -296,9 +230,6 @@ class _UserDefinedFunctionState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -308,9 +239,6 @@ class _UserDefinedFunctionState:
     @_builtins.property
     @pulumi.getter(name="resourceUris")
     def resource_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]]:
-        """
-        The configuration block for Resource URIs. See resource uris below for more details.
-        """
         return pulumi.get(self, "resource_uris")
 
     @resource_uris.setter
@@ -334,46 +262,9 @@ class UserDefinedFunction(pulumi.CustomResource):
                  resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict']]]]] = None,
                  __props__=None):
         """
-        Provides a Glue User Defined Function Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.CatalogDatabase("example", name="my_database")
-        example_user_defined_function = aws.glue.UserDefinedFunction("example",
-            name="my_func",
-            catalog_id=example.catalog_id,
-            database_name=example.name,
-            class_name="class",
-            owner_name="owner",
-            owner_type="GROUP",
-            resource_uris=[{
-                "resource_type": "ARCHIVE",
-                "uri": "uri",
-            }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Glue User Defined Functions using the `catalog_id:database_name:function_name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
-
-        ```sh
-        $ pulumi import aws:glue/userDefinedFunction:UserDefinedFunction func 123456789012:my_database:my_func
-        ```
-
+        Create a UserDefinedFunction resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] catalog_id: ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
-        :param pulumi.Input[_builtins.str] class_name: The Java class that contains the function code.
-        :param pulumi.Input[_builtins.str] database_name: The name of the Database to create the Function.
-        :param pulumi.Input[_builtins.str] name: The name of the function.
-        :param pulumi.Input[_builtins.str] owner_name: The owner of the function.
-        :param pulumi.Input[_builtins.str] owner_type: The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict']]]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
         """
         ...
     @overload
@@ -382,36 +273,7 @@ class UserDefinedFunction(pulumi.CustomResource):
                  args: UserDefinedFunctionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Glue User Defined Function Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.CatalogDatabase("example", name="my_database")
-        example_user_defined_function = aws.glue.UserDefinedFunction("example",
-            name="my_func",
-            catalog_id=example.catalog_id,
-            database_name=example.name,
-            class_name="class",
-            owner_name="owner",
-            owner_type="GROUP",
-            resource_uris=[{
-                "resource_type": "ARCHIVE",
-                "uri": "uri",
-            }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Glue User Defined Functions using the `catalog_id:database_name:function_name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
-
-        ```sh
-        $ pulumi import aws:glue/userDefinedFunction:UserDefinedFunction func 123456789012:my_database:my_func
-        ```
-
+        Create a UserDefinedFunction resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserDefinedFunctionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -489,16 +351,6 @@ class UserDefinedFunction(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Glue User Defined Function.
-        :param pulumi.Input[_builtins.str] catalog_id: ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
-        :param pulumi.Input[_builtins.str] class_name: The Java class that contains the function code.
-        :param pulumi.Input[_builtins.str] create_time: The time at which the function was created.
-        :param pulumi.Input[_builtins.str] database_name: The name of the Database to create the Function.
-        :param pulumi.Input[_builtins.str] name: The name of the function.
-        :param pulumi.Input[_builtins.str] owner_name: The owner of the function.
-        :param pulumi.Input[_builtins.str] owner_type: The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict']]]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -519,80 +371,50 @@ class UserDefinedFunction(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the Glue User Defined Function.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
-        """
         return pulumi.get(self, "catalog_id")
 
     @_builtins.property
     @pulumi.getter(name="className")
     def class_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Java class that contains the function code.
-        """
         return pulumi.get(self, "class_name")
 
     @_builtins.property
     @pulumi.getter(name="createTime")
     def create_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        The time at which the function was created.
-        """
         return pulumi.get(self, "create_time")
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the Database to create the Function.
-        """
         return pulumi.get(self, "database_name")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the function.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="ownerName")
     def owner_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The owner of the function.
-        """
         return pulumi.get(self, "owner_name")
 
     @_builtins.property
     @pulumi.getter(name="ownerType")
     def owner_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
-        """
         return pulumi.get(self, "owner_type")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceUris")
     def resource_uris(self) -> pulumi.Output[Optional[Sequence['outputs.UserDefinedFunctionResourceUri']]]:
-        """
-        The configuration block for Resource URIs. See resource uris below for more details.
-        """
         return pulumi.get(self, "resource_uris")
 

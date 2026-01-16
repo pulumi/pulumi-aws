@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode {
-    /**
-     * @return ICMP code. A value of `-1` means all codes for the specified ICMP type.
-     * 
-     */
     private Integer code;
-    /**
-     * @return ICMP type. A value of `-1` means all types.
-     * 
-     */
     private Integer type;
 
     private KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode() {}
-    /**
-     * @return ICMP code. A value of `-1` means all codes for the specified ICMP type.
-     * 
-     */
     public Integer code() {
         return this.code;
     }
-    /**
-     * @return ICMP type. A value of `-1` means all types.
-     * 
-     */
     public Integer type() {
         return this.type;
     }

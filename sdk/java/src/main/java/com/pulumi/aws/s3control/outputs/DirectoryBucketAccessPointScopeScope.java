@@ -11,33 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DirectoryBucketAccessPointScopeScope {
-    /**
-     * @return You can specify a list of API operations as permissions for the access point.
-     * 
-     */
     private @Nullable List<String> permissions;
-    /**
-     * @return You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
-     * 
-     * * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
-     * 
-     */
     private @Nullable List<String> prefixes;
 
     private DirectoryBucketAccessPointScopeScope() {}
-    /**
-     * @return You can specify a list of API operations as permissions for the access point.
-     * 
-     */
     public List<String> permissions() {
         return this.permissions == null ? List.of() : this.permissions;
     }
-    /**
-     * @return You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
-     * 
-     * * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
-     * 
-     */
     public List<String> prefixes() {
         return this.prefixes == null ? List.of() : this.prefixes;
     }

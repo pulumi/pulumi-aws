@@ -12,144 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a DMS (Data Migration Service) replication subnet group resource. DMS replication subnet groups can be created, updated, deleted, and imported.
-//
-// > **Note:** AWS requires a special IAM role called `dms-vpc-role` when using this resource. See the example below to create it as part of your configuration.
-//
-// ## Example Usage
-//
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Create a new replication subnet group
-//			_, err := dms.NewReplicationSubnetGroup(ctx, "example", &dms.ReplicationSubnetGroupArgs{
-//				ReplicationSubnetGroupDescription: pulumi.String("Example replication subnet group"),
-//				ReplicationSubnetGroupId:          pulumi.String("example-dms-replication-subnet-group-tf"),
-//				SubnetIds: pulumi.StringArray{
-//					pulumi.String("subnet-12345678"),
-//					pulumi.String("subnet-12345679"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Creating special IAM role
-//
-// If your account does not already include the `dms-vpc-role` IAM role, you will need to create it to allow DMS to manage subnets in the VPC.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dms"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "dms.amazonaws.com",
-//						},
-//						"Action": "sts:AssumeRole",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			dms_vpc_role, err := iam.NewRole(ctx, "dms-vpc-role", &iam.RoleArgs{
-//				Name:             pulumi.String("dms-vpc-role"),
-//				Description:      pulumi.String("Allows DMS to manage VPC"),
-//				AssumeRolePolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
-//				Role:      dms_vpc_role.Name,
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dms.NewReplicationSubnetGroup(ctx, "example", &dms.ReplicationSubnetGroupArgs{
-//				ReplicationSubnetGroupDescription: pulumi.String("Example"),
-//				ReplicationSubnetGroupId:          pulumi.String("example-id"),
-//				SubnetIds: pulumi.StringArray{
-//					pulumi.String("subnet-12345678"),
-//					pulumi.String("subnet-12345679"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example-id"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import replication subnet groups using the `replication_subnet_group_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
-// ```
 type ReplicationSubnetGroup struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region                    pulumi.StringOutput `pulumi:"region"`
-	ReplicationSubnetGroupArn pulumi.StringOutput `pulumi:"replicationSubnetGroupArn"`
-	// Description for the subnet group.
-	ReplicationSubnetGroupDescription pulumi.StringOutput `pulumi:"replicationSubnetGroupDescription"`
-	// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
-	ReplicationSubnetGroupId pulumi.StringOutput `pulumi:"replicationSubnetGroupId"`
-	// List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
-	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The ID of the VPC the subnet group is in.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	Region                            pulumi.StringOutput      `pulumi:"region"`
+	ReplicationSubnetGroupArn         pulumi.StringOutput      `pulumi:"replicationSubnetGroupArn"`
+	ReplicationSubnetGroupDescription pulumi.StringOutput      `pulumi:"replicationSubnetGroupDescription"`
+	ReplicationSubnetGroupId          pulumi.StringOutput      `pulumi:"replicationSubnetGroupId"`
+	SubnetIds                         pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	Tags                              pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll                           pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	VpcId                             pulumi.StringOutput      `pulumi:"vpcId"`
 }
 
 // NewReplicationSubnetGroup registers a new resource with the given unique name, arguments, and options.
@@ -191,39 +64,25 @@ func GetReplicationSubnetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReplicationSubnetGroup resources.
 type replicationSubnetGroupState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region                    *string `pulumi:"region"`
-	ReplicationSubnetGroupArn *string `pulumi:"replicationSubnetGroupArn"`
-	// Description for the subnet group.
-	ReplicationSubnetGroupDescription *string `pulumi:"replicationSubnetGroupDescription"`
-	// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
-	ReplicationSubnetGroupId *string `pulumi:"replicationSubnetGroupId"`
-	// List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
-	SubnetIds []string `pulumi:"subnetIds"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The ID of the VPC the subnet group is in.
-	VpcId *string `pulumi:"vpcId"`
+	Region                            *string           `pulumi:"region"`
+	ReplicationSubnetGroupArn         *string           `pulumi:"replicationSubnetGroupArn"`
+	ReplicationSubnetGroupDescription *string           `pulumi:"replicationSubnetGroupDescription"`
+	ReplicationSubnetGroupId          *string           `pulumi:"replicationSubnetGroupId"`
+	SubnetIds                         []string          `pulumi:"subnetIds"`
+	Tags                              map[string]string `pulumi:"tags"`
+	TagsAll                           map[string]string `pulumi:"tagsAll"`
+	VpcId                             *string           `pulumi:"vpcId"`
 }
 
 type ReplicationSubnetGroupState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region                    pulumi.StringPtrInput
-	ReplicationSubnetGroupArn pulumi.StringPtrInput
-	// Description for the subnet group.
+	Region                            pulumi.StringPtrInput
+	ReplicationSubnetGroupArn         pulumi.StringPtrInput
 	ReplicationSubnetGroupDescription pulumi.StringPtrInput
-	// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
-	ReplicationSubnetGroupId pulumi.StringPtrInput
-	// List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
-	SubnetIds pulumi.StringArrayInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The ID of the VPC the subnet group is in.
-	VpcId pulumi.StringPtrInput
+	ReplicationSubnetGroupId          pulumi.StringPtrInput
+	SubnetIds                         pulumi.StringArrayInput
+	Tags                              pulumi.StringMapInput
+	TagsAll                           pulumi.StringMapInput
+	VpcId                             pulumi.StringPtrInput
 }
 
 func (ReplicationSubnetGroupState) ElementType() reflect.Type {
@@ -231,30 +90,20 @@ func (ReplicationSubnetGroupState) ElementType() reflect.Type {
 }
 
 type replicationSubnetGroupArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Description for the subnet group.
-	ReplicationSubnetGroupDescription string `pulumi:"replicationSubnetGroupDescription"`
-	// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
-	ReplicationSubnetGroupId string `pulumi:"replicationSubnetGroupId"`
-	// List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
-	SubnetIds []string `pulumi:"subnetIds"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Region                            *string           `pulumi:"region"`
+	ReplicationSubnetGroupDescription string            `pulumi:"replicationSubnetGroupDescription"`
+	ReplicationSubnetGroupId          string            `pulumi:"replicationSubnetGroupId"`
+	SubnetIds                         []string          `pulumi:"subnetIds"`
+	Tags                              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ReplicationSubnetGroup resource.
 type ReplicationSubnetGroupArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Description for the subnet group.
+	Region                            pulumi.StringPtrInput
 	ReplicationSubnetGroupDescription pulumi.StringInput
-	// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
-	ReplicationSubnetGroupId pulumi.StringInput
-	// List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
-	SubnetIds pulumi.StringArrayInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	ReplicationSubnetGroupId          pulumi.StringInput
+	SubnetIds                         pulumi.StringArrayInput
+	Tags                              pulumi.StringMapInput
 }
 
 func (ReplicationSubnetGroupArgs) ElementType() reflect.Type {
@@ -344,7 +193,6 @@ func (o ReplicationSubnetGroupOutput) ToReplicationSubnetGroupOutputWithContext(
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ReplicationSubnetGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationSubnetGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -353,32 +201,26 @@ func (o ReplicationSubnetGroupOutput) ReplicationSubnetGroupArn() pulumi.StringO
 	return o.ApplyT(func(v *ReplicationSubnetGroup) pulumi.StringOutput { return v.ReplicationSubnetGroupArn }).(pulumi.StringOutput)
 }
 
-// Description for the subnet group.
 func (o ReplicationSubnetGroupOutput) ReplicationSubnetGroupDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationSubnetGroup) pulumi.StringOutput { return v.ReplicationSubnetGroupDescription }).(pulumi.StringOutput)
 }
 
-// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
 func (o ReplicationSubnetGroupOutput) ReplicationSubnetGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationSubnetGroup) pulumi.StringOutput { return v.ReplicationSubnetGroupId }).(pulumi.StringOutput)
 }
 
-// List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
 func (o ReplicationSubnetGroupOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReplicationSubnetGroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ReplicationSubnetGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReplicationSubnetGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ReplicationSubnetGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReplicationSubnetGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The ID of the VPC the subnet group is in.
 func (o ReplicationSubnetGroupOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationSubnetGroup) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

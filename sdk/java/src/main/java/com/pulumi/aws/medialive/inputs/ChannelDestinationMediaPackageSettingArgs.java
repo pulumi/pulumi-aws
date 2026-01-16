@@ -14,17 +14,9 @@ public final class ChannelDestinationMediaPackageSettingArgs extends com.pulumi.
 
     public static final ChannelDestinationMediaPackageSettingArgs Empty = new ChannelDestinationMediaPackageSettingArgs();
 
-    /**
-     * ID of the channel in MediaPackage that is the destination for this output group.
-     * 
-     */
     @Import(name="channelId", required=true)
     private Output<String> channelId;
 
-    /**
-     * @return ID of the channel in MediaPackage that is the destination for this output group.
-     * 
-     */
     public Output<String> channelId() {
         return this.channelId;
     }
@@ -53,23 +45,11 @@ public final class ChannelDestinationMediaPackageSettingArgs extends com.pulumi.
             $ = new ChannelDestinationMediaPackageSettingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param channelId ID of the channel in MediaPackage that is the destination for this output group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder channelId(Output<String> channelId) {
             $.channelId = channelId;
             return this;
         }
 
-        /**
-         * @param channelId ID of the channel in MediaPackage that is the destination for this output group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder channelId(String channelId) {
             return channelId(Output.of(channelId));
         }

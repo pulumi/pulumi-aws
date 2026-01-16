@@ -15,32 +15,16 @@ public final class LaunchExecutionArgs extends com.pulumi.resources.ResourceArgs
 
     public static final LaunchExecutionArgs Empty = new LaunchExecutionArgs();
 
-    /**
-     * The date and time that the launch ended.
-     * 
-     */
     @Import(name="endedTime")
     private @Nullable Output<String> endedTime;
 
-    /**
-     * @return The date and time that the launch ended.
-     * 
-     */
     public Optional<Output<String>> endedTime() {
         return Optional.ofNullable(this.endedTime);
     }
 
-    /**
-     * The date and time that the launch started.
-     * 
-     */
     @Import(name="startedTime")
     private @Nullable Output<String> startedTime;
 
-    /**
-     * @return The date and time that the launch started.
-     * 
-     */
     public Optional<Output<String>> startedTime() {
         return Optional.ofNullable(this.startedTime);
     }
@@ -70,44 +54,20 @@ public final class LaunchExecutionArgs extends com.pulumi.resources.ResourceArgs
             $ = new LaunchExecutionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param endedTime The date and time that the launch ended.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endedTime(@Nullable Output<String> endedTime) {
             $.endedTime = endedTime;
             return this;
         }
 
-        /**
-         * @param endedTime The date and time that the launch ended.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endedTime(String endedTime) {
             return endedTime(Output.of(endedTime));
         }
 
-        /**
-         * @param startedTime The date and time that the launch started.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startedTime(@Nullable Output<String> startedTime) {
             $.startedTime = startedTime;
             return this;
         }
 
-        /**
-         * @param startedTime The date and time that the launch started.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startedTime(String startedTime) {
             return startedTime(Output.of(startedTime));
         }

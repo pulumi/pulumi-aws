@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Emr.Inputs
 
     public sealed class ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
-        /// </summary>
         [Input("allocationStrategy", required: true)]
         public Input<string> AllocationStrategy { get; set; } = null!;
 

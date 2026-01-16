@@ -18,66 +18,30 @@ public final class ImagePipelineWorkflowArgs extends com.pulumi.resources.Resour
 
     public static final ImagePipelineWorkflowArgs Empty = new ImagePipelineWorkflowArgs();
 
-    /**
-     * The action to take if the workflow fails. Must be one of `CONTINUE` or `ABORT`.
-     * 
-     */
     @Import(name="onFailure")
     private @Nullable Output<String> onFailure;
 
-    /**
-     * @return The action to take if the workflow fails. Must be one of `CONTINUE` or `ABORT`.
-     * 
-     */
     public Optional<Output<String>> onFailure() {
         return Optional.ofNullable(this.onFailure);
     }
 
-    /**
-     * The parallel group in which to run a test Workflow.
-     * 
-     */
     @Import(name="parallelGroup")
     private @Nullable Output<String> parallelGroup;
 
-    /**
-     * @return The parallel group in which to run a test Workflow.
-     * 
-     */
     public Optional<Output<String>> parallelGroup() {
         return Optional.ofNullable(this.parallelGroup);
     }
 
-    /**
-     * Configuration block for the workflow parameters. Detailed below.
-     * 
-     */
     @Import(name="parameters")
     private @Nullable Output<List<ImagePipelineWorkflowParameterArgs>> parameters;
 
-    /**
-     * @return Configuration block for the workflow parameters. Detailed below.
-     * 
-     */
     public Optional<Output<List<ImagePipelineWorkflowParameterArgs>>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the Image Builder Workflow.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="workflowArn", required=true)
     private Output<String> workflowArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the Image Builder Workflow.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> workflowArn() {
         return this.workflowArn;
     }
@@ -109,100 +73,42 @@ public final class ImagePipelineWorkflowArgs extends com.pulumi.resources.Resour
             $ = new ImagePipelineWorkflowArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param onFailure The action to take if the workflow fails. Must be one of `CONTINUE` or `ABORT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onFailure(@Nullable Output<String> onFailure) {
             $.onFailure = onFailure;
             return this;
         }
 
-        /**
-         * @param onFailure The action to take if the workflow fails. Must be one of `CONTINUE` or `ABORT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onFailure(String onFailure) {
             return onFailure(Output.of(onFailure));
         }
 
-        /**
-         * @param parallelGroup The parallel group in which to run a test Workflow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parallelGroup(@Nullable Output<String> parallelGroup) {
             $.parallelGroup = parallelGroup;
             return this;
         }
 
-        /**
-         * @param parallelGroup The parallel group in which to run a test Workflow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parallelGroup(String parallelGroup) {
             return parallelGroup(Output.of(parallelGroup));
         }
 
-        /**
-         * @param parameters Configuration block for the workflow parameters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(@Nullable Output<List<ImagePipelineWorkflowParameterArgs>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
-        /**
-         * @param parameters Configuration block for the workflow parameters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(List<ImagePipelineWorkflowParameterArgs> parameters) {
             return parameters(Output.of(parameters));
         }
 
-        /**
-         * @param parameters Configuration block for the workflow parameters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(ImagePipelineWorkflowParameterArgs... parameters) {
             return parameters(List.of(parameters));
         }
 
-        /**
-         * @param workflowArn Amazon Resource Name (ARN) of the Image Builder Workflow.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder workflowArn(Output<String> workflowArn) {
             $.workflowArn = workflowArn;
             return this;
         }
 
-        /**
-         * @param workflowArn Amazon Resource Name (ARN) of the Image Builder Workflow.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder workflowArn(String workflowArn) {
             return workflowArn(Output.of(workflowArn));
         }

@@ -15,77 +15,37 @@ public final class GetJobDefinitionPlainArgs extends com.pulumi.resources.Invoke
 
     public static final GetJobDefinitionPlainArgs Empty = new GetJobDefinitionPlainArgs();
 
-    /**
-     * ARN of the Job Definition. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
-     * 
-     */
     @Import(name="arn")
     private @Nullable String arn;
 
-    /**
-     * @return ARN of the Job Definition. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
-     * 
-     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-     * 
-     */
     @Import(name="name")
     private @Nullable String name;
 
-    /**
-     * @return The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The revision of the job definition.
-     * 
-     */
     @Import(name="revision")
     private @Nullable Integer revision;
 
-    /**
-     * @return The revision of the job definition.
-     * 
-     */
     public Optional<Integer> revision() {
         return Optional.ofNullable(this.revision);
     }
 
-    /**
-     * The status of the job definition.
-     * 
-     */
     @Import(name="status")
     private @Nullable String status;
 
-    /**
-     * @return The status of the job definition.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }
@@ -118,56 +78,26 @@ public final class GetJobDefinitionPlainArgs extends com.pulumi.resources.Invoke
             $ = new GetJobDefinitionPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the Job Definition. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable String arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param name The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param revision The revision of the job definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder revision(@Nullable Integer revision) {
             $.revision = revision;
             return this;
         }
 
-        /**
-         * @param status The status of the job definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable String status) {
             $.status = status;
             return this;

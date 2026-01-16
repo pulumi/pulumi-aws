@@ -55,17 +55,11 @@ class GetTemplatesResult:
     @pulumi.getter
     @_utilities.deprecated("""region is deprecated. Use get_region instead.""")
     def region(self) -> Optional[_builtins.str]:
-        """
-        AWS Region to which the template applies.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def templates(self) -> Sequence['outputs.GetTemplatesTemplateResult']:
-        """
-        A list of quota increase templates for specified region. See `templates`.
-        """
         return pulumi.get(self, "templates")
 
 
@@ -85,22 +79,7 @@ def get_templates(aws_region: Optional[_builtins.str] = None,
                   region: Optional[_builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTemplatesResult:
     """
-    Data source for managing AWS Service Quotas Templates.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicequotas.get_templates(aws_region="us-east-1")
-    ```
-
-
-    :param _builtins.str aws_region: AWS Region to which the quota increases apply.
-    :param _builtins.str region: AWS Region to which the quota increases apply. Use `get_region` instead.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['awsRegion'] = aws_region
@@ -117,22 +96,7 @@ def get_templates_output(aws_region: Optional[pulumi.Input[Optional[_builtins.st
                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTemplatesResult]:
     """
-    Data source for managing AWS Service Quotas Templates.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicequotas.get_templates(aws_region="us-east-1")
-    ```
-
-
-    :param _builtins.str aws_region: AWS Region to which the quota increases apply.
-    :param _builtins.str region: AWS Region to which the quota increases apply. Use `get_region` instead.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['awsRegion'] = aws_region

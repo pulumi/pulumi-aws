@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides information about multiple Elastic File System (EFS) Access Points.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/efs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := efs.GetAccessPoints(ctx, &efs.GetAccessPointsArgs{
-//				FileSystemId: "fs-12345678",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetAccessPoints(ctx *pulumi.Context, args *GetAccessPointsArgs, opts ...pulumi.InvokeOption) (*GetAccessPointsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAccessPointsResult
@@ -50,20 +23,16 @@ func GetAccessPoints(ctx *pulumi.Context, args *GetAccessPointsArgs, opts ...pul
 
 // A collection of arguments for invoking getAccessPoints.
 type GetAccessPointsArgs struct {
-	// EFS File System identifier.
-	FileSystemId string `pulumi:"fileSystemId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	FileSystemId string  `pulumi:"fileSystemId"`
+	Region       *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAccessPoints.
 type GetAccessPointsResult struct {
-	// Set of Amazon Resource Names (ARNs).
 	Arns         []string `pulumi:"arns"`
 	FileSystemId string   `pulumi:"fileSystemId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Set of identifiers.
+	Id     string   `pulumi:"id"`
 	Ids    []string `pulumi:"ids"`
 	Region string   `pulumi:"region"`
 }
@@ -79,10 +48,8 @@ func GetAccessPointsOutput(ctx *pulumi.Context, args GetAccessPointsOutputArgs, 
 
 // A collection of arguments for invoking getAccessPoints.
 type GetAccessPointsOutputArgs struct {
-	// EFS File System identifier.
-	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	FileSystemId pulumi.StringInput    `pulumi:"fileSystemId"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetAccessPointsOutputArgs) ElementType() reflect.Type {
@@ -104,7 +71,6 @@ func (o GetAccessPointsResultOutput) ToGetAccessPointsResultOutputWithContext(ct
 	return o
 }
 
-// Set of Amazon Resource Names (ARNs).
 func (o GetAccessPointsResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAccessPointsResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }
@@ -118,7 +84,6 @@ func (o GetAccessPointsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccessPointsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Set of identifiers.
 func (o GetAccessPointsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAccessPointsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

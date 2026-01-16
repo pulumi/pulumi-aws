@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterStorageConfig {
-    /**
-     * @return Contains block storage configuration for EKS Auto Mode enabled cluster.
-     * 
-     */
     private List<GetClusterStorageConfigBlockStorage> blockStorages;
 
     private GetClusterStorageConfig() {}
-    /**
-     * @return Contains block storage configuration for EKS Auto Mode enabled cluster.
-     * 
-     */
     public List<GetClusterStorageConfigBlockStorage> blockStorages() {
         return this.blockStorages;
     }

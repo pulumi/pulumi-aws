@@ -14,47 +14,23 @@ public final class InstanceAddOnArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final InstanceAddOnArgs Empty = new InstanceAddOnArgs();
 
-    /**
-     * Daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
-     * 
-     */
     @Import(name="snapshotTime", required=true)
     private Output<String> snapshotTime;
 
-    /**
-     * @return Daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
-     * 
-     */
     public Output<String> snapshotTime() {
         return this.snapshotTime;
     }
 
-    /**
-     * Status of the add-on. Valid values: `Enabled`, `Disabled`.
-     * 
-     */
     @Import(name="status", required=true)
     private Output<String> status;
 
-    /**
-     * @return Status of the add-on. Valid values: `Enabled`, `Disabled`.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
 
-    /**
-     * Add-on type. There is currently only one valid type `AutoSnapshot`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Add-on type. There is currently only one valid type `AutoSnapshot`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -85,65 +61,29 @@ public final class InstanceAddOnArgs extends com.pulumi.resources.ResourceArgs {
             $ = new InstanceAddOnArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param snapshotTime Daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotTime(Output<String> snapshotTime) {
             $.snapshotTime = snapshotTime;
             return this;
         }
 
-        /**
-         * @param snapshotTime Daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotTime(String snapshotTime) {
             return snapshotTime(Output.of(snapshotTime));
         }
 
-        /**
-         * @param status Status of the add-on. Valid values: `Enabled`, `Disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Status of the add-on. Valid values: `Enabled`, `Disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param type Add-on type. There is currently only one valid type `AutoSnapshot`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Add-on type. There is currently only one valid type `AutoSnapshot`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

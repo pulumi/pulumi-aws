@@ -13,92 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an SES email identity resource
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ses.EmailIdentity;
- * import com.pulumi.aws.ses.EmailIdentityArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App }{{@code
- *     public static void main(String[] args) }{{@code
- *         Pulumi.run(App::stack);
- *     }}{@code
- * 
- *     public static void stack(Context ctx) }{{@code
- *         var example = new EmailIdentity("example", EmailIdentityArgs.builder()
- *             .email("email}{@literal @}{@code example.com")
- *             .build());
- * 
- *     }}{@code
- * }}{@code
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SES email identities using the email address. For example:
- * 
- * ```sh
- * $ pulumi import aws:ses/emailIdentity:EmailIdentity example email{@literal @}example.com
- * ```
- * 
- */
 @ResourceType(type="aws:ses/emailIdentity:EmailIdentity")
 public class EmailIdentity extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the email identity.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the email identity.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The email address to assign to SES.
-     * 
-     */
     @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
-    /**
-     * @return The email address to assign to SES.
-     * 
-     */
     public Output<String> email() {
         return this.email;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

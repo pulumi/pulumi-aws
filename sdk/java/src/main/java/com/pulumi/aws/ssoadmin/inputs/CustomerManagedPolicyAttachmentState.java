@@ -16,62 +16,30 @@ public final class CustomerManagedPolicyAttachmentState extends com.pulumi.resou
 
     public static final CustomerManagedPolicyAttachmentState Empty = new CustomerManagedPolicyAttachmentState();
 
-    /**
-     * Specifies the name and path of a customer managed policy. See below.
-     * 
-     */
     @Import(name="customerManagedPolicyReference")
     private @Nullable Output<CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs> customerManagedPolicyReference;
 
-    /**
-     * @return Specifies the name and path of a customer managed policy. See below.
-     * 
-     */
     public Optional<Output<CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs>> customerManagedPolicyReference() {
         return Optional.ofNullable(this.customerManagedPolicyReference);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     * 
-     */
     @Import(name="instanceArn")
     private @Nullable Output<String> instanceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     * 
-     */
     public Optional<Output<String>> instanceArn() {
         return Optional.ofNullable(this.instanceArn);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
-     * 
-     */
     @Import(name="permissionSetArn")
     private @Nullable Output<String> permissionSetArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Permission Set.
-     * 
-     */
     public Optional<Output<String>> permissionSetArn() {
         return Optional.ofNullable(this.permissionSetArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -103,86 +71,38 @@ public final class CustomerManagedPolicyAttachmentState extends com.pulumi.resou
             $ = new CustomerManagedPolicyAttachmentState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customerManagedPolicyReference Specifies the name and path of a customer managed policy. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customerManagedPolicyReference(@Nullable Output<CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs> customerManagedPolicyReference) {
             $.customerManagedPolicyReference = customerManagedPolicyReference;
             return this;
         }
 
-        /**
-         * @param customerManagedPolicyReference Specifies the name and path of a customer managed policy. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customerManagedPolicyReference(CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs customerManagedPolicyReference) {
             return customerManagedPolicyReference(Output.of(customerManagedPolicyReference));
         }
 
-        /**
-         * @param instanceArn The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceArn(@Nullable Output<String> instanceArn) {
             $.instanceArn = instanceArn;
             return this;
         }
 
-        /**
-         * @param instanceArn The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceArn(String instanceArn) {
             return instanceArn(Output.of(instanceArn));
         }
 
-        /**
-         * @param permissionSetArn The Amazon Resource Name (ARN) of the Permission Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissionSetArn(@Nullable Output<String> permissionSetArn) {
             $.permissionSetArn = permissionSetArn;
             return this;
         }
 
-        /**
-         * @param permissionSetArn The Amazon Resource Name (ARN) of the Permission Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissionSetArn(String permissionSetArn) {
             return permissionSetArn(Output.of(permissionSetArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

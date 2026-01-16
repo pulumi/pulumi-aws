@@ -18,47 +18,23 @@ public final class BucketMetadataConfigurationMetadataConfigurationArgs extends 
 
     public static final BucketMetadataConfigurationMetadataConfigurationArgs Empty = new BucketMetadataConfigurationMetadataConfigurationArgs();
 
-    /**
-     * Destination information for the S3 Metadata configuration.
-     * 
-     */
     @Import(name="destinations")
     private @Nullable Output<List<BucketMetadataConfigurationMetadataConfigurationDestinationArgs>> destinations;
 
-    /**
-     * @return Destination information for the S3 Metadata configuration.
-     * 
-     */
     public Optional<Output<List<BucketMetadataConfigurationMetadataConfigurationDestinationArgs>>> destinations() {
         return Optional.ofNullable(this.destinations);
     }
 
-    /**
-     * Inventory table configuration. See `inventoryTableConfiguration` Block for details.
-     * 
-     */
     @Import(name="inventoryTableConfiguration")
     private @Nullable Output<BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs> inventoryTableConfiguration;
 
-    /**
-     * @return Inventory table configuration. See `inventoryTableConfiguration` Block for details.
-     * 
-     */
     public Optional<Output<BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs>> inventoryTableConfiguration() {
         return Optional.ofNullable(this.inventoryTableConfiguration);
     }
 
-    /**
-     * Journal table configuration. See `journalTableConfiguration` Block for details.
-     * 
-     */
     @Import(name="journalTableConfiguration")
     private @Nullable Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs> journalTableConfiguration;
 
-    /**
-     * @return Journal table configuration. See `journalTableConfiguration` Block for details.
-     * 
-     */
     public Optional<Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs>> journalTableConfiguration() {
         return Optional.ofNullable(this.journalTableConfiguration);
     }
@@ -89,75 +65,33 @@ public final class BucketMetadataConfigurationMetadataConfigurationArgs extends 
             $ = new BucketMetadataConfigurationMetadataConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destinations Destination information for the S3 Metadata configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinations(@Nullable Output<List<BucketMetadataConfigurationMetadataConfigurationDestinationArgs>> destinations) {
             $.destinations = destinations;
             return this;
         }
 
-        /**
-         * @param destinations Destination information for the S3 Metadata configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinations(List<BucketMetadataConfigurationMetadataConfigurationDestinationArgs> destinations) {
             return destinations(Output.of(destinations));
         }
 
-        /**
-         * @param destinations Destination information for the S3 Metadata configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinations(BucketMetadataConfigurationMetadataConfigurationDestinationArgs... destinations) {
             return destinations(List.of(destinations));
         }
 
-        /**
-         * @param inventoryTableConfiguration Inventory table configuration. See `inventoryTableConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inventoryTableConfiguration(@Nullable Output<BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs> inventoryTableConfiguration) {
             $.inventoryTableConfiguration = inventoryTableConfiguration;
             return this;
         }
 
-        /**
-         * @param inventoryTableConfiguration Inventory table configuration. See `inventoryTableConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inventoryTableConfiguration(BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs inventoryTableConfiguration) {
             return inventoryTableConfiguration(Output.of(inventoryTableConfiguration));
         }
 
-        /**
-         * @param journalTableConfiguration Journal table configuration. See `journalTableConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder journalTableConfiguration(@Nullable Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs> journalTableConfiguration) {
             $.journalTableConfiguration = journalTableConfiguration;
             return this;
         }
 
-        /**
-         * @param journalTableConfiguration Journal table configuration. See `journalTableConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder journalTableConfiguration(BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs journalTableConfiguration) {
             return journalTableConfiguration(Output.of(journalTableConfiguration));
         }

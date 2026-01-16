@@ -18,19 +18,9 @@ public final class RecordsExclusiveState extends com.pulumi.resources.ResourceAr
 
     public static final RecordsExclusiveState Empty = new RecordsExclusiveState();
 
-    /**
-     * A list of all resource record sets associated with the hosted zone.
-     * See `resourceRecordSet` below.
-     * 
-     */
     @Import(name="resourceRecordSets")
     private @Nullable Output<List<RecordsExclusiveResourceRecordSetArgs>> resourceRecordSets;
 
-    /**
-     * @return A list of all resource record sets associated with the hosted zone.
-     * See `resourceRecordSet` below.
-     * 
-     */
     public Optional<Output<List<RecordsExclusiveResourceRecordSetArgs>>> resourceRecordSets() {
         return Optional.ofNullable(this.resourceRecordSets);
     }
@@ -42,21 +32,9 @@ public final class RecordsExclusiveState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * ID of the hosted zone containing the resource record sets.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="zoneId")
     private @Nullable Output<String> zoneId;
 
-    /**
-     * @return ID of the hosted zone containing the resource record sets.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> zoneId() {
         return Optional.ofNullable(this.zoneId);
     }
@@ -87,36 +65,15 @@ public final class RecordsExclusiveState extends com.pulumi.resources.ResourceAr
             $ = new RecordsExclusiveState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param resourceRecordSets A list of all resource record sets associated with the hosted zone.
-         * See `resourceRecordSet` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceRecordSets(@Nullable Output<List<RecordsExclusiveResourceRecordSetArgs>> resourceRecordSets) {
             $.resourceRecordSets = resourceRecordSets;
             return this;
         }
 
-        /**
-         * @param resourceRecordSets A list of all resource record sets associated with the hosted zone.
-         * See `resourceRecordSet` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceRecordSets(List<RecordsExclusiveResourceRecordSetArgs> resourceRecordSets) {
             return resourceRecordSets(Output.of(resourceRecordSets));
         }
 
-        /**
-         * @param resourceRecordSets A list of all resource record sets associated with the hosted zone.
-         * See `resourceRecordSet` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceRecordSets(RecordsExclusiveResourceRecordSetArgs... resourceRecordSets) {
             return resourceRecordSets(List.of(resourceRecordSets));
         }
@@ -130,27 +87,11 @@ public final class RecordsExclusiveState extends com.pulumi.resources.ResourceAr
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param zoneId ID of the hosted zone containing the resource record sets.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder zoneId(@Nullable Output<String> zoneId) {
             $.zoneId = zoneId;
             return this;
         }
 
-        /**
-         * @param zoneId ID of the hosted zone containing the resource record sets.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder zoneId(String zoneId) {
             return zoneId(Output.of(zoneId));
         }

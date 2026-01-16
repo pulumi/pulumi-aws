@@ -58,9 +58,6 @@ class GetParameterResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the parameter.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -74,17 +71,11 @@ class GetParameterResult:
     @_builtins.property
     @pulumi.getter(name="insecureValue")
     def insecure_value(self) -> _builtins.str:
-        """
-        Value of the parameter. **Use caution:** This value is never marked as sensitive.
-        """
         return pulumi.get(self, "insecure_value")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the parameter.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -95,25 +86,16 @@ class GetParameterResult:
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
-        """
         return pulumi.get(self, "value")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> _builtins.int:
-        """
-        Version of the parameter.
-        """
         return pulumi.get(self, "version")
 
     @_builtins.property
@@ -144,34 +126,7 @@ def get_parameter(name: Optional[_builtins.str] = None,
                   with_decryption: Optional[_builtins.bool] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetParameterResult:
     """
-    Provides an SSM Parameter data source.
-
-    ## Example Usage
-
-    ### Default
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.ssm.get_parameter(name="foo")
-    ```
-
-    ### With version
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.ssm.get_parameter(name="foo:3")
-    ```
-
-    > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
-
-
-    :param _builtins.str name: Name of the parameter. To query by parameter version use `name:version` (e.g., `foo:3`).
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -195,34 +150,7 @@ def get_parameter_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                          with_decryption: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetParameterResult]:
     """
-    Provides an SSM Parameter data source.
-
-    ## Example Usage
-
-    ### Default
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.ssm.get_parameter(name="foo")
-    ```
-
-    ### With version
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.ssm.get_parameter(name="foo:3")
-    ```
-
-    > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
-
-
-    :param _builtins.str name: Name of the parameter. To query by parameter version use `name:version` (e.g., `foo:3`).
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

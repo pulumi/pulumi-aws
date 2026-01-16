@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class LogTransformerTransformerConfigLowerCaseString
     {
-        /// <summary>
-        /// Specifies the keys of the fields to convert to lowercase.
-        /// </summary>
         public readonly ImmutableArray<string> WithKeys;
 
         [OutputConstructor]

@@ -12,33 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsSlotTypeSlotTypeValue {
-    /**
-     * @return Value of the slot type entry.
-     * See `sampleValue` argument reference below.
-     * 
-     */
     private @Nullable List<V2modelsSlotTypeSlotTypeValueSampleValue> sampleValues;
-    /**
-     * @return A list of additional values related to the slot type entry.
-     * See `synonyms` argument reference below.
-     * 
-     */
     private @Nullable List<V2modelsSlotTypeSlotTypeValueSynonym> synonyms;
 
     private V2modelsSlotTypeSlotTypeValue() {}
-    /**
-     * @return Value of the slot type entry.
-     * See `sampleValue` argument reference below.
-     * 
-     */
     public List<V2modelsSlotTypeSlotTypeValueSampleValue> sampleValues() {
         return this.sampleValues == null ? List.of() : this.sampleValues;
     }
-    /**
-     * @return A list of additional values related to the slot type entry.
-     * See `synonyms` argument reference below.
-     * 
-     */
     public List<V2modelsSlotTypeSlotTypeValueSynonym> synonyms() {
         return this.synonyms == null ? List.of() : this.synonyms;
     }

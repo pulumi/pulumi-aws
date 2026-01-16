@@ -4,43 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage AWS ECR Basic Scan Type
- *
- * ## Example Usage
- *
- * ### Configuring Basic Scanning
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const basicScanTypeVersion = new aws.ecr.AccountSetting("basic_scan_type_version", {
- *     name: "BASIC_SCAN_TYPE_VERSION",
- *     value: "AWS_NATIVE",
- * });
- * ```
- *
- * ### Configuring Registry Policy Scope
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const registryPolicyScope = new aws.ecr.AccountSetting("registry_policy_scope", {
- *     name: "REGISTRY_POLICY_SCOPE",
- *     value: "V2",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import EMR Security Configurations using the account setting name. For example:
- *
- * ```sh
- * $ pulumi import aws:ecr/accountSetting:AccountSetting foo BASIC_SCAN_TYPE_VERSION
- * ```
- */
 export class AccountSetting extends pulumi.CustomResource {
     /**
      * Get an existing AccountSetting resource's state with the given name, ID, and optional extra
@@ -69,19 +32,8 @@ export class AccountSetting extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccountSetting.__pulumiType;
     }
 
-    /**
-     * Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Setting value that is specified. Valid values are:
-     * * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
-     * * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
-     */
     declare public readonly value: pulumi.Output<string>;
 
     /**
@@ -118,19 +70,8 @@ export class AccountSetting extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AccountSetting resources.
  */
 export interface AccountSettingState {
-    /**
-     * Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Setting value that is specified. Valid values are:
-     * * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
-     * * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
-     */
     value?: pulumi.Input<string>;
 }
 
@@ -138,18 +79,7 @@ export interface AccountSettingState {
  * The set of arguments for constructing a AccountSetting resource.
  */
 export interface AccountSettingArgs {
-    /**
-     * Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Setting value that is specified. Valid values are:
-     * * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
-     * * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
-     */
     value: pulumi.Input<string>;
 }

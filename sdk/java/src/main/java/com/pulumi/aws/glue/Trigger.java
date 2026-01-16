@@ -20,445 +20,95 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Glue Trigger resource.
- * 
- * ## Example Usage
- * 
- * ### Conditional Trigger
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.Trigger;
- * import com.pulumi.aws.glue.TriggerArgs;
- * import com.pulumi.aws.glue.inputs.TriggerActionArgs;
- * import com.pulumi.aws.glue.inputs.TriggerPredicateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Trigger("example", TriggerArgs.builder()
- *             .name("example")
- *             .type("CONDITIONAL")
- *             .actions(TriggerActionArgs.builder()
- *                 .jobName(example1.name())
- *                 .build())
- *             .predicate(TriggerPredicateArgs.builder()
- *                 .conditions(TriggerPredicateConditionArgs.builder()
- *                     .jobName(example2.name())
- *                     .state("SUCCEEDED")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### On-Demand Trigger
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.Trigger;
- * import com.pulumi.aws.glue.TriggerArgs;
- * import com.pulumi.aws.glue.inputs.TriggerActionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Trigger("example", TriggerArgs.builder()
- *             .name("example")
- *             .type("ON_DEMAND")
- *             .actions(TriggerActionArgs.builder()
- *                 .jobName(exampleAwsGlueJob.name())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Scheduled Trigger
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.Trigger;
- * import com.pulumi.aws.glue.TriggerArgs;
- * import com.pulumi.aws.glue.inputs.TriggerActionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Trigger("example", TriggerArgs.builder()
- *             .name("example")
- *             .schedule("cron(15 12 * * ? *)")
- *             .type("SCHEDULED")
- *             .actions(TriggerActionArgs.builder()
- *                 .jobName(exampleAwsGlueJob.name())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Conditional Trigger with Crawler Action
- * 
- * **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.Trigger;
- * import com.pulumi.aws.glue.TriggerArgs;
- * import com.pulumi.aws.glue.inputs.TriggerActionArgs;
- * import com.pulumi.aws.glue.inputs.TriggerPredicateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Trigger("example", TriggerArgs.builder()
- *             .name("example")
- *             .type("CONDITIONAL")
- *             .actions(TriggerActionArgs.builder()
- *                 .crawlerName(example1.name())
- *                 .build())
- *             .predicate(TriggerPredicateArgs.builder()
- *                 .conditions(TriggerPredicateConditionArgs.builder()
- *                     .jobName(example2.name())
- *                     .state("SUCCEEDED")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Conditional Trigger with Crawler Condition
- * 
- * **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.Trigger;
- * import com.pulumi.aws.glue.TriggerArgs;
- * import com.pulumi.aws.glue.inputs.TriggerActionArgs;
- * import com.pulumi.aws.glue.inputs.TriggerPredicateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Trigger("example", TriggerArgs.builder()
- *             .name("example")
- *             .type("CONDITIONAL")
- *             .actions(TriggerActionArgs.builder()
- *                 .jobName(example1.name())
- *                 .build())
- *             .predicate(TriggerPredicateArgs.builder()
- *                 .conditions(TriggerPredicateConditionArgs.builder()
- *                     .crawlerName(example2.name())
- *                     .crawlState("SUCCEEDED")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Glue Triggers using `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
- * ```
- * 
- */
 @ResourceType(type="aws:glue/trigger:Trigger")
 public class Trigger extends com.pulumi.resources.CustomResource {
-    /**
-     * List of actions initiated by this trigger when it fires. See Actions Below.
-     * 
-     */
     @Export(name="actions", refs={List.class,TriggerAction.class}, tree="[0,1]")
     private Output<List<TriggerAction>> actions;
 
-    /**
-     * @return List of actions initiated by this trigger when it fires. See Actions Below.
-     * 
-     */
     public Output<List<TriggerAction>> actions() {
         return this.actions;
     }
-    /**
-     * Amazon Resource Name (ARN) of Glue Trigger
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of Glue Trigger
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * A description of the new trigger.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A description of the new trigger.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Start the trigger. Defaults to `true`.
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
-    /**
-     * @return Start the trigger. Defaults to `true`.
-     * 
-     */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
-    /**
-     * Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
-     * 
-     */
     @Export(name="eventBatchingConditions", refs={List.class,TriggerEventBatchingCondition.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TriggerEventBatchingCondition>> eventBatchingConditions;
 
-    /**
-     * @return Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
-     * 
-     */
     public Output<Optional<List<TriggerEventBatchingCondition>>> eventBatchingConditions() {
         return Codegen.optional(this.eventBatchingConditions);
     }
-    /**
-     * The name of the trigger.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the trigger.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
-     * 
-     */
     @Export(name="predicate", refs={TriggerPredicate.class}, tree="[0]")
     private Output</* @Nullable */ TriggerPredicate> predicate;
 
-    /**
-     * @return A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
-     * 
-     */
     public Output<Optional<TriggerPredicate>> predicate() {
         return Codegen.optional(this.predicate);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
-     * 
-     */
     @Export(name="schedule", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> schedule;
 
-    /**
-     * @return A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
-     * 
-     */
     public Output<Optional<String>> schedule() {
         return Codegen.optional(this.schedule);
     }
-    /**
-     * Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
-     * 
-     */
     @Export(name="startOnCreation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> startOnCreation;
 
-    /**
-     * @return Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
-     * 
-     */
     public Output<Optional<Boolean>> startOnCreation() {
         return Codegen.optional(this.startOnCreation);
     }
-    /**
-     * The current state of the trigger.
-     * 
-     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
-    /**
-     * @return The current state of the trigger.
-     * 
-     */
     public Output<String> state() {
         return this.state;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
-    /**
-     * A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
-     * 
-     */
     @Export(name="workflowName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> workflowName;
 
-    /**
-     * @return A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
-     * 
-     */
     public Output<Optional<String>> workflowName() {
         return Codegen.optional(this.workflowName);
     }

@@ -15,178 +15,35 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * ### Testing Glacier Vault Lock Policy
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glacier.Vault;
- * import com.pulumi.aws.glacier.VaultArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.glacier.VaultLock;
- * import com.pulumi.aws.glacier.VaultLockArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleVault = new Vault("exampleVault", VaultArgs.builder()
- *             .name("example")
- *             .build());
- * 
- *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("glacier:DeleteArchive")
- *                 .effect("Deny")
- *                 .resources(exampleVault.arn())
- *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test("NumericLessThanEquals")
- *                     .variable("glacier:ArchiveAgeinDays")
- *                     .values("365")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var exampleVaultLock = new VaultLock("exampleVaultLock", VaultLockArgs.builder()
- *             .completeLock(false)
- *             .policy(example.applyValue(_example -> _example.json()))
- *             .vaultName(exampleVault.name())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Permanently Applying Glacier Vault Lock Policy
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glacier.VaultLock;
- * import com.pulumi.aws.glacier.VaultLockArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new VaultLock("example", VaultLockArgs.builder()
- *             .completeLock(true)
- *             .policy(exampleAwsIamPolicyDocument.json())
- *             .vaultName(exampleAwsGlacierVault.name())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Glacier Vault Locks using the Glacier Vault name. For example:
- * 
- * ```sh
- * $ pulumi import aws:glacier/vaultLock:VaultLock example example-vault
- * ```
- * 
- */
 @ResourceType(type="aws:glacier/vaultLock:VaultLock")
 public class VaultLock extends com.pulumi.resources.CustomResource {
-    /**
-     * Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
-     * 
-     */
     @Export(name="completeLock", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> completeLock;
 
-    /**
-     * @return Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
-     * 
-     */
     public Output<Boolean> completeLock() {
         return this.completeLock;
     }
-    /**
-     * Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `completeLock` being set to `true`.
-     * 
-     */
     @Export(name="ignoreDeletionError", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreDeletionError;
 
-    /**
-     * @return Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `completeLock` being set to `true`.
-     * 
-     */
     public Output<Optional<Boolean>> ignoreDeletionError() {
         return Codegen.optional(this.ignoreDeletionError);
     }
-    /**
-     * JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The name of the Glacier Vault.
-     * 
-     */
     @Export(name="vaultName", refs={String.class}, tree="[0]")
     private Output<String> vaultName;
 
-    /**
-     * @return The name of the Glacier Vault.
-     * 
-     */
     public Output<String> vaultName() {
         return this.vaultName;
     }

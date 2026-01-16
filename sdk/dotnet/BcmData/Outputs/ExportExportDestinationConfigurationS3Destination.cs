@@ -13,21 +13,9 @@ namespace Pulumi.Aws.BcmData.Outputs
     [OutputType]
     public sealed class ExportExportDestinationConfigurationS3Destination
     {
-        /// <summary>
-        /// Name of the Amazon S3 bucket used as the destination of a data export file.
-        /// </summary>
         public readonly string S3Bucket;
-        /// <summary>
-        /// Output configuration for the data export. See the `S3OutputConfigurations` argument reference below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration> S3OutputConfigurations;
-        /// <summary>
-        /// S3 path prefix you want prepended to the name of your data export.
-        /// </summary>
         public readonly string S3Prefix;
-        /// <summary>
-        /// S3 bucket region.
-        /// </summary>
         public readonly string S3Region;
 
         [OutputConstructor]

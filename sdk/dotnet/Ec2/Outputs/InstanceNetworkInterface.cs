@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class InstanceNetworkInterface
     {
-        /// <summary>
-        /// Whether or not to delete the network interface on instance termination. Defaults to `False`. Currently, the only valid value is `False`, as this is only supported when creating new network interfaces when launching an instance.
-        /// </summary>
         public readonly bool? DeleteOnTermination;
-        /// <summary>
-        /// Integer index of the network interface attachment. Limited by instance type.
-        /// </summary>
         public readonly int DeviceIndex;
-        /// <summary>
-        /// Integer index of the network card. Limited by instance type. The default index is `0`.
-        /// </summary>
         public readonly int? NetworkCardIndex;
-        /// <summary>
-        /// ID of the network interface to attach.
-        /// </summary>
         public readonly string NetworkInterfaceId;
 
         [OutputConstructor]

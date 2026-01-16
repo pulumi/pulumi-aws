@@ -11,78 +11,12 @@ namespace Pulumi.Aws.Iam
 {
     public static class GetAccessKeys
     {
-        /// <summary>
-        /// This data source can be used to fetch information about IAM access keys of a
-        /// specific IAM user.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetAccessKeys.Invoke(new()
-        ///     {
-        ///         User = "an_example_user_name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetAccessKeysResult> InvokeAsync(GetAccessKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessKeysResult>("aws:iam/getAccessKeys:getAccessKeys", args ?? new GetAccessKeysArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This data source can be used to fetch information about IAM access keys of a
-        /// specific IAM user.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetAccessKeys.Invoke(new()
-        ///     {
-        ///         User = "an_example_user_name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetAccessKeysResult> Invoke(GetAccessKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessKeysResult>("aws:iam/getAccessKeys:getAccessKeys", args ?? new GetAccessKeysInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This data source can be used to fetch information about IAM access keys of a
-        /// specific IAM user.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetAccessKeys.Invoke(new()
-        ///     {
-        ///         User = "an_example_user_name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetAccessKeysResult> Invoke(GetAccessKeysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessKeysResult>("aws:iam/getAccessKeys:getAccessKeys", args ?? new GetAccessKeysInvokeArgs(), options.WithDefaults());
     }
@@ -90,9 +24,6 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GetAccessKeysArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the IAM user associated with the access keys.
-        /// </summary>
         [Input("user", required: true)]
         public string User { get; set; } = null!;
 
@@ -104,9 +35,6 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GetAccessKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the IAM user associated with the access keys.
-        /// </summary>
         [Input("user", required: true)]
         public Input<string> User { get; set; } = null!;
 
@@ -120,9 +48,6 @@ namespace Pulumi.Aws.Iam
     [OutputType]
     public sealed class GetAccessKeysResult
     {
-        /// <summary>
-        /// List of the IAM access keys associated with the specified user. See below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetAccessKeysAccessKeyResult> AccessKeys;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

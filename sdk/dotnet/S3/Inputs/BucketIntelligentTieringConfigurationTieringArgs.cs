@@ -12,15 +12,9 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketIntelligentTieringConfigurationTieringArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// S3 Intelligent-Tiering access tier. Valid values: `ARCHIVE_ACCESS`, `DEEP_ARCHIVE_ACCESS`.
-        /// </summary>
         [Input("accessTier", required: true)]
         public Input<string> AccessTier { get; set; } = null!;
 
-        /// <summary>
-        /// Number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
-        /// </summary>
         [Input("days", required: true)]
         public Input<int> Days { get; set; } = null!;
 

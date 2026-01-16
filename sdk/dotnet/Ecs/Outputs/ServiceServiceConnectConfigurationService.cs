@@ -13,29 +13,11 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ServiceServiceConnectConfigurationService
     {
-        /// <summary>
-        /// List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. For each service block where enabled is true, exactly one `ClientAlias` with one `Port` should be specified. See below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ServiceServiceConnectConfigurationServiceClientAlias> ClientAlias;
-        /// <summary>
-        /// Name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
-        /// </summary>
         public readonly string? DiscoveryName;
-        /// <summary>
-        /// Port number for the Service Connect proxy to listen on.
-        /// </summary>
         public readonly int? IngressPortOverride;
-        /// <summary>
-        /// Name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
-        /// </summary>
         public readonly string PortName;
-        /// <summary>
-        /// Configuration timeouts for Service Connect
-        /// </summary>
         public readonly Outputs.ServiceServiceConnectConfigurationServiceTimeout? Timeout;
-        /// <summary>
-        /// Configuration for enabling Transport Layer Security (TLS)
-        /// </summary>
         public readonly Outputs.ServiceServiceConnectConfigurationServiceTls? Tls;
 
         [OutputConstructor]

@@ -16,62 +16,30 @@ public final class MultitenantDistributionViewerCertificateArgs extends com.pulu
 
     public static final MultitenantDistributionViewerCertificateArgs Empty = new MultitenantDistributionViewerCertificateArgs();
 
-    /**
-     * ARN of the AWS Certificate Manager certificate that you wish to use with this distribution. Required when using a custom SSL certificate.
-     * 
-     */
     @Import(name="acmCertificateArn")
     private @Nullable Output<String> acmCertificateArn;
 
-    /**
-     * @return ARN of the AWS Certificate Manager certificate that you wish to use with this distribution. Required when using a custom SSL certificate.
-     * 
-     */
     public Optional<Output<String>> acmCertificateArn() {
         return Optional.ofNullable(this.acmCertificateArn);
     }
 
-    /**
-     * Whether to use the CloudFront default certificate. Cannot be used with `acmCertificateArn`.
-     * 
-     */
     @Import(name="cloudfrontDefaultCertificate")
     private @Nullable Output<Boolean> cloudfrontDefaultCertificate;
 
-    /**
-     * @return Whether to use the CloudFront default certificate. Cannot be used with `acmCertificateArn`.
-     * 
-     */
     public Optional<Output<Boolean>> cloudfrontDefaultCertificate() {
         return Optional.ofNullable(this.cloudfrontDefaultCertificate);
     }
 
-    /**
-     * Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Default: `TLSv1`.
-     * 
-     */
     @Import(name="minimumProtocolVersion")
     private @Nullable Output<String> minimumProtocolVersion;
 
-    /**
-     * @return Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Default: `TLSv1`.
-     * 
-     */
     public Optional<Output<String>> minimumProtocolVersion() {
         return Optional.ofNullable(this.minimumProtocolVersion);
     }
 
-    /**
-     * How you want CloudFront to serve HTTPS requests. Valid values are `sni-only` and `vip`. Required when `acmCertificateArn` is specified.
-     * 
-     */
     @Import(name="sslSupportMethod")
     private @Nullable Output<String> sslSupportMethod;
 
-    /**
-     * @return How you want CloudFront to serve HTTPS requests. Valid values are `sni-only` and `vip`. Required when `acmCertificateArn` is specified.
-     * 
-     */
     public Optional<Output<String>> sslSupportMethod() {
         return Optional.ofNullable(this.sslSupportMethod);
     }
@@ -103,86 +71,38 @@ public final class MultitenantDistributionViewerCertificateArgs extends com.pulu
             $ = new MultitenantDistributionViewerCertificateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param acmCertificateArn ARN of the AWS Certificate Manager certificate that you wish to use with this distribution. Required when using a custom SSL certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder acmCertificateArn(@Nullable Output<String> acmCertificateArn) {
             $.acmCertificateArn = acmCertificateArn;
             return this;
         }
 
-        /**
-         * @param acmCertificateArn ARN of the AWS Certificate Manager certificate that you wish to use with this distribution. Required when using a custom SSL certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder acmCertificateArn(String acmCertificateArn) {
             return acmCertificateArn(Output.of(acmCertificateArn));
         }
 
-        /**
-         * @param cloudfrontDefaultCertificate Whether to use the CloudFront default certificate. Cannot be used with `acmCertificateArn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudfrontDefaultCertificate(@Nullable Output<Boolean> cloudfrontDefaultCertificate) {
             $.cloudfrontDefaultCertificate = cloudfrontDefaultCertificate;
             return this;
         }
 
-        /**
-         * @param cloudfrontDefaultCertificate Whether to use the CloudFront default certificate. Cannot be used with `acmCertificateArn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudfrontDefaultCertificate(Boolean cloudfrontDefaultCertificate) {
             return cloudfrontDefaultCertificate(Output.of(cloudfrontDefaultCertificate));
         }
 
-        /**
-         * @param minimumProtocolVersion Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Default: `TLSv1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minimumProtocolVersion(@Nullable Output<String> minimumProtocolVersion) {
             $.minimumProtocolVersion = minimumProtocolVersion;
             return this;
         }
 
-        /**
-         * @param minimumProtocolVersion Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Default: `TLSv1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minimumProtocolVersion(String minimumProtocolVersion) {
             return minimumProtocolVersion(Output.of(minimumProtocolVersion));
         }
 
-        /**
-         * @param sslSupportMethod How you want CloudFront to serve HTTPS requests. Valid values are `sni-only` and `vip`. Required when `acmCertificateArn` is specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sslSupportMethod(@Nullable Output<String> sslSupportMethod) {
             $.sslSupportMethod = sslSupportMethod;
             return this;
         }
 
-        /**
-         * @param sslSupportMethod How you want CloudFront to serve HTTPS requests. Valid values are `sni-only` and `vip`. Required when `acmCertificateArn` is specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sslSupportMethod(String sslSupportMethod) {
             return sslSupportMethod(Output.of(sslSupportMethod));
         }

@@ -17,32 +17,16 @@ public final class BucketAclV2AccessControlPolicyGrantArgs extends com.pulumi.re
 
     public static final BucketAclV2AccessControlPolicyGrantArgs Empty = new BucketAclV2AccessControlPolicyGrantArgs();
 
-    /**
-     * Configuration block for the person being granted permissions. See below.
-     * 
-     */
     @Import(name="grantee")
     private @Nullable Output<BucketAclV2AccessControlPolicyGrantGranteeArgs> grantee;
 
-    /**
-     * @return Configuration block for the person being granted permissions. See below.
-     * 
-     */
     public Optional<Output<BucketAclV2AccessControlPolicyGrantGranteeArgs>> grantee() {
         return Optional.ofNullable(this.grantee);
     }
 
-    /**
-     * Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `WRITE`, `WRITE_ACP`, `READ`, `READ_ACP`. See [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#permissions) for more details about what each permission means in the context of buckets.
-     * 
-     */
     @Import(name="permission", required=true)
     private Output<String> permission;
 
-    /**
-     * @return Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `WRITE`, `WRITE_ACP`, `READ`, `READ_ACP`. See [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#permissions) for more details about what each permission means in the context of buckets.
-     * 
-     */
     public Output<String> permission() {
         return this.permission;
     }
@@ -72,44 +56,20 @@ public final class BucketAclV2AccessControlPolicyGrantArgs extends com.pulumi.re
             $ = new BucketAclV2AccessControlPolicyGrantArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param grantee Configuration block for the person being granted permissions. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder grantee(@Nullable Output<BucketAclV2AccessControlPolicyGrantGranteeArgs> grantee) {
             $.grantee = grantee;
             return this;
         }
 
-        /**
-         * @param grantee Configuration block for the person being granted permissions. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs grantee) {
             return grantee(Output.of(grantee));
         }
 
-        /**
-         * @param permission Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `WRITE`, `WRITE_ACP`, `READ`, `READ_ACP`. See [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#permissions) for more details about what each permission means in the context of buckets.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permission(Output<String> permission) {
             $.permission = permission;
             return this;
         }
 
-        /**
-         * @param permission Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `WRITE`, `WRITE_ACP`, `READ`, `READ_ACP`. See [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#permissions) for more details about what each permission means in the context of buckets.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permission(String permission) {
             return permission(Output.of(permission));
         }

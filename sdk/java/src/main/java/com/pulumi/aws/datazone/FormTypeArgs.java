@@ -18,92 +18,44 @@ public final class FormTypeArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final FormTypeArgs Empty = new FormTypeArgs();
 
-    /**
-     * Description of form type. Must have a length of between 1 and 2048 characters.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of form type. Must have a length of between 1 and 2048 characters.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Identifier of the domain.
-     * 
-     */
     @Import(name="domainIdentifier", required=true)
     private Output<String> domainIdentifier;
 
-    /**
-     * @return Identifier of the domain.
-     * 
-     */
     public Output<String> domainIdentifier() {
         return this.domainIdentifier;
     }
 
-    /**
-     * Object of the model of the form type that contains the following attributes.
-     * 
-     */
     @Import(name="model")
     private @Nullable Output<FormTypeModelArgs> model;
 
-    /**
-     * @return Object of the model of the form type that contains the following attributes.
-     * 
-     */
     public Optional<Output<FormTypeModelArgs>> model() {
         return Optional.ofNullable(this.model);
     }
 
-    /**
-     * Name of the form type. Must be the name of the structure in smithy document.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the form type. Must be the name of the structure in smithy document.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
-     * 
-     */
     @Import(name="owningProjectIdentifier", required=true)
     private Output<String> owningProjectIdentifier;
 
-    /**
-     * @return Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
-     * 
-     */
     public Output<String> owningProjectIdentifier() {
         return this.owningProjectIdentifier;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -153,128 +105,56 @@ public final class FormTypeArgs extends com.pulumi.resources.ResourceArgs {
             $ = new FormTypeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Description of form type. Must have a length of between 1 and 2048 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of form type. Must have a length of between 1 and 2048 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param domainIdentifier Identifier of the domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainIdentifier(Output<String> domainIdentifier) {
             $.domainIdentifier = domainIdentifier;
             return this;
         }
 
-        /**
-         * @param domainIdentifier Identifier of the domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainIdentifier(String domainIdentifier) {
             return domainIdentifier(Output.of(domainIdentifier));
         }
 
-        /**
-         * @param model Object of the model of the form type that contains the following attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder model(@Nullable Output<FormTypeModelArgs> model) {
             $.model = model;
             return this;
         }
 
-        /**
-         * @param model Object of the model of the form type that contains the following attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder model(FormTypeModelArgs model) {
             return model(Output.of(model));
         }
 
-        /**
-         * @param name Name of the form type. Must be the name of the structure in smithy document.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the form type. Must be the name of the structure in smithy document.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param owningProjectIdentifier Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owningProjectIdentifier(Output<String> owningProjectIdentifier) {
             $.owningProjectIdentifier = owningProjectIdentifier;
             return this;
         }
 
-        /**
-         * @param owningProjectIdentifier Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owningProjectIdentifier(String owningProjectIdentifier) {
             return owningProjectIdentifier(Output.of(owningProjectIdentifier));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

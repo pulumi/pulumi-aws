@@ -15,62 +15,30 @@ public final class Disk_attachmentState extends com.pulumi.resources.ResourceArg
 
     public static final Disk_attachmentState Empty = new Disk_attachmentState();
 
-    /**
-     * Name of the Lightsail disk.
-     * 
-     */
     @Import(name="diskName")
     private @Nullable Output<String> diskName;
 
-    /**
-     * @return Name of the Lightsail disk.
-     * 
-     */
     public Optional<Output<String>> diskName() {
         return Optional.ofNullable(this.diskName);
     }
 
-    /**
-     * Disk path to expose to the instance.
-     * 
-     */
     @Import(name="diskPath")
     private @Nullable Output<String> diskPath;
 
-    /**
-     * @return Disk path to expose to the instance.
-     * 
-     */
     public Optional<Output<String>> diskPath() {
         return Optional.ofNullable(this.diskPath);
     }
 
-    /**
-     * Name of the Lightsail instance to attach to.
-     * 
-     */
     @Import(name="instanceName")
     private @Nullable Output<String> instanceName;
 
-    /**
-     * @return Name of the Lightsail instance to attach to.
-     * 
-     */
     public Optional<Output<String>> instanceName() {
         return Optional.ofNullable(this.instanceName);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -102,86 +70,38 @@ public final class Disk_attachmentState extends com.pulumi.resources.ResourceArg
             $ = new Disk_attachmentState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param diskName Name of the Lightsail disk.
-         * 
-         * @return builder
-         * 
-         */
         public Builder diskName(@Nullable Output<String> diskName) {
             $.diskName = diskName;
             return this;
         }
 
-        /**
-         * @param diskName Name of the Lightsail disk.
-         * 
-         * @return builder
-         * 
-         */
         public Builder diskName(String diskName) {
             return diskName(Output.of(diskName));
         }
 
-        /**
-         * @param diskPath Disk path to expose to the instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder diskPath(@Nullable Output<String> diskPath) {
             $.diskPath = diskPath;
             return this;
         }
 
-        /**
-         * @param diskPath Disk path to expose to the instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder diskPath(String diskPath) {
             return diskPath(Output.of(diskPath));
         }
 
-        /**
-         * @param instanceName Name of the Lightsail instance to attach to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceName(@Nullable Output<String> instanceName) {
             $.instanceName = instanceName;
             return this;
         }
 
-        /**
-         * @param instanceName Name of the Lightsail instance to attach to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceName(String instanceName) {
             return instanceName(Output.of(instanceName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

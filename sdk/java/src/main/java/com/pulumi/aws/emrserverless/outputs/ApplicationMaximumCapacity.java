@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationMaximumCapacity {
-    /**
-     * @return The maximum allowed CPU for an application.
-     * 
-     */
     private String cpu;
-    /**
-     * @return The maximum allowed disk for an application.
-     * 
-     */
     private @Nullable String disk;
-    /**
-     * @return The maximum allowed resources for an application.
-     * 
-     */
     private String memory;
 
     private ApplicationMaximumCapacity() {}
-    /**
-     * @return The maximum allowed CPU for an application.
-     * 
-     */
     public String cpu() {
         return this.cpu;
     }
-    /**
-     * @return The maximum allowed disk for an application.
-     * 
-     */
     public Optional<String> disk() {
         return Optional.ofNullable(this.disk);
     }
-    /**
-     * @return The maximum allowed resources for an application.
-     * 
-     */
     public String memory() {
         return this.memory;
     }

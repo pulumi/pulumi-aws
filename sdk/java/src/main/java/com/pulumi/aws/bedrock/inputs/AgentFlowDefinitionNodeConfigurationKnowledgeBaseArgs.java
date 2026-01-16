@@ -19,47 +19,23 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs extends
 
     public static final AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs Empty = new AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs();
 
-    /**
-     * Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
-     * 
-     */
     @Import(name="guardrailConfiguration")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs> guardrailConfiguration;
 
-    /**
-     * @return Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
-     * 
-     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs>> guardrailConfiguration() {
         return Optional.ofNullable(this.guardrailConfiguration);
     }
 
-    /**
-     * Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
-     * 
-     */
     @Import(name="inferenceConfiguration")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs> inferenceConfiguration;
 
-    /**
-     * @return Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
-     * 
-     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs>> inferenceConfiguration() {
         return Optional.ofNullable(this.inferenceConfiguration);
     }
 
-    /**
-     * The unique identifier of the knowledge base to query.
-     * 
-     */
     @Import(name="knowledgeBaseId", required=true)
     private Output<String> knowledgeBaseId;
 
-    /**
-     * @return The unique identifier of the knowledge base to query.
-     * 
-     */
     public Output<String> knowledgeBaseId() {
         return this.knowledgeBaseId;
     }
@@ -106,65 +82,29 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs extends
             $ = new AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param guardrailConfiguration Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder guardrailConfiguration(@Nullable Output<AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs> guardrailConfiguration) {
             $.guardrailConfiguration = guardrailConfiguration;
             return this;
         }
 
-        /**
-         * @param guardrailConfiguration Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder guardrailConfiguration(AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs guardrailConfiguration) {
             return guardrailConfiguration(Output.of(guardrailConfiguration));
         }
 
-        /**
-         * @param inferenceConfiguration Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inferenceConfiguration(@Nullable Output<AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs> inferenceConfiguration) {
             $.inferenceConfiguration = inferenceConfiguration;
             return this;
         }
 
-        /**
-         * @param inferenceConfiguration Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inferenceConfiguration(AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs inferenceConfiguration) {
             return inferenceConfiguration(Output.of(inferenceConfiguration));
         }
 
-        /**
-         * @param knowledgeBaseId The unique identifier of the knowledge base to query.
-         * 
-         * @return builder
-         * 
-         */
         public Builder knowledgeBaseId(Output<String> knowledgeBaseId) {
             $.knowledgeBaseId = knowledgeBaseId;
             return this;
         }
 
-        /**
-         * @param knowledgeBaseId The unique identifier of the knowledge base to query.
-         * 
-         * @return builder
-         * 
-         */
         public Builder knowledgeBaseId(String knowledgeBaseId) {
             return knowledgeBaseId(Output.of(knowledgeBaseId));
         }

@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponse {
-    /**
-     * @return Whether the user can interrupt the start message while it is playing.
-     * 
-     */
     private @Nullable Boolean allowInterrupt;
-    /**
-     * @return Delay between when the Lambda fulfillment function starts running and the start message is played. If the Lambda function returns before the delay is over, the start message isn&#39;t played.
-     * 
-     */
     private @Nullable Integer delayInSeconds;
-    /**
-     * @return Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `messageGroup`.
-     * 
-     */
     private @Nullable List<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroup> messageGroups;
 
     private V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponse() {}
-    /**
-     * @return Whether the user can interrupt the start message while it is playing.
-     * 
-     */
     public Optional<Boolean> allowInterrupt() {
         return Optional.ofNullable(this.allowInterrupt);
     }
-    /**
-     * @return Delay between when the Lambda fulfillment function starts running and the start message is played. If the Lambda function returns before the delay is over, the start message isn&#39;t played.
-     * 
-     */
     public Optional<Integer> delayInSeconds() {
         return Optional.ofNullable(this.delayInSeconds);
     }
-    /**
-     * @return Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `messageGroup`.
-     * 
-     */
     public List<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroup> messageGroups() {
         return this.messageGroups == null ? List.of() : this.messageGroups;
     }

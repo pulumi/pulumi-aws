@@ -14,34 +14,16 @@ public final class ProjectEnvironmentRegistryCredentialArgs extends com.pulumi.r
 
     public static final ProjectEnvironmentRegistryCredentialArgs Empty = new ProjectEnvironmentRegistryCredentialArgs();
 
-    /**
-     * ARN or name of credentials created using AWS Secrets Manager.
-     * 
-     */
     @Import(name="credential", required=true)
     private Output<String> credential;
 
-    /**
-     * @return ARN or name of credentials created using AWS Secrets Manager.
-     * 
-     */
     public Output<String> credential() {
         return this.credential;
     }
 
-    /**
-     * Service that created the credentials to access a private Docker registry. Valid
-     * value: `SECRETS_MANAGER` (AWS Secrets Manager).
-     * 
-     */
     @Import(name="credentialProvider", required=true)
     private Output<String> credentialProvider;
 
-    /**
-     * @return Service that created the credentials to access a private Docker registry. Valid
-     * value: `SECRETS_MANAGER` (AWS Secrets Manager).
-     * 
-     */
     public Output<String> credentialProvider() {
         return this.credentialProvider;
     }
@@ -71,46 +53,20 @@ public final class ProjectEnvironmentRegistryCredentialArgs extends com.pulumi.r
             $ = new ProjectEnvironmentRegistryCredentialArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param credential ARN or name of credentials created using AWS Secrets Manager.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credential(Output<String> credential) {
             $.credential = credential;
             return this;
         }
 
-        /**
-         * @param credential ARN or name of credentials created using AWS Secrets Manager.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credential(String credential) {
             return credential(Output.of(credential));
         }
 
-        /**
-         * @param credentialProvider Service that created the credentials to access a private Docker registry. Valid
-         * value: `SECRETS_MANAGER` (AWS Secrets Manager).
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentialProvider(Output<String> credentialProvider) {
             $.credentialProvider = credentialProvider;
             return this;
         }
 
-        /**
-         * @param credentialProvider Service that created the credentials to access a private Docker registry. Valid
-         * value: `SECRETS_MANAGER` (AWS Secrets Manager).
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentialProvider(String credentialProvider) {
             return credentialProvider(Output.of(credentialProvider));
         }

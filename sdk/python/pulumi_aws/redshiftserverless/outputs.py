@@ -55,11 +55,6 @@ class EndpointAccessVpcEndpoint(dict):
                  network_interfaces: Optional[Sequence['outputs.EndpointAccessVpcEndpointNetworkInterface']] = None,
                  vpc_endpoint_id: Optional[_builtins.str] = None,
                  vpc_id: Optional[_builtins.str] = None):
-        """
-        :param Sequence['EndpointAccessVpcEndpointNetworkInterfaceArgs'] network_interfaces: The network interfaces of the endpoint.. See `Network Interface` below.
-        :param _builtins.str vpc_endpoint_id: The DNS address of the VPC endpoint.
-        :param _builtins.str vpc_id: The port that Amazon Redshift Serverless listens on.
-        """
         if network_interfaces is not None:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
         if vpc_endpoint_id is not None:
@@ -70,25 +65,16 @@ class EndpointAccessVpcEndpoint(dict):
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> Optional[Sequence['outputs.EndpointAccessVpcEndpointNetworkInterface']]:
-        """
-        The network interfaces of the endpoint.. See `Network Interface` below.
-        """
         return pulumi.get(self, "network_interfaces")
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> Optional[_builtins.str]:
-        """
-        The DNS address of the VPC endpoint.
-        """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[_builtins.str]:
-        """
-        The port that Amazon Redshift Serverless listens on.
-        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -122,12 +108,6 @@ class EndpointAccessVpcEndpointNetworkInterface(dict):
                  network_interface_id: Optional[_builtins.str] = None,
                  private_ip_address: Optional[_builtins.str] = None,
                  subnet_id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str availability_zone: The availability Zone.
-        :param _builtins.str network_interface_id: The unique identifier of the network interface.
-        :param _builtins.str private_ip_address: The IPv4 address of the network interface within the subnet.
-        :param _builtins.str subnet_id: The unique identifier of the subnet.
-        """
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if network_interface_id is not None:
@@ -140,33 +120,21 @@ class EndpointAccessVpcEndpointNetworkInterface(dict):
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[_builtins.str]:
-        """
-        The availability Zone.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> Optional[_builtins.str]:
-        """
-        The unique identifier of the network interface.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[_builtins.str]:
-        """
-        The IPv4 address of the network interface within the subnet.
-        """
         return pulumi.get(self, "private_ip_address")
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[_builtins.str]:
-        """
-        The unique identifier of the subnet.
-        """
         return pulumi.get(self, "subnet_id")
 
 
@@ -194,27 +162,17 @@ class WorkgroupConfigParameter(dict):
     def __init__(__self__, *,
                  parameter_key: _builtins.str,
                  parameter_value: _builtins.str):
-        """
-        :param _builtins.str parameter_key: The key of the parameter. The options are `auto_mv`, `datestyle`, `enable_case_sensitive_identifier`, `enable_user_activity_logging`, `query_group`, `search_path`, `require_ssl`, `use_fips_ssl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `max_query_cpu_time`, `max_query_blocks_read`, `max_scan_row_count`, `max_query_execution_time`, `max_query_queue_time`, `max_query_cpu_usage_percent`, `max_query_temp_blocks_to_disk`, `max_join_row_count` and `max_nested_loop_join_row_count`.
-        :param _builtins.str parameter_value: The value of the parameter to set.
-        """
         pulumi.set(__self__, "parameter_key", parameter_key)
         pulumi.set(__self__, "parameter_value", parameter_value)
 
     @_builtins.property
     @pulumi.getter(name="parameterKey")
     def parameter_key(self) -> _builtins.str:
-        """
-        The key of the parameter. The options are `auto_mv`, `datestyle`, `enable_case_sensitive_identifier`, `enable_user_activity_logging`, `query_group`, `search_path`, `require_ssl`, `use_fips_ssl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `max_query_cpu_time`, `max_query_blocks_read`, `max_scan_row_count`, `max_query_execution_time`, `max_query_queue_time`, `max_query_cpu_usage_percent`, `max_query_temp_blocks_to_disk`, `max_join_row_count` and `max_nested_loop_join_row_count`.
-        """
         return pulumi.get(self, "parameter_key")
 
     @_builtins.property
     @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> _builtins.str:
-        """
-        The value of the parameter to set.
-        """
         return pulumi.get(self, "parameter_value")
 
 
@@ -241,11 +199,6 @@ class WorkgroupEndpoint(dict):
                  address: Optional[_builtins.str] = None,
                  port: Optional[_builtins.int] = None,
                  vpc_endpoints: Optional[Sequence['outputs.WorkgroupEndpointVpcEndpoint']] = None):
-        """
-        :param _builtins.str address: The DNS address of the VPC endpoint.
-        :param _builtins.int port: The port number on which the cluster accepts incoming connections.
-        :param Sequence['WorkgroupEndpointVpcEndpointArgs'] vpc_endpoints: The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
-        """
         if address is not None:
             pulumi.set(__self__, "address", address)
         if port is not None:
@@ -256,25 +209,16 @@ class WorkgroupEndpoint(dict):
     @_builtins.property
     @pulumi.getter
     def address(self) -> Optional[_builtins.str]:
-        """
-        The DNS address of the VPC endpoint.
-        """
         return pulumi.get(self, "address")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[_builtins.int]:
-        """
-        The port number on which the cluster accepts incoming connections.
-        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpoints")
     def vpc_endpoints(self) -> Optional[Sequence['outputs.WorkgroupEndpointVpcEndpoint']]:
-        """
-        The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
-        """
         return pulumi.get(self, "vpc_endpoints")
 
 
@@ -305,11 +249,6 @@ class WorkgroupEndpointVpcEndpoint(dict):
                  network_interfaces: Optional[Sequence['outputs.WorkgroupEndpointVpcEndpointNetworkInterface']] = None,
                  vpc_endpoint_id: Optional[_builtins.str] = None,
                  vpc_id: Optional[_builtins.str] = None):
-        """
-        :param Sequence['WorkgroupEndpointVpcEndpointNetworkInterfaceArgs'] network_interfaces: The network interfaces of the endpoint.. See `Network Interface` below.
-        :param _builtins.str vpc_endpoint_id: The DNS address of the VPC endpoint.
-        :param _builtins.str vpc_id: The port that Amazon Redshift Serverless listens on.
-        """
         if network_interfaces is not None:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
         if vpc_endpoint_id is not None:
@@ -320,25 +259,16 @@ class WorkgroupEndpointVpcEndpoint(dict):
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> Optional[Sequence['outputs.WorkgroupEndpointVpcEndpointNetworkInterface']]:
-        """
-        The network interfaces of the endpoint.. See `Network Interface` below.
-        """
         return pulumi.get(self, "network_interfaces")
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> Optional[_builtins.str]:
-        """
-        The DNS address of the VPC endpoint.
-        """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[_builtins.str]:
-        """
-        The port that Amazon Redshift Serverless listens on.
-        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -372,12 +302,6 @@ class WorkgroupEndpointVpcEndpointNetworkInterface(dict):
                  network_interface_id: Optional[_builtins.str] = None,
                  private_ip_address: Optional[_builtins.str] = None,
                  subnet_id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str availability_zone: The availability Zone.
-        :param _builtins.str network_interface_id: The unique identifier of the network interface.
-        :param _builtins.str private_ip_address: The IPv4 address of the network interface within the subnet.
-        :param _builtins.str subnet_id: The unique identifier of the subnet.
-        """
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if network_interface_id is not None:
@@ -390,33 +314,21 @@ class WorkgroupEndpointVpcEndpointNetworkInterface(dict):
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[_builtins.str]:
-        """
-        The availability Zone.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> Optional[_builtins.str]:
-        """
-        The unique identifier of the network interface.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[_builtins.str]:
-        """
-        The IPv4 address of the network interface within the subnet.
-        """
         return pulumi.get(self, "private_ip_address")
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[_builtins.str]:
-        """
-        The unique identifier of the subnet.
-        """
         return pulumi.get(self, "subnet_id")
 
 
@@ -425,10 +337,6 @@ class WorkgroupPricePerformanceTarget(dict):
     def __init__(__self__, *,
                  enabled: _builtins.bool,
                  level: Optional[_builtins.int] = None):
-        """
-        :param _builtins.bool enabled: Whether to enable price-performance scaling.
-        :param _builtins.int level: The price-performance scaling level. Valid values are `1` (LOW_COST), `25` (ECONOMICAL), `50` (BALANCED), `75` (RESOURCEFUL), and `100` (HIGH_PERFORMANCE).
-        """
         pulumi.set(__self__, "enabled", enabled)
         if level is not None:
             pulumi.set(__self__, "level", level)
@@ -436,17 +344,11 @@ class WorkgroupPricePerformanceTarget(dict):
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
-        """
-        Whether to enable price-performance scaling.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter
     def level(self) -> Optional[_builtins.int]:
-        """
-        The price-performance scaling level. Valid values are `1` (LOW_COST), `25` (ECONOMICAL), `50` (BALANCED), `75` (RESOURCEFUL), and `100` (HIGH_PERFORMANCE).
-        """
         return pulumi.get(self, "level")
 
 
@@ -456,11 +358,6 @@ class GetWorkgroupEndpointResult(dict):
                  address: _builtins.str,
                  port: _builtins.int,
                  vpc_endpoints: Sequence['outputs.GetWorkgroupEndpointVpcEndpointResult']):
-        """
-        :param _builtins.str address: The DNS address of the VPC endpoint.
-        :param _builtins.int port: The port that Amazon Redshift Serverless listens on.
-        :param Sequence['GetWorkgroupEndpointVpcEndpointArgs'] vpc_endpoints: The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
-        """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "vpc_endpoints", vpc_endpoints)
@@ -468,25 +365,16 @@ class GetWorkgroupEndpointResult(dict):
     @_builtins.property
     @pulumi.getter
     def address(self) -> _builtins.str:
-        """
-        The DNS address of the VPC endpoint.
-        """
         return pulumi.get(self, "address")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> _builtins.int:
-        """
-        The port that Amazon Redshift Serverless listens on.
-        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpoints")
     def vpc_endpoints(self) -> Sequence['outputs.GetWorkgroupEndpointVpcEndpointResult']:
-        """
-        The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
-        """
         return pulumi.get(self, "vpc_endpoints")
 
 
@@ -496,11 +384,6 @@ class GetWorkgroupEndpointVpcEndpointResult(dict):
                  network_interfaces: Sequence['outputs.GetWorkgroupEndpointVpcEndpointNetworkInterfaceResult'],
                  vpc_endpoint_id: _builtins.str,
                  vpc_id: _builtins.str):
-        """
-        :param Sequence['GetWorkgroupEndpointVpcEndpointNetworkInterfaceArgs'] network_interfaces: The network interfaces of the endpoint.. See `Network Interface` below.
-        :param _builtins.str vpc_endpoint_id: The DNS address of the VPC endpoint.
-        :param _builtins.str vpc_id: The port that Amazon Redshift Serverless listens on.
-        """
         pulumi.set(__self__, "network_interfaces", network_interfaces)
         pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -508,25 +391,16 @@ class GetWorkgroupEndpointVpcEndpointResult(dict):
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> Sequence['outputs.GetWorkgroupEndpointVpcEndpointNetworkInterfaceResult']:
-        """
-        The network interfaces of the endpoint.. See `Network Interface` below.
-        """
         return pulumi.get(self, "network_interfaces")
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> _builtins.str:
-        """
-        The DNS address of the VPC endpoint.
-        """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> _builtins.str:
-        """
-        The port that Amazon Redshift Serverless listens on.
-        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -537,12 +411,6 @@ class GetWorkgroupEndpointVpcEndpointNetworkInterfaceResult(dict):
                  network_interface_id: _builtins.str,
                  private_ip_address: _builtins.str,
                  subnet_id: _builtins.str):
-        """
-        :param _builtins.str availability_zone: The availability Zone.
-        :param _builtins.str network_interface_id: The unique identifier of the network interface.
-        :param _builtins.str private_ip_address: The IPv4 address of the network interface within the subnet.
-        :param _builtins.str subnet_id: The unique identifier of the subnet.
-        """
         pulumi.set(__self__, "availability_zone", availability_zone)
         pulumi.set(__self__, "network_interface_id", network_interface_id)
         pulumi.set(__self__, "private_ip_address", private_ip_address)
@@ -551,33 +419,21 @@ class GetWorkgroupEndpointVpcEndpointNetworkInterfaceResult(dict):
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> _builtins.str:
-        """
-        The availability Zone.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> _builtins.str:
-        """
-        The unique identifier of the network interface.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> _builtins.str:
-        """
-        The IPv4 address of the network interface within the subnet.
-        """
         return pulumi.get(self, "private_ip_address")
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> _builtins.str:
-        """
-        The unique identifier of the subnet.
-        """
         return pulumi.get(self, "subnet_id")
 
 

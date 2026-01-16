@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataQualityJobDefinitionDataQualityJobInputEndpointInput {
-    /**
-     * @return An endpoint in customer&#39;s account which has `dataCaptureConfig` enabled.
-     * 
-     */
     private String endpointName;
-    /**
-     * @return Path to the filesystem where the endpoint data is available to the container. Defaults to `/opt/ml/processing/input`.
-     * 
-     */
     private @Nullable String localPath;
-    /**
-     * @return Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
-     * 
-     */
     private @Nullable String s3DataDistributionType;
-    /**
-     * @return Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
-     * 
-     */
     private @Nullable String s3InputMode;
 
     private DataQualityJobDefinitionDataQualityJobInputEndpointInput() {}
-    /**
-     * @return An endpoint in customer&#39;s account which has `dataCaptureConfig` enabled.
-     * 
-     */
     public String endpointName() {
         return this.endpointName;
     }
-    /**
-     * @return Path to the filesystem where the endpoint data is available to the container. Defaults to `/opt/ml/processing/input`.
-     * 
-     */
     public Optional<String> localPath() {
         return Optional.ofNullable(this.localPath);
     }
-    /**
-     * @return Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
-     * 
-     */
     public Optional<String> s3DataDistributionType() {
         return Optional.ofNullable(this.s3DataDistributionType);
     }
-    /**
-     * @return Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
-     * 
-     */
     public Optional<String> s3InputMode() {
         return Optional.ofNullable(this.s3InputMode);
     }

@@ -17,47 +17,23 @@ public final class TrafficSourceAttachmentArgs extends com.pulumi.resources.Reso
 
     public static final TrafficSourceAttachmentArgs Empty = new TrafficSourceAttachmentArgs();
 
-    /**
-     * The name of the Auto Scaling group.
-     * 
-     */
     @Import(name="autoscalingGroupName", required=true)
     private Output<String> autoscalingGroupName;
 
-    /**
-     * @return The name of the Auto Scaling group.
-     * 
-     */
     public Output<String> autoscalingGroupName() {
         return this.autoscalingGroupName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The unique identifiers of a traffic sources.
-     * 
-     */
     @Import(name="trafficSource")
     private @Nullable Output<TrafficSourceAttachmentTrafficSourceArgs> trafficSource;
 
-    /**
-     * @return The unique identifiers of a traffic sources.
-     * 
-     */
     public Optional<Output<TrafficSourceAttachmentTrafficSourceArgs>> trafficSource() {
         return Optional.ofNullable(this.trafficSource);
     }
@@ -88,65 +64,29 @@ public final class TrafficSourceAttachmentArgs extends com.pulumi.resources.Reso
             $ = new TrafficSourceAttachmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoscalingGroupName The name of the Auto Scaling group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoscalingGroupName(Output<String> autoscalingGroupName) {
             $.autoscalingGroupName = autoscalingGroupName;
             return this;
         }
 
-        /**
-         * @param autoscalingGroupName The name of the Auto Scaling group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoscalingGroupName(String autoscalingGroupName) {
             return autoscalingGroupName(Output.of(autoscalingGroupName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param trafficSource The unique identifiers of a traffic sources.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trafficSource(@Nullable Output<TrafficSourceAttachmentTrafficSourceArgs> trafficSource) {
             $.trafficSource = trafficSource;
             return this;
         }
 
-        /**
-         * @param trafficSource The unique identifiers of a traffic sources.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trafficSource(TrafficSourceAttachmentTrafficSourceArgs trafficSource) {
             return trafficSource(Output.of(trafficSource));
         }

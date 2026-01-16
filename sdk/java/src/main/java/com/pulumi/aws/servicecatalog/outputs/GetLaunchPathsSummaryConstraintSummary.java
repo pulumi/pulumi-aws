@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchPathsSummaryConstraintSummary {
-    /**
-     * @return Description of the constraint.
-     * 
-     */
     private String description;
-    /**
-     * @return Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
-     * 
-     */
     private String type;
 
     private GetLaunchPathsSummaryConstraintSummary() {}
-    /**
-     * @return Description of the constraint.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
-     * 
-     */
     public String type() {
         return this.type;
     }

@@ -44,17 +44,11 @@ class GetApplicationAssignmentsResult:
     @_builtins.property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> _builtins.str:
-        """
-        ARN of the application.
-        """
         return pulumi.get(self, "application_arn")
 
     @_builtins.property
     @pulumi.getter(name="applicationAssignments")
     def application_assignments(self) -> Sequence['outputs.GetApplicationAssignmentsApplicationAssignmentResult']:
-        """
-        List of principals assigned to the application. See the `application_assignments` attribute reference below.
-        """
         return pulumi.get(self, "application_assignments")
 
     @_builtins.property
@@ -84,22 +78,7 @@ def get_application_assignments(application_arn: Optional[_builtins.str] = None,
                                 region: Optional[_builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationAssignmentsResult:
     """
-    Data source for managing AWS SSO Admin Application Assignments.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssoadmin.get_application_assignments(application_arn=example_aws_ssoadmin_application["arn"])
-    ```
-
-
-    :param _builtins.str application_arn: ARN of the application.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['applicationArn'] = application_arn
@@ -116,22 +95,7 @@ def get_application_assignments_output(application_arn: Optional[pulumi.Input[_b
                                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationAssignmentsResult]:
     """
-    Data source for managing AWS SSO Admin Application Assignments.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssoadmin.get_application_assignments(application_arn=example_aws_ssoadmin_application["arn"])
-    ```
-
-
-    :param _builtins.str application_arn: ARN of the application.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['applicationArn'] = application_arn

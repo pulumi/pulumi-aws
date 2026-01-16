@@ -18,32 +18,16 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMat
 
     public static final WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs Empty = new WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs();
 
-    /**
-     * List of Autonomous System Numbers (ASNs).
-     * 
-     */
     @Import(name="asnLists", required=true)
     private Output<List<Integer>> asnLists;
 
-    /**
-     * @return List of Autonomous System Numbers (ASNs).
-     * 
-     */
     public Output<List<Integer>> asnLists() {
         return this.asnLists;
     }
 
-    /**
-     * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `forwardedIpConfig` below for more details.
-     * 
-     */
     @Import(name="forwardedIpConfig")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs> forwardedIpConfig;
 
-    /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `forwardedIpConfig` below for more details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs>> forwardedIpConfig() {
         return Optional.ofNullable(this.forwardedIpConfig);
     }
@@ -73,54 +57,24 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMat
             $ = new WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param asnLists List of Autonomous System Numbers (ASNs).
-         * 
-         * @return builder
-         * 
-         */
         public Builder asnLists(Output<List<Integer>> asnLists) {
             $.asnLists = asnLists;
             return this;
         }
 
-        /**
-         * @param asnLists List of Autonomous System Numbers (ASNs).
-         * 
-         * @return builder
-         * 
-         */
         public Builder asnLists(List<Integer> asnLists) {
             return asnLists(Output.of(asnLists));
         }
 
-        /**
-         * @param asnLists List of Autonomous System Numbers (ASNs).
-         * 
-         * @return builder
-         * 
-         */
         public Builder asnLists(Integer... asnLists) {
             return asnLists(List.of(asnLists));
         }
 
-        /**
-         * @param forwardedIpConfig Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `forwardedIpConfig` below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forwardedIpConfig(@Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs> forwardedIpConfig) {
             $.forwardedIpConfig = forwardedIpConfig;
             return this;
         }
 
-        /**
-         * @param forwardedIpConfig Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `forwardedIpConfig` below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forwardedIpConfig(WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs forwardedIpConfig) {
             return forwardedIpConfig(Output.of(forwardedIpConfig));
         }

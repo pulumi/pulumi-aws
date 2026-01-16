@@ -13,13 +13,7 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketLoggingTargetObjectKeyFormat
     {
-        /// <summary>
-        /// Partitioned S3 key for log objects, in the form `[TargetPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `SimplePrefix`. See below.
-        /// </summary>
         public readonly Outputs.BucketLoggingTargetObjectKeyFormatPartitionedPrefix? PartitionedPrefix;
-        /// <summary>
-        /// Use the simple format for S3 keys for log objects, in the form `[TargetPrefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `SimplePrefix {}`. Conflicts with `PartitionedPrefix`.
-        /// </summary>
         public readonly Outputs.BucketLoggingTargetObjectKeyFormatSimplePrefix? SimplePrefix;
 
         [OutputConstructor]

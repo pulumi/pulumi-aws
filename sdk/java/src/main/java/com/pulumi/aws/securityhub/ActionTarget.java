@@ -13,128 +13,35 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Creates Security Hub custom action.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.securityhub.Account;
- * import com.pulumi.aws.securityhub.ActionTarget;
- * import com.pulumi.aws.securityhub.ActionTargetArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Account("example");
- * 
- *         var exampleActionTarget = new ActionTarget("exampleActionTarget", ActionTargetArgs.builder()
- *             .name("Send notification to chat")
- *             .identifier("SendToChat")
- *             .description("This is custom action sends selected findings to chat")
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Security Hub custom action using the action target ARN. For example:
- * 
- * ```sh
- * $ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
- * ```
- * 
- */
 @ResourceType(type="aws:securityhub/actionTarget:ActionTarget")
 public class ActionTarget extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the Security Hub custom action target.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the Security Hub custom action target.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The name of the custom action target.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
-    /**
-     * @return The name of the custom action target.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * The ID for the custom action target.
-     * 
-     */
     @Export(name="identifier", refs={String.class}, tree="[0]")
     private Output<String> identifier;
 
-    /**
-     * @return The ID for the custom action target.
-     * 
-     */
     public Output<String> identifier() {
         return this.identifier;
     }
-    /**
-     * The description for the custom action target.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The description for the custom action target.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

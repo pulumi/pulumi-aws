@@ -17,17 +17,9 @@ public final class GetDistributionArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetDistributionArgs Empty = new GetDistributionArgs();
 
-    /**
-     * Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
@@ -64,23 +56,11 @@ public final class GetDistributionArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetDistributionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }

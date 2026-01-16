@@ -17,47 +17,23 @@ public final class GetContainerRecipesArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetContainerRecipesArgs Empty = new GetContainerRecipesArgs();
 
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetContainerRecipesFilterArgs>> filters;
 
-    /**
-     * @return Configuration block(s) for filtering. Detailed below.
-     * 
-     */
     public Optional<Output<List<GetContainerRecipesFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
-     * 
-     */
     @Import(name="owner")
     private @Nullable Output<String> owner;
 
-    /**
-     * @return Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
-     * 
-     */
     public Optional<Output<String>> owner() {
         return Optional.ofNullable(this.owner);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -88,75 +64,33 @@ public final class GetContainerRecipesArgs extends com.pulumi.resources.InvokeAr
             $ = new GetContainerRecipesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetContainerRecipesFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetContainerRecipesFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetContainerRecipesFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param owner Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(@Nullable Output<String> owner) {
             $.owner = owner;
             return this;
         }
 
-        /**
-         * @param owner Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(String owner) {
             return owner(Output.of(owner));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

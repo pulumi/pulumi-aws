@@ -12,83 +12,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Chatbot Slack Channel Configuration.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chatbot"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := chatbot.NewSlackChannelConfiguration(ctx, "test", &chatbot.SlackChannelConfigurationArgs{
-//				ConfigurationName: pulumi.String("min-slaka-kanal"),
-//				IamRoleArn:        pulumi.Any(testAwsIamRole.Arn),
-//				SlackChannelId:    pulumi.String("C07EZ1ABC23"),
-//				SlackTeamId:       pulumi.String("T07EA123LEP"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("min-slaka-kanal"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Chatbot Slack Channel Configuration using the `chat_configuration_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:chatbot/slackChannelConfiguration:SlackChannelConfiguration example arn:aws:chatbot::123456789012:chat-configuration/slack-channel/min-slaka-kanal
-// ```
 type SlackChannelConfiguration struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Slack channel configuration.
-	ChatConfigurationArn pulumi.StringOutput `pulumi:"chatConfigurationArn"`
-	// Name of the Slack channel configuration.
-	ConfigurationName pulumi.StringOutput `pulumi:"configurationName"`
-	// List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-	GuardrailPolicyArns pulumi.StringArrayOutput `pulumi:"guardrailPolicyArns"`
-	// User-defined role that AWS Chatbot assumes. This is not the service-linked role.
-	IamRoleArn pulumi.StringOutput `pulumi:"iamRoleArn"`
-	// Logging levels include `ERROR`, `INFO`, or `NONE`.
-	LoggingLevel pulumi.StringOutput `pulumi:"loggingLevel"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ID of the Slack channel. For example, `C07EZ1ABC23`.
-	SlackChannelId pulumi.StringOutput `pulumi:"slackChannelId"`
-	// Name of the Slack channel.
-	SlackChannelName pulumi.StringOutput `pulumi:"slackChannelName"`
-	// ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
-	//
-	// The following arguments are optional:
-	SlackTeamId pulumi.StringOutput `pulumi:"slackTeamId"`
-	// Name of the Slack team.
-	SlackTeamName pulumi.StringOutput `pulumi:"slackTeamName"`
-	// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-	SnsTopicArns pulumi.StringArrayOutput `pulumi:"snsTopicArns"`
-	// Map of tags assigned to the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput                     `pulumi:"tagsAll"`
-	Timeouts SlackChannelConfigurationTimeoutsPtrOutput `pulumi:"timeouts"`
-	// Enables use of a user role requirement in your chat configuration.
-	UserAuthorizationRequired pulumi.BoolOutput `pulumi:"userAuthorizationRequired"`
+	ChatConfigurationArn      pulumi.StringOutput                        `pulumi:"chatConfigurationArn"`
+	ConfigurationName         pulumi.StringOutput                        `pulumi:"configurationName"`
+	GuardrailPolicyArns       pulumi.StringArrayOutput                   `pulumi:"guardrailPolicyArns"`
+	IamRoleArn                pulumi.StringOutput                        `pulumi:"iamRoleArn"`
+	LoggingLevel              pulumi.StringOutput                        `pulumi:"loggingLevel"`
+	Region                    pulumi.StringOutput                        `pulumi:"region"`
+	SlackChannelId            pulumi.StringOutput                        `pulumi:"slackChannelId"`
+	SlackChannelName          pulumi.StringOutput                        `pulumi:"slackChannelName"`
+	SlackTeamId               pulumi.StringOutput                        `pulumi:"slackTeamId"`
+	SlackTeamName             pulumi.StringOutput                        `pulumi:"slackTeamName"`
+	SnsTopicArns              pulumi.StringArrayOutput                   `pulumi:"snsTopicArns"`
+	Tags                      pulumi.StringMapOutput                     `pulumi:"tags"`
+	TagsAll                   pulumi.StringMapOutput                     `pulumi:"tagsAll"`
+	Timeouts                  SlackChannelConfigurationTimeoutsPtrOutput `pulumi:"timeouts"`
+	UserAuthorizationRequired pulumi.BoolOutput                          `pulumi:"userAuthorizationRequired"`
 }
 
 // NewSlackChannelConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -133,70 +74,38 @@ func GetSlackChannelConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SlackChannelConfiguration resources.
 type slackChannelConfigurationState struct {
-	// ARN of the Slack channel configuration.
-	ChatConfigurationArn *string `pulumi:"chatConfigurationArn"`
-	// Name of the Slack channel configuration.
-	ConfigurationName *string `pulumi:"configurationName"`
-	// List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-	GuardrailPolicyArns []string `pulumi:"guardrailPolicyArns"`
-	// User-defined role that AWS Chatbot assumes. This is not the service-linked role.
-	IamRoleArn *string `pulumi:"iamRoleArn"`
-	// Logging levels include `ERROR`, `INFO`, or `NONE`.
-	LoggingLevel *string `pulumi:"loggingLevel"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the Slack channel. For example, `C07EZ1ABC23`.
-	SlackChannelId *string `pulumi:"slackChannelId"`
-	// Name of the Slack channel.
-	SlackChannelName *string `pulumi:"slackChannelName"`
-	// ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
-	//
-	// The following arguments are optional:
-	SlackTeamId *string `pulumi:"slackTeamId"`
-	// Name of the Slack team.
-	SlackTeamName *string `pulumi:"slackTeamName"`
-	// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-	SnsTopicArns []string `pulumi:"snsTopicArns"`
-	// Map of tags assigned to the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string                  `pulumi:"tagsAll"`
-	Timeouts *SlackChannelConfigurationTimeouts `pulumi:"timeouts"`
-	// Enables use of a user role requirement in your chat configuration.
-	UserAuthorizationRequired *bool `pulumi:"userAuthorizationRequired"`
+	ChatConfigurationArn      *string                            `pulumi:"chatConfigurationArn"`
+	ConfigurationName         *string                            `pulumi:"configurationName"`
+	GuardrailPolicyArns       []string                           `pulumi:"guardrailPolicyArns"`
+	IamRoleArn                *string                            `pulumi:"iamRoleArn"`
+	LoggingLevel              *string                            `pulumi:"loggingLevel"`
+	Region                    *string                            `pulumi:"region"`
+	SlackChannelId            *string                            `pulumi:"slackChannelId"`
+	SlackChannelName          *string                            `pulumi:"slackChannelName"`
+	SlackTeamId               *string                            `pulumi:"slackTeamId"`
+	SlackTeamName             *string                            `pulumi:"slackTeamName"`
+	SnsTopicArns              []string                           `pulumi:"snsTopicArns"`
+	Tags                      map[string]string                  `pulumi:"tags"`
+	TagsAll                   map[string]string                  `pulumi:"tagsAll"`
+	Timeouts                  *SlackChannelConfigurationTimeouts `pulumi:"timeouts"`
+	UserAuthorizationRequired *bool                              `pulumi:"userAuthorizationRequired"`
 }
 
 type SlackChannelConfigurationState struct {
-	// ARN of the Slack channel configuration.
-	ChatConfigurationArn pulumi.StringPtrInput
-	// Name of the Slack channel configuration.
-	ConfigurationName pulumi.StringPtrInput
-	// List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-	GuardrailPolicyArns pulumi.StringArrayInput
-	// User-defined role that AWS Chatbot assumes. This is not the service-linked role.
-	IamRoleArn pulumi.StringPtrInput
-	// Logging levels include `ERROR`, `INFO`, or `NONE`.
-	LoggingLevel pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the Slack channel. For example, `C07EZ1ABC23`.
-	SlackChannelId pulumi.StringPtrInput
-	// Name of the Slack channel.
-	SlackChannelName pulumi.StringPtrInput
-	// ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
-	//
-	// The following arguments are optional:
-	SlackTeamId pulumi.StringPtrInput
-	// Name of the Slack team.
-	SlackTeamName pulumi.StringPtrInput
-	// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-	SnsTopicArns pulumi.StringArrayInput
-	// Map of tags assigned to the resource.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts SlackChannelConfigurationTimeoutsPtrInput
-	// Enables use of a user role requirement in your chat configuration.
+	ChatConfigurationArn      pulumi.StringPtrInput
+	ConfigurationName         pulumi.StringPtrInput
+	GuardrailPolicyArns       pulumi.StringArrayInput
+	IamRoleArn                pulumi.StringPtrInput
+	LoggingLevel              pulumi.StringPtrInput
+	Region                    pulumi.StringPtrInput
+	SlackChannelId            pulumi.StringPtrInput
+	SlackChannelName          pulumi.StringPtrInput
+	SlackTeamId               pulumi.StringPtrInput
+	SlackTeamName             pulumi.StringPtrInput
+	SnsTopicArns              pulumi.StringArrayInput
+	Tags                      pulumi.StringMapInput
+	TagsAll                   pulumi.StringMapInput
+	Timeouts                  SlackChannelConfigurationTimeoutsPtrInput
 	UserAuthorizationRequired pulumi.BoolPtrInput
 }
 
@@ -205,55 +114,31 @@ func (SlackChannelConfigurationState) ElementType() reflect.Type {
 }
 
 type slackChannelConfigurationArgs struct {
-	// Name of the Slack channel configuration.
-	ConfigurationName string `pulumi:"configurationName"`
-	// List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-	GuardrailPolicyArns []string `pulumi:"guardrailPolicyArns"`
-	// User-defined role that AWS Chatbot assumes. This is not the service-linked role.
-	IamRoleArn string `pulumi:"iamRoleArn"`
-	// Logging levels include `ERROR`, `INFO`, or `NONE`.
-	LoggingLevel *string `pulumi:"loggingLevel"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the Slack channel. For example, `C07EZ1ABC23`.
-	SlackChannelId string `pulumi:"slackChannelId"`
-	// ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
-	//
-	// The following arguments are optional:
-	SlackTeamId string `pulumi:"slackTeamId"`
-	// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-	SnsTopicArns []string `pulumi:"snsTopicArns"`
-	// Map of tags assigned to the resource.
-	Tags     map[string]string                  `pulumi:"tags"`
-	Timeouts *SlackChannelConfigurationTimeouts `pulumi:"timeouts"`
-	// Enables use of a user role requirement in your chat configuration.
-	UserAuthorizationRequired *bool `pulumi:"userAuthorizationRequired"`
+	ConfigurationName         string                             `pulumi:"configurationName"`
+	GuardrailPolicyArns       []string                           `pulumi:"guardrailPolicyArns"`
+	IamRoleArn                string                             `pulumi:"iamRoleArn"`
+	LoggingLevel              *string                            `pulumi:"loggingLevel"`
+	Region                    *string                            `pulumi:"region"`
+	SlackChannelId            string                             `pulumi:"slackChannelId"`
+	SlackTeamId               string                             `pulumi:"slackTeamId"`
+	SnsTopicArns              []string                           `pulumi:"snsTopicArns"`
+	Tags                      map[string]string                  `pulumi:"tags"`
+	Timeouts                  *SlackChannelConfigurationTimeouts `pulumi:"timeouts"`
+	UserAuthorizationRequired *bool                              `pulumi:"userAuthorizationRequired"`
 }
 
 // The set of arguments for constructing a SlackChannelConfiguration resource.
 type SlackChannelConfigurationArgs struct {
-	// Name of the Slack channel configuration.
-	ConfigurationName pulumi.StringInput
-	// List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-	GuardrailPolicyArns pulumi.StringArrayInput
-	// User-defined role that AWS Chatbot assumes. This is not the service-linked role.
-	IamRoleArn pulumi.StringInput
-	// Logging levels include `ERROR`, `INFO`, or `NONE`.
-	LoggingLevel pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the Slack channel. For example, `C07EZ1ABC23`.
-	SlackChannelId pulumi.StringInput
-	// ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
-	//
-	// The following arguments are optional:
-	SlackTeamId pulumi.StringInput
-	// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-	SnsTopicArns pulumi.StringArrayInput
-	// Map of tags assigned to the resource.
-	Tags     pulumi.StringMapInput
-	Timeouts SlackChannelConfigurationTimeoutsPtrInput
-	// Enables use of a user role requirement in your chat configuration.
+	ConfigurationName         pulumi.StringInput
+	GuardrailPolicyArns       pulumi.StringArrayInput
+	IamRoleArn                pulumi.StringInput
+	LoggingLevel              pulumi.StringPtrInput
+	Region                    pulumi.StringPtrInput
+	SlackChannelId            pulumi.StringInput
+	SlackTeamId               pulumi.StringInput
+	SnsTopicArns              pulumi.StringArrayInput
+	Tags                      pulumi.StringMapInput
+	Timeouts                  SlackChannelConfigurationTimeoutsPtrInput
 	UserAuthorizationRequired pulumi.BoolPtrInput
 }
 
@@ -344,69 +229,54 @@ func (o SlackChannelConfigurationOutput) ToSlackChannelConfigurationOutputWithCo
 	return o
 }
 
-// ARN of the Slack channel configuration.
 func (o SlackChannelConfigurationOutput) ChatConfigurationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringOutput { return v.ChatConfigurationArn }).(pulumi.StringOutput)
 }
 
-// Name of the Slack channel configuration.
 func (o SlackChannelConfigurationOutput) ConfigurationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringOutput { return v.ConfigurationName }).(pulumi.StringOutput)
 }
 
-// List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
 func (o SlackChannelConfigurationOutput) GuardrailPolicyArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringArrayOutput { return v.GuardrailPolicyArns }).(pulumi.StringArrayOutput)
 }
 
-// User-defined role that AWS Chatbot assumes. This is not the service-linked role.
 func (o SlackChannelConfigurationOutput) IamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringOutput { return v.IamRoleArn }).(pulumi.StringOutput)
 }
 
-// Logging levels include `ERROR`, `INFO`, or `NONE`.
 func (o SlackChannelConfigurationOutput) LoggingLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringOutput { return v.LoggingLevel }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SlackChannelConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ID of the Slack channel. For example, `C07EZ1ABC23`.
 func (o SlackChannelConfigurationOutput) SlackChannelId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringOutput { return v.SlackChannelId }).(pulumi.StringOutput)
 }
 
-// Name of the Slack channel.
 func (o SlackChannelConfigurationOutput) SlackChannelName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringOutput { return v.SlackChannelName }).(pulumi.StringOutput)
 }
 
-// ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
-//
-// The following arguments are optional:
 func (o SlackChannelConfigurationOutput) SlackTeamId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringOutput { return v.SlackTeamId }).(pulumi.StringOutput)
 }
 
-// Name of the Slack team.
 func (o SlackChannelConfigurationOutput) SlackTeamName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringOutput { return v.SlackTeamName }).(pulumi.StringOutput)
 }
 
-// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
 func (o SlackChannelConfigurationOutput) SnsTopicArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringArrayOutput { return v.SnsTopicArns }).(pulumi.StringArrayOutput)
 }
 
-// Map of tags assigned to the resource.
 func (o SlackChannelConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SlackChannelConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -415,7 +285,6 @@ func (o SlackChannelConfigurationOutput) Timeouts() SlackChannelConfigurationTim
 	return o.ApplyT(func(v *SlackChannelConfiguration) SlackChannelConfigurationTimeoutsPtrOutput { return v.Timeouts }).(SlackChannelConfigurationTimeoutsPtrOutput)
 }
 
-// Enables use of a user role requirement in your chat configuration.
 func (o SlackChannelConfigurationOutput) UserAuthorizationRequired() pulumi.BoolOutput {
 	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.BoolOutput { return v.UserAuthorizationRequired }).(pulumi.BoolOutput)
 }

@@ -20,161 +20,57 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventTargetEcsTarget {
-    /**
-     * @return The capacity provider strategy to use for the task. If a `capacityProviderStrategy` specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or `launchType` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
-     * 
-     */
     private @Nullable List<EventTargetEcsTargetCapacityProviderStrategy> capacityProviderStrategies;
-    /**
-     * @return Specifies whether to enable Amazon ECS managed tags for the task.
-     * 
-     */
     private @Nullable Boolean enableEcsManagedTags;
-    /**
-     * @return Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
-     * 
-     */
     private @Nullable Boolean enableExecuteCommand;
-    /**
-     * @return Specifies an ECS task group for the task. The maximum length is 255 characters.
-     * 
-     */
     private @Nullable String group;
-    /**
-     * @return Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: `EC2`, `EXTERNAL`, or `FARGATE`.
-     * 
-     */
     private @Nullable String launchType;
-    /**
-     * @return Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launchType` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
-     * 
-     */
     private @Nullable EventTargetEcsTargetNetworkConfiguration networkConfiguration;
-    /**
-     * @return An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
-     * 
-     */
     private @Nullable List<EventTargetEcsTargetOrderedPlacementStrategy> orderedPlacementStrategies;
-    /**
-     * @return An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
-     * 
-     */
     private @Nullable List<EventTargetEcsTargetPlacementConstraint> placementConstraints;
-    /**
-     * @return Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-     * 
-     */
     private @Nullable String platformVersion;
-    /**
-     * @return Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. The only valid value is: `TASK_DEFINITION`.
-     * 
-     */
     private @Nullable String propagateTags;
-    /**
-     * @return A map of tags to assign to ecs resources.
-     * 
-     */
     private @Nullable Map<String,String> tags;
-    /**
-     * @return The number of tasks to create based on the TaskDefinition. Defaults to `1`.
-     * 
-     */
     private @Nullable Integer taskCount;
-    /**
-     * @return The ARN of the task definition to use if the event target is an Amazon ECS cluster.
-     * 
-     */
     private String taskDefinitionArn;
 
     private EventTargetEcsTarget() {}
-    /**
-     * @return The capacity provider strategy to use for the task. If a `capacityProviderStrategy` specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or `launchType` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
-     * 
-     */
     public List<EventTargetEcsTargetCapacityProviderStrategy> capacityProviderStrategies() {
         return this.capacityProviderStrategies == null ? List.of() : this.capacityProviderStrategies;
     }
-    /**
-     * @return Specifies whether to enable Amazon ECS managed tags for the task.
-     * 
-     */
     public Optional<Boolean> enableEcsManagedTags() {
         return Optional.ofNullable(this.enableEcsManagedTags);
     }
-    /**
-     * @return Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
-     * 
-     */
     public Optional<Boolean> enableExecuteCommand() {
         return Optional.ofNullable(this.enableExecuteCommand);
     }
-    /**
-     * @return Specifies an ECS task group for the task. The maximum length is 255 characters.
-     * 
-     */
     public Optional<String> group() {
         return Optional.ofNullable(this.group);
     }
-    /**
-     * @return Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: `EC2`, `EXTERNAL`, or `FARGATE`.
-     * 
-     */
     public Optional<String> launchType() {
         return Optional.ofNullable(this.launchType);
     }
-    /**
-     * @return Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launchType` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
-     * 
-     */
     public Optional<EventTargetEcsTargetNetworkConfiguration> networkConfiguration() {
         return Optional.ofNullable(this.networkConfiguration);
     }
-    /**
-     * @return An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
-     * 
-     */
     public List<EventTargetEcsTargetOrderedPlacementStrategy> orderedPlacementStrategies() {
         return this.orderedPlacementStrategies == null ? List.of() : this.orderedPlacementStrategies;
     }
-    /**
-     * @return An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
-     * 
-     */
     public List<EventTargetEcsTargetPlacementConstraint> placementConstraints() {
         return this.placementConstraints == null ? List.of() : this.placementConstraints;
     }
-    /**
-     * @return Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-     * 
-     */
     public Optional<String> platformVersion() {
         return Optional.ofNullable(this.platformVersion);
     }
-    /**
-     * @return Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. The only valid value is: `TASK_DEFINITION`.
-     * 
-     */
     public Optional<String> propagateTags() {
         return Optional.ofNullable(this.propagateTags);
     }
-    /**
-     * @return A map of tags to assign to ecs resources.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
-    /**
-     * @return The number of tasks to create based on the TaskDefinition. Defaults to `1`.
-     * 
-     */
     public Optional<Integer> taskCount() {
         return Optional.ofNullable(this.taskCount);
     }
-    /**
-     * @return The ARN of the task definition to use if the event target is an Amazon ECS cluster.
-     * 
-     */
     public String taskDefinitionArn() {
         return this.taskDefinitionArn;
     }

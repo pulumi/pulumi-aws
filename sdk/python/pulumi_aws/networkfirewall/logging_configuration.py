@@ -27,10 +27,6 @@ class LoggingConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LoggingConfiguration resource.
-        :param pulumi.Input[_builtins.str] firewall_arn: The Amazon Resource Name (ARN) of the Network Firewall firewall.
-        :param pulumi.Input['LoggingConfigurationLoggingConfigurationArgs'] logging_configuration: A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
-        :param pulumi.Input[_builtins.bool] enable_monitoring_dashboard: Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "firewall_arn", firewall_arn)
         pulumi.set(__self__, "logging_configuration", logging_configuration)
@@ -42,9 +38,6 @@ class LoggingConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="firewallArn")
     def firewall_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the Network Firewall firewall.
-        """
         return pulumi.get(self, "firewall_arn")
 
     @firewall_arn.setter
@@ -54,9 +47,6 @@ class LoggingConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> pulumi.Input['LoggingConfigurationLoggingConfigurationArgs']:
-        """
-        A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
-        """
         return pulumi.get(self, "logging_configuration")
 
     @logging_configuration.setter
@@ -66,9 +56,6 @@ class LoggingConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="enableMonitoringDashboard")
     def enable_monitoring_dashboard(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
-        """
         return pulumi.get(self, "enable_monitoring_dashboard")
 
     @enable_monitoring_dashboard.setter
@@ -78,9 +65,6 @@ class LoggingConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -97,10 +81,6 @@ class _LoggingConfigurationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LoggingConfiguration resources.
-        :param pulumi.Input[_builtins.bool] enable_monitoring_dashboard: Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] firewall_arn: The Amazon Resource Name (ARN) of the Network Firewall firewall.
-        :param pulumi.Input['LoggingConfigurationLoggingConfigurationArgs'] logging_configuration: A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if enable_monitoring_dashboard is not None:
             pulumi.set(__self__, "enable_monitoring_dashboard", enable_monitoring_dashboard)
@@ -114,9 +94,6 @@ class _LoggingConfigurationState:
     @_builtins.property
     @pulumi.getter(name="enableMonitoringDashboard")
     def enable_monitoring_dashboard(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
-        """
         return pulumi.get(self, "enable_monitoring_dashboard")
 
     @enable_monitoring_dashboard.setter
@@ -126,9 +103,6 @@ class _LoggingConfigurationState:
     @_builtins.property
     @pulumi.getter(name="firewallArn")
     def firewall_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the Network Firewall firewall.
-        """
         return pulumi.get(self, "firewall_arn")
 
     @firewall_arn.setter
@@ -138,9 +112,6 @@ class _LoggingConfigurationState:
     @_builtins.property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> Optional[pulumi.Input['LoggingConfigurationLoggingConfigurationArgs']]:
-        """
-        A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
-        """
         return pulumi.get(self, "logging_configuration")
 
     @logging_configuration.setter
@@ -150,9 +121,6 @@ class _LoggingConfigurationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -172,82 +140,9 @@ class LoggingConfiguration(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an AWS Network Firewall Logging Configuration Resource
-
-        ## Example Usage
-
-        ### Logging to S3
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.LoggingConfiguration("example",
-            firewall_arn=example_aws_networkfirewall_firewall["arn"],
-            logging_configuration={
-                "log_destination_configs": [{
-                    "log_destination": {
-                        "bucketName": example_aws_s3_bucket["bucket"],
-                        "prefix": "example",
-                    },
-                    "log_destination_type": "S3",
-                    "log_type": "FLOW",
-                }],
-            })
-        ```
-
-        ### Logging to CloudWatch
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.LoggingConfiguration("example",
-            firewall_arn=example_aws_networkfirewall_firewall["arn"],
-            logging_configuration={
-                "log_destination_configs": [{
-                    "log_destination": {
-                        "logGroup": example_aws_cloudwatch_log_group["name"],
-                    },
-                    "log_destination_type": "CloudWatchLogs",
-                    "log_type": "ALERT",
-                }],
-            })
-        ```
-
-        ### Logging to Kinesis Data Firehose
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.LoggingConfiguration("example",
-            firewall_arn=example_aws_networkfirewall_firewall["arn"],
-            logging_configuration={
-                "log_destination_configs": [{
-                    "log_destination": {
-                        "deliveryStream": example_aws_kinesis_firehose_delivery_stream["name"],
-                    },
-                    "log_destination_type": "KinesisDataFirehose",
-                    "log_type": "TLS",
-                }],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Network Firewall Logging Configurations using the `firewall_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
-        ```
-
+        Create a LoggingConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] enable_monitoring_dashboard: Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] firewall_arn: The Amazon Resource Name (ARN) of the Network Firewall firewall.
-        :param pulumi.Input[Union['LoggingConfigurationLoggingConfigurationArgs', 'LoggingConfigurationLoggingConfigurationArgsDict']] logging_configuration: A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -256,76 +151,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                  args: LoggingConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AWS Network Firewall Logging Configuration Resource
-
-        ## Example Usage
-
-        ### Logging to S3
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.LoggingConfiguration("example",
-            firewall_arn=example_aws_networkfirewall_firewall["arn"],
-            logging_configuration={
-                "log_destination_configs": [{
-                    "log_destination": {
-                        "bucketName": example_aws_s3_bucket["bucket"],
-                        "prefix": "example",
-                    },
-                    "log_destination_type": "S3",
-                    "log_type": "FLOW",
-                }],
-            })
-        ```
-
-        ### Logging to CloudWatch
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.LoggingConfiguration("example",
-            firewall_arn=example_aws_networkfirewall_firewall["arn"],
-            logging_configuration={
-                "log_destination_configs": [{
-                    "log_destination": {
-                        "logGroup": example_aws_cloudwatch_log_group["name"],
-                    },
-                    "log_destination_type": "CloudWatchLogs",
-                    "log_type": "ALERT",
-                }],
-            })
-        ```
-
-        ### Logging to Kinesis Data Firehose
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.LoggingConfiguration("example",
-            firewall_arn=example_aws_networkfirewall_firewall["arn"],
-            logging_configuration={
-                "log_destination_configs": [{
-                    "log_destination": {
-                        "deliveryStream": example_aws_kinesis_firehose_delivery_stream["name"],
-                    },
-                    "log_destination_type": "KinesisDataFirehose",
-                    "log_type": "TLS",
-                }],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Network Firewall Logging Configurations using the `firewall_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
-        ```
-
+        Create a LoggingConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LoggingConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -383,10 +209,6 @@ class LoggingConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] enable_monitoring_dashboard: Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] firewall_arn: The Amazon Resource Name (ARN) of the Network Firewall firewall.
-        :param pulumi.Input[Union['LoggingConfigurationLoggingConfigurationArgs', 'LoggingConfigurationLoggingConfigurationArgsDict']] logging_configuration: A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -401,32 +223,20 @@ class LoggingConfiguration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="enableMonitoringDashboard")
     def enable_monitoring_dashboard(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
-        """
         return pulumi.get(self, "enable_monitoring_dashboard")
 
     @_builtins.property
     @pulumi.getter(name="firewallArn")
     def firewall_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the Network Firewall firewall.
-        """
         return pulumi.get(self, "firewall_arn")
 
     @_builtins.property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> pulumi.Output['outputs.LoggingConfigurationLoggingConfiguration']:
-        """
-        A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
-        """
         return pulumi.get(self, "logging_configuration")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

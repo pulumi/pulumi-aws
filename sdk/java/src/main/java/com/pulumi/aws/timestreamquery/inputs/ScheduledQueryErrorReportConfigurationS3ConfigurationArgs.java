@@ -16,47 +16,23 @@ public final class ScheduledQueryErrorReportConfigurationS3ConfigurationArgs ext
 
     public static final ScheduledQueryErrorReportConfigurationS3ConfigurationArgs Empty = new ScheduledQueryErrorReportConfigurationS3ConfigurationArgs();
 
-    /**
-     * Name of the S3 bucket under which error reports will be created.
-     * 
-     */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
-    /**
-     * @return Name of the S3 bucket under which error reports will be created.
-     * 
-     */
     public Output<String> bucketName() {
         return this.bucketName;
     }
 
-    /**
-     * Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose `SSE_S3` as default. Valid values are `SSE_S3`, `SSE_KMS`.
-     * 
-     */
     @Import(name="encryptionOption")
     private @Nullable Output<String> encryptionOption;
 
-    /**
-     * @return Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose `SSE_S3` as default. Valid values are `SSE_S3`, `SSE_KMS`.
-     * 
-     */
     public Optional<Output<String>> encryptionOption() {
         return Optional.ofNullable(this.encryptionOption);
     }
 
-    /**
-     * Prefix for the error report key.
-     * 
-     */
     @Import(name="objectKeyPrefix")
     private @Nullable Output<String> objectKeyPrefix;
 
-    /**
-     * @return Prefix for the error report key.
-     * 
-     */
     public Optional<Output<String>> objectKeyPrefix() {
         return Optional.ofNullable(this.objectKeyPrefix);
     }
@@ -87,65 +63,29 @@ public final class ScheduledQueryErrorReportConfigurationS3ConfigurationArgs ext
             $ = new ScheduledQueryErrorReportConfigurationS3ConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketName Name of the S3 bucket under which error reports will be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
-        /**
-         * @param bucketName Name of the S3 bucket under which error reports will be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }
 
-        /**
-         * @param encryptionOption Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose `SSE_S3` as default. Valid values are `SSE_S3`, `SSE_KMS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionOption(@Nullable Output<String> encryptionOption) {
             $.encryptionOption = encryptionOption;
             return this;
         }
 
-        /**
-         * @param encryptionOption Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose `SSE_S3` as default. Valid values are `SSE_S3`, `SSE_KMS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionOption(String encryptionOption) {
             return encryptionOption(Output.of(encryptionOption));
         }
 
-        /**
-         * @param objectKeyPrefix Prefix for the error report key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectKeyPrefix(@Nullable Output<String> objectKeyPrefix) {
             $.objectKeyPrefix = objectKeyPrefix;
             return this;
         }
 
-        /**
-         * @param objectKeyPrefix Prefix for the error report key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectKeyPrefix(String objectKeyPrefix) {
             return objectKeyPrefix(Output.of(objectKeyPrefix));
         }

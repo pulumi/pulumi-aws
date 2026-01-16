@@ -12,15 +12,9 @@ namespace Pulumi.Aws.VerifiedPermissions.Inputs
 
     public sealed class IdentitySourceConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
-        /// </summary>
         [Input("cognitoUserPoolConfiguration")]
         public Input<Inputs.IdentitySourceConfigurationCognitoUserPoolConfigurationGetArgs>? CognitoUserPoolConfiguration { get; set; }
 
-        /// <summary>
-        /// Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
-        /// </summary>
         [Input("openIdConnectConfiguration")]
         public Input<Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationGetArgs>? OpenIdConnectConfiguration { get; set; }
 

@@ -12,35 +12,20 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
     public sealed class ImageWorkflowGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The action to take if the workflow fails. Must be one of `CONTINUE` or `ABORT`.
-        /// </summary>
         [Input("onFailure")]
         public Input<string>? OnFailure { get; set; }
 
-        /// <summary>
-        /// The parallel group in which to run a test Workflow.
-        /// </summary>
         [Input("parallelGroup")]
         public Input<string>? ParallelGroup { get; set; }
 
         [Input("parameters")]
         private InputList<Inputs.ImageWorkflowParameterGetArgs>? _parameters;
-
-        /// <summary>
-        /// Configuration block for the workflow parameters. Detailed below.
-        /// </summary>
         public InputList<Inputs.ImageWorkflowParameterGetArgs> Parameters
         {
             get => _parameters ?? (_parameters = new InputList<Inputs.ImageWorkflowParameterGetArgs>());
             set => _parameters = value;
         }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Workflow.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("workflowArn", required: true)]
         public Input<string> WorkflowArn { get; set; } = null!;
 

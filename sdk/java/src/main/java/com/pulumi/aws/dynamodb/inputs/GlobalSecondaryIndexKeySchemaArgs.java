@@ -14,51 +14,23 @@ public final class GlobalSecondaryIndexKeySchemaArgs extends com.pulumi.resource
 
     public static final GlobalSecondaryIndexKeySchemaArgs Empty = new GlobalSecondaryIndexKeySchemaArgs();
 
-    /**
-     * Name of the attribute.
-     * 
-     */
     @Import(name="attributeName", required=true)
     private Output<String> attributeName;
 
-    /**
-     * @return Name of the attribute.
-     * 
-     */
     public Output<String> attributeName() {
         return this.attributeName;
     }
 
-    /**
-     * Type of the attribute in the index.
-     * Valid values are `S` (string), `N` (number), or `B` (binary).
-     * 
-     */
     @Import(name="attributeType", required=true)
     private Output<String> attributeType;
 
-    /**
-     * @return Type of the attribute in the index.
-     * Valid values are `S` (string), `N` (number), or `B` (binary).
-     * 
-     */
     public Output<String> attributeType() {
         return this.attributeType;
     }
 
-    /**
-     * Key type.
-     * Valid values are `HASH` or `RANGE`.
-     * 
-     */
     @Import(name="keyType", required=true)
     private Output<String> keyType;
 
-    /**
-     * @return Key type.
-     * Valid values are `HASH` or `RANGE`.
-     * 
-     */
     public Output<String> keyType() {
         return this.keyType;
     }
@@ -89,69 +61,29 @@ public final class GlobalSecondaryIndexKeySchemaArgs extends com.pulumi.resource
             $ = new GlobalSecondaryIndexKeySchemaArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attributeName Name of the attribute.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributeName(Output<String> attributeName) {
             $.attributeName = attributeName;
             return this;
         }
 
-        /**
-         * @param attributeName Name of the attribute.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributeName(String attributeName) {
             return attributeName(Output.of(attributeName));
         }
 
-        /**
-         * @param attributeType Type of the attribute in the index.
-         * Valid values are `S` (string), `N` (number), or `B` (binary).
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributeType(Output<String> attributeType) {
             $.attributeType = attributeType;
             return this;
         }
 
-        /**
-         * @param attributeType Type of the attribute in the index.
-         * Valid values are `S` (string), `N` (number), or `B` (binary).
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributeType(String attributeType) {
             return attributeType(Output.of(attributeType));
         }
 
-        /**
-         * @param keyType Key type.
-         * Valid values are `HASH` or `RANGE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyType(Output<String> keyType) {
             $.keyType = keyType;
             return this;
         }
 
-        /**
-         * @param keyType Key type.
-         * Valid values are `HASH` or `RANGE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyType(String keyType) {
             return keyType(Output.of(keyType));
         }

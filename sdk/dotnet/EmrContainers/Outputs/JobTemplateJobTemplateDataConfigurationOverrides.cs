@@ -13,13 +13,7 @@ namespace Pulumi.Aws.EmrContainers.Outputs
     [OutputType]
     public sealed class JobTemplateJobTemplateDataConfigurationOverrides
     {
-        /// <summary>
-        /// The configurations for the application running by the job run.
-        /// </summary>
         public readonly ImmutableArray<Outputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration> ApplicationConfigurations;
-        /// <summary>
-        /// The configurations for monitoring.
-        /// </summary>
         public readonly Outputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration? MonitoringConfiguration;
 
         [OutputConstructor]

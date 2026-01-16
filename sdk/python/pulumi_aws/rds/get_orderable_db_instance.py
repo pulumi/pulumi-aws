@@ -138,9 +138,6 @@ class GetOrderableDbInstanceResult:
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Sequence[_builtins.str]:
-        """
-        Availability zones where the instance is available.
-        """
         return pulumi.get(self, "availability_zones")
 
     @_builtins.property
@@ -179,65 +176,41 @@ class GetOrderableDbInstanceResult:
     @_builtins.property
     @pulumi.getter(name="maxIopsPerDbInstance")
     def max_iops_per_db_instance(self) -> _builtins.int:
-        """
-        Maximum total provisioned IOPS for a DB instance.
-        """
         return pulumi.get(self, "max_iops_per_db_instance")
 
     @_builtins.property
     @pulumi.getter(name="maxIopsPerGib")
     def max_iops_per_gib(self) -> _builtins.float:
-        """
-        Maximum provisioned IOPS per GiB for a DB instance.
-        """
         return pulumi.get(self, "max_iops_per_gib")
 
     @_builtins.property
     @pulumi.getter(name="maxStorageSize")
     def max_storage_size(self) -> _builtins.int:
-        """
-        Maximum storage size for a DB instance.
-        """
         return pulumi.get(self, "max_storage_size")
 
     @_builtins.property
     @pulumi.getter(name="minIopsPerDbInstance")
     def min_iops_per_db_instance(self) -> _builtins.int:
-        """
-        Minimum total provisioned IOPS for a DB instance.
-        """
         return pulumi.get(self, "min_iops_per_db_instance")
 
     @_builtins.property
     @pulumi.getter(name="minIopsPerGib")
     def min_iops_per_gib(self) -> _builtins.float:
-        """
-        Minimum provisioned IOPS per GiB for a DB instance.
-        """
         return pulumi.get(self, "min_iops_per_gib")
 
     @_builtins.property
     @pulumi.getter(name="minStorageSize")
     def min_storage_size(self) -> _builtins.int:
-        """
-        Minimum storage size for a DB instance.
-        """
         return pulumi.get(self, "min_storage_size")
 
     @_builtins.property
     @pulumi.getter(name="multiAzCapable")
     def multi_az_capable(self) -> _builtins.bool:
-        """
-        Whether a DB instance is Multi-AZ capable.
-        """
         return pulumi.get(self, "multi_az_capable")
 
     @_builtins.property
     @pulumi.getter(name="outpostCapable")
     def outpost_capable(self) -> _builtins.bool:
-        """
-        Whether a DB instance supports RDS on Outposts.
-        """
         return pulumi.get(self, "outpost_capable")
 
     @_builtins.property
@@ -399,70 +372,7 @@ def get_orderable_db_instance(availability_zone_group: Optional[_builtins.str] =
                               vpc: Optional[_builtins.bool] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrderableDbInstanceResult:
     """
-    Information about RDS orderable DB instances and valid parameter combinations.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.rds.get_orderable_db_instance(engine="mysql",
-        engine_version="5.7.22",
-        license_model="general-public-license",
-        storage_type="standard",
-        preferred_instance_classes=[
-            "db.r6.xlarge",
-            "db.m4.large",
-            "db.t3.small",
-        ])
-    ```
-
-    Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.rds.get_orderable_db_instance(engine="mysql",
-        license_model="general-public-license",
-        preferred_engine_versions=[
-            "5.6.35",
-            "5.6.41",
-            "5.6.44",
-        ],
-        preferred_instance_classes=[
-            "db.t2.small",
-            "db.t3.medium",
-            "db.t3.large",
-        ])
-    ```
-
-
-    :param _builtins.str availability_zone_group: Availability zone group.
-    :param _builtins.str engine: DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
-    :param _builtins.bool engine_latest_version: When set to `true`, the data source attempts to return the most recent version matching the other criteria you provide. You must use `engine_latest_version` with `preferred_instance_classes` and/or `preferred_engine_versions`. Using `engine_latest_version` will avoid `multiple RDS DB Instance Classes` errors. If you use `engine_latest_version` with `preferred_instance_classes`, the data source returns the latest version for the _first_ matching instance class (instance class priority). **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines, using `engine_latest_version` may _not_ return the latest version in every situation.
-    :param _builtins.str engine_version: Version of the DB engine. If none is provided, the data source tries to use the AWS-defined default version that matches any other criteria.
-    :param _builtins.str instance_class: DB instance class. Examples of classes are `db.m3.2xlarge`, `db.t2.small`, and `db.m3.medium`.
-    :param _builtins.str license_model: License model. Examples of license models are `general-public-license`, `bring-your-own-license`, and `amazon-license`.
-    :param Sequence[_builtins.str] preferred_engine_versions: Ordered list of preferred RDS DB instance engine versions. When `engine_latest_version` is not set, the data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. **CAUTION:** We don't recommend using `preferred_engine_versions` without `preferred_instance_classes` since the data source returns an arbitrary `instance_class` based on the first one AWS returns that matches the engine version and any other criteria.
-    :param Sequence[_builtins.str] preferred_instance_classes: Ordered list of preferred RDS DB instance classes. The data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. If you use `preferred_instance_classes` without `preferred_engine_versions` or `engine_latest_version`, the data source returns an arbitrary `engine_version` based on the first one AWS returns matching the instance class and any other criteria.
-    :param _builtins.bool read_replica_capable: Whether a DB instance can have a read replica.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str storage_type: Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
-    :param Sequence[_builtins.str] supported_engine_modes: Use to limit results to engine modes such as `provisioned`.
-    :param Sequence[_builtins.str] supported_network_types: Use to limit results to network types `IPV4` or `DUAL`.
-    :param _builtins.bool supports_clusters: Whether to limit results to instances that support clusters.
-    :param _builtins.bool supports_enhanced_monitoring: Enable this to ensure a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
-    :param _builtins.bool supports_global_databases: Enable this to ensure a DB instance supports Aurora global databases with a specific combination of other DB engine attributes.
-    :param _builtins.bool supports_iam_database_authentication: Enable this to ensure a DB instance supports IAM database authentication.
-    :param _builtins.bool supports_iops: Enable this to ensure a DB instance supports provisioned IOPS.
-    :param _builtins.bool supports_kerberos_authentication: Enable this to ensure a DB instance supports Kerberos Authentication.
-    :param _builtins.bool supports_multi_az: Whether to limit results to instances that are multi-AZ capable.
-    :param _builtins.bool supports_performance_insights: Enable this to ensure a DB instance supports Performance Insights.
-    :param _builtins.bool supports_storage_autoscaling: Enable this to ensure Amazon RDS can automatically scale storage for DB instances that use the specified DB instance class.
-    :param _builtins.bool supports_storage_encryption: Enable this to ensure a DB instance supports encrypted storage.
-    :param _builtins.bool vpc: Boolean that indicates whether to show only VPC or non-VPC offerings.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['availabilityZoneGroup'] = availability_zone_group
@@ -553,70 +463,7 @@ def get_orderable_db_instance_output(availability_zone_group: Optional[pulumi.In
                                      vpc: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrderableDbInstanceResult]:
     """
-    Information about RDS orderable DB instances and valid parameter combinations.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.rds.get_orderable_db_instance(engine="mysql",
-        engine_version="5.7.22",
-        license_model="general-public-license",
-        storage_type="standard",
-        preferred_instance_classes=[
-            "db.r6.xlarge",
-            "db.m4.large",
-            "db.t3.small",
-        ])
-    ```
-
-    Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.rds.get_orderable_db_instance(engine="mysql",
-        license_model="general-public-license",
-        preferred_engine_versions=[
-            "5.6.35",
-            "5.6.41",
-            "5.6.44",
-        ],
-        preferred_instance_classes=[
-            "db.t2.small",
-            "db.t3.medium",
-            "db.t3.large",
-        ])
-    ```
-
-
-    :param _builtins.str availability_zone_group: Availability zone group.
-    :param _builtins.str engine: DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
-    :param _builtins.bool engine_latest_version: When set to `true`, the data source attempts to return the most recent version matching the other criteria you provide. You must use `engine_latest_version` with `preferred_instance_classes` and/or `preferred_engine_versions`. Using `engine_latest_version` will avoid `multiple RDS DB Instance Classes` errors. If you use `engine_latest_version` with `preferred_instance_classes`, the data source returns the latest version for the _first_ matching instance class (instance class priority). **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines, using `engine_latest_version` may _not_ return the latest version in every situation.
-    :param _builtins.str engine_version: Version of the DB engine. If none is provided, the data source tries to use the AWS-defined default version that matches any other criteria.
-    :param _builtins.str instance_class: DB instance class. Examples of classes are `db.m3.2xlarge`, `db.t2.small`, and `db.m3.medium`.
-    :param _builtins.str license_model: License model. Examples of license models are `general-public-license`, `bring-your-own-license`, and `amazon-license`.
-    :param Sequence[_builtins.str] preferred_engine_versions: Ordered list of preferred RDS DB instance engine versions. When `engine_latest_version` is not set, the data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. **CAUTION:** We don't recommend using `preferred_engine_versions` without `preferred_instance_classes` since the data source returns an arbitrary `instance_class` based on the first one AWS returns that matches the engine version and any other criteria.
-    :param Sequence[_builtins.str] preferred_instance_classes: Ordered list of preferred RDS DB instance classes. The data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. If you use `preferred_instance_classes` without `preferred_engine_versions` or `engine_latest_version`, the data source returns an arbitrary `engine_version` based on the first one AWS returns matching the instance class and any other criteria.
-    :param _builtins.bool read_replica_capable: Whether a DB instance can have a read replica.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str storage_type: Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
-    :param Sequence[_builtins.str] supported_engine_modes: Use to limit results to engine modes such as `provisioned`.
-    :param Sequence[_builtins.str] supported_network_types: Use to limit results to network types `IPV4` or `DUAL`.
-    :param _builtins.bool supports_clusters: Whether to limit results to instances that support clusters.
-    :param _builtins.bool supports_enhanced_monitoring: Enable this to ensure a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
-    :param _builtins.bool supports_global_databases: Enable this to ensure a DB instance supports Aurora global databases with a specific combination of other DB engine attributes.
-    :param _builtins.bool supports_iam_database_authentication: Enable this to ensure a DB instance supports IAM database authentication.
-    :param _builtins.bool supports_iops: Enable this to ensure a DB instance supports provisioned IOPS.
-    :param _builtins.bool supports_kerberos_authentication: Enable this to ensure a DB instance supports Kerberos Authentication.
-    :param _builtins.bool supports_multi_az: Whether to limit results to instances that are multi-AZ capable.
-    :param _builtins.bool supports_performance_insights: Enable this to ensure a DB instance supports Performance Insights.
-    :param _builtins.bool supports_storage_autoscaling: Enable this to ensure Amazon RDS can automatically scale storage for DB instances that use the specified DB instance class.
-    :param _builtins.bool supports_storage_encryption: Enable this to ensure a DB instance supports encrypted storage.
-    :param _builtins.bool vpc: Boolean that indicates whether to show only VPC or non-VPC offerings.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['availabilityZoneGroup'] = availability_zone_group

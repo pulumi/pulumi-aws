@@ -16,62 +16,30 @@ public final class ThingPrincipalAttachmentArgs extends com.pulumi.resources.Res
 
     public static final ThingPrincipalAttachmentArgs Empty = new ThingPrincipalAttachmentArgs();
 
-    /**
-     * The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-     * 
-     */
     @Import(name="principal", required=true)
     private Output<String> principal;
 
-    /**
-     * @return The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-     * 
-     */
     public Output<String> principal() {
         return this.principal;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The name of the thing.
-     * 
-     */
     @Import(name="thing", required=true)
     private Output<String> thing;
 
-    /**
-     * @return The name of the thing.
-     * 
-     */
     public Output<String> thing() {
         return this.thing;
     }
 
-    /**
-     * The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
-     * 
-     */
     @Import(name="thingPrincipalType")
     private @Nullable Output<String> thingPrincipalType;
 
-    /**
-     * @return The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
-     * 
-     */
     public Optional<Output<String>> thingPrincipalType() {
         return Optional.ofNullable(this.thingPrincipalType);
     }
@@ -103,86 +71,38 @@ public final class ThingPrincipalAttachmentArgs extends com.pulumi.resources.Res
             $ = new ThingPrincipalAttachmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param principal The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principal(Output<String> principal) {
             $.principal = principal;
             return this;
         }
 
-        /**
-         * @param principal The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principal(String principal) {
             return principal(Output.of(principal));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param thing The name of the thing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thing(Output<String> thing) {
             $.thing = thing;
             return this;
         }
 
-        /**
-         * @param thing The name of the thing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thing(String thing) {
             return thing(Output.of(thing));
         }
 
-        /**
-         * @param thingPrincipalType The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thingPrincipalType(@Nullable Output<String> thingPrincipalType) {
             $.thingPrincipalType = thingPrincipalType;
             return this;
         }
 
-        /**
-         * @param thingPrincipalType The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thingPrincipalType(String thingPrincipalType) {
             return thingPrincipalType(Output.of(thingPrincipalType));
         }

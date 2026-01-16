@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class FlowLogDestinationOptions
     {
-        /// <summary>
-        /// File format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `Parquet`.
-        /// </summary>
         public readonly string? FileFormat;
-        /// <summary>
-        /// Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `False`.
-        /// </summary>
         public readonly bool? HiveCompatiblePartitions;
-        /// <summary>
-        /// Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `False`.
-        /// </summary>
         public readonly bool? PerHourPartition;
 
         [OutputConstructor]

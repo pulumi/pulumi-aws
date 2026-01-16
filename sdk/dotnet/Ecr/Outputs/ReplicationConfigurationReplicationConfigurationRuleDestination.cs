@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ecr.Outputs
     [OutputType]
     public sealed class ReplicationConfigurationReplicationConfigurationRuleDestination
     {
-        /// <summary>
-        /// A Region to replicate to.
-        /// </summary>
         public readonly string Region;
-        /// <summary>
-        /// The account ID of the destination registry to replicate to.
-        /// </summary>
         public readonly string RegistryId;
 
         [OutputConstructor]

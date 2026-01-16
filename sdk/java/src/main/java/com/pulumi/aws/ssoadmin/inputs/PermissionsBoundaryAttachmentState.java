@@ -16,62 +16,30 @@ public final class PermissionsBoundaryAttachmentState extends com.pulumi.resourc
 
     public static final PermissionsBoundaryAttachmentState Empty = new PermissionsBoundaryAttachmentState();
 
-    /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     * 
-     */
     @Import(name="instanceArn")
     private @Nullable Output<String> instanceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     * 
-     */
     public Optional<Output<String>> instanceArn() {
         return Optional.ofNullable(this.instanceArn);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
-     * 
-     */
     @Import(name="permissionSetArn")
     private @Nullable Output<String> permissionSetArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Permission Set.
-     * 
-     */
     public Optional<Output<String>> permissionSetArn() {
         return Optional.ofNullable(this.permissionSetArn);
     }
 
-    /**
-     * The permissions boundary policy. See below.
-     * 
-     */
     @Import(name="permissionsBoundary")
     private @Nullable Output<PermissionsBoundaryAttachmentPermissionsBoundaryArgs> permissionsBoundary;
 
-    /**
-     * @return The permissions boundary policy. See below.
-     * 
-     */
     public Optional<Output<PermissionsBoundaryAttachmentPermissionsBoundaryArgs>> permissionsBoundary() {
         return Optional.ofNullable(this.permissionsBoundary);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -103,86 +71,38 @@ public final class PermissionsBoundaryAttachmentState extends com.pulumi.resourc
             $ = new PermissionsBoundaryAttachmentState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instanceArn The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceArn(@Nullable Output<String> instanceArn) {
             $.instanceArn = instanceArn;
             return this;
         }
 
-        /**
-         * @param instanceArn The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceArn(String instanceArn) {
             return instanceArn(Output.of(instanceArn));
         }
 
-        /**
-         * @param permissionSetArn The Amazon Resource Name (ARN) of the Permission Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissionSetArn(@Nullable Output<String> permissionSetArn) {
             $.permissionSetArn = permissionSetArn;
             return this;
         }
 
-        /**
-         * @param permissionSetArn The Amazon Resource Name (ARN) of the Permission Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissionSetArn(String permissionSetArn) {
             return permissionSetArn(Output.of(permissionSetArn));
         }
 
-        /**
-         * @param permissionsBoundary The permissions boundary policy. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissionsBoundary(@Nullable Output<PermissionsBoundaryAttachmentPermissionsBoundaryArgs> permissionsBoundary) {
             $.permissionsBoundary = permissionsBoundary;
             return this;
         }
 
-        /**
-         * @param permissionsBoundary The permissions boundary policy. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissionsBoundary(PermissionsBoundaryAttachmentPermissionsBoundaryArgs permissionsBoundary) {
             return permissionsBoundary(Output.of(permissionsBoundary));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

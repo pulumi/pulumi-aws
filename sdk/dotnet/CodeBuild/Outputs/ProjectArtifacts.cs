@@ -13,54 +13,15 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     [OutputType]
     public sealed class ProjectArtifacts
     {
-        /// <summary>
-        /// Artifact identifier. Must be the same specified inside the AWS CodeBuild build
-        /// specification.
-        /// </summary>
         public readonly string? ArtifactIdentifier;
-        /// <summary>
-        /// Specifies the bucket owner's access for objects that another account uploads to
-        /// their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these
-        /// objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`,
-        /// `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission
-        /// allows CodeBuild to modify the access control list for the bucket.
-        /// </summary>
         public readonly string? BucketOwnerAccess;
-        /// <summary>
-        /// Whether to disable encrypting output artifacts. If `Type` is set to `NO_ARTIFACTS`,
-        /// this value is ignored. Defaults to `False`.
-        /// </summary>
         public readonly bool? EncryptionDisabled;
-        /// <summary>
-        /// Information about the build output artifact location. If `Type` is set to `CODEPIPELINE` or
-        /// `NO_ARTIFACTS`, this value is ignored. If `Type` is set to `S3`, this is the name of the output bucket.
-        /// </summary>
         public readonly string? Location;
-        /// <summary>
-        /// Name of the project. If `Type` is set to `S3`, this is the name of the output artifact object
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// Namespace to use in storing build artifacts. If `Type` is set to `S3`, then valid values
-        /// are `BUILD_ID`, `NONE`.
-        /// </summary>
         public readonly string? NamespaceType;
-        /// <summary>
-        /// Whether a name specified in the build specification overrides the artifact name.
-        /// </summary>
         public readonly bool? OverrideArtifactName;
-        /// <summary>
-        /// Type of build output artifact to create. If `Type` is set to `S3`, valid values are `NONE`,
-        /// `ZIP`
-        /// </summary>
         public readonly string? Packaging;
-        /// <summary>
-        /// If `Type` is set to `S3`, this is the path to the output artifact.
-        /// </summary>
         public readonly string? Path;
-        /// <summary>
-        /// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

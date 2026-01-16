@@ -17,92 +17,17 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS WAFv2 Regex Pattern Set Resource
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.wafv2.RegexPatternSet;
- * import com.pulumi.aws.wafv2.RegexPatternSetArgs;
- * import com.pulumi.aws.wafv2.inputs.RegexPatternSetRegularExpressionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RegexPatternSet("example", RegexPatternSetArgs.builder()
- *             .name("example")
- *             .description("Example regex pattern set")
- *             .scope("REGIONAL")
- *             .regularExpressions(            
- *                 RegexPatternSetRegularExpressionArgs.builder()
- *                     .regexString("one")
- *                     .build(),
- *                 RegexPatternSetRegularExpressionArgs.builder()
- *                     .regexString("two")
- *                     .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry("Tag1", "Value1"),
- *                 Map.entry("Tag2", "Value2")
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import WAFv2 Regex Pattern Sets using `ID/name/scope`. For example:
- * 
- * ```sh
- * $ pulumi import aws:wafv2/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
- * ```
- * 
- */
 @ResourceType(type="aws:wafv2/regexPatternSet:RegexPatternSet")
 public class RegexPatternSet extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) that identifies the cluster.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) that identifies the cluster.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * A friendly description of the regular expression pattern set.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A friendly description of the regular expression pattern set.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
@@ -112,101 +37,45 @@ public class RegexPatternSet extends com.pulumi.resources.CustomResource {
     public Output<String> lockToken() {
         return this.lockToken;
     }
-    /**
-     * A friendly name of the regular expression pattern set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return A friendly name of the regular expression pattern set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
-    /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     public Output<String> namePrefix() {
         return this.namePrefix;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`. See Regular Expression below for details.
-     * 
-     */
     @Export(name="regularExpressions", refs={List.class,RegexPatternSetRegularExpression.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RegexPatternSetRegularExpression>> regularExpressions;
 
-    /**
-     * @return One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`. See Regular Expression below for details.
-     * 
-     */
     public Output<Optional<List<RegexPatternSetRegularExpression>>> regularExpressions() {
         return Codegen.optional(this.regularExpressions);
     }
-    /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-     * 
-     */
     @Export(name="scope", refs={String.class}, tree="[0]")
     private Output<String> scope;
 
-    /**
-     * @return Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-     * 
-     */
     public Output<String> scope() {
         return this.scope;
     }
-    /**
-     * An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

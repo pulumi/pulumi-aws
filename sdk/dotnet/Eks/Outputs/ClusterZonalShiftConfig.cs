@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class ClusterZonalShiftConfig
     {
-        /// <summary>
-        /// Whether zonal shift is enabled for the cluster.
-        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

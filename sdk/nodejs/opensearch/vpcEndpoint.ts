@@ -7,40 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an [AWS Opensearch VPC Endpoint](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateVpcEndpoint.html). Creates an Amazon OpenSearch Service-managed VPC endpoint.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = new aws.opensearch.VpcEndpoint("foo", {
- *     domainArn: domain1.arn,
- *     vpcOptions: {
- *         securityGroupIds: [
- *             test.id,
- *             test2.id,
- *         ],
- *         subnetIds: [
- *             testAwsSubnet.id,
- *             test2AwsSubnet.id,
- *         ],
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import OpenSearch VPC endpoint connections using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:opensearch/vpcEndpoint:VpcEndpoint example endpoint-id
- * ```
- */
 export class VpcEndpoint extends pulumi.CustomResource {
     /**
      * Get an existing VpcEndpoint resource's state with the given name, ID, and optional extra
@@ -69,21 +35,9 @@ export class VpcEndpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcEndpoint.__pulumiType;
     }
 
-    /**
-     * Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
-     */
     declare public readonly domainArn: pulumi.Output<string>;
-    /**
-     * The connection endpoint ID for connecting to the domain.
-     */
     declare public /*out*/ readonly endpoint: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Options to specify the subnets and security groups for the endpoint.
-     */
     declare public readonly vpcOptions: pulumi.Output<outputs.opensearch.VpcEndpointVpcOptions>;
 
     /**
@@ -125,21 +79,9 @@ export class VpcEndpoint extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpcEndpoint resources.
  */
 export interface VpcEndpointState {
-    /**
-     * Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
-     */
     domainArn?: pulumi.Input<string>;
-    /**
-     * The connection endpoint ID for connecting to the domain.
-     */
     endpoint?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Options to specify the subnets and security groups for the endpoint.
-     */
     vpcOptions?: pulumi.Input<inputs.opensearch.VpcEndpointVpcOptions>;
 }
 
@@ -147,16 +89,7 @@ export interface VpcEndpointState {
  * The set of arguments for constructing a VpcEndpoint resource.
  */
 export interface VpcEndpointArgs {
-    /**
-     * Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
-     */
     domainArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Options to specify the subnets and security groups for the endpoint.
-     */
     vpcOptions: pulumi.Input<inputs.opensearch.VpcEndpointVpcOptions>;
 }

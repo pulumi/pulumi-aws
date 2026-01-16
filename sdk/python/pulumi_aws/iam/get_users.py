@@ -46,9 +46,6 @@ class GetUsersResult:
     @_builtins.property
     @pulumi.getter
     def arns(self) -> Sequence[_builtins.str]:
-        """
-        Set of ARNs of the matched IAM users.
-        """
         return pulumi.get(self, "arns")
 
     @_builtins.property
@@ -67,9 +64,6 @@ class GetUsersResult:
     @_builtins.property
     @pulumi.getter
     def names(self) -> Sequence[_builtins.str]:
-        """
-        Set of Names of the matched IAM users.
-        """
         return pulumi.get(self, "names")
 
     @_builtins.property
@@ -95,42 +89,7 @@ def get_users(name_regex: Optional[_builtins.str] = None,
               path_prefix: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUsersResult:
     """
-    Use this data source to get the ARNs and Names of IAM Users.
-
-    ## Example Usage
-
-    ### All users in an account
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    users = aws.iam.get_users()
-    ```
-
-    ### Users filtered by name regex
-
-    Users whose username contains `abc`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    users = aws.iam.get_users(name_regex=".*abc.*")
-    ```
-
-    ### Users filtered by path prefix
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    users = aws.iam.get_users(path_prefix="/custom-path")
-    ```
-
-
-    :param _builtins.str name_regex: Regex string to apply to the IAM users list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
-    :param _builtins.str path_prefix: Path prefix for filtering the results. For example, the prefix `/division_abc/subdivision_xyz/` gets all users whose path starts with `/division_abc/subdivision_xyz/`. If it is not included, it defaults to a slash (`/`), listing all users. For more details, check out [list-users in the AWS CLI reference][1].
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['nameRegex'] = name_regex
@@ -148,42 +107,7 @@ def get_users_output(name_regex: Optional[pulumi.Input[Optional[_builtins.str]]]
                      path_prefix: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUsersResult]:
     """
-    Use this data source to get the ARNs and Names of IAM Users.
-
-    ## Example Usage
-
-    ### All users in an account
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    users = aws.iam.get_users()
-    ```
-
-    ### Users filtered by name regex
-
-    Users whose username contains `abc`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    users = aws.iam.get_users(name_regex=".*abc.*")
-    ```
-
-    ### Users filtered by path prefix
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    users = aws.iam.get_users(path_prefix="/custom-path")
-    ```
-
-
-    :param _builtins.str name_regex: Regex string to apply to the IAM users list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
-    :param _builtins.str path_prefix: Path prefix for filtering the results. For example, the prefix `/division_abc/subdivision_xyz/` gets all users whose path starts with `/division_abc/subdivision_xyz/`. If it is not included, it defaults to a slash (`/`), listing all users. For more details, check out [list-users in the AWS CLI reference][1].
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['nameRegex'] = name_regex

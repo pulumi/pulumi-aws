@@ -11,84 +11,12 @@ namespace Pulumi.Aws.Auditmanager
 {
     public static class GetFramework
     {
-        /// <summary>
-        /// Data source for managing an AWS Audit Manager Framework.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Auditmanager.GetFramework.Invoke(new()
-        ///     {
-        ///         Name = "Essential Eight",
-        ///         FrameworkType = "Standard",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetFrameworkResult> InvokeAsync(GetFrameworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrameworkResult>("aws:auditmanager/getFramework:getFramework", args ?? new GetFrameworkArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Audit Manager Framework.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Auditmanager.GetFramework.Invoke(new()
-        ///     {
-        ///         Name = "Essential Eight",
-        ///         FrameworkType = "Standard",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetFrameworkResult> Invoke(GetFrameworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrameworkResult>("aws:auditmanager/getFramework:getFramework", args ?? new GetFrameworkInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Audit Manager Framework.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Auditmanager.GetFramework.Invoke(new()
-        ///     {
-        ///         Name = "Essential Eight",
-        ///         FrameworkType = "Standard",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetFrameworkResult> Invoke(GetFrameworkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrameworkResult>("aws:auditmanager/getFramework:getFramework", args ?? new GetFrameworkInvokeArgs(), options.WithDefaults());
     }
@@ -99,15 +27,9 @@ namespace Pulumi.Aws.Auditmanager
         [Input("frameworkType", required: true)]
         public string FrameworkType { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the framework.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -122,15 +44,9 @@ namespace Pulumi.Aws.Auditmanager
         [Input("frameworkType", required: true)]
         public Input<string> FrameworkType { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the framework.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

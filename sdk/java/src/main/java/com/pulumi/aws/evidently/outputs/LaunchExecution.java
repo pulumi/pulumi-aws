@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LaunchExecution {
-    /**
-     * @return The date and time that the launch ended.
-     * 
-     */
     private @Nullable String endedTime;
-    /**
-     * @return The date and time that the launch started.
-     * 
-     */
     private @Nullable String startedTime;
 
     private LaunchExecution() {}
-    /**
-     * @return The date and time that the launch ended.
-     * 
-     */
     public Optional<String> endedTime() {
         return Optional.ofNullable(this.endedTime);
     }
-    /**
-     * @return The date and time that the launch started.
-     * 
-     */
     public Optional<String> startedTime() {
         return Optional.ofNullable(this.startedTime);
     }

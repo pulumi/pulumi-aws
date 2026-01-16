@@ -17,32 +17,16 @@ public final class EventDataStoreAdvancedEventSelectorArgs extends com.pulumi.re
 
     public static final EventDataStoreAdvancedEventSelectorArgs Empty = new EventDataStoreAdvancedEventSelectorArgs();
 
-    /**
-     * Specifies the selector statements in an advanced event selector. Fields documented below.
-     * 
-     */
     @Import(name="fieldSelectors")
     private @Nullable Output<List<EventDataStoreAdvancedEventSelectorFieldSelectorArgs>> fieldSelectors;
 
-    /**
-     * @return Specifies the selector statements in an advanced event selector. Fields documented below.
-     * 
-     */
     public Optional<Output<List<EventDataStoreAdvancedEventSelectorFieldSelectorArgs>>> fieldSelectors() {
         return Optional.ofNullable(this.fieldSelectors);
     }
 
-    /**
-     * Specifies the name of the advanced event selector.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Specifies the name of the advanced event selector.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -72,54 +56,24 @@ public final class EventDataStoreAdvancedEventSelectorArgs extends com.pulumi.re
             $ = new EventDataStoreAdvancedEventSelectorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fieldSelectors Specifies the selector statements in an advanced event selector. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldSelectors(@Nullable Output<List<EventDataStoreAdvancedEventSelectorFieldSelectorArgs>> fieldSelectors) {
             $.fieldSelectors = fieldSelectors;
             return this;
         }
 
-        /**
-         * @param fieldSelectors Specifies the selector statements in an advanced event selector. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldSelectors(List<EventDataStoreAdvancedEventSelectorFieldSelectorArgs> fieldSelectors) {
             return fieldSelectors(Output.of(fieldSelectors));
         }
 
-        /**
-         * @param fieldSelectors Specifies the selector statements in an advanced event selector. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldSelectors(EventDataStoreAdvancedEventSelectorFieldSelectorArgs... fieldSelectors) {
             return fieldSelectors(List.of(fieldSelectors));
         }
 
-        /**
-         * @param name Specifies the name of the advanced event selector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Specifies the name of the advanced event selector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

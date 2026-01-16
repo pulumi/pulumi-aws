@@ -12,9 +12,6 @@ namespace Pulumi.Aws.DynamoDB.Inputs
 
     public sealed class TableGlobalTableWitnessArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the AWS Region that serves as a witness for the MRSC global table.
-        /// </summary>
         [Input("regionName")]
         public Input<string>? RegionName { get; set; }
 

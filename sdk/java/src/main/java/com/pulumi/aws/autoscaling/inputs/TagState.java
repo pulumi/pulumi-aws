@@ -16,47 +16,23 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
 
     public static final TagState Empty = new TagState();
 
-    /**
-     * Name of the Autoscaling Group to apply the tag to.
-     * 
-     */
     @Import(name="autoscalingGroupName")
     private @Nullable Output<String> autoscalingGroupName;
 
-    /**
-     * @return Name of the Autoscaling Group to apply the tag to.
-     * 
-     */
     public Optional<Output<String>> autoscalingGroupName() {
         return Optional.ofNullable(this.autoscalingGroupName);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Tag to create. The `tag` block is documented below.
-     * 
-     */
     @Import(name="tag")
     private @Nullable Output<TagTagArgs> tag;
 
-    /**
-     * @return Tag to create. The `tag` block is documented below.
-     * 
-     */
     public Optional<Output<TagTagArgs>> tag() {
         return Optional.ofNullable(this.tag);
     }
@@ -87,65 +63,29 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
             $ = new TagState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoscalingGroupName Name of the Autoscaling Group to apply the tag to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoscalingGroupName(@Nullable Output<String> autoscalingGroupName) {
             $.autoscalingGroupName = autoscalingGroupName;
             return this;
         }
 
-        /**
-         * @param autoscalingGroupName Name of the Autoscaling Group to apply the tag to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoscalingGroupName(String autoscalingGroupName) {
             return autoscalingGroupName(Output.of(autoscalingGroupName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tag Tag to create. The `tag` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tag(@Nullable Output<TagTagArgs> tag) {
             $.tag = tag;
             return this;
         }
 
-        /**
-         * @param tag Tag to create. The `tag` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tag(TagTagArgs tag) {
             return tag(Output.of(tag));
         }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class EventEndpointRoutingConfig
     {
-        /// <summary>
-        /// Parameters used for failover. This includes what triggers failover and what happens when it's triggered. Documented below.
-        /// </summary>
         public readonly Outputs.EventEndpointRoutingConfigFailoverConfig FailoverConfig;
 
         [OutputConstructor]

@@ -14,163 +14,23 @@ import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages status (recording / stopped) of an AWS Config Configuration Recorder.
- * 
- * &gt; **Note:** Starting Configuration Recorder requires a Delivery Channel to be present. Use of `dependsOn` (as shown below) is recommended to avoid race conditions.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.cfg.DeliveryChannel;
- * import com.pulumi.aws.cfg.DeliveryChannelArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.cfg.Recorder;
- * import com.pulumi.aws.cfg.RecorderArgs;
- * import com.pulumi.aws.cfg.RecorderStatus;
- * import com.pulumi.aws.cfg.RecorderStatusArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.aws.iam.RolePolicy;
- * import com.pulumi.aws.iam.RolePolicyArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var b = new Bucket("b", BucketArgs.builder()
- *             .bucket("awsconfig-example")
- *             .build());
- * 
- *         var fooDeliveryChannel = new DeliveryChannel("fooDeliveryChannel", DeliveryChannelArgs.builder()
- *             .name("example")
- *             .s3BucketName(b.bucket())
- *             .build());
- * 
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("config.amazonaws.com")
- *                     .build())
- *                 .actions("sts:AssumeRole")
- *                 .build())
- *             .build());
- * 
- *         var r = new Role("r", RoleArgs.builder()
- *             .name("example-awsconfig")
- *             .assumeRolePolicy(assumeRole.json())
- *             .build());
- * 
- *         var fooRecorder = new Recorder("fooRecorder", RecorderArgs.builder()
- *             .name("example")
- *             .roleArn(r.arn())
- *             .build());
- * 
- *         var foo = new RecorderStatus("foo", RecorderStatusArgs.builder()
- *             .name(fooRecorder.name())
- *             .isEnabled(true)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(fooDeliveryChannel)
- *                 .build());
- * 
- *         var a = new RolePolicyAttachment("a", RolePolicyAttachmentArgs.builder()
- *             .role(r.name())
- *             .policyArn("arn:aws:iam::aws:policy/service-role/AWS_ConfigRole")
- *             .build());
- * 
- *         final var p = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .actions("s3:*")
- *                 .resources(                
- *                     b.arn(),
- *                     b.arn().applyValue(_arn -> String.format("%s/*", _arn)))
- *                 .build())
- *             .build());
- * 
- *         var pRolePolicy = new RolePolicy("pRolePolicy", RolePolicyArgs.builder()
- *             .name("awsconfig-example")
- *             .role(r.id())
- *             .policy(p.applyValue(_p -> _p.json()))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Configuration Recorder Status using the name of the Configuration Recorder. For example:
- * 
- * ```sh
- * $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
- * ```
- * 
- */
 @ResourceType(type="aws:cfg/recorderStatus:RecorderStatus")
 public class RecorderStatus extends com.pulumi.resources.CustomResource {
-    /**
-     * Whether the configuration recorder should be enabled or disabled.
-     * 
-     */
     @Export(name="isEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isEnabled;
 
-    /**
-     * @return Whether the configuration recorder should be enabled or disabled.
-     * 
-     */
     public Output<Boolean> isEnabled() {
         return this.isEnabled;
     }
-    /**
-     * The name of the recorder
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the recorder
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

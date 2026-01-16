@@ -14,19 +14,12 @@ namespace Pulumi.Aws.SecurityHub.Inputs
     {
         [Input("parameters", required: true)]
         private InputList<Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs>? _parameters;
-
-        /// <summary>
-        /// An object that specifies parameter values for a control in a configuration policy. See below.
-        /// </summary>
         public InputList<Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs> Parameters
         {
             get => _parameters ?? (_parameters = new InputList<Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs>());
             set => _parameters = value;
         }
 
-        /// <summary>
-        /// The ID of the security control. For more information see the [Security Hub controls reference] documentation.
-        /// </summary>
         [Input("securityControlId", required: true)]
         public Input<string> SecurityControlId { get; set; } = null!;
 

@@ -7,45 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS AccessAnalyzer Archive Rule.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.accessanalyzer.ArchiveRule("example", {
- *     analyzerName: "example-analyzer",
- *     ruleName: "example-rule",
- *     filters: [
- *         {
- *             criteria: "condition.aws:UserId",
- *             eqs: ["userid"],
- *         },
- *         {
- *             criteria: "error",
- *             exists: "true",
- *         },
- *         {
- *             criteria: "isPublic",
- *             eqs: ["false"],
- *         },
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import AccessAnalyzer ArchiveRule using the `analyzer_name/rule_name`. For example:
- *
- * ```sh
- * $ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
- * ```
- */
 export class ArchiveRule extends pulumi.CustomResource {
     /**
      * Get an existing ArchiveRule resource's state with the given name, ID, and optional extra
@@ -74,21 +35,9 @@ export class ArchiveRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === ArchiveRule.__pulumiType;
     }
 
-    /**
-     * Analyzer name.
-     */
     declare public readonly analyzerName: pulumi.Output<string>;
-    /**
-     * Filter criteria for the archive rule. See Filter for more details.
-     */
     declare public readonly filters: pulumi.Output<outputs.accessanalyzer.ArchiveRuleFilter[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Rule name.
-     */
     declare public readonly ruleName: pulumi.Output<string>;
 
     /**
@@ -133,21 +82,9 @@ export class ArchiveRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ArchiveRule resources.
  */
 export interface ArchiveRuleState {
-    /**
-     * Analyzer name.
-     */
     analyzerName?: pulumi.Input<string>;
-    /**
-     * Filter criteria for the archive rule. See Filter for more details.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.accessanalyzer.ArchiveRuleFilter>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Rule name.
-     */
     ruleName?: pulumi.Input<string>;
 }
 
@@ -155,20 +92,8 @@ export interface ArchiveRuleState {
  * The set of arguments for constructing a ArchiveRule resource.
  */
 export interface ArchiveRuleArgs {
-    /**
-     * Analyzer name.
-     */
     analyzerName: pulumi.Input<string>;
-    /**
-     * Filter criteria for the archive rule. See Filter for more details.
-     */
     filters: pulumi.Input<pulumi.Input<inputs.accessanalyzer.ArchiveRuleFilter>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Rule name.
-     */
     ruleName: pulumi.Input<string>;
 }

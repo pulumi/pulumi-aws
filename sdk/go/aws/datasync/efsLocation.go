@@ -12,77 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS DataSync EFS Location.
-//
-// > **NOTE:** The EFS File System must have a mounted EFS Mount Target before creating this resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datasync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datasync.NewEfsLocation(ctx, "example", &datasync.EfsLocationArgs{
-//				EfsFileSystemArn: pulumi.Any(exampleAwsEfsMountTarget.FileSystemArn),
-//				Ec2Config: &datasync.EfsLocationEc2ConfigArgs{
-//					SecurityGroupArns: pulumi.StringArray{
-//						exampleAwsSecurityGroup.Arn,
-//					},
-//					SubnetArn: pulumi.Any(exampleAwsSubnet.Arn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the DataSync EFS location.
-//
-// Using `pulumi import`, import `aws_datasync_location_efs` using the DataSync Task Amazon Resource Name (ARN). For example:
-//
-// % pulumi import aws_datasync_location_efs.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 type EfsLocation struct {
 	pulumi.CustomResourceState
 
-	// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
-	AccessPointArn pulumi.StringPtrOutput `pulumi:"accessPointArn"`
-	// Amazon Resource Name (ARN) of the DataSync Location.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Configuration block containing EC2 configurations for connecting to the EFS File System.
-	Ec2Config EfsLocationEc2ConfigOutput `pulumi:"ec2Config"`
-	// Amazon Resource Name (ARN) of EFS File System.
-	EfsFileSystemArn pulumi.StringOutput `pulumi:"efsFileSystemArn"`
-	// Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
-	FileSystemAccessRoleArn pulumi.StringPtrOutput `pulumi:"fileSystemAccessRoleArn"`
-	// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
-	InTransitEncryption pulumi.StringPtrOutput `pulumi:"inTransitEncryption"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Subdirectory to perform actions as source or destination. Default `/`.
-	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
-	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	Uri     pulumi.StringOutput    `pulumi:"uri"`
+	AccessPointArn          pulumi.StringPtrOutput     `pulumi:"accessPointArn"`
+	Arn                     pulumi.StringOutput        `pulumi:"arn"`
+	Ec2Config               EfsLocationEc2ConfigOutput `pulumi:"ec2Config"`
+	EfsFileSystemArn        pulumi.StringOutput        `pulumi:"efsFileSystemArn"`
+	FileSystemAccessRoleArn pulumi.StringPtrOutput     `pulumi:"fileSystemAccessRoleArn"`
+	InTransitEncryption     pulumi.StringPtrOutput     `pulumi:"inTransitEncryption"`
+	Region                  pulumi.StringOutput        `pulumi:"region"`
+	Subdirectory            pulumi.StringPtrOutput     `pulumi:"subdirectory"`
+	Tags                    pulumi.StringMapOutput     `pulumi:"tags"`
+	TagsAll                 pulumi.StringMapOutput     `pulumi:"tagsAll"`
+	Uri                     pulumi.StringOutput        `pulumi:"uri"`
 }
 
 // NewEfsLocation registers a new resource with the given unique name, arguments, and options.
@@ -121,51 +64,31 @@ func GetEfsLocation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EfsLocation resources.
 type efsLocationState struct {
-	// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
-	AccessPointArn *string `pulumi:"accessPointArn"`
-	// Amazon Resource Name (ARN) of the DataSync Location.
-	Arn *string `pulumi:"arn"`
-	// Configuration block containing EC2 configurations for connecting to the EFS File System.
-	Ec2Config *EfsLocationEc2Config `pulumi:"ec2Config"`
-	// Amazon Resource Name (ARN) of EFS File System.
-	EfsFileSystemArn *string `pulumi:"efsFileSystemArn"`
-	// Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
-	FileSystemAccessRoleArn *string `pulumi:"fileSystemAccessRoleArn"`
-	// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
-	InTransitEncryption *string `pulumi:"inTransitEncryption"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Subdirectory to perform actions as source or destination. Default `/`.
-	Subdirectory *string `pulumi:"subdirectory"`
-	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	Uri     *string           `pulumi:"uri"`
+	AccessPointArn          *string               `pulumi:"accessPointArn"`
+	Arn                     *string               `pulumi:"arn"`
+	Ec2Config               *EfsLocationEc2Config `pulumi:"ec2Config"`
+	EfsFileSystemArn        *string               `pulumi:"efsFileSystemArn"`
+	FileSystemAccessRoleArn *string               `pulumi:"fileSystemAccessRoleArn"`
+	InTransitEncryption     *string               `pulumi:"inTransitEncryption"`
+	Region                  *string               `pulumi:"region"`
+	Subdirectory            *string               `pulumi:"subdirectory"`
+	Tags                    map[string]string     `pulumi:"tags"`
+	TagsAll                 map[string]string     `pulumi:"tagsAll"`
+	Uri                     *string               `pulumi:"uri"`
 }
 
 type EfsLocationState struct {
-	// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
-	AccessPointArn pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the DataSync Location.
-	Arn pulumi.StringPtrInput
-	// Configuration block containing EC2 configurations for connecting to the EFS File System.
-	Ec2Config EfsLocationEc2ConfigPtrInput
-	// Amazon Resource Name (ARN) of EFS File System.
-	EfsFileSystemArn pulumi.StringPtrInput
-	// Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
+	AccessPointArn          pulumi.StringPtrInput
+	Arn                     pulumi.StringPtrInput
+	Ec2Config               EfsLocationEc2ConfigPtrInput
+	EfsFileSystemArn        pulumi.StringPtrInput
 	FileSystemAccessRoleArn pulumi.StringPtrInput
-	// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
-	InTransitEncryption pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Subdirectory to perform actions as source or destination. Default `/`.
-	Subdirectory pulumi.StringPtrInput
-	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	Uri     pulumi.StringPtrInput
+	InTransitEncryption     pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
+	Subdirectory            pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
+	TagsAll                 pulumi.StringMapInput
+	Uri                     pulumi.StringPtrInput
 }
 
 func (EfsLocationState) ElementType() reflect.Type {
@@ -173,42 +96,26 @@ func (EfsLocationState) ElementType() reflect.Type {
 }
 
 type efsLocationArgs struct {
-	// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
-	AccessPointArn *string `pulumi:"accessPointArn"`
-	// Configuration block containing EC2 configurations for connecting to the EFS File System.
-	Ec2Config EfsLocationEc2Config `pulumi:"ec2Config"`
-	// Amazon Resource Name (ARN) of EFS File System.
-	EfsFileSystemArn string `pulumi:"efsFileSystemArn"`
-	// Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
-	FileSystemAccessRoleArn *string `pulumi:"fileSystemAccessRoleArn"`
-	// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
-	InTransitEncryption *string `pulumi:"inTransitEncryption"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Subdirectory to perform actions as source or destination. Default `/`.
-	Subdirectory *string `pulumi:"subdirectory"`
-	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	AccessPointArn          *string              `pulumi:"accessPointArn"`
+	Ec2Config               EfsLocationEc2Config `pulumi:"ec2Config"`
+	EfsFileSystemArn        string               `pulumi:"efsFileSystemArn"`
+	FileSystemAccessRoleArn *string              `pulumi:"fileSystemAccessRoleArn"`
+	InTransitEncryption     *string              `pulumi:"inTransitEncryption"`
+	Region                  *string              `pulumi:"region"`
+	Subdirectory            *string              `pulumi:"subdirectory"`
+	Tags                    map[string]string    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EfsLocation resource.
 type EfsLocationArgs struct {
-	// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
-	AccessPointArn pulumi.StringPtrInput
-	// Configuration block containing EC2 configurations for connecting to the EFS File System.
-	Ec2Config EfsLocationEc2ConfigInput
-	// Amazon Resource Name (ARN) of EFS File System.
-	EfsFileSystemArn pulumi.StringInput
-	// Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
+	AccessPointArn          pulumi.StringPtrInput
+	Ec2Config               EfsLocationEc2ConfigInput
+	EfsFileSystemArn        pulumi.StringInput
 	FileSystemAccessRoleArn pulumi.StringPtrInput
-	// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
-	InTransitEncryption pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Subdirectory to perform actions as source or destination. Default `/`.
-	Subdirectory pulumi.StringPtrInput
-	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	InTransitEncryption     pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
+	Subdirectory            pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
 }
 
 func (EfsLocationArgs) ElementType() reflect.Type {
@@ -298,52 +205,42 @@ func (o EfsLocationOutput) ToEfsLocationOutputWithContext(ctx context.Context) E
 	return o
 }
 
-// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
 func (o EfsLocationOutput) AccessPointArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EfsLocation) pulumi.StringPtrOutput { return v.AccessPointArn }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the DataSync Location.
 func (o EfsLocationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EfsLocation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Configuration block containing EC2 configurations for connecting to the EFS File System.
 func (o EfsLocationOutput) Ec2Config() EfsLocationEc2ConfigOutput {
 	return o.ApplyT(func(v *EfsLocation) EfsLocationEc2ConfigOutput { return v.Ec2Config }).(EfsLocationEc2ConfigOutput)
 }
 
-// Amazon Resource Name (ARN) of EFS File System.
 func (o EfsLocationOutput) EfsFileSystemArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EfsLocation) pulumi.StringOutput { return v.EfsFileSystemArn }).(pulumi.StringOutput)
 }
 
-// Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
 func (o EfsLocationOutput) FileSystemAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EfsLocation) pulumi.StringPtrOutput { return v.FileSystemAccessRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
 func (o EfsLocationOutput) InTransitEncryption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EfsLocation) pulumi.StringPtrOutput { return v.InTransitEncryption }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EfsLocationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EfsLocation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Subdirectory to perform actions as source or destination. Default `/`.
 func (o EfsLocationOutput) Subdirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EfsLocation) pulumi.StringPtrOutput { return v.Subdirectory }).(pulumi.StringPtrOutput)
 }
 
-// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o EfsLocationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EfsLocation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o EfsLocationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EfsLocation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

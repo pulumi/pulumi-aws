@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DataSetLogicalTableMapDataTransformFilterOperationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
-        /// </summary>
         [Input("conditionExpression", required: true)]
         public Input<string> ConditionExpression { get; set; } = null!;
 

@@ -11,113 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class KeyKeyAttributeKeyModesOfUse {
-    /**
-     * @return Whether an AWS Payment Cryptography key can be used to decrypt data.
-     * 
-     */
     private @Nullable Boolean decrypt;
-    /**
-     * @return Whether an AWS Payment Cryptography key can be used to derive new keys.
-     * 
-     */
     private @Nullable Boolean deriveKey;
-    /**
-     * @return Whether an AWS Payment Cryptography key can be used to encrypt data.
-     * 
-     */
     private @Nullable Boolean encrypt;
-    /**
-     * @return Whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
-     * 
-     */
     private @Nullable Boolean generate;
-    /**
-     * @return Whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by KeyUsage.
-     * 
-     */
     private @Nullable Boolean noRestrictions;
-    /**
-     * @return Whether an AWS Payment Cryptography key can be used for signing.
-     * 
-     */
     private @Nullable Boolean sign;
-    /**
-     * @return Whether an AWS Payment Cryptography key can be used to unwrap other keys.
-     * 
-     */
     private @Nullable Boolean unwrap;
-    /**
-     * @return Whether an AWS Payment Cryptography key can be used to verify signatures.
-     * 
-     */
     private @Nullable Boolean verify;
-    /**
-     * @return Whether an AWS Payment Cryptography key can be used to wrap other keys.
-     * 
-     */
     private @Nullable Boolean wrap;
 
     private KeyKeyAttributeKeyModesOfUse() {}
-    /**
-     * @return Whether an AWS Payment Cryptography key can be used to decrypt data.
-     * 
-     */
     public Optional<Boolean> decrypt() {
         return Optional.ofNullable(this.decrypt);
     }
-    /**
-     * @return Whether an AWS Payment Cryptography key can be used to derive new keys.
-     * 
-     */
     public Optional<Boolean> deriveKey() {
         return Optional.ofNullable(this.deriveKey);
     }
-    /**
-     * @return Whether an AWS Payment Cryptography key can be used to encrypt data.
-     * 
-     */
     public Optional<Boolean> encrypt() {
         return Optional.ofNullable(this.encrypt);
     }
-    /**
-     * @return Whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
-     * 
-     */
     public Optional<Boolean> generate() {
         return Optional.ofNullable(this.generate);
     }
-    /**
-     * @return Whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by KeyUsage.
-     * 
-     */
     public Optional<Boolean> noRestrictions() {
         return Optional.ofNullable(this.noRestrictions);
     }
-    /**
-     * @return Whether an AWS Payment Cryptography key can be used for signing.
-     * 
-     */
     public Optional<Boolean> sign() {
         return Optional.ofNullable(this.sign);
     }
-    /**
-     * @return Whether an AWS Payment Cryptography key can be used to unwrap other keys.
-     * 
-     */
     public Optional<Boolean> unwrap() {
         return Optional.ofNullable(this.unwrap);
     }
-    /**
-     * @return Whether an AWS Payment Cryptography key can be used to verify signatures.
-     * 
-     */
     public Optional<Boolean> verify() {
         return Optional.ofNullable(this.verify);
     }
-    /**
-     * @return Whether an AWS Payment Cryptography key can be used to wrap other keys.
-     * 
-     */
     public Optional<Boolean> wrap() {
         return Optional.ofNullable(this.wrap);
     }

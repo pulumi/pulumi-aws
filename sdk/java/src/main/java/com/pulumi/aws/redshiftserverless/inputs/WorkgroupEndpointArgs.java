@@ -18,47 +18,23 @@ public final class WorkgroupEndpointArgs extends com.pulumi.resources.ResourceAr
 
     public static final WorkgroupEndpointArgs Empty = new WorkgroupEndpointArgs();
 
-    /**
-     * The DNS address of the VPC endpoint.
-     * 
-     */
     @Import(name="address")
     private @Nullable Output<String> address;
 
-    /**
-     * @return The DNS address of the VPC endpoint.
-     * 
-     */
     public Optional<Output<String>> address() {
         return Optional.ofNullable(this.address);
     }
 
-    /**
-     * The port number on which the cluster accepts incoming connections.
-     * 
-     */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
-    /**
-     * @return The port number on which the cluster accepts incoming connections.
-     * 
-     */
     public Optional<Output<Integer>> port() {
         return Optional.ofNullable(this.port);
     }
 
-    /**
-     * The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
-     * 
-     */
     @Import(name="vpcEndpoints")
     private @Nullable Output<List<WorkgroupEndpointVpcEndpointArgs>> vpcEndpoints;
 
-    /**
-     * @return The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
-     * 
-     */
     public Optional<Output<List<WorkgroupEndpointVpcEndpointArgs>>> vpcEndpoints() {
         return Optional.ofNullable(this.vpcEndpoints);
     }
@@ -89,75 +65,33 @@ public final class WorkgroupEndpointArgs extends com.pulumi.resources.ResourceAr
             $ = new WorkgroupEndpointArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param address The DNS address of the VPC endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder address(@Nullable Output<String> address) {
             $.address = address;
             return this;
         }
 
-        /**
-         * @param address The DNS address of the VPC endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder address(String address) {
             return address(Output.of(address));
         }
 
-        /**
-         * @param port The port number on which the cluster accepts incoming connections.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(@Nullable Output<Integer> port) {
             $.port = port;
             return this;
         }
 
-        /**
-         * @param port The port number on which the cluster accepts incoming connections.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(Integer port) {
             return port(Output.of(port));
         }
 
-        /**
-         * @param vpcEndpoints The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpoints(@Nullable Output<List<WorkgroupEndpointVpcEndpointArgs>> vpcEndpoints) {
             $.vpcEndpoints = vpcEndpoints;
             return this;
         }
 
-        /**
-         * @param vpcEndpoints The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpoints(List<WorkgroupEndpointVpcEndpointArgs> vpcEndpoints) {
             return vpcEndpoints(Output.of(vpcEndpoints));
         }
 
-        /**
-         * @param vpcEndpoints The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpoints(WorkgroupEndpointVpcEndpointArgs... vpcEndpoints) {
             return vpcEndpoints(List.of(vpcEndpoints));
         }

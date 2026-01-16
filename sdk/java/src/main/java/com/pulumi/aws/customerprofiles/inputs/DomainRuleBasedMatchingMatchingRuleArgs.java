@@ -15,17 +15,9 @@ public final class DomainRuleBasedMatchingMatchingRuleArgs extends com.pulumi.re
 
     public static final DomainRuleBasedMatchingMatchingRuleArgs Empty = new DomainRuleBasedMatchingMatchingRuleArgs();
 
-    /**
-     * A single rule level of the `matchRules`. Configures how the rule-based matching process should match profiles.
-     * 
-     */
     @Import(name="rules", required=true)
     private Output<List<String>> rules;
 
-    /**
-     * @return A single rule level of the `matchRules`. Configures how the rule-based matching process should match profiles.
-     * 
-     */
     public Output<List<String>> rules() {
         return this.rules;
     }
@@ -54,33 +46,15 @@ public final class DomainRuleBasedMatchingMatchingRuleArgs extends com.pulumi.re
             $ = new DomainRuleBasedMatchingMatchingRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param rules A single rule level of the `matchRules`. Configures how the rule-based matching process should match profiles.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(Output<List<String>> rules) {
             $.rules = rules;
             return this;
         }
 
-        /**
-         * @param rules A single rule level of the `matchRules`. Configures how the rule-based matching process should match profiles.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(List<String> rules) {
             return rules(Output.of(rules));
         }
 
-        /**
-         * @param rules A single rule level of the `matchRules`. Configures how the rule-based matching process should match profiles.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(String... rules) {
             return rules(List.of(rules));
         }

@@ -7,34 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides information about a Launch Template.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = aws.ec2.getLaunchTemplate({
- *     name: "my-launch-template",
- * });
- * ```
- *
- * ### Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.ec2.getLaunchTemplate({
- *     filters: [{
- *         name: "launch-template-name",
- *         values: ["some-template"],
- *     }],
- * });
- * ```
- */
 export function getLaunchTemplate(args?: GetLaunchTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchTemplateResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -51,25 +23,10 @@ export function getLaunchTemplate(args?: GetLaunchTemplateArgs, opts?: pulumi.In
  * A collection of arguments for invoking getLaunchTemplate.
  */
 export interface GetLaunchTemplateArgs {
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     */
     filters?: inputs.ec2.GetLaunchTemplateFilter[];
-    /**
-     * ID of the specific launch template to retrieve.
-     */
     id?: string;
-    /**
-     * Name of the launch template.
-     */
     name?: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -91,9 +48,6 @@ export interface GetLaunchTemplateResult {
     readonly filters?: outputs.ec2.GetLaunchTemplateFilter[];
     readonly hibernationOptions: outputs.ec2.GetLaunchTemplateHibernationOption[];
     readonly iamInstanceProfiles: outputs.ec2.GetLaunchTemplateIamInstanceProfile[];
-    /**
-     * ID of the launch template.
-     */
     readonly id: string;
     readonly imageId: string;
     readonly instanceInitiatedShutdownBehavior: string;
@@ -119,34 +73,6 @@ export interface GetLaunchTemplateResult {
     readonly userData: string;
     readonly vpcSecurityGroupIds: string[];
 }
-/**
- * Provides information about a Launch Template.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = aws.ec2.getLaunchTemplate({
- *     name: "my-launch-template",
- * });
- * ```
- *
- * ### Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.ec2.getLaunchTemplate({
- *     filters: [{
- *         name: "launch-template-name",
- *         values: ["some-template"],
- *     }],
- * });
- * ```
- */
 export function getLaunchTemplateOutput(args?: GetLaunchTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLaunchTemplateResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -163,24 +89,9 @@ export function getLaunchTemplateOutput(args?: GetLaunchTemplateOutputArgs, opts
  * A collection of arguments for invoking getLaunchTemplate.
  */
 export interface GetLaunchTemplateOutputArgs {
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLaunchTemplateFilterArgs>[]>;
-    /**
-     * ID of the specific launch template to retrieve.
-     */
     id?: pulumi.Input<string>;
-    /**
-     * Name of the launch template.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

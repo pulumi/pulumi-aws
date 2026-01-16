@@ -12,61 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **Note:** There is only a single subscription allowed per account.
-//
-// To help you understand the charges for your Spot instances, Amazon EC2 provides a data feed that describes your Spot instance usage and pricing.
-// This data feed is sent to an Amazon S3 bucket that you specify when you subscribe to the data feed.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_default, err := s3.NewBucket(ctx, "default", &s3.BucketArgs{
-//				Bucket: pulumi.String("tf-spot-datafeed"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewSpotDatafeedSubscription(ctx, "default", &ec2.SpotDatafeedSubscriptionArgs{
-//				Bucket: _default.ID(),
-//				Prefix: pulumi.String("my_subdirectory"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import a Spot Datafeed Subscription using the word `spot-datafeed-subscription`. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
-// ```
 type SpotDatafeedSubscription struct {
 	pulumi.CustomResourceState
 
-	// The Amazon S3 bucket in which to store the Spot instance data feed.
-	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// Path of folder inside bucket to place spot pricing data.
+	Bucket pulumi.StringOutput    `pulumi:"bucket"`
 	Prefix pulumi.StringPtrOutput `pulumi:"prefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region pulumi.StringOutput    `pulumi:"region"`
 }
 
 // NewSpotDatafeedSubscription registers a new resource with the given unique name, arguments, and options.
@@ -102,20 +53,14 @@ func GetSpotDatafeedSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SpotDatafeedSubscription resources.
 type spotDatafeedSubscriptionState struct {
-	// The Amazon S3 bucket in which to store the Spot instance data feed.
 	Bucket *string `pulumi:"bucket"`
-	// Path of folder inside bucket to place spot pricing data.
 	Prefix *string `pulumi:"prefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 type SpotDatafeedSubscriptionState struct {
-	// The Amazon S3 bucket in which to store the Spot instance data feed.
 	Bucket pulumi.StringPtrInput
-	// Path of folder inside bucket to place spot pricing data.
 	Prefix pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -124,21 +69,15 @@ func (SpotDatafeedSubscriptionState) ElementType() reflect.Type {
 }
 
 type spotDatafeedSubscriptionArgs struct {
-	// The Amazon S3 bucket in which to store the Spot instance data feed.
-	Bucket string `pulumi:"bucket"`
-	// Path of folder inside bucket to place spot pricing data.
+	Bucket string  `pulumi:"bucket"`
 	Prefix *string `pulumi:"prefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a SpotDatafeedSubscription resource.
 type SpotDatafeedSubscriptionArgs struct {
-	// The Amazon S3 bucket in which to store the Spot instance data feed.
 	Bucket pulumi.StringInput
-	// Path of folder inside bucket to place spot pricing data.
 	Prefix pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -229,17 +168,14 @@ func (o SpotDatafeedSubscriptionOutput) ToSpotDatafeedSubscriptionOutputWithCont
 	return o
 }
 
-// The Amazon S3 bucket in which to store the Spot instance data feed.
 func (o SpotDatafeedSubscriptionOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpotDatafeedSubscription) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Path of folder inside bucket to place spot pricing data.
 func (o SpotDatafeedSubscriptionOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotDatafeedSubscription) pulumi.StringPtrOutput { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SpotDatafeedSubscriptionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpotDatafeedSubscription) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

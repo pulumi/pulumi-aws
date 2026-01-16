@@ -74,17 +74,11 @@ class GetWorkspaceResult:
     @_builtins.property
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> _builtins.str:
-        """
-        ID of the bundle for the WorkSpace.
-        """
         return pulumi.get(self, "bundle_id")
 
     @_builtins.property
     @pulumi.getter(name="computerName")
     def computer_name(self) -> _builtins.str:
-        """
-        Name of the WorkSpace, as seen by the operating system.
-        """
         return pulumi.get(self, "computer_name")
 
     @_builtins.property
@@ -103,9 +97,6 @@ class GetWorkspaceResult:
     @_builtins.property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> _builtins.str:
-        """
-        IP address of the WorkSpace.
-        """
         return pulumi.get(self, "ip_address")
 
     @_builtins.property
@@ -116,25 +107,16 @@ class GetWorkspaceResult:
     @_builtins.property
     @pulumi.getter(name="rootVolumeEncryptionEnabled")
     def root_volume_encryption_enabled(self) -> _builtins.bool:
-        """
-        Indicates whether the data stored on the root volume is encrypted.
-        """
         return pulumi.get(self, "root_volume_encryption_enabled")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> _builtins.str:
-        """
-        Operational state of the WorkSpace.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Tags for the WorkSpace.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -145,18 +127,11 @@ class GetWorkspaceResult:
     @_builtins.property
     @pulumi.getter(name="userVolumeEncryptionEnabled")
     def user_volume_encryption_enabled(self) -> _builtins.bool:
-        """
-        Indicates whether the data stored on the user volume
-        is encrypted.
-        """
         return pulumi.get(self, "user_volume_encryption_enabled")
 
     @_builtins.property
     @pulumi.getter(name="volumeEncryptionKey")
     def volume_encryption_key(self) -> _builtins.str:
-        """
-        Symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
-        """
         return pulumi.get(self, "volume_encryption_key")
 
     @_builtins.property
@@ -167,9 +142,6 @@ class GetWorkspaceResult:
     @_builtins.property
     @pulumi.getter(name="workspaceProperties")
     def workspace_properties(self) -> Sequence['outputs.GetWorkspaceWorkspacePropertyResult']:
-        """
-        WorkSpace properties.
-        """
         return pulumi.get(self, "workspace_properties")
 
 
@@ -202,35 +174,7 @@ def get_workspace(directory_id: Optional[_builtins.str] = None,
                   workspace_id: Optional[_builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
-    Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
-
-    ## Example Usage
-
-    ### Filter By Workspace ID
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.workspaces.get_workspace(workspace_id="ws-cj5xcxsz5")
-    ```
-
-    ### Filter By Directory ID & User Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.workspaces.get_workspace(directory_id="d-9967252f57",
-        user_name="Example")
-    ```
-
-
-    :param _builtins.str directory_id: ID of the directory for the WorkSpace. You have to specify `user_name` along with `directory_id`. You cannot combine this parameter with `workspace_id`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tags for the WorkSpace.
-    :param _builtins.str user_name: User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspace_id`.
-    :param _builtins.str workspace_id: ID of the WorkSpace. You cannot combine this parameter with `directory_id`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['directoryId'] = directory_id
@@ -263,35 +207,7 @@ def get_workspace_output(directory_id: Optional[pulumi.Input[Optional[_builtins.
                          workspace_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
-    Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
-
-    ## Example Usage
-
-    ### Filter By Workspace ID
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.workspaces.get_workspace(workspace_id="ws-cj5xcxsz5")
-    ```
-
-    ### Filter By Directory ID & User Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.workspaces.get_workspace(directory_id="d-9967252f57",
-        user_name="Example")
-    ```
-
-
-    :param _builtins.str directory_id: ID of the directory for the WorkSpace. You have to specify `user_name` along with `directory_id`. You cannot combine this parameter with `workspace_id`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tags for the WorkSpace.
-    :param _builtins.str user_name: User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspace_id`.
-    :param _builtins.str workspace_id: ID of the WorkSpace. You cannot combine this parameter with `directory_id`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['directoryId'] = directory_id

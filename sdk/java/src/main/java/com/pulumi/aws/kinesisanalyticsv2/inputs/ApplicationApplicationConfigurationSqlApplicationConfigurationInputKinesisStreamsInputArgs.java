@@ -14,17 +14,9 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs();
 
-    /**
-     * The ARN of the input Kinesis data stream to read.
-     * 
-     */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
-    /**
-     * @return The ARN of the input Kinesis data stream to read.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
@@ -53,23 +45,11 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             $ = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param resourceArn The ARN of the input Kinesis data stream to read.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn The ARN of the input Kinesis data stream to read.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }

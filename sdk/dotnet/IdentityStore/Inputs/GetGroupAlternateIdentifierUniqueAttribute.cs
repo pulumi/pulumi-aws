@@ -12,15 +12,9 @@ namespace Pulumi.Aws.IdentityStore.Inputs
 
     public sealed class GetGroupAlternateIdentifierUniqueAttributeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
-        /// </summary>
         [Input("attributePath", required: true)]
         public string AttributePath { get; set; } = null!;
 
-        /// <summary>
-        /// Value for an attribute.
-        /// </summary>
         [Input("attributeValue", required: true)]
         public string AttributeValue { get; set; } = null!;
 

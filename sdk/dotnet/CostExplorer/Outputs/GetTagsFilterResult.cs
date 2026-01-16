@@ -13,29 +13,11 @@ namespace Pulumi.Aws.CostExplorer.Outputs
     [OutputType]
     public sealed class GetTagsFilterResult
     {
-        /// <summary>
-        /// Return results that match both `Dimension` objects.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetTagsFilterAndResult> Ands;
-        /// <summary>
-        /// Configuration block for the filter that's based on `CostCategory` values. See `CostCategory` block below for details.
-        /// </summary>
         public readonly Outputs.GetTagsFilterCostCategoryResult? CostCategory;
-        /// <summary>
-        /// Configuration block for the specific `Dimension` to use for `Expression`. See `Dimension` block below for details.
-        /// </summary>
         public readonly Outputs.GetTagsFilterDimensionResult? Dimension;
-        /// <summary>
-        /// Return results that match both `Dimension` object.
-        /// </summary>
         public readonly Outputs.GetTagsFilterNotResult? Not;
-        /// <summary>
-        /// Return results that match both `Dimension` object.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetTagsFilterOrResult> Ors;
-        /// <summary>
-        /// Tags that match your request.
-        /// </summary>
         public readonly Outputs.GetTagsFilterTagsResult? Tags;
 
         [OutputConstructor]

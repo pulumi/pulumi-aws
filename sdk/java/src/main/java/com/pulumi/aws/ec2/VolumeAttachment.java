@@ -15,187 +15,47 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS EBS Volume Attachment as a top level resource, to attach and
- * detach volumes from AWS Instances.
- * 
- * &gt; **NOTE on EBS block devices:** If you use `ebsBlockDevice` on an `aws.ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, and treats additional block devices as drift. For this reason, `ebsBlockDevice` cannot be mixed with external `aws.ebs.Volume` + `aws.ec2.VolumeAttachment` resources for a given instance.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Instance;
- * import com.pulumi.aws.ec2.InstanceArgs;
- * import com.pulumi.aws.ebs.Volume;
- * import com.pulumi.aws.ebs.VolumeArgs;
- * import com.pulumi.aws.ec2.VolumeAttachment;
- * import com.pulumi.aws.ec2.VolumeAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var web = new Instance("web", InstanceArgs.builder()
- *             .ami("ami-21f78e11")
- *             .availabilityZone("us-west-2a")
- *             .instanceType("t2.micro")
- *             .tags(Map.of("Name", "HelloWorld"))
- *             .build());
- * 
- *         var example = new Volume("example", VolumeArgs.builder()
- *             .availabilityZone("us-west-2a")
- *             .size(1)
- *             .build());
- * 
- *         var ebsAtt = new VolumeAttachment("ebsAtt", VolumeAttachmentArgs.builder()
- *             .deviceName("/dev/sdh")
- *             .volumeId(example.id())
- *             .instanceId(web.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import EBS Volume Attachments using `DEVICE_NAME:VOLUME_ID:INSTANCE_ID`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2/volumeAttachment:VolumeAttachment example /dev/sdh:vol-049df61146c4d7901:i-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/volumeAttachment:VolumeAttachment")
 public class VolumeAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * The device name to expose to the instance (for
-     * example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
-     * 
-     */
     @Export(name="deviceName", refs={String.class}, tree="[0]")
     private Output<String> deviceName;
 
-    /**
-     * @return The device name to expose to the instance (for
-     * example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
-     * 
-     */
     public Output<String> deviceName() {
         return this.deviceName;
     }
-    /**
-     * Set to `true` if you want to force the
-     * volume to detach. Useful if previous attempts failed, but use this option only
-     * as a last resort, as this can result in **data loss**. See
-     * [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
-     * 
-     */
     @Export(name="forceDetach", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDetach;
 
-    /**
-     * @return Set to `true` if you want to force the
-     * volume to detach. Useful if previous attempts failed, but use this option only
-     * as a last resort, as this can result in **data loss**. See
-     * [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
-     * 
-     */
     public Output<Optional<Boolean>> forceDetach() {
         return Codegen.optional(this.forceDetach);
     }
-    /**
-     * ID of the Instance to attach to
-     * 
-     */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
-    /**
-     * @return ID of the Instance to attach to
-     * 
-     */
     public Output<String> instanceId() {
         return this.instanceId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Set this to true if you do not wish
-     * to detach the volume from the instance to which it is attached at destroy
-     * time, and instead just remove the attachment from this provider state. This is
-     * useful when destroying an instance which has volumes created by some other
-     * means attached.
-     * 
-     */
     @Export(name="skipDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipDestroy;
 
-    /**
-     * @return Set this to true if you do not wish
-     * to detach the volume from the instance to which it is attached at destroy
-     * time, and instead just remove the attachment from this provider state. This is
-     * useful when destroying an instance which has volumes created by some other
-     * means attached.
-     * 
-     */
     public Output<Optional<Boolean>> skipDestroy() {
         return Codegen.optional(this.skipDestroy);
     }
-    /**
-     * Set this to true to ensure that the target instance is stopped
-     * before trying to detach the volume. Stops the instance, if it is not already stopped.
-     * 
-     */
     @Export(name="stopInstanceBeforeDetaching", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> stopInstanceBeforeDetaching;
 
-    /**
-     * @return Set this to true to ensure that the target instance is stopped
-     * before trying to detach the volume. Stops the instance, if it is not already stopped.
-     * 
-     */
     public Output<Optional<Boolean>> stopInstanceBeforeDetaching() {
         return Codegen.optional(this.stopInstanceBeforeDetaching);
     }
-    /**
-     * ID of the Volume to be attached
-     * 
-     */
     @Export(name="volumeId", refs={String.class}, tree="[0]")
     private Output<String> volumeId;
 
-    /**
-     * @return ID of the Volume to be attached
-     * 
-     */
     public Output<String> volumeId() {
         return this.volumeId;
     }

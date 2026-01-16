@@ -54,10 +54,6 @@ class KeyspaceReplicationSpecification(dict):
     def __init__(__self__, *,
                  region_lists: Optional[Sequence[_builtins.str]] = None,
                  replication_strategy: Optional[_builtins.str] = None):
-        """
-        :param Sequence[_builtins.str] region_lists: Replication regions. If `replication_strategy` is `MULTI_REGION`, `region_list` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
-        :param _builtins.str replication_strategy: Replication strategy. Valid values: `SINGLE_REGION` and `MULTI_REGION`.
-        """
         if region_lists is not None:
             pulumi.set(__self__, "region_lists", region_lists)
         if replication_strategy is not None:
@@ -66,17 +62,11 @@ class KeyspaceReplicationSpecification(dict):
     @_builtins.property
     @pulumi.getter(name="regionLists")
     def region_lists(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Replication regions. If `replication_strategy` is `MULTI_REGION`, `region_list` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
-        """
         return pulumi.get(self, "region_lists")
 
     @_builtins.property
     @pulumi.getter(name="replicationStrategy")
     def replication_strategy(self) -> Optional[_builtins.str]:
-        """
-        Replication strategy. Valid values: `SINGLE_REGION` and `MULTI_REGION`.
-        """
         return pulumi.get(self, "replication_strategy")
 
 
@@ -107,11 +97,6 @@ class TableCapacitySpecification(dict):
                  read_capacity_units: Optional[_builtins.int] = None,
                  throughput_mode: Optional[_builtins.str] = None,
                  write_capacity_units: Optional[_builtins.int] = None):
-        """
-        :param _builtins.int read_capacity_units: The throughput capacity specified for read operations defined in read capacity units (RCUs).
-        :param _builtins.str throughput_mode: The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
-        :param _builtins.int write_capacity_units: The throughput capacity specified for write operations defined in write capacity units (WCUs).
-        """
         if read_capacity_units is not None:
             pulumi.set(__self__, "read_capacity_units", read_capacity_units)
         if throughput_mode is not None:
@@ -122,25 +107,16 @@ class TableCapacitySpecification(dict):
     @_builtins.property
     @pulumi.getter(name="readCapacityUnits")
     def read_capacity_units(self) -> Optional[_builtins.int]:
-        """
-        The throughput capacity specified for read operations defined in read capacity units (RCUs).
-        """
         return pulumi.get(self, "read_capacity_units")
 
     @_builtins.property
     @pulumi.getter(name="throughputMode")
     def throughput_mode(self) -> Optional[_builtins.str]:
-        """
-        The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
-        """
         return pulumi.get(self, "throughput_mode")
 
     @_builtins.property
     @pulumi.getter(name="writeCapacityUnits")
     def write_capacity_units(self) -> Optional[_builtins.int]:
-        """
-        The throughput capacity specified for write operations defined in write capacity units (WCUs).
-        """
         return pulumi.get(self, "write_capacity_units")
 
 
@@ -148,17 +124,11 @@ class TableCapacitySpecification(dict):
 class TableClientSideTimestamps(dict):
     def __init__(__self__, *,
                  status: _builtins.str):
-        """
-        :param _builtins.str status: Shows how to enable client-side timestamps settings for the specified table. Valid values: `ENABLED`.
-        """
         pulumi.set(__self__, "status", status)
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Shows how to enable client-side timestamps settings for the specified table. Valid values: `ENABLED`.
-        """
         return pulumi.get(self, "status")
 
 
@@ -166,18 +136,12 @@ class TableClientSideTimestamps(dict):
 class TableComment(dict):
     def __init__(__self__, *,
                  message: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str message: A description of the table.
-        """
         if message is not None:
             pulumi.set(__self__, "message", message)
 
     @_builtins.property
     @pulumi.getter
     def message(self) -> Optional[_builtins.str]:
-        """
-        A description of the table.
-        """
         return pulumi.get(self, "message")
 
 
@@ -203,10 +167,6 @@ class TableEncryptionSpecification(dict):
     def __init__(__self__, *,
                  kms_key_identifier: Optional[_builtins.str] = None,
                  type: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str kms_key_identifier: The Amazon Resource Name (ARN) of the customer managed KMS key.
-        :param _builtins.str type: The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
-        """
         if kms_key_identifier is not None:
             pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
         if type is not None:
@@ -215,17 +175,11 @@ class TableEncryptionSpecification(dict):
     @_builtins.property
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> Optional[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the customer managed KMS key.
-        """
         return pulumi.get(self, "kms_key_identifier")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
-        """
-        The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
-        """
         return pulumi.get(self, "type")
 
 
@@ -233,18 +187,12 @@ class TableEncryptionSpecification(dict):
 class TablePointInTimeRecovery(dict):
     def __init__(__self__, *,
                  status: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str status: Valid values: `ENABLED`, `DISABLED`. The default value is `DISABLED`.
-        """
         if status is not None:
             pulumi.set(__self__, "status", status)
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[_builtins.str]:
-        """
-        Valid values: `ENABLED`, `DISABLED`. The default value is `DISABLED`.
-        """
         return pulumi.get(self, "status")
 
 
@@ -276,12 +224,6 @@ class TableSchemaDefinition(dict):
                  partition_keys: Sequence['outputs.TableSchemaDefinitionPartitionKey'],
                  clustering_keys: Optional[Sequence['outputs.TableSchemaDefinitionClusteringKey']] = None,
                  static_columns: Optional[Sequence['outputs.TableSchemaDefinitionStaticColumn']] = None):
-        """
-        :param Sequence['TableSchemaDefinitionColumnArgs'] columns: The regular columns of the table.
-        :param Sequence['TableSchemaDefinitionPartitionKeyArgs'] partition_keys: The columns that are part of the partition key of the table .
-        :param Sequence['TableSchemaDefinitionClusteringKeyArgs'] clustering_keys: The columns that are part of the clustering key of the table.
-        :param Sequence['TableSchemaDefinitionStaticColumnArgs'] static_columns: The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
-        """
         pulumi.set(__self__, "columns", columns)
         pulumi.set(__self__, "partition_keys", partition_keys)
         if clustering_keys is not None:
@@ -292,33 +234,21 @@ class TableSchemaDefinition(dict):
     @_builtins.property
     @pulumi.getter
     def columns(self) -> Sequence['outputs.TableSchemaDefinitionColumn']:
-        """
-        The regular columns of the table.
-        """
         return pulumi.get(self, "columns")
 
     @_builtins.property
     @pulumi.getter(name="partitionKeys")
     def partition_keys(self) -> Sequence['outputs.TableSchemaDefinitionPartitionKey']:
-        """
-        The columns that are part of the partition key of the table .
-        """
         return pulumi.get(self, "partition_keys")
 
     @_builtins.property
     @pulumi.getter(name="clusteringKeys")
     def clustering_keys(self) -> Optional[Sequence['outputs.TableSchemaDefinitionClusteringKey']]:
-        """
-        The columns that are part of the clustering key of the table.
-        """
         return pulumi.get(self, "clustering_keys")
 
     @_builtins.property
     @pulumi.getter(name="staticColumns")
     def static_columns(self) -> Optional[Sequence['outputs.TableSchemaDefinitionStaticColumn']]:
-        """
-        The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
-        """
         return pulumi.get(self, "static_columns")
 
 
@@ -344,27 +274,17 @@ class TableSchemaDefinitionClusteringKey(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  order_by: _builtins.str):
-        """
-        :param _builtins.str name: The name of the clustering key column.
-        :param _builtins.str order_by: The order modifier. Valid values: `ASC`, `DESC`.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "order_by", order_by)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the clustering key column.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="orderBy")
     def order_by(self) -> _builtins.str:
-        """
-        The order modifier. Valid values: `ASC`, `DESC`.
-        """
         return pulumi.get(self, "order_by")
 
 
@@ -373,27 +293,17 @@ class TableSchemaDefinitionColumn(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  type: _builtins.str):
-        """
-        :param _builtins.str name: The name of the column.
-        :param _builtins.str type: The data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the column.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        The data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
-        """
         return pulumi.get(self, "type")
 
 
@@ -401,17 +311,11 @@ class TableSchemaDefinitionColumn(dict):
 class TableSchemaDefinitionPartitionKey(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
-        """
-        :param _builtins.str name: The name of the partition key column.
-        """
         pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the partition key column.
-        """
         return pulumi.get(self, "name")
 
 
@@ -419,17 +323,11 @@ class TableSchemaDefinitionPartitionKey(dict):
 class TableSchemaDefinitionStaticColumn(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
-        """
-        :param _builtins.str name: The name of the static column.
-        """
         pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the static column.
-        """
         return pulumi.get(self, "name")
 
 
@@ -437,17 +335,11 @@ class TableSchemaDefinitionStaticColumn(dict):
 class TableTtl(dict):
     def __init__(__self__, *,
                  status: _builtins.str):
-        """
-        :param _builtins.str status: Valid values: `ENABLED`.
-        """
         pulumi.set(__self__, "status", status)
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Valid values: `ENABLED`.
-        """
         return pulumi.get(self, "status")
 
 

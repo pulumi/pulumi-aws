@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValue
     {
-        /// <summary>
-        /// Exact string value to match in the header.
-        /// </summary>
         public readonly string Exact;
 
         [OutputConstructor]

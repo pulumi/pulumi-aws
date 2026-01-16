@@ -17,32 +17,16 @@ public final class ClusterShardNodeArgs extends com.pulumi.resources.ResourceArg
 
     public static final ClusterShardNodeArgs Empty = new ClusterShardNodeArgs();
 
-    /**
-     * The Availability Zone in which the node resides.
-     * 
-     */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
-    /**
-     * @return The Availability Zone in which the node resides.
-     * 
-     */
     public Optional<Output<String>> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
 
-    /**
-     * The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
-     * 
-     */
     @Import(name="createTime")
     private @Nullable Output<String> createTime;
 
-    /**
-     * @return The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
-     * 
-     */
     public Optional<Output<String>> createTime() {
         return Optional.ofNullable(this.createTime);
     }
@@ -54,17 +38,9 @@ public final class ClusterShardNodeArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.endpoints);
     }
 
-    /**
-     * Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -96,44 +72,20 @@ public final class ClusterShardNodeArgs extends com.pulumi.resources.ResourceArg
             $ = new ClusterShardNodeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param availabilityZone The Availability Zone in which the node resides.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZone(@Nullable Output<String> availabilityZone) {
             $.availabilityZone = availabilityZone;
             return this;
         }
 
-        /**
-         * @param availabilityZone The Availability Zone in which the node resides.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZone(String availabilityZone) {
             return availabilityZone(Output.of(availabilityZone));
         }
 
-        /**
-         * @param createTime The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createTime(@Nullable Output<String> createTime) {
             $.createTime = createTime;
             return this;
         }
 
-        /**
-         * @param createTime The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createTime(String createTime) {
             return createTime(Output.of(createTime));
         }
@@ -151,23 +103,11 @@ public final class ClusterShardNodeArgs extends com.pulumi.resources.ResourceArg
             return endpoints(List.of(endpoints));
         }
 
-        /**
-         * @param name Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Lambda.Inputs
     {
         [Input("metrics", required: true)]
         private InputList<string>? _metrics;
-
-        /// <summary>
-        /// List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
-        /// </summary>
         public InputList<string> Metrics
         {
             get => _metrics ?? (_metrics = new InputList<string>());

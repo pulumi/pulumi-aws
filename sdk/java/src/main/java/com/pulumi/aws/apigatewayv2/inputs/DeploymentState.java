@@ -17,77 +17,37 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
 
     public static final DeploymentState Empty = new DeploymentState();
 
-    /**
-     * API identifier.
-     * 
-     */
     @Import(name="apiId")
     private @Nullable Output<String> apiId;
 
-    /**
-     * @return API identifier.
-     * 
-     */
     public Optional<Output<String>> apiId() {
         return Optional.ofNullable(this.apiId);
     }
 
-    /**
-     * Whether the deployment was automatically released.
-     * 
-     */
     @Import(name="autoDeployed")
     private @Nullable Output<Boolean> autoDeployed;
 
-    /**
-     * @return Whether the deployment was automatically released.
-     * 
-     */
     public Optional<Output<Boolean>> autoDeployed() {
         return Optional.ofNullable(this.autoDeployed);
     }
 
-    /**
-     * Description for the deployment resource. Must be less than or equal to 1024 characters in length.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description for the deployment resource. Must be less than or equal to 1024 characters in length.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-     * 
-     */
     @Import(name="triggers")
     private @Nullable Output<Map<String,String>> triggers;
 
-    /**
-     * @return Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-     * 
-     */
     public Optional<Output<Map<String,String>>> triggers() {
         return Optional.ofNullable(this.triggers);
     }
@@ -120,107 +80,47 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
             $ = new DeploymentState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param apiId API identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiId(@Nullable Output<String> apiId) {
             $.apiId = apiId;
             return this;
         }
 
-        /**
-         * @param apiId API identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiId(String apiId) {
             return apiId(Output.of(apiId));
         }
 
-        /**
-         * @param autoDeployed Whether the deployment was automatically released.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoDeployed(@Nullable Output<Boolean> autoDeployed) {
             $.autoDeployed = autoDeployed;
             return this;
         }
 
-        /**
-         * @param autoDeployed Whether the deployment was automatically released.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoDeployed(Boolean autoDeployed) {
             return autoDeployed(Output.of(autoDeployed));
         }
 
-        /**
-         * @param description Description for the deployment resource. Must be less than or equal to 1024 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description for the deployment resource. Must be less than or equal to 1024 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param triggers Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder triggers(@Nullable Output<Map<String,String>> triggers) {
             $.triggers = triggers;
             return this;
         }
 
-        /**
-         * @param triggers Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder triggers(Map<String,String> triggers) {
             return triggers(Output.of(triggers));
         }

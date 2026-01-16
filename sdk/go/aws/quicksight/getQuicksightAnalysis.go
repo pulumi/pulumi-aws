@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS QuickSight Analysis.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.GetQuicksightAnalysis(ctx, &quicksight.GetQuicksightAnalysisArgs{
-//				AnalysisId: "example-id",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetQuicksightAnalysis(ctx *pulumi.Context, args *GetQuicksightAnalysisArgs, opts ...pulumi.InvokeOption) (*GetQuicksightAnalysisResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetQuicksightAnalysisResult
@@ -52,12 +23,10 @@ func GetQuicksightAnalysis(ctx *pulumi.Context, args *GetQuicksightAnalysisArgs,
 
 // A collection of arguments for invoking getQuicksightAnalysis.
 type GetQuicksightAnalysisArgs struct {
-	// Identifier for the analysis.
-	AnalysisId   string  `pulumi:"analysisId"`
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string           `pulumi:"region"`
-	Tags   map[string]string `pulumi:"tags"`
+	AnalysisId   string            `pulumi:"analysisId"`
+	AwsAccountId *string           `pulumi:"awsAccountId"`
+	Region       *string           `pulumi:"region"`
+	Tags         map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getQuicksightAnalysis.
@@ -89,12 +58,10 @@ func GetQuicksightAnalysisOutput(ctx *pulumi.Context, args GetQuicksightAnalysis
 
 // A collection of arguments for invoking getQuicksightAnalysis.
 type GetQuicksightAnalysisOutputArgs struct {
-	// Identifier for the analysis.
 	AnalysisId   pulumi.StringInput    `pulumi:"analysisId"`
 	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	Tags   pulumi.StringMapInput `pulumi:"tags"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
+	Tags         pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (GetQuicksightAnalysisOutputArgs) ElementType() reflect.Type {

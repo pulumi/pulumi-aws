@@ -4,45 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS SSO Admin Application Assignment.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ssoadmin.ApplicationAssignment("example", {
- *     applicationArn: exampleAwsSsoadminApplication.arn,
- *     principalId: exampleAwsIdentitystoreUser.userId,
- *     principalType: "USER",
- * });
- * ```
- *
- * ### Group Type
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ssoadmin.ApplicationAssignment("example", {
- *     applicationArn: exampleAwsSsoadminApplication.arn,
- *     principalId: exampleAwsIdentitystoreGroup.groupId,
- *     principalType: "GROUP",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import SSO Admin Application Assignment using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:ssoadmin/applicationAssignment:ApplicationAssignment example arn:aws:sso::123456789012:application/id-12345678,abcd1234,USER
- * ```
- */
 export class ApplicationAssignment extends pulumi.CustomResource {
     /**
      * Get an existing ApplicationAssignment resource's state with the given name, ID, and optional extra
@@ -71,21 +32,9 @@ export class ApplicationAssignment extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApplicationAssignment.__pulumiType;
     }
 
-    /**
-     * ARN of the application.
-     */
     declare public readonly applicationArn: pulumi.Output<string>;
-    /**
-     * An identifier for an object in IAM Identity Center, such as a user or group.
-     */
     declare public readonly principalId: pulumi.Output<string>;
-    /**
-     * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-     */
     declare public readonly principalType: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -130,21 +79,9 @@ export class ApplicationAssignment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ApplicationAssignment resources.
  */
 export interface ApplicationAssignmentState {
-    /**
-     * ARN of the application.
-     */
     applicationArn?: pulumi.Input<string>;
-    /**
-     * An identifier for an object in IAM Identity Center, such as a user or group.
-     */
     principalId?: pulumi.Input<string>;
-    /**
-     * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-     */
     principalType?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -152,20 +89,8 @@ export interface ApplicationAssignmentState {
  * The set of arguments for constructing a ApplicationAssignment resource.
  */
 export interface ApplicationAssignmentArgs {
-    /**
-     * ARN of the application.
-     */
     applicationArn: pulumi.Input<string>;
-    /**
-     * An identifier for an object in IAM Identity Center, such as a user or group.
-     */
     principalId: pulumi.Input<string>;
-    /**
-     * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-     */
     principalType: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

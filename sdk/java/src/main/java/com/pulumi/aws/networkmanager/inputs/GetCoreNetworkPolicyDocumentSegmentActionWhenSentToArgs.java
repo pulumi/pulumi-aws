@@ -16,17 +16,9 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs exten
 
     public static final GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs Empty = new GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs();
 
-    /**
-     * A list of strings. The list of segments that the `send-via` `action` uses.
-     * 
-     */
     @Import(name="segments")
     private @Nullable Output<List<String>> segments;
 
-    /**
-     * @return A list of strings. The list of segments that the `send-via` `action` uses.
-     * 
-     */
     public Optional<Output<List<String>>> segments() {
         return Optional.ofNullable(this.segments);
     }
@@ -55,33 +47,15 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs exten
             $ = new GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param segments A list of strings. The list of segments that the `send-via` `action` uses.
-         * 
-         * @return builder
-         * 
-         */
         public Builder segments(@Nullable Output<List<String>> segments) {
             $.segments = segments;
             return this;
         }
 
-        /**
-         * @param segments A list of strings. The list of segments that the `send-via` `action` uses.
-         * 
-         * @return builder
-         * 
-         */
         public Builder segments(List<String> segments) {
             return segments(Output.of(segments));
         }
 
-        /**
-         * @param segments A list of strings. The list of segments that the `send-via` `action` uses.
-         * 
-         * @return builder
-         * 
-         */
         public Builder segments(String... segments) {
             return segments(List.of(segments));
         }

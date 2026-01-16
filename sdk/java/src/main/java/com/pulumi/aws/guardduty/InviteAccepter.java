@@ -13,110 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to accept a pending GuardDuty invite on creation, ensure the detector has the correct primary account on read, and disassociate with the primary account upon removal.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.guardduty.Detector;
- * import com.pulumi.aws.guardduty.Member;
- * import com.pulumi.aws.guardduty.MemberArgs;
- * import com.pulumi.aws.guardduty.InviteAccepter;
- * import com.pulumi.aws.guardduty.InviteAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App }{{@code
- *     public static void main(String[] args) }{{@code
- *         Pulumi.run(App::stack);
- *     }}{@code
- * 
- *     public static void stack(Context ctx) }{{@code
- *         var primary = new Detector("primary");
- * 
- *         var memberDetector = new Detector("memberDetector");
- * 
- *         var memberMember = new Member("memberMember", MemberArgs.builder()
- *             .accountId(memberDetector.accountId())
- *             .detectorId(primary.id())
- *             .email("required}{@literal @}{@code example.com")
- *             .invite(true)
- *             .build());
- * 
- *         var member = new InviteAccepter("member", InviteAccepterArgs.builder()
- *             .detectorId(memberDetector.id())
- *             .masterAccountId(primary.accountId())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(memberMember)
- *                 .build());
- * 
- *     }}{@code
- * }}{@code
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_guardduty_invite_accepter` using the member GuardDuty detector ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:guardduty/inviteAccepter:InviteAccepter member 00b00fd5aecc0ab60a708659477e9617
- * ```
- * 
- */
 @ResourceType(type="aws:guardduty/inviteAccepter:InviteAccepter")
 public class InviteAccepter extends com.pulumi.resources.CustomResource {
-    /**
-     * The detector ID of the member GuardDuty account.
-     * 
-     */
     @Export(name="detectorId", refs={String.class}, tree="[0]")
     private Output<String> detectorId;
 
-    /**
-     * @return The detector ID of the member GuardDuty account.
-     * 
-     */
     public Output<String> detectorId() {
         return this.detectorId;
     }
-    /**
-     * AWS account ID for primary account.
-     * 
-     */
     @Export(name="masterAccountId", refs={String.class}, tree="[0]")
     private Output<String> masterAccountId;
 
-    /**
-     * @return AWS account ID for primary account.
-     * 
-     */
     public Output<String> masterAccountId() {
         return this.masterAccountId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates if the CSV data has a header.
-        /// </summary>
         [Input("header")]
         public Input<bool>? Header { get; set; }
 

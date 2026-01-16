@@ -23,8 +23,6 @@ class InvitationAccepterArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a InvitationAccepter resource.
-        :param pulumi.Input[_builtins.str] graph_arn: ARN of the behavior graph that the member account is accepting the invitation for.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "graph_arn", graph_arn)
         if region is not None:
@@ -33,9 +31,6 @@ class InvitationAccepterArgs:
     @_builtins.property
     @pulumi.getter(name="graphArn")
     def graph_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the behavior graph that the member account is accepting the invitation for.
-        """
         return pulumi.get(self, "graph_arn")
 
     @graph_arn.setter
@@ -45,9 +40,6 @@ class InvitationAccepterArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -62,8 +54,6 @@ class _InvitationAccepterState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering InvitationAccepter resources.
-        :param pulumi.Input[_builtins.str] graph_arn: ARN of the behavior graph that the member account is accepting the invitation for.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if graph_arn is not None:
             pulumi.set(__self__, "graph_arn", graph_arn)
@@ -73,9 +63,6 @@ class _InvitationAccepterState:
     @_builtins.property
     @pulumi.getter(name="graphArn")
     def graph_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the behavior graph that the member account is accepting the invitation for.
-        """
         return pulumi.get(self, "graph_arn")
 
     @graph_arn.setter
@@ -85,9 +72,6 @@ class _InvitationAccepterState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -105,36 +89,9 @@ class InvitationAccepter(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a resource to manage an [Amazon Detective Invitation Accepter](https://docs.aws.amazon.com/detective/latest/APIReference/API_AcceptInvitation.html). Ensure that the accepter is configured to use the AWS account you wish to _accept_ the invitation from the primary graph owner account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        primary = aws.detective.Graph("primary")
-        primary_member = aws.detective.Member("primary",
-            account_id="ACCOUNT ID",
-            email_address="EMAIL",
-            graph_arn=primary.graph_arn,
-            message="Message of the invite")
-        member = aws.detective.InvitationAccepter("member", graph_arn=primary.graph_arn,
-        opts = pulumi.ResourceOptions(depends_on=[primary_member]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_detective_invitation_accepter` using the graph ARN. For example:
-
-        ```sh
-        $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
-        ```
-
+        Create a InvitationAccepter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] graph_arn: ARN of the behavior graph that the member account is accepting the invitation for.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -143,32 +100,7 @@ class InvitationAccepter(pulumi.CustomResource):
                  args: InvitationAccepterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage an [Amazon Detective Invitation Accepter](https://docs.aws.amazon.com/detective/latest/APIReference/API_AcceptInvitation.html). Ensure that the accepter is configured to use the AWS account you wish to _accept_ the invitation from the primary graph owner account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        primary = aws.detective.Graph("primary")
-        primary_member = aws.detective.Member("primary",
-            account_id="ACCOUNT ID",
-            email_address="EMAIL",
-            graph_arn=primary.graph_arn,
-            message="Message of the invite")
-        member = aws.detective.InvitationAccepter("member", graph_arn=primary.graph_arn,
-        opts = pulumi.ResourceOptions(depends_on=[primary_member]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_detective_invitation_accepter` using the graph ARN. For example:
-
-        ```sh
-        $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
-        ```
-
+        Create a InvitationAccepter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param InvitationAccepterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -218,8 +150,6 @@ class InvitationAccepter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] graph_arn: ARN of the behavior graph that the member account is accepting the invitation for.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -232,16 +162,10 @@ class InvitationAccepter(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="graphArn")
     def graph_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the behavior graph that the member account is accepting the invitation for.
-        """
         return pulumi.get(self, "graph_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata
     {
-        /// <summary>
-        /// OAuth2 authorization endpoint URL.
-        /// </summary>
         public readonly string AuthorizationEndpoint;
-        /// <summary>
-        /// OAuth2 authorization server issuer identifier.
-        /// </summary>
         public readonly string Issuer;
-        /// <summary>
-        /// Set of OAuth2 response types supported by the authorization server.
-        /// </summary>
         public readonly ImmutableArray<string> ResponseTypes;
-        /// <summary>
-        /// OAuth2 token endpoint URL.
-        /// </summary>
         public readonly string TokenEndpoint;
 
         [OutputConstructor]

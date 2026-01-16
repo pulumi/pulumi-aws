@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class ReceiptRuleAddHeaderAction {
-    /**
-     * @return The name of the header to add
-     * 
-     */
     private String headerName;
-    /**
-     * @return The value of the header to add
-     * 
-     */
     private String headerValue;
-    /**
-     * @return The position of the action in the receipt rule
-     * 
-     */
     private Integer position;
 
     private ReceiptRuleAddHeaderAction() {}
-    /**
-     * @return The name of the header to add
-     * 
-     */
     public String headerName() {
         return this.headerName;
     }
-    /**
-     * @return The value of the header to add
-     * 
-     */
     public String headerValue() {
         return this.headerValue;
     }
-    /**
-     * @return The position of the action in the receipt rule
-     * 
-     */
     public Integer position() {
         return this.position;
     }

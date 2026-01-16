@@ -67,17 +67,11 @@ class GetEnvironmentResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the environment.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Name of the environment.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -96,17 +90,11 @@ class GetEnvironmentResult:
     @_builtins.property
     @pulumi.getter
     def monitors(self) -> Sequence['outputs.GetEnvironmentMonitorResult']:
-        """
-        Set of Amazon CloudWatch alarms to monitor during the deployment process.
-        """
         return pulumi.get(self, "monitors")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the environment.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -117,18 +105,11 @@ class GetEnvironmentResult:
     @_builtins.property
     @pulumi.getter
     def state(self) -> _builtins.str:
-        """
-        State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-        or `ROLLED_BACK`.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags for the resource.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -156,25 +137,7 @@ def get_environment(application_id: Optional[_builtins.str] = None,
                     tags: Optional[Mapping[str, _builtins.str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentResult:
     """
-    Provides access to an AppConfig Environment.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.appconfig.get_environment(application_id="b5d5gpj",
-        environment_id="qrbb1c1")
-    ```
-
-
-    :param _builtins.str application_id: ID of the AppConfig Application to which this Environment belongs.
-    :param _builtins.str environment_id: ID of the AppConfig Environment.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
@@ -201,25 +164,7 @@ def get_environment_output(application_id: Optional[pulumi.Input[_builtins.str]]
                            tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
-    Provides access to an AppConfig Environment.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.appconfig.get_environment(application_id="b5d5gpj",
-        environment_id="qrbb1c1")
-    ```
-
-
-    :param _builtins.str application_id: ID of the AppConfig Application to which this Environment belongs.
-    :param _builtins.str environment_id: ID of the AppConfig Environment.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id

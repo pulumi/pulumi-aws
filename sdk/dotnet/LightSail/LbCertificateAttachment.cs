@@ -9,76 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LightSail
 {
-    /// <summary>
-    /// Manages a Lightsail Load Balancer Certificate attachment to a Lightsail Load Balancer.
-    /// 
-    /// Use this resource to attach a validated SSL/TLS certificate to a Lightsail Load Balancer to enable HTTPS traffic. The certificate must be validated before it can be attached to the load balancer.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.LightSail.Lb("example", new()
-    ///     {
-    ///         Name = "example-load-balancer",
-    ///         HealthCheckPath = "/",
-    ///         InstancePort = 80,
-    ///         Tags = 
-    ///         {
-    ///             { "foo", "bar" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleLbCertificate = new Aws.LightSail.LbCertificate("example", new()
-    ///     {
-    ///         Name = "example-load-balancer-certificate",
-    ///         LbName = example.Id,
-    ///         DomainName = "example.com",
-    ///     });
-    /// 
-    ///     var exampleLbCertificateAttachment = new Aws.LightSail.LbCertificateAttachment("example", new()
-    ///     {
-    ///         LbName = example.Name,
-    ///         CertificateName = exampleLbCertificate.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_lightsail_lb_certificate_attachment` using the name attribute. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment example example-load-balancer,example-certificate
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lightsail/lbCertificateAttachment:LbCertificateAttachment")]
     public partial class LbCertificateAttachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of your SSL/TLS certificate.
-        /// </summary>
         [Output("certificateName")]
         public Output<string> CertificateName { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the load balancer to which you want to associate the SSL/TLS certificate.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("lbName")]
         public Output<string> LbName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -128,23 +67,12 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class LbCertificateAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of your SSL/TLS certificate.
-        /// </summary>
         [Input("certificateName", required: true)]
         public Input<string> CertificateName { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the load balancer to which you want to associate the SSL/TLS certificate.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("lbName", required: true)]
         public Input<string> LbName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -156,23 +84,12 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class LbCertificateAttachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of your SSL/TLS certificate.
-        /// </summary>
         [Input("certificateName")]
         public Input<string>? CertificateName { get; set; }
 
-        /// <summary>
-        /// Name of the load balancer to which you want to associate the SSL/TLS certificate.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("lbName")]
         public Input<string>? LbName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

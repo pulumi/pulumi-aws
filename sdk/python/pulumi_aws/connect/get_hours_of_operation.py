@@ -62,33 +62,21 @@ class GetHoursOfOperationResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Hours of Operation.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def configs(self) -> Sequence['outputs.GetHoursOfOperationConfigResult']:
-        """
-        Configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.
-        """
         return pulumi.get(self, "configs")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the Hours of Operation.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="hoursOfOperationId")
     def hours_of_operation_id(self) -> _builtins.str:
-        """
-        The identifier for the hours of operation.
-        """
         return pulumi.get(self, "hours_of_operation_id")
 
     @_builtins.property
@@ -102,17 +90,11 @@ class GetHoursOfOperationResult:
     @_builtins.property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> _builtins.str:
-        """
-        Identifier of the hosting Amazon Connect Instance.
-        """
         return pulumi.get(self, "instance_id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the Hours of Operation.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -123,17 +105,11 @@ class GetHoursOfOperationResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags to assign to the Hours of Operation.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> _builtins.str:
-        """
-        Time zone of the Hours of Operation.
-        """
         return pulumi.get(self, "time_zone")
 
 
@@ -162,38 +138,7 @@ def get_hours_of_operation(hours_of_operation_id: Optional[_builtins.str] = None
                            tags: Optional[Mapping[str, _builtins.str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHoursOfOperationResult:
     """
-    Provides details about a specific Amazon Connect Hours of Operation.
-
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.connect.get_hours_of_operation(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Test")
-    ```
-
-    By `hours_of_operation_id`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.connect.get_hours_of_operation(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        hours_of_operation_id="cccccccc-bbbb-cccc-dddd-111111111111")
-    ```
-
-
-    :param _builtins.str hours_of_operation_id: Returns information on a specific Hours of Operation by hours of operation id
-    :param _builtins.str instance_id: Reference to the hosting Amazon Connect Instance
-    :param _builtins.str name: Returns information on a specific Hours of Operation by name
-           
-           > **NOTE:** `instance_id` and one of either `name` or `hours_of_operation_id` is required.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags to assign to the Hours of Operation.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['hoursOfOperationId'] = hours_of_operation_id
@@ -222,38 +167,7 @@ def get_hours_of_operation_output(hours_of_operation_id: Optional[pulumi.Input[O
                                   tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHoursOfOperationResult]:
     """
-    Provides details about a specific Amazon Connect Hours of Operation.
-
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.connect.get_hours_of_operation(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Test")
-    ```
-
-    By `hours_of_operation_id`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.connect.get_hours_of_operation(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        hours_of_operation_id="cccccccc-bbbb-cccc-dddd-111111111111")
-    ```
-
-
-    :param _builtins.str hours_of_operation_id: Returns information on a specific Hours of Operation by hours of operation id
-    :param _builtins.str instance_id: Reference to the hosting Amazon Connect Instance
-    :param _builtins.str name: Returns information on a specific Hours of Operation by name
-           
-           > **NOTE:** `instance_id` and one of either `name` or `hours_of_operation_id` is required.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags to assign to the Hours of Operation.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['hoursOfOperationId'] = hours_of_operation_id

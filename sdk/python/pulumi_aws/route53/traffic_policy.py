@@ -24,11 +24,6 @@ class TrafficPolicyArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TrafficPolicy resource.
-        :param pulumi.Input[_builtins.str] document: Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] comment: Comment for the traffic policy.
-        :param pulumi.Input[_builtins.str] name: Name of the traffic policy.
         """
         pulumi.set(__self__, "document", document)
         if comment is not None:
@@ -39,11 +34,6 @@ class TrafficPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def document(self) -> pulumi.Input[_builtins.str]:
-        """
-        Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "document")
 
     @document.setter
@@ -53,9 +43,6 @@ class TrafficPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Comment for the traffic policy.
-        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -65,9 +52,6 @@ class TrafficPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the traffic policy.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -86,14 +70,6 @@ class _TrafficPolicyState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering TrafficPolicy resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the traffic policy.
-        :param pulumi.Input[_builtins.str] comment: Comment for the traffic policy.
-        :param pulumi.Input[_builtins.str] document: Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] name: Name of the traffic policy.
-        :param pulumi.Input[_builtins.str] type: DNS type of the resource record sets that Amazon Route 53 creates when you use a traffic policy to create a traffic policy instance.
-        :param pulumi.Input[_builtins.int] version: Version number of the traffic policy. This value is automatically incremented by AWS after each update of this resource.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -111,9 +87,6 @@ class _TrafficPolicyState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the traffic policy.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -123,9 +96,6 @@ class _TrafficPolicyState:
     @_builtins.property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Comment for the traffic policy.
-        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -135,11 +105,6 @@ class _TrafficPolicyState:
     @_builtins.property
     @pulumi.getter
     def document(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "document")
 
     @document.setter
@@ -149,9 +114,6 @@ class _TrafficPolicyState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the traffic policy.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -161,9 +123,6 @@ class _TrafficPolicyState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        DNS type of the resource record sets that Amazon Route 53 creates when you use a traffic policy to create a traffic policy instance.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -173,9 +132,6 @@ class _TrafficPolicyState:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Version number of the traffic policy. This value is automatically incremented by AWS after each update of this resource.
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -194,46 +150,9 @@ class TrafficPolicy(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a Route53 Traffic Policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53.TrafficPolicy("example",
-            name="example",
-            comment="example comment",
-            document=\"\"\"{
-          \\"AWSPolicyFormatVersion\\": \\"2015-10-01\\",
-          \\"RecordType\\": \\"A\\",
-          \\"Endpoints\\": {
-            \\"endpoint-start-NkPh\\": {
-              \\"Type\\": \\"value\\",
-              \\"Value\\": \\"10.0.0.2\\"
-            }
-          },
-          \\"StartEndpoint\\": \\"endpoint-start-NkPh\\"
-        }
-        \"\"\")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Route53 Traffic Policy using the `id` and `version`. For example:
-
-        ```sh
-        $ pulumi import aws:route53/trafficPolicy:TrafficPolicy example 01a52019-d16f-422a-ae72-c306d2b6df7e/1
-        ```
-
+        Create a TrafficPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] comment: Comment for the traffic policy.
-        :param pulumi.Input[_builtins.str] document: Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] name: Name of the traffic policy.
         """
         ...
     @overload
@@ -242,39 +161,7 @@ class TrafficPolicy(pulumi.CustomResource):
                  args: TrafficPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Route53 Traffic Policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53.TrafficPolicy("example",
-            name="example",
-            comment="example comment",
-            document=\"\"\"{
-          \\"AWSPolicyFormatVersion\\": \\"2015-10-01\\",
-          \\"RecordType\\": \\"A\\",
-          \\"Endpoints\\": {
-            \\"endpoint-start-NkPh\\": {
-              \\"Type\\": \\"value\\",
-              \\"Value\\": \\"10.0.0.2\\"
-            }
-          },
-          \\"StartEndpoint\\": \\"endpoint-start-NkPh\\"
-        }
-        \"\"\")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Route53 Traffic Policy using the `id` and `version`. For example:
-
-        ```sh
-        $ pulumi import aws:route53/trafficPolicy:TrafficPolicy example 01a52019-d16f-422a-ae72-c306d2b6df7e/1
-        ```
-
+        Create a TrafficPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TrafficPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -333,14 +220,6 @@ class TrafficPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the traffic policy.
-        :param pulumi.Input[_builtins.str] comment: Comment for the traffic policy.
-        :param pulumi.Input[_builtins.str] document: Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] name: Name of the traffic policy.
-        :param pulumi.Input[_builtins.str] type: DNS type of the resource record sets that Amazon Route 53 creates when you use a traffic policy to create a traffic policy instance.
-        :param pulumi.Input[_builtins.int] version: Version number of the traffic policy. This value is automatically incremented by AWS after each update of this resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -357,50 +236,30 @@ class TrafficPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the traffic policy.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Comment for the traffic policy.
-        """
         return pulumi.get(self, "comment")
 
     @_builtins.property
     @pulumi.getter
     def document(self) -> pulumi.Output[_builtins.str]:
-        """
-        Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "document")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the traffic policy.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        DNS type of the resource record sets that Amazon Route 53 creates when you use a traffic policy to create a traffic policy instance.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.int]:
-        """
-        Version number of the traffic policy. This value is automatically incremented by AWS after each update of this resource.
-        """
         return pulumi.get(self, "version")
 

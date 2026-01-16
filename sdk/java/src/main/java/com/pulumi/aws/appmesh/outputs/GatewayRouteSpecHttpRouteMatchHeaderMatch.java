@@ -12,65 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GatewayRouteSpecHttpRouteMatchHeaderMatch {
-    /**
-     * @return Header value sent by the client must match the specified value exactly.
-     * 
-     */
     private @Nullable String exact;
-    /**
-     * @return Header value sent by the client must begin with the specified characters.
-     * 
-     */
     private @Nullable String prefix;
-    /**
-     * @return Object that specifies the range of numbers that the header value sent by the client must be included in.
-     * 
-     */
     private @Nullable GatewayRouteSpecHttpRouteMatchHeaderMatchRange range;
-    /**
-     * @return Header value sent by the client must include the specified characters.
-     * 
-     */
     private @Nullable String regex;
-    /**
-     * @return Header value sent by the client must end with the specified characters.
-     * 
-     */
     private @Nullable String suffix;
 
     private GatewayRouteSpecHttpRouteMatchHeaderMatch() {}
-    /**
-     * @return Header value sent by the client must match the specified value exactly.
-     * 
-     */
     public Optional<String> exact() {
         return Optional.ofNullable(this.exact);
     }
-    /**
-     * @return Header value sent by the client must begin with the specified characters.
-     * 
-     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
-    /**
-     * @return Object that specifies the range of numbers that the header value sent by the client must be included in.
-     * 
-     */
     public Optional<GatewayRouteSpecHttpRouteMatchHeaderMatchRange> range() {
         return Optional.ofNullable(this.range);
     }
-    /**
-     * @return Header value sent by the client must include the specified characters.
-     * 
-     */
     public Optional<String> regex() {
         return Optional.ofNullable(this.regex);
     }
-    /**
-     * @return Header value sent by the client must end with the specified characters.
-     * 
-     */
     public Optional<String> suffix() {
         return Optional.ofNullable(this.suffix);
     }

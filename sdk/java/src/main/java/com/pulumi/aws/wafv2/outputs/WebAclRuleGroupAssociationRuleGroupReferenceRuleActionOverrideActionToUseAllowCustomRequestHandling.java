@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowCustomRequestHandling {
-    /**
-     * @return Headers to insert into the request. See below.
-     * 
-     */
     private @Nullable List<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader> insertHeaders;
 
     private WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowCustomRequestHandling() {}
-    /**
-     * @return Headers to insert into the request. See below.
-     * 
-     */
     public List<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader> insertHeaders() {
         return this.insertHeaders == null ? List.of() : this.insertHeaders;
     }

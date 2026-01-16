@@ -16,62 +16,30 @@ public final class GetSpotPricePlainArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetSpotPricePlainArgs Empty = new GetSpotPricePlainArgs();
 
-    /**
-     * Availability zone in which to query Spot price information.
-     * 
-     */
     @Import(name="availabilityZone")
     private @Nullable String availabilityZone;
 
-    /**
-     * @return Availability zone in which to query Spot price information.
-     * 
-     */
     public Optional<String> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
 
-    /**
-     * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetSpotPriceFilter> filters;
 
-    /**
-     * @return One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
-     * 
-     */
     public Optional<List<GetSpotPriceFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Type of instance for which to query Spot Price information.
-     * 
-     */
     @Import(name="instanceType")
     private @Nullable String instanceType;
 
-    /**
-     * @return Type of instance for which to query Spot Price information.
-     * 
-     */
     public Optional<String> instanceType() {
         return Optional.ofNullable(this.instanceType);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -103,55 +71,25 @@ public final class GetSpotPricePlainArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetSpotPricePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param availabilityZone Availability zone in which to query Spot price information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZone(@Nullable String availabilityZone) {
             $.availabilityZone = availabilityZone;
             return this;
         }
 
-        /**
-         * @param filters One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetSpotPriceFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetSpotPriceFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param instanceType Type of instance for which to query Spot Price information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceType(@Nullable String instanceType) {
             $.instanceType = instanceType;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

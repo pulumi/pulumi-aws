@@ -16,47 +16,23 @@ public final class AgentcoreTokenVaultCmkState extends com.pulumi.resources.Reso
 
     public static final AgentcoreTokenVaultCmkState Empty = new AgentcoreTokenVaultCmkState();
 
-    /**
-     * KMS configuration for the token vault. See `kmsConfiguration` below.
-     * 
-     */
     @Import(name="kmsConfiguration")
     private @Nullable Output<AgentcoreTokenVaultCmkKmsConfigurationArgs> kmsConfiguration;
 
-    /**
-     * @return KMS configuration for the token vault. See `kmsConfiguration` below.
-     * 
-     */
     public Optional<Output<AgentcoreTokenVaultCmkKmsConfigurationArgs>> kmsConfiguration() {
         return Optional.ofNullable(this.kmsConfiguration);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Token vault ID. Defaults to `default`.
-     * 
-     */
     @Import(name="tokenVaultId")
     private @Nullable Output<String> tokenVaultId;
 
-    /**
-     * @return Token vault ID. Defaults to `default`.
-     * 
-     */
     public Optional<Output<String>> tokenVaultId() {
         return Optional.ofNullable(this.tokenVaultId);
     }
@@ -87,65 +63,29 @@ public final class AgentcoreTokenVaultCmkState extends com.pulumi.resources.Reso
             $ = new AgentcoreTokenVaultCmkState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsConfiguration KMS configuration for the token vault. See `kmsConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsConfiguration(@Nullable Output<AgentcoreTokenVaultCmkKmsConfigurationArgs> kmsConfiguration) {
             $.kmsConfiguration = kmsConfiguration;
             return this;
         }
 
-        /**
-         * @param kmsConfiguration KMS configuration for the token vault. See `kmsConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsConfiguration(AgentcoreTokenVaultCmkKmsConfigurationArgs kmsConfiguration) {
             return kmsConfiguration(Output.of(kmsConfiguration));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tokenVaultId Token vault ID. Defaults to `default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tokenVaultId(@Nullable Output<String> tokenVaultId) {
             $.tokenVaultId = tokenVaultId;
             return this;
         }
 
-        /**
-         * @param tokenVaultId Token vault ID. Defaults to `default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tokenVaultId(String tokenVaultId) {
             return tokenVaultId(Output.of(tokenVaultId));
         }

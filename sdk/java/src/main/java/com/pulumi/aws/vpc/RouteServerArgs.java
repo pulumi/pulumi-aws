@@ -20,96 +20,44 @@ public final class RouteServerArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RouteServerArgs Empty = new RouteServerArgs();
 
-    /**
-     * The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="amazonSideAsn", required=true)
     private Output<Integer> amazonSideAsn;
 
-    /**
-     * @return The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Integer> amazonSideAsn() {
         return this.amazonSideAsn;
     }
 
-    /**
-     * Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
-     * 
-     */
     @Import(name="persistRoutes")
     private @Nullable Output<String> persistRoutes;
 
-    /**
-     * @return Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
-     * 
-     */
     public Optional<Output<String>> persistRoutes() {
         return Optional.ofNullable(this.persistRoutes);
     }
 
-    /**
-     * The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
-     * 
-     */
     @Import(name="persistRoutesDuration")
     private @Nullable Output<Integer> persistRoutesDuration;
 
-    /**
-     * @return The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
-     * 
-     */
     public Optional<Output<Integer>> persistRoutesDuration() {
         return Optional.ofNullable(this.persistRoutesDuration);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
-     * 
-     */
     @Import(name="snsNotificationsEnabled")
     private @Nullable Output<Boolean> snsNotificationsEnabled;
 
-    /**
-     * @return Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
-     * 
-     */
     public Optional<Output<Boolean>> snsNotificationsEnabled() {
         return Optional.ofNullable(this.snsNotificationsEnabled);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -151,132 +99,56 @@ public final class RouteServerArgs extends com.pulumi.resources.ResourceArgs {
             $ = new RouteServerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param amazonSideAsn The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder amazonSideAsn(Output<Integer> amazonSideAsn) {
             $.amazonSideAsn = amazonSideAsn;
             return this;
         }
 
-        /**
-         * @param amazonSideAsn The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder amazonSideAsn(Integer amazonSideAsn) {
             return amazonSideAsn(Output.of(amazonSideAsn));
         }
 
-        /**
-         * @param persistRoutes Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
-         * 
-         * @return builder
-         * 
-         */
         public Builder persistRoutes(@Nullable Output<String> persistRoutes) {
             $.persistRoutes = persistRoutes;
             return this;
         }
 
-        /**
-         * @param persistRoutes Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
-         * 
-         * @return builder
-         * 
-         */
         public Builder persistRoutes(String persistRoutes) {
             return persistRoutes(Output.of(persistRoutes));
         }
 
-        /**
-         * @param persistRoutesDuration The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder persistRoutesDuration(@Nullable Output<Integer> persistRoutesDuration) {
             $.persistRoutesDuration = persistRoutesDuration;
             return this;
         }
 
-        /**
-         * @param persistRoutesDuration The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder persistRoutesDuration(Integer persistRoutesDuration) {
             return persistRoutesDuration(Output.of(persistRoutesDuration));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param snsNotificationsEnabled Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snsNotificationsEnabled(@Nullable Output<Boolean> snsNotificationsEnabled) {
             $.snsNotificationsEnabled = snsNotificationsEnabled;
             return this;
         }
 
-        /**
-         * @param snsNotificationsEnabled Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snsNotificationsEnabled(Boolean snsNotificationsEnabled) {
             return snsNotificationsEnabled(Output.of(snsNotificationsEnabled));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

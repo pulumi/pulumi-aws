@@ -9,84 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3Control
 {
-    /// <summary>
-    /// Provides a resource to manage an S3 Control Bucket Lifecycle Configuration.
-    /// 
-    /// &gt; **NOTE:** Each S3 Control Bucket can only have one Lifecycle Configuration. Using multiple of this resource against the same S3 Control Bucket will result in perpetual differences each provider run.
-    /// 
-    /// &gt; This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Lifecycle Configurations in an AWS Partition, see the `aws.s3.Bucket` resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3Control.BucketLifecycleConfiguration("example", new()
-    ///     {
-    ///         Bucket = exampleAwsS3controlBucket.Arn,
-    ///         Rules = new[]
-    ///         {
-    ///             new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleArgs
-    ///             {
-    ///                 Expiration = new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleExpirationArgs
-    ///                 {
-    ///                     Days = 365,
-    ///                 },
-    ///                 Filter = new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleFilterArgs
-    ///                 {
-    ///                     Prefix = "logs/",
-    ///                 },
-    ///                 Id = "logs",
-    ///             },
-    ///             new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleArgs
-    ///             {
-    ///                 Expiration = new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleExpirationArgs
-    ///                 {
-    ///                     Days = 7,
-    ///                 },
-    ///                 Filter = new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleFilterArgs
-    ///                 {
-    ///                     Prefix = "temp/",
-    ///                 },
-    ///                 Id = "temp",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import S3 Control Bucket Lifecycle Configurations using the Amazon Resource Name (ARN). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration")]
     public partial class BucketLifecycleConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the bucket.
-        /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block(s) containing lifecycle rules for the bucket.
-        /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.BucketLifecycleConfigurationRule>> Rules { get; private set; } = null!;
 
@@ -136,24 +67,14 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class BucketLifecycleConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the bucket.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("rules", required: true)]
         private InputList<Inputs.BucketLifecycleConfigurationRuleArgs>? _rules;
-
-        /// <summary>
-        /// Configuration block(s) containing lifecycle rules for the bucket.
-        /// </summary>
         public InputList<Inputs.BucketLifecycleConfigurationRuleArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.BucketLifecycleConfigurationRuleArgs>());
@@ -168,24 +89,14 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class BucketLifecycleConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the bucket.
-        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.BucketLifecycleConfigurationRuleGetArgs>? _rules;
-
-        /// <summary>
-        /// Configuration block(s) containing lifecycle rules for the bucket.
-        /// </summary>
         public InputList<Inputs.BucketLifecycleConfigurationRuleGetArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.BucketLifecycleConfigurationRuleGetArgs>());

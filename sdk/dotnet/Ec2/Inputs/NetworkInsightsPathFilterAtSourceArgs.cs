@@ -12,27 +12,15 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class NetworkInsightsPathFilterAtSourceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The destination IPv4 address.
-        /// </summary>
         [Input("destinationAddress")]
         public Input<string>? DestinationAddress { get; set; }
 
-        /// <summary>
-        /// The destination port range. See below for details.
-        /// </summary>
         [Input("destinationPortRange")]
         public Input<Inputs.NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs>? DestinationPortRange { get; set; }
 
-        /// <summary>
-        /// IP address of the source resource.
-        /// </summary>
         [Input("sourceAddress")]
         public Input<string>? SourceAddress { get; set; }
 
-        /// <summary>
-        /// The source port range. See below for details.
-        /// </summary>
         [Input("sourcePortRange")]
         public Input<Inputs.NetworkInsightsPathFilterAtSourceSourcePortRangeArgs>? SourcePortRange { get; set; }
 

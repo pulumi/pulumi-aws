@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebhookAuthenticationConfiguration {
-    /**
-     * @return A valid CIDR block for `IP` filtering. Required for `IP`.
-     * 
-     */
     private @Nullable String allowedIpRange;
-    /**
-     * @return The shared secret for the GitHub repository webhook. Set this as `secret` in your `githubRepositoryWebhook`&#39;s `configuration` block. Required for `GITHUB_HMAC`.
-     * 
-     */
     private @Nullable String secretToken;
 
     private WebhookAuthenticationConfiguration() {}
-    /**
-     * @return A valid CIDR block for `IP` filtering. Required for `IP`.
-     * 
-     */
     public Optional<String> allowedIpRange() {
         return Optional.ofNullable(this.allowedIpRange);
     }
-    /**
-     * @return The shared secret for the GitHub repository webhook. Set this as `secret` in your `githubRepositoryWebhook`&#39;s `configuration` block. Required for `GITHUB_HMAC`.
-     * 
-     */
     public Optional<String> secretToken() {
         return Optional.ofNullable(this.secretToken);
     }

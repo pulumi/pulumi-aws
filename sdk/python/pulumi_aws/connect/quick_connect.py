@@ -29,12 +29,6 @@ class QuickConnectArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a QuickConnect resource.
-        :param pulumi.Input[_builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
-        :param pulumi.Input['QuickConnectQuickConnectConfigArgs'] quick_connect_config: A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
-        :param pulumi.Input[_builtins.str] description: Specifies the description of the Quick Connect.
-        :param pulumi.Input[_builtins.str] name: Specifies the name of the Quick Connect.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "instance_id", instance_id)
         pulumi.set(__self__, "quick_connect_config", quick_connect_config)
@@ -50,9 +44,6 @@ class QuickConnectArgs:
     @_builtins.property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the identifier of the hosting Amazon Connect Instance.
-        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -62,9 +53,6 @@ class QuickConnectArgs:
     @_builtins.property
     @pulumi.getter(name="quickConnectConfig")
     def quick_connect_config(self) -> pulumi.Input['QuickConnectQuickConnectConfigArgs']:
-        """
-        A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
-        """
         return pulumi.get(self, "quick_connect_config")
 
     @quick_connect_config.setter
@@ -74,9 +62,6 @@ class QuickConnectArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the description of the Quick Connect.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -86,9 +71,6 @@ class QuickConnectArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the name of the Quick Connect.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -98,9 +80,6 @@ class QuickConnectArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -110,9 +89,6 @@ class QuickConnectArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -134,15 +110,6 @@ class _QuickConnectState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering QuickConnect resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Quick Connect.
-        :param pulumi.Input[_builtins.str] description: Specifies the description of the Quick Connect.
-        :param pulumi.Input[_builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
-        :param pulumi.Input[_builtins.str] name: Specifies the name of the Quick Connect.
-        :param pulumi.Input['QuickConnectQuickConnectConfigArgs'] quick_connect_config: A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
-        :param pulumi.Input[_builtins.str] quick_connect_id: The identifier for the Quick Connect.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -166,9 +133,6 @@ class _QuickConnectState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the Quick Connect.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -178,9 +142,6 @@ class _QuickConnectState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the description of the Quick Connect.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -190,9 +151,6 @@ class _QuickConnectState:
     @_builtins.property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the identifier of the hosting Amazon Connect Instance.
-        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -202,9 +160,6 @@ class _QuickConnectState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the name of the Quick Connect.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -214,9 +169,6 @@ class _QuickConnectState:
     @_builtins.property
     @pulumi.getter(name="quickConnectConfig")
     def quick_connect_config(self) -> Optional[pulumi.Input['QuickConnectQuickConnectConfigArgs']]:
-        """
-        A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
-        """
         return pulumi.get(self, "quick_connect_config")
 
     @quick_connect_config.setter
@@ -226,9 +178,6 @@ class _QuickConnectState:
     @_builtins.property
     @pulumi.getter(name="quickConnectId")
     def quick_connect_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier for the Quick Connect.
-        """
         return pulumi.get(self, "quick_connect_id")
 
     @quick_connect_id.setter
@@ -238,9 +187,6 @@ class _QuickConnectState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -250,9 +196,6 @@ class _QuickConnectState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -262,9 +205,6 @@ class _QuickConnectState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -286,46 +226,9 @@ class QuickConnect(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides an Amazon Connect Quick Connect resource. For more information see
-        [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.connect.QuickConnect("test",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            name="Example Name",
-            description="quick connect phone number",
-            quick_connect_config={
-                "quick_connect_type": "PHONE_NUMBER",
-                "phone_configs": [{
-                    "phone_number": "+12345678912",
-                }],
-            },
-            tags={
-                "Name": "Example Quick Connect",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Amazon Connect Quick Connects using the `instance_id` and `quick_connect_id` separated by a colon (`:`). For example:
-
-        ```sh
-        $ pulumi import aws:connect/quickConnect:QuickConnect example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-        ```
-
+        Create a QuickConnect resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Specifies the description of the Quick Connect.
-        :param pulumi.Input[_builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
-        :param pulumi.Input[_builtins.str] name: Specifies the name of the Quick Connect.
-        :param pulumi.Input[Union['QuickConnectQuickConnectConfigArgs', 'QuickConnectQuickConnectConfigArgsDict']] quick_connect_config: A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -334,38 +237,7 @@ class QuickConnect(pulumi.CustomResource):
                  args: QuickConnectArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Amazon Connect Quick Connect resource. For more information see
-        [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.connect.QuickConnect("test",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            name="Example Name",
-            description="quick connect phone number",
-            quick_connect_config={
-                "quick_connect_type": "PHONE_NUMBER",
-                "phone_configs": [{
-                    "phone_number": "+12345678912",
-                }],
-            },
-            tags={
-                "Name": "Example Quick Connect",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Amazon Connect Quick Connects using the `instance_id` and `quick_connect_id` separated by a colon (`:`). For example:
-
-        ```sh
-        $ pulumi import aws:connect/quickConnect:QuickConnect example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-        ```
-
+        Create a QuickConnect resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param QuickConnectArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -435,15 +307,6 @@ class QuickConnect(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Quick Connect.
-        :param pulumi.Input[_builtins.str] description: Specifies the description of the Quick Connect.
-        :param pulumi.Input[_builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
-        :param pulumi.Input[_builtins.str] name: Specifies the name of the Quick Connect.
-        :param pulumi.Input[Union['QuickConnectQuickConnectConfigArgs', 'QuickConnectQuickConnectConfigArgsDict']] quick_connect_config: A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
-        :param pulumi.Input[_builtins.str] quick_connect_id: The identifier for the Quick Connect.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -463,72 +326,45 @@ class QuickConnect(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the Quick Connect.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Specifies the description of the Quick Connect.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies the identifier of the hosting Amazon Connect Instance.
-        """
         return pulumi.get(self, "instance_id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies the name of the Quick Connect.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="quickConnectConfig")
     def quick_connect_config(self) -> pulumi.Output['outputs.QuickConnectQuickConnectConfig']:
-        """
-        A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
-        """
         return pulumi.get(self, "quick_connect_config")
 
     @_builtins.property
     @pulumi.getter(name="quickConnectId")
     def quick_connect_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier for the Quick Connect.
-        """
         return pulumi.get(self, "quick_connect_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

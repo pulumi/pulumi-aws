@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclLoggingConfigurationRedactedFieldSingleHeader {
-    /**
-     * @return Name of the query header to redact. This setting must be provided in lowercase characters.
-     * 
-     */
     private String name;
 
     private WebAclLoggingConfigurationRedactedFieldSingleHeader() {}
-    /**
-     * @return Name of the query header to redact. This setting must be provided in lowercase characters.
-     * 
-     */
     public String name() {
         return this.name;
     }

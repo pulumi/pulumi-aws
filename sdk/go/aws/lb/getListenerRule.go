@@ -11,69 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides information about an AWS Elastic Load Balancing Listener Rule.
-//
-// ## Example Usage
-//
-// ### Match by Rule ARN
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			lbRuleArn := cfg.Require("lbRuleArn")
-//			_, err := lb.LookupListenerRule(ctx, &lb.LookupListenerRuleArgs{
-//				Arn: pulumi.StringRef(lbRuleArn),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Match by Listener ARN and Priority
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			lbListenerArn := cfg.Require("lbListenerArn")
-//			lbRulePriority := cfg.RequireFloat64("lbRulePriority")
-//			_, err := lb.LookupListenerRule(ctx, &lb.LookupListenerRuleArgs{
-//				ListenerArn: pulumi.StringRef(lbListenerArn),
-//				Priority:    pulumi.IntRef(lbRulePriority),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupListenerRule(ctx *pulumi.Context, args *LookupListenerRuleArgs, opts ...pulumi.InvokeOption) (*LookupListenerRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupListenerRuleResult
@@ -86,46 +23,27 @@ func LookupListenerRule(ctx *pulumi.Context, args *LookupListenerRuleArgs, opts 
 
 // A collection of arguments for invoking getListenerRule.
 type LookupListenerRuleArgs struct {
-	// List of actions associated with the rule, sorted by `order`.
-	// Detailed below.
-	Actions []GetListenerRuleAction `pulumi:"actions"`
-	// ARN of the Listener Rule.
-	// Either `arn` or `listenerArn` must be set.
-	Arn *string `pulumi:"arn"`
-	// Set of conditions associated with the rule.
-	// Detailed below.
-	Conditions []GetListenerRuleCondition `pulumi:"conditions"`
-	// ARN of the associated Listener.
-	// Either `arn` or `listenerArn` must be set.
-	ListenerArn *string `pulumi:"listenerArn"`
-	// Priority of the Listener Rule within the Listener.
-	// Must be set if `listenerArn` is set, otherwise must not be set.
-	Priority *int `pulumi:"priority"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Block for transform to apply to requests that match this rule. Detailed below.
-	Transforms []GetListenerRuleTransform `pulumi:"transforms"`
+	Actions     []GetListenerRuleAction    `pulumi:"actions"`
+	Arn         *string                    `pulumi:"arn"`
+	Conditions  []GetListenerRuleCondition `pulumi:"conditions"`
+	ListenerArn *string                    `pulumi:"listenerArn"`
+	Priority    *int                       `pulumi:"priority"`
+	Region      *string                    `pulumi:"region"`
+	Transforms  []GetListenerRuleTransform `pulumi:"transforms"`
 }
 
 // A collection of values returned by getListenerRule.
 type LookupListenerRuleResult struct {
-	// List of actions associated with the rule, sorted by `order`.
-	// Detailed below.
-	Actions []GetListenerRuleAction `pulumi:"actions"`
-	// ARN of the target group.
-	Arn string `pulumi:"arn"`
-	// Set of conditions associated with the rule.
-	// Detailed below.
+	Actions    []GetListenerRuleAction    `pulumi:"actions"`
+	Arn        string                     `pulumi:"arn"`
 	Conditions []GetListenerRuleCondition `pulumi:"conditions"`
 	// The provider-assigned unique ID for this managed resource.
-	Id          string `pulumi:"id"`
-	ListenerArn string `pulumi:"listenerArn"`
-	Priority    int    `pulumi:"priority"`
-	Region      string `pulumi:"region"`
-	// Tags assigned to the Listener Rule.
-	Tags map[string]string `pulumi:"tags"`
-	// Block for transform to apply to requests that match this rule. Detailed below.
-	Transforms []GetListenerRuleTransform `pulumi:"transforms"`
+	Id          string                     `pulumi:"id"`
+	ListenerArn string                     `pulumi:"listenerArn"`
+	Priority    int                        `pulumi:"priority"`
+	Region      string                     `pulumi:"region"`
+	Tags        map[string]string          `pulumi:"tags"`
+	Transforms  []GetListenerRuleTransform `pulumi:"transforms"`
 }
 
 func LookupListenerRuleOutput(ctx *pulumi.Context, args LookupListenerRuleOutputArgs, opts ...pulumi.InvokeOption) LookupListenerRuleResultOutput {
@@ -139,25 +57,13 @@ func LookupListenerRuleOutput(ctx *pulumi.Context, args LookupListenerRuleOutput
 
 // A collection of arguments for invoking getListenerRule.
 type LookupListenerRuleOutputArgs struct {
-	// List of actions associated with the rule, sorted by `order`.
-	// Detailed below.
-	Actions GetListenerRuleActionArrayInput `pulumi:"actions"`
-	// ARN of the Listener Rule.
-	// Either `arn` or `listenerArn` must be set.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// Set of conditions associated with the rule.
-	// Detailed below.
-	Conditions GetListenerRuleConditionArrayInput `pulumi:"conditions"`
-	// ARN of the associated Listener.
-	// Either `arn` or `listenerArn` must be set.
-	ListenerArn pulumi.StringPtrInput `pulumi:"listenerArn"`
-	// Priority of the Listener Rule within the Listener.
-	// Must be set if `listenerArn` is set, otherwise must not be set.
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Block for transform to apply to requests that match this rule. Detailed below.
-	Transforms GetListenerRuleTransformArrayInput `pulumi:"transforms"`
+	Actions     GetListenerRuleActionArrayInput    `pulumi:"actions"`
+	Arn         pulumi.StringPtrInput              `pulumi:"arn"`
+	Conditions  GetListenerRuleConditionArrayInput `pulumi:"conditions"`
+	ListenerArn pulumi.StringPtrInput              `pulumi:"listenerArn"`
+	Priority    pulumi.IntPtrInput                 `pulumi:"priority"`
+	Region      pulumi.StringPtrInput              `pulumi:"region"`
+	Transforms  GetListenerRuleTransformArrayInput `pulumi:"transforms"`
 }
 
 func (LookupListenerRuleOutputArgs) ElementType() reflect.Type {
@@ -179,19 +85,14 @@ func (o LookupListenerRuleResultOutput) ToLookupListenerRuleResultOutputWithCont
 	return o
 }
 
-// List of actions associated with the rule, sorted by `order`.
-// Detailed below.
 func (o LookupListenerRuleResultOutput) Actions() GetListenerRuleActionArrayOutput {
 	return o.ApplyT(func(v LookupListenerRuleResult) []GetListenerRuleAction { return v.Actions }).(GetListenerRuleActionArrayOutput)
 }
 
-// ARN of the target group.
 func (o LookupListenerRuleResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupListenerRuleResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Set of conditions associated with the rule.
-// Detailed below.
 func (o LookupListenerRuleResultOutput) Conditions() GetListenerRuleConditionArrayOutput {
 	return o.ApplyT(func(v LookupListenerRuleResult) []GetListenerRuleCondition { return v.Conditions }).(GetListenerRuleConditionArrayOutput)
 }
@@ -213,12 +114,10 @@ func (o LookupListenerRuleResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupListenerRuleResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Tags assigned to the Listener Rule.
 func (o LookupListenerRuleResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupListenerRuleResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Block for transform to apply to requests that match this rule. Detailed below.
 func (o LookupListenerRuleResultOutput) Transforms() GetListenerRuleTransformArrayOutput {
 	return o.ApplyT(func(v LookupListenerRuleResult) []GetListenerRuleTransform { return v.Transforms }).(GetListenerRuleTransformArrayOutput)
 }

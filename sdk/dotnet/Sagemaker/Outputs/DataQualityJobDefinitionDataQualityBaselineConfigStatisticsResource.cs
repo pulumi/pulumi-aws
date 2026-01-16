@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource
     {
-        /// <summary>
-        /// The Amazon S3 URI for the statistics resource.
-        /// </summary>
         public readonly string? S3Uri;
 
         [OutputConstructor]

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEventBusDeadLetterConfig {
-    /**
-     * @return The ARN of the SQS queue specified as the target for the dead-letter queue.
-     * 
-     */
     private String arn;
 
     private GetEventBusDeadLetterConfig() {}
-    /**
-     * @return The ARN of the SQS queue specified as the target for the dead-letter queue.
-     * 
-     */
     public String arn() {
         return this.arn;
     }

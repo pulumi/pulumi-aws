@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FrameworkControlScope {
-    /**
-     * @return The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
-     * 
-     */
     private @Nullable List<String> complianceResourceIds;
-    /**
-     * @return Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
-     * 
-     */
     private @Nullable List<String> complianceResourceTypes;
-    /**
-     * @return The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
-     * 
-     */
     private @Nullable Map<String,String> tags;
 
     private FrameworkControlScope() {}
-    /**
-     * @return The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
-     * 
-     */
     public List<String> complianceResourceIds() {
         return this.complianceResourceIds == null ? List.of() : this.complianceResourceIds;
     }
-    /**
-     * @return Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
-     * 
-     */
     public List<String> complianceResourceTypes() {
         return this.complianceResourceTypes == null ? List.of() : this.complianceResourceTypes;
     }
-    /**
-     * @return The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }

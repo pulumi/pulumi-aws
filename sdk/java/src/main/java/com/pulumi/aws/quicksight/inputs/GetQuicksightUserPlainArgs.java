@@ -22,51 +22,23 @@ public final class GetQuicksightUserPlainArgs extends com.pulumi.resources.Invok
         return Optional.ofNullable(this.awsAccountId);
     }
 
-    /**
-     * QuickSight namespace. Defaults to `default`.
-     * 
-     */
     @Import(name="namespace")
     private @Nullable String namespace;
 
-    /**
-     * @return QuickSight namespace. Defaults to `default`.
-     * 
-     */
     public Optional<String> namespace() {
         return Optional.ofNullable(this.namespace);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The name of the user that you want to match.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="userName", required=true)
     private String userName;
 
-    /**
-     * @return The name of the user that you want to match.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String userName() {
         return this.userName;
     }
@@ -103,36 +75,16 @@ public final class GetQuicksightUserPlainArgs extends com.pulumi.resources.Invok
             return this;
         }
 
-        /**
-         * @param namespace QuickSight namespace. Defaults to `default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(@Nullable String namespace) {
             $.namespace = namespace;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param userName The name of the user that you want to match.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(String userName) {
             $.userName = userName;
             return this;

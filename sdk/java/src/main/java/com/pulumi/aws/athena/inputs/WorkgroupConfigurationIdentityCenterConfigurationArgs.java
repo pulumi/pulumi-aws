@@ -16,32 +16,16 @@ public final class WorkgroupConfigurationIdentityCenterConfigurationArgs extends
 
     public static final WorkgroupConfigurationIdentityCenterConfigurationArgs Empty = new WorkgroupConfigurationIdentityCenterConfigurationArgs();
 
-    /**
-     * Specifies whether the workgroup is IAM Identity Center supported.
-     * 
-     */
     @Import(name="enableIdentityCenter")
     private @Nullable Output<Boolean> enableIdentityCenter;
 
-    /**
-     * @return Specifies whether the workgroup is IAM Identity Center supported.
-     * 
-     */
     public Optional<Output<Boolean>> enableIdentityCenter() {
         return Optional.ofNullable(this.enableIdentityCenter);
     }
 
-    /**
-     * The IAM Identity Center instance ARN that the workgroup associates to.
-     * 
-     */
     @Import(name="identityCenterInstanceArn")
     private @Nullable Output<String> identityCenterInstanceArn;
 
-    /**
-     * @return The IAM Identity Center instance ARN that the workgroup associates to.
-     * 
-     */
     public Optional<Output<String>> identityCenterInstanceArn() {
         return Optional.ofNullable(this.identityCenterInstanceArn);
     }
@@ -71,44 +55,20 @@ public final class WorkgroupConfigurationIdentityCenterConfigurationArgs extends
             $ = new WorkgroupConfigurationIdentityCenterConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enableIdentityCenter Specifies whether the workgroup is IAM Identity Center supported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableIdentityCenter(@Nullable Output<Boolean> enableIdentityCenter) {
             $.enableIdentityCenter = enableIdentityCenter;
             return this;
         }
 
-        /**
-         * @param enableIdentityCenter Specifies whether the workgroup is IAM Identity Center supported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableIdentityCenter(Boolean enableIdentityCenter) {
             return enableIdentityCenter(Output.of(enableIdentityCenter));
         }
 
-        /**
-         * @param identityCenterInstanceArn The IAM Identity Center instance ARN that the workgroup associates to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityCenterInstanceArn(@Nullable Output<String> identityCenterInstanceArn) {
             $.identityCenterInstanceArn = identityCenterInstanceArn;
             return this;
         }
 
-        /**
-         * @param identityCenterInstanceArn The IAM Identity Center instance ARN that the workgroup associates to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityCenterInstanceArn(String identityCenterInstanceArn) {
             return identityCenterInstanceArn(Output.of(identityCenterInstanceArn));
         }

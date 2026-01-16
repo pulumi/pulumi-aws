@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration {
-    /**
-     * @return Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
-     * 
-     */
     private List<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration> levelConfigurations;
-    /**
-     * @return The number of tokens to repeat across chunks in the same layer.
-     * 
-     */
     private Integer overlapTokens;
 
     private AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration() {}
-    /**
-     * @return Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
-     * 
-     */
     public List<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration> levelConfigurations() {
         return this.levelConfigurations;
     }
-    /**
-     * @return The number of tokens to repeat across chunks in the same layer.
-     * 
-     */
     public Integer overlapTokens() {
         return this.overlapTokens;
     }

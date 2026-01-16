@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
     {
         [Input("headerParameters")]
         private InputMap<string>? _headerParameters;
-
-        /// <summary>
-        /// Enables you to specify HTTP headers to add to the request.
-        /// </summary>
         public InputMap<string> HeaderParameters
         {
             get => _headerParameters ?? (_headerParameters = new InputMap<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
         [Input("pathParameterValues")]
         private InputList<string>? _pathParameterValues;
-
-        /// <summary>
-        /// The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*/POST/pets/*`).
-        /// </summary>
         public InputList<string> PathParameterValues
         {
             get => _pathParameterValues ?? (_pathParameterValues = new InputList<string>());
@@ -38,10 +30,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
         [Input("queryStringParameters")]
         private InputMap<string>? _queryStringParameters;
-
-        /// <summary>
-        /// Represents keys/values of query string parameters that are appended to the invoked endpoint.
-        /// </summary>
         public InputMap<string> QueryStringParameters
         {
             get => _queryStringParameters ?? (_queryStringParameters = new InputMap<string>());

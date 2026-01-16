@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Ssm.Inputs
 
     public sealed class AssociationTargetGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;
-
-        /// <summary>
-        /// User-defined criteria that maps to Key. A list of instance IDs or tag values.
-        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

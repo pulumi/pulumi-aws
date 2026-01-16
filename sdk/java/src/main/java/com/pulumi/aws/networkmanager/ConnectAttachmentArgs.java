@@ -18,96 +18,44 @@ public final class ConnectAttachmentArgs extends com.pulumi.resources.ResourceAr
 
     public static final ConnectAttachmentArgs Empty = new ConnectAttachmentArgs();
 
-    /**
-     * ID of a core network where you want to create the attachment.
-     * 
-     */
     @Import(name="coreNetworkId", required=true)
     private Output<String> coreNetworkId;
 
-    /**
-     * @return ID of a core network where you want to create the attachment.
-     * 
-     */
     public Output<String> coreNetworkId() {
         return this.coreNetworkId;
     }
 
-    /**
-     * Region where the edge is located.
-     * 
-     */
     @Import(name="edgeLocation", required=true)
     private Output<String> edgeLocation;
 
-    /**
-     * @return Region where the edge is located.
-     * 
-     */
     public Output<String> edgeLocation() {
         return this.edgeLocation;
     }
 
-    /**
-     * Options block. See options for more information.
-     * 
-     */
     @Import(name="options", required=true)
     private Output<ConnectAttachmentOptionsArgs> options;
 
-    /**
-     * @return Options block. See options for more information.
-     * 
-     */
     public Output<ConnectAttachmentOptionsArgs> options() {
         return this.options;
     }
 
-    /**
-     * The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-     * 
-     */
     @Import(name="routingPolicyLabel")
     private @Nullable Output<String> routingPolicyLabel;
 
-    /**
-     * @return The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-     * 
-     */
     public Optional<Output<String>> routingPolicyLabel() {
         return Optional.ofNullable(this.routingPolicyLabel);
     }
 
-    /**
-     * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * ID of the attachment between the two connections.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="transportAttachmentId", required=true)
     private Output<String> transportAttachmentId;
 
-    /**
-     * @return ID of the attachment between the two connections.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> transportAttachmentId() {
         return this.transportAttachmentId;
     }
@@ -141,132 +89,56 @@ public final class ConnectAttachmentArgs extends com.pulumi.resources.ResourceAr
             $ = new ConnectAttachmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param coreNetworkId ID of a core network where you want to create the attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkId(Output<String> coreNetworkId) {
             $.coreNetworkId = coreNetworkId;
             return this;
         }
 
-        /**
-         * @param coreNetworkId ID of a core network where you want to create the attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkId(String coreNetworkId) {
             return coreNetworkId(Output.of(coreNetworkId));
         }
 
-        /**
-         * @param edgeLocation Region where the edge is located.
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeLocation(Output<String> edgeLocation) {
             $.edgeLocation = edgeLocation;
             return this;
         }
 
-        /**
-         * @param edgeLocation Region where the edge is located.
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeLocation(String edgeLocation) {
             return edgeLocation(Output.of(edgeLocation));
         }
 
-        /**
-         * @param options Options block. See options for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder options(Output<ConnectAttachmentOptionsArgs> options) {
             $.options = options;
             return this;
         }
 
-        /**
-         * @param options Options block. See options for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder options(ConnectAttachmentOptionsArgs options) {
             return options(Output.of(options));
         }
 
-        /**
-         * @param routingPolicyLabel The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyLabel(@Nullable Output<String> routingPolicyLabel) {
             $.routingPolicyLabel = routingPolicyLabel;
             return this;
         }
 
-        /**
-         * @param routingPolicyLabel The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyLabel(String routingPolicyLabel) {
             return routingPolicyLabel(Output.of(routingPolicyLabel));
         }
 
-        /**
-         * @param tags Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param transportAttachmentId ID of the attachment between the two connections.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder transportAttachmentId(Output<String> transportAttachmentId) {
             $.transportAttachmentId = transportAttachmentId;
             return this;
         }
 
-        /**
-         * @param transportAttachmentId ID of the attachment between the two connections.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder transportAttachmentId(String transportAttachmentId) {
             return transportAttachmentId(Output.of(transportAttachmentId));
         }

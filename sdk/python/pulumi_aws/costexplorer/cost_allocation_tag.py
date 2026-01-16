@@ -23,8 +23,6 @@ class CostAllocationTagArgs:
                  tag_key: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a CostAllocationTag resource.
-        :param pulumi.Input[_builtins.str] status: The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
-        :param pulumi.Input[_builtins.str] tag_key: The key for the cost allocation tag.
         """
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "tag_key", tag_key)
@@ -32,9 +30,6 @@ class CostAllocationTagArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Input[_builtins.str]:
-        """
-        The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -44,9 +39,6 @@ class CostAllocationTagArgs:
     @_builtins.property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> pulumi.Input[_builtins.str]:
-        """
-        The key for the cost allocation tag.
-        """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
@@ -62,9 +54,6 @@ class _CostAllocationTagState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CostAllocationTag resources.
-        :param pulumi.Input[_builtins.str] status: The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
-        :param pulumi.Input[_builtins.str] tag_key: The key for the cost allocation tag.
-        :param pulumi.Input[_builtins.str] type: The type of cost allocation tag.
         """
         if status is not None:
             pulumi.set(__self__, "status", status)
@@ -76,9 +65,6 @@ class _CostAllocationTagState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -88,9 +74,6 @@ class _CostAllocationTagState:
     @_builtins.property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The key for the cost allocation tag.
-        """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
@@ -100,9 +83,6 @@ class _CostAllocationTagState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of cost allocation tag.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -120,31 +100,9 @@ class CostAllocationTag(pulumi.CustomResource):
                  tag_key: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a CE Cost Allocation Tag.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.costexplorer.CostAllocationTag("example",
-            tag_key="example",
-            status="Active")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_ce_cost_allocation_tag` using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:costexplorer/costAllocationTag:CostAllocationTag example key
-        ```
-
+        Create a CostAllocationTag resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] status: The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
-        :param pulumi.Input[_builtins.str] tag_key: The key for the cost allocation tag.
         """
         ...
     @overload
@@ -153,27 +111,7 @@ class CostAllocationTag(pulumi.CustomResource):
                  args: CostAllocationTagArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CE Cost Allocation Tag.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.costexplorer.CostAllocationTag("example",
-            tag_key="example",
-            status="Active")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_ce_cost_allocation_tag` using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:costexplorer/costAllocationTag:CostAllocationTag example key
-        ```
-
+        Create a CostAllocationTag resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CostAllocationTagArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,9 +165,6 @@ class CostAllocationTag(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] status: The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
-        :param pulumi.Input[_builtins.str] tag_key: The key for the cost allocation tag.
-        :param pulumi.Input[_builtins.str] type: The type of cost allocation tag.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -243,24 +178,15 @@ class CostAllocationTag(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> pulumi.Output[_builtins.str]:
-        """
-        The key for the cost allocation tag.
-        """
         return pulumi.get(self, "tag_key")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of cost allocation tag.
-        """
         return pulumi.get(self, "type")
 

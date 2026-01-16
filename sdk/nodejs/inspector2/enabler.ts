@@ -4,49 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for enabling Amazon Inspector resource scans.
- *
- * This resource must be created in the Organization's Administrator Account.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.inspector2.Enabler("example", {
- *     accountIds: ["123456789012"],
- *     resourceTypes: ["EC2"],
- * });
- * ```
- *
- * ### For the Calling Account
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const test = new aws.inspector2.Enabler("test", {
- *     accountIds: [current.then(current => current.accountId)],
- *     resourceTypes: [
- *         "ECR",
- *         "EC2",
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Inspector Enabler using using `account_ids` and `region_types` formatted as `[account_id1]:[account_id2]:...-[resource_type1]:[resource_type2]:...`, where `account_ids` are sorted in ascending order and `resource_types` are sorted in alphabetical order. For example:
- *
- * ```sh
- * $ pulumi import aws:inspector2/enabler:Enabler example 123456789012:234567890123-EC2:ECR
- * ```
- */
 export class Enabler extends pulumi.CustomResource {
     /**
      * Get an existing Enabler resource's state with the given name, ID, and optional extra
@@ -75,20 +32,8 @@ export class Enabler extends pulumi.CustomResource {
         return obj['__pulumiType'] === Enabler.__pulumiType;
     }
 
-    /**
-     * Set of account IDs.
-     * Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
-     */
     declare public readonly accountIds: pulumi.Output<string[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Type of resources to scan.
-     * Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
-     * At least one item is required.
-     */
     declare public readonly resourceTypes: pulumi.Output<string[]>;
 
     /**
@@ -128,20 +73,8 @@ export class Enabler extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Enabler resources.
  */
 export interface EnablerState {
-    /**
-     * Set of account IDs.
-     * Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
-     */
     accountIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Type of resources to scan.
-     * Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
-     * At least one item is required.
-     */
     resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -149,19 +82,7 @@ export interface EnablerState {
  * The set of arguments for constructing a Enabler resource.
  */
 export interface EnablerArgs {
-    /**
-     * Set of account IDs.
-     * Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
-     */
     accountIds: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Type of resources to scan.
-     * Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
-     * At least one item is required.
-     */
     resourceTypes: pulumi.Input<pulumi.Input<string>[]>;
 }

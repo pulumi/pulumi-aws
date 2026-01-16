@@ -14,32 +14,16 @@ public final class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclC
 
     public static final KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs Empty = new KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs();
 
-    /**
-     * First port in the range.
-     * 
-     */
     @Import(name="from", required=true)
     private Output<Integer> from;
 
-    /**
-     * @return First port in the range.
-     * 
-     */
     public Output<Integer> from() {
         return this.from;
     }
 
-    /**
-     * Last port in the range.
-     * 
-     */
     @Import(name="to", required=true)
     private Output<Integer> to;
 
-    /**
-     * @return Last port in the range.
-     * 
-     */
     public Output<Integer> to() {
         return this.to;
     }
@@ -69,44 +53,20 @@ public final class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclC
             $ = new KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param from First port in the range.
-         * 
-         * @return builder
-         * 
-         */
         public Builder from(Output<Integer> from) {
             $.from = from;
             return this;
         }
 
-        /**
-         * @param from First port in the range.
-         * 
-         * @return builder
-         * 
-         */
         public Builder from(Integer from) {
             return from(Output.of(from));
         }
 
-        /**
-         * @param to Last port in the range.
-         * 
-         * @return builder
-         * 
-         */
         public Builder to(Output<Integer> to) {
             $.to = to;
             return this;
         }
 
-        /**
-         * @param to Last port in the range.
-         * 
-         * @return builder
-         * 
-         */
         public Builder to(Integer to) {
             return to(Output.of(to));
         }

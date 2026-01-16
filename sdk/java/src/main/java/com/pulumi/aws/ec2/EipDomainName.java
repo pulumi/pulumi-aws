@@ -15,114 +15,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Assigns a static reverse DNS record to an Elastic IP addresses. See [Using reverse DNS for email applications](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS).
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Eip;
- * import com.pulumi.aws.ec2.EipArgs;
- * import com.pulumi.aws.route53.Record;
- * import com.pulumi.aws.route53.RecordArgs;
- * import com.pulumi.aws.ec2.EipDomainName;
- * import com.pulumi.aws.ec2.EipDomainNameArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Eip("example", EipArgs.builder()
- *             .domain("vpc")
- *             .build());
- * 
- *         var exampleRecord = new Record("exampleRecord", RecordArgs.builder()
- *             .zoneId(main.zoneId())
- *             .name("reverse")
- *             .type("A")
- *             .records(example.publicIp())
- *             .build());
- * 
- *         var exampleEipDomainName = new EipDomainName("exampleEipDomainName", EipDomainNameArgs.builder()
- *             .allocationId(example.allocationId())
- *             .domainName(exampleRecord.fqdn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:ec2/eipDomainName:EipDomainName")
 public class EipDomainName extends com.pulumi.resources.CustomResource {
-    /**
-     * The allocation ID.
-     * 
-     */
     @Export(name="allocationId", refs={String.class}, tree="[0]")
     private Output<String> allocationId;
 
-    /**
-     * @return The allocation ID.
-     * 
-     */
     public Output<String> allocationId() {
         return this.allocationId;
     }
-    /**
-     * The domain name to modify for the IP address.
-     * 
-     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
-    /**
-     * @return The domain name to modify for the IP address.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
-    /**
-     * The DNS pointer (PTR) record for the IP address.
-     * 
-     */
     @Export(name="ptrRecord", refs={String.class}, tree="[0]")
     private Output<String> ptrRecord;
 
-    /**
-     * @return The DNS pointer (PTR) record for the IP address.
-     * 
-     */
     public Output<String> ptrRecord() {
         return this.ptrRecord;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

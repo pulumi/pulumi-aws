@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfiguration {
-    /**
-     * @return The AWS Fargate platform version where the jobs are running. A platform version is specified only for jobs that are running on Fargate resources.
-     * 
-     */
     private String platformVersion;
 
     private GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfiguration() {}
-    /**
-     * @return The AWS Fargate platform version where the jobs are running. A platform version is specified only for jobs that are running on Fargate resources.
-     * 
-     */
     public String platformVersion() {
         return this.platformVersion;
     }

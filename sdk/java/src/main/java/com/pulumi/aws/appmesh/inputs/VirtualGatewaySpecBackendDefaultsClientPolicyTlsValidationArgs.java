@@ -17,32 +17,16 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArg
 
     public static final VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs Empty = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs();
 
-    /**
-     * SANs for a virtual gateway&#39;s listener&#39;s Transport Layer Security (TLS) validation context.
-     * 
-     */
     @Import(name="subjectAlternativeNames")
     private @Nullable Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs> subjectAlternativeNames;
 
-    /**
-     * @return SANs for a virtual gateway&#39;s listener&#39;s Transport Layer Security (TLS) validation context.
-     * 
-     */
     public Optional<Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs>> subjectAlternativeNames() {
         return Optional.ofNullable(this.subjectAlternativeNames);
     }
 
-    /**
-     * TLS validation context trust.
-     * 
-     */
     @Import(name="trust", required=true)
     private Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs> trust;
 
-    /**
-     * @return TLS validation context trust.
-     * 
-     */
     public Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs> trust() {
         return this.trust;
     }
@@ -72,44 +56,20 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArg
             $ = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param subjectAlternativeNames SANs for a virtual gateway&#39;s listener&#39;s Transport Layer Security (TLS) validation context.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subjectAlternativeNames(@Nullable Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs> subjectAlternativeNames) {
             $.subjectAlternativeNames = subjectAlternativeNames;
             return this;
         }
 
-        /**
-         * @param subjectAlternativeNames SANs for a virtual gateway&#39;s listener&#39;s Transport Layer Security (TLS) validation context.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subjectAlternativeNames(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs subjectAlternativeNames) {
             return subjectAlternativeNames(Output.of(subjectAlternativeNames));
         }
 
-        /**
-         * @param trust TLS validation context trust.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trust(Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs> trust) {
             $.trust = trust;
             return this;
         }
 
-        /**
-         * @param trust TLS validation context trust.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trust(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs trust) {
             return trust(Output.of(trust));
         }

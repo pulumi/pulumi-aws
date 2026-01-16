@@ -15,128 +15,35 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS CloudWatch Contributor Insight Rule.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.ContributorInsightRule;
- * import com.pulumi.aws.cloudwatch.ContributorInsightRuleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new ContributorInsightRule("test", ContributorInsightRuleArgs.builder()
- *             .ruleName("testing")
- *             .ruleState("ENABLED")
- *             .ruleDefinition("{\"Schema\":{\"Name\":\"CloudWatchLogRule\",\"Version\":1},\"AggregateOn\":\"Count\",\"Contribution\":{\"Filters\":[{\"In\":[\"some-keyword\"],\"Match\":\"$.message\"}],\"Keys\":[\"$.country\"]},\"LogFormat\":\"JSON\",\"LogGroupNames\":[\"/aws/lambda/api-prod\"]}")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CloudWatch Contributor Insight Rule using the `rule_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudwatch/contributorInsightRule:ContributorInsightRule example contributor_insight_rule-name
- * ```
- * 
- */
 @ResourceType(type="aws:cloudwatch/contributorInsightRule:ContributorInsightRule")
 public class ContributorInsightRule extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ARN of the Contributor Insight Rule.
-     * 
-     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
-    /**
-     * @return ARN of the Contributor Insight Rule.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
-    /**
-     * Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
-     * 
-     */
     @Export(name="ruleDefinition", refs={String.class}, tree="[0]")
     private Output<String> ruleDefinition;
 
-    /**
-     * @return Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
-     * 
-     */
     public Output<String> ruleDefinition() {
         return this.ruleDefinition;
     }
-    /**
-     * Unique name of the rule.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="ruleName", refs={String.class}, tree="[0]")
     private Output<String> ruleName;
 
-    /**
-     * @return Unique name of the rule.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> ruleName() {
         return this.ruleName;
     }
-    /**
-     * State of the rule. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     @Export(name="ruleState", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ruleState;
 
-    /**
-     * @return State of the rule. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public Output<Optional<String>> ruleState() {
         return Codegen.optional(this.ruleState);
     }

@@ -7,28 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Attaches a traffic source to an Auto Scaling group.
- *
- * > **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `loadBalancers`, `targetGroupArns` and `trafficSource` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.autoscaling.TrafficSourceAttachment("example", {
- *     autoscalingGroupName: exampleAwsAutoscalingGroup.id,
- *     trafficSource: {
- *         identifier: exampleAwsLbTargetGroup.arn,
- *         type: "elbv2",
- *     },
- * });
- * ```
- */
 export class TrafficSourceAttachment extends pulumi.CustomResource {
     /**
      * Get an existing TrafficSourceAttachment resource's state with the given name, ID, and optional extra
@@ -57,17 +35,8 @@ export class TrafficSourceAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrafficSourceAttachment.__pulumiType;
     }
 
-    /**
-     * The name of the Auto Scaling group.
-     */
     declare public readonly autoscalingGroupName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The unique identifiers of a traffic sources.
-     */
     declare public readonly trafficSource: pulumi.Output<outputs.autoscaling.TrafficSourceAttachmentTrafficSource | undefined>;
 
     /**
@@ -104,17 +73,8 @@ export class TrafficSourceAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TrafficSourceAttachment resources.
  */
 export interface TrafficSourceAttachmentState {
-    /**
-     * The name of the Auto Scaling group.
-     */
     autoscalingGroupName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The unique identifiers of a traffic sources.
-     */
     trafficSource?: pulumi.Input<inputs.autoscaling.TrafficSourceAttachmentTrafficSource>;
 }
 
@@ -122,16 +82,7 @@ export interface TrafficSourceAttachmentState {
  * The set of arguments for constructing a TrafficSourceAttachment resource.
  */
 export interface TrafficSourceAttachmentArgs {
-    /**
-     * The name of the Auto Scaling group.
-     */
     autoscalingGroupName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The unique identifiers of a traffic sources.
-     */
     trafficSource?: pulumi.Input<inputs.autoscaling.TrafficSourceAttachmentTrafficSource>;
 }

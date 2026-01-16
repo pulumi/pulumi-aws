@@ -4,35 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages centralized root access features across AWS member accounts managed using AWS Organizations. More information about managing root access in IAM can be found in the [Centralize root access for member accounts](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-enable-root-access.html).
- *
- * > **NOTE:** The AWS account utilizing this resource must be an Organizations management account. Also, you must enable trusted access for AWS Identity and Access Management in AWS Organizations.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.organizations.Organization("example", {
- *     awsServiceAccessPrincipals: ["iam.amazonaws.com"],
- *     featureSet: "ALL",
- * });
- * const exampleOrganizationsFeatures = new aws.iam.OrganizationsFeatures("example", {enabledFeatures: [
- *     "RootCredentialsManagement",
- *     "RootSessions",
- * ]});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import root access features using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:iam/organizationsFeatures:OrganizationsFeatures example o-1234567
- * ```
- */
 export class OrganizationsFeatures extends pulumi.CustomResource {
     /**
      * Get an existing OrganizationsFeatures resource's state with the given name, ID, and optional extra
@@ -61,9 +32,6 @@ export class OrganizationsFeatures extends pulumi.CustomResource {
         return obj['__pulumiType'] === OrganizationsFeatures.__pulumiType;
     }
 
-    /**
-     * List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
-     */
     declare public readonly enabledFeatures: pulumi.Output<string[]>;
 
     /**
@@ -96,9 +64,6 @@ export class OrganizationsFeatures extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OrganizationsFeatures resources.
  */
 export interface OrganizationsFeaturesState {
-    /**
-     * List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
-     */
     enabledFeatures?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -106,8 +71,5 @@ export interface OrganizationsFeaturesState {
  * The set of arguments for constructing a OrganizationsFeatures resource.
  */
 export interface OrganizationsFeaturesArgs {
-    /**
-     * List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
-     */
     enabledFeatures: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -13,11 +13,6 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketAbacAbacStatus
     {
-        /// <summary>
-        /// ABAC status of the general purpose bucket.
-        /// Valid values are `Enabled` and `Disabled`.
-        /// By default, ABAC is disabled for all Amazon S3 general purpose buckets.
-        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

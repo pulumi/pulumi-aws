@@ -17,232 +17,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage a default route table of a VPC. This resource can manage the default route table of the default or a non-default VPC.
- * 
- * &gt; **NOTE:** This is an advanced resource with special caveats. Please read this document in its entirety before using this resource. The `aws.ec2.DefaultRouteTable` resource behaves differently from normal resources. This provider does not _create_ this resource but instead attempts to &#34;adopt&#34; it into management. **Do not** use both `aws.ec2.DefaultRouteTable` to manage a default route table **and** `aws.ec2.MainRouteTableAssociation` with the same VPC due to possible route conflicts. See aws.ec2.MainRouteTableAssociation documentation for more details.
- * 
- * Every VPC has a default route table that can be managed but not destroyed. When the provider first adopts a default route table, it **immediately removes all defined routes**. It then proceeds to create any routes specified in the configuration. This step is required so that only the routes specified in the configuration exist in the default route table.
- * 
- * For more information, see the Amazon VPC User Guide on [Route Tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html). For information about managing normal route tables in this provider, see `aws.ec2.RouteTable`.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.DefaultRouteTable;
- * import com.pulumi.aws.ec2.DefaultRouteTableArgs;
- * import com.pulumi.aws.ec2.inputs.DefaultRouteTableRouteArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DefaultRouteTable("example", DefaultRouteTableArgs.builder()
- *             .defaultRouteTableId(exampleAwsVpc.defaultRouteTableId())
- *             .routes(            
- *                 DefaultRouteTableRouteArgs.builder()
- *                     .cidrBlock("10.0.1.0/24")
- *                     .gatewayId(exampleAwsInternetGateway.id())
- *                     .build(),
- *                 DefaultRouteTableRouteArgs.builder()
- *                     .ipv6CidrBlock("::/0")
- *                     .egressOnlyGatewayId(exampleAwsEgressOnlyInternetGateway.id())
- *                     .build())
- *             .tags(Map.of("Name", "example"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * To subsequently remove all managed routes:
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.DefaultRouteTable;
- * import com.pulumi.aws.ec2.DefaultRouteTableArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DefaultRouteTable("example", DefaultRouteTableArgs.builder()
- *             .defaultRouteTableId(exampleAwsVpc.defaultRouteTableId())
- *             .routes()
- *             .tags(Map.of("Name", "example"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/defaultRouteTable:DefaultRouteTable")
 public class DefaultRouteTable extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the route table.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the route table.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * ID of the default route table.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="defaultRouteTableId", refs={String.class}, tree="[0]")
     private Output<String> defaultRouteTableId;
 
-    /**
-     * @return ID of the default route table.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> defaultRouteTableId() {
         return this.defaultRouteTableId;
     }
-    /**
-     * ID of the AWS account that owns the route table.
-     * 
-     */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
-    /**
-     * @return ID of the AWS account that owns the route table.
-     * 
-     */
     public Output<String> ownerId() {
         return this.ownerId;
     }
-    /**
-     * List of virtual gateways for propagation.
-     * 
-     */
     @Export(name="propagatingVgws", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> propagatingVgws;
 
-    /**
-     * @return List of virtual gateways for propagation.
-     * 
-     */
     public Output<Optional<List<String>>> propagatingVgws() {
         return Codegen.optional(this.propagatingVgws);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Set of objects. Detailed below
-     * 
-     */
     @Export(name="routes", refs={List.class,DefaultRouteTableRoute.class}, tree="[0,1]")
     private Output<List<DefaultRouteTableRoute>> routes;
 
-    /**
-     * @return Set of objects. Detailed below
-     * 
-     */
     public Output<List<DefaultRouteTableRoute>> routes() {
         return this.routes;
     }
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * ID of the VPC.
-     * 
-     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
-    /**
-     * @return ID of the VPC.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }

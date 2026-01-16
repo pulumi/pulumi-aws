@@ -13,9 +13,6 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class GetFirewallAvailabilityZoneMappingResult
     {
-        /// <summary>
-        /// The ID of the Availability Zone where the firewall endpoint is located.
-        /// </summary>
         public readonly string AvailabilityZoneId;
 
         [OutputConstructor]

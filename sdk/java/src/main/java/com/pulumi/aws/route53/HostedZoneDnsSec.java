@@ -14,146 +14,17 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages Route 53 Hosted Zone Domain Name System Security Extensions (DNSSEC). For more information about managing DNSSEC in Route 53, see the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html).
- * 
- * !&gt; **WARNING:** If you disable DNSSEC signing for your hosted zone before the DNS changes have propagated, your domain could become unavailable on the internet. When you remove the DS records, you must wait until the longest TTL for the DS records that you remove has expired before you complete the step to disable DNSSEC signing. Please refer to the [Route 53 Developer Guide - Disable DNSSEC](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-disable.html) for a detailed breakdown on the steps required to disable DNSSEC safely for a hosted zone.
- * 
- * &gt; **Note:** Route53 hosted zones are global resources, and as such any `aws.kms.Key` that you use as part of a signing key needs to be located in the `us-east-1` region. In the example below, the main AWS provider declaration is for `us-east-1`, however if you are provisioning your AWS resources in a different region, you will need to specify a provider alias and use that attached to the `aws.kms.Key` resource as described in the provider alias documentation.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.route53.Zone;
- * import com.pulumi.aws.route53.ZoneArgs;
- * import com.pulumi.aws.route53.KeySigningKey;
- * import com.pulumi.aws.route53.KeySigningKeyArgs;
- * import com.pulumi.aws.route53.HostedZoneDnsSec;
- * import com.pulumi.aws.route53.HostedZoneDnsSecArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         var example = new Key("example", KeyArgs.builder()
- *             .customerMasterKeySpec("ECC_NIST_P256")
- *             .deletionWindowInDays(7)
- *             .keyUsage("SIGN_VERIFY")
- *             .policy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Statement", jsonArray(
- *                         jsonObject(
- *                             jsonProperty("Action", jsonArray(
- *                                 "kms:DescribeKey", 
- *                                 "kms:GetPublicKey", 
- *                                 "kms:Sign", 
- *                                 "kms:Verify"
- *                             )),
- *                             jsonProperty("Effect", "Allow"),
- *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("Service", "dnssec-route53.amazonaws.com")
- *                             )),
- *                             jsonProperty("Resource", "*"),
- *                             jsonProperty("Sid", "Allow Route 53 DNSSEC Service")
- *                         ), 
- *                         jsonObject(
- *                             jsonProperty("Action", "kms:*"),
- *                             jsonProperty("Effect", "Allow"),
- *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:root", current.accountId()))
- *                             )),
- *                             jsonProperty("Resource", "*"),
- *                             jsonProperty("Sid", "Enable IAM User Permissions")
- *                         )
- *                     )),
- *                     jsonProperty("Version", "2012-10-17")
- *                 )))
- *             .build());
- * 
- *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()
- *             .name("example.com")
- *             .build());
- * 
- *         var exampleKeySigningKey = new KeySigningKey("exampleKeySigningKey", KeySigningKeyArgs.builder()
- *             .hostedZoneId(exampleZone.id())
- *             .keyManagementServiceArn(example.arn())
- *             .name("example")
- *             .build());
- * 
- *         var exampleHostedZoneDnsSec = new HostedZoneDnsSec("exampleHostedZoneDnsSec", HostedZoneDnsSecArgs.builder()
- *             .hostedZoneId(exampleKeySigningKey.hostedZoneId())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleKeySigningKey)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_route53_hosted_zone_dnssec` resources using the Route 53 Hosted Zone identifier. For example:
- * 
- * ```sh
- * $ pulumi import aws:route53/hostedZoneDnsSec:HostedZoneDnsSec example Z1D633PJN98FT9
- * ```
- * 
- */
 @ResourceType(type="aws:route53/hostedZoneDnsSec:HostedZoneDnsSec")
 public class HostedZoneDnsSec extends com.pulumi.resources.CustomResource {
-    /**
-     * Identifier of the Route 53 Hosted Zone.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
     private Output<String> hostedZoneId;
 
-    /**
-     * @return Identifier of the Route 53 Hosted Zone.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> hostedZoneId() {
         return this.hostedZoneId;
     }
-    /**
-     * Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
-     * 
-     */
     @Export(name="signingStatus", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> signingStatus;
 
-    /**
-     * @return Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
-     * 
-     */
     public Output<Optional<String>> signingStatus() {
         return Codegen.optional(this.signingStatus);
     }

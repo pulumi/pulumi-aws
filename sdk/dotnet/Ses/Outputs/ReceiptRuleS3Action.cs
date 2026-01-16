@@ -13,29 +13,11 @@ namespace Pulumi.Aws.Ses.Outputs
     [OutputType]
     public sealed class ReceiptRuleS3Action
     {
-        /// <summary>
-        /// The name of the S3 bucket
-        /// </summary>
         public readonly string BucketName;
-        /// <summary>
-        /// The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
-        /// </summary>
         public readonly string? IamRoleArn;
-        /// <summary>
-        /// The ARN of the KMS key
-        /// </summary>
         public readonly string? KmsKeyArn;
-        /// <summary>
-        /// The key prefix of the S3 bucket
-        /// </summary>
         public readonly string? ObjectKeyPrefix;
-        /// <summary>
-        /// The position of the action in the receipt rule
-        /// </summary>
         public readonly int Position;
-        /// <summary>
-        /// The ARN of an SNS topic to notify
-        /// </summary>
         public readonly string? TopicArn;
 
         [OutputConstructor]

@@ -14,16 +14,11 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ApiEventConfig struct {
-	// List of authentication providers. See Auth Providers below.
-	AuthProviders []ApiEventConfigAuthProvider `pulumi:"authProviders"`
-	// List of authentication modes for connections. See Auth Modes below.
-	ConnectionAuthModes []ApiEventConfigConnectionAuthMode `pulumi:"connectionAuthModes"`
-	// List of default authentication modes for publishing. See Auth Modes below.
-	DefaultPublishAuthModes []ApiEventConfigDefaultPublishAuthMode `pulumi:"defaultPublishAuthModes"`
-	// List of default authentication modes for subscribing. See Auth Modes below.
+	AuthProviders             []ApiEventConfigAuthProvider             `pulumi:"authProviders"`
+	ConnectionAuthModes       []ApiEventConfigConnectionAuthMode       `pulumi:"connectionAuthModes"`
+	DefaultPublishAuthModes   []ApiEventConfigDefaultPublishAuthMode   `pulumi:"defaultPublishAuthModes"`
 	DefaultSubscribeAuthModes []ApiEventConfigDefaultSubscribeAuthMode `pulumi:"defaultSubscribeAuthModes"`
-	// Logging configuration. See Log Config below.
-	LogConfig *ApiEventConfigLogConfig `pulumi:"logConfig"`
+	LogConfig                 *ApiEventConfigLogConfig                 `pulumi:"logConfig"`
 }
 
 // ApiEventConfigInput is an input type that accepts ApiEventConfigArgs and ApiEventConfigOutput values.
@@ -38,16 +33,11 @@ type ApiEventConfigInput interface {
 }
 
 type ApiEventConfigArgs struct {
-	// List of authentication providers. See Auth Providers below.
-	AuthProviders ApiEventConfigAuthProviderArrayInput `pulumi:"authProviders"`
-	// List of authentication modes for connections. See Auth Modes below.
-	ConnectionAuthModes ApiEventConfigConnectionAuthModeArrayInput `pulumi:"connectionAuthModes"`
-	// List of default authentication modes for publishing. See Auth Modes below.
-	DefaultPublishAuthModes ApiEventConfigDefaultPublishAuthModeArrayInput `pulumi:"defaultPublishAuthModes"`
-	// List of default authentication modes for subscribing. See Auth Modes below.
+	AuthProviders             ApiEventConfigAuthProviderArrayInput             `pulumi:"authProviders"`
+	ConnectionAuthModes       ApiEventConfigConnectionAuthModeArrayInput       `pulumi:"connectionAuthModes"`
+	DefaultPublishAuthModes   ApiEventConfigDefaultPublishAuthModeArrayInput   `pulumi:"defaultPublishAuthModes"`
 	DefaultSubscribeAuthModes ApiEventConfigDefaultSubscribeAuthModeArrayInput `pulumi:"defaultSubscribeAuthModes"`
-	// Logging configuration. See Log Config below.
-	LogConfig ApiEventConfigLogConfigPtrInput `pulumi:"logConfig"`
+	LogConfig                 ApiEventConfigLogConfigPtrInput                  `pulumi:"logConfig"`
 }
 
 func (ApiEventConfigArgs) ElementType() reflect.Type {
@@ -127,27 +117,22 @@ func (o ApiEventConfigOutput) ToApiEventConfigPtrOutputWithContext(ctx context.C
 	}).(ApiEventConfigPtrOutput)
 }
 
-// List of authentication providers. See Auth Providers below.
 func (o ApiEventConfigOutput) AuthProviders() ApiEventConfigAuthProviderArrayOutput {
 	return o.ApplyT(func(v ApiEventConfig) []ApiEventConfigAuthProvider { return v.AuthProviders }).(ApiEventConfigAuthProviderArrayOutput)
 }
 
-// List of authentication modes for connections. See Auth Modes below.
 func (o ApiEventConfigOutput) ConnectionAuthModes() ApiEventConfigConnectionAuthModeArrayOutput {
 	return o.ApplyT(func(v ApiEventConfig) []ApiEventConfigConnectionAuthMode { return v.ConnectionAuthModes }).(ApiEventConfigConnectionAuthModeArrayOutput)
 }
 
-// List of default authentication modes for publishing. See Auth Modes below.
 func (o ApiEventConfigOutput) DefaultPublishAuthModes() ApiEventConfigDefaultPublishAuthModeArrayOutput {
 	return o.ApplyT(func(v ApiEventConfig) []ApiEventConfigDefaultPublishAuthMode { return v.DefaultPublishAuthModes }).(ApiEventConfigDefaultPublishAuthModeArrayOutput)
 }
 
-// List of default authentication modes for subscribing. See Auth Modes below.
 func (o ApiEventConfigOutput) DefaultSubscribeAuthModes() ApiEventConfigDefaultSubscribeAuthModeArrayOutput {
 	return o.ApplyT(func(v ApiEventConfig) []ApiEventConfigDefaultSubscribeAuthMode { return v.DefaultSubscribeAuthModes }).(ApiEventConfigDefaultSubscribeAuthModeArrayOutput)
 }
 
-// Logging configuration. See Log Config below.
 func (o ApiEventConfigOutput) LogConfig() ApiEventConfigLogConfigPtrOutput {
 	return o.ApplyT(func(v ApiEventConfig) *ApiEventConfigLogConfig { return v.LogConfig }).(ApiEventConfigLogConfigPtrOutput)
 }
@@ -176,7 +161,6 @@ func (o ApiEventConfigPtrOutput) Elem() ApiEventConfigOutput {
 	}).(ApiEventConfigOutput)
 }
 
-// List of authentication providers. See Auth Providers below.
 func (o ApiEventConfigPtrOutput) AuthProviders() ApiEventConfigAuthProviderArrayOutput {
 	return o.ApplyT(func(v *ApiEventConfig) []ApiEventConfigAuthProvider {
 		if v == nil {
@@ -186,7 +170,6 @@ func (o ApiEventConfigPtrOutput) AuthProviders() ApiEventConfigAuthProviderArray
 	}).(ApiEventConfigAuthProviderArrayOutput)
 }
 
-// List of authentication modes for connections. See Auth Modes below.
 func (o ApiEventConfigPtrOutput) ConnectionAuthModes() ApiEventConfigConnectionAuthModeArrayOutput {
 	return o.ApplyT(func(v *ApiEventConfig) []ApiEventConfigConnectionAuthMode {
 		if v == nil {
@@ -196,7 +179,6 @@ func (o ApiEventConfigPtrOutput) ConnectionAuthModes() ApiEventConfigConnectionA
 	}).(ApiEventConfigConnectionAuthModeArrayOutput)
 }
 
-// List of default authentication modes for publishing. See Auth Modes below.
 func (o ApiEventConfigPtrOutput) DefaultPublishAuthModes() ApiEventConfigDefaultPublishAuthModeArrayOutput {
 	return o.ApplyT(func(v *ApiEventConfig) []ApiEventConfigDefaultPublishAuthMode {
 		if v == nil {
@@ -206,7 +188,6 @@ func (o ApiEventConfigPtrOutput) DefaultPublishAuthModes() ApiEventConfigDefault
 	}).(ApiEventConfigDefaultPublishAuthModeArrayOutput)
 }
 
-// List of default authentication modes for subscribing. See Auth Modes below.
 func (o ApiEventConfigPtrOutput) DefaultSubscribeAuthModes() ApiEventConfigDefaultSubscribeAuthModeArrayOutput {
 	return o.ApplyT(func(v *ApiEventConfig) []ApiEventConfigDefaultSubscribeAuthMode {
 		if v == nil {
@@ -216,7 +197,6 @@ func (o ApiEventConfigPtrOutput) DefaultSubscribeAuthModes() ApiEventConfigDefau
 	}).(ApiEventConfigDefaultSubscribeAuthModeArrayOutput)
 }
 
-// Logging configuration. See Log Config below.
 func (o ApiEventConfigPtrOutput) LogConfig() ApiEventConfigLogConfigPtrOutput {
 	return o.ApplyT(func(v *ApiEventConfig) *ApiEventConfigLogConfig {
 		if v == nil {
@@ -227,14 +207,10 @@ func (o ApiEventConfigPtrOutput) LogConfig() ApiEventConfigLogConfigPtrOutput {
 }
 
 type ApiEventConfigAuthProvider struct {
-	// Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
-	AuthType string `pulumi:"authType"`
-	// Configuration for Cognito user pool authentication. Required when `authType` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
-	CognitoConfig *ApiEventConfigAuthProviderCognitoConfig `pulumi:"cognitoConfig"`
-	// Configuration for Lambda authorization. Required when `authType` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
+	AuthType               string                                            `pulumi:"authType"`
+	CognitoConfig          *ApiEventConfigAuthProviderCognitoConfig          `pulumi:"cognitoConfig"`
 	LambdaAuthorizerConfig *ApiEventConfigAuthProviderLambdaAuthorizerConfig `pulumi:"lambdaAuthorizerConfig"`
-	// Configuration for OpenID Connect. Required when `authType` is `OPENID_CONNECT`. See OpenID Connect Config below.
-	OpenidConnectConfig *ApiEventConfigAuthProviderOpenidConnectConfig `pulumi:"openidConnectConfig"`
+	OpenidConnectConfig    *ApiEventConfigAuthProviderOpenidConnectConfig    `pulumi:"openidConnectConfig"`
 }
 
 // ApiEventConfigAuthProviderInput is an input type that accepts ApiEventConfigAuthProviderArgs and ApiEventConfigAuthProviderOutput values.
@@ -249,14 +225,10 @@ type ApiEventConfigAuthProviderInput interface {
 }
 
 type ApiEventConfigAuthProviderArgs struct {
-	// Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
-	AuthType pulumi.StringInput `pulumi:"authType"`
-	// Configuration for Cognito user pool authentication. Required when `authType` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
-	CognitoConfig ApiEventConfigAuthProviderCognitoConfigPtrInput `pulumi:"cognitoConfig"`
-	// Configuration for Lambda authorization. Required when `authType` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
+	AuthType               pulumi.StringInput                                       `pulumi:"authType"`
+	CognitoConfig          ApiEventConfigAuthProviderCognitoConfigPtrInput          `pulumi:"cognitoConfig"`
 	LambdaAuthorizerConfig ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrInput `pulumi:"lambdaAuthorizerConfig"`
-	// Configuration for OpenID Connect. Required when `authType` is `OPENID_CONNECT`. See OpenID Connect Config below.
-	OpenidConnectConfig ApiEventConfigAuthProviderOpenidConnectConfigPtrInput `pulumi:"openidConnectConfig"`
+	OpenidConnectConfig    ApiEventConfigAuthProviderOpenidConnectConfigPtrInput    `pulumi:"openidConnectConfig"`
 }
 
 func (ApiEventConfigAuthProviderArgs) ElementType() reflect.Type {
@@ -310,24 +282,20 @@ func (o ApiEventConfigAuthProviderOutput) ToApiEventConfigAuthProviderOutputWith
 	return o
 }
 
-// Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
 func (o ApiEventConfigAuthProviderOutput) AuthType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiEventConfigAuthProvider) string { return v.AuthType }).(pulumi.StringOutput)
 }
 
-// Configuration for Cognito user pool authentication. Required when `authType` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
 func (o ApiEventConfigAuthProviderOutput) CognitoConfig() ApiEventConfigAuthProviderCognitoConfigPtrOutput {
 	return o.ApplyT(func(v ApiEventConfigAuthProvider) *ApiEventConfigAuthProviderCognitoConfig { return v.CognitoConfig }).(ApiEventConfigAuthProviderCognitoConfigPtrOutput)
 }
 
-// Configuration for Lambda authorization. Required when `authType` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
 func (o ApiEventConfigAuthProviderOutput) LambdaAuthorizerConfig() ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput {
 	return o.ApplyT(func(v ApiEventConfigAuthProvider) *ApiEventConfigAuthProviderLambdaAuthorizerConfig {
 		return v.LambdaAuthorizerConfig
 	}).(ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput)
 }
 
-// Configuration for OpenID Connect. Required when `authType` is `OPENID_CONNECT`. See OpenID Connect Config below.
 func (o ApiEventConfigAuthProviderOutput) OpenidConnectConfig() ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput {
 	return o.ApplyT(func(v ApiEventConfigAuthProvider) *ApiEventConfigAuthProviderOpenidConnectConfig {
 		return v.OpenidConnectConfig
@@ -355,12 +323,9 @@ func (o ApiEventConfigAuthProviderArrayOutput) Index(i pulumi.IntInput) ApiEvent
 }
 
 type ApiEventConfigAuthProviderCognitoConfig struct {
-	// Regular expression for matching the client ID.
 	AppIdClientRegex *string `pulumi:"appIdClientRegex"`
-	// AWS region where the user pool is located.
-	AwsRegion string `pulumi:"awsRegion"`
-	// ID of the Cognito user pool.
-	UserPoolId string `pulumi:"userPoolId"`
+	AwsRegion        string  `pulumi:"awsRegion"`
+	UserPoolId       string  `pulumi:"userPoolId"`
 }
 
 // ApiEventConfigAuthProviderCognitoConfigInput is an input type that accepts ApiEventConfigAuthProviderCognitoConfigArgs and ApiEventConfigAuthProviderCognitoConfigOutput values.
@@ -375,12 +340,9 @@ type ApiEventConfigAuthProviderCognitoConfigInput interface {
 }
 
 type ApiEventConfigAuthProviderCognitoConfigArgs struct {
-	// Regular expression for matching the client ID.
 	AppIdClientRegex pulumi.StringPtrInput `pulumi:"appIdClientRegex"`
-	// AWS region where the user pool is located.
-	AwsRegion pulumi.StringInput `pulumi:"awsRegion"`
-	// ID of the Cognito user pool.
-	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
+	AwsRegion        pulumi.StringInput    `pulumi:"awsRegion"`
+	UserPoolId       pulumi.StringInput    `pulumi:"userPoolId"`
 }
 
 func (ApiEventConfigAuthProviderCognitoConfigArgs) ElementType() reflect.Type {
@@ -460,17 +422,14 @@ func (o ApiEventConfigAuthProviderCognitoConfigOutput) ToApiEventConfigAuthProvi
 	}).(ApiEventConfigAuthProviderCognitoConfigPtrOutput)
 }
 
-// Regular expression for matching the client ID.
 func (o ApiEventConfigAuthProviderCognitoConfigOutput) AppIdClientRegex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiEventConfigAuthProviderCognitoConfig) *string { return v.AppIdClientRegex }).(pulumi.StringPtrOutput)
 }
 
-// AWS region where the user pool is located.
 func (o ApiEventConfigAuthProviderCognitoConfigOutput) AwsRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiEventConfigAuthProviderCognitoConfig) string { return v.AwsRegion }).(pulumi.StringOutput)
 }
 
-// ID of the Cognito user pool.
 func (o ApiEventConfigAuthProviderCognitoConfigOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiEventConfigAuthProviderCognitoConfig) string { return v.UserPoolId }).(pulumi.StringOutput)
 }
@@ -499,7 +458,6 @@ func (o ApiEventConfigAuthProviderCognitoConfigPtrOutput) Elem() ApiEventConfigA
 	}).(ApiEventConfigAuthProviderCognitoConfigOutput)
 }
 
-// Regular expression for matching the client ID.
 func (o ApiEventConfigAuthProviderCognitoConfigPtrOutput) AppIdClientRegex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEventConfigAuthProviderCognitoConfig) *string {
 		if v == nil {
@@ -509,7 +467,6 @@ func (o ApiEventConfigAuthProviderCognitoConfigPtrOutput) AppIdClientRegex() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// AWS region where the user pool is located.
 func (o ApiEventConfigAuthProviderCognitoConfigPtrOutput) AwsRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEventConfigAuthProviderCognitoConfig) *string {
 		if v == nil {
@@ -519,7 +476,6 @@ func (o ApiEventConfigAuthProviderCognitoConfigPtrOutput) AwsRegion() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// ID of the Cognito user pool.
 func (o ApiEventConfigAuthProviderCognitoConfigPtrOutput) UserPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEventConfigAuthProviderCognitoConfig) *string {
 		if v == nil {
@@ -530,11 +486,8 @@ func (o ApiEventConfigAuthProviderCognitoConfigPtrOutput) UserPoolId() pulumi.St
 }
 
 type ApiEventConfigAuthProviderLambdaAuthorizerConfig struct {
-	// TTL in seconds for the authorization result cache.
-	AuthorizerResultTtlInSeconds *int `pulumi:"authorizerResultTtlInSeconds"`
-	// URI of the Lambda function for authorization.
-	AuthorizerUri string `pulumi:"authorizerUri"`
-	// Regular expression for identity validation.
+	AuthorizerResultTtlInSeconds *int    `pulumi:"authorizerResultTtlInSeconds"`
+	AuthorizerUri                string  `pulumi:"authorizerUri"`
 	IdentityValidationExpression *string `pulumi:"identityValidationExpression"`
 }
 
@@ -550,11 +503,8 @@ type ApiEventConfigAuthProviderLambdaAuthorizerConfigInput interface {
 }
 
 type ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs struct {
-	// TTL in seconds for the authorization result cache.
-	AuthorizerResultTtlInSeconds pulumi.IntPtrInput `pulumi:"authorizerResultTtlInSeconds"`
-	// URI of the Lambda function for authorization.
-	AuthorizerUri pulumi.StringInput `pulumi:"authorizerUri"`
-	// Regular expression for identity validation.
+	AuthorizerResultTtlInSeconds pulumi.IntPtrInput    `pulumi:"authorizerResultTtlInSeconds"`
+	AuthorizerUri                pulumi.StringInput    `pulumi:"authorizerUri"`
 	IdentityValidationExpression pulumi.StringPtrInput `pulumi:"identityValidationExpression"`
 }
 
@@ -635,17 +585,14 @@ func (o ApiEventConfigAuthProviderLambdaAuthorizerConfigOutput) ToApiEventConfig
 	}).(ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput)
 }
 
-// TTL in seconds for the authorization result cache.
 func (o ApiEventConfigAuthProviderLambdaAuthorizerConfigOutput) AuthorizerResultTtlInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApiEventConfigAuthProviderLambdaAuthorizerConfig) *int { return v.AuthorizerResultTtlInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// URI of the Lambda function for authorization.
 func (o ApiEventConfigAuthProviderLambdaAuthorizerConfigOutput) AuthorizerUri() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiEventConfigAuthProviderLambdaAuthorizerConfig) string { return v.AuthorizerUri }).(pulumi.StringOutput)
 }
 
-// Regular expression for identity validation.
 func (o ApiEventConfigAuthProviderLambdaAuthorizerConfigOutput) IdentityValidationExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiEventConfigAuthProviderLambdaAuthorizerConfig) *string {
 		return v.IdentityValidationExpression
@@ -676,7 +623,6 @@ func (o ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput) Elem() ApiEve
 	}).(ApiEventConfigAuthProviderLambdaAuthorizerConfigOutput)
 }
 
-// TTL in seconds for the authorization result cache.
 func (o ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput) AuthorizerResultTtlInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApiEventConfigAuthProviderLambdaAuthorizerConfig) *int {
 		if v == nil {
@@ -686,7 +632,6 @@ func (o ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput) AuthorizerRes
 	}).(pulumi.IntPtrOutput)
 }
 
-// URI of the Lambda function for authorization.
 func (o ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput) AuthorizerUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEventConfigAuthProviderLambdaAuthorizerConfig) *string {
 		if v == nil {
@@ -696,7 +641,6 @@ func (o ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput) AuthorizerUri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Regular expression for identity validation.
 func (o ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput) IdentityValidationExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEventConfigAuthProviderLambdaAuthorizerConfig) *string {
 		if v == nil {
@@ -707,14 +651,10 @@ func (o ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput) IdentityValid
 }
 
 type ApiEventConfigAuthProviderOpenidConnectConfig struct {
-	// TTL in seconds for the authentication token.
-	AuthTtl *int `pulumi:"authTtl"`
-	// Client ID for the OpenID Connect provider.
+	AuthTtl  *int    `pulumi:"authTtl"`
 	ClientId *string `pulumi:"clientId"`
-	// TTL in seconds for the issued at time.
-	IatTtl *int `pulumi:"iatTtl"`
-	// Issuer URL for the OpenID Connect provider.
-	Issuer string `pulumi:"issuer"`
+	IatTtl   *int    `pulumi:"iatTtl"`
+	Issuer   string  `pulumi:"issuer"`
 }
 
 // ApiEventConfigAuthProviderOpenidConnectConfigInput is an input type that accepts ApiEventConfigAuthProviderOpenidConnectConfigArgs and ApiEventConfigAuthProviderOpenidConnectConfigOutput values.
@@ -729,14 +669,10 @@ type ApiEventConfigAuthProviderOpenidConnectConfigInput interface {
 }
 
 type ApiEventConfigAuthProviderOpenidConnectConfigArgs struct {
-	// TTL in seconds for the authentication token.
-	AuthTtl pulumi.IntPtrInput `pulumi:"authTtl"`
-	// Client ID for the OpenID Connect provider.
+	AuthTtl  pulumi.IntPtrInput    `pulumi:"authTtl"`
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// TTL in seconds for the issued at time.
-	IatTtl pulumi.IntPtrInput `pulumi:"iatTtl"`
-	// Issuer URL for the OpenID Connect provider.
-	Issuer pulumi.StringInput `pulumi:"issuer"`
+	IatTtl   pulumi.IntPtrInput    `pulumi:"iatTtl"`
+	Issuer   pulumi.StringInput    `pulumi:"issuer"`
 }
 
 func (ApiEventConfigAuthProviderOpenidConnectConfigArgs) ElementType() reflect.Type {
@@ -816,22 +752,18 @@ func (o ApiEventConfigAuthProviderOpenidConnectConfigOutput) ToApiEventConfigAut
 	}).(ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput)
 }
 
-// TTL in seconds for the authentication token.
 func (o ApiEventConfigAuthProviderOpenidConnectConfigOutput) AuthTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApiEventConfigAuthProviderOpenidConnectConfig) *int { return v.AuthTtl }).(pulumi.IntPtrOutput)
 }
 
-// Client ID for the OpenID Connect provider.
 func (o ApiEventConfigAuthProviderOpenidConnectConfigOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiEventConfigAuthProviderOpenidConnectConfig) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// TTL in seconds for the issued at time.
 func (o ApiEventConfigAuthProviderOpenidConnectConfigOutput) IatTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApiEventConfigAuthProviderOpenidConnectConfig) *int { return v.IatTtl }).(pulumi.IntPtrOutput)
 }
 
-// Issuer URL for the OpenID Connect provider.
 func (o ApiEventConfigAuthProviderOpenidConnectConfigOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiEventConfigAuthProviderOpenidConnectConfig) string { return v.Issuer }).(pulumi.StringOutput)
 }
@@ -860,7 +792,6 @@ func (o ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput) Elem() ApiEventC
 	}).(ApiEventConfigAuthProviderOpenidConnectConfigOutput)
 }
 
-// TTL in seconds for the authentication token.
 func (o ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput) AuthTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApiEventConfigAuthProviderOpenidConnectConfig) *int {
 		if v == nil {
@@ -870,7 +801,6 @@ func (o ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput) AuthTtl() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-// Client ID for the OpenID Connect provider.
 func (o ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEventConfigAuthProviderOpenidConnectConfig) *string {
 		if v == nil {
@@ -880,7 +810,6 @@ func (o ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput) ClientId() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// TTL in seconds for the issued at time.
 func (o ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput) IatTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApiEventConfigAuthProviderOpenidConnectConfig) *int {
 		if v == nil {
@@ -890,7 +819,6 @@ func (o ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput) IatTtl() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// Issuer URL for the OpenID Connect provider.
 func (o ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEventConfigAuthProviderOpenidConnectConfig) *string {
 		if v == nil {
@@ -901,7 +829,6 @@ func (o ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput) Issuer() pulumi.
 }
 
 type ApiEventConfigConnectionAuthMode struct {
-	// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
 	AuthType string `pulumi:"authType"`
 }
 
@@ -917,7 +844,6 @@ type ApiEventConfigConnectionAuthModeInput interface {
 }
 
 type ApiEventConfigConnectionAuthModeArgs struct {
-	// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
 	AuthType pulumi.StringInput `pulumi:"authType"`
 }
 
@@ -972,7 +898,6 @@ func (o ApiEventConfigConnectionAuthModeOutput) ToApiEventConfigConnectionAuthMo
 	return o
 }
 
-// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
 func (o ApiEventConfigConnectionAuthModeOutput) AuthType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiEventConfigConnectionAuthMode) string { return v.AuthType }).(pulumi.StringOutput)
 }
@@ -998,7 +923,6 @@ func (o ApiEventConfigConnectionAuthModeArrayOutput) Index(i pulumi.IntInput) Ap
 }
 
 type ApiEventConfigDefaultPublishAuthMode struct {
-	// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
 	AuthType string `pulumi:"authType"`
 }
 
@@ -1014,7 +938,6 @@ type ApiEventConfigDefaultPublishAuthModeInput interface {
 }
 
 type ApiEventConfigDefaultPublishAuthModeArgs struct {
-	// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
 	AuthType pulumi.StringInput `pulumi:"authType"`
 }
 
@@ -1069,7 +992,6 @@ func (o ApiEventConfigDefaultPublishAuthModeOutput) ToApiEventConfigDefaultPubli
 	return o
 }
 
-// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
 func (o ApiEventConfigDefaultPublishAuthModeOutput) AuthType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiEventConfigDefaultPublishAuthMode) string { return v.AuthType }).(pulumi.StringOutput)
 }
@@ -1095,7 +1017,6 @@ func (o ApiEventConfigDefaultPublishAuthModeArrayOutput) Index(i pulumi.IntInput
 }
 
 type ApiEventConfigDefaultSubscribeAuthMode struct {
-	// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
 	AuthType string `pulumi:"authType"`
 }
 
@@ -1111,7 +1032,6 @@ type ApiEventConfigDefaultSubscribeAuthModeInput interface {
 }
 
 type ApiEventConfigDefaultSubscribeAuthModeArgs struct {
-	// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
 	AuthType pulumi.StringInput `pulumi:"authType"`
 }
 
@@ -1166,7 +1086,6 @@ func (o ApiEventConfigDefaultSubscribeAuthModeOutput) ToApiEventConfigDefaultSub
 	return o
 }
 
-// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
 func (o ApiEventConfigDefaultSubscribeAuthModeOutput) AuthType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiEventConfigDefaultSubscribeAuthMode) string { return v.AuthType }).(pulumi.StringOutput)
 }
@@ -1192,10 +1111,8 @@ func (o ApiEventConfigDefaultSubscribeAuthModeArrayOutput) Index(i pulumi.IntInp
 }
 
 type ApiEventConfigLogConfig struct {
-	// ARN of the IAM role for CloudWatch logs.
 	CloudwatchLogsRoleArn string `pulumi:"cloudwatchLogsRoleArn"`
-	// Log level. Valid values: `NONE`, `ERROR`, `ALL`, `INFO`, `DEBUG`.
-	LogLevel string `pulumi:"logLevel"`
+	LogLevel              string `pulumi:"logLevel"`
 }
 
 // ApiEventConfigLogConfigInput is an input type that accepts ApiEventConfigLogConfigArgs and ApiEventConfigLogConfigOutput values.
@@ -1210,10 +1127,8 @@ type ApiEventConfigLogConfigInput interface {
 }
 
 type ApiEventConfigLogConfigArgs struct {
-	// ARN of the IAM role for CloudWatch logs.
 	CloudwatchLogsRoleArn pulumi.StringInput `pulumi:"cloudwatchLogsRoleArn"`
-	// Log level. Valid values: `NONE`, `ERROR`, `ALL`, `INFO`, `DEBUG`.
-	LogLevel pulumi.StringInput `pulumi:"logLevel"`
+	LogLevel              pulumi.StringInput `pulumi:"logLevel"`
 }
 
 func (ApiEventConfigLogConfigArgs) ElementType() reflect.Type {
@@ -1293,12 +1208,10 @@ func (o ApiEventConfigLogConfigOutput) ToApiEventConfigLogConfigPtrOutputWithCon
 	}).(ApiEventConfigLogConfigPtrOutput)
 }
 
-// ARN of the IAM role for CloudWatch logs.
 func (o ApiEventConfigLogConfigOutput) CloudwatchLogsRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiEventConfigLogConfig) string { return v.CloudwatchLogsRoleArn }).(pulumi.StringOutput)
 }
 
-// Log level. Valid values: `NONE`, `ERROR`, `ALL`, `INFO`, `DEBUG`.
 func (o ApiEventConfigLogConfigOutput) LogLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiEventConfigLogConfig) string { return v.LogLevel }).(pulumi.StringOutput)
 }
@@ -1327,7 +1240,6 @@ func (o ApiEventConfigLogConfigPtrOutput) Elem() ApiEventConfigLogConfigOutput {
 	}).(ApiEventConfigLogConfigOutput)
 }
 
-// ARN of the IAM role for CloudWatch logs.
 func (o ApiEventConfigLogConfigPtrOutput) CloudwatchLogsRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEventConfigLogConfig) *string {
 		if v == nil {
@@ -1337,7 +1249,6 @@ func (o ApiEventConfigLogConfigPtrOutput) CloudwatchLogsRoleArn() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Log level. Valid values: `NONE`, `ERROR`, `ALL`, `INFO`, `DEBUG`.
 func (o ApiEventConfigLogConfigPtrOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEventConfigLogConfig) *string {
 		if v == nil {
@@ -1348,9 +1259,7 @@ func (o ApiEventConfigLogConfigPtrOutput) LogLevel() pulumi.StringPtrOutput {
 }
 
 type ChannelNamespaceHandlerConfigs struct {
-	// Handler configuration. See Handler Config below.
-	OnPublish *ChannelNamespaceHandlerConfigsOnPublish `pulumi:"onPublish"`
-	// Handler configuration. See Handler Config below.
+	OnPublish   *ChannelNamespaceHandlerConfigsOnPublish   `pulumi:"onPublish"`
 	OnSubscribe *ChannelNamespaceHandlerConfigsOnSubscribe `pulumi:"onSubscribe"`
 }
 
@@ -1366,9 +1275,7 @@ type ChannelNamespaceHandlerConfigsInput interface {
 }
 
 type ChannelNamespaceHandlerConfigsArgs struct {
-	// Handler configuration. See Handler Config below.
-	OnPublish ChannelNamespaceHandlerConfigsOnPublishPtrInput `pulumi:"onPublish"`
-	// Handler configuration. See Handler Config below.
+	OnPublish   ChannelNamespaceHandlerConfigsOnPublishPtrInput   `pulumi:"onPublish"`
 	OnSubscribe ChannelNamespaceHandlerConfigsOnSubscribePtrInput `pulumi:"onSubscribe"`
 }
 
@@ -1449,12 +1356,10 @@ func (o ChannelNamespaceHandlerConfigsOutput) ToChannelNamespaceHandlerConfigsPt
 	}).(ChannelNamespaceHandlerConfigsPtrOutput)
 }
 
-// Handler configuration. See Handler Config below.
 func (o ChannelNamespaceHandlerConfigsOutput) OnPublish() ChannelNamespaceHandlerConfigsOnPublishPtrOutput {
 	return o.ApplyT(func(v ChannelNamespaceHandlerConfigs) *ChannelNamespaceHandlerConfigsOnPublish { return v.OnPublish }).(ChannelNamespaceHandlerConfigsOnPublishPtrOutput)
 }
 
-// Handler configuration. See Handler Config below.
 func (o ChannelNamespaceHandlerConfigsOutput) OnSubscribe() ChannelNamespaceHandlerConfigsOnSubscribePtrOutput {
 	return o.ApplyT(func(v ChannelNamespaceHandlerConfigs) *ChannelNamespaceHandlerConfigsOnSubscribe {
 		return v.OnSubscribe
@@ -1485,7 +1390,6 @@ func (o ChannelNamespaceHandlerConfigsPtrOutput) Elem() ChannelNamespaceHandlerC
 	}).(ChannelNamespaceHandlerConfigsOutput)
 }
 
-// Handler configuration. See Handler Config below.
 func (o ChannelNamespaceHandlerConfigsPtrOutput) OnPublish() ChannelNamespaceHandlerConfigsOnPublishPtrOutput {
 	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigs) *ChannelNamespaceHandlerConfigsOnPublish {
 		if v == nil {
@@ -1495,7 +1399,6 @@ func (o ChannelNamespaceHandlerConfigsPtrOutput) OnPublish() ChannelNamespaceHan
 	}).(ChannelNamespaceHandlerConfigsOnPublishPtrOutput)
 }
 
-// Handler configuration. See Handler Config below.
 func (o ChannelNamespaceHandlerConfigsPtrOutput) OnSubscribe() ChannelNamespaceHandlerConfigsOnSubscribePtrOutput {
 	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigs) *ChannelNamespaceHandlerConfigsOnSubscribe {
 		if v == nil {
@@ -1506,9 +1409,7 @@ func (o ChannelNamespaceHandlerConfigsPtrOutput) OnSubscribe() ChannelNamespaceH
 }
 
 type ChannelNamespaceHandlerConfigsOnPublish struct {
-	// Behavior for the handler. Valid values: `CODE`, `DIRECT`.
-	Behavior string `pulumi:"behavior"`
-	// Integration data source configuration for the handler. See Integration below.
+	Behavior    string                                              `pulumi:"behavior"`
 	Integration *ChannelNamespaceHandlerConfigsOnPublishIntegration `pulumi:"integration"`
 }
 
@@ -1524,9 +1425,7 @@ type ChannelNamespaceHandlerConfigsOnPublishInput interface {
 }
 
 type ChannelNamespaceHandlerConfigsOnPublishArgs struct {
-	// Behavior for the handler. Valid values: `CODE`, `DIRECT`.
-	Behavior pulumi.StringInput `pulumi:"behavior"`
-	// Integration data source configuration for the handler. See Integration below.
+	Behavior    pulumi.StringInput                                         `pulumi:"behavior"`
 	Integration ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrInput `pulumi:"integration"`
 }
 
@@ -1607,12 +1506,10 @@ func (o ChannelNamespaceHandlerConfigsOnPublishOutput) ToChannelNamespaceHandler
 	}).(ChannelNamespaceHandlerConfigsOnPublishPtrOutput)
 }
 
-// Behavior for the handler. Valid values: `CODE`, `DIRECT`.
 func (o ChannelNamespaceHandlerConfigsOnPublishOutput) Behavior() pulumi.StringOutput {
 	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnPublish) string { return v.Behavior }).(pulumi.StringOutput)
 }
 
-// Integration data source configuration for the handler. See Integration below.
 func (o ChannelNamespaceHandlerConfigsOnPublishOutput) Integration() ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput {
 	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnPublish) *ChannelNamespaceHandlerConfigsOnPublishIntegration {
 		return v.Integration
@@ -1643,7 +1540,6 @@ func (o ChannelNamespaceHandlerConfigsOnPublishPtrOutput) Elem() ChannelNamespac
 	}).(ChannelNamespaceHandlerConfigsOnPublishOutput)
 }
 
-// Behavior for the handler. Valid values: `CODE`, `DIRECT`.
 func (o ChannelNamespaceHandlerConfigsOnPublishPtrOutput) Behavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnPublish) *string {
 		if v == nil {
@@ -1653,7 +1549,6 @@ func (o ChannelNamespaceHandlerConfigsOnPublishPtrOutput) Behavior() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Integration data source configuration for the handler. See Integration below.
 func (o ChannelNamespaceHandlerConfigsOnPublishPtrOutput) Integration() ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput {
 	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnPublish) *ChannelNamespaceHandlerConfigsOnPublishIntegration {
 		if v == nil {
@@ -1664,10 +1559,8 @@ func (o ChannelNamespaceHandlerConfigsOnPublishPtrOutput) Integration() ChannelN
 }
 
 type ChannelNamespaceHandlerConfigsOnPublishIntegration struct {
-	// Unique name of the data source that has been configured on the API.
-	DataSourceName string `pulumi:"dataSourceName"`
-	// Configuration for a Lambda data source. See Lambda Config below.
-	LambdaConfig *ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig `pulumi:"lambdaConfig"`
+	DataSourceName string                                                          `pulumi:"dataSourceName"`
+	LambdaConfig   *ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig `pulumi:"lambdaConfig"`
 }
 
 // ChannelNamespaceHandlerConfigsOnPublishIntegrationInput is an input type that accepts ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs and ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput values.
@@ -1682,10 +1575,8 @@ type ChannelNamespaceHandlerConfigsOnPublishIntegrationInput interface {
 }
 
 type ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs struct {
-	// Unique name of the data source that has been configured on the API.
-	DataSourceName pulumi.StringInput `pulumi:"dataSourceName"`
-	// Configuration for a Lambda data source. See Lambda Config below.
-	LambdaConfig ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrInput `pulumi:"lambdaConfig"`
+	DataSourceName pulumi.StringInput                                                     `pulumi:"dataSourceName"`
+	LambdaConfig   ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrInput `pulumi:"lambdaConfig"`
 }
 
 func (ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs) ElementType() reflect.Type {
@@ -1765,12 +1656,10 @@ func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput) ToChannelNames
 	}).(ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput)
 }
 
-// Unique name of the data source that has been configured on the API.
 func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput) DataSourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnPublishIntegration) string { return v.DataSourceName }).(pulumi.StringOutput)
 }
 
-// Configuration for a Lambda data source. See Lambda Config below.
 func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput) LambdaConfig() ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput {
 	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnPublishIntegration) *ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig {
 		return v.LambdaConfig
@@ -1801,7 +1690,6 @@ func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput) Elem() Chan
 	}).(ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput)
 }
 
-// Unique name of the data source that has been configured on the API.
 func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput) DataSourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnPublishIntegration) *string {
 		if v == nil {
@@ -1811,7 +1699,6 @@ func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput) DataSourceN
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration for a Lambda data source. See Lambda Config below.
 func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput) LambdaConfig() ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput {
 	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnPublishIntegration) *ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig {
 		if v == nil {
@@ -1822,7 +1709,6 @@ func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput) LambdaConfi
 }
 
 type ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig struct {
-	// Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
 	InvokeType *string `pulumi:"invokeType"`
 }
 
@@ -1838,7 +1724,6 @@ type ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigInput interfa
 }
 
 type ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs struct {
-	// Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
 	InvokeType pulumi.StringPtrInput `pulumi:"invokeType"`
 }
 
@@ -1919,7 +1804,6 @@ func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutput) To
 	}).(ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput)
 }
 
-// Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
 func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutput) InvokeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig) *string { return v.InvokeType }).(pulumi.StringPtrOutput)
 }
@@ -1948,7 +1832,6 @@ func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput)
 	}).(ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigOutput)
 }
 
-// Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
 func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput) InvokeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig) *string {
 		if v == nil {
@@ -1959,9 +1842,7 @@ func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput)
 }
 
 type ChannelNamespaceHandlerConfigsOnSubscribe struct {
-	// Behavior for the handler. Valid values: `CODE`, `DIRECT`.
-	Behavior string `pulumi:"behavior"`
-	// Integration data source configuration for the handler. See Integration below.
+	Behavior    string                                                `pulumi:"behavior"`
 	Integration *ChannelNamespaceHandlerConfigsOnSubscribeIntegration `pulumi:"integration"`
 }
 
@@ -1977,9 +1858,7 @@ type ChannelNamespaceHandlerConfigsOnSubscribeInput interface {
 }
 
 type ChannelNamespaceHandlerConfigsOnSubscribeArgs struct {
-	// Behavior for the handler. Valid values: `CODE`, `DIRECT`.
-	Behavior pulumi.StringInput `pulumi:"behavior"`
-	// Integration data source configuration for the handler. See Integration below.
+	Behavior    pulumi.StringInput                                           `pulumi:"behavior"`
 	Integration ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrInput `pulumi:"integration"`
 }
 
@@ -2060,12 +1939,10 @@ func (o ChannelNamespaceHandlerConfigsOnSubscribeOutput) ToChannelNamespaceHandl
 	}).(ChannelNamespaceHandlerConfigsOnSubscribePtrOutput)
 }
 
-// Behavior for the handler. Valid values: `CODE`, `DIRECT`.
 func (o ChannelNamespaceHandlerConfigsOnSubscribeOutput) Behavior() pulumi.StringOutput {
 	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnSubscribe) string { return v.Behavior }).(pulumi.StringOutput)
 }
 
-// Integration data source configuration for the handler. See Integration below.
 func (o ChannelNamespaceHandlerConfigsOnSubscribeOutput) Integration() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput {
 	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnSubscribe) *ChannelNamespaceHandlerConfigsOnSubscribeIntegration {
 		return v.Integration
@@ -2096,7 +1973,6 @@ func (o ChannelNamespaceHandlerConfigsOnSubscribePtrOutput) Elem() ChannelNamesp
 	}).(ChannelNamespaceHandlerConfigsOnSubscribeOutput)
 }
 
-// Behavior for the handler. Valid values: `CODE`, `DIRECT`.
 func (o ChannelNamespaceHandlerConfigsOnSubscribePtrOutput) Behavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnSubscribe) *string {
 		if v == nil {
@@ -2106,7 +1982,6 @@ func (o ChannelNamespaceHandlerConfigsOnSubscribePtrOutput) Behavior() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Integration data source configuration for the handler. See Integration below.
 func (o ChannelNamespaceHandlerConfigsOnSubscribePtrOutput) Integration() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput {
 	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnSubscribe) *ChannelNamespaceHandlerConfigsOnSubscribeIntegration {
 		if v == nil {
@@ -2117,10 +1992,8 @@ func (o ChannelNamespaceHandlerConfigsOnSubscribePtrOutput) Integration() Channe
 }
 
 type ChannelNamespaceHandlerConfigsOnSubscribeIntegration struct {
-	// Unique name of the data source that has been configured on the API.
-	DataSourceName string `pulumi:"dataSourceName"`
-	// Configuration for a Lambda data source. See Lambda Config below.
-	LambdaConfig *ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig `pulumi:"lambdaConfig"`
+	DataSourceName string                                                            `pulumi:"dataSourceName"`
+	LambdaConfig   *ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig `pulumi:"lambdaConfig"`
 }
 
 // ChannelNamespaceHandlerConfigsOnSubscribeIntegrationInput is an input type that accepts ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs and ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput values.
@@ -2135,10 +2008,8 @@ type ChannelNamespaceHandlerConfigsOnSubscribeIntegrationInput interface {
 }
 
 type ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs struct {
-	// Unique name of the data source that has been configured on the API.
-	DataSourceName pulumi.StringInput `pulumi:"dataSourceName"`
-	// Configuration for a Lambda data source. See Lambda Config below.
-	LambdaConfig ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrInput `pulumi:"lambdaConfig"`
+	DataSourceName pulumi.StringInput                                                       `pulumi:"dataSourceName"`
+	LambdaConfig   ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrInput `pulumi:"lambdaConfig"`
 }
 
 func (ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs) ElementType() reflect.Type {
@@ -2218,12 +2089,10 @@ func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput) ToChannelNam
 	}).(ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput)
 }
 
-// Unique name of the data source that has been configured on the API.
 func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput) DataSourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnSubscribeIntegration) string { return v.DataSourceName }).(pulumi.StringOutput)
 }
 
-// Configuration for a Lambda data source. See Lambda Config below.
 func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput) LambdaConfig() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput {
 	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnSubscribeIntegration) *ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig {
 		return v.LambdaConfig
@@ -2254,7 +2123,6 @@ func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput) Elem() Ch
 	}).(ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput)
 }
 
-// Unique name of the data source that has been configured on the API.
 func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput) DataSourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnSubscribeIntegration) *string {
 		if v == nil {
@@ -2264,7 +2132,6 @@ func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput) DataSourc
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration for a Lambda data source. See Lambda Config below.
 func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput) LambdaConfig() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput {
 	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnSubscribeIntegration) *ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig {
 		if v == nil {
@@ -2275,7 +2142,6 @@ func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput) LambdaCon
 }
 
 type ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig struct {
-	// Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
 	InvokeType *string `pulumi:"invokeType"`
 }
 
@@ -2291,7 +2157,6 @@ type ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigInput inter
 }
 
 type ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgs struct {
-	// Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
 	InvokeType pulumi.StringPtrInput `pulumi:"invokeType"`
 }
 
@@ -2372,7 +2237,6 @@ func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutput) 
 	}).(ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput)
 }
 
-// Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
 func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutput) InvokeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig) *string { return v.InvokeType }).(pulumi.StringPtrOutput)
 }
@@ -2401,7 +2265,6 @@ func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutpu
 	}).(ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigOutput)
 }
 
-// Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
 func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput) InvokeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig) *string {
 		if v == nil {
@@ -2412,7 +2275,6 @@ func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutpu
 }
 
 type ChannelNamespacePublishAuthMode struct {
-	// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
 	AuthType string `pulumi:"authType"`
 }
 
@@ -2428,7 +2290,6 @@ type ChannelNamespacePublishAuthModeInput interface {
 }
 
 type ChannelNamespacePublishAuthModeArgs struct {
-	// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
 	AuthType pulumi.StringInput `pulumi:"authType"`
 }
 
@@ -2483,7 +2344,6 @@ func (o ChannelNamespacePublishAuthModeOutput) ToChannelNamespacePublishAuthMode
 	return o
 }
 
-// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
 func (o ChannelNamespacePublishAuthModeOutput) AuthType() pulumi.StringOutput {
 	return o.ApplyT(func(v ChannelNamespacePublishAuthMode) string { return v.AuthType }).(pulumi.StringOutput)
 }
@@ -2509,7 +2369,6 @@ func (o ChannelNamespacePublishAuthModeArrayOutput) Index(i pulumi.IntInput) Cha
 }
 
 type ChannelNamespaceSubscribeAuthMode struct {
-	// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
 	AuthType string `pulumi:"authType"`
 }
 
@@ -2525,7 +2384,6 @@ type ChannelNamespaceSubscribeAuthModeInput interface {
 }
 
 type ChannelNamespaceSubscribeAuthModeArgs struct {
-	// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
 	AuthType pulumi.StringInput `pulumi:"authType"`
 }
 
@@ -2580,7 +2438,6 @@ func (o ChannelNamespaceSubscribeAuthModeOutput) ToChannelNamespaceSubscribeAuth
 	return o
 }
 
-// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
 func (o ChannelNamespaceSubscribeAuthModeOutput) AuthType() pulumi.StringOutput {
 	return o.ApplyT(func(v ChannelNamespaceSubscribeAuthMode) string { return v.AuthType }).(pulumi.StringOutput)
 }
@@ -2606,16 +2463,11 @@ func (o ChannelNamespaceSubscribeAuthModeArrayOutput) Index(i pulumi.IntInput) C
 }
 
 type DataSourceDynamodbConfig struct {
-	// The DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
-	DeltaSyncConfig *DataSourceDynamodbConfigDeltaSyncConfig `pulumi:"deltaSyncConfig"`
-	// AWS region of the DynamoDB table. Defaults to current region.
-	Region *string `pulumi:"region"`
-	// Name of the DynamoDB table.
-	TableName string `pulumi:"tableName"`
-	// Set to `true` to use Amazon Cognito credentials with this data source.
-	UseCallerCredentials *bool `pulumi:"useCallerCredentials"`
-	// Detects Conflict Detection and Resolution with this data source.
-	Versioned *bool `pulumi:"versioned"`
+	DeltaSyncConfig      *DataSourceDynamodbConfigDeltaSyncConfig `pulumi:"deltaSyncConfig"`
+	Region               *string                                  `pulumi:"region"`
+	TableName            string                                   `pulumi:"tableName"`
+	UseCallerCredentials *bool                                    `pulumi:"useCallerCredentials"`
+	Versioned            *bool                                    `pulumi:"versioned"`
 }
 
 // DataSourceDynamodbConfigInput is an input type that accepts DataSourceDynamodbConfigArgs and DataSourceDynamodbConfigOutput values.
@@ -2630,16 +2482,11 @@ type DataSourceDynamodbConfigInput interface {
 }
 
 type DataSourceDynamodbConfigArgs struct {
-	// The DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
-	DeltaSyncConfig DataSourceDynamodbConfigDeltaSyncConfigPtrInput `pulumi:"deltaSyncConfig"`
-	// AWS region of the DynamoDB table. Defaults to current region.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Name of the DynamoDB table.
-	TableName pulumi.StringInput `pulumi:"tableName"`
-	// Set to `true` to use Amazon Cognito credentials with this data source.
-	UseCallerCredentials pulumi.BoolPtrInput `pulumi:"useCallerCredentials"`
-	// Detects Conflict Detection and Resolution with this data source.
-	Versioned pulumi.BoolPtrInput `pulumi:"versioned"`
+	DeltaSyncConfig      DataSourceDynamodbConfigDeltaSyncConfigPtrInput `pulumi:"deltaSyncConfig"`
+	Region               pulumi.StringPtrInput                           `pulumi:"region"`
+	TableName            pulumi.StringInput                              `pulumi:"tableName"`
+	UseCallerCredentials pulumi.BoolPtrInput                             `pulumi:"useCallerCredentials"`
+	Versioned            pulumi.BoolPtrInput                             `pulumi:"versioned"`
 }
 
 func (DataSourceDynamodbConfigArgs) ElementType() reflect.Type {
@@ -2719,27 +2566,22 @@ func (o DataSourceDynamodbConfigOutput) ToDataSourceDynamodbConfigPtrOutputWithC
 	}).(DataSourceDynamodbConfigPtrOutput)
 }
 
-// The DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
 func (o DataSourceDynamodbConfigOutput) DeltaSyncConfig() DataSourceDynamodbConfigDeltaSyncConfigPtrOutput {
 	return o.ApplyT(func(v DataSourceDynamodbConfig) *DataSourceDynamodbConfigDeltaSyncConfig { return v.DeltaSyncConfig }).(DataSourceDynamodbConfigDeltaSyncConfigPtrOutput)
 }
 
-// AWS region of the DynamoDB table. Defaults to current region.
 func (o DataSourceDynamodbConfigOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceDynamodbConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
-// Name of the DynamoDB table.
 func (o DataSourceDynamodbConfigOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceDynamodbConfig) string { return v.TableName }).(pulumi.StringOutput)
 }
 
-// Set to `true` to use Amazon Cognito credentials with this data source.
 func (o DataSourceDynamodbConfigOutput) UseCallerCredentials() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSourceDynamodbConfig) *bool { return v.UseCallerCredentials }).(pulumi.BoolPtrOutput)
 }
 
-// Detects Conflict Detection and Resolution with this data source.
 func (o DataSourceDynamodbConfigOutput) Versioned() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSourceDynamodbConfig) *bool { return v.Versioned }).(pulumi.BoolPtrOutput)
 }
@@ -2768,7 +2610,6 @@ func (o DataSourceDynamodbConfigPtrOutput) Elem() DataSourceDynamodbConfigOutput
 	}).(DataSourceDynamodbConfigOutput)
 }
 
-// The DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
 func (o DataSourceDynamodbConfigPtrOutput) DeltaSyncConfig() DataSourceDynamodbConfigDeltaSyncConfigPtrOutput {
 	return o.ApplyT(func(v *DataSourceDynamodbConfig) *DataSourceDynamodbConfigDeltaSyncConfig {
 		if v == nil {
@@ -2778,7 +2619,6 @@ func (o DataSourceDynamodbConfigPtrOutput) DeltaSyncConfig() DataSourceDynamodbC
 	}).(DataSourceDynamodbConfigDeltaSyncConfigPtrOutput)
 }
 
-// AWS region of the DynamoDB table. Defaults to current region.
 func (o DataSourceDynamodbConfigPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceDynamodbConfig) *string {
 		if v == nil {
@@ -2788,7 +2628,6 @@ func (o DataSourceDynamodbConfigPtrOutput) Region() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the DynamoDB table.
 func (o DataSourceDynamodbConfigPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceDynamodbConfig) *string {
 		if v == nil {
@@ -2798,7 +2637,6 @@ func (o DataSourceDynamodbConfigPtrOutput) TableName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set to `true` to use Amazon Cognito credentials with this data source.
 func (o DataSourceDynamodbConfigPtrOutput) UseCallerCredentials() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSourceDynamodbConfig) *bool {
 		if v == nil {
@@ -2808,7 +2646,6 @@ func (o DataSourceDynamodbConfigPtrOutput) UseCallerCredentials() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Detects Conflict Detection and Resolution with this data source.
 func (o DataSourceDynamodbConfigPtrOutput) Versioned() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSourceDynamodbConfig) *bool {
 		if v == nil {
@@ -2819,12 +2656,9 @@ func (o DataSourceDynamodbConfigPtrOutput) Versioned() pulumi.BoolPtrOutput {
 }
 
 type DataSourceDynamodbConfigDeltaSyncConfig struct {
-	// The number of minutes that an Item is stored in the data source.
-	BaseTableTtl *int `pulumi:"baseTableTtl"`
-	// The table name.
+	BaseTableTtl       *int   `pulumi:"baseTableTtl"`
 	DeltaSyncTableName string `pulumi:"deltaSyncTableName"`
-	// The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
-	DeltaSyncTableTtl *int `pulumi:"deltaSyncTableTtl"`
+	DeltaSyncTableTtl  *int   `pulumi:"deltaSyncTableTtl"`
 }
 
 // DataSourceDynamodbConfigDeltaSyncConfigInput is an input type that accepts DataSourceDynamodbConfigDeltaSyncConfigArgs and DataSourceDynamodbConfigDeltaSyncConfigOutput values.
@@ -2839,12 +2673,9 @@ type DataSourceDynamodbConfigDeltaSyncConfigInput interface {
 }
 
 type DataSourceDynamodbConfigDeltaSyncConfigArgs struct {
-	// The number of minutes that an Item is stored in the data source.
-	BaseTableTtl pulumi.IntPtrInput `pulumi:"baseTableTtl"`
-	// The table name.
+	BaseTableTtl       pulumi.IntPtrInput `pulumi:"baseTableTtl"`
 	DeltaSyncTableName pulumi.StringInput `pulumi:"deltaSyncTableName"`
-	// The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
-	DeltaSyncTableTtl pulumi.IntPtrInput `pulumi:"deltaSyncTableTtl"`
+	DeltaSyncTableTtl  pulumi.IntPtrInput `pulumi:"deltaSyncTableTtl"`
 }
 
 func (DataSourceDynamodbConfigDeltaSyncConfigArgs) ElementType() reflect.Type {
@@ -2924,17 +2755,14 @@ func (o DataSourceDynamodbConfigDeltaSyncConfigOutput) ToDataSourceDynamodbConfi
 	}).(DataSourceDynamodbConfigDeltaSyncConfigPtrOutput)
 }
 
-// The number of minutes that an Item is stored in the data source.
 func (o DataSourceDynamodbConfigDeltaSyncConfigOutput) BaseTableTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataSourceDynamodbConfigDeltaSyncConfig) *int { return v.BaseTableTtl }).(pulumi.IntPtrOutput)
 }
 
-// The table name.
 func (o DataSourceDynamodbConfigDeltaSyncConfigOutput) DeltaSyncTableName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceDynamodbConfigDeltaSyncConfig) string { return v.DeltaSyncTableName }).(pulumi.StringOutput)
 }
 
-// The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
 func (o DataSourceDynamodbConfigDeltaSyncConfigOutput) DeltaSyncTableTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataSourceDynamodbConfigDeltaSyncConfig) *int { return v.DeltaSyncTableTtl }).(pulumi.IntPtrOutput)
 }
@@ -2963,7 +2791,6 @@ func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) Elem() DataSourceDynam
 	}).(DataSourceDynamodbConfigDeltaSyncConfigOutput)
 }
 
-// The number of minutes that an Item is stored in the data source.
 func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) BaseTableTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceDynamodbConfigDeltaSyncConfig) *int {
 		if v == nil {
@@ -2973,7 +2800,6 @@ func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) BaseTableTtl() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// The table name.
 func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) DeltaSyncTableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceDynamodbConfigDeltaSyncConfig) *string {
 		if v == nil {
@@ -2983,7 +2809,6 @@ func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) DeltaSyncTableName() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
 func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) DeltaSyncTableTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceDynamodbConfigDeltaSyncConfig) *int {
 		if v == nil {
@@ -2994,10 +2819,8 @@ func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) DeltaSyncTableTtl() pu
 }
 
 type DataSourceElasticsearchConfig struct {
-	// HTTP endpoint of the Elasticsearch domain.
-	Endpoint string `pulumi:"endpoint"`
-	// AWS region of Elasticsearch domain. Defaults to current region.
-	Region *string `pulumi:"region"`
+	Endpoint string  `pulumi:"endpoint"`
+	Region   *string `pulumi:"region"`
 }
 
 // DataSourceElasticsearchConfigInput is an input type that accepts DataSourceElasticsearchConfigArgs and DataSourceElasticsearchConfigOutput values.
@@ -3012,10 +2835,8 @@ type DataSourceElasticsearchConfigInput interface {
 }
 
 type DataSourceElasticsearchConfigArgs struct {
-	// HTTP endpoint of the Elasticsearch domain.
-	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	// AWS region of Elasticsearch domain. Defaults to current region.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Endpoint pulumi.StringInput    `pulumi:"endpoint"`
+	Region   pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (DataSourceElasticsearchConfigArgs) ElementType() reflect.Type {
@@ -3095,12 +2916,10 @@ func (o DataSourceElasticsearchConfigOutput) ToDataSourceElasticsearchConfigPtrO
 	}).(DataSourceElasticsearchConfigPtrOutput)
 }
 
-// HTTP endpoint of the Elasticsearch domain.
 func (o DataSourceElasticsearchConfigOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceElasticsearchConfig) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// AWS region of Elasticsearch domain. Defaults to current region.
 func (o DataSourceElasticsearchConfigOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceElasticsearchConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -3129,7 +2948,6 @@ func (o DataSourceElasticsearchConfigPtrOutput) Elem() DataSourceElasticsearchCo
 	}).(DataSourceElasticsearchConfigOutput)
 }
 
-// HTTP endpoint of the Elasticsearch domain.
 func (o DataSourceElasticsearchConfigPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceElasticsearchConfig) *string {
 		if v == nil {
@@ -3139,7 +2957,6 @@ func (o DataSourceElasticsearchConfigPtrOutput) Endpoint() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// AWS region of Elasticsearch domain. Defaults to current region.
 func (o DataSourceElasticsearchConfigPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceElasticsearchConfig) *string {
 		if v == nil {
@@ -3150,7 +2967,6 @@ func (o DataSourceElasticsearchConfigPtrOutput) Region() pulumi.StringPtrOutput 
 }
 
 type DataSourceEventBridgeConfig struct {
-	// ARN for the EventBridge bus.
 	EventBusArn string `pulumi:"eventBusArn"`
 }
 
@@ -3166,7 +2982,6 @@ type DataSourceEventBridgeConfigInput interface {
 }
 
 type DataSourceEventBridgeConfigArgs struct {
-	// ARN for the EventBridge bus.
 	EventBusArn pulumi.StringInput `pulumi:"eventBusArn"`
 }
 
@@ -3247,7 +3062,6 @@ func (o DataSourceEventBridgeConfigOutput) ToDataSourceEventBridgeConfigPtrOutpu
 	}).(DataSourceEventBridgeConfigPtrOutput)
 }
 
-// ARN for the EventBridge bus.
 func (o DataSourceEventBridgeConfigOutput) EventBusArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceEventBridgeConfig) string { return v.EventBusArn }).(pulumi.StringOutput)
 }
@@ -3276,7 +3090,6 @@ func (o DataSourceEventBridgeConfigPtrOutput) Elem() DataSourceEventBridgeConfig
 	}).(DataSourceEventBridgeConfigOutput)
 }
 
-// ARN for the EventBridge bus.
 func (o DataSourceEventBridgeConfigPtrOutput) EventBusArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceEventBridgeConfig) *string {
 		if v == nil {
@@ -3287,10 +3100,8 @@ func (o DataSourceEventBridgeConfigPtrOutput) EventBusArn() pulumi.StringPtrOutp
 }
 
 type DataSourceHttpConfig struct {
-	// Authorization configuration in case the HTTP endpoint requires authorization. See `authorizationConfig` Block for details.
 	AuthorizationConfig *DataSourceHttpConfigAuthorizationConfig `pulumi:"authorizationConfig"`
-	// HTTP URL.
-	Endpoint string `pulumi:"endpoint"`
+	Endpoint            string                                   `pulumi:"endpoint"`
 }
 
 // DataSourceHttpConfigInput is an input type that accepts DataSourceHttpConfigArgs and DataSourceHttpConfigOutput values.
@@ -3305,10 +3116,8 @@ type DataSourceHttpConfigInput interface {
 }
 
 type DataSourceHttpConfigArgs struct {
-	// Authorization configuration in case the HTTP endpoint requires authorization. See `authorizationConfig` Block for details.
 	AuthorizationConfig DataSourceHttpConfigAuthorizationConfigPtrInput `pulumi:"authorizationConfig"`
-	// HTTP URL.
-	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	Endpoint            pulumi.StringInput                              `pulumi:"endpoint"`
 }
 
 func (DataSourceHttpConfigArgs) ElementType() reflect.Type {
@@ -3388,12 +3197,10 @@ func (o DataSourceHttpConfigOutput) ToDataSourceHttpConfigPtrOutputWithContext(c
 	}).(DataSourceHttpConfigPtrOutput)
 }
 
-// Authorization configuration in case the HTTP endpoint requires authorization. See `authorizationConfig` Block for details.
 func (o DataSourceHttpConfigOutput) AuthorizationConfig() DataSourceHttpConfigAuthorizationConfigPtrOutput {
 	return o.ApplyT(func(v DataSourceHttpConfig) *DataSourceHttpConfigAuthorizationConfig { return v.AuthorizationConfig }).(DataSourceHttpConfigAuthorizationConfigPtrOutput)
 }
 
-// HTTP URL.
 func (o DataSourceHttpConfigOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceHttpConfig) string { return v.Endpoint }).(pulumi.StringOutput)
 }
@@ -3422,7 +3229,6 @@ func (o DataSourceHttpConfigPtrOutput) Elem() DataSourceHttpConfigOutput {
 	}).(DataSourceHttpConfigOutput)
 }
 
-// Authorization configuration in case the HTTP endpoint requires authorization. See `authorizationConfig` Block for details.
 func (o DataSourceHttpConfigPtrOutput) AuthorizationConfig() DataSourceHttpConfigAuthorizationConfigPtrOutput {
 	return o.ApplyT(func(v *DataSourceHttpConfig) *DataSourceHttpConfigAuthorizationConfig {
 		if v == nil {
@@ -3432,7 +3238,6 @@ func (o DataSourceHttpConfigPtrOutput) AuthorizationConfig() DataSourceHttpConfi
 	}).(DataSourceHttpConfigAuthorizationConfigPtrOutput)
 }
 
-// HTTP URL.
 func (o DataSourceHttpConfigPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceHttpConfig) *string {
 		if v == nil {
@@ -3443,10 +3248,8 @@ func (o DataSourceHttpConfigPtrOutput) Endpoint() pulumi.StringPtrOutput {
 }
 
 type DataSourceHttpConfigAuthorizationConfig struct {
-	// Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
-	AuthorizationType *string `pulumi:"authorizationType"`
-	// Identity and Access Management (IAM) settings. See `awsIamConfig` Block for details.
-	AwsIamConfig *DataSourceHttpConfigAuthorizationConfigAwsIamConfig `pulumi:"awsIamConfig"`
+	AuthorizationType *string                                              `pulumi:"authorizationType"`
+	AwsIamConfig      *DataSourceHttpConfigAuthorizationConfigAwsIamConfig `pulumi:"awsIamConfig"`
 }
 
 // DataSourceHttpConfigAuthorizationConfigInput is an input type that accepts DataSourceHttpConfigAuthorizationConfigArgs and DataSourceHttpConfigAuthorizationConfigOutput values.
@@ -3461,10 +3264,8 @@ type DataSourceHttpConfigAuthorizationConfigInput interface {
 }
 
 type DataSourceHttpConfigAuthorizationConfigArgs struct {
-	// Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
-	AuthorizationType pulumi.StringPtrInput `pulumi:"authorizationType"`
-	// Identity and Access Management (IAM) settings. See `awsIamConfig` Block for details.
-	AwsIamConfig DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrInput `pulumi:"awsIamConfig"`
+	AuthorizationType pulumi.StringPtrInput                                       `pulumi:"authorizationType"`
+	AwsIamConfig      DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrInput `pulumi:"awsIamConfig"`
 }
 
 func (DataSourceHttpConfigAuthorizationConfigArgs) ElementType() reflect.Type {
@@ -3544,12 +3345,10 @@ func (o DataSourceHttpConfigAuthorizationConfigOutput) ToDataSourceHttpConfigAut
 	}).(DataSourceHttpConfigAuthorizationConfigPtrOutput)
 }
 
-// Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
 func (o DataSourceHttpConfigAuthorizationConfigOutput) AuthorizationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceHttpConfigAuthorizationConfig) *string { return v.AuthorizationType }).(pulumi.StringPtrOutput)
 }
 
-// Identity and Access Management (IAM) settings. See `awsIamConfig` Block for details.
 func (o DataSourceHttpConfigAuthorizationConfigOutput) AwsIamConfig() DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput {
 	return o.ApplyT(func(v DataSourceHttpConfigAuthorizationConfig) *DataSourceHttpConfigAuthorizationConfigAwsIamConfig {
 		return v.AwsIamConfig
@@ -3580,7 +3379,6 @@ func (o DataSourceHttpConfigAuthorizationConfigPtrOutput) Elem() DataSourceHttpC
 	}).(DataSourceHttpConfigAuthorizationConfigOutput)
 }
 
-// Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
 func (o DataSourceHttpConfigAuthorizationConfigPtrOutput) AuthorizationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceHttpConfigAuthorizationConfig) *string {
 		if v == nil {
@@ -3590,7 +3388,6 @@ func (o DataSourceHttpConfigAuthorizationConfigPtrOutput) AuthorizationType() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identity and Access Management (IAM) settings. See `awsIamConfig` Block for details.
 func (o DataSourceHttpConfigAuthorizationConfigPtrOutput) AwsIamConfig() DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput {
 	return o.ApplyT(func(v *DataSourceHttpConfigAuthorizationConfig) *DataSourceHttpConfigAuthorizationConfigAwsIamConfig {
 		if v == nil {
@@ -3601,9 +3398,7 @@ func (o DataSourceHttpConfigAuthorizationConfigPtrOutput) AwsIamConfig() DataSou
 }
 
 type DataSourceHttpConfigAuthorizationConfigAwsIamConfig struct {
-	// Signing Amazon Web Services Region for IAM authorization.
-	SigningRegion *string `pulumi:"signingRegion"`
-	// Signing service name for IAM authorization.
+	SigningRegion      *string `pulumi:"signingRegion"`
 	SigningServiceName *string `pulumi:"signingServiceName"`
 }
 
@@ -3619,9 +3414,7 @@ type DataSourceHttpConfigAuthorizationConfigAwsIamConfigInput interface {
 }
 
 type DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs struct {
-	// Signing Amazon Web Services Region for IAM authorization.
-	SigningRegion pulumi.StringPtrInput `pulumi:"signingRegion"`
-	// Signing service name for IAM authorization.
+	SigningRegion      pulumi.StringPtrInput `pulumi:"signingRegion"`
 	SigningServiceName pulumi.StringPtrInput `pulumi:"signingServiceName"`
 }
 
@@ -3702,12 +3495,10 @@ func (o DataSourceHttpConfigAuthorizationConfigAwsIamConfigOutput) ToDataSourceH
 	}).(DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput)
 }
 
-// Signing Amazon Web Services Region for IAM authorization.
 func (o DataSourceHttpConfigAuthorizationConfigAwsIamConfigOutput) SigningRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceHttpConfigAuthorizationConfigAwsIamConfig) *string { return v.SigningRegion }).(pulumi.StringPtrOutput)
 }
 
-// Signing service name for IAM authorization.
 func (o DataSourceHttpConfigAuthorizationConfigAwsIamConfigOutput) SigningServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceHttpConfigAuthorizationConfigAwsIamConfig) *string { return v.SigningServiceName }).(pulumi.StringPtrOutput)
 }
@@ -3736,7 +3527,6 @@ func (o DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput) Elem() Dat
 	}).(DataSourceHttpConfigAuthorizationConfigAwsIamConfigOutput)
 }
 
-// Signing Amazon Web Services Region for IAM authorization.
 func (o DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput) SigningRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceHttpConfigAuthorizationConfigAwsIamConfig) *string {
 		if v == nil {
@@ -3746,7 +3536,6 @@ func (o DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput) SigningReg
 	}).(pulumi.StringPtrOutput)
 }
 
-// Signing service name for IAM authorization.
 func (o DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput) SigningServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceHttpConfigAuthorizationConfigAwsIamConfig) *string {
 		if v == nil {
@@ -3757,7 +3546,6 @@ func (o DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput) SigningSer
 }
 
 type DataSourceLambdaConfig struct {
-	// ARN for the Lambda function.
 	FunctionArn string `pulumi:"functionArn"`
 }
 
@@ -3773,7 +3561,6 @@ type DataSourceLambdaConfigInput interface {
 }
 
 type DataSourceLambdaConfigArgs struct {
-	// ARN for the Lambda function.
 	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
 }
 
@@ -3854,7 +3641,6 @@ func (o DataSourceLambdaConfigOutput) ToDataSourceLambdaConfigPtrOutputWithConte
 	}).(DataSourceLambdaConfigPtrOutput)
 }
 
-// ARN for the Lambda function.
 func (o DataSourceLambdaConfigOutput) FunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceLambdaConfig) string { return v.FunctionArn }).(pulumi.StringOutput)
 }
@@ -3883,7 +3669,6 @@ func (o DataSourceLambdaConfigPtrOutput) Elem() DataSourceLambdaConfigOutput {
 	}).(DataSourceLambdaConfigOutput)
 }
 
-// ARN for the Lambda function.
 func (o DataSourceLambdaConfigPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceLambdaConfig) *string {
 		if v == nil {
@@ -3894,10 +3679,8 @@ func (o DataSourceLambdaConfigPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 }
 
 type DataSourceOpensearchserviceConfig struct {
-	// HTTP endpoint of the OpenSearch domain.
-	Endpoint string `pulumi:"endpoint"`
-	// AWS region of the OpenSearch domain. Defaults to current region.
-	Region *string `pulumi:"region"`
+	Endpoint string  `pulumi:"endpoint"`
+	Region   *string `pulumi:"region"`
 }
 
 // DataSourceOpensearchserviceConfigInput is an input type that accepts DataSourceOpensearchserviceConfigArgs and DataSourceOpensearchserviceConfigOutput values.
@@ -3912,10 +3695,8 @@ type DataSourceOpensearchserviceConfigInput interface {
 }
 
 type DataSourceOpensearchserviceConfigArgs struct {
-	// HTTP endpoint of the OpenSearch domain.
-	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	// AWS region of the OpenSearch domain. Defaults to current region.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Endpoint pulumi.StringInput    `pulumi:"endpoint"`
+	Region   pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (DataSourceOpensearchserviceConfigArgs) ElementType() reflect.Type {
@@ -3995,12 +3776,10 @@ func (o DataSourceOpensearchserviceConfigOutput) ToDataSourceOpensearchserviceCo
 	}).(DataSourceOpensearchserviceConfigPtrOutput)
 }
 
-// HTTP endpoint of the OpenSearch domain.
 func (o DataSourceOpensearchserviceConfigOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceOpensearchserviceConfig) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// AWS region of the OpenSearch domain. Defaults to current region.
 func (o DataSourceOpensearchserviceConfigOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceOpensearchserviceConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -4029,7 +3808,6 @@ func (o DataSourceOpensearchserviceConfigPtrOutput) Elem() DataSourceOpensearchs
 	}).(DataSourceOpensearchserviceConfigOutput)
 }
 
-// HTTP endpoint of the OpenSearch domain.
 func (o DataSourceOpensearchserviceConfigPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceOpensearchserviceConfig) *string {
 		if v == nil {
@@ -4039,7 +3817,6 @@ func (o DataSourceOpensearchserviceConfigPtrOutput) Endpoint() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// AWS region of the OpenSearch domain. Defaults to current region.
 func (o DataSourceOpensearchserviceConfigPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceOpensearchserviceConfig) *string {
 		if v == nil {
@@ -4050,10 +3827,8 @@ func (o DataSourceOpensearchserviceConfigPtrOutput) Region() pulumi.StringPtrOut
 }
 
 type DataSourceRelationalDatabaseConfig struct {
-	// Amazon RDS HTTP endpoint configuration. See `httpEndpointConfig` Block for details.
 	HttpEndpointConfig *DataSourceRelationalDatabaseConfigHttpEndpointConfig `pulumi:"httpEndpointConfig"`
-	// Source type for the relational database. Valid values: `RDS_HTTP_ENDPOINT`.
-	SourceType *string `pulumi:"sourceType"`
+	SourceType         *string                                               `pulumi:"sourceType"`
 }
 
 // DataSourceRelationalDatabaseConfigInput is an input type that accepts DataSourceRelationalDatabaseConfigArgs and DataSourceRelationalDatabaseConfigOutput values.
@@ -4068,10 +3843,8 @@ type DataSourceRelationalDatabaseConfigInput interface {
 }
 
 type DataSourceRelationalDatabaseConfigArgs struct {
-	// Amazon RDS HTTP endpoint configuration. See `httpEndpointConfig` Block for details.
 	HttpEndpointConfig DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrInput `pulumi:"httpEndpointConfig"`
-	// Source type for the relational database. Valid values: `RDS_HTTP_ENDPOINT`.
-	SourceType pulumi.StringPtrInput `pulumi:"sourceType"`
+	SourceType         pulumi.StringPtrInput                                        `pulumi:"sourceType"`
 }
 
 func (DataSourceRelationalDatabaseConfigArgs) ElementType() reflect.Type {
@@ -4151,14 +3924,12 @@ func (o DataSourceRelationalDatabaseConfigOutput) ToDataSourceRelationalDatabase
 	}).(DataSourceRelationalDatabaseConfigPtrOutput)
 }
 
-// Amazon RDS HTTP endpoint configuration. See `httpEndpointConfig` Block for details.
 func (o DataSourceRelationalDatabaseConfigOutput) HttpEndpointConfig() DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput {
 	return o.ApplyT(func(v DataSourceRelationalDatabaseConfig) *DataSourceRelationalDatabaseConfigHttpEndpointConfig {
 		return v.HttpEndpointConfig
 	}).(DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput)
 }
 
-// Source type for the relational database. Valid values: `RDS_HTTP_ENDPOINT`.
 func (o DataSourceRelationalDatabaseConfigOutput) SourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceRelationalDatabaseConfig) *string { return v.SourceType }).(pulumi.StringPtrOutput)
 }
@@ -4187,7 +3958,6 @@ func (o DataSourceRelationalDatabaseConfigPtrOutput) Elem() DataSourceRelational
 	}).(DataSourceRelationalDatabaseConfigOutput)
 }
 
-// Amazon RDS HTTP endpoint configuration. See `httpEndpointConfig` Block for details.
 func (o DataSourceRelationalDatabaseConfigPtrOutput) HttpEndpointConfig() DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput {
 	return o.ApplyT(func(v *DataSourceRelationalDatabaseConfig) *DataSourceRelationalDatabaseConfigHttpEndpointConfig {
 		if v == nil {
@@ -4197,7 +3967,6 @@ func (o DataSourceRelationalDatabaseConfigPtrOutput) HttpEndpointConfig() DataSo
 	}).(DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput)
 }
 
-// Source type for the relational database. Valid values: `RDS_HTTP_ENDPOINT`.
 func (o DataSourceRelationalDatabaseConfigPtrOutput) SourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceRelationalDatabaseConfig) *string {
 		if v == nil {
@@ -4208,16 +3977,11 @@ func (o DataSourceRelationalDatabaseConfigPtrOutput) SourceType() pulumi.StringP
 }
 
 type DataSourceRelationalDatabaseConfigHttpEndpointConfig struct {
-	// AWS secret store ARN for database credentials.
-	AwsSecretStoreArn string `pulumi:"awsSecretStoreArn"`
-	// Logical database name.
-	DatabaseName *string `pulumi:"databaseName"`
-	// Amazon RDS cluster identifier.
-	DbClusterIdentifier string `pulumi:"dbClusterIdentifier"`
-	// AWS Region for RDS HTTP endpoint. Defaults to current region.
-	Region *string `pulumi:"region"`
-	// Logical schema name.
-	Schema *string `pulumi:"schema"`
+	AwsSecretStoreArn   string  `pulumi:"awsSecretStoreArn"`
+	DatabaseName        *string `pulumi:"databaseName"`
+	DbClusterIdentifier string  `pulumi:"dbClusterIdentifier"`
+	Region              *string `pulumi:"region"`
+	Schema              *string `pulumi:"schema"`
 }
 
 // DataSourceRelationalDatabaseConfigHttpEndpointConfigInput is an input type that accepts DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs and DataSourceRelationalDatabaseConfigHttpEndpointConfigOutput values.
@@ -4232,16 +3996,11 @@ type DataSourceRelationalDatabaseConfigHttpEndpointConfigInput interface {
 }
 
 type DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs struct {
-	// AWS secret store ARN for database credentials.
-	AwsSecretStoreArn pulumi.StringInput `pulumi:"awsSecretStoreArn"`
-	// Logical database name.
-	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
-	// Amazon RDS cluster identifier.
-	DbClusterIdentifier pulumi.StringInput `pulumi:"dbClusterIdentifier"`
-	// AWS Region for RDS HTTP endpoint. Defaults to current region.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Logical schema name.
-	Schema pulumi.StringPtrInput `pulumi:"schema"`
+	AwsSecretStoreArn   pulumi.StringInput    `pulumi:"awsSecretStoreArn"`
+	DatabaseName        pulumi.StringPtrInput `pulumi:"databaseName"`
+	DbClusterIdentifier pulumi.StringInput    `pulumi:"dbClusterIdentifier"`
+	Region              pulumi.StringPtrInput `pulumi:"region"`
+	Schema              pulumi.StringPtrInput `pulumi:"schema"`
 }
 
 func (DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs) ElementType() reflect.Type {
@@ -4321,27 +4080,22 @@ func (o DataSourceRelationalDatabaseConfigHttpEndpointConfigOutput) ToDataSource
 	}).(DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput)
 }
 
-// AWS secret store ARN for database credentials.
 func (o DataSourceRelationalDatabaseConfigHttpEndpointConfigOutput) AwsSecretStoreArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceRelationalDatabaseConfigHttpEndpointConfig) string { return v.AwsSecretStoreArn }).(pulumi.StringOutput)
 }
 
-// Logical database name.
 func (o DataSourceRelationalDatabaseConfigHttpEndpointConfigOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceRelationalDatabaseConfigHttpEndpointConfig) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
 }
 
-// Amazon RDS cluster identifier.
 func (o DataSourceRelationalDatabaseConfigHttpEndpointConfigOutput) DbClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceRelationalDatabaseConfigHttpEndpointConfig) string { return v.DbClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// AWS Region for RDS HTTP endpoint. Defaults to current region.
 func (o DataSourceRelationalDatabaseConfigHttpEndpointConfigOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceRelationalDatabaseConfigHttpEndpointConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
-// Logical schema name.
 func (o DataSourceRelationalDatabaseConfigHttpEndpointConfigOutput) Schema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceRelationalDatabaseConfigHttpEndpointConfig) *string { return v.Schema }).(pulumi.StringPtrOutput)
 }
@@ -4370,7 +4124,6 @@ func (o DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput) Elem() Da
 	}).(DataSourceRelationalDatabaseConfigHttpEndpointConfigOutput)
 }
 
-// AWS secret store ARN for database credentials.
 func (o DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput) AwsSecretStoreArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceRelationalDatabaseConfigHttpEndpointConfig) *string {
 		if v == nil {
@@ -4380,7 +4133,6 @@ func (o DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput) AwsSecret
 	}).(pulumi.StringPtrOutput)
 }
 
-// Logical database name.
 func (o DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceRelationalDatabaseConfigHttpEndpointConfig) *string {
 		if v == nil {
@@ -4390,7 +4142,6 @@ func (o DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput) DatabaseN
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon RDS cluster identifier.
 func (o DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput) DbClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceRelationalDatabaseConfigHttpEndpointConfig) *string {
 		if v == nil {
@@ -4400,7 +4151,6 @@ func (o DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput) DbCluster
 	}).(pulumi.StringPtrOutput)
 }
 
-// AWS Region for RDS HTTP endpoint. Defaults to current region.
 func (o DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceRelationalDatabaseConfigHttpEndpointConfig) *string {
 		if v == nil {
@@ -4410,7 +4160,6 @@ func (o DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput) Region() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Logical schema name.
 func (o DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput) Schema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceRelationalDatabaseConfigHttpEndpointConfig) *string {
 		if v == nil {
@@ -4421,9 +4170,7 @@ func (o DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput) Schema() 
 }
 
 type FunctionRuntime struct {
-	// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
-	Name string `pulumi:"name"`
-	// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+	Name           string `pulumi:"name"`
 	RuntimeVersion string `pulumi:"runtimeVersion"`
 }
 
@@ -4439,9 +4186,7 @@ type FunctionRuntimeInput interface {
 }
 
 type FunctionRuntimeArgs struct {
-	// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+	Name           pulumi.StringInput `pulumi:"name"`
 	RuntimeVersion pulumi.StringInput `pulumi:"runtimeVersion"`
 }
 
@@ -4522,12 +4267,10 @@ func (o FunctionRuntimeOutput) ToFunctionRuntimePtrOutputWithContext(ctx context
 	}).(FunctionRuntimePtrOutput)
 }
 
-// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
 func (o FunctionRuntimeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionRuntime) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
 func (o FunctionRuntimeOutput) RuntimeVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionRuntime) string { return v.RuntimeVersion }).(pulumi.StringOutput)
 }
@@ -4556,7 +4299,6 @@ func (o FunctionRuntimePtrOutput) Elem() FunctionRuntimeOutput {
 	}).(FunctionRuntimeOutput)
 }
 
-// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
 func (o FunctionRuntimePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionRuntime) *string {
 		if v == nil {
@@ -4566,7 +4308,6 @@ func (o FunctionRuntimePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
 func (o FunctionRuntimePtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionRuntime) *string {
 		if v == nil {
@@ -4577,11 +4318,8 @@ func (o FunctionRuntimePtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
 }
 
 type FunctionSyncConfig struct {
-	// Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
-	ConflictDetection *string `pulumi:"conflictDetection"`
-	// Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
-	ConflictHandler *string `pulumi:"conflictHandler"`
-	// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambdaConflictHandlerConfig` Block for details.
+	ConflictDetection           *string                                        `pulumi:"conflictDetection"`
+	ConflictHandler             *string                                        `pulumi:"conflictHandler"`
 	LambdaConflictHandlerConfig *FunctionSyncConfigLambdaConflictHandlerConfig `pulumi:"lambdaConflictHandlerConfig"`
 }
 
@@ -4597,11 +4335,8 @@ type FunctionSyncConfigInput interface {
 }
 
 type FunctionSyncConfigArgs struct {
-	// Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
-	ConflictDetection pulumi.StringPtrInput `pulumi:"conflictDetection"`
-	// Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
-	ConflictHandler pulumi.StringPtrInput `pulumi:"conflictHandler"`
-	// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambdaConflictHandlerConfig` Block for details.
+	ConflictDetection           pulumi.StringPtrInput                                 `pulumi:"conflictDetection"`
+	ConflictHandler             pulumi.StringPtrInput                                 `pulumi:"conflictHandler"`
 	LambdaConflictHandlerConfig FunctionSyncConfigLambdaConflictHandlerConfigPtrInput `pulumi:"lambdaConflictHandlerConfig"`
 }
 
@@ -4682,17 +4417,14 @@ func (o FunctionSyncConfigOutput) ToFunctionSyncConfigPtrOutputWithContext(ctx c
 	}).(FunctionSyncConfigPtrOutput)
 }
 
-// Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
 func (o FunctionSyncConfigOutput) ConflictDetection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionSyncConfig) *string { return v.ConflictDetection }).(pulumi.StringPtrOutput)
 }
 
-// Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
 func (o FunctionSyncConfigOutput) ConflictHandler() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionSyncConfig) *string { return v.ConflictHandler }).(pulumi.StringPtrOutput)
 }
 
-// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambdaConflictHandlerConfig` Block for details.
 func (o FunctionSyncConfigOutput) LambdaConflictHandlerConfig() FunctionSyncConfigLambdaConflictHandlerConfigPtrOutput {
 	return o.ApplyT(func(v FunctionSyncConfig) *FunctionSyncConfigLambdaConflictHandlerConfig {
 		return v.LambdaConflictHandlerConfig
@@ -4723,7 +4455,6 @@ func (o FunctionSyncConfigPtrOutput) Elem() FunctionSyncConfigOutput {
 	}).(FunctionSyncConfigOutput)
 }
 
-// Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
 func (o FunctionSyncConfigPtrOutput) ConflictDetection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionSyncConfig) *string {
 		if v == nil {
@@ -4733,7 +4464,6 @@ func (o FunctionSyncConfigPtrOutput) ConflictDetection() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
 func (o FunctionSyncConfigPtrOutput) ConflictHandler() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionSyncConfig) *string {
 		if v == nil {
@@ -4743,7 +4473,6 @@ func (o FunctionSyncConfigPtrOutput) ConflictHandler() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambdaConflictHandlerConfig` Block for details.
 func (o FunctionSyncConfigPtrOutput) LambdaConflictHandlerConfig() FunctionSyncConfigLambdaConflictHandlerConfigPtrOutput {
 	return o.ApplyT(func(v *FunctionSyncConfig) *FunctionSyncConfigLambdaConflictHandlerConfig {
 		if v == nil {
@@ -4754,7 +4483,6 @@ func (o FunctionSyncConfigPtrOutput) LambdaConflictHandlerConfig() FunctionSyncC
 }
 
 type FunctionSyncConfigLambdaConflictHandlerConfig struct {
-	// ARN for the Lambda function to use as the Conflict Handler.
 	LambdaConflictHandlerArn *string `pulumi:"lambdaConflictHandlerArn"`
 }
 
@@ -4770,7 +4498,6 @@ type FunctionSyncConfigLambdaConflictHandlerConfigInput interface {
 }
 
 type FunctionSyncConfigLambdaConflictHandlerConfigArgs struct {
-	// ARN for the Lambda function to use as the Conflict Handler.
 	LambdaConflictHandlerArn pulumi.StringPtrInput `pulumi:"lambdaConflictHandlerArn"`
 }
 
@@ -4851,7 +4578,6 @@ func (o FunctionSyncConfigLambdaConflictHandlerConfigOutput) ToFunctionSyncConfi
 	}).(FunctionSyncConfigLambdaConflictHandlerConfigPtrOutput)
 }
 
-// ARN for the Lambda function to use as the Conflict Handler.
 func (o FunctionSyncConfigLambdaConflictHandlerConfigOutput) LambdaConflictHandlerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionSyncConfigLambdaConflictHandlerConfig) *string { return v.LambdaConflictHandlerArn }).(pulumi.StringPtrOutput)
 }
@@ -4880,7 +4606,6 @@ func (o FunctionSyncConfigLambdaConflictHandlerConfigPtrOutput) Elem() FunctionS
 	}).(FunctionSyncConfigLambdaConflictHandlerConfigOutput)
 }
 
-// ARN for the Lambda function to use as the Conflict Handler.
 func (o FunctionSyncConfigLambdaConflictHandlerConfigPtrOutput) LambdaConflictHandlerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionSyncConfigLambdaConflictHandlerConfig) *string {
 		if v == nil {
@@ -4891,14 +4616,10 @@ func (o FunctionSyncConfigLambdaConflictHandlerConfigPtrOutput) LambdaConflictHa
 }
 
 type GraphQLApiAdditionalAuthenticationProvider struct {
-	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
-	AuthenticationType string `pulumi:"authenticationType"`
-	// Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
+	AuthenticationType     string                                                            `pulumi:"authenticationType"`
 	LambdaAuthorizerConfig *GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig `pulumi:"lambdaAuthorizerConfig"`
-	// Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
-	OpenidConnectConfig *GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig `pulumi:"openidConnectConfig"`
-	// Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
-	UserPoolConfig *GraphQLApiAdditionalAuthenticationProviderUserPoolConfig `pulumi:"userPoolConfig"`
+	OpenidConnectConfig    *GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig    `pulumi:"openidConnectConfig"`
+	UserPoolConfig         *GraphQLApiAdditionalAuthenticationProviderUserPoolConfig         `pulumi:"userPoolConfig"`
 }
 
 // GraphQLApiAdditionalAuthenticationProviderInput is an input type that accepts GraphQLApiAdditionalAuthenticationProviderArgs and GraphQLApiAdditionalAuthenticationProviderOutput values.
@@ -4913,14 +4634,10 @@ type GraphQLApiAdditionalAuthenticationProviderInput interface {
 }
 
 type GraphQLApiAdditionalAuthenticationProviderArgs struct {
-	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
-	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
-	// Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
+	AuthenticationType     pulumi.StringInput                                                       `pulumi:"authenticationType"`
 	LambdaAuthorizerConfig GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrInput `pulumi:"lambdaAuthorizerConfig"`
-	// Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
-	OpenidConnectConfig GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrInput `pulumi:"openidConnectConfig"`
-	// Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
-	UserPoolConfig GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrInput `pulumi:"userPoolConfig"`
+	OpenidConnectConfig    GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrInput    `pulumi:"openidConnectConfig"`
+	UserPoolConfig         GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrInput         `pulumi:"userPoolConfig"`
 }
 
 func (GraphQLApiAdditionalAuthenticationProviderArgs) ElementType() reflect.Type {
@@ -4974,26 +4691,22 @@ func (o GraphQLApiAdditionalAuthenticationProviderOutput) ToGraphQLApiAdditional
 	return o
 }
 
-// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 func (o GraphQLApiAdditionalAuthenticationProviderOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProvider) string { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
-// Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
 func (o GraphQLApiAdditionalAuthenticationProviderOutput) LambdaAuthorizerConfig() GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProvider) *GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig {
 		return v.LambdaAuthorizerConfig
 	}).(GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput)
 }
 
-// Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
 func (o GraphQLApiAdditionalAuthenticationProviderOutput) OpenidConnectConfig() GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProvider) *GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig {
 		return v.OpenidConnectConfig
 	}).(GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput)
 }
 
-// Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
 func (o GraphQLApiAdditionalAuthenticationProviderOutput) UserPoolConfig() GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProvider) *GraphQLApiAdditionalAuthenticationProviderUserPoolConfig {
 		return v.UserPoolConfig
@@ -5021,11 +4734,8 @@ func (o GraphQLApiAdditionalAuthenticationProviderArrayOutput) Index(i pulumi.In
 }
 
 type GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig struct {
-	// Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
-	AuthorizerResultTtlInSeconds *int `pulumi:"authorizerResultTtlInSeconds"`
-	// ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
-	AuthorizerUri string `pulumi:"authorizerUri"`
-	// Regular expression for validation of tokens before the Lambda function is called.
+	AuthorizerResultTtlInSeconds *int    `pulumi:"authorizerResultTtlInSeconds"`
+	AuthorizerUri                string  `pulumi:"authorizerUri"`
 	IdentityValidationExpression *string `pulumi:"identityValidationExpression"`
 }
 
@@ -5041,11 +4751,8 @@ type GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigInput inter
 }
 
 type GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs struct {
-	// Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
-	AuthorizerResultTtlInSeconds pulumi.IntPtrInput `pulumi:"authorizerResultTtlInSeconds"`
-	// ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
-	AuthorizerUri pulumi.StringInput `pulumi:"authorizerUri"`
-	// Regular expression for validation of tokens before the Lambda function is called.
+	AuthorizerResultTtlInSeconds pulumi.IntPtrInput    `pulumi:"authorizerResultTtlInSeconds"`
+	AuthorizerUri                pulumi.StringInput    `pulumi:"authorizerUri"`
 	IdentityValidationExpression pulumi.StringPtrInput `pulumi:"identityValidationExpression"`
 }
 
@@ -5126,21 +4833,18 @@ func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput) 
 	}).(GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput)
 }
 
-// Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
 func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput) AuthorizerResultTtlInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig) *int {
 		return v.AuthorizerResultTtlInSeconds
 	}).(pulumi.IntPtrOutput)
 }
 
-// ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
 func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput) AuthorizerUri() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig) string {
 		return v.AuthorizerUri
 	}).(pulumi.StringOutput)
 }
 
-// Regular expression for validation of tokens before the Lambda function is called.
 func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput) IdentityValidationExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig) *string {
 		return v.IdentityValidationExpression
@@ -5171,7 +4875,6 @@ func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutpu
 	}).(GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput)
 }
 
-// Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
 func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput) AuthorizerResultTtlInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig) *int {
 		if v == nil {
@@ -5181,7 +4884,6 @@ func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
 func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput) AuthorizerUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig) *string {
 		if v == nil {
@@ -5191,7 +4893,6 @@ func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Regular expression for validation of tokens before the Lambda function is called.
 func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput) IdentityValidationExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig) *string {
 		if v == nil {
@@ -5202,14 +4903,10 @@ func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutpu
 }
 
 type GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig struct {
-	// Number of milliseconds a token is valid after being authenticated.
-	AuthTtl *int `pulumi:"authTtl"`
-	// Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
+	AuthTtl  *int    `pulumi:"authTtl"`
 	ClientId *string `pulumi:"clientId"`
-	// Number of milliseconds a token is valid after being issued to a user.
-	IatTtl *int `pulumi:"iatTtl"`
-	// Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
-	Issuer string `pulumi:"issuer"`
+	IatTtl   *int    `pulumi:"iatTtl"`
+	Issuer   string  `pulumi:"issuer"`
 }
 
 // GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigInput is an input type that accepts GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs and GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigOutput values.
@@ -5224,14 +4921,10 @@ type GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigInput interfac
 }
 
 type GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs struct {
-	// Number of milliseconds a token is valid after being authenticated.
-	AuthTtl pulumi.IntPtrInput `pulumi:"authTtl"`
-	// Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
+	AuthTtl  pulumi.IntPtrInput    `pulumi:"authTtl"`
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// Number of milliseconds a token is valid after being issued to a user.
-	IatTtl pulumi.IntPtrInput `pulumi:"iatTtl"`
-	// Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
-	Issuer pulumi.StringInput `pulumi:"issuer"`
+	IatTtl   pulumi.IntPtrInput    `pulumi:"iatTtl"`
+	Issuer   pulumi.StringInput    `pulumi:"issuer"`
 }
 
 func (GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs) ElementType() reflect.Type {
@@ -5311,22 +5004,18 @@ func (o GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigOutput) ToG
 	}).(GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput)
 }
 
-// Number of milliseconds a token is valid after being authenticated.
 func (o GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigOutput) AuthTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig) *int { return v.AuthTtl }).(pulumi.IntPtrOutput)
 }
 
-// Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
 func (o GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// Number of milliseconds a token is valid after being issued to a user.
 func (o GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigOutput) IatTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig) *int { return v.IatTtl }).(pulumi.IntPtrOutput)
 }
 
-// Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
 func (o GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig) string { return v.Issuer }).(pulumi.StringOutput)
 }
@@ -5355,7 +5044,6 @@ func (o GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput) 
 	}).(GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigOutput)
 }
 
-// Number of milliseconds a token is valid after being authenticated.
 func (o GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput) AuthTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig) *int {
 		if v == nil {
@@ -5365,7 +5053,6 @@ func (o GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput) 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
 func (o GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig) *string {
 		if v == nil {
@@ -5375,7 +5062,6 @@ func (o GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of milliseconds a token is valid after being issued to a user.
 func (o GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput) IatTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig) *int {
 		if v == nil {
@@ -5385,7 +5071,6 @@ func (o GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput) 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
 func (o GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig) *string {
 		if v == nil {
@@ -5396,12 +5081,9 @@ func (o GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput) 
 }
 
 type GraphQLApiAdditionalAuthenticationProviderUserPoolConfig struct {
-	// Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
 	AppIdClientRegex *string `pulumi:"appIdClientRegex"`
-	// AWS region in which the user pool was created.
-	AwsRegion *string `pulumi:"awsRegion"`
-	// User pool ID.
-	UserPoolId string `pulumi:"userPoolId"`
+	AwsRegion        *string `pulumi:"awsRegion"`
+	UserPoolId       string  `pulumi:"userPoolId"`
 }
 
 // GraphQLApiAdditionalAuthenticationProviderUserPoolConfigInput is an input type that accepts GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs and GraphQLApiAdditionalAuthenticationProviderUserPoolConfigOutput values.
@@ -5416,12 +5098,9 @@ type GraphQLApiAdditionalAuthenticationProviderUserPoolConfigInput interface {
 }
 
 type GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs struct {
-	// Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
 	AppIdClientRegex pulumi.StringPtrInput `pulumi:"appIdClientRegex"`
-	// AWS region in which the user pool was created.
-	AwsRegion pulumi.StringPtrInput `pulumi:"awsRegion"`
-	// User pool ID.
-	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
+	AwsRegion        pulumi.StringPtrInput `pulumi:"awsRegion"`
+	UserPoolId       pulumi.StringInput    `pulumi:"userPoolId"`
 }
 
 func (GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs) ElementType() reflect.Type {
@@ -5501,17 +5180,14 @@ func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigOutput) ToGraphQ
 	}).(GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput)
 }
 
-// Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
 func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigOutput) AppIdClientRegex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProviderUserPoolConfig) *string { return v.AppIdClientRegex }).(pulumi.StringPtrOutput)
 }
 
-// AWS region in which the user pool was created.
 func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigOutput) AwsRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProviderUserPoolConfig) *string { return v.AwsRegion }).(pulumi.StringPtrOutput)
 }
 
-// User pool ID.
 func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProviderUserPoolConfig) string { return v.UserPoolId }).(pulumi.StringOutput)
 }
@@ -5540,7 +5216,6 @@ func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput) Elem(
 	}).(GraphQLApiAdditionalAuthenticationProviderUserPoolConfigOutput)
 }
 
-// Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
 func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput) AppIdClientRegex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiAdditionalAuthenticationProviderUserPoolConfig) *string {
 		if v == nil {
@@ -5550,7 +5225,6 @@ func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput) AppId
 	}).(pulumi.StringPtrOutput)
 }
 
-// AWS region in which the user pool was created.
 func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput) AwsRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiAdditionalAuthenticationProviderUserPoolConfig) *string {
 		if v == nil {
@@ -5560,7 +5234,6 @@ func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput) AwsRe
 	}).(pulumi.StringPtrOutput)
 }
 
-// User pool ID.
 func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput) UserPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiAdditionalAuthenticationProviderUserPoolConfig) *string {
 		if v == nil {
@@ -5571,12 +5244,9 @@ func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput) UserP
 }
 
 type GraphQLApiEnhancedMetricsConfig struct {
-	// How data source metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_DATA_SOURCE_METRICS`, `PER_DATA_SOURCE_METRICS`
 	DataSourceLevelMetricsBehavior string `pulumi:"dataSourceLevelMetricsBehavior"`
-	// How operation metrics will be emitted to CloudWatch. Valid values: `ENABLED`, `DISABLED`
-	OperationLevelMetricsConfig string `pulumi:"operationLevelMetricsConfig"`
-	// How resolver metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_RESOLVER_METRICS`, `PER_RESOLVER_METRICS`
-	ResolverLevelMetricsBehavior string `pulumi:"resolverLevelMetricsBehavior"`
+	OperationLevelMetricsConfig    string `pulumi:"operationLevelMetricsConfig"`
+	ResolverLevelMetricsBehavior   string `pulumi:"resolverLevelMetricsBehavior"`
 }
 
 // GraphQLApiEnhancedMetricsConfigInput is an input type that accepts GraphQLApiEnhancedMetricsConfigArgs and GraphQLApiEnhancedMetricsConfigOutput values.
@@ -5591,12 +5261,9 @@ type GraphQLApiEnhancedMetricsConfigInput interface {
 }
 
 type GraphQLApiEnhancedMetricsConfigArgs struct {
-	// How data source metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_DATA_SOURCE_METRICS`, `PER_DATA_SOURCE_METRICS`
 	DataSourceLevelMetricsBehavior pulumi.StringInput `pulumi:"dataSourceLevelMetricsBehavior"`
-	// How operation metrics will be emitted to CloudWatch. Valid values: `ENABLED`, `DISABLED`
-	OperationLevelMetricsConfig pulumi.StringInput `pulumi:"operationLevelMetricsConfig"`
-	// How resolver metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_RESOLVER_METRICS`, `PER_RESOLVER_METRICS`
-	ResolverLevelMetricsBehavior pulumi.StringInput `pulumi:"resolverLevelMetricsBehavior"`
+	OperationLevelMetricsConfig    pulumi.StringInput `pulumi:"operationLevelMetricsConfig"`
+	ResolverLevelMetricsBehavior   pulumi.StringInput `pulumi:"resolverLevelMetricsBehavior"`
 }
 
 func (GraphQLApiEnhancedMetricsConfigArgs) ElementType() reflect.Type {
@@ -5676,17 +5343,14 @@ func (o GraphQLApiEnhancedMetricsConfigOutput) ToGraphQLApiEnhancedMetricsConfig
 	}).(GraphQLApiEnhancedMetricsConfigPtrOutput)
 }
 
-// How data source metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_DATA_SOURCE_METRICS`, `PER_DATA_SOURCE_METRICS`
 func (o GraphQLApiEnhancedMetricsConfigOutput) DataSourceLevelMetricsBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphQLApiEnhancedMetricsConfig) string { return v.DataSourceLevelMetricsBehavior }).(pulumi.StringOutput)
 }
 
-// How operation metrics will be emitted to CloudWatch. Valid values: `ENABLED`, `DISABLED`
 func (o GraphQLApiEnhancedMetricsConfigOutput) OperationLevelMetricsConfig() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphQLApiEnhancedMetricsConfig) string { return v.OperationLevelMetricsConfig }).(pulumi.StringOutput)
 }
 
-// How resolver metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_RESOLVER_METRICS`, `PER_RESOLVER_METRICS`
 func (o GraphQLApiEnhancedMetricsConfigOutput) ResolverLevelMetricsBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphQLApiEnhancedMetricsConfig) string { return v.ResolverLevelMetricsBehavior }).(pulumi.StringOutput)
 }
@@ -5715,7 +5379,6 @@ func (o GraphQLApiEnhancedMetricsConfigPtrOutput) Elem() GraphQLApiEnhancedMetri
 	}).(GraphQLApiEnhancedMetricsConfigOutput)
 }
 
-// How data source metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_DATA_SOURCE_METRICS`, `PER_DATA_SOURCE_METRICS`
 func (o GraphQLApiEnhancedMetricsConfigPtrOutput) DataSourceLevelMetricsBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiEnhancedMetricsConfig) *string {
 		if v == nil {
@@ -5725,7 +5388,6 @@ func (o GraphQLApiEnhancedMetricsConfigPtrOutput) DataSourceLevelMetricsBehavior
 	}).(pulumi.StringPtrOutput)
 }
 
-// How operation metrics will be emitted to CloudWatch. Valid values: `ENABLED`, `DISABLED`
 func (o GraphQLApiEnhancedMetricsConfigPtrOutput) OperationLevelMetricsConfig() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiEnhancedMetricsConfig) *string {
 		if v == nil {
@@ -5735,7 +5397,6 @@ func (o GraphQLApiEnhancedMetricsConfigPtrOutput) OperationLevelMetricsConfig() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// How resolver metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_RESOLVER_METRICS`, `PER_RESOLVER_METRICS`
 func (o GraphQLApiEnhancedMetricsConfigPtrOutput) ResolverLevelMetricsBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiEnhancedMetricsConfig) *string {
 		if v == nil {
@@ -5746,11 +5407,8 @@ func (o GraphQLApiEnhancedMetricsConfigPtrOutput) ResolverLevelMetricsBehavior()
 }
 
 type GraphQLApiLambdaAuthorizerConfig struct {
-	// Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
-	AuthorizerResultTtlInSeconds *int `pulumi:"authorizerResultTtlInSeconds"`
-	// ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
-	AuthorizerUri string `pulumi:"authorizerUri"`
-	// Regular expression for validation of tokens before the Lambda function is called.
+	AuthorizerResultTtlInSeconds *int    `pulumi:"authorizerResultTtlInSeconds"`
+	AuthorizerUri                string  `pulumi:"authorizerUri"`
 	IdentityValidationExpression *string `pulumi:"identityValidationExpression"`
 }
 
@@ -5766,11 +5424,8 @@ type GraphQLApiLambdaAuthorizerConfigInput interface {
 }
 
 type GraphQLApiLambdaAuthorizerConfigArgs struct {
-	// Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
-	AuthorizerResultTtlInSeconds pulumi.IntPtrInput `pulumi:"authorizerResultTtlInSeconds"`
-	// ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
-	AuthorizerUri pulumi.StringInput `pulumi:"authorizerUri"`
-	// Regular expression for validation of tokens before the Lambda function is called.
+	AuthorizerResultTtlInSeconds pulumi.IntPtrInput    `pulumi:"authorizerResultTtlInSeconds"`
+	AuthorizerUri                pulumi.StringInput    `pulumi:"authorizerUri"`
 	IdentityValidationExpression pulumi.StringPtrInput `pulumi:"identityValidationExpression"`
 }
 
@@ -5851,17 +5506,14 @@ func (o GraphQLApiLambdaAuthorizerConfigOutput) ToGraphQLApiLambdaAuthorizerConf
 	}).(GraphQLApiLambdaAuthorizerConfigPtrOutput)
 }
 
-// Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
 func (o GraphQLApiLambdaAuthorizerConfigOutput) AuthorizerResultTtlInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GraphQLApiLambdaAuthorizerConfig) *int { return v.AuthorizerResultTtlInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
 func (o GraphQLApiLambdaAuthorizerConfigOutput) AuthorizerUri() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphQLApiLambdaAuthorizerConfig) string { return v.AuthorizerUri }).(pulumi.StringOutput)
 }
 
-// Regular expression for validation of tokens before the Lambda function is called.
 func (o GraphQLApiLambdaAuthorizerConfigOutput) IdentityValidationExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphQLApiLambdaAuthorizerConfig) *string { return v.IdentityValidationExpression }).(pulumi.StringPtrOutput)
 }
@@ -5890,7 +5542,6 @@ func (o GraphQLApiLambdaAuthorizerConfigPtrOutput) Elem() GraphQLApiLambdaAuthor
 	}).(GraphQLApiLambdaAuthorizerConfigOutput)
 }
 
-// Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
 func (o GraphQLApiLambdaAuthorizerConfigPtrOutput) AuthorizerResultTtlInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiLambdaAuthorizerConfig) *int {
 		if v == nil {
@@ -5900,7 +5551,6 @@ func (o GraphQLApiLambdaAuthorizerConfigPtrOutput) AuthorizerResultTtlInSeconds(
 	}).(pulumi.IntPtrOutput)
 }
 
-// ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
 func (o GraphQLApiLambdaAuthorizerConfigPtrOutput) AuthorizerUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiLambdaAuthorizerConfig) *string {
 		if v == nil {
@@ -5910,7 +5560,6 @@ func (o GraphQLApiLambdaAuthorizerConfigPtrOutput) AuthorizerUri() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Regular expression for validation of tokens before the Lambda function is called.
 func (o GraphQLApiLambdaAuthorizerConfigPtrOutput) IdentityValidationExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiLambdaAuthorizerConfig) *string {
 		if v == nil {
@@ -5921,12 +5570,9 @@ func (o GraphQLApiLambdaAuthorizerConfigPtrOutput) IdentityValidationExpression(
 }
 
 type GraphQLApiLogConfig struct {
-	// Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
 	CloudwatchLogsRoleArn string `pulumi:"cloudwatchLogsRoleArn"`
-	// Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging  level. Valid values: `true`, `false`. Default value: `false`
-	ExcludeVerboseContent *bool `pulumi:"excludeVerboseContent"`
-	// Field logging level. Valid values: `ALL`, `ERROR`, `NONE`.
-	FieldLogLevel string `pulumi:"fieldLogLevel"`
+	ExcludeVerboseContent *bool  `pulumi:"excludeVerboseContent"`
+	FieldLogLevel         string `pulumi:"fieldLogLevel"`
 }
 
 // GraphQLApiLogConfigInput is an input type that accepts GraphQLApiLogConfigArgs and GraphQLApiLogConfigOutput values.
@@ -5941,12 +5587,9 @@ type GraphQLApiLogConfigInput interface {
 }
 
 type GraphQLApiLogConfigArgs struct {
-	// Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
-	CloudwatchLogsRoleArn pulumi.StringInput `pulumi:"cloudwatchLogsRoleArn"`
-	// Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging  level. Valid values: `true`, `false`. Default value: `false`
+	CloudwatchLogsRoleArn pulumi.StringInput  `pulumi:"cloudwatchLogsRoleArn"`
 	ExcludeVerboseContent pulumi.BoolPtrInput `pulumi:"excludeVerboseContent"`
-	// Field logging level. Valid values: `ALL`, `ERROR`, `NONE`.
-	FieldLogLevel pulumi.StringInput `pulumi:"fieldLogLevel"`
+	FieldLogLevel         pulumi.StringInput  `pulumi:"fieldLogLevel"`
 }
 
 func (GraphQLApiLogConfigArgs) ElementType() reflect.Type {
@@ -6026,17 +5669,14 @@ func (o GraphQLApiLogConfigOutput) ToGraphQLApiLogConfigPtrOutputWithContext(ctx
 	}).(GraphQLApiLogConfigPtrOutput)
 }
 
-// Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
 func (o GraphQLApiLogConfigOutput) CloudwatchLogsRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphQLApiLogConfig) string { return v.CloudwatchLogsRoleArn }).(pulumi.StringOutput)
 }
 
-// Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging  level. Valid values: `true`, `false`. Default value: `false`
 func (o GraphQLApiLogConfigOutput) ExcludeVerboseContent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GraphQLApiLogConfig) *bool { return v.ExcludeVerboseContent }).(pulumi.BoolPtrOutput)
 }
 
-// Field logging level. Valid values: `ALL`, `ERROR`, `NONE`.
 func (o GraphQLApiLogConfigOutput) FieldLogLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphQLApiLogConfig) string { return v.FieldLogLevel }).(pulumi.StringOutput)
 }
@@ -6065,7 +5705,6 @@ func (o GraphQLApiLogConfigPtrOutput) Elem() GraphQLApiLogConfigOutput {
 	}).(GraphQLApiLogConfigOutput)
 }
 
-// Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
 func (o GraphQLApiLogConfigPtrOutput) CloudwatchLogsRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiLogConfig) *string {
 		if v == nil {
@@ -6075,7 +5714,6 @@ func (o GraphQLApiLogConfigPtrOutput) CloudwatchLogsRoleArn() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging  level. Valid values: `true`, `false`. Default value: `false`
 func (o GraphQLApiLogConfigPtrOutput) ExcludeVerboseContent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiLogConfig) *bool {
 		if v == nil {
@@ -6085,7 +5723,6 @@ func (o GraphQLApiLogConfigPtrOutput) ExcludeVerboseContent() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Field logging level. Valid values: `ALL`, `ERROR`, `NONE`.
 func (o GraphQLApiLogConfigPtrOutput) FieldLogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiLogConfig) *string {
 		if v == nil {
@@ -6096,14 +5733,10 @@ func (o GraphQLApiLogConfigPtrOutput) FieldLogLevel() pulumi.StringPtrOutput {
 }
 
 type GraphQLApiOpenidConnectConfig struct {
-	// Number of milliseconds a token is valid after being authenticated.
-	AuthTtl *int `pulumi:"authTtl"`
-	// Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
+	AuthTtl  *int    `pulumi:"authTtl"`
 	ClientId *string `pulumi:"clientId"`
-	// Number of milliseconds a token is valid after being issued to a user.
-	IatTtl *int `pulumi:"iatTtl"`
-	// Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
-	Issuer string `pulumi:"issuer"`
+	IatTtl   *int    `pulumi:"iatTtl"`
+	Issuer   string  `pulumi:"issuer"`
 }
 
 // GraphQLApiOpenidConnectConfigInput is an input type that accepts GraphQLApiOpenidConnectConfigArgs and GraphQLApiOpenidConnectConfigOutput values.
@@ -6118,14 +5751,10 @@ type GraphQLApiOpenidConnectConfigInput interface {
 }
 
 type GraphQLApiOpenidConnectConfigArgs struct {
-	// Number of milliseconds a token is valid after being authenticated.
-	AuthTtl pulumi.IntPtrInput `pulumi:"authTtl"`
-	// Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
+	AuthTtl  pulumi.IntPtrInput    `pulumi:"authTtl"`
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// Number of milliseconds a token is valid after being issued to a user.
-	IatTtl pulumi.IntPtrInput `pulumi:"iatTtl"`
-	// Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
-	Issuer pulumi.StringInput `pulumi:"issuer"`
+	IatTtl   pulumi.IntPtrInput    `pulumi:"iatTtl"`
+	Issuer   pulumi.StringInput    `pulumi:"issuer"`
 }
 
 func (GraphQLApiOpenidConnectConfigArgs) ElementType() reflect.Type {
@@ -6205,22 +5834,18 @@ func (o GraphQLApiOpenidConnectConfigOutput) ToGraphQLApiOpenidConnectConfigPtrO
 	}).(GraphQLApiOpenidConnectConfigPtrOutput)
 }
 
-// Number of milliseconds a token is valid after being authenticated.
 func (o GraphQLApiOpenidConnectConfigOutput) AuthTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GraphQLApiOpenidConnectConfig) *int { return v.AuthTtl }).(pulumi.IntPtrOutput)
 }
 
-// Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
 func (o GraphQLApiOpenidConnectConfigOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphQLApiOpenidConnectConfig) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// Number of milliseconds a token is valid after being issued to a user.
 func (o GraphQLApiOpenidConnectConfigOutput) IatTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GraphQLApiOpenidConnectConfig) *int { return v.IatTtl }).(pulumi.IntPtrOutput)
 }
 
-// Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
 func (o GraphQLApiOpenidConnectConfigOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphQLApiOpenidConnectConfig) string { return v.Issuer }).(pulumi.StringOutput)
 }
@@ -6249,7 +5874,6 @@ func (o GraphQLApiOpenidConnectConfigPtrOutput) Elem() GraphQLApiOpenidConnectCo
 	}).(GraphQLApiOpenidConnectConfigOutput)
 }
 
-// Number of milliseconds a token is valid after being authenticated.
 func (o GraphQLApiOpenidConnectConfigPtrOutput) AuthTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiOpenidConnectConfig) *int {
 		if v == nil {
@@ -6259,7 +5883,6 @@ func (o GraphQLApiOpenidConnectConfigPtrOutput) AuthTtl() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
 func (o GraphQLApiOpenidConnectConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiOpenidConnectConfig) *string {
 		if v == nil {
@@ -6269,7 +5892,6 @@ func (o GraphQLApiOpenidConnectConfigPtrOutput) ClientId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of milliseconds a token is valid after being issued to a user.
 func (o GraphQLApiOpenidConnectConfigPtrOutput) IatTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiOpenidConnectConfig) *int {
 		if v == nil {
@@ -6279,7 +5901,6 @@ func (o GraphQLApiOpenidConnectConfigPtrOutput) IatTtl() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
 func (o GraphQLApiOpenidConnectConfigPtrOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiOpenidConnectConfig) *string {
 		if v == nil {
@@ -6290,14 +5911,10 @@ func (o GraphQLApiOpenidConnectConfigPtrOutput) Issuer() pulumi.StringPtrOutput 
 }
 
 type GraphQLApiUserPoolConfig struct {
-	// Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
 	AppIdClientRegex *string `pulumi:"appIdClientRegex"`
-	// AWS region in which the user pool was created.
-	AwsRegion *string `pulumi:"awsRegion"`
-	// Action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
-	DefaultAction string `pulumi:"defaultAction"`
-	// User pool ID.
-	UserPoolId string `pulumi:"userPoolId"`
+	AwsRegion        *string `pulumi:"awsRegion"`
+	DefaultAction    string  `pulumi:"defaultAction"`
+	UserPoolId       string  `pulumi:"userPoolId"`
 }
 
 // GraphQLApiUserPoolConfigInput is an input type that accepts GraphQLApiUserPoolConfigArgs and GraphQLApiUserPoolConfigOutput values.
@@ -6312,14 +5929,10 @@ type GraphQLApiUserPoolConfigInput interface {
 }
 
 type GraphQLApiUserPoolConfigArgs struct {
-	// Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
 	AppIdClientRegex pulumi.StringPtrInput `pulumi:"appIdClientRegex"`
-	// AWS region in which the user pool was created.
-	AwsRegion pulumi.StringPtrInput `pulumi:"awsRegion"`
-	// Action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
-	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
-	// User pool ID.
-	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
+	AwsRegion        pulumi.StringPtrInput `pulumi:"awsRegion"`
+	DefaultAction    pulumi.StringInput    `pulumi:"defaultAction"`
+	UserPoolId       pulumi.StringInput    `pulumi:"userPoolId"`
 }
 
 func (GraphQLApiUserPoolConfigArgs) ElementType() reflect.Type {
@@ -6399,22 +6012,18 @@ func (o GraphQLApiUserPoolConfigOutput) ToGraphQLApiUserPoolConfigPtrOutputWithC
 	}).(GraphQLApiUserPoolConfigPtrOutput)
 }
 
-// Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
 func (o GraphQLApiUserPoolConfigOutput) AppIdClientRegex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphQLApiUserPoolConfig) *string { return v.AppIdClientRegex }).(pulumi.StringPtrOutput)
 }
 
-// AWS region in which the user pool was created.
 func (o GraphQLApiUserPoolConfigOutput) AwsRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphQLApiUserPoolConfig) *string { return v.AwsRegion }).(pulumi.StringPtrOutput)
 }
 
-// Action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
 func (o GraphQLApiUserPoolConfigOutput) DefaultAction() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphQLApiUserPoolConfig) string { return v.DefaultAction }).(pulumi.StringOutput)
 }
 
-// User pool ID.
 func (o GraphQLApiUserPoolConfigOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphQLApiUserPoolConfig) string { return v.UserPoolId }).(pulumi.StringOutput)
 }
@@ -6443,7 +6052,6 @@ func (o GraphQLApiUserPoolConfigPtrOutput) Elem() GraphQLApiUserPoolConfigOutput
 	}).(GraphQLApiUserPoolConfigOutput)
 }
 
-// Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
 func (o GraphQLApiUserPoolConfigPtrOutput) AppIdClientRegex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiUserPoolConfig) *string {
 		if v == nil {
@@ -6453,7 +6061,6 @@ func (o GraphQLApiUserPoolConfigPtrOutput) AppIdClientRegex() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// AWS region in which the user pool was created.
 func (o GraphQLApiUserPoolConfigPtrOutput) AwsRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiUserPoolConfig) *string {
 		if v == nil {
@@ -6463,7 +6070,6 @@ func (o GraphQLApiUserPoolConfigPtrOutput) AwsRegion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
 func (o GraphQLApiUserPoolConfigPtrOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiUserPoolConfig) *string {
 		if v == nil {
@@ -6473,7 +6079,6 @@ func (o GraphQLApiUserPoolConfigPtrOutput) DefaultAction() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// User pool ID.
 func (o GraphQLApiUserPoolConfigPtrOutput) UserPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApiUserPoolConfig) *string {
 		if v == nil {
@@ -6484,10 +6089,8 @@ func (o GraphQLApiUserPoolConfigPtrOutput) UserPoolId() pulumi.StringPtrOutput {
 }
 
 type ResolverCachingConfig struct {
-	// The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
 	CachingKeys []string `pulumi:"cachingKeys"`
-	// The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
-	Ttl *int `pulumi:"ttl"`
+	Ttl         *int     `pulumi:"ttl"`
 }
 
 // ResolverCachingConfigInput is an input type that accepts ResolverCachingConfigArgs and ResolverCachingConfigOutput values.
@@ -6502,10 +6105,8 @@ type ResolverCachingConfigInput interface {
 }
 
 type ResolverCachingConfigArgs struct {
-	// The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
 	CachingKeys pulumi.StringArrayInput `pulumi:"cachingKeys"`
-	// The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
-	Ttl pulumi.IntPtrInput `pulumi:"ttl"`
+	Ttl         pulumi.IntPtrInput      `pulumi:"ttl"`
 }
 
 func (ResolverCachingConfigArgs) ElementType() reflect.Type {
@@ -6585,12 +6186,10 @@ func (o ResolverCachingConfigOutput) ToResolverCachingConfigPtrOutputWithContext
 	}).(ResolverCachingConfigPtrOutput)
 }
 
-// The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
 func (o ResolverCachingConfigOutput) CachingKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResolverCachingConfig) []string { return v.CachingKeys }).(pulumi.StringArrayOutput)
 }
 
-// The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
 func (o ResolverCachingConfigOutput) Ttl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResolverCachingConfig) *int { return v.Ttl }).(pulumi.IntPtrOutput)
 }
@@ -6619,7 +6218,6 @@ func (o ResolverCachingConfigPtrOutput) Elem() ResolverCachingConfigOutput {
 	}).(ResolverCachingConfigOutput)
 }
 
-// The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
 func (o ResolverCachingConfigPtrOutput) CachingKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResolverCachingConfig) []string {
 		if v == nil {
@@ -6629,7 +6227,6 @@ func (o ResolverCachingConfigPtrOutput) CachingKeys() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
 func (o ResolverCachingConfigPtrOutput) Ttl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResolverCachingConfig) *int {
 		if v == nil {
@@ -6640,7 +6237,6 @@ func (o ResolverCachingConfigPtrOutput) Ttl() pulumi.IntPtrOutput {
 }
 
 type ResolverPipelineConfig struct {
-	// A list of Function objects.
 	Functions []string `pulumi:"functions"`
 }
 
@@ -6656,7 +6252,6 @@ type ResolverPipelineConfigInput interface {
 }
 
 type ResolverPipelineConfigArgs struct {
-	// A list of Function objects.
 	Functions pulumi.StringArrayInput `pulumi:"functions"`
 }
 
@@ -6737,7 +6332,6 @@ func (o ResolverPipelineConfigOutput) ToResolverPipelineConfigPtrOutputWithConte
 	}).(ResolverPipelineConfigPtrOutput)
 }
 
-// A list of Function objects.
 func (o ResolverPipelineConfigOutput) Functions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResolverPipelineConfig) []string { return v.Functions }).(pulumi.StringArrayOutput)
 }
@@ -6766,7 +6360,6 @@ func (o ResolverPipelineConfigPtrOutput) Elem() ResolverPipelineConfigOutput {
 	}).(ResolverPipelineConfigOutput)
 }
 
-// A list of Function objects.
 func (o ResolverPipelineConfigPtrOutput) Functions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResolverPipelineConfig) []string {
 		if v == nil {
@@ -6777,9 +6370,7 @@ func (o ResolverPipelineConfigPtrOutput) Functions() pulumi.StringArrayOutput {
 }
 
 type ResolverRuntime struct {
-	// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
-	Name string `pulumi:"name"`
-	// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+	Name           string `pulumi:"name"`
 	RuntimeVersion string `pulumi:"runtimeVersion"`
 }
 
@@ -6795,9 +6386,7 @@ type ResolverRuntimeInput interface {
 }
 
 type ResolverRuntimeArgs struct {
-	// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+	Name           pulumi.StringInput `pulumi:"name"`
 	RuntimeVersion pulumi.StringInput `pulumi:"runtimeVersion"`
 }
 
@@ -6878,12 +6467,10 @@ func (o ResolverRuntimeOutput) ToResolverRuntimePtrOutputWithContext(ctx context
 	}).(ResolverRuntimePtrOutput)
 }
 
-// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
 func (o ResolverRuntimeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResolverRuntime) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
 func (o ResolverRuntimeOutput) RuntimeVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v ResolverRuntime) string { return v.RuntimeVersion }).(pulumi.StringOutput)
 }
@@ -6912,7 +6499,6 @@ func (o ResolverRuntimePtrOutput) Elem() ResolverRuntimeOutput {
 	}).(ResolverRuntimeOutput)
 }
 
-// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
 func (o ResolverRuntimePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverRuntime) *string {
 		if v == nil {
@@ -6922,7 +6508,6 @@ func (o ResolverRuntimePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
 func (o ResolverRuntimePtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverRuntime) *string {
 		if v == nil {
@@ -6933,11 +6518,8 @@ func (o ResolverRuntimePtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
 }
 
 type ResolverSyncConfig struct {
-	// Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
-	ConflictDetection *string `pulumi:"conflictDetection"`
-	// Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
-	ConflictHandler *string `pulumi:"conflictHandler"`
-	// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+	ConflictDetection           *string                                        `pulumi:"conflictDetection"`
+	ConflictHandler             *string                                        `pulumi:"conflictHandler"`
 	LambdaConflictHandlerConfig *ResolverSyncConfigLambdaConflictHandlerConfig `pulumi:"lambdaConflictHandlerConfig"`
 }
 
@@ -6953,11 +6535,8 @@ type ResolverSyncConfigInput interface {
 }
 
 type ResolverSyncConfigArgs struct {
-	// Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
-	ConflictDetection pulumi.StringPtrInput `pulumi:"conflictDetection"`
-	// Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
-	ConflictHandler pulumi.StringPtrInput `pulumi:"conflictHandler"`
-	// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+	ConflictDetection           pulumi.StringPtrInput                                 `pulumi:"conflictDetection"`
+	ConflictHandler             pulumi.StringPtrInput                                 `pulumi:"conflictHandler"`
 	LambdaConflictHandlerConfig ResolverSyncConfigLambdaConflictHandlerConfigPtrInput `pulumi:"lambdaConflictHandlerConfig"`
 }
 
@@ -7038,17 +6617,14 @@ func (o ResolverSyncConfigOutput) ToResolverSyncConfigPtrOutputWithContext(ctx c
 	}).(ResolverSyncConfigPtrOutput)
 }
 
-// Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
 func (o ResolverSyncConfigOutput) ConflictDetection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResolverSyncConfig) *string { return v.ConflictDetection }).(pulumi.StringPtrOutput)
 }
 
-// Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
 func (o ResolverSyncConfigOutput) ConflictHandler() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResolverSyncConfig) *string { return v.ConflictHandler }).(pulumi.StringPtrOutput)
 }
 
-// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
 func (o ResolverSyncConfigOutput) LambdaConflictHandlerConfig() ResolverSyncConfigLambdaConflictHandlerConfigPtrOutput {
 	return o.ApplyT(func(v ResolverSyncConfig) *ResolverSyncConfigLambdaConflictHandlerConfig {
 		return v.LambdaConflictHandlerConfig
@@ -7079,7 +6655,6 @@ func (o ResolverSyncConfigPtrOutput) Elem() ResolverSyncConfigOutput {
 	}).(ResolverSyncConfigOutput)
 }
 
-// Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
 func (o ResolverSyncConfigPtrOutput) ConflictDetection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverSyncConfig) *string {
 		if v == nil {
@@ -7089,7 +6664,6 @@ func (o ResolverSyncConfigPtrOutput) ConflictDetection() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
 func (o ResolverSyncConfigPtrOutput) ConflictHandler() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverSyncConfig) *string {
 		if v == nil {
@@ -7099,7 +6673,6 @@ func (o ResolverSyncConfigPtrOutput) ConflictHandler() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
 func (o ResolverSyncConfigPtrOutput) LambdaConflictHandlerConfig() ResolverSyncConfigLambdaConflictHandlerConfigPtrOutput {
 	return o.ApplyT(func(v *ResolverSyncConfig) *ResolverSyncConfigLambdaConflictHandlerConfig {
 		if v == nil {
@@ -7110,7 +6683,6 @@ func (o ResolverSyncConfigPtrOutput) LambdaConflictHandlerConfig() ResolverSyncC
 }
 
 type ResolverSyncConfigLambdaConflictHandlerConfig struct {
-	// ARN for the Lambda function to use as the Conflict Handler.
 	LambdaConflictHandlerArn *string `pulumi:"lambdaConflictHandlerArn"`
 }
 
@@ -7126,7 +6698,6 @@ type ResolverSyncConfigLambdaConflictHandlerConfigInput interface {
 }
 
 type ResolverSyncConfigLambdaConflictHandlerConfigArgs struct {
-	// ARN for the Lambda function to use as the Conflict Handler.
 	LambdaConflictHandlerArn pulumi.StringPtrInput `pulumi:"lambdaConflictHandlerArn"`
 }
 
@@ -7207,7 +6778,6 @@ func (o ResolverSyncConfigLambdaConflictHandlerConfigOutput) ToResolverSyncConfi
 	}).(ResolverSyncConfigLambdaConflictHandlerConfigPtrOutput)
 }
 
-// ARN for the Lambda function to use as the Conflict Handler.
 func (o ResolverSyncConfigLambdaConflictHandlerConfigOutput) LambdaConflictHandlerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResolverSyncConfigLambdaConflictHandlerConfig) *string { return v.LambdaConflictHandlerArn }).(pulumi.StringPtrOutput)
 }
@@ -7236,7 +6806,6 @@ func (o ResolverSyncConfigLambdaConflictHandlerConfigPtrOutput) Elem() ResolverS
 	}).(ResolverSyncConfigLambdaConflictHandlerConfigOutput)
 }
 
-// ARN for the Lambda function to use as the Conflict Handler.
 func (o ResolverSyncConfigLambdaConflictHandlerConfigPtrOutput) LambdaConflictHandlerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverSyncConfigLambdaConflictHandlerConfig) *string {
 		if v == nil {
@@ -7247,7 +6816,6 @@ func (o ResolverSyncConfigLambdaConflictHandlerConfigPtrOutput) LambdaConflictHa
 }
 
 type SourceApiAssociationSourceApiAssociationConfig struct {
-	// Merge type. Valid values: `MANUAL_MERGE`, `AUTO_MERGE`
 	MergeType string `pulumi:"mergeType"`
 }
 
@@ -7263,7 +6831,6 @@ type SourceApiAssociationSourceApiAssociationConfigInput interface {
 }
 
 type SourceApiAssociationSourceApiAssociationConfigArgs struct {
-	// Merge type. Valid values: `MANUAL_MERGE`, `AUTO_MERGE`
 	MergeType pulumi.StringInput `pulumi:"mergeType"`
 }
 
@@ -7318,7 +6885,6 @@ func (o SourceApiAssociationSourceApiAssociationConfigOutput) ToSourceApiAssocia
 	return o
 }
 
-// Merge type. Valid values: `MANUAL_MERGE`, `AUTO_MERGE`
 func (o SourceApiAssociationSourceApiAssociationConfigOutput) MergeType() pulumi.StringOutput {
 	return o.ApplyT(func(v SourceApiAssociationSourceApiAssociationConfig) string { return v.MergeType }).(pulumi.StringOutput)
 }

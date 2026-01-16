@@ -29,14 +29,6 @@ class BucketNotificationArgs:
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]] = None):
         """
         The set of arguments for constructing a BucketNotification resource.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket for notification configuration.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] eventbridge: Whether to enable Amazon EventBridge notifications. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]] lambda_functions: Used to configure notifications to a Lambda Function. See below.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]] queues: Notification configuration to SQS Queue. See below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]] topics: Notification configuration to SNS Topic. See below.
         """
         pulumi.set(__self__, "bucket", bucket)
         if eventbridge is not None:
@@ -53,11 +45,6 @@ class BucketNotificationArgs:
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the bucket for notification configuration.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -67,9 +54,6 @@ class BucketNotificationArgs:
     @_builtins.property
     @pulumi.getter
     def eventbridge(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable Amazon EventBridge notifications. Defaults to `false`.
-        """
         return pulumi.get(self, "eventbridge")
 
     @eventbridge.setter
@@ -79,9 +63,6 @@ class BucketNotificationArgs:
     @_builtins.property
     @pulumi.getter(name="lambdaFunctions")
     def lambda_functions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]]]:
-        """
-        Used to configure notifications to a Lambda Function. See below.
-        """
         return pulumi.get(self, "lambda_functions")
 
     @lambda_functions.setter
@@ -91,9 +72,6 @@ class BucketNotificationArgs:
     @_builtins.property
     @pulumi.getter
     def queues(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]]]:
-        """
-        Notification configuration to SQS Queue. See below.
-        """
         return pulumi.get(self, "queues")
 
     @queues.setter
@@ -103,9 +81,6 @@ class BucketNotificationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -115,9 +90,6 @@ class BucketNotificationArgs:
     @_builtins.property
     @pulumi.getter
     def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]]:
-        """
-        Notification configuration to SNS Topic. See below.
-        """
         return pulumi.get(self, "topics")
 
     @topics.setter
@@ -136,14 +108,6 @@ class _BucketNotificationState:
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]] = None):
         """
         Input properties used for looking up and filtering BucketNotification resources.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket for notification configuration.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] eventbridge: Whether to enable Amazon EventBridge notifications. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]] lambda_functions: Used to configure notifications to a Lambda Function. See below.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]] queues: Notification configuration to SQS Queue. See below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]] topics: Notification configuration to SNS Topic. See below.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -161,11 +125,6 @@ class _BucketNotificationState:
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the bucket for notification configuration.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -175,9 +134,6 @@ class _BucketNotificationState:
     @_builtins.property
     @pulumi.getter
     def eventbridge(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable Amazon EventBridge notifications. Defaults to `false`.
-        """
         return pulumi.get(self, "eventbridge")
 
     @eventbridge.setter
@@ -187,9 +143,6 @@ class _BucketNotificationState:
     @_builtins.property
     @pulumi.getter(name="lambdaFunctions")
     def lambda_functions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]]]:
-        """
-        Used to configure notifications to a Lambda Function. See below.
-        """
         return pulumi.get(self, "lambda_functions")
 
     @lambda_functions.setter
@@ -199,9 +152,6 @@ class _BucketNotificationState:
     @_builtins.property
     @pulumi.getter
     def queues(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]]]:
-        """
-        Notification configuration to SQS Queue. See below.
-        """
         return pulumi.get(self, "queues")
 
     @queues.setter
@@ -211,9 +161,6 @@ class _BucketNotificationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -223,9 +170,6 @@ class _BucketNotificationState:
     @_builtins.property
     @pulumi.getter
     def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]]:
-        """
-        Notification configuration to SNS Topic. See below.
-        """
         return pulumi.get(self, "topics")
 
     @topics.setter
@@ -247,258 +191,9 @@ class BucketNotification(pulumi.CustomResource):
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketNotificationTopicArgs', 'BucketNotificationTopicArgsDict']]]]] = None,
                  __props__=None):
         """
-        Manages a S3 Bucket Notification Configuration. For additional information, see the [Configuring S3 Event Notifications section in the Amazon S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html).
-
-        > **NOTE:** S3 Buckets only support a single notification configuration resource. Declaring multiple `s3.BucketNotification` resources to the same S3 Bucket will cause a perpetual difference in configuration. This resource will overwrite any existing event notifications configured for the S3 bucket it's associated with. See the example "Trigger multiple Lambda functions" for an option of how to configure multiple triggers within this resource.
-
-        > This resource cannot be used with S3 directory buckets.
-
-        ## Example Usage
-
-        ### Add notification configuration to SNS Topic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket = aws.s3.Bucket("bucket", bucket="your-bucket-name")
-        topic = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["s3.amazonaws.com"],
-            }],
-            "actions": ["SNS:Publish"],
-            "resources": ["arn:aws:sns:*:*:s3-event-notification-topic"],
-            "conditions": [{
-                "test": "ArnLike",
-                "variable": "aws:SourceArn",
-                "values": [bucket.arn],
-            }],
-        }])
-        topic_topic = aws.sns.Topic("topic",
-            name="s3-event-notification-topic",
-            policy=topic.json)
-        bucket_notification = aws.s3.BucketNotification("bucket_notification",
-            bucket=bucket.id,
-            topics=[{
-                "topic_arn": topic_topic.arn,
-                "events": ["s3:ObjectCreated:*"],
-                "filter_suffix": ".log",
-            }])
-        ```
-
-        ### Add notification configuration to SQS Queue
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket = aws.s3.Bucket("bucket", bucket="your-bucket-name")
-        queue = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "*",
-                "identifiers": ["*"],
-            }],
-            "actions": ["sqs:SendMessage"],
-            "resources": ["arn:aws:sqs:*:*:s3-event-notification-queue"],
-            "conditions": [{
-                "test": "ArnEquals",
-                "variable": "aws:SourceArn",
-                "values": [bucket.arn],
-            }],
-        }])
-        queue_queue = aws.sqs.Queue("queue",
-            name="s3-event-notification-queue",
-            policy=queue.json)
-        bucket_notification = aws.s3.BucketNotification("bucket_notification",
-            bucket=bucket.id,
-            queues=[{
-                "queue_arn": queue_queue.arn,
-                "events": ["s3:ObjectCreated:*"],
-                "filter_suffix": ".log",
-            }])
-        ```
-
-        ### Add notification configuration to Lambda Function
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["lambda.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        iam_for_lambda = aws.iam.Role("iam_for_lambda",
-            name="iam_for_lambda",
-            assume_role_policy=assume_role.json)
-        func = aws.lambda_.Function("func",
-            code=pulumi.FileArchive("your-function.zip"),
-            name="example_lambda_name",
-            role=iam_for_lambda.arn,
-            handler="exports.example",
-            runtime=aws.lambda_.Runtime.NODE_JS20D_X)
-        bucket = aws.s3.Bucket("bucket", bucket="your-bucket-name")
-        allow_bucket = aws.lambda_.Permission("allow_bucket",
-            statement_id="AllowExecutionFromS3Bucket",
-            action="lambda:InvokeFunction",
-            function=func.arn,
-            principal="s3.amazonaws.com",
-            source_arn=bucket.arn)
-        bucket_notification = aws.s3.BucketNotification("bucket_notification",
-            bucket=bucket.id,
-            lambda_functions=[{
-                "lambda_function_arn": func.arn,
-                "events": ["s3:ObjectCreated:*"],
-                "filter_prefix": "AWSLogs/",
-                "filter_suffix": ".log",
-            }],
-            opts = pulumi.ResourceOptions(depends_on=[allow_bucket]))
-        ```
-
-        ### Trigger multiple Lambda functions
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["lambda.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        iam_for_lambda = aws.iam.Role("iam_for_lambda",
-            name="iam_for_lambda",
-            assume_role_policy=assume_role.json)
-        func1 = aws.lambda_.Function("func1",
-            code=pulumi.FileArchive("your-function1.zip"),
-            name="example_lambda_name1",
-            role=iam_for_lambda.arn,
-            handler="exports.example",
-            runtime=aws.lambda_.Runtime.NODE_JS20D_X)
-        bucket = aws.s3.Bucket("bucket", bucket="your-bucket-name")
-        allow_bucket1 = aws.lambda_.Permission("allow_bucket1",
-            statement_id="AllowExecutionFromS3Bucket1",
-            action="lambda:InvokeFunction",
-            function=func1.arn,
-            principal="s3.amazonaws.com",
-            source_arn=bucket.arn)
-        func2 = aws.lambda_.Function("func2",
-            code=pulumi.FileArchive("your-function2.zip"),
-            name="example_lambda_name2",
-            role=iam_for_lambda.arn,
-            handler="exports.example")
-        allow_bucket2 = aws.lambda_.Permission("allow_bucket2",
-            statement_id="AllowExecutionFromS3Bucket2",
-            action="lambda:InvokeFunction",
-            function=func2.arn,
-            principal="s3.amazonaws.com",
-            source_arn=bucket.arn)
-        bucket_notification = aws.s3.BucketNotification("bucket_notification",
-            bucket=bucket.id,
-            lambda_functions=[
-                {
-                    "lambda_function_arn": func1.arn,
-                    "events": ["s3:ObjectCreated:*"],
-                    "filter_prefix": "AWSLogs/",
-                    "filter_suffix": ".log",
-                },
-                {
-                    "lambda_function_arn": func2.arn,
-                    "events": ["s3:ObjectCreated:*"],
-                    "filter_prefix": "OtherLogs/",
-                    "filter_suffix": ".log",
-                },
-            ],
-            opts = pulumi.ResourceOptions(depends_on=[
-                    allow_bucket1,
-                    allow_bucket2,
-                ]))
-        ```
-
-        ### Add multiple notification configurations to SQS Queue
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket = aws.s3.Bucket("bucket", bucket="your-bucket-name")
-        queue = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "*",
-                "identifiers": ["*"],
-            }],
-            "actions": ["sqs:SendMessage"],
-            "resources": ["arn:aws:sqs:*:*:s3-event-notification-queue"],
-            "conditions": [{
-                "test": "ArnEquals",
-                "variable": "aws:SourceArn",
-                "values": [bucket.arn],
-            }],
-        }])
-        queue_queue = aws.sqs.Queue("queue",
-            name="s3-event-notification-queue",
-            policy=queue.json)
-        bucket_notification = aws.s3.BucketNotification("bucket_notification",
-            bucket=bucket.id,
-            queues=[
-                {
-                    "id": "image-upload-event",
-                    "queue_arn": queue_queue.arn,
-                    "events": ["s3:ObjectCreated:*"],
-                    "filter_prefix": "images/",
-                },
-                {
-                    "id": "video-upload-event",
-                    "queue_arn": queue_queue.arn,
-                    "events": ["s3:ObjectCreated:*"],
-                    "filter_prefix": "videos/",
-                },
-            ])
-        ```
-
-        For JSON syntax, use an array instead of defining the `queue` key twice.
-
-        ### Emit events to EventBridge
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket = aws.s3.Bucket("bucket", bucket="your-bucket-name")
-        bucket_notification = aws.s3.BucketNotification("bucket_notification",
-            bucket=bucket.id,
-            eventbridge=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import S3 bucket notification using the `bucket`. For example:
-
-        ```sh
-        $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
-        ```
-
+        Create a BucketNotification resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket for notification configuration.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] eventbridge: Whether to enable Amazon EventBridge notifications. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketNotificationLambdaFunctionArgs', 'BucketNotificationLambdaFunctionArgsDict']]]] lambda_functions: Used to configure notifications to a Lambda Function. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketNotificationQueueArgs', 'BucketNotificationQueueArgsDict']]]] queues: Notification configuration to SQS Queue. See below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketNotificationTopicArgs', 'BucketNotificationTopicArgsDict']]]] topics: Notification configuration to SNS Topic. See below.
         """
         ...
     @overload
@@ -507,248 +202,7 @@ class BucketNotification(pulumi.CustomResource):
                  args: BucketNotificationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a S3 Bucket Notification Configuration. For additional information, see the [Configuring S3 Event Notifications section in the Amazon S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html).
-
-        > **NOTE:** S3 Buckets only support a single notification configuration resource. Declaring multiple `s3.BucketNotification` resources to the same S3 Bucket will cause a perpetual difference in configuration. This resource will overwrite any existing event notifications configured for the S3 bucket it's associated with. See the example "Trigger multiple Lambda functions" for an option of how to configure multiple triggers within this resource.
-
-        > This resource cannot be used with S3 directory buckets.
-
-        ## Example Usage
-
-        ### Add notification configuration to SNS Topic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket = aws.s3.Bucket("bucket", bucket="your-bucket-name")
-        topic = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["s3.amazonaws.com"],
-            }],
-            "actions": ["SNS:Publish"],
-            "resources": ["arn:aws:sns:*:*:s3-event-notification-topic"],
-            "conditions": [{
-                "test": "ArnLike",
-                "variable": "aws:SourceArn",
-                "values": [bucket.arn],
-            }],
-        }])
-        topic_topic = aws.sns.Topic("topic",
-            name="s3-event-notification-topic",
-            policy=topic.json)
-        bucket_notification = aws.s3.BucketNotification("bucket_notification",
-            bucket=bucket.id,
-            topics=[{
-                "topic_arn": topic_topic.arn,
-                "events": ["s3:ObjectCreated:*"],
-                "filter_suffix": ".log",
-            }])
-        ```
-
-        ### Add notification configuration to SQS Queue
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket = aws.s3.Bucket("bucket", bucket="your-bucket-name")
-        queue = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "*",
-                "identifiers": ["*"],
-            }],
-            "actions": ["sqs:SendMessage"],
-            "resources": ["arn:aws:sqs:*:*:s3-event-notification-queue"],
-            "conditions": [{
-                "test": "ArnEquals",
-                "variable": "aws:SourceArn",
-                "values": [bucket.arn],
-            }],
-        }])
-        queue_queue = aws.sqs.Queue("queue",
-            name="s3-event-notification-queue",
-            policy=queue.json)
-        bucket_notification = aws.s3.BucketNotification("bucket_notification",
-            bucket=bucket.id,
-            queues=[{
-                "queue_arn": queue_queue.arn,
-                "events": ["s3:ObjectCreated:*"],
-                "filter_suffix": ".log",
-            }])
-        ```
-
-        ### Add notification configuration to Lambda Function
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["lambda.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        iam_for_lambda = aws.iam.Role("iam_for_lambda",
-            name="iam_for_lambda",
-            assume_role_policy=assume_role.json)
-        func = aws.lambda_.Function("func",
-            code=pulumi.FileArchive("your-function.zip"),
-            name="example_lambda_name",
-            role=iam_for_lambda.arn,
-            handler="exports.example",
-            runtime=aws.lambda_.Runtime.NODE_JS20D_X)
-        bucket = aws.s3.Bucket("bucket", bucket="your-bucket-name")
-        allow_bucket = aws.lambda_.Permission("allow_bucket",
-            statement_id="AllowExecutionFromS3Bucket",
-            action="lambda:InvokeFunction",
-            function=func.arn,
-            principal="s3.amazonaws.com",
-            source_arn=bucket.arn)
-        bucket_notification = aws.s3.BucketNotification("bucket_notification",
-            bucket=bucket.id,
-            lambda_functions=[{
-                "lambda_function_arn": func.arn,
-                "events": ["s3:ObjectCreated:*"],
-                "filter_prefix": "AWSLogs/",
-                "filter_suffix": ".log",
-            }],
-            opts = pulumi.ResourceOptions(depends_on=[allow_bucket]))
-        ```
-
-        ### Trigger multiple Lambda functions
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["lambda.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        iam_for_lambda = aws.iam.Role("iam_for_lambda",
-            name="iam_for_lambda",
-            assume_role_policy=assume_role.json)
-        func1 = aws.lambda_.Function("func1",
-            code=pulumi.FileArchive("your-function1.zip"),
-            name="example_lambda_name1",
-            role=iam_for_lambda.arn,
-            handler="exports.example",
-            runtime=aws.lambda_.Runtime.NODE_JS20D_X)
-        bucket = aws.s3.Bucket("bucket", bucket="your-bucket-name")
-        allow_bucket1 = aws.lambda_.Permission("allow_bucket1",
-            statement_id="AllowExecutionFromS3Bucket1",
-            action="lambda:InvokeFunction",
-            function=func1.arn,
-            principal="s3.amazonaws.com",
-            source_arn=bucket.arn)
-        func2 = aws.lambda_.Function("func2",
-            code=pulumi.FileArchive("your-function2.zip"),
-            name="example_lambda_name2",
-            role=iam_for_lambda.arn,
-            handler="exports.example")
-        allow_bucket2 = aws.lambda_.Permission("allow_bucket2",
-            statement_id="AllowExecutionFromS3Bucket2",
-            action="lambda:InvokeFunction",
-            function=func2.arn,
-            principal="s3.amazonaws.com",
-            source_arn=bucket.arn)
-        bucket_notification = aws.s3.BucketNotification("bucket_notification",
-            bucket=bucket.id,
-            lambda_functions=[
-                {
-                    "lambda_function_arn": func1.arn,
-                    "events": ["s3:ObjectCreated:*"],
-                    "filter_prefix": "AWSLogs/",
-                    "filter_suffix": ".log",
-                },
-                {
-                    "lambda_function_arn": func2.arn,
-                    "events": ["s3:ObjectCreated:*"],
-                    "filter_prefix": "OtherLogs/",
-                    "filter_suffix": ".log",
-                },
-            ],
-            opts = pulumi.ResourceOptions(depends_on=[
-                    allow_bucket1,
-                    allow_bucket2,
-                ]))
-        ```
-
-        ### Add multiple notification configurations to SQS Queue
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket = aws.s3.Bucket("bucket", bucket="your-bucket-name")
-        queue = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "*",
-                "identifiers": ["*"],
-            }],
-            "actions": ["sqs:SendMessage"],
-            "resources": ["arn:aws:sqs:*:*:s3-event-notification-queue"],
-            "conditions": [{
-                "test": "ArnEquals",
-                "variable": "aws:SourceArn",
-                "values": [bucket.arn],
-            }],
-        }])
-        queue_queue = aws.sqs.Queue("queue",
-            name="s3-event-notification-queue",
-            policy=queue.json)
-        bucket_notification = aws.s3.BucketNotification("bucket_notification",
-            bucket=bucket.id,
-            queues=[
-                {
-                    "id": "image-upload-event",
-                    "queue_arn": queue_queue.arn,
-                    "events": ["s3:ObjectCreated:*"],
-                    "filter_prefix": "images/",
-                },
-                {
-                    "id": "video-upload-event",
-                    "queue_arn": queue_queue.arn,
-                    "events": ["s3:ObjectCreated:*"],
-                    "filter_prefix": "videos/",
-                },
-            ])
-        ```
-
-        For JSON syntax, use an array instead of defining the `queue` key twice.
-
-        ### Emit events to EventBridge
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket = aws.s3.Bucket("bucket", bucket="your-bucket-name")
-        bucket_notification = aws.s3.BucketNotification("bucket_notification",
-            bucket=bucket.id,
-            eventbridge=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import S3 bucket notification using the `bucket`. For example:
-
-        ```sh
-        $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
-        ```
-
+        Create a BucketNotification resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BucketNotificationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -810,14 +264,6 @@ class BucketNotification(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket for notification configuration.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] eventbridge: Whether to enable Amazon EventBridge notifications. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketNotificationLambdaFunctionArgs', 'BucketNotificationLambdaFunctionArgsDict']]]] lambda_functions: Used to configure notifications to a Lambda Function. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketNotificationQueueArgs', 'BucketNotificationQueueArgsDict']]]] queues: Notification configuration to SQS Queue. See below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketNotificationTopicArgs', 'BucketNotificationTopicArgsDict']]]] topics: Notification configuration to SNS Topic. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -834,50 +280,30 @@ class BucketNotification(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the bucket for notification configuration.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "bucket")
 
     @_builtins.property
     @pulumi.getter
     def eventbridge(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to enable Amazon EventBridge notifications. Defaults to `false`.
-        """
         return pulumi.get(self, "eventbridge")
 
     @_builtins.property
     @pulumi.getter(name="lambdaFunctions")
     def lambda_functions(self) -> pulumi.Output[Optional[Sequence['outputs.BucketNotificationLambdaFunction']]]:
-        """
-        Used to configure notifications to a Lambda Function. See below.
-        """
         return pulumi.get(self, "lambda_functions")
 
     @_builtins.property
     @pulumi.getter
     def queues(self) -> pulumi.Output[Optional[Sequence['outputs.BucketNotificationQueue']]]:
-        """
-        Notification configuration to SQS Queue. See below.
-        """
         return pulumi.get(self, "queues")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def topics(self) -> pulumi.Output[Optional[Sequence['outputs.BucketNotificationTopic']]]:
-        """
-        Notification configuration to SNS Topic. See below.
-        """
         return pulumi.get(self, "topics")
 

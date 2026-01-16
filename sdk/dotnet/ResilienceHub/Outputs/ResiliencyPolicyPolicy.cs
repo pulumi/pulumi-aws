@@ -14,21 +14,19 @@ namespace Pulumi.Aws.ResilienceHub.Outputs
     public sealed class ResiliencyPolicyPolicy
     {
         /// <summary>
-        /// Specifies Availability Zone failure policy. See `policy.az`
+        /// The RTO and RPO target to measure resiliency for potential availability zone disruptions.
         /// </summary>
         public readonly Outputs.ResiliencyPolicyPolicyAz? Az;
         /// <summary>
-        /// Specifies Infrastructure failure policy. See `policy.hardware`
+        /// The RTO and RPO target to measure resiliency for potential infrastructure disruptions.
         /// </summary>
         public readonly Outputs.ResiliencyPolicyPolicyHardware? Hardware;
         /// <summary>
-        /// Specifies Region failure policy. `policy.region`
+        /// The RTO and RPO target to measure resiliency for potential region disruptions.
         /// </summary>
         public readonly Outputs.ResiliencyPolicyPolicyRegion? Region;
         /// <summary>
-        /// Specifies Application failure policy. See `policy.software`
-        /// 
-        /// The following arguments are optional:
+        /// The RTO and RPO target to measure resiliency for potential application disruptions.
         /// </summary>
         public readonly Outputs.ResiliencyPolicyPolicySoftware? Software;
 

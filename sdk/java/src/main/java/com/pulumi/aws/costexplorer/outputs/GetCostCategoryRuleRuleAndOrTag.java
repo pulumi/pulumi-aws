@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCostCategoryRuleRuleAndOrTag {
-    /**
-     * @return Key for the tag.
-     * 
-     */
     private String key;
-    /**
-     * @return Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-     * 
-     */
     private List<String> matchOptions;
-    /**
-     * @return Parameter values.
-     * 
-     */
     private List<String> values;
 
     private GetCostCategoryRuleRuleAndOrTag() {}
-    /**
-     * @return Key for the tag.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-     * 
-     */
     public List<String> matchOptions() {
         return this.matchOptions;
     }
-    /**
-     * @return Parameter values.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

@@ -7,34 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS VPC Lattice Service Network Resource Association.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.vpclattice.ServiceNetworkResourceAssociation("example", {
- *     resourceConfigurationIdentifier: exampleAwsVpclatticeResourceConfiguration.id,
- *     serviceNetworkIdentifier: exampleAwsVpclatticeServiceNetwork.id,
- *     tags: {
- *         Name: "Example",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import VPC Lattice Service Network Resource Association using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:vpclattice/serviceNetworkResourceAssociation:ServiceNetworkResourceAssociation example snra-1234567890abcef12
- * ```
- */
 export class ServiceNetworkResourceAssociation extends pulumi.CustomResource {
     /**
      * Get an existing ServiceNetworkResourceAssociation resource's state with the given name, ID, and optional extra
@@ -63,39 +35,13 @@ export class ServiceNetworkResourceAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceNetworkResourceAssociation.__pulumiType;
     }
 
-    /**
-     * ARN of the Service Network Resource Association.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * DNS entry of the association in the service network.
-     */
     declare public /*out*/ readonly dnsEntries: pulumi.Output<outputs.vpclattice.ServiceNetworkResourceAssociationDnsEntry[]>;
-    /**
-     * Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
-     */
     declare public readonly privateDnsEnabled: pulumi.Output<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Identifier of Resource Configuration to associate to the Service Network.
-     */
     declare public readonly resourceConfigurationIdentifier: pulumi.Output<string>;
-    /**
-     * Identifier of the Service Network to associate the Resource to.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly serviceNetworkIdentifier: pulumi.Output<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.vpclattice.ServiceNetworkResourceAssociationTimeouts | undefined>;
 
@@ -148,39 +94,13 @@ export class ServiceNetworkResourceAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceNetworkResourceAssociation resources.
  */
 export interface ServiceNetworkResourceAssociationState {
-    /**
-     * ARN of the Service Network Resource Association.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * DNS entry of the association in the service network.
-     */
     dnsEntries?: pulumi.Input<pulumi.Input<inputs.vpclattice.ServiceNetworkResourceAssociationDnsEntry>[]>;
-    /**
-     * Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
-     */
     privateDnsEnabled?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Identifier of Resource Configuration to associate to the Service Network.
-     */
     resourceConfigurationIdentifier?: pulumi.Input<string>;
-    /**
-     * Identifier of the Service Network to associate the Resource to.
-     *
-     * The following arguments are optional:
-     */
     serviceNetworkIdentifier?: pulumi.Input<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.vpclattice.ServiceNetworkResourceAssociationTimeouts>;
 }
@@ -189,27 +109,10 @@ export interface ServiceNetworkResourceAssociationState {
  * The set of arguments for constructing a ServiceNetworkResourceAssociation resource.
  */
 export interface ServiceNetworkResourceAssociationArgs {
-    /**
-     * Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
-     */
     privateDnsEnabled?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Identifier of Resource Configuration to associate to the Service Network.
-     */
     resourceConfigurationIdentifier: pulumi.Input<string>;
-    /**
-     * Identifier of the Service Network to associate the Resource to.
-     *
-     * The following arguments are optional:
-     */
     serviceNetworkIdentifier: pulumi.Input<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.vpclattice.ServiceNetworkResourceAssociationTimeouts>;
 }

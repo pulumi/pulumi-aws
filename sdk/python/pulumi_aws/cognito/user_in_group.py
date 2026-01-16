@@ -25,10 +25,6 @@ class UserInGroupArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserInGroup resource.
-        :param pulumi.Input[_builtins.str] group_name: The name of the group to which the user is to be added.
-        :param pulumi.Input[_builtins.str] user_pool_id: The user pool ID of the user and group.
-        :param pulumi.Input[_builtins.str] username: The username of the user to be added to the group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
@@ -39,9 +35,6 @@ class UserInGroupArgs:
     @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the group to which the user is to be added.
-        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -51,9 +44,6 @@ class UserInGroupArgs:
     @_builtins.property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The user pool ID of the user and group.
-        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -63,9 +53,6 @@ class UserInGroupArgs:
     @_builtins.property
     @pulumi.getter
     def username(self) -> pulumi.Input[_builtins.str]:
-        """
-        The username of the user to be added to the group.
-        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -75,9 +62,6 @@ class UserInGroupArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -94,10 +78,6 @@ class _UserInGroupState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserInGroup resources.
-        :param pulumi.Input[_builtins.str] group_name: The name of the group to which the user is to be added.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] user_pool_id: The user pool ID of the user and group.
-        :param pulumi.Input[_builtins.str] username: The username of the user to be added to the group.
         """
         if group_name is not None:
             pulumi.set(__self__, "group_name", group_name)
@@ -111,9 +91,6 @@ class _UserInGroupState:
     @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the group to which the user is to be added.
-        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -123,9 +100,6 @@ class _UserInGroupState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -135,9 +109,6 @@ class _UserInGroupState:
     @_builtins.property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The user pool ID of the user and group.
-        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -147,9 +118,6 @@ class _UserInGroupState:
     @_builtins.property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The username of the user to be added to the group.
-        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -169,49 +137,9 @@ class UserInGroup(pulumi.CustomResource):
                  username: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Adds the specified user to the specified group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cognito.UserPool("example",
-            name="example",
-            password_policy={
-                "temporary_password_validity_days": 7,
-                "minimum_length": 6,
-                "require_uppercase": False,
-                "require_symbols": False,
-                "require_numbers": False,
-            })
-        example_user = aws.cognito.User("example",
-            user_pool_id=example.id,
-            username="example")
-        example_user_group = aws.cognito.UserGroup("example",
-            user_pool_id=example.id,
-            name="example")
-        example_user_in_group = aws.cognito.UserInGroup("example",
-            user_pool_id=example.id,
-            group_name=example_user_group.name,
-            username=example_user.username)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import a Cognito Group User using a comma-delimited string concatenating the `user_pool_id`, `group_name`, and `username` arguments. For example:
-
-        ```sh
-        $ pulumi import aws:cognito/userInGroup:UserInGroup example us-east-1_vG78M4goG,example-group,example-user
-        ```
-
+        Create a UserInGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] group_name: The name of the group to which the user is to be added.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] user_pool_id: The user pool ID of the user and group.
-        :param pulumi.Input[_builtins.str] username: The username of the user to be added to the group.
         """
         ...
     @overload
@@ -220,43 +148,7 @@ class UserInGroup(pulumi.CustomResource):
                  args: UserInGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Adds the specified user to the specified group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cognito.UserPool("example",
-            name="example",
-            password_policy={
-                "temporary_password_validity_days": 7,
-                "minimum_length": 6,
-                "require_uppercase": False,
-                "require_symbols": False,
-                "require_numbers": False,
-            })
-        example_user = aws.cognito.User("example",
-            user_pool_id=example.id,
-            username="example")
-        example_user_group = aws.cognito.UserGroup("example",
-            user_pool_id=example.id,
-            name="example")
-        example_user_in_group = aws.cognito.UserInGroup("example",
-            user_pool_id=example.id,
-            group_name=example_user_group.name,
-            username=example_user.username)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import a Cognito Group User using a comma-delimited string concatenating the `user_pool_id`, `group_name`, and `username` arguments. For example:
-
-        ```sh
-        $ pulumi import aws:cognito/userInGroup:UserInGroup example us-east-1_vG78M4goG,example-group,example-user
-        ```
-
+        Create a UserInGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserInGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -316,10 +208,6 @@ class UserInGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] group_name: The name of the group to which the user is to be added.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] user_pool_id: The user pool ID of the user and group.
-        :param pulumi.Input[_builtins.str] username: The username of the user to be added to the group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -334,32 +222,20 @@ class UserInGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the group to which the user is to be added.
-        """
         return pulumi.get(self, "group_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The user pool ID of the user and group.
-        """
         return pulumi.get(self, "user_pool_id")
 
     @_builtins.property
     @pulumi.getter
     def username(self) -> pulumi.Output[_builtins.str]:
-        """
-        The username of the user to be added to the group.
-        """
         return pulumi.get(self, "username")
 

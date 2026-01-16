@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class DomainRuleBasedMatchingMatchingRule {
-    /**
-     * @return A single rule level of the `matchRules`. Configures how the rule-based matching process should match profiles.
-     * 
-     */
     private List<String> rules;
 
     private DomainRuleBasedMatchingMatchingRule() {}
-    /**
-     * @return A single rule level of the `matchRules`. Configures how the rule-based matching process should match profiles.
-     * 
-     */
     public List<String> rules() {
         return this.rules;
     }

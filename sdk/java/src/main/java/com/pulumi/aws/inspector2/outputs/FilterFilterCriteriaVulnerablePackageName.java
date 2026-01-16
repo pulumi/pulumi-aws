@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class FilterFilterCriteriaVulnerablePackageName {
-    /**
-     * @return (Required) The comparison operator. Valid values: `EQUALS`.
-     * 
-     */
     private String comparison;
-    /**
-     * @return (Required) The value to filter on.
-     * 
-     */
     private String value;
 
     private FilterFilterCriteriaVulnerablePackageName() {}
-    /**
-     * @return (Required) The comparison operator. Valid values: `EQUALS`.
-     * 
-     */
     public String comparison() {
         return this.comparison;
     }
-    /**
-     * @return (Required) The value to filter on.
-     * 
-     */
     public String value() {
         return this.value;
     }

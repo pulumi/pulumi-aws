@@ -64,9 +64,6 @@ class GetNatGatewaysResult:
     @_builtins.property
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
-        """
-        List of all the NAT gateway ids found.
-        """
         return pulumi.get(self, "ids")
 
     @_builtins.property
@@ -105,30 +102,7 @@ def get_nat_gateways(filters: Optional[Sequence[Union['GetNatGatewaysFilterArgs'
                      vpc_id: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNatGatewaysResult:
     """
-    This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
-
-    ## Example Usage
-
-    The following returns all NAT gateways in a specified VPC that are marked as available
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    ngws = aws.ec2.get_nat_gateways(vpc_id=vpc_id,
-        filters=[{
-            "name": "state",
-            "values": ["available"],
-        }])
-    ngw = [aws.ec2.get_nat_gateway(id=ngws.ids[__index]) for __index in len(ngws.ids).apply(lambda length: range(length))]
-    ```
-
-
-    :param Sequence[Union['GetNatGatewaysFilterArgs', 'GetNatGatewaysFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired NAT Gateways.
-    :param _builtins.str vpc_id: VPC ID that you want to filter from.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -151,30 +125,7 @@ def get_nat_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
                             vpc_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNatGatewaysResult]:
     """
-    This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
-
-    ## Example Usage
-
-    The following returns all NAT gateways in a specified VPC that are marked as available
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    ngws = aws.ec2.get_nat_gateways(vpc_id=vpc_id,
-        filters=[{
-            "name": "state",
-            "values": ["available"],
-        }])
-    ngw = [aws.ec2.get_nat_gateway(id=ngws.ids[__index]) for __index in len(ngws.ids).apply(lambda length: range(length))]
-    ```
-
-
-    :param Sequence[Union['GetNatGatewaysFilterArgs', 'GetNatGatewaysFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired NAT Gateways.
-    :param _builtins.str vpc_id: VPC ID that you want to filter from.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

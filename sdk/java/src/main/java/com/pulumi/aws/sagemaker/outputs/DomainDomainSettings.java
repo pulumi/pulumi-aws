@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainDomainSettings {
-    /**
-     * @return A collection of settings that configure the domain’s Docker interaction. see `dockerSettings` Block below.
-     * 
-     */
     private @Nullable DomainDomainSettingsDockerSettings dockerSettings;
-    /**
-     * @return The configuration for attaching a SageMaker AI user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
-     * 
-     */
     private @Nullable String executionRoleIdentityConfig;
-    /**
-     * @return A collection of settings that configure the RStudioServerPro Domain-level app. see `rStudioServerProDomainSettings` Block below.
-     * 
-     */
     private @Nullable DomainDomainSettingsRStudioServerProDomainSettings rStudioServerProDomainSettings;
-    /**
-     * @return The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
-     * 
-     */
     private @Nullable List<String> securityGroupIds;
 
     private DomainDomainSettings() {}
-    /**
-     * @return A collection of settings that configure the domain’s Docker interaction. see `dockerSettings` Block below.
-     * 
-     */
     public Optional<DomainDomainSettingsDockerSettings> dockerSettings() {
         return Optional.ofNullable(this.dockerSettings);
     }
-    /**
-     * @return The configuration for attaching a SageMaker AI user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
-     * 
-     */
     public Optional<String> executionRoleIdentityConfig() {
         return Optional.ofNullable(this.executionRoleIdentityConfig);
     }
-    /**
-     * @return A collection of settings that configure the RStudioServerPro Domain-level app. see `rStudioServerProDomainSettings` Block below.
-     * 
-     */
     public Optional<DomainDomainSettingsRStudioServerProDomainSettings> rStudioServerProDomainSettings() {
         return Optional.ofNullable(this.rStudioServerProDomainSettings);
     }
-    /**
-     * @return The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }

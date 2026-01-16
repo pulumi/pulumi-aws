@@ -26,14 +26,14 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
     }
 
     /**
-     * Created time of the ODB network peering connection.
+     * Created time of the odb network peering connection.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return Created time of the ODB network peering connection.
+     * @return Created time of the odb network peering connection.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -70,14 +70,14 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
     }
 
     /**
-     * Type of the ODB peering connection.
+     * Type of the odb peering connection.
      * 
      */
     @Import(name="odbPeeringConnectionType")
     private @Nullable Output<String> odbPeeringConnectionType;
 
     /**
-     * @return Type of the ODB peering connection.
+     * @return Type of the odb peering connection.
      * 
      */
     public Optional<Output<String>> odbPeeringConnectionType() {
@@ -107,44 +107,36 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
     }
 
     /**
-     * Progress of the ODB network peering connection.
+     * Progress of the odb network peering connection.
      * 
      */
     @Import(name="percentProgress")
     private @Nullable Output<Double> percentProgress;
 
     /**
-     * @return Progress of the ODB network peering connection.
+     * @return Progress of the odb network peering connection.
      * 
      */
     public Optional<Output<Double>> percentProgress() {
         return Optional.ofNullable(this.percentProgress);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
     /**
-     * Status of the ODB network peering connection.
+     * Status of the odb network peering connection.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Status of the ODB network peering connection.
+     * @return Status of the odb network peering connection.
      * 
      */
     public Optional<Output<String>> status() {
@@ -152,46 +144,30 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
     }
 
     /**
-     * The reason for the current status of the ODB peering connection.
+     * The reason for the current status of the ODB peering connection..
      * 
      */
     @Import(name="statusReason")
     private @Nullable Output<String> statusReason;
 
     /**
-     * @return The reason for the current status of the ODB peering connection.
+     * @return The reason for the current status of the ODB peering connection..
      * 
      */
     public Optional<Output<String>> statusReason() {
         return Optional.ofNullable(this.statusReason);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including inherited tags.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including inherited tags.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -251,7 +227,7 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param createdAt Created time of the ODB network peering connection.
+         * @param createdAt Created time of the odb network peering connection.
          * 
          * @return builder
          * 
@@ -262,7 +238,7 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param createdAt Created time of the ODB network peering connection.
+         * @param createdAt Created time of the odb network peering connection.
          * 
          * @return builder
          * 
@@ -311,7 +287,7 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param odbPeeringConnectionType Type of the ODB peering connection.
+         * @param odbPeeringConnectionType Type of the odb peering connection.
          * 
          * @return builder
          * 
@@ -322,7 +298,7 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param odbPeeringConnectionType Type of the ODB peering connection.
+         * @param odbPeeringConnectionType Type of the odb peering connection.
          * 
          * @return builder
          * 
@@ -362,7 +338,7 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param percentProgress Progress of the ODB network peering connection.
+         * @param percentProgress Progress of the odb network peering connection.
          * 
          * @return builder
          * 
@@ -373,7 +349,7 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param percentProgress Progress of the ODB network peering connection.
+         * @param percentProgress Progress of the odb network peering connection.
          * 
          * @return builder
          * 
@@ -382,29 +358,17 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
             return percentProgress(Output.of(percentProgress));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
         /**
-         * @param status Status of the ODB network peering connection.
+         * @param status Status of the odb network peering connection.
          * 
          * @return builder
          * 
@@ -415,7 +379,7 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param status Status of the ODB network peering connection.
+         * @param status Status of the odb network peering connection.
          * 
          * @return builder
          * 
@@ -425,7 +389,7 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param statusReason The reason for the current status of the ODB peering connection.
+         * @param statusReason The reason for the current status of the ODB peering connection..
          * 
          * @return builder
          * 
@@ -436,7 +400,7 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param statusReason The reason for the current status of the ODB peering connection.
+         * @param statusReason The reason for the current status of the ODB peering connection..
          * 
          * @return builder
          * 
@@ -445,44 +409,20 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
             return statusReason(Output.of(statusReason));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including inherited tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including inherited tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

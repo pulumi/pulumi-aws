@@ -11,39 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS Security Hub Standards Control Associations.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := securityhub.NewAccount(ctx, "test", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.GetStandardsControlAssociations(ctx, &securityhub.GetStandardsControlAssociationsArgs{
-//				SecurityControlId: "IAM.1",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetStandardsControlAssociations(ctx *pulumi.Context, args *GetStandardsControlAssociationsArgs, opts ...pulumi.InvokeOption) (*GetStandardsControlAssociationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetStandardsControlAssociationsResult
@@ -56,20 +23,15 @@ func GetStandardsControlAssociations(ctx *pulumi.Context, args *GetStandardsCont
 
 // A collection of arguments for invoking getStandardsControlAssociations.
 type GetStandardsControlAssociationsArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
-	SecurityControlId string `pulumi:"securityControlId"`
+	Region            *string `pulumi:"region"`
+	SecurityControlId string  `pulumi:"securityControlId"`
 }
 
 // A collection of values returned by getStandardsControlAssociations.
 type GetStandardsControlAssociationsResult struct {
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
-	// ID of the security control.
-	SecurityControlId string `pulumi:"securityControlId"`
-	// A list that provides the status and other details for each security control that applies to each enabled standard.
-	// See `standardsControlAssociations` below.
+	Id                           string                                                       `pulumi:"id"`
+	Region                       string                                                       `pulumi:"region"`
+	SecurityControlId            string                                                       `pulumi:"securityControlId"`
 	StandardsControlAssociations []GetStandardsControlAssociationsStandardsControlAssociation `pulumi:"standardsControlAssociations"`
 }
 
@@ -84,10 +46,8 @@ func GetStandardsControlAssociationsOutput(ctx *pulumi.Context, args GetStandard
 
 // A collection of arguments for invoking getStandardsControlAssociations.
 type GetStandardsControlAssociationsOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
-	SecurityControlId pulumi.StringInput `pulumi:"securityControlId"`
+	Region            pulumi.StringPtrInput `pulumi:"region"`
+	SecurityControlId pulumi.StringInput    `pulumi:"securityControlId"`
 }
 
 func (GetStandardsControlAssociationsOutputArgs) ElementType() reflect.Type {
@@ -117,13 +77,10 @@ func (o GetStandardsControlAssociationsResultOutput) Region() pulumi.StringOutpu
 	return o.ApplyT(func(v GetStandardsControlAssociationsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// ID of the security control.
 func (o GetStandardsControlAssociationsResultOutput) SecurityControlId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStandardsControlAssociationsResult) string { return v.SecurityControlId }).(pulumi.StringOutput)
 }
 
-// A list that provides the status and other details for each security control that applies to each enabled standard.
-// See `standardsControlAssociations` below.
 func (o GetStandardsControlAssociationsResultOutput) StandardsControlAssociations() GetStandardsControlAssociationsStandardsControlAssociationArrayOutput {
 	return o.ApplyT(func(v GetStandardsControlAssociationsResult) []GetStandardsControlAssociationsStandardsControlAssociation {
 		return v.StandardsControlAssociations

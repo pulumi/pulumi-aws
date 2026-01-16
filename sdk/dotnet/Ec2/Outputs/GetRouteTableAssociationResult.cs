@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetRouteTableAssociationResult
     {
-        /// <summary>
-        /// ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
-        /// </summary>
         public readonly string GatewayId;
-        /// <summary>
-        /// Whether the association is due to the main route table.
-        /// </summary>
         public readonly bool Main;
-        /// <summary>
-        /// Association ID.
-        /// </summary>
         public readonly string RouteTableAssociationId;
-        /// <summary>
-        /// ID of the specific Route Table to retrieve.
-        /// </summary>
         public readonly string RouteTableId;
-        /// <summary>
-        /// ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
-        /// </summary>
         public readonly string SubnetId;
 
         [OutputConstructor]

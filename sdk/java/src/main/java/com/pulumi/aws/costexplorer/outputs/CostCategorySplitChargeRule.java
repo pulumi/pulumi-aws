@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CostCategorySplitChargeRule {
-    /**
-     * @return Method that&#39;s used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
-     * 
-     */
     private String method;
-    /**
-     * @return Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
-     * 
-     */
     private @Nullable List<CostCategorySplitChargeRuleParameter> parameters;
-    /**
-     * @return Cost Category value that you want to split.
-     * 
-     */
     private String source;
-    /**
-     * @return Cost Category values that you want to split costs across. These values can&#39;t be used as a source in other split charge rules.
-     * 
-     */
     private List<String> targets;
 
     private CostCategorySplitChargeRule() {}
-    /**
-     * @return Method that&#39;s used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
-     * 
-     */
     public String method() {
         return this.method;
     }
-    /**
-     * @return Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
-     * 
-     */
     public List<CostCategorySplitChargeRuleParameter> parameters() {
         return this.parameters == null ? List.of() : this.parameters;
     }
-    /**
-     * @return Cost Category value that you want to split.
-     * 
-     */
     public String source() {
         return this.source;
     }
-    /**
-     * @return Cost Category values that you want to split costs across. These values can&#39;t be used as a source in other split charge rules.
-     * 
-     */
     public List<String> targets() {
         return this.targets;
     }

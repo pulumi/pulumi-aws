@@ -15,62 +15,30 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyCondition extends
 
     public static final GetCoreNetworkPolicyDocumentAttachmentPolicyCondition Empty = new GetCoreNetworkPolicyDocumentAttachmentPolicyCondition();
 
-    /**
-     * string value
-     * 
-     */
     @Import(name="key")
     private @Nullable String key;
 
-    /**
-     * @return string value
-     * 
-     */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
 
-    /**
-     * Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
-     * 
-     */
     @Import(name="operator")
     private @Nullable String operator;
 
-    /**
-     * @return Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
-     * 
-     */
     public Optional<String> operator() {
         return Optional.ofNullable(this.operator);
     }
 
-    /**
-     * Must be `routing-policy-label`.
-     * 
-     */
     @Import(name="type", required=true)
     private String type;
 
-    /**
-     * @return Must be `routing-policy-label`.
-     * 
-     */
     public String type() {
         return this.type;
     }
 
-    /**
-     * Routing policy label to match.
-     * 
-     */
     @Import(name="value")
     private @Nullable String value;
 
-    /**
-     * @return Routing policy label to match.
-     * 
-     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }
@@ -102,45 +70,21 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyCondition extends
             $ = new GetCoreNetworkPolicyDocumentAttachmentPolicyCondition(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key string value
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(@Nullable String key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param operator Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder operator(@Nullable String operator) {
             $.operator = operator;
             return this;
         }
 
-        /**
-         * @param type Must be `routing-policy-label`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param value Routing policy label to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable String value) {
             $.value = value;
             return this;

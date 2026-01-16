@@ -11,31 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.LookupSerialConsoleAccess(ctx, &ec2.LookupSerialConsoleAccessArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupSerialConsoleAccess(ctx *pulumi.Context, args *LookupSerialConsoleAccessArgs, opts ...pulumi.InvokeOption) (*LookupSerialConsoleAccessResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSerialConsoleAccessResult
@@ -48,13 +23,11 @@ func LookupSerialConsoleAccess(ctx *pulumi.Context, args *LookupSerialConsoleAcc
 
 // A collection of arguments for invoking getSerialConsoleAccess.
 type LookupSerialConsoleAccessArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getSerialConsoleAccess.
 type LookupSerialConsoleAccessResult struct {
-	// Whether or not serial console access is enabled. Returns as `true` or `false`.
 	Enabled bool `pulumi:"enabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
@@ -72,7 +45,6 @@ func LookupSerialConsoleAccessOutput(ctx *pulumi.Context, args LookupSerialConso
 
 // A collection of arguments for invoking getSerialConsoleAccess.
 type LookupSerialConsoleAccessOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -95,7 +67,6 @@ func (o LookupSerialConsoleAccessResultOutput) ToLookupSerialConsoleAccessResult
 	return o
 }
 
-// Whether or not serial console access is enabled. Returns as `true` or `false`.
 func (o LookupSerialConsoleAccessResultOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupSerialConsoleAccessResult) bool { return v.Enabled }).(pulumi.BoolOutput)
 }

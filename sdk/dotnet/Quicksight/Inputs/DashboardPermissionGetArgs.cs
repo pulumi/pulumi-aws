@@ -14,19 +14,12 @@ namespace Pulumi.Aws.Quicksight.Inputs
     {
         [Input("actions", required: true)]
         private InputList<string>? _actions;
-
-        /// <summary>
-        /// List of IAM actions to grant or revoke permissions on.
-        /// </summary>
         public InputList<string> Actions
         {
             get => _actions ?? (_actions = new InputList<string>());
             set => _actions = value;
         }
 
-        /// <summary>
-        /// ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
-        /// </summary>
         [Input("principal", required: true)]
         public Input<string> Principal { get; set; } = null!;
 

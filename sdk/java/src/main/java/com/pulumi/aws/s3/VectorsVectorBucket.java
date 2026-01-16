@@ -18,206 +18,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an Amazon S3 Vectors Vector Bucket.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.VectorsVectorBucket;
- * import com.pulumi.aws.s3.VectorsVectorBucketArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new VectorsVectorBucket("example", VectorsVectorBucketArgs.builder()
- *             .vectorBucketName("example-bucket")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Encryption
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.VectorsVectorBucket;
- * import com.pulumi.aws.s3.VectorsVectorBucketArgs;
- * import com.pulumi.aws.s3.inputs.VectorsVectorBucketEncryptionConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new VectorsVectorBucket("example", VectorsVectorBucketArgs.builder()
- *             .vectorBucketName("example-bucket")
- *             .encryptionConfigurations(VectorsVectorBucketEncryptionConfigurationArgs.builder()
- *                 .sseType("aws:kms")
- *                 .kmsKeyArn(exampleAwsKmsKey.arn())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import S3 Vectors Vector Bucket using the `vector_bucket_arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:s3/vectorsVectorBucket:VectorsVectorBucket example arn:aws:s3vectors:us-west-2:123456789012:bucket/example-bucket
- * ```
- * 
- */
 @ResourceType(type="aws:s3/vectorsVectorBucket:VectorsVectorBucket")
 public class VectorsVectorBucket extends com.pulumi.resources.CustomResource {
-    /**
-     * Date and time when the vector bucket was created.
-     * 
-     */
     @Export(name="creationTime", refs={String.class}, tree="[0]")
     private Output<String> creationTime;
 
-    /**
-     * @return Date and time when the vector bucket was created.
-     * 
-     */
     public Output<String> creationTime() {
         return this.creationTime;
     }
-    /**
-     * Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
-     * 
-     */
     @Export(name="encryptionConfigurations", refs={List.class,VectorsVectorBucketEncryptionConfiguration.class}, tree="[0,1]")
     private Output<List<VectorsVectorBucketEncryptionConfiguration>> encryptionConfigurations;
 
-    /**
-     * @return Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
-     * 
-     */
     public Output<List<VectorsVectorBucketEncryptionConfiguration>> encryptionConfigurations() {
         return this.encryptionConfigurations;
     }
-    /**
-     * Boolean that indicates all indexes and vectors should be deleted from the vector bucket *when the vector bucket is destroyed* so that the vector bucket can be destroyed without error. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the vector bucket or destroying the vector bucket, this flag will not work.
-     * 
-     */
     @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> forceDestroy;
 
-    /**
-     * @return Boolean that indicates all indexes and vectors should be deleted from the vector bucket *when the vector bucket is destroyed* so that the vector bucket can be destroyed without error. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the vector bucket or destroying the vector bucket, this flag will not work.
-     * 
-     */
     public Output<Boolean> forceDestroy() {
         return this.forceDestroy;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * ARN of the vector bucket.
-     * 
-     */
     @Export(name="vectorBucketArn", refs={String.class}, tree="[0]")
     private Output<String> vectorBucketArn;
 
-    /**
-     * @return ARN of the vector bucket.
-     * 
-     */
     public Output<String> vectorBucketArn() {
         return this.vectorBucketArn;
     }
-    /**
-     * Name of the vector bucket.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="vectorBucketName", refs={String.class}, tree="[0]")
     private Output<String> vectorBucketName;
 
-    /**
-     * @return Name of the vector bucket.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> vectorBucketName() {
         return this.vectorBucketName;
     }

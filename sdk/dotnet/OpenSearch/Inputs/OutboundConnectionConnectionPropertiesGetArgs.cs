@@ -12,15 +12,9 @@ namespace Pulumi.Aws.OpenSearch.Inputs
 
     public sealed class OutboundConnectionConnectionPropertiesGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for cross cluster search.
-        /// </summary>
         [Input("crossClusterSearch")]
         public Input<Inputs.OutboundConnectionConnectionPropertiesCrossClusterSearchGetArgs>? CrossClusterSearch { get; set; }
 
-        /// <summary>
-        /// The endpoint of the remote domain, is only set when `ConnectionMode` is `VPC_ENDPOINT` and `AcceptConnection` is `TRUE`.
-        /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 

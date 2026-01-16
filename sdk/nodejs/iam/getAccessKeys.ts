@@ -7,21 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * This data source can be used to fetch information about IAM access keys of a
- * specific IAM user.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.iam.getAccessKeys({
- *     user: "an_example_user_name",
- * });
- * ```
- */
 export function getAccessKeys(args: GetAccessKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iam/getAccessKeys:getAccessKeys", {
@@ -33,9 +18,6 @@ export function getAccessKeys(args: GetAccessKeysArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getAccessKeys.
  */
 export interface GetAccessKeysArgs {
-    /**
-     * Name of the IAM user associated with the access keys.
-     */
     user: string;
 }
 
@@ -43,9 +25,6 @@ export interface GetAccessKeysArgs {
  * A collection of values returned by getAccessKeys.
  */
 export interface GetAccessKeysResult {
-    /**
-     * List of the IAM access keys associated with the specified user. See below.
-     */
     readonly accessKeys: outputs.iam.GetAccessKeysAccessKey[];
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -53,21 +32,6 @@ export interface GetAccessKeysResult {
     readonly id: string;
     readonly user: string;
 }
-/**
- * This data source can be used to fetch information about IAM access keys of a
- * specific IAM user.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.iam.getAccessKeys({
- *     user: "an_example_user_name",
- * });
- * ```
- */
 export function getAccessKeysOutput(args: GetAccessKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:iam/getAccessKeys:getAccessKeys", {
@@ -79,8 +43,5 @@ export function getAccessKeysOutput(args: GetAccessKeysOutputArgs, opts?: pulumi
  * A collection of arguments for invoking getAccessKeys.
  */
 export interface GetAccessKeysOutputArgs {
-    /**
-     * Name of the IAM user associated with the access keys.
-     */
     user: pulumi.Input<string>;
 }

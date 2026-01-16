@@ -9,54 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Msk
 {
-    /// <summary>
-    /// Associates a single SCRAM secret with a Managed Streaming for Kafka (MSK) cluster.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Msk.SingleScramSecretAssociation("example", new()
-    ///     {
-    ///         ClusterArn = exampleAwsMskCluster.Arn,
-    ///         SecretArn = exampleAwsSecretsmanagerSecret.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import an MSK SCRAM Secret Association using the `cluster_arn` and `secret_arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:msk/singleScramSecretAssociation:SingleScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3,arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:msk/singleScramSecretAssociation:SingleScramSecretAssociation")]
     public partial class SingleScramSecretAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the MSK cluster.
-        /// </summary>
         [Output("clusterArn")]
         public Output<string> ClusterArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// AWS Secrets Manager secret ARN.
-        /// </summary>
         [Output("secretArn")]
         public Output<string> SecretArn { get; private set; } = null!;
 
@@ -106,21 +67,12 @@ namespace Pulumi.Aws.Msk
 
     public sealed class SingleScramSecretAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the MSK cluster.
-        /// </summary>
         [Input("clusterArn", required: true)]
         public Input<string> ClusterArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// AWS Secrets Manager secret ARN.
-        /// </summary>
         [Input("secretArn", required: true)]
         public Input<string> SecretArn { get; set; } = null!;
 
@@ -132,21 +84,12 @@ namespace Pulumi.Aws.Msk
 
     public sealed class SingleScramSecretAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the MSK cluster.
-        /// </summary>
         [Input("clusterArn")]
         public Input<string>? ClusterArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// AWS Secrets Manager secret ARN.
-        /// </summary>
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }
 

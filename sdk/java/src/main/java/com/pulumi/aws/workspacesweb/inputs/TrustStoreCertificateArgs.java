@@ -16,92 +16,44 @@ public final class TrustStoreCertificateArgs extends com.pulumi.resources.Resour
 
     public static final TrustStoreCertificateArgs Empty = new TrustStoreCertificateArgs();
 
-    /**
-     * Certificate body in PEM format.
-     * 
-     */
     @Import(name="body", required=true)
     private Output<String> body;
 
-    /**
-     * @return Certificate body in PEM format.
-     * 
-     */
     public Output<String> body() {
         return this.body;
     }
 
-    /**
-     * Certificate issuer.
-     * 
-     */
     @Import(name="issuer")
     private @Nullable Output<String> issuer;
 
-    /**
-     * @return Certificate issuer.
-     * 
-     */
     public Optional<Output<String>> issuer() {
         return Optional.ofNullable(this.issuer);
     }
 
-    /**
-     * Date and time when the certificate expires in RFC3339 format.
-     * 
-     */
     @Import(name="notValidAfter")
     private @Nullable Output<String> notValidAfter;
 
-    /**
-     * @return Date and time when the certificate expires in RFC3339 format.
-     * 
-     */
     public Optional<Output<String>> notValidAfter() {
         return Optional.ofNullable(this.notValidAfter);
     }
 
-    /**
-     * Date and time when the certificate becomes valid in RFC3339 format.
-     * 
-     */
     @Import(name="notValidBefore")
     private @Nullable Output<String> notValidBefore;
 
-    /**
-     * @return Date and time when the certificate becomes valid in RFC3339 format.
-     * 
-     */
     public Optional<Output<String>> notValidBefore() {
         return Optional.ofNullable(this.notValidBefore);
     }
 
-    /**
-     * Certificate subject.
-     * 
-     */
     @Import(name="subject")
     private @Nullable Output<String> subject;
 
-    /**
-     * @return Certificate subject.
-     * 
-     */
     public Optional<Output<String>> subject() {
         return Optional.ofNullable(this.subject);
     }
 
-    /**
-     * Certificate thumbprint.
-     * 
-     */
     @Import(name="thumbprint")
     private @Nullable Output<String> thumbprint;
 
-    /**
-     * @return Certificate thumbprint.
-     * 
-     */
     public Optional<Output<String>> thumbprint() {
         return Optional.ofNullable(this.thumbprint);
     }
@@ -135,128 +87,56 @@ public final class TrustStoreCertificateArgs extends com.pulumi.resources.Resour
             $ = new TrustStoreCertificateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param body Certificate body in PEM format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder body(Output<String> body) {
             $.body = body;
             return this;
         }
 
-        /**
-         * @param body Certificate body in PEM format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder body(String body) {
             return body(Output.of(body));
         }
 
-        /**
-         * @param issuer Certificate issuer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issuer(@Nullable Output<String> issuer) {
             $.issuer = issuer;
             return this;
         }
 
-        /**
-         * @param issuer Certificate issuer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issuer(String issuer) {
             return issuer(Output.of(issuer));
         }
 
-        /**
-         * @param notValidAfter Date and time when the certificate expires in RFC3339 format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notValidAfter(@Nullable Output<String> notValidAfter) {
             $.notValidAfter = notValidAfter;
             return this;
         }
 
-        /**
-         * @param notValidAfter Date and time when the certificate expires in RFC3339 format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notValidAfter(String notValidAfter) {
             return notValidAfter(Output.of(notValidAfter));
         }
 
-        /**
-         * @param notValidBefore Date and time when the certificate becomes valid in RFC3339 format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notValidBefore(@Nullable Output<String> notValidBefore) {
             $.notValidBefore = notValidBefore;
             return this;
         }
 
-        /**
-         * @param notValidBefore Date and time when the certificate becomes valid in RFC3339 format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notValidBefore(String notValidBefore) {
             return notValidBefore(Output.of(notValidBefore));
         }
 
-        /**
-         * @param subject Certificate subject.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subject(@Nullable Output<String> subject) {
             $.subject = subject;
             return this;
         }
 
-        /**
-         * @param subject Certificate subject.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subject(String subject) {
             return subject(Output.of(subject));
         }
 
-        /**
-         * @param thumbprint Certificate thumbprint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thumbprint(@Nullable Output<String> thumbprint) {
             $.thumbprint = thumbprint;
             return this;
         }
 
-        /**
-         * @param thumbprint Certificate thumbprint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thumbprint(String thumbprint) {
             return thumbprint(Output.of(thumbprint));
         }

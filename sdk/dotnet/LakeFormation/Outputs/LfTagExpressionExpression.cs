@@ -13,13 +13,7 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     [OutputType]
     public sealed class LfTagExpressionExpression
     {
-        /// <summary>
-        /// The key-name for the LF-Tag.
-        /// </summary>
         public readonly string TagKey;
-        /// <summary>
-        /// A list of possible values for the LF-Tag
-        /// </summary>
         public readonly ImmutableArray<string> TagValues;
 
         [OutputConstructor]

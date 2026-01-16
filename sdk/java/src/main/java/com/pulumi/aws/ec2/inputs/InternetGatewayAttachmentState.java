@@ -15,47 +15,23 @@ public final class InternetGatewayAttachmentState extends com.pulumi.resources.R
 
     public static final InternetGatewayAttachmentState Empty = new InternetGatewayAttachmentState();
 
-    /**
-     * The ID of the internet gateway.
-     * 
-     */
     @Import(name="internetGatewayId")
     private @Nullable Output<String> internetGatewayId;
 
-    /**
-     * @return The ID of the internet gateway.
-     * 
-     */
     public Optional<Output<String>> internetGatewayId() {
         return Optional.ofNullable(this.internetGatewayId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID of the VPC.
-     * 
-     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
-    /**
-     * @return The ID of the VPC.
-     * 
-     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -86,65 +62,29 @@ public final class InternetGatewayAttachmentState extends com.pulumi.resources.R
             $ = new InternetGatewayAttachmentState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param internetGatewayId The ID of the internet gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder internetGatewayId(@Nullable Output<String> internetGatewayId) {
             $.internetGatewayId = internetGatewayId;
             return this;
         }
 
-        /**
-         * @param internetGatewayId The ID of the internet gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder internetGatewayId(String internetGatewayId) {
             return internetGatewayId(Output.of(internetGatewayId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param vpcId The ID of the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The ID of the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

@@ -24,9 +24,6 @@ class AccessPointPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccessPointPolicy resource.
-        :param pulumi.Input[_builtins.str] access_point_arn: The ARN of the access point that you want to associate with the specified policy.
-        :param pulumi.Input[_builtins.str] policy: The policy that you want to apply to the specified access point.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "access_point_arn", access_point_arn)
         pulumi.set(__self__, "policy", policy)
@@ -36,9 +33,6 @@ class AccessPointPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="accessPointArn")
     def access_point_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the access point that you want to associate with the specified policy.
-        """
         return pulumi.get(self, "access_point_arn")
 
     @access_point_arn.setter
@@ -48,9 +42,6 @@ class AccessPointPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Input[_builtins.str]:
-        """
-        The policy that you want to apply to the specified access point.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -60,9 +51,6 @@ class AccessPointPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -79,10 +67,6 @@ class _AccessPointPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccessPointPolicy resources.
-        :param pulumi.Input[_builtins.str] access_point_arn: The ARN of the access point that you want to associate with the specified policy.
-        :param pulumi.Input[_builtins.bool] has_public_access_policy: Indicates whether this access point currently has a policy that allows public access.
-        :param pulumi.Input[_builtins.str] policy: The policy that you want to apply to the specified access point.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if access_point_arn is not None:
             pulumi.set(__self__, "access_point_arn", access_point_arn)
@@ -96,9 +80,6 @@ class _AccessPointPolicyState:
     @_builtins.property
     @pulumi.getter(name="accessPointArn")
     def access_point_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the access point that you want to associate with the specified policy.
-        """
         return pulumi.get(self, "access_point_arn")
 
     @access_point_arn.setter
@@ -108,9 +89,6 @@ class _AccessPointPolicyState:
     @_builtins.property
     @pulumi.getter(name="hasPublicAccessPolicy")
     def has_public_access_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether this access point currently has a policy that allows public access.
-        """
         return pulumi.get(self, "has_public_access_policy")
 
     @has_public_access_policy.setter
@@ -120,9 +98,6 @@ class _AccessPointPolicyState:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The policy that you want to apply to the specified access point.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -132,9 +107,6 @@ class _AccessPointPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -153,55 +125,9 @@ class AccessPointPolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a resource to manage an S3 Access Point resource policy.
-
-        > **NOTE on Access Points and Access Point Policies:** The provider provides both a standalone Access Point Policy resource and an Access Point resource with a resource policy defined in-line. You cannot use an Access Point with in-line resource policy in conjunction with an Access Point Policy resource. Doing so will cause a conflict of policies and will overwrite the access point's resource policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.s3.Bucket("example", bucket="example")
-        example_access_point = aws.s3.AccessPoint("example",
-            bucket=example.id,
-            name="example",
-            public_access_block_configuration={
-                "block_public_acls": True,
-                "block_public_policy": False,
-                "ignore_public_acls": True,
-                "restrict_public_buckets": False,
-            })
-        example_access_point_policy = aws.s3control.AccessPointPolicy("example",
-            access_point_arn=example_access_point.arn,
-            policy=pulumi.Output.json_dumps({
-                "Version": "2008-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": "s3:GetObjectTagging",
-                    "Principal": {
-                        "AWS": "*",
-                    },
-                    "Resource": example_access_point.arn.apply(lambda arn: f"{arn}/object/*"),
-                }],
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Access Point policies using the `access_point_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:s3control/accessPointPolicy:AccessPointPolicy example arn:aws:s3:us-west-2:123456789012:accesspoint/example
-        ```
-
+        Create a AccessPointPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_point_arn: The ARN of the access point that you want to associate with the specified policy.
-        :param pulumi.Input[_builtins.str] policy: The policy that you want to apply to the specified access point.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -210,50 +136,7 @@ class AccessPointPolicy(pulumi.CustomResource):
                  args: AccessPointPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage an S3 Access Point resource policy.
-
-        > **NOTE on Access Points and Access Point Policies:** The provider provides both a standalone Access Point Policy resource and an Access Point resource with a resource policy defined in-line. You cannot use an Access Point with in-line resource policy in conjunction with an Access Point Policy resource. Doing so will cause a conflict of policies and will overwrite the access point's resource policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.s3.Bucket("example", bucket="example")
-        example_access_point = aws.s3.AccessPoint("example",
-            bucket=example.id,
-            name="example",
-            public_access_block_configuration={
-                "block_public_acls": True,
-                "block_public_policy": False,
-                "ignore_public_acls": True,
-                "restrict_public_buckets": False,
-            })
-        example_access_point_policy = aws.s3control.AccessPointPolicy("example",
-            access_point_arn=example_access_point.arn,
-            policy=pulumi.Output.json_dumps({
-                "Version": "2008-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": "s3:GetObjectTagging",
-                    "Principal": {
-                        "AWS": "*",
-                    },
-                    "Resource": example_access_point.arn.apply(lambda arn: f"{arn}/object/*"),
-                }],
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Access Point policies using the `access_point_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:s3control/accessPointPolicy:AccessPointPolicy example arn:aws:s3:us-west-2:123456789012:accesspoint/example
-        ```
-
+        Create a AccessPointPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AccessPointPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -310,10 +193,6 @@ class AccessPointPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_point_arn: The ARN of the access point that you want to associate with the specified policy.
-        :param pulumi.Input[_builtins.bool] has_public_access_policy: Indicates whether this access point currently has a policy that allows public access.
-        :param pulumi.Input[_builtins.str] policy: The policy that you want to apply to the specified access point.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -328,32 +207,20 @@ class AccessPointPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accessPointArn")
     def access_point_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the access point that you want to associate with the specified policy.
-        """
         return pulumi.get(self, "access_point_arn")
 
     @_builtins.property
     @pulumi.getter(name="hasPublicAccessPolicy")
     def has_public_access_policy(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Indicates whether this access point currently has a policy that allows public access.
-        """
         return pulumi.get(self, "has_public_access_policy")
 
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        The policy that you want to apply to the specified access point.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

@@ -16,32 +16,16 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs
 
     public static final ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs Empty = new ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs();
 
-    /**
-     * A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
-     * 
-     */
     @Import(name="simpleCriterion")
     private @Nullable Output<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionArgs> simpleCriterion;
 
-    /**
-     * @return A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
-     * 
-     */
     public Optional<Output<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionArgs>> simpleCriterion() {
         return Optional.ofNullable(this.simpleCriterion);
     }
 
-    /**
-     * A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
-     * 
-     */
     @Import(name="tagCriterion")
     private @Nullable Output<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgs> tagCriterion;
 
-    /**
-     * @return A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
-     * 
-     */
     public Optional<Output<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgs>> tagCriterion() {
         return Optional.ofNullable(this.tagCriterion);
     }
@@ -71,44 +55,20 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs
             $ = new ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param simpleCriterion A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
-         * 
-         * @return builder
-         * 
-         */
         public Builder simpleCriterion(@Nullable Output<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionArgs> simpleCriterion) {
             $.simpleCriterion = simpleCriterion;
             return this;
         }
 
-        /**
-         * @param simpleCriterion A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
-         * 
-         * @return builder
-         * 
-         */
         public Builder simpleCriterion(ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionArgs simpleCriterion) {
             return simpleCriterion(Output.of(simpleCriterion));
         }
 
-        /**
-         * @param tagCriterion A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagCriterion(@Nullable Output<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgs> tagCriterion) {
             $.tagCriterion = tagCriterion;
             return this;
         }
 
-        /**
-         * @param tagCriterion A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagCriterion(ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgs tagCriterion) {
             return tagCriterion(Output.of(tagCriterion));
         }

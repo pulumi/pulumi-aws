@@ -16,32 +16,16 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
 
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs();
 
-    /**
-     * Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
-     * 
-     */
     @Import(name="aggregationType")
     private @Nullable Output<String> aggregationType;
 
-    /**
-     * @return Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
-     * 
-     */
     public Optional<Output<String>> aggregationType() {
         return Optional.ofNullable(this.aggregationType);
     }
 
-    /**
-     * The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
-     * 
-     */
     @Import(name="targetFileSize")
     private @Nullable Output<Integer> targetFileSize;
 
-    /**
-     * @return The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
-     * 
-     */
     public Optional<Output<Integer>> targetFileSize() {
         return Optional.ofNullable(this.targetFileSize);
     }
@@ -71,44 +55,20 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
             $ = new FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param aggregationType Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aggregationType(@Nullable Output<String> aggregationType) {
             $.aggregationType = aggregationType;
             return this;
         }
 
-        /**
-         * @param aggregationType Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aggregationType(String aggregationType) {
             return aggregationType(Output.of(aggregationType));
         }
 
-        /**
-         * @param targetFileSize The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetFileSize(@Nullable Output<Integer> targetFileSize) {
             $.targetFileSize = targetFileSize;
             return this;
         }
 
-        /**
-         * @param targetFileSize The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetFileSize(Integer targetFileSize) {
             return targetFileSize(Output.of(targetFileSize));
         }

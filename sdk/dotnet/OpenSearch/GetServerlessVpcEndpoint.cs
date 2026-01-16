@@ -11,75 +11,12 @@ namespace Pulumi.Aws.OpenSearch
 {
     public static class GetServerlessVpcEndpoint
     {
-        /// <summary>
-        /// Data source for managing an AWS OpenSearch Serverless VPC Endpoint.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.OpenSearch.GetServerlessVpcEndpoint.Invoke(new()
-        ///     {
-        ///         VpcEndpointId = "vpce-829a4487959e2a839",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetServerlessVpcEndpointResult> InvokeAsync(GetServerlessVpcEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerlessVpcEndpointResult>("aws:opensearch/getServerlessVpcEndpoint:getServerlessVpcEndpoint", args ?? new GetServerlessVpcEndpointArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS OpenSearch Serverless VPC Endpoint.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.OpenSearch.GetServerlessVpcEndpoint.Invoke(new()
-        ///     {
-        ///         VpcEndpointId = "vpce-829a4487959e2a839",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetServerlessVpcEndpointResult> Invoke(GetServerlessVpcEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessVpcEndpointResult>("aws:opensearch/getServerlessVpcEndpoint:getServerlessVpcEndpoint", args ?? new GetServerlessVpcEndpointInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS OpenSearch Serverless VPC Endpoint.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.OpenSearch.GetServerlessVpcEndpoint.Invoke(new()
-        ///     {
-        ///         VpcEndpointId = "vpce-829a4487959e2a839",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetServerlessVpcEndpointResult> Invoke(GetServerlessVpcEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessVpcEndpointResult>("aws:opensearch/getServerlessVpcEndpoint:getServerlessVpcEndpoint", args ?? new GetServerlessVpcEndpointInvokeArgs(), options.WithDefaults());
     }
@@ -87,15 +24,9 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class GetServerlessVpcEndpointArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// The unique identifier of the endpoint.
-        /// </summary>
         [Input("vpcEndpointId", required: true)]
         public string VpcEndpointId { get; set; } = null!;
 
@@ -107,15 +38,9 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class GetServerlessVpcEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The unique identifier of the endpoint.
-        /// </summary>
         [Input("vpcEndpointId", required: true)]
         public Input<string> VpcEndpointId { get; set; } = null!;
 
@@ -129,31 +54,16 @@ namespace Pulumi.Aws.OpenSearch
     [OutputType]
     public sealed class GetServerlessVpcEndpointResult
     {
-        /// <summary>
-        /// The date the endpoint was created.
-        /// </summary>
         public readonly string CreatedDate;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The name of the endpoint.
-        /// </summary>
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// The IDs of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// The IDs of the subnets from which you access OpenSearch Serverless.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
         public readonly string VpcEndpointId;
-        /// <summary>
-        /// The ID of the VPC from which you access OpenSearch Serverless.
-        /// </summary>
         public readonly string VpcId;
 
         [OutputConstructor]

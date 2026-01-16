@@ -13,13 +13,7 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketWebsiteConfigurationRoutingRuleCondition
     {
-        /// <summary>
-        /// HTTP error code when the redirect is applied. If specified with `KeyPrefixEquals`, then both must be true for the redirect to be applied.
-        /// </summary>
         public readonly string? HttpErrorCodeReturnedEquals;
-        /// <summary>
-        /// Object key name prefix when the redirect is applied. If specified with `HttpErrorCodeReturnedEquals`, then both must be true for the redirect to be applied.
-        /// </summary>
         public readonly string? KeyPrefixEquals;
 
         [OutputConstructor]

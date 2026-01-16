@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Ec2ClientVpn.Outputs
     [OutputType]
     public sealed class EndpointClientRouteEnforcementOptions
     {
-        /// <summary>
-        /// Enable or disable Client Route Enforcement. The default is `False` (not enabled).
-        /// </summary>
         public readonly bool? Enforced;
 
         [OutputConstructor]

@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGroupMixedInstancesPolicyLaunchTemplate {
-    /**
-     * @return List of overriding launch template specification objects.
-     * 
-     */
     private List<GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification> launchTemplateSpecifications;
-    /**
-     * @return List of properties overriding the same properties in the launch template.
-     * 
-     */
     private List<GetGroupMixedInstancesPolicyLaunchTemplateOverride> overrides;
 
     private GetGroupMixedInstancesPolicyLaunchTemplate() {}
-    /**
-     * @return List of overriding launch template specification objects.
-     * 
-     */
     public List<GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification> launchTemplateSpecifications() {
         return this.launchTemplateSpecifications;
     }
-    /**
-     * @return List of properties overriding the same properties in the launch template.
-     * 
-     */
     public List<GetGroupMixedInstancesPolicyLaunchTemplateOverride> overrides() {
         return this.overrides;
     }

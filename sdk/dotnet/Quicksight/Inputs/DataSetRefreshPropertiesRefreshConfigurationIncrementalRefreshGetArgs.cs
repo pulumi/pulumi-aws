@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The lookback window setup for an incremental refresh configuration. See lookback_window.
-        /// </summary>
         [Input("lookbackWindow", required: true)]
         public Input<Inputs.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowGetArgs> LookbackWindow { get; set; } = null!;
 

@@ -16,32 +16,16 @@ public final class FirewallSubnetMappingArgs extends com.pulumi.resources.Resour
 
     public static final FirewallSubnetMappingArgs Empty = new FirewallSubnetMappingArgs();
 
-    /**
-     * The subnet&#39;s IP address type. Valid values: `&#34;DUALSTACK&#34;`, `&#34;IPV4&#34;`.
-     * 
-     */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
-    /**
-     * @return The subnet&#39;s IP address type. Valid values: `&#34;DUALSTACK&#34;`, `&#34;IPV4&#34;`.
-     * 
-     */
     public Optional<Output<String>> ipAddressType() {
         return Optional.ofNullable(this.ipAddressType);
     }
 
-    /**
-     * The unique identifier for the subnet.
-     * 
-     */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
-    /**
-     * @return The unique identifier for the subnet.
-     * 
-     */
     public Output<String> subnetId() {
         return this.subnetId;
     }
@@ -71,44 +55,20 @@ public final class FirewallSubnetMappingArgs extends com.pulumi.resources.Resour
             $ = new FirewallSubnetMappingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ipAddressType The subnet&#39;s IP address type. Valid values: `&#34;DUALSTACK&#34;`, `&#34;IPV4&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
             $.ipAddressType = ipAddressType;
             return this;
         }
 
-        /**
-         * @param ipAddressType The subnet&#39;s IP address type. Valid values: `&#34;DUALSTACK&#34;`, `&#34;IPV4&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddressType(String ipAddressType) {
             return ipAddressType(Output.of(ipAddressType));
         }
 
-        /**
-         * @param subnetId The unique identifier for the subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
-        /**
-         * @param subnetId The unique identifier for the subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }

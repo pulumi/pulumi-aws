@@ -16,49 +16,23 @@ public final class GetSecretVersionsPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetSecretVersionsPlainArgs Empty = new GetSecretVersionsPlainArgs();
 
-    /**
-     * If true, all deprecated secret versions are included in the response.
-     * If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
-     * 
-     */
     @Import(name="includeDeprecated")
     private @Nullable Boolean includeDeprecated;
 
-    /**
-     * @return If true, all deprecated secret versions are included in the response.
-     * If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
-     * 
-     */
     public Optional<Boolean> includeDeprecated() {
         return Optional.ofNullable(this.includeDeprecated);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
-     * 
-     */
     @Import(name="secretId", required=true)
     private String secretId;
 
-    /**
-     * @return Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
-     * 
-     */
     public String secretId() {
         return this.secretId;
     }
@@ -89,35 +63,16 @@ public final class GetSecretVersionsPlainArgs extends com.pulumi.resources.Invok
             $ = new GetSecretVersionsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param includeDeprecated If true, all deprecated secret versions are included in the response.
-         * If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeDeprecated(@Nullable Boolean includeDeprecated) {
             $.includeDeprecated = includeDeprecated;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param secretId Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretId(String secretId) {
             $.secretId = secretId;
             return this;

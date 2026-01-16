@@ -13,22 +13,9 @@ namespace Pulumi.Aws.SsmIncidents.Outputs
     [OutputType]
     public sealed class ReplicationSetRegion
     {
-        /// <summary>
-        /// The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
-        /// </summary>
         public readonly string? KmsKeyArn;
-        /// <summary>
-        /// The name of the Region, such as `ap-southeast-2`.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The current status of the Region.
-        /// * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-        /// </summary>
         public readonly string? Status;
-        /// <summary>
-        /// More information about the status of a Region.
-        /// </summary>
         public readonly string? StatusMessage;
 
         [OutputConstructor]

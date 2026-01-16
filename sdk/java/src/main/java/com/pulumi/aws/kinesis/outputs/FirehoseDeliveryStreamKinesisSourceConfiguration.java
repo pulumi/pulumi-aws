@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class FirehoseDeliveryStreamKinesisSourceConfiguration {
-    /**
-     * @return The kinesis stream used as the source of the firehose delivery stream.
-     * 
-     */
     private String kinesisStreamArn;
-    /**
-     * @return The ARN of the role that provides access to the source Kinesis stream.
-     * 
-     */
     private String roleArn;
 
     private FirehoseDeliveryStreamKinesisSourceConfiguration() {}
-    /**
-     * @return The kinesis stream used as the source of the firehose delivery stream.
-     * 
-     */
     public String kinesisStreamArn() {
         return this.kinesisStreamArn;
     }
-    /**
-     * @return The ARN of the role that provides access to the source Kinesis stream.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }

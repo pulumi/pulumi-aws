@@ -4,26 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Accepts a License Manager grant. This allows for sharing licenses with other aws accounts.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.licensemanager.LicenseGrantAccepter("test", {grantArn: "arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329"});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_licensemanager_grant_accepter` using the grant arn. For example:
- *
- * ```sh
- * $ pulumi import aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter test arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329
- * ```
- */
 export class LicenseGrantAccepter extends pulumi.CustomResource {
     /**
      * Get an existing LicenseGrantAccepter resource's state with the given name, ID, and optional extra
@@ -53,43 +33,40 @@ export class LicenseGrantAccepter extends pulumi.CustomResource {
     }
 
     /**
-     * A list of the allowed operations for the grant.
+     * Allowed operations for the grant.
      */
     declare public /*out*/ readonly allowedOperations: pulumi.Output<string[]>;
     /**
-     * The ARN of the grant to accept.
+     * Amazon Resource Name (ARN) of the grant.
      */
     declare public readonly grantArn: pulumi.Output<string>;
     /**
-     * The home region for the license.
+     * Home Region of the grant.
      */
     declare public /*out*/ readonly homeRegion: pulumi.Output<string>;
     /**
-     * The ARN of the license for the grant.
+     * License ARN.
      */
     declare public /*out*/ readonly licenseArn: pulumi.Output<string>;
     /**
-     * The Name of the grant.
+     * Name of the grant.
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
-     * The parent ARN.
+     * Parent ARN.
      */
     declare public /*out*/ readonly parentArn: pulumi.Output<string>;
     /**
-     * The target account for the grant.
+     * The grantee principal ARN.
      */
     declare public /*out*/ readonly principal: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The grant status.
+     * GrantAccepter status.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
-     * The grant version.
+     * GrantAccepter version.
      */
     declare public /*out*/ readonly version: pulumi.Output<string>;
 
@@ -142,43 +119,40 @@ export class LicenseGrantAccepter extends pulumi.CustomResource {
  */
 export interface LicenseGrantAccepterState {
     /**
-     * A list of the allowed operations for the grant.
+     * Allowed operations for the grant.
      */
     allowedOperations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The ARN of the grant to accept.
+     * Amazon Resource Name (ARN) of the grant.
      */
     grantArn?: pulumi.Input<string>;
     /**
-     * The home region for the license.
+     * Home Region of the grant.
      */
     homeRegion?: pulumi.Input<string>;
     /**
-     * The ARN of the license for the grant.
+     * License ARN.
      */
     licenseArn?: pulumi.Input<string>;
     /**
-     * The Name of the grant.
+     * Name of the grant.
      */
     name?: pulumi.Input<string>;
     /**
-     * The parent ARN.
+     * Parent ARN.
      */
     parentArn?: pulumi.Input<string>;
     /**
-     * The target account for the grant.
+     * The grantee principal ARN.
      */
     principal?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     /**
-     * The grant status.
+     * GrantAccepter status.
      */
     status?: pulumi.Input<string>;
     /**
-     * The grant version.
+     * GrantAccepter version.
      */
     version?: pulumi.Input<string>;
 }
@@ -188,11 +162,8 @@ export interface LicenseGrantAccepterState {
  */
 export interface LicenseGrantAccepterArgs {
     /**
-     * The ARN of the grant to accept.
+     * Amazon Resource Name (ARN) of the grant.
      */
     grantArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

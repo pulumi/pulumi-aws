@@ -14,19 +14,12 @@ namespace Pulumi.Aws.Dsql.Inputs
     {
         [Input("clusters")]
         private InputList<string>? _clusters;
-
-        /// <summary>
-        /// List of DSQL Cluster ARNs peered to this cluster.
-        /// </summary>
         public InputList<string> Clusters
         {
             get => _clusters ?? (_clusters = new InputList<string>());
             set => _clusters = value;
         }
 
-        /// <summary>
-        /// Witness region for the multi-region clusters. Setting this makes this cluster a multi-region cluster. Changing it recreates the resource.
-        /// </summary>
         [Input("witnessRegion")]
         public Input<string>? WitnessRegion { get; set; }
 

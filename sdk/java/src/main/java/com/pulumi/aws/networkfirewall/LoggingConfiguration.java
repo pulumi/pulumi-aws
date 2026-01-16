@@ -15,201 +15,29 @@ import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS Network Firewall Logging Configuration Resource
- * 
- * ## Example Usage
- * 
- * ### Logging to S3
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkfirewall.LoggingConfiguration;
- * import com.pulumi.aws.networkfirewall.LoggingConfigurationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.LoggingConfigurationLoggingConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new LoggingConfiguration("example", LoggingConfigurationArgs.builder()
- *             .firewallArn(exampleAwsNetworkfirewallFirewall.arn())
- *             .loggingConfiguration(LoggingConfigurationLoggingConfigurationArgs.builder()
- *                 .logDestinationConfigs(LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs.builder()
- *                     .logDestination(Map.ofEntries(
- *                         Map.entry("bucketName", exampleAwsS3Bucket.bucket()),
- *                         Map.entry("prefix", "example")
- *                     ))
- *                     .logDestinationType("S3")
- *                     .logType("FLOW")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Logging to CloudWatch
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkfirewall.LoggingConfiguration;
- * import com.pulumi.aws.networkfirewall.LoggingConfigurationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.LoggingConfigurationLoggingConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new LoggingConfiguration("example", LoggingConfigurationArgs.builder()
- *             .firewallArn(exampleAwsNetworkfirewallFirewall.arn())
- *             .loggingConfiguration(LoggingConfigurationLoggingConfigurationArgs.builder()
- *                 .logDestinationConfigs(LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs.builder()
- *                     .logDestination(Map.of("logGroup", exampleAwsCloudwatchLogGroup.name()))
- *                     .logDestinationType("CloudWatchLogs")
- *                     .logType("ALERT")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Logging to Kinesis Data Firehose
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkfirewall.LoggingConfiguration;
- * import com.pulumi.aws.networkfirewall.LoggingConfigurationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.LoggingConfigurationLoggingConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new LoggingConfiguration("example", LoggingConfigurationArgs.builder()
- *             .firewallArn(exampleAwsNetworkfirewallFirewall.arn())
- *             .loggingConfiguration(LoggingConfigurationLoggingConfigurationArgs.builder()
- *                 .logDestinationConfigs(LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs.builder()
- *                     .logDestination(Map.of("deliveryStream", exampleAwsKinesisFirehoseDeliveryStream.name()))
- *                     .logDestinationType("KinesisDataFirehose")
- *                     .logType("TLS")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Network Firewall Logging Configurations using the `firewall_arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
- * ```
- * 
- */
 @ResourceType(type="aws:networkfirewall/loggingConfiguration:LoggingConfiguration")
 public class LoggingConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
-     * 
-     */
     @Export(name="enableMonitoringDashboard", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableMonitoringDashboard;
 
-    /**
-     * @return Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
-     * 
-     */
     public Output<Boolean> enableMonitoringDashboard() {
         return this.enableMonitoringDashboard;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the Network Firewall firewall.
-     * 
-     */
     @Export(name="firewallArn", refs={String.class}, tree="[0]")
     private Output<String> firewallArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Network Firewall firewall.
-     * 
-     */
     public Output<String> firewallArn() {
         return this.firewallArn;
     }
-    /**
-     * A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
-     * 
-     */
     @Export(name="loggingConfiguration", refs={LoggingConfigurationLoggingConfiguration.class}, tree="[0]")
     private Output<LoggingConfigurationLoggingConfiguration> loggingConfiguration;
 
-    /**
-     * @return A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
-     * 
-     */
     public Output<LoggingConfigurationLoggingConfiguration> loggingConfiguration() {
         return this.loggingConfiguration;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

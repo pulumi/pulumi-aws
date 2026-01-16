@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppFabric.Outputs
     [OutputType]
     public sealed class AppAuthorizationCredentialOauth2Credential
     {
-        /// <summary>
-        /// The client ID of the client application.
-        /// </summary>
         public readonly string ClientId;
-        /// <summary>
-        /// The client secret of the client application.
-        /// </summary>
         public readonly string ClientSecret;
 
         [OutputConstructor]

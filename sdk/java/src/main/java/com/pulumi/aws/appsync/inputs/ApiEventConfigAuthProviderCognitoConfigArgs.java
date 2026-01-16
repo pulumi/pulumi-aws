@@ -16,47 +16,23 @@ public final class ApiEventConfigAuthProviderCognitoConfigArgs extends com.pulum
 
     public static final ApiEventConfigAuthProviderCognitoConfigArgs Empty = new ApiEventConfigAuthProviderCognitoConfigArgs();
 
-    /**
-     * Regular expression for matching the client ID.
-     * 
-     */
     @Import(name="appIdClientRegex")
     private @Nullable Output<String> appIdClientRegex;
 
-    /**
-     * @return Regular expression for matching the client ID.
-     * 
-     */
     public Optional<Output<String>> appIdClientRegex() {
         return Optional.ofNullable(this.appIdClientRegex);
     }
 
-    /**
-     * AWS region where the user pool is located.
-     * 
-     */
     @Import(name="awsRegion", required=true)
     private Output<String> awsRegion;
 
-    /**
-     * @return AWS region where the user pool is located.
-     * 
-     */
     public Output<String> awsRegion() {
         return this.awsRegion;
     }
 
-    /**
-     * ID of the Cognito user pool.
-     * 
-     */
     @Import(name="userPoolId", required=true)
     private Output<String> userPoolId;
 
-    /**
-     * @return ID of the Cognito user pool.
-     * 
-     */
     public Output<String> userPoolId() {
         return this.userPoolId;
     }
@@ -87,65 +63,29 @@ public final class ApiEventConfigAuthProviderCognitoConfigArgs extends com.pulum
             $ = new ApiEventConfigAuthProviderCognitoConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param appIdClientRegex Regular expression for matching the client ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appIdClientRegex(@Nullable Output<String> appIdClientRegex) {
             $.appIdClientRegex = appIdClientRegex;
             return this;
         }
 
-        /**
-         * @param appIdClientRegex Regular expression for matching the client ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appIdClientRegex(String appIdClientRegex) {
             return appIdClientRegex(Output.of(appIdClientRegex));
         }
 
-        /**
-         * @param awsRegion AWS region where the user pool is located.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsRegion(Output<String> awsRegion) {
             $.awsRegion = awsRegion;
             return this;
         }
 
-        /**
-         * @param awsRegion AWS region where the user pool is located.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsRegion(String awsRegion) {
             return awsRegion(Output.of(awsRegion));
         }
 
-        /**
-         * @param userPoolId ID of the Cognito user pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolId(Output<String> userPoolId) {
             $.userPoolId = userPoolId;
             return this;
         }
 
-        /**
-         * @param userPoolId ID of the Cognito user pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolId(String userPoolId) {
             return userPoolId(Output.of(userPoolId));
         }

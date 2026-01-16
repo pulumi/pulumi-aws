@@ -15,32 +15,16 @@ public final class ServiceRegionVpcSettingsArgs extends com.pulumi.resources.Res
 
     public static final ServiceRegionVpcSettingsArgs Empty = new ServiceRegionVpcSettingsArgs();
 
-    /**
-     * The identifiers of the subnets for the directory servers.
-     * 
-     */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
-    /**
-     * @return The identifiers of the subnets for the directory servers.
-     * 
-     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
 
-    /**
-     * The identifier of the VPC in which to create the directory.
-     * 
-     */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
-    /**
-     * @return The identifier of the VPC in which to create the directory.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }
@@ -70,54 +54,24 @@ public final class ServiceRegionVpcSettingsArgs extends com.pulumi.resources.Res
             $ = new ServiceRegionVpcSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param subnetIds The identifiers of the subnets for the directory servers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
-        /**
-         * @param subnetIds The identifiers of the subnets for the directory servers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
-        /**
-         * @param subnetIds The identifiers of the subnets for the directory servers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
 
-        /**
-         * @param vpcId The identifier of the VPC in which to create the directory.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The identifier of the VPC in which to create the directory.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

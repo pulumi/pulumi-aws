@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a SageMaker AI Image resource.
- *
- * ## Example Usage
- *
- * ### Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.Image("example", {
- *     imageName: "example",
- *     roleArn: test.arn,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import SageMaker AI Code Images using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:sagemaker/image:Image test_image my-code-repo
- * ```
- */
 export class Image extends pulumi.CustomResource {
     /**
      * Get an existing Image resource's state with the given name, ID, and optional extra
@@ -57,37 +32,13 @@ export class Image extends pulumi.CustomResource {
         return obj['__pulumiType'] === Image.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Image.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The description of the image.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The display name of the image. When the image is added to a domain (must be unique to the domain).
-     */
     declare public readonly displayName: pulumi.Output<string | undefined>;
-    /**
-     * The name of the image. Must be unique to your account.
-     */
     declare public readonly imageName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
-     */
     declare public readonly roleArn: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -137,37 +88,13 @@ export class Image extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Image resources.
  */
 export interface ImageState {
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Image.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The description of the image.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The display name of the image. When the image is added to a domain (must be unique to the domain).
-     */
     displayName?: pulumi.Input<string>;
-    /**
-     * The name of the image. Must be unique to your account.
-     */
     imageName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
-     */
     roleArn?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -175,28 +102,10 @@ export interface ImageState {
  * The set of arguments for constructing a Image resource.
  */
 export interface ImageArgs {
-    /**
-     * The description of the image.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The display name of the image. When the image is added to a domain (must be unique to the domain).
-     */
     displayName?: pulumi.Input<string>;
-    /**
-     * The name of the image. Must be unique to your account.
-     */
     imageName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
-     */
     roleArn: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

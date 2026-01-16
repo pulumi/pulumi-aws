@@ -15,47 +15,23 @@ public final class ServiceInstanceConfigurationArgs extends com.pulumi.resources
 
     public static final ServiceInstanceConfigurationArgs Empty = new ServiceInstanceConfigurationArgs();
 
-    /**
-     * Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `256|512|1024|2048|4096|(0.25|0.5|1|2|4) vCPU`.
-     * 
-     */
     @Import(name="cpu")
     private @Nullable Output<String> cpu;
 
-    /**
-     * @return Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `256|512|1024|2048|4096|(0.25|0.5|1|2|4) vCPU`.
-     * 
-     */
     public Optional<Output<String>> cpu() {
         return Optional.ofNullable(this.cpu);
     }
 
-    /**
-     * ARN of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
-     * 
-     */
     @Import(name="instanceRoleArn")
     private @Nullable Output<String> instanceRoleArn;
 
-    /**
-     * @return ARN of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
-     * 
-     */
     public Optional<Output<String>> instanceRoleArn() {
         return Optional.ofNullable(this.instanceRoleArn);
     }
 
-    /**
-     * Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `512|1024|2048|3072|4096|6144|8192|10240|12288|(0.5|1|2|3|4|6|8|10|12) GB`.
-     * 
-     */
     @Import(name="memory")
     private @Nullable Output<String> memory;
 
-    /**
-     * @return Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `512|1024|2048|3072|4096|6144|8192|10240|12288|(0.5|1|2|3|4|6|8|10|12) GB`.
-     * 
-     */
     public Optional<Output<String>> memory() {
         return Optional.ofNullable(this.memory);
     }
@@ -86,65 +62,29 @@ public final class ServiceInstanceConfigurationArgs extends com.pulumi.resources
             $ = new ServiceInstanceConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cpu Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `256|512|1024|2048|4096|(0.25|0.5|1|2|4) vCPU`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cpu(@Nullable Output<String> cpu) {
             $.cpu = cpu;
             return this;
         }
 
-        /**
-         * @param cpu Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `256|512|1024|2048|4096|(0.25|0.5|1|2|4) vCPU`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cpu(String cpu) {
             return cpu(Output.of(cpu));
         }
 
-        /**
-         * @param instanceRoleArn ARN of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceRoleArn(@Nullable Output<String> instanceRoleArn) {
             $.instanceRoleArn = instanceRoleArn;
             return this;
         }
 
-        /**
-         * @param instanceRoleArn ARN of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceRoleArn(String instanceRoleArn) {
             return instanceRoleArn(Output.of(instanceRoleArn));
         }
 
-        /**
-         * @param memory Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `512|1024|2048|3072|4096|6144|8192|10240|12288|(0.5|1|2|3|4|6|8|10|12) GB`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memory(@Nullable Output<String> memory) {
             $.memory = memory;
             return this;
         }
 
-        /**
-         * @param memory Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `512|1024|2048|3072|4096|6144|8192|10240|12288|(0.5|1|2|3|4|6|8|10|12) GB`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memory(String memory) {
             return memory(Output.of(memory));
         }

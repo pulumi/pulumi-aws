@@ -13,17 +13,8 @@ namespace Pulumi.Aws.LightSail.Outputs
     [OutputType]
     public sealed class ContainerServiceDeploymentVersionPublicEndpoint
     {
-        /// <summary>
-        /// Name of the container for the endpoint.
-        /// </summary>
         public readonly string ContainerName;
-        /// <summary>
-        /// Port of the container to which traffic is forwarded to.
-        /// </summary>
         public readonly int ContainerPort;
-        /// <summary>
-        /// Configuration block that describes the health check configuration of the container. See below.
-        /// </summary>
         public readonly Outputs.ContainerServiceDeploymentVersionPublicEndpointHealthCheck HealthCheck;
 
         [OutputConstructor]

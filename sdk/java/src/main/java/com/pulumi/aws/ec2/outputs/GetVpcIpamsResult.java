@@ -21,10 +21,6 @@ public final class GetVpcIpamsResult {
      */
     private String id;
     private @Nullable List<String> ipamIds;
-    /**
-     * @return List of IPAM resources matching the provided arguments.
-     * 
-     */
     private List<GetVpcIpamsIpam> ipams;
     private String region;
 
@@ -42,10 +38,6 @@ public final class GetVpcIpamsResult {
     public List<String> ipamIds() {
         return this.ipamIds == null ? List.of() : this.ipamIds;
     }
-    /**
-     * @return List of IPAM resources matching the provided arguments.
-     * 
-     */
     public List<GetVpcIpamsIpam> ipams() {
         return this.ipams;
     }

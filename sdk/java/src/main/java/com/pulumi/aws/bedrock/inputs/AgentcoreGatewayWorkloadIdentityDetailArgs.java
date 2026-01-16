@@ -14,17 +14,9 @@ public final class AgentcoreGatewayWorkloadIdentityDetailArgs extends com.pulumi
 
     public static final AgentcoreGatewayWorkloadIdentityDetailArgs Empty = new AgentcoreGatewayWorkloadIdentityDetailArgs();
 
-    /**
-     * ARN of the workload identity.
-     * 
-     */
     @Import(name="workloadIdentityArn", required=true)
     private Output<String> workloadIdentityArn;
 
-    /**
-     * @return ARN of the workload identity.
-     * 
-     */
     public Output<String> workloadIdentityArn() {
         return this.workloadIdentityArn;
     }
@@ -53,23 +45,11 @@ public final class AgentcoreGatewayWorkloadIdentityDetailArgs extends com.pulumi
             $ = new AgentcoreGatewayWorkloadIdentityDetailArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param workloadIdentityArn ARN of the workload identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workloadIdentityArn(Output<String> workloadIdentityArn) {
             $.workloadIdentityArn = workloadIdentityArn;
             return this;
         }
 
-        /**
-         * @param workloadIdentityArn ARN of the workload identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workloadIdentityArn(String workloadIdentityArn) {
             return workloadIdentityArn(Output.of(workloadIdentityArn));
         }

@@ -12,24 +12,14 @@ namespace Pulumi.Aws.NetworkManager.Inputs
 
     public sealed class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Block defining the action to take when conditions match. Detailed below.
-        /// </summary>
         [Input("action", required: true)]
         public Inputs.GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionArgs Action { get; set; } = null!;
 
-        /// <summary>
-        /// Logic to apply when multiple match conditions are present. Valid values: `And`, `Or`.
-        /// </summary>
         [Input("conditionLogic")]
         public string? ConditionLogic { get; set; }
 
         [Input("matchConditions")]
         private List<Inputs.GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArgs>? _matchConditions;
-
-        /// <summary>
-        /// List of conditions to match against routes. Detailed below.
-        /// </summary>
         public List<Inputs.GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArgs> MatchConditions
         {
             get => _matchConditions ?? (_matchConditions = new List<Inputs.GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArgs>());

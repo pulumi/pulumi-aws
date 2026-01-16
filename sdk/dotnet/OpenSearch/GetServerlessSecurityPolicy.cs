@@ -11,78 +11,12 @@ namespace Pulumi.Aws.OpenSearch
 {
     public static class GetServerlessSecurityPolicy
     {
-        /// <summary>
-        /// Use this data source to get information about an AWS OpenSearch Serverless Security Policy.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.OpenSearch.GetServerlessSecurityPolicy.Invoke(new()
-        ///     {
-        ///         Name = "example-security-policy",
-        ///         Type = "encryption",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetServerlessSecurityPolicyResult> InvokeAsync(GetServerlessSecurityPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerlessSecurityPolicyResult>("aws:opensearch/getServerlessSecurityPolicy:getServerlessSecurityPolicy", args ?? new GetServerlessSecurityPolicyArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about an AWS OpenSearch Serverless Security Policy.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.OpenSearch.GetServerlessSecurityPolicy.Invoke(new()
-        ///     {
-        ///         Name = "example-security-policy",
-        ///         Type = "encryption",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetServerlessSecurityPolicyResult> Invoke(GetServerlessSecurityPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessSecurityPolicyResult>("aws:opensearch/getServerlessSecurityPolicy:getServerlessSecurityPolicy", args ?? new GetServerlessSecurityPolicyInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about an AWS OpenSearch Serverless Security Policy.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.OpenSearch.GetServerlessSecurityPolicy.Invoke(new()
-        ///     {
-        ///         Name = "example-security-policy",
-        ///         Type = "encryption",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetServerlessSecurityPolicyResult> Invoke(GetServerlessSecurityPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessSecurityPolicyResult>("aws:opensearch/getServerlessSecurityPolicy:getServerlessSecurityPolicy", args ?? new GetServerlessSecurityPolicyInvokeArgs(), options.WithDefaults());
     }
@@ -90,21 +24,12 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class GetServerlessSecurityPolicyArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the policy
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// Type of security policy. One of `Encryption` or `Network`.
-        /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;
 
@@ -116,21 +41,12 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class GetServerlessSecurityPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the policy
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Type of security policy. One of `Encryption` or `Network`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -144,30 +60,15 @@ namespace Pulumi.Aws.OpenSearch
     [OutputType]
     public sealed class GetServerlessSecurityPolicyResult
     {
-        /// <summary>
-        /// The date the security policy was created.
-        /// </summary>
         public readonly string CreatedDate;
-        /// <summary>
-        /// Description of the security policy.
-        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The date the security policy was last modified.
-        /// </summary>
         public readonly string LastModifiedDate;
         public readonly string Name;
-        /// <summary>
-        /// The JSON policy document without any whitespaces.
-        /// </summary>
         public readonly string Policy;
-        /// <summary>
-        /// Version of the policy.
-        /// </summary>
         public readonly string PolicyVersion;
         public readonly string Region;
         public readonly string Type;

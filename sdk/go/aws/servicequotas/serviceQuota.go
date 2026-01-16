@@ -12,72 +12,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an individual Service Quota.
-//
-// > **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicequotas"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicequotas.NewServiceQuota(ctx, "example", &servicequotas.ServiceQuotaArgs{
-//				QuotaCode:   pulumi.String("L-F678F1CE"),
-//				ServiceCode: pulumi.String("vpc"),
-//				Value:       pulumi.Float64(75),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_servicequotas_service_quota` using the service code and quota code, separated by a front slash (`/`). For example:
-//
-// ~> __NOTE:__ This resource does not require explicit import and will assume management of an existing service quota on Pulumi resource creation.
-//
-// ```sh
-// $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
-// ```
 type ServiceQuota struct {
 	pulumi.CustomResourceState
 
-	// Whether the service quota can be increased.
-	Adjustable pulumi.BoolOutput `pulumi:"adjustable"`
-	// Amazon Resource Name (ARN) of the service quota.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Default value of the service quota.
-	DefaultValue pulumi.Float64Output `pulumi:"defaultValue"`
-	// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
-	QuotaCode pulumi.StringOutput `pulumi:"quotaCode"`
-	// Name of the quota.
-	QuotaName pulumi.StringOutput `pulumi:"quotaName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region        pulumi.StringOutput `pulumi:"region"`
-	RequestId     pulumi.StringOutput `pulumi:"requestId"`
-	RequestStatus pulumi.StringOutput `pulumi:"requestStatus"`
-	// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-	ServiceCode pulumi.StringOutput `pulumi:"serviceCode"`
-	// Name of the service.
-	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
-	// Information about the measurement.
-	UsageMetrics ServiceQuotaUsageMetricArrayOutput `pulumi:"usageMetrics"`
-	// Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
-	Value pulumi.Float64Output `pulumi:"value"`
+	Adjustable    pulumi.BoolOutput                  `pulumi:"adjustable"`
+	Arn           pulumi.StringOutput                `pulumi:"arn"`
+	DefaultValue  pulumi.Float64Output               `pulumi:"defaultValue"`
+	QuotaCode     pulumi.StringOutput                `pulumi:"quotaCode"`
+	QuotaName     pulumi.StringOutput                `pulumi:"quotaName"`
+	Region        pulumi.StringOutput                `pulumi:"region"`
+	RequestId     pulumi.StringOutput                `pulumi:"requestId"`
+	RequestStatus pulumi.StringOutput                `pulumi:"requestStatus"`
+	ServiceCode   pulumi.StringOutput                `pulumi:"serviceCode"`
+	ServiceName   pulumi.StringOutput                `pulumi:"serviceName"`
+	UsageMetrics  ServiceQuotaUsageMetricArrayOutput `pulumi:"usageMetrics"`
+	Value         pulumi.Float64Output               `pulumi:"value"`
 }
 
 // NewServiceQuota registers a new resource with the given unique name, arguments, and options.
@@ -119,53 +68,33 @@ func GetServiceQuota(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceQuota resources.
 type serviceQuotaState struct {
-	// Whether the service quota can be increased.
-	Adjustable *bool `pulumi:"adjustable"`
-	// Amazon Resource Name (ARN) of the service quota.
-	Arn *string `pulumi:"arn"`
-	// Default value of the service quota.
-	DefaultValue *float64 `pulumi:"defaultValue"`
-	// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
-	QuotaCode *string `pulumi:"quotaCode"`
-	// Name of the quota.
-	QuotaName *string `pulumi:"quotaName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region        *string `pulumi:"region"`
-	RequestId     *string `pulumi:"requestId"`
-	RequestStatus *string `pulumi:"requestStatus"`
-	// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-	ServiceCode *string `pulumi:"serviceCode"`
-	// Name of the service.
-	ServiceName *string `pulumi:"serviceName"`
-	// Information about the measurement.
-	UsageMetrics []ServiceQuotaUsageMetric `pulumi:"usageMetrics"`
-	// Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
-	Value *float64 `pulumi:"value"`
+	Adjustable    *bool                     `pulumi:"adjustable"`
+	Arn           *string                   `pulumi:"arn"`
+	DefaultValue  *float64                  `pulumi:"defaultValue"`
+	QuotaCode     *string                   `pulumi:"quotaCode"`
+	QuotaName     *string                   `pulumi:"quotaName"`
+	Region        *string                   `pulumi:"region"`
+	RequestId     *string                   `pulumi:"requestId"`
+	RequestStatus *string                   `pulumi:"requestStatus"`
+	ServiceCode   *string                   `pulumi:"serviceCode"`
+	ServiceName   *string                   `pulumi:"serviceName"`
+	UsageMetrics  []ServiceQuotaUsageMetric `pulumi:"usageMetrics"`
+	Value         *float64                  `pulumi:"value"`
 }
 
 type ServiceQuotaState struct {
-	// Whether the service quota can be increased.
-	Adjustable pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of the service quota.
-	Arn pulumi.StringPtrInput
-	// Default value of the service quota.
-	DefaultValue pulumi.Float64PtrInput
-	// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
-	QuotaCode pulumi.StringPtrInput
-	// Name of the quota.
-	QuotaName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Adjustable    pulumi.BoolPtrInput
+	Arn           pulumi.StringPtrInput
+	DefaultValue  pulumi.Float64PtrInput
+	QuotaCode     pulumi.StringPtrInput
+	QuotaName     pulumi.StringPtrInput
 	Region        pulumi.StringPtrInput
 	RequestId     pulumi.StringPtrInput
 	RequestStatus pulumi.StringPtrInput
-	// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-	ServiceCode pulumi.StringPtrInput
-	// Name of the service.
-	ServiceName pulumi.StringPtrInput
-	// Information about the measurement.
-	UsageMetrics ServiceQuotaUsageMetricArrayInput
-	// Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
-	Value pulumi.Float64PtrInput
+	ServiceCode   pulumi.StringPtrInput
+	ServiceName   pulumi.StringPtrInput
+	UsageMetrics  ServiceQuotaUsageMetricArrayInput
+	Value         pulumi.Float64PtrInput
 }
 
 func (ServiceQuotaState) ElementType() reflect.Type {
@@ -173,26 +102,18 @@ func (ServiceQuotaState) ElementType() reflect.Type {
 }
 
 type serviceQuotaArgs struct {
-	// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
-	QuotaCode string `pulumi:"quotaCode"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-	ServiceCode string `pulumi:"serviceCode"`
-	// Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
-	Value float64 `pulumi:"value"`
+	QuotaCode   string  `pulumi:"quotaCode"`
+	Region      *string `pulumi:"region"`
+	ServiceCode string  `pulumi:"serviceCode"`
+	Value       float64 `pulumi:"value"`
 }
 
 // The set of arguments for constructing a ServiceQuota resource.
 type ServiceQuotaArgs struct {
-	// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
-	QuotaCode pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
+	QuotaCode   pulumi.StringInput
+	Region      pulumi.StringPtrInput
 	ServiceCode pulumi.StringInput
-	// Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
-	Value pulumi.Float64Input
+	Value       pulumi.Float64Input
 }
 
 func (ServiceQuotaArgs) ElementType() reflect.Type {
@@ -282,32 +203,26 @@ func (o ServiceQuotaOutput) ToServiceQuotaOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Whether the service quota can be increased.
 func (o ServiceQuotaOutput) Adjustable() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ServiceQuota) pulumi.BoolOutput { return v.Adjustable }).(pulumi.BoolOutput)
 }
 
-// Amazon Resource Name (ARN) of the service quota.
 func (o ServiceQuotaOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceQuota) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Default value of the service quota.
 func (o ServiceQuotaOutput) DefaultValue() pulumi.Float64Output {
 	return o.ApplyT(func(v *ServiceQuota) pulumi.Float64Output { return v.DefaultValue }).(pulumi.Float64Output)
 }
 
-// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
 func (o ServiceQuotaOutput) QuotaCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceQuota) pulumi.StringOutput { return v.QuotaCode }).(pulumi.StringOutput)
 }
 
-// Name of the quota.
 func (o ServiceQuotaOutput) QuotaName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceQuota) pulumi.StringOutput { return v.QuotaName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ServiceQuotaOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceQuota) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -320,22 +235,18 @@ func (o ServiceQuotaOutput) RequestStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceQuota) pulumi.StringOutput { return v.RequestStatus }).(pulumi.StringOutput)
 }
 
-// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
 func (o ServiceQuotaOutput) ServiceCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceQuota) pulumi.StringOutput { return v.ServiceCode }).(pulumi.StringOutput)
 }
 
-// Name of the service.
 func (o ServiceQuotaOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceQuota) pulumi.StringOutput { return v.ServiceName }).(pulumi.StringOutput)
 }
 
-// Information about the measurement.
 func (o ServiceQuotaOutput) UsageMetrics() ServiceQuotaUsageMetricArrayOutput {
 	return o.ApplyT(func(v *ServiceQuota) ServiceQuotaUsageMetricArrayOutput { return v.UsageMetrics }).(ServiceQuotaUsageMetricArrayOutput)
 }
 
-// Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
 func (o ServiceQuotaOutput) Value() pulumi.Float64Output {
 	return o.ApplyT(func(v *ServiceQuota) pulumi.Float64Output { return v.Value }).(pulumi.Float64Output)
 }

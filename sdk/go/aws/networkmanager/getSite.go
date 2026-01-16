@@ -11,34 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about an existing Network Manager site.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.LookupSite(ctx, &networkmanager.LookupSiteArgs{
-//				GlobalNetworkId: globalNetworkId,
-//				SiteId:          siteId,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupSite(ctx *pulumi.Context, args *LookupSiteArgs, opts ...pulumi.InvokeOption) (*LookupSiteResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSiteResult
@@ -51,28 +23,21 @@ func LookupSite(ctx *pulumi.Context, args *LookupSiteArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getSite.
 type LookupSiteArgs struct {
-	// ID of the Global Network of the site to retrieve.
-	GlobalNetworkId string `pulumi:"globalNetworkId"`
-	// ID of the specific site to retrieve.
-	SiteId string `pulumi:"siteId"`
-	// Key-value tags for the Site.
-	Tags map[string]string `pulumi:"tags"`
+	GlobalNetworkId string            `pulumi:"globalNetworkId"`
+	SiteId          string            `pulumi:"siteId"`
+	Tags            map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getSite.
 type LookupSiteResult struct {
-	// ARN of the site.
-	Arn string `pulumi:"arn"`
-	// Description of the site.
+	Arn             string `pulumi:"arn"`
 	Description     string `pulumi:"description"`
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Site location as documented below.
+	Id        string            `pulumi:"id"`
 	Locations []GetSiteLocation `pulumi:"locations"`
 	SiteId    string            `pulumi:"siteId"`
-	// Key-value tags for the Site.
-	Tags map[string]string `pulumi:"tags"`
+	Tags      map[string]string `pulumi:"tags"`
 }
 
 func LookupSiteOutput(ctx *pulumi.Context, args LookupSiteOutputArgs, opts ...pulumi.InvokeOption) LookupSiteResultOutput {
@@ -86,12 +51,9 @@ func LookupSiteOutput(ctx *pulumi.Context, args LookupSiteOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getSite.
 type LookupSiteOutputArgs struct {
-	// ID of the Global Network of the site to retrieve.
-	GlobalNetworkId pulumi.StringInput `pulumi:"globalNetworkId"`
-	// ID of the specific site to retrieve.
-	SiteId pulumi.StringInput `pulumi:"siteId"`
-	// Key-value tags for the Site.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	GlobalNetworkId pulumi.StringInput    `pulumi:"globalNetworkId"`
+	SiteId          pulumi.StringInput    `pulumi:"siteId"`
+	Tags            pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupSiteOutputArgs) ElementType() reflect.Type {
@@ -113,12 +75,10 @@ func (o LookupSiteResultOutput) ToLookupSiteResultOutputWithContext(ctx context.
 	return o
 }
 
-// ARN of the site.
 func (o LookupSiteResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSiteResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the site.
 func (o LookupSiteResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSiteResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -132,7 +92,6 @@ func (o LookupSiteResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSiteResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Site location as documented below.
 func (o LookupSiteResultOutput) Locations() GetSiteLocationArrayOutput {
 	return o.ApplyT(func(v LookupSiteResult) []GetSiteLocation { return v.Locations }).(GetSiteLocationArrayOutput)
 }
@@ -141,7 +100,6 @@ func (o LookupSiteResultOutput) SiteId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSiteResult) string { return v.SiteId }).(pulumi.StringOutput)
 }
 
-// Key-value tags for the Site.
 func (o LookupSiteResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSiteResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -9,102 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Notifications
 {
-    /// <summary>
-    /// Resource for managing an AWS User Notifications Event Rule.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Notifications.NotificationConfiguration("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Description = "example configuration",
-    ///     });
-    /// 
-    ///     var exampleEventRule = new Aws.Notifications.EventRule("example", new()
-    ///     {
-    ///         EventPattern = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["detail"] = new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["state"] = new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["value"] = new[]
-    ///                     {
-    ///                         "ALARM",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///         EventType = "CloudWatch Alarm State Change",
-    ///         NotificationConfigurationArn = example.Arn,
-    ///         Regions = new[]
-    ///         {
-    ///             "us-east-1",
-    ///             "us-west-2",
-    ///         },
-    ///         Source = "aws.cloudwatch",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import User Notifications Event Rule using the `arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:notifications/eventRule:EventRule example arn:aws:notifications::123456789012:configuration/abc123def456ghi789jkl012mno345/rule/abc123def456ghi789jkl012mno345
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:notifications/eventRule:EventRule")]
     public partial class EventRule : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Event Rule.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// JSON string defining the event pattern to match. Maximum length is 4096 characters.
-        /// </summary>
         [Output("eventPattern")]
         public Output<string?> EventPattern { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \-\(\)])+`.
-        /// </summary>
         [Output("eventType")]
         public Output<string> EventType { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the notification configuration to associate with this event rule. Must match the pattern `arn:aws:notifications::[0-9]{12}:configuration/[a-z0-9]{27}`.
-        /// </summary>
         [Output("notificationConfigurationArn")]
         public Output<string> NotificationConfigurationArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Set of AWS regions where the event rule will be applied. Each region must be between 2 and 25 characters, and match the pattern `([a-z]{1,2})-([a-z]{1,15}-)+([0-9])`.
-        /// </summary>
         [Output("regions")]
         public Output<ImmutableArray<string>> Regions { get; private set; } = null!;
 
-        /// <summary>
-        /// Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\-])+`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("source")]
         public Output<string> Source { get; private set; } = null!;
 
@@ -154,41 +76,23 @@ namespace Pulumi.Aws.Notifications
 
     public sealed class EventRuleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// JSON string defining the event pattern to match. Maximum length is 4096 characters.
-        /// </summary>
         [Input("eventPattern")]
         public Input<string>? EventPattern { get; set; }
 
-        /// <summary>
-        /// Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \-\(\)])+`.
-        /// </summary>
         [Input("eventType", required: true)]
         public Input<string> EventType { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the notification configuration to associate with this event rule. Must match the pattern `arn:aws:notifications::[0-9]{12}:configuration/[a-z0-9]{27}`.
-        /// </summary>
         [Input("notificationConfigurationArn", required: true)]
         public Input<string> NotificationConfigurationArn { get; set; } = null!;
 
         [Input("regions", required: true)]
         private InputList<string>? _regions;
-
-        /// <summary>
-        /// Set of AWS regions where the event rule will be applied. Each region must be between 2 and 25 characters, and match the pattern `([a-z]{1,2})-([a-z]{1,15}-)+([0-9])`.
-        /// </summary>
         public InputList<string> Regions
         {
             get => _regions ?? (_regions = new InputList<string>());
             set => _regions = value;
         }
 
-        /// <summary>
-        /// Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\-])+`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
 
@@ -200,47 +104,26 @@ namespace Pulumi.Aws.Notifications
 
     public sealed class EventRuleState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Event Rule.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// JSON string defining the event pattern to match. Maximum length is 4096 characters.
-        /// </summary>
         [Input("eventPattern")]
         public Input<string>? EventPattern { get; set; }
 
-        /// <summary>
-        /// Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \-\(\)])+`.
-        /// </summary>
         [Input("eventType")]
         public Input<string>? EventType { get; set; }
 
-        /// <summary>
-        /// ARN of the notification configuration to associate with this event rule. Must match the pattern `arn:aws:notifications::[0-9]{12}:configuration/[a-z0-9]{27}`.
-        /// </summary>
         [Input("notificationConfigurationArn")]
         public Input<string>? NotificationConfigurationArn { get; set; }
 
         [Input("regions")]
         private InputList<string>? _regions;
-
-        /// <summary>
-        /// Set of AWS regions where the event rule will be applied. Each region must be between 2 and 25 characters, and match the pattern `([a-z]{1,2})-([a-z]{1,15}-)+([0-9])`.
-        /// </summary>
         public InputList<string> Regions
         {
             get => _regions ?? (_regions = new InputList<string>());
             set => _regions = value;
         }
 
-        /// <summary>
-        /// Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\-])+`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
 

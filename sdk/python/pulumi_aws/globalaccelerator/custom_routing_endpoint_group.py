@@ -27,10 +27,6 @@ class CustomRoutingEndpointGroupArgs:
                  endpoint_group_region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomRoutingEndpointGroup resource.
-        :param pulumi.Input[Sequence[pulumi.Input['CustomRoutingEndpointGroupDestinationConfigurationArgs']]] destination_configurations: The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
-        :param pulumi.Input[_builtins.str] listener_arn: The Amazon Resource Name (ARN) of the custom routing listener.
-        :param pulumi.Input[Sequence[pulumi.Input['CustomRoutingEndpointGroupEndpointConfigurationArgs']]] endpoint_configurations: The list of endpoint objects. Fields documented below.
-        :param pulumi.Input[_builtins.str] endpoint_group_region: The name of the AWS Region where the custom routing endpoint group is located.
         """
         pulumi.set(__self__, "destination_configurations", destination_configurations)
         pulumi.set(__self__, "listener_arn", listener_arn)
@@ -42,9 +38,6 @@ class CustomRoutingEndpointGroupArgs:
     @_builtins.property
     @pulumi.getter(name="destinationConfigurations")
     def destination_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['CustomRoutingEndpointGroupDestinationConfigurationArgs']]]:
-        """
-        The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
-        """
         return pulumi.get(self, "destination_configurations")
 
     @destination_configurations.setter
@@ -54,9 +47,6 @@ class CustomRoutingEndpointGroupArgs:
     @_builtins.property
     @pulumi.getter(name="listenerArn")
     def listener_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the custom routing listener.
-        """
         return pulumi.get(self, "listener_arn")
 
     @listener_arn.setter
@@ -66,9 +56,6 @@ class CustomRoutingEndpointGroupArgs:
     @_builtins.property
     @pulumi.getter(name="endpointConfigurations")
     def endpoint_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomRoutingEndpointGroupEndpointConfigurationArgs']]]]:
-        """
-        The list of endpoint objects. Fields documented below.
-        """
         return pulumi.get(self, "endpoint_configurations")
 
     @endpoint_configurations.setter
@@ -78,9 +65,6 @@ class CustomRoutingEndpointGroupArgs:
     @_builtins.property
     @pulumi.getter(name="endpointGroupRegion")
     def endpoint_group_region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the AWS Region where the custom routing endpoint group is located.
-        """
         return pulumi.get(self, "endpoint_group_region")
 
     @endpoint_group_region.setter
@@ -98,11 +82,6 @@ class _CustomRoutingEndpointGroupState:
                  listener_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomRoutingEndpointGroup resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the custom routing endpoint group.
-        :param pulumi.Input[Sequence[pulumi.Input['CustomRoutingEndpointGroupDestinationConfigurationArgs']]] destination_configurations: The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['CustomRoutingEndpointGroupEndpointConfigurationArgs']]] endpoint_configurations: The list of endpoint objects. Fields documented below.
-        :param pulumi.Input[_builtins.str] endpoint_group_region: The name of the AWS Region where the custom routing endpoint group is located.
-        :param pulumi.Input[_builtins.str] listener_arn: The Amazon Resource Name (ARN) of the custom routing listener.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -118,9 +97,6 @@ class _CustomRoutingEndpointGroupState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the custom routing endpoint group.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -130,9 +106,6 @@ class _CustomRoutingEndpointGroupState:
     @_builtins.property
     @pulumi.getter(name="destinationConfigurations")
     def destination_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomRoutingEndpointGroupDestinationConfigurationArgs']]]]:
-        """
-        The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
-        """
         return pulumi.get(self, "destination_configurations")
 
     @destination_configurations.setter
@@ -142,9 +115,6 @@ class _CustomRoutingEndpointGroupState:
     @_builtins.property
     @pulumi.getter(name="endpointConfigurations")
     def endpoint_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomRoutingEndpointGroupEndpointConfigurationArgs']]]]:
-        """
-        The list of endpoint objects. Fields documented below.
-        """
         return pulumi.get(self, "endpoint_configurations")
 
     @endpoint_configurations.setter
@@ -154,9 +124,6 @@ class _CustomRoutingEndpointGroupState:
     @_builtins.property
     @pulumi.getter(name="endpointGroupRegion")
     def endpoint_group_region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the AWS Region where the custom routing endpoint group is located.
-        """
         return pulumi.get(self, "endpoint_group_region")
 
     @endpoint_group_region.setter
@@ -166,9 +133,6 @@ class _CustomRoutingEndpointGroupState:
     @_builtins.property
     @pulumi.getter(name="listenerArn")
     def listener_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the custom routing listener.
-        """
         return pulumi.get(self, "listener_arn")
 
     @listener_arn.setter
@@ -188,44 +152,9 @@ class CustomRoutingEndpointGroup(pulumi.CustomResource):
                  listener_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Global Accelerator custom routing endpoint group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.globalaccelerator.CustomRoutingEndpointGroup("example",
-            listener_arn=example_aws_globalaccelerator_custom_routing_listener["arn"],
-            destination_configurations=[{
-                "from_port": 80,
-                "to_port": 8080,
-                "protocols": ["TCP"],
-            }],
-            endpoint_configurations=[{
-                "endpoint_id": example_aws_subnet["id"],
-            }])
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator custom routing endpoint group.
-
-        Using `pulumi import`, import Global Accelerator custom routing endpoint groups using the `id`. For example:
-
-        % pulumi import aws_globalaccelerator_custom_routing_endpoint_group.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
-
+        Create a CustomRoutingEndpointGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomRoutingEndpointGroupDestinationConfigurationArgs', 'CustomRoutingEndpointGroupDestinationConfigurationArgsDict']]]] destination_configurations: The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomRoutingEndpointGroupEndpointConfigurationArgs', 'CustomRoutingEndpointGroupEndpointConfigurationArgsDict']]]] endpoint_configurations: The list of endpoint objects. Fields documented below.
-        :param pulumi.Input[_builtins.str] endpoint_group_region: The name of the AWS Region where the custom routing endpoint group is located.
-        :param pulumi.Input[_builtins.str] listener_arn: The Amazon Resource Name (ARN) of the custom routing listener.
         """
         ...
     @overload
@@ -234,38 +163,7 @@ class CustomRoutingEndpointGroup(pulumi.CustomResource):
                  args: CustomRoutingEndpointGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Global Accelerator custom routing endpoint group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.globalaccelerator.CustomRoutingEndpointGroup("example",
-            listener_arn=example_aws_globalaccelerator_custom_routing_listener["arn"],
-            destination_configurations=[{
-                "from_port": 80,
-                "to_port": 8080,
-                "protocols": ["TCP"],
-            }],
-            endpoint_configurations=[{
-                "endpoint_id": example_aws_subnet["id"],
-            }])
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator custom routing endpoint group.
-
-        Using `pulumi import`, import Global Accelerator custom routing endpoint groups using the `id`. For example:
-
-        % pulumi import aws_globalaccelerator_custom_routing_endpoint_group.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
-
+        Create a CustomRoutingEndpointGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CustomRoutingEndpointGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -325,11 +223,6 @@ class CustomRoutingEndpointGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the custom routing endpoint group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomRoutingEndpointGroupDestinationConfigurationArgs', 'CustomRoutingEndpointGroupDestinationConfigurationArgsDict']]]] destination_configurations: The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomRoutingEndpointGroupEndpointConfigurationArgs', 'CustomRoutingEndpointGroupEndpointConfigurationArgsDict']]]] endpoint_configurations: The list of endpoint objects. Fields documented below.
-        :param pulumi.Input[_builtins.str] endpoint_group_region: The name of the AWS Region where the custom routing endpoint group is located.
-        :param pulumi.Input[_builtins.str] listener_arn: The Amazon Resource Name (ARN) of the custom routing listener.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -345,40 +238,25 @@ class CustomRoutingEndpointGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the custom routing endpoint group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="destinationConfigurations")
     def destination_configurations(self) -> pulumi.Output[Sequence['outputs.CustomRoutingEndpointGroupDestinationConfiguration']]:
-        """
-        The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
-        """
         return pulumi.get(self, "destination_configurations")
 
     @_builtins.property
     @pulumi.getter(name="endpointConfigurations")
     def endpoint_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.CustomRoutingEndpointGroupEndpointConfiguration']]]:
-        """
-        The list of endpoint objects. Fields documented below.
-        """
         return pulumi.get(self, "endpoint_configurations")
 
     @_builtins.property
     @pulumi.getter(name="endpointGroupRegion")
     def endpoint_group_region(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the AWS Region where the custom routing endpoint group is located.
-        """
         return pulumi.get(self, "endpoint_group_region")
 
     @_builtins.property
     @pulumi.getter(name="listenerArn")
     def listener_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the custom routing listener.
-        """
         return pulumi.get(self, "listener_arn")
 

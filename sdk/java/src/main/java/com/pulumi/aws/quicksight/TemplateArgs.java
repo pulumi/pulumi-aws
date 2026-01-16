@@ -27,111 +27,51 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.awsAccountId);
     }
 
-    /**
-     * Display name for the template.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Display name for the template.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * A set of resource permissions on the template. Maximum of 64 items. See permissions.
-     * 
-     */
     @Import(name="permissions")
     private @Nullable Output<List<TemplatePermissionArgs>> permissions;
 
-    /**
-     * @return A set of resource permissions on the template. Maximum of 64 items. See permissions.
-     * 
-     */
     public Optional<Output<List<TemplatePermissionArgs>>> permissions() {
         return Optional.ofNullable(this.permissions);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
-     * 
-     */
     @Import(name="sourceEntity")
     private @Nullable Output<TemplateSourceEntityArgs> sourceEntity;
 
-    /**
-     * @return The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
-     * 
-     */
     public Optional<Output<TemplateSourceEntityArgs>> sourceEntity() {
         return Optional.ofNullable(this.sourceEntity);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Identifier for the template.
-     * 
-     */
     @Import(name="templateId", required=true)
     private Output<String> templateId;
 
-    /**
-     * @return Identifier for the template.
-     * 
-     */
     public Output<String> templateId() {
         return this.templateId;
     }
 
-    /**
-     * A description of the current template version being created/updated.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="versionDescription", required=true)
     private Output<String> versionDescription;
 
-    /**
-     * @return A description of the current template version being created/updated.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> versionDescription() {
         return this.versionDescription;
     }
@@ -176,163 +116,69 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
             return awsAccountId(Output.of(awsAccountId));
         }
 
-        /**
-         * @param name Display name for the template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Display name for the template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param permissions A set of resource permissions on the template. Maximum of 64 items. See permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissions(@Nullable Output<List<TemplatePermissionArgs>> permissions) {
             $.permissions = permissions;
             return this;
         }
 
-        /**
-         * @param permissions A set of resource permissions on the template. Maximum of 64 items. See permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissions(List<TemplatePermissionArgs> permissions) {
             return permissions(Output.of(permissions));
         }
 
-        /**
-         * @param permissions A set of resource permissions on the template. Maximum of 64 items. See permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissions(TemplatePermissionArgs... permissions) {
             return permissions(List.of(permissions));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param sourceEntity The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceEntity(@Nullable Output<TemplateSourceEntityArgs> sourceEntity) {
             $.sourceEntity = sourceEntity;
             return this;
         }
 
-        /**
-         * @param sourceEntity The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceEntity(TemplateSourceEntityArgs sourceEntity) {
             return sourceEntity(Output.of(sourceEntity));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param templateId Identifier for the template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder templateId(Output<String> templateId) {
             $.templateId = templateId;
             return this;
         }
 
-        /**
-         * @param templateId Identifier for the template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder templateId(String templateId) {
             return templateId(Output.of(templateId));
         }
 
-        /**
-         * @param versionDescription A description of the current template version being created/updated.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder versionDescription(Output<String> versionDescription) {
             $.versionDescription = versionDescription;
             return this;
         }
 
-        /**
-         * @param versionDescription A description of the current template version being created/updated.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder versionDescription(String versionDescription) {
             return versionDescription(Output.of(versionDescription));
         }

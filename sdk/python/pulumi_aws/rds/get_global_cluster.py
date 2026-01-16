@@ -74,57 +74,36 @@ class GetGlobalClusterResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        RDS Global Cluster Amazon Resource Name (ARN)
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> _builtins.str:
-        """
-        Name of the automatically created database on cluster creation.
-        """
         return pulumi.get(self, "database_name")
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> _builtins.bool:
-        """
-        If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`.
-        """
         return pulumi.get(self, "deletion_protection")
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> _builtins.str:
-        """
-        The endpoint for the Global Cluster.
-        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter
     def engine(self) -> _builtins.str:
-        """
-        Name of the database engine.
-        """
         return pulumi.get(self, "engine")
 
     @_builtins.property
     @pulumi.getter(name="engineLifecycleSupport")
     def engine_lifecycle_support(self) -> _builtins.str:
-        """
-        The current lifecycle support status of the database engine for this Global Cluster.
-        """
         return pulumi.get(self, "engine_lifecycle_support")
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> _builtins.str:
-        """
-        Version of the database engine for this Global Cluster.
-        """
         return pulumi.get(self, "engine_version")
 
     @_builtins.property
@@ -143,9 +122,6 @@ class GetGlobalClusterResult:
     @_builtins.property
     @pulumi.getter
     def members(self) -> Sequence['outputs.GetGlobalClusterMemberResult']:
-        """
-        Set of objects containing Global Cluster members.
-        """
         return pulumi.get(self, "members")
 
     @_builtins.property
@@ -156,25 +132,16 @@ class GetGlobalClusterResult:
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> _builtins.str:
-        """
-        AWS Region-unique, immutable identifier for the global database cluster.
-        """
         return pulumi.get(self, "resource_id")
 
     @_builtins.property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> _builtins.bool:
-        """
-        Whether the DB cluster is encrypted.
-        """
         return pulumi.get(self, "storage_encrypted")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        A map of tags to assigned to the Global Cluster.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -204,24 +171,7 @@ def get_global_cluster(identifier: Optional[_builtins.str] = None,
                        region: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalClusterResult:
     """
-    Data source for managing an AWS RDS (Relational Database) Global Cluster.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.rds.get_global_cluster(identifier=test["globalClusterIdentifier"])
-    ```
-
-
-    :param _builtins.str identifier: The global cluster identifier of the RDS global cluster.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['identifier'] = identifier
@@ -248,24 +198,7 @@ def get_global_cluster_output(identifier: Optional[pulumi.Input[_builtins.str]] 
                               region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalClusterResult]:
     """
-    Data source for managing an AWS RDS (Relational Database) Global Cluster.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.rds.get_global_cluster(identifier=test["globalClusterIdentifier"])
-    ```
-
-
-    :param _builtins.str identifier: The global cluster identifier of the RDS global cluster.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['identifier'] = identifier

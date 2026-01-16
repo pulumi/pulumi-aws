@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The App Mesh Route data source allows details of an App Mesh Route to be retrieved by its name, mesh_name, virtual_router_name, and optionally the mesh_owner.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appmesh"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appmesh.LookupRoute(ctx, &appmesh.LookupRouteArgs{
-//				Name:              "test-route",
-//				MeshName:          "test-mesh",
-//				VirtualRouterName: "test-router",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.InvokeOption) (*LookupRouteResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRouteResult
@@ -52,39 +23,27 @@ func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getRoute.
 type LookupRouteArgs struct {
-	// Name of the service mesh in which the virtual router exists.
-	MeshName string `pulumi:"meshName"`
-	// AWS account ID of the service mesh's owner.
-	MeshOwner *string `pulumi:"meshOwner"`
-	// Name of the route.
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Name of the virtual router in which the route exists.
-	VirtualRouterName string `pulumi:"virtualRouterName"`
+	MeshName          string            `pulumi:"meshName"`
+	MeshOwner         *string           `pulumi:"meshOwner"`
+	Name              string            `pulumi:"name"`
+	Region            *string           `pulumi:"region"`
+	Tags              map[string]string `pulumi:"tags"`
+	VirtualRouterName string            `pulumi:"virtualRouterName"`
 }
 
 // A collection of values returned by getRoute.
 type LookupRouteResult struct {
-	// ARN of the route.
-	Arn string `pulumi:"arn"`
-	// Creation date of the route.
+	Arn         string `pulumi:"arn"`
 	CreatedDate string `pulumi:"createdDate"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Last update date of the route.
-	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
-	MeshName        string `pulumi:"meshName"`
-	MeshOwner       string `pulumi:"meshOwner"`
-	Name            string `pulumi:"name"`
-	Region          string `pulumi:"region"`
-	// Resource owner's AWS account ID.
-	ResourceOwner string `pulumi:"resourceOwner"`
-	// Route specification. See the `appmesh.Route` resource for details.
-	Specs []GetRouteSpec `pulumi:"specs"`
-	// Map of tags.
+	Id                string            `pulumi:"id"`
+	LastUpdatedDate   string            `pulumi:"lastUpdatedDate"`
+	MeshName          string            `pulumi:"meshName"`
+	MeshOwner         string            `pulumi:"meshOwner"`
+	Name              string            `pulumi:"name"`
+	Region            string            `pulumi:"region"`
+	ResourceOwner     string            `pulumi:"resourceOwner"`
+	Specs             []GetRouteSpec    `pulumi:"specs"`
 	Tags              map[string]string `pulumi:"tags"`
 	VirtualRouterName string            `pulumi:"virtualRouterName"`
 }
@@ -100,18 +59,12 @@ func LookupRouteOutput(ctx *pulumi.Context, args LookupRouteOutputArgs, opts ...
 
 // A collection of arguments for invoking getRoute.
 type LookupRouteOutputArgs struct {
-	// Name of the service mesh in which the virtual router exists.
-	MeshName pulumi.StringInput `pulumi:"meshName"`
-	// AWS account ID of the service mesh's owner.
-	MeshOwner pulumi.StringPtrInput `pulumi:"meshOwner"`
-	// Name of the route.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Name of the virtual router in which the route exists.
-	VirtualRouterName pulumi.StringInput `pulumi:"virtualRouterName"`
+	MeshName          pulumi.StringInput    `pulumi:"meshName"`
+	MeshOwner         pulumi.StringPtrInput `pulumi:"meshOwner"`
+	Name              pulumi.StringInput    `pulumi:"name"`
+	Region            pulumi.StringPtrInput `pulumi:"region"`
+	Tags              pulumi.StringMapInput `pulumi:"tags"`
+	VirtualRouterName pulumi.StringInput    `pulumi:"virtualRouterName"`
 }
 
 func (LookupRouteOutputArgs) ElementType() reflect.Type {
@@ -133,12 +86,10 @@ func (o LookupRouteResultOutput) ToLookupRouteResultOutputWithContext(ctx contex
 	return o
 }
 
-// ARN of the route.
 func (o LookupRouteResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRouteResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Creation date of the route.
 func (o LookupRouteResultOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRouteResult) string { return v.CreatedDate }).(pulumi.StringOutput)
 }
@@ -148,7 +99,6 @@ func (o LookupRouteResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRouteResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Last update date of the route.
 func (o LookupRouteResultOutput) LastUpdatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRouteResult) string { return v.LastUpdatedDate }).(pulumi.StringOutput)
 }
@@ -169,17 +119,14 @@ func (o LookupRouteResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRouteResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Resource owner's AWS account ID.
 func (o LookupRouteResultOutput) ResourceOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRouteResult) string { return v.ResourceOwner }).(pulumi.StringOutput)
 }
 
-// Route specification. See the `appmesh.Route` resource for details.
 func (o LookupRouteResultOutput) Specs() GetRouteSpecArrayOutput {
 	return o.ApplyT(func(v LookupRouteResult) []GetRouteSpec { return v.Specs }).(GetRouteSpecArrayOutput)
 }
 
-// Map of tags.
 func (o LookupRouteResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupRouteResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

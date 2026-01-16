@@ -14,17 +14,9 @@ public final class BucketWebsiteConfigurationV2ErrorDocumentArgs extends com.pul
 
     public static final BucketWebsiteConfigurationV2ErrorDocumentArgs Empty = new BucketWebsiteConfigurationV2ErrorDocumentArgs();
 
-    /**
-     * Object key name to use when a 4XX class error occurs.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return Object key name to use when a 4XX class error occurs.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
@@ -53,23 +45,11 @@ public final class BucketWebsiteConfigurationV2ErrorDocumentArgs extends com.pul
             $ = new BucketWebsiteConfigurationV2ErrorDocumentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key Object key name to use when a 4XX class error occurs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Object key name to use when a 4XX class error occurs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }

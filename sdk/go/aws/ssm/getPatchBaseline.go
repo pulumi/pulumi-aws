@@ -11,66 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
-//
-// ## Example Usage
-//
-// To retrieve a baseline provided by AWS:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.LookupPatchBaseline(ctx, &ssm.LookupPatchBaselineArgs{
-//				Owner:           "AWS",
-//				NamePrefix:      pulumi.StringRef("AWS-"),
-//				OperatingSystem: pulumi.StringRef("CENTOS"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// To retrieve a baseline on your account:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.LookupPatchBaseline(ctx, &ssm.LookupPatchBaselineArgs{
-//				Owner:           "Self",
-//				NamePrefix:      pulumi.StringRef("MyCustomBaseline"),
-//				DefaultBaseline: pulumi.BoolRef(true),
-//				OperatingSystem: pulumi.StringRef("WINDOWS"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupPatchBaseline(ctx *pulumi.Context, args *LookupPatchBaselineArgs, opts ...pulumi.InvokeOption) (*LookupPatchBaselineResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPatchBaselineResult
@@ -83,53 +23,34 @@ func LookupPatchBaseline(ctx *pulumi.Context, args *LookupPatchBaselineArgs, opt
 
 // A collection of arguments for invoking getPatchBaseline.
 type LookupPatchBaselineArgs struct {
-	// Filters the results against the baselines defaultBaseline field.
-	DefaultBaseline *bool `pulumi:"defaultBaseline"`
-	// Filter results by the baseline name prefix.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Specified OS for the baseline. Valid values: `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`.
+	DefaultBaseline *bool   `pulumi:"defaultBaseline"`
+	NamePrefix      *string `pulumi:"namePrefix"`
 	OperatingSystem *string `pulumi:"operatingSystem"`
-	// Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
-	//
-	// The following arguments are optional:
-	Owner string `pulumi:"owner"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Owner           string  `pulumi:"owner"`
+	Region          *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPatchBaseline.
 type LookupPatchBaselineResult struct {
-	// List of rules used to include patches in the baseline.
-	ApprovalRules []GetPatchBaselineApprovalRule `pulumi:"approvalRules"`
-	// List of explicitly approved patches for the baseline.
-	ApprovedPatches []string `pulumi:"approvedPatches"`
-	// Compliance level for approved patches.
-	ApprovedPatchesComplianceLevel string `pulumi:"approvedPatchesComplianceLevel"`
-	// Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
-	ApprovedPatchesEnableNonSecurity bool `pulumi:"approvedPatchesEnableNonSecurity"`
-	// Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only.
-	AvailableSecurityUpdatesComplianceStatus string `pulumi:"availableSecurityUpdatesComplianceStatus"`
-	DefaultBaseline                          *bool  `pulumi:"defaultBaseline"`
-	// Description of the baseline.
-	Description string `pulumi:"description"`
-	// Set of global filters used to exclude patches from the baseline.
-	GlobalFilters []GetPatchBaselineGlobalFilter `pulumi:"globalFilters"`
+	ApprovalRules                            []GetPatchBaselineApprovalRule `pulumi:"approvalRules"`
+	ApprovedPatches                          []string                       `pulumi:"approvedPatches"`
+	ApprovedPatchesComplianceLevel           string                         `pulumi:"approvedPatchesComplianceLevel"`
+	ApprovedPatchesEnableNonSecurity         bool                           `pulumi:"approvedPatchesEnableNonSecurity"`
+	AvailableSecurityUpdatesComplianceStatus string                         `pulumi:"availableSecurityUpdatesComplianceStatus"`
+	DefaultBaseline                          *bool                          `pulumi:"defaultBaseline"`
+	Description                              string                         `pulumi:"description"`
+	GlobalFilters                            []GetPatchBaselineGlobalFilter `pulumi:"globalFilters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// JSON representation of the baseline.
-	Json string `pulumi:"json"`
-	// Name specified to identify the patch source.
-	Name            string  `pulumi:"name"`
-	NamePrefix      *string `pulumi:"namePrefix"`
-	OperatingSystem *string `pulumi:"operatingSystem"`
-	Owner           string  `pulumi:"owner"`
-	Region          string  `pulumi:"region"`
-	// List of rejected patches.
-	RejectedPatches []string `pulumi:"rejectedPatches"`
-	// Action specified to take on patches included in the `rejectedPatches` list.
-	RejectedPatchesAction string `pulumi:"rejectedPatchesAction"`
-	// Information about the patches to use to update the managed nodes, including target operating systems and source repositories.
-	Sources []GetPatchBaselineSource `pulumi:"sources"`
+	Id                    string                   `pulumi:"id"`
+	Json                  string                   `pulumi:"json"`
+	Name                  string                   `pulumi:"name"`
+	NamePrefix            *string                  `pulumi:"namePrefix"`
+	OperatingSystem       *string                  `pulumi:"operatingSystem"`
+	Owner                 string                   `pulumi:"owner"`
+	Region                string                   `pulumi:"region"`
+	RejectedPatches       []string                 `pulumi:"rejectedPatches"`
+	RejectedPatchesAction string                   `pulumi:"rejectedPatchesAction"`
+	Sources               []GetPatchBaselineSource `pulumi:"sources"`
 }
 
 func LookupPatchBaselineOutput(ctx *pulumi.Context, args LookupPatchBaselineOutputArgs, opts ...pulumi.InvokeOption) LookupPatchBaselineResultOutput {
@@ -143,18 +64,11 @@ func LookupPatchBaselineOutput(ctx *pulumi.Context, args LookupPatchBaselineOutp
 
 // A collection of arguments for invoking getPatchBaseline.
 type LookupPatchBaselineOutputArgs struct {
-	// Filters the results against the baselines defaultBaseline field.
-	DefaultBaseline pulumi.BoolPtrInput `pulumi:"defaultBaseline"`
-	// Filter results by the baseline name prefix.
-	NamePrefix pulumi.StringPtrInput `pulumi:"namePrefix"`
-	// Specified OS for the baseline. Valid values: `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`.
+	DefaultBaseline pulumi.BoolPtrInput   `pulumi:"defaultBaseline"`
+	NamePrefix      pulumi.StringPtrInput `pulumi:"namePrefix"`
 	OperatingSystem pulumi.StringPtrInput `pulumi:"operatingSystem"`
-	// Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
-	//
-	// The following arguments are optional:
-	Owner pulumi.StringInput `pulumi:"owner"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Owner           pulumi.StringInput    `pulumi:"owner"`
+	Region          pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupPatchBaselineOutputArgs) ElementType() reflect.Type {
@@ -176,27 +90,22 @@ func (o LookupPatchBaselineResultOutput) ToLookupPatchBaselineResultOutputWithCo
 	return o
 }
 
-// List of rules used to include patches in the baseline.
 func (o LookupPatchBaselineResultOutput) ApprovalRules() GetPatchBaselineApprovalRuleArrayOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) []GetPatchBaselineApprovalRule { return v.ApprovalRules }).(GetPatchBaselineApprovalRuleArrayOutput)
 }
 
-// List of explicitly approved patches for the baseline.
 func (o LookupPatchBaselineResultOutput) ApprovedPatches() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) []string { return v.ApprovedPatches }).(pulumi.StringArrayOutput)
 }
 
-// Compliance level for approved patches.
 func (o LookupPatchBaselineResultOutput) ApprovedPatchesComplianceLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.ApprovedPatchesComplianceLevel }).(pulumi.StringOutput)
 }
 
-// Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
 func (o LookupPatchBaselineResultOutput) ApprovedPatchesEnableNonSecurity() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) bool { return v.ApprovedPatchesEnableNonSecurity }).(pulumi.BoolOutput)
 }
 
-// Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only.
 func (o LookupPatchBaselineResultOutput) AvailableSecurityUpdatesComplianceStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.AvailableSecurityUpdatesComplianceStatus }).(pulumi.StringOutput)
 }
@@ -205,12 +114,10 @@ func (o LookupPatchBaselineResultOutput) DefaultBaseline() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v LookupPatchBaselineResult) *bool { return v.DefaultBaseline }).(pulumi.BoolPtrOutput)
 }
 
-// Description of the baseline.
 func (o LookupPatchBaselineResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Set of global filters used to exclude patches from the baseline.
 func (o LookupPatchBaselineResultOutput) GlobalFilters() GetPatchBaselineGlobalFilterArrayOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) []GetPatchBaselineGlobalFilter { return v.GlobalFilters }).(GetPatchBaselineGlobalFilterArrayOutput)
 }
@@ -220,12 +127,10 @@ func (o LookupPatchBaselineResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// JSON representation of the baseline.
 func (o LookupPatchBaselineResultOutput) Json() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.Json }).(pulumi.StringOutput)
 }
 
-// Name specified to identify the patch source.
 func (o LookupPatchBaselineResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -246,17 +151,14 @@ func (o LookupPatchBaselineResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// List of rejected patches.
 func (o LookupPatchBaselineResultOutput) RejectedPatches() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) []string { return v.RejectedPatches }).(pulumi.StringArrayOutput)
 }
 
-// Action specified to take on patches included in the `rejectedPatches` list.
 func (o LookupPatchBaselineResultOutput) RejectedPatchesAction() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.RejectedPatchesAction }).(pulumi.StringOutput)
 }
 
-// Information about the patches to use to update the managed nodes, including target operating systems and source repositories.
 func (o LookupPatchBaselineResultOutput) Sources() GetPatchBaselineSourceArrayOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) []GetPatchBaselineSource { return v.Sources }).(GetPatchBaselineSourceArrayOutput)
 }

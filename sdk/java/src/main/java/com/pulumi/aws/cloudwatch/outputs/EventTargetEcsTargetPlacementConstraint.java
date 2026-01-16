@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventTargetEcsTargetPlacementConstraint {
-    /**
-     * @return Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
-     * 
-     */
     private @Nullable String expression;
-    /**
-     * @return Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
-     * 
-     */
     private String type;
 
     private EventTargetEcsTargetPlacementConstraint() {}
-    /**
-     * @return Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
-     * 
-     */
     public Optional<String> expression() {
         return Optional.ofNullable(this.expression);
     }
-    /**
-     * @return Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
-     * 
-     */
     public String type() {
         return this.type;
     }

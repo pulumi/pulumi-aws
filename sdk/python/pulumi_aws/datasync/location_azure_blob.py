@@ -32,15 +32,6 @@ class LocationAzureBlobArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LocationAzureBlob resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
-        :param pulumi.Input[_builtins.str] authentication_type: The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
-        :param pulumi.Input[_builtins.str] container_url: The URL of the Azure Blob Storage container involved in your transfer.
-        :param pulumi.Input[_builtins.str] access_tier: The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
-        :param pulumi.Input[_builtins.str] blob_type: The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['LocationAzureBlobSasConfigurationArgs'] sas_configuration: The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
-        :param pulumi.Input[_builtins.str] subdirectory: Path segments if you want to limit your transfer to a virtual directory in the container.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "agent_arns", agent_arns)
         pulumi.set(__self__, "authentication_type", authentication_type)
@@ -61,9 +52,6 @@ class LocationAzureBlobArgs:
     @_builtins.property
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        A list of DataSync Agent ARNs with which this location will be associated.
-        """
         return pulumi.get(self, "agent_arns")
 
     @agent_arns.setter
@@ -73,9 +61,6 @@ class LocationAzureBlobArgs:
     @_builtins.property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
-        """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
@@ -85,9 +70,6 @@ class LocationAzureBlobArgs:
     @_builtins.property
     @pulumi.getter(name="containerUrl")
     def container_url(self) -> pulumi.Input[_builtins.str]:
-        """
-        The URL of the Azure Blob Storage container involved in your transfer.
-        """
         return pulumi.get(self, "container_url")
 
     @container_url.setter
@@ -97,9 +79,6 @@ class LocationAzureBlobArgs:
     @_builtins.property
     @pulumi.getter(name="accessTier")
     def access_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
-        """
         return pulumi.get(self, "access_tier")
 
     @access_tier.setter
@@ -109,9 +88,6 @@ class LocationAzureBlobArgs:
     @_builtins.property
     @pulumi.getter(name="blobType")
     def blob_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
-        """
         return pulumi.get(self, "blob_type")
 
     @blob_type.setter
@@ -121,9 +97,6 @@ class LocationAzureBlobArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -133,9 +106,6 @@ class LocationAzureBlobArgs:
     @_builtins.property
     @pulumi.getter(name="sasConfiguration")
     def sas_configuration(self) -> Optional[pulumi.Input['LocationAzureBlobSasConfigurationArgs']]:
-        """
-        The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
-        """
         return pulumi.get(self, "sas_configuration")
 
     @sas_configuration.setter
@@ -145,9 +115,6 @@ class LocationAzureBlobArgs:
     @_builtins.property
     @pulumi.getter
     def subdirectory(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Path segments if you want to limit your transfer to a virtual directory in the container.
-        """
         return pulumi.get(self, "subdirectory")
 
     @subdirectory.setter
@@ -157,9 +124,6 @@ class LocationAzureBlobArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -184,17 +148,6 @@ class _LocationAzureBlobState:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LocationAzureBlob resources.
-        :param pulumi.Input[_builtins.str] access_tier: The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
-        :param pulumi.Input[_builtins.str] authentication_type: The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
-        :param pulumi.Input[_builtins.str] blob_type: The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
-        :param pulumi.Input[_builtins.str] container_url: The URL of the Azure Blob Storage container involved in your transfer.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['LocationAzureBlobSasConfigurationArgs'] sas_configuration: The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
-        :param pulumi.Input[_builtins.str] subdirectory: Path segments if you want to limit your transfer to a virtual directory in the container.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if access_tier is not None:
             pulumi.set(__self__, "access_tier", access_tier)
@@ -224,9 +177,6 @@ class _LocationAzureBlobState:
     @_builtins.property
     @pulumi.getter(name="accessTier")
     def access_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
-        """
         return pulumi.get(self, "access_tier")
 
     @access_tier.setter
@@ -236,9 +186,6 @@ class _LocationAzureBlobState:
     @_builtins.property
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of DataSync Agent ARNs with which this location will be associated.
-        """
         return pulumi.get(self, "agent_arns")
 
     @agent_arns.setter
@@ -248,9 +195,6 @@ class _LocationAzureBlobState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the DataSync Location.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -260,9 +204,6 @@ class _LocationAzureBlobState:
     @_builtins.property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
-        """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
@@ -272,9 +213,6 @@ class _LocationAzureBlobState:
     @_builtins.property
     @pulumi.getter(name="blobType")
     def blob_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
-        """
         return pulumi.get(self, "blob_type")
 
     @blob_type.setter
@@ -284,9 +222,6 @@ class _LocationAzureBlobState:
     @_builtins.property
     @pulumi.getter(name="containerUrl")
     def container_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The URL of the Azure Blob Storage container involved in your transfer.
-        """
         return pulumi.get(self, "container_url")
 
     @container_url.setter
@@ -296,9 +231,6 @@ class _LocationAzureBlobState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -308,9 +240,6 @@ class _LocationAzureBlobState:
     @_builtins.property
     @pulumi.getter(name="sasConfiguration")
     def sas_configuration(self) -> Optional[pulumi.Input['LocationAzureBlobSasConfigurationArgs']]:
-        """
-        The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
-        """
         return pulumi.get(self, "sas_configuration")
 
     @sas_configuration.setter
@@ -320,9 +249,6 @@ class _LocationAzureBlobState:
     @_builtins.property
     @pulumi.getter
     def subdirectory(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Path segments if you want to limit your transfer to a virtual directory in the container.
-        """
         return pulumi.get(self, "subdirectory")
 
     @subdirectory.setter
@@ -332,9 +258,6 @@ class _LocationAzureBlobState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -344,9 +267,6 @@ class _LocationAzureBlobState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -380,48 +300,9 @@ class LocationAzureBlob(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages a Microsoft Azure Blob Storage Location within AWS DataSync.
-
-        > **NOTE:** The DataSync Agents must be available before creating this resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.datasync.LocationAzureBlob("example",
-            agent_arns=[example_aws_datasync_agent["arn"]],
-            authentication_type="SAS",
-            container_url="https://myaccount.blob.core.windows.net/mycontainer",
-            sas_configuration={
-                "token": "sp=r&st=2023-12-20T14:54:52Z&se=2023-12-20T22:54:52Z&spr=https&sv=2021-06-08&sr=c&sig=aBBKDWQvyuVcTPH9EBp%2FXTI9E%2F%2Fmq171%2BZU178wcwqU%3D",
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the DataSync Azure Blob location.
-
-        Using `pulumi import`, import `aws_datasync_location_azure_blob` using the Amazon Resource Name (ARN). For example:
-
-        % pulumi import aws_datasync_location_azure_blob.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-
+        Create a LocationAzureBlob resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_tier: The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
-        :param pulumi.Input[_builtins.str] authentication_type: The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
-        :param pulumi.Input[_builtins.str] blob_type: The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
-        :param pulumi.Input[_builtins.str] container_url: The URL of the Azure Blob Storage container involved in your transfer.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['LocationAzureBlobSasConfigurationArgs', 'LocationAzureBlobSasConfigurationArgsDict']] sas_configuration: The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
-        :param pulumi.Input[_builtins.str] subdirectory: Path segments if you want to limit your transfer to a virtual directory in the container.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -430,37 +311,7 @@ class LocationAzureBlob(pulumi.CustomResource):
                  args: LocationAzureBlobArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Microsoft Azure Blob Storage Location within AWS DataSync.
-
-        > **NOTE:** The DataSync Agents must be available before creating this resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.datasync.LocationAzureBlob("example",
-            agent_arns=[example_aws_datasync_agent["arn"]],
-            authentication_type="SAS",
-            container_url="https://myaccount.blob.core.windows.net/mycontainer",
-            sas_configuration={
-                "token": "sp=r&st=2023-12-20T14:54:52Z&se=2023-12-20T22:54:52Z&spr=https&sv=2021-06-08&sr=c&sig=aBBKDWQvyuVcTPH9EBp%2FXTI9E%2F%2Fmq171%2BZU178wcwqU%3D",
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the DataSync Azure Blob location.
-
-        Using `pulumi import`, import `aws_datasync_location_azure_blob` using the Amazon Resource Name (ARN). For example:
-
-        % pulumi import aws_datasync_location_azure_blob.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-
+        Create a LocationAzureBlob resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LocationAzureBlobArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -541,17 +392,6 @@ class LocationAzureBlob(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_tier: The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
-        :param pulumi.Input[_builtins.str] authentication_type: The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
-        :param pulumi.Input[_builtins.str] blob_type: The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
-        :param pulumi.Input[_builtins.str] container_url: The URL of the Azure Blob Storage container involved in your transfer.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['LocationAzureBlobSasConfigurationArgs', 'LocationAzureBlobSasConfigurationArgsDict']] sas_configuration: The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
-        :param pulumi.Input[_builtins.str] subdirectory: Path segments if you want to limit your transfer to a virtual directory in the container.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -574,89 +414,56 @@ class LocationAzureBlob(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accessTier")
     def access_tier(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
-        """
         return pulumi.get(self, "access_tier")
 
     @_builtins.property
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        A list of DataSync Agent ARNs with which this location will be associated.
-        """
         return pulumi.get(self, "agent_arns")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the DataSync Location.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
-        """
         return pulumi.get(self, "authentication_type")
 
     @_builtins.property
     @pulumi.getter(name="blobType")
     def blob_type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
-        """
         return pulumi.get(self, "blob_type")
 
     @_builtins.property
     @pulumi.getter(name="containerUrl")
     def container_url(self) -> pulumi.Output[_builtins.str]:
-        """
-        The URL of the Azure Blob Storage container involved in your transfer.
-        """
         return pulumi.get(self, "container_url")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="sasConfiguration")
     def sas_configuration(self) -> pulumi.Output[Optional['outputs.LocationAzureBlobSasConfiguration']]:
-        """
-        The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
-        """
         return pulumi.get(self, "sas_configuration")
 
     @_builtins.property
     @pulumi.getter
     def subdirectory(self) -> pulumi.Output[_builtins.str]:
-        """
-        Path segments if you want to limit your transfer to a virtual directory in the container.
-        """
         return pulumi.get(self, "subdirectory")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.SesV2.Outputs
     [OutputType]
     public sealed class AccountVdmAttributesGuardianAttributes
     {
-        /// <summary>
-        /// Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
-        /// </summary>
         public readonly string? OptimizedSharedDelivery;
 
         [OutputConstructor]

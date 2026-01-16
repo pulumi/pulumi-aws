@@ -4,23 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Retrieve information about a Location Service Tracker Association.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.location.getTrackerAssociation({
- *     consumerArn: "arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer",
- *     trackerName: "example",
- * });
- * ```
- */
 export function getTrackerAssociation(args: GetTrackerAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetTrackerAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:location/getTrackerAssociation:getTrackerAssociation", {
@@ -34,17 +17,8 @@ export function getTrackerAssociation(args: GetTrackerAssociationArgs, opts?: pu
  * A collection of arguments for invoking getTrackerAssociation.
  */
 export interface GetTrackerAssociationArgs {
-    /**
-     * ARN of the geofence collection associated to tracker resource.
-     */
     consumerArn: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Name of the tracker resource associated with a geofence collection.
-     */
     trackerName: string;
 }
 
@@ -60,23 +34,6 @@ export interface GetTrackerAssociationResult {
     readonly region: string;
     readonly trackerName: string;
 }
-/**
- * Retrieve information about a Location Service Tracker Association.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.location.getTrackerAssociation({
- *     consumerArn: "arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer",
- *     trackerName: "example",
- * });
- * ```
- */
 export function getTrackerAssociationOutput(args: GetTrackerAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrackerAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:location/getTrackerAssociation:getTrackerAssociation", {
@@ -90,16 +47,7 @@ export function getTrackerAssociationOutput(args: GetTrackerAssociationOutputArg
  * A collection of arguments for invoking getTrackerAssociation.
  */
 export interface GetTrackerAssociationOutputArgs {
-    /**
-     * ARN of the geofence collection associated to tracker resource.
-     */
     consumerArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Name of the tracker resource associated with a geofence collection.
-     */
     trackerName: pulumi.Input<string>;
 }

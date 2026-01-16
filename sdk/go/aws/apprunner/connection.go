@@ -12,64 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an App Runner Connection.
-//
-// > **NOTE:** After creation, you must complete the authentication handshake using the App Runner console.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apprunner"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apprunner.NewConnection(ctx, "example", &apprunner.ConnectionArgs{
-//				ConnectionName: pulumi.String("example"),
-//				ProviderType:   pulumi.String("GITHUB"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example-apprunner-connection"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import App Runner Connections using the `connection_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:apprunner/connection:Connection example example
-// ```
 type Connection struct {
 	pulumi.CustomResourceState
 
-	// ARN of the connection.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of the connection.
-	ConnectionName pulumi.StringOutput `pulumi:"connectionName"`
-	// Source repository provider. Valid values: `GITHUB`.
-	ProviderType pulumi.StringOutput `pulumi:"providerType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `apprunner.Service` resource.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn            pulumi.StringOutput    `pulumi:"arn"`
+	ConnectionName pulumi.StringOutput    `pulumi:"connectionName"`
+	ProviderType   pulumi.StringOutput    `pulumi:"providerType"`
+	Region         pulumi.StringOutput    `pulumi:"region"`
+	Status         pulumi.StringOutput    `pulumi:"status"`
+	Tags           pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll        pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewConnection registers a new resource with the given unique name, arguments, and options.
@@ -108,37 +60,23 @@ func GetConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Connection resources.
 type connectionState struct {
-	// ARN of the connection.
-	Arn *string `pulumi:"arn"`
-	// Name of the connection.
-	ConnectionName *string `pulumi:"connectionName"`
-	// Source repository provider. Valid values: `GITHUB`.
-	ProviderType *string `pulumi:"providerType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `apprunner.Service` resource.
-	Status *string `pulumi:"status"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn            *string           `pulumi:"arn"`
+	ConnectionName *string           `pulumi:"connectionName"`
+	ProviderType   *string           `pulumi:"providerType"`
+	Region         *string           `pulumi:"region"`
+	Status         *string           `pulumi:"status"`
+	Tags           map[string]string `pulumi:"tags"`
+	TagsAll        map[string]string `pulumi:"tagsAll"`
 }
 
 type ConnectionState struct {
-	// ARN of the connection.
-	Arn pulumi.StringPtrInput
-	// Name of the connection.
+	Arn            pulumi.StringPtrInput
 	ConnectionName pulumi.StringPtrInput
-	// Source repository provider. Valid values: `GITHUB`.
-	ProviderType pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `apprunner.Service` resource.
-	Status pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	ProviderType   pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
+	Status         pulumi.StringPtrInput
+	Tags           pulumi.StringMapInput
+	TagsAll        pulumi.StringMapInput
 }
 
 func (ConnectionState) ElementType() reflect.Type {
@@ -146,26 +84,18 @@ func (ConnectionState) ElementType() reflect.Type {
 }
 
 type connectionArgs struct {
-	// Name of the connection.
-	ConnectionName string `pulumi:"connectionName"`
-	// Source repository provider. Valid values: `GITHUB`.
-	ProviderType string `pulumi:"providerType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	ConnectionName string            `pulumi:"connectionName"`
+	ProviderType   string            `pulumi:"providerType"`
+	Region         *string           `pulumi:"region"`
+	Tags           map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Connection resource.
 type ConnectionArgs struct {
-	// Name of the connection.
 	ConnectionName pulumi.StringInput
-	// Source repository provider. Valid values: `GITHUB`.
-	ProviderType pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	ProviderType   pulumi.StringInput
+	Region         pulumi.StringPtrInput
+	Tags           pulumi.StringMapInput
 }
 
 func (ConnectionArgs) ElementType() reflect.Type {
@@ -255,37 +185,30 @@ func (o ConnectionOutput) ToConnectionOutputWithContext(ctx context.Context) Con
 	return o
 }
 
-// ARN of the connection.
 func (o ConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the connection.
 func (o ConnectionOutput) ConnectionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.ConnectionName }).(pulumi.StringOutput)
 }
 
-// Source repository provider. Valid values: `GITHUB`.
 func (o ConnectionOutput) ProviderType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.ProviderType }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ConnectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `apprunner.Service` resource.
 func (o ConnectionOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ConnectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ConnectionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

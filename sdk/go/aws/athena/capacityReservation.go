@@ -12,68 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Athena Capacity Reservation.
-//
-// > Destruction of this resource will both [cancel](https://docs.aws.amazon.com/athena/latest/ug/capacity-management-cancelling-a-capacity-reservation.html) and [delete](https://docs.aws.amazon.com/athena/latest/ug/capacity-management-deleting-a-capacity-reservation.html) the capacity reservation.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/athena"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := athena.NewCapacityReservation(ctx, "example", &athena.CapacityReservationArgs{
-//				Name:       pulumi.String("example-reservation"),
-//				TargetDpus: pulumi.Int(24),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Athena Capacity Reservation using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:athena/capacityReservation:CapacityReservation example example-reservation
-// ```
 type CapacityReservation struct {
 	pulumi.CustomResourceState
 
-	// Number of data processing units currently allocated.
-	AllocatedDpus pulumi.IntOutput `pulumi:"allocatedDpus"`
-	// ARN of the Capacity Reservation.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of the capacity reservation.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Status of the capacity reservation.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Number of data processing units requested. Must be at least `24` units.
-	//
-	// The following arguments are optional:
-	TargetDpus pulumi.IntOutput                     `pulumi:"targetDpus"`
-	Timeouts   CapacityReservationTimeoutsPtrOutput `pulumi:"timeouts"`
+	AllocatedDpus pulumi.IntOutput                     `pulumi:"allocatedDpus"`
+	Arn           pulumi.StringOutput                  `pulumi:"arn"`
+	Name          pulumi.StringOutput                  `pulumi:"name"`
+	Region        pulumi.StringOutput                  `pulumi:"region"`
+	Status        pulumi.StringOutput                  `pulumi:"status"`
+	Tags          pulumi.StringMapOutput               `pulumi:"tags"`
+	TagsAll       pulumi.StringMapOutput               `pulumi:"tagsAll"`
+	TargetDpus    pulumi.IntOutput                     `pulumi:"targetDpus"`
+	Timeouts      CapacityReservationTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewCapacityReservation registers a new resource with the given unique name, arguments, and options.
@@ -109,47 +59,27 @@ func GetCapacityReservation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CapacityReservation resources.
 type capacityReservationState struct {
-	// Number of data processing units currently allocated.
-	AllocatedDpus *int `pulumi:"allocatedDpus"`
-	// ARN of the Capacity Reservation.
-	Arn *string `pulumi:"arn"`
-	// Name of the capacity reservation.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Status of the capacity reservation.
-	Status *string `pulumi:"status"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Number of data processing units requested. Must be at least `24` units.
-	//
-	// The following arguments are optional:
-	TargetDpus *int                         `pulumi:"targetDpus"`
-	Timeouts   *CapacityReservationTimeouts `pulumi:"timeouts"`
+	AllocatedDpus *int                         `pulumi:"allocatedDpus"`
+	Arn           *string                      `pulumi:"arn"`
+	Name          *string                      `pulumi:"name"`
+	Region        *string                      `pulumi:"region"`
+	Status        *string                      `pulumi:"status"`
+	Tags          map[string]string            `pulumi:"tags"`
+	TagsAll       map[string]string            `pulumi:"tagsAll"`
+	TargetDpus    *int                         `pulumi:"targetDpus"`
+	Timeouts      *CapacityReservationTimeouts `pulumi:"timeouts"`
 }
 
 type CapacityReservationState struct {
-	// Number of data processing units currently allocated.
 	AllocatedDpus pulumi.IntPtrInput
-	// ARN of the Capacity Reservation.
-	Arn pulumi.StringPtrInput
-	// Name of the capacity reservation.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Status of the capacity reservation.
-	Status pulumi.StringPtrInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Number of data processing units requested. Must be at least `24` units.
-	//
-	// The following arguments are optional:
-	TargetDpus pulumi.IntPtrInput
-	Timeouts   CapacityReservationTimeoutsPtrInput
+	Arn           pulumi.StringPtrInput
+	Name          pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
+	Status        pulumi.StringPtrInput
+	Tags          pulumi.StringMapInput
+	TagsAll       pulumi.StringMapInput
+	TargetDpus    pulumi.IntPtrInput
+	Timeouts      CapacityReservationTimeoutsPtrInput
 }
 
 func (CapacityReservationState) ElementType() reflect.Type {
@@ -157,30 +87,18 @@ func (CapacityReservationState) ElementType() reflect.Type {
 }
 
 type capacityReservationArgs struct {
-	// Name of the capacity reservation.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Number of data processing units requested. Must be at least `24` units.
-	//
-	// The following arguments are optional:
+	Name       *string                      `pulumi:"name"`
+	Region     *string                      `pulumi:"region"`
+	Tags       map[string]string            `pulumi:"tags"`
 	TargetDpus int                          `pulumi:"targetDpus"`
 	Timeouts   *CapacityReservationTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a CapacityReservation resource.
 type CapacityReservationArgs struct {
-	// Name of the capacity reservation.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Number of data processing units requested. Must be at least `24` units.
-	//
-	// The following arguments are optional:
+	Name       pulumi.StringPtrInput
+	Region     pulumi.StringPtrInput
+	Tags       pulumi.StringMapInput
 	TargetDpus pulumi.IntInput
 	Timeouts   CapacityReservationTimeoutsPtrInput
 }
@@ -272,44 +190,34 @@ func (o CapacityReservationOutput) ToCapacityReservationOutputWithContext(ctx co
 	return o
 }
 
-// Number of data processing units currently allocated.
 func (o CapacityReservationOutput) AllocatedDpus() pulumi.IntOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.IntOutput { return v.AllocatedDpus }).(pulumi.IntOutput)
 }
 
-// ARN of the Capacity Reservation.
 func (o CapacityReservationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the capacity reservation.
 func (o CapacityReservationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CapacityReservationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Status of the capacity reservation.
 func (o CapacityReservationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CapacityReservationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CapacityReservationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Number of data processing units requested. Must be at least `24` units.
-//
-// The following arguments are optional:
 func (o CapacityReservationOutput) TargetDpus() pulumi.IntOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.IntOutput { return v.TargetDpus }).(pulumi.IntOutput)
 }

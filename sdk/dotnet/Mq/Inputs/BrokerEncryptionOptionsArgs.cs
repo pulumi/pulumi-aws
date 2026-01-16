@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Mq.Inputs
 
     public sealed class BrokerEncryptionOptionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of KMS CMK to use for encryption at rest. Requires setting `UseAwsOwnedKey` to `False`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        /// <summary>
-        /// Whether to enable an AWS-owned KMS CMK not in your account. Defaults to `True`. Setting to `False` without configuring `KmsKeyId` creates an AWS-managed CMK aliased to `aws/mq` in your account.
-        /// </summary>
         [Input("useAwsOwnedKey")]
         public Input<bool>? UseAwsOwnedKey { get; set; }
 

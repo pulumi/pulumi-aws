@@ -4,15 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Import
- *
- * Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `user_name`. For example:
- *
- * ```sh
- * $ pulumi import aws:iam/userPolicyAttachmentsExclusive:UserPolicyAttachmentsExclusive example MyUser
- * ```
- */
 export class UserPolicyAttachmentsExclusive extends pulumi.CustomResource {
     /**
      * Get an existing UserPolicyAttachmentsExclusive resource's state with the given name, ID, and optional extra
@@ -41,13 +32,7 @@ export class UserPolicyAttachmentsExclusive extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserPolicyAttachmentsExclusive.__pulumiType;
     }
 
-    /**
-     * A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
-     */
     declare public readonly policyArns: pulumi.Output<string[]>;
-    /**
-     * IAM user name.
-     */
     declare public readonly userName: pulumi.Output<string>;
 
     /**
@@ -85,13 +70,7 @@ export class UserPolicyAttachmentsExclusive extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserPolicyAttachmentsExclusive resources.
  */
 export interface UserPolicyAttachmentsExclusiveState {
-    /**
-     * A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
-     */
     policyArns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * IAM user name.
-     */
     userName?: pulumi.Input<string>;
 }
 
@@ -99,12 +78,6 @@ export interface UserPolicyAttachmentsExclusiveState {
  * The set of arguments for constructing a UserPolicyAttachmentsExclusive resource.
  */
 export interface UserPolicyAttachmentsExclusiveArgs {
-    /**
-     * A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
-     */
     policyArns: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * IAM user name.
-     */
     userName: pulumi.Input<string>;
 }

@@ -9,157 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53Domains
 {
-    /// <summary>
-    /// Provides a resource to manage a [delegation signer record](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-enable-signing.html#dns-configuring-dnssec-enable-signing-step-1) in the parent DNS zone for domains registered with Route53.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var example = new Aws.Kms.Key("example", new()
-    ///     {
-    ///         CustomerMasterKeySpec = "ECC_NIST_P256",
-    ///         DeletionWindowInDays = 7,
-    ///         KeyUsage = "SIGN_VERIFY",
-    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "kms:DescribeKey",
-    ///                         "kms:GetPublicKey",
-    ///                         "kms:Sign",
-    ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Service"] = "dnssec-route53.amazonaws.com",
-    ///                     },
-    ///                     ["Sid"] = "Allow Route 53 DNSSEC Service",
-    ///                     ["Resource"] = "*",
-    ///                     ["Condition"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["StringEquals"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["aws:SourceAccount"] = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///                         },
-    ///                         ["ArnLike"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["aws:SourceArn"] = "arn:aws:route53:::hostedzone/*",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = "kms:CreateGrant",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Service"] = "dnssec-route53.amazonaws.com",
-    ///                     },
-    ///                     ["Sid"] = "Allow Route 53 DNSSEC Service to CreateGrant",
-    ///                     ["Resource"] = "*",
-    ///                     ["Condition"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Bool"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["kms:GrantIsForAWSResource"] = "true",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = "kms:*",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["AWS"] = $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
-    ///                     },
-    ///                     ["Resource"] = "*",
-    ///                     ["Sid"] = "Enable IAM User Permissions",
-    ///                 },
-    ///             },
-    ///             ["Version"] = "2012-10-17",
-    ///         }),
-    ///     });
-    /// 
-    ///     var exampleZone = new Aws.Route53.Zone("example", new()
-    ///     {
-    ///         Name = "example.com",
-    ///     });
-    /// 
-    ///     var exampleKeySigningKey = new Aws.Route53.KeySigningKey("example", new()
-    ///     {
-    ///         HostedZoneId = test.Id,
-    ///         KeyManagementServiceArn = testAwsKmsKey.Arn,
-    ///         Name = "example",
-    ///     });
-    /// 
-    ///     var exampleHostedZoneDnsSec = new Aws.Route53.HostedZoneDnsSec("example", new()
-    ///     {
-    ///         HostedZoneId = exampleKeySigningKey.HostedZoneId,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleKeySigningKey,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleDelegationSignerRecord = new Aws.Route53Domains.DelegationSignerRecord("example", new()
-    ///     {
-    ///         DomainName = "example.com",
-    ///         SigningAttributes = new Aws.Route53Domains.Inputs.DelegationSignerRecordSigningAttributesArgs
-    ///         {
-    ///             Algorithm = exampleKeySigningKey.SigningAlgorithmType,
-    ///             Flags = exampleKeySigningKey.Flag,
-    ///             PublicKey = exampleKeySigningKey.PublicKey,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import delegation signer records using the domain name and DNSSEC key ID, separated by a comma (`,`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:route53domains/delegationSignerRecord:DelegationSignerRecord example example.com,40DE3534F5324DBDAC598ACEDB5B1E26A5368732D9C791D1347E4FBDDF6FC343
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:route53domains/delegationSignerRecord:DelegationSignerRecord")]
     public partial class DelegationSignerRecord : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// An ID assigned to the created DS record.
-        /// </summary>
         [Output("dnssecKeyId")]
         public Output<string> DnssecKeyId { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
-        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
-        /// <summary>
-        /// The information about a key, including the algorithm, public key-value, and flags.
-        /// </summary>
         [Output("signingAttributes")]
         public Output<Outputs.DelegationSignerRecordSigningAttributes?> SigningAttributes { get; private set; } = null!;
 
@@ -212,15 +70,9 @@ namespace Pulumi.Aws.Route53Domains
 
     public sealed class DelegationSignerRecordArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
-        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
-        /// <summary>
-        /// The information about a key, including the algorithm, public key-value, and flags.
-        /// </summary>
         [Input("signingAttributes")]
         public Input<Inputs.DelegationSignerRecordSigningAttributesArgs>? SigningAttributes { get; set; }
 
@@ -235,21 +87,12 @@ namespace Pulumi.Aws.Route53Domains
 
     public sealed class DelegationSignerRecordState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An ID assigned to the created DS record.
-        /// </summary>
         [Input("dnssecKeyId")]
         public Input<string>? DnssecKeyId { get; set; }
 
-        /// <summary>
-        /// The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
-        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
-        /// <summary>
-        /// The information about a key, including the algorithm, public key-value, and flags.
-        /// </summary>
         [Input("signingAttributes")]
         public Input<Inputs.DelegationSignerRecordSigningAttributesGetArgs>? SigningAttributes { get; set; }
 

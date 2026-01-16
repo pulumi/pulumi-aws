@@ -44,17 +44,11 @@ class GetUserGroupsResult:
     @_builtins.property
     @pulumi.getter
     def groups(self) -> Sequence['outputs.GetUserGroupsGroupResult']:
-        """
-        List of groups. See `groups` below.
-        """
         return pulumi.get(self, "groups")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        User pool identifier.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
@@ -84,22 +78,7 @@ def get_user_groups(region: Optional[_builtins.str] = None,
                     user_pool_id: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserGroupsResult:
     """
-    Data source for managing AWS Cognito IDP (Identity Provider) User Groups.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cognito.get_user_groups(user_pool_id="us-west-2_aaaaaaaaa")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str user_pool_id: User pool the client belongs to.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -116,22 +95,7 @@ def get_user_groups_output(region: Optional[pulumi.Input[Optional[_builtins.str]
                            user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserGroupsResult]:
     """
-    Data source for managing AWS Cognito IDP (Identity Provider) User Groups.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cognito.get_user_groups(user_pool_id="us-west-2_aaaaaaaaa")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str user_pool_id: User pool the client belongs to.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

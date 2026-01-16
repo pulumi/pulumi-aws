@@ -16,17 +16,9 @@ public final class LifecyclePolicyPolicyDetailsActionArgs extends com.pulumi.res
 
     public static final LifecyclePolicyPolicyDetailsActionArgs Empty = new LifecyclePolicyPolicyDetailsActionArgs();
 
-    /**
-     * The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
-     * 
-     */
     @Import(name="crossRegionCopies", required=true)
     private Output<List<LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs>> crossRegionCopies;
 
-    /**
-     * @return The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
-     * 
-     */
     public Output<List<LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs>> crossRegionCopies() {
         return this.crossRegionCopies;
     }
@@ -63,33 +55,15 @@ public final class LifecyclePolicyPolicyDetailsActionArgs extends com.pulumi.res
             $ = new LifecyclePolicyPolicyDetailsActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param crossRegionCopies The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder crossRegionCopies(Output<List<LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs>> crossRegionCopies) {
             $.crossRegionCopies = crossRegionCopies;
             return this;
         }
 
-        /**
-         * @param crossRegionCopies The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder crossRegionCopies(List<LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs> crossRegionCopies) {
             return crossRegionCopies(Output.of(crossRegionCopies));
         }
 
-        /**
-         * @param crossRegionCopies The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder crossRegionCopies(LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs... crossRegionCopies) {
             return crossRegionCopies(List.of(crossRegionCopies));
         }

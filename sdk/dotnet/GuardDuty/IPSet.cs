@@ -9,121 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.GuardDuty
 {
-    /// <summary>
-    /// Provides a resource to manage a GuardDuty IPSet.
-    /// 
-    /// &gt; **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage IPSets. IPSets that are uploaded by the primary account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-ip-set.html)
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var primary = new Aws.GuardDuty.Detector("primary", new()
-    ///     {
-    ///         Enable = true,
-    ///     });
-    /// 
-    ///     var bucket = new Aws.S3.Bucket("bucket");
-    /// 
-    ///     var myIPSet = new Aws.S3.BucketObjectv2("MyIPSet", new()
-    ///     {
-    ///         Content = @"10.0.0.0/8
-    /// ",
-    ///         Bucket = bucket.Id,
-    ///         Key = "MyIPSet",
-    ///     });
-    /// 
-    ///     var example = new Aws.GuardDuty.IPSet("example", new()
-    ///     {
-    ///         Activate = true,
-    ///         DetectorId = primary.Id,
-    ///         Format = "TXT",
-    ///         Location = Output.Tuple(myIPSet.Bucket, myIPSet.Key).Apply(values =&gt;
-    ///         {
-    ///             var bucket = values.Item1;
-    ///             var key = values.Item2;
-    ///             return $"https://s3.amazonaws.com/{bucket}/{key}";
-    ///         }),
-    ///         Name = "MyIPSet",
-    ///     });
-    /// 
-    ///     var bucketAcl = new Aws.S3.BucketAcl("bucket_acl", new()
-    ///     {
-    ///         Bucket = bucket.Id,
-    ///         Acl = "private",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import GuardDuty IPSet using the primary GuardDuty detector ID and IPSet ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:guardduty/iPSet:IPSet MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:guardduty/iPSet:IPSet")]
     public partial class IPSet : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Specifies whether GuardDuty is to start using the uploaded IPSet.
-        /// </summary>
         [Output("activate")]
         public Output<bool> Activate { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the GuardDuty IPSet.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The detector ID of the GuardDuty.
-        /// </summary>
         [Output("detectorId")]
         public Output<string> DetectorId { get; private set; } = null!;
 
-        /// <summary>
-        /// The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-        /// </summary>
         [Output("format")]
         public Output<string> Format { get; private set; } = null!;
 
-        /// <summary>
-        /// The URI of the file that contains the IPSet.
-        /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
-        /// <summary>
-        /// The friendly name to identify the IPSet.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -173,48 +85,26 @@ namespace Pulumi.Aws.GuardDuty
 
     public sealed class IPSetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies whether GuardDuty is to start using the uploaded IPSet.
-        /// </summary>
         [Input("activate", required: true)]
         public Input<bool> Activate { get; set; } = null!;
 
-        /// <summary>
-        /// The detector ID of the GuardDuty.
-        /// </summary>
         [Input("detectorId", required: true)]
         public Input<string> DetectorId { get; set; } = null!;
 
-        /// <summary>
-        /// The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-        /// </summary>
         [Input("format", required: true)]
         public Input<string> Format { get; set; } = null!;
 
-        /// <summary>
-        /// The URI of the file that contains the IPSet.
-        /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
-        /// <summary>
-        /// The friendly name to identify the IPSet.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -229,54 +119,29 @@ namespace Pulumi.Aws.GuardDuty
 
     public sealed class IPSetState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies whether GuardDuty is to start using the uploaded IPSet.
-        /// </summary>
         [Input("activate")]
         public Input<bool>? Activate { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the GuardDuty IPSet.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The detector ID of the GuardDuty.
-        /// </summary>
         [Input("detectorId")]
         public Input<string>? DetectorId { get; set; }
 
-        /// <summary>
-        /// The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-        /// </summary>
         [Input("format")]
         public Input<string>? Format { get; set; }
 
-        /// <summary>
-        /// The URI of the file that contains the IPSet.
-        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        /// <summary>
-        /// The friendly name to identify the IPSet.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -285,10 +150,6 @@ namespace Pulumi.Aws.GuardDuty
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

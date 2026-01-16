@@ -17,47 +17,23 @@ public final class GetLogDataProtectionPolicyDocumentStatement extends com.pulum
 
     public static final GetLogDataProtectionPolicyDocumentStatement Empty = new GetLogDataProtectionPolicyDocumentStatement();
 
-    /**
-     * Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
-     * 
-     */
     @Import(name="dataIdentifiers", required=true)
     private List<String> dataIdentifiers;
 
-    /**
-     * @return Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
-     * 
-     */
     public List<String> dataIdentifiers() {
         return this.dataIdentifiers;
     }
 
-    /**
-     * Configures the data protection operation applied by this statement.
-     * 
-     */
     @Import(name="operation", required=true)
     private GetLogDataProtectionPolicyDocumentStatementOperation operation;
 
-    /**
-     * @return Configures the data protection operation applied by this statement.
-     * 
-     */
     public GetLogDataProtectionPolicyDocumentStatementOperation operation() {
         return this.operation;
     }
 
-    /**
-     * Name of this statement.
-     * 
-     */
     @Import(name="sid")
     private @Nullable String sid;
 
-    /**
-     * @return Name of this statement.
-     * 
-     */
     public Optional<String> sid() {
         return Optional.ofNullable(this.sid);
     }
@@ -88,44 +64,20 @@ public final class GetLogDataProtectionPolicyDocumentStatement extends com.pulum
             $ = new GetLogDataProtectionPolicyDocumentStatement(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dataIdentifiers Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataIdentifiers(List<String> dataIdentifiers) {
             $.dataIdentifiers = dataIdentifiers;
             return this;
         }
 
-        /**
-         * @param dataIdentifiers Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataIdentifiers(String... dataIdentifiers) {
             return dataIdentifiers(List.of(dataIdentifiers));
         }
 
-        /**
-         * @param operation Configures the data protection operation applied by this statement.
-         * 
-         * @return builder
-         * 
-         */
         public Builder operation(GetLogDataProtectionPolicyDocumentStatementOperation operation) {
             $.operation = operation;
             return this;
         }
 
-        /**
-         * @param sid Name of this statement.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sid(@Nullable String sid) {
             $.sid = sid;
             return this;

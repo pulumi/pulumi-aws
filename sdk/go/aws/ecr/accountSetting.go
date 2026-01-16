@@ -12,82 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage AWS ECR Basic Scan Type
-//
-// ## Example Usage
-//
-// ### Configuring Basic Scanning
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecr.NewAccountSetting(ctx, "basic_scan_type_version", &ecr.AccountSettingArgs{
-//				Name:  pulumi.String("BASIC_SCAN_TYPE_VERSION"),
-//				Value: pulumi.String("AWS_NATIVE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Configuring Registry Policy Scope
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecr.NewAccountSetting(ctx, "registry_policy_scope", &ecr.AccountSettingArgs{
-//				Name:  pulumi.String("REGISTRY_POLICY_SCOPE"),
-//				Value: pulumi.String("V2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EMR Security Configurations using the account setting name. For example:
-//
-// ```sh
-// $ pulumi import aws:ecr/accountSetting:AccountSetting foo BASIC_SCAN_TYPE_VERSION
-// ```
 type AccountSetting struct {
 	pulumi.CustomResourceState
 
-	// Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringOutput `pulumi:"name"`
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Setting value that is specified. Valid values are:
-	// * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
-	// * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
-	Value pulumi.StringOutput `pulumi:"value"`
+	Value  pulumi.StringOutput `pulumi:"value"`
 }
 
 // NewAccountSetting registers a new resource with the given unique name, arguments, and options.
@@ -123,25 +53,15 @@ func GetAccountSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccountSetting resources.
 type accountSettingState struct {
-	// Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   *string `pulumi:"name"`
 	Region *string `pulumi:"region"`
-	// Setting value that is specified. Valid values are:
-	// * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
-	// * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
-	Value *string `pulumi:"value"`
+	Value  *string `pulumi:"value"`
 }
 
 type AccountSettingState struct {
-	// Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringPtrInput
 	Region pulumi.StringPtrInput
-	// Setting value that is specified. Valid values are:
-	// * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
-	// * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
-	Value pulumi.StringPtrInput
+	Value  pulumi.StringPtrInput
 }
 
 func (AccountSettingState) ElementType() reflect.Type {
@@ -149,26 +69,16 @@ func (AccountSettingState) ElementType() reflect.Type {
 }
 
 type accountSettingArgs struct {
-	// Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   *string `pulumi:"name"`
 	Region *string `pulumi:"region"`
-	// Setting value that is specified. Valid values are:
-	// * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
-	// * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
-	Value string `pulumi:"value"`
+	Value  string  `pulumi:"value"`
 }
 
 // The set of arguments for constructing a AccountSetting resource.
 type AccountSettingArgs struct {
-	// Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringPtrInput
 	Region pulumi.StringPtrInput
-	// Setting value that is specified. Valid values are:
-	// * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
-	// * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
-	Value pulumi.StringInput
+	Value  pulumi.StringInput
 }
 
 func (AccountSettingArgs) ElementType() reflect.Type {
@@ -258,19 +168,14 @@ func (o AccountSettingOutput) ToAccountSettingOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
 func (o AccountSettingOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSetting) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AccountSettingOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSetting) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Setting value that is specified. Valid values are:
-// * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
-// * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
 func (o AccountSettingOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSetting) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }

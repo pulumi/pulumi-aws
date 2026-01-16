@@ -11,98 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an IAM user.
-//
-// > *NOTE:* If policies are attached to the user via the `iam.PolicyAttachment` resource and you are modifying the user `name` or `path`, the `forceDestroy` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `iam.UserPolicyAttachment` resource (recommended) does not have this requirement.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			lb, err := iam.NewUser(ctx, "lb", &iam.UserArgs{
-//				Name: pulumi.String("loadbalancer"),
-//				Path: pulumi.String("/system/"),
-//				Tags: pulumi.StringMap{
-//					"tag-key": pulumi.String("tag-value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewAccessKey(ctx, "lb", &iam.AccessKeyArgs{
-//				User: lb.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			lbRo, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"ec2:Describe*",
-//						},
-//						Resources: []string{
-//							"*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewUserPolicy(ctx, "lb_ro", &iam.UserPolicyArgs{
-//				Name:   pulumi.String("test"),
-//				User:   lb.Name,
-//				Policy: pulumi.String(lbRo.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import IAM Users using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:iam/user:User lb loadbalancer
-// ```
 type User struct {
 	pulumi.CustomResourceState
 
-	// The ARN assigned by AWS for this user.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// When destroying this user, destroy even if it
-	// has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
-	// a user with non-provider-managed access keys and login profile will fail to be destroyed.
-	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
-	// The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Path in which to create the user.
-	Path pulumi.StringPtrOutput `pulumi:"path"`
-	// The ARN of the policy that is used to set the permissions boundary for the user.
+	Arn                 pulumi.StringOutput    `pulumi:"arn"`
+	ForceDestroy        pulumi.BoolPtrOutput   `pulumi:"forceDestroy"`
+	Name                pulumi.StringOutput    `pulumi:"name"`
+	Path                pulumi.StringPtrOutput `pulumi:"path"`
 	PermissionsBoundary pulumi.StringPtrOutput `pulumi:"permissionsBoundary"`
-	// Key-value mapping of tags for the IAM user. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The [unique ID][1] assigned by AWS.
-	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
+	Tags                pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll             pulumi.StringMapOutput `pulumi:"tagsAll"`
+	UniqueId            pulumi.StringOutput    `pulumi:"uniqueId"`
 }
 
 // NewUser registers a new resource with the given unique name, arguments, and options.
@@ -135,45 +54,25 @@ func GetUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering User resources.
 type userState struct {
-	// The ARN assigned by AWS for this user.
-	Arn *string `pulumi:"arn"`
-	// When destroying this user, destroy even if it
-	// has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
-	// a user with non-provider-managed access keys and login profile will fail to be destroyed.
-	ForceDestroy *bool `pulumi:"forceDestroy"`
-	// The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
-	Name *string `pulumi:"name"`
-	// Path in which to create the user.
-	Path *string `pulumi:"path"`
-	// The ARN of the policy that is used to set the permissions boundary for the user.
-	PermissionsBoundary *string `pulumi:"permissionsBoundary"`
-	// Key-value mapping of tags for the IAM user. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The [unique ID][1] assigned by AWS.
-	UniqueId *string `pulumi:"uniqueId"`
+	Arn                 *string           `pulumi:"arn"`
+	ForceDestroy        *bool             `pulumi:"forceDestroy"`
+	Name                *string           `pulumi:"name"`
+	Path                *string           `pulumi:"path"`
+	PermissionsBoundary *string           `pulumi:"permissionsBoundary"`
+	Tags                map[string]string `pulumi:"tags"`
+	TagsAll             map[string]string `pulumi:"tagsAll"`
+	UniqueId            *string           `pulumi:"uniqueId"`
 }
 
 type UserState struct {
-	// The ARN assigned by AWS for this user.
-	Arn pulumi.StringPtrInput
-	// When destroying this user, destroy even if it
-	// has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
-	// a user with non-provider-managed access keys and login profile will fail to be destroyed.
-	ForceDestroy pulumi.BoolPtrInput
-	// The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
-	Name pulumi.StringPtrInput
-	// Path in which to create the user.
-	Path pulumi.StringPtrInput
-	// The ARN of the policy that is used to set the permissions boundary for the user.
+	Arn                 pulumi.StringPtrInput
+	ForceDestroy        pulumi.BoolPtrInput
+	Name                pulumi.StringPtrInput
+	Path                pulumi.StringPtrInput
 	PermissionsBoundary pulumi.StringPtrInput
-	// Key-value mapping of tags for the IAM user. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The [unique ID][1] assigned by AWS.
-	UniqueId pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
+	TagsAll             pulumi.StringMapInput
+	UniqueId            pulumi.StringPtrInput
 }
 
 func (UserState) ElementType() reflect.Type {
@@ -181,34 +80,20 @@ func (UserState) ElementType() reflect.Type {
 }
 
 type userArgs struct {
-	// When destroying this user, destroy even if it
-	// has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
-	// a user with non-provider-managed access keys and login profile will fail to be destroyed.
-	ForceDestroy *bool `pulumi:"forceDestroy"`
-	// The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
-	Name *string `pulumi:"name"`
-	// Path in which to create the user.
-	Path *string `pulumi:"path"`
-	// The ARN of the policy that is used to set the permissions boundary for the user.
-	PermissionsBoundary *string `pulumi:"permissionsBoundary"`
-	// Key-value mapping of tags for the IAM user. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	ForceDestroy        *bool             `pulumi:"forceDestroy"`
+	Name                *string           `pulumi:"name"`
+	Path                *string           `pulumi:"path"`
+	PermissionsBoundary *string           `pulumi:"permissionsBoundary"`
+	Tags                map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
-	// When destroying this user, destroy even if it
-	// has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
-	// a user with non-provider-managed access keys and login profile will fail to be destroyed.
-	ForceDestroy pulumi.BoolPtrInput
-	// The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
-	Name pulumi.StringPtrInput
-	// Path in which to create the user.
-	Path pulumi.StringPtrInput
-	// The ARN of the policy that is used to set the permissions boundary for the user.
+	ForceDestroy        pulumi.BoolPtrInput
+	Name                pulumi.StringPtrInput
+	Path                pulumi.StringPtrInput
 	PermissionsBoundary pulumi.StringPtrInput
-	// Key-value mapping of tags for the IAM user. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags                pulumi.StringMapInput
 }
 
 func (UserArgs) ElementType() reflect.Type {
@@ -298,44 +183,34 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
-// The ARN assigned by AWS for this user.
 func (o UserOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// When destroying this user, destroy even if it
-// has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
-// a user with non-provider-managed access keys and login profile will fail to be destroyed.
 func (o UserOutput) ForceDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.ForceDestroy }).(pulumi.BoolPtrOutput)
 }
 
-// The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
 func (o UserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Path in which to create the user.
 func (o UserOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the policy that is used to set the permissions boundary for the user.
 func (o UserOutput) PermissionsBoundary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.PermissionsBoundary }).(pulumi.StringPtrOutput)
 }
 
-// Key-value mapping of tags for the IAM user. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o UserOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o UserOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The [unique ID][1] assigned by AWS.
 func (o UserOutput) UniqueId() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UniqueId }).(pulumi.StringOutput)
 }

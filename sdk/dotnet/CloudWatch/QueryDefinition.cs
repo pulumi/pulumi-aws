@@ -9,74 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudWatch
 {
-    /// <summary>
-    /// Provides a CloudWatch Logs query definition resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudWatch.QueryDefinition("example", new()
-    ///     {
-    ///         Name = "custom_query",
-    ///         LogGroupNames = new[]
-    ///         {
-    ///             "/aws/logGroup1",
-    ///             "/aws/logGroup2",
-    ///         },
-    ///         QueryString = @"fields @timestamp, @message
-    /// | sort @timestamp desc
-    /// | limit 25
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CloudWatch query definitions using the query definition ARN. The ARN can be found on the "Edit Query" page for the query in the AWS Console. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cloudwatch/queryDefinition:QueryDefinition example arn:aws:logs:us-west-2:123456789012:query-definition:269951d7-6f75-496d-9d7b-6b7a5486bdbd
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudwatch/queryDefinition:QueryDefinition")]
     public partial class QueryDefinition : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Specific log groups to use with the query.
-        /// </summary>
         [Output("logGroupNames")]
         public Output<ImmutableArray<string>> LogGroupNames { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the query.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The query definition ID.
-        /// </summary>
         [Output("queryDefinitionId")]
         public Output<string> QueryDefinitionId { get; private set; } = null!;
 
-        /// <summary>
-        /// The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
-        /// </summary>
         [Output("queryString")]
         public Output<string> QueryString { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -128,31 +75,18 @@ namespace Pulumi.Aws.CloudWatch
     {
         [Input("logGroupNames")]
         private InputList<string>? _logGroupNames;
-
-        /// <summary>
-        /// Specific log groups to use with the query.
-        /// </summary>
         public InputList<string> LogGroupNames
         {
             get => _logGroupNames ?? (_logGroupNames = new InputList<string>());
             set => _logGroupNames = value;
         }
 
-        /// <summary>
-        /// The name of the query.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
-        /// </summary>
         [Input("queryString", required: true)]
         public Input<string> QueryString { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -166,37 +100,21 @@ namespace Pulumi.Aws.CloudWatch
     {
         [Input("logGroupNames")]
         private InputList<string>? _logGroupNames;
-
-        /// <summary>
-        /// Specific log groups to use with the query.
-        /// </summary>
         public InputList<string> LogGroupNames
         {
             get => _logGroupNames ?? (_logGroupNames = new InputList<string>());
             set => _logGroupNames = value;
         }
 
-        /// <summary>
-        /// The name of the query.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The query definition ID.
-        /// </summary>
         [Input("queryDefinitionId")]
         public Input<string>? QueryDefinitionId { get; set; }
 
-        /// <summary>
-        /// The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
-        /// </summary>
         [Input("queryString")]
         public Input<string>? QueryString { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

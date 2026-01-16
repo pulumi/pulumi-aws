@@ -4,28 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing AWS Audit Manager Organization Admin Account Registration.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.auditmanager.OrganizationAdminAccountRegistration("example", {adminAccountId: "123456789012"});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Audit Manager Organization Admin Account Registration using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 123456789012
- * ```
- */
 export class OrganizationAdminAccountRegistration extends pulumi.CustomResource {
     /**
      * Get an existing OrganizationAdminAccountRegistration resource's state with the given name, ID, and optional extra
@@ -54,17 +32,8 @@ export class OrganizationAdminAccountRegistration extends pulumi.CustomResource 
         return obj['__pulumiType'] === OrganizationAdminAccountRegistration.__pulumiType;
     }
 
-    /**
-     * Identifier for the organization administrator account.
-     */
     declare public readonly adminAccountId: pulumi.Output<string>;
-    /**
-     * Identifier for the organization.
-     */
     declare public /*out*/ readonly organizationId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -101,17 +70,8 @@ export class OrganizationAdminAccountRegistration extends pulumi.CustomResource 
  * Input properties used for looking up and filtering OrganizationAdminAccountRegistration resources.
  */
 export interface OrganizationAdminAccountRegistrationState {
-    /**
-     * Identifier for the organization administrator account.
-     */
     adminAccountId?: pulumi.Input<string>;
-    /**
-     * Identifier for the organization.
-     */
     organizationId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -119,12 +79,6 @@ export interface OrganizationAdminAccountRegistrationState {
  * The set of arguments for constructing a OrganizationAdminAccountRegistration resource.
  */
 export interface OrganizationAdminAccountRegistrationArgs {
-    /**
-     * Identifier for the organization administrator account.
-     */
     adminAccountId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionOrderedCacheBehaviorGrpcConfig {
-    /**
-     * @return Whether the distribution is enabled to accept end user requests for content.
-     * 
-     */
     private @Nullable Boolean enabled;
 
     private DistributionOrderedCacheBehaviorGrpcConfig() {}
-    /**
-     * @return Whether the distribution is enabled to accept end user requests for content.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }

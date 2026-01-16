@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceIntegrationOpsCenter {
-    /**
-     * @return Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. Valid values are `DISABLED` and `ENABLED`.
-     * 
-     */
     private @Nullable String optInStatus;
 
     private ServiceIntegrationOpsCenter() {}
-    /**
-     * @return Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. Valid values are `DISABLED` and `ENABLED`.
-     * 
-     */
     public Optional<String> optInStatus() {
         return Optional.ofNullable(this.optInStatus);
     }

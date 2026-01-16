@@ -15,32 +15,16 @@ public final class ServiceServiceConnectConfigurationServiceClientAliasTestTraff
 
     public static final ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs Empty = new ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs();
 
-    /**
-     * Name of the HTTP header to match.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the HTTP header to match.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Configuration block for header value matching criteria. See below.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs> value;
 
-    /**
-     * @return Configuration block for header value matching criteria. See below.
-     * 
-     */
     public Output<ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs> value() {
         return this.value;
     }
@@ -70,44 +54,20 @@ public final class ServiceServiceConnectConfigurationServiceClientAliasTestTraff
             $ = new ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the HTTP header to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the HTTP header to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param value Configuration block for header value matching criteria. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Configuration block for header value matching criteria. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs value) {
             return value(Output.of(value));
         }

@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCustomModelsModelSummary {
-    /**
-     * @return Creation time of the model.
-     * 
-     */
     private String creationTime;
-    /**
-     * @return The ARN of the custom model.
-     * 
-     */
     private String modelArn;
-    /**
-     * @return The name of the custom model.
-     * 
-     */
     private String modelName;
 
     private GetCustomModelsModelSummary() {}
-    /**
-     * @return Creation time of the model.
-     * 
-     */
     public String creationTime() {
         return this.creationTime;
     }
-    /**
-     * @return The ARN of the custom model.
-     * 
-     */
     public String modelArn() {
         return this.modelArn;
     }
-    /**
-     * @return The name of the custom model.
-     * 
-     */
     public String modelName() {
         return this.modelName;
     }

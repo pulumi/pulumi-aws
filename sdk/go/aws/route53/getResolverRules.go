@@ -11,92 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `route53.getResolverRules` provides details about a set of Route53 Resolver rules.
-//
-// ## Example Usage
-//
-// ### Retrieving the default resolver rule
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.GetResolverRules(ctx, &route53.GetResolverRulesArgs{
-//				OwnerId:     pulumi.StringRef("Route 53 Resolver"),
-//				RuleType:    pulumi.StringRef("RECURSIVE"),
-//				ShareStatus: pulumi.StringRef("NOT_SHARED"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Retrieving forward rules shared with me
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.GetResolverRules(ctx, &route53.GetResolverRulesArgs{
-//				RuleType:    pulumi.StringRef("FORWARD"),
-//				ShareStatus: pulumi.StringRef("SHARED_WITH_ME"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Retrieving rules by name regex
-//
-// Resolver rules whose name contains `abc`.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.GetResolverRules(ctx, &route53.GetResolverRulesArgs{
-//				NameRegex: pulumi.StringRef(".*abc.*"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetResolverRules(ctx *pulumi.Context, args *GetResolverRulesArgs, opts ...pulumi.InvokeOption) (*GetResolverRulesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetResolverRulesResult
@@ -109,34 +23,25 @@ func GetResolverRules(ctx *pulumi.Context, args *GetResolverRulesArgs, opts ...p
 
 // A collection of arguments for invoking getResolverRules.
 type GetResolverRulesArgs struct {
-	// Regex string to filter resolver rule names.
-	// The filtering is done locally, so could have a performance impact if the result is large.
-	// This argument should be used along with other arguments to limit the number of results returned.
-	NameRegex *string `pulumi:"nameRegex"`
-	// When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
-	OwnerId *string `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the outbound resolver endpoint for the desired resolver rules.
+	NameRegex          *string `pulumi:"nameRegex"`
+	OwnerId            *string `pulumi:"ownerId"`
+	Region             *string `pulumi:"region"`
 	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
-	// Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
-	RuleType *string `pulumi:"ruleType"`
-	// Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account. Valid values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-	ShareStatus *string `pulumi:"shareStatus"`
+	RuleType           *string `pulumi:"ruleType"`
+	ShareStatus        *string `pulumi:"shareStatus"`
 }
 
 // A collection of values returned by getResolverRules.
 type GetResolverRulesResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id                 string  `pulumi:"id"`
-	NameRegex          *string `pulumi:"nameRegex"`
-	OwnerId            *string `pulumi:"ownerId"`
-	Region             string  `pulumi:"region"`
-	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
-	// IDs of the matched resolver rules.
-	ResolverRuleIds []string `pulumi:"resolverRuleIds"`
-	RuleType        *string  `pulumi:"ruleType"`
-	ShareStatus     *string  `pulumi:"shareStatus"`
+	Id                 string   `pulumi:"id"`
+	NameRegex          *string  `pulumi:"nameRegex"`
+	OwnerId            *string  `pulumi:"ownerId"`
+	Region             string   `pulumi:"region"`
+	ResolverEndpointId *string  `pulumi:"resolverEndpointId"`
+	ResolverRuleIds    []string `pulumi:"resolverRuleIds"`
+	RuleType           *string  `pulumi:"ruleType"`
+	ShareStatus        *string  `pulumi:"shareStatus"`
 }
 
 func GetResolverRulesOutput(ctx *pulumi.Context, args GetResolverRulesOutputArgs, opts ...pulumi.InvokeOption) GetResolverRulesResultOutput {
@@ -150,20 +55,12 @@ func GetResolverRulesOutput(ctx *pulumi.Context, args GetResolverRulesOutputArgs
 
 // A collection of arguments for invoking getResolverRules.
 type GetResolverRulesOutputArgs struct {
-	// Regex string to filter resolver rule names.
-	// The filtering is done locally, so could have a performance impact if the result is large.
-	// This argument should be used along with other arguments to limit the number of results returned.
-	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
-	// When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
-	OwnerId pulumi.StringPtrInput `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// ID of the outbound resolver endpoint for the desired resolver rules.
+	NameRegex          pulumi.StringPtrInput `pulumi:"nameRegex"`
+	OwnerId            pulumi.StringPtrInput `pulumi:"ownerId"`
+	Region             pulumi.StringPtrInput `pulumi:"region"`
 	ResolverEndpointId pulumi.StringPtrInput `pulumi:"resolverEndpointId"`
-	// Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
-	RuleType pulumi.StringPtrInput `pulumi:"ruleType"`
-	// Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account. Valid values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-	ShareStatus pulumi.StringPtrInput `pulumi:"shareStatus"`
+	RuleType           pulumi.StringPtrInput `pulumi:"ruleType"`
+	ShareStatus        pulumi.StringPtrInput `pulumi:"shareStatus"`
 }
 
 func (GetResolverRulesOutputArgs) ElementType() reflect.Type {
@@ -206,7 +103,6 @@ func (o GetResolverRulesResultOutput) ResolverEndpointId() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v GetResolverRulesResult) *string { return v.ResolverEndpointId }).(pulumi.StringPtrOutput)
 }
 
-// IDs of the matched resolver rules.
 func (o GetResolverRulesResultOutput) ResolverRuleIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetResolverRulesResult) []string { return v.ResolverRuleIds }).(pulumi.StringArrayOutput)
 }

@@ -25,10 +25,6 @@ class ConditionalForwarderArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConditionalForwarder resource.
-        :param pulumi.Input[_builtins.str] directory_id: ID of directory.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_ips: A list of forwarder IP addresses.
-        :param pulumi.Input[_builtins.str] remote_domain_name: The fully qualified domain name of the remote domain for which forwarders will be used.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "directory_id", directory_id)
         pulumi.set(__self__, "dns_ips", dns_ips)
@@ -39,9 +35,6 @@ class ConditionalForwarderArgs:
     @_builtins.property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of directory.
-        """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
@@ -51,9 +44,6 @@ class ConditionalForwarderArgs:
     @_builtins.property
     @pulumi.getter(name="dnsIps")
     def dns_ips(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        A list of forwarder IP addresses.
-        """
         return pulumi.get(self, "dns_ips")
 
     @dns_ips.setter
@@ -63,9 +53,6 @@ class ConditionalForwarderArgs:
     @_builtins.property
     @pulumi.getter(name="remoteDomainName")
     def remote_domain_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The fully qualified domain name of the remote domain for which forwarders will be used.
-        """
         return pulumi.get(self, "remote_domain_name")
 
     @remote_domain_name.setter
@@ -75,9 +62,6 @@ class ConditionalForwarderArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -94,10 +78,6 @@ class _ConditionalForwarderState:
                  remote_domain_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConditionalForwarder resources.
-        :param pulumi.Input[_builtins.str] directory_id: ID of directory.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_ips: A list of forwarder IP addresses.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] remote_domain_name: The fully qualified domain name of the remote domain for which forwarders will be used.
         """
         if directory_id is not None:
             pulumi.set(__self__, "directory_id", directory_id)
@@ -111,9 +91,6 @@ class _ConditionalForwarderState:
     @_builtins.property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of directory.
-        """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
@@ -123,9 +100,6 @@ class _ConditionalForwarderState:
     @_builtins.property
     @pulumi.getter(name="dnsIps")
     def dns_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of forwarder IP addresses.
-        """
         return pulumi.get(self, "dns_ips")
 
     @dns_ips.setter
@@ -135,9 +109,6 @@ class _ConditionalForwarderState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -147,9 +118,6 @@ class _ConditionalForwarderState:
     @_builtins.property
     @pulumi.getter(name="remoteDomainName")
     def remote_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The fully qualified domain name of the remote domain for which forwarders will be used.
-        """
         return pulumi.get(self, "remote_domain_name")
 
     @remote_domain_name.setter
@@ -169,37 +137,9 @@ class ConditionalForwarder(pulumi.CustomResource):
                  remote_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a conditional forwarder for managed Microsoft AD in AWS Directory Service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.directoryservice.ConditionalForwarder("example",
-            directory_id=ad["id"],
-            remote_domain_name="example.com",
-            dns_ips=[
-                "8.8.8.8",
-                "8.8.4.4",
-            ])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import conditional forwarders using the directory id and remote_domain_name. For example:
-
-        ```sh
-        $ pulumi import aws:directoryservice/conditionalForwarder:ConditionalForwarder example d-1234567890:example.com
-        ```
-
+        Create a ConditionalForwarder resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] directory_id: ID of directory.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_ips: A list of forwarder IP addresses.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] remote_domain_name: The fully qualified domain name of the remote domain for which forwarders will be used.
         """
         ...
     @overload
@@ -208,31 +148,7 @@ class ConditionalForwarder(pulumi.CustomResource):
                  args: ConditionalForwarderArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a conditional forwarder for managed Microsoft AD in AWS Directory Service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.directoryservice.ConditionalForwarder("example",
-            directory_id=ad["id"],
-            remote_domain_name="example.com",
-            dns_ips=[
-                "8.8.8.8",
-                "8.8.4.4",
-            ])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import conditional forwarders using the directory id and remote_domain_name. For example:
-
-        ```sh
-        $ pulumi import aws:directoryservice/conditionalForwarder:ConditionalForwarder example d-1234567890:example.com
-        ```
-
+        Create a ConditionalForwarder resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ConditionalForwarderArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -294,10 +210,6 @@ class ConditionalForwarder(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] directory_id: ID of directory.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_ips: A list of forwarder IP addresses.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] remote_domain_name: The fully qualified domain name of the remote domain for which forwarders will be used.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -312,32 +224,20 @@ class ConditionalForwarder(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of directory.
-        """
         return pulumi.get(self, "directory_id")
 
     @_builtins.property
     @pulumi.getter(name="dnsIps")
     def dns_ips(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        A list of forwarder IP addresses.
-        """
         return pulumi.get(self, "dns_ips")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="remoteDomainName")
     def remote_domain_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The fully qualified domain name of the remote domain for which forwarders will be used.
-        """
         return pulumi.get(self, "remote_domain_name")
 

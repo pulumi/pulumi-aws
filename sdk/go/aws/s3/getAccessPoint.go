@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about a specific S3 access point.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.LookupAccessPoint(ctx, &s3.LookupAccessPointArgs{
-//				Name: "example-access-point",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupAccessPoint(ctx *pulumi.Context, args *LookupAccessPointArgs, opts ...pulumi.InvokeOption) (*LookupAccessPointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAccessPointResult
@@ -50,43 +23,29 @@ func LookupAccessPoint(ctx *pulumi.Context, args *LookupAccessPointArgs, opts ..
 
 // A collection of arguments for invoking getAccessPoint.
 type LookupAccessPointArgs struct {
-	// AWS account ID for the account that owns the specified access point.
 	AccountId *string `pulumi:"accountId"`
-	// Name of the access point.
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Name      string  `pulumi:"name"`
+	Region    *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAccessPoint.
 type LookupAccessPointResult struct {
-	AccountId string `pulumi:"accountId"`
-	// Access point alias.
-	Alias string `pulumi:"alias"`
-	// Access point ARN.
-	Arn string `pulumi:"arn"`
-	// Name of the bucket associated with the access point.
-	Bucket string `pulumi:"bucket"`
-	// AWS account ID associated with the S3 bucket associated with the access point.
-	BucketAccountId string `pulumi:"bucketAccountId"`
-	// Unique identifier for the data source of the access point.
-	DataSourceId string `pulumi:"dataSourceId"`
-	// Type of the data source that the access point is attached to.
-	DataSourceType string `pulumi:"dataSourceType"`
-	// VPC endpoint for the access point.
-	Endpoints map[string]string `pulumi:"endpoints"`
+	AccountId       string            `pulumi:"accountId"`
+	Alias           string            `pulumi:"alias"`
+	Arn             string            `pulumi:"arn"`
+	Bucket          string            `pulumi:"bucket"`
+	BucketAccountId string            `pulumi:"bucketAccountId"`
+	DataSourceId    string            `pulumi:"dataSourceId"`
+	DataSourceType  string            `pulumi:"dataSourceType"`
+	Endpoints       map[string]string `pulumi:"endpoints"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
-	// Indicates whether the access point allows access from the public Internet.
-	NetworkOrigin string `pulumi:"networkOrigin"`
-	// `PublicAccessBlock` configuration for the access point.
+	Id                              string                                         `pulumi:"id"`
+	Name                            string                                         `pulumi:"name"`
+	NetworkOrigin                   string                                         `pulumi:"networkOrigin"`
 	PublicAccessBlockConfigurations []GetAccessPointPublicAccessBlockConfiguration `pulumi:"publicAccessBlockConfigurations"`
 	Region                          string                                         `pulumi:"region"`
-	// Tags assigned to the access point.
-	Tags map[string]string `pulumi:"tags"`
-	// VPC configuration for the access point.
-	VpcConfigurations []GetAccessPointVpcConfiguration `pulumi:"vpcConfigurations"`
+	Tags                            map[string]string                              `pulumi:"tags"`
+	VpcConfigurations               []GetAccessPointVpcConfiguration               `pulumi:"vpcConfigurations"`
 }
 
 func LookupAccessPointOutput(ctx *pulumi.Context, args LookupAccessPointOutputArgs, opts ...pulumi.InvokeOption) LookupAccessPointResultOutput {
@@ -100,12 +59,9 @@ func LookupAccessPointOutput(ctx *pulumi.Context, args LookupAccessPointOutputAr
 
 // A collection of arguments for invoking getAccessPoint.
 type LookupAccessPointOutputArgs struct {
-	// AWS account ID for the account that owns the specified access point.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
-	// Name of the access point.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Name      pulumi.StringInput    `pulumi:"name"`
+	Region    pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupAccessPointOutputArgs) ElementType() reflect.Type {
@@ -131,37 +87,30 @@ func (o LookupAccessPointResultOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// Access point alias.
 func (o LookupAccessPointResultOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) string { return v.Alias }).(pulumi.StringOutput)
 }
 
-// Access point ARN.
 func (o LookupAccessPointResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the bucket associated with the access point.
 func (o LookupAccessPointResultOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// AWS account ID associated with the S3 bucket associated with the access point.
 func (o LookupAccessPointResultOutput) BucketAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) string { return v.BucketAccountId }).(pulumi.StringOutput)
 }
 
-// Unique identifier for the data source of the access point.
 func (o LookupAccessPointResultOutput) DataSourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) string { return v.DataSourceId }).(pulumi.StringOutput)
 }
 
-// Type of the data source that the access point is attached to.
 func (o LookupAccessPointResultOutput) DataSourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) string { return v.DataSourceType }).(pulumi.StringOutput)
 }
 
-// VPC endpoint for the access point.
 func (o LookupAccessPointResultOutput) Endpoints() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) map[string]string { return v.Endpoints }).(pulumi.StringMapOutput)
 }
@@ -175,12 +124,10 @@ func (o LookupAccessPointResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates whether the access point allows access from the public Internet.
 func (o LookupAccessPointResultOutput) NetworkOrigin() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) string { return v.NetworkOrigin }).(pulumi.StringOutput)
 }
 
-// `PublicAccessBlock` configuration for the access point.
 func (o LookupAccessPointResultOutput) PublicAccessBlockConfigurations() GetAccessPointPublicAccessBlockConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) []GetAccessPointPublicAccessBlockConfiguration {
 		return v.PublicAccessBlockConfigurations
@@ -191,12 +138,10 @@ func (o LookupAccessPointResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Tags assigned to the access point.
 func (o LookupAccessPointResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// VPC configuration for the access point.
 func (o LookupAccessPointResultOutput) VpcConfigurations() GetAccessPointVpcConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) []GetAccessPointVpcConfiguration { return v.VpcConfigurations }).(GetAccessPointVpcConfigurationArrayOutput)
 }

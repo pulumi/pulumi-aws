@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchConfigurationMetadataOption {
-    /**
-     * @return State of the metadata service: `enabled`, `disabled`.
-     * 
-     */
     private String httpEndpoint;
-    /**
-     * @return The desired HTTP PUT response hop limit for instance metadata requests.
-     * 
-     */
     private Integer httpPutResponseHopLimit;
-    /**
-     * @return If session tokens are required: `optional`, `required`.
-     * 
-     */
     private String httpTokens;
 
     private GetLaunchConfigurationMetadataOption() {}
-    /**
-     * @return State of the metadata service: `enabled`, `disabled`.
-     * 
-     */
     public String httpEndpoint() {
         return this.httpEndpoint;
     }
-    /**
-     * @return The desired HTTP PUT response hop limit for instance metadata requests.
-     * 
-     */
     public Integer httpPutResponseHopLimit() {
         return this.httpPutResponseHopLimit;
     }
-    /**
-     * @return If session tokens are required: `optional`, `required`.
-     * 
-     */
     public String httpTokens() {
         return this.httpTokens;
     }

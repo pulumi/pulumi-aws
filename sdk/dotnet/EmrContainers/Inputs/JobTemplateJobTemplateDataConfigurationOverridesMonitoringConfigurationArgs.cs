@@ -12,21 +12,12 @@ namespace Pulumi.Aws.EmrContainers.Inputs
 
     public sealed class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Monitoring configurations for CloudWatch.
-        /// </summary>
         [Input("cloudWatchMonitoringConfiguration")]
         public Input<Inputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs>? CloudWatchMonitoringConfiguration { get; set; }
 
-        /// <summary>
-        /// Monitoring configurations for the persistent application UI.
-        /// </summary>
         [Input("persistentAppUi")]
         public Input<string>? PersistentAppUi { get; set; }
 
-        /// <summary>
-        /// Amazon S3 configuration for monitoring log publishing.
-        /// </summary>
         [Input("s3MonitoringConfiguration")]
         public Input<Inputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs>? S3MonitoringConfiguration { get; set; }
 

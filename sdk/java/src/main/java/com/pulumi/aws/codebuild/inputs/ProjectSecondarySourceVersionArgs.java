@@ -14,36 +14,16 @@ public final class ProjectSecondarySourceVersionArgs extends com.pulumi.resource
 
     public static final ProjectSecondarySourceVersionArgs Empty = new ProjectSecondarySourceVersionArgs();
 
-    /**
-     * An identifier for a source in the build project.
-     * 
-     */
     @Import(name="sourceIdentifier", required=true)
     private Output<String> sourceIdentifier;
 
-    /**
-     * @return An identifier for a source in the build project.
-     * 
-     */
     public Output<String> sourceIdentifier() {
         return this.sourceIdentifier;
     }
 
-    /**
-     * The source version for the corresponding source identifier.
-     * See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion)
-     * for more details.
-     * 
-     */
     @Import(name="sourceVersion", required=true)
     private Output<String> sourceVersion;
 
-    /**
-     * @return The source version for the corresponding source identifier.
-     * See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion)
-     * for more details.
-     * 
-     */
     public Output<String> sourceVersion() {
         return this.sourceVersion;
     }
@@ -73,48 +53,20 @@ public final class ProjectSecondarySourceVersionArgs extends com.pulumi.resource
             $ = new ProjectSecondarySourceVersionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param sourceIdentifier An identifier for a source in the build project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceIdentifier(Output<String> sourceIdentifier) {
             $.sourceIdentifier = sourceIdentifier;
             return this;
         }
 
-        /**
-         * @param sourceIdentifier An identifier for a source in the build project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceIdentifier(String sourceIdentifier) {
             return sourceIdentifier(Output.of(sourceIdentifier));
         }
 
-        /**
-         * @param sourceVersion The source version for the corresponding source identifier.
-         * See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion)
-         * for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceVersion(Output<String> sourceVersion) {
             $.sourceVersion = sourceVersion;
             return this;
         }
 
-        /**
-         * @param sourceVersion The source version for the corresponding source identifier.
-         * See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion)
-         * for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceVersion(String sourceVersion) {
             return sourceVersion(Output.of(sourceVersion));
         }

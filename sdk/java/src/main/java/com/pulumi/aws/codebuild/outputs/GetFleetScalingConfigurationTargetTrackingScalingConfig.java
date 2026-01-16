@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFleetScalingConfigurationTargetTrackingScalingConfig {
-    /**
-     * @return The metric type to determine auto-scaling.
-     * 
-     */
     private String metricType;
-    /**
-     * @return The value of metricType when to start scaling.
-     * 
-     */
     private Double targetValue;
 
     private GetFleetScalingConfigurationTargetTrackingScalingConfig() {}
-    /**
-     * @return The metric type to determine auto-scaling.
-     * 
-     */
     public String metricType() {
         return this.metricType;
     }
-    /**
-     * @return The value of metricType when to start scaling.
-     * 
-     */
     public Double targetValue() {
         return this.targetValue;
     }

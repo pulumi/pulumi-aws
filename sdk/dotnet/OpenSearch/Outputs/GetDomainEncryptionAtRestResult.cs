@@ -13,13 +13,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class GetDomainEncryptionAtRestResult
     {
-        /// <summary>
-        /// Enabled disabled toggle for off-peak update window
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// KMS key id used to encrypt data at rest.
-        /// </summary>
         public readonly string KmsKeyId;
 
         [OutputConstructor]

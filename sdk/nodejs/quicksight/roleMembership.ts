@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS QuickSight Role Membership.
- *
- * > The role membership APIs are disabled for identities managed by QuickSight. This resource can only be used when the QuickSight account subscription uses the Active Directory or IAM Identity Center authentication method.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.quicksight.RoleMembership("example", {
- *     memberName: "example-group",
- *     role: "READER",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import QuickSight Role Membership using a comma-delimited string combining the `aws_account_id`, `namespace`, `role`, and `member_name`. For example:
- *
- * ```sh
- * $ pulumi import aws:quicksight/roleMembership:RoleMembership example 012345678901,default,READER,example-group
- * ```
- */
 export class RoleMembership extends pulumi.CustomResource {
     /**
      * Get an existing RoleMembership resource's state with the given name, ID, and optional extra
@@ -60,23 +33,9 @@ export class RoleMembership extends pulumi.CustomResource {
     }
 
     declare public readonly awsAccountId: pulumi.Output<string>;
-    /**
-     * Name of the group to be added to the role.
-     */
     declare public readonly memberName: pulumi.Output<string>;
-    /**
-     * Name of the namespace. Defaults to `default`.
-     */
     declare public readonly namespace: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly role: pulumi.Output<string>;
 
     /**
@@ -121,23 +80,9 @@ export class RoleMembership extends pulumi.CustomResource {
  */
 export interface RoleMembershipState {
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * Name of the group to be added to the role.
-     */
     memberName?: pulumi.Input<string>;
-    /**
-     * Name of the namespace. Defaults to `default`.
-     */
     namespace?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-     *
-     * The following arguments are optional:
-     */
     role?: pulumi.Input<string>;
 }
 
@@ -146,22 +91,8 @@ export interface RoleMembershipState {
  */
 export interface RoleMembershipArgs {
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * Name of the group to be added to the role.
-     */
     memberName: pulumi.Input<string>;
-    /**
-     * Name of the namespace. Defaults to `default`.
-     */
     namespace?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-     *
-     * The following arguments are optional:
-     */
     role: pulumi.Input<string>;
 }

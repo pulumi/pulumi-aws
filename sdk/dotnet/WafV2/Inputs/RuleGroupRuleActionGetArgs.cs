@@ -12,33 +12,18 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class RuleGroupRuleActionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Instructs AWS WAF to allow the web request. See Allow below for details.
-        /// </summary>
         [Input("allow")]
         public Input<Inputs.RuleGroupRuleActionAllowGetArgs>? Allow { get; set; }
 
-        /// <summary>
-        /// Instructs AWS WAF to block the web request. See Block below for details.
-        /// </summary>
         [Input("block")]
         public Input<Inputs.RuleGroupRuleActionBlockGetArgs>? Block { get; set; }
 
-        /// <summary>
-        /// Instructs AWS WAF to run a `CAPTCHA` check against the web request. See Captcha below for details.
-        /// </summary>
         [Input("captcha")]
         public Input<Inputs.RuleGroupRuleActionCaptchaGetArgs>? Captcha { get; set; }
 
-        /// <summary>
-        /// Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See Challenge below for details.
-        /// </summary>
         [Input("challenge")]
         public Input<Inputs.RuleGroupRuleActionChallengeGetArgs>? Challenge { get; set; }
 
-        /// <summary>
-        /// Instructs AWS WAF to count the web request and allow it. See Count below for details.
-        /// </summary>
         [Input("count")]
         public Input<Inputs.RuleGroupRuleActionCountGetArgs>? Count { get; set; }
 

@@ -16,32 +16,16 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
 
     public static final AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs Empty = new AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs();
 
-    /**
-     * Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
-     * 
-     */
     @Import(name="levelConfigurations", required=true)
     private Output<List<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs>> levelConfigurations;
 
-    /**
-     * @return Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
-     * 
-     */
     public Output<List<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs>> levelConfigurations() {
         return this.levelConfigurations;
     }
 
-    /**
-     * The number of tokens to repeat across chunks in the same layer.
-     * 
-     */
     @Import(name="overlapTokens", required=true)
     private Output<Integer> overlapTokens;
 
-    /**
-     * @return The number of tokens to repeat across chunks in the same layer.
-     * 
-     */
     public Output<Integer> overlapTokens() {
         return this.overlapTokens;
     }
@@ -71,54 +55,24 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
             $ = new AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param levelConfigurations Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder levelConfigurations(Output<List<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs>> levelConfigurations) {
             $.levelConfigurations = levelConfigurations;
             return this;
         }
 
-        /**
-         * @param levelConfigurations Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder levelConfigurations(List<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs> levelConfigurations) {
             return levelConfigurations(Output.of(levelConfigurations));
         }
 
-        /**
-         * @param levelConfigurations Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder levelConfigurations(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs... levelConfigurations) {
             return levelConfigurations(List.of(levelConfigurations));
         }
 
-        /**
-         * @param overlapTokens The number of tokens to repeat across chunks in the same layer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder overlapTokens(Output<Integer> overlapTokens) {
             $.overlapTokens = overlapTokens;
             return this;
         }
 
-        /**
-         * @param overlapTokens The number of tokens to repeat across chunks in the same layer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder overlapTokens(Integer overlapTokens) {
             return overlapTokens(Output.of(overlapTokens));
         }

@@ -15,17 +15,9 @@ public final class AppMonitorCustomEventsArgs extends com.pulumi.resources.Resou
 
     public static final AppMonitorCustomEventsArgs Empty = new AppMonitorCustomEventsArgs();
 
-    /**
-     * Specifies whether this app monitor allows the web client to define and send custom events. The default is for custom events to be `DISABLED`. Valid values are `DISABLED` and `ENABLED`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Specifies whether this app monitor allows the web client to define and send custom events. The default is for custom events to be `DISABLED`. Valid values are `DISABLED` and `ENABLED`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -54,23 +46,11 @@ public final class AppMonitorCustomEventsArgs extends com.pulumi.resources.Resou
             $ = new AppMonitorCustomEventsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param status Specifies whether this app monitor allows the web client to define and send custom events. The default is for custom events to be `DISABLED`. Valid values are `DISABLED` and `ENABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Specifies whether this app monitor allows the web client to define and send custom events. The default is for custom events to be `DISABLED`. Valid values are `DISABLED` and `ENABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

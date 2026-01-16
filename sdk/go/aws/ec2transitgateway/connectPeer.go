@@ -12,77 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an EC2 Transit Gateway Connect Peer.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ec2transitgateway.NewConnect(ctx, "example", &ec2transitgateway.ConnectArgs{
-//				TransportAttachmentId: pulumi.Any(exampleAwsEc2TransitGatewayVpcAttachment.Id),
-//				TransitGatewayId:      pulumi.Any(exampleAwsEc2TransitGateway.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2transitgateway.NewConnectPeer(ctx, "example", &ec2transitgateway.ConnectPeerArgs{
-//				PeerAddress: pulumi.String("10.1.2.3"),
-//				InsideCidrBlocks: pulumi.StringArray{
-//					pulumi.String("169.254.100.0/29"),
-//				},
-//				TransitGatewayAttachmentId: example.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_ec2_transit_gateway_connect_peer` using the EC2 Transit Gateway Connect Peer identifier. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2transitgateway/connectPeer:ConnectPeer example tgw-connect-peer-12345678
-// ```
 type ConnectPeer struct {
 	pulumi.CustomResourceState
 
-	// EC2 Transit Gateway Connect Peer ARN
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
-	BgpAsn pulumi.StringOutput `pulumi:"bgpAsn"`
-	// The IP address assigned to customer device, which is used as BGP IP address.
-	BgpPeerAddress pulumi.StringOutput `pulumi:"bgpPeerAddress"`
-	// The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+	Arn                        pulumi.StringOutput      `pulumi:"arn"`
+	BgpAsn                     pulumi.StringOutput      `pulumi:"bgpAsn"`
+	BgpPeerAddress             pulumi.StringOutput      `pulumi:"bgpPeerAddress"`
 	BgpTransitGatewayAddresses pulumi.StringArrayOutput `pulumi:"bgpTransitGatewayAddresses"`
-	// The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
-	InsideCidrBlocks pulumi.StringArrayOutput `pulumi:"insideCidrBlocks"`
-	// The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transitGatewayAddress`
-	PeerAddress pulumi.StringOutput `pulumi:"peerAddress"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peerAddress`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
-	TransitGatewayAddress pulumi.StringOutput `pulumi:"transitGatewayAddress"`
-	// The Transit Gateway Connect
-	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
+	InsideCidrBlocks           pulumi.StringArrayOutput `pulumi:"insideCidrBlocks"`
+	PeerAddress                pulumi.StringOutput      `pulumi:"peerAddress"`
+	Region                     pulumi.StringOutput      `pulumi:"region"`
+	Tags                       pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll                    pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	TransitGatewayAddress      pulumi.StringOutput      `pulumi:"transitGatewayAddress"`
+	TransitGatewayAttachmentId pulumi.StringOutput      `pulumi:"transitGatewayAttachmentId"`
 }
 
 // NewConnectPeer registers a new resource with the given unique name, arguments, and options.
@@ -124,52 +67,30 @@ func GetConnectPeer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConnectPeer resources.
 type connectPeerState struct {
-	// EC2 Transit Gateway Connect Peer ARN
-	Arn *string `pulumi:"arn"`
-	// The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
-	BgpAsn *string `pulumi:"bgpAsn"`
-	// The IP address assigned to customer device, which is used as BGP IP address.
-	BgpPeerAddress *string `pulumi:"bgpPeerAddress"`
-	// The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
-	BgpTransitGatewayAddresses []string `pulumi:"bgpTransitGatewayAddresses"`
-	// The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
-	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
-	// The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transitGatewayAddress`
-	PeerAddress *string `pulumi:"peerAddress"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peerAddress`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
-	TransitGatewayAddress *string `pulumi:"transitGatewayAddress"`
-	// The Transit Gateway Connect
-	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
+	Arn                        *string           `pulumi:"arn"`
+	BgpAsn                     *string           `pulumi:"bgpAsn"`
+	BgpPeerAddress             *string           `pulumi:"bgpPeerAddress"`
+	BgpTransitGatewayAddresses []string          `pulumi:"bgpTransitGatewayAddresses"`
+	InsideCidrBlocks           []string          `pulumi:"insideCidrBlocks"`
+	PeerAddress                *string           `pulumi:"peerAddress"`
+	Region                     *string           `pulumi:"region"`
+	Tags                       map[string]string `pulumi:"tags"`
+	TagsAll                    map[string]string `pulumi:"tagsAll"`
+	TransitGatewayAddress      *string           `pulumi:"transitGatewayAddress"`
+	TransitGatewayAttachmentId *string           `pulumi:"transitGatewayAttachmentId"`
 }
 
 type ConnectPeerState struct {
-	// EC2 Transit Gateway Connect Peer ARN
-	Arn pulumi.StringPtrInput
-	// The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
-	BgpAsn pulumi.StringPtrInput
-	// The IP address assigned to customer device, which is used as BGP IP address.
-	BgpPeerAddress pulumi.StringPtrInput
-	// The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+	Arn                        pulumi.StringPtrInput
+	BgpAsn                     pulumi.StringPtrInput
+	BgpPeerAddress             pulumi.StringPtrInput
 	BgpTransitGatewayAddresses pulumi.StringArrayInput
-	// The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
-	InsideCidrBlocks pulumi.StringArrayInput
-	// The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transitGatewayAddress`
-	PeerAddress pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peerAddress`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
-	TransitGatewayAddress pulumi.StringPtrInput
-	// The Transit Gateway Connect
+	InsideCidrBlocks           pulumi.StringArrayInput
+	PeerAddress                pulumi.StringPtrInput
+	Region                     pulumi.StringPtrInput
+	Tags                       pulumi.StringMapInput
+	TagsAll                    pulumi.StringMapInput
+	TransitGatewayAddress      pulumi.StringPtrInput
 	TransitGatewayAttachmentId pulumi.StringPtrInput
 }
 
@@ -178,37 +99,23 @@ func (ConnectPeerState) ElementType() reflect.Type {
 }
 
 type connectPeerArgs struct {
-	// The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
-	BgpAsn *string `pulumi:"bgpAsn"`
-	// The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
-	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
-	// The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transitGatewayAddress`
-	PeerAddress string `pulumi:"peerAddress"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peerAddress`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
-	TransitGatewayAddress *string `pulumi:"transitGatewayAddress"`
-	// The Transit Gateway Connect
-	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`
+	BgpAsn                     *string           `pulumi:"bgpAsn"`
+	InsideCidrBlocks           []string          `pulumi:"insideCidrBlocks"`
+	PeerAddress                string            `pulumi:"peerAddress"`
+	Region                     *string           `pulumi:"region"`
+	Tags                       map[string]string `pulumi:"tags"`
+	TransitGatewayAddress      *string           `pulumi:"transitGatewayAddress"`
+	TransitGatewayAttachmentId string            `pulumi:"transitGatewayAttachmentId"`
 }
 
 // The set of arguments for constructing a ConnectPeer resource.
 type ConnectPeerArgs struct {
-	// The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
-	BgpAsn pulumi.StringPtrInput
-	// The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
-	InsideCidrBlocks pulumi.StringArrayInput
-	// The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transitGatewayAddress`
-	PeerAddress pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peerAddress`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
-	TransitGatewayAddress pulumi.StringPtrInput
-	// The Transit Gateway Connect
+	BgpAsn                     pulumi.StringPtrInput
+	InsideCidrBlocks           pulumi.StringArrayInput
+	PeerAddress                pulumi.StringInput
+	Region                     pulumi.StringPtrInput
+	Tags                       pulumi.StringMapInput
+	TransitGatewayAddress      pulumi.StringPtrInput
 	TransitGatewayAttachmentId pulumi.StringInput
 }
 
@@ -299,57 +206,46 @@ func (o ConnectPeerOutput) ToConnectPeerOutputWithContext(ctx context.Context) C
 	return o
 }
 
-// EC2 Transit Gateway Connect Peer ARN
 func (o ConnectPeerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
 func (o ConnectPeerOutput) BgpAsn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringOutput { return v.BgpAsn }).(pulumi.StringOutput)
 }
 
-// The IP address assigned to customer device, which is used as BGP IP address.
 func (o ConnectPeerOutput) BgpPeerAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringOutput { return v.BgpPeerAddress }).(pulumi.StringOutput)
 }
 
-// The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
 func (o ConnectPeerOutput) BgpTransitGatewayAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringArrayOutput { return v.BgpTransitGatewayAddresses }).(pulumi.StringArrayOutput)
 }
 
-// The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
 func (o ConnectPeerOutput) InsideCidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringArrayOutput { return v.InsideCidrBlocks }).(pulumi.StringArrayOutput)
 }
 
-// The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transitGatewayAddress`
 func (o ConnectPeerOutput) PeerAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringOutput { return v.PeerAddress }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ConnectPeerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ConnectPeerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ConnectPeerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peerAddress`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
 func (o ConnectPeerOutput) TransitGatewayAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringOutput { return v.TransitGatewayAddress }).(pulumi.StringOutput)
 }
 
-// The Transit Gateway Connect
 func (o ConnectPeerOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringOutput { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
 }

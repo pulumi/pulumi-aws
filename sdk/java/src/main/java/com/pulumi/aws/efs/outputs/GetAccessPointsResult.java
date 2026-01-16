@@ -11,10 +11,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAccessPointsResult {
-    /**
-     * @return Set of Amazon Resource Names (ARNs).
-     * 
-     */
     private List<String> arns;
     private String fileSystemId;
     /**
@@ -22,18 +18,10 @@ public final class GetAccessPointsResult {
      * 
      */
     private String id;
-    /**
-     * @return Set of identifiers.
-     * 
-     */
     private List<String> ids;
     private String region;
 
     private GetAccessPointsResult() {}
-    /**
-     * @return Set of Amazon Resource Names (ARNs).
-     * 
-     */
     public List<String> arns() {
         return this.arns;
     }
@@ -47,10 +35,6 @@ public final class GetAccessPointsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Set of identifiers.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }

@@ -17,47 +17,23 @@ public final class RegionSettingsState extends com.pulumi.resources.ResourceArgs
 
     public static final RegionSettingsState Empty = new RegionSettingsState();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
-     * 
-     */
     @Import(name="resourceTypeManagementPreference")
     private @Nullable Output<Map<String,Boolean>> resourceTypeManagementPreference;
 
-    /**
-     * @return A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
-     * 
-     */
     public Optional<Output<Map<String,Boolean>>> resourceTypeManagementPreference() {
         return Optional.ofNullable(this.resourceTypeManagementPreference);
     }
 
-    /**
-     * A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
-     * 
-     */
     @Import(name="resourceTypeOptInPreference")
     private @Nullable Output<Map<String,Boolean>> resourceTypeOptInPreference;
 
-    /**
-     * @return A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
-     * 
-     */
     public Optional<Output<Map<String,Boolean>>> resourceTypeOptInPreference() {
         return Optional.ofNullable(this.resourceTypeOptInPreference);
     }
@@ -88,65 +64,29 @@ public final class RegionSettingsState extends com.pulumi.resources.ResourceArgs
             $ = new RegionSettingsState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceTypeManagementPreference A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTypeManagementPreference(@Nullable Output<Map<String,Boolean>> resourceTypeManagementPreference) {
             $.resourceTypeManagementPreference = resourceTypeManagementPreference;
             return this;
         }
 
-        /**
-         * @param resourceTypeManagementPreference A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTypeManagementPreference(Map<String,Boolean> resourceTypeManagementPreference) {
             return resourceTypeManagementPreference(Output.of(resourceTypeManagementPreference));
         }
 
-        /**
-         * @param resourceTypeOptInPreference A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTypeOptInPreference(@Nullable Output<Map<String,Boolean>> resourceTypeOptInPreference) {
             $.resourceTypeOptInPreference = resourceTypeOptInPreference;
             return this;
         }
 
-        /**
-         * @param resourceTypeOptInPreference A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTypeOptInPreference(Map<String,Boolean> resourceTypeOptInPreference) {
             return resourceTypeOptInPreference(Output.of(resourceTypeOptInPreference));
         }

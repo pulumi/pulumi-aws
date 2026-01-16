@@ -4,50 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an API Gateway REST API Policy.
- *
- * > **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 resources.
- *
- * ## Example Usage
- *
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testRestApi = new aws.apigateway.RestApi("test", {name: "example-rest-api"});
- * const test = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "AWS",
- *             identifiers: ["*"],
- *         }],
- *         actions: ["execute-api:Invoke"],
- *         resources: [pulumi.interpolate`${testRestApi.executionArn}/*`],
- *         conditions: [{
- *             test: "IpAddress",
- *             variable: "aws:SourceIp",
- *             values: ["123.123.123.123/32"],
- *         }],
- *     }],
- * });
- * const testRestApiPolicy = new aws.apigateway.RestApiPolicy("test", {
- *     restApiId: testRestApi.id,
- *     policy: test.apply(test => test.json),
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_api_gateway_rest_api_policy` using the REST API ID. For example:
- *
- * ```sh
- * $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
- * ```
- */
 export class RestApiPolicy extends pulumi.CustomResource {
     /**
      * Get an existing RestApiPolicy resource's state with the given name, ID, and optional extra
@@ -76,17 +32,8 @@ export class RestApiPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === RestApiPolicy.__pulumiType;
     }
 
-    /**
-     * JSON formatted policy document that controls access to the API Gateway.
-     */
     declare public readonly policy: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ID of the REST API.
-     */
     declare public readonly restApiId: pulumi.Output<string>;
 
     /**
@@ -126,17 +73,8 @@ export class RestApiPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RestApiPolicy resources.
  */
 export interface RestApiPolicyState {
-    /**
-     * JSON formatted policy document that controls access to the API Gateway.
-     */
     policy?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ID of the REST API.
-     */
     restApiId?: pulumi.Input<string>;
 }
 
@@ -144,16 +82,7 @@ export interface RestApiPolicyState {
  * The set of arguments for constructing a RestApiPolicy resource.
  */
 export interface RestApiPolicyArgs {
-    /**
-     * JSON formatted policy document that controls access to the API Gateway.
-     */
     policy: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ID of the REST API.
-     */
     restApiId: pulumi.Input<string>;
 }

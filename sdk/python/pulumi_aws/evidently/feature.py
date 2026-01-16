@@ -32,15 +32,6 @@ class FeatureArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Feature resource.
-        :param pulumi.Input[_builtins.str] project: The name or ARN of the project that is to contain the new feature.
-        :param pulumi.Input[Sequence[pulumi.Input['FeatureVariationArgs']]] variations: One or more blocks that contain the configuration of the feature's different variations. Detailed below
-        :param pulumi.Input[_builtins.str] default_variation: The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `default_variation`, the first variation listed in the `variations` structure is used as the default variation.
-        :param pulumi.Input[_builtins.str] description: Specifies the description of the feature.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] entity_overrides: Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
-        :param pulumi.Input[_builtins.str] evaluation_strategy: Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
-        :param pulumi.Input[_builtins.str] name: The name for the new feature. Minimum length of `1`. Maximum length of `127`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "project", project)
         pulumi.set(__self__, "variations", variations)
@@ -62,9 +53,6 @@ class FeatureArgs:
     @_builtins.property
     @pulumi.getter
     def project(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name or ARN of the project that is to contain the new feature.
-        """
         return pulumi.get(self, "project")
 
     @project.setter
@@ -74,9 +62,6 @@ class FeatureArgs:
     @_builtins.property
     @pulumi.getter
     def variations(self) -> pulumi.Input[Sequence[pulumi.Input['FeatureVariationArgs']]]:
-        """
-        One or more blocks that contain the configuration of the feature's different variations. Detailed below
-        """
         return pulumi.get(self, "variations")
 
     @variations.setter
@@ -86,9 +71,6 @@ class FeatureArgs:
     @_builtins.property
     @pulumi.getter(name="defaultVariation")
     def default_variation(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `default_variation`, the first variation listed in the `variations` structure is used as the default variation.
-        """
         return pulumi.get(self, "default_variation")
 
     @default_variation.setter
@@ -98,9 +80,6 @@ class FeatureArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the description of the feature.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -110,9 +89,6 @@ class FeatureArgs:
     @_builtins.property
     @pulumi.getter(name="entityOverrides")
     def entity_overrides(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
-        """
         return pulumi.get(self, "entity_overrides")
 
     @entity_overrides.setter
@@ -122,9 +98,6 @@ class FeatureArgs:
     @_builtins.property
     @pulumi.getter(name="evaluationStrategy")
     def evaluation_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
-        """
         return pulumi.get(self, "evaluation_strategy")
 
     @evaluation_strategy.setter
@@ -134,9 +107,6 @@ class FeatureArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name for the new feature. Minimum length of `1`. Maximum length of `127`.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -146,9 +116,6 @@ class FeatureArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -158,9 +125,6 @@ class FeatureArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -189,22 +153,6 @@ class _FeatureState:
                  variations: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureVariationArgs']]]] = None):
         """
         Input properties used for looking up and filtering Feature resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the feature.
-        :param pulumi.Input[_builtins.str] created_time: The date and time that the feature is created.
-        :param pulumi.Input[_builtins.str] default_variation: The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `default_variation`, the first variation listed in the `variations` structure is used as the default variation.
-        :param pulumi.Input[_builtins.str] description: Specifies the description of the feature.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] entity_overrides: Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
-        :param pulumi.Input[Sequence[pulumi.Input['FeatureEvaluationRuleArgs']]] evaluation_rules: One or more blocks that define the evaluation rules for the feature. Detailed below
-        :param pulumi.Input[_builtins.str] evaluation_strategy: Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
-        :param pulumi.Input[_builtins.str] last_updated_time: The date and time that the feature was most recently updated.
-        :param pulumi.Input[_builtins.str] name: The name for the new feature. Minimum length of `1`. Maximum length of `127`.
-        :param pulumi.Input[_builtins.str] project: The name or ARN of the project that is to contain the new feature.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] value_type: Defines the type of value used to define the different feature variations. Valid Values: `STRING`, `LONG`, `DOUBLE`, `BOOLEAN`.
-        :param pulumi.Input[Sequence[pulumi.Input['FeatureVariationArgs']]] variations: One or more blocks that contain the configuration of the feature's different variations. Detailed below
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -242,9 +190,6 @@ class _FeatureState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the feature.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -254,9 +199,6 @@ class _FeatureState:
     @_builtins.property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date and time that the feature is created.
-        """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
@@ -266,9 +208,6 @@ class _FeatureState:
     @_builtins.property
     @pulumi.getter(name="defaultVariation")
     def default_variation(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `default_variation`, the first variation listed in the `variations` structure is used as the default variation.
-        """
         return pulumi.get(self, "default_variation")
 
     @default_variation.setter
@@ -278,9 +217,6 @@ class _FeatureState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the description of the feature.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -290,9 +226,6 @@ class _FeatureState:
     @_builtins.property
     @pulumi.getter(name="entityOverrides")
     def entity_overrides(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
-        """
         return pulumi.get(self, "entity_overrides")
 
     @entity_overrides.setter
@@ -302,9 +235,6 @@ class _FeatureState:
     @_builtins.property
     @pulumi.getter(name="evaluationRules")
     def evaluation_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FeatureEvaluationRuleArgs']]]]:
-        """
-        One or more blocks that define the evaluation rules for the feature. Detailed below
-        """
         return pulumi.get(self, "evaluation_rules")
 
     @evaluation_rules.setter
@@ -314,9 +244,6 @@ class _FeatureState:
     @_builtins.property
     @pulumi.getter(name="evaluationStrategy")
     def evaluation_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
-        """
         return pulumi.get(self, "evaluation_strategy")
 
     @evaluation_strategy.setter
@@ -326,9 +253,6 @@ class _FeatureState:
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date and time that the feature was most recently updated.
-        """
         return pulumi.get(self, "last_updated_time")
 
     @last_updated_time.setter
@@ -338,9 +262,6 @@ class _FeatureState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name for the new feature. Minimum length of `1`. Maximum length of `127`.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -350,9 +271,6 @@ class _FeatureState:
     @_builtins.property
     @pulumi.getter
     def project(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name or ARN of the project that is to contain the new feature.
-        """
         return pulumi.get(self, "project")
 
     @project.setter
@@ -362,9 +280,6 @@ class _FeatureState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -374,9 +289,6 @@ class _FeatureState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -386,9 +298,6 @@ class _FeatureState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -398,9 +307,6 @@ class _FeatureState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -410,9 +316,6 @@ class _FeatureState:
     @_builtins.property
     @pulumi.getter(name="valueType")
     def value_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Defines the type of value used to define the different feature variations. Valid Values: `STRING`, `LONG`, `DOUBLE`, `BOOLEAN`.
-        """
         return pulumi.get(self, "value_type")
 
     @value_type.setter
@@ -422,9 +325,6 @@ class _FeatureState:
     @_builtins.property
     @pulumi.getter
     def variations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FeatureVariationArgs']]]]:
-        """
-        One or more blocks that contain the configuration of the feature's different variations. Detailed below
-        """
         return pulumi.get(self, "variations")
 
     @variations.setter
@@ -449,127 +349,9 @@ class Feature(pulumi.CustomResource):
                  variations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FeatureVariationArgs', 'FeatureVariationArgsDict']]]]] = None,
                  __props__=None):
         """
-        Provides a CloudWatch Evidently Feature resource.
-
-        > **Warning:** This resource is deprecated. Use [AWS AppConfig feature flags](https://aws.amazon.com/blogs/mt/using-aws-appconfig-feature-flags/) instead.
-
-        ## Example Usage
-
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Feature("example",
-            name="example",
-            project=example_aws_evidently_project["name"],
-            description="example description",
-            variations=[{
-                "name": "Variation1",
-                "value": {
-                    "string_value": "example",
-                },
-            }],
-            tags={
-                "Key1": "example Feature",
-            })
-        ```
-
-        ### With default variation
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Feature("example",
-            name="example",
-            project=example_aws_evidently_project["name"],
-            default_variation="Variation2",
-            variations=[
-                {
-                    "name": "Variation1",
-                    "value": {
-                        "string_value": "exampleval1",
-                    },
-                },
-                {
-                    "name": "Variation2",
-                    "value": {
-                        "string_value": "exampleval2",
-                    },
-                },
-            ])
-        ```
-
-        ### With entity overrides
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Feature("example",
-            name="example",
-            project=example_aws_evidently_project["name"],
-            entity_overrides={
-                "test1": "Variation1",
-            },
-            variations=[
-                {
-                    "name": "Variation1",
-                    "value": {
-                        "string_value": "exampleval1",
-                    },
-                },
-                {
-                    "name": "Variation2",
-                    "value": {
-                        "string_value": "exampleval2",
-                    },
-                },
-            ])
-        ```
-
-        ### With evaluation strategy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Feature("example",
-            name="example",
-            project=example_aws_evidently_project["name"],
-            evaluation_strategy="ALL_RULES",
-            entity_overrides={
-                "test1": "Variation1",
-            },
-            variations=[{
-                "name": "Variation1",
-                "value": {
-                    "string_value": "exampleval1",
-                },
-            }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudWatch Evidently Feature using the feature `name` and `name` or `arn` of the hosting CloudWatch Evidently Project separated by a `:`. For example:
-
-        ```sh
-        $ pulumi import aws:evidently/feature:Feature example exampleFeatureName:arn:aws:evidently:us-east-1:123456789012:project/example
-        ```
-
+        Create a Feature resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] default_variation: The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `default_variation`, the first variation listed in the `variations` structure is used as the default variation.
-        :param pulumi.Input[_builtins.str] description: Specifies the description of the feature.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] entity_overrides: Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
-        :param pulumi.Input[_builtins.str] evaluation_strategy: Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
-        :param pulumi.Input[_builtins.str] name: The name for the new feature. Minimum length of `1`. Maximum length of `127`.
-        :param pulumi.Input[_builtins.str] project: The name or ARN of the project that is to contain the new feature.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FeatureVariationArgs', 'FeatureVariationArgsDict']]]] variations: One or more blocks that contain the configuration of the feature's different variations. Detailed below
         """
         ...
     @overload
@@ -578,116 +360,7 @@ class Feature(pulumi.CustomResource):
                  args: FeatureArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CloudWatch Evidently Feature resource.
-
-        > **Warning:** This resource is deprecated. Use [AWS AppConfig feature flags](https://aws.amazon.com/blogs/mt/using-aws-appconfig-feature-flags/) instead.
-
-        ## Example Usage
-
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Feature("example",
-            name="example",
-            project=example_aws_evidently_project["name"],
-            description="example description",
-            variations=[{
-                "name": "Variation1",
-                "value": {
-                    "string_value": "example",
-                },
-            }],
-            tags={
-                "Key1": "example Feature",
-            })
-        ```
-
-        ### With default variation
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Feature("example",
-            name="example",
-            project=example_aws_evidently_project["name"],
-            default_variation="Variation2",
-            variations=[
-                {
-                    "name": "Variation1",
-                    "value": {
-                        "string_value": "exampleval1",
-                    },
-                },
-                {
-                    "name": "Variation2",
-                    "value": {
-                        "string_value": "exampleval2",
-                    },
-                },
-            ])
-        ```
-
-        ### With entity overrides
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Feature("example",
-            name="example",
-            project=example_aws_evidently_project["name"],
-            entity_overrides={
-                "test1": "Variation1",
-            },
-            variations=[
-                {
-                    "name": "Variation1",
-                    "value": {
-                        "string_value": "exampleval1",
-                    },
-                },
-                {
-                    "name": "Variation2",
-                    "value": {
-                        "string_value": "exampleval2",
-                    },
-                },
-            ])
-        ```
-
-        ### With evaluation strategy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Feature("example",
-            name="example",
-            project=example_aws_evidently_project["name"],
-            evaluation_strategy="ALL_RULES",
-            entity_overrides={
-                "test1": "Variation1",
-            },
-            variations=[{
-                "name": "Variation1",
-                "value": {
-                    "string_value": "exampleval1",
-                },
-            }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudWatch Evidently Feature using the feature `name` and `name` or `arn` of the hosting CloudWatch Evidently Project separated by a `:`. For example:
-
-        ```sh
-        $ pulumi import aws:evidently/feature:Feature example exampleFeatureName:arn:aws:evidently:us-east-1:123456789012:project/example
-        ```
-
+        Create a Feature resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param FeatureArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -774,22 +447,6 @@ class Feature(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the feature.
-        :param pulumi.Input[_builtins.str] created_time: The date and time that the feature is created.
-        :param pulumi.Input[_builtins.str] default_variation: The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `default_variation`, the first variation listed in the `variations` structure is used as the default variation.
-        :param pulumi.Input[_builtins.str] description: Specifies the description of the feature.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] entity_overrides: Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FeatureEvaluationRuleArgs', 'FeatureEvaluationRuleArgsDict']]]] evaluation_rules: One or more blocks that define the evaluation rules for the feature. Detailed below
-        :param pulumi.Input[_builtins.str] evaluation_strategy: Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
-        :param pulumi.Input[_builtins.str] last_updated_time: The date and time that the feature was most recently updated.
-        :param pulumi.Input[_builtins.str] name: The name for the new feature. Minimum length of `1`. Maximum length of `127`.
-        :param pulumi.Input[_builtins.str] project: The name or ARN of the project that is to contain the new feature.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] value_type: Defines the type of value used to define the different feature variations. Valid Values: `STRING`, `LONG`, `DOUBLE`, `BOOLEAN`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FeatureVariationArgs', 'FeatureVariationArgsDict']]]] variations: One or more blocks that contain the configuration of the feature's different variations. Detailed below
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -816,128 +473,80 @@ class Feature(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the feature.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date and time that the feature is created.
-        """
         return pulumi.get(self, "created_time")
 
     @_builtins.property
     @pulumi.getter(name="defaultVariation")
     def default_variation(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `default_variation`, the first variation listed in the `variations` structure is used as the default variation.
-        """
         return pulumi.get(self, "default_variation")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Specifies the description of the feature.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="entityOverrides")
     def entity_overrides(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
-        """
         return pulumi.get(self, "entity_overrides")
 
     @_builtins.property
     @pulumi.getter(name="evaluationRules")
     def evaluation_rules(self) -> pulumi.Output[Sequence['outputs.FeatureEvaluationRule']]:
-        """
-        One or more blocks that define the evaluation rules for the feature. Detailed below
-        """
         return pulumi.get(self, "evaluation_rules")
 
     @_builtins.property
     @pulumi.getter(name="evaluationStrategy")
     def evaluation_strategy(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
-        """
         return pulumi.get(self, "evaluation_strategy")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date and time that the feature was most recently updated.
-        """
         return pulumi.get(self, "last_updated_time")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name for the new feature. Minimum length of `1`. Maximum length of `127`.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def project(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name or ARN of the project that is to contain the new feature.
-        """
         return pulumi.get(self, "project")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="valueType")
     def value_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Defines the type of value used to define the different feature variations. Valid Values: `STRING`, `LONG`, `DOUBLE`, `BOOLEAN`.
-        """
         return pulumi.get(self, "value_type")
 
     @_builtins.property
     @pulumi.getter
     def variations(self) -> pulumi.Output[Sequence['outputs.FeatureVariation']]:
-        """
-        One or more blocks that contain the configuration of the feature's different variations. Detailed below
-        """
         return pulumi.get(self, "variations")
 

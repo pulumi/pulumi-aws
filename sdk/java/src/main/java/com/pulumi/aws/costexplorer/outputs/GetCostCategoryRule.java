@@ -13,53 +13,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCostCategoryRule {
-    /**
-     * @return Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
-     * 
-     */
     private List<GetCostCategoryRuleInheritedValue> inheritedValues;
-    /**
-     * @return Configuration block for the `Expression` object used to categorize costs. See below.
-     * 
-     */
     private List<GetCostCategoryRuleRule> rules;
-    /**
-     * @return Parameter type.
-     * 
-     */
     private String type;
-    /**
-     * @return Default value for the cost category.
-     * 
-     */
     private String value;
 
     private GetCostCategoryRule() {}
-    /**
-     * @return Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
-     * 
-     */
     public List<GetCostCategoryRuleInheritedValue> inheritedValues() {
         return this.inheritedValues;
     }
-    /**
-     * @return Configuration block for the `Expression` object used to categorize costs. See below.
-     * 
-     */
     public List<GetCostCategoryRuleRule> rules() {
         return this.rules;
     }
-    /**
-     * @return Parameter type.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return Default value for the cost category.
-     * 
-     */
     public String value() {
         return this.value;
     }

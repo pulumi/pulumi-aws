@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ExpressGatewayServicePrimaryContainerRepositoryCredentials {
-    /**
-     * @return ARN of the AWS Systems Manager parameter containing the repository credentials.
-     * 
-     */
     private String credentialsParameter;
 
     private ExpressGatewayServicePrimaryContainerRepositoryCredentials() {}
-    /**
-     * @return ARN of the AWS Systems Manager parameter containing the repository credentials.
-     * 
-     */
     public String credentialsParameter() {
         return this.credentialsParameter;
     }

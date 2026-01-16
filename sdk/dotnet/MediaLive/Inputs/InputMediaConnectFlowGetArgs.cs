@@ -12,9 +12,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class InputMediaConnectFlowGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the MediaConnect Flow
-        /// </summary>
         [Input("flowArn", required: true)]
         public Input<string> FlowArn { get; set; } = null!;
 

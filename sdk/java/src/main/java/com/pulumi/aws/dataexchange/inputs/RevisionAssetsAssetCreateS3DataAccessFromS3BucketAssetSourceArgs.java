@@ -18,47 +18,23 @@ public final class RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceA
 
     public static final RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs Empty = new RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs();
 
-    /**
-     * The name of the S3 bucket.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return The name of the S3 bucket.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * List of key prefixes in the S3 bucket.
-     * 
-     */
     @Import(name="keyPrefixes")
     private @Nullable Output<List<String>> keyPrefixes;
 
-    /**
-     * @return List of key prefixes in the S3 bucket.
-     * 
-     */
     public Optional<Output<List<String>>> keyPrefixes() {
         return Optional.ofNullable(this.keyPrefixes);
     }
 
-    /**
-     * List of object keys in the S3 bucket.
-     * 
-     */
     @Import(name="keys")
     private @Nullable Output<List<String>> keys;
 
-    /**
-     * @return List of object keys in the S3 bucket.
-     * 
-     */
     public Optional<Output<List<String>>> keys() {
         return Optional.ofNullable(this.keys);
     }
@@ -97,85 +73,37 @@ public final class RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceA
             $ = new RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket The name of the S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket The name of the S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param keyPrefixes List of key prefixes in the S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyPrefixes(@Nullable Output<List<String>> keyPrefixes) {
             $.keyPrefixes = keyPrefixes;
             return this;
         }
 
-        /**
-         * @param keyPrefixes List of key prefixes in the S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyPrefixes(List<String> keyPrefixes) {
             return keyPrefixes(Output.of(keyPrefixes));
         }
 
-        /**
-         * @param keyPrefixes List of key prefixes in the S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyPrefixes(String... keyPrefixes) {
             return keyPrefixes(List.of(keyPrefixes));
         }
 
-        /**
-         * @param keys List of object keys in the S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keys(@Nullable Output<List<String>> keys) {
             $.keys = keys;
             return this;
         }
 
-        /**
-         * @param keys List of object keys in the S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keys(List<String> keys) {
             return keys(Output.of(keys));
         }
 
-        /**
-         * @param keys List of object keys in the S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keys(String... keys) {
             return keys(List.of(keys));
         }

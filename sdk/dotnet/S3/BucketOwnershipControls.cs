@@ -9,64 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3
 {
-    /// <summary>
-    /// Provides a resource to manage S3 Bucket Ownership Controls. For more information, see the [S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html).
-    /// 
-    /// &gt; This resource cannot be used with S3 directory buckets.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3.Bucket("example", new()
-    ///     {
-    ///         BucketName = "example",
-    ///     });
-    /// 
-    ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("example", new()
-    ///     {
-    ///         Bucket = example.Id,
-    ///         Rule = new Aws.S3.Inputs.BucketOwnershipControlsRuleArgs
-    ///         {
-    ///             ObjectOwnership = "BucketOwnerPreferred",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import S3 Bucket Ownership Controls using S3 Bucket name. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3/bucketOwnershipControls:BucketOwnershipControls")]
     public partial class BucketOwnershipControls : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of the bucket that you want to associate this access point with.
-        /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block(s) with Ownership Controls rules. Detailed below.
-        /// </summary>
         [Output("rule")]
         public Output<Outputs.BucketOwnershipControlsRule> Rule { get; private set; } = null!;
 
@@ -116,21 +67,12 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketOwnershipControlsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the bucket that you want to associate this access point with.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Configuration block(s) with Ownership Controls rules. Detailed below.
-        /// </summary>
         [Input("rule", required: true)]
         public Input<Inputs.BucketOwnershipControlsRuleArgs> Rule { get; set; } = null!;
 
@@ -142,21 +84,12 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketOwnershipControlsState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the bucket that you want to associate this access point with.
-        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Configuration block(s) with Ownership Controls rules. Detailed below.
-        /// </summary>
         [Input("rule")]
         public Input<Inputs.BucketOwnershipControlsRuleGetArgs>? Rule { get; set; }
 

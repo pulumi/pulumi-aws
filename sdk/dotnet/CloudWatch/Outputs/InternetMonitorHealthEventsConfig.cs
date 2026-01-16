@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class InternetMonitorHealthEventsConfig
     {
-        /// <summary>
-        /// The health event threshold percentage set for availability scores.
-        /// </summary>
         public readonly double? AvailabilityScoreThreshold;
-        /// <summary>
-        /// The health event threshold percentage set for performance scores.
-        /// </summary>
         public readonly double? PerformanceScoreThreshold;
 
         [OutputConstructor]

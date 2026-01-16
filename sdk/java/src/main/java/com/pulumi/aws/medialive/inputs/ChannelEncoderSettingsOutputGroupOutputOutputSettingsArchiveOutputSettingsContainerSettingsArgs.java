@@ -16,32 +16,16 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
 
     public static final ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs();
 
-    /**
-     * M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
-     * 
-     */
     @Import(name="m2tsSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs> m2tsSettings;
 
-    /**
-     * @return M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
-     * 
-     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs>> m2tsSettings() {
         return Optional.ofNullable(this.m2tsSettings);
     }
 
-    /**
-     * Raw Settings. This can be set as an empty block.
-     * 
-     */
     @Import(name="rawSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsArgs> rawSettings;
 
-    /**
-     * @return Raw Settings. This can be set as an empty block.
-     * 
-     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsArgs>> rawSettings() {
         return Optional.ofNullable(this.rawSettings);
     }
@@ -71,44 +55,20 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
             $ = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param m2tsSettings M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder m2tsSettings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs> m2tsSettings) {
             $.m2tsSettings = m2tsSettings;
             return this;
         }
 
-        /**
-         * @param m2tsSettings M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder m2tsSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs m2tsSettings) {
             return m2tsSettings(Output.of(m2tsSettings));
         }
 
-        /**
-         * @param rawSettings Raw Settings. This can be set as an empty block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rawSettings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsArgs> rawSettings) {
             $.rawSettings = rawSettings;
             return this;
         }
 
-        /**
-         * @param rawSettings Raw Settings. This can be set as an empty block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rawSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsArgs rawSettings) {
             return rawSettings(Output.of(rawSettings));
         }

@@ -12,55 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CloudWatch RUM Metrics Destination resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rum"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rum.NewMetricsDestination(ctx, "example", &rum.MetricsDestinationArgs{
-//				AppMonitorName: pulumi.Any(exampleAwsRumAppMonitor.Name),
-//				Destination:    pulumi.String("CloudWatch"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Cloudwatch RUM Metrics Destination using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:rum/metricsDestination:MetricsDestination example example
-// ```
 type MetricsDestination struct {
 	pulumi.CustomResourceState
 
-	// The name of the CloudWatch RUM app monitor that will send the metrics.
-	AppMonitorName pulumi.StringOutput `pulumi:"appMonitorName"`
-	// Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
-	Destination pulumi.StringOutput `pulumi:"destination"`
-	// Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
+	AppMonitorName pulumi.StringOutput    `pulumi:"appMonitorName"`
+	Destination    pulumi.StringOutput    `pulumi:"destination"`
 	DestinationArn pulumi.StringPtrOutput `pulumi:"destinationArn"`
-	// This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
-	IamRoleArn pulumi.StringPtrOutput `pulumi:"iamRoleArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	IamRoleArn     pulumi.StringPtrOutput `pulumi:"iamRoleArn"`
+	Region         pulumi.StringOutput    `pulumi:"region"`
 }
 
 // NewMetricsDestination registers a new resource with the given unique name, arguments, and options.
@@ -99,29 +58,19 @@ func GetMetricsDestination(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MetricsDestination resources.
 type metricsDestinationState struct {
-	// The name of the CloudWatch RUM app monitor that will send the metrics.
 	AppMonitorName *string `pulumi:"appMonitorName"`
-	// Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
-	Destination *string `pulumi:"destination"`
-	// Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
+	Destination    *string `pulumi:"destination"`
 	DestinationArn *string `pulumi:"destinationArn"`
-	// This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
-	IamRoleArn *string `pulumi:"iamRoleArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	IamRoleArn     *string `pulumi:"iamRoleArn"`
+	Region         *string `pulumi:"region"`
 }
 
 type MetricsDestinationState struct {
-	// The name of the CloudWatch RUM app monitor that will send the metrics.
 	AppMonitorName pulumi.StringPtrInput
-	// Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
-	Destination pulumi.StringPtrInput
-	// Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
+	Destination    pulumi.StringPtrInput
 	DestinationArn pulumi.StringPtrInput
-	// This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
-	IamRoleArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	IamRoleArn     pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
 }
 
 func (MetricsDestinationState) ElementType() reflect.Type {
@@ -129,30 +78,20 @@ func (MetricsDestinationState) ElementType() reflect.Type {
 }
 
 type metricsDestinationArgs struct {
-	// The name of the CloudWatch RUM app monitor that will send the metrics.
-	AppMonitorName string `pulumi:"appMonitorName"`
-	// Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
-	Destination string `pulumi:"destination"`
-	// Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
+	AppMonitorName string  `pulumi:"appMonitorName"`
+	Destination    string  `pulumi:"destination"`
 	DestinationArn *string `pulumi:"destinationArn"`
-	// This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
-	IamRoleArn *string `pulumi:"iamRoleArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	IamRoleArn     *string `pulumi:"iamRoleArn"`
+	Region         *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a MetricsDestination resource.
 type MetricsDestinationArgs struct {
-	// The name of the CloudWatch RUM app monitor that will send the metrics.
 	AppMonitorName pulumi.StringInput
-	// Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
-	Destination pulumi.StringInput
-	// Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
+	Destination    pulumi.StringInput
 	DestinationArn pulumi.StringPtrInput
-	// This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
-	IamRoleArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	IamRoleArn     pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
 }
 
 func (MetricsDestinationArgs) ElementType() reflect.Type {
@@ -242,27 +181,22 @@ func (o MetricsDestinationOutput) ToMetricsDestinationOutputWithContext(ctx cont
 	return o
 }
 
-// The name of the CloudWatch RUM app monitor that will send the metrics.
 func (o MetricsDestinationOutput) AppMonitorName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricsDestination) pulumi.StringOutput { return v.AppMonitorName }).(pulumi.StringOutput)
 }
 
-// Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
 func (o MetricsDestinationOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricsDestination) pulumi.StringOutput { return v.Destination }).(pulumi.StringOutput)
 }
 
-// Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
 func (o MetricsDestinationOutput) DestinationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetricsDestination) pulumi.StringPtrOutput { return v.DestinationArn }).(pulumi.StringPtrOutput)
 }
 
-// This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
 func (o MetricsDestinationOutput) IamRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetricsDestination) pulumi.StringPtrOutput { return v.IamRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MetricsDestinationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricsDestination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

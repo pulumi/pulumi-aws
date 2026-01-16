@@ -13,57 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LifecyclePolicyPolicyDetailFilter {
-    /**
-     * @return For age-based filters, this is the number of resources to keep on hand after the lifecycle DELETE action is applied. Impacted resources are only deleted if you have more than this number of resources. If you have fewer resources than this number, the impacted resource is not deleted.
-     * 
-     */
     private @Nullable Integer retainAtLeast;
-    /**
-     * @return Filter resources based on either age or count. Valid values: `AGE` or `COUNT`.
-     * 
-     */
     private String type;
-    /**
-     * @return Defines the unit of time that the lifecycle policy uses to determine impacted resources. This is required for age-based rules. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
-     * 
-     */
     private @Nullable String unit;
-    /**
-     * @return The number of units for the time period or for the count. For example, a value of 6 might refer to six months or six AMIs.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private Integer value;
 
     private LifecyclePolicyPolicyDetailFilter() {}
-    /**
-     * @return For age-based filters, this is the number of resources to keep on hand after the lifecycle DELETE action is applied. Impacted resources are only deleted if you have more than this number of resources. If you have fewer resources than this number, the impacted resource is not deleted.
-     * 
-     */
     public Optional<Integer> retainAtLeast() {
         return Optional.ofNullable(this.retainAtLeast);
     }
-    /**
-     * @return Filter resources based on either age or count. Valid values: `AGE` or `COUNT`.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return Defines the unit of time that the lifecycle policy uses to determine impacted resources. This is required for age-based rules. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
-     * 
-     */
     public Optional<String> unit() {
         return Optional.ofNullable(this.unit);
     }
-    /**
-     * @return The number of units for the time period or for the count. For example, a value of 6 might refer to six months or six AMIs.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Integer value() {
         return this.value;
     }

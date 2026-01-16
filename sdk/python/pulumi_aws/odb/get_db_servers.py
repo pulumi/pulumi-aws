@@ -49,9 +49,6 @@ class GetDbServersResult:
     @_builtins.property
     @pulumi.getter(name="dbServers")
     def db_servers(self) -> Sequence['outputs.GetDbServersDbServerResult']:
-        """
-        the list of DB servers along with their properties.
-        """
         return pulumi.get(self, "db_servers")
 
     @_builtins.property
@@ -84,26 +81,7 @@ def get_db_servers(cloud_exadata_infrastructure_id: Optional[_builtins.str] = No
                    region: Optional[_builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDbServersResult:
     """
-    Data source for manging db servers linked to exadata infrastructure of Oracle Database@AWS.
-
-    You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.odb.get_db_servers(cloud_exadata_infrastructure_id="exadata_infra_id")
-    ```
-
-
-    :param _builtins.str cloud_exadata_infrastructure_id: The unique identifier of the cloud vm cluster.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['cloudExadataInfrastructureId'] = cloud_exadata_infrastructure_id
@@ -120,26 +98,7 @@ def get_db_servers_output(cloud_exadata_infrastructure_id: Optional[pulumi.Input
                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbServersResult]:
     """
-    Data source for manging db servers linked to exadata infrastructure of Oracle Database@AWS.
-
-    You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.odb.get_db_servers(cloud_exadata_infrastructure_id="exadata_infra_id")
-    ```
-
-
-    :param _builtins.str cloud_exadata_infrastructure_id: The unique identifier of the cloud vm cluster.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['cloudExadataInfrastructureId'] = cloud_exadata_infrastructure_id

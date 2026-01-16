@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class KeyvaluestoreKeysExclusiveResourceKeyValuePair {
     /**
-     * @return Key to put.
+     * @return The key to put.
      * 
      */
     private String key;
     /**
-     * @return Value to put.
+     * @return The value to put.
      * 
      */
     private String value;
 
     private KeyvaluestoreKeysExclusiveResourceKeyValuePair() {}
     /**
-     * @return Key to put.
+     * @return The key to put.
      * 
      */
     public String key() {
         return this.key;
     }
     /**
-     * @return Value to put.
+     * @return The value to put.
      * 
      */
     public String value() {

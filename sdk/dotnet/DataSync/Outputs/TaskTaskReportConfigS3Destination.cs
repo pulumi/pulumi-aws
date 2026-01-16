@@ -13,17 +13,8 @@ namespace Pulumi.Aws.DataSync.Outputs
     [OutputType]
     public sealed class TaskTaskReportConfigS3Destination
     {
-        /// <summary>
-        /// Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
-        /// </summary>
         public readonly string BucketAccessRoleArn;
-        /// <summary>
-        /// Specifies the ARN of the S3 bucket where DataSync uploads your report.
-        /// </summary>
         public readonly string S3BucketArn;
-        /// <summary>
-        /// Specifies a bucket prefix for your report.
-        /// </summary>
         public readonly string? Subdirectory;
 
         [OutputConstructor]

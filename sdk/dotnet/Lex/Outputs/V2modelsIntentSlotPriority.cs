@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsIntentSlotPriority
     {
-        /// <summary>
-        /// Priority that Amazon Lex should apply to the slot.
-        /// </summary>
         public readonly int Priority;
-        /// <summary>
-        /// Unique identifier of the slot.
-        /// </summary>
         public readonly string SlotId;
 
         [OutputConstructor]

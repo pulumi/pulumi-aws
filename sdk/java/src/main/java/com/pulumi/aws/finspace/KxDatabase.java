@@ -15,198 +15,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS FinSpace Kx Database.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.finspace.KxEnvironment;
- * import com.pulumi.aws.finspace.KxEnvironmentArgs;
- * import com.pulumi.aws.finspace.KxDatabase;
- * import com.pulumi.aws.finspace.KxDatabaseArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Key("example", KeyArgs.builder()
- *             .description("Example KMS Key")
- *             .deletionWindowInDays(7)
- *             .build());
- * 
- *         var exampleKxEnvironment = new KxEnvironment("exampleKxEnvironment", KxEnvironmentArgs.builder()
- *             .name("my-tf-kx-environment")
- *             .kmsKeyId(example.arn())
- *             .build());
- * 
- *         var exampleKxDatabase = new KxDatabase("exampleKxDatabase", KxDatabaseArgs.builder()
- *             .environmentId(exampleKxEnvironment.id())
- *             .name("my-tf-kx-database")
- *             .description("Example database description")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import an AWS FinSpace Kx Database using the `id` (environment ID and database name, comma-delimited). For example:
- * 
- * ```sh
- * $ pulumi import aws:finspace/kxDatabase:KxDatabase example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database
- * ```
- * 
- */
 @ResourceType(type="aws:finspace/kxDatabase:KxDatabase")
 public class KxDatabase extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) identifier of the KX database.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) identifier of the KX database.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-     * 
-     */
     @Export(name="createdTimestamp", refs={String.class}, tree="[0]")
     private Output<String> createdTimestamp;
 
-    /**
-     * @return Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-     * 
-     */
     public Output<String> createdTimestamp() {
         return this.createdTimestamp;
     }
-    /**
-     * Description of the KX database.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the KX database.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Unique identifier for the KX environment.
-     * 
-     */
     @Export(name="environmentId", refs={String.class}, tree="[0]")
     private Output<String> environmentId;
 
-    /**
-     * @return Unique identifier for the KX environment.
-     * 
-     */
     public Output<String> environmentId() {
         return this.environmentId;
     }
-    /**
-     * Last timestamp at which the database was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-     * 
-     */
     @Export(name="lastModifiedTimestamp", refs={String.class}, tree="[0]")
     private Output<String> lastModifiedTimestamp;
 
-    /**
-     * @return Last timestamp at which the database was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-     * 
-     */
     public Output<String> lastModifiedTimestamp() {
         return this.lastModifiedTimestamp;
     }
-    /**
-     * Name of the KX database.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the KX database.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

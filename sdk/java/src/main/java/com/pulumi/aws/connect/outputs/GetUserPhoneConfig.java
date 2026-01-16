@@ -12,53 +12,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserPhoneConfig {
-    /**
-     * @return The After Call Work (ACW) timeout setting, in seconds.
-     * 
-     */
     private Integer afterContactWorkTimeLimit;
-    /**
-     * @return When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
-     * 
-     */
     private Boolean autoAccept;
-    /**
-     * @return The phone number for the user&#39;s desk phone.
-     * 
-     */
     private String deskPhoneNumber;
-    /**
-     * @return The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
-     * 
-     */
     private String phoneType;
 
     private GetUserPhoneConfig() {}
-    /**
-     * @return The After Call Work (ACW) timeout setting, in seconds.
-     * 
-     */
     public Integer afterContactWorkTimeLimit() {
         return this.afterContactWorkTimeLimit;
     }
-    /**
-     * @return When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
-     * 
-     */
     public Boolean autoAccept() {
         return this.autoAccept;
     }
-    /**
-     * @return The phone number for the user&#39;s desk phone.
-     * 
-     */
     public String deskPhoneNumber() {
         return this.deskPhoneNumber;
     }
-    /**
-     * @return The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
-     * 
-     */
     public String phoneType() {
         return this.phoneType;
     }

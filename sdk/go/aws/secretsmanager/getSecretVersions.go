@@ -23,27 +23,21 @@ func GetSecretVersions(ctx *pulumi.Context, args *GetSecretVersionsArgs, opts ..
 
 // A collection of arguments for invoking getSecretVersions.
 type GetSecretVersionsArgs struct {
-	// If true, all deprecated secret versions are included in the response.
-	// If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
-	IncludeDeprecated *bool `pulumi:"includeDeprecated"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
-	SecretId string `pulumi:"secretId"`
+	IncludeDeprecated *bool   `pulumi:"includeDeprecated"`
+	Region            *string `pulumi:"region"`
+	SecretId          string  `pulumi:"secretId"`
 }
 
 // A collection of values returned by getSecretVersions.
 type GetSecretVersionsResult struct {
-	// ARN of the secret.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                string `pulumi:"id"`
-	IncludeDeprecated *bool  `pulumi:"includeDeprecated"`
-	Name              string `pulumi:"name"`
-	Region            string `pulumi:"region"`
-	SecretId          string `pulumi:"secretId"`
-	// List of the versions of the secret. Attributes are specified below.
-	Versions []GetSecretVersionsVersion `pulumi:"versions"`
+	Id                string                     `pulumi:"id"`
+	IncludeDeprecated *bool                      `pulumi:"includeDeprecated"`
+	Name              string                     `pulumi:"name"`
+	Region            string                     `pulumi:"region"`
+	SecretId          string                     `pulumi:"secretId"`
+	Versions          []GetSecretVersionsVersion `pulumi:"versions"`
 }
 
 func GetSecretVersionsOutput(ctx *pulumi.Context, args GetSecretVersionsOutputArgs, opts ...pulumi.InvokeOption) GetSecretVersionsResultOutput {
@@ -57,13 +51,9 @@ func GetSecretVersionsOutput(ctx *pulumi.Context, args GetSecretVersionsOutputAr
 
 // A collection of arguments for invoking getSecretVersions.
 type GetSecretVersionsOutputArgs struct {
-	// If true, all deprecated secret versions are included in the response.
-	// If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
-	IncludeDeprecated pulumi.BoolPtrInput `pulumi:"includeDeprecated"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
-	SecretId pulumi.StringInput `pulumi:"secretId"`
+	IncludeDeprecated pulumi.BoolPtrInput   `pulumi:"includeDeprecated"`
+	Region            pulumi.StringPtrInput `pulumi:"region"`
+	SecretId          pulumi.StringInput    `pulumi:"secretId"`
 }
 
 func (GetSecretVersionsOutputArgs) ElementType() reflect.Type {
@@ -85,7 +75,6 @@ func (o GetSecretVersionsResultOutput) ToGetSecretVersionsResultOutputWithContex
 	return o
 }
 
-// ARN of the secret.
 func (o GetSecretVersionsResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretVersionsResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -111,7 +100,6 @@ func (o GetSecretVersionsResultOutput) SecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretVersionsResult) string { return v.SecretId }).(pulumi.StringOutput)
 }
 
-// List of the versions of the secret. Attributes are specified below.
 func (o GetSecretVersionsResultOutput) Versions() GetSecretVersionsVersionArrayOutput {
 	return o.ApplyT(func(v GetSecretVersionsResult) []GetSecretVersionsVersion { return v.Versions }).(GetSecretVersionsVersionArrayOutput)
 }

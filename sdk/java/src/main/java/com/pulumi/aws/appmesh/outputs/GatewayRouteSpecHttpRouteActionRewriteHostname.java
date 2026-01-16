@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GatewayRouteSpecHttpRouteActionRewriteHostname {
-    /**
-     * @return Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     private String defaultTargetHostname;
 
     private GatewayRouteSpecHttpRouteActionRewriteHostname() {}
-    /**
-     * @return Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     public String defaultTargetHostname() {
         return this.defaultTargetHostname;
     }

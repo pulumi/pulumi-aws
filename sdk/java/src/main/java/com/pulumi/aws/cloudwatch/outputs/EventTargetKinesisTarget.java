@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventTargetKinesisTarget {
-    /**
-     * @return The JSON path to be extracted from the event and used as the partition key.
-     * 
-     */
     private @Nullable String partitionKeyPath;
 
     private EventTargetKinesisTarget() {}
-    /**
-     * @return The JSON path to be extracted from the event and used as the partition key.
-     * 
-     */
     public Optional<String> partitionKeyPath() {
         return Optional.ofNullable(this.partitionKeyPath);
     }

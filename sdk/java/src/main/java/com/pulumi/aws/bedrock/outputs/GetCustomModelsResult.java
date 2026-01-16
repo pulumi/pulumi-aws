@@ -13,10 +13,6 @@ import java.util.Objects;
 @CustomType
 public final class GetCustomModelsResult {
     private String id;
-    /**
-     * @return Model summaries.
-     * 
-     */
     private List<GetCustomModelsModelSummary> modelSummaries;
     private String region;
 
@@ -24,10 +20,6 @@ public final class GetCustomModelsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Model summaries.
-     * 
-     */
     public List<GetCustomModelsModelSummary> modelSummaries() {
         return this.modelSummaries;
     }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPort
     {
-        /// <summary>
-        /// The lower limit of the port range. This must be less than or equal to the `ToPort`.
-        /// </summary>
         public readonly int FromPort;
-        /// <summary>
-        /// The upper limit of the port range. This must be greater than or equal to the `FromPort`.
-        /// </summary>
         public readonly int? ToPort;
 
         [OutputConstructor]

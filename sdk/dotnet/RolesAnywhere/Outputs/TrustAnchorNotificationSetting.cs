@@ -15,9 +15,6 @@ namespace Pulumi.Aws.RolesAnywhere.Outputs
     {
         public readonly string? Channel;
         public readonly string? ConfiguredBy;
-        /// <summary>
-        /// Whether or not the Trust Anchor should be enabled.
-        /// </summary>
         public readonly bool? Enabled;
         public readonly string? Event;
         public readonly int? Threshold;

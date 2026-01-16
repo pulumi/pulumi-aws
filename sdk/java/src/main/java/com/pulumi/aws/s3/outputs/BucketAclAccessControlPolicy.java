@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketAclAccessControlPolicy {
-    /**
-     * @return Set of `grant` configuration blocks. See below.
-     * 
-     */
     private @Nullable List<BucketAclAccessControlPolicyGrant> grants;
-    /**
-     * @return Configuration block for the bucket owner&#39;s display name and ID. See below.
-     * 
-     */
     private BucketAclAccessControlPolicyOwner owner;
 
     private BucketAclAccessControlPolicy() {}
-    /**
-     * @return Set of `grant` configuration blocks. See below.
-     * 
-     */
     public List<BucketAclAccessControlPolicyGrant> grants() {
         return this.grants == null ? List.of() : this.grants;
     }
-    /**
-     * @return Configuration block for the bucket owner&#39;s display name and ID. See below.
-     * 
-     */
     public BucketAclAccessControlPolicyOwner owner() {
         return this.owner;
     }

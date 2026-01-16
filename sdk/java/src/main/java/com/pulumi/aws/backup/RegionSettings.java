@@ -15,116 +15,23 @@ import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS Backup Region Settings resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.backup.RegionSettings;
- * import com.pulumi.aws.backup.RegionSettingsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new RegionSettings("test", RegionSettingsArgs.builder()
- *             .resourceTypeOptInPreference(Map.ofEntries(
- *                 Map.entry("Aurora", true),
- *                 Map.entry("CloudFormation", true),
- *                 Map.entry("DocumentDB", true),
- *                 Map.entry("DSQL", true),
- *                 Map.entry("DynamoDB", true),
- *                 Map.entry("EBS", true),
- *                 Map.entry("EC2", true),
- *                 Map.entry("EFS", true),
- *                 Map.entry("FSx", true),
- *                 Map.entry("Neptune", true),
- *                 Map.entry("Redshift", true),
- *                 Map.entry("Redshift Serverless", false),
- *                 Map.entry("RDS", false),
- *                 Map.entry("S3", false),
- *                 Map.entry("SAP HANA on Amazon EC2", false),
- *                 Map.entry("Storage Gateway", false),
- *                 Map.entry("VirtualMachine", false)
- *             ))
- *             .resourceTypeManagementPreference(Map.ofEntries(
- *                 Map.entry("CloudFormation", true),
- *                 Map.entry("DSQL", true),
- *                 Map.entry("DynamoDB", false),
- *                 Map.entry("EFS", false)
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Backup Region Settings using the `region`. For example:
- * 
- * ```sh
- * $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
- * ```
- * 
- */
 @ResourceType(type="aws:backup/regionSettings:RegionSettings")
 public class RegionSettings extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
-     * 
-     */
     @Export(name="resourceTypeManagementPreference", refs={Map.class,String.class,Boolean.class}, tree="[0,1,2]")
     private Output<Map<String,Boolean>> resourceTypeManagementPreference;
 
-    /**
-     * @return A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
-     * 
-     */
     public Output<Map<String,Boolean>> resourceTypeManagementPreference() {
         return this.resourceTypeManagementPreference;
     }
-    /**
-     * A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
-     * 
-     */
     @Export(name="resourceTypeOptInPreference", refs={Map.class,String.class,Boolean.class}, tree="[0,1,2]")
     private Output<Map<String,Boolean>> resourceTypeOptInPreference;
 
-    /**
-     * @return A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
-     * 
-     */
     public Output<Map<String,Boolean>> resourceTypeOptInPreference() {
         return this.resourceTypeOptInPreference;
     }

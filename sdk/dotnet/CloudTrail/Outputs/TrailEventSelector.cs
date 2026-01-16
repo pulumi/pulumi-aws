@@ -13,21 +13,9 @@ namespace Pulumi.Aws.CloudTrail.Outputs
     [OutputType]
     public sealed class TrailEventSelector
     {
-        /// <summary>
-        /// Configuration block for data events. See details below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.TrailEventSelectorDataResource> DataResources;
-        /// <summary>
-        /// A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `IncludeManagementEvents` must be set to`True` to allow this.
-        /// </summary>
         public readonly ImmutableArray<string> ExcludeManagementEventSources;
-        /// <summary>
-        /// Whether to include management events for your trail. Defaults to `True`.
-        /// </summary>
         public readonly bool? IncludeManagementEvents;
-        /// <summary>
-        /// Type of events to log. Valid values are `ReadOnly`, `WriteOnly`, `All`. Default value is `All`.
-        /// </summary>
         public readonly string? ReadWriteType;
 
         [OutputConstructor]

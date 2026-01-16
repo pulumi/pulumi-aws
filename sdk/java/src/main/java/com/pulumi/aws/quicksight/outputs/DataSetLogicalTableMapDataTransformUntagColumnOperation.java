@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class DataSetLogicalTableMapDataTransformUntagColumnOperation {
-    /**
-     * @return Column name.
-     * 
-     */
     private String columnName;
-    /**
-     * @return The column tags to remove from this column.
-     * 
-     */
     private List<String> tagNames;
 
     private DataSetLogicalTableMapDataTransformUntagColumnOperation() {}
-    /**
-     * @return Column name.
-     * 
-     */
     public String columnName() {
         return this.columnName;
     }
-    /**
-     * @return The column tags to remove from this column.
-     * 
-     */
     public List<String> tagNames() {
         return this.tagNames;
     }

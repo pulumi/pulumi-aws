@@ -18,111 +18,51 @@ public final class V2modelsBotLocaleState extends com.pulumi.resources.ResourceA
 
     public static final V2modelsBotLocaleState Empty = new V2modelsBotLocaleState();
 
-    /**
-     * Identifier of the bot to create the locale for.
-     * 
-     */
     @Import(name="botId")
     private @Nullable Output<String> botId;
 
-    /**
-     * @return Identifier of the bot to create the locale for.
-     * 
-     */
     public Optional<Output<String>> botId() {
         return Optional.ofNullable(this.botId);
     }
 
-    /**
-     * Version of the bot to create the locale for. This can only be the draft version of the bot.
-     * 
-     */
     @Import(name="botVersion")
     private @Nullable Output<String> botVersion;
 
-    /**
-     * @return Version of the bot to create the locale for. This can only be the draft version of the bot.
-     * 
-     */
     public Optional<Output<String>> botVersion() {
         return Optional.ofNullable(this.botVersion);
     }
 
-    /**
-     * Description of the bot locale. Use this to help identify the bot locale in lists.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the bot locale. Use this to help identify the bot locale in lists.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
-     * 
-     */
     @Import(name="localeId")
     private @Nullable Output<String> localeId;
 
-    /**
-     * @return Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
-     * 
-     */
     public Optional<Output<String>> localeId() {
         return Optional.ofNullable(this.localeId);
     }
 
-    /**
-     * Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="nLuIntentConfidenceThreshold")
     private @Nullable Output<Double> nLuIntentConfidenceThreshold;
 
-    /**
-     * @return Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<Double>> nLuIntentConfidenceThreshold() {
         return Optional.ofNullable(this.nLuIntentConfidenceThreshold);
     }
 
-    /**
-     * Specified locale name.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Specified locale name.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -134,17 +74,9 @@ public final class V2modelsBotLocaleState extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
-     * 
-     */
     @Import(name="voiceSettings")
     private @Nullable Output<V2modelsBotLocaleVoiceSettingsArgs> voiceSettings;
 
-    /**
-     * @return Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
-     * 
-     */
     public Optional<Output<V2modelsBotLocaleVoiceSettingsArgs>> voiceSettings() {
         return Optional.ofNullable(this.voiceSettings);
     }
@@ -181,153 +113,65 @@ public final class V2modelsBotLocaleState extends com.pulumi.resources.ResourceA
             $ = new V2modelsBotLocaleState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param botId Identifier of the bot to create the locale for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder botId(@Nullable Output<String> botId) {
             $.botId = botId;
             return this;
         }
 
-        /**
-         * @param botId Identifier of the bot to create the locale for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder botId(String botId) {
             return botId(Output.of(botId));
         }
 
-        /**
-         * @param botVersion Version of the bot to create the locale for. This can only be the draft version of the bot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder botVersion(@Nullable Output<String> botVersion) {
             $.botVersion = botVersion;
             return this;
         }
 
-        /**
-         * @param botVersion Version of the bot to create the locale for. This can only be the draft version of the bot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder botVersion(String botVersion) {
             return botVersion(Output.of(botVersion));
         }
 
-        /**
-         * @param description Description of the bot locale. Use this to help identify the bot locale in lists.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the bot locale. Use this to help identify the bot locale in lists.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param localeId Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
-         * 
-         * @return builder
-         * 
-         */
         public Builder localeId(@Nullable Output<String> localeId) {
             $.localeId = localeId;
             return this;
         }
 
-        /**
-         * @param localeId Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
-         * 
-         * @return builder
-         * 
-         */
         public Builder localeId(String localeId) {
             return localeId(Output.of(localeId));
         }
 
-        /**
-         * @param nLuIntentConfidenceThreshold Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder nLuIntentConfidenceThreshold(@Nullable Output<Double> nLuIntentConfidenceThreshold) {
             $.nLuIntentConfidenceThreshold = nLuIntentConfidenceThreshold;
             return this;
         }
 
-        /**
-         * @param nLuIntentConfidenceThreshold Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder nLuIntentConfidenceThreshold(Double nLuIntentConfidenceThreshold) {
             return nLuIntentConfidenceThreshold(Output.of(nLuIntentConfidenceThreshold));
         }
 
-        /**
-         * @param name Specified locale name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Specified locale name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
@@ -341,23 +185,11 @@ public final class V2modelsBotLocaleState extends com.pulumi.resources.ResourceA
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param voiceSettings Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder voiceSettings(@Nullable Output<V2modelsBotLocaleVoiceSettingsArgs> voiceSettings) {
             $.voiceSettings = voiceSettings;
             return this;
         }
 
-        /**
-         * @param voiceSettings Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder voiceSettings(V2modelsBotLocaleVoiceSettingsArgs voiceSettings) {
             return voiceSettings(Output.of(voiceSettings));
         }

@@ -11,62 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a DAX Parameter Group resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dax"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dax.NewParameterGroup(ctx, "example", &dax.ParameterGroupArgs{
-//				Name: pulumi.String("example"),
-//				Parameters: dax.ParameterGroupParameterArray{
-//					&dax.ParameterGroupParameterArgs{
-//						Name:  pulumi.String("query-ttl-millis"),
-//						Value: pulumi.String("100000"),
-//					},
-//					&dax.ParameterGroupParameterArgs{
-//						Name:  pulumi.String("record-ttl-millis"),
-//						Value: pulumi.String("100000"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import DAX Parameter Group using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg
-// ```
 type ParameterGroup struct {
 	pulumi.CustomResourceState
 
-	// A description of the parameter group.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of the parameter group.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The parameters of the parameter group.
-	Parameters ParameterGroupParameterArrayOutput `pulumi:"parameters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Description pulumi.StringPtrOutput             `pulumi:"description"`
+	Name        pulumi.StringOutput                `pulumi:"name"`
+	Parameters  ParameterGroupParameterArrayOutput `pulumi:"parameters"`
+	Region      pulumi.StringOutput                `pulumi:"region"`
 }
 
 // NewParameterGroup registers a new resource with the given unique name, arguments, and options.
@@ -99,25 +50,17 @@ func GetParameterGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ParameterGroup resources.
 type parameterGroupState struct {
-	// A description of the parameter group.
-	Description *string `pulumi:"description"`
-	// The name of the parameter group.
-	Name *string `pulumi:"name"`
-	// The parameters of the parameter group.
-	Parameters []ParameterGroupParameter `pulumi:"parameters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Description *string                   `pulumi:"description"`
+	Name        *string                   `pulumi:"name"`
+	Parameters  []ParameterGroupParameter `pulumi:"parameters"`
+	Region      *string                   `pulumi:"region"`
 }
 
 type ParameterGroupState struct {
-	// A description of the parameter group.
 	Description pulumi.StringPtrInput
-	// The name of the parameter group.
-	Name pulumi.StringPtrInput
-	// The parameters of the parameter group.
-	Parameters ParameterGroupParameterArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Name        pulumi.StringPtrInput
+	Parameters  ParameterGroupParameterArrayInput
+	Region      pulumi.StringPtrInput
 }
 
 func (ParameterGroupState) ElementType() reflect.Type {
@@ -125,26 +68,18 @@ func (ParameterGroupState) ElementType() reflect.Type {
 }
 
 type parameterGroupArgs struct {
-	// A description of the parameter group.
-	Description *string `pulumi:"description"`
-	// The name of the parameter group.
-	Name *string `pulumi:"name"`
-	// The parameters of the parameter group.
-	Parameters []ParameterGroupParameter `pulumi:"parameters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Description *string                   `pulumi:"description"`
+	Name        *string                   `pulumi:"name"`
+	Parameters  []ParameterGroupParameter `pulumi:"parameters"`
+	Region      *string                   `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ParameterGroup resource.
 type ParameterGroupArgs struct {
-	// A description of the parameter group.
 	Description pulumi.StringPtrInput
-	// The name of the parameter group.
-	Name pulumi.StringPtrInput
-	// The parameters of the parameter group.
-	Parameters ParameterGroupParameterArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Name        pulumi.StringPtrInput
+	Parameters  ParameterGroupParameterArrayInput
+	Region      pulumi.StringPtrInput
 }
 
 func (ParameterGroupArgs) ElementType() reflect.Type {
@@ -234,22 +169,18 @@ func (o ParameterGroupOutput) ToParameterGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
-// A description of the parameter group.
 func (o ParameterGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the parameter group.
 func (o ParameterGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The parameters of the parameter group.
 func (o ParameterGroupOutput) Parameters() ParameterGroupParameterArrayOutput {
 	return o.ApplyT(func(v *ParameterGroup) ParameterGroupParameterArrayOutput { return v.Parameters }).(ParameterGroupParameterArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ParameterGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

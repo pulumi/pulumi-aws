@@ -26,11 +26,6 @@ class NetworkInterfaceAttachmentInitArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkInterfaceAttachment resource.
-        :param pulumi.Input[_builtins.int] device_index: Network interface index (int).
-        :param pulumi.Input[_builtins.str] instance_id: Instance ID to attach.
-        :param pulumi.Input[_builtins.str] network_interface_id: ENI ID to attach.
-        :param pulumi.Input[_builtins.int] network_card_index: Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "device_index", device_index)
         pulumi.set(__self__, "instance_id", instance_id)
@@ -43,9 +38,6 @@ class NetworkInterfaceAttachmentInitArgs:
     @_builtins.property
     @pulumi.getter(name="deviceIndex")
     def device_index(self) -> pulumi.Input[_builtins.int]:
-        """
-        Network interface index (int).
-        """
         return pulumi.get(self, "device_index")
 
     @device_index.setter
@@ -55,9 +47,6 @@ class NetworkInterfaceAttachmentInitArgs:
     @_builtins.property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Instance ID to attach.
-        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -67,9 +56,6 @@ class NetworkInterfaceAttachmentInitArgs:
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ENI ID to attach.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter
@@ -79,9 +65,6 @@ class NetworkInterfaceAttachmentInitArgs:
     @_builtins.property
     @pulumi.getter(name="networkCardIndex")
     def network_card_index(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
-        """
         return pulumi.get(self, "network_card_index")
 
     @network_card_index.setter
@@ -91,9 +74,6 @@ class NetworkInterfaceAttachmentInitArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -113,13 +93,6 @@ class _NetworkInterfaceAttachmentState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkInterfaceAttachment resources.
-        :param pulumi.Input[_builtins.str] attachment_id: The ENI Attachment ID.
-        :param pulumi.Input[_builtins.int] device_index: Network interface index (int).
-        :param pulumi.Input[_builtins.str] instance_id: Instance ID to attach.
-        :param pulumi.Input[_builtins.int] network_card_index: Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
-        :param pulumi.Input[_builtins.str] network_interface_id: ENI ID to attach.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: The status of the Network Interface Attachment.
         """
         if attachment_id is not None:
             pulumi.set(__self__, "attachment_id", attachment_id)
@@ -139,9 +112,6 @@ class _NetworkInterfaceAttachmentState:
     @_builtins.property
     @pulumi.getter(name="attachmentId")
     def attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ENI Attachment ID.
-        """
         return pulumi.get(self, "attachment_id")
 
     @attachment_id.setter
@@ -151,9 +121,6 @@ class _NetworkInterfaceAttachmentState:
     @_builtins.property
     @pulumi.getter(name="deviceIndex")
     def device_index(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Network interface index (int).
-        """
         return pulumi.get(self, "device_index")
 
     @device_index.setter
@@ -163,9 +130,6 @@ class _NetworkInterfaceAttachmentState:
     @_builtins.property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Instance ID to attach.
-        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -175,9 +139,6 @@ class _NetworkInterfaceAttachmentState:
     @_builtins.property
     @pulumi.getter(name="networkCardIndex")
     def network_card_index(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
-        """
         return pulumi.get(self, "network_card_index")
 
     @network_card_index.setter
@@ -187,9 +148,6 @@ class _NetworkInterfaceAttachmentState:
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ENI ID to attach.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter
@@ -199,9 +157,6 @@ class _NetworkInterfaceAttachmentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -211,9 +166,6 @@ class _NetworkInterfaceAttachmentState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status of the Network Interface Attachment.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -234,35 +186,9 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Attach an Elastic network interface (ENI) resource with EC2 instance.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.ec2.NetworkInterfaceAttachment("test",
-            instance_id=test_aws_instance["id"],
-            network_interface_id=test_aws_network_interface["id"],
-            device_index=0)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Elastic network interface (ENI) Attachments using its Attachment ID. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
-        ```
-
+        Create a NetworkInterfaceAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] device_index: Network interface index (int).
-        :param pulumi.Input[_builtins.str] instance_id: Instance ID to attach.
-        :param pulumi.Input[_builtins.int] network_card_index: Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
-        :param pulumi.Input[_builtins.str] network_interface_id: ENI ID to attach.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -271,28 +197,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
                  args: NetworkInterfaceAttachmentInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Attach an Elastic network interface (ENI) resource with EC2 instance.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.ec2.NetworkInterfaceAttachment("test",
-            instance_id=test_aws_instance["id"],
-            network_interface_id=test_aws_network_interface["id"],
-            device_index=0)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Elastic network interface (ENI) Attachments using its Attachment ID. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
-        ```
-
+        Create a NetworkInterfaceAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceAttachmentInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -359,13 +264,6 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] attachment_id: The ENI Attachment ID.
-        :param pulumi.Input[_builtins.int] device_index: Network interface index (int).
-        :param pulumi.Input[_builtins.str] instance_id: Instance ID to attach.
-        :param pulumi.Input[_builtins.int] network_card_index: Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
-        :param pulumi.Input[_builtins.str] network_interface_id: ENI ID to attach.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: The status of the Network Interface Attachment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -383,56 +281,35 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="attachmentId")
     def attachment_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ENI Attachment ID.
-        """
         return pulumi.get(self, "attachment_id")
 
     @_builtins.property
     @pulumi.getter(name="deviceIndex")
     def device_index(self) -> pulumi.Output[_builtins.int]:
-        """
-        Network interface index (int).
-        """
         return pulumi.get(self, "device_index")
 
     @_builtins.property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Instance ID to attach.
-        """
         return pulumi.get(self, "instance_id")
 
     @_builtins.property
     @pulumi.getter(name="networkCardIndex")
     def network_card_index(self) -> pulumi.Output[_builtins.int]:
-        """
-        Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
-        """
         return pulumi.get(self, "network_card_index")
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ENI ID to attach.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The status of the Network Interface Attachment.
-        """
         return pulumi.get(self, "status")
 

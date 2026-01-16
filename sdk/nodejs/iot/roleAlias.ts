@@ -4,19 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an IoT role alias.
- *
- * ## Example Usage
- *
- * ## Import
- *
- * Using `pulumi import`, import IOT Role Alias using the alias. For example:
- *
- * ```sh
- * $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
- * ```
- */
 export class RoleAlias extends pulumi.CustomResource {
     /**
      * Get an existing RoleAlias resource's state with the given name, ID, and optional extra
@@ -45,33 +32,12 @@ export class RoleAlias extends pulumi.CustomResource {
         return obj['__pulumiType'] === RoleAlias.__pulumiType;
     }
 
-    /**
-     * The name of the role alias.
-     */
     declare public readonly alias: pulumi.Output<string>;
-    /**
-     * The ARN assigned by AWS to this role alias.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
-     */
     declare public readonly credentialDuration: pulumi.Output<number | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The identity of the role to which the alias refers.
-     */
     declare public readonly roleArn: pulumi.Output<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -119,33 +85,12 @@ export class RoleAlias extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RoleAlias resources.
  */
 export interface RoleAliasState {
-    /**
-     * The name of the role alias.
-     */
     alias?: pulumi.Input<string>;
-    /**
-     * The ARN assigned by AWS to this role alias.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
-     */
     credentialDuration?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The identity of the role to which the alias refers.
-     */
     roleArn?: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -153,24 +98,9 @@ export interface RoleAliasState {
  * The set of arguments for constructing a RoleAlias resource.
  */
 export interface RoleAliasArgs {
-    /**
-     * The name of the role alias.
-     */
     alias: pulumi.Input<string>;
-    /**
-     * The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
-     */
     credentialDuration?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The identity of the role to which the alias refers.
-     */
     roleArn: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

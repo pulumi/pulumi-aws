@@ -15,32 +15,16 @@ public final class ConnectorKafkaClusterApacheKafkaClusterVpcArgs extends com.pu
 
     public static final ConnectorKafkaClusterApacheKafkaClusterVpcArgs Empty = new ConnectorKafkaClusterApacheKafkaClusterVpcArgs();
 
-    /**
-     * The security groups for the connector.
-     * 
-     */
     @Import(name="securityGroups", required=true)
     private Output<List<String>> securityGroups;
 
-    /**
-     * @return The security groups for the connector.
-     * 
-     */
     public Output<List<String>> securityGroups() {
         return this.securityGroups;
     }
 
-    /**
-     * The subnets for the connector.
-     * 
-     */
     @Import(name="subnets", required=true)
     private Output<List<String>> subnets;
 
-    /**
-     * @return The subnets for the connector.
-     * 
-     */
     public Output<List<String>> subnets() {
         return this.subnets;
     }
@@ -70,64 +54,28 @@ public final class ConnectorKafkaClusterApacheKafkaClusterVpcArgs extends com.pu
             $ = new ConnectorKafkaClusterApacheKafkaClusterVpcArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param securityGroups The security groups for the connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(Output<List<String>> securityGroups) {
             $.securityGroups = securityGroups;
             return this;
         }
 
-        /**
-         * @param securityGroups The security groups for the connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(List<String> securityGroups) {
             return securityGroups(Output.of(securityGroups));
         }
 
-        /**
-         * @param securityGroups The security groups for the connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
 
-        /**
-         * @param subnets The subnets for the connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnets(Output<List<String>> subnets) {
             $.subnets = subnets;
             return this;
         }
 
-        /**
-         * @param subnets The subnets for the connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnets(List<String> subnets) {
             return subnets(Output.of(subnets));
         }
 
-        /**
-         * @param subnets The subnets for the connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnets(String... subnets) {
             return subnets(List.of(subnets));
         }

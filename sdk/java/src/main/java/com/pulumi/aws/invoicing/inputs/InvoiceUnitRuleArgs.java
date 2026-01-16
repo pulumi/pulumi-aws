@@ -15,17 +15,9 @@ public final class InvoiceUnitRuleArgs extends com.pulumi.resources.ResourceArgs
 
     public static final InvoiceUnitRuleArgs Empty = new InvoiceUnitRuleArgs();
 
-    /**
-     * Set of AWS account IDs included in this invoice unit.
-     * 
-     */
     @Import(name="linkedAccounts", required=true)
     private Output<List<String>> linkedAccounts;
 
-    /**
-     * @return Set of AWS account IDs included in this invoice unit.
-     * 
-     */
     public Output<List<String>> linkedAccounts() {
         return this.linkedAccounts;
     }
@@ -54,33 +46,15 @@ public final class InvoiceUnitRuleArgs extends com.pulumi.resources.ResourceArgs
             $ = new InvoiceUnitRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param linkedAccounts Set of AWS account IDs included in this invoice unit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder linkedAccounts(Output<List<String>> linkedAccounts) {
             $.linkedAccounts = linkedAccounts;
             return this;
         }
 
-        /**
-         * @param linkedAccounts Set of AWS account IDs included in this invoice unit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder linkedAccounts(List<String> linkedAccounts) {
             return linkedAccounts(Output.of(linkedAccounts));
         }
 
-        /**
-         * @param linkedAccounts Set of AWS account IDs included in this invoice unit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder linkedAccounts(String... linkedAccounts) {
             return linkedAccounts(List.of(linkedAccounts));
         }

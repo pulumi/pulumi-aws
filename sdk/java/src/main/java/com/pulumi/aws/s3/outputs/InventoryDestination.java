@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class InventoryDestination {
-    /**
-     * @return S3 bucket configuration where inventory results are published (documented below).
-     * 
-     */
     private InventoryDestinationBucket bucket;
 
     private InventoryDestination() {}
-    /**
-     * @return S3 bucket configuration where inventory results are published (documented below).
-     * 
-     */
     public InventoryDestinationBucket bucket() {
         return this.bucket;
     }

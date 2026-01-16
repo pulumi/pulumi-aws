@@ -16,202 +16,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS CloudWatch Logs Delivery Destination.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogDeliveryDestination;
- * import com.pulumi.aws.cloudwatch.LogDeliveryDestinationArgs;
- * import com.pulumi.aws.cloudwatch.inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new LogDeliveryDestination("example", LogDeliveryDestinationArgs.builder()
- *             .name("example")
- *             .deliveryDestinationConfiguration(LogDeliveryDestinationDeliveryDestinationConfigurationArgs.builder()
- *                 .destinationResourceArn(exampleAwsCloudwatchLogGroup.arn())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### X-Ray Trace Delivery
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogDeliveryDestination;
- * import com.pulumi.aws.cloudwatch.LogDeliveryDestinationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var xray = new LogDeliveryDestination("xray", LogDeliveryDestinationArgs.builder()
- *             .name("xray-traces")
- *             .deliveryDestinationType("XRAY")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CloudWatch Logs Delivery Destination using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudwatch/logDeliveryDestination:LogDeliveryDestination example example
- * ```
- * 
- */
 @ResourceType(type="aws:cloudwatch/logDeliveryDestination:LogDeliveryDestination")
 public class LogDeliveryDestination extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) of the delivery destination.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the delivery destination.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
-     * 
-     */
     @Export(name="deliveryDestinationConfiguration", refs={LogDeliveryDestinationDeliveryDestinationConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ LogDeliveryDestinationDeliveryDestinationConfiguration> deliveryDestinationConfiguration;
 
-    /**
-     * @return The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
-     * 
-     */
     public Output<Optional<LogDeliveryDestinationDeliveryDestinationConfiguration>> deliveryDestinationConfiguration() {
         return Codegen.optional(this.deliveryDestinationConfiguration);
     }
-    /**
-     * The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
-     * 
-     */
     @Export(name="deliveryDestinationType", refs={String.class}, tree="[0]")
     private Output<String> deliveryDestinationType;
 
-    /**
-     * @return The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
-     * 
-     */
     public Output<String> deliveryDestinationType() {
         return this.deliveryDestinationType;
     }
-    /**
-     * The name for this delivery destination.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name for this delivery destination.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
-     * 
-     */
     @Export(name="outputFormat", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> outputFormat;
 
-    /**
-     * @return The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
-     * 
-     */
     public Output<Optional<String>> outputFormat() {
         return Codegen.optional(this.outputFormat);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

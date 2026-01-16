@@ -12,15 +12,9 @@ namespace Pulumi.Aws.SecurityLake.Inputs
 
     public sealed class SubscriberSourceCustomLogSourceResourceProviderGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The location of the partition in the Amazon S3 bucket for Security Lake.
-        /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
-        /// <summary>
-        /// The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 

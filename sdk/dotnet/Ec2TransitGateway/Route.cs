@@ -9,89 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2TransitGateway
 {
-    /// <summary>
-    /// Manages an EC2 Transit Gateway Route.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Standard usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2TransitGateway.Route("example", new()
-    ///     {
-    ///         DestinationCidrBlock = "0.0.0.0/0",
-    ///         TransitGatewayAttachmentId = exampleAwsEc2TransitGatewayVpcAttachment.Id,
-    ///         TransitGatewayRouteTableId = exampleAwsEc2TransitGateway.AssociationDefaultRouteTableId,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Blackhole route
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2TransitGateway.Route("example", new()
-    ///     {
-    ///         DestinationCidrBlock = "0.0.0.0/0",
-    ///         Blackhole = true,
-    ///         TransitGatewayRouteTableId = exampleAwsEc2TransitGateway.AssociationDefaultRouteTableId,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_ec2_transit_gateway_route` using the EC2 Transit Gateway Route Table, an underscore, and the destination. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2transitgateway/route:Route example tgw-rtb-12345678_0.0.0.0/0
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2transitgateway/route:Route")]
     public partial class Route : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Indicates whether to drop traffic that matches this route (default to `False`).
-        /// </summary>
         [Output("blackhole")]
         public Output<bool?> Blackhole { get; private set; } = null!;
 
-        /// <summary>
-        /// IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
-        /// </summary>
         [Output("destinationCidrBlock")]
         public Output<string> DestinationCidrBlock { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway Attachment (required if `Blackhole` is set to false).
-        /// </summary>
         [Output("transitGatewayAttachmentId")]
         public Output<string?> TransitGatewayAttachmentId { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway Route Table.
-        /// </summary>
         [Output("transitGatewayRouteTableId")]
         public Output<string> TransitGatewayRouteTableId { get; private set; } = null!;
 
@@ -141,33 +73,18 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class RouteArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates whether to drop traffic that matches this route (default to `False`).
-        /// </summary>
         [Input("blackhole")]
         public Input<bool>? Blackhole { get; set; }
 
-        /// <summary>
-        /// IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
-        /// </summary>
         [Input("destinationCidrBlock", required: true)]
         public Input<string> DestinationCidrBlock { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway Attachment (required if `Blackhole` is set to false).
-        /// </summary>
         [Input("transitGatewayAttachmentId")]
         public Input<string>? TransitGatewayAttachmentId { get; set; }
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway Route Table.
-        /// </summary>
         [Input("transitGatewayRouteTableId", required: true)]
         public Input<string> TransitGatewayRouteTableId { get; set; } = null!;
 
@@ -179,33 +96,18 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class RouteState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates whether to drop traffic that matches this route (default to `False`).
-        /// </summary>
         [Input("blackhole")]
         public Input<bool>? Blackhole { get; set; }
 
-        /// <summary>
-        /// IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
-        /// </summary>
         [Input("destinationCidrBlock")]
         public Input<string>? DestinationCidrBlock { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway Attachment (required if `Blackhole` is set to false).
-        /// </summary>
         [Input("transitGatewayAttachmentId")]
         public Input<string>? TransitGatewayAttachmentId { get; set; }
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway Route Table.
-        /// </summary>
         [Input("transitGatewayRouteTableId")]
         public Input<string>? TransitGatewayRouteTableId { get; set; }
 

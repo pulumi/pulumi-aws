@@ -13,21 +13,9 @@ namespace Pulumi.Aws.CodePipeline.Outputs
     [OutputType]
     public sealed class PipelineStageOnSuccessConditionRuleRuleTypeId
     {
-        /// <summary>
-        /// A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
-        /// </summary>
         public readonly string Category;
-        /// <summary>
-        /// The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
-        /// </summary>
         public readonly string? Owner;
-        /// <summary>
-        /// The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
-        /// </summary>
         public readonly string Provider;
-        /// <summary>
-        /// A string that describes the rule version.
-        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]

@@ -15,70 +15,30 @@ public final class GetPolicyPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetPolicyPlainArgs Empty = new GetPolicyPlainArgs();
 
-    /**
-     * ARN of the IAM policy.
-     * Conflicts with `name` and `pathPrefix`.
-     * 
-     */
     @Import(name="arn")
     private @Nullable String arn;
 
-    /**
-     * @return ARN of the IAM policy.
-     * Conflicts with `name` and `pathPrefix`.
-     * 
-     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Name of the IAM policy.
-     * Conflicts with `arn`.
-     * 
-     */
     @Import(name="name")
     private @Nullable String name;
 
-    /**
-     * @return Name of the IAM policy.
-     * Conflicts with `arn`.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Prefix of the path to the IAM policy.
-     * Defaults to a slash (`/`).
-     * Conflicts with `arn`.
-     * 
-     */
     @Import(name="pathPrefix")
     private @Nullable String pathPrefix;
 
-    /**
-     * @return Prefix of the path to the IAM policy.
-     * Defaults to a slash (`/`).
-     * Conflicts with `arn`.
-     * 
-     */
     public Optional<String> pathPrefix() {
         return Optional.ofNullable(this.pathPrefix);
     }
 
-    /**
-     * Key-value mapping of tags for the IAM Policy.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Key-value mapping of tags for the IAM Policy.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -110,49 +70,21 @@ public final class GetPolicyPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetPolicyPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the IAM policy.
-         * Conflicts with `name` and `pathPrefix`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable String arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param name Name of the IAM policy.
-         * Conflicts with `arn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param pathPrefix Prefix of the path to the IAM policy.
-         * Defaults to a slash (`/`).
-         * Conflicts with `arn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pathPrefix(@Nullable String pathPrefix) {
             $.pathPrefix = pathPrefix;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of tags for the IAM Policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

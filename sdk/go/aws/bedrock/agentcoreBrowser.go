@@ -11,186 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Bedrock AgentCore Browser. Browser provides AI agents with web browsing capabilities, allowing them to navigate websites, extract information, and interact with web content in a controlled environment.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.NewAgentcoreBrowser(ctx, "example", &bedrock.AgentcoreBrowserArgs{
-//				Name:        pulumi.String("example-browser"),
-//				Description: pulumi.String("Browser for web data extraction"),
-//				NetworkConfiguration: &bedrock.AgentcoreBrowserNetworkConfigurationArgs{
-//					NetworkMode: pulumi.String("PUBLIC"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Browser with VPC Configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.NewAgentcoreBrowser(ctx, "vpc_example", &bedrock.AgentcoreBrowserArgs{
-//				Name:        pulumi.String("vpc-browser"),
-//				Description: pulumi.String("Browser with VPC configuration"),
-//				NetworkConfiguration: &bedrock.AgentcoreBrowserNetworkConfigurationArgs{
-//					NetworkMode: pulumi.String("VPC"),
-//					VpcConfig: &bedrock.AgentcoreBrowserNetworkConfigurationVpcConfigArgs{
-//						SecurityGroups: pulumi.StringArray{
-//							pulumi.String("sg-12345678"),
-//						},
-//						Subnets: pulumi.StringArray{
-//							pulumi.String("subnet-12345678"),
-//							pulumi.String("subnet-87654321"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Browser with Execution Role and Recording
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"bedrock-agentcore.amazonaws.com",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				Name:             pulumi.String("bedrock-agentcore-browser-role"),
-//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			recording, err := s3.NewBucket(ctx, "recording", &s3.BucketArgs{
-//				Bucket: pulumi.String("browser-recording-bucket"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = bedrock.NewAgentcoreBrowser(ctx, "example", &bedrock.AgentcoreBrowserArgs{
-//				Name:             pulumi.String("example-browser"),
-//				Description:      pulumi.String("Browser with recording enabled"),
-//				ExecutionRoleArn: example.Arn,
-//				NetworkConfiguration: &bedrock.AgentcoreBrowserNetworkConfigurationArgs{
-//					NetworkMode: pulumi.String("PUBLIC"),
-//				},
-//				Recording: &bedrock.AgentcoreBrowserRecordingArgs{
-//					Enabled: pulumi.Bool(true),
-//					S3Location: &bedrock.AgentcoreBrowserRecordingS3LocationArgs{
-//						Bucket: recording.Bucket,
-//						Prefix: pulumi.String("browser-sessions/"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Bedrock AgentCore Browser using the browser ID. For example:
-//
-// ```sh
-// $ pulumi import aws:bedrock/agentcoreBrowser:AgentcoreBrowser example BROWSER1234567890
-// ```
 type AgentcoreBrowser struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Browser.
-	BrowserArn pulumi.StringOutput `pulumi:"browserArn"`
-	// Unique identifier of the Browser.
-	BrowserId pulumi.StringOutput `pulumi:"browserId"`
-	// Description of the browser.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// ARN of the IAM role that the browser assumes for execution.
-	ExecutionRoleArn pulumi.StringPtrOutput `pulumi:"executionRoleArn"`
-	// Name of the browser.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Network configuration for the browser. See `networkConfiguration` below.
-	//
-	// The following arguments are optional:
+	BrowserArn           pulumi.StringOutput                           `pulumi:"browserArn"`
+	BrowserId            pulumi.StringOutput                           `pulumi:"browserId"`
+	Description          pulumi.StringPtrOutput                        `pulumi:"description"`
+	ExecutionRoleArn     pulumi.StringPtrOutput                        `pulumi:"executionRoleArn"`
+	Name                 pulumi.StringOutput                           `pulumi:"name"`
 	NetworkConfiguration AgentcoreBrowserNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
-	// Recording configuration for browser sessions. See `recording` below.
-	Recording AgentcoreBrowserRecordingPtrOutput `pulumi:"recording"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput            `pulumi:"tagsAll"`
-	Timeouts AgentcoreBrowserTimeoutsPtrOutput `pulumi:"timeouts"`
+	Recording            AgentcoreBrowserRecordingPtrOutput            `pulumi:"recording"`
+	Region               pulumi.StringOutput                           `pulumi:"region"`
+	Tags                 pulumi.StringMapOutput                        `pulumi:"tags"`
+	TagsAll              pulumi.StringMapOutput                        `pulumi:"tagsAll"`
+	Timeouts             AgentcoreBrowserTimeoutsPtrOutput             `pulumi:"timeouts"`
 }
 
 // NewAgentcoreBrowser registers a new resource with the given unique name, arguments, and options.
@@ -223,55 +57,31 @@ func GetAgentcoreBrowser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentcoreBrowser resources.
 type agentcoreBrowserState struct {
-	// ARN of the Browser.
-	BrowserArn *string `pulumi:"browserArn"`
-	// Unique identifier of the Browser.
-	BrowserId *string `pulumi:"browserId"`
-	// Description of the browser.
-	Description *string `pulumi:"description"`
-	// ARN of the IAM role that the browser assumes for execution.
-	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
-	// Name of the browser.
-	Name *string `pulumi:"name"`
-	// Network configuration for the browser. See `networkConfiguration` below.
-	//
-	// The following arguments are optional:
+	BrowserArn           *string                               `pulumi:"browserArn"`
+	BrowserId            *string                               `pulumi:"browserId"`
+	Description          *string                               `pulumi:"description"`
+	ExecutionRoleArn     *string                               `pulumi:"executionRoleArn"`
+	Name                 *string                               `pulumi:"name"`
 	NetworkConfiguration *AgentcoreBrowserNetworkConfiguration `pulumi:"networkConfiguration"`
-	// Recording configuration for browser sessions. See `recording` below.
-	Recording *AgentcoreBrowserRecording `pulumi:"recording"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string         `pulumi:"tagsAll"`
-	Timeouts *AgentcoreBrowserTimeouts `pulumi:"timeouts"`
+	Recording            *AgentcoreBrowserRecording            `pulumi:"recording"`
+	Region               *string                               `pulumi:"region"`
+	Tags                 map[string]string                     `pulumi:"tags"`
+	TagsAll              map[string]string                     `pulumi:"tagsAll"`
+	Timeouts             *AgentcoreBrowserTimeouts             `pulumi:"timeouts"`
 }
 
 type AgentcoreBrowserState struct {
-	// ARN of the Browser.
-	BrowserArn pulumi.StringPtrInput
-	// Unique identifier of the Browser.
-	BrowserId pulumi.StringPtrInput
-	// Description of the browser.
-	Description pulumi.StringPtrInput
-	// ARN of the IAM role that the browser assumes for execution.
-	ExecutionRoleArn pulumi.StringPtrInput
-	// Name of the browser.
-	Name pulumi.StringPtrInput
-	// Network configuration for the browser. See `networkConfiguration` below.
-	//
-	// The following arguments are optional:
+	BrowserArn           pulumi.StringPtrInput
+	BrowserId            pulumi.StringPtrInput
+	Description          pulumi.StringPtrInput
+	ExecutionRoleArn     pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
 	NetworkConfiguration AgentcoreBrowserNetworkConfigurationPtrInput
-	// Recording configuration for browser sessions. See `recording` below.
-	Recording AgentcoreBrowserRecordingPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts AgentcoreBrowserTimeoutsPtrInput
+	Recording            AgentcoreBrowserRecordingPtrInput
+	Region               pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
+	TagsAll              pulumi.StringMapInput
+	Timeouts             AgentcoreBrowserTimeoutsPtrInput
 }
 
 func (AgentcoreBrowserState) ElementType() reflect.Type {
@@ -279,44 +89,26 @@ func (AgentcoreBrowserState) ElementType() reflect.Type {
 }
 
 type agentcoreBrowserArgs struct {
-	// Description of the browser.
-	Description *string `pulumi:"description"`
-	// ARN of the IAM role that the browser assumes for execution.
-	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
-	// Name of the browser.
-	Name *string `pulumi:"name"`
-	// Network configuration for the browser. See `networkConfiguration` below.
-	//
-	// The following arguments are optional:
+	Description          *string                               `pulumi:"description"`
+	ExecutionRoleArn     *string                               `pulumi:"executionRoleArn"`
+	Name                 *string                               `pulumi:"name"`
 	NetworkConfiguration *AgentcoreBrowserNetworkConfiguration `pulumi:"networkConfiguration"`
-	// Recording configuration for browser sessions. See `recording` below.
-	Recording *AgentcoreBrowserRecording `pulumi:"recording"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string         `pulumi:"tags"`
-	Timeouts *AgentcoreBrowserTimeouts `pulumi:"timeouts"`
+	Recording            *AgentcoreBrowserRecording            `pulumi:"recording"`
+	Region               *string                               `pulumi:"region"`
+	Tags                 map[string]string                     `pulumi:"tags"`
+	Timeouts             *AgentcoreBrowserTimeouts             `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a AgentcoreBrowser resource.
 type AgentcoreBrowserArgs struct {
-	// Description of the browser.
-	Description pulumi.StringPtrInput
-	// ARN of the IAM role that the browser assumes for execution.
-	ExecutionRoleArn pulumi.StringPtrInput
-	// Name of the browser.
-	Name pulumi.StringPtrInput
-	// Network configuration for the browser. See `networkConfiguration` below.
-	//
-	// The following arguments are optional:
+	Description          pulumi.StringPtrInput
+	ExecutionRoleArn     pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
 	NetworkConfiguration AgentcoreBrowserNetworkConfigurationPtrInput
-	// Recording configuration for browser sessions. See `recording` below.
-	Recording AgentcoreBrowserRecordingPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts AgentcoreBrowserTimeoutsPtrInput
+	Recording            AgentcoreBrowserRecordingPtrInput
+	Region               pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
+	Timeouts             AgentcoreBrowserTimeoutsPtrInput
 }
 
 func (AgentcoreBrowserArgs) ElementType() reflect.Type {
@@ -406,54 +198,42 @@ func (o AgentcoreBrowserOutput) ToAgentcoreBrowserOutputWithContext(ctx context.
 	return o
 }
 
-// ARN of the Browser.
 func (o AgentcoreBrowserOutput) BrowserArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreBrowser) pulumi.StringOutput { return v.BrowserArn }).(pulumi.StringOutput)
 }
 
-// Unique identifier of the Browser.
 func (o AgentcoreBrowserOutput) BrowserId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreBrowser) pulumi.StringOutput { return v.BrowserId }).(pulumi.StringOutput)
 }
 
-// Description of the browser.
 func (o AgentcoreBrowserOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreBrowser) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the IAM role that the browser assumes for execution.
 func (o AgentcoreBrowserOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreBrowser) pulumi.StringPtrOutput { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Name of the browser.
 func (o AgentcoreBrowserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreBrowser) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Network configuration for the browser. See `networkConfiguration` below.
-//
-// The following arguments are optional:
 func (o AgentcoreBrowserOutput) NetworkConfiguration() AgentcoreBrowserNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentcoreBrowser) AgentcoreBrowserNetworkConfigurationPtrOutput { return v.NetworkConfiguration }).(AgentcoreBrowserNetworkConfigurationPtrOutput)
 }
 
-// Recording configuration for browser sessions. See `recording` below.
 func (o AgentcoreBrowserOutput) Recording() AgentcoreBrowserRecordingPtrOutput {
 	return o.ApplyT(func(v *AgentcoreBrowser) AgentcoreBrowserRecordingPtrOutput { return v.Recording }).(AgentcoreBrowserRecordingPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AgentcoreBrowserOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreBrowser) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AgentcoreBrowserOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreBrowser) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AgentcoreBrowserOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreBrowser) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

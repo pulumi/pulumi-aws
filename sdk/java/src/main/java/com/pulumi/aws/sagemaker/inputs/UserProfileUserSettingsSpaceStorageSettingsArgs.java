@@ -15,17 +15,9 @@ public final class UserProfileUserSettingsSpaceStorageSettingsArgs extends com.p
 
     public static final UserProfileUserSettingsSpaceStorageSettingsArgs Empty = new UserProfileUserSettingsSpaceStorageSettingsArgs();
 
-    /**
-     * The default EBS storage settings for a private space. See Default EBS Storage Settings below.
-     * 
-     */
     @Import(name="defaultEbsStorageSettings")
     private @Nullable Output<UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs> defaultEbsStorageSettings;
 
-    /**
-     * @return The default EBS storage settings for a private space. See Default EBS Storage Settings below.
-     * 
-     */
     public Optional<Output<UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs>> defaultEbsStorageSettings() {
         return Optional.ofNullable(this.defaultEbsStorageSettings);
     }
@@ -54,23 +46,11 @@ public final class UserProfileUserSettingsSpaceStorageSettingsArgs extends com.p
             $ = new UserProfileUserSettingsSpaceStorageSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultEbsStorageSettings The default EBS storage settings for a private space. See Default EBS Storage Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultEbsStorageSettings(@Nullable Output<UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs> defaultEbsStorageSettings) {
             $.defaultEbsStorageSettings = defaultEbsStorageSettings;
             return this;
         }
 
-        /**
-         * @param defaultEbsStorageSettings The default EBS storage settings for a private space. See Default EBS Storage Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultEbsStorageSettings(UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs defaultEbsStorageSettings) {
             return defaultEbsStorageSettings(Output.of(defaultEbsStorageSettings));
         }

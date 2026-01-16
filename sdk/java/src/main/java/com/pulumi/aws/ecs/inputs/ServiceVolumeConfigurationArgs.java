@@ -15,32 +15,16 @@ public final class ServiceVolumeConfigurationArgs extends com.pulumi.resources.R
 
     public static final ServiceVolumeConfigurationArgs Empty = new ServiceVolumeConfigurationArgs();
 
-    /**
-     * Configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. See below.
-     * 
-     */
     @Import(name="managedEbsVolume", required=true)
     private Output<ServiceVolumeConfigurationManagedEbsVolumeArgs> managedEbsVolume;
 
-    /**
-     * @return Configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. See below.
-     * 
-     */
     public Output<ServiceVolumeConfigurationManagedEbsVolumeArgs> managedEbsVolume() {
         return this.managedEbsVolume;
     }
 
-    /**
-     * Name of the volume.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the volume.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -70,44 +54,20 @@ public final class ServiceVolumeConfigurationArgs extends com.pulumi.resources.R
             $ = new ServiceVolumeConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param managedEbsVolume Configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedEbsVolume(Output<ServiceVolumeConfigurationManagedEbsVolumeArgs> managedEbsVolume) {
             $.managedEbsVolume = managedEbsVolume;
             return this;
         }
 
-        /**
-         * @param managedEbsVolume Configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedEbsVolume(ServiceVolumeConfigurationManagedEbsVolumeArgs managedEbsVolume) {
             return managedEbsVolume(Output.of(managedEbsVolume));
         }
 
-        /**
-         * @param name Name of the volume.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the volume.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

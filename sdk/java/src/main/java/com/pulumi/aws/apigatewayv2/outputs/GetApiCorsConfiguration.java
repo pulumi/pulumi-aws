@@ -13,77 +13,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetApiCorsConfiguration {
-    /**
-     * @return Whether credentials are included in the CORS request.
-     * 
-     */
     private Boolean allowCredentials;
-    /**
-     * @return Set of allowed HTTP headers.
-     * 
-     */
     private List<String> allowHeaders;
-    /**
-     * @return Set of allowed HTTP methods.
-     * 
-     */
     private List<String> allowMethods;
-    /**
-     * @return Set of allowed origins.
-     * 
-     */
     private List<String> allowOrigins;
-    /**
-     * @return Set of exposed HTTP headers.
-     * 
-     */
     private List<String> exposeHeaders;
-    /**
-     * @return Number of seconds that the browser should cache preflight request results.
-     * 
-     */
     private Integer maxAge;
 
     private GetApiCorsConfiguration() {}
-    /**
-     * @return Whether credentials are included in the CORS request.
-     * 
-     */
     public Boolean allowCredentials() {
         return this.allowCredentials;
     }
-    /**
-     * @return Set of allowed HTTP headers.
-     * 
-     */
     public List<String> allowHeaders() {
         return this.allowHeaders;
     }
-    /**
-     * @return Set of allowed HTTP methods.
-     * 
-     */
     public List<String> allowMethods() {
         return this.allowMethods;
     }
-    /**
-     * @return Set of allowed origins.
-     * 
-     */
     public List<String> allowOrigins() {
         return this.allowOrigins;
     }
-    /**
-     * @return Set of exposed HTTP headers.
-     * 
-     */
     public List<String> exposeHeaders() {
         return this.exposeHeaders;
     }
-    /**
-     * @return Number of seconds that the browser should cache preflight request results.
-     * 
-     */
     public Integer maxAge() {
         return this.maxAge;
     }

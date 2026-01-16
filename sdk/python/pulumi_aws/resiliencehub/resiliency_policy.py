@@ -31,19 +31,11 @@ class ResiliencyPolicyArgs:
                  timeouts: Optional[pulumi.Input['ResiliencyPolicyTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ResiliencyPolicy resource.
-        :param pulumi.Input[_builtins.str] tier: Resiliency Policy Tier.
-               Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
-        :param pulumi.Input[_builtins.str] data_location_constraint: Data Location Constraint of the Policy.
-               Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
-        :param pulumi.Input[_builtins.str] description: Description of Resiliency Policy.
-        :param pulumi.Input[_builtins.str] name: Name of Resiliency Policy.
-               Must be between 2 and 60 characters long.
-               Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
-        :param pulumi.Input['ResiliencyPolicyPolicyArgs'] policy: The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] tier: The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
+        :param pulumi.Input[_builtins.str] data_location_constraint: Specifies a high-level geographical location constraint for where resilience policy data can be stored.
+        :param pulumi.Input[_builtins.str] description: The description for the policy.
+        :param pulumi.Input[_builtins.str] name: The name of the policy.
+        :param pulumi.Input['ResiliencyPolicyPolicyArgs'] policy: The resiliency failure policy.
         """
         pulumi.set(__self__, "tier", tier)
         if data_location_constraint is not None:
@@ -65,8 +57,7 @@ class ResiliencyPolicyArgs:
     @pulumi.getter
     def tier(self) -> pulumi.Input[_builtins.str]:
         """
-        Resiliency Policy Tier.
-        Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
+        The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
         """
         return pulumi.get(self, "tier")
 
@@ -78,8 +69,7 @@ class ResiliencyPolicyArgs:
     @pulumi.getter(name="dataLocationConstraint")
     def data_location_constraint(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Data Location Constraint of the Policy.
-        Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
+        Specifies a high-level geographical location constraint for where resilience policy data can be stored.
         """
         return pulumi.get(self, "data_location_constraint")
 
@@ -91,7 +81,7 @@ class ResiliencyPolicyArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Description of Resiliency Policy.
+        The description for the policy.
         """
         return pulumi.get(self, "description")
 
@@ -103,9 +93,7 @@ class ResiliencyPolicyArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Name of Resiliency Policy.
-        Must be between 2 and 60 characters long.
-        Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
+        The name of the policy.
         """
         return pulumi.get(self, "name")
 
@@ -117,9 +105,7 @@ class ResiliencyPolicyArgs:
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input['ResiliencyPolicyPolicyArgs']]:
         """
-        The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
-
-        The following arguments are optional:
+        The resiliency failure policy.
         """
         return pulumi.get(self, "policy")
 
@@ -130,9 +116,6 @@ class ResiliencyPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -142,9 +125,6 @@ class ResiliencyPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -177,22 +157,12 @@ class _ResiliencyPolicyState:
                  timeouts: Optional[pulumi.Input['ResiliencyPolicyTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ResiliencyPolicy resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Resiliency Policy.
-        :param pulumi.Input[_builtins.str] data_location_constraint: Data Location Constraint of the Policy.
-               Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
-        :param pulumi.Input[_builtins.str] description: Description of Resiliency Policy.
-        :param pulumi.Input[_builtins.str] estimated_cost_tier: Estimated Cost Tier of the Resiliency Policy.
-        :param pulumi.Input[_builtins.str] name: Name of Resiliency Policy.
-               Must be between 2 and 60 characters long.
-               Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
-        :param pulumi.Input['ResiliencyPolicyPolicyArgs'] policy: The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] tier: Resiliency Policy Tier.
-               Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
+        :param pulumi.Input[_builtins.str] data_location_constraint: Specifies a high-level geographical location constraint for where resilience policy data can be stored.
+        :param pulumi.Input[_builtins.str] description: The description for the policy.
+        :param pulumi.Input[_builtins.str] estimated_cost_tier: Specifies the estimated cost tier of the resiliency policy.
+        :param pulumi.Input[_builtins.str] name: The name of the policy.
+        :param pulumi.Input['ResiliencyPolicyPolicyArgs'] policy: The resiliency failure policy.
+        :param pulumi.Input[_builtins.str] tier: The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -220,9 +190,6 @@ class _ResiliencyPolicyState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Resiliency Policy.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -233,8 +200,7 @@ class _ResiliencyPolicyState:
     @pulumi.getter(name="dataLocationConstraint")
     def data_location_constraint(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Data Location Constraint of the Policy.
-        Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
+        Specifies a high-level geographical location constraint for where resilience policy data can be stored.
         """
         return pulumi.get(self, "data_location_constraint")
 
@@ -246,7 +212,7 @@ class _ResiliencyPolicyState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Description of Resiliency Policy.
+        The description for the policy.
         """
         return pulumi.get(self, "description")
 
@@ -258,7 +224,7 @@ class _ResiliencyPolicyState:
     @pulumi.getter(name="estimatedCostTier")
     def estimated_cost_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Estimated Cost Tier of the Resiliency Policy.
+        Specifies the estimated cost tier of the resiliency policy.
         """
         return pulumi.get(self, "estimated_cost_tier")
 
@@ -270,9 +236,7 @@ class _ResiliencyPolicyState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Name of Resiliency Policy.
-        Must be between 2 and 60 characters long.
-        Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
+        The name of the policy.
         """
         return pulumi.get(self, "name")
 
@@ -284,9 +248,7 @@ class _ResiliencyPolicyState:
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input['ResiliencyPolicyPolicyArgs']]:
         """
-        The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
-
-        The following arguments are optional:
+        The resiliency failure policy.
         """
         return pulumi.get(self, "policy")
 
@@ -297,9 +259,6 @@ class _ResiliencyPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -309,9 +268,6 @@ class _ResiliencyPolicyState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -321,9 +277,6 @@ class _ResiliencyPolicyState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -334,8 +287,7 @@ class _ResiliencyPolicyState:
     @pulumi.getter
     def tier(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Resiliency Policy Tier.
-        Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
+        The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
         """
         return pulumi.get(self, "tier")
 
@@ -369,62 +321,14 @@ class ResiliencyPolicy(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['ResiliencyPolicyTimeoutsArgs', 'ResiliencyPolicyTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Resilience Hub Resiliency Policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.resiliencehub.ResiliencyPolicy("example",
-            name="testexample",
-            description="testexample",
-            tier="NonCritical",
-            data_location_constraint="AnyLocation",
-            policy={
-                "region": {
-                    "rpo": "24h",
-                    "rto": "24h",
-                },
-                "az": {
-                    "rpo": "24h",
-                    "rto": "24h",
-                },
-                "hardware": {
-                    "rpo": "24h",
-                    "rto": "24h",
-                },
-                "software": {
-                    "rpo": "24h",
-                    "rto": "24h",
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Resilience Hub Resiliency Policy using the `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy example arn:aws:resiliencehub:us-east-1:123456789012:resiliency-policy/8c1cfa29-d1dd-4421-aa68-c9f64cced4c2
-        ```
-
+        Create a ResiliencyPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] data_location_constraint: Data Location Constraint of the Policy.
-               Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
-        :param pulumi.Input[_builtins.str] description: Description of Resiliency Policy.
-        :param pulumi.Input[_builtins.str] name: Name of Resiliency Policy.
-               Must be between 2 and 60 characters long.
-               Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
-        :param pulumi.Input[Union['ResiliencyPolicyPolicyArgs', 'ResiliencyPolicyPolicyArgsDict']] policy: The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] tier: Resiliency Policy Tier.
-               Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
+        :param pulumi.Input[_builtins.str] data_location_constraint: Specifies a high-level geographical location constraint for where resilience policy data can be stored.
+        :param pulumi.Input[_builtins.str] description: The description for the policy.
+        :param pulumi.Input[_builtins.str] name: The name of the policy.
+        :param pulumi.Input[Union['ResiliencyPolicyPolicyArgs', 'ResiliencyPolicyPolicyArgsDict']] policy: The resiliency failure policy.
+        :param pulumi.Input[_builtins.str] tier: The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
         """
         ...
     @overload
@@ -433,47 +337,7 @@ class ResiliencyPolicy(pulumi.CustomResource):
                  args: ResiliencyPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Resilience Hub Resiliency Policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.resiliencehub.ResiliencyPolicy("example",
-            name="testexample",
-            description="testexample",
-            tier="NonCritical",
-            data_location_constraint="AnyLocation",
-            policy={
-                "region": {
-                    "rpo": "24h",
-                    "rto": "24h",
-                },
-                "az": {
-                    "rpo": "24h",
-                    "rto": "24h",
-                },
-                "hardware": {
-                    "rpo": "24h",
-                    "rto": "24h",
-                },
-                "software": {
-                    "rpo": "24h",
-                    "rto": "24h",
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Resilience Hub Resiliency Policy using the `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy example arn:aws:resiliencehub:us-east-1:123456789012:resiliency-policy/8c1cfa29-d1dd-4421-aa68-c9f64cced4c2
-        ```
-
+        Create a ResiliencyPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ResiliencyPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -547,22 +411,12 @@ class ResiliencyPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Resiliency Policy.
-        :param pulumi.Input[_builtins.str] data_location_constraint: Data Location Constraint of the Policy.
-               Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
-        :param pulumi.Input[_builtins.str] description: Description of Resiliency Policy.
-        :param pulumi.Input[_builtins.str] estimated_cost_tier: Estimated Cost Tier of the Resiliency Policy.
-        :param pulumi.Input[_builtins.str] name: Name of Resiliency Policy.
-               Must be between 2 and 60 characters long.
-               Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
-        :param pulumi.Input[Union['ResiliencyPolicyPolicyArgs', 'ResiliencyPolicyPolicyArgsDict']] policy: The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] tier: Resiliency Policy Tier.
-               Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
+        :param pulumi.Input[_builtins.str] data_location_constraint: Specifies a high-level geographical location constraint for where resilience policy data can be stored.
+        :param pulumi.Input[_builtins.str] description: The description for the policy.
+        :param pulumi.Input[_builtins.str] estimated_cost_tier: Specifies the estimated cost tier of the resiliency policy.
+        :param pulumi.Input[_builtins.str] name: The name of the policy.
+        :param pulumi.Input[Union['ResiliencyPolicyPolicyArgs', 'ResiliencyPolicyPolicyArgsDict']] policy: The resiliency failure policy.
+        :param pulumi.Input[_builtins.str] tier: The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -584,17 +438,13 @@ class ResiliencyPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Resiliency Policy.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="dataLocationConstraint")
     def data_location_constraint(self) -> pulumi.Output[_builtins.str]:
         """
-        Data Location Constraint of the Policy.
-        Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
+        Specifies a high-level geographical location constraint for where resilience policy data can be stored.
         """
         return pulumi.get(self, "data_location_constraint")
 
@@ -602,7 +452,7 @@ class ResiliencyPolicy(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Description of Resiliency Policy.
+        The description for the policy.
         """
         return pulumi.get(self, "description")
 
@@ -610,7 +460,7 @@ class ResiliencyPolicy(pulumi.CustomResource):
     @pulumi.getter(name="estimatedCostTier")
     def estimated_cost_tier(self) -> pulumi.Output[_builtins.str]:
         """
-        Estimated Cost Tier of the Resiliency Policy.
+        Specifies the estimated cost tier of the resiliency policy.
         """
         return pulumi.get(self, "estimated_cost_tier")
 
@@ -618,9 +468,7 @@ class ResiliencyPolicy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Name of Resiliency Policy.
-        Must be between 2 and 60 characters long.
-        Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
+        The name of the policy.
         """
         return pulumi.get(self, "name")
 
@@ -628,42 +476,30 @@ class ResiliencyPolicy(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output[Optional['outputs.ResiliencyPolicyPolicy']]:
         """
-        The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
-
-        The following arguments are optional:
+        The resiliency failure policy.
         """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def tier(self) -> pulumi.Output[_builtins.str]:
         """
-        Resiliency Policy Tier.
-        Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
+        The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
         """
         return pulumi.get(self, "tier")
 

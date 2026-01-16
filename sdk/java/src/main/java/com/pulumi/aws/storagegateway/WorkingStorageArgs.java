@@ -16,47 +16,23 @@ public final class WorkingStorageArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final WorkingStorageArgs Empty = new WorkingStorageArgs();
 
-    /**
-     * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-     * 
-     */
     @Import(name="diskId", required=true)
     private Output<String> diskId;
 
-    /**
-     * @return Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-     * 
-     */
     public Output<String> diskId() {
         return this.diskId;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the gateway.
-     * 
-     */
     @Import(name="gatewayArn", required=true)
     private Output<String> gatewayArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the gateway.
-     * 
-     */
     public Output<String> gatewayArn() {
         return this.gatewayArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -87,65 +63,29 @@ public final class WorkingStorageArgs extends com.pulumi.resources.ResourceArgs 
             $ = new WorkingStorageArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param diskId Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder diskId(Output<String> diskId) {
             $.diskId = diskId;
             return this;
         }
 
-        /**
-         * @param diskId Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder diskId(String diskId) {
             return diskId(Output.of(diskId));
         }
 
-        /**
-         * @param gatewayArn The Amazon Resource Name (ARN) of the gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gatewayArn(Output<String> gatewayArn) {
             $.gatewayArn = gatewayArn;
             return this;
         }
 
-        /**
-         * @param gatewayArn The Amazon Resource Name (ARN) of the gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gatewayArn(String gatewayArn) {
             return gatewayArn(Output.of(gatewayArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

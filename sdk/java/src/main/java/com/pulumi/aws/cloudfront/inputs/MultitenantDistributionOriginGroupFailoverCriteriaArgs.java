@@ -15,17 +15,9 @@ public final class MultitenantDistributionOriginGroupFailoverCriteriaArgs extend
 
     public static final MultitenantDistributionOriginGroupFailoverCriteriaArgs Empty = new MultitenantDistributionOriginGroupFailoverCriteriaArgs();
 
-    /**
-     * List of HTTP status codes that trigger a failover to the secondary origin.
-     * 
-     */
     @Import(name="statusCodes", required=true)
     private Output<List<Integer>> statusCodes;
 
-    /**
-     * @return List of HTTP status codes that trigger a failover to the secondary origin.
-     * 
-     */
     public Output<List<Integer>> statusCodes() {
         return this.statusCodes;
     }
@@ -54,33 +46,15 @@ public final class MultitenantDistributionOriginGroupFailoverCriteriaArgs extend
             $ = new MultitenantDistributionOriginGroupFailoverCriteriaArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param statusCodes List of HTTP status codes that trigger a failover to the secondary origin.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusCodes(Output<List<Integer>> statusCodes) {
             $.statusCodes = statusCodes;
             return this;
         }
 
-        /**
-         * @param statusCodes List of HTTP status codes that trigger a failover to the secondary origin.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusCodes(List<Integer> statusCodes) {
             return statusCodes(Output.of(statusCodes));
         }
 
-        /**
-         * @param statusCodes List of HTTP status codes that trigger a failover to the secondary origin.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusCodes(Integer... statusCodes) {
             return statusCodes(List.of(statusCodes));
         }

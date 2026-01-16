@@ -12,152 +12,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Glue Catalog Table Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality.
-//
-// ## Example Usage
-//
-// ### Basic Table
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewCatalogTable(ctx, "aws_glue_catalog_table", &glue.CatalogTableArgs{
-//				Name:         pulumi.String("MyCatalogTable"),
-//				DatabaseName: pulumi.String("MyCatalogDatabase"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Parquet Table for Athena
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewCatalogTable(ctx, "aws_glue_catalog_table", &glue.CatalogTableArgs{
-//				Name:         pulumi.String("MyCatalogTable"),
-//				DatabaseName: pulumi.String("MyCatalogDatabase"),
-//				TableType:    pulumi.String("EXTERNAL_TABLE"),
-//				Parameters: pulumi.StringMap{
-//					"EXTERNAL":            pulumi.String("TRUE"),
-//					"parquet.compression": pulumi.String("SNAPPY"),
-//				},
-//				StorageDescriptor: &glue.CatalogTableStorageDescriptorArgs{
-//					Location:     pulumi.String("s3://my-bucket/event-streams/my-stream"),
-//					InputFormat:  pulumi.String("org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat"),
-//					OutputFormat: pulumi.String("org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat"),
-//					SerDeInfo: &glue.CatalogTableStorageDescriptorSerDeInfoArgs{
-//						Name:                 pulumi.String("my-stream"),
-//						SerializationLibrary: pulumi.String("org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe"),
-//						Parameters: pulumi.StringMap{
-//							"serialization.format": pulumi.String("1"),
-//						},
-//					},
-//					Columns: glue.CatalogTableStorageDescriptorColumnArray{
-//						&glue.CatalogTableStorageDescriptorColumnArgs{
-//							Name: pulumi.String("my_string"),
-//							Type: pulumi.String("string"),
-//						},
-//						&glue.CatalogTableStorageDescriptorColumnArgs{
-//							Name: pulumi.String("my_double"),
-//							Type: pulumi.String("double"),
-//						},
-//						&glue.CatalogTableStorageDescriptorColumnArgs{
-//							Name:    pulumi.String("my_date"),
-//							Type:    pulumi.String("date"),
-//							Comment: pulumi.String(""),
-//						},
-//						&glue.CatalogTableStorageDescriptorColumnArgs{
-//							Name:    pulumi.String("my_bigint"),
-//							Type:    pulumi.String("bigint"),
-//							Comment: pulumi.String(""),
-//						},
-//						&glue.CatalogTableStorageDescriptorColumnArgs{
-//							Name:    pulumi.String("my_struct"),
-//							Type:    pulumi.String("struct<my_nested_string:string>"),
-//							Comment: pulumi.String(""),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:
-//
-// ```sh
-// $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
-// ```
 type CatalogTable struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Glue Table.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
-	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
-	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-	//
-	// The following arguments are optional:
-	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// Description of the table.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Name of the table. For Hive compatibility, this must be entirely lowercase.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Configuration block for open table formats. See `openTableFormatInput` below.
+	Arn                  pulumi.StringOutput                       `pulumi:"arn"`
+	CatalogId            pulumi.StringOutput                       `pulumi:"catalogId"`
+	DatabaseName         pulumi.StringOutput                       `pulumi:"databaseName"`
+	Description          pulumi.StringPtrOutput                    `pulumi:"description"`
+	Name                 pulumi.StringOutput                       `pulumi:"name"`
 	OpenTableFormatInput CatalogTableOpenTableFormatInputPtrOutput `pulumi:"openTableFormatInput"`
-	// Owner of the table.
-	Owner pulumi.StringPtrOutput `pulumi:"owner"`
-	// Properties associated with this table, as a list of key-value pairs.
-	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
-	PartitionIndices CatalogTablePartitionIndexArrayOutput `pulumi:"partitionIndices"`
-	// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
-	PartitionKeys CatalogTablePartitionKeyArrayOutput `pulumi:"partitionKeys"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Retention time for this table.
-	Retention pulumi.IntPtrOutput `pulumi:"retention"`
-	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
-	StorageDescriptor CatalogTableStorageDescriptorPtrOutput `pulumi:"storageDescriptor"`
-	// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
-	TableType pulumi.StringPtrOutput `pulumi:"tableType"`
-	// Configuration block of a target table for resource linking. See `targetTable` below.
-	TargetTable CatalogTableTargetTablePtrOutput `pulumi:"targetTable"`
-	// If the table is a view, the expanded text of the view; otherwise null.
-	ViewExpandedText pulumi.StringPtrOutput `pulumi:"viewExpandedText"`
-	// If the table is a view, the original text of the view; otherwise null.
-	ViewOriginalText pulumi.StringPtrOutput `pulumi:"viewOriginalText"`
+	Owner                pulumi.StringPtrOutput                    `pulumi:"owner"`
+	Parameters           pulumi.StringMapOutput                    `pulumi:"parameters"`
+	PartitionIndices     CatalogTablePartitionIndexArrayOutput     `pulumi:"partitionIndices"`
+	PartitionKeys        CatalogTablePartitionKeyArrayOutput       `pulumi:"partitionKeys"`
+	Region               pulumi.StringOutput                       `pulumi:"region"`
+	Retention            pulumi.IntPtrOutput                       `pulumi:"retention"`
+	StorageDescriptor    CatalogTableStorageDescriptorPtrOutput    `pulumi:"storageDescriptor"`
+	TableType            pulumi.StringPtrOutput                    `pulumi:"tableType"`
+	TargetTable          CatalogTableTargetTablePtrOutput          `pulumi:"targetTable"`
+	ViewExpandedText     pulumi.StringPtrOutput                    `pulumi:"viewExpandedText"`
+	ViewOriginalText     pulumi.StringPtrOutput                    `pulumi:"viewOriginalText"`
 }
 
 // NewCatalogTable registers a new resource with the given unique name, arguments, and options.
@@ -193,81 +67,43 @@ func GetCatalogTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CatalogTable resources.
 type catalogTableState struct {
-	// The ARN of the Glue Table.
-	Arn *string `pulumi:"arn"`
-	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
-	CatalogId *string `pulumi:"catalogId"`
-	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-	//
-	// The following arguments are optional:
-	DatabaseName *string `pulumi:"databaseName"`
-	// Description of the table.
-	Description *string `pulumi:"description"`
-	// Name of the table. For Hive compatibility, this must be entirely lowercase.
-	Name *string `pulumi:"name"`
-	// Configuration block for open table formats. See `openTableFormatInput` below.
+	Arn                  *string                           `pulumi:"arn"`
+	CatalogId            *string                           `pulumi:"catalogId"`
+	DatabaseName         *string                           `pulumi:"databaseName"`
+	Description          *string                           `pulumi:"description"`
+	Name                 *string                           `pulumi:"name"`
 	OpenTableFormatInput *CatalogTableOpenTableFormatInput `pulumi:"openTableFormatInput"`
-	// Owner of the table.
-	Owner *string `pulumi:"owner"`
-	// Properties associated with this table, as a list of key-value pairs.
-	Parameters map[string]string `pulumi:"parameters"`
-	// Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
-	PartitionIndices []CatalogTablePartitionIndex `pulumi:"partitionIndices"`
-	// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
-	PartitionKeys []CatalogTablePartitionKey `pulumi:"partitionKeys"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Retention time for this table.
-	Retention *int `pulumi:"retention"`
-	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
-	StorageDescriptor *CatalogTableStorageDescriptor `pulumi:"storageDescriptor"`
-	// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
-	TableType *string `pulumi:"tableType"`
-	// Configuration block of a target table for resource linking. See `targetTable` below.
-	TargetTable *CatalogTableTargetTable `pulumi:"targetTable"`
-	// If the table is a view, the expanded text of the view; otherwise null.
-	ViewExpandedText *string `pulumi:"viewExpandedText"`
-	// If the table is a view, the original text of the view; otherwise null.
-	ViewOriginalText *string `pulumi:"viewOriginalText"`
+	Owner                *string                           `pulumi:"owner"`
+	Parameters           map[string]string                 `pulumi:"parameters"`
+	PartitionIndices     []CatalogTablePartitionIndex      `pulumi:"partitionIndices"`
+	PartitionKeys        []CatalogTablePartitionKey        `pulumi:"partitionKeys"`
+	Region               *string                           `pulumi:"region"`
+	Retention            *int                              `pulumi:"retention"`
+	StorageDescriptor    *CatalogTableStorageDescriptor    `pulumi:"storageDescriptor"`
+	TableType            *string                           `pulumi:"tableType"`
+	TargetTable          *CatalogTableTargetTable          `pulumi:"targetTable"`
+	ViewExpandedText     *string                           `pulumi:"viewExpandedText"`
+	ViewOriginalText     *string                           `pulumi:"viewOriginalText"`
 }
 
 type CatalogTableState struct {
-	// The ARN of the Glue Table.
-	Arn pulumi.StringPtrInput
-	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
-	CatalogId pulumi.StringPtrInput
-	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-	//
-	// The following arguments are optional:
-	DatabaseName pulumi.StringPtrInput
-	// Description of the table.
-	Description pulumi.StringPtrInput
-	// Name of the table. For Hive compatibility, this must be entirely lowercase.
-	Name pulumi.StringPtrInput
-	// Configuration block for open table formats. See `openTableFormatInput` below.
+	Arn                  pulumi.StringPtrInput
+	CatalogId            pulumi.StringPtrInput
+	DatabaseName         pulumi.StringPtrInput
+	Description          pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
 	OpenTableFormatInput CatalogTableOpenTableFormatInputPtrInput
-	// Owner of the table.
-	Owner pulumi.StringPtrInput
-	// Properties associated with this table, as a list of key-value pairs.
-	Parameters pulumi.StringMapInput
-	// Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
-	PartitionIndices CatalogTablePartitionIndexArrayInput
-	// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
-	PartitionKeys CatalogTablePartitionKeyArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Retention time for this table.
-	Retention pulumi.IntPtrInput
-	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
-	StorageDescriptor CatalogTableStorageDescriptorPtrInput
-	// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
-	TableType pulumi.StringPtrInput
-	// Configuration block of a target table for resource linking. See `targetTable` below.
-	TargetTable CatalogTableTargetTablePtrInput
-	// If the table is a view, the expanded text of the view; otherwise null.
-	ViewExpandedText pulumi.StringPtrInput
-	// If the table is a view, the original text of the view; otherwise null.
-	ViewOriginalText pulumi.StringPtrInput
+	Owner                pulumi.StringPtrInput
+	Parameters           pulumi.StringMapInput
+	PartitionIndices     CatalogTablePartitionIndexArrayInput
+	PartitionKeys        CatalogTablePartitionKeyArrayInput
+	Region               pulumi.StringPtrInput
+	Retention            pulumi.IntPtrInput
+	StorageDescriptor    CatalogTableStorageDescriptorPtrInput
+	TableType            pulumi.StringPtrInput
+	TargetTable          CatalogTableTargetTablePtrInput
+	ViewExpandedText     pulumi.StringPtrInput
+	ViewOriginalText     pulumi.StringPtrInput
 }
 
 func (CatalogTableState) ElementType() reflect.Type {
@@ -275,78 +111,42 @@ func (CatalogTableState) ElementType() reflect.Type {
 }
 
 type catalogTableArgs struct {
-	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
-	CatalogId *string `pulumi:"catalogId"`
-	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-	//
-	// The following arguments are optional:
-	DatabaseName string `pulumi:"databaseName"`
-	// Description of the table.
-	Description *string `pulumi:"description"`
-	// Name of the table. For Hive compatibility, this must be entirely lowercase.
-	Name *string `pulumi:"name"`
-	// Configuration block for open table formats. See `openTableFormatInput` below.
+	CatalogId            *string                           `pulumi:"catalogId"`
+	DatabaseName         string                            `pulumi:"databaseName"`
+	Description          *string                           `pulumi:"description"`
+	Name                 *string                           `pulumi:"name"`
 	OpenTableFormatInput *CatalogTableOpenTableFormatInput `pulumi:"openTableFormatInput"`
-	// Owner of the table.
-	Owner *string `pulumi:"owner"`
-	// Properties associated with this table, as a list of key-value pairs.
-	Parameters map[string]string `pulumi:"parameters"`
-	// Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
-	PartitionIndices []CatalogTablePartitionIndex `pulumi:"partitionIndices"`
-	// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
-	PartitionKeys []CatalogTablePartitionKey `pulumi:"partitionKeys"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Retention time for this table.
-	Retention *int `pulumi:"retention"`
-	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
-	StorageDescriptor *CatalogTableStorageDescriptor `pulumi:"storageDescriptor"`
-	// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
-	TableType *string `pulumi:"tableType"`
-	// Configuration block of a target table for resource linking. See `targetTable` below.
-	TargetTable *CatalogTableTargetTable `pulumi:"targetTable"`
-	// If the table is a view, the expanded text of the view; otherwise null.
-	ViewExpandedText *string `pulumi:"viewExpandedText"`
-	// If the table is a view, the original text of the view; otherwise null.
-	ViewOriginalText *string `pulumi:"viewOriginalText"`
+	Owner                *string                           `pulumi:"owner"`
+	Parameters           map[string]string                 `pulumi:"parameters"`
+	PartitionIndices     []CatalogTablePartitionIndex      `pulumi:"partitionIndices"`
+	PartitionKeys        []CatalogTablePartitionKey        `pulumi:"partitionKeys"`
+	Region               *string                           `pulumi:"region"`
+	Retention            *int                              `pulumi:"retention"`
+	StorageDescriptor    *CatalogTableStorageDescriptor    `pulumi:"storageDescriptor"`
+	TableType            *string                           `pulumi:"tableType"`
+	TargetTable          *CatalogTableTargetTable          `pulumi:"targetTable"`
+	ViewExpandedText     *string                           `pulumi:"viewExpandedText"`
+	ViewOriginalText     *string                           `pulumi:"viewOriginalText"`
 }
 
 // The set of arguments for constructing a CatalogTable resource.
 type CatalogTableArgs struct {
-	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
-	CatalogId pulumi.StringPtrInput
-	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-	//
-	// The following arguments are optional:
-	DatabaseName pulumi.StringInput
-	// Description of the table.
-	Description pulumi.StringPtrInput
-	// Name of the table. For Hive compatibility, this must be entirely lowercase.
-	Name pulumi.StringPtrInput
-	// Configuration block for open table formats. See `openTableFormatInput` below.
+	CatalogId            pulumi.StringPtrInput
+	DatabaseName         pulumi.StringInput
+	Description          pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
 	OpenTableFormatInput CatalogTableOpenTableFormatInputPtrInput
-	// Owner of the table.
-	Owner pulumi.StringPtrInput
-	// Properties associated with this table, as a list of key-value pairs.
-	Parameters pulumi.StringMapInput
-	// Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
-	PartitionIndices CatalogTablePartitionIndexArrayInput
-	// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
-	PartitionKeys CatalogTablePartitionKeyArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Retention time for this table.
-	Retention pulumi.IntPtrInput
-	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
-	StorageDescriptor CatalogTableStorageDescriptorPtrInput
-	// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
-	TableType pulumi.StringPtrInput
-	// Configuration block of a target table for resource linking. See `targetTable` below.
-	TargetTable CatalogTableTargetTablePtrInput
-	// If the table is a view, the expanded text of the view; otherwise null.
-	ViewExpandedText pulumi.StringPtrInput
-	// If the table is a view, the original text of the view; otherwise null.
-	ViewOriginalText pulumi.StringPtrInput
+	Owner                pulumi.StringPtrInput
+	Parameters           pulumi.StringMapInput
+	PartitionIndices     CatalogTablePartitionIndexArrayInput
+	PartitionKeys        CatalogTablePartitionKeyArrayInput
+	Region               pulumi.StringPtrInput
+	Retention            pulumi.IntPtrInput
+	StorageDescriptor    CatalogTableStorageDescriptorPtrInput
+	TableType            pulumi.StringPtrInput
+	TargetTable          CatalogTableTargetTablePtrInput
+	ViewExpandedText     pulumi.StringPtrInput
+	ViewOriginalText     pulumi.StringPtrInput
 }
 
 func (CatalogTableArgs) ElementType() reflect.Type {
@@ -436,89 +236,70 @@ func (o CatalogTableOutput) ToCatalogTableOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The ARN of the Glue Table.
 func (o CatalogTableOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
 func (o CatalogTableOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-//
-// The following arguments are optional:
 func (o CatalogTableOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// Description of the table.
 func (o CatalogTableOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Name of the table. For Hive compatibility, this must be entirely lowercase.
 func (o CatalogTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Configuration block for open table formats. See `openTableFormatInput` below.
 func (o CatalogTableOutput) OpenTableFormatInput() CatalogTableOpenTableFormatInputPtrOutput {
 	return o.ApplyT(func(v *CatalogTable) CatalogTableOpenTableFormatInputPtrOutput { return v.OpenTableFormatInput }).(CatalogTableOpenTableFormatInputPtrOutput)
 }
 
-// Owner of the table.
 func (o CatalogTableOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringPtrOutput { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
-// Properties associated with this table, as a list of key-value pairs.
 func (o CatalogTableOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-// Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
 func (o CatalogTableOutput) PartitionIndices() CatalogTablePartitionIndexArrayOutput {
 	return o.ApplyT(func(v *CatalogTable) CatalogTablePartitionIndexArrayOutput { return v.PartitionIndices }).(CatalogTablePartitionIndexArrayOutput)
 }
 
-// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
 func (o CatalogTableOutput) PartitionKeys() CatalogTablePartitionKeyArrayOutput {
 	return o.ApplyT(func(v *CatalogTable) CatalogTablePartitionKeyArrayOutput { return v.PartitionKeys }).(CatalogTablePartitionKeyArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CatalogTableOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Retention time for this table.
 func (o CatalogTableOutput) Retention() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.IntPtrOutput { return v.Retention }).(pulumi.IntPtrOutput)
 }
 
-// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
 func (o CatalogTableOutput) StorageDescriptor() CatalogTableStorageDescriptorPtrOutput {
 	return o.ApplyT(func(v *CatalogTable) CatalogTableStorageDescriptorPtrOutput { return v.StorageDescriptor }).(CatalogTableStorageDescriptorPtrOutput)
 }
 
-// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
 func (o CatalogTableOutput) TableType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringPtrOutput { return v.TableType }).(pulumi.StringPtrOutput)
 }
 
-// Configuration block of a target table for resource linking. See `targetTable` below.
 func (o CatalogTableOutput) TargetTable() CatalogTableTargetTablePtrOutput {
 	return o.ApplyT(func(v *CatalogTable) CatalogTableTargetTablePtrOutput { return v.TargetTable }).(CatalogTableTargetTablePtrOutput)
 }
 
-// If the table is a view, the expanded text of the view; otherwise null.
 func (o CatalogTableOutput) ViewExpandedText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringPtrOutput { return v.ViewExpandedText }).(pulumi.StringPtrOutput)
 }
 
-// If the table is a view, the original text of the view; otherwise null.
 func (o CatalogTableOutput) ViewOriginalText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringPtrOutput { return v.ViewOriginalText }).(pulumi.StringPtrOutput)
 }

@@ -15,9 +15,6 @@ namespace Pulumi.Aws.Ec2.Outputs
     {
         public readonly string DestinationCidrBlock;
         public readonly string Source;
-        /// <summary>
-        /// Current state of the VPN connection.
-        /// </summary>
         public readonly string State;
 
         [OutputConstructor]

@@ -12,184 +12,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Elastic Beanstalk Environment Resource. Elastic Beanstalk allows
-// you to deploy and manage applications in the AWS cloud without worrying about
-// the infrastructure that runs those applications.
-//
-// Environments are often things such as `development`, `integration`, or
-// `production`.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticbeanstalk"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApplication, err := elasticbeanstalk.NewApplication(ctx, "example", &elasticbeanstalk.ApplicationArgs{
-//				Name:        pulumi.String("tf-test-name"),
-//				Description: pulumi.String("tf-test-desc"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticbeanstalk.NewEnvironment(ctx, "example", &elasticbeanstalk.EnvironmentArgs{
-//				Name:              pulumi.String("tf-test-name"),
-//				Application:       exampleApplication.Name,
-//				SolutionStackName: pulumi.String("64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Option Settings
-//
-// Some options can be stack-specific, check [AWS Docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html)
-// for supported options and examples.
-//
-// The `setting` and `allSettings` mappings support the following format:
-//
-// * `namespace` - (Required) Unique namespace identifying the option's associated AWS resource
-// * `name` - (Required) Name of the configuration option
-// * `value` - (Required) Value for the configuration option
-// * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
-//
-// ### Example With Options
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticbeanstalk"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tftest, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
-//				Name:        pulumi.String("tf-test-name"),
-//				Description: pulumi.String("tf-test-desc"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticbeanstalk.NewEnvironment(ctx, "tfenvtest", &elasticbeanstalk.EnvironmentArgs{
-//				Name:              pulumi.String("tf-test-name"),
-//				Application:       tftest.Name,
-//				SolutionStackName: pulumi.String("64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4"),
-//				Settings: elasticbeanstalk.EnvironmentSettingArray{
-//					&elasticbeanstalk.EnvironmentSettingArgs{
-//						Namespace: pulumi.String("aws:ec2:vpc"),
-//						Name:      pulumi.String("VPCId"),
-//						Value:     pulumi.String("vpc-xxxxxxxx"),
-//					},
-//					&elasticbeanstalk.EnvironmentSettingArgs{
-//						Namespace: pulumi.String("aws:ec2:vpc"),
-//						Name:      pulumi.String("Subnets"),
-//						Value:     pulumi.String("subnet-xxxxxxxx"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Elastic Beanstalk Environments using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
-// ```
 type Environment struct {
 	pulumi.CustomResourceState
 
-	// List of all option settings configured in this Environment. These
-	// are a combination of default settings and their overrides from `setting` in
-	// the configuration.
-	AllSettings EnvironmentAllSettingArrayOutput `pulumi:"allSettings"`
-	// Name of the application that contains the version
-	// to be deployed
-	Application pulumi.StringOutput `pulumi:"application"`
-	Arn         pulumi.StringOutput `pulumi:"arn"`
-	// The autoscaling groups used by this Environment.
-	AutoscalingGroups pulumi.StringArrayOutput `pulumi:"autoscalingGroups"`
-	// Fully qualified DNS name for this Environment.
-	Cname pulumi.StringOutput `pulumi:"cname"`
-	// Prefix to use for the fully qualified DNS name of
-	// the Environment.
-	CnamePrefix pulumi.StringOutput `pulumi:"cnamePrefix"`
-	// Short description of the Environment
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The URL to the Load Balancer for this Environment
-	EndpointUrl pulumi.StringOutput `pulumi:"endpointUrl"`
-	// Instances used by this Environment.
-	Instances pulumi.StringArrayOutput `pulumi:"instances"`
-	// Launch configurations in use by this Environment.
-	LaunchConfigurations pulumi.StringArrayOutput `pulumi:"launchConfigurations"`
-	// Elastic load balancers in use by this Environment.
-	LoadBalancers pulumi.StringArrayOutput `pulumi:"loadBalancers"`
-	// A unique name for this Environment. This name is used
-	// in the application URL
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
-	// to use in deployment
-	PlatformArn pulumi.StringOutput `pulumi:"platformArn"`
-	// The time between polling the AWS API to
-	// check if changes have been applied. Use this to adjust the rate of API calls
-	// for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
-	// use the default behavior, which is an exponential backoff
-	PollInterval pulumi.StringPtrOutput `pulumi:"pollInterval"`
-	// SQS queues in use by this Environment.
-	Queues pulumi.StringArrayOutput `pulumi:"queues"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Option settings to configure the new Environment. These
-	// override specific values that are set as defaults. The format is detailed
-	// below in Option Settings
-	Settings EnvironmentSettingArrayOutput `pulumi:"settings"`
-	// A solution stack to base your environment
-	// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
-	SolutionStackName pulumi.StringOutput `pulumi:"solutionStackName"`
-	// A set of tags to apply to the Environment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The name of the Elastic Beanstalk Configuration
-	// template to use in deployment
-	TemplateName pulumi.StringPtrOutput `pulumi:"templateName"`
-	// Elastic Beanstalk Environment tier. Valid values are `Worker`
-	// or `WebServer`. If tier is left blank `WebServer` will be used.
-	Tier pulumi.StringPtrOutput `pulumi:"tier"`
-	// Autoscaling triggers in use by this Environment.
-	Triggers pulumi.StringArrayOutput `pulumi:"triggers"`
-	// The name of the Elastic Beanstalk Application Version
-	// to use in deployment.
-	Version pulumi.StringOutput `pulumi:"version"`
-	// The maximum
-	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
-	// wait for an Elastic Beanstalk Environment to be in a ready state before timing
-	// out.
-	WaitForReadyTimeout pulumi.StringPtrOutput `pulumi:"waitForReadyTimeout"`
+	AllSettings          EnvironmentAllSettingArrayOutput `pulumi:"allSettings"`
+	Application          pulumi.StringOutput              `pulumi:"application"`
+	Arn                  pulumi.StringOutput              `pulumi:"arn"`
+	AutoscalingGroups    pulumi.StringArrayOutput         `pulumi:"autoscalingGroups"`
+	Cname                pulumi.StringOutput              `pulumi:"cname"`
+	CnamePrefix          pulumi.StringOutput              `pulumi:"cnamePrefix"`
+	Description          pulumi.StringPtrOutput           `pulumi:"description"`
+	EndpointUrl          pulumi.StringOutput              `pulumi:"endpointUrl"`
+	Instances            pulumi.StringArrayOutput         `pulumi:"instances"`
+	LaunchConfigurations pulumi.StringArrayOutput         `pulumi:"launchConfigurations"`
+	LoadBalancers        pulumi.StringArrayOutput         `pulumi:"loadBalancers"`
+	Name                 pulumi.StringOutput              `pulumi:"name"`
+	PlatformArn          pulumi.StringOutput              `pulumi:"platformArn"`
+	PollInterval         pulumi.StringPtrOutput           `pulumi:"pollInterval"`
+	Queues               pulumi.StringArrayOutput         `pulumi:"queues"`
+	Region               pulumi.StringOutput              `pulumi:"region"`
+	Settings             EnvironmentSettingArrayOutput    `pulumi:"settings"`
+	SolutionStackName    pulumi.StringOutput              `pulumi:"solutionStackName"`
+	Tags                 pulumi.StringMapOutput           `pulumi:"tags"`
+	TagsAll              pulumi.StringMapOutput           `pulumi:"tagsAll"`
+	TemplateName         pulumi.StringPtrOutput           `pulumi:"templateName"`
+	Tier                 pulumi.StringPtrOutput           `pulumi:"tier"`
+	Triggers             pulumi.StringArrayOutput         `pulumi:"triggers"`
+	Version              pulumi.StringOutput              `pulumi:"version"`
+	WaitForReadyTimeout  pulumi.StringPtrOutput           `pulumi:"waitForReadyTimeout"`
 }
 
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -225,143 +75,59 @@ func GetEnvironment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Environment resources.
 type environmentState struct {
-	// List of all option settings configured in this Environment. These
-	// are a combination of default settings and their overrides from `setting` in
-	// the configuration.
-	AllSettings []EnvironmentAllSetting `pulumi:"allSettings"`
-	// Name of the application that contains the version
-	// to be deployed
-	Application interface{} `pulumi:"application"`
-	Arn         *string     `pulumi:"arn"`
-	// The autoscaling groups used by this Environment.
-	AutoscalingGroups []string `pulumi:"autoscalingGroups"`
-	// Fully qualified DNS name for this Environment.
-	Cname *string `pulumi:"cname"`
-	// Prefix to use for the fully qualified DNS name of
-	// the Environment.
-	CnamePrefix *string `pulumi:"cnamePrefix"`
-	// Short description of the Environment
-	Description *string `pulumi:"description"`
-	// The URL to the Load Balancer for this Environment
-	EndpointUrl *string `pulumi:"endpointUrl"`
-	// Instances used by this Environment.
-	Instances []string `pulumi:"instances"`
-	// Launch configurations in use by this Environment.
-	LaunchConfigurations []string `pulumi:"launchConfigurations"`
-	// Elastic load balancers in use by this Environment.
-	LoadBalancers []string `pulumi:"loadBalancers"`
-	// A unique name for this Environment. This name is used
-	// in the application URL
-	Name *string `pulumi:"name"`
-	// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
-	// to use in deployment
-	PlatformArn *string `pulumi:"platformArn"`
-	// The time between polling the AWS API to
-	// check if changes have been applied. Use this to adjust the rate of API calls
-	// for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
-	// use the default behavior, which is an exponential backoff
-	PollInterval *string `pulumi:"pollInterval"`
-	// SQS queues in use by this Environment.
-	Queues []string `pulumi:"queues"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Option settings to configure the new Environment. These
-	// override specific values that are set as defaults. The format is detailed
-	// below in Option Settings
-	Settings []EnvironmentSetting `pulumi:"settings"`
-	// A solution stack to base your environment
-	// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
-	SolutionStackName *string `pulumi:"solutionStackName"`
-	// A set of tags to apply to the Environment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The name of the Elastic Beanstalk Configuration
-	// template to use in deployment
-	TemplateName *string `pulumi:"templateName"`
-	// Elastic Beanstalk Environment tier. Valid values are `Worker`
-	// or `WebServer`. If tier is left blank `WebServer` will be used.
-	Tier *string `pulumi:"tier"`
-	// Autoscaling triggers in use by this Environment.
-	Triggers []string `pulumi:"triggers"`
-	// The name of the Elastic Beanstalk Application Version
-	// to use in deployment.
-	Version interface{} `pulumi:"version"`
-	// The maximum
-	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
-	// wait for an Elastic Beanstalk Environment to be in a ready state before timing
-	// out.
-	WaitForReadyTimeout *string `pulumi:"waitForReadyTimeout"`
+	AllSettings          []EnvironmentAllSetting `pulumi:"allSettings"`
+	Application          interface{}             `pulumi:"application"`
+	Arn                  *string                 `pulumi:"arn"`
+	AutoscalingGroups    []string                `pulumi:"autoscalingGroups"`
+	Cname                *string                 `pulumi:"cname"`
+	CnamePrefix          *string                 `pulumi:"cnamePrefix"`
+	Description          *string                 `pulumi:"description"`
+	EndpointUrl          *string                 `pulumi:"endpointUrl"`
+	Instances            []string                `pulumi:"instances"`
+	LaunchConfigurations []string                `pulumi:"launchConfigurations"`
+	LoadBalancers        []string                `pulumi:"loadBalancers"`
+	Name                 *string                 `pulumi:"name"`
+	PlatformArn          *string                 `pulumi:"platformArn"`
+	PollInterval         *string                 `pulumi:"pollInterval"`
+	Queues               []string                `pulumi:"queues"`
+	Region               *string                 `pulumi:"region"`
+	Settings             []EnvironmentSetting    `pulumi:"settings"`
+	SolutionStackName    *string                 `pulumi:"solutionStackName"`
+	Tags                 map[string]string       `pulumi:"tags"`
+	TagsAll              map[string]string       `pulumi:"tagsAll"`
+	TemplateName         *string                 `pulumi:"templateName"`
+	Tier                 *string                 `pulumi:"tier"`
+	Triggers             []string                `pulumi:"triggers"`
+	Version              interface{}             `pulumi:"version"`
+	WaitForReadyTimeout  *string                 `pulumi:"waitForReadyTimeout"`
 }
 
 type EnvironmentState struct {
-	// List of all option settings configured in this Environment. These
-	// are a combination of default settings and their overrides from `setting` in
-	// the configuration.
-	AllSettings EnvironmentAllSettingArrayInput
-	// Name of the application that contains the version
-	// to be deployed
-	Application pulumi.Input
-	Arn         pulumi.StringPtrInput
-	// The autoscaling groups used by this Environment.
-	AutoscalingGroups pulumi.StringArrayInput
-	// Fully qualified DNS name for this Environment.
-	Cname pulumi.StringPtrInput
-	// Prefix to use for the fully qualified DNS name of
-	// the Environment.
-	CnamePrefix pulumi.StringPtrInput
-	// Short description of the Environment
-	Description pulumi.StringPtrInput
-	// The URL to the Load Balancer for this Environment
-	EndpointUrl pulumi.StringPtrInput
-	// Instances used by this Environment.
-	Instances pulumi.StringArrayInput
-	// Launch configurations in use by this Environment.
+	AllSettings          EnvironmentAllSettingArrayInput
+	Application          pulumi.Input
+	Arn                  pulumi.StringPtrInput
+	AutoscalingGroups    pulumi.StringArrayInput
+	Cname                pulumi.StringPtrInput
+	CnamePrefix          pulumi.StringPtrInput
+	Description          pulumi.StringPtrInput
+	EndpointUrl          pulumi.StringPtrInput
+	Instances            pulumi.StringArrayInput
 	LaunchConfigurations pulumi.StringArrayInput
-	// Elastic load balancers in use by this Environment.
-	LoadBalancers pulumi.StringArrayInput
-	// A unique name for this Environment. This name is used
-	// in the application URL
-	Name pulumi.StringPtrInput
-	// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
-	// to use in deployment
-	PlatformArn pulumi.StringPtrInput
-	// The time between polling the AWS API to
-	// check if changes have been applied. Use this to adjust the rate of API calls
-	// for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
-	// use the default behavior, which is an exponential backoff
-	PollInterval pulumi.StringPtrInput
-	// SQS queues in use by this Environment.
-	Queues pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Option settings to configure the new Environment. These
-	// override specific values that are set as defaults. The format is detailed
-	// below in Option Settings
-	Settings EnvironmentSettingArrayInput
-	// A solution stack to base your environment
-	// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
-	SolutionStackName pulumi.StringPtrInput
-	// A set of tags to apply to the Environment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The name of the Elastic Beanstalk Configuration
-	// template to use in deployment
-	TemplateName pulumi.StringPtrInput
-	// Elastic Beanstalk Environment tier. Valid values are `Worker`
-	// or `WebServer`. If tier is left blank `WebServer` will be used.
-	Tier pulumi.StringPtrInput
-	// Autoscaling triggers in use by this Environment.
-	Triggers pulumi.StringArrayInput
-	// The name of the Elastic Beanstalk Application Version
-	// to use in deployment.
-	Version pulumi.Input
-	// The maximum
-	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
-	// wait for an Elastic Beanstalk Environment to be in a ready state before timing
-	// out.
-	WaitForReadyTimeout pulumi.StringPtrInput
+	LoadBalancers        pulumi.StringArrayInput
+	Name                 pulumi.StringPtrInput
+	PlatformArn          pulumi.StringPtrInput
+	PollInterval         pulumi.StringPtrInput
+	Queues               pulumi.StringArrayInput
+	Region               pulumi.StringPtrInput
+	Settings             EnvironmentSettingArrayInput
+	SolutionStackName    pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
+	TagsAll              pulumi.StringMapInput
+	TemplateName         pulumi.StringPtrInput
+	Tier                 pulumi.StringPtrInput
+	Triggers             pulumi.StringArrayInput
+	Version              pulumi.Input
+	WaitForReadyTimeout  pulumi.StringPtrInput
 }
 
 func (EnvironmentState) ElementType() reflect.Type {
@@ -369,97 +135,37 @@ func (EnvironmentState) ElementType() reflect.Type {
 }
 
 type environmentArgs struct {
-	// Name of the application that contains the version
-	// to be deployed
-	Application interface{} `pulumi:"application"`
-	// Prefix to use for the fully qualified DNS name of
-	// the Environment.
-	CnamePrefix *string `pulumi:"cnamePrefix"`
-	// Short description of the Environment
-	Description *string `pulumi:"description"`
-	// A unique name for this Environment. This name is used
-	// in the application URL
-	Name *string `pulumi:"name"`
-	// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
-	// to use in deployment
-	PlatformArn *string `pulumi:"platformArn"`
-	// The time between polling the AWS API to
-	// check if changes have been applied. Use this to adjust the rate of API calls
-	// for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
-	// use the default behavior, which is an exponential backoff
-	PollInterval *string `pulumi:"pollInterval"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Option settings to configure the new Environment. These
-	// override specific values that are set as defaults. The format is detailed
-	// below in Option Settings
-	Settings []EnvironmentSetting `pulumi:"settings"`
-	// A solution stack to base your environment
-	// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
-	SolutionStackName *string `pulumi:"solutionStackName"`
-	// A set of tags to apply to the Environment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the Elastic Beanstalk Configuration
-	// template to use in deployment
-	TemplateName *string `pulumi:"templateName"`
-	// Elastic Beanstalk Environment tier. Valid values are `Worker`
-	// or `WebServer`. If tier is left blank `WebServer` will be used.
-	Tier *string `pulumi:"tier"`
-	// The name of the Elastic Beanstalk Application Version
-	// to use in deployment.
-	Version interface{} `pulumi:"version"`
-	// The maximum
-	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
-	// wait for an Elastic Beanstalk Environment to be in a ready state before timing
-	// out.
-	WaitForReadyTimeout *string `pulumi:"waitForReadyTimeout"`
+	Application         interface{}          `pulumi:"application"`
+	CnamePrefix         *string              `pulumi:"cnamePrefix"`
+	Description         *string              `pulumi:"description"`
+	Name                *string              `pulumi:"name"`
+	PlatformArn         *string              `pulumi:"platformArn"`
+	PollInterval        *string              `pulumi:"pollInterval"`
+	Region              *string              `pulumi:"region"`
+	Settings            []EnvironmentSetting `pulumi:"settings"`
+	SolutionStackName   *string              `pulumi:"solutionStackName"`
+	Tags                map[string]string    `pulumi:"tags"`
+	TemplateName        *string              `pulumi:"templateName"`
+	Tier                *string              `pulumi:"tier"`
+	Version             interface{}          `pulumi:"version"`
+	WaitForReadyTimeout *string              `pulumi:"waitForReadyTimeout"`
 }
 
 // The set of arguments for constructing a Environment resource.
 type EnvironmentArgs struct {
-	// Name of the application that contains the version
-	// to be deployed
-	Application pulumi.Input
-	// Prefix to use for the fully qualified DNS name of
-	// the Environment.
-	CnamePrefix pulumi.StringPtrInput
-	// Short description of the Environment
-	Description pulumi.StringPtrInput
-	// A unique name for this Environment. This name is used
-	// in the application URL
-	Name pulumi.StringPtrInput
-	// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
-	// to use in deployment
-	PlatformArn pulumi.StringPtrInput
-	// The time between polling the AWS API to
-	// check if changes have been applied. Use this to adjust the rate of API calls
-	// for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
-	// use the default behavior, which is an exponential backoff
-	PollInterval pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Option settings to configure the new Environment. These
-	// override specific values that are set as defaults. The format is detailed
-	// below in Option Settings
-	Settings EnvironmentSettingArrayInput
-	// A solution stack to base your environment
-	// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
-	SolutionStackName pulumi.StringPtrInput
-	// A set of tags to apply to the Environment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The name of the Elastic Beanstalk Configuration
-	// template to use in deployment
-	TemplateName pulumi.StringPtrInput
-	// Elastic Beanstalk Environment tier. Valid values are `Worker`
-	// or `WebServer`. If tier is left blank `WebServer` will be used.
-	Tier pulumi.StringPtrInput
-	// The name of the Elastic Beanstalk Application Version
-	// to use in deployment.
-	Version pulumi.Input
-	// The maximum
-	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
-	// wait for an Elastic Beanstalk Environment to be in a ready state before timing
-	// out.
+	Application         pulumi.Input
+	CnamePrefix         pulumi.StringPtrInput
+	Description         pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
+	PlatformArn         pulumi.StringPtrInput
+	PollInterval        pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
+	Settings            EnvironmentSettingArrayInput
+	SolutionStackName   pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
+	TemplateName        pulumi.StringPtrInput
+	Tier                pulumi.StringPtrInput
+	Version             pulumi.Input
 	WaitForReadyTimeout pulumi.StringPtrInput
 }
 
@@ -550,15 +256,10 @@ func (o EnvironmentOutput) ToEnvironmentOutputWithContext(ctx context.Context) E
 	return o
 }
 
-// List of all option settings configured in this Environment. These
-// are a combination of default settings and their overrides from `setting` in
-// the configuration.
 func (o EnvironmentOutput) AllSettings() EnvironmentAllSettingArrayOutput {
 	return o.ApplyT(func(v *Environment) EnvironmentAllSettingArrayOutput { return v.AllSettings }).(EnvironmentAllSettingArrayOutput)
 }
 
-// Name of the application that contains the version
-// to be deployed
 func (o EnvironmentOutput) Application() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Application }).(pulumi.StringOutput)
 }
@@ -567,127 +268,90 @@ func (o EnvironmentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The autoscaling groups used by this Environment.
 func (o EnvironmentOutput) AutoscalingGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringArrayOutput { return v.AutoscalingGroups }).(pulumi.StringArrayOutput)
 }
 
-// Fully qualified DNS name for this Environment.
 func (o EnvironmentOutput) Cname() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Cname }).(pulumi.StringOutput)
 }
 
-// Prefix to use for the fully qualified DNS name of
-// the Environment.
 func (o EnvironmentOutput) CnamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.CnamePrefix }).(pulumi.StringOutput)
 }
 
-// Short description of the Environment
 func (o EnvironmentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The URL to the Load Balancer for this Environment
 func (o EnvironmentOutput) EndpointUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EndpointUrl }).(pulumi.StringOutput)
 }
 
-// Instances used by this Environment.
 func (o EnvironmentOutput) Instances() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringArrayOutput { return v.Instances }).(pulumi.StringArrayOutput)
 }
 
-// Launch configurations in use by this Environment.
 func (o EnvironmentOutput) LaunchConfigurations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringArrayOutput { return v.LaunchConfigurations }).(pulumi.StringArrayOutput)
 }
 
-// Elastic load balancers in use by this Environment.
 func (o EnvironmentOutput) LoadBalancers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringArrayOutput { return v.LoadBalancers }).(pulumi.StringArrayOutput)
 }
 
-// A unique name for this Environment. This name is used
-// in the application URL
 func (o EnvironmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
-// to use in deployment
 func (o EnvironmentOutput) PlatformArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.PlatformArn }).(pulumi.StringOutput)
 }
 
-// The time between polling the AWS API to
-// check if changes have been applied. Use this to adjust the rate of API calls
-// for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
-// use the default behavior, which is an exponential backoff
 func (o EnvironmentOutput) PollInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.PollInterval }).(pulumi.StringPtrOutput)
 }
 
-// SQS queues in use by this Environment.
 func (o EnvironmentOutput) Queues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringArrayOutput { return v.Queues }).(pulumi.StringArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EnvironmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Option settings to configure the new Environment. These
-// override specific values that are set as defaults. The format is detailed
-// below in Option Settings
 func (o EnvironmentOutput) Settings() EnvironmentSettingArrayOutput {
 	return o.ApplyT(func(v *Environment) EnvironmentSettingArrayOutput { return v.Settings }).(EnvironmentSettingArrayOutput)
 }
 
-// A solution stack to base your environment
-// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
 func (o EnvironmentOutput) SolutionStackName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.SolutionStackName }).(pulumi.StringOutput)
 }
 
-// A set of tags to apply to the Environment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o EnvironmentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o EnvironmentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The name of the Elastic Beanstalk Configuration
-// template to use in deployment
 func (o EnvironmentOutput) TemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.TemplateName }).(pulumi.StringPtrOutput)
 }
 
-// Elastic Beanstalk Environment tier. Valid values are `Worker`
-// or `WebServer`. If tier is left blank `WebServer` will be used.
 func (o EnvironmentOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
-// Autoscaling triggers in use by this Environment.
 func (o EnvironmentOutput) Triggers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringArrayOutput { return v.Triggers }).(pulumi.StringArrayOutput)
 }
 
-// The name of the Elastic Beanstalk Application Version
-// to use in deployment.
 func (o EnvironmentOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }
 
-// The maximum
-// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
-// wait for an Elastic Beanstalk Environment to be in a ready state before timing
-// out.
 func (o EnvironmentOutput) WaitForReadyTimeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.WaitForReadyTimeout }).(pulumi.StringPtrOutput)
 }

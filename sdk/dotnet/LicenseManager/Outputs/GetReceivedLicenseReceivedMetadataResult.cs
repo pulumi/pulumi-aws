@@ -13,17 +13,8 @@ namespace Pulumi.Aws.LicenseManager.Outputs
     [OutputType]
     public sealed class GetReceivedLicenseReceivedMetadataResult
     {
-        /// <summary>
-        /// A list of allowed operations.
-        /// </summary>
         public readonly ImmutableArray<string> AllowedOperations;
-        /// <summary>
-        /// Received status.
-        /// </summary>
         public readonly string ReceivedStatus;
-        /// <summary>
-        /// Received status reason.
-        /// </summary>
         public readonly string ReceivedStatusReason;
 
         [OutputConstructor]

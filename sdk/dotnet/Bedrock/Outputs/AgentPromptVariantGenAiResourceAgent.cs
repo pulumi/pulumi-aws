@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentPromptVariantGenAiResourceAgent
     {
-        /// <summary>
-        /// ARN of the agent with which to use the prompt.
-        /// </summary>
         public readonly string AgentIdentifier;
 
         [OutputConstructor]

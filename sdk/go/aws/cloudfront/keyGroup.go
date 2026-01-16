@@ -12,71 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// The following example below creates a CloudFront key group.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "public_key.pem",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := cloudfront.NewPublicKey(ctx, "example", &cloudfront.PublicKeyArgs{
-//				Comment:    pulumi.String("example public key"),
-//				EncodedKey: pulumi.String(invokeFile.Result),
-//				Name:       pulumi.String("example-key"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudfront.NewKeyGroup(ctx, "example", &cloudfront.KeyGroupArgs{
-//				Comment: pulumi.String("example key group"),
-//				Items: pulumi.StringArray{
-//					example.ID(),
-//				},
-//				Name: pulumi.String("example-key-group"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudFront Key Group using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
-// ```
 type KeyGroup struct {
 	pulumi.CustomResourceState
 
-	// A comment to describe the key group..
-	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// The identifier for this version of the key group.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// A list of the identifiers of the public keys in the key group.
-	Items pulumi.StringArrayOutput `pulumi:"items"`
-	// A name to identify the key group.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Comment pulumi.StringPtrOutput   `pulumi:"comment"`
+	Etag    pulumi.StringOutput      `pulumi:"etag"`
+	Items   pulumi.StringArrayOutput `pulumi:"items"`
+	Name    pulumi.StringOutput      `pulumi:"name"`
 }
 
 // NewKeyGroup registers a new resource with the given unique name, arguments, and options.
@@ -112,25 +54,17 @@ func GetKeyGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KeyGroup resources.
 type keyGroupState struct {
-	// A comment to describe the key group..
-	Comment *string `pulumi:"comment"`
-	// The identifier for this version of the key group.
-	Etag *string `pulumi:"etag"`
-	// A list of the identifiers of the public keys in the key group.
-	Items []string `pulumi:"items"`
-	// A name to identify the key group.
-	Name *string `pulumi:"name"`
+	Comment *string  `pulumi:"comment"`
+	Etag    *string  `pulumi:"etag"`
+	Items   []string `pulumi:"items"`
+	Name    *string  `pulumi:"name"`
 }
 
 type KeyGroupState struct {
-	// A comment to describe the key group..
 	Comment pulumi.StringPtrInput
-	// The identifier for this version of the key group.
-	Etag pulumi.StringPtrInput
-	// A list of the identifiers of the public keys in the key group.
-	Items pulumi.StringArrayInput
-	// A name to identify the key group.
-	Name pulumi.StringPtrInput
+	Etag    pulumi.StringPtrInput
+	Items   pulumi.StringArrayInput
+	Name    pulumi.StringPtrInput
 }
 
 func (KeyGroupState) ElementType() reflect.Type {
@@ -138,22 +72,16 @@ func (KeyGroupState) ElementType() reflect.Type {
 }
 
 type keyGroupArgs struct {
-	// A comment to describe the key group..
-	Comment *string `pulumi:"comment"`
-	// A list of the identifiers of the public keys in the key group.
-	Items []string `pulumi:"items"`
-	// A name to identify the key group.
-	Name *string `pulumi:"name"`
+	Comment *string  `pulumi:"comment"`
+	Items   []string `pulumi:"items"`
+	Name    *string  `pulumi:"name"`
 }
 
 // The set of arguments for constructing a KeyGroup resource.
 type KeyGroupArgs struct {
-	// A comment to describe the key group..
 	Comment pulumi.StringPtrInput
-	// A list of the identifiers of the public keys in the key group.
-	Items pulumi.StringArrayInput
-	// A name to identify the key group.
-	Name pulumi.StringPtrInput
+	Items   pulumi.StringArrayInput
+	Name    pulumi.StringPtrInput
 }
 
 func (KeyGroupArgs) ElementType() reflect.Type {
@@ -243,22 +171,18 @@ func (o KeyGroupOutput) ToKeyGroupOutputWithContext(ctx context.Context) KeyGrou
 	return o
 }
 
-// A comment to describe the key group..
 func (o KeyGroupOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyGroup) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// The identifier for this version of the key group.
 func (o KeyGroupOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyGroup) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
-// A list of the identifiers of the public keys in the key group.
 func (o KeyGroupOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KeyGroup) pulumi.StringArrayOutput { return v.Items }).(pulumi.StringArrayOutput)
 }
 
-// A name to identify the key group.
 func (o KeyGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

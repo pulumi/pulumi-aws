@@ -15,9 +15,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     {
         public readonly ImmutableArray<string> ExclusionFilters;
         public readonly ImmutableArray<string> InclusionFilters;
-        /// <summary>
-        /// The supported object type or content type of the data source.
-        /// </summary>
         public readonly string ObjectType;
 
         [OutputConstructor]

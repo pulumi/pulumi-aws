@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class JobDefinitionRetryStrategy
     {
-        /// <summary>
-        /// Number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
-        /// </summary>
         public readonly int? Attempts;
-        /// <summary>
-        /// Evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `Attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
-        /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionRetryStrategyEvaluateOnExit> EvaluateOnExits;
 
         [OutputConstructor]

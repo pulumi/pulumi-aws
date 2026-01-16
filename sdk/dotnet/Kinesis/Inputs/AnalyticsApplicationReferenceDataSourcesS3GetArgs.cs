@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Kinesis.Inputs
 
     public sealed class AnalyticsApplicationReferenceDataSourcesS3GetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The S3 Bucket ARN.
-        /// </summary>
         [Input("bucketArn", required: true)]
         public Input<string> BucketArn { get; set; } = null!;
 
-        /// <summary>
-        /// The File Key name containing reference data.
-        /// </summary>
         [Input("fileKey", required: true)]
         public Input<string> FileKey { get; set; } = null!;
 
-        /// <summary>
-        /// The IAM Role ARN to read the data.
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 

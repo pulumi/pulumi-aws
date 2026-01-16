@@ -14,21 +14,9 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketLoggingV2TargetGrantGrantee
     {
         public readonly string? DisplayName;
-        /// <summary>
-        /// Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
-        /// </summary>
         public readonly string? EmailAddress;
-        /// <summary>
-        /// Canonical user ID of the grantee.
-        /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// Type of grantee. Valid values: `CanonicalUser`, `AmazonCustomerByEmail`, `Group`.
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// URI of the grantee group.
-        /// </summary>
         public readonly string? Uri;
 
         [OutputConstructor]

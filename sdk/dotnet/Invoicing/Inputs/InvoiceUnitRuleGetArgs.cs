@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Invoicing.Inputs
     {
         [Input("linkedAccounts", required: true)]
         private InputList<string>? _linkedAccounts;
-
-        /// <summary>
-        /// Set of AWS account IDs included in this invoice unit.
-        /// </summary>
         public InputList<string> LinkedAccounts
         {
             get => _linkedAccounts ?? (_linkedAccounts = new InputList<string>());

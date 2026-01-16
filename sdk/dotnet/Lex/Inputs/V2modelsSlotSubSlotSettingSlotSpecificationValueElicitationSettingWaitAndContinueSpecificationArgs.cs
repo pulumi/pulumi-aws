@@ -12,21 +12,11 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies whether the bot will wait for a user to respond.
-        /// When this field is `False`, wait and continue responses for a slot aren't used.
-        /// If the active field isn't specified, the default is `True`.
-        /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
 
         [Input("continueResponses")]
         private InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs>? _continueResponses;
-
-        /// <summary>
-        /// Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
-        /// See the `ContinueResponse` argument reference below.
-        /// </summary>
         public InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs> ContinueResponses
         {
             get => _continueResponses ?? (_continueResponses = new InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs>());
@@ -35,11 +25,6 @@ namespace Pulumi.Aws.Lex.Inputs
 
         [Input("stillWaitingResponses")]
         private InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs>? _stillWaitingResponses;
-
-        /// <summary>
-        /// Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
-        /// See the `StillWaitingResponse` argument reference below.
-        /// </summary>
         public InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs> StillWaitingResponses
         {
             get => _stillWaitingResponses ?? (_stillWaitingResponses = new InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs>());
@@ -48,11 +33,6 @@ namespace Pulumi.Aws.Lex.Inputs
 
         [Input("waitingResponses")]
         private InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs>? _waitingResponses;
-
-        /// <summary>
-        /// Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
-        /// See the `WaitingResponse` argument reference below.
-        /// </summary>
         public InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs> WaitingResponses
         {
             get => _waitingResponses ?? (_waitingResponses = new InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs>());

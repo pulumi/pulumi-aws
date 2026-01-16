@@ -16,32 +16,16 @@ public final class NotificationChannelFiltersArgs extends com.pulumi.resources.R
 
     public static final NotificationChannelFiltersArgs Empty = new NotificationChannelFiltersArgs();
 
-    /**
-     * Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
-     * 
-     */
     @Import(name="messageTypes")
     private @Nullable Output<List<String>> messageTypes;
 
-    /**
-     * @return Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
-     * 
-     */
     public Optional<Output<List<String>>> messageTypes() {
         return Optional.ofNullable(this.messageTypes);
     }
 
-    /**
-     * Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
-     * 
-     */
     @Import(name="severities")
     private @Nullable Output<List<String>> severities;
 
-    /**
-     * @return Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
-     * 
-     */
     public Optional<Output<List<String>>> severities() {
         return Optional.ofNullable(this.severities);
     }
@@ -71,64 +55,28 @@ public final class NotificationChannelFiltersArgs extends com.pulumi.resources.R
             $ = new NotificationChannelFiltersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param messageTypes Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messageTypes(@Nullable Output<List<String>> messageTypes) {
             $.messageTypes = messageTypes;
             return this;
         }
 
-        /**
-         * @param messageTypes Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messageTypes(List<String> messageTypes) {
             return messageTypes(Output.of(messageTypes));
         }
 
-        /**
-         * @param messageTypes Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messageTypes(String... messageTypes) {
             return messageTypes(List.of(messageTypes));
         }
 
-        /**
-         * @param severities Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder severities(@Nullable Output<List<String>> severities) {
             $.severities = severities;
             return this;
         }
 
-        /**
-         * @param severities Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder severities(List<String> severities) {
             return severities(Output.of(severities));
         }
 
-        /**
-         * @param severities Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder severities(String... severities) {
             return severities(List.of(severities));
         }

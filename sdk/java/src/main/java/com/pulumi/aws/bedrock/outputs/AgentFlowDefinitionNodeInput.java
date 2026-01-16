@@ -12,34 +12,18 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentFlowDefinitionNodeInput {
-    /**
-     * @return How input data flows between iterations in a DoWhile loop.
-     * 
-     */
     private @Nullable String category;
     private String expression;
-    /**
-     * @return A name for the flow.
-     * 
-     */
     private String name;
     private String type;
 
     private AgentFlowDefinitionNodeInput() {}
-    /**
-     * @return How input data flows between iterations in a DoWhile loop.
-     * 
-     */
     public Optional<String> category() {
         return Optional.ofNullable(this.category);
     }
     public String expression() {
         return this.expression;
     }
-    /**
-     * @return A name for the flow.
-     * 
-     */
     public String name() {
         return this.name;
     }

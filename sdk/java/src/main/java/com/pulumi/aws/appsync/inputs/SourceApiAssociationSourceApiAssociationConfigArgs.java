@@ -14,17 +14,9 @@ public final class SourceApiAssociationSourceApiAssociationConfigArgs extends co
 
     public static final SourceApiAssociationSourceApiAssociationConfigArgs Empty = new SourceApiAssociationSourceApiAssociationConfigArgs();
 
-    /**
-     * Merge type. Valid values: `MANUAL_MERGE`, `AUTO_MERGE`
-     * 
-     */
     @Import(name="mergeType", required=true)
     private Output<String> mergeType;
 
-    /**
-     * @return Merge type. Valid values: `MANUAL_MERGE`, `AUTO_MERGE`
-     * 
-     */
     public Output<String> mergeType() {
         return this.mergeType;
     }
@@ -53,23 +45,11 @@ public final class SourceApiAssociationSourceApiAssociationConfigArgs extends co
             $ = new SourceApiAssociationSourceApiAssociationConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param mergeType Merge type. Valid values: `MANUAL_MERGE`, `AUTO_MERGE`
-         * 
-         * @return builder
-         * 
-         */
         public Builder mergeType(Output<String> mergeType) {
             $.mergeType = mergeType;
             return this;
         }
 
-        /**
-         * @param mergeType Merge type. Valid values: `MANUAL_MERGE`, `AUTO_MERGE`
-         * 
-         * @return builder
-         * 
-         */
         public Builder mergeType(String mergeType) {
             return mergeType(Output.of(mergeType));
         }

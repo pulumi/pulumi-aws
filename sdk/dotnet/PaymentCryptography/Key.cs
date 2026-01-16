@@ -9,131 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.PaymentCryptography
 {
-    /// <summary>
-    /// Resource for managing an AWS Payment Cryptography Control Plane Key.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.PaymentCryptography.Key("test", new()
-    ///     {
-    ///         Exportable = true,
-    ///         KeyAttributes = new[]
-    ///         {
-    ///             new Aws.PaymentCryptography.Inputs.KeyKeyAttributeArgs
-    ///             {
-    ///                 KeyAlgorithm = "TDES_3KEY",
-    ///                 KeyClass = "SYMMETRIC_KEY",
-    ///                 KeyUsage = "TR31_P0_PIN_ENCRYPTION_KEY",
-    ///                 KeyModesOfUses = new[]
-    ///                 {
-    ///                     new Aws.PaymentCryptography.Inputs.KeyKeyAttributeKeyModesOfUseArgs
-    ///                     {
-    ///                         Decrypt = true,
-    ///                         Encrypt = true,
-    ///                         Wrap = true,
-    ///                         Unwrap = true,
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the Payment Cryptography key.
-    /// 
-    /// Using `pulumi import`, import Payment Cryptography Control Plane Key using the `arn:aws:payment-cryptography:us-east-1:123456789012:key/qtbojf64yshyvyzf`. For example:
-    /// 
-    /// % pulumi import aws_paymentcryptography_key.example arn:aws:payment-cryptography:us-east-1:123456789012:key/qtbojf64yshyvyzf
-    /// </summary>
     [AwsResourceType("aws:paymentcryptography/key:Key")]
     public partial class Key : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the key.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("deletionWindowInDays")]
         public Output<int> DeletionWindowInDays { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to enable the key.
-        /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether the key is exportable from the service.
-        /// </summary>
         [Output("exportable")]
         public Output<bool> Exportable { get; private set; } = null!;
 
-        /// <summary>
-        /// Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("keyAttributes")]
         public Output<ImmutableArray<Outputs.KeyKeyAttribute>> KeyAttributes { get; private set; } = null!;
 
-        /// <summary>
-        /// Key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed.
-        /// </summary>
         [Output("keyCheckValue")]
         public Output<string> KeyCheckValue { get; private set; } = null!;
 
-        /// <summary>
-        /// Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
-        /// </summary>
         [Output("keyCheckValueAlgorithm")]
         public Output<string> KeyCheckValueAlgorithm { get; private set; } = null!;
 
-        /// <summary>
-        /// Source of the key material.
-        /// </summary>
         [Output("keyOrigin")]
         public Output<string> KeyOrigin { get; private set; } = null!;
 
-        /// <summary>
-        /// State of key that is being created or deleted.
-        /// </summary>
         [Output("keyState")]
         public Output<string> State { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -189,50 +100,28 @@ namespace Pulumi.Aws.PaymentCryptography
         [Input("deletionWindowInDays")]
         public Input<int>? DeletionWindowInDays { get; set; }
 
-        /// <summary>
-        /// Whether to enable the key.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Whether the key is exportable from the service.
-        /// </summary>
         [Input("exportable", required: true)]
         public Input<bool> Exportable { get; set; } = null!;
 
         [Input("keyAttributes")]
         private InputList<Inputs.KeyKeyAttributeArgs>? _keyAttributes;
-
-        /// <summary>
-        /// Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public InputList<Inputs.KeyKeyAttributeArgs> KeyAttributes
         {
             get => _keyAttributes ?? (_keyAttributes = new InputList<Inputs.KeyKeyAttributeArgs>());
             set => _keyAttributes = value;
         }
 
-        /// <summary>
-        /// Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
-        /// </summary>
         [Input("keyCheckValueAlgorithm")]
         public Input<string>? KeyCheckValueAlgorithm { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -250,77 +139,43 @@ namespace Pulumi.Aws.PaymentCryptography
 
     public sealed class KeyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the key.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("deletionWindowInDays")]
         public Input<int>? DeletionWindowInDays { get; set; }
 
-        /// <summary>
-        /// Whether to enable the key.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Whether the key is exportable from the service.
-        /// </summary>
         [Input("exportable")]
         public Input<bool>? Exportable { get; set; }
 
         [Input("keyAttributes")]
         private InputList<Inputs.KeyKeyAttributeGetArgs>? _keyAttributes;
-
-        /// <summary>
-        /// Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public InputList<Inputs.KeyKeyAttributeGetArgs> KeyAttributes
         {
             get => _keyAttributes ?? (_keyAttributes = new InputList<Inputs.KeyKeyAttributeGetArgs>());
             set => _keyAttributes = value;
         }
 
-        /// <summary>
-        /// Key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed.
-        /// </summary>
         [Input("keyCheckValue")]
         public Input<string>? KeyCheckValue { get; set; }
 
-        /// <summary>
-        /// Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
-        /// </summary>
         [Input("keyCheckValueAlgorithm")]
         public Input<string>? KeyCheckValueAlgorithm { get; set; }
 
-        /// <summary>
-        /// Source of the key material.
-        /// </summary>
         [Input("keyOrigin")]
         public Input<string>? KeyOrigin { get; set; }
 
-        /// <summary>
-        /// State of key that is being created or deleted.
-        /// </summary>
         [Input("keyState")]
         public Input<string>? State { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -329,10 +184,6 @@ namespace Pulumi.Aws.PaymentCryptography
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

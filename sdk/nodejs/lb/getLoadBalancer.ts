@@ -7,30 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * > **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.
- *
- * Provides information about a Load Balancer.
- *
- * This data source can prove useful when a module accepts an LB as an input
- * variable and needs to, for example, determine the security groups associated
- * with it, etc.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const lbArn = config.get("lbArn") || "";
- * const lbName = config.get("lbName") || "";
- * const test = aws.lb.getLoadBalancer({
- *     arn: lbArn,
- *     name: lbName,
- * });
- * ```
- */
 export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,23 +22,9 @@ export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.Invoke
  * A collection of arguments for invoking getLoadBalancer.
  */
 export interface GetLoadBalancerArgs {
-    /**
-     * Full ARN of the load balancer.
-     */
     arn?: string;
-    /**
-     * Unique name of the load balancer.
-     */
     name?: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
-     *
-     * > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has lowest precedence.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -110,30 +72,6 @@ export interface GetLoadBalancerResult {
     readonly xffHeaderProcessingMode: string;
     readonly zoneId: string;
 }
-/**
- * > **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.
- *
- * Provides information about a Load Balancer.
- *
- * This data source can prove useful when a module accepts an LB as an input
- * variable and needs to, for example, determine the security groups associated
- * with it, etc.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const lbArn = config.get("lbArn") || "";
- * const lbName = config.get("lbName") || "";
- * const test = aws.lb.getLoadBalancer({
- *     arn: lbArn,
- *     name: lbName,
- * });
- * ```
- */
 export function getLoadBalancerOutput(args?: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLoadBalancerResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -149,22 +87,8 @@ export function getLoadBalancerOutput(args?: GetLoadBalancerOutputArgs, opts?: p
  * A collection of arguments for invoking getLoadBalancer.
  */
 export interface GetLoadBalancerOutputArgs {
-    /**
-     * Full ARN of the load balancer.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Unique name of the load balancer.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
-     *
-     * > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has lowest precedence.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

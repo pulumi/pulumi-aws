@@ -9,122 +9,51 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2TransitGateway
 {
-    /// <summary>
-    /// Manages an EC2 Instance Connect Endpoint.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2TransitGateway.InstanceConnectEndpoint("example", new()
-    ///     {
-    ///         SubnetId = exampleAwsSubnet.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import EC2 Instance Connect Endpoints using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint example eice-012345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint")]
     public partial class InstanceConnectEndpoint : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The Availability Zone of the EC2 Instance Connect Endpoint.
-        /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
-        /// <summary>
-        /// The DNS name of the EC2 Instance Connect Endpoint.
-        /// </summary>
         [Output("dnsName")]
         public Output<string> DnsName { get; private set; } = null!;
 
-        /// <summary>
-        /// The DNS name of the EC2 Instance Connect FIPS Endpoint.
-        /// </summary>
         [Output("fipsDnsName")]
         public Output<string> FipsDnsName { get; private set; } = null!;
 
-        /// <summary>
-        /// IP address type of the endpoint. Valid values are `Ipv4`, `Ipv6`, and `Dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
-        /// </summary>
         [Output("ipAddressType")]
         public Output<string> IpAddressType { get; private set; } = null!;
 
-        /// <summary>
-        /// The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
-        /// </summary>
         [Output("networkInterfaceIds")]
         public Output<ImmutableArray<string>> NetworkInterfaceIds { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the AWS account that created the EC2 Instance Connect Endpoint.
-        /// </summary>
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether your client's IP address is preserved as the source. Default: `True`.
-        /// </summary>
         [Output("preserveClientIp")]
         public Output<bool> PreserveClientIp { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
-        /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
-        /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to this resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.InstanceConnectEndpointTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the VPC in which the EC2 Instance Connect Endpoint was created.
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -174,48 +103,28 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class InstanceConnectEndpointArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// IP address type of the endpoint. Valid values are `Ipv4`, `Ipv6`, and `Dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
-        /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
 
-        /// <summary>
-        /// Indicates whether your client's IP address is preserved as the source. Default: `True`.
-        /// </summary>
         [Input("preserveClientIp")]
         public Input<bool>? PreserveClientIp { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
-        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
             set => _securityGroupIds = value;
         }
 
-        /// <summary>
-        /// The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
-        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to this resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -233,90 +142,51 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class InstanceConnectEndpointState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The Availability Zone of the EC2 Instance Connect Endpoint.
-        /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
-        /// <summary>
-        /// The DNS name of the EC2 Instance Connect Endpoint.
-        /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }
 
-        /// <summary>
-        /// The DNS name of the EC2 Instance Connect FIPS Endpoint.
-        /// </summary>
         [Input("fipsDnsName")]
         public Input<string>? FipsDnsName { get; set; }
 
-        /// <summary>
-        /// IP address type of the endpoint. Valid values are `Ipv4`, `Ipv6`, and `Dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
-        /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
 
         [Input("networkInterfaceIds")]
         private InputList<string>? _networkInterfaceIds;
-
-        /// <summary>
-        /// The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
-        /// </summary>
         public InputList<string> NetworkInterfaceIds
         {
             get => _networkInterfaceIds ?? (_networkInterfaceIds = new InputList<string>());
             set => _networkInterfaceIds = value;
         }
 
-        /// <summary>
-        /// The ID of the AWS account that created the EC2 Instance Connect Endpoint.
-        /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
-        /// <summary>
-        /// Indicates whether your client's IP address is preserved as the source. Default: `True`.
-        /// </summary>
         [Input("preserveClientIp")]
         public Input<bool>? PreserveClientIp { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
-        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
             set => _securityGroupIds = value;
         }
 
-        /// <summary>
-        /// The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
-        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to this resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -325,10 +195,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -338,9 +204,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Input("timeouts")]
         public Input<Inputs.InstanceConnectEndpointTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// The ID of the VPC in which the EC2 Instance Connect Endpoint was created.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

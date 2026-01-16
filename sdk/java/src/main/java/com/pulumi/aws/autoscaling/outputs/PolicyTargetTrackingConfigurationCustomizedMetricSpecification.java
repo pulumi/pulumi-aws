@@ -15,89 +15,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecification {
-    /**
-     * @return Dimensions of the metric.
-     * 
-     */
     private @Nullable List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension> metricDimensions;
-    /**
-     * @return Name of the metric.
-     * 
-     */
     private @Nullable String metricName;
-    /**
-     * @return Metrics to include, as a metric data query.
-     * 
-     */
     private @Nullable List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric> metrics;
-    /**
-     * @return Namespace of the metric.
-     * 
-     */
     private @Nullable String namespace;
-    /**
-     * @return The period of the metric in seconds.
-     * 
-     */
     private @Nullable Integer period;
-    /**
-     * @return Statistic of the metric.
-     * 
-     */
     private @Nullable String statistic;
-    /**
-     * @return Unit of the metric.
-     * 
-     */
     private @Nullable String unit;
 
     private PolicyTargetTrackingConfigurationCustomizedMetricSpecification() {}
-    /**
-     * @return Dimensions of the metric.
-     * 
-     */
     public List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension> metricDimensions() {
         return this.metricDimensions == null ? List.of() : this.metricDimensions;
     }
-    /**
-     * @return Name of the metric.
-     * 
-     */
     public Optional<String> metricName() {
         return Optional.ofNullable(this.metricName);
     }
-    /**
-     * @return Metrics to include, as a metric data query.
-     * 
-     */
     public List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric> metrics() {
         return this.metrics == null ? List.of() : this.metrics;
     }
-    /**
-     * @return Namespace of the metric.
-     * 
-     */
     public Optional<String> namespace() {
         return Optional.ofNullable(this.namespace);
     }
-    /**
-     * @return The period of the metric in seconds.
-     * 
-     */
     public Optional<Integer> period() {
         return Optional.ofNullable(this.period);
     }
-    /**
-     * @return Statistic of the metric.
-     * 
-     */
     public Optional<String> statistic() {
         return Optional.ofNullable(this.statistic);
     }
-    /**
-     * @return Unit of the metric.
-     * 
-     */
     public Optional<String> unit() {
         return Optional.ofNullable(this.unit);
     }

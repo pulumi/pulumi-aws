@@ -17,92 +17,44 @@ public final class MemberDetectorFeatureState extends com.pulumi.resources.Resou
 
     public static final MemberDetectorFeatureState Empty = new MemberDetectorFeatureState();
 
-    /**
-     * Member account ID to be updated.
-     * 
-     */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
-    /**
-     * @return Member account ID to be updated.
-     * 
-     */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
-    /**
-     * Additional feature configuration block. See below.
-     * 
-     */
     @Import(name="additionalConfigurations")
     private @Nullable Output<List<MemberDetectorFeatureAdditionalConfigurationArgs>> additionalConfigurations;
 
-    /**
-     * @return Additional feature configuration block. See below.
-     * 
-     */
     public Optional<Output<List<MemberDetectorFeatureAdditionalConfigurationArgs>>> additionalConfigurations() {
         return Optional.ofNullable(this.additionalConfigurations);
     }
 
-    /**
-     * Amazon GuardDuty detector ID.
-     * 
-     */
     @Import(name="detectorId")
     private @Nullable Output<String> detectorId;
 
-    /**
-     * @return Amazon GuardDuty detector ID.
-     * 
-     */
     public Optional<Output<String>> detectorId() {
         return Optional.ofNullable(this.detectorId);
     }
 
-    /**
-     * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -136,138 +88,60 @@ public final class MemberDetectorFeatureState extends com.pulumi.resources.Resou
             $ = new MemberDetectorFeatureState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId Member account ID to be updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId Member account ID to be updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param additionalConfigurations Additional feature configuration block. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder additionalConfigurations(@Nullable Output<List<MemberDetectorFeatureAdditionalConfigurationArgs>> additionalConfigurations) {
             $.additionalConfigurations = additionalConfigurations;
             return this;
         }
 
-        /**
-         * @param additionalConfigurations Additional feature configuration block. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder additionalConfigurations(List<MemberDetectorFeatureAdditionalConfigurationArgs> additionalConfigurations) {
             return additionalConfigurations(Output.of(additionalConfigurations));
         }
 
-        /**
-         * @param additionalConfigurations Additional feature configuration block. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder additionalConfigurations(MemberDetectorFeatureAdditionalConfigurationArgs... additionalConfigurations) {
             return additionalConfigurations(List.of(additionalConfigurations));
         }
 
-        /**
-         * @param detectorId Amazon GuardDuty detector ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder detectorId(@Nullable Output<String> detectorId) {
             $.detectorId = detectorId;
             return this;
         }
 
-        /**
-         * @param detectorId Amazon GuardDuty detector ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder detectorId(String detectorId) {
             return detectorId(Output.of(detectorId));
         }
 
-        /**
-         * @param name The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param status The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

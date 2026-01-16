@@ -19,49 +19,23 @@ public final class DomainMatchingAutoMergingArgs extends com.pulumi.resources.Re
 
     public static final DomainMatchingAutoMergingArgs Empty = new DomainMatchingAutoMergingArgs();
 
-    /**
-     * A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-     * 
-     */
     @Import(name="conflictResolution")
     private @Nullable Output<DomainMatchingAutoMergingConflictResolutionArgs> conflictResolution;
 
-    /**
-     * @return A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-     * 
-     */
     public Optional<Output<DomainMatchingAutoMergingConflictResolutionArgs>> conflictResolution() {
         return Optional.ofNullable(this.conflictResolution);
     }
 
-    /**
-     * A block that specifies a list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged. Documented below.
-     * * ` minAllowedConfidenceScoreForMerging  ` - (Optional) A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
-     * 
-     */
     @Import(name="consolidation")
     private @Nullable Output<DomainMatchingAutoMergingConsolidationArgs> consolidation;
 
-    /**
-     * @return A block that specifies a list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged. Documented below.
-     * * ` minAllowedConfidenceScoreForMerging  ` - (Optional) A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
-     * 
-     */
     public Optional<Output<DomainMatchingAutoMergingConsolidationArgs>> consolidation() {
         return Optional.ofNullable(this.consolidation);
     }
 
-    /**
-     * The flag that enables the auto-merging of duplicate profiles.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return The flag that enables the auto-merging of duplicate profiles.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
@@ -100,67 +74,29 @@ public final class DomainMatchingAutoMergingArgs extends com.pulumi.resources.Re
             $ = new DomainMatchingAutoMergingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param conflictResolution A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conflictResolution(@Nullable Output<DomainMatchingAutoMergingConflictResolutionArgs> conflictResolution) {
             $.conflictResolution = conflictResolution;
             return this;
         }
 
-        /**
-         * @param conflictResolution A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conflictResolution(DomainMatchingAutoMergingConflictResolutionArgs conflictResolution) {
             return conflictResolution(Output.of(conflictResolution));
         }
 
-        /**
-         * @param consolidation A block that specifies a list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged. Documented below.
-         * * ` minAllowedConfidenceScoreForMerging  ` - (Optional) A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consolidation(@Nullable Output<DomainMatchingAutoMergingConsolidationArgs> consolidation) {
             $.consolidation = consolidation;
             return this;
         }
 
-        /**
-         * @param consolidation A block that specifies a list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged. Documented below.
-         * * ` minAllowedConfidenceScoreForMerging  ` - (Optional) A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consolidation(DomainMatchingAutoMergingConsolidationArgs consolidation) {
             return consolidation(Output.of(consolidation));
         }
 
-        /**
-         * @param enabled The flag that enables the auto-merging of duplicate profiles.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled The flag that enables the auto-merging of duplicate profiles.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

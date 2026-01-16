@@ -20,81 +20,37 @@ public final class PipelineDefinitionArgs extends com.pulumi.resources.ResourceA
 
     public static final PipelineDefinitionArgs Empty = new PipelineDefinitionArgs();
 
-    /**
-     * Configuration block for the parameter objects used in the pipeline definition. See below
-     * 
-     */
     @Import(name="parameterObjects")
     private @Nullable Output<List<PipelineDefinitionParameterObjectArgs>> parameterObjects;
 
-    /**
-     * @return Configuration block for the parameter objects used in the pipeline definition. See below
-     * 
-     */
     public Optional<Output<List<PipelineDefinitionParameterObjectArgs>>> parameterObjects() {
         return Optional.ofNullable(this.parameterObjects);
     }
 
-    /**
-     * Configuration block for the parameter values used in the pipeline definition. See below
-     * 
-     */
     @Import(name="parameterValues")
     private @Nullable Output<List<PipelineDefinitionParameterValueArgs>> parameterValues;
 
-    /**
-     * @return Configuration block for the parameter values used in the pipeline definition. See below
-     * 
-     */
     public Optional<Output<List<PipelineDefinitionParameterValueArgs>>> parameterValues() {
         return Optional.ofNullable(this.parameterValues);
     }
 
-    /**
-     * ID of the pipeline.
-     * 
-     */
     @Import(name="pipelineId", required=true)
     private Output<String> pipelineId;
 
-    /**
-     * @return ID of the pipeline.
-     * 
-     */
     public Output<String> pipelineId() {
         return this.pipelineId;
     }
 
-    /**
-     * Configuration block for the objects that define the pipeline. See below
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="pipelineObjects", required=true)
     private Output<List<PipelineDefinitionPipelineObjectArgs>> pipelineObjects;
 
-    /**
-     * @return Configuration block for the objects that define the pipeline. See below
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<List<PipelineDefinitionPipelineObjectArgs>> pipelineObjects() {
         return this.pipelineObjects;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -127,143 +83,59 @@ public final class PipelineDefinitionArgs extends com.pulumi.resources.ResourceA
             $ = new PipelineDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param parameterObjects Configuration block for the parameter objects used in the pipeline definition. See below
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterObjects(@Nullable Output<List<PipelineDefinitionParameterObjectArgs>> parameterObjects) {
             $.parameterObjects = parameterObjects;
             return this;
         }
 
-        /**
-         * @param parameterObjects Configuration block for the parameter objects used in the pipeline definition. See below
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterObjects(List<PipelineDefinitionParameterObjectArgs> parameterObjects) {
             return parameterObjects(Output.of(parameterObjects));
         }
 
-        /**
-         * @param parameterObjects Configuration block for the parameter objects used in the pipeline definition. See below
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterObjects(PipelineDefinitionParameterObjectArgs... parameterObjects) {
             return parameterObjects(List.of(parameterObjects));
         }
 
-        /**
-         * @param parameterValues Configuration block for the parameter values used in the pipeline definition. See below
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterValues(@Nullable Output<List<PipelineDefinitionParameterValueArgs>> parameterValues) {
             $.parameterValues = parameterValues;
             return this;
         }
 
-        /**
-         * @param parameterValues Configuration block for the parameter values used in the pipeline definition. See below
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterValues(List<PipelineDefinitionParameterValueArgs> parameterValues) {
             return parameterValues(Output.of(parameterValues));
         }
 
-        /**
-         * @param parameterValues Configuration block for the parameter values used in the pipeline definition. See below
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterValues(PipelineDefinitionParameterValueArgs... parameterValues) {
             return parameterValues(List.of(parameterValues));
         }
 
-        /**
-         * @param pipelineId ID of the pipeline.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pipelineId(Output<String> pipelineId) {
             $.pipelineId = pipelineId;
             return this;
         }
 
-        /**
-         * @param pipelineId ID of the pipeline.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pipelineId(String pipelineId) {
             return pipelineId(Output.of(pipelineId));
         }
 
-        /**
-         * @param pipelineObjects Configuration block for the objects that define the pipeline. See below
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder pipelineObjects(Output<List<PipelineDefinitionPipelineObjectArgs>> pipelineObjects) {
             $.pipelineObjects = pipelineObjects;
             return this;
         }
 
-        /**
-         * @param pipelineObjects Configuration block for the objects that define the pipeline. See below
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder pipelineObjects(List<PipelineDefinitionPipelineObjectArgs> pipelineObjects) {
             return pipelineObjects(Output.of(pipelineObjects));
         }
 
-        /**
-         * @param pipelineObjects Configuration block for the objects that define the pipeline. See below
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder pipelineObjects(PipelineDefinitionPipelineObjectArgs... pipelineObjects) {
             return pipelineObjects(List.of(pipelineObjects));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -7,31 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource for managing association between VPC (Virtual Private Cloud) route server and a VPC.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.vpc.RouteServerVpcAssociation("example", {
- *     routeServerId: exampleAwsVpcRouteServer.routeServerId,
- *     vpcId: exampleAwsVpc.id,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, to  to import VPC (Virtual Private Cloud) Route Server Association using the associated resource ID and VPC Id separated by a comma (,). For example:
- *
- * ```sh
- * $ pulumi import aws:vpc/routeServerVpcAssociation:RouteServerVpcAssociation example rs-12345678,vpc-0f001273ec18911b1
- * ```
- */
 export class RouteServerVpcAssociation extends pulumi.CustomResource {
     /**
      * Get an existing RouteServerVpcAssociation resource's state with the given name, ID, and optional extra
@@ -60,20 +35,9 @@ export class RouteServerVpcAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === RouteServerVpcAssociation.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The unique identifier for the route server to be associated.
-     */
     declare public readonly routeServerId: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.vpc.RouteServerVpcAssociationTimeouts | undefined>;
-    /**
-     * The ID of the VPC to associate with the route server.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly vpcId: pulumi.Output<string>;
 
     /**
@@ -115,20 +79,9 @@ export class RouteServerVpcAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RouteServerVpcAssociation resources.
  */
 export interface RouteServerVpcAssociationState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The unique identifier for the route server to be associated.
-     */
     routeServerId?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.vpc.RouteServerVpcAssociationTimeouts>;
-    /**
-     * The ID of the VPC to associate with the route server.
-     *
-     * The following arguments are optional:
-     */
     vpcId?: pulumi.Input<string>;
 }
 
@@ -136,19 +89,8 @@ export interface RouteServerVpcAssociationState {
  * The set of arguments for constructing a RouteServerVpcAssociation resource.
  */
 export interface RouteServerVpcAssociationArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The unique identifier for the route server to be associated.
-     */
     routeServerId: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.vpc.RouteServerVpcAssociationTimeouts>;
-    /**
-     * The ID of the VPC to associate with the route server.
-     *
-     * The following arguments are optional:
-     */
     vpcId: pulumi.Input<string>;
 }

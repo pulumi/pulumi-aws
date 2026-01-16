@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreAgentRuntimeAuthorizerConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// JWT-based authorization configuration block. See `CustomJwtAuthorizer` below.
-        /// </summary>
         [Input("customJwtAuthorizer")]
         public Input<Inputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs>? CustomJwtAuthorizer { get; set; }
 

@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationMonitoringConfiguration {
-    /**
-     * @return The Amazon CloudWatch configuration for monitoring logs.
-     * 
-     */
     private @Nullable ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration cloudwatchLoggingConfiguration;
-    /**
-     * @return The managed log persistence configuration for monitoring logs.
-     * 
-     */
     private @Nullable ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration managedPersistenceMonitoringConfiguration;
-    /**
-     * @return The Prometheus configuration for monitoring metrics.
-     * 
-     */
     private @Nullable ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration prometheusMonitoringConfiguration;
-    /**
-     * @return The Amazon S3 configuration for monitoring log publishing.
-     * 
-     */
     private @Nullable ApplicationMonitoringConfigurationS3MonitoringConfiguration s3MonitoringConfiguration;
 
     private ApplicationMonitoringConfiguration() {}
-    /**
-     * @return The Amazon CloudWatch configuration for monitoring logs.
-     * 
-     */
     public Optional<ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration> cloudwatchLoggingConfiguration() {
         return Optional.ofNullable(this.cloudwatchLoggingConfiguration);
     }
-    /**
-     * @return The managed log persistence configuration for monitoring logs.
-     * 
-     */
     public Optional<ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration> managedPersistenceMonitoringConfiguration() {
         return Optional.ofNullable(this.managedPersistenceMonitoringConfiguration);
     }
-    /**
-     * @return The Prometheus configuration for monitoring metrics.
-     * 
-     */
     public Optional<ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration> prometheusMonitoringConfiguration() {
         return Optional.ofNullable(this.prometheusMonitoringConfiguration);
     }
-    /**
-     * @return The Amazon S3 configuration for monitoring log publishing.
-     * 
-     */
     public Optional<ApplicationMonitoringConfigurationS3MonitoringConfiguration> s3MonitoringConfiguration() {
         return Optional.ofNullable(this.s3MonitoringConfiguration);
     }

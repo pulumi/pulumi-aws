@@ -16,47 +16,23 @@ public final class GetConnectionsPlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetConnectionsPlainArgs Empty = new GetConnectionsPlainArgs();
 
-    /**
-     * ID of the device of the connections to retrieve.
-     * 
-     */
     @Import(name="deviceId")
     private @Nullable String deviceId;
 
-    /**
-     * @return ID of the device of the connections to retrieve.
-     * 
-     */
     public Optional<String> deviceId() {
         return Optional.ofNullable(this.deviceId);
     }
 
-    /**
-     * ID of the Global Network of the connections to retrieve.
-     * 
-     */
     @Import(name="globalNetworkId", required=true)
     private String globalNetworkId;
 
-    /**
-     * @return ID of the Global Network of the connections to retrieve.
-     * 
-     */
     public String globalNetworkId() {
         return this.globalNetworkId;
     }
 
-    /**
-     * Restricts the list to the connections with these tags.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Restricts the list to the connections with these tags.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -87,34 +63,16 @@ public final class GetConnectionsPlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetConnectionsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param deviceId ID of the device of the connections to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceId(@Nullable String deviceId) {
             $.deviceId = deviceId;
             return this;
         }
 
-        /**
-         * @param globalNetworkId ID of the Global Network of the connections to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(String globalNetworkId) {
             $.globalNetworkId = globalNetworkId;
             return this;
         }
 
-        /**
-         * @param tags Restricts the list to the connections with these tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

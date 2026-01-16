@@ -11,56 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `waf.getSubscribedRuleGroup` retrieves information about a Managed WAF Rule Group from AWS Marketplace (needs to be subscribed to first).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/waf"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			byName, err := waf.GetSubscribedRuleGroup(ctx, &waf.GetSubscribedRuleGroupArgs{
-//				Name: pulumi.StringRef("F5 Bot Detection Signatures For AWS WAF"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			byMetricName, err := waf.GetSubscribedRuleGroup(ctx, &waf.GetSubscribedRuleGroupArgs{
-//				MetricName: pulumi.StringRef("F5BotDetectionSignatures"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = waf.NewWebAcl(ctx, "acl", &waf.WebAclArgs{
-//				Rules: waf.WebAclRuleArray{
-//					&waf.WebAclRuleArgs{
-//						Priority: pulumi.Int(1),
-//						RuleId:   pulumi.String(byName.Id),
-//						Type:     pulumi.String("GROUP"),
-//					},
-//					&waf.WebAclRuleArgs{
-//						Priority: pulumi.Int(2),
-//						RuleId:   pulumi.String(byMetricName.Id),
-//						Type:     pulumi.String("GROUP"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetSubscribedRuleGroup(ctx *pulumi.Context, args *GetSubscribedRuleGroupArgs, opts ...pulumi.InvokeOption) (*GetSubscribedRuleGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSubscribedRuleGroupResult
@@ -73,12 +23,8 @@ func GetSubscribedRuleGroup(ctx *pulumi.Context, args *GetSubscribedRuleGroupArg
 
 // A collection of arguments for invoking getSubscribedRuleGroup.
 type GetSubscribedRuleGroupArgs struct {
-	// Name of the WAF rule group.
-	//
-	// At least one of `name` or `metricName` must be configured.
 	MetricName *string `pulumi:"metricName"`
-	// Name of the WAF rule group.
-	Name *string `pulumi:"name"`
+	Name       *string `pulumi:"name"`
 }
 
 // A collection of values returned by getSubscribedRuleGroup.
@@ -100,12 +46,8 @@ func GetSubscribedRuleGroupOutput(ctx *pulumi.Context, args GetSubscribedRuleGro
 
 // A collection of arguments for invoking getSubscribedRuleGroup.
 type GetSubscribedRuleGroupOutputArgs struct {
-	// Name of the WAF rule group.
-	//
-	// At least one of `name` or `metricName` must be configured.
 	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
-	// Name of the WAF rule group.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name       pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetSubscribedRuleGroupOutputArgs) ElementType() reflect.Type {

@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing a VPC IPAM.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.LookupVpcIpam(ctx, &ec2.LookupVpcIpamArgs{
-//				Id: "ipam-abcd1234",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVpcIpam(ctx *pulumi.Context, args *LookupVpcIpamArgs, opts ...pulumi.InvokeOption) (*LookupVpcIpamResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcIpamResult
@@ -52,51 +23,31 @@ func LookupVpcIpam(ctx *pulumi.Context, args *LookupVpcIpamArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getVpcIpam.
 type LookupVpcIpamArgs struct {
-	// ID of the IPAM.
-	Id string `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Id     string  `pulumi:"id"`
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getVpcIpam.
 type LookupVpcIpamResult struct {
-	// ARN of the IPAM.
-	Arn string `pulumi:"arn"`
-	// The default resource discovery association ID.
-	DefaultResourceDiscoveryAssociationId string `pulumi:"defaultResourceDiscoveryAssociationId"`
-	// The default resource discovery ID.
-	DefaultResourceDiscoveryId string `pulumi:"defaultResourceDiscoveryId"`
-	// Description for the IPAM.
-	Description string `pulumi:"description"`
-	// If private GUA is enabled.
-	EnablePrivateGua bool `pulumi:"enablePrivateGua"`
-	// ID of the IPAM resource.
-	Id string `pulumi:"id"`
-	// Region that the IPAM exists in.
-	IpamRegion string `pulumi:"ipamRegion"`
-	// AWS account that is charged for active IP addresses managed in IPAM.
-	MeteredAccount string `pulumi:"meteredAccount"`
-	// Regions that the IPAM is configured to operate in.
-	OperatingRegions []GetVpcIpamOperatingRegion `pulumi:"operatingRegions"`
-	// ID of the account that owns this IPAM.
-	OwnerId string `pulumi:"ownerId"`
-	// ID of the default private scope.
-	PrivateDefaultScopeId string `pulumi:"privateDefaultScopeId"`
-	// ID of the default public scope.
-	PublicDefaultScopeId string `pulumi:"publicDefaultScopeId"`
-	Region               string `pulumi:"region"`
-	// Number of resource discovery associations.
-	ResourceDiscoveryAssociationCount int `pulumi:"resourceDiscoveryAssociationCount"`
-	// Number of scopes on this IPAM.
-	ScopeCount int `pulumi:"scopeCount"`
-	// Current state of the IPAM.
-	State string `pulumi:"state"`
-	// State message of the IPAM.
-	StateMessage string `pulumi:"stateMessage"`
-	// Tags of the IPAM resource.
-	Tags map[string]string `pulumi:"tags"`
-	// IPAM Tier.
-	Tier string `pulumi:"tier"`
+	Arn                                   string                      `pulumi:"arn"`
+	DefaultResourceDiscoveryAssociationId string                      `pulumi:"defaultResourceDiscoveryAssociationId"`
+	DefaultResourceDiscoveryId            string                      `pulumi:"defaultResourceDiscoveryId"`
+	Description                           string                      `pulumi:"description"`
+	EnablePrivateGua                      bool                        `pulumi:"enablePrivateGua"`
+	Id                                    string                      `pulumi:"id"`
+	IpamRegion                            string                      `pulumi:"ipamRegion"`
+	MeteredAccount                        string                      `pulumi:"meteredAccount"`
+	OperatingRegions                      []GetVpcIpamOperatingRegion `pulumi:"operatingRegions"`
+	OwnerId                               string                      `pulumi:"ownerId"`
+	PrivateDefaultScopeId                 string                      `pulumi:"privateDefaultScopeId"`
+	PublicDefaultScopeId                  string                      `pulumi:"publicDefaultScopeId"`
+	Region                                string                      `pulumi:"region"`
+	ResourceDiscoveryAssociationCount     int                         `pulumi:"resourceDiscoveryAssociationCount"`
+	ScopeCount                            int                         `pulumi:"scopeCount"`
+	State                                 string                      `pulumi:"state"`
+	StateMessage                          string                      `pulumi:"stateMessage"`
+	Tags                                  map[string]string           `pulumi:"tags"`
+	Tier                                  string                      `pulumi:"tier"`
 }
 
 func LookupVpcIpamOutput(ctx *pulumi.Context, args LookupVpcIpamOutputArgs, opts ...pulumi.InvokeOption) LookupVpcIpamResultOutput {
@@ -110,9 +61,7 @@ func LookupVpcIpamOutput(ctx *pulumi.Context, args LookupVpcIpamOutputArgs, opts
 
 // A collection of arguments for invoking getVpcIpam.
 type LookupVpcIpamOutputArgs struct {
-	// ID of the IPAM.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Id     pulumi.StringInput    `pulumi:"id"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -135,62 +84,50 @@ func (o LookupVpcIpamResultOutput) ToLookupVpcIpamResultOutputWithContext(ctx co
 	return o
 }
 
-// ARN of the IPAM.
 func (o LookupVpcIpamResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcIpamResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The default resource discovery association ID.
 func (o LookupVpcIpamResultOutput) DefaultResourceDiscoveryAssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcIpamResult) string { return v.DefaultResourceDiscoveryAssociationId }).(pulumi.StringOutput)
 }
 
-// The default resource discovery ID.
 func (o LookupVpcIpamResultOutput) DefaultResourceDiscoveryId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcIpamResult) string { return v.DefaultResourceDiscoveryId }).(pulumi.StringOutput)
 }
 
-// Description for the IPAM.
 func (o LookupVpcIpamResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcIpamResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// If private GUA is enabled.
 func (o LookupVpcIpamResultOutput) EnablePrivateGua() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupVpcIpamResult) bool { return v.EnablePrivateGua }).(pulumi.BoolOutput)
 }
 
-// ID of the IPAM resource.
 func (o LookupVpcIpamResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcIpamResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Region that the IPAM exists in.
 func (o LookupVpcIpamResultOutput) IpamRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcIpamResult) string { return v.IpamRegion }).(pulumi.StringOutput)
 }
 
-// AWS account that is charged for active IP addresses managed in IPAM.
 func (o LookupVpcIpamResultOutput) MeteredAccount() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcIpamResult) string { return v.MeteredAccount }).(pulumi.StringOutput)
 }
 
-// Regions that the IPAM is configured to operate in.
 func (o LookupVpcIpamResultOutput) OperatingRegions() GetVpcIpamOperatingRegionArrayOutput {
 	return o.ApplyT(func(v LookupVpcIpamResult) []GetVpcIpamOperatingRegion { return v.OperatingRegions }).(GetVpcIpamOperatingRegionArrayOutput)
 }
 
-// ID of the account that owns this IPAM.
 func (o LookupVpcIpamResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcIpamResult) string { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// ID of the default private scope.
 func (o LookupVpcIpamResultOutput) PrivateDefaultScopeId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcIpamResult) string { return v.PrivateDefaultScopeId }).(pulumi.StringOutput)
 }
 
-// ID of the default public scope.
 func (o LookupVpcIpamResultOutput) PublicDefaultScopeId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcIpamResult) string { return v.PublicDefaultScopeId }).(pulumi.StringOutput)
 }
@@ -199,32 +136,26 @@ func (o LookupVpcIpamResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcIpamResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Number of resource discovery associations.
 func (o LookupVpcIpamResultOutput) ResourceDiscoveryAssociationCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupVpcIpamResult) int { return v.ResourceDiscoveryAssociationCount }).(pulumi.IntOutput)
 }
 
-// Number of scopes on this IPAM.
 func (o LookupVpcIpamResultOutput) ScopeCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupVpcIpamResult) int { return v.ScopeCount }).(pulumi.IntOutput)
 }
 
-// Current state of the IPAM.
 func (o LookupVpcIpamResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcIpamResult) string { return v.State }).(pulumi.StringOutput)
 }
 
-// State message of the IPAM.
 func (o LookupVpcIpamResultOutput) StateMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcIpamResult) string { return v.StateMessage }).(pulumi.StringOutput)
 }
 
-// Tags of the IPAM resource.
 func (o LookupVpcIpamResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupVpcIpamResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// IPAM Tier.
 func (o LookupVpcIpamResultOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcIpamResult) string { return v.Tier }).(pulumi.StringOutput)
 }

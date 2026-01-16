@@ -17,32 +17,16 @@ public final class GetNetworkPeeringConnectionsArgs extends com.pulumi.resources
 
     public static final GetNetworkPeeringConnectionsArgs Empty = new GetNetworkPeeringConnectionsArgs();
 
-    /**
-     * The list of ODB peering connections. A summary of an ODB peering connection.
-     * 
-     */
     @Import(name="odbPeeringConnections")
     private @Nullable Output<List<GetNetworkPeeringConnectionsOdbPeeringConnectionArgs>> odbPeeringConnections;
 
-    /**
-     * @return The list of ODB peering connections. A summary of an ODB peering connection.
-     * 
-     */
     public Optional<Output<List<GetNetworkPeeringConnectionsOdbPeeringConnectionArgs>>> odbPeeringConnections() {
         return Optional.ofNullable(this.odbPeeringConnections);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -72,54 +56,24 @@ public final class GetNetworkPeeringConnectionsArgs extends com.pulumi.resources
             $ = new GetNetworkPeeringConnectionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param odbPeeringConnections The list of ODB peering connections. A summary of an ODB peering connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder odbPeeringConnections(@Nullable Output<List<GetNetworkPeeringConnectionsOdbPeeringConnectionArgs>> odbPeeringConnections) {
             $.odbPeeringConnections = odbPeeringConnections;
             return this;
         }
 
-        /**
-         * @param odbPeeringConnections The list of ODB peering connections. A summary of an ODB peering connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder odbPeeringConnections(List<GetNetworkPeeringConnectionsOdbPeeringConnectionArgs> odbPeeringConnections) {
             return odbPeeringConnections(Output.of(odbPeeringConnections));
         }
 
-        /**
-         * @param odbPeeringConnections The list of ODB peering connections. A summary of an ODB peering connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder odbPeeringConnections(GetNetworkPeeringConnectionsOdbPeeringConnectionArgs... odbPeeringConnections) {
             return odbPeeringConnections(List.of(odbPeeringConnections));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

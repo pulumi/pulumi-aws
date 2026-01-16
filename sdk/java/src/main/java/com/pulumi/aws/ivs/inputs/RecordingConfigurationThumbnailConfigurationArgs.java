@@ -16,32 +16,16 @@ public final class RecordingConfigurationThumbnailConfigurationArgs extends com.
 
     public static final RecordingConfigurationThumbnailConfigurationArgs Empty = new RecordingConfigurationThumbnailConfigurationArgs();
 
-    /**
-     * Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
-     * 
-     */
     @Import(name="recordingMode")
     private @Nullable Output<String> recordingMode;
 
-    /**
-     * @return Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
-     * 
-     */
     public Optional<Output<String>> recordingMode() {
         return Optional.ofNullable(this.recordingMode);
     }
 
-    /**
-     * The targeted thumbnail-generation interval in seconds.
-     * 
-     */
     @Import(name="targetIntervalSeconds")
     private @Nullable Output<Integer> targetIntervalSeconds;
 
-    /**
-     * @return The targeted thumbnail-generation interval in seconds.
-     * 
-     */
     public Optional<Output<Integer>> targetIntervalSeconds() {
         return Optional.ofNullable(this.targetIntervalSeconds);
     }
@@ -71,44 +55,20 @@ public final class RecordingConfigurationThumbnailConfigurationArgs extends com.
             $ = new RecordingConfigurationThumbnailConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param recordingMode Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordingMode(@Nullable Output<String> recordingMode) {
             $.recordingMode = recordingMode;
             return this;
         }
 
-        /**
-         * @param recordingMode Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordingMode(String recordingMode) {
             return recordingMode(Output.of(recordingMode));
         }
 
-        /**
-         * @param targetIntervalSeconds The targeted thumbnail-generation interval in seconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetIntervalSeconds(@Nullable Output<Integer> targetIntervalSeconds) {
             $.targetIntervalSeconds = targetIntervalSeconds;
             return this;
         }
 
-        /**
-         * @param targetIntervalSeconds The targeted thumbnail-generation interval in seconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetIntervalSeconds(Integer targetIntervalSeconds) {
             return targetIntervalSeconds(Output.of(targetIntervalSeconds));
         }

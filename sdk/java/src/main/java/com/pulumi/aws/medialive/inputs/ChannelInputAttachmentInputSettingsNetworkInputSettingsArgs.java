@@ -16,32 +16,16 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs e
 
     public static final ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs Empty = new ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs();
 
-    /**
-     * Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
-     * 
-     */
     @Import(name="hlsInputSettings")
     private @Nullable Output<ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs> hlsInputSettings;
 
-    /**
-     * @return Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
-     * 
-     */
     public Optional<Output<ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs>> hlsInputSettings() {
         return Optional.ofNullable(this.hlsInputSettings);
     }
 
-    /**
-     * Check HTTPS server certificates.
-     * 
-     */
     @Import(name="serverValidation")
     private @Nullable Output<String> serverValidation;
 
-    /**
-     * @return Check HTTPS server certificates.
-     * 
-     */
     public Optional<Output<String>> serverValidation() {
         return Optional.ofNullable(this.serverValidation);
     }
@@ -71,44 +55,20 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs e
             $ = new ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param hlsInputSettings Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hlsInputSettings(@Nullable Output<ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs> hlsInputSettings) {
             $.hlsInputSettings = hlsInputSettings;
             return this;
         }
 
-        /**
-         * @param hlsInputSettings Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hlsInputSettings(ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs hlsInputSettings) {
             return hlsInputSettings(Output.of(hlsInputSettings));
         }
 
-        /**
-         * @param serverValidation Check HTTPS server certificates.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverValidation(@Nullable Output<String> serverValidation) {
             $.serverValidation = serverValidation;
             return this;
         }
 
-        /**
-         * @param serverValidation Check HTTPS server certificates.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverValidation(String serverValidation) {
             return serverValidation(Output.of(serverValidation));
         }

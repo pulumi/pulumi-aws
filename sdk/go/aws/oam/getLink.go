@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS CloudWatch Observability Access Manager Link.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/oam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := oam.LookupLink(ctx, &oam.LookupLinkArgs{
-//				LinkIdentifier: "arn:aws:oam:us-west-1:111111111111:link/abcd1234-a123-456a-a12b-a123b456c789",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupLink(ctx *pulumi.Context, args *LookupLinkArgs, opts ...pulumi.InvokeOption) (*LookupLinkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLinkResult
@@ -52,34 +23,25 @@ func LookupLink(ctx *pulumi.Context, args *LookupLinkArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getLink.
 type LookupLinkArgs struct {
-	// ARN of the link.
-	LinkIdentifier string `pulumi:"linkIdentifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string           `pulumi:"region"`
-	Tags   map[string]string `pulumi:"tags"`
+	LinkIdentifier string            `pulumi:"linkIdentifier"`
+	Region         *string           `pulumi:"region"`
+	Tags           map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getLink.
 type LookupLinkResult struct {
-	// ARN of the link.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Label that is assigned to this link.
-	Label string `pulumi:"label"`
-	// Human-readable name used to identify this source account when you are viewing data from it in the monitoring account.
-	LabelTemplate string `pulumi:"labelTemplate"`
-	// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
+	Id                 string                     `pulumi:"id"`
+	Label              string                     `pulumi:"label"`
+	LabelTemplate      string                     `pulumi:"labelTemplate"`
 	LinkConfigurations []GetLinkLinkConfiguration `pulumi:"linkConfigurations"`
-	// ID string that AWS generated as part of the link ARN.
-	LinkId         string `pulumi:"linkId"`
-	LinkIdentifier string `pulumi:"linkIdentifier"`
-	Region         string `pulumi:"region"`
-	// Types of data that the source account shares with the monitoring account.
-	ResourceTypes []string `pulumi:"resourceTypes"`
-	// ARN of the sink that is used for this link.
-	SinkArn string            `pulumi:"sinkArn"`
-	Tags    map[string]string `pulumi:"tags"`
+	LinkId             string                     `pulumi:"linkId"`
+	LinkIdentifier     string                     `pulumi:"linkIdentifier"`
+	Region             string                     `pulumi:"region"`
+	ResourceTypes      []string                   `pulumi:"resourceTypes"`
+	SinkArn            string                     `pulumi:"sinkArn"`
+	Tags               map[string]string          `pulumi:"tags"`
 }
 
 func LookupLinkOutput(ctx *pulumi.Context, args LookupLinkOutputArgs, opts ...pulumi.InvokeOption) LookupLinkResultOutput {
@@ -93,11 +55,9 @@ func LookupLinkOutput(ctx *pulumi.Context, args LookupLinkOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getLink.
 type LookupLinkOutputArgs struct {
-	// ARN of the link.
-	LinkIdentifier pulumi.StringInput `pulumi:"linkIdentifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	Tags   pulumi.StringMapInput `pulumi:"tags"`
+	LinkIdentifier pulumi.StringInput    `pulumi:"linkIdentifier"`
+	Region         pulumi.StringPtrInput `pulumi:"region"`
+	Tags           pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupLinkOutputArgs) ElementType() reflect.Type {
@@ -119,7 +79,6 @@ func (o LookupLinkResultOutput) ToLookupLinkResultOutputWithContext(ctx context.
 	return o
 }
 
-// ARN of the link.
 func (o LookupLinkResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinkResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -129,22 +88,18 @@ func (o LookupLinkResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinkResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Label that is assigned to this link.
 func (o LookupLinkResultOutput) Label() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinkResult) string { return v.Label }).(pulumi.StringOutput)
 }
 
-// Human-readable name used to identify this source account when you are viewing data from it in the monitoring account.
 func (o LookupLinkResultOutput) LabelTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinkResult) string { return v.LabelTemplate }).(pulumi.StringOutput)
 }
 
-// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
 func (o LookupLinkResultOutput) LinkConfigurations() GetLinkLinkConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupLinkResult) []GetLinkLinkConfiguration { return v.LinkConfigurations }).(GetLinkLinkConfigurationArrayOutput)
 }
 
-// ID string that AWS generated as part of the link ARN.
 func (o LookupLinkResultOutput) LinkId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinkResult) string { return v.LinkId }).(pulumi.StringOutput)
 }
@@ -157,12 +112,10 @@ func (o LookupLinkResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinkResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Types of data that the source account shares with the monitoring account.
 func (o LookupLinkResultOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupLinkResult) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
 }
 
-// ARN of the sink that is used for this link.
 func (o LookupLinkResultOutput) SinkArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinkResult) string { return v.SinkArn }).(pulumi.StringOutput)
 }

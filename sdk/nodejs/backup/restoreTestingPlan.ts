@@ -7,36 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Backup Restore Testing Plan.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.backup.RestoreTestingPlan("example", {
- *     name: "example_restore_testing_plan",
- *     recoveryPointSelection: {
- *         algorithm: "LATEST_WITHIN_WINDOW",
- *         includeVaults: ["*"],
- *         recoveryPointTypes: ["CONTINUOUS"],
- *     },
- *     scheduleExpression: "cron(0 12 ? * * *)",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Backup Restore Testing Plan using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:backup/restoreTestingPlan:RestoreTestingPlan example my_testing_plan
- * ```
- */
 export class RestoreTestingPlan extends pulumi.CustomResource {
     /**
      * Get an existing RestoreTestingPlan resource's state with the given name, ID, and optional extra
@@ -65,38 +35,14 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
         return obj['__pulumiType'] === RestoreTestingPlan.__pulumiType;
     }
 
-    /**
-     * ARN of the Restore Testing Plan.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-     */
     declare public readonly recoveryPointSelection: pulumi.Output<outputs.backup.RestoreTestingPlanRecoveryPointSelection | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The schedule expression for the restore testing plan.
-     */
     declare public readonly scheduleExpression: pulumi.Output<string>;
-    /**
-     * The timezone for the schedule expression. If not provided, the state value will be used.
-     */
     declare public readonly scheduleExpressionTimezone: pulumi.Output<string>;
-    /**
-     * The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-     */
     declare public readonly startWindowHours: pulumi.Output<number>;
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -145,38 +91,14 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RestoreTestingPlan resources.
  */
 export interface RestoreTestingPlanState {
-    /**
-     * ARN of the Restore Testing Plan.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-     */
     recoveryPointSelection?: pulumi.Input<inputs.backup.RestoreTestingPlanRecoveryPointSelection>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The schedule expression for the restore testing plan.
-     */
     scheduleExpression?: pulumi.Input<string>;
-    /**
-     * The timezone for the schedule expression. If not provided, the state value will be used.
-     */
     scheduleExpressionTimezone?: pulumi.Input<string>;
-    /**
-     * The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-     */
     startWindowHours?: pulumi.Input<number>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -184,29 +106,11 @@ export interface RestoreTestingPlanState {
  * The set of arguments for constructing a RestoreTestingPlan resource.
  */
 export interface RestoreTestingPlanArgs {
-    /**
-     * The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-     */
     recoveryPointSelection?: pulumi.Input<inputs.backup.RestoreTestingPlanRecoveryPointSelection>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The schedule expression for the restore testing plan.
-     */
     scheduleExpression: pulumi.Input<string>;
-    /**
-     * The timezone for the schedule expression. If not provided, the state value will be used.
-     */
     scheduleExpressionTimezone?: pulumi.Input<string>;
-    /**
-     * The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-     */
     startWindowHours?: pulumi.Input<number>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

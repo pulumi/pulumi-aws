@@ -17,47 +17,23 @@ public final class TopicRuleErrorActionCloudwatchLogsArgs extends com.pulumi.res
 
     public static final TopicRuleErrorActionCloudwatchLogsArgs Empty = new TopicRuleErrorActionCloudwatchLogsArgs();
 
-    /**
-     * The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
-     * 
-     */
     @Import(name="batchMode")
     private @Nullable Output<Boolean> batchMode;
 
-    /**
-     * @return The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
-     * 
-     */
     public Optional<Output<Boolean>> batchMode() {
         return Optional.ofNullable(this.batchMode);
     }
 
-    /**
-     * The CloudWatch log group name.
-     * 
-     */
     @Import(name="logGroupName", required=true)
     private Output<String> logGroupName;
 
-    /**
-     * @return The CloudWatch log group name.
-     * 
-     */
     public Output<String> logGroupName() {
         return this.logGroupName;
     }
 
-    /**
-     * The IAM role ARN that allows access to the CloudWatch alarm.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The IAM role ARN that allows access to the CloudWatch alarm.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
@@ -88,65 +64,29 @@ public final class TopicRuleErrorActionCloudwatchLogsArgs extends com.pulumi.res
             $ = new TopicRuleErrorActionCloudwatchLogsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param batchMode The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
-         * 
-         * @return builder
-         * 
-         */
         public Builder batchMode(@Nullable Output<Boolean> batchMode) {
             $.batchMode = batchMode;
             return this;
         }
 
-        /**
-         * @param batchMode The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
-         * 
-         * @return builder
-         * 
-         */
         public Builder batchMode(Boolean batchMode) {
             return batchMode(Output.of(batchMode));
         }
 
-        /**
-         * @param logGroupName The CloudWatch log group name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupName(Output<String> logGroupName) {
             $.logGroupName = logGroupName;
             return this;
         }
 
-        /**
-         * @param logGroupName The CloudWatch log group name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupName(String logGroupName) {
             return logGroupName(Output.of(logGroupName));
         }
 
-        /**
-         * @param roleArn The IAM role ARN that allows access to the CloudWatch alarm.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The IAM role ARN that allows access to the CloudWatch alarm.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

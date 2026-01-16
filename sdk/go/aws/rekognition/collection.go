@@ -12,62 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Rekognition Collection.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rekognition"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rekognition.NewCollection(ctx, "example", &rekognition.CollectionArgs{
-//				CollectionId: pulumi.String("my-collection"),
-//				Tags: pulumi.StringMap{
-//					"example": pulumi.String("1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Rekognition Collection using the `collection_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:rekognition/collection:Collection example collection-id-12345678
-// ```
 type Collection struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Collection.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the collection
-	//
-	// The following arguments are optional:
-	CollectionId pulumi.StringOutput `pulumi:"collectionId"`
-	// The Face Model Version that the collection was initialized with
-	FaceModelVersion pulumi.StringOutput `pulumi:"faceModelVersion"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput      `pulumi:"tagsAll"`
-	Timeouts CollectionTimeoutsPtrOutput `pulumi:"timeouts"`
+	// The name of the Rekognition collection
+	CollectionId     pulumi.StringOutput         `pulumi:"collectionId"`
+	FaceModelVersion pulumi.StringOutput         `pulumi:"faceModelVersion"`
+	Region           pulumi.StringOutput         `pulumi:"region"`
+	Tags             pulumi.StringMapOutput      `pulumi:"tags"`
+	TagsAll          pulumi.StringMapOutput      `pulumi:"tagsAll"`
+	Timeouts         CollectionTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewCollection registers a new resource with the given unique name, arguments, and options.
@@ -103,39 +58,25 @@ func GetCollection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Collection resources.
 type collectionState struct {
-	// ARN of the Collection.
 	Arn *string `pulumi:"arn"`
-	// The name of the collection
-	//
-	// The following arguments are optional:
-	CollectionId *string `pulumi:"collectionId"`
-	// The Face Model Version that the collection was initialized with
-	FaceModelVersion *string `pulumi:"faceModelVersion"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string   `pulumi:"tagsAll"`
-	Timeouts *CollectionTimeouts `pulumi:"timeouts"`
+	// The name of the Rekognition collection
+	CollectionId     *string             `pulumi:"collectionId"`
+	FaceModelVersion *string             `pulumi:"faceModelVersion"`
+	Region           *string             `pulumi:"region"`
+	Tags             map[string]string   `pulumi:"tags"`
+	TagsAll          map[string]string   `pulumi:"tagsAll"`
+	Timeouts         *CollectionTimeouts `pulumi:"timeouts"`
 }
 
 type CollectionState struct {
-	// ARN of the Collection.
 	Arn pulumi.StringPtrInput
-	// The name of the collection
-	//
-	// The following arguments are optional:
-	CollectionId pulumi.StringPtrInput
-	// The Face Model Version that the collection was initialized with
+	// The name of the Rekognition collection
+	CollectionId     pulumi.StringPtrInput
 	FaceModelVersion pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts CollectionTimeoutsPtrInput
+	Region           pulumi.StringPtrInput
+	Tags             pulumi.StringMapInput
+	TagsAll          pulumi.StringMapInput
+	Timeouts         CollectionTimeoutsPtrInput
 }
 
 func (CollectionState) ElementType() reflect.Type {
@@ -143,28 +84,20 @@ func (CollectionState) ElementType() reflect.Type {
 }
 
 type collectionArgs struct {
-	// The name of the collection
-	//
-	// The following arguments are optional:
-	CollectionId string `pulumi:"collectionId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string   `pulumi:"tags"`
-	Timeouts *CollectionTimeouts `pulumi:"timeouts"`
+	// The name of the Rekognition collection
+	CollectionId string              `pulumi:"collectionId"`
+	Region       *string             `pulumi:"region"`
+	Tags         map[string]string   `pulumi:"tags"`
+	Timeouts     *CollectionTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a Collection resource.
 type CollectionArgs struct {
-	// The name of the collection
-	//
-	// The following arguments are optional:
+	// The name of the Rekognition collection
 	CollectionId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts CollectionTimeoutsPtrInput
+	Region       pulumi.StringPtrInput
+	Tags         pulumi.StringMapInput
+	Timeouts     CollectionTimeoutsPtrInput
 }
 
 func (CollectionArgs) ElementType() reflect.Type {
@@ -254,34 +187,27 @@ func (o CollectionOutput) ToCollectionOutputWithContext(ctx context.Context) Col
 	return o
 }
 
-// ARN of the Collection.
 func (o CollectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the collection
-//
-// The following arguments are optional:
+// The name of the Rekognition collection
 func (o CollectionOutput) CollectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collection) pulumi.StringOutput { return v.CollectionId }).(pulumi.StringOutput)
 }
 
-// The Face Model Version that the collection was initialized with
 func (o CollectionOutput) FaceModelVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collection) pulumi.StringOutput { return v.FaceModelVersion }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CollectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CollectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Collection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CollectionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Collection) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

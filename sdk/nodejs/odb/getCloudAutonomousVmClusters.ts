@@ -7,22 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing cloud autonomous vm clusters in AWS for Oracle Database@AWS.
- *
- * You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.odb.getCloudAutonomousVmClusters({});
- * ```
- */
 export function getCloudAutonomousVmClusters(args?: GetCloudAutonomousVmClustersArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudAutonomousVmClustersResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -35,9 +19,6 @@ export function getCloudAutonomousVmClusters(args?: GetCloudAutonomousVmClusters
  * A collection of arguments for invoking getCloudAutonomousVmClusters.
  */
 export interface GetCloudAutonomousVmClustersArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -45,9 +26,6 @@ export interface GetCloudAutonomousVmClustersArgs {
  * A collection of values returned by getCloudAutonomousVmClusters.
  */
 export interface GetCloudAutonomousVmClustersResult {
-    /**
-     * List of Cloud Autonomous VM Clusters. The list going to contain basic information about the cloud autonomous VM clusters.
-     */
     readonly cloudAutonomousVmClusters: outputs.odb.GetCloudAutonomousVmClustersCloudAutonomousVmCluster[];
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -55,22 +33,6 @@ export interface GetCloudAutonomousVmClustersResult {
     readonly id: string;
     readonly region: string;
 }
-/**
- * Data source for managing cloud autonomous vm clusters in AWS for Oracle Database@AWS.
- *
- * You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.odb.getCloudAutonomousVmClusters({});
- * ```
- */
 export function getCloudAutonomousVmClustersOutput(args?: GetCloudAutonomousVmClustersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudAutonomousVmClustersResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -83,8 +45,5 @@ export function getCloudAutonomousVmClustersOutput(args?: GetCloudAutonomousVmCl
  * A collection of arguments for invoking getCloudAutonomousVmClusters.
  */
 export interface GetCloudAutonomousVmClustersOutputArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

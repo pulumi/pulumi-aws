@@ -9,68 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ApiGateway
 {
-    /// <summary>
-    /// Manages an API Gateway Request Validator.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ApiGateway.RequestValidator("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         RestApi = exampleAwsApiGatewayRestApi.Id,
-    ///         ValidateRequestBody = true,
-    ///         ValidateRequestParameters = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_api_gateway_request_validator` using `REST-API-ID/REQUEST-VALIDATOR-ID`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:apigateway/requestValidator:RequestValidator")]
     public partial class RequestValidator : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of the request validator
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the associated Rest API
-        /// </summary>
         [Output("restApi")]
         public Output<string> RestApi { get; private set; } = null!;
 
-        /// <summary>
-        /// Boolean whether to validate request body. Defaults to `False`.
-        /// </summary>
         [Output("validateRequestBody")]
         public Output<bool?> ValidateRequestBody { get; private set; } = null!;
 
-        /// <summary>
-        /// Boolean whether to validate request parameters. Defaults to `False`.
-        /// </summary>
         [Output("validateRequestParameters")]
         public Output<bool?> ValidateRequestParameters { get; private set; } = null!;
 
@@ -120,33 +73,18 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class RequestValidatorArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the request validator
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the associated Rest API
-        /// </summary>
         [Input("restApi", required: true)]
         public Input<string> RestApi { get; set; } = null!;
 
-        /// <summary>
-        /// Boolean whether to validate request body. Defaults to `False`.
-        /// </summary>
         [Input("validateRequestBody")]
         public Input<bool>? ValidateRequestBody { get; set; }
 
-        /// <summary>
-        /// Boolean whether to validate request parameters. Defaults to `False`.
-        /// </summary>
         [Input("validateRequestParameters")]
         public Input<bool>? ValidateRequestParameters { get; set; }
 
@@ -158,33 +96,18 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class RequestValidatorState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the request validator
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the associated Rest API
-        /// </summary>
         [Input("restApi")]
         public Input<string>? RestApi { get; set; }
 
-        /// <summary>
-        /// Boolean whether to validate request body. Defaults to `False`.
-        /// </summary>
         [Input("validateRequestBody")]
         public Input<bool>? ValidateRequestBody { get; set; }
 
-        /// <summary>
-        /// Boolean whether to validate request parameters. Defaults to `False`.
-        /// </summary>
         [Input("validateRequestParameters")]
         public Input<bool>? ValidateRequestParameters { get; set; }
 

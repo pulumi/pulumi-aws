@@ -14,39 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type GetLicenseGrantsFilter struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
-	// For example, if filtering using `ProductSKU`, use:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/licensemanager"
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := licensemanager.GetLicenseGrants(ctx, &licensemanager.GetLicenseGrantsArgs{
-	// 			Filters: []licensemanager.GetLicenseGrantsFilter{
-	// 				{
-	// 					Name: "ProductSKU",
-	// 					Values: []string{
-	// 						"",
-	// 					},
-	// 				},
-	// 			},
-	// 		}, nil)
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	Name string `pulumi:"name"`
-	// Set of values that are accepted for the given field.
+	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
@@ -62,39 +30,7 @@ type GetLicenseGrantsFilterInput interface {
 }
 
 type GetLicenseGrantsFilterArgs struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
-	// For example, if filtering using `ProductSKU`, use:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/licensemanager"
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := licensemanager.GetLicenseGrants(ctx, &licensemanager.GetLicenseGrantsArgs{
-	// 			Filters: []licensemanager.GetLicenseGrantsFilter{
-	// 				{
-	// 					Name: "ProductSKU",
-	// 					Values: []string{
-	// 						"",
-	// 					},
-	// 				},
-	// 			},
-	// 		}, nil)
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	Name pulumi.StringInput `pulumi:"name"`
-	// Set of values that are accepted for the given field.
+	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -149,45 +85,10 @@ func (o GetLicenseGrantsFilterOutput) ToGetLicenseGrantsFilterOutputWithContext(
 	return o
 }
 
-// Name of the field to filter by, as defined by
-// [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
-// For example, if filtering using `ProductSKU`, use:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/licensemanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := licensemanager.GetLicenseGrants(ctx, &licensemanager.GetLicenseGrantsArgs{
-//				Filters: []licensemanager.GetLicenseGrantsFilter{
-//					{
-//						Name: "ProductSKU",
-//						Values: []string{
-//							"",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o GetLicenseGrantsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLicenseGrantsFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set of values that are accepted for the given field.
 func (o GetLicenseGrantsFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLicenseGrantsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -213,9 +114,7 @@ func (o GetLicenseGrantsFilterArrayOutput) Index(i pulumi.IntInput) GetLicenseGr
 }
 
 type GetReceivedLicenseConsumptionConfiguration struct {
-	// Details about a borrow configuration. Detailed below
-	BorrowConfigurations []GetReceivedLicenseConsumptionConfigurationBorrowConfiguration `pulumi:"borrowConfigurations"`
-	// Details about a provisional configuration. Detailed below
+	BorrowConfigurations      []GetReceivedLicenseConsumptionConfigurationBorrowConfiguration      `pulumi:"borrowConfigurations"`
 	ProvisionalConfigurations []GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration `pulumi:"provisionalConfigurations"`
 	RenewType                 string                                                               `pulumi:"renewType"`
 }
@@ -232,9 +131,7 @@ type GetReceivedLicenseConsumptionConfigurationInput interface {
 }
 
 type GetReceivedLicenseConsumptionConfigurationArgs struct {
-	// Details about a borrow configuration. Detailed below
-	BorrowConfigurations GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArrayInput `pulumi:"borrowConfigurations"`
-	// Details about a provisional configuration. Detailed below
+	BorrowConfigurations      GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArrayInput      `pulumi:"borrowConfigurations"`
 	ProvisionalConfigurations GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArrayInput `pulumi:"provisionalConfigurations"`
 	RenewType                 pulumi.StringInput                                                           `pulumi:"renewType"`
 }
@@ -290,14 +187,12 @@ func (o GetReceivedLicenseConsumptionConfigurationOutput) ToGetReceivedLicenseCo
 	return o
 }
 
-// Details about a borrow configuration. Detailed below
 func (o GetReceivedLicenseConsumptionConfigurationOutput) BorrowConfigurations() GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArrayOutput {
 	return o.ApplyT(func(v GetReceivedLicenseConsumptionConfiguration) []GetReceivedLicenseConsumptionConfigurationBorrowConfiguration {
 		return v.BorrowConfigurations
 	}).(GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArrayOutput)
 }
 
-// Details about a provisional configuration. Detailed below
 func (o GetReceivedLicenseConsumptionConfigurationOutput) ProvisionalConfigurations() GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArrayOutput {
 	return o.ApplyT(func(v GetReceivedLicenseConsumptionConfiguration) []GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration {
 		return v.ProvisionalConfigurations
@@ -329,10 +224,8 @@ func (o GetReceivedLicenseConsumptionConfigurationArrayOutput) Index(i pulumi.In
 }
 
 type GetReceivedLicenseConsumptionConfigurationBorrowConfiguration struct {
-	// Indicates whether early check-ins are allowed.
-	AllowEarlyCheckIn bool `pulumi:"allowEarlyCheckIn"`
-	// Maximum time for the provisional configuration, in minutes.
-	MaxTimeToLiveInMinutes int `pulumi:"maxTimeToLiveInMinutes"`
+	AllowEarlyCheckIn      bool `pulumi:"allowEarlyCheckIn"`
+	MaxTimeToLiveInMinutes int  `pulumi:"maxTimeToLiveInMinutes"`
 }
 
 // GetReceivedLicenseConsumptionConfigurationBorrowConfigurationInput is an input type that accepts GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArgs and GetReceivedLicenseConsumptionConfigurationBorrowConfigurationOutput values.
@@ -347,10 +240,8 @@ type GetReceivedLicenseConsumptionConfigurationBorrowConfigurationInput interfac
 }
 
 type GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArgs struct {
-	// Indicates whether early check-ins are allowed.
-	AllowEarlyCheckIn pulumi.BoolInput `pulumi:"allowEarlyCheckIn"`
-	// Maximum time for the provisional configuration, in minutes.
-	MaxTimeToLiveInMinutes pulumi.IntInput `pulumi:"maxTimeToLiveInMinutes"`
+	AllowEarlyCheckIn      pulumi.BoolInput `pulumi:"allowEarlyCheckIn"`
+	MaxTimeToLiveInMinutes pulumi.IntInput  `pulumi:"maxTimeToLiveInMinutes"`
 }
 
 func (GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArgs) ElementType() reflect.Type {
@@ -404,12 +295,10 @@ func (o GetReceivedLicenseConsumptionConfigurationBorrowConfigurationOutput) ToG
 	return o
 }
 
-// Indicates whether early check-ins are allowed.
 func (o GetReceivedLicenseConsumptionConfigurationBorrowConfigurationOutput) AllowEarlyCheckIn() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetReceivedLicenseConsumptionConfigurationBorrowConfiguration) bool { return v.AllowEarlyCheckIn }).(pulumi.BoolOutput)
 }
 
-// Maximum time for the provisional configuration, in minutes.
 func (o GetReceivedLicenseConsumptionConfigurationBorrowConfigurationOutput) MaxTimeToLiveInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v GetReceivedLicenseConsumptionConfigurationBorrowConfiguration) int {
 		return v.MaxTimeToLiveInMinutes
@@ -437,7 +326,6 @@ func (o GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArrayOutput
 }
 
 type GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration struct {
-	// Maximum time for the provisional configuration, in minutes.
 	MaxTimeToLiveInMinutes int `pulumi:"maxTimeToLiveInMinutes"`
 }
 
@@ -453,7 +341,6 @@ type GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationInput int
 }
 
 type GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArgs struct {
-	// Maximum time for the provisional configuration, in minutes.
 	MaxTimeToLiveInMinutes pulumi.IntInput `pulumi:"maxTimeToLiveInMinutes"`
 }
 
@@ -508,7 +395,6 @@ func (o GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationOutput
 	return o
 }
 
-// Maximum time for the provisional configuration, in minutes.
 func (o GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationOutput) MaxTimeToLiveInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration) int {
 		return v.MaxTimeToLiveInMinutes
@@ -536,18 +422,12 @@ func (o GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArrayO
 }
 
 type GetReceivedLicenseEntitlement struct {
-	// Indicates whether check-ins are allowed.
-	AllowCheckIn bool `pulumi:"allowCheckIn"`
-	// Maximum entitlement count. Use if the unit is not None.
-	MaxCount int `pulumi:"maxCount"`
-	// The key name.
-	Name string `pulumi:"name"`
-	// Indicates whether overages are allowed.
-	Overage bool `pulumi:"overage"`
-	// Entitlement unit.
-	Unit string `pulumi:"unit"`
-	// The value.
-	Value string `pulumi:"value"`
+	AllowCheckIn bool   `pulumi:"allowCheckIn"`
+	MaxCount     int    `pulumi:"maxCount"`
+	Name         string `pulumi:"name"`
+	Overage      bool   `pulumi:"overage"`
+	Unit         string `pulumi:"unit"`
+	Value        string `pulumi:"value"`
 }
 
 // GetReceivedLicenseEntitlementInput is an input type that accepts GetReceivedLicenseEntitlementArgs and GetReceivedLicenseEntitlementOutput values.
@@ -562,18 +442,12 @@ type GetReceivedLicenseEntitlementInput interface {
 }
 
 type GetReceivedLicenseEntitlementArgs struct {
-	// Indicates whether check-ins are allowed.
-	AllowCheckIn pulumi.BoolInput `pulumi:"allowCheckIn"`
-	// Maximum entitlement count. Use if the unit is not None.
-	MaxCount pulumi.IntInput `pulumi:"maxCount"`
-	// The key name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Indicates whether overages are allowed.
-	Overage pulumi.BoolInput `pulumi:"overage"`
-	// Entitlement unit.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// The value.
-	Value pulumi.StringInput `pulumi:"value"`
+	AllowCheckIn pulumi.BoolInput   `pulumi:"allowCheckIn"`
+	MaxCount     pulumi.IntInput    `pulumi:"maxCount"`
+	Name         pulumi.StringInput `pulumi:"name"`
+	Overage      pulumi.BoolInput   `pulumi:"overage"`
+	Unit         pulumi.StringInput `pulumi:"unit"`
+	Value        pulumi.StringInput `pulumi:"value"`
 }
 
 func (GetReceivedLicenseEntitlementArgs) ElementType() reflect.Type {
@@ -627,32 +501,26 @@ func (o GetReceivedLicenseEntitlementOutput) ToGetReceivedLicenseEntitlementOutp
 	return o
 }
 
-// Indicates whether check-ins are allowed.
 func (o GetReceivedLicenseEntitlementOutput) AllowCheckIn() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetReceivedLicenseEntitlement) bool { return v.AllowCheckIn }).(pulumi.BoolOutput)
 }
 
-// Maximum entitlement count. Use if the unit is not None.
 func (o GetReceivedLicenseEntitlementOutput) MaxCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetReceivedLicenseEntitlement) int { return v.MaxCount }).(pulumi.IntOutput)
 }
 
-// The key name.
 func (o GetReceivedLicenseEntitlementOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReceivedLicenseEntitlement) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates whether overages are allowed.
 func (o GetReceivedLicenseEntitlementOutput) Overage() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetReceivedLicenseEntitlement) bool { return v.Overage }).(pulumi.BoolOutput)
 }
 
-// Entitlement unit.
 func (o GetReceivedLicenseEntitlementOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReceivedLicenseEntitlement) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// The value.
 func (o GetReceivedLicenseEntitlementOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReceivedLicenseEntitlement) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -678,12 +546,9 @@ func (o GetReceivedLicenseEntitlementArrayOutput) Index(i pulumi.IntInput) GetRe
 }
 
 type GetReceivedLicenseIssuer struct {
-	// Issuer key fingerprint.
 	KeyFingerprint string `pulumi:"keyFingerprint"`
-	// The key name.
-	Name string `pulumi:"name"`
-	// Asymmetric KMS key from AWS Key Management Service. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
-	SignKey string `pulumi:"signKey"`
+	Name           string `pulumi:"name"`
+	SignKey        string `pulumi:"signKey"`
 }
 
 // GetReceivedLicenseIssuerInput is an input type that accepts GetReceivedLicenseIssuerArgs and GetReceivedLicenseIssuerOutput values.
@@ -698,12 +563,9 @@ type GetReceivedLicenseIssuerInput interface {
 }
 
 type GetReceivedLicenseIssuerArgs struct {
-	// Issuer key fingerprint.
 	KeyFingerprint pulumi.StringInput `pulumi:"keyFingerprint"`
-	// The key name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Asymmetric KMS key from AWS Key Management Service. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
-	SignKey pulumi.StringInput `pulumi:"signKey"`
+	Name           pulumi.StringInput `pulumi:"name"`
+	SignKey        pulumi.StringInput `pulumi:"signKey"`
 }
 
 func (GetReceivedLicenseIssuerArgs) ElementType() reflect.Type {
@@ -757,17 +619,14 @@ func (o GetReceivedLicenseIssuerOutput) ToGetReceivedLicenseIssuerOutputWithCont
 	return o
 }
 
-// Issuer key fingerprint.
 func (o GetReceivedLicenseIssuerOutput) KeyFingerprint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReceivedLicenseIssuer) string { return v.KeyFingerprint }).(pulumi.StringOutput)
 }
 
-// The key name.
 func (o GetReceivedLicenseIssuerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReceivedLicenseIssuer) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Asymmetric KMS key from AWS Key Management Service. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
 func (o GetReceivedLicenseIssuerOutput) SignKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReceivedLicenseIssuer) string { return v.SignKey }).(pulumi.StringOutput)
 }
@@ -793,9 +652,7 @@ func (o GetReceivedLicenseIssuerArrayOutput) Index(i pulumi.IntInput) GetReceive
 }
 
 type GetReceivedLicenseLicenseMetadata struct {
-	// The key name.
-	Name string `pulumi:"name"`
-	// The value.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -811,9 +668,7 @@ type GetReceivedLicenseLicenseMetadataInput interface {
 }
 
 type GetReceivedLicenseLicenseMetadataArgs struct {
-	// The key name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The value.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -868,12 +723,10 @@ func (o GetReceivedLicenseLicenseMetadataOutput) ToGetReceivedLicenseLicenseMeta
 	return o
 }
 
-// The key name.
 func (o GetReceivedLicenseLicenseMetadataOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReceivedLicenseLicenseMetadata) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value.
 func (o GetReceivedLicenseLicenseMetadataOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReceivedLicenseLicenseMetadata) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -899,12 +752,9 @@ func (o GetReceivedLicenseLicenseMetadataArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetReceivedLicenseReceivedMetadata struct {
-	// A list of allowed operations.
-	AllowedOperations []string `pulumi:"allowedOperations"`
-	// Received status.
-	ReceivedStatus string `pulumi:"receivedStatus"`
-	// Received status reason.
-	ReceivedStatusReason string `pulumi:"receivedStatusReason"`
+	AllowedOperations    []string `pulumi:"allowedOperations"`
+	ReceivedStatus       string   `pulumi:"receivedStatus"`
+	ReceivedStatusReason string   `pulumi:"receivedStatusReason"`
 }
 
 // GetReceivedLicenseReceivedMetadataInput is an input type that accepts GetReceivedLicenseReceivedMetadataArgs and GetReceivedLicenseReceivedMetadataOutput values.
@@ -919,12 +769,9 @@ type GetReceivedLicenseReceivedMetadataInput interface {
 }
 
 type GetReceivedLicenseReceivedMetadataArgs struct {
-	// A list of allowed operations.
-	AllowedOperations pulumi.StringArrayInput `pulumi:"allowedOperations"`
-	// Received status.
-	ReceivedStatus pulumi.StringInput `pulumi:"receivedStatus"`
-	// Received status reason.
-	ReceivedStatusReason pulumi.StringInput `pulumi:"receivedStatusReason"`
+	AllowedOperations    pulumi.StringArrayInput `pulumi:"allowedOperations"`
+	ReceivedStatus       pulumi.StringInput      `pulumi:"receivedStatus"`
+	ReceivedStatusReason pulumi.StringInput      `pulumi:"receivedStatusReason"`
 }
 
 func (GetReceivedLicenseReceivedMetadataArgs) ElementType() reflect.Type {
@@ -978,17 +825,14 @@ func (o GetReceivedLicenseReceivedMetadataOutput) ToGetReceivedLicenseReceivedMe
 	return o
 }
 
-// A list of allowed operations.
 func (o GetReceivedLicenseReceivedMetadataOutput) AllowedOperations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetReceivedLicenseReceivedMetadata) []string { return v.AllowedOperations }).(pulumi.StringArrayOutput)
 }
 
-// Received status.
 func (o GetReceivedLicenseReceivedMetadataOutput) ReceivedStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReceivedLicenseReceivedMetadata) string { return v.ReceivedStatus }).(pulumi.StringOutput)
 }
 
-// Received status reason.
 func (o GetReceivedLicenseReceivedMetadataOutput) ReceivedStatusReason() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReceivedLicenseReceivedMetadata) string { return v.ReceivedStatusReason }).(pulumi.StringOutput)
 }
@@ -1014,10 +858,8 @@ func (o GetReceivedLicenseReceivedMetadataArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetReceivedLicenseValidity struct {
-	// Start of the validity time range.
 	Begin string `pulumi:"begin"`
-	// End of the validity time range.
-	End string `pulumi:"end"`
+	End   string `pulumi:"end"`
 }
 
 // GetReceivedLicenseValidityInput is an input type that accepts GetReceivedLicenseValidityArgs and GetReceivedLicenseValidityOutput values.
@@ -1032,10 +874,8 @@ type GetReceivedLicenseValidityInput interface {
 }
 
 type GetReceivedLicenseValidityArgs struct {
-	// Start of the validity time range.
 	Begin pulumi.StringInput `pulumi:"begin"`
-	// End of the validity time range.
-	End pulumi.StringInput `pulumi:"end"`
+	End   pulumi.StringInput `pulumi:"end"`
 }
 
 func (GetReceivedLicenseValidityArgs) ElementType() reflect.Type {
@@ -1089,12 +929,10 @@ func (o GetReceivedLicenseValidityOutput) ToGetReceivedLicenseValidityOutputWith
 	return o
 }
 
-// Start of the validity time range.
 func (o GetReceivedLicenseValidityOutput) Begin() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReceivedLicenseValidity) string { return v.Begin }).(pulumi.StringOutput)
 }
 
-// End of the validity time range.
 func (o GetReceivedLicenseValidityOutput) End() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReceivedLicenseValidity) string { return v.End }).(pulumi.StringOutput)
 }
@@ -1120,39 +958,7 @@ func (o GetReceivedLicenseValidityArrayOutput) Index(i pulumi.IntInput) GetRecei
 }
 
 type GetReceivedLicensesFilter struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
-	// For example, if filtering using `ProductSKU`, use:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/licensemanager"
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := licensemanager.GetReceivedLicenses(ctx, &licensemanager.GetReceivedLicensesArgs{
-	// 			Filters: []licensemanager.GetReceivedLicensesFilter{
-	// 				{
-	// 					Name: "ProductSKU",
-	// 					Values: []string{
-	// 						"",
-	// 					},
-	// 				},
-	// 			},
-	// 		}, nil)
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	Name string `pulumi:"name"`
-	// Set of values that are accepted for the given field.
+	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
@@ -1168,39 +974,7 @@ type GetReceivedLicensesFilterInput interface {
 }
 
 type GetReceivedLicensesFilterArgs struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
-	// For example, if filtering using `ProductSKU`, use:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/licensemanager"
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := licensemanager.GetReceivedLicenses(ctx, &licensemanager.GetReceivedLicensesArgs{
-	// 			Filters: []licensemanager.GetReceivedLicensesFilter{
-	// 				{
-	// 					Name: "ProductSKU",
-	// 					Values: []string{
-	// 						"",
-	// 					},
-	// 				},
-	// 			},
-	// 		}, nil)
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	Name pulumi.StringInput `pulumi:"name"`
-	// Set of values that are accepted for the given field.
+	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1255,45 +1029,10 @@ func (o GetReceivedLicensesFilterOutput) ToGetReceivedLicensesFilterOutputWithCo
 	return o
 }
 
-// Name of the field to filter by, as defined by
-// [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
-// For example, if filtering using `ProductSKU`, use:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/licensemanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := licensemanager.GetReceivedLicenses(ctx, &licensemanager.GetReceivedLicensesArgs{
-//				Filters: []licensemanager.GetReceivedLicensesFilter{
-//					{
-//						Name: "ProductSKU",
-//						Values: []string{
-//							"",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o GetReceivedLicensesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReceivedLicensesFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set of values that are accepted for the given field.
 func (o GetReceivedLicensesFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetReceivedLicensesFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }

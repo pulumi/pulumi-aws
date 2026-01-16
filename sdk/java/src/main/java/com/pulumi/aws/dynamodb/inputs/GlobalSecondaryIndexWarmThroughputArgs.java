@@ -14,32 +14,16 @@ public final class GlobalSecondaryIndexWarmThroughputArgs extends com.pulumi.res
 
     public static final GlobalSecondaryIndexWarmThroughputArgs Empty = new GlobalSecondaryIndexWarmThroughputArgs();
 
-    /**
-     * Number of read operations this index can instantaneously support.
-     * 
-     */
     @Import(name="readUnitsPerSecond", required=true)
     private Output<Integer> readUnitsPerSecond;
 
-    /**
-     * @return Number of read operations this index can instantaneously support.
-     * 
-     */
     public Output<Integer> readUnitsPerSecond() {
         return this.readUnitsPerSecond;
     }
 
-    /**
-     * Number of write operations this index can instantaneously support.
-     * 
-     */
     @Import(name="writeUnitsPerSecond", required=true)
     private Output<Integer> writeUnitsPerSecond;
 
-    /**
-     * @return Number of write operations this index can instantaneously support.
-     * 
-     */
     public Output<Integer> writeUnitsPerSecond() {
         return this.writeUnitsPerSecond;
     }
@@ -69,44 +53,20 @@ public final class GlobalSecondaryIndexWarmThroughputArgs extends com.pulumi.res
             $ = new GlobalSecondaryIndexWarmThroughputArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param readUnitsPerSecond Number of read operations this index can instantaneously support.
-         * 
-         * @return builder
-         * 
-         */
         public Builder readUnitsPerSecond(Output<Integer> readUnitsPerSecond) {
             $.readUnitsPerSecond = readUnitsPerSecond;
             return this;
         }
 
-        /**
-         * @param readUnitsPerSecond Number of read operations this index can instantaneously support.
-         * 
-         * @return builder
-         * 
-         */
         public Builder readUnitsPerSecond(Integer readUnitsPerSecond) {
             return readUnitsPerSecond(Output.of(readUnitsPerSecond));
         }
 
-        /**
-         * @param writeUnitsPerSecond Number of write operations this index can instantaneously support.
-         * 
-         * @return builder
-         * 
-         */
         public Builder writeUnitsPerSecond(Output<Integer> writeUnitsPerSecond) {
             $.writeUnitsPerSecond = writeUnitsPerSecond;
             return this;
         }
 
-        /**
-         * @param writeUnitsPerSecond Number of write operations this index can instantaneously support.
-         * 
-         * @return builder
-         * 
-         */
         public Builder writeUnitsPerSecond(Integer writeUnitsPerSecond) {
             return writeUnitsPerSecond(Output.of(writeUnitsPerSecond));
         }

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class LogTransformerTransformerConfigParseWafArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
-        /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
 

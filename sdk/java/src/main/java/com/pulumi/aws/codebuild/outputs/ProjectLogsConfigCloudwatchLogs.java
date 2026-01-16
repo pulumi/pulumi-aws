@@ -11,43 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ProjectLogsConfigCloudwatchLogs {
-    /**
-     * @return Group name of the logs in CloudWatch Logs.
-     * 
-     */
     private @Nullable String groupName;
-    /**
-     * @return Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`,
-     * `DISABLED`. Defaults to `ENABLED`.
-     * 
-     */
     private @Nullable String status;
-    /**
-     * @return Prefix of the log stream name of the logs in CloudWatch Logs.
-     * 
-     */
     private @Nullable String streamName;
 
     private ProjectLogsConfigCloudwatchLogs() {}
-    /**
-     * @return Group name of the logs in CloudWatch Logs.
-     * 
-     */
     public Optional<String> groupName() {
         return Optional.ofNullable(this.groupName);
     }
-    /**
-     * @return Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`,
-     * `DISABLED`. Defaults to `ENABLED`.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }
-    /**
-     * @return Prefix of the log stream name of the logs in CloudWatch Logs.
-     * 
-     */
     public Optional<String> streamName() {
         return Optional.ofNullable(this.streamName);
     }

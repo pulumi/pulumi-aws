@@ -12,65 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ProjectLogsConfigS3Logs {
-    /**
-     * @return Specifies the bucket owner&#39;s access for objects that another account uploads to
-     * their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these
-     * objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`,
-     * `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission
-     * allows CodeBuild to modify the access control list for the bucket.
-     * 
-     */
     private @Nullable String bucketOwnerAccess;
-    /**
-     * @return Whether to disable encrypting S3 logs. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean encryptionDisabled;
-    /**
-     * @return Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`,
-     * otherwise it must be empty.
-     * 
-     */
     private @Nullable String location;
-    /**
-     * @return Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults
-     * to `DISABLED`.
-     * 
-     */
     private @Nullable String status;
 
     private ProjectLogsConfigS3Logs() {}
-    /**
-     * @return Specifies the bucket owner&#39;s access for objects that another account uploads to
-     * their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these
-     * objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`,
-     * `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission
-     * allows CodeBuild to modify the access control list for the bucket.
-     * 
-     */
     public Optional<String> bucketOwnerAccess() {
         return Optional.ofNullable(this.bucketOwnerAccess);
     }
-    /**
-     * @return Whether to disable encrypting S3 logs. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> encryptionDisabled() {
         return Optional.ofNullable(this.encryptionDisabled);
     }
-    /**
-     * @return Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`,
-     * otherwise it must be empty.
-     * 
-     */
     public Optional<String> location() {
         return Optional.ofNullable(this.location);
     }
-    /**
-     * @return Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults
-     * to `DISABLED`.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class ModelPrimaryContainerAdditionalModelDataSource
     {
-        /// <summary>
-        /// Custom name for the additional model data source object. It will be stored in `/opt/ml/additional-model-data-sources/&lt;channel_name&gt;/`.
-        /// </summary>
         public readonly string ChannelName;
-        /// <summary>
-        /// S3 location of model data to deploy. See S3 Data Source.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ModelPrimaryContainerAdditionalModelDataSourceS3DataSource> S3DataSources;
 
         [OutputConstructor]

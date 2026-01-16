@@ -13,9 +13,6 @@ namespace Pulumi.Aws.ComputeOptimizer.Outputs
     [OutputType]
     public sealed class RecommendationPreferencesExternalMetricsPreference
     {
-        /// <summary>
-        /// The source options for external metrics preferences. Valid values: `Datadog`, `Dynatrace`, `NewRelic`, `Instana`.
-        /// </summary>
         public readonly string Source;
 
         [OutputConstructor]

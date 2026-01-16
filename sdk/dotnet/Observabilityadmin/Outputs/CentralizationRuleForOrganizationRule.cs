@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Observabilityadmin.Outputs
     [OutputType]
     public sealed class CentralizationRuleForOrganizationRule
     {
-        /// <summary>
-        /// Configuration block for the destination where logs will be centralized. See `Destination` below.
-        /// </summary>
         public readonly Outputs.CentralizationRuleForOrganizationRuleDestination? Destination;
-        /// <summary>
-        /// Configuration block for the source of logs to be centralized. See `Source` below.
-        /// </summary>
         public readonly Outputs.CentralizationRuleForOrganizationRuleSource? Source;
 
         [OutputConstructor]

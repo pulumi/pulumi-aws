@@ -12,10 +12,6 @@ namespace Pulumi.Aws.VpcLattice.Inputs
 
     public sealed class ListenerRuleMatchGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The HTTP criteria that a rule must match.
-        /// See `HttpMatch` Block for details.
-        /// </summary>
         [Input("httpMatch", required: true)]
         public Input<Inputs.ListenerRuleMatchHttpMatchGetArgs> HttpMatch { get; set; } = null!;
 

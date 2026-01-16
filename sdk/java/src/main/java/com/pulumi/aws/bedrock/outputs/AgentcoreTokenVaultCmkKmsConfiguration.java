@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreTokenVaultCmkKmsConfiguration {
-    /**
-     * @return Type of KMS key. Valid values: `CustomerManagedKey`, `ServiceManagedKey`.
-     * 
-     */
     private String keyType;
-    /**
-     * @return ARN of the KMS key.
-     * 
-     */
     private @Nullable String kmsKeyArn;
 
     private AgentcoreTokenVaultCmkKmsConfiguration() {}
-    /**
-     * @return Type of KMS key. Valid values: `CustomerManagedKey`, `ServiceManagedKey`.
-     * 
-     */
     public String keyType() {
         return this.keyType;
     }
-    /**
-     * @return ARN of the KMS key.
-     * 
-     */
     public Optional<String> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }

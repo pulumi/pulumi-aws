@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class LfTagExpressionExpression {
-    /**
-     * @return The key-name for the LF-Tag.
-     * 
-     */
     private String tagKey;
-    /**
-     * @return A list of possible values for the LF-Tag
-     * 
-     */
     private List<String> tagValues;
 
     private LfTagExpressionExpression() {}
-    /**
-     * @return The key-name for the LF-Tag.
-     * 
-     */
     public String tagKey() {
         return this.tagKey;
     }
-    /**
-     * @return A list of possible values for the LF-Tag
-     * 
-     */
     public List<String> tagValues() {
         return this.tagValues;
     }

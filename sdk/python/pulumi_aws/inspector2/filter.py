@@ -30,15 +30,6 @@ class FilterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Filter resource.
-        :param pulumi.Input[_builtins.str] action: Action to be applied to the findings that maatch the filter. Possible values are `NONE` and `SUPPRESS`
-        :param pulumi.Input[_builtins.str] description: Description
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaArgs']]] filter_criterias: Details on the filter criteria. Documented below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] name: Name of the filter.
-        :param pulumi.Input[_builtins.str] reason: Reason for creating the filter
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "action", action)
         if description is not None:
@@ -57,9 +48,6 @@ class FilterArgs:
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Input[_builtins.str]:
-        """
-        Action to be applied to the findings that maatch the filter. Possible values are `NONE` and `SUPPRESS`
-        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -69,9 +57,6 @@ class FilterArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -81,11 +66,6 @@ class FilterArgs:
     @_builtins.property
     @pulumi.getter(name="filterCriterias")
     def filter_criterias(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaArgs']]]]:
-        """
-        Details on the filter criteria. Documented below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "filter_criterias")
 
     @filter_criterias.setter
@@ -95,9 +75,6 @@ class FilterArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the filter.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -107,9 +84,6 @@ class FilterArgs:
     @_builtins.property
     @pulumi.getter
     def reason(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Reason for creating the filter
-        """
         return pulumi.get(self, "reason")
 
     @reason.setter
@@ -119,9 +93,6 @@ class FilterArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -131,9 +102,6 @@ class FilterArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -155,17 +123,6 @@ class _FilterState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Filter resources.
-        :param pulumi.Input[_builtins.str] action: Action to be applied to the findings that maatch the filter. Possible values are `NONE` and `SUPPRESS`
-        :param pulumi.Input[_builtins.str] arn: ARN of the Filter.
-        :param pulumi.Input[_builtins.str] description: Description
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaArgs']]] filter_criterias: Details on the filter criteria. Documented below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] name: Name of the filter.
-        :param pulumi.Input[_builtins.str] reason: Reason for creating the filter
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -189,9 +146,6 @@ class _FilterState:
     @_builtins.property
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Action to be applied to the findings that maatch the filter. Possible values are `NONE` and `SUPPRESS`
-        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -201,9 +155,6 @@ class _FilterState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Filter.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -213,9 +164,6 @@ class _FilterState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -225,11 +173,6 @@ class _FilterState:
     @_builtins.property
     @pulumi.getter(name="filterCriterias")
     def filter_criterias(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaArgs']]]]:
-        """
-        Details on the filter criteria. Documented below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "filter_criterias")
 
     @filter_criterias.setter
@@ -239,9 +182,6 @@ class _FilterState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the filter.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -251,9 +191,6 @@ class _FilterState:
     @_builtins.property
     @pulumi.getter
     def reason(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Reason for creating the filter
-        """
         return pulumi.get(self, "reason")
 
     @reason.setter
@@ -263,9 +200,6 @@ class _FilterState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -275,9 +209,6 @@ class _FilterState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -287,9 +218,6 @@ class _FilterState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -312,46 +240,9 @@ class Filter(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Inspector Filter.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.inspector2.Filter("example",
-            name="test",
-            action="NONE",
-            filter_criterias=[{
-                "aws_account_ids": [{
-                    "comparison": "EQUALS",
-                    "value": "111222333444",
-                }],
-            }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Inspector Filter using the `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:inspector2/filter:Filter example "arn:aws:inspector2:us-east-1:111222333444:owner/111222333444/filter/abcdefgh12345678"
-        ```
-
+        Create a Filter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] action: Action to be applied to the findings that maatch the filter. Possible values are `NONE` and `SUPPRESS`
-        :param pulumi.Input[_builtins.str] description: Description
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FilterFilterCriteriaArgs', 'FilterFilterCriteriaArgsDict']]]] filter_criterias: Details on the filter criteria. Documented below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] name: Name of the filter.
-        :param pulumi.Input[_builtins.str] reason: Reason for creating the filter
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -360,35 +251,7 @@ class Filter(pulumi.CustomResource):
                  args: FilterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Inspector Filter.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.inspector2.Filter("example",
-            name="test",
-            action="NONE",
-            filter_criterias=[{
-                "aws_account_ids": [{
-                    "comparison": "EQUALS",
-                    "value": "111222333444",
-                }],
-            }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Inspector Filter using the `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:inspector2/filter:Filter example "arn:aws:inspector2:us-east-1:111222333444:owner/111222333444/filter/abcdefgh12345678"
-        ```
-
+        Create a Filter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param FilterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -457,17 +320,6 @@ class Filter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] action: Action to be applied to the findings that maatch the filter. Possible values are `NONE` and `SUPPRESS`
-        :param pulumi.Input[_builtins.str] arn: ARN of the Filter.
-        :param pulumi.Input[_builtins.str] description: Description
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FilterFilterCriteriaArgs', 'FilterFilterCriteriaArgsDict']]]] filter_criterias: Details on the filter criteria. Documented below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] name: Name of the filter.
-        :param pulumi.Input[_builtins.str] reason: Reason for creating the filter
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -487,74 +339,45 @@ class Filter(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Output[_builtins.str]:
-        """
-        Action to be applied to the findings that maatch the filter. Possible values are `NONE` and `SUPPRESS`
-        """
         return pulumi.get(self, "action")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Filter.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="filterCriterias")
     def filter_criterias(self) -> pulumi.Output[Optional[Sequence['outputs.FilterFilterCriteria']]]:
-        """
-        Details on the filter criteria. Documented below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "filter_criterias")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the filter.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def reason(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Reason for creating the filter
-        """
         return pulumi.get(self, "reason")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

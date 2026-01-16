@@ -17,47 +17,23 @@ public final class DefaultCreditSpecificationArgs extends com.pulumi.resources.R
 
     public static final DefaultCreditSpecificationArgs Empty = new DefaultCreditSpecificationArgs();
 
-    /**
-     * Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
-     * 
-     */
     @Import(name="cpuCredits", required=true)
     private Output<String> cpuCredits;
 
-    /**
-     * @return Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
-     * 
-     */
     public Output<String> cpuCredits() {
         return this.cpuCredits;
     }
 
-    /**
-     * Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
-     * 
-     */
     @Import(name="instanceFamily", required=true)
     private Output<String> instanceFamily;
 
-    /**
-     * @return Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
-     * 
-     */
     public Output<String> instanceFamily() {
         return this.instanceFamily;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -96,65 +72,29 @@ public final class DefaultCreditSpecificationArgs extends com.pulumi.resources.R
             $ = new DefaultCreditSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cpuCredits Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cpuCredits(Output<String> cpuCredits) {
             $.cpuCredits = cpuCredits;
             return this;
         }
 
-        /**
-         * @param cpuCredits Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cpuCredits(String cpuCredits) {
             return cpuCredits(Output.of(cpuCredits));
         }
 
-        /**
-         * @param instanceFamily Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceFamily(Output<String> instanceFamily) {
             $.instanceFamily = instanceFamily;
             return this;
         }
 
-        /**
-         * @param instanceFamily Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceFamily(String instanceFamily) {
             return instanceFamily(Output.of(instanceFamily));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

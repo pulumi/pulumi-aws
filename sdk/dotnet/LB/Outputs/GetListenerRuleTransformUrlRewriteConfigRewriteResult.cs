@@ -13,13 +13,7 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class GetListenerRuleTransformUrlRewriteConfigRewriteResult
     {
-        /// <summary>
-        /// Regular expression to match in the input string.
-        /// </summary>
         public readonly string Regex;
-        /// <summary>
-        /// Replacement string to use when rewriting the matched input.
-        /// </summary>
         public readonly string Replace;
 
         [OutputConstructor]

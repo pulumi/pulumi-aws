@@ -14,17 +14,9 @@ public final class ChannelNamespacePublishAuthModeArgs extends com.pulumi.resour
 
     public static final ChannelNamespacePublishAuthModeArgs Empty = new ChannelNamespacePublishAuthModeArgs();
 
-    /**
-     * Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
-     * 
-     */
     @Import(name="authType", required=true)
     private Output<String> authType;
 
-    /**
-     * @return Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
-     * 
-     */
     public Output<String> authType() {
         return this.authType;
     }
@@ -53,23 +45,11 @@ public final class ChannelNamespacePublishAuthModeArgs extends com.pulumi.resour
             $ = new ChannelNamespacePublishAuthModeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authType Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authType(Output<String> authType) {
             $.authType = authType;
             return this;
         }
 
-        /**
-         * @param authType Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authType(String authType) {
             return authType(Output.of(authType));
         }

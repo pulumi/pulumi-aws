@@ -13,9 +13,6 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class DomainOffPeakWindowOptions
     {
-        /// <summary>
-        /// Enabled disabled toggle for off-peak update window.
-        /// </summary>
         public readonly bool? Enabled;
         public readonly Outputs.DomainOffPeakWindowOptionsOffPeakWindow? OffPeakWindow;
 

@@ -18,186 +18,53 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS Opensearch Outbound Connection.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.opensearch.OutboundConnection;
- * import com.pulumi.aws.opensearch.OutboundConnectionArgs;
- * import com.pulumi.aws.opensearch.inputs.OutboundConnectionLocalDomainInfoArgs;
- * import com.pulumi.aws.opensearch.inputs.OutboundConnectionRemoteDomainInfoArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         final var currentGetRegion = AwsFunctions.getRegion(GetRegionArgs.builder()
- *             .build());
- * 
- *         var foo = new OutboundConnection("foo", OutboundConnectionArgs.builder()
- *             .connectionAlias("outbound_connection")
- *             .connectionMode("DIRECT")
- *             .localDomainInfo(OutboundConnectionLocalDomainInfoArgs.builder()
- *                 .ownerId(current.accountId())
- *                 .region(currentGetRegion.region())
- *                 .domainName(localDomain.domainName())
- *                 .build())
- *             .remoteDomainInfo(OutboundConnectionRemoteDomainInfoArgs.builder()
- *                 .ownerId(current.accountId())
- *                 .region(currentGetRegion.region())
- *                 .domainName(remoteDomain.domainName())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import AWS Opensearch Outbound Connections using the Outbound Connection ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
- * ```
- * 
- */
 @ResourceType(type="aws:opensearch/outboundConnection:OutboundConnection")
 public class OutboundConnection extends com.pulumi.resources.CustomResource {
-    /**
-     * Accepts the connection.
-     * 
-     */
     @Export(name="acceptConnection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> acceptConnection;
 
-    /**
-     * @return Accepts the connection.
-     * 
-     */
     public Output<Optional<Boolean>> acceptConnection() {
         return Codegen.optional(this.acceptConnection);
     }
-    /**
-     * Specifies the connection alias that will be used by the customer for this connection.
-     * 
-     */
     @Export(name="connectionAlias", refs={String.class}, tree="[0]")
     private Output<String> connectionAlias;
 
-    /**
-     * @return Specifies the connection alias that will be used by the customer for this connection.
-     * 
-     */
     public Output<String> connectionAlias() {
         return this.connectionAlias;
     }
-    /**
-     * Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
-     * 
-     */
     @Export(name="connectionMode", refs={String.class}, tree="[0]")
     private Output<String> connectionMode;
 
-    /**
-     * @return Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
-     * 
-     */
     public Output<String> connectionMode() {
         return this.connectionMode;
     }
-    /**
-     * Configuration block for the outbound connection.
-     * 
-     */
     @Export(name="connectionProperties", refs={OutboundConnectionConnectionProperties.class}, tree="[0]")
     private Output<OutboundConnectionConnectionProperties> connectionProperties;
 
-    /**
-     * @return Configuration block for the outbound connection.
-     * 
-     */
     public Output<OutboundConnectionConnectionProperties> connectionProperties() {
         return this.connectionProperties;
     }
-    /**
-     * Status of the connection request.
-     * 
-     */
     @Export(name="connectionStatus", refs={String.class}, tree="[0]")
     private Output<String> connectionStatus;
 
-    /**
-     * @return Status of the connection request.
-     * 
-     */
     public Output<String> connectionStatus() {
         return this.connectionStatus;
     }
-    /**
-     * Configuration block for the local Opensearch domain.
-     * 
-     */
     @Export(name="localDomainInfo", refs={OutboundConnectionLocalDomainInfo.class}, tree="[0]")
     private Output<OutboundConnectionLocalDomainInfo> localDomainInfo;
 
-    /**
-     * @return Configuration block for the local Opensearch domain.
-     * 
-     */
     public Output<OutboundConnectionLocalDomainInfo> localDomainInfo() {
         return this.localDomainInfo;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Configuration block for the remote Opensearch domain.
-     * 
-     */
     @Export(name="remoteDomainInfo", refs={OutboundConnectionRemoteDomainInfo.class}, tree="[0]")
     private Output<OutboundConnectionRemoteDomainInfo> remoteDomainInfo;
 
-    /**
-     * @return Configuration block for the remote Opensearch domain.
-     * 
-     */
     public Output<OutboundConnectionRemoteDomainInfo> remoteDomainInfo() {
         return this.remoteDomainInfo;
     }

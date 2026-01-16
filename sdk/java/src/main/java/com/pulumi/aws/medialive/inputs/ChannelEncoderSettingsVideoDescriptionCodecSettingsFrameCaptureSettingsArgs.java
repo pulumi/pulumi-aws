@@ -16,32 +16,16 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptu
 
     public static final ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs Empty = new ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs();
 
-    /**
-     * The frequency at which to capture frames for inclusion in the output.
-     * 
-     */
     @Import(name="captureInterval")
     private @Nullable Output<Integer> captureInterval;
 
-    /**
-     * @return The frequency at which to capture frames for inclusion in the output.
-     * 
-     */
     public Optional<Output<Integer>> captureInterval() {
         return Optional.ofNullable(this.captureInterval);
     }
 
-    /**
-     * Unit for the frame capture interval.
-     * 
-     */
     @Import(name="captureIntervalUnits")
     private @Nullable Output<String> captureIntervalUnits;
 
-    /**
-     * @return Unit for the frame capture interval.
-     * 
-     */
     public Optional<Output<String>> captureIntervalUnits() {
         return Optional.ofNullable(this.captureIntervalUnits);
     }
@@ -71,44 +55,20 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptu
             $ = new ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param captureInterval The frequency at which to capture frames for inclusion in the output.
-         * 
-         * @return builder
-         * 
-         */
         public Builder captureInterval(@Nullable Output<Integer> captureInterval) {
             $.captureInterval = captureInterval;
             return this;
         }
 
-        /**
-         * @param captureInterval The frequency at which to capture frames for inclusion in the output.
-         * 
-         * @return builder
-         * 
-         */
         public Builder captureInterval(Integer captureInterval) {
             return captureInterval(Output.of(captureInterval));
         }
 
-        /**
-         * @param captureIntervalUnits Unit for the frame capture interval.
-         * 
-         * @return builder
-         * 
-         */
         public Builder captureIntervalUnits(@Nullable Output<String> captureIntervalUnits) {
             $.captureIntervalUnits = captureIntervalUnits;
             return this;
         }
 
-        /**
-         * @param captureIntervalUnits Unit for the frame capture interval.
-         * 
-         * @return builder
-         * 
-         */
         public Builder captureIntervalUnits(String captureIntervalUnits) {
             return captureIntervalUnits(Output.of(captureIntervalUnits));
         }

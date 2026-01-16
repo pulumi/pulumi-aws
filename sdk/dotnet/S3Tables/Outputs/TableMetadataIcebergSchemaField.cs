@@ -18,11 +18,11 @@ namespace Pulumi.Aws.S3Tables.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A Boolean value that specifies whether values are required for each row in this field. Defaults to `False`.
+        /// A Boolean value that specifies whether values are required for each row in this field. Default: false.
         /// </summary>
         public readonly bool? Required;
         /// <summary>
-        /// The field type. S3 Tables supports all Apache Iceberg primitive types including: `Boolean`, `Int`, `Long`, `Float`, `Double`, `decimal(precision,scale)`, `Date`, `Time`, `Timestamp`, `Timestamptz`, `String`, `Uuid`, `fixed(length)`, `Binary`.
+        /// The field type. S3 Tables supports all Apache Iceberg primitive types.
         /// </summary>
         public readonly string Type;
 

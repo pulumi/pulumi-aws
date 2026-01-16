@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class LogTransformerTransformerConfigParseJson
     {
-        /// <summary>
-        /// Specifies the location to put the parsed key value pair into. If omitted, it will be placed under the root node.
-        /// </summary>
         public readonly string? Destination;
-        /// <summary>
-        /// Specifies the path to the field in the log event that will be parsed. Defaults to `@message`.
-        /// </summary>
         public readonly string? Source;
 
         [OutputConstructor]

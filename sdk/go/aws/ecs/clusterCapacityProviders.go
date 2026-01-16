@@ -12,70 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages the capacity providers of an ECS Cluster.
-//
-// More information about capacity providers can be found in the [ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ecs.NewCluster(ctx, "example", &ecs.ClusterArgs{
-//				Name: pulumi.String("my-cluster"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ecs.NewClusterCapacityProviders(ctx, "example", &ecs.ClusterCapacityProvidersArgs{
-//				ClusterName: example.Name,
-//				CapacityProviders: pulumi.StringArray{
-//					pulumi.String("FARGATE"),
-//				},
-//				DefaultCapacityProviderStrategies: ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArray{
-//					&ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs{
-//						Base:             pulumi.Int(1),
-//						Weight:           pulumi.Int(100),
-//						CapacityProvider: pulumi.String("FARGATE"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import ECS cluster capacity providers using the `cluster_name` attribute. For example:
-//
-// ```sh
-// $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
-// ```
 type ClusterCapacityProviders struct {
 	pulumi.CustomResourceState
 
-	// Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-	CapacityProviders pulumi.StringArrayOutput `pulumi:"capacityProviders"`
-	// Name of the ECS cluster to manage capacity providers for.
-	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
-	// Set of capacity provider strategies to use by default for the cluster. Detailed below.
+	CapacityProviders                 pulumi.StringArrayOutput                                           `pulumi:"capacityProviders"`
+	ClusterName                       pulumi.StringOutput                                                `pulumi:"clusterName"`
 	DefaultCapacityProviderStrategies ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput `pulumi:"defaultCapacityProviderStrategies"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region                            pulumi.StringOutput                                                `pulumi:"region"`
 }
 
 // NewClusterCapacityProviders registers a new resource with the given unique name, arguments, and options.
@@ -111,25 +54,17 @@ func GetClusterCapacityProviders(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ClusterCapacityProviders resources.
 type clusterCapacityProvidersState struct {
-	// Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-	CapacityProviders []string `pulumi:"capacityProviders"`
-	// Name of the ECS cluster to manage capacity providers for.
-	ClusterName *string `pulumi:"clusterName"`
-	// Set of capacity provider strategies to use by default for the cluster. Detailed below.
+	CapacityProviders                 []string                                                  `pulumi:"capacityProviders"`
+	ClusterName                       *string                                                   `pulumi:"clusterName"`
 	DefaultCapacityProviderStrategies []ClusterCapacityProvidersDefaultCapacityProviderStrategy `pulumi:"defaultCapacityProviderStrategies"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region                            *string                                                   `pulumi:"region"`
 }
 
 type ClusterCapacityProvidersState struct {
-	// Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-	CapacityProviders pulumi.StringArrayInput
-	// Name of the ECS cluster to manage capacity providers for.
-	ClusterName pulumi.StringPtrInput
-	// Set of capacity provider strategies to use by default for the cluster. Detailed below.
+	CapacityProviders                 pulumi.StringArrayInput
+	ClusterName                       pulumi.StringPtrInput
 	DefaultCapacityProviderStrategies ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region                            pulumi.StringPtrInput
 }
 
 func (ClusterCapacityProvidersState) ElementType() reflect.Type {
@@ -137,26 +72,18 @@ func (ClusterCapacityProvidersState) ElementType() reflect.Type {
 }
 
 type clusterCapacityProvidersArgs struct {
-	// Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-	CapacityProviders []string `pulumi:"capacityProviders"`
-	// Name of the ECS cluster to manage capacity providers for.
-	ClusterName string `pulumi:"clusterName"`
-	// Set of capacity provider strategies to use by default for the cluster. Detailed below.
+	CapacityProviders                 []string                                                  `pulumi:"capacityProviders"`
+	ClusterName                       string                                                    `pulumi:"clusterName"`
 	DefaultCapacityProviderStrategies []ClusterCapacityProvidersDefaultCapacityProviderStrategy `pulumi:"defaultCapacityProviderStrategies"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region                            *string                                                   `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ClusterCapacityProviders resource.
 type ClusterCapacityProvidersArgs struct {
-	// Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-	CapacityProviders pulumi.StringArrayInput
-	// Name of the ECS cluster to manage capacity providers for.
-	ClusterName pulumi.StringInput
-	// Set of capacity provider strategies to use by default for the cluster. Detailed below.
+	CapacityProviders                 pulumi.StringArrayInput
+	ClusterName                       pulumi.StringInput
 	DefaultCapacityProviderStrategies ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region                            pulumi.StringPtrInput
 }
 
 func (ClusterCapacityProvidersArgs) ElementType() reflect.Type {
@@ -246,24 +173,20 @@ func (o ClusterCapacityProvidersOutput) ToClusterCapacityProvidersOutputWithCont
 	return o
 }
 
-// Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
 func (o ClusterCapacityProvidersOutput) CapacityProviders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterCapacityProviders) pulumi.StringArrayOutput { return v.CapacityProviders }).(pulumi.StringArrayOutput)
 }
 
-// Name of the ECS cluster to manage capacity providers for.
 func (o ClusterCapacityProvidersOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterCapacityProviders) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
 }
 
-// Set of capacity provider strategies to use by default for the cluster. Detailed below.
 func (o ClusterCapacityProvidersOutput) DefaultCapacityProviderStrategies() ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput {
 	return o.ApplyT(func(v *ClusterCapacityProviders) ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput {
 		return v.DefaultCapacityProviderStrategies
 	}).(ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ClusterCapacityProvidersOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterCapacityProviders) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

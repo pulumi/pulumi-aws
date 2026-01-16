@@ -12,160 +12,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS MediaLive Channel.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/medialive"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := medialive.NewChannel(ctx, "example", &medialive.ChannelArgs{
-//				Name:         pulumi.String("example-channel"),
-//				ChannelClass: pulumi.String("STANDARD"),
-//				RoleArn:      pulumi.Any(exampleAwsIamRole.Arn),
-//				InputSpecification: &medialive.ChannelInputSpecificationArgs{
-//					Codec:           pulumi.String("AVC"),
-//					InputResolution: pulumi.String("HD"),
-//					MaximumBitrate:  pulumi.String("MAX_20_MBPS"),
-//				},
-//				InputAttachments: medialive.ChannelInputAttachmentArray{
-//					&medialive.ChannelInputAttachmentArgs{
-//						InputAttachmentName: pulumi.String("example-input"),
-//						InputId:             pulumi.Any(exampleAwsMedialiveInput.Id),
-//					},
-//				},
-//				Destinations: medialive.ChannelDestinationArray{
-//					&medialive.ChannelDestinationArgs{
-//						Id: pulumi.String("destination"),
-//						Settings: medialive.ChannelDestinationSettingArray{
-//							&medialive.ChannelDestinationSettingArgs{
-//								Url: pulumi.Sprintf("s3://%v/test1", main.Id),
-//							},
-//							&medialive.ChannelDestinationSettingArgs{
-//								Url: pulumi.Sprintf("s3://%v/test2", main2.Id),
-//							},
-//						},
-//					},
-//				},
-//				EncoderSettings: &medialive.ChannelEncoderSettingsArgs{
-//					TimecodeConfig: &medialive.ChannelEncoderSettingsTimecodeConfigArgs{
-//						Source: pulumi.String("EMBEDDED"),
-//					},
-//					AudioDescriptions: medialive.ChannelEncoderSettingsAudioDescriptionArray{
-//						&medialive.ChannelEncoderSettingsAudioDescriptionArgs{
-//							AudioSelectorName: pulumi.String("example audio selector"),
-//							Name:              pulumi.String("audio-selector"),
-//						},
-//					},
-//					VideoDescriptions: medialive.ChannelEncoderSettingsVideoDescriptionArray{
-//						&medialive.ChannelEncoderSettingsVideoDescriptionArgs{
-//							Name: pulumi.String("example-video"),
-//						},
-//					},
-//					OutputGroups: medialive.ChannelEncoderSettingsOutputGroupArray{
-//						&medialive.ChannelEncoderSettingsOutputGroupArgs{
-//							OutputGroupSettings: &medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs{
-//								ArchiveGroupSettings: medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArray{
-//									&medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs{
-//										Destination: &medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs{
-//											DestinationRefId: pulumi.String("destination"),
-//										},
-//									},
-//								},
-//							},
-//							Outputs: medialive.ChannelEncoderSettingsOutputGroupOutputTypeArray{
-//								&medialive.ChannelEncoderSettingsOutputGroupOutputTypeArgs{
-//									OutputName:           pulumi.String("example-name"),
-//									VideoDescriptionName: pulumi.String("example-video"),
-//									AudioDescriptionNames: pulumi.StringArray{
-//										pulumi.String("audio-selector"),
-//									},
-//									OutputSettings: &medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs{
-//										ArchiveOutputSettings: &medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs{
-//											NameModifier: pulumi.String("_1"),
-//											Extension:    pulumi.String("m2ts"),
-//											ContainerSettings: &medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs{
-//												M2tsSettings: &medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs{
-//													AudioBufferModel: pulumi.String("ATSC"),
-//													BufferModel:      pulumi.String("MULTIPLEX"),
-//													RateMode:         pulumi.String("CBR"),
-//												},
-//											},
-//										},
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import MediaLive Channel using the `channel_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:medialive/channel:Channel example 1234567
-// ```
 type Channel struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Channel.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Specification of CDI inputs for this channel. See CDI Input Specification for more details.
+	Arn                   pulumi.StringOutput                   `pulumi:"arn"`
 	CdiInputSpecification ChannelCdiInputSpecificationPtrOutput `pulumi:"cdiInputSpecification"`
-	// Concise argument description.
-	ChannelClass pulumi.StringOutput `pulumi:"channelClass"`
-	// ID of the Channel.
-	ChannelId pulumi.StringOutput `pulumi:"channelId"`
-	// Destinations for channel. See Destinations for more details.
-	Destinations ChannelDestinationArrayOutput `pulumi:"destinations"`
-	// Encoder settings. See Encoder Settings for more details.
-	EncoderSettings ChannelEncoderSettingsOutput `pulumi:"encoderSettings"`
-	// Input attachments for the channel. See Input Attachments for more details.
-	InputAttachments ChannelInputAttachmentArrayOutput `pulumi:"inputAttachments"`
-	// Specification of network and file inputs for the channel.
-	InputSpecification ChannelInputSpecificationOutput `pulumi:"inputSpecification"`
-	// The log level to write to Cloudwatch logs.
-	LogLevel pulumi.StringOutput `pulumi:"logLevel"`
-	// Maintenance settings for this channel. See Maintenance for more details.
-	Maintenance ChannelMaintenanceOutput `pulumi:"maintenance"`
-	// Name of the Channel.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Concise argument description.
-	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
-	// Whether to start/stop channel. Default: `false`
-	StartChannel pulumi.BoolPtrOutput `pulumi:"startChannel"`
-	// A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Settings for the VPC outputs. See VPC for more details.
-	Vpc ChannelVpcPtrOutput `pulumi:"vpc"`
+	ChannelClass          pulumi.StringOutput                   `pulumi:"channelClass"`
+	ChannelId             pulumi.StringOutput                   `pulumi:"channelId"`
+	Destinations          ChannelDestinationArrayOutput         `pulumi:"destinations"`
+	EncoderSettings       ChannelEncoderSettingsOutput          `pulumi:"encoderSettings"`
+	InputAttachments      ChannelInputAttachmentArrayOutput     `pulumi:"inputAttachments"`
+	InputSpecification    ChannelInputSpecificationOutput       `pulumi:"inputSpecification"`
+	LogLevel              pulumi.StringOutput                   `pulumi:"logLevel"`
+	Maintenance           ChannelMaintenanceOutput              `pulumi:"maintenance"`
+	Name                  pulumi.StringOutput                   `pulumi:"name"`
+	Region                pulumi.StringOutput                   `pulumi:"region"`
+	RoleArn               pulumi.StringPtrOutput                `pulumi:"roleArn"`
+	StartChannel          pulumi.BoolPtrOutput                  `pulumi:"startChannel"`
+	Tags                  pulumi.StringMapOutput                `pulumi:"tags"`
+	TagsAll               pulumi.StringMapOutput                `pulumi:"tagsAll"`
+	Vpc                   ChannelVpcPtrOutput                   `pulumi:"vpc"`
 }
 
 // NewChannel registers a new resource with the given unique name, arguments, and options.
@@ -213,79 +79,43 @@ func GetChannel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Channel resources.
 type channelState struct {
-	// ARN of the Channel.
-	Arn *string `pulumi:"arn"`
-	// Specification of CDI inputs for this channel. See CDI Input Specification for more details.
+	Arn                   *string                       `pulumi:"arn"`
 	CdiInputSpecification *ChannelCdiInputSpecification `pulumi:"cdiInputSpecification"`
-	// Concise argument description.
-	ChannelClass *string `pulumi:"channelClass"`
-	// ID of the Channel.
-	ChannelId *string `pulumi:"channelId"`
-	// Destinations for channel. See Destinations for more details.
-	Destinations []ChannelDestination `pulumi:"destinations"`
-	// Encoder settings. See Encoder Settings for more details.
-	EncoderSettings *ChannelEncoderSettings `pulumi:"encoderSettings"`
-	// Input attachments for the channel. See Input Attachments for more details.
-	InputAttachments []ChannelInputAttachment `pulumi:"inputAttachments"`
-	// Specification of network and file inputs for the channel.
-	InputSpecification *ChannelInputSpecification `pulumi:"inputSpecification"`
-	// The log level to write to Cloudwatch logs.
-	LogLevel *string `pulumi:"logLevel"`
-	// Maintenance settings for this channel. See Maintenance for more details.
-	Maintenance *ChannelMaintenance `pulumi:"maintenance"`
-	// Name of the Channel.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Concise argument description.
-	RoleArn *string `pulumi:"roleArn"`
-	// Whether to start/stop channel. Default: `false`
-	StartChannel *bool `pulumi:"startChannel"`
-	// A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Settings for the VPC outputs. See VPC for more details.
-	Vpc *ChannelVpc `pulumi:"vpc"`
+	ChannelClass          *string                       `pulumi:"channelClass"`
+	ChannelId             *string                       `pulumi:"channelId"`
+	Destinations          []ChannelDestination          `pulumi:"destinations"`
+	EncoderSettings       *ChannelEncoderSettings       `pulumi:"encoderSettings"`
+	InputAttachments      []ChannelInputAttachment      `pulumi:"inputAttachments"`
+	InputSpecification    *ChannelInputSpecification    `pulumi:"inputSpecification"`
+	LogLevel              *string                       `pulumi:"logLevel"`
+	Maintenance           *ChannelMaintenance           `pulumi:"maintenance"`
+	Name                  *string                       `pulumi:"name"`
+	Region                *string                       `pulumi:"region"`
+	RoleArn               *string                       `pulumi:"roleArn"`
+	StartChannel          *bool                         `pulumi:"startChannel"`
+	Tags                  map[string]string             `pulumi:"tags"`
+	TagsAll               map[string]string             `pulumi:"tagsAll"`
+	Vpc                   *ChannelVpc                   `pulumi:"vpc"`
 }
 
 type ChannelState struct {
-	// ARN of the Channel.
-	Arn pulumi.StringPtrInput
-	// Specification of CDI inputs for this channel. See CDI Input Specification for more details.
+	Arn                   pulumi.StringPtrInput
 	CdiInputSpecification ChannelCdiInputSpecificationPtrInput
-	// Concise argument description.
-	ChannelClass pulumi.StringPtrInput
-	// ID of the Channel.
-	ChannelId pulumi.StringPtrInput
-	// Destinations for channel. See Destinations for more details.
-	Destinations ChannelDestinationArrayInput
-	// Encoder settings. See Encoder Settings for more details.
-	EncoderSettings ChannelEncoderSettingsPtrInput
-	// Input attachments for the channel. See Input Attachments for more details.
-	InputAttachments ChannelInputAttachmentArrayInput
-	// Specification of network and file inputs for the channel.
-	InputSpecification ChannelInputSpecificationPtrInput
-	// The log level to write to Cloudwatch logs.
-	LogLevel pulumi.StringPtrInput
-	// Maintenance settings for this channel. See Maintenance for more details.
-	Maintenance ChannelMaintenancePtrInput
-	// Name of the Channel.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Concise argument description.
-	RoleArn pulumi.StringPtrInput
-	// Whether to start/stop channel. Default: `false`
-	StartChannel pulumi.BoolPtrInput
-	// A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
-	// Settings for the VPC outputs. See VPC for more details.
-	Vpc ChannelVpcPtrInput
+	ChannelClass          pulumi.StringPtrInput
+	ChannelId             pulumi.StringPtrInput
+	Destinations          ChannelDestinationArrayInput
+	EncoderSettings       ChannelEncoderSettingsPtrInput
+	InputAttachments      ChannelInputAttachmentArrayInput
+	InputSpecification    ChannelInputSpecificationPtrInput
+	LogLevel              pulumi.StringPtrInput
+	Maintenance           ChannelMaintenancePtrInput
+	Name                  pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
+	RoleArn               pulumi.StringPtrInput
+	StartChannel          pulumi.BoolPtrInput
+	Tags                  pulumi.StringMapInput
+	TagsAll               pulumi.StringMapInput
+	Vpc                   ChannelVpcPtrInput
 }
 
 func (ChannelState) ElementType() reflect.Type {
@@ -293,70 +123,38 @@ func (ChannelState) ElementType() reflect.Type {
 }
 
 type channelArgs struct {
-	// Specification of CDI inputs for this channel. See CDI Input Specification for more details.
 	CdiInputSpecification *ChannelCdiInputSpecification `pulumi:"cdiInputSpecification"`
-	// Concise argument description.
-	ChannelClass string `pulumi:"channelClass"`
-	// Destinations for channel. See Destinations for more details.
-	Destinations []ChannelDestination `pulumi:"destinations"`
-	// Encoder settings. See Encoder Settings for more details.
-	EncoderSettings ChannelEncoderSettings `pulumi:"encoderSettings"`
-	// Input attachments for the channel. See Input Attachments for more details.
-	InputAttachments []ChannelInputAttachment `pulumi:"inputAttachments"`
-	// Specification of network and file inputs for the channel.
-	InputSpecification ChannelInputSpecification `pulumi:"inputSpecification"`
-	// The log level to write to Cloudwatch logs.
-	LogLevel *string `pulumi:"logLevel"`
-	// Maintenance settings for this channel. See Maintenance for more details.
-	Maintenance *ChannelMaintenance `pulumi:"maintenance"`
-	// Name of the Channel.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Concise argument description.
-	RoleArn *string `pulumi:"roleArn"`
-	// Whether to start/stop channel. Default: `false`
-	StartChannel *bool `pulumi:"startChannel"`
-	// A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Settings for the VPC outputs. See VPC for more details.
-	Vpc *ChannelVpc `pulumi:"vpc"`
+	ChannelClass          string                        `pulumi:"channelClass"`
+	Destinations          []ChannelDestination          `pulumi:"destinations"`
+	EncoderSettings       ChannelEncoderSettings        `pulumi:"encoderSettings"`
+	InputAttachments      []ChannelInputAttachment      `pulumi:"inputAttachments"`
+	InputSpecification    ChannelInputSpecification     `pulumi:"inputSpecification"`
+	LogLevel              *string                       `pulumi:"logLevel"`
+	Maintenance           *ChannelMaintenance           `pulumi:"maintenance"`
+	Name                  *string                       `pulumi:"name"`
+	Region                *string                       `pulumi:"region"`
+	RoleArn               *string                       `pulumi:"roleArn"`
+	StartChannel          *bool                         `pulumi:"startChannel"`
+	Tags                  map[string]string             `pulumi:"tags"`
+	Vpc                   *ChannelVpc                   `pulumi:"vpc"`
 }
 
 // The set of arguments for constructing a Channel resource.
 type ChannelArgs struct {
-	// Specification of CDI inputs for this channel. See CDI Input Specification for more details.
 	CdiInputSpecification ChannelCdiInputSpecificationPtrInput
-	// Concise argument description.
-	ChannelClass pulumi.StringInput
-	// Destinations for channel. See Destinations for more details.
-	Destinations ChannelDestinationArrayInput
-	// Encoder settings. See Encoder Settings for more details.
-	EncoderSettings ChannelEncoderSettingsInput
-	// Input attachments for the channel. See Input Attachments for more details.
-	InputAttachments ChannelInputAttachmentArrayInput
-	// Specification of network and file inputs for the channel.
-	InputSpecification ChannelInputSpecificationInput
-	// The log level to write to Cloudwatch logs.
-	LogLevel pulumi.StringPtrInput
-	// Maintenance settings for this channel. See Maintenance for more details.
-	Maintenance ChannelMaintenancePtrInput
-	// Name of the Channel.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Concise argument description.
-	RoleArn pulumi.StringPtrInput
-	// Whether to start/stop channel. Default: `false`
-	StartChannel pulumi.BoolPtrInput
-	// A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Settings for the VPC outputs. See VPC for more details.
-	Vpc ChannelVpcPtrInput
+	ChannelClass          pulumi.StringInput
+	Destinations          ChannelDestinationArrayInput
+	EncoderSettings       ChannelEncoderSettingsInput
+	InputAttachments      ChannelInputAttachmentArrayInput
+	InputSpecification    ChannelInputSpecificationInput
+	LogLevel              pulumi.StringPtrInput
+	Maintenance           ChannelMaintenancePtrInput
+	Name                  pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
+	RoleArn               pulumi.StringPtrInput
+	StartChannel          pulumi.BoolPtrInput
+	Tags                  pulumi.StringMapInput
+	Vpc                   ChannelVpcPtrInput
 }
 
 func (ChannelArgs) ElementType() reflect.Type {
@@ -446,79 +244,62 @@ func (o ChannelOutput) ToChannelOutputWithContext(ctx context.Context) ChannelOu
 	return o
 }
 
-// ARN of the Channel.
 func (o ChannelOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specification of CDI inputs for this channel. See CDI Input Specification for more details.
 func (o ChannelOutput) CdiInputSpecification() ChannelCdiInputSpecificationPtrOutput {
 	return o.ApplyT(func(v *Channel) ChannelCdiInputSpecificationPtrOutput { return v.CdiInputSpecification }).(ChannelCdiInputSpecificationPtrOutput)
 }
 
-// Concise argument description.
 func (o ChannelOutput) ChannelClass() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.ChannelClass }).(pulumi.StringOutput)
 }
 
-// ID of the Channel.
 func (o ChannelOutput) ChannelId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.ChannelId }).(pulumi.StringOutput)
 }
 
-// Destinations for channel. See Destinations for more details.
 func (o ChannelOutput) Destinations() ChannelDestinationArrayOutput {
 	return o.ApplyT(func(v *Channel) ChannelDestinationArrayOutput { return v.Destinations }).(ChannelDestinationArrayOutput)
 }
 
-// Encoder settings. See Encoder Settings for more details.
 func (o ChannelOutput) EncoderSettings() ChannelEncoderSettingsOutput {
 	return o.ApplyT(func(v *Channel) ChannelEncoderSettingsOutput { return v.EncoderSettings }).(ChannelEncoderSettingsOutput)
 }
 
-// Input attachments for the channel. See Input Attachments for more details.
 func (o ChannelOutput) InputAttachments() ChannelInputAttachmentArrayOutput {
 	return o.ApplyT(func(v *Channel) ChannelInputAttachmentArrayOutput { return v.InputAttachments }).(ChannelInputAttachmentArrayOutput)
 }
 
-// Specification of network and file inputs for the channel.
 func (o ChannelOutput) InputSpecification() ChannelInputSpecificationOutput {
 	return o.ApplyT(func(v *Channel) ChannelInputSpecificationOutput { return v.InputSpecification }).(ChannelInputSpecificationOutput)
 }
 
-// The log level to write to Cloudwatch logs.
 func (o ChannelOutput) LogLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.LogLevel }).(pulumi.StringOutput)
 }
 
-// Maintenance settings for this channel. See Maintenance for more details.
 func (o ChannelOutput) Maintenance() ChannelMaintenanceOutput {
 	return o.ApplyT(func(v *Channel) ChannelMaintenanceOutput { return v.Maintenance }).(ChannelMaintenanceOutput)
 }
 
-// Name of the Channel.
-//
-// The following arguments are optional:
 func (o ChannelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ChannelOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Concise argument description.
 func (o ChannelOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Whether to start/stop channel. Default: `false`
 func (o ChannelOutput) StartChannel() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Channel) pulumi.BoolPtrOutput { return v.StartChannel }).(pulumi.BoolPtrOutput)
 }
 
-// A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ChannelOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -527,7 +308,6 @@ func (o ChannelOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Settings for the VPC outputs. See VPC for more details.
 func (o ChannelOutput) Vpc() ChannelVpcPtrOutput {
 	return o.ApplyT(func(v *Channel) ChannelVpcPtrOutput { return v.Vpc }).(ChannelVpcPtrOutput)
 }

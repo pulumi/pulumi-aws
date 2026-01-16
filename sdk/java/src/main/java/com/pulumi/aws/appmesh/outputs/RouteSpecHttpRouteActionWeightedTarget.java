@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RouteSpecHttpRouteActionWeightedTarget {
-    /**
-     * @return The targeted port of the weighted object.
-     * 
-     */
     private @Nullable Integer port;
-    /**
-     * @return Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
-     * 
-     */
     private String virtualNode;
-    /**
-     * @return Relative weight of the weighted target. An integer between 0 and 100.
-     * 
-     */
     private Integer weight;
 
     private RouteSpecHttpRouteActionWeightedTarget() {}
-    /**
-     * @return The targeted port of the weighted object.
-     * 
-     */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }
-    /**
-     * @return Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
-     * 
-     */
     public String virtualNode() {
         return this.virtualNode;
     }
-    /**
-     * @return Relative weight of the weighted target. An integer between 0 and 100.
-     * 
-     */
     public Integer weight() {
         return this.weight;
     }

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class ListenerDefaultActionJwtValidationAdditionalClaim
     {
-        /// <summary>
-        /// Format of the claim value. Valid values are `single-string`, `string-array` and `space-separated-values`.
-        /// </summary>
         public readonly string Format;
-        /// <summary>
-        /// Name of the claim to validate. `Exp`, `Iss`, `Nbf`, or `Iat` cannot be specified because they are validated by default.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// List of expected values of the claim.
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

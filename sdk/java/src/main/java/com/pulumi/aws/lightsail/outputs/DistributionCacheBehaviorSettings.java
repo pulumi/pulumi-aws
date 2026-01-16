@@ -16,98 +16,98 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DistributionCacheBehaviorSettings {
     /**
-     * @return HTTP methods that are processed and forwarded to the distribution&#39;s origin.
+     * @return The HTTP methods that are processed and forwarded to the distribution&#39;s origin.
      * 
      */
     private @Nullable String allowedHttpMethods;
     /**
-     * @return HTTP method responses that are cached by your distribution.
+     * @return The HTTP method responses that are cached by your distribution.
      * 
      */
     private @Nullable String cachedHttpMethods;
     /**
-     * @return Default amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the content has been updated.
+     * @return The default amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the content has been updated.
      * 
      */
     private @Nullable Integer defaultTtl;
     /**
-     * @return Cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. See below.
+     * @return An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded.
      * 
      */
     private @Nullable DistributionCacheBehaviorSettingsForwardedCookies forwardedCookies;
     /**
-     * @return Headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. See below.
+     * @return An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded.
      * 
      */
     private @Nullable DistributionCacheBehaviorSettingsForwardedHeaders forwardedHeaders;
     /**
-     * @return Query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. See below.
+     * @return An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded.
      * 
      */
     private @Nullable DistributionCacheBehaviorSettingsForwardedQueryStrings forwardedQueryStrings;
     /**
-     * @return Maximum amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+     * @return The maximum amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the object has been updated.
      * 
      */
     private @Nullable Integer maximumTtl;
     /**
-     * @return Minimum amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+     * @return The minimum amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the object has been updated.
      * 
      */
     private @Nullable Integer minimumTtl;
 
     private DistributionCacheBehaviorSettings() {}
     /**
-     * @return HTTP methods that are processed and forwarded to the distribution&#39;s origin.
+     * @return The HTTP methods that are processed and forwarded to the distribution&#39;s origin.
      * 
      */
     public Optional<String> allowedHttpMethods() {
         return Optional.ofNullable(this.allowedHttpMethods);
     }
     /**
-     * @return HTTP method responses that are cached by your distribution.
+     * @return The HTTP method responses that are cached by your distribution.
      * 
      */
     public Optional<String> cachedHttpMethods() {
         return Optional.ofNullable(this.cachedHttpMethods);
     }
     /**
-     * @return Default amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the content has been updated.
+     * @return The default amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the content has been updated.
      * 
      */
     public Optional<Integer> defaultTtl() {
         return Optional.ofNullable(this.defaultTtl);
     }
     /**
-     * @return Cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. See below.
+     * @return An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded.
      * 
      */
     public Optional<DistributionCacheBehaviorSettingsForwardedCookies> forwardedCookies() {
         return Optional.ofNullable(this.forwardedCookies);
     }
     /**
-     * @return Headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. See below.
+     * @return An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded.
      * 
      */
     public Optional<DistributionCacheBehaviorSettingsForwardedHeaders> forwardedHeaders() {
         return Optional.ofNullable(this.forwardedHeaders);
     }
     /**
-     * @return Query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. See below.
+     * @return An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded.
      * 
      */
     public Optional<DistributionCacheBehaviorSettingsForwardedQueryStrings> forwardedQueryStrings() {
         return Optional.ofNullable(this.forwardedQueryStrings);
     }
     /**
-     * @return Maximum amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+     * @return The maximum amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the object has been updated.
      * 
      */
     public Optional<Integer> maximumTtl() {
         return Optional.ofNullable(this.maximumTtl);
     }
     /**
-     * @return Minimum amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+     * @return The minimum amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the object has been updated.
      * 
      */
     public Optional<Integer> minimumTtl() {

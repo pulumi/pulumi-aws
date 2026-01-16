@@ -18,218 +18,35 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Attaches a load balancer policy to an ELB Listener.
- * 
- * ## Example Usage
- * 
- * ### Custom Policy
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.elb.LoadBalancer;
- * import com.pulumi.aws.elb.LoadBalancerArgs;
- * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
- * import com.pulumi.aws.elb.LoadBalancerPolicy;
- * import com.pulumi.aws.elb.LoadBalancerPolicyArgs;
- * import com.pulumi.aws.elb.inputs.LoadBalancerPolicyPolicyAttributeArgs;
- * import com.pulumi.aws.elb.ListenerPolicy;
- * import com.pulumi.aws.elb.ListenerPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var wu_tang = new LoadBalancer("wu-tang", LoadBalancerArgs.builder()
- *             .name("wu-tang")
- *             .availabilityZones("us-east-1a")
- *             .listeners(LoadBalancerListenerArgs.builder()
- *                 .instancePort(443)
- *                 .instanceProtocol("http")
- *                 .lbPort(443)
- *                 .lbProtocol("https")
- *                 .sslCertificateId("arn:aws:iam::000000000000:server-certificate/wu-tang.net")
- *                 .build())
- *             .tags(Map.of("Name", "wu-tang"))
- *             .build());
- * 
- *         var wu_tang_ssl = new LoadBalancerPolicy("wu-tang-ssl", LoadBalancerPolicyArgs.builder()
- *             .loadBalancerName(wu_tang.name())
- *             .policyName("wu-tang-ssl")
- *             .policyTypeName("SSLNegotiationPolicyType")
- *             .policyAttributes(            
- *                 LoadBalancerPolicyPolicyAttributeArgs.builder()
- *                     .name("ECDHE-ECDSA-AES128-GCM-SHA256")
- *                     .value("true")
- *                     .build(),
- *                 LoadBalancerPolicyPolicyAttributeArgs.builder()
- *                     .name("Protocol-TLSv1.2")
- *                     .value("true")
- *                     .build())
- *             .build());
- * 
- *         var wu_tang_listener_policies_443 = new ListenerPolicy("wu-tang-listener-policies-443", ListenerPolicyArgs.builder()
- *             .loadBalancerName(wu_tang.name())
- *             .loadBalancerPort(443)
- *             .policyNames(wu_tang_ssl.policyName())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * This example shows how to customize the TLS settings of an HTTPS listener.
- * 
- * ### AWS Predefined Security Policy
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.elb.LoadBalancer;
- * import com.pulumi.aws.elb.LoadBalancerArgs;
- * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
- * import com.pulumi.aws.elb.LoadBalancerPolicy;
- * import com.pulumi.aws.elb.LoadBalancerPolicyArgs;
- * import com.pulumi.aws.elb.inputs.LoadBalancerPolicyPolicyAttributeArgs;
- * import com.pulumi.aws.elb.ListenerPolicy;
- * import com.pulumi.aws.elb.ListenerPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var wu_tang = new LoadBalancer("wu-tang", LoadBalancerArgs.builder()
- *             .name("wu-tang")
- *             .availabilityZones("us-east-1a")
- *             .listeners(LoadBalancerListenerArgs.builder()
- *                 .instancePort(443)
- *                 .instanceProtocol("http")
- *                 .lbPort(443)
- *                 .lbProtocol("https")
- *                 .sslCertificateId("arn:aws:iam::000000000000:server-certificate/wu-tang.net")
- *                 .build())
- *             .tags(Map.of("Name", "wu-tang"))
- *             .build());
- * 
- *         var wu_tang_ssl_tls_1_1 = new LoadBalancerPolicy("wu-tang-ssl-tls-1-1", LoadBalancerPolicyArgs.builder()
- *             .loadBalancerName(wu_tang.name())
- *             .policyName("wu-tang-ssl")
- *             .policyTypeName("SSLNegotiationPolicyType")
- *             .policyAttributes(LoadBalancerPolicyPolicyAttributeArgs.builder()
- *                 .name("Reference-Security-Policy")
- *                 .value("ELBSecurityPolicy-TLS-1-1-2017-01")
- *                 .build())
- *             .build());
- * 
- *         var wu_tang_listener_policies_443 = new ListenerPolicy("wu-tang-listener-policies-443", ListenerPolicyArgs.builder()
- *             .loadBalancerName(wu_tang.name())
- *             .loadBalancerPort(443)
- *             .policyNames(wu_tang_ssl_tls_1_1.policyName())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * This example shows how to add a [Predefined Security Policy for ELBs](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html)
- * 
- */
 @ResourceType(type="aws:elb/listenerPolicy:ListenerPolicy")
 public class ListenerPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The load balancer to attach the policy to.
-     * 
-     */
     @Export(name="loadBalancerName", refs={String.class}, tree="[0]")
     private Output<String> loadBalancerName;
 
-    /**
-     * @return The load balancer to attach the policy to.
-     * 
-     */
     public Output<String> loadBalancerName() {
         return this.loadBalancerName;
     }
-    /**
-     * The load balancer listener port to apply the policy to.
-     * 
-     */
     @Export(name="loadBalancerPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> loadBalancerPort;
 
-    /**
-     * @return The load balancer listener port to apply the policy to.
-     * 
-     */
     public Output<Integer> loadBalancerPort() {
         return this.loadBalancerPort;
     }
-    /**
-     * List of Policy Names to apply to the backend server.
-     * 
-     */
     @Export(name="policyNames", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> policyNames;
 
-    /**
-     * @return List of Policy Names to apply to the backend server.
-     * 
-     */
     public Output<Optional<List<String>>> policyNames() {
         return Codegen.optional(this.policyNames);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Map of arbitrary keys and values that, when changed, will trigger an update.
-     * 
-     */
     @Export(name="triggers", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> triggers;
 
-    /**
-     * @return Map of arbitrary keys and values that, when changed, will trigger an update.
-     * 
-     */
     public Output<Optional<Map<String,String>>> triggers() {
         return Codegen.optional(this.triggers);
     }

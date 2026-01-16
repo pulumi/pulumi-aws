@@ -18,62 +18,30 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
 
     public static final AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs();
 
-    /**
-     * Maximum number of tokens to return in the response.
-     * 
-     */
     @Import(name="maxTokens")
     private @Nullable Output<Integer> maxTokens;
 
-    /**
-     * @return Maximum number of tokens to return in the response.
-     * 
-     */
     public Optional<Output<Integer>> maxTokens() {
         return Optional.ofNullable(this.maxTokens);
     }
 
-    /**
-     * List of strings that define sequences after which the model will stop generating.
-     * 
-     */
     @Import(name="stopSequences")
     private @Nullable Output<List<String>> stopSequences;
 
-    /**
-     * @return List of strings that define sequences after which the model will stop generating.
-     * 
-     */
     public Optional<Output<List<String>>> stopSequences() {
         return Optional.ofNullable(this.stopSequences);
     }
 
-    /**
-     * Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
-     * 
-     */
     @Import(name="temperature")
     private @Nullable Output<Double> temperature;
 
-    /**
-     * @return Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
-     * 
-     */
     public Optional<Output<Double>> temperature() {
         return Optional.ofNullable(this.temperature);
     }
 
-    /**
-     * Percentage of most-likely candidates that the model considers for the next token.
-     * 
-     */
     @Import(name="topP")
     private @Nullable Output<Double> topP;
 
-    /**
-     * @return Percentage of most-likely candidates that the model considers for the next token.
-     * 
-     */
     public Optional<Output<Double>> topP() {
         return Optional.ofNullable(this.topP);
     }
@@ -105,96 +73,42 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
             $ = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxTokens Maximum number of tokens to return in the response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxTokens(@Nullable Output<Integer> maxTokens) {
             $.maxTokens = maxTokens;
             return this;
         }
 
-        /**
-         * @param maxTokens Maximum number of tokens to return in the response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxTokens(Integer maxTokens) {
             return maxTokens(Output.of(maxTokens));
         }
 
-        /**
-         * @param stopSequences List of strings that define sequences after which the model will stop generating.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stopSequences(@Nullable Output<List<String>> stopSequences) {
             $.stopSequences = stopSequences;
             return this;
         }
 
-        /**
-         * @param stopSequences List of strings that define sequences after which the model will stop generating.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stopSequences(List<String> stopSequences) {
             return stopSequences(Output.of(stopSequences));
         }
 
-        /**
-         * @param stopSequences List of strings that define sequences after which the model will stop generating.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stopSequences(String... stopSequences) {
             return stopSequences(List.of(stopSequences));
         }
 
-        /**
-         * @param temperature Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder temperature(@Nullable Output<Double> temperature) {
             $.temperature = temperature;
             return this;
         }
 
-        /**
-         * @param temperature Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder temperature(Double temperature) {
             return temperature(Output.of(temperature));
         }
 
-        /**
-         * @param topP Percentage of most-likely candidates that the model considers for the next token.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topP(@Nullable Output<Double> topP) {
             $.topP = topP;
             return this;
         }
 
-        /**
-         * @param topP Percentage of most-likely candidates that the model considers for the next token.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topP(Double topP) {
             return topP(Output.of(topP));
         }

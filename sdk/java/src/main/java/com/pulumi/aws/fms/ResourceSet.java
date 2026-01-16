@@ -18,98 +18,23 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS FMS (Firewall Manager) Resource Set.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.fms.ResourceSet;
- * import com.pulumi.aws.fms.ResourceSetArgs;
- * import com.pulumi.aws.fms.inputs.ResourceSetResourceSetArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceSet("example", ResourceSetArgs.builder()
- *             .resourceSets(ResourceSetResourceSetArgs.builder()
- *                 .name("testing")
- *                 .resourceTypeLists("AWS::NetworkFirewall::Firewall")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import FMS (Firewall Manager) Resource Set using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:fms/resourceSet:ResourceSet example resource_set-id-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:fms/resourceSet:ResourceSet")
 public class ResourceSet extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Resource Set.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Resource Set.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
-     * 
-     */
     @Export(name="resourceSets", refs={List.class,ResourceSetResourceSet.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ResourceSetResourceSet>> resourceSets;
 
-    /**
-     * @return Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
-     * 
-     */
     public Output<Optional<List<ResourceSetResourceSet>>> resourceSets() {
         return Codegen.optional(this.resourceSets);
     }

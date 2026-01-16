@@ -17,62 +17,30 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
 
     public static final WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs Empty = new WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs();
 
-    /**
-     * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
-     * 
-     */
     @Import(name="invalidFallbackBehavior")
     private @Nullable Output<String> invalidFallbackBehavior;
 
-    /**
-     * @return What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
-     * 
-     */
     public Optional<Output<String>> invalidFallbackBehavior() {
         return Optional.ofNullable(this.invalidFallbackBehavior);
     }
 
-    /**
-     * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
-     * 
-     */
     @Import(name="matchPattern", required=true)
     private Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs> matchPattern;
 
-    /**
-     * @return The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
-     * 
-     */
     public Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs> matchPattern() {
         return this.matchPattern;
     }
 
-    /**
-     * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
-     * 
-     */
     @Import(name="matchScope", required=true)
     private Output<String> matchScope;
 
-    /**
-     * @return The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
-     * 
-     */
     public Output<String> matchScope() {
         return this.matchScope;
     }
 
-    /**
-     * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
-     * 
-     */
     @Import(name="oversizeHandling")
     private @Nullable Output<String> oversizeHandling;
 
-    /**
-     * @return What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
-     * 
-     */
     public Optional<Output<String>> oversizeHandling() {
         return Optional.ofNullable(this.oversizeHandling);
     }
@@ -104,86 +72,38 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
             $ = new WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param invalidFallbackBehavior What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invalidFallbackBehavior(@Nullable Output<String> invalidFallbackBehavior) {
             $.invalidFallbackBehavior = invalidFallbackBehavior;
             return this;
         }
 
-        /**
-         * @param invalidFallbackBehavior What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invalidFallbackBehavior(String invalidFallbackBehavior) {
             return invalidFallbackBehavior(Output.of(invalidFallbackBehavior));
         }
 
-        /**
-         * @param matchPattern The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchPattern(Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs> matchPattern) {
             $.matchPattern = matchPattern;
             return this;
         }
 
-        /**
-         * @param matchPattern The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchPattern(WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs matchPattern) {
             return matchPattern(Output.of(matchPattern));
         }
 
-        /**
-         * @param matchScope The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchScope(Output<String> matchScope) {
             $.matchScope = matchScope;
             return this;
         }
 
-        /**
-         * @param matchScope The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchScope(String matchScope) {
             return matchScope(Output.of(matchScope));
         }
 
-        /**
-         * @param oversizeHandling What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oversizeHandling(@Nullable Output<String> oversizeHandling) {
             $.oversizeHandling = oversizeHandling;
             return this;
         }
 
-        /**
-         * @param oversizeHandling What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oversizeHandling(String oversizeHandling) {
             return oversizeHandling(Output.of(oversizeHandling));
         }

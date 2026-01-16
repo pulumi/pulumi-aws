@@ -21,107 +21,51 @@ public final class DataSetLogicalTableMapDataTransformArgs extends com.pulumi.re
 
     public static final DataSetLogicalTableMapDataTransformArgs Empty = new DataSetLogicalTableMapDataTransformArgs();
 
-    /**
-     * A transform operation that casts a column to a different type. See cast_column_type_operation.
-     * 
-     */
     @Import(name="castColumnTypeOperation")
     private @Nullable Output<DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs> castColumnTypeOperation;
 
-    /**
-     * @return A transform operation that casts a column to a different type. See cast_column_type_operation.
-     * 
-     */
     public Optional<Output<DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs>> castColumnTypeOperation() {
         return Optional.ofNullable(this.castColumnTypeOperation);
     }
 
-    /**
-     * An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
-     * 
-     */
     @Import(name="createColumnsOperation")
     private @Nullable Output<DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs> createColumnsOperation;
 
-    /**
-     * @return An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
-     * 
-     */
     public Optional<Output<DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs>> createColumnsOperation() {
         return Optional.ofNullable(this.createColumnsOperation);
     }
 
-    /**
-     * An operation that filters rows based on some condition. See filter_operation.
-     * 
-     */
     @Import(name="filterOperation")
     private @Nullable Output<DataSetLogicalTableMapDataTransformFilterOperationArgs> filterOperation;
 
-    /**
-     * @return An operation that filters rows based on some condition. See filter_operation.
-     * 
-     */
     public Optional<Output<DataSetLogicalTableMapDataTransformFilterOperationArgs>> filterOperation() {
         return Optional.ofNullable(this.filterOperation);
     }
 
-    /**
-     * An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
-     * 
-     */
     @Import(name="projectOperation")
     private @Nullable Output<DataSetLogicalTableMapDataTransformProjectOperationArgs> projectOperation;
 
-    /**
-     * @return An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
-     * 
-     */
     public Optional<Output<DataSetLogicalTableMapDataTransformProjectOperationArgs>> projectOperation() {
         return Optional.ofNullable(this.projectOperation);
     }
 
-    /**
-     * An operation that renames a column. See rename_column_operation.
-     * 
-     */
     @Import(name="renameColumnOperation")
     private @Nullable Output<DataSetLogicalTableMapDataTransformRenameColumnOperationArgs> renameColumnOperation;
 
-    /**
-     * @return An operation that renames a column. See rename_column_operation.
-     * 
-     */
     public Optional<Output<DataSetLogicalTableMapDataTransformRenameColumnOperationArgs>> renameColumnOperation() {
         return Optional.ofNullable(this.renameColumnOperation);
     }
 
-    /**
-     * An operation that tags a column with additional information. See tag_column_operation.
-     * 
-     */
     @Import(name="tagColumnOperation")
     private @Nullable Output<DataSetLogicalTableMapDataTransformTagColumnOperationArgs> tagColumnOperation;
 
-    /**
-     * @return An operation that tags a column with additional information. See tag_column_operation.
-     * 
-     */
     public Optional<Output<DataSetLogicalTableMapDataTransformTagColumnOperationArgs>> tagColumnOperation() {
         return Optional.ofNullable(this.tagColumnOperation);
     }
 
-    /**
-     * A transform operation that removes tags associated with a column. See untag_column_operation.
-     * 
-     */
     @Import(name="untagColumnOperation")
     private @Nullable Output<DataSetLogicalTableMapDataTransformUntagColumnOperationArgs> untagColumnOperation;
 
-    /**
-     * @return A transform operation that removes tags associated with a column. See untag_column_operation.
-     * 
-     */
     public Optional<Output<DataSetLogicalTableMapDataTransformUntagColumnOperationArgs>> untagColumnOperation() {
         return Optional.ofNullable(this.untagColumnOperation);
     }
@@ -156,149 +100,65 @@ public final class DataSetLogicalTableMapDataTransformArgs extends com.pulumi.re
             $ = new DataSetLogicalTableMapDataTransformArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param castColumnTypeOperation A transform operation that casts a column to a different type. See cast_column_type_operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder castColumnTypeOperation(@Nullable Output<DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs> castColumnTypeOperation) {
             $.castColumnTypeOperation = castColumnTypeOperation;
             return this;
         }
 
-        /**
-         * @param castColumnTypeOperation A transform operation that casts a column to a different type. See cast_column_type_operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder castColumnTypeOperation(DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs castColumnTypeOperation) {
             return castColumnTypeOperation(Output.of(castColumnTypeOperation));
         }
 
-        /**
-         * @param createColumnsOperation An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createColumnsOperation(@Nullable Output<DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs> createColumnsOperation) {
             $.createColumnsOperation = createColumnsOperation;
             return this;
         }
 
-        /**
-         * @param createColumnsOperation An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createColumnsOperation(DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs createColumnsOperation) {
             return createColumnsOperation(Output.of(createColumnsOperation));
         }
 
-        /**
-         * @param filterOperation An operation that filters rows based on some condition. See filter_operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterOperation(@Nullable Output<DataSetLogicalTableMapDataTransformFilterOperationArgs> filterOperation) {
             $.filterOperation = filterOperation;
             return this;
         }
 
-        /**
-         * @param filterOperation An operation that filters rows based on some condition. See filter_operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterOperation(DataSetLogicalTableMapDataTransformFilterOperationArgs filterOperation) {
             return filterOperation(Output.of(filterOperation));
         }
 
-        /**
-         * @param projectOperation An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectOperation(@Nullable Output<DataSetLogicalTableMapDataTransformProjectOperationArgs> projectOperation) {
             $.projectOperation = projectOperation;
             return this;
         }
 
-        /**
-         * @param projectOperation An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectOperation(DataSetLogicalTableMapDataTransformProjectOperationArgs projectOperation) {
             return projectOperation(Output.of(projectOperation));
         }
 
-        /**
-         * @param renameColumnOperation An operation that renames a column. See rename_column_operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder renameColumnOperation(@Nullable Output<DataSetLogicalTableMapDataTransformRenameColumnOperationArgs> renameColumnOperation) {
             $.renameColumnOperation = renameColumnOperation;
             return this;
         }
 
-        /**
-         * @param renameColumnOperation An operation that renames a column. See rename_column_operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder renameColumnOperation(DataSetLogicalTableMapDataTransformRenameColumnOperationArgs renameColumnOperation) {
             return renameColumnOperation(Output.of(renameColumnOperation));
         }
 
-        /**
-         * @param tagColumnOperation An operation that tags a column with additional information. See tag_column_operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagColumnOperation(@Nullable Output<DataSetLogicalTableMapDataTransformTagColumnOperationArgs> tagColumnOperation) {
             $.tagColumnOperation = tagColumnOperation;
             return this;
         }
 
-        /**
-         * @param tagColumnOperation An operation that tags a column with additional information. See tag_column_operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagColumnOperation(DataSetLogicalTableMapDataTransformTagColumnOperationArgs tagColumnOperation) {
             return tagColumnOperation(Output.of(tagColumnOperation));
         }
 
-        /**
-         * @param untagColumnOperation A transform operation that removes tags associated with a column. See untag_column_operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder untagColumnOperation(@Nullable Output<DataSetLogicalTableMapDataTransformUntagColumnOperationArgs> untagColumnOperation) {
             $.untagColumnOperation = untagColumnOperation;
             return this;
         }
 
-        /**
-         * @param untagColumnOperation A transform operation that removes tags associated with a column. See untag_column_operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder untagColumnOperation(DataSetLogicalTableMapDataTransformUntagColumnOperationArgs untagColumnOperation) {
             return untagColumnOperation(Output.of(untagColumnOperation));
         }

@@ -13,27 +13,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class RouteSpecGrpcRouteRetryPolicy
     {
-        /// <summary>
-        /// List of gRPC retry events.
-        /// Valid values: `Cancelled`, `deadline-exceeded`, `Internal`, `resource-exhausted`, `Unavailable`.
-        /// </summary>
         public readonly ImmutableArray<string> GrpcRetryEvents;
-        /// <summary>
-        /// List of HTTP retry events.
-        /// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-        /// </summary>
         public readonly ImmutableArray<string> HttpRetryEvents;
-        /// <summary>
-        /// Maximum number of retries.
-        /// </summary>
         public readonly int MaxRetries;
-        /// <summary>
-        /// Per-retry timeout.
-        /// </summary>
         public readonly Outputs.RouteSpecGrpcRouteRetryPolicyPerRetryTimeout PerRetryTimeout;
-        /// <summary>
-        /// List of TCP retry events. The only valid value is `connection-error`.
-        /// </summary>
         public readonly ImmutableArray<string> TcpRetryEvents;
 
         [OutputConstructor]

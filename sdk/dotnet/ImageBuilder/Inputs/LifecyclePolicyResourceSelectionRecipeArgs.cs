@@ -12,15 +12,9 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
     public sealed class LifecyclePolicyResourceSelectionRecipeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of an Image Builder recipe that the lifecycle policy uses for resource selection.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// The version of the Image Builder recipe specified by the name field.
-        /// </summary>
         [Input("semanticVersion", required: true)]
         public Input<string> SemanticVersion { get; set; } = null!;
 

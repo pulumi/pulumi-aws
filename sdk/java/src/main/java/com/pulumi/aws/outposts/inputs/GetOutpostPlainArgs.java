@@ -15,92 +15,44 @@ public final class GetOutpostPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetOutpostPlainArgs Empty = new GetOutpostPlainArgs();
 
-    /**
-     * ARN.
-     * 
-     */
     @Import(name="arn")
     private @Nullable String arn;
 
-    /**
-     * @return ARN.
-     * 
-     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Identifier of the Outpost.
-     * 
-     */
     @Import(name="id")
     private @Nullable String id;
 
-    /**
-     * @return Identifier of the Outpost.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Name of the Outpost.
-     * 
-     */
     @Import(name="name")
     private @Nullable String name;
 
-    /**
-     * @return Name of the Outpost.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * AWS Account identifier of the Outpost owner.
-     * 
-     */
     @Import(name="ownerId")
     private @Nullable String ownerId;
 
-    /**
-     * @return AWS Account identifier of the Outpost owner.
-     * 
-     */
     public Optional<String> ownerId() {
         return Optional.ofNullable(this.ownerId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The Outpost tags.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return The Outpost tags.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -134,67 +86,31 @@ public final class GetOutpostPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetOutpostPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable String arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param id Identifier of the Outpost.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param name Name of the Outpost.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param ownerId AWS Account identifier of the Outpost owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerId(@Nullable String ownerId) {
             $.ownerId = ownerId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags The Outpost tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

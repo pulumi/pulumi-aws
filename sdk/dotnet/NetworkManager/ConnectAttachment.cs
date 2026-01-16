@@ -9,199 +9,54 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.NetworkManager
 {
-    /// <summary>
-    /// Manages an AWS Network Manager Connect Attachment.
-    /// 
-    /// Use this resource to create a Connect attachment in AWS Network Manager. Connect attachments enable you to connect your on-premises networks to your core network through a VPC or Transit Gateway attachment.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkManager.VpcAttachment("example", new()
-    ///     {
-    ///         SubnetArns = exampleAwsSubnet.Select(__item =&gt; __item.Arn).ToList(),
-    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
-    ///         VpcArn = exampleAwsVpc.Arn,
-    ///     });
-    /// 
-    ///     var exampleConnectAttachment = new Aws.NetworkManager.ConnectAttachment("example", new()
-    ///     {
-    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
-    ///         TransportAttachmentId = example.Id,
-    ///         EdgeLocation = example.EdgeLocation,
-    ///         Options = new Aws.NetworkManager.Inputs.ConnectAttachmentOptionsArgs
-    ///         {
-    ///             Protocol = "GRE",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Usage with attachment accepter
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkManager.VpcAttachment("example", new()
-    ///     {
-    ///         SubnetArns = exampleAwsSubnet.Select(__item =&gt; __item.Arn).ToList(),
-    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
-    ///         VpcArn = exampleAwsVpc.Arn,
-    ///     });
-    /// 
-    ///     var exampleAttachmentAccepter = new Aws.NetworkManager.AttachmentAccepter("example", new()
-    ///     {
-    ///         AttachmentId = example.Id,
-    ///         AttachmentType = example.AttachmentType,
-    ///     });
-    /// 
-    ///     var exampleConnectAttachment = new Aws.NetworkManager.ConnectAttachment("example", new()
-    ///     {
-    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
-    ///         TransportAttachmentId = example.Id,
-    ///         EdgeLocation = example.EdgeLocation,
-    ///         Options = new Aws.NetworkManager.Inputs.ConnectAttachmentOptionsArgs
-    ///         {
-    ///             Protocol = "GRE",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleAttachmentAccepter,
-    ///         },
-    ///     });
-    /// 
-    ///     var example2 = new Aws.NetworkManager.AttachmentAccepter("example2", new()
-    ///     {
-    ///         AttachmentId = exampleConnectAttachment.Id,
-    ///         AttachmentType = exampleConnectAttachment.AttachmentType,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_networkmanager_connect_attachment` using the attachment ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:networkmanager/connectAttachment:ConnectAttachment example attachment-0f8fa60d2238d1bd8
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:networkmanager/connectAttachment:ConnectAttachment")]
     public partial class ConnectAttachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the attachment.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the attachment.
-        /// </summary>
         [Output("attachmentId")]
         public Output<string> AttachmentId { get; private set; } = null!;
 
-        /// <summary>
-        /// Policy rule number associated with the attachment.
-        /// </summary>
         [Output("attachmentPolicyRuleNumber")]
         public Output<int> AttachmentPolicyRuleNumber { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of attachment.
-        /// </summary>
         [Output("attachmentType")]
         public Output<string> AttachmentType { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of a core network.
-        /// </summary>
         [Output("coreNetworkArn")]
         public Output<string> CoreNetworkArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of a core network where you want to create the attachment.
-        /// </summary>
         [Output("coreNetworkId")]
         public Output<string> CoreNetworkId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where the edge is located.
-        /// </summary>
         [Output("edgeLocation")]
         public Output<string> EdgeLocation { get; private set; } = null!;
 
-        /// <summary>
-        /// Options block. See options for more information.
-        /// </summary>
         [Output("options")]
         public Output<Outputs.ConnectAttachmentOptions> Options { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the attachment account owner.
-        /// </summary>
         [Output("ownerAccountId")]
         public Output<string> OwnerAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Attachment resource ARN.
-        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-        /// </summary>
         [Output("routingPolicyLabel")]
         public Output<string?> RoutingPolicyLabel { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the segment attachment.
-        /// </summary>
         [Output("segmentName")]
         public Output<string> SegmentName { get; private set; } = null!;
 
-        /// <summary>
-        /// State of the attachment.
-        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value tags for the attachment. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the attachment between the two connections.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("transportAttachmentId")]
         public Output<string> TransportAttachmentId { get; private set; } = null!;
 
@@ -251,47 +106,26 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class ConnectAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of a core network where you want to create the attachment.
-        /// </summary>
         [Input("coreNetworkId", required: true)]
         public Input<string> CoreNetworkId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where the edge is located.
-        /// </summary>
         [Input("edgeLocation", required: true)]
         public Input<string> EdgeLocation { get; set; } = null!;
 
-        /// <summary>
-        /// Options block. See options for more information.
-        /// </summary>
         [Input("options", required: true)]
         public Input<Inputs.ConnectAttachmentOptionsArgs> Options { get; set; } = null!;
 
-        /// <summary>
-        /// The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-        /// </summary>
         [Input("routingPolicyLabel")]
         public Input<string>? RoutingPolicyLabel { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the attachment. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// ID of the attachment between the two connections.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("transportAttachmentId", required: true)]
         public Input<string> TransportAttachmentId { get; set; } = null!;
 
@@ -303,90 +137,47 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class ConnectAttachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the attachment.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// ID of the attachment.
-        /// </summary>
         [Input("attachmentId")]
         public Input<string>? AttachmentId { get; set; }
 
-        /// <summary>
-        /// Policy rule number associated with the attachment.
-        /// </summary>
         [Input("attachmentPolicyRuleNumber")]
         public Input<int>? AttachmentPolicyRuleNumber { get; set; }
 
-        /// <summary>
-        /// Type of attachment.
-        /// </summary>
         [Input("attachmentType")]
         public Input<string>? AttachmentType { get; set; }
 
-        /// <summary>
-        /// ARN of a core network.
-        /// </summary>
         [Input("coreNetworkArn")]
         public Input<string>? CoreNetworkArn { get; set; }
 
-        /// <summary>
-        /// ID of a core network where you want to create the attachment.
-        /// </summary>
         [Input("coreNetworkId")]
         public Input<string>? CoreNetworkId { get; set; }
 
-        /// <summary>
-        /// Region where the edge is located.
-        /// </summary>
         [Input("edgeLocation")]
         public Input<string>? EdgeLocation { get; set; }
 
-        /// <summary>
-        /// Options block. See options for more information.
-        /// </summary>
         [Input("options")]
         public Input<Inputs.ConnectAttachmentOptionsGetArgs>? Options { get; set; }
 
-        /// <summary>
-        /// ID of the attachment account owner.
-        /// </summary>
         [Input("ownerAccountId")]
         public Input<string>? OwnerAccountId { get; set; }
 
-        /// <summary>
-        /// Attachment resource ARN.
-        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 
-        /// <summary>
-        /// The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-        /// </summary>
         [Input("routingPolicyLabel")]
         public Input<string>? RoutingPolicyLabel { get; set; }
 
-        /// <summary>
-        /// Name of the segment attachment.
-        /// </summary>
         [Input("segmentName")]
         public Input<string>? SegmentName { get; set; }
 
-        /// <summary>
-        /// State of the attachment.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the attachment. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -395,21 +186,12 @@ namespace Pulumi.Aws.NetworkManager
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// ID of the attachment between the two connections.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("transportAttachmentId")]
         public Input<string>? TransportAttachmentId { get; set; }
 

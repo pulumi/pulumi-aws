@@ -13,13 +13,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class FirewallFirewallStatusSyncState
     {
-        /// <summary>
-        /// Nested list describing the attachment status of the firewall's association with a single VPC subnet.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FirewallFirewallStatusSyncStateAttachment> Attachments;
-        /// <summary>
-        /// The Availability Zone where the subnet is configured.
-        /// </summary>
         public readonly string? AvailabilityZone;
 
         [OutputConstructor]

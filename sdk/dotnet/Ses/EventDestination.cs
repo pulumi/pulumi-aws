@@ -9,168 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ses
 {
-    /// <summary>
-    /// Provides an SES event destination
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### CloudWatch Destination
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var cloudwatch = new Aws.Ses.EventDestination("cloudwatch", new()
-    ///     {
-    ///         Name = "event-destination-cloudwatch",
-    ///         ConfigurationSetName = example.Name,
-    ///         Enabled = true,
-    ///         MatchingTypes = new[]
-    ///         {
-    ///             "bounce",
-    ///             "send",
-    ///         },
-    ///         CloudwatchDestinations = new[]
-    ///         {
-    ///             new Aws.Ses.Inputs.EventDestinationCloudwatchDestinationArgs
-    ///             {
-    ///                 DefaultValue = "default",
-    ///                 DimensionName = "dimension",
-    ///                 ValueSource = "emailHeader",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Kinesis Destination
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var kinesis = new Aws.Ses.EventDestination("kinesis", new()
-    ///     {
-    ///         Name = "event-destination-kinesis",
-    ///         ConfigurationSetName = exampleAwsSesConfigurationSet.Name,
-    ///         Enabled = true,
-    ///         MatchingTypes = new[]
-    ///         {
-    ///             "bounce",
-    ///             "send",
-    ///         },
-    ///         KinesisDestination = new Aws.Ses.Inputs.EventDestinationKinesisDestinationArgs
-    ///         {
-    ///             StreamArn = exampleAwsKinesisFirehoseDeliveryStream.Arn,
-    ///             RoleArn = example.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### SNS Destination
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var sns = new Aws.Ses.EventDestination("sns", new()
-    ///     {
-    ///         Name = "event-destination-sns",
-    ///         ConfigurationSetName = exampleAwsSesConfigurationSet.Name,
-    ///         Enabled = true,
-    ///         MatchingTypes = new[]
-    ///         {
-    ///             "bounce",
-    ///             "send",
-    ///         },
-    ///         SnsDestination = new Aws.Ses.Inputs.EventDestinationSnsDestinationArgs
-    ///         {
-    ///             TopicArn = example.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SES event destinations using `configuration_set_name` together with the event destination's `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ses/eventDestination:EventDestination")]
     public partial class EventDestination : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The SES event destination ARN.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// CloudWatch destination for the events
-        /// </summary>
         [Output("cloudwatchDestinations")]
         public Output<ImmutableArray<Outputs.EventDestinationCloudwatchDestination>> CloudwatchDestinations { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the configuration set
-        /// </summary>
         [Output("configurationSetName")]
         public Output<string> ConfigurationSetName { get; private set; } = null!;
 
-        /// <summary>
-        /// If true, the event destination will be enabled
-        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Send the events to a kinesis firehose destination
-        /// </summary>
         [Output("kinesisDestination")]
         public Output<Outputs.EventDestinationKinesisDestination?> KinesisDestination { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
-        /// </summary>
         [Output("matchingTypes")]
         public Output<ImmutableArray<string>> MatchingTypes { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the event destination
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Send the events to an SNS Topic destination
-        /// 
-        /// &gt; **NOTE:** You can specify `"CloudwatchDestination"` or `"KinesisDestination"` but not both
-        /// </summary>
         [Output("snsDestination")]
         public Output<Outputs.EventDestinationSnsDestination?> SnsDestination { get; private set; } = null!;
 
@@ -222,63 +87,35 @@ namespace Pulumi.Aws.Ses
     {
         [Input("cloudwatchDestinations")]
         private InputList<Inputs.EventDestinationCloudwatchDestinationArgs>? _cloudwatchDestinations;
-
-        /// <summary>
-        /// CloudWatch destination for the events
-        /// </summary>
         public InputList<Inputs.EventDestinationCloudwatchDestinationArgs> CloudwatchDestinations
         {
             get => _cloudwatchDestinations ?? (_cloudwatchDestinations = new InputList<Inputs.EventDestinationCloudwatchDestinationArgs>());
             set => _cloudwatchDestinations = value;
         }
 
-        /// <summary>
-        /// The name of the configuration set
-        /// </summary>
         [Input("configurationSetName", required: true)]
         public Input<string> ConfigurationSetName { get; set; } = null!;
 
-        /// <summary>
-        /// If true, the event destination will be enabled
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Send the events to a kinesis firehose destination
-        /// </summary>
         [Input("kinesisDestination")]
         public Input<Inputs.EventDestinationKinesisDestinationArgs>? KinesisDestination { get; set; }
 
         [Input("matchingTypes", required: true)]
         private InputList<string>? _matchingTypes;
-
-        /// <summary>
-        /// A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
-        /// </summary>
         public InputList<string> MatchingTypes
         {
             get => _matchingTypes ?? (_matchingTypes = new InputList<string>());
             set => _matchingTypes = value;
         }
 
-        /// <summary>
-        /// The name of the event destination
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Send the events to an SNS Topic destination
-        /// 
-        /// &gt; **NOTE:** You can specify `"CloudwatchDestination"` or `"KinesisDestination"` but not both
-        /// </summary>
         [Input("snsDestination")]
         public Input<Inputs.EventDestinationSnsDestinationArgs>? SnsDestination { get; set; }
 
@@ -290,71 +127,40 @@ namespace Pulumi.Aws.Ses
 
     public sealed class EventDestinationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The SES event destination ARN.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("cloudwatchDestinations")]
         private InputList<Inputs.EventDestinationCloudwatchDestinationGetArgs>? _cloudwatchDestinations;
-
-        /// <summary>
-        /// CloudWatch destination for the events
-        /// </summary>
         public InputList<Inputs.EventDestinationCloudwatchDestinationGetArgs> CloudwatchDestinations
         {
             get => _cloudwatchDestinations ?? (_cloudwatchDestinations = new InputList<Inputs.EventDestinationCloudwatchDestinationGetArgs>());
             set => _cloudwatchDestinations = value;
         }
 
-        /// <summary>
-        /// The name of the configuration set
-        /// </summary>
         [Input("configurationSetName")]
         public Input<string>? ConfigurationSetName { get; set; }
 
-        /// <summary>
-        /// If true, the event destination will be enabled
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Send the events to a kinesis firehose destination
-        /// </summary>
         [Input("kinesisDestination")]
         public Input<Inputs.EventDestinationKinesisDestinationGetArgs>? KinesisDestination { get; set; }
 
         [Input("matchingTypes")]
         private InputList<string>? _matchingTypes;
-
-        /// <summary>
-        /// A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
-        /// </summary>
         public InputList<string> MatchingTypes
         {
             get => _matchingTypes ?? (_matchingTypes = new InputList<string>());
             set => _matchingTypes = value;
         }
 
-        /// <summary>
-        /// The name of the event destination
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Send the events to an SNS Topic destination
-        /// 
-        /// &gt; **NOTE:** You can specify `"CloudwatchDestination"` or `"KinesisDestination"` but not both
-        /// </summary>
         [Input("snsDestination")]
         public Input<Inputs.EventDestinationSnsDestinationGetArgs>? SnsDestination { get; set; }
 

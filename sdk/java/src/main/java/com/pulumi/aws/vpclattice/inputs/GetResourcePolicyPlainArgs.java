@@ -15,32 +15,16 @@ public final class GetResourcePolicyPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetResourcePolicyPlainArgs Empty = new GetResourcePolicyPlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Resource ARN of the resource for which a policy is retrieved.
-     * 
-     */
     @Import(name="resourceArn", required=true)
     private String resourceArn;
 
-    /**
-     * @return Resource ARN of the resource for which a policy is retrieved.
-     * 
-     */
     public String resourceArn() {
         return this.resourceArn;
     }
@@ -70,23 +54,11 @@ public final class GetResourcePolicyPlainArgs extends com.pulumi.resources.Invok
             $ = new GetResourcePolicyPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param resourceArn Resource ARN of the resource for which a policy is retrieved.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             $.resourceArn = resourceArn;
             return this;

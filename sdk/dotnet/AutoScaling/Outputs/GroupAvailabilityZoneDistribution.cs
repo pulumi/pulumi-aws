@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     [OutputType]
     public sealed class GroupAvailabilityZoneDistribution
     {
-        /// <summary>
-        /// The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
-        /// </summary>
         public readonly string? CapacityDistributionStrategy;
 
         [OutputConstructor]

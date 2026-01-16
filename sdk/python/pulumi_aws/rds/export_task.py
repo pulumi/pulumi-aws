@@ -32,16 +32,6 @@ class ExportTaskArgs:
                  timeouts: Optional[pulumi.Input['ExportTaskTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ExportTask resource.
-        :param pulumi.Input[_builtins.str] export_task_identifier: Unique identifier for the snapshot export task.
-        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role to use for writing to the Amazon S3 bucket.
-        :param pulumi.Input[_builtins.str] kms_key_id: ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
-        :param pulumi.Input[_builtins.str] s3_bucket_name: Name of the Amazon S3 bucket to export the snapshot to.
-        :param pulumi.Input[_builtins.str] source_arn: Amazon Resource Name (ARN) of the snapshot to export.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] export_onlies: Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] s3_prefix: Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         """
         pulumi.set(__self__, "export_task_identifier", export_task_identifier)
         pulumi.set(__self__, "iam_role_arn", iam_role_arn)
@@ -60,9 +50,6 @@ class ExportTaskArgs:
     @_builtins.property
     @pulumi.getter(name="exportTaskIdentifier")
     def export_task_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        Unique identifier for the snapshot export task.
-        """
         return pulumi.get(self, "export_task_identifier")
 
     @export_task_identifier.setter
@@ -72,9 +59,6 @@ class ExportTaskArgs:
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the IAM role to use for writing to the Amazon S3 bucket.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
@@ -84,9 +68,6 @@ class ExportTaskArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -96,9 +77,6 @@ class ExportTaskArgs:
     @_builtins.property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Amazon S3 bucket to export the snapshot to.
-        """
         return pulumi.get(self, "s3_bucket_name")
 
     @s3_bucket_name.setter
@@ -108,11 +86,6 @@ class ExportTaskArgs:
     @_builtins.property
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the snapshot to export.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "source_arn")
 
     @source_arn.setter
@@ -122,9 +95,6 @@ class ExportTaskArgs:
     @_builtins.property
     @pulumi.getter(name="exportOnlies")
     def export_onlies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
-        """
         return pulumi.get(self, "export_onlies")
 
     @export_onlies.setter
@@ -134,9 +104,6 @@ class ExportTaskArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -146,9 +113,6 @@ class ExportTaskArgs:
     @_builtins.property
     @pulumi.getter(name="s3Prefix")
     def s3_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
-        """
         return pulumi.get(self, "s3_prefix")
 
     @s3_prefix.setter
@@ -187,24 +151,6 @@ class _ExportTaskState:
                  warning_message: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ExportTask resources.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] export_onlies: Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
-        :param pulumi.Input[_builtins.str] export_task_identifier: Unique identifier for the snapshot export task.
-        :param pulumi.Input[_builtins.str] failure_cause: Reason the export failed, if it failed.
-        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role to use for writing to the Amazon S3 bucket.
-        :param pulumi.Input[_builtins.str] kms_key_id: ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
-        :param pulumi.Input[_builtins.int] percent_progress: Progress of the snapshot export task as a percentage.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] s3_bucket_name: Name of the Amazon S3 bucket to export the snapshot to.
-        :param pulumi.Input[_builtins.str] s3_prefix: Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
-        :param pulumi.Input[_builtins.str] snapshot_time: Time that the snapshot was created.
-        :param pulumi.Input[_builtins.str] source_arn: Amazon Resource Name (ARN) of the snapshot to export.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] source_type: Type of source for the export.
-        :param pulumi.Input[_builtins.str] status: Status of the export task.
-        :param pulumi.Input[_builtins.str] task_end_time: Time that the snapshot export task completed.
-        :param pulumi.Input[_builtins.str] task_start_time: Time that the snapshot export task started.
-        :param pulumi.Input[_builtins.str] warning_message: Warning about the snapshot export task, if any.
         """
         if export_onlies is not None:
             pulumi.set(__self__, "export_onlies", export_onlies)
@@ -244,9 +190,6 @@ class _ExportTaskState:
     @_builtins.property
     @pulumi.getter(name="exportOnlies")
     def export_onlies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
-        """
         return pulumi.get(self, "export_onlies")
 
     @export_onlies.setter
@@ -256,9 +199,6 @@ class _ExportTaskState:
     @_builtins.property
     @pulumi.getter(name="exportTaskIdentifier")
     def export_task_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier for the snapshot export task.
-        """
         return pulumi.get(self, "export_task_identifier")
 
     @export_task_identifier.setter
@@ -268,9 +208,6 @@ class _ExportTaskState:
     @_builtins.property
     @pulumi.getter(name="failureCause")
     def failure_cause(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Reason the export failed, if it failed.
-        """
         return pulumi.get(self, "failure_cause")
 
     @failure_cause.setter
@@ -280,9 +217,6 @@ class _ExportTaskState:
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role to use for writing to the Amazon S3 bucket.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
@@ -292,9 +226,6 @@ class _ExportTaskState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -304,9 +235,6 @@ class _ExportTaskState:
     @_builtins.property
     @pulumi.getter(name="percentProgress")
     def percent_progress(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Progress of the snapshot export task as a percentage.
-        """
         return pulumi.get(self, "percent_progress")
 
     @percent_progress.setter
@@ -316,9 +244,6 @@ class _ExportTaskState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -328,9 +253,6 @@ class _ExportTaskState:
     @_builtins.property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Amazon S3 bucket to export the snapshot to.
-        """
         return pulumi.get(self, "s3_bucket_name")
 
     @s3_bucket_name.setter
@@ -340,9 +262,6 @@ class _ExportTaskState:
     @_builtins.property
     @pulumi.getter(name="s3Prefix")
     def s3_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
-        """
         return pulumi.get(self, "s3_prefix")
 
     @s3_prefix.setter
@@ -352,9 +271,6 @@ class _ExportTaskState:
     @_builtins.property
     @pulumi.getter(name="snapshotTime")
     def snapshot_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Time that the snapshot was created.
-        """
         return pulumi.get(self, "snapshot_time")
 
     @snapshot_time.setter
@@ -364,11 +280,6 @@ class _ExportTaskState:
     @_builtins.property
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the snapshot to export.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "source_arn")
 
     @source_arn.setter
@@ -378,9 +289,6 @@ class _ExportTaskState:
     @_builtins.property
     @pulumi.getter(name="sourceType")
     def source_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of source for the export.
-        """
         return pulumi.get(self, "source_type")
 
     @source_type.setter
@@ -390,9 +298,6 @@ class _ExportTaskState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the export task.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -402,9 +307,6 @@ class _ExportTaskState:
     @_builtins.property
     @pulumi.getter(name="taskEndTime")
     def task_end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Time that the snapshot export task completed.
-        """
         return pulumi.get(self, "task_end_time")
 
     @task_end_time.setter
@@ -414,9 +316,6 @@ class _ExportTaskState:
     @_builtins.property
     @pulumi.getter(name="taskStartTime")
     def task_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Time that the snapshot export task started.
-        """
         return pulumi.get(self, "task_start_time")
 
     @task_start_time.setter
@@ -435,9 +334,6 @@ class _ExportTaskState:
     @_builtins.property
     @pulumi.getter(name="warningMessage")
     def warning_message(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Warning about the snapshot export task, if any.
-        """
         return pulumi.get(self, "warning_message")
 
     @warning_message.setter
@@ -462,122 +358,9 @@ class ExportTask(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['ExportTaskTimeoutsArgs', 'ExportTaskTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS RDS (Relational Database) Export Task.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rds.ExportTask("example",
-            export_task_identifier="example",
-            source_arn=example_aws_db_snapshot["dbSnapshotArn"],
-            s3_bucket_name=example_aws_s3_bucket["id"],
-            iam_role_arn=example_aws_iam_role["arn"],
-            kms_key_id=example_aws_kms_key["arn"])
-        ```
-
-        ### Complete Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_bucket = aws.s3.Bucket("example",
-            bucket="example",
-            force_destroy=True)
-        example_bucket_acl = aws.s3.BucketAcl("example",
-            bucket=example_bucket.id,
-            acl="private")
-        example_role = aws.iam.Role("example",
-            name="example",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Sid": "",
-                    "Principal": {
-                        "Service": "export.rds.amazonaws.com",
-                    },
-                }],
-            }))
-        example = aws.iam.get_policy_document_output(statements=[
-            {
-                "actions": ["s3:ListAllMyBuckets"],
-                "resources": ["*"],
-            },
-            {
-                "actions": [
-                    "s3:GetBucketLocation",
-                    "s3:ListBucket",
-                ],
-                "resources": [example_bucket.arn],
-            },
-            {
-                "actions": [
-                    "s3:GetObject",
-                    "s3:PutObject",
-                    "s3:DeleteObject",
-                ],
-                "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
-            },
-        ])
-        example_policy = aws.iam.Policy("example",
-            name="example",
-            policy=example.json)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
-            role=example_role.name,
-            policy_arn=example_policy.arn)
-        example_key = aws.kms.Key("example", deletion_window_in_days=10)
-        example_instance = aws.rds.Instance("example",
-            identifier="example",
-            allocated_storage=10,
-            db_name="test",
-            engine="mysql",
-            engine_version="5.7",
-            instance_class=aws.rds.InstanceType.T3_MICRO,
-            username="foo",
-            password="foobarbaz",
-            parameter_group_name="default.mysql5.7",
-            skip_final_snapshot=True)
-        example_snapshot = aws.rds.Snapshot("example",
-            db_instance_identifier=example_instance.identifier,
-            db_snapshot_identifier="example")
-        example_export_task = aws.rds.ExportTask("example",
-            export_task_identifier="example",
-            source_arn=example_snapshot.db_snapshot_arn,
-            s3_bucket_name=example_bucket.id,
-            iam_role_arn=example_role.arn,
-            kms_key_id=example_key.arn,
-            export_onlies=["database"],
-            s3_prefix="my_prefix/example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import a RDS (Relational Database) Export Task using the `export_task_identifier`. For example:
-
-        ```sh
-        $ pulumi import aws:rds/exportTask:ExportTask example example
-        ```
-
+        Create a ExportTask resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] export_onlies: Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
-        :param pulumi.Input[_builtins.str] export_task_identifier: Unique identifier for the snapshot export task.
-        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role to use for writing to the Amazon S3 bucket.
-        :param pulumi.Input[_builtins.str] kms_key_id: ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] s3_bucket_name: Name of the Amazon S3 bucket to export the snapshot to.
-        :param pulumi.Input[_builtins.str] s3_prefix: Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
-        :param pulumi.Input[_builtins.str] source_arn: Amazon Resource Name (ARN) of the snapshot to export.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -586,110 +369,7 @@ class ExportTask(pulumi.CustomResource):
                  args: ExportTaskArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS RDS (Relational Database) Export Task.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rds.ExportTask("example",
-            export_task_identifier="example",
-            source_arn=example_aws_db_snapshot["dbSnapshotArn"],
-            s3_bucket_name=example_aws_s3_bucket["id"],
-            iam_role_arn=example_aws_iam_role["arn"],
-            kms_key_id=example_aws_kms_key["arn"])
-        ```
-
-        ### Complete Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_bucket = aws.s3.Bucket("example",
-            bucket="example",
-            force_destroy=True)
-        example_bucket_acl = aws.s3.BucketAcl("example",
-            bucket=example_bucket.id,
-            acl="private")
-        example_role = aws.iam.Role("example",
-            name="example",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Sid": "",
-                    "Principal": {
-                        "Service": "export.rds.amazonaws.com",
-                    },
-                }],
-            }))
-        example = aws.iam.get_policy_document_output(statements=[
-            {
-                "actions": ["s3:ListAllMyBuckets"],
-                "resources": ["*"],
-            },
-            {
-                "actions": [
-                    "s3:GetBucketLocation",
-                    "s3:ListBucket",
-                ],
-                "resources": [example_bucket.arn],
-            },
-            {
-                "actions": [
-                    "s3:GetObject",
-                    "s3:PutObject",
-                    "s3:DeleteObject",
-                ],
-                "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
-            },
-        ])
-        example_policy = aws.iam.Policy("example",
-            name="example",
-            policy=example.json)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
-            role=example_role.name,
-            policy_arn=example_policy.arn)
-        example_key = aws.kms.Key("example", deletion_window_in_days=10)
-        example_instance = aws.rds.Instance("example",
-            identifier="example",
-            allocated_storage=10,
-            db_name="test",
-            engine="mysql",
-            engine_version="5.7",
-            instance_class=aws.rds.InstanceType.T3_MICRO,
-            username="foo",
-            password="foobarbaz",
-            parameter_group_name="default.mysql5.7",
-            skip_final_snapshot=True)
-        example_snapshot = aws.rds.Snapshot("example",
-            db_instance_identifier=example_instance.identifier,
-            db_snapshot_identifier="example")
-        example_export_task = aws.rds.ExportTask("example",
-            export_task_identifier="example",
-            source_arn=example_snapshot.db_snapshot_arn,
-            s3_bucket_name=example_bucket.id,
-            iam_role_arn=example_role.arn,
-            kms_key_id=example_key.arn,
-            export_onlies=["database"],
-            s3_prefix="my_prefix/example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import a RDS (Relational Database) Export Task using the `export_task_identifier`. For example:
-
-        ```sh
-        $ pulumi import aws:rds/exportTask:ExportTask example example
-        ```
-
+        Create a ExportTask resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ExportTaskArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -784,24 +464,6 @@ class ExportTask(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] export_onlies: Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
-        :param pulumi.Input[_builtins.str] export_task_identifier: Unique identifier for the snapshot export task.
-        :param pulumi.Input[_builtins.str] failure_cause: Reason the export failed, if it failed.
-        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role to use for writing to the Amazon S3 bucket.
-        :param pulumi.Input[_builtins.str] kms_key_id: ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
-        :param pulumi.Input[_builtins.int] percent_progress: Progress of the snapshot export task as a percentage.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] s3_bucket_name: Name of the Amazon S3 bucket to export the snapshot to.
-        :param pulumi.Input[_builtins.str] s3_prefix: Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
-        :param pulumi.Input[_builtins.str] snapshot_time: Time that the snapshot was created.
-        :param pulumi.Input[_builtins.str] source_arn: Amazon Resource Name (ARN) of the snapshot to export.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] source_type: Type of source for the export.
-        :param pulumi.Input[_builtins.str] status: Status of the export task.
-        :param pulumi.Input[_builtins.str] task_end_time: Time that the snapshot export task completed.
-        :param pulumi.Input[_builtins.str] task_start_time: Time that the snapshot export task started.
-        :param pulumi.Input[_builtins.str] warning_message: Warning about the snapshot export task, if any.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -829,123 +491,76 @@ class ExportTask(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="exportOnlies")
     def export_onlies(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
-        """
         return pulumi.get(self, "export_onlies")
 
     @_builtins.property
     @pulumi.getter(name="exportTaskIdentifier")
     def export_task_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique identifier for the snapshot export task.
-        """
         return pulumi.get(self, "export_task_identifier")
 
     @_builtins.property
     @pulumi.getter(name="failureCause")
     def failure_cause(self) -> pulumi.Output[_builtins.str]:
-        """
-        Reason the export failed, if it failed.
-        """
         return pulumi.get(self, "failure_cause")
 
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the IAM role to use for writing to the Amazon S3 bucket.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="percentProgress")
     def percent_progress(self) -> pulumi.Output[_builtins.int]:
-        """
-        Progress of the snapshot export task as a percentage.
-        """
         return pulumi.get(self, "percent_progress")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Amazon S3 bucket to export the snapshot to.
-        """
         return pulumi.get(self, "s3_bucket_name")
 
     @_builtins.property
     @pulumi.getter(name="s3Prefix")
     def s3_prefix(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
-        """
         return pulumi.get(self, "s3_prefix")
 
     @_builtins.property
     @pulumi.getter(name="snapshotTime")
     def snapshot_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Time that the snapshot was created.
-        """
         return pulumi.get(self, "snapshot_time")
 
     @_builtins.property
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the snapshot to export.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "source_arn")
 
     @_builtins.property
     @pulumi.getter(name="sourceType")
     def source_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of source for the export.
-        """
         return pulumi.get(self, "source_type")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status of the export task.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="taskEndTime")
     def task_end_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Time that the snapshot export task completed.
-        """
         return pulumi.get(self, "task_end_time")
 
     @_builtins.property
     @pulumi.getter(name="taskStartTime")
     def task_start_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Time that the snapshot export task started.
-        """
         return pulumi.get(self, "task_start_time")
 
     @_builtins.property
@@ -956,8 +571,5 @@ class ExportTask(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="warningMessage")
     def warning_message(self) -> pulumi.Output[_builtins.str]:
-        """
-        Warning about the snapshot export task, if any.
-        """
         return pulumi.get(self, "warning_message")
 

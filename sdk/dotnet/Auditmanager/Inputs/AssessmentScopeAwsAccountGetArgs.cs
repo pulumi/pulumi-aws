@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Auditmanager.Inputs
 
     public sealed class AssessmentScopeAwsAccountGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identifier for the Amazon Web Services account.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 

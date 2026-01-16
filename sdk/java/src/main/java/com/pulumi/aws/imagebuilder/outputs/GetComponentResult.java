@@ -14,114 +14,42 @@ import java.util.Objects;
 @CustomType
 public final class GetComponentResult {
     private String arn;
-    /**
-     * @return Change description of the component.
-     * 
-     */
     private String changeDescription;
-    /**
-     * @return Data of the component.
-     * 
-     */
     private String data;
-    /**
-     * @return Date the component was created.
-     * 
-     */
     private String dateCreated;
-    /**
-     * @return Description of the component.
-     * 
-     */
     private String description;
-    /**
-     * @return Encryption status of the component.
-     * 
-     */
     private Boolean encrypted;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return ARN of the Key Management Service (KMS) Key used to encrypt the component.
-     * 
-     */
     private String kmsKeyId;
-    /**
-     * @return Name of the component.
-     * 
-     */
     private String name;
-    /**
-     * @return Owner of the component.
-     * 
-     */
     private String owner;
-    /**
-     * @return Platform of the component.
-     * 
-     */
     private String platform;
     private String region;
-    /**
-     * @return Operating Systems (OSes) supported by the component.
-     * 
-     */
     private List<String> supportedOsVersions;
-    /**
-     * @return Key-value map of resource tags for the component.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Type of the component.
-     * 
-     */
     private String type;
-    /**
-     * @return Version of the component.
-     * 
-     */
     private String version;
 
     private GetComponentResult() {}
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Change description of the component.
-     * 
-     */
     public String changeDescription() {
         return this.changeDescription;
     }
-    /**
-     * @return Data of the component.
-     * 
-     */
     public String data() {
         return this.data;
     }
-    /**
-     * @return Date the component was created.
-     * 
-     */
     public String dateCreated() {
         return this.dateCreated;
     }
-    /**
-     * @return Description of the component.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Encryption status of the component.
-     * 
-     */
     public Boolean encrypted() {
         return this.encrypted;
     }
@@ -132,62 +60,30 @@ public final class GetComponentResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return ARN of the Key Management Service (KMS) Key used to encrypt the component.
-     * 
-     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
-    /**
-     * @return Name of the component.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Owner of the component.
-     * 
-     */
     public String owner() {
         return this.owner;
     }
-    /**
-     * @return Platform of the component.
-     * 
-     */
     public String platform() {
         return this.platform;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Operating Systems (OSes) supported by the component.
-     * 
-     */
     public List<String> supportedOsVersions() {
         return this.supportedOsVersions;
     }
-    /**
-     * @return Key-value map of resource tags for the component.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Type of the component.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return Version of the component.
-     * 
-     */
     public String version() {
         return this.version;
     }

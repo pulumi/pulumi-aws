@@ -13,29 +13,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentDataSourceDataSourceConfiguration
     {
-        /// <summary>
-        /// Details about the configuration of the Confluence data source. See `ConfluenceDataSourceConfiguration` block for details.
-        /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationConfluenceConfiguration? ConfluenceConfiguration;
-        /// <summary>
-        /// Details about the configuration of the S3 object containing the data source. See `S3DataSourceConfiguration` block for details.
-        /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationS3Configuration? S3Configuration;
-        /// <summary>
-        /// Details about the configuration of the Salesforce data source. See `SalesforceDataSourceConfiguration` block for details.
-        /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationSalesforceConfiguration? SalesforceConfiguration;
-        /// <summary>
-        /// Details about the configuration of the SharePoint data source. See `SharePointDataSourceConfiguration` block for details.
-        /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationSharePointConfiguration? SharePointConfiguration;
-        /// <summary>
-        /// Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Details about the configuration of the web data source. See `WebDataSourceConfiguration` block for details.
-        /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationWebConfiguration? WebConfiguration;
 
         [OutputConstructor]

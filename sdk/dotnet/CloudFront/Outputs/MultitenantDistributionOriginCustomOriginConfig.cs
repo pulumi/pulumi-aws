@@ -13,33 +13,12 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class MultitenantDistributionOriginCustomOriginConfig
     {
-        /// <summary>
-        /// HTTP port the custom origin listens on.
-        /// </summary>
         public readonly int HttpPort;
-        /// <summary>
-        /// HTTPS port the custom origin listens on.
-        /// </summary>
         public readonly int HttpsPort;
-        /// <summary>
-        /// Type of IP addresses used by your origins. Valid values are `Ipv4` and `Dualstack`.
-        /// </summary>
         public readonly string? IpAddressType;
-        /// <summary>
-        /// Custom keep-alive timeout, in seconds. Default: 5.
-        /// </summary>
         public readonly int? OriginKeepaliveTimeout;
-        /// <summary>
-        /// Origin protocol policy to apply to your origin. Valid values are `http-only`, `https-only`, and `match-viewer`.
-        /// </summary>
         public readonly string OriginProtocolPolicy;
-        /// <summary>
-        /// Custom read timeout, in seconds. Default: 30.
-        /// </summary>
         public readonly int? OriginReadTimeout;
-        /// <summary>
-        /// List of SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS.
-        /// </summary>
         public readonly ImmutableArray<string> OriginSslProtocols;
 
         [OutputConstructor]

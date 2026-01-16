@@ -14,17 +14,9 @@ public final class AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurati
 
     public static final AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs Empty = new AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs();
 
-    /**
-     * URI of the container image in Amazon ECR.
-     * 
-     */
     @Import(name="containerUri", required=true)
     private Output<String> containerUri;
 
-    /**
-     * @return URI of the container image in Amazon ECR.
-     * 
-     */
     public Output<String> containerUri() {
         return this.containerUri;
     }
@@ -53,23 +45,11 @@ public final class AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurati
             $ = new AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param containerUri URI of the container image in Amazon ECR.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerUri(Output<String> containerUri) {
             $.containerUri = containerUri;
             return this;
         }
 
-        /**
-         * @param containerUri URI of the container image in Amazon ECR.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerUri(String containerUri) {
             return containerUri(Output.of(containerUri));
         }

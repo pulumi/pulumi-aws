@@ -16,47 +16,23 @@ public final class GetVpnConnectionPlainArgs extends com.pulumi.resources.Invoke
 
     public static final GetVpnConnectionPlainArgs Empty = new GetVpnConnectionPlainArgs();
 
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetVpnConnectionFilter> filters;
 
-    /**
-     * @return Configuration block(s) for filtering. Detailed below.
-     * 
-     */
     public Optional<List<GetVpnConnectionFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Identifier of the EC2 VPN Connection.
-     * 
-     */
     @Import(name="vpnConnectionId")
     private @Nullable String vpnConnectionId;
 
-    /**
-     * @return Identifier of the EC2 VPN Connection.
-     * 
-     */
     public Optional<String> vpnConnectionId() {
         return Optional.ofNullable(this.vpnConnectionId);
     }
@@ -87,44 +63,20 @@ public final class GetVpnConnectionPlainArgs extends com.pulumi.resources.Invoke
             $ = new GetVpnConnectionPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetVpnConnectionFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetVpnConnectionFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param vpnConnectionId Identifier of the EC2 VPN Connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpnConnectionId(@Nullable String vpnConnectionId) {
             $.vpnConnectionId = vpnConnectionId;
             return this;

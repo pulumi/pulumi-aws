@@ -16,62 +16,30 @@ public final class DocumentationVersionArgs extends com.pulumi.resources.Resourc
 
     public static final DocumentationVersionArgs Empty = new DocumentationVersionArgs();
 
-    /**
-     * Description of the API documentation version.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the API documentation version.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the associated Rest API
-     * 
-     */
     @Import(name="restApiId", required=true)
     private Output<String> restApiId;
 
-    /**
-     * @return ID of the associated Rest API
-     * 
-     */
     public Output<String> restApiId() {
         return this.restApiId;
     }
 
-    /**
-     * Version identifier of the API documentation snapshot.
-     * 
-     */
     @Import(name="version", required=true)
     private Output<String> version;
 
-    /**
-     * @return Version identifier of the API documentation snapshot.
-     * 
-     */
     public Output<String> version() {
         return this.version;
     }
@@ -103,86 +71,38 @@ public final class DocumentationVersionArgs extends com.pulumi.resources.Resourc
             $ = new DocumentationVersionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Description of the API documentation version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the API documentation version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param restApiId ID of the associated Rest API
-         * 
-         * @return builder
-         * 
-         */
         public Builder restApiId(Output<String> restApiId) {
             $.restApiId = restApiId;
             return this;
         }
 
-        /**
-         * @param restApiId ID of the associated Rest API
-         * 
-         * @return builder
-         * 
-         */
         public Builder restApiId(String restApiId) {
             return restApiId(Output.of(restApiId));
         }
 
-        /**
-         * @param version Version identifier of the API documentation snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(Output<String> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version Version identifier of the API documentation snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

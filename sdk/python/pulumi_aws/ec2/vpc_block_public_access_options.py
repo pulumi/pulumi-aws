@@ -26,8 +26,6 @@ class VpcBlockPublicAccessOptionsArgs:
                  timeouts: Optional[pulumi.Input['VpcBlockPublicAccessOptionsTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a VpcBlockPublicAccessOptions resource.
-        :param pulumi.Input[_builtins.str] internet_gateway_block_mode: Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "internet_gateway_block_mode", internet_gateway_block_mode)
         if region is not None:
@@ -38,9 +36,6 @@ class VpcBlockPublicAccessOptionsArgs:
     @_builtins.property
     @pulumi.getter(name="internetGatewayBlockMode")
     def internet_gateway_block_mode(self) -> pulumi.Input[_builtins.str]:
-        """
-        Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
-        """
         return pulumi.get(self, "internet_gateway_block_mode")
 
     @internet_gateway_block_mode.setter
@@ -50,9 +45,6 @@ class VpcBlockPublicAccessOptionsArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -79,10 +71,6 @@ class _VpcBlockPublicAccessOptionsState:
                  timeouts: Optional[pulumi.Input['VpcBlockPublicAccessOptionsTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering VpcBlockPublicAccessOptions resources.
-        :param pulumi.Input[_builtins.str] aws_account_id: The AWS account id to which these options apply.
-        :param pulumi.Input[_builtins.str] aws_region: The AWS region to which these options apply.
-        :param pulumi.Input[_builtins.str] internet_gateway_block_mode: Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
@@ -98,9 +86,6 @@ class _VpcBlockPublicAccessOptionsState:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS account id to which these options apply.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -110,9 +95,6 @@ class _VpcBlockPublicAccessOptionsState:
     @_builtins.property
     @pulumi.getter(name="awsRegion")
     def aws_region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS region to which these options apply.
-        """
         return pulumi.get(self, "aws_region")
 
     @aws_region.setter
@@ -122,9 +104,6 @@ class _VpcBlockPublicAccessOptionsState:
     @_builtins.property
     @pulumi.getter(name="internetGatewayBlockMode")
     def internet_gateway_block_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
-        """
         return pulumi.get(self, "internet_gateway_block_mode")
 
     @internet_gateway_block_mode.setter
@@ -134,9 +113,6 @@ class _VpcBlockPublicAccessOptionsState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -164,31 +140,9 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['VpcBlockPublicAccessOptionsTimeoutsArgs', 'VpcBlockPublicAccessOptionsTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS VPC Block Public Access Options.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.VpcBlockPublicAccessOptions("example", internet_gateway_block_mode="block-bidirectional")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import VPC Block Public Access Options using the `aws_region`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/vpcBlockPublicAccessOptions:VpcBlockPublicAccessOptions example us-east-1
-        ```
-
+        Create a VpcBlockPublicAccessOptions resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] internet_gateway_block_mode: Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -197,27 +151,7 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
                  args: VpcBlockPublicAccessOptionsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS VPC Block Public Access Options.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.VpcBlockPublicAccessOptions("example", internet_gateway_block_mode="block-bidirectional")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import VPC Block Public Access Options using the `aws_region`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/vpcBlockPublicAccessOptions:VpcBlockPublicAccessOptions example us-east-1
-        ```
-
+        Create a VpcBlockPublicAccessOptions resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VpcBlockPublicAccessOptionsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -274,10 +208,6 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] aws_account_id: The AWS account id to which these options apply.
-        :param pulumi.Input[_builtins.str] aws_region: The AWS region to which these options apply.
-        :param pulumi.Input[_builtins.str] internet_gateway_block_mode: Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -293,33 +223,21 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The AWS account id to which these options apply.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @_builtins.property
     @pulumi.getter(name="awsRegion")
     def aws_region(self) -> pulumi.Output[_builtins.str]:
-        """
-        The AWS region to which these options apply.
-        """
         return pulumi.get(self, "aws_region")
 
     @_builtins.property
     @pulumi.getter(name="internetGatewayBlockMode")
     def internet_gateway_block_mode(self) -> pulumi.Output[_builtins.str]:
-        """
-        Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
-        """
         return pulumi.get(self, "internet_gateway_block_mode")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property

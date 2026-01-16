@@ -14,20 +14,8 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAliasResult {
-    /**
-     * @return ARN identifying the State Machine alias.
-     * 
-     */
     private String arn;
-    /**
-     * @return Date the state machine Alias was created.
-     * 
-     */
     private String creationDate;
-    /**
-     * @return Description of state machine alias.
-     * 
-     */
     private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -36,32 +24,16 @@ public final class GetAliasResult {
     private String id;
     private String name;
     private String region;
-    /**
-     * @return Routing Configuration of state machine alias
-     * 
-     */
     private List<GetAliasRoutingConfiguration> routingConfigurations;
     private String statemachineArn;
 
     private GetAliasResult() {}
-    /**
-     * @return ARN identifying the State Machine alias.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Date the state machine Alias was created.
-     * 
-     */
     public String creationDate() {
         return this.creationDate;
     }
-    /**
-     * @return Description of state machine alias.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
@@ -78,10 +50,6 @@ public final class GetAliasResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Routing Configuration of state machine alias
-     * 
-     */
     public List<GetAliasRoutingConfiguration> routingConfigurations() {
         return this.routingConfigurations;
     }

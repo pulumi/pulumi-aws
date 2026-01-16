@@ -15,170 +15,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS AppFabric Ingestion.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appfabric.Ingestion;
- * import com.pulumi.aws.appfabric.IngestionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Ingestion("example", IngestionArgs.builder()
- *             .app("OKTA")
- *             .appBundleArn(exampleAwsAppfabricAppBundle.arn())
- *             .tenantId("example.okta.com")
- *             .ingestionType("auditLog")
- *             .tags(Map.of("Environment", "test"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import AppFabric Ingestion using the `app_bundle_identifier` and `arn` separated by `,`. For example:
- * 
- * ```sh
- * $ pulumi import aws:appfabric/ingestion:Ingestion example arn:aws:appfabric:[region]:[account]:appbundle/a9b91477-8831-43c0-970c-xxxxxxxxxx,arn:aws:appfabric:[region]:[account]:appbundle/a9b91477-8831-43c0-970c-xxxxxxxxxx/ingestion/32251416-710b-4425-96ca-xxxxxxxxxx
- * ```
- * 
- */
 @ResourceType(type="aws:appfabric/ingestion:Ingestion")
 public class Ingestion extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of the application.
-     * Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
-     * 
-     */
     @Export(name="app", refs={String.class}, tree="[0]")
     private Output<String> app;
 
-    /**
-     * @return Name of the application.
-     * Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
-     * 
-     */
     public Output<String> app() {
         return this.app;
     }
-    /**
-     * Amazon Resource Name (ARN) of the app bundle to use for the request.
-     * 
-     */
     @Export(name="appBundleArn", refs={String.class}, tree="[0]")
     private Output<String> appBundleArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the app bundle to use for the request.
-     * 
-     */
     public Output<String> appBundleArn() {
         return this.appBundleArn;
     }
-    /**
-     * ARN of the Ingestion.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Ingestion.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Ingestion type. Valid values are `auditLog`.
-     * 
-     */
     @Export(name="ingestionType", refs={String.class}, tree="[0]")
     private Output<String> ingestionType;
 
-    /**
-     * @return Ingestion type. Valid values are `auditLog`.
-     * 
-     */
     public Output<String> ingestionType() {
         return this.ingestionType;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * ID of the application tenant.
-     * 
-     */
     @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output<String> tenantId;
 
-    /**
-     * @return ID of the application tenant.
-     * 
-     */
     public Output<String> tenantId() {
         return this.tenantId;
     }

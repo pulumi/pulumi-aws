@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetListenerRuleTransform {
-    /**
-     * @return Block for host header rewrite. Detailed below.
-     * 
-     */
     private @Nullable List<GetListenerRuleTransformHostHeaderRewriteConfig> hostHeaderRewriteConfigs;
-    /**
-     * @return Type of transform.
-     * 
-     */
     private String type;
-    /**
-     * @return Block for URL rewrite. Detailed below.
-     * 
-     */
     private @Nullable List<GetListenerRuleTransformUrlRewriteConfig> urlRewriteConfigs;
 
     private GetListenerRuleTransform() {}
-    /**
-     * @return Block for host header rewrite. Detailed below.
-     * 
-     */
     public List<GetListenerRuleTransformHostHeaderRewriteConfig> hostHeaderRewriteConfigs() {
         return this.hostHeaderRewriteConfigs == null ? List.of() : this.hostHeaderRewriteConfigs;
     }
-    /**
-     * @return Type of transform.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return Block for URL rewrite. Detailed below.
-     * 
-     */
     public List<GetListenerRuleTransformUrlRewriteConfig> urlRewriteConfigs() {
         return this.urlRewriteConfigs == null ? List.of() : this.urlRewriteConfigs;
     }

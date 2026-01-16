@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig {
-    /**
-     * @return An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
-     * 
-     */
     private @Nullable String notificationArn;
-    /**
-     * @return The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
-     * 
-     */
     private @Nullable List<String> notificationEvents;
-    /**
-     * @return When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
-     * 
-     */
     private @Nullable String notificationType;
 
     private MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig() {}
-    /**
-     * @return An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
-     * 
-     */
     public Optional<String> notificationArn() {
         return Optional.ofNullable(this.notificationArn);
     }
-    /**
-     * @return The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
-     * 
-     */
     public List<String> notificationEvents() {
         return this.notificationEvents == null ? List.of() : this.notificationEvents;
     }
-    /**
-     * @return When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
-     * 
-     */
     public Optional<String> notificationType() {
         return Optional.ofNullable(this.notificationType);
     }

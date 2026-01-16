@@ -14,17 +14,9 @@ public final class LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainR
 
     public static final LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleArgs Empty = new LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleArgs();
 
-    /**
-     * Information about retention period in the Amazon EBS Snapshots Archive. See the `retentionArchiveTier` block.
-     * 
-     */
     @Import(name="retentionArchiveTier", required=true)
     private Output<LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleRetentionArchiveTierArgs> retentionArchiveTier;
 
-    /**
-     * @return Information about retention period in the Amazon EBS Snapshots Archive. See the `retentionArchiveTier` block.
-     * 
-     */
     public Output<LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleRetentionArchiveTierArgs> retentionArchiveTier() {
         return this.retentionArchiveTier;
     }
@@ -53,23 +45,11 @@ public final class LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainR
             $ = new LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param retentionArchiveTier Information about retention period in the Amazon EBS Snapshots Archive. See the `retentionArchiveTier` block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionArchiveTier(Output<LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleRetentionArchiveTierArgs> retentionArchiveTier) {
             $.retentionArchiveTier = retentionArchiveTier;
             return this;
         }
 
-        /**
-         * @param retentionArchiveTier Information about retention period in the Amazon EBS Snapshots Archive. See the `retentionArchiveTier` block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionArchiveTier(LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleRetentionArchiveTierArgs retentionArchiveTier) {
             return retentionArchiveTier(Output.of(retentionArchiveTier));
         }

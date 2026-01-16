@@ -7,59 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an [AWS Mainframe Modernization Application](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2.html).
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.m2.Application("example", {
- *     name: "Example",
- *     engineType: "bluage",
- *     definition: {
- *         content: `{
- *   \"definition\": {
- *     \"listeners\": [
- *       {
- *         \"port\": 8196,
- *         \"type\": \"http\"
- *       }
- *     ],
- *     \"ba-application\": {
- *       \"app-location\": \"${s3_source}/PlanetsDemo-v1.zip\"
- *     }
- *   },
- *   \"source-locations\": [
- *     {
- *       \"source-id\": \"s3-source\",
- *       \"source-type\": \"s3\",
- *       \"properties\": {
- *         \"s3-bucket\": \"example-bucket\",
- *         \"s3-key-prefix\": \"v1\"
- *       }
- *     }
- *   ],
- *   \"template-version\": \"2.0\"
- * }
- *
- * `,
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Mainframe Modernization Application using the `01234567890abcdef012345678`. For example:
- *
- * ```sh
- * $ pulumi import aws:m2/application:Application example 01234567890abcdef012345678
- * ```
- */
 export class Application extends pulumi.CustomResource {
     /**
      * Get an existing Application resource's state with the given name, ID, and optional extra
@@ -88,55 +35,17 @@ export class Application extends pulumi.CustomResource {
         return obj['__pulumiType'] === Application.__pulumiType;
     }
 
-    /**
-     * Id of the Application.
-     */
     declare public /*out*/ readonly applicationId: pulumi.Output<string>;
-    /**
-     * ARN of the Application.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Current version of the application deployed.
-     */
     declare public /*out*/ readonly currentVersion: pulumi.Output<number>;
-    /**
-     * The application definition for this application. You can specify either inline JSON or an S3 bucket location.
-     */
     declare public readonly definition: pulumi.Output<outputs.m2.ApplicationDefinition | undefined>;
-    /**
-     * Description of the application.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Engine type must be `microfocus | bluage`.
-     */
     declare public readonly engineType: pulumi.Output<string>;
-    /**
-     * KMS Key to use for the Application.
-     */
     declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
-    /**
-     * Unique identifier of the application.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ARN of role for application to use to access AWS resources.
-     */
     declare public readonly roleArn: pulumi.Output<string | undefined>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.m2.ApplicationTimeouts | undefined>;
 
@@ -194,55 +103,17 @@ export class Application extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Application resources.
  */
 export interface ApplicationState {
-    /**
-     * Id of the Application.
-     */
     applicationId?: pulumi.Input<string>;
-    /**
-     * ARN of the Application.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Current version of the application deployed.
-     */
     currentVersion?: pulumi.Input<number>;
-    /**
-     * The application definition for this application. You can specify either inline JSON or an S3 bucket location.
-     */
     definition?: pulumi.Input<inputs.m2.ApplicationDefinition>;
-    /**
-     * Description of the application.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Engine type must be `microfocus | bluage`.
-     */
     engineType?: pulumi.Input<string>;
-    /**
-     * KMS Key to use for the Application.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * Unique identifier of the application.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of role for application to use to access AWS resources.
-     */
     roleArn?: pulumi.Input<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.m2.ApplicationTimeouts>;
 }
@@ -251,39 +122,13 @@ export interface ApplicationState {
  * The set of arguments for constructing a Application resource.
  */
 export interface ApplicationArgs {
-    /**
-     * The application definition for this application. You can specify either inline JSON or an S3 bucket location.
-     */
     definition?: pulumi.Input<inputs.m2.ApplicationDefinition>;
-    /**
-     * Description of the application.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Engine type must be `microfocus | bluage`.
-     */
     engineType: pulumi.Input<string>;
-    /**
-     * KMS Key to use for the Application.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * Unique identifier of the application.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of role for application to use to access AWS resources.
-     */
     roleArn?: pulumi.Input<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.m2.ApplicationTimeouts>;
 }

@@ -16,65 +16,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PatchBaselineApprovalRule {
-    /**
-     * @return Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 360. Conflicts with `approveUntilDate`.
-     * 
-     */
     private @Nullable Integer approveAfterDays;
-    /**
-     * @return Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approveAfterDays`
-     * 
-     */
     private @Nullable String approveUntilDate;
-    /**
-     * @return Compliance level for patches approved by this rule. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, and `UNSPECIFIED`. The default value is `UNSPECIFIED`.
-     * 
-     */
     private @Nullable String complianceLevel;
-    /**
-     * @return Boolean enabling the application of non-security updates. The default value is `false`. Valid for Linux instances only.
-     * 
-     */
     private @Nullable Boolean enableNonSecurity;
-    /**
-     * @return Patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid combinations of these Keys and the `operatingSystem` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values. `PATCH_SET` defaults to `OS` if unspecified
-     * 
-     */
     private List<PatchBaselineApprovalRulePatchFilter> patchFilters;
 
     private PatchBaselineApprovalRule() {}
-    /**
-     * @return Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 360. Conflicts with `approveUntilDate`.
-     * 
-     */
     public Optional<Integer> approveAfterDays() {
         return Optional.ofNullable(this.approveAfterDays);
     }
-    /**
-     * @return Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approveAfterDays`
-     * 
-     */
     public Optional<String> approveUntilDate() {
         return Optional.ofNullable(this.approveUntilDate);
     }
-    /**
-     * @return Compliance level for patches approved by this rule. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, and `UNSPECIFIED`. The default value is `UNSPECIFIED`.
-     * 
-     */
     public Optional<String> complianceLevel() {
         return Optional.ofNullable(this.complianceLevel);
     }
-    /**
-     * @return Boolean enabling the application of non-security updates. The default value is `false`. Valid for Linux instances only.
-     * 
-     */
     public Optional<Boolean> enableNonSecurity() {
         return Optional.ofNullable(this.enableNonSecurity);
     }
-    /**
-     * @return Patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid combinations of these Keys and the `operatingSystem` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values. `PATCH_SET` defaults to `OS` if unspecified
-     * 
-     */
     public List<PatchBaselineApprovalRulePatchFilter> patchFilters() {
         return this.patchFilters;
     }

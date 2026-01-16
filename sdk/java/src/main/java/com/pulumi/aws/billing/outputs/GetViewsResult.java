@@ -14,10 +14,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetViewsResult {
     private @Nullable List<String> billingViewTypes;
-    /**
-     * @return List of billing view objects with the following attributes:
-     * 
-     */
     private List<GetViewsBillingView> billingViews;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -29,10 +25,6 @@ public final class GetViewsResult {
     public List<String> billingViewTypes() {
         return this.billingViewTypes == null ? List.of() : this.billingViewTypes;
     }
-    /**
-     * @return List of billing view objects with the following attributes:
-     * 
-     */
     public List<GetViewsBillingView> billingViews() {
         return this.billingViews;
     }

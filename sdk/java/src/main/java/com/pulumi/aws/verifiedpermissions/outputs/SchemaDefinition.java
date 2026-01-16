@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class SchemaDefinition {
-    /**
-     * @return A JSON string representation of the schema.
-     * 
-     */
     private String value;
 
     private SchemaDefinition() {}
-    /**
-     * @return A JSON string representation of the schema.
-     * 
-     */
     public String value() {
         return this.value;
     }

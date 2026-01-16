@@ -23,19 +23,9 @@ public final class GetLifecyclePolicyDocumentRuleActionArgs extends com.pulumi.r
         return Optional.ofNullable(this.targetStorageClass);
     }
 
-    /**
-     * Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
-     * * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
-     * * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -74,25 +64,11 @@ public final class GetLifecyclePolicyDocumentRuleActionArgs extends com.pulumi.r
             return targetStorageClass(Output.of(targetStorageClass));
         }
 
-        /**
-         * @param type Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
-         * * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
-         * * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

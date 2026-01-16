@@ -68,41 +68,26 @@ class GetOrganizationResult:
     @_builtins.property
     @pulumi.getter
     def accounts(self) -> Sequence['outputs.GetOrganizationAccountResult']:
-        """
-        List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
-        """
         return pulumi.get(self, "accounts")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the root.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="awsServiceAccessPrincipals")
     def aws_service_access_principals(self) -> Sequence[_builtins.str]:
-        """
-        A list of AWS service principal names that have integration enabled with your organization. Organization must have `feature_set` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
-        """
         return pulumi.get(self, "aws_service_access_principals")
 
     @_builtins.property
     @pulumi.getter(name="enabledPolicyTypes")
     def enabled_policy_types(self) -> Sequence[_builtins.str]:
-        """
-        A list of Organizations policy types that are enabled in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `SERVICE_CONTROL_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
-        """
         return pulumi.get(self, "enabled_policy_types")
 
     @_builtins.property
     @pulumi.getter(name="featureSet")
     def feature_set(self) -> _builtins.str:
-        """
-        FeatureSet of the organization.
-        """
         return pulumi.get(self, "feature_set")
 
     @_builtins.property
@@ -116,49 +101,31 @@ class GetOrganizationResult:
     @_builtins.property
     @pulumi.getter(name="masterAccountArn")
     def master_account_arn(self) -> _builtins.str:
-        """
-        ARN of the account that is designated as the master account for the organization.
-        """
         return pulumi.get(self, "master_account_arn")
 
     @_builtins.property
     @pulumi.getter(name="masterAccountEmail")
     def master_account_email(self) -> _builtins.str:
-        """
-        The email address that is associated with the AWS account that is designated as the master account for the organization.
-        """
         return pulumi.get(self, "master_account_email")
 
     @_builtins.property
     @pulumi.getter(name="masterAccountId")
     def master_account_id(self) -> _builtins.str:
-        """
-        Unique identifier (ID) of the master account of an organization.
-        """
         return pulumi.get(self, "master_account_id")
 
     @_builtins.property
     @pulumi.getter(name="masterAccountName")
     def master_account_name(self) -> _builtins.str:
-        """
-        Name of the master account of an organization.
-        """
         return pulumi.get(self, "master_account_name")
 
     @_builtins.property
     @pulumi.getter(name="nonMasterAccounts")
     def non_master_accounts(self) -> Sequence['outputs.GetOrganizationNonMasterAccountResult']:
-        """
-        List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
-        """
         return pulumi.get(self, "non_master_accounts")
 
     @_builtins.property
     @pulumi.getter
     def roots(self) -> Sequence['outputs.GetOrganizationRootResult']:
-        """
-        List of organization roots. All elements have these attributes:
-        """
         return pulumi.get(self, "roots")
 
 
@@ -184,49 +151,7 @@ class AwaitableGetOrganizationResult(GetOrganizationResult):
 
 def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationResult:
     """
-    Get information about the organization that the users account belongs to.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.organizations.get_organization()
-    pulumi.export("accountIds", [__item.id for __item in example.accounts])
-    ```
-
-    ### Limit SNS Topic Access to an Organization
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.organizations.get_organization()
-    sns_topic = aws.sns.Topic("sns_topic", name="my-sns-topic")
-    sns_topic_policy = sns_topic.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
-        "effect": "Allow",
-        "actions": [
-            "SNS:Subscribe",
-            "SNS:Publish",
-        ],
-        "conditions": [{
-            "test": "StringEquals",
-            "variable": "aws:PrincipalOrgID",
-            "values": [example.id],
-        }],
-        "principals": [{
-            "type": "AWS",
-            "identifiers": ["*"],
-        }],
-        "resources": [arn],
-    }]))
-    sns_topic_policy_topic_policy = aws.sns.TopicPolicy("sns_topic_policy",
-        arn=sns_topic.arn,
-        policy=sns_topic_policy.json)
-    ```
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -247,49 +172,7 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
         roots=pulumi.get(__ret__, 'roots'))
 def get_organization_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationResult]:
     """
-    Get information about the organization that the users account belongs to.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.organizations.get_organization()
-    pulumi.export("accountIds", [__item.id for __item in example.accounts])
-    ```
-
-    ### Limit SNS Topic Access to an Organization
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.organizations.get_organization()
-    sns_topic = aws.sns.Topic("sns_topic", name="my-sns-topic")
-    sns_topic_policy = sns_topic.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
-        "effect": "Allow",
-        "actions": [
-            "SNS:Subscribe",
-            "SNS:Publish",
-        ],
-        "conditions": [{
-            "test": "StringEquals",
-            "variable": "aws:PrincipalOrgID",
-            "values": [example.id],
-        }],
-        "principals": [{
-            "type": "AWS",
-            "identifiers": ["*"],
-        }],
-        "resources": [arn],
-    }]))
-    sns_topic_policy_topic_policy = aws.sns.TopicPolicy("sns_topic_policy",
-        arn=sns_topic.arn,
-        policy=sns_topic_policy.json)
-    ```
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

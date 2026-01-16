@@ -16,47 +16,23 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManager
 
     public static final FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs Empty = new FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs();
 
-    /**
-     * Enables or disables the Secrets Manager configuration.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Enables or disables the Secrets Manager configuration.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * The ARN of the role the stream assumes.
-     * 
-     */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
-    /**
-     * @return The ARN of the role the stream assumes.
-     * 
-     */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
 
-    /**
-     * The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
-     * 
-     */
     @Import(name="secretArn")
     private @Nullable Output<String> secretArn;
 
-    /**
-     * @return The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
-     * 
-     */
     public Optional<Output<String>> secretArn() {
         return Optional.ofNullable(this.secretArn);
     }
@@ -87,65 +63,29 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManager
             $ = new FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Enables or disables the Secrets Manager configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Enables or disables the Secrets Manager configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param roleArn The ARN of the role the stream assumes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The ARN of the role the stream assumes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param secretArn The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretArn(@Nullable Output<String> secretArn) {
             $.secretArn = secretArn;
             return this;
         }
 
-        /**
-         * @param secretArn The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretArn(String secretArn) {
             return secretArn(Output.of(secretArn));
         }

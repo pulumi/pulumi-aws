@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration
     {
-        /// <summary>
-        /// The ARN of the CloudWatch Logs log group to which the logs should be delivered.
-        /// </summary>
         public readonly string? LogGroupArn;
 
         [OutputConstructor]

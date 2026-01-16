@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class MonitoringScheduleMonitoringScheduleConfigScheduleConfig {
-    /**
-     * @return A cron expression that describes details about the monitoring schedule. For example, and hourly schedule would be `cron(0 * ? * * *)`.
-     * 
-     */
     private String scheduleExpression;
 
     private MonitoringScheduleMonitoringScheduleConfigScheduleConfig() {}
-    /**
-     * @return A cron expression that describes details about the monitoring schedule. For example, and hourly schedule would be `cron(0 * ? * * *)`.
-     * 
-     */
     public String scheduleExpression() {
         return this.scheduleExpression;
     }

@@ -17,32 +17,16 @@ public final class ManagedUserPoolClientRefreshTokenRotationArgs extends com.pul
 
     public static final ManagedUserPoolClientRefreshTokenRotationArgs Empty = new ManagedUserPoolClientRefreshTokenRotationArgs();
 
-    /**
-     * The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
-     * 
-     */
     @Import(name="feature", required=true)
     private Output<String> feature;
 
-    /**
-     * @return The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
-     * 
-     */
     public Output<String> feature() {
         return this.feature;
     }
 
-    /**
-     * A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
-     * 
-     */
     @Import(name="retryGracePeriodSeconds")
     private @Nullable Output<Integer> retryGracePeriodSeconds;
 
-    /**
-     * @return A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
-     * 
-     */
     public Optional<Output<Integer>> retryGracePeriodSeconds() {
         return Optional.ofNullable(this.retryGracePeriodSeconds);
     }
@@ -72,44 +56,20 @@ public final class ManagedUserPoolClientRefreshTokenRotationArgs extends com.pul
             $ = new ManagedUserPoolClientRefreshTokenRotationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param feature The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder feature(Output<String> feature) {
             $.feature = feature;
             return this;
         }
 
-        /**
-         * @param feature The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder feature(String feature) {
             return feature(Output.of(feature));
         }
 
-        /**
-         * @param retryGracePeriodSeconds A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retryGracePeriodSeconds(@Nullable Output<Integer> retryGracePeriodSeconds) {
             $.retryGracePeriodSeconds = retryGracePeriodSeconds;
             return this;
         }
 
-        /**
-         * @param retryGracePeriodSeconds A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retryGracePeriodSeconds(Integer retryGracePeriodSeconds) {
             return retryGracePeriodSeconds(Output.of(retryGracePeriodSeconds));
         }

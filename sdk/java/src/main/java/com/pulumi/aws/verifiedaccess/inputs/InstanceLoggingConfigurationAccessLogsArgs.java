@@ -19,77 +19,37 @@ public final class InstanceLoggingConfigurationAccessLogsArgs extends com.pulumi
 
     public static final InstanceLoggingConfigurationAccessLogsArgs Empty = new InstanceLoggingConfigurationAccessLogsArgs();
 
-    /**
-     * A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
-     * 
-     */
     @Import(name="cloudwatchLogs")
     private @Nullable Output<InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs> cloudwatchLogs;
 
-    /**
-     * @return A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
-     * 
-     */
     public Optional<Output<InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs>> cloudwatchLogs() {
         return Optional.ofNullable(this.cloudwatchLogs);
     }
 
-    /**
-     * Include trust data sent by trust providers into the logs.
-     * 
-     */
     @Import(name="includeTrustContext")
     private @Nullable Output<Boolean> includeTrustContext;
 
-    /**
-     * @return Include trust data sent by trust providers into the logs.
-     * 
-     */
     public Optional<Output<Boolean>> includeTrustContext() {
         return Optional.ofNullable(this.includeTrustContext);
     }
 
-    /**
-     * A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
-     * 
-     */
     @Import(name="kinesisDataFirehose")
     private @Nullable Output<InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs> kinesisDataFirehose;
 
-    /**
-     * @return A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
-     * 
-     */
     public Optional<Output<InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs>> kinesisDataFirehose() {
         return Optional.ofNullable(this.kinesisDataFirehose);
     }
 
-    /**
-     * The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
-     * 
-     */
     @Import(name="logVersion")
     private @Nullable Output<String> logVersion;
 
-    /**
-     * @return The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
-     * 
-     */
     public Optional<Output<String>> logVersion() {
         return Optional.ofNullable(this.logVersion);
     }
 
-    /**
-     * A block that specifies configures sending Verified Access logs to S3. Detailed below.
-     * 
-     */
     @Import(name="s3")
     private @Nullable Output<InstanceLoggingConfigurationAccessLogsS3Args> s3;
 
-    /**
-     * @return A block that specifies configures sending Verified Access logs to S3. Detailed below.
-     * 
-     */
     public Optional<Output<InstanceLoggingConfigurationAccessLogsS3Args>> s3() {
         return Optional.ofNullable(this.s3);
     }
@@ -122,107 +82,47 @@ public final class InstanceLoggingConfigurationAccessLogsArgs extends com.pulumi
             $ = new InstanceLoggingConfigurationAccessLogsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudwatchLogs A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogs(@Nullable Output<InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs> cloudwatchLogs) {
             $.cloudwatchLogs = cloudwatchLogs;
             return this;
         }
 
-        /**
-         * @param cloudwatchLogs A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogs(InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs cloudwatchLogs) {
             return cloudwatchLogs(Output.of(cloudwatchLogs));
         }
 
-        /**
-         * @param includeTrustContext Include trust data sent by trust providers into the logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeTrustContext(@Nullable Output<Boolean> includeTrustContext) {
             $.includeTrustContext = includeTrustContext;
             return this;
         }
 
-        /**
-         * @param includeTrustContext Include trust data sent by trust providers into the logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeTrustContext(Boolean includeTrustContext) {
             return includeTrustContext(Output.of(includeTrustContext));
         }
 
-        /**
-         * @param kinesisDataFirehose A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kinesisDataFirehose(@Nullable Output<InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs> kinesisDataFirehose) {
             $.kinesisDataFirehose = kinesisDataFirehose;
             return this;
         }
 
-        /**
-         * @param kinesisDataFirehose A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kinesisDataFirehose(InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs kinesisDataFirehose) {
             return kinesisDataFirehose(Output.of(kinesisDataFirehose));
         }
 
-        /**
-         * @param logVersion The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logVersion(@Nullable Output<String> logVersion) {
             $.logVersion = logVersion;
             return this;
         }
 
-        /**
-         * @param logVersion The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logVersion(String logVersion) {
             return logVersion(Output.of(logVersion));
         }
 
-        /**
-         * @param s3 A block that specifies configures sending Verified Access logs to S3. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3(@Nullable Output<InstanceLoggingConfigurationAccessLogsS3Args> s3) {
             $.s3 = s3;
             return this;
         }
 
-        /**
-         * @param s3 A block that specifies configures sending Verified Access logs to S3. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3(InstanceLoggingConfigurationAccessLogsS3Args s3) {
             return s3(Output.of(s3));
         }

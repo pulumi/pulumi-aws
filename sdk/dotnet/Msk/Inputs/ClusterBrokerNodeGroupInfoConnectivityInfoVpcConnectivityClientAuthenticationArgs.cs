@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Msk.Inputs
 
     public sealed class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for specifying SASL client authentication. See ClientAuthentication sasl Argument Reference below.
-        /// </summary>
         [Input("sasl")]
         public Input<Inputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs>? Sasl { get; set; }
 
-        /// <summary>
-        /// Configuration block for specifying TLS client authentication. See ClientAuthentication tls Argument Reference below.
-        /// </summary>
         [Input("tls")]
         public Input<bool>? Tls { get; set; }
 

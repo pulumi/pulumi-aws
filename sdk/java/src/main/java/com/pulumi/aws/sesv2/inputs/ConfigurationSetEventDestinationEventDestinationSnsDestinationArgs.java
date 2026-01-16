@@ -14,17 +14,9 @@ public final class ConfigurationSetEventDestinationEventDestinationSnsDestinatio
 
     public static final ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs Empty = new ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to.
-     * 
-     */
     @Import(name="topicArn", required=true)
     private Output<String> topicArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to.
-     * 
-     */
     public Output<String> topicArn() {
         return this.topicArn;
     }
@@ -53,23 +45,11 @@ public final class ConfigurationSetEventDestinationEventDestinationSnsDestinatio
             $ = new ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param topicArn The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicArn(Output<String> topicArn) {
             $.topicArn = topicArn;
             return this;
         }
 
-        /**
-         * @param topicArn The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicArn(String topicArn) {
             return topicArn(Output.of(topicArn));
         }

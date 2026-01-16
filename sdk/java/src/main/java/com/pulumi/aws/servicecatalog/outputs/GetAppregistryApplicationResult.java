@@ -11,73 +11,33 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAppregistryApplicationResult {
-    /**
-     * @return A map with a single tag key-value pair used to associate resources with the application.
-     * 
-     */
     private Map<String,String> applicationTag;
-    /**
-     * @return ARN (Amazon Resource Name) of the application.
-     * 
-     */
     private String arn;
-    /**
-     * @return Description of the application.
-     * 
-     */
     private String description;
     private String id;
-    /**
-     * @return Name of the application.
-     * 
-     */
     private String name;
     private String region;
-    /**
-     * @return A map of tags assigned to the Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetAppregistryApplicationResult() {}
-    /**
-     * @return A map with a single tag key-value pair used to associate resources with the application.
-     * 
-     */
     public Map<String,String> applicationTag() {
         return this.applicationTag;
     }
-    /**
-     * @return ARN (Amazon Resource Name) of the application.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Description of the application.
-     * 
-     */
     public String description() {
         return this.description;
     }
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the application.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return A map of tags assigned to the Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

@@ -39,24 +39,6 @@ class TaskSetArgs:
                  wait_until_stable_timeout: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TaskSet resource.
-        :param pulumi.Input[_builtins.str] cluster: The short name or ARN of the cluster that hosts the service to create the task set in.
-        :param pulumi.Input[_builtins.str] service: The short name or ARN of the ECS service.
-        :param pulumi.Input[_builtins.str] task_definition: The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArgs']]] capacity_provider_strategies: The capacity provider strategy to use for the service. Can be one or more.  Defined below.
-        :param pulumi.Input[_builtins.str] external_id: The external ID associated with the task set.
-        :param pulumi.Input[_builtins.bool] force_delete: Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
-        :param pulumi.Input[_builtins.str] launch_type: The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
-        :param pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]] load_balancers: Details on load balancers that are used with a task set. Detailed below.
-        :param pulumi.Input['TaskSetNetworkConfigurationArgs'] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
-        :param pulumi.Input[_builtins.str] platform_version: The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['TaskSetScaleArgs'] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
-        :param pulumi.Input['TaskSetServiceRegistriesArgs'] service_registries: The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-        :param pulumi.Input[_builtins.bool] wait_until_stable: Whether the provider should wait until the task set has reached `STEADY_STATE`.
-        :param pulumi.Input[_builtins.str] wait_until_stable_timeout: Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
         """
         pulumi.set(__self__, "cluster", cluster)
         pulumi.set(__self__, "service", service)
@@ -91,9 +73,6 @@ class TaskSetArgs:
     @_builtins.property
     @pulumi.getter
     def cluster(self) -> pulumi.Input[_builtins.str]:
-        """
-        The short name or ARN of the cluster that hosts the service to create the task set in.
-        """
         return pulumi.get(self, "cluster")
 
     @cluster.setter
@@ -103,9 +82,6 @@ class TaskSetArgs:
     @_builtins.property
     @pulumi.getter
     def service(self) -> pulumi.Input[_builtins.str]:
-        """
-        The short name or ARN of the ECS service.
-        """
         return pulumi.get(self, "service")
 
     @service.setter
@@ -115,11 +91,6 @@ class TaskSetArgs:
     @_builtins.property
     @pulumi.getter(name="taskDefinition")
     def task_definition(self) -> pulumi.Input[_builtins.str]:
-        """
-        The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "task_definition")
 
     @task_definition.setter
@@ -129,9 +100,6 @@ class TaskSetArgs:
     @_builtins.property
     @pulumi.getter(name="capacityProviderStrategies")
     def capacity_provider_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArgs']]]]:
-        """
-        The capacity provider strategy to use for the service. Can be one or more.  Defined below.
-        """
         return pulumi.get(self, "capacity_provider_strategies")
 
     @capacity_provider_strategies.setter
@@ -141,9 +109,6 @@ class TaskSetArgs:
     @_builtins.property
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The external ID associated with the task set.
-        """
         return pulumi.get(self, "external_id")
 
     @external_id.setter
@@ -153,9 +118,6 @@ class TaskSetArgs:
     @_builtins.property
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
-        """
         return pulumi.get(self, "force_delete")
 
     @force_delete.setter
@@ -165,9 +127,6 @@ class TaskSetArgs:
     @_builtins.property
     @pulumi.getter(name="launchType")
     def launch_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
-        """
         return pulumi.get(self, "launch_type")
 
     @launch_type.setter
@@ -177,9 +136,6 @@ class TaskSetArgs:
     @_builtins.property
     @pulumi.getter(name="loadBalancers")
     def load_balancers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]]]:
-        """
-        Details on load balancers that are used with a task set. Detailed below.
-        """
         return pulumi.get(self, "load_balancers")
 
     @load_balancers.setter
@@ -189,9 +145,6 @@ class TaskSetArgs:
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['TaskSetNetworkConfigurationArgs']]:
-        """
-        The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
-        """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
@@ -201,9 +154,6 @@ class TaskSetArgs:
     @_builtins.property
     @pulumi.getter(name="platformVersion")
     def platform_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-        """
         return pulumi.get(self, "platform_version")
 
     @platform_version.setter
@@ -213,9 +163,6 @@ class TaskSetArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -225,9 +172,6 @@ class TaskSetArgs:
     @_builtins.property
     @pulumi.getter
     def scale(self) -> Optional[pulumi.Input['TaskSetScaleArgs']]:
-        """
-        A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
-        """
         return pulumi.get(self, "scale")
 
     @scale.setter
@@ -237,9 +181,6 @@ class TaskSetArgs:
     @_builtins.property
     @pulumi.getter(name="serviceRegistries")
     def service_registries(self) -> Optional[pulumi.Input['TaskSetServiceRegistriesArgs']]:
-        """
-        The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
-        """
         return pulumi.get(self, "service_registries")
 
     @service_registries.setter
@@ -249,9 +190,6 @@ class TaskSetArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -261,9 +199,6 @@ class TaskSetArgs:
     @_builtins.property
     @pulumi.getter(name="waitUntilStable")
     def wait_until_stable(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the provider should wait until the task set has reached `STEADY_STATE`.
-        """
         return pulumi.get(self, "wait_until_stable")
 
     @wait_until_stable.setter
@@ -273,9 +208,6 @@ class TaskSetArgs:
     @_builtins.property
     @pulumi.getter(name="waitUntilStableTimeout")
     def wait_until_stable_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
-        """
         return pulumi.get(self, "wait_until_stable_timeout")
 
     @wait_until_stable_timeout.setter
@@ -309,29 +241,6 @@ class _TaskSetState:
                  wait_until_stable_timeout: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TaskSet resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) that identifies the task set.
-        :param pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArgs']]] capacity_provider_strategies: The capacity provider strategy to use for the service. Can be one or more.  Defined below.
-        :param pulumi.Input[_builtins.str] cluster: The short name or ARN of the cluster that hosts the service to create the task set in.
-        :param pulumi.Input[_builtins.str] external_id: The external ID associated with the task set.
-        :param pulumi.Input[_builtins.bool] force_delete: Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
-        :param pulumi.Input[_builtins.str] launch_type: The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
-        :param pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]] load_balancers: Details on load balancers that are used with a task set. Detailed below.
-        :param pulumi.Input['TaskSetNetworkConfigurationArgs'] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
-        :param pulumi.Input[_builtins.str] platform_version: The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['TaskSetScaleArgs'] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
-        :param pulumi.Input[_builtins.str] service: The short name or ARN of the ECS service.
-        :param pulumi.Input['TaskSetServiceRegistriesArgs'] service_registries: The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
-        :param pulumi.Input[_builtins.str] stability_status: The stability status. This indicates whether the task set has reached a steady state.
-        :param pulumi.Input[_builtins.str] status: The status of the task set.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] task_definition: The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] task_set_id: The ID of the task set.
-        :param pulumi.Input[_builtins.bool] wait_until_stable: Whether the provider should wait until the task set has reached `STEADY_STATE`.
-        :param pulumi.Input[_builtins.str] wait_until_stable_timeout: Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -379,9 +288,6 @@ class _TaskSetState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) that identifies the task set.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -391,9 +297,6 @@ class _TaskSetState:
     @_builtins.property
     @pulumi.getter(name="capacityProviderStrategies")
     def capacity_provider_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArgs']]]]:
-        """
-        The capacity provider strategy to use for the service. Can be one or more.  Defined below.
-        """
         return pulumi.get(self, "capacity_provider_strategies")
 
     @capacity_provider_strategies.setter
@@ -403,9 +306,6 @@ class _TaskSetState:
     @_builtins.property
     @pulumi.getter
     def cluster(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The short name or ARN of the cluster that hosts the service to create the task set in.
-        """
         return pulumi.get(self, "cluster")
 
     @cluster.setter
@@ -415,9 +315,6 @@ class _TaskSetState:
     @_builtins.property
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The external ID associated with the task set.
-        """
         return pulumi.get(self, "external_id")
 
     @external_id.setter
@@ -427,9 +324,6 @@ class _TaskSetState:
     @_builtins.property
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
-        """
         return pulumi.get(self, "force_delete")
 
     @force_delete.setter
@@ -439,9 +333,6 @@ class _TaskSetState:
     @_builtins.property
     @pulumi.getter(name="launchType")
     def launch_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
-        """
         return pulumi.get(self, "launch_type")
 
     @launch_type.setter
@@ -451,9 +342,6 @@ class _TaskSetState:
     @_builtins.property
     @pulumi.getter(name="loadBalancers")
     def load_balancers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]]]:
-        """
-        Details on load balancers that are used with a task set. Detailed below.
-        """
         return pulumi.get(self, "load_balancers")
 
     @load_balancers.setter
@@ -463,9 +351,6 @@ class _TaskSetState:
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['TaskSetNetworkConfigurationArgs']]:
-        """
-        The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
-        """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
@@ -475,9 +360,6 @@ class _TaskSetState:
     @_builtins.property
     @pulumi.getter(name="platformVersion")
     def platform_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-        """
         return pulumi.get(self, "platform_version")
 
     @platform_version.setter
@@ -487,9 +369,6 @@ class _TaskSetState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -499,9 +378,6 @@ class _TaskSetState:
     @_builtins.property
     @pulumi.getter
     def scale(self) -> Optional[pulumi.Input['TaskSetScaleArgs']]:
-        """
-        A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
-        """
         return pulumi.get(self, "scale")
 
     @scale.setter
@@ -511,9 +387,6 @@ class _TaskSetState:
     @_builtins.property
     @pulumi.getter
     def service(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The short name or ARN of the ECS service.
-        """
         return pulumi.get(self, "service")
 
     @service.setter
@@ -523,9 +396,6 @@ class _TaskSetState:
     @_builtins.property
     @pulumi.getter(name="serviceRegistries")
     def service_registries(self) -> Optional[pulumi.Input['TaskSetServiceRegistriesArgs']]:
-        """
-        The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
-        """
         return pulumi.get(self, "service_registries")
 
     @service_registries.setter
@@ -535,9 +405,6 @@ class _TaskSetState:
     @_builtins.property
     @pulumi.getter(name="stabilityStatus")
     def stability_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The stability status. This indicates whether the task set has reached a steady state.
-        """
         return pulumi.get(self, "stability_status")
 
     @stability_status.setter
@@ -547,9 +414,6 @@ class _TaskSetState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status of the task set.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -559,9 +423,6 @@ class _TaskSetState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -571,9 +432,6 @@ class _TaskSetState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -583,11 +441,6 @@ class _TaskSetState:
     @_builtins.property
     @pulumi.getter(name="taskDefinition")
     def task_definition(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "task_definition")
 
     @task_definition.setter
@@ -597,9 +450,6 @@ class _TaskSetState:
     @_builtins.property
     @pulumi.getter(name="taskSetId")
     def task_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the task set.
-        """
         return pulumi.get(self, "task_set_id")
 
     @task_set_id.setter
@@ -609,9 +459,6 @@ class _TaskSetState:
     @_builtins.property
     @pulumi.getter(name="waitUntilStable")
     def wait_until_stable(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the provider should wait until the task set has reached `STEADY_STATE`.
-        """
         return pulumi.get(self, "wait_until_stable")
 
     @wait_until_stable.setter
@@ -621,9 +468,6 @@ class _TaskSetState:
     @_builtins.property
     @pulumi.getter(name="waitUntilStableTimeout")
     def wait_until_stable_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
-        """
         return pulumi.get(self, "wait_until_stable_timeout")
 
     @wait_until_stable_timeout.setter
@@ -655,68 +499,9 @@ class TaskSet(pulumi.CustomResource):
                  wait_until_stable_timeout: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an ECS task set - effectively a task that is expected to run until an error occurs or a user terminates it (typically a webserver or a database).
-
-        See [ECS Task Set section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-external.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ecs.TaskSet("example",
-            service=example_aws_ecs_service["id"],
-            cluster=example_aws_ecs_cluster["id"],
-            task_definition=example_aws_ecs_task_definition["arn"],
-            load_balancers=[{
-                "target_group_arn": example_aws_lb_target_group["arn"],
-                "container_name": "mongo",
-                "container_port": 8080,
-            }])
-        ```
-
-        ### Ignoring Changes to Scale
-
-        You can utilize the generic resource lifecycle configuration block with `ignore_changes` to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ecs.TaskSet("example", scale={
-            "value": 50,
-        })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import ECS Task Sets using the `task_set_id`, `service`, and `cluster` separated by commas (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:ecs/taskSet:TaskSet example ecs-svc/7177320696926227436,arn:aws:ecs:us-west-2:123456789101:service/example/example-1234567890,arn:aws:ecs:us-west-2:123456789101:cluster/example
-        ```
-
+        Create a TaskSet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskSetCapacityProviderStrategyArgs', 'TaskSetCapacityProviderStrategyArgsDict']]]] capacity_provider_strategies: The capacity provider strategy to use for the service. Can be one or more.  Defined below.
-        :param pulumi.Input[_builtins.str] cluster: The short name or ARN of the cluster that hosts the service to create the task set in.
-        :param pulumi.Input[_builtins.str] external_id: The external ID associated with the task set.
-        :param pulumi.Input[_builtins.bool] force_delete: Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
-        :param pulumi.Input[_builtins.str] launch_type: The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskSetLoadBalancerArgs', 'TaskSetLoadBalancerArgsDict']]]] load_balancers: Details on load balancers that are used with a task set. Detailed below.
-        :param pulumi.Input[Union['TaskSetNetworkConfigurationArgs', 'TaskSetNetworkConfigurationArgsDict']] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
-        :param pulumi.Input[_builtins.str] platform_version: The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['TaskSetScaleArgs', 'TaskSetScaleArgsDict']] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
-        :param pulumi.Input[_builtins.str] service: The short name or ARN of the ECS service.
-        :param pulumi.Input[Union['TaskSetServiceRegistriesArgs', 'TaskSetServiceRegistriesArgsDict']] service_registries: The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-        :param pulumi.Input[_builtins.str] task_definition: The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] wait_until_stable: Whether the provider should wait until the task set has reached `STEADY_STATE`.
-        :param pulumi.Input[_builtins.str] wait_until_stable_timeout: Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
         """
         ...
     @overload
@@ -725,48 +510,7 @@ class TaskSet(pulumi.CustomResource):
                  args: TaskSetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an ECS task set - effectively a task that is expected to run until an error occurs or a user terminates it (typically a webserver or a database).
-
-        See [ECS Task Set section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-external.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ecs.TaskSet("example",
-            service=example_aws_ecs_service["id"],
-            cluster=example_aws_ecs_cluster["id"],
-            task_definition=example_aws_ecs_task_definition["arn"],
-            load_balancers=[{
-                "target_group_arn": example_aws_lb_target_group["arn"],
-                "container_name": "mongo",
-                "container_port": 8080,
-            }])
-        ```
-
-        ### Ignoring Changes to Scale
-
-        You can utilize the generic resource lifecycle configuration block with `ignore_changes` to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ecs.TaskSet("example", scale={
-            "value": 50,
-        })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import ECS Task Sets using the `task_set_id`, `service`, and `cluster` separated by commas (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:ecs/taskSet:TaskSet example ecs-svc/7177320696926227436,arn:aws:ecs:us-west-2:123456789101:service/example/example-1234567890,arn:aws:ecs:us-west-2:123456789101:cluster/example
-        ```
-
+        Create a TaskSet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TaskSetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -872,29 +616,6 @@ class TaskSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) that identifies the task set.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskSetCapacityProviderStrategyArgs', 'TaskSetCapacityProviderStrategyArgsDict']]]] capacity_provider_strategies: The capacity provider strategy to use for the service. Can be one or more.  Defined below.
-        :param pulumi.Input[_builtins.str] cluster: The short name or ARN of the cluster that hosts the service to create the task set in.
-        :param pulumi.Input[_builtins.str] external_id: The external ID associated with the task set.
-        :param pulumi.Input[_builtins.bool] force_delete: Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
-        :param pulumi.Input[_builtins.str] launch_type: The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskSetLoadBalancerArgs', 'TaskSetLoadBalancerArgsDict']]]] load_balancers: Details on load balancers that are used with a task set. Detailed below.
-        :param pulumi.Input[Union['TaskSetNetworkConfigurationArgs', 'TaskSetNetworkConfigurationArgsDict']] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
-        :param pulumi.Input[_builtins.str] platform_version: The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['TaskSetScaleArgs', 'TaskSetScaleArgsDict']] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
-        :param pulumi.Input[_builtins.str] service: The short name or ARN of the ECS service.
-        :param pulumi.Input[Union['TaskSetServiceRegistriesArgs', 'TaskSetServiceRegistriesArgsDict']] service_registries: The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
-        :param pulumi.Input[_builtins.str] stability_status: The stability status. This indicates whether the task set has reached a steady state.
-        :param pulumi.Input[_builtins.str] status: The status of the task set.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] task_definition: The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] task_set_id: The ID of the task set.
-        :param pulumi.Input[_builtins.bool] wait_until_stable: Whether the provider should wait until the task set has reached `STEADY_STATE`.
-        :param pulumi.Input[_builtins.str] wait_until_stable_timeout: Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -926,170 +647,105 @@ class TaskSet(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) that identifies the task set.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="capacityProviderStrategies")
     def capacity_provider_strategies(self) -> pulumi.Output[Optional[Sequence['outputs.TaskSetCapacityProviderStrategy']]]:
-        """
-        The capacity provider strategy to use for the service. Can be one or more.  Defined below.
-        """
         return pulumi.get(self, "capacity_provider_strategies")
 
     @_builtins.property
     @pulumi.getter
     def cluster(self) -> pulumi.Output[_builtins.str]:
-        """
-        The short name or ARN of the cluster that hosts the service to create the task set in.
-        """
         return pulumi.get(self, "cluster")
 
     @_builtins.property
     @pulumi.getter(name="externalId")
     def external_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The external ID associated with the task set.
-        """
         return pulumi.get(self, "external_id")
 
     @_builtins.property
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
-        """
         return pulumi.get(self, "force_delete")
 
     @_builtins.property
     @pulumi.getter(name="launchType")
     def launch_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
-        """
         return pulumi.get(self, "launch_type")
 
     @_builtins.property
     @pulumi.getter(name="loadBalancers")
     def load_balancers(self) -> pulumi.Output[Optional[Sequence['outputs.TaskSetLoadBalancer']]]:
-        """
-        Details on load balancers that are used with a task set. Detailed below.
-        """
         return pulumi.get(self, "load_balancers")
 
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> pulumi.Output[Optional['outputs.TaskSetNetworkConfiguration']]:
-        """
-        The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
-        """
         return pulumi.get(self, "network_configuration")
 
     @_builtins.property
     @pulumi.getter(name="platformVersion")
     def platform_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-        """
         return pulumi.get(self, "platform_version")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def scale(self) -> pulumi.Output['outputs.TaskSetScale']:
-        """
-        A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
-        """
         return pulumi.get(self, "scale")
 
     @_builtins.property
     @pulumi.getter
     def service(self) -> pulumi.Output[_builtins.str]:
-        """
-        The short name or ARN of the ECS service.
-        """
         return pulumi.get(self, "service")
 
     @_builtins.property
     @pulumi.getter(name="serviceRegistries")
     def service_registries(self) -> pulumi.Output[Optional['outputs.TaskSetServiceRegistries']]:
-        """
-        The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
-        """
         return pulumi.get(self, "service_registries")
 
     @_builtins.property
     @pulumi.getter(name="stabilityStatus")
     def stability_status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The stability status. This indicates whether the task set has reached a steady state.
-        """
         return pulumi.get(self, "stability_status")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The status of the task set.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="taskDefinition")
     def task_definition(self) -> pulumi.Output[_builtins.str]:
-        """
-        The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "task_definition")
 
     @_builtins.property
     @pulumi.getter(name="taskSetId")
     def task_set_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the task set.
-        """
         return pulumi.get(self, "task_set_id")
 
     @_builtins.property
     @pulumi.getter(name="waitUntilStable")
     def wait_until_stable(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether the provider should wait until the task set has reached `STEADY_STATE`.
-        """
         return pulumi.get(self, "wait_until_stable")
 
     @_builtins.property
     @pulumi.getter(name="waitUntilStableTimeout")
     def wait_until_stable_timeout(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
-        """
         return pulumi.get(self, "wait_until_stable_timeout")
 

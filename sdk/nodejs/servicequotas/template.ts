@@ -4,35 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Service Quotas Template.
- *
- * > Only the management account of an organization can alter Service Quota templates, and this must be done from the `us-east-1` region.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.servicequotas.Template("example", {
- *     awsRegion: "us-east-1",
- *     quotaCode: "L-2ACBD22F",
- *     serviceCode: "lambda",
- *     value: 80,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Service Quotas Template using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:servicequotas/template:Template example us-east-1,L-2ACBD22F,lambda
- * ```
- */
 export class Template extends pulumi.CustomResource {
     /**
      * Get an existing Template resource's state with the given name, ID, and optional extra
@@ -61,43 +32,17 @@ export class Template extends pulumi.CustomResource {
         return obj['__pulumiType'] === Template.__pulumiType;
     }
 
-    /**
-     * AWS Region to which the template applies.
-     */
     declare public readonly awsRegion: pulumi.Output<string>;
-    /**
-     * Indicates whether the quota is global.
-     */
     declare public /*out*/ readonly globalQuota: pulumi.Output<boolean>;
-    /**
-     * Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
-     */
     declare public readonly quotaCode: pulumi.Output<string>;
-    /**
-     * Quota name.
-     */
     declare public /*out*/ readonly quotaName: pulumi.Output<string>;
     /**
-     * AWS Region to which the template applies. Use `aws.getRegion` instead.
-     *
      * @deprecated region is deprecated. Use aws.getRegion instead.
      */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Service identifier. To find the service code value for an AWS service, use the aws.servicequotas.getService data source.
-     */
     declare public readonly serviceCode: pulumi.Output<string>;
-    /**
-     * Service name.
-     */
     declare public /*out*/ readonly serviceName: pulumi.Output<string>;
-    /**
-     * Unit of measurement.
-     */
     declare public /*out*/ readonly unit: pulumi.Output<string>;
-    /**
-     * The new, increased value for the quota.
-     */
     declare public readonly value: pulumi.Output<number>;
 
     /**
@@ -152,43 +97,17 @@ export class Template extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Template resources.
  */
 export interface TemplateState {
-    /**
-     * AWS Region to which the template applies.
-     */
     awsRegion?: pulumi.Input<string>;
-    /**
-     * Indicates whether the quota is global.
-     */
     globalQuota?: pulumi.Input<boolean>;
-    /**
-     * Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
-     */
     quotaCode?: pulumi.Input<string>;
-    /**
-     * Quota name.
-     */
     quotaName?: pulumi.Input<string>;
     /**
-     * AWS Region to which the template applies. Use `aws.getRegion` instead.
-     *
      * @deprecated region is deprecated. Use aws.getRegion instead.
      */
     region?: pulumi.Input<string>;
-    /**
-     * Service identifier. To find the service code value for an AWS service, use the aws.servicequotas.getService data source.
-     */
     serviceCode?: pulumi.Input<string>;
-    /**
-     * Service name.
-     */
     serviceName?: pulumi.Input<string>;
-    /**
-     * Unit of measurement.
-     */
     unit?: pulumi.Input<string>;
-    /**
-     * The new, increased value for the quota.
-     */
     value?: pulumi.Input<number>;
 }
 
@@ -196,26 +115,12 @@ export interface TemplateState {
  * The set of arguments for constructing a Template resource.
  */
 export interface TemplateArgs {
-    /**
-     * AWS Region to which the template applies.
-     */
     awsRegion?: pulumi.Input<string>;
-    /**
-     * Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
-     */
     quotaCode: pulumi.Input<string>;
     /**
-     * AWS Region to which the template applies. Use `aws.getRegion` instead.
-     *
      * @deprecated region is deprecated. Use aws.getRegion instead.
      */
     region?: pulumi.Input<string>;
-    /**
-     * Service identifier. To find the service code value for an AWS service, use the aws.servicequotas.getService data source.
-     */
     serviceCode: pulumi.Input<string>;
-    /**
-     * The new, increased value for the quota.
-     */
     value: pulumi.Input<number>;
 }

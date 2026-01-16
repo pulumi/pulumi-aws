@@ -13,17 +13,8 @@ namespace Pulumi.Aws.SecurityLake.Outputs
     [OutputType]
     public sealed class SubscriberSourceCustomLogSourceResourceAttribute
     {
-        /// <summary>
-        /// The ARN of the AWS Glue crawler.
-        /// </summary>
         public readonly string CrawlerArn;
-        /// <summary>
-        /// The ARN of the AWS Glue database where results are written.
-        /// </summary>
         public readonly string DatabaseArn;
-        /// <summary>
-        /// The ARN of the AWS Glue table.
-        /// </summary>
         public readonly string TableArn;
 
         [OutputConstructor]

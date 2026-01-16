@@ -4,48 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Adds the specified user to the specified group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cognito.UserPool("example", {
- *     name: "example",
- *     passwordPolicy: {
- *         temporaryPasswordValidityDays: 7,
- *         minimumLength: 6,
- *         requireUppercase: false,
- *         requireSymbols: false,
- *         requireNumbers: false,
- *     },
- * });
- * const exampleUser = new aws.cognito.User("example", {
- *     userPoolId: example.id,
- *     username: "example",
- * });
- * const exampleUserGroup = new aws.cognito.UserGroup("example", {
- *     userPoolId: example.id,
- *     name: "example",
- * });
- * const exampleUserInGroup = new aws.cognito.UserInGroup("example", {
- *     userPoolId: example.id,
- *     groupName: exampleUserGroup.name,
- *     username: exampleUser.username,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import a Cognito Group User using a comma-delimited string concatenating the `user_pool_id`, `group_name`, and `username` arguments. For example:
- *
- * ```sh
- * $ pulumi import aws:cognito/userInGroup:UserInGroup example us-east-1_vG78M4goG,example-group,example-user
- * ```
- */
 export class UserInGroup extends pulumi.CustomResource {
     /**
      * Get an existing UserInGroup resource's state with the given name, ID, and optional extra
@@ -74,21 +32,9 @@ export class UserInGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserInGroup.__pulumiType;
     }
 
-    /**
-     * The name of the group to which the user is to be added.
-     */
     declare public readonly groupName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The user pool ID of the user and group.
-     */
     declare public readonly userPoolId: pulumi.Output<string>;
-    /**
-     * The username of the user to be added to the group.
-     */
     declare public readonly username: pulumi.Output<string>;
 
     /**
@@ -133,21 +79,9 @@ export class UserInGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserInGroup resources.
  */
 export interface UserInGroupState {
-    /**
-     * The name of the group to which the user is to be added.
-     */
     groupName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The user pool ID of the user and group.
-     */
     userPoolId?: pulumi.Input<string>;
-    /**
-     * The username of the user to be added to the group.
-     */
     username?: pulumi.Input<string>;
 }
 
@@ -155,20 +89,8 @@ export interface UserInGroupState {
  * The set of arguments for constructing a UserInGroup resource.
  */
 export interface UserInGroupArgs {
-    /**
-     * The name of the group to which the user is to be added.
-     */
     groupName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The user pool ID of the user and group.
-     */
     userPoolId: pulumi.Input<string>;
-    /**
-     * The username of the user to be added to the group.
-     */
     username: pulumi.Input<string>;
 }

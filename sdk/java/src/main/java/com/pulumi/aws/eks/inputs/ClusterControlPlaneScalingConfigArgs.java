@@ -15,17 +15,9 @@ public final class ClusterControlPlaneScalingConfigArgs extends com.pulumi.resou
 
     public static final ClusterControlPlaneScalingConfigArgs Empty = new ClusterControlPlaneScalingConfigArgs();
 
-    /**
-     * The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
-     * 
-     */
     @Import(name="tier")
     private @Nullable Output<String> tier;
 
-    /**
-     * @return The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
-     * 
-     */
     public Optional<Output<String>> tier() {
         return Optional.ofNullable(this.tier);
     }
@@ -54,23 +46,11 @@ public final class ClusterControlPlaneScalingConfigArgs extends com.pulumi.resou
             $ = new ClusterControlPlaneScalingConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param tier The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder tier(@Nullable Output<String> tier) {
             $.tier = tier;
             return this;
         }
 
-        /**
-         * @param tier The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder tier(String tier) {
             return tier(Output.of(tier));
         }

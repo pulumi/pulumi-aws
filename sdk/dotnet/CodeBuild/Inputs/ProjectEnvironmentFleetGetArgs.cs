@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CodeBuild.Inputs
 
     public sealed class ProjectEnvironmentFleetGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Compute fleet ARN for the build project.
-        /// </summary>
         [Input("fleetArn")]
         public Input<string>? FleetArn { get; set; }
 

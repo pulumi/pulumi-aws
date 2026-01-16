@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetImageOutputResourceContainer {
-    /**
-     * @return Set of URIs for created containers.
-     * 
-     */
     private List<String> imageUris;
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     private String region;
 
     private GetImageOutputResourceContainer() {}
-    /**
-     * @return Set of URIs for created containers.
-     * 
-     */
     public List<String> imageUris() {
         return this.imageUris;
     }
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public String region() {
         return this.region;
     }

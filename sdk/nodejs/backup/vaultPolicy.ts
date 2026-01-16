@@ -4,51 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AWS Backup vault policy resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const exampleVault = new aws.backup.Vault("example", {name: "example"});
- * const example = pulumi.all([current, exampleVault.arn]).apply(([current, arn]) => aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "AWS",
- *             identifiers: [current.accountId],
- *         }],
- *         actions: [
- *             "backup:DescribeBackupVault",
- *             "backup:DeleteBackupVault",
- *             "backup:PutBackupVaultAccessPolicy",
- *             "backup:DeleteBackupVaultAccessPolicy",
- *             "backup:GetBackupVaultAccessPolicy",
- *             "backup:StartBackupJob",
- *             "backup:GetBackupVaultNotifications",
- *             "backup:PutBackupVaultNotifications",
- *         ],
- *         resources: [arn],
- *     }],
- * }));
- * const exampleVaultPolicy = new aws.backup.VaultPolicy("example", {
- *     backupVaultName: exampleVault.name,
- *     policy: example.apply(example => example.json),
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Backup vault policy using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
- * ```
- */
 export class VaultPolicy extends pulumi.CustomResource {
     /**
      * Get an existing VaultPolicy resource's state with the given name, ID, and optional extra
@@ -77,21 +32,9 @@ export class VaultPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === VaultPolicy.__pulumiType;
     }
 
-    /**
-     * The ARN of the vault.
-     */
     declare public /*out*/ readonly backupVaultArn: pulumi.Output<string>;
-    /**
-     * Name of the backup vault to add policy for.
-     */
     declare public readonly backupVaultName: pulumi.Output<string>;
-    /**
-     * The backup vault access policy document in JSON format.
-     */
     declare public readonly policy: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -133,21 +76,9 @@ export class VaultPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VaultPolicy resources.
  */
 export interface VaultPolicyState {
-    /**
-     * The ARN of the vault.
-     */
     backupVaultArn?: pulumi.Input<string>;
-    /**
-     * Name of the backup vault to add policy for.
-     */
     backupVaultName?: pulumi.Input<string>;
-    /**
-     * The backup vault access policy document in JSON format.
-     */
     policy?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -155,16 +86,7 @@ export interface VaultPolicyState {
  * The set of arguments for constructing a VaultPolicy resource.
  */
 export interface VaultPolicyArgs {
-    /**
-     * Name of the backup vault to add policy for.
-     */
     backupVaultName: pulumi.Input<string>;
-    /**
-     * The backup vault access policy document in JSON format.
-     */
     policy: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

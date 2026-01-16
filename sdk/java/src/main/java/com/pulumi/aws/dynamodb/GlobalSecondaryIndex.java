@@ -21,161 +21,53 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * * `index_name` (String) Name of the index.
- * 
- * * `table_name` (String) Name of the table this index belongs to.
- * 
- * #### Optional
- * 
- * * `account_id` (String) AWS Account where this resource is managed.
- * 
- * * `region` (String) Region where this resource is managed.
- * 
- * Using `pulumi import`, import DynamoDB tables using the `table_name` and `index_name`, separated by a comma. For example:
- * 
- * % pulumi import aws_dynamodb_global_secondary_index.example &#39;example-table,example-index&#39;
- * 
- */
 @ResourceType(type="aws:dynamodb/globalSecondaryIndex:GlobalSecondaryIndex")
 public class GlobalSecondaryIndex extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the GSI.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the GSI.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Name of the index.
-     * 
-     */
     @Export(name="indexName", refs={String.class}, tree="[0]")
     private Output<String> indexName;
 
-    /**
-     * @return Name of the index.
-     * 
-     */
     public Output<String> indexName() {
         return this.indexName;
     }
-    /**
-     * Set of nested attribute definitions.
-     * At least 1 element defining a `HASH` is required.
-     * All elements with the `keyType` of `HASH` must precede elements with `keyType` of `RANGE`.
-     * Changing any values in `keySchema` will re-create the resource.
-     * See `keySchema` below.
-     * 
-     */
     @Export(name="keySchemas", refs={List.class,GlobalSecondaryIndexKeySchema.class}, tree="[0,1]")
     private Output</* @Nullable */ List<GlobalSecondaryIndexKeySchema>> keySchemas;
 
-    /**
-     * @return Set of nested attribute definitions.
-     * At least 1 element defining a `HASH` is required.
-     * All elements with the `keyType` of `HASH` must precede elements with `keyType` of `RANGE`.
-     * Changing any values in `keySchema` will re-create the resource.
-     * See `keySchema` below.
-     * 
-     */
     public Output<Optional<List<GlobalSecondaryIndexKeySchema>>> keySchemas() {
         return Codegen.optional(this.keySchemas);
     }
-    /**
-     * Sets the maximum number of read and write units for the index.
-     * See `onDemandThroughput` below.
-     * Only valid if the table&#39;s `billingMode` is `PAY_PER_REQUEST`.
-     * 
-     */
     @Export(name="onDemandThroughput", refs={GlobalSecondaryIndexOnDemandThroughput.class}, tree="[0]")
     private Output</* @Nullable */ GlobalSecondaryIndexOnDemandThroughput> onDemandThroughput;
 
-    /**
-     * @return Sets the maximum number of read and write units for the index.
-     * See `onDemandThroughput` below.
-     * Only valid if the table&#39;s `billingMode` is `PAY_PER_REQUEST`.
-     * 
-     */
     public Output<Optional<GlobalSecondaryIndexOnDemandThroughput>> onDemandThroughput() {
         return Codegen.optional(this.onDemandThroughput);
     }
-    /**
-     * Describes which attributes from the table are represented in the index.
-     * See `projection` below.
-     * 
-     */
     @Export(name="projection", refs={GlobalSecondaryIndexProjection.class}, tree="[0]")
     private Output</* @Nullable */ GlobalSecondaryIndexProjection> projection;
 
-    /**
-     * @return Describes which attributes from the table are represented in the index.
-     * See `projection` below.
-     * 
-     */
     public Output<Optional<GlobalSecondaryIndexProjection>> projection() {
         return Codegen.optional(this.projection);
     }
-    /**
-     * Provisioned throughput for the index.
-     * See `provisionedThroughput` below.
-     * Required if the table&#39;s `billingMode` is `PROVISIONED`.
-     * 
-     */
     @Export(name="provisionedThroughput", refs={GlobalSecondaryIndexProvisionedThroughput.class}, tree="[0]")
     private Output</* @Nullable */ GlobalSecondaryIndexProvisionedThroughput> provisionedThroughput;
 
-    /**
-     * @return Provisioned throughput for the index.
-     * See `provisionedThroughput` below.
-     * Required if the table&#39;s `billingMode` is `PROVISIONED`.
-     * 
-     */
     public Output<Optional<GlobalSecondaryIndexProvisionedThroughput>> provisionedThroughput() {
         return Codegen.optional(this.provisionedThroughput);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Name of the table this index belongs to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="tableName", refs={String.class}, tree="[0]")
     private Output<String> tableName;
 
-    /**
-     * @return Name of the table this index belongs to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> tableName() {
         return this.tableName;
     }
@@ -185,19 +77,9 @@ public class GlobalSecondaryIndex extends com.pulumi.resources.CustomResource {
     public Output<Optional<GlobalSecondaryIndexTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * Sets the number of warm read and write units for this index.
-     * See `warmThroughput` below.
-     * 
-     */
     @Export(name="warmThroughput", refs={GlobalSecondaryIndexWarmThroughput.class}, tree="[0]")
     private Output<GlobalSecondaryIndexWarmThroughput> warmThroughput;
 
-    /**
-     * @return Sets the number of warm read and write units for this index.
-     * See `warmThroughput` below.
-     * 
-     */
     public Output<GlobalSecondaryIndexWarmThroughput> warmThroughput() {
         return this.warmThroughput;
     }

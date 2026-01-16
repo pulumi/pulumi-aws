@@ -17,63 +17,39 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * Using `pulumi import`, import AWS CloudFront KeyValueStore Key Value Pairs using the `key_value_store_arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudfront/keyvaluestoreKeysExclusive:KeyvaluestoreKeysExclusive example arn:aws:cloudfront::111111111111:key-value-store/8562g61f-caba-2845-9d99-b97diwae5d3c
- * ```
- * 
- */
 @ResourceType(type="aws:cloudfront/keyvaluestoreKeysExclusive:KeyvaluestoreKeysExclusive")
 public class KeyvaluestoreKeysExclusive extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the Key Value Store.
-     * 
-     * The following arguments are optional:
+     * The Amazon Resource Name (ARN) of the Key Value Store.
      * 
      */
     @Export(name="keyValueStoreArn", refs={String.class}, tree="[0]")
     private Output<String> keyValueStoreArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Key Value Store.
-     * 
-     * The following arguments are optional:
+     * @return The Amazon Resource Name (ARN) of the Key Value Store.
      * 
      */
     public Output<String> keyValueStoreArn() {
         return this.keyValueStoreArn;
     }
     /**
-     * Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
+     * Maximum resource key values pairs that you wills update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first
      * 
      */
     @Export(name="maxBatchSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxBatchSize;
 
     /**
-     * @return Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
+     * @return Maximum resource key values pairs that you wills update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first
      * 
      */
     public Output<Integer> maxBatchSize() {
         return this.maxBatchSize;
     }
-    /**
-     * A list of all resource key value pairs associated with the KeyValueStore.
-     * See `resourceKeyValuePair` below.
-     * 
-     */
     @Export(name="resourceKeyValuePairs", refs={List.class,KeyvaluestoreKeysExclusiveResourceKeyValuePair.class}, tree="[0,1]")
     private Output</* @Nullable */ List<KeyvaluestoreKeysExclusiveResourceKeyValuePair>> resourceKeyValuePairs;
 
-    /**
-     * @return A list of all resource key value pairs associated with the KeyValueStore.
-     * See `resourceKeyValuePair` below.
-     * 
-     */
     public Output<Optional<List<KeyvaluestoreKeysExclusiveResourceKeyValuePair>>> resourceKeyValuePairs() {
         return Codegen.optional(this.resourceKeyValuePairs);
     }

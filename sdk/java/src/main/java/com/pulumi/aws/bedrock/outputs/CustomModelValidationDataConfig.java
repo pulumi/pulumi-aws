@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CustomModelValidationDataConfig {
-    /**
-     * @return Information about the validators.
-     * 
-     */
     private @Nullable List<CustomModelValidationDataConfigValidator> validators;
 
     private CustomModelValidationDataConfig() {}
-    /**
-     * @return Information about the validators.
-     * 
-     */
     public List<CustomModelValidationDataConfigValidator> validators() {
         return this.validators == null ? List.of() : this.validators;
     }

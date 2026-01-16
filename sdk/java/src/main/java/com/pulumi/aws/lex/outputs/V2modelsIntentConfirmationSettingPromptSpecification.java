@@ -17,65 +17,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsIntentConfirmationSettingPromptSpecification {
-    /**
-     * @return Whether the user can interrupt a speech prompt from the bot.
-     * 
-     */
     private @Nullable Boolean allowInterrupt;
-    /**
-     * @return Maximum number of times the bot tries to elicit a response from the user using this prompt.
-     * 
-     */
     private Integer maxRetries;
-    /**
-     * @return Configuration block for messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime. See `messageGroup`.
-     * 
-     */
     private @Nullable List<V2modelsIntentConfirmationSettingPromptSpecificationMessageGroup> messageGroups;
-    /**
-     * @return How a message is selected from a message group among retries. Valid values are `Random` and `Ordered`.
-     * 
-     */
     private @Nullable String messageSelectionStrategy;
-    /**
-     * @return Configuration block for advanced settings on each attempt of the prompt. See `promptAttemptsSpecification`.
-     * 
-     */
     private @Nullable List<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification> promptAttemptsSpecifications;
 
     private V2modelsIntentConfirmationSettingPromptSpecification() {}
-    /**
-     * @return Whether the user can interrupt a speech prompt from the bot.
-     * 
-     */
     public Optional<Boolean> allowInterrupt() {
         return Optional.ofNullable(this.allowInterrupt);
     }
-    /**
-     * @return Maximum number of times the bot tries to elicit a response from the user using this prompt.
-     * 
-     */
     public Integer maxRetries() {
         return this.maxRetries;
     }
-    /**
-     * @return Configuration block for messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime. See `messageGroup`.
-     * 
-     */
     public List<V2modelsIntentConfirmationSettingPromptSpecificationMessageGroup> messageGroups() {
         return this.messageGroups == null ? List.of() : this.messageGroups;
     }
-    /**
-     * @return How a message is selected from a message group among retries. Valid values are `Random` and `Ordered`.
-     * 
-     */
     public Optional<String> messageSelectionStrategy() {
         return Optional.ofNullable(this.messageSelectionStrategy);
     }
-    /**
-     * @return Configuration block for advanced settings on each attempt of the prompt. See `promptAttemptsSpecification`.
-     * 
-     */
     public List<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification> promptAttemptsSpecifications() {
         return this.promptAttemptsSpecifications == null ? List.of() : this.promptAttemptsSpecifications;
     }

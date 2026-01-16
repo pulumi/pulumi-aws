@@ -15,77 +15,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterMasterInstanceGroup {
-    /**
-     * @return Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-     * 
-     */
     private @Nullable String bidPrice;
-    /**
-     * @return Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-     * 
-     */
     private @Nullable List<ClusterMasterInstanceGroupEbsConfig> ebsConfigs;
-    /**
-     * @return Master node type Instance Group ID, if using Instance Group for this node type.
-     * 
-     */
     private @Nullable String id;
-    /**
-     * @return Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource&#39;s `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
-     * 
-     */
     private @Nullable Integer instanceCount;
-    /**
-     * @return EC2 instance type for all instances in the instance group.
-     * 
-     */
     private String instanceType;
-    /**
-     * @return Friendly name given to the instance group.
-     * 
-     */
     private @Nullable String name;
 
     private ClusterMasterInstanceGroup() {}
-    /**
-     * @return Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-     * 
-     */
     public Optional<String> bidPrice() {
         return Optional.ofNullable(this.bidPrice);
     }
-    /**
-     * @return Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-     * 
-     */
     public List<ClusterMasterInstanceGroupEbsConfig> ebsConfigs() {
         return this.ebsConfigs == null ? List.of() : this.ebsConfigs;
     }
-    /**
-     * @return Master node type Instance Group ID, if using Instance Group for this node type.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource&#39;s `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
-     * 
-     */
     public Optional<Integer> instanceCount() {
         return Optional.ofNullable(this.instanceCount);
     }
-    /**
-     * @return EC2 instance type for all instances in the instance group.
-     * 
-     */
     public String instanceType() {
         return this.instanceType;
     }
-    /**
-     * @return Friendly name given to the instance group.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

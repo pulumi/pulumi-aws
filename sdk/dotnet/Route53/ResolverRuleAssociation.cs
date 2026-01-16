@@ -9,70 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53
 {
-    /// <summary>
-    /// Provides a Route53 Resolver rule association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Route53.ResolverRuleAssociation("example", new()
-    ///     {
-    ///         ResolverRuleId = sys.Id,
-    ///         VpcId = foo.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// * `id` - (String) ID of the Route53 Resolver rule association.
-    /// 
-    /// #### Optional
-    /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
-    /// 
-    /// * `region` (String) Region where this resource is managed.
-    /// 
-    /// Using `pulumi import`, import Route53 Resolver rule associations using the `id`. For example:
-    /// 
-    /// % pulumi import aws_route53_resolver_rule_association.example rslvr-rrassoc-97242eaf88example
-    /// </summary>
     [AwsResourceType("aws:route53/resolverRuleAssociation:ResolverRuleAssociation")]
     public partial class ResolverRuleAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A name for the association that you're creating between a resolver rule and a VPC.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the resolver rule that you want to associate with the VPC.
-        /// </summary>
         [Output("resolverRuleId")]
         public Output<string> ResolverRuleId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the VPC that you want to associate the resolver rule with.
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -122,27 +70,15 @@ namespace Pulumi.Aws.Route53
 
     public sealed class ResolverRuleAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A name for the association that you're creating between a resolver rule and a VPC.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the resolver rule that you want to associate with the VPC.
-        /// </summary>
         [Input("resolverRuleId", required: true)]
         public Input<string> ResolverRuleId { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the VPC that you want to associate the resolver rule with.
-        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 
@@ -154,27 +90,15 @@ namespace Pulumi.Aws.Route53
 
     public sealed class ResolverRuleAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A name for the association that you're creating between a resolver rule and a VPC.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the resolver rule that you want to associate with the VPC.
-        /// </summary>
         [Input("resolverRuleId")]
         public Input<string>? ResolverRuleId { get; set; }
 
-        /// <summary>
-        /// The ID of the VPC that you want to associate the resolver rule with.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

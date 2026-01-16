@@ -15,133 +15,53 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConnectorResult {
-    /**
-     * @return ARN of the AWS Identity and Access Management role.
-     * 
-     */
     private String accessRole;
-    /**
-     * @return ARN of the Connector.
-     * 
-     */
     private String arn;
-    /**
-     * @return Structure containing the parameters for an AS2 connector object. Contains the following attributes:
-     * 
-     */
     private List<GetConnectorAs2Config> as2Configs;
-    /**
-     * @return Egress configuration for the connector. Contains the following attributes:
-     * 
-     */
     private List<GetConnectorEgressConfig> egressConfigs;
     private String id;
-    /**
-     * @return ARN of the IAM role that allows a connector to turn on CLoudwatch logging for Amazon S3 events.
-     * 
-     */
     private String loggingRole;
     private String region;
-    /**
-     * @return Name of security policy.
-     * 
-     */
     private String securityPolicyName;
-    /**
-     * @return List of egress Ip addresses.
-     * 
-     */
     private List<String> serviceManagedEgressIpAddresses;
-    /**
-     * @return Object containing the following attributes:
-     * 
-     */
     private List<GetConnectorSftpConfig> sftpConfigs;
-    /**
-     * @return Object containing the following attributes:
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return URL of the partner&#39;s AS2 or SFTP endpoint.
-     * 
-     */
     private String url;
 
     private GetConnectorResult() {}
-    /**
-     * @return ARN of the AWS Identity and Access Management role.
-     * 
-     */
     public String accessRole() {
         return this.accessRole;
     }
-    /**
-     * @return ARN of the Connector.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Structure containing the parameters for an AS2 connector object. Contains the following attributes:
-     * 
-     */
     public List<GetConnectorAs2Config> as2Configs() {
         return this.as2Configs;
     }
-    /**
-     * @return Egress configuration for the connector. Contains the following attributes:
-     * 
-     */
     public List<GetConnectorEgressConfig> egressConfigs() {
         return this.egressConfigs;
     }
     public String id() {
         return this.id;
     }
-    /**
-     * @return ARN of the IAM role that allows a connector to turn on CLoudwatch logging for Amazon S3 events.
-     * 
-     */
     public String loggingRole() {
         return this.loggingRole;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Name of security policy.
-     * 
-     */
     public String securityPolicyName() {
         return this.securityPolicyName;
     }
-    /**
-     * @return List of egress Ip addresses.
-     * 
-     */
     public List<String> serviceManagedEgressIpAddresses() {
         return this.serviceManagedEgressIpAddresses;
     }
-    /**
-     * @return Object containing the following attributes:
-     * 
-     */
     public List<GetConnectorSftpConfig> sftpConfigs() {
         return this.sftpConfigs;
     }
-    /**
-     * @return Object containing the following attributes:
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return URL of the partner&#39;s AS2 or SFTP endpoint.
-     * 
-     */
     public String url() {
         return this.url;
     }

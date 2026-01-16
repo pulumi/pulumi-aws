@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentPromptVariantGenAiResource {
-    /**
-     * @return Specifies an Amazon Bedrock agent with which to use the prompt. See Agent Configuration for more information.
-     * 
-     */
     private @Nullable AgentPromptVariantGenAiResourceAgent agent;
 
     private AgentPromptVariantGenAiResource() {}
-    /**
-     * @return Specifies an Amazon Bedrock agent with which to use the prompt. See Agent Configuration for more information.
-     * 
-     */
     public Optional<AgentPromptVariantGenAiResourceAgent> agent() {
         return Optional.ofNullable(this.agent);
     }

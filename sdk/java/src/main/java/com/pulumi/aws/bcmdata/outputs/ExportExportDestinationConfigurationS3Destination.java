@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ExportExportDestinationConfigurationS3Destination {
-    /**
-     * @return Name of the Amazon S3 bucket used as the destination of a data export file.
-     * 
-     */
     private String s3Bucket;
-    /**
-     * @return Output configuration for the data export. See the `s3OutputConfigurations` argument reference below.
-     * 
-     */
     private @Nullable List<ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration> s3OutputConfigurations;
-    /**
-     * @return S3 path prefix you want prepended to the name of your data export.
-     * 
-     */
     private String s3Prefix;
-    /**
-     * @return S3 bucket region.
-     * 
-     */
     private String s3Region;
 
     private ExportExportDestinationConfigurationS3Destination() {}
-    /**
-     * @return Name of the Amazon S3 bucket used as the destination of a data export file.
-     * 
-     */
     public String s3Bucket() {
         return this.s3Bucket;
     }
-    /**
-     * @return Output configuration for the data export. See the `s3OutputConfigurations` argument reference below.
-     * 
-     */
     public List<ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration> s3OutputConfigurations() {
         return this.s3OutputConfigurations == null ? List.of() : this.s3OutputConfigurations;
     }
-    /**
-     * @return S3 path prefix you want prepended to the name of your data export.
-     * 
-     */
     public String s3Prefix() {
         return this.s3Prefix;
     }
-    /**
-     * @return S3 bucket region.
-     * 
-     */
     public String s3Region() {
         return this.s3Region;
     }

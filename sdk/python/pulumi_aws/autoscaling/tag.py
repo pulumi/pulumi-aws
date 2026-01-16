@@ -26,9 +26,6 @@ class TagArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Tag resource.
-        :param pulumi.Input[_builtins.str] autoscaling_group_name: Name of the Autoscaling Group to apply the tag to.
-        :param pulumi.Input['TagTagArgs'] tag: Tag to create. The `tag` block is documented below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
         pulumi.set(__self__, "tag", tag)
@@ -38,9 +35,6 @@ class TagArgs:
     @_builtins.property
     @pulumi.getter(name="autoscalingGroupName")
     def autoscaling_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Autoscaling Group to apply the tag to.
-        """
         return pulumi.get(self, "autoscaling_group_name")
 
     @autoscaling_group_name.setter
@@ -50,9 +44,6 @@ class TagArgs:
     @_builtins.property
     @pulumi.getter
     def tag(self) -> pulumi.Input['TagTagArgs']:
-        """
-        Tag to create. The `tag` block is documented below.
-        """
         return pulumi.get(self, "tag")
 
     @tag.setter
@@ -62,9 +53,6 @@ class TagArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -80,9 +68,6 @@ class _TagState:
                  tag: Optional[pulumi.Input['TagTagArgs']] = None):
         """
         Input properties used for looking up and filtering Tag resources.
-        :param pulumi.Input[_builtins.str] autoscaling_group_name: Name of the Autoscaling Group to apply the tag to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['TagTagArgs'] tag: Tag to create. The `tag` block is documented below.
         """
         if autoscaling_group_name is not None:
             pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
@@ -94,9 +79,6 @@ class _TagState:
     @_builtins.property
     @pulumi.getter(name="autoscalingGroupName")
     def autoscaling_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Autoscaling Group to apply the tag to.
-        """
         return pulumi.get(self, "autoscaling_group_name")
 
     @autoscaling_group_name.setter
@@ -106,9 +88,6 @@ class _TagState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -118,9 +97,6 @@ class _TagState:
     @_builtins.property
     @pulumi.getter
     def tag(self) -> Optional[pulumi.Input['TagTagArgs']]:
-        """
-        Tag to create. The `tag` block is documented below.
-        """
         return pulumi.get(self, "tag")
 
     @tag.setter
@@ -139,49 +115,9 @@ class Tag(pulumi.CustomResource):
                  tag: Optional[pulumi.Input[Union['TagTagArgs', 'TagTagArgsDict']]] = None,
                  __props__=None):
         """
-        Manages an individual Autoscaling Group (ASG) tag. This resource should only be used in cases where ASGs are created outside the provider (e.g., ASGs implicitly created by EKS Node Groups).
-
-        > **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `autoscaling.Group` and `autoscaling.Tag` to manage tags of the same ASG will cause a perpetual difference where the `autoscaling.Group` resource will try to remove the tag being added by the `autoscaling.Tag` resource.
-
-        > **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.eks.NodeGroup("example",
-            cluster_name="example",
-            node_group_name="example")
-        example_tag = []
-        def create_example(range_body):
-            for range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
-                example_tag.append(aws.autoscaling.Tag(f"example-{range['key']}",
-                    autoscaling_group_name=range["value"],
-                    tag={
-                        "key": "k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType",
-                        "value": "SPOT",
-                        "propagate_at_launch": False,
-                    }))
-
-        std.toset_output(input=std.flatten_output(input=example.resources.apply(lambda resources: [resources.autoscaling_groups for resources in resources])).apply(lambda invoke: [asg["name"] for asg in invoke.result])).apply(lambda resolved_outputs: create_example(resolved_outputs['invoke'].result))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_autoscaling_group_tag` using the ASG name and key, separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:autoscaling/tag:Tag example asg-example,k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType
-        ```
-
+        Create a Tag resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] autoscaling_group_name: Name of the Autoscaling Group to apply the tag to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['TagTagArgs', 'TagTagArgsDict']] tag: Tag to create. The `tag` block is documented below.
         """
         ...
     @overload
@@ -190,44 +126,7 @@ class Tag(pulumi.CustomResource):
                  args: TagArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an individual Autoscaling Group (ASG) tag. This resource should only be used in cases where ASGs are created outside the provider (e.g., ASGs implicitly created by EKS Node Groups).
-
-        > **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `autoscaling.Group` and `autoscaling.Tag` to manage tags of the same ASG will cause a perpetual difference where the `autoscaling.Group` resource will try to remove the tag being added by the `autoscaling.Tag` resource.
-
-        > **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.eks.NodeGroup("example",
-            cluster_name="example",
-            node_group_name="example")
-        example_tag = []
-        def create_example(range_body):
-            for range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
-                example_tag.append(aws.autoscaling.Tag(f"example-{range['key']}",
-                    autoscaling_group_name=range["value"],
-                    tag={
-                        "key": "k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType",
-                        "value": "SPOT",
-                        "propagate_at_launch": False,
-                    }))
-
-        std.toset_output(input=std.flatten_output(input=example.resources.apply(lambda resources: [resources.autoscaling_groups for resources in resources])).apply(lambda invoke: [asg["name"] for asg in invoke.result])).apply(lambda resolved_outputs: create_example(resolved_outputs['invoke'].result))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_autoscaling_group_tag` using the ASG name and key, separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:autoscaling/tag:Tag example asg-example,k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType
-        ```
-
+        Create a Tag resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TagArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -282,9 +181,6 @@ class Tag(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] autoscaling_group_name: Name of the Autoscaling Group to apply the tag to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['TagTagArgs', 'TagTagArgsDict']] tag: Tag to create. The `tag` block is documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -298,24 +194,15 @@ class Tag(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="autoscalingGroupName")
     def autoscaling_group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Autoscaling Group to apply the tag to.
-        """
         return pulumi.get(self, "autoscaling_group_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tag(self) -> pulumi.Output['outputs.TagTag']:
-        """
-        Tag to create. The `tag` block is documented below.
-        """
         return pulumi.get(self, "tag")
 

@@ -11,30 +11,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification {
-    /**
-     * @return ID of the launch template. Conflicts with `launchTemplateName`.
-     * 
-     */
     private @Nullable String launchTemplateId;
-    /**
-     * @return Name of the launch template. Conflicts with `launchTemplateId`.
-     * 
-     */
     private @Nullable String launchTemplateName;
     private @Nullable String version;
 
     private GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification() {}
-    /**
-     * @return ID of the launch template. Conflicts with `launchTemplateName`.
-     * 
-     */
     public Optional<String> launchTemplateId() {
         return Optional.ofNullable(this.launchTemplateId);
     }
-    /**
-     * @return Name of the launch template. Conflicts with `launchTemplateId`.
-     * 
-     */
     public Optional<String> launchTemplateName() {
         return Optional.ofNullable(this.launchTemplateName);
     }

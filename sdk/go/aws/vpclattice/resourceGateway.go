@@ -12,145 +12,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS VPC Lattice Resource Gateway.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewResourceGateway(ctx, "example", &vpclattice.ResourceGatewayArgs{
-//				Name:  pulumi.String("Example"),
-//				VpcId: pulumi.Any(exampleAwsVpc.Id),
-//				SubnetIds: pulumi.StringArray{
-//					exampleAwsSubnet.Id,
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("Example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Specifying IP address type
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewResourceGateway(ctx, "example", &vpclattice.ResourceGatewayArgs{
-//				Name:  pulumi.String("Example"),
-//				VpcId: pulumi.Any(exampleAwsVpc.Id),
-//				SubnetIds: pulumi.StringArray{
-//					exampleAwsSubnet.Id,
-//				},
-//				IpAddressType: pulumi.String("DUALSTACK"),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("Example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With security groups
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewResourceGateway(ctx, "example", &vpclattice.ResourceGatewayArgs{
-//				Name:  pulumi.String("Example"),
-//				VpcId: pulumi.Any(exampleAwsVpc.Id),
-//				SecurityGroupIds: pulumi.StringArray{
-//					test.Id,
-//				},
-//				SubnetIds: pulumi.StringArray{
-//					exampleAwsSubnet.Id,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import VPC Lattice Resource Gateway using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:vpclattice/resourceGateway:ResourceGateway example rgw-0a1b2c3d4e5f
-// ```
 type ResourceGateway struct {
 	pulumi.CustomResourceState
 
-	// ARN of the resource gateway.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
-	IpAddressType pulumi.StringOutput `pulumi:"ipAddressType"`
-	// The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
-	Ipv4AddressesPerEni pulumi.IntOutput `pulumi:"ipv4AddressesPerEni"`
-	// Name of the resource gateway.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
-	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// Status of the resource gateway.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// IDs of the VPC subnets in which to create the resource gateway.
-	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput           `pulumi:"tagsAll"`
-	Timeouts ResourceGatewayTimeoutsPtrOutput `pulumi:"timeouts"`
-	// ID of the VPC for the resource gateway.
-	//
-	// The following arguments are optional:
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	Arn                 pulumi.StringOutput              `pulumi:"arn"`
+	IpAddressType       pulumi.StringOutput              `pulumi:"ipAddressType"`
+	Ipv4AddressesPerEni pulumi.IntOutput                 `pulumi:"ipv4AddressesPerEni"`
+	Name                pulumi.StringOutput              `pulumi:"name"`
+	Region              pulumi.StringOutput              `pulumi:"region"`
+	SecurityGroupIds    pulumi.StringArrayOutput         `pulumi:"securityGroupIds"`
+	Status              pulumi.StringOutput              `pulumi:"status"`
+	SubnetIds           pulumi.StringArrayOutput         `pulumi:"subnetIds"`
+	Tags                pulumi.StringMapOutput           `pulumi:"tags"`
+	TagsAll             pulumi.StringMapOutput           `pulumi:"tagsAll"`
+	Timeouts            ResourceGatewayTimeoutsPtrOutput `pulumi:"timeouts"`
+	VpcId               pulumi.StringOutput              `pulumi:"vpcId"`
 }
 
 // NewResourceGateway registers a new resource with the given unique name, arguments, and options.
@@ -189,59 +65,33 @@ func GetResourceGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourceGateway resources.
 type resourceGatewayState struct {
-	// ARN of the resource gateway.
-	Arn *string `pulumi:"arn"`
-	// IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
-	IpAddressType *string `pulumi:"ipAddressType"`
-	// The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
-	Ipv4AddressesPerEni *int `pulumi:"ipv4AddressesPerEni"`
-	// Name of the resource gateway.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// Status of the resource gateway.
-	Status *string `pulumi:"status"`
-	// IDs of the VPC subnets in which to create the resource gateway.
-	SubnetIds []string `pulumi:"subnetIds"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string        `pulumi:"tagsAll"`
-	Timeouts *ResourceGatewayTimeouts `pulumi:"timeouts"`
-	// ID of the VPC for the resource gateway.
-	//
-	// The following arguments are optional:
-	VpcId *string `pulumi:"vpcId"`
+	Arn                 *string                  `pulumi:"arn"`
+	IpAddressType       *string                  `pulumi:"ipAddressType"`
+	Ipv4AddressesPerEni *int                     `pulumi:"ipv4AddressesPerEni"`
+	Name                *string                  `pulumi:"name"`
+	Region              *string                  `pulumi:"region"`
+	SecurityGroupIds    []string                 `pulumi:"securityGroupIds"`
+	Status              *string                  `pulumi:"status"`
+	SubnetIds           []string                 `pulumi:"subnetIds"`
+	Tags                map[string]string        `pulumi:"tags"`
+	TagsAll             map[string]string        `pulumi:"tagsAll"`
+	Timeouts            *ResourceGatewayTimeouts `pulumi:"timeouts"`
+	VpcId               *string                  `pulumi:"vpcId"`
 }
 
 type ResourceGatewayState struct {
-	// ARN of the resource gateway.
-	Arn pulumi.StringPtrInput
-	// IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
-	IpAddressType pulumi.StringPtrInput
-	// The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+	Arn                 pulumi.StringPtrInput
+	IpAddressType       pulumi.StringPtrInput
 	Ipv4AddressesPerEni pulumi.IntPtrInput
-	// Name of the resource gateway.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
-	SecurityGroupIds pulumi.StringArrayInput
-	// Status of the resource gateway.
-	Status pulumi.StringPtrInput
-	// IDs of the VPC subnets in which to create the resource gateway.
-	SubnetIds pulumi.StringArrayInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts ResourceGatewayTimeoutsPtrInput
-	// ID of the VPC for the resource gateway.
-	//
-	// The following arguments are optional:
-	VpcId pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
+	SecurityGroupIds    pulumi.StringArrayInput
+	Status              pulumi.StringPtrInput
+	SubnetIds           pulumi.StringArrayInput
+	Tags                pulumi.StringMapInput
+	TagsAll             pulumi.StringMapInput
+	Timeouts            ResourceGatewayTimeoutsPtrInput
+	VpcId               pulumi.StringPtrInput
 }
 
 func (ResourceGatewayState) ElementType() reflect.Type {
@@ -249,48 +99,28 @@ func (ResourceGatewayState) ElementType() reflect.Type {
 }
 
 type resourceGatewayArgs struct {
-	// IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
-	IpAddressType *string `pulumi:"ipAddressType"`
-	// The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
-	Ipv4AddressesPerEni *int `pulumi:"ipv4AddressesPerEni"`
-	// Name of the resource gateway.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// IDs of the VPC subnets in which to create the resource gateway.
-	SubnetIds []string `pulumi:"subnetIds"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string        `pulumi:"tags"`
-	Timeouts *ResourceGatewayTimeouts `pulumi:"timeouts"`
-	// ID of the VPC for the resource gateway.
-	//
-	// The following arguments are optional:
-	VpcId string `pulumi:"vpcId"`
+	IpAddressType       *string                  `pulumi:"ipAddressType"`
+	Ipv4AddressesPerEni *int                     `pulumi:"ipv4AddressesPerEni"`
+	Name                *string                  `pulumi:"name"`
+	Region              *string                  `pulumi:"region"`
+	SecurityGroupIds    []string                 `pulumi:"securityGroupIds"`
+	SubnetIds           []string                 `pulumi:"subnetIds"`
+	Tags                map[string]string        `pulumi:"tags"`
+	Timeouts            *ResourceGatewayTimeouts `pulumi:"timeouts"`
+	VpcId               string                   `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a ResourceGateway resource.
 type ResourceGatewayArgs struct {
-	// IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
-	IpAddressType pulumi.StringPtrInput
-	// The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+	IpAddressType       pulumi.StringPtrInput
 	Ipv4AddressesPerEni pulumi.IntPtrInput
-	// Name of the resource gateway.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
-	SecurityGroupIds pulumi.StringArrayInput
-	// IDs of the VPC subnets in which to create the resource gateway.
-	SubnetIds pulumi.StringArrayInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts ResourceGatewayTimeoutsPtrInput
-	// ID of the VPC for the resource gateway.
-	//
-	// The following arguments are optional:
-	VpcId pulumi.StringInput
+	Name                pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
+	SecurityGroupIds    pulumi.StringArrayInput
+	SubnetIds           pulumi.StringArrayInput
+	Tags                pulumi.StringMapInput
+	Timeouts            ResourceGatewayTimeoutsPtrInput
+	VpcId               pulumi.StringInput
 }
 
 func (ResourceGatewayArgs) ElementType() reflect.Type {
@@ -380,52 +210,42 @@ func (o ResourceGatewayOutput) ToResourceGatewayOutputWithContext(ctx context.Co
 	return o
 }
 
-// ARN of the resource gateway.
 func (o ResourceGatewayOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGateway) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
 func (o ResourceGatewayOutput) IpAddressType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGateway) pulumi.StringOutput { return v.IpAddressType }).(pulumi.StringOutput)
 }
 
-// The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
 func (o ResourceGatewayOutput) Ipv4AddressesPerEni() pulumi.IntOutput {
 	return o.ApplyT(func(v *ResourceGateway) pulumi.IntOutput { return v.Ipv4AddressesPerEni }).(pulumi.IntOutput)
 }
 
-// Name of the resource gateway.
 func (o ResourceGatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResourceGatewayOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGateway) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
 func (o ResourceGatewayOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceGateway) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// Status of the resource gateway.
 func (o ResourceGatewayOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGateway) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// IDs of the VPC subnets in which to create the resource gateway.
 func (o ResourceGatewayOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceGateway) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ResourceGatewayOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResourceGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ResourceGatewayOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResourceGateway) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -434,9 +254,6 @@ func (o ResourceGatewayOutput) Timeouts() ResourceGatewayTimeoutsPtrOutput {
 	return o.ApplyT(func(v *ResourceGateway) ResourceGatewayTimeoutsPtrOutput { return v.Timeouts }).(ResourceGatewayTimeoutsPtrOutput)
 }
 
-// ID of the VPC for the resource gateway.
-//
-// The following arguments are optional:
 func (o ResourceGatewayOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGateway) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

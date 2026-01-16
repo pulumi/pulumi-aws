@@ -16,62 +16,30 @@ public final class GetVirtualGatewayPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetVirtualGatewayPlainArgs Empty = new GetVirtualGatewayPlainArgs();
 
-    /**
-     * Name of the service mesh in which the virtual gateway exists.
-     * 
-     */
     @Import(name="meshName", required=true)
     private String meshName;
 
-    /**
-     * @return Name of the service mesh in which the virtual gateway exists.
-     * 
-     */
     public String meshName() {
         return this.meshName;
     }
 
-    /**
-     * Name of the virtual gateway.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the virtual gateway.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -103,45 +71,21 @@ public final class GetVirtualGatewayPlainArgs extends com.pulumi.resources.Invok
             $ = new GetVirtualGatewayPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param meshName Name of the service mesh in which the virtual gateway exists.
-         * 
-         * @return builder
-         * 
-         */
         public Builder meshName(String meshName) {
             $.meshName = meshName;
             return this;
         }
 
-        /**
-         * @param name Name of the virtual gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Map of tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

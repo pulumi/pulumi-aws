@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class KeyRegistrationKeyRegistration
     {
-        /// <summary>
-        /// Whether the key is set as the default key for encryption and decryption use.
-        /// </summary>
         public readonly bool? DefaultKey;
-        /// <summary>
-        /// ARN of the AWS KMS key that is registered for encryption and decryption use.
-        /// </summary>
         public readonly string KeyArn;
 
         [OutputConstructor]

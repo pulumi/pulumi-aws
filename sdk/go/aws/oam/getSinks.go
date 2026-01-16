@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS CloudWatch Observability Access Manager Sinks.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/oam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := oam.GetSinks(ctx, &oam.GetSinksArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetSinks(ctx *pulumi.Context, args *GetSinksArgs, opts ...pulumi.InvokeOption) (*GetSinksResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSinksResult
@@ -50,13 +23,11 @@ func GetSinks(ctx *pulumi.Context, args *GetSinksArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getSinks.
 type GetSinksArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getSinks.
 type GetSinksResult struct {
-	// Set of ARN of the Sinks.
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
@@ -74,7 +45,6 @@ func GetSinksOutput(ctx *pulumi.Context, args GetSinksOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getSinks.
 type GetSinksOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -97,7 +67,6 @@ func (o GetSinksResultOutput) ToGetSinksResultOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Set of ARN of the Sinks.
 func (o GetSinksResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSinksResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }

@@ -9,81 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3Tables
 {
-    /// <summary>
-    /// Resource for managing an Amazon S3 Tables Namespace.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleTableBucket = new Aws.S3Tables.TableBucket("example", new()
-    ///     {
-    ///         Name = "example-bucket",
-    ///     });
-    /// 
-    ///     var example = new Aws.S3Tables.Namespace("example", new()
-    ///     {
-    ///         NameSpace = "example_namespace",
-    ///         TableBucketArn = exampleTableBucket.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import S3 Tables Namespace using the `table_bucket_arn` and the value of `namespace`, separated by a semicolon (`;`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:s3tables/namespace:Namespace example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace'
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3tables/namespace:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Date and time when the namespace was created.
-        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// Account ID of the account that created the namespace.
-        /// </summary>
         [Output("createdBy")]
         public Output<string> CreatedBy { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the namespace.
-        /// Must be between 1 and 255 characters in length.
-        /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        /// </summary>
         [Output("namespace")]
         public Output<string> NameSpace { get; private set; } = null!;
 
-        /// <summary>
-        /// Account ID of the account that owns the namespace.
-        /// </summary>
         [Output("ownerAccountId")]
         public Output<string> OwnerAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN referencing the Table Bucket that contains this Namespace.
-        /// </summary>
         [Output("tableBucketArn")]
         public Output<string> TableBucketArn { get; private set; } = null!;
 
@@ -133,23 +76,12 @@ namespace Pulumi.Aws.S3Tables
 
     public sealed class NamespaceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the namespace.
-        /// Must be between 1 and 255 characters in length.
-        /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        /// </summary>
         [Input("namespace", required: true)]
         public Input<string> NameSpace { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN referencing the Table Bucket that contains this Namespace.
-        /// </summary>
         [Input("tableBucketArn", required: true)]
         public Input<string> TableBucketArn { get; set; } = null!;
 
@@ -161,41 +93,21 @@ namespace Pulumi.Aws.S3Tables
 
     public sealed class NamespaceState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Date and time when the namespace was created.
-        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
-        /// <summary>
-        /// Account ID of the account that created the namespace.
-        /// </summary>
         [Input("createdBy")]
         public Input<string>? CreatedBy { get; set; }
 
-        /// <summary>
-        /// Name of the namespace.
-        /// Must be between 1 and 255 characters in length.
-        /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        /// </summary>
         [Input("namespace")]
         public Input<string>? NameSpace { get; set; }
 
-        /// <summary>
-        /// Account ID of the account that owns the namespace.
-        /// </summary>
         [Input("ownerAccountId")]
         public Input<string>? OwnerAccountId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN referencing the Table Bucket that contains this Namespace.
-        /// </summary>
         [Input("tableBucketArn")]
         public Input<string>? TableBucketArn { get; set; }
 

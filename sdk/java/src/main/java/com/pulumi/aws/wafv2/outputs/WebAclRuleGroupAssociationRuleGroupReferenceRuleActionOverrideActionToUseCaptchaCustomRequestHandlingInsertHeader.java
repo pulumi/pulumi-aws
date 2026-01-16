@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeader {
-    /**
-     * @return Name of the header to insert.
-     * 
-     */
     private String name;
-    /**
-     * @return Value of the header to insert.
-     * 
-     */
     private String value;
 
     private WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeader() {}
-    /**
-     * @return Name of the header to insert.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Value of the header to insert.
-     * 
-     */
     public String value() {
         return this.value;
     }

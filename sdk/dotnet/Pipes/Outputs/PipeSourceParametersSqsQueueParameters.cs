@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Pipes.Outputs
     [OutputType]
     public sealed class PipeSourceParametersSqsQueueParameters
     {
-        /// <summary>
-        /// The maximum number of records to include in each batch. Maximum value of 10000.
-        /// </summary>
         public readonly int? BatchSize;
-        /// <summary>
-        /// The maximum length of a time to wait for events. Maximum value of 300.
-        /// </summary>
         public readonly int? MaximumBatchingWindowInSeconds;
 
         [OutputConstructor]

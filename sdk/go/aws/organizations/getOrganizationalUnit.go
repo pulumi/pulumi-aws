@@ -11,40 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for getting an AWS Organizations Organizational Unit.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			org, err := organizations.LookupOrganization(ctx, map[string]interface{}{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = organizations.LookupOrganizationalUnit(ctx, &organizations.LookupOrganizationalUnitArgs{
-//				ParentId: org.Roots[0].Id,
-//				Name:     "dev",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupOrganizationalUnit(ctx *pulumi.Context, args *LookupOrganizationalUnitArgs, opts ...pulumi.InvokeOption) (*LookupOrganizationalUnitResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOrganizationalUnitResult
@@ -57,15 +23,12 @@ func LookupOrganizationalUnit(ctx *pulumi.Context, args *LookupOrganizationalUni
 
 // A collection of arguments for invoking getOrganizationalUnit.
 type LookupOrganizationalUnitArgs struct {
-	// Name of the organizational unit
-	Name string `pulumi:"name"`
-	// Parent ID of the organizational unit.
+	Name     string `pulumi:"name"`
 	ParentId string `pulumi:"parentId"`
 }
 
 // A collection of values returned by getOrganizationalUnit.
 type LookupOrganizationalUnitResult struct {
-	// ARN of the organizational unit
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id       string `pulumi:"id"`
@@ -84,9 +47,7 @@ func LookupOrganizationalUnitOutput(ctx *pulumi.Context, args LookupOrganization
 
 // A collection of arguments for invoking getOrganizationalUnit.
 type LookupOrganizationalUnitOutputArgs struct {
-	// Name of the organizational unit
-	Name pulumi.StringInput `pulumi:"name"`
-	// Parent ID of the organizational unit.
+	Name     pulumi.StringInput `pulumi:"name"`
 	ParentId pulumi.StringInput `pulumi:"parentId"`
 }
 
@@ -109,7 +70,6 @@ func (o LookupOrganizationalUnitResultOutput) ToLookupOrganizationalUnitResultOu
 	return o
 }
 
-// ARN of the organizational unit
 func (o LookupOrganizationalUnitResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOrganizationalUnitResult) string { return v.Arn }).(pulumi.StringOutput)
 }

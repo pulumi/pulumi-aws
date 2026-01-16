@@ -17,47 +17,23 @@ public final class XssMatchSetArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final XssMatchSetArgs Empty = new XssMatchSetArgs();
 
-    /**
-     * The name of the set
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the set
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The parts of web requests that you want to inspect for cross-site scripting attacks.
-     * 
-     */
     @Import(name="xssMatchTuples")
     private @Nullable Output<List<XssMatchSetXssMatchTupleArgs>> xssMatchTuples;
 
-    /**
-     * @return The parts of web requests that you want to inspect for cross-site scripting attacks.
-     * 
-     */
     public Optional<Output<List<XssMatchSetXssMatchTupleArgs>>> xssMatchTuples() {
         return Optional.ofNullable(this.xssMatchTuples);
     }
@@ -88,75 +64,33 @@ public final class XssMatchSetArgs extends com.pulumi.resources.ResourceArgs {
             $ = new XssMatchSetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the set
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the set
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param xssMatchTuples The parts of web requests that you want to inspect for cross-site scripting attacks.
-         * 
-         * @return builder
-         * 
-         */
         public Builder xssMatchTuples(@Nullable Output<List<XssMatchSetXssMatchTupleArgs>> xssMatchTuples) {
             $.xssMatchTuples = xssMatchTuples;
             return this;
         }
 
-        /**
-         * @param xssMatchTuples The parts of web requests that you want to inspect for cross-site scripting attacks.
-         * 
-         * @return builder
-         * 
-         */
         public Builder xssMatchTuples(List<XssMatchSetXssMatchTupleArgs> xssMatchTuples) {
             return xssMatchTuples(Output.of(xssMatchTuples));
         }
 
-        /**
-         * @param xssMatchTuples The parts of web requests that you want to inspect for cross-site scripting attacks.
-         * 
-         * @return builder
-         * 
-         */
         public Builder xssMatchTuples(XssMatchSetXssMatchTupleArgs... xssMatchTuples) {
             return xssMatchTuples(List.of(xssMatchTuples));
         }

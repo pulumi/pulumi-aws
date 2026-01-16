@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceDnsConfig {
-    /**
-     * @return An array that contains one DnsRecord object for each resource record set. See `dnsRecords` Block for details.
-     * 
-     */
     private List<GetServiceDnsConfigDnsRecord> dnsRecords;
-    /**
-     * @return ID of the namespace that the service belongs to.
-     * 
-     */
     private String namespaceId;
-    /**
-     * @return Routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
-     * 
-     */
     private String routingPolicy;
 
     private GetServiceDnsConfig() {}
-    /**
-     * @return An array that contains one DnsRecord object for each resource record set. See `dnsRecords` Block for details.
-     * 
-     */
     public List<GetServiceDnsConfigDnsRecord> dnsRecords() {
         return this.dnsRecords;
     }
-    /**
-     * @return ID of the namespace that the service belongs to.
-     * 
-     */
     public String namespaceId() {
         return this.namespaceId;
     }
-    /**
-     * @return Routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
-     * 
-     */
     public String routingPolicy() {
         return this.routingPolicy;
     }

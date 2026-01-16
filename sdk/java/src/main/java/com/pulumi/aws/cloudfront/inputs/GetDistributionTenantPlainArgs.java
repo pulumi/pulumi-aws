@@ -14,47 +14,23 @@ public final class GetDistributionTenantPlainArgs extends com.pulumi.resources.I
 
     public static final GetDistributionTenantPlainArgs Empty = new GetDistributionTenantPlainArgs();
 
-    /**
-     * ARN (Amazon Resource Name) for the distribution tenant.
-     * 
-     */
     @Import(name="arn")
     private @Nullable String arn;
 
-    /**
-     * @return ARN (Amazon Resource Name) for the distribution tenant.
-     * 
-     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
-     * 
-     */
     @Import(name="domain")
     private @Nullable String domain;
 
-    /**
-     * @return An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
-     * 
-     */
     public Optional<String> domain() {
         return Optional.ofNullable(this.domain);
     }
 
-    /**
-     * Identifier for the distribution tenant. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `domain` must be specified.
-     * 
-     */
     @Import(name="id")
     private @Nullable String id;
 
-    /**
-     * @return Identifier for the distribution tenant. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `domain` must be specified.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
@@ -93,34 +69,16 @@ public final class GetDistributionTenantPlainArgs extends com.pulumi.resources.I
             $ = new GetDistributionTenantPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN (Amazon Resource Name) for the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable String arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param domain An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(@Nullable String domain) {
             $.domain = domain;
             return this;
         }
 
-        /**
-         * @param id Identifier for the distribution tenant. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `domain` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;

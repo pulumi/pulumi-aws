@@ -16,32 +16,16 @@ public final class GcmChannelState extends com.pulumi.resources.ResourceArgs {
 
     public static final GcmChannelState Empty = new GcmChannelState();
 
-    /**
-     * Platform credential API key from Google.
-     * 
-     */
     @Import(name="apiKey")
     private @Nullable Output<String> apiKey;
 
-    /**
-     * @return Platform credential API key from Google.
-     * 
-     */
     public Optional<Output<String>> apiKey() {
         return Optional.ofNullable(this.apiKey);
     }
 
-    /**
-     * The application ID.
-     * 
-     */
     @Import(name="applicationId")
     private @Nullable Output<String> applicationId;
 
-    /**
-     * @return The application ID.
-     * 
-     */
     public Optional<Output<String>> applicationId() {
         return Optional.ofNullable(this.applicationId);
     }
@@ -53,32 +37,16 @@ public final class GcmChannelState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.defaultAuthenticationMethod);
     }
 
-    /**
-     * Whether the channel is enabled or disabled. Defaults to `true`.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether the channel is enabled or disabled. Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -119,44 +87,20 @@ public final class GcmChannelState extends com.pulumi.resources.ResourceArgs {
             $ = new GcmChannelState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param apiKey Platform credential API key from Google.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiKey(@Nullable Output<String> apiKey) {
             $.apiKey = apiKey;
             return this;
         }
 
-        /**
-         * @param apiKey Platform credential API key from Google.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiKey(String apiKey) {
             return apiKey(Output.of(apiKey));
         }
 
-        /**
-         * @param applicationId The application ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationId(@Nullable Output<String> applicationId) {
             $.applicationId = applicationId;
             return this;
         }
 
-        /**
-         * @param applicationId The application ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationId(String applicationId) {
             return applicationId(Output.of(applicationId));
         }
@@ -170,44 +114,20 @@ public final class GcmChannelState extends com.pulumi.resources.ResourceArgs {
             return defaultAuthenticationMethod(Output.of(defaultAuthenticationMethod));
         }
 
-        /**
-         * @param enabled Whether the channel is enabled or disabled. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether the channel is enabled or disabled. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

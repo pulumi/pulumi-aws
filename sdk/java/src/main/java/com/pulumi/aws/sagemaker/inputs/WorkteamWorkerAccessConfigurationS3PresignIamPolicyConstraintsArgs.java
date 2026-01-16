@@ -15,32 +15,16 @@ public final class WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraint
 
     public static final WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs Empty = new WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs();
 
-    /**
-     * When SourceIp is Enabled the worker&#39;s IP address when a task is rendered in the worker portal is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. This IP address is checked by Amazon S3 and must match in order for the Amazon S3 resource to be rendered in the worker portal. Valid values are `Enabled` or `Disabled`
-     * 
-     */
     @Import(name="sourceIp")
     private @Nullable Output<String> sourceIp;
 
-    /**
-     * @return When SourceIp is Enabled the worker&#39;s IP address when a task is rendered in the worker portal is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. This IP address is checked by Amazon S3 and must match in order for the Amazon S3 resource to be rendered in the worker portal. Valid values are `Enabled` or `Disabled`
-     * 
-     */
     public Optional<Output<String>> sourceIp() {
         return Optional.ofNullable(this.sourceIp);
     }
 
-    /**
-     * When VpcSourceIp is Enabled the worker&#39;s IP address when a task is rendered in private worker portal inside the VPC is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. To render the task successfully Amazon S3 checks that the presigned URL is being accessed over an Amazon S3 VPC Endpoint, and that the worker&#39;s IP address matches the IP address in the IAM policy. To learn more about configuring private worker portal, see [Use Amazon VPC mode from a private worker portal](https://docs.aws.amazon.com/sagemaker/latest/dg/samurai-vpc-worker-portal.html). Valid values are `Enabled` or `Disabled`
-     * 
-     */
     @Import(name="vpcSourceIp")
     private @Nullable Output<String> vpcSourceIp;
 
-    /**
-     * @return When VpcSourceIp is Enabled the worker&#39;s IP address when a task is rendered in private worker portal inside the VPC is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. To render the task successfully Amazon S3 checks that the presigned URL is being accessed over an Amazon S3 VPC Endpoint, and that the worker&#39;s IP address matches the IP address in the IAM policy. To learn more about configuring private worker portal, see [Use Amazon VPC mode from a private worker portal](https://docs.aws.amazon.com/sagemaker/latest/dg/samurai-vpc-worker-portal.html). Valid values are `Enabled` or `Disabled`
-     * 
-     */
     public Optional<Output<String>> vpcSourceIp() {
         return Optional.ofNullable(this.vpcSourceIp);
     }
@@ -70,44 +54,20 @@ public final class WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraint
             $ = new WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param sourceIp When SourceIp is Enabled the worker&#39;s IP address when a task is rendered in the worker portal is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. This IP address is checked by Amazon S3 and must match in order for the Amazon S3 resource to be rendered in the worker portal. Valid values are `Enabled` or `Disabled`
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceIp(@Nullable Output<String> sourceIp) {
             $.sourceIp = sourceIp;
             return this;
         }
 
-        /**
-         * @param sourceIp When SourceIp is Enabled the worker&#39;s IP address when a task is rendered in the worker portal is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. This IP address is checked by Amazon S3 and must match in order for the Amazon S3 resource to be rendered in the worker portal. Valid values are `Enabled` or `Disabled`
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceIp(String sourceIp) {
             return sourceIp(Output.of(sourceIp));
         }
 
-        /**
-         * @param vpcSourceIp When VpcSourceIp is Enabled the worker&#39;s IP address when a task is rendered in private worker portal inside the VPC is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. To render the task successfully Amazon S3 checks that the presigned URL is being accessed over an Amazon S3 VPC Endpoint, and that the worker&#39;s IP address matches the IP address in the IAM policy. To learn more about configuring private worker portal, see [Use Amazon VPC mode from a private worker portal](https://docs.aws.amazon.com/sagemaker/latest/dg/samurai-vpc-worker-portal.html). Valid values are `Enabled` or `Disabled`
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcSourceIp(@Nullable Output<String> vpcSourceIp) {
             $.vpcSourceIp = vpcSourceIp;
             return this;
         }
 
-        /**
-         * @param vpcSourceIp When VpcSourceIp is Enabled the worker&#39;s IP address when a task is rendered in private worker portal inside the VPC is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. To render the task successfully Amazon S3 checks that the presigned URL is being accessed over an Amazon S3 VPC Endpoint, and that the worker&#39;s IP address matches the IP address in the IAM policy. To learn more about configuring private worker portal, see [Use Amazon VPC mode from a private worker portal](https://docs.aws.amazon.com/sagemaker/latest/dg/samurai-vpc-worker-portal.html). Valid values are `Enabled` or `Disabled`
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcSourceIp(String vpcSourceIp) {
             return vpcSourceIp(Output.of(vpcSourceIp));
         }

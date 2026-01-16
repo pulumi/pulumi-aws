@@ -17,417 +17,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS Network Firewall Firewall Policy Resource
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.inputs.GetPartitionArgs;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.networkfirewall.FirewallPolicy;
- * import com.pulumi.aws.networkfirewall.FirewallPolicyArgs;
- * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
- *             .build());
- * 
- *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
- *             .build());
- * 
- *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         var example = new FirewallPolicy("example", FirewallPolicyArgs.builder()
- *             .name("example")
- *             .firewallPolicy(FirewallPolicyFirewallPolicyArgs.builder()
- *                 .statelessDefaultActions("aws:pass")
- *                 .statelessFragmentDefaultActions("aws:drop")
- *                 .statelessRuleGroupReferences(FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs.builder()
- *                     .priority(1)
- *                     .resourceArn(exampleAwsNetworkfirewallRuleGroup.arn())
- *                     .build())
- *                 .tlsInspectionConfigurationArn(String.format("arn:%s:network-firewall:%s:%s:tls-configuration/example", currentGetPartition.partition(),current.region(),currentGetCallerIdentity.accountId()))
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry("Tag1", "Value1"),
- *                 Map.entry("Tag2", "Value2")
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Policy with a HOME_NET Override
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkfirewall.FirewallPolicy;
- * import com.pulumi.aws.networkfirewall.FirewallPolicyArgs;
- * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyArgs;
- * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyPolicyVariablesArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new FirewallPolicy("example", FirewallPolicyArgs.builder()
- *             .name("example")
- *             .firewallPolicy(FirewallPolicyFirewallPolicyArgs.builder()
- *                 .policyVariables(FirewallPolicyFirewallPolicyPolicyVariablesArgs.builder()
- *                     .ruleVariables(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs.builder()
- *                         .key("HOME_NET")
- *                         .ipSet(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs.builder()
- *                             .definitions(                            
- *                                 "10.0.0.0/16",
- *                                 "10.1.0.0/24")
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .statelessDefaultActions("aws:pass")
- *                 .statelessFragmentDefaultActions("aws:drop")
- *                 .statelessRuleGroupReferences(FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs.builder()
- *                     .priority(1)
- *                     .resourceArn(exampleAwsNetworkfirewallRuleGroup.arn())
- *                     .build())
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry("Tag1", "Value1"),
- *                 Map.entry("Tag2", "Value2")
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Policy with a Custom Action for Stateless Inspection
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkfirewall.FirewallPolicy;
- * import com.pulumi.aws.networkfirewall.FirewallPolicyArgs;
- * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new FirewallPolicy("example", FirewallPolicyArgs.builder()
- *             .name("example")
- *             .firewallPolicy(FirewallPolicyFirewallPolicyArgs.builder()
- *                 .statelessDefaultActions(                
- *                     "aws:pass",
- *                     "ExampleCustomAction")
- *                 .statelessFragmentDefaultActions("aws:drop")
- *                 .statelessCustomActions(FirewallPolicyFirewallPolicyStatelessCustomActionArgs.builder()
- *                     .actionDefinition(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs.builder()
- *                         .publishMetricAction(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs.builder()
- *                             .dimensions(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs.builder()
- *                                 .value("1")
- *                                 .build())
- *                             .build())
- *                         .build())
- *                     .actionName("ExampleCustomAction")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Policy with Active Threat Defense in Action Order
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.inputs.GetPartitionArgs;
- * import com.pulumi.aws.networkfirewall.FirewallPolicy;
- * import com.pulumi.aws.networkfirewall.FirewallPolicyArgs;
- * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
- *             .build());
- * 
- *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
- *             .build());
- * 
- *         var example = new FirewallPolicy("example", FirewallPolicyArgs.builder()
- *             .name("example")
- *             .firewallPolicy(FirewallPolicyFirewallPolicyArgs.builder()
- *                 .statelessFragmentDefaultActions("aws:drop")
- *                 .statelessDefaultActions("aws:pass")
- *                 .statefulRuleGroupReferences(FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs.builder()
- *                     .deepThreatInspection("true")
- *                     .resourceArn(String.format("arn:%s:network-firewall:%s:aws-managed:stateful-rulegroup/AttackInfrastructureActionOrder", currentGetPartition.partition(),current.region()))
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Policy with Active Threat Defense in Strict Order
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.inputs.GetPartitionArgs;
- * import com.pulumi.aws.networkfirewall.FirewallPolicy;
- * import com.pulumi.aws.networkfirewall.FirewallPolicyArgs;
- * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyArgs;
- * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
- *             .build());
- * 
- *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
- *             .build());
- * 
- *         var example = new FirewallPolicy("example", FirewallPolicyArgs.builder()
- *             .name("example")
- *             .firewallPolicy(FirewallPolicyFirewallPolicyArgs.builder()
- *                 .statelessFragmentDefaultActions("aws:drop")
- *                 .statelessDefaultActions("aws:pass")
- *                 .statefulEngineOptions(FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs.builder()
- *                     .ruleOrder("STRICT_ORDER")
- *                     .build())
- *                 .statefulRuleGroupReferences(FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs.builder()
- *                     .deepThreatInspection("false")
- *                     .priority(1)
- *                     .resourceArn(String.format("arn:%s:network-firewall:%s:aws-managed:stateful-rulegroup/AttackInfrastructureStrictOrder", currentGetPartition.partition(),current.region()))
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Network Firewall Policies using their `arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
- * ```
- * 
- */
 @ResourceType(type="aws:networkfirewall/firewallPolicy:FirewallPolicy")
 public class FirewallPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) that identifies the firewall policy.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) that identifies the firewall policy.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * A friendly description of the firewall policy.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A friendly description of the firewall policy.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * KMS encryption configuration settings. See Encryption Configuration below for details.
-     * 
-     */
     @Export(name="encryptionConfiguration", refs={FirewallPolicyEncryptionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FirewallPolicyEncryptionConfiguration> encryptionConfiguration;
 
-    /**
-     * @return KMS encryption configuration settings. See Encryption Configuration below for details.
-     * 
-     */
     public Output<Optional<FirewallPolicyEncryptionConfiguration>> encryptionConfiguration() {
         return Codegen.optional(this.encryptionConfiguration);
     }
-    /**
-     * A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
-     * 
-     */
     @Export(name="firewallPolicy", refs={FirewallPolicyFirewallPolicy.class}, tree="[0]")
     private Output<FirewallPolicyFirewallPolicy> firewallPolicy;
 
-    /**
-     * @return A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
-     * 
-     */
     public Output<FirewallPolicyFirewallPolicy> firewallPolicy() {
         return this.firewallPolicy;
     }
-    /**
-     * A friendly name of the firewall policy.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return A friendly name of the firewall policy.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * A string token used when updating a firewall policy.
-     * 
-     */
     @Export(name="updateToken", refs={String.class}, tree="[0]")
     private Output<String> updateToken;
 
-    /**
-     * @return A string token used when updating a firewall policy.
-     * 
-     */
     public Output<String> updateToken() {
         return this.updateToken;
     }

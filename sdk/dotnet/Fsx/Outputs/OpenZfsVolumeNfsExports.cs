@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Fsx.Outputs
     [OutputType]
     public sealed class OpenZfsVolumeNfsExports
     {
-        /// <summary>
-        /// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `ClientConfigurations` Block below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.OpenZfsVolumeNfsExportsClientConfiguration> ClientConfigurations;
 
         [OutputConstructor]

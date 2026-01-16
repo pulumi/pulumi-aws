@@ -18,242 +18,83 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Chatbot Slack Channel Configuration.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.chatbot.SlackChannelConfiguration;
- * import com.pulumi.aws.chatbot.SlackChannelConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new SlackChannelConfiguration("test", SlackChannelConfigurationArgs.builder()
- *             .configurationName("min-slaka-kanal")
- *             .iamRoleArn(testAwsIamRole.arn())
- *             .slackChannelId("C07EZ1ABC23")
- *             .slackTeamId("T07EA123LEP")
- *             .tags(Map.of("Name", "min-slaka-kanal"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Chatbot Slack Channel Configuration using the `chat_configuration_arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:chatbot/slackChannelConfiguration:SlackChannelConfiguration example arn:aws:chatbot::123456789012:chat-configuration/slack-channel/min-slaka-kanal
- * ```
- * 
- */
 @ResourceType(type="aws:chatbot/slackChannelConfiguration:SlackChannelConfiguration")
 public class SlackChannelConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Slack channel configuration.
-     * 
-     */
     @Export(name="chatConfigurationArn", refs={String.class}, tree="[0]")
     private Output<String> chatConfigurationArn;
 
-    /**
-     * @return ARN of the Slack channel configuration.
-     * 
-     */
     public Output<String> chatConfigurationArn() {
         return this.chatConfigurationArn;
     }
-    /**
-     * Name of the Slack channel configuration.
-     * 
-     */
     @Export(name="configurationName", refs={String.class}, tree="[0]")
     private Output<String> configurationName;
 
-    /**
-     * @return Name of the Slack channel configuration.
-     * 
-     */
     public Output<String> configurationName() {
         return this.configurationName;
     }
-    /**
-     * List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-     * 
-     */
     @Export(name="guardrailPolicyArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> guardrailPolicyArns;
 
-    /**
-     * @return List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-     * 
-     */
     public Output<List<String>> guardrailPolicyArns() {
         return this.guardrailPolicyArns;
     }
-    /**
-     * User-defined role that AWS Chatbot assumes. This is not the service-linked role.
-     * 
-     */
     @Export(name="iamRoleArn", refs={String.class}, tree="[0]")
     private Output<String> iamRoleArn;
 
-    /**
-     * @return User-defined role that AWS Chatbot assumes. This is not the service-linked role.
-     * 
-     */
     public Output<String> iamRoleArn() {
         return this.iamRoleArn;
     }
-    /**
-     * Logging levels include `ERROR`, `INFO`, or `NONE`.
-     * 
-     */
     @Export(name="loggingLevel", refs={String.class}, tree="[0]")
     private Output<String> loggingLevel;
 
-    /**
-     * @return Logging levels include `ERROR`, `INFO`, or `NONE`.
-     * 
-     */
     public Output<String> loggingLevel() {
         return this.loggingLevel;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ID of the Slack channel. For example, `C07EZ1ABC23`.
-     * 
-     */
     @Export(name="slackChannelId", refs={String.class}, tree="[0]")
     private Output<String> slackChannelId;
 
-    /**
-     * @return ID of the Slack channel. For example, `C07EZ1ABC23`.
-     * 
-     */
     public Output<String> slackChannelId() {
         return this.slackChannelId;
     }
-    /**
-     * Name of the Slack channel.
-     * 
-     */
     @Export(name="slackChannelName", refs={String.class}, tree="[0]")
     private Output<String> slackChannelName;
 
-    /**
-     * @return Name of the Slack channel.
-     * 
-     */
     public Output<String> slackChannelName() {
         return this.slackChannelName;
     }
-    /**
-     * ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="slackTeamId", refs={String.class}, tree="[0]")
     private Output<String> slackTeamId;
 
-    /**
-     * @return ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> slackTeamId() {
         return this.slackTeamId;
     }
-    /**
-     * Name of the Slack team.
-     * 
-     */
     @Export(name="slackTeamName", refs={String.class}, tree="[0]")
     private Output<String> slackTeamName;
 
-    /**
-     * @return Name of the Slack team.
-     * 
-     */
     public Output<String> slackTeamName() {
         return this.slackTeamName;
     }
-    /**
-     * ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-     * 
-     */
     @Export(name="snsTopicArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> snsTopicArns;
 
-    /**
-     * @return ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-     * 
-     */
     public Output<List<String>> snsTopicArns() {
         return this.snsTopicArns;
     }
-    /**
-     * Map of tags assigned to the resource.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags assigned to the resource.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
@@ -263,17 +104,9 @@ public class SlackChannelConfiguration extends com.pulumi.resources.CustomResour
     public Output<Optional<SlackChannelConfigurationTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * Enables use of a user role requirement in your chat configuration.
-     * 
-     */
     @Export(name="userAuthorizationRequired", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> userAuthorizationRequired;
 
-    /**
-     * @return Enables use of a user role requirement in your chat configuration.
-     * 
-     */
     public Output<Boolean> userAuthorizationRequired() {
         return this.userAuthorizationRequired;
     }

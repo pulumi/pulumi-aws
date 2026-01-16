@@ -14,11 +14,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
     {
         [Input("flags", required: true)]
         private InputList<string>? _flags;
-
-        /// <summary>
-        /// Set of flags to look for in a packet. This setting can only specify values that are also specified in `Masks`.
-        /// Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
-        /// </summary>
         public InputList<string> Flags
         {
             get => _flags ?? (_flags = new InputList<string>());
@@ -27,11 +22,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
         [Input("masks")]
         private InputList<string>? _masks;
-
-        /// <summary>
-        /// Set of flags to consider in the inspection. To inspect all flags, leave this empty.
-        /// Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
-        /// </summary>
         public InputList<string> Masks
         {
             get => _masks ?? (_masks = new InputList<string>());

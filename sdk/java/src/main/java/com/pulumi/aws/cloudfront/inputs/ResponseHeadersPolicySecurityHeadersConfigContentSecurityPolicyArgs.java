@@ -15,32 +15,16 @@ public final class ResponseHeadersPolicySecurityHeadersConfigContentSecurityPoli
 
     public static final ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs Empty = new ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs();
 
-    /**
-     * The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
-     * 
-     */
     @Import(name="contentSecurityPolicy", required=true)
     private Output<String> contentSecurityPolicy;
 
-    /**
-     * @return The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
-     * 
-     */
     public Output<String> contentSecurityPolicy() {
         return this.contentSecurityPolicy;
     }
 
-    /**
-     * Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
-     * 
-     */
     @Import(name="override", required=true)
     private Output<Boolean> override;
 
-    /**
-     * @return Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
-     * 
-     */
     public Output<Boolean> override() {
         return this.override;
     }
@@ -70,44 +54,20 @@ public final class ResponseHeadersPolicySecurityHeadersConfigContentSecurityPoli
             $ = new ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param contentSecurityPolicy The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentSecurityPolicy(Output<String> contentSecurityPolicy) {
             $.contentSecurityPolicy = contentSecurityPolicy;
             return this;
         }
 
-        /**
-         * @param contentSecurityPolicy The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentSecurityPolicy(String contentSecurityPolicy) {
             return contentSecurityPolicy(Output.of(contentSecurityPolicy));
         }
 
-        /**
-         * @param override Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder override(Output<Boolean> override) {
             $.override = override;
             return this;
         }
 
-        /**
-         * @param override Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder override(Boolean override) {
             return override(Output.of(override));
         }

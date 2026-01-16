@@ -17,77 +17,37 @@ public final class BucketNotificationQueueArgs extends com.pulumi.resources.Reso
 
     public static final BucketNotificationQueueArgs Empty = new BucketNotificationQueueArgs();
 
-    /**
-     * Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
-     * 
-     */
     @Import(name="events", required=true)
     private Output<List<String>> events;
 
-    /**
-     * @return Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
-     * 
-     */
     public Output<List<String>> events() {
         return this.events;
     }
 
-    /**
-     * Object key name prefix.
-     * 
-     */
     @Import(name="filterPrefix")
     private @Nullable Output<String> filterPrefix;
 
-    /**
-     * @return Object key name prefix.
-     * 
-     */
     public Optional<Output<String>> filterPrefix() {
         return Optional.ofNullable(this.filterPrefix);
     }
 
-    /**
-     * Object key name suffix.
-     * 
-     */
     @Import(name="filterSuffix")
     private @Nullable Output<String> filterSuffix;
 
-    /**
-     * @return Object key name suffix.
-     * 
-     */
     public Optional<Output<String>> filterSuffix() {
         return Optional.ofNullable(this.filterSuffix);
     }
 
-    /**
-     * Unique identifier for each of the notification configurations.
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return Unique identifier for each of the notification configurations.
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * SQS queue ARN.
-     * 
-     */
     @Import(name="queueArn", required=true)
     private Output<String> queueArn;
 
-    /**
-     * @return SQS queue ARN.
-     * 
-     */
     public Output<String> queueArn() {
         return this.queueArn;
     }
@@ -120,117 +80,51 @@ public final class BucketNotificationQueueArgs extends com.pulumi.resources.Reso
             $ = new BucketNotificationQueueArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param events Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(Output<List<String>> events) {
             $.events = events;
             return this;
         }
 
-        /**
-         * @param events Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(List<String> events) {
             return events(Output.of(events));
         }
 
-        /**
-         * @param events Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(String... events) {
             return events(List.of(events));
         }
 
-        /**
-         * @param filterPrefix Object key name prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterPrefix(@Nullable Output<String> filterPrefix) {
             $.filterPrefix = filterPrefix;
             return this;
         }
 
-        /**
-         * @param filterPrefix Object key name prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterPrefix(String filterPrefix) {
             return filterPrefix(Output.of(filterPrefix));
         }
 
-        /**
-         * @param filterSuffix Object key name suffix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterSuffix(@Nullable Output<String> filterSuffix) {
             $.filterSuffix = filterSuffix;
             return this;
         }
 
-        /**
-         * @param filterSuffix Object key name suffix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterSuffix(String filterSuffix) {
             return filterSuffix(Output.of(filterSuffix));
         }
 
-        /**
-         * @param id Unique identifier for each of the notification configurations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Unique identifier for each of the notification configurations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param queueArn SQS queue ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queueArn(Output<String> queueArn) {
             $.queueArn = queueArn;
             return this;
         }
 
-        /**
-         * @param queueArn SQS queue ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queueArn(String queueArn) {
             return queueArn(Output.of(queueArn));
         }

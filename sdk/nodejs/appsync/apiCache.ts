@@ -4,35 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AppSync API Cache.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appsync.GraphQLApi("example", {
- *     authenticationType: "API_KEY",
- *     name: "example",
- * });
- * const exampleApiCache = new aws.appsync.ApiCache("example", {
- *     apiId: example.id,
- *     apiCachingBehavior: "FULL_REQUEST_CACHING",
- *     type: "LARGE",
- *     ttl: 900,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_appsync_api_cache` using the AppSync API ID. For example:
- *
- * ```sh
- * $ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
- * ```
- */
 export class ApiCache extends pulumi.CustomResource {
     /**
      * Get an existing ApiCache resource's state with the given name, ID, and optional extra
@@ -61,33 +32,12 @@ export class ApiCache extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApiCache.__pulumiType;
     }
 
-    /**
-     * Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-     */
     declare public readonly apiCachingBehavior: pulumi.Output<string>;
-    /**
-     * GraphQL API ID.
-     */
     declare public readonly apiId: pulumi.Output<string>;
-    /**
-     * At-rest encryption flag for cache. You cannot update this setting after creation.
-     */
     declare public readonly atRestEncryptionEnabled: pulumi.Output<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Transit encryption flag when connecting to cache. You cannot update this setting after creation.
-     */
     declare public readonly transitEncryptionEnabled: pulumi.Output<boolean>;
-    /**
-     * TTL in seconds for cache entries.
-     */
     declare public readonly ttl: pulumi.Output<number>;
-    /**
-     * Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
-     */
     declare public readonly type: pulumi.Output<string>;
 
     /**
@@ -141,33 +91,12 @@ export class ApiCache extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ApiCache resources.
  */
 export interface ApiCacheState {
-    /**
-     * Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-     */
     apiCachingBehavior?: pulumi.Input<string>;
-    /**
-     * GraphQL API ID.
-     */
     apiId?: pulumi.Input<string>;
-    /**
-     * At-rest encryption flag for cache. You cannot update this setting after creation.
-     */
     atRestEncryptionEnabled?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Transit encryption flag when connecting to cache. You cannot update this setting after creation.
-     */
     transitEncryptionEnabled?: pulumi.Input<boolean>;
-    /**
-     * TTL in seconds for cache entries.
-     */
     ttl?: pulumi.Input<number>;
-    /**
-     * Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
-     */
     type?: pulumi.Input<string>;
 }
 
@@ -175,32 +104,11 @@ export interface ApiCacheState {
  * The set of arguments for constructing a ApiCache resource.
  */
 export interface ApiCacheArgs {
-    /**
-     * Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-     */
     apiCachingBehavior: pulumi.Input<string>;
-    /**
-     * GraphQL API ID.
-     */
     apiId: pulumi.Input<string>;
-    /**
-     * At-rest encryption flag for cache. You cannot update this setting after creation.
-     */
     atRestEncryptionEnabled?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Transit encryption flag when connecting to cache. You cannot update this setting after creation.
-     */
     transitEncryptionEnabled?: pulumi.Input<boolean>;
-    /**
-     * TTL in seconds for cache entries.
-     */
     ttl: pulumi.Input<number>;
-    /**
-     * Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
-     */
     type: pulumi.Input<string>;
 }

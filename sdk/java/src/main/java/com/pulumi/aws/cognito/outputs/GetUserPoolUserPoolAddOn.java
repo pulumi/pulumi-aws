@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserPoolUserPoolAddOn {
-    /**
-     * @return A block of the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
-     * 
-     */
     private List<GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlow> advancedSecurityAdditionalFlows;
-    /**
-     * @return Mode for advanced security.
-     * 
-     */
     private String advancedSecurityMode;
 
     private GetUserPoolUserPoolAddOn() {}
-    /**
-     * @return A block of the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
-     * 
-     */
     public List<GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlow> advancedSecurityAdditionalFlows() {
         return this.advancedSecurityAdditionalFlows;
     }
-    /**
-     * @return Mode for advanced security.
-     * 
-     */
     public String advancedSecurityMode() {
         return this.advancedSecurityMode;
     }

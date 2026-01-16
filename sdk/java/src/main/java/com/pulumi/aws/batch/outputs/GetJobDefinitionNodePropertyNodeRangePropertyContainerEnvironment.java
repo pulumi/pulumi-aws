@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironment {
-    /**
-     * @return The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-     * 
-     */
     private String name;
-    /**
-     * @return The quantity of the specified resource to reserve for the container.
-     * 
-     */
     private String value;
 
     private GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironment() {}
-    /**
-     * @return The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The quantity of the specified resource to reserve for the container.
-     * 
-     */
     public String value() {
         return this.value;
     }

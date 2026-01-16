@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreAgentRuntimeProtocolConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`.
-        /// </summary>
         [Input("serverProtocol")]
         public Input<string>? ServerProtocol { get; set; }
 

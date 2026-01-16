@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Acmpca.Outputs
     [OutputType]
     public sealed class CertificateValidity
     {
-        /// <summary>
-        /// Determines how `Value` is interpreted. Valid values: `DAYS`, `MONTHS`, `YEARS`, `ABSOLUTE`, `END_DATE`.
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// If `Type` is `DAYS`, `MONTHS`, or `YEARS`, the relative time until the certificate expires. If `Type` is `ABSOLUTE`, the date in seconds since the Unix epoch. If `Type` is `END_DATE`, the  date in RFC 3339 format.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

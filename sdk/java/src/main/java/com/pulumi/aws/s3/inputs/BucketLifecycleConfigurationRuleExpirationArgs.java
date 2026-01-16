@@ -17,47 +17,23 @@ public final class BucketLifecycleConfigurationRuleExpirationArgs extends com.pu
 
     public static final BucketLifecycleConfigurationRuleExpirationArgs Empty = new BucketLifecycleConfigurationRuleExpirationArgs();
 
-    /**
-     * Date the object is to be moved or deleted. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
-     * 
-     */
     @Import(name="date")
     private @Nullable Output<String> date;
 
-    /**
-     * @return Date the object is to be moved or deleted. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
-     * 
-     */
     public Optional<Output<String>> date() {
         return Optional.ofNullable(this.date);
     }
 
-    /**
-     * Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
-     * 
-     */
     @Import(name="days")
     private @Nullable Output<Integer> days;
 
-    /**
-     * @return Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
-     * 
-     */
     public Optional<Output<Integer>> days() {
         return Optional.ofNullable(this.days);
     }
 
-    /**
-     * Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
-     * 
-     */
     @Import(name="expiredObjectDeleteMarker")
     private @Nullable Output<Boolean> expiredObjectDeleteMarker;
 
-    /**
-     * @return Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
-     * 
-     */
     public Optional<Output<Boolean>> expiredObjectDeleteMarker() {
         return Optional.ofNullable(this.expiredObjectDeleteMarker);
     }
@@ -88,65 +64,29 @@ public final class BucketLifecycleConfigurationRuleExpirationArgs extends com.pu
             $ = new BucketLifecycleConfigurationRuleExpirationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param date Date the object is to be moved or deleted. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder date(@Nullable Output<String> date) {
             $.date = date;
             return this;
         }
 
-        /**
-         * @param date Date the object is to be moved or deleted. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder date(String date) {
             return date(Output.of(date));
         }
 
-        /**
-         * @param days Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder days(@Nullable Output<Integer> days) {
             $.days = days;
             return this;
         }
 
-        /**
-         * @param days Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder days(Integer days) {
             return days(Output.of(days));
         }
 
-        /**
-         * @param expiredObjectDeleteMarker Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expiredObjectDeleteMarker(@Nullable Output<Boolean> expiredObjectDeleteMarker) {
             $.expiredObjectDeleteMarker = expiredObjectDeleteMarker;
             return this;
         }
 
-        /**
-         * @param expiredObjectDeleteMarker Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expiredObjectDeleteMarker(Boolean expiredObjectDeleteMarker) {
             return expiredObjectDeleteMarker(Output.of(expiredObjectDeleteMarker));
         }

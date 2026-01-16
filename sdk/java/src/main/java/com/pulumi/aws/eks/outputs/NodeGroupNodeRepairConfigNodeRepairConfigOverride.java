@@ -11,53 +11,21 @@ import java.util.Objects;
 
 @CustomType
 public final class NodeGroupNodeRepairConfigNodeRepairConfigOverride {
-    /**
-     * @return Minimum time in minutes to wait before attempting to repair a node with the specified `nodeMonitoringCondition` and `nodeUnhealthyReason`.
-     * 
-     */
     private Integer minRepairWaitTimeMins;
-    /**
-     * @return Unhealthy condition reported by the node monitoring agent that this override applies to.
-     * 
-     */
     private String nodeMonitoringCondition;
-    /**
-     * @return Reason reported by the node monitoring agent that this override applies to.
-     * 
-     */
     private String nodeUnhealthyReason;
-    /**
-     * @return Repair action to take for nodes when all of the specified conditions are met. Valid values are defined by the EKS API.
-     * 
-     */
     private String repairAction;
 
     private NodeGroupNodeRepairConfigNodeRepairConfigOverride() {}
-    /**
-     * @return Minimum time in minutes to wait before attempting to repair a node with the specified `nodeMonitoringCondition` and `nodeUnhealthyReason`.
-     * 
-     */
     public Integer minRepairWaitTimeMins() {
         return this.minRepairWaitTimeMins;
     }
-    /**
-     * @return Unhealthy condition reported by the node monitoring agent that this override applies to.
-     * 
-     */
     public String nodeMonitoringCondition() {
         return this.nodeMonitoringCondition;
     }
-    /**
-     * @return Reason reported by the node monitoring agent that this override applies to.
-     * 
-     */
     public String nodeUnhealthyReason() {
         return this.nodeUnhealthyReason;
     }
-    /**
-     * @return Repair action to take for nodes when all of the specified conditions are met. Valid values are defined by the EKS API.
-     * 
-     */
     public String repairAction() {
         return this.repairAction;
     }

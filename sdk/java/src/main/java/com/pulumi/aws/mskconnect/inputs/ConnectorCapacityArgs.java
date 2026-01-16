@@ -16,32 +16,16 @@ public final class ConnectorCapacityArgs extends com.pulumi.resources.ResourceAr
 
     public static final ConnectorCapacityArgs Empty = new ConnectorCapacityArgs();
 
-    /**
-     * Information about the auto scaling parameters for the connector. See `autoscaling` Block for details.
-     * 
-     */
     @Import(name="autoscaling")
     private @Nullable Output<ConnectorCapacityAutoscalingArgs> autoscaling;
 
-    /**
-     * @return Information about the auto scaling parameters for the connector. See `autoscaling` Block for details.
-     * 
-     */
     public Optional<Output<ConnectorCapacityAutoscalingArgs>> autoscaling() {
         return Optional.ofNullable(this.autoscaling);
     }
 
-    /**
-     * Details about a fixed capacity allocated to a connector. See `provisionedCapacity` Block for details.
-     * 
-     */
     @Import(name="provisionedCapacity")
     private @Nullable Output<ConnectorCapacityProvisionedCapacityArgs> provisionedCapacity;
 
-    /**
-     * @return Details about a fixed capacity allocated to a connector. See `provisionedCapacity` Block for details.
-     * 
-     */
     public Optional<Output<ConnectorCapacityProvisionedCapacityArgs>> provisionedCapacity() {
         return Optional.ofNullable(this.provisionedCapacity);
     }
@@ -71,44 +55,20 @@ public final class ConnectorCapacityArgs extends com.pulumi.resources.ResourceAr
             $ = new ConnectorCapacityArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoscaling Information about the auto scaling parameters for the connector. See `autoscaling` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoscaling(@Nullable Output<ConnectorCapacityAutoscalingArgs> autoscaling) {
             $.autoscaling = autoscaling;
             return this;
         }
 
-        /**
-         * @param autoscaling Information about the auto scaling parameters for the connector. See `autoscaling` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoscaling(ConnectorCapacityAutoscalingArgs autoscaling) {
             return autoscaling(Output.of(autoscaling));
         }
 
-        /**
-         * @param provisionedCapacity Details about a fixed capacity allocated to a connector. See `provisionedCapacity` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder provisionedCapacity(@Nullable Output<ConnectorCapacityProvisionedCapacityArgs> provisionedCapacity) {
             $.provisionedCapacity = provisionedCapacity;
             return this;
         }
 
-        /**
-         * @param provisionedCapacity Details about a fixed capacity allocated to a connector. See `provisionedCapacity` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder provisionedCapacity(ConnectorCapacityProvisionedCapacityArgs provisionedCapacity) {
             return provisionedCapacity(Output.of(provisionedCapacity));
         }

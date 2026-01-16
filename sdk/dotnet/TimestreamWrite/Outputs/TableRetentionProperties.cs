@@ -13,13 +13,7 @@ namespace Pulumi.Aws.TimestreamWrite.Outputs
     [OutputType]
     public sealed class TableRetentionProperties
     {
-        /// <summary>
-        /// The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
-        /// </summary>
         public readonly int MagneticStoreRetentionPeriodInDays;
-        /// <summary>
-        /// The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
-        /// </summary>
         public readonly int MemoryStoreRetentionPeriodInHours;
 
         [OutputConstructor]

@@ -9,88 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Glue
 {
-    /// <summary>
-    /// Provides a Glue resource policy. Only one can exist per region.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var currentGetPartition = Aws.GetPartition.Invoke();
-    /// 
-    ///     var currentGetRegion = Aws.GetRegion.Invoke();
-    /// 
-    ///     var glue_example_policy = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "glue:CreateTable",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:glue:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:*",
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "*",
-    ///                         },
-    ///                         Type = "AWS",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var example = new Aws.Glue.ResourcePolicy("example", new()
-    ///     {
-    ///         Policy = glue_example_policy.Apply(glue_example_policy =&gt; glue_example_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Glue Resource Policy using the region where the resource resides. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test us-east-1
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:glue/resourcePolicy:ResourcePolicy")]
     public partial class ResourcePolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
-        /// </summary>
         [Output("enableHybrid")]
         public Output<string?> EnableHybrid { get; private set; } = null!;
 
-        /// <summary>
-        /// The policy to be applied to the aws glue data catalog.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -140,21 +67,12 @@ namespace Pulumi.Aws.Glue
 
     public sealed class ResourcePolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
-        /// </summary>
         [Input("enableHybrid")]
         public Input<string>? EnableHybrid { get; set; }
 
-        /// <summary>
-        /// The policy to be applied to the aws glue data catalog.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -166,21 +84,12 @@ namespace Pulumi.Aws.Glue
 
     public sealed class ResourcePolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
-        /// </summary>
         [Input("enableHybrid")]
         public Input<string>? EnableHybrid { get; set; }
 
-        /// <summary>
-        /// The policy to be applied to the aws glue data catalog.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

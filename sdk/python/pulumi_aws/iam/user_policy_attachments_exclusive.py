@@ -23,8 +23,6 @@ class UserPolicyAttachmentsExclusiveArgs:
                  user_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a UserPolicyAttachmentsExclusive resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_arns: A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
-        :param pulumi.Input[_builtins.str] user_name: IAM user name.
         """
         pulumi.set(__self__, "policy_arns", policy_arns)
         pulumi.set(__self__, "user_name", user_name)
@@ -32,9 +30,6 @@ class UserPolicyAttachmentsExclusiveArgs:
     @_builtins.property
     @pulumi.getter(name="policyArns")
     def policy_arns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
-        """
         return pulumi.get(self, "policy_arns")
 
     @policy_arns.setter
@@ -44,9 +39,6 @@ class UserPolicyAttachmentsExclusiveArgs:
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        IAM user name.
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -61,8 +53,6 @@ class _UserPolicyAttachmentsExclusiveState:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserPolicyAttachmentsExclusive resources.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_arns: A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
-        :param pulumi.Input[_builtins.str] user_name: IAM user name.
         """
         if policy_arns is not None:
             pulumi.set(__self__, "policy_arns", policy_arns)
@@ -72,9 +62,6 @@ class _UserPolicyAttachmentsExclusiveState:
     @_builtins.property
     @pulumi.getter(name="policyArns")
     def policy_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
-        """
         return pulumi.get(self, "policy_arns")
 
     @policy_arns.setter
@@ -84,9 +71,6 @@ class _UserPolicyAttachmentsExclusiveState:
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        IAM user name.
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -104,18 +88,9 @@ class UserPolicyAttachmentsExclusive(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        ## Import
-
-        Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `user_name`. For example:
-
-        ```sh
-        $ pulumi import aws:iam/userPolicyAttachmentsExclusive:UserPolicyAttachmentsExclusive example MyUser
-        ```
-
+        Create a UserPolicyAttachmentsExclusive resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_arns: A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
-        :param pulumi.Input[_builtins.str] user_name: IAM user name.
         """
         ...
     @overload
@@ -124,14 +99,7 @@ class UserPolicyAttachmentsExclusive(pulumi.CustomResource):
                  args: UserPolicyAttachmentsExclusiveArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
-
-        Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `user_name`. For example:
-
-        ```sh
-        $ pulumi import aws:iam/userPolicyAttachmentsExclusive:UserPolicyAttachmentsExclusive example MyUser
-        ```
-
+        Create a UserPolicyAttachmentsExclusive resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserPolicyAttachmentsExclusiveArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,8 +151,6 @@ class UserPolicyAttachmentsExclusive(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_arns: A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
-        :param pulumi.Input[_builtins.str] user_name: IAM user name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -197,16 +163,10 @@ class UserPolicyAttachmentsExclusive(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="policyArns")
     def policy_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
-        """
         return pulumi.get(self, "policy_arns")
 
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        IAM user name.
-        """
         return pulumi.get(self, "user_name")
 

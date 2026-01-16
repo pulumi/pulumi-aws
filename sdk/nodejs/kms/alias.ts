@@ -4,42 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an alias for a KMS customer master key. AWS Console enforces 1-to-1 mapping between aliases & keys,
- * but API (hence this provider too) allows you to create as many aliases as
- * the [account limits](http://docs.aws.amazon.com/kms/latest/developerguide/limits.html) allow you.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const a = new aws.kms.Key("a", {});
- * const aAlias = new aws.kms.Alias("a", {
- *     name: "alias/my-key-alias",
- *     targetKeyId: a.keyId,
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * * `name` - (String) Name of the KMS key alias.
- *
- * #### Optional
- *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
- * * `region` (String) Region where this resource is managed.
- *
- * Using `pulumi import`, import KMS aliases using the `name`. For example:
- *
- * % pulumi import aws_kms_alias.a alias/my-key-alias
- */
 export class Alias extends pulumi.CustomResource {
     /**
      * Get an existing Alias resource's state with the given name, ID, and optional extra
@@ -68,30 +32,11 @@ export class Alias extends pulumi.CustomResource {
         return obj['__pulumiType'] === Alias.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the key alias.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Creates an unique alias beginning with the specified prefix.
-     * The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
-     */
     declare public readonly namePrefix: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the target key identifier.
-     */
     declare public /*out*/ readonly targetKeyArn: pulumi.Output<string>;
-    /**
-     * Identifier for the key for which the alias is for, can be either an ARN or key_id.
-     */
     declare public readonly targetKeyId: pulumi.Output<string>;
 
     /**
@@ -134,30 +79,11 @@ export class Alias extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Alias resources.
  */
 export interface AliasState {
-    /**
-     * The Amazon Resource Name (ARN) of the key alias.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Creates an unique alias beginning with the specified prefix.
-     * The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
-     */
     namePrefix?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the target key identifier.
-     */
     targetKeyArn?: pulumi.Input<string>;
-    /**
-     * Identifier for the key for which the alias is for, can be either an ARN or key_id.
-     */
     targetKeyId?: pulumi.Input<string>;
 }
 
@@ -165,21 +91,8 @@ export interface AliasState {
  * The set of arguments for constructing a Alias resource.
  */
 export interface AliasArgs {
-    /**
-     * The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Creates an unique alias beginning with the specified prefix.
-     * The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
-     */
     namePrefix?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Identifier for the key for which the alias is for, can be either an ARN or key_id.
-     */
     targetKeyId: pulumi.Input<string>;
 }

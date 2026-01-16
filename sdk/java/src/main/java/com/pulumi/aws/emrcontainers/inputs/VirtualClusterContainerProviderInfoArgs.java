@@ -14,17 +14,9 @@ public final class VirtualClusterContainerProviderInfoArgs extends com.pulumi.re
 
     public static final VirtualClusterContainerProviderInfoArgs Empty = new VirtualClusterContainerProviderInfoArgs();
 
-    /**
-     * Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
-     * 
-     */
     @Import(name="eksInfo", required=true)
     private Output<VirtualClusterContainerProviderInfoEksInfoArgs> eksInfo;
 
-    /**
-     * @return Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
-     * 
-     */
     public Output<VirtualClusterContainerProviderInfoEksInfoArgs> eksInfo() {
         return this.eksInfo;
     }
@@ -53,23 +45,11 @@ public final class VirtualClusterContainerProviderInfoArgs extends com.pulumi.re
             $ = new VirtualClusterContainerProviderInfoArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param eksInfo Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
-         * 
-         * @return builder
-         * 
-         */
         public Builder eksInfo(Output<VirtualClusterContainerProviderInfoEksInfoArgs> eksInfo) {
             $.eksInfo = eksInfo;
             return this;
         }
 
-        /**
-         * @param eksInfo Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
-         * 
-         * @return builder
-         * 
-         */
         public Builder eksInfo(VirtualClusterContainerProviderInfoEksInfoArgs eksInfo) {
             return eksInfo(Output.of(eksInfo));
         }

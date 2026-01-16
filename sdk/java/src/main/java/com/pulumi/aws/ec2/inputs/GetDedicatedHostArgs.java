@@ -18,53 +18,23 @@ public final class GetDedicatedHostArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetDedicatedHostArgs Empty = new GetDedicatedHostArgs();
 
-    /**
-     * Configuration block. Detailed below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetDedicatedHostFilterArgs>> filters;
 
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     public Optional<Output<List<GetDedicatedHostFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * ID of the Dedicated Host.
-     * 
-     * The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
-     * The given filters must match exactly one host whose data will be exported as attributes.
-     * 
-     */
     @Import(name="hostId")
     private @Nullable Output<String> hostId;
 
-    /**
-     * @return ID of the Dedicated Host.
-     * 
-     * The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
-     * The given filters must match exactly one host whose data will be exported as attributes.
-     * 
-     */
     public Optional<Output<String>> hostId() {
         return Optional.ofNullable(this.hostId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -103,81 +73,33 @@ public final class GetDedicatedHostArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetDedicatedHostArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Configuration block. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetDedicatedHostFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Configuration block. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetDedicatedHostFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters Configuration block. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetDedicatedHostFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param hostId ID of the Dedicated Host.
-         * 
-         * The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
-         * The given filters must match exactly one host whose data will be exported as attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostId(@Nullable Output<String> hostId) {
             $.hostId = hostId;
             return this;
         }
 
-        /**
-         * @param hostId ID of the Dedicated Host.
-         * 
-         * The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
-         * The given filters must match exactly one host whose data will be exported as attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostId(String hostId) {
             return hostId(Output.of(hostId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

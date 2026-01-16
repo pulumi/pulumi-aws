@@ -10,33 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class UserHomeDirectoryMapping {
-    /**
-     * @return Represents an entry and a target.
-     * 
-     */
     private String entry;
-    /**
-     * @return Represents the map target.
-     * 
-     * The `Restricted` option is achieved using the following mapping:
-     * 
-     */
     private String target;
 
     private UserHomeDirectoryMapping() {}
-    /**
-     * @return Represents an entry and a target.
-     * 
-     */
     public String entry() {
         return this.entry;
     }
-    /**
-     * @return Represents the map target.
-     * 
-     * The `Restricted` option is achieved using the following mapping:
-     * 
-     */
     public String target() {
         return this.target;
     }

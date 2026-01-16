@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class StreamProcessorDataSharingPreference {
     /**
-     * @return Whether you are sharing data with Rekognition to improve model performance.
+     * @return Do you want to share data with Rekognition to improve model performance.
      * 
      */
     private Boolean optIn;
 
     private StreamProcessorDataSharingPreference() {}
     /**
-     * @return Whether you are sharing data with Rekognition to improve model performance.
+     * @return Do you want to share data with Rekognition to improve model performance.
      * 
      */
     public Boolean optIn() {

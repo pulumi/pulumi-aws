@@ -7,30 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Creates a new Amazon Redshift endpoint access.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.redshift.EndpointAccess("example", {
- *     endpointName: "example",
- *     subnetGroupName: exampleAwsRedshiftSubnetGroup.id,
- *     clusterIdentifier: exampleAwsRedshiftCluster.clusterIdentifier,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Redshift endpoint access using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:redshift/endpointAccess:EndpointAccess example example
- * ```
- */
 export class EndpointAccess extends pulumi.CustomResource {
     /**
      * Get an existing EndpointAccess resource's state with the given name, ID, and optional extra
@@ -59,41 +35,14 @@ export class EndpointAccess extends pulumi.CustomResource {
         return obj['__pulumiType'] === EndpointAccess.__pulumiType;
     }
 
-    /**
-     * The DNS address of the endpoint.
-     */
     declare public /*out*/ readonly address: pulumi.Output<string>;
-    /**
-     * The cluster identifier of the cluster to access.
-     */
     declare public readonly clusterIdentifier: pulumi.Output<string>;
-    /**
-     * The Redshift-managed VPC endpoint name.
-     */
     declare public readonly endpointName: pulumi.Output<string>;
-    /**
-     * The port number on which the cluster accepts incoming connections.
-     */
     declare public /*out*/ readonly port: pulumi.Output<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
-     */
     declare public readonly resourceOwner: pulumi.Output<string>;
-    /**
-     * The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
-     */
     declare public readonly subnetGroupName: pulumi.Output<string>;
-    /**
-     * The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
-     */
     declare public /*out*/ readonly vpcEndpoints: pulumi.Output<outputs.redshift.EndpointAccessVpcEndpoint[]>;
-    /**
-     * The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
-     */
     declare public readonly vpcSecurityGroupIds: pulumi.Output<string[]>;
 
     /**
@@ -148,41 +97,14 @@ export class EndpointAccess extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EndpointAccess resources.
  */
 export interface EndpointAccessState {
-    /**
-     * The DNS address of the endpoint.
-     */
     address?: pulumi.Input<string>;
-    /**
-     * The cluster identifier of the cluster to access.
-     */
     clusterIdentifier?: pulumi.Input<string>;
-    /**
-     * The Redshift-managed VPC endpoint name.
-     */
     endpointName?: pulumi.Input<string>;
-    /**
-     * The port number on which the cluster accepts incoming connections.
-     */
     port?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
-     */
     resourceOwner?: pulumi.Input<string>;
-    /**
-     * The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
-     */
     subnetGroupName?: pulumi.Input<string>;
-    /**
-     * The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
-     */
     vpcEndpoints?: pulumi.Input<pulumi.Input<inputs.redshift.EndpointAccessVpcEndpoint>[]>;
-    /**
-     * The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
-     */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -190,28 +112,10 @@ export interface EndpointAccessState {
  * The set of arguments for constructing a EndpointAccess resource.
  */
 export interface EndpointAccessArgs {
-    /**
-     * The cluster identifier of the cluster to access.
-     */
     clusterIdentifier: pulumi.Input<string>;
-    /**
-     * The Redshift-managed VPC endpoint name.
-     */
     endpointName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
-     */
     resourceOwner?: pulumi.Input<string>;
-    /**
-     * The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
-     */
     subnetGroupName: pulumi.Input<string>;
-    /**
-     * The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
-     */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

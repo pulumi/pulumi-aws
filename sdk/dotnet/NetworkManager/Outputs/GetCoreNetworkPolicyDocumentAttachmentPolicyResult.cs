@@ -13,25 +13,10 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     [OutputType]
     public sealed class GetCoreNetworkPolicyDocumentAttachmentPolicyResult
     {
-        /// <summary>
-        /// Action to take when a condition is true. Detailed Below.
-        /// </summary>
         public readonly Outputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionResult Action;
-        /// <summary>
-        /// Valid values include `And` or `Or`. This is a mandatory parameter only if you have more than one condition. The `ConditionLogic` apply to all of the conditions for a rule, which also means nested conditions of `And` or `Or` are not supported. Use `Or` if you want to associate the attachment with the segment by either the segment name or attachment tag value, or by the chosen conditions. Use `And` if you want to associate the attachment with the segment by either the segment name or attachment tag value and by the chosen conditions. Detailed Below.
-        /// </summary>
         public readonly string? ConditionLogic;
-        /// <summary>
-        /// A block argument. Detailed Below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionResult> Conditions;
-        /// <summary>
-        /// A user-defined description that further helps identify the rule.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// An integer from `1` to `65535` indicating the rule's order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched. It's important to make sure that you number your rules in the exact order that you want them processed.
-        /// </summary>
         public readonly int RuleNumber;
 
         [OutputConstructor]

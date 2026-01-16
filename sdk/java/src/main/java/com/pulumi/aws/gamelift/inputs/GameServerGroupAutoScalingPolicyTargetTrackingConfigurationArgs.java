@@ -14,17 +14,9 @@ public final class GameServerGroupAutoScalingPolicyTargetTrackingConfigurationAr
 
     public static final GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs Empty = new GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs();
 
-    /**
-     * Desired value to use with a game server group target-based scaling policy.
-     * 
-     */
     @Import(name="targetValue", required=true)
     private Output<Double> targetValue;
 
-    /**
-     * @return Desired value to use with a game server group target-based scaling policy.
-     * 
-     */
     public Output<Double> targetValue() {
         return this.targetValue;
     }
@@ -53,23 +45,11 @@ public final class GameServerGroupAutoScalingPolicyTargetTrackingConfigurationAr
             $ = new GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param targetValue Desired value to use with a game server group target-based scaling policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetValue(Output<Double> targetValue) {
             $.targetValue = targetValue;
             return this;
         }
 
-        /**
-         * @param targetValue Desired value to use with a game server group target-based scaling policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetValue(Double targetValue) {
             return targetValue(Output.of(targetValue));
         }

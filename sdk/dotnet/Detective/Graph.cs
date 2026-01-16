@@ -9,62 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Detective
 {
-    /// <summary>
-    /// Provides a resource to manage an [AWS Detective Graph](https://docs.aws.amazon.com/detective/latest/APIReference/API_CreateGraph.html). As an AWS account may own only one Detective graph per region, provisioning multiple Detective graphs requires a separate provider configuration for each graph.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Detective.Graph("example", new()
-    ///     {
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example-detective-graph" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_detective_graph` using the ARN. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:detective/graph:Graph example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:detective/graph:Graph")]
     public partial class Graph : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
-        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the Detective Graph.
-        /// </summary>
         [Output("graphArn")]
         public Output<string> GraphArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the instance. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -117,18 +73,11 @@ namespace Pulumi.Aws.Detective
 
     public sealed class GraphArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the instance. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -143,30 +92,17 @@ namespace Pulumi.Aws.Detective
 
     public sealed class GraphState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
-        /// </summary>
         [Input("createdTime")]
         public Input<string>? CreatedTime { get; set; }
 
-        /// <summary>
-        /// ARN of the Detective Graph.
-        /// </summary>
         [Input("graphArn")]
         public Input<string>? GraphArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the instance. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

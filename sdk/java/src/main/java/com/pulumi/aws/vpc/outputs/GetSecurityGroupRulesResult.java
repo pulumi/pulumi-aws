@@ -16,10 +16,6 @@ import javax.annotation.Nullable;
 public final class GetSecurityGroupRulesResult {
     private @Nullable List<GetSecurityGroupRulesFilter> filters;
     private String id;
-    /**
-     * @return List of all the security group rule IDs found.
-     * 
-     */
     private List<String> ids;
     private String region;
     private @Nullable Map<String,String> tags;
@@ -31,10 +27,6 @@ public final class GetSecurityGroupRulesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of all the security group rule IDs found.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }

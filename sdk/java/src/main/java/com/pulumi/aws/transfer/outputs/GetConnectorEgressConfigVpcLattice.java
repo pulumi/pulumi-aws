@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConnectorEgressConfigVpcLattice {
-    /**
-     * @return Port number for connecting to the SFTP server through VPC Lattice.
-     * 
-     */
     private Integer portNumber;
-    /**
-     * @return ARN of the VPC Lattice Resource Configuration.
-     * 
-     */
     private String resourceConfigurationArn;
 
     private GetConnectorEgressConfigVpcLattice() {}
-    /**
-     * @return Port number for connecting to the SFTP server through VPC Lattice.
-     * 
-     */
     public Integer portNumber() {
         return this.portNumber;
     }
-    /**
-     * @return ARN of the VPC Lattice Resource Configuration.
-     * 
-     */
     public String resourceConfigurationArn() {
         return this.resourceConfigurationArn;
     }

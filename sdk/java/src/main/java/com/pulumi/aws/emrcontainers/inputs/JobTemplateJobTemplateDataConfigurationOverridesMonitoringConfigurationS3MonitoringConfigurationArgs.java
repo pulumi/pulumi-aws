@@ -14,17 +14,9 @@ public final class JobTemplateJobTemplateDataConfigurationOverridesMonitoringCon
 
     public static final JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs Empty = new JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs();
 
-    /**
-     * Amazon S3 destination URI for log publishing.
-     * 
-     */
     @Import(name="logUri", required=true)
     private Output<String> logUri;
 
-    /**
-     * @return Amazon S3 destination URI for log publishing.
-     * 
-     */
     public Output<String> logUri() {
         return this.logUri;
     }
@@ -53,23 +45,11 @@ public final class JobTemplateJobTemplateDataConfigurationOverridesMonitoringCon
             $ = new JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param logUri Amazon S3 destination URI for log publishing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logUri(Output<String> logUri) {
             $.logUri = logUri;
             return this;
         }
 
-        /**
-         * @param logUri Amazon S3 destination URI for log publishing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logUri(String logUri) {
             return logUri(Output.of(logUri));
         }

@@ -17,62 +17,30 @@ public final class LandingZoneArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final LandingZoneArgs Empty = new LandingZoneArgs();
 
-    /**
-     * The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
-     * 
-     */
     @Import(name="manifestJson", required=true)
     private Output<String> manifestJson;
 
-    /**
-     * @return The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
-     * 
-     */
     public Output<String> manifestJson() {
         return this.manifestJson;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * The landing zone version.
-     * 
-     */
     @Import(name="version", required=true)
     private Output<String> version;
 
-    /**
-     * @return The landing zone version.
-     * 
-     */
     public Output<String> version() {
         return this.version;
     }
@@ -104,86 +72,38 @@ public final class LandingZoneArgs extends com.pulumi.resources.ResourceArgs {
             $ = new LandingZoneArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param manifestJson The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
-         * 
-         * @return builder
-         * 
-         */
         public Builder manifestJson(Output<String> manifestJson) {
             $.manifestJson = manifestJson;
             return this;
         }
 
-        /**
-         * @param manifestJson The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
-         * 
-         * @return builder
-         * 
-         */
         public Builder manifestJson(String manifestJson) {
             return manifestJson(Output.of(manifestJson));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param version The landing zone version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(Output<String> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version The landing zone version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

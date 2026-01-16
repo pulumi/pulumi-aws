@@ -9,68 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LightSail
 {
-    /// <summary>
-    /// Manages a Lightsail bucket resource access. Use this resource to grant a Lightsail resource (such as an instance) access to a specific bucket.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.LightSail.Bucket("example", new()
-    ///     {
-    ///         Name = "example-bucket",
-    ///         BundleId = "small_1_0",
-    ///     });
-    /// 
-    ///     var exampleInstance = new Aws.LightSail.Instance("example", new()
-    ///     {
-    ///         Name = "example-instance",
-    ///         AvailabilityZone = "us-east-1b",
-    ///         BlueprintId = "amazon_linux_2",
-    ///         BundleId = "nano_3_0",
-    ///     });
-    /// 
-    ///     var exampleBucketResourceAccess = new Aws.LightSail.BucketResourceAccess("example", new()
-    ///     {
-    ///         BucketName = example.Id,
-    ///         ResourceName = exampleInstance.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_lightsail_bucket_resource_access` using the `id` attribute. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lightsail/bucketResourceAccess:BucketResourceAccess example example-bucket,example-instance
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lightsail/bucketResourceAccess:BucketResourceAccess")]
     public partial class BucketResourceAccess : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of the bucket to grant access to.
-        /// </summary>
         [Output("bucketName")]
         public Output<string> BucketName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the resource to grant bucket access.
-        /// </summary>
         [Output("resourceName")]
         public Output<string> ResourceName { get; private set; } = null!;
 
@@ -120,21 +67,12 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class BucketResourceAccessArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the bucket to grant access to.
-        /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Name of the resource to grant bucket access.
-        /// </summary>
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
 
@@ -146,21 +84,12 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class BucketResourceAccessState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the bucket to grant access to.
-        /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Name of the resource to grant bucket access.
-        /// </summary>
         [Input("resourceName")]
         public Input<string>? ResourceName { get; set; }
 

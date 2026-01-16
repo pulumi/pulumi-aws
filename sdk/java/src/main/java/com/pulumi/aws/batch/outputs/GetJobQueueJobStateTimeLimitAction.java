@@ -14,10 +14,6 @@ public final class GetJobQueueJobStateTimeLimitAction {
     private String action;
     private Integer maxTimeSeconds;
     private String reason;
-    /**
-     * @return Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
-     * 
-     */
     private String state;
 
     private GetJobQueueJobStateTimeLimitAction() {}
@@ -30,10 +26,6 @@ public final class GetJobQueueJobStateTimeLimitAction {
     public String reason() {
         return this.reason;
     }
-    /**
-     * @return Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
-     * 
-     */
     public String state() {
         return this.state;
     }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class InputSecurityGroupWhitelistRule
     {
-        /// <summary>
-        /// The IPv4 CIDR that's whitelisted.
-        /// </summary>
         public readonly string Cidr;
 
         [OutputConstructor]

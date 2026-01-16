@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class EnvironmentNetworkConfiguration {
-    /**
-     * @return Security groups IDs for the environment. At least one of the security group needs to allow MWAA resources to talk to each other, otherwise MWAA cannot be provisioned.
-     * 
-     */
     private List<String> securityGroupIds;
-    /**
-     * @return The private subnet IDs in which the environment should be created. MWAA requires two subnets.
-     * 
-     */
     private List<String> subnetIds;
 
     private EnvironmentNetworkConfiguration() {}
-    /**
-     * @return Security groups IDs for the environment. At least one of the security group needs to allow MWAA resources to talk to each other, otherwise MWAA cannot be provisioned.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * @return The private subnet IDs in which the environment should be created. MWAA requires two subnets.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }

@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration {
-    /**
-     * @return The intermediate storage for custom transformation.
-     * 
-     */
     private @Nullable AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage intermediateStorage;
-    /**
-     * @return A custom processing step for documents moving through the data source ingestion pipeline.
-     * 
-     */
     private @Nullable AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation transformation;
 
     private AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration() {}
-    /**
-     * @return The intermediate storage for custom transformation.
-     * 
-     */
     public Optional<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage> intermediateStorage() {
         return Optional.ofNullable(this.intermediateStorage);
     }
-    /**
-     * @return A custom processing step for documents moving through the data source ingestion pipeline.
-     * 
-     */
     public Optional<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation> transformation() {
         return Optional.ofNullable(this.transformation);
     }

@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf {
-    /**
-     * @return The absolute file path in the container where the tmpfs volume is mounted.
-     * 
-     */
     private String containerPath;
-    /**
-     * @return The list of tmpfs volume mount options.
-     * 
-     */
     private List<String> mountOptions;
-    /**
-     * @return The size (in MiB) of the tmpfs volume.
-     * 
-     */
     private Integer size;
 
     private GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf() {}
-    /**
-     * @return The absolute file path in the container where the tmpfs volume is mounted.
-     * 
-     */
     public String containerPath() {
         return this.containerPath;
     }
-    /**
-     * @return The list of tmpfs volume mount options.
-     * 
-     */
     public List<String> mountOptions() {
         return this.mountOptions;
     }
-    /**
-     * @return The size (in MiB) of the tmpfs volume.
-     * 
-     */
     public Integer size() {
         return this.size;
     }

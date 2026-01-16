@@ -7,34 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a SageMaker AI Endpoint resource.
- *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const e = new aws.sagemaker.Endpoint("e", {
- *     name: "my-endpoint",
- *     endpointConfigName: ec.name,
- *     tags: {
- *         Name: "foo",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import endpoints using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
- * ```
- */
 export class Endpoint extends pulumi.CustomResource {
     /**
      * Get an existing Endpoint resource's state with the given name, ID, and optional extra
@@ -63,33 +35,12 @@ export class Endpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === Endpoint.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
-     */
     declare public readonly deploymentConfig: pulumi.Output<outputs.sagemaker.EndpointDeploymentConfig | undefined>;
-    /**
-     * The name of the endpoint configuration to use.
-     */
     declare public readonly endpointConfigName: pulumi.Output<string>;
-    /**
-     * The name of the endpoint. If omitted, the provider will assign a random, unique name.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -134,33 +85,12 @@ export class Endpoint extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Endpoint resources.
  */
 export interface EndpointState {
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
-     */
     deploymentConfig?: pulumi.Input<inputs.sagemaker.EndpointDeploymentConfig>;
-    /**
-     * The name of the endpoint configuration to use.
-     */
     endpointConfigName?: pulumi.Input<string>;
-    /**
-     * The name of the endpoint. If omitted, the provider will assign a random, unique name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -168,24 +98,9 @@ export interface EndpointState {
  * The set of arguments for constructing a Endpoint resource.
  */
 export interface EndpointArgs {
-    /**
-     * The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
-     */
     deploymentConfig?: pulumi.Input<inputs.sagemaker.EndpointDeploymentConfig>;
-    /**
-     * The name of the endpoint configuration to use.
-     */
     endpointConfigName: pulumi.Input<string>;
-    /**
-     * The name of the endpoint. If omitted, the provider will assign a random, unique name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -38,17 +38,8 @@ MYPY = False
 if not MYPY:
     class AccessPointPosixUserArgsDict(TypedDict):
         gid: pulumi.Input[_builtins.int]
-        """
-        POSIX group ID used for all file system operations using this access point.
-        """
         uid: pulumi.Input[_builtins.int]
-        """
-        POSIX user ID used for all file system operations using this access point.
-        """
         secondary_gids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        Secondary POSIX group IDs used for all file system operations using this access point.
-        """
 elif False:
     AccessPointPosixUserArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -58,11 +49,6 @@ class AccessPointPosixUserArgs:
                  gid: pulumi.Input[_builtins.int],
                  uid: pulumi.Input[_builtins.int],
                  secondary_gids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
-        """
-        :param pulumi.Input[_builtins.int] gid: POSIX group ID used for all file system operations using this access point.
-        :param pulumi.Input[_builtins.int] uid: POSIX user ID used for all file system operations using this access point.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] secondary_gids: Secondary POSIX group IDs used for all file system operations using this access point.
-        """
         pulumi.set(__self__, "gid", gid)
         pulumi.set(__self__, "uid", uid)
         if secondary_gids is not None:
@@ -71,9 +57,6 @@ class AccessPointPosixUserArgs:
     @_builtins.property
     @pulumi.getter
     def gid(self) -> pulumi.Input[_builtins.int]:
-        """
-        POSIX group ID used for all file system operations using this access point.
-        """
         return pulumi.get(self, "gid")
 
     @gid.setter
@@ -83,9 +66,6 @@ class AccessPointPosixUserArgs:
     @_builtins.property
     @pulumi.getter
     def uid(self) -> pulumi.Input[_builtins.int]:
-        """
-        POSIX user ID used for all file system operations using this access point.
-        """
         return pulumi.get(self, "uid")
 
     @uid.setter
@@ -95,9 +75,6 @@ class AccessPointPosixUserArgs:
     @_builtins.property
     @pulumi.getter(name="secondaryGids")
     def secondary_gids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
-        """
-        Secondary POSIX group IDs used for all file system operations using this access point.
-        """
         return pulumi.get(self, "secondary_gids")
 
     @secondary_gids.setter
@@ -108,13 +85,7 @@ class AccessPointPosixUserArgs:
 if not MYPY:
     class AccessPointRootDirectoryArgsDict(TypedDict):
         creation_info: NotRequired[pulumi.Input['AccessPointRootDirectoryCreationInfoArgsDict']]
-        """
-        POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
-        """
         path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`.
-        """
 elif False:
     AccessPointRootDirectoryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -123,10 +94,6 @@ class AccessPointRootDirectoryArgs:
     def __init__(__self__, *,
                  creation_info: Optional[pulumi.Input['AccessPointRootDirectoryCreationInfoArgs']] = None,
                  path: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input['AccessPointRootDirectoryCreationInfoArgs'] creation_info: POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
-        :param pulumi.Input[_builtins.str] path: Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`.
-        """
         if creation_info is not None:
             pulumi.set(__self__, "creation_info", creation_info)
         if path is not None:
@@ -135,9 +102,6 @@ class AccessPointRootDirectoryArgs:
     @_builtins.property
     @pulumi.getter(name="creationInfo")
     def creation_info(self) -> Optional[pulumi.Input['AccessPointRootDirectoryCreationInfoArgs']]:
-        """
-        POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
-        """
         return pulumi.get(self, "creation_info")
 
     @creation_info.setter
@@ -147,9 +111,6 @@ class AccessPointRootDirectoryArgs:
     @_builtins.property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -160,17 +121,8 @@ class AccessPointRootDirectoryArgs:
 if not MYPY:
     class AccessPointRootDirectoryCreationInfoArgsDict(TypedDict):
         owner_gid: pulumi.Input[_builtins.int]
-        """
-        POSIX group ID to apply to the `root_directory`.
-        """
         owner_uid: pulumi.Input[_builtins.int]
-        """
-        POSIX user ID to apply to the `root_directory`.
-        """
         permissions: pulumi.Input[_builtins.str]
-        """
-        POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
-        """
 elif False:
     AccessPointRootDirectoryCreationInfoArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -180,11 +132,6 @@ class AccessPointRootDirectoryCreationInfoArgs:
                  owner_gid: pulumi.Input[_builtins.int],
                  owner_uid: pulumi.Input[_builtins.int],
                  permissions: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.int] owner_gid: POSIX group ID to apply to the `root_directory`.
-        :param pulumi.Input[_builtins.int] owner_uid: POSIX user ID to apply to the `root_directory`.
-        :param pulumi.Input[_builtins.str] permissions: POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
-        """
         pulumi.set(__self__, "owner_gid", owner_gid)
         pulumi.set(__self__, "owner_uid", owner_uid)
         pulumi.set(__self__, "permissions", permissions)
@@ -192,9 +139,6 @@ class AccessPointRootDirectoryCreationInfoArgs:
     @_builtins.property
     @pulumi.getter(name="ownerGid")
     def owner_gid(self) -> pulumi.Input[_builtins.int]:
-        """
-        POSIX group ID to apply to the `root_directory`.
-        """
         return pulumi.get(self, "owner_gid")
 
     @owner_gid.setter
@@ -204,9 +148,6 @@ class AccessPointRootDirectoryCreationInfoArgs:
     @_builtins.property
     @pulumi.getter(name="ownerUid")
     def owner_uid(self) -> pulumi.Input[_builtins.int]:
-        """
-        POSIX user ID to apply to the `root_directory`.
-        """
         return pulumi.get(self, "owner_uid")
 
     @owner_uid.setter
@@ -216,9 +157,6 @@ class AccessPointRootDirectoryCreationInfoArgs:
     @_builtins.property
     @pulumi.getter
     def permissions(self) -> pulumi.Input[_builtins.str]:
-        """
-        POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
-        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -229,9 +167,6 @@ class AccessPointRootDirectoryCreationInfoArgs:
 if not MYPY:
     class BackupPolicyBackupPolicyArgsDict(TypedDict):
         status: pulumi.Input[_builtins.str]
-        """
-        A status of the backup policy. Valid values: `ENABLED`, `DISABLED`.
-        """
 elif False:
     BackupPolicyBackupPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -239,17 +174,11 @@ elif False:
 class BackupPolicyBackupPolicyArgs:
     def __init__(__self__, *,
                  status: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] status: A status of the backup policy. Valid values: `ENABLED`, `DISABLED`.
-        """
         pulumi.set(__self__, "status", status)
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Input[_builtins.str]:
-        """
-        A status of the backup policy. Valid values: `ENABLED`, `DISABLED`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -260,17 +189,8 @@ class BackupPolicyBackupPolicyArgs:
 if not MYPY:
     class FileSystemLifecyclePolicyArgsDict(TypedDict):
         transition_to_archive: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates how long it takes to transition files to the archive storage class. Requires transition_to_ia, Elastic Throughput and General Purpose performance mode. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, `AFTER_90_DAYS`, `AFTER_180_DAYS`, `AFTER_270_DAYS`, or `AFTER_365_DAYS`.
-        """
         transition_to_ia: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, `AFTER_90_DAYS`, `AFTER_180_DAYS`, `AFTER_270_DAYS`, or `AFTER_365_DAYS`.
-        """
         transition_to_primary_storage_class: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
-        """
 elif False:
     FileSystemLifecyclePolicyArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -280,11 +200,6 @@ class FileSystemLifecyclePolicyArgs:
                  transition_to_archive: Optional[pulumi.Input[_builtins.str]] = None,
                  transition_to_ia: Optional[pulumi.Input[_builtins.str]] = None,
                  transition_to_primary_storage_class: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] transition_to_archive: Indicates how long it takes to transition files to the archive storage class. Requires transition_to_ia, Elastic Throughput and General Purpose performance mode. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, `AFTER_90_DAYS`, `AFTER_180_DAYS`, `AFTER_270_DAYS`, or `AFTER_365_DAYS`.
-        :param pulumi.Input[_builtins.str] transition_to_ia: Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, `AFTER_90_DAYS`, `AFTER_180_DAYS`, `AFTER_270_DAYS`, or `AFTER_365_DAYS`.
-        :param pulumi.Input[_builtins.str] transition_to_primary_storage_class: Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
-        """
         if transition_to_archive is not None:
             pulumi.set(__self__, "transition_to_archive", transition_to_archive)
         if transition_to_ia is not None:
@@ -295,9 +210,6 @@ class FileSystemLifecyclePolicyArgs:
     @_builtins.property
     @pulumi.getter(name="transitionToArchive")
     def transition_to_archive(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates how long it takes to transition files to the archive storage class. Requires transition_to_ia, Elastic Throughput and General Purpose performance mode. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, `AFTER_90_DAYS`, `AFTER_180_DAYS`, `AFTER_270_DAYS`, or `AFTER_365_DAYS`.
-        """
         return pulumi.get(self, "transition_to_archive")
 
     @transition_to_archive.setter
@@ -307,9 +219,6 @@ class FileSystemLifecyclePolicyArgs:
     @_builtins.property
     @pulumi.getter(name="transitionToIa")
     def transition_to_ia(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, `AFTER_90_DAYS`, `AFTER_180_DAYS`, `AFTER_270_DAYS`, or `AFTER_365_DAYS`.
-        """
         return pulumi.get(self, "transition_to_ia")
 
     @transition_to_ia.setter
@@ -319,9 +228,6 @@ class FileSystemLifecyclePolicyArgs:
     @_builtins.property
     @pulumi.getter(name="transitionToPrimaryStorageClass")
     def transition_to_primary_storage_class(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
-        """
         return pulumi.get(self, "transition_to_primary_storage_class")
 
     @transition_to_primary_storage_class.setter
@@ -332,9 +238,6 @@ class FileSystemLifecyclePolicyArgs:
 if not MYPY:
     class FileSystemProtectionArgsDict(TypedDict):
         replication_overwrite: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether replication overwrite protection is enabled. Valid values: `ENABLED` or `DISABLED`.
-        """
 elif False:
     FileSystemProtectionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -342,18 +245,12 @@ elif False:
 class FileSystemProtectionArgs:
     def __init__(__self__, *,
                  replication_overwrite: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] replication_overwrite: Indicates whether replication overwrite protection is enabled. Valid values: `ENABLED` or `DISABLED`.
-        """
         if replication_overwrite is not None:
             pulumi.set(__self__, "replication_overwrite", replication_overwrite)
 
     @_builtins.property
     @pulumi.getter(name="replicationOverwrite")
     def replication_overwrite(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether replication overwrite protection is enabled. Valid values: `ENABLED` or `DISABLED`.
-        """
         return pulumi.get(self, "replication_overwrite")
 
     @replication_overwrite.setter
@@ -364,17 +261,8 @@ class FileSystemProtectionArgs:
 if not MYPY:
     class FileSystemSizeInByteArgsDict(TypedDict):
         value: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The latest known metered size (in bytes) of data stored in the file system.
-        """
         value_in_ia: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
-        """
         value_in_standard: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The latest known metered size (in bytes) of data stored in the Standard storage class.
-        """
 elif False:
     FileSystemSizeInByteArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -384,11 +272,6 @@ class FileSystemSizeInByteArgs:
                  value: Optional[pulumi.Input[_builtins.int]] = None,
                  value_in_ia: Optional[pulumi.Input[_builtins.int]] = None,
                  value_in_standard: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.int] value: The latest known metered size (in bytes) of data stored in the file system.
-        :param pulumi.Input[_builtins.int] value_in_ia: The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
-        :param pulumi.Input[_builtins.int] value_in_standard: The latest known metered size (in bytes) of data stored in the Standard storage class.
-        """
         if value is not None:
             pulumi.set(__self__, "value", value)
         if value_in_ia is not None:
@@ -399,9 +282,6 @@ class FileSystemSizeInByteArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The latest known metered size (in bytes) of data stored in the file system.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -411,9 +291,6 @@ class FileSystemSizeInByteArgs:
     @_builtins.property
     @pulumi.getter(name="valueInIa")
     def value_in_ia(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
-        """
         return pulumi.get(self, "value_in_ia")
 
     @value_in_ia.setter
@@ -423,9 +300,6 @@ class FileSystemSizeInByteArgs:
     @_builtins.property
     @pulumi.getter(name="valueInStandard")
     def value_in_standard(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The latest known metered size (in bytes) of data stored in the Standard storage class.
-        """
         return pulumi.get(self, "value_in_standard")
 
     @value_in_standard.setter
@@ -436,21 +310,9 @@ class FileSystemSizeInByteArgs:
 if not MYPY:
     class ReplicationConfigurationDestinationArgsDict(TypedDict):
         availability_zone_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The availability zone in which the replica should be created. If specified, the replica will be created with One Zone storage. If omitted, regional storage will be used.
-        """
         file_system_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the destination file system for the replication. If no ID is provided, then EFS creates a new file system with the default settings.
-        """
         kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Key ID, ARN, alias, or alias ARN of the KMS key that should be used to encrypt the replica file system. If omitted, the default KMS key for EFS `/aws/elasticfilesystem` will be used.
-        """
         region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The region in which the replica should be created.
-        """
         status: NotRequired[pulumi.Input[_builtins.str]]
 elif False:
     ReplicationConfigurationDestinationArgsDict: TypeAlias = Mapping[str, Any]
@@ -463,12 +325,6 @@ class ReplicationConfigurationDestinationArgs:
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] availability_zone_name: The availability zone in which the replica should be created. If specified, the replica will be created with One Zone storage. If omitted, regional storage will be used.
-        :param pulumi.Input[_builtins.str] file_system_id: The ID of the destination file system for the replication. If no ID is provided, then EFS creates a new file system with the default settings.
-        :param pulumi.Input[_builtins.str] kms_key_id: The Key ID, ARN, alias, or alias ARN of the KMS key that should be used to encrypt the replica file system. If omitted, the default KMS key for EFS `/aws/elasticfilesystem` will be used.
-        :param pulumi.Input[_builtins.str] region: The region in which the replica should be created.
-        """
         if availability_zone_name is not None:
             pulumi.set(__self__, "availability_zone_name", availability_zone_name)
         if file_system_id is not None:
@@ -483,9 +339,6 @@ class ReplicationConfigurationDestinationArgs:
     @_builtins.property
     @pulumi.getter(name="availabilityZoneName")
     def availability_zone_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The availability zone in which the replica should be created. If specified, the replica will be created with One Zone storage. If omitted, regional storage will be used.
-        """
         return pulumi.get(self, "availability_zone_name")
 
     @availability_zone_name.setter
@@ -495,9 +348,6 @@ class ReplicationConfigurationDestinationArgs:
     @_builtins.property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the destination file system for the replication. If no ID is provided, then EFS creates a new file system with the default settings.
-        """
         return pulumi.get(self, "file_system_id")
 
     @file_system_id.setter
@@ -507,9 +357,6 @@ class ReplicationConfigurationDestinationArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Key ID, ARN, alias, or alias ARN of the KMS key that should be used to encrypt the replica file system. If omitted, the default KMS key for EFS `/aws/elasticfilesystem` will be used.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -519,9 +366,6 @@ class ReplicationConfigurationDestinationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The region in which the replica should be created.
-        """
         return pulumi.get(self, "region")
 
     @region.setter

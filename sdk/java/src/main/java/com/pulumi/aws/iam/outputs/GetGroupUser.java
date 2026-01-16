@@ -10,53 +10,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGroupUser {
-    /**
-     * @return User ARN.
-     * 
-     */
     private String arn;
-    /**
-     * @return Path to the IAM user.
-     * 
-     */
     private String path;
-    /**
-     * @return Stable and unique string identifying the IAM user.
-     * 
-     */
     private String userId;
-    /**
-     * @return Name of the IAM user.
-     * 
-     */
     private String userName;
 
     private GetGroupUser() {}
-    /**
-     * @return User ARN.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Path to the IAM user.
-     * 
-     */
     public String path() {
         return this.path;
     }
-    /**
-     * @return Stable and unique string identifying the IAM user.
-     * 
-     */
     public String userId() {
         return this.userId;
     }
-    /**
-     * @return Name of the IAM user.
-     * 
-     */
     public String userName() {
         return this.userName;
     }

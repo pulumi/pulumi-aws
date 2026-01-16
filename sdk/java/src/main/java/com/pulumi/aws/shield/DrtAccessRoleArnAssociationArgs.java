@@ -17,17 +17,9 @@ public final class DrtAccessRoleArnAssociationArgs extends com.pulumi.resources.
 
     public static final DrtAccessRoleArnAssociationArgs Empty = new DrtAccessRoleArnAssociationArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
@@ -64,23 +56,11 @@ public final class DrtAccessRoleArnAssociationArgs extends com.pulumi.resources.
             $ = new DrtAccessRoleArnAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param roleArn The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride
     {
-        /// <summary>
-        /// The action that changes the rule group from DROP to ALERT . This only applies to managed rule groups.
-        /// </summary>
         public readonly string? Action;
 
         [OutputConstructor]

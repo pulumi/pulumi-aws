@@ -16,47 +16,23 @@ public final class GetWorkspacePlainArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetWorkspacePlainArgs Empty = new GetWorkspacePlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Tags assigned to the resource
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Tags assigned to the resource
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Grafana workspace ID.
-     * 
-     */
     @Import(name="workspaceId", required=true)
     private String workspaceId;
 
-    /**
-     * @return Grafana workspace ID.
-     * 
-     */
     public String workspaceId() {
         return this.workspaceId;
     }
@@ -87,34 +63,16 @@ public final class GetWorkspacePlainArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetWorkspacePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Tags assigned to the resource
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param workspaceId Grafana workspace ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workspaceId(String workspaceId) {
             $.workspaceId = workspaceId;
             return this;

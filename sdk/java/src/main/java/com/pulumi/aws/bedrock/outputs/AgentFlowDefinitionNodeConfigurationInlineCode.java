@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationInlineCode {
-    /**
-     * @return The code that&#39;s executed in your inline code node.
-     * 
-     */
     private String code;
-    /**
-     * @return The programming language used by your inline code node.
-     * 
-     */
     private String language;
 
     private AgentFlowDefinitionNodeConfigurationInlineCode() {}
-    /**
-     * @return The code that&#39;s executed in your inline code node.
-     * 
-     */
     public String code() {
         return this.code;
     }
-    /**
-     * @return The programming language used by your inline code node.
-     * 
-     */
     public String language() {
         return this.language;
     }

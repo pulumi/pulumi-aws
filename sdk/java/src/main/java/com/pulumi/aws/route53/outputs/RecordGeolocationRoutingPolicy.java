@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RecordGeolocationRoutingPolicy {
-    /**
-     * @return A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
-     * 
-     */
     private @Nullable String continent;
-    /**
-     * @return A two-character country code or `*` to indicate a default resource record set.
-     * 
-     */
     private @Nullable String country;
-    /**
-     * @return A subdivision code for a country.
-     * 
-     */
     private @Nullable String subdivision;
 
     private RecordGeolocationRoutingPolicy() {}
-    /**
-     * @return A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
-     * 
-     */
     public Optional<String> continent() {
         return Optional.ofNullable(this.continent);
     }
-    /**
-     * @return A two-character country code or `*` to indicate a default resource record set.
-     * 
-     */
     public Optional<String> country() {
         return Optional.ofNullable(this.country);
     }
-    /**
-     * @return A subdivision code for a country.
-     * 
-     */
     public Optional<String> subdivision() {
         return Optional.ofNullable(this.subdivision);
     }

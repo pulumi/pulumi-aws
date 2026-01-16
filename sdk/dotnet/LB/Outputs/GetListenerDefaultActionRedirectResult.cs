@@ -15,9 +15,6 @@ namespace Pulumi.Aws.LB.Outputs
     {
         public readonly string Host;
         public readonly string Path;
-        /// <summary>
-        /// Port of the listener. Required if `Arn` is not set.
-        /// </summary>
         public readonly string Port;
         public readonly string Protocol;
         public readonly string Query;

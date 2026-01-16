@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointResult
     {
-        /// <summary>
-        /// The absolute file path in the container where the tmpfs volume is mounted.
-        /// </summary>
         public readonly string ContainerPath;
-        /// <summary>
-        /// If this value is true, the container has read-only access to the volume.
-        /// </summary>
         public readonly bool ReadOnly;
-        /// <summary>
-        /// The name of the volume to mount.
-        /// </summary>
         public readonly string SourceVolume;
 
         [OutputConstructor]

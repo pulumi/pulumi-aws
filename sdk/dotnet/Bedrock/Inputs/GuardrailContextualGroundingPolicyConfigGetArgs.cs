@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
     {
         [Input("filtersConfigs")]
         private InputList<Inputs.GuardrailContextualGroundingPolicyConfigFiltersConfigGetArgs>? _filtersConfigs;
-
-        /// <summary>
-        /// One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
-        /// </summary>
         public InputList<Inputs.GuardrailContextualGroundingPolicyConfigFiltersConfigGetArgs> FiltersConfigs
         {
             get => _filtersConfigs ?? (_filtersConfigs = new InputList<Inputs.GuardrailContextualGroundingPolicyConfigFiltersConfigGetArgs>());

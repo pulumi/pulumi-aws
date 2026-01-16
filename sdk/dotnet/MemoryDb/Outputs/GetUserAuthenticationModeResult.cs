@@ -13,13 +13,7 @@ namespace Pulumi.Aws.MemoryDb.Outputs
     [OutputType]
     public sealed class GetUserAuthenticationModeResult
     {
-        /// <summary>
-        /// Number of passwords belonging to the user if `Type` is set to `Password`.
-        /// </summary>
         public readonly int PasswordCount;
-        /// <summary>
-        /// Type of authentication configured.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

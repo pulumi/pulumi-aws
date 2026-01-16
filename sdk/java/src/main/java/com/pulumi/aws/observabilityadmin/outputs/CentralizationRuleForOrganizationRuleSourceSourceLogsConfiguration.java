@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration {
-    /**
-     * @return Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
-     * 
-     */
     private String encryptedLogGroupStrategy;
-    /**
-     * @return Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE &#39;/aws/lambda%&#39;`. Must be between 1 and 2000 characters.
-     * 
-     */
     private String logGroupSelectionCriteria;
 
     private CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration() {}
-    /**
-     * @return Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
-     * 
-     */
     public String encryptedLogGroupStrategy() {
         return this.encryptedLogGroupStrategy;
     }
-    /**
-     * @return Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE &#39;/aws/lambda%&#39;`. Must be between 1 and 2000 characters.
-     * 
-     */
     public String logGroupSelectionCriteria() {
         return this.logGroupSelectionCriteria;
     }

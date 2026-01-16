@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AutoScaling.Inputs
 
     public sealed class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the dimension.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Value of the dimension.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

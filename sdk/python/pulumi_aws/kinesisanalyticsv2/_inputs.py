@@ -110,37 +110,13 @@ MYPY = False
 if not MYPY:
     class ApplicationApplicationConfigurationArgsDict(TypedDict):
         application_code_configuration: pulumi.Input['ApplicationApplicationConfigurationApplicationCodeConfigurationArgsDict']
-        """
-        The code location and type parameters for the application.
-        """
         application_encryption_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgsDict']]
-        """
-        The encryption configuration for the application. This can be used to encrypt data at rest in the application.
-        """
         application_snapshot_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgsDict']]
-        """
-        Describes whether snapshots are enabled for a Flink-based application.
-        """
         environment_properties: NotRequired[pulumi.Input['ApplicationApplicationConfigurationEnvironmentPropertiesArgsDict']]
-        """
-        Describes execution properties for a Flink-based application.
-        """
         flink_application_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationArgsDict']]
-        """
-        The configuration of a Flink-based application.
-        """
         run_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationArgsDict']]
-        """
-        Describes the starting properties for a Flink-based application.
-        """
         sql_application_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationArgsDict']]
-        """
-        The configuration of a SQL-based application.
-        """
         vpc_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationVpcConfigurationArgsDict']]
-        """
-        The VPC configuration of a Flink-based application.
-        """
 elif False:
     ApplicationApplicationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -155,16 +131,6 @@ class ApplicationApplicationConfigurationArgs:
                  run_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationArgs']] = None,
                  sql_application_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationArgs']] = None,
                  vpc_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationVpcConfigurationArgs']] = None):
-        """
-        :param pulumi.Input['ApplicationApplicationConfigurationApplicationCodeConfigurationArgs'] application_code_configuration: The code location and type parameters for the application.
-        :param pulumi.Input['ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs'] application_encryption_configuration: The encryption configuration for the application. This can be used to encrypt data at rest in the application.
-        :param pulumi.Input['ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs'] application_snapshot_configuration: Describes whether snapshots are enabled for a Flink-based application.
-        :param pulumi.Input['ApplicationApplicationConfigurationEnvironmentPropertiesArgs'] environment_properties: Describes execution properties for a Flink-based application.
-        :param pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs'] flink_application_configuration: The configuration of a Flink-based application.
-        :param pulumi.Input['ApplicationApplicationConfigurationRunConfigurationArgs'] run_configuration: Describes the starting properties for a Flink-based application.
-        :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationArgs'] sql_application_configuration: The configuration of a SQL-based application.
-        :param pulumi.Input['ApplicationApplicationConfigurationVpcConfigurationArgs'] vpc_configuration: The VPC configuration of a Flink-based application.
-        """
         pulumi.set(__self__, "application_code_configuration", application_code_configuration)
         if application_encryption_configuration is not None:
             pulumi.set(__self__, "application_encryption_configuration", application_encryption_configuration)
@@ -184,9 +150,6 @@ class ApplicationApplicationConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="applicationCodeConfiguration")
     def application_code_configuration(self) -> pulumi.Input['ApplicationApplicationConfigurationApplicationCodeConfigurationArgs']:
-        """
-        The code location and type parameters for the application.
-        """
         return pulumi.get(self, "application_code_configuration")
 
     @application_code_configuration.setter
@@ -196,9 +159,6 @@ class ApplicationApplicationConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="applicationEncryptionConfiguration")
     def application_encryption_configuration(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs']]:
-        """
-        The encryption configuration for the application. This can be used to encrypt data at rest in the application.
-        """
         return pulumi.get(self, "application_encryption_configuration")
 
     @application_encryption_configuration.setter
@@ -208,9 +168,6 @@ class ApplicationApplicationConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="applicationSnapshotConfiguration")
     def application_snapshot_configuration(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs']]:
-        """
-        Describes whether snapshots are enabled for a Flink-based application.
-        """
         return pulumi.get(self, "application_snapshot_configuration")
 
     @application_snapshot_configuration.setter
@@ -220,9 +177,6 @@ class ApplicationApplicationConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="environmentProperties")
     def environment_properties(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationEnvironmentPropertiesArgs']]:
-        """
-        Describes execution properties for a Flink-based application.
-        """
         return pulumi.get(self, "environment_properties")
 
     @environment_properties.setter
@@ -232,9 +186,6 @@ class ApplicationApplicationConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="flinkApplicationConfiguration")
     def flink_application_configuration(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs']]:
-        """
-        The configuration of a Flink-based application.
-        """
         return pulumi.get(self, "flink_application_configuration")
 
     @flink_application_configuration.setter
@@ -244,9 +195,6 @@ class ApplicationApplicationConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="runConfiguration")
     def run_configuration(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationArgs']]:
-        """
-        Describes the starting properties for a Flink-based application.
-        """
         return pulumi.get(self, "run_configuration")
 
     @run_configuration.setter
@@ -256,9 +204,6 @@ class ApplicationApplicationConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="sqlApplicationConfiguration")
     def sql_application_configuration(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationArgs']]:
-        """
-        The configuration of a SQL-based application.
-        """
         return pulumi.get(self, "sql_application_configuration")
 
     @sql_application_configuration.setter
@@ -268,9 +213,6 @@ class ApplicationApplicationConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationVpcConfigurationArgs']]:
-        """
-        The VPC configuration of a Flink-based application.
-        """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
@@ -281,13 +223,7 @@ class ApplicationApplicationConfigurationArgs:
 if not MYPY:
     class ApplicationApplicationConfigurationApplicationCodeConfigurationArgsDict(TypedDict):
         code_content_type: pulumi.Input[_builtins.str]
-        """
-        Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
-        """
         code_content: NotRequired[pulumi.Input['ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgsDict']]
-        """
-        The location and type of the application code.
-        """
 elif False:
     ApplicationApplicationConfigurationApplicationCodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -296,10 +232,6 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationArgs:
     def __init__(__self__, *,
                  code_content_type: pulumi.Input[_builtins.str],
                  code_content: Optional[pulumi.Input['ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs']] = None):
-        """
-        :param pulumi.Input[_builtins.str] code_content_type: Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
-        :param pulumi.Input['ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs'] code_content: The location and type of the application code.
-        """
         pulumi.set(__self__, "code_content_type", code_content_type)
         if code_content is not None:
             pulumi.set(__self__, "code_content", code_content)
@@ -307,9 +239,6 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="codeContentType")
     def code_content_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
-        """
         return pulumi.get(self, "code_content_type")
 
     @code_content_type.setter
@@ -319,9 +248,6 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="codeContent")
     def code_content(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs']]:
-        """
-        The location and type of the application code.
-        """
         return pulumi.get(self, "code_content")
 
     @code_content.setter
@@ -332,13 +258,7 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationArgs:
 if not MYPY:
     class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgsDict(TypedDict):
         s3_content_location: NotRequired[pulumi.Input['ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgsDict']]
-        """
-        Information about the Amazon S3 bucket containing the application code.
-        """
         text_content: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The text-format code for the application.
-        """
 elif False:
     ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -347,10 +267,6 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent
     def __init__(__self__, *,
                  s3_content_location: Optional[pulumi.Input['ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs']] = None,
                  text_content: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input['ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs'] s3_content_location: Information about the Amazon S3 bucket containing the application code.
-        :param pulumi.Input[_builtins.str] text_content: The text-format code for the application.
-        """
         if s3_content_location is not None:
             pulumi.set(__self__, "s3_content_location", s3_content_location)
         if text_content is not None:
@@ -359,9 +275,6 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent
     @_builtins.property
     @pulumi.getter(name="s3ContentLocation")
     def s3_content_location(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs']]:
-        """
-        Information about the Amazon S3 bucket containing the application code.
-        """
         return pulumi.get(self, "s3_content_location")
 
     @s3_content_location.setter
@@ -371,9 +284,6 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent
     @_builtins.property
     @pulumi.getter(name="textContent")
     def text_content(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The text-format code for the application.
-        """
         return pulumi.get(self, "text_content")
 
     @text_content.setter
@@ -384,17 +294,8 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent
 if not MYPY:
     class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgsDict(TypedDict):
         bucket_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN for the S3 bucket containing the application code.
-        """
         file_key: pulumi.Input[_builtins.str]
-        """
-        The file key for the object containing the application code.
-        """
         object_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the object containing the application code.
-        """
 elif False:
     ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -404,11 +305,6 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent
                  bucket_arn: pulumi.Input[_builtins.str],
                  file_key: pulumi.Input[_builtins.str],
                  object_version: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] bucket_arn: The ARN for the S3 bucket containing the application code.
-        :param pulumi.Input[_builtins.str] file_key: The file key for the object containing the application code.
-        :param pulumi.Input[_builtins.str] object_version: The version of the object containing the application code.
-        """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
         pulumi.set(__self__, "file_key", file_key)
         if object_version is not None:
@@ -417,9 +313,6 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent
     @_builtins.property
     @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN for the S3 bucket containing the application code.
-        """
         return pulumi.get(self, "bucket_arn")
 
     @bucket_arn.setter
@@ -429,9 +322,6 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent
     @_builtins.property
     @pulumi.getter(name="fileKey")
     def file_key(self) -> pulumi.Input[_builtins.str]:
-        """
-        The file key for the object containing the application code.
-        """
         return pulumi.get(self, "file_key")
 
     @file_key.setter
@@ -441,9 +331,6 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent
     @_builtins.property
     @pulumi.getter(name="objectVersion")
     def object_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The version of the object containing the application code.
-        """
         return pulumi.get(self, "object_version")
 
     @object_version.setter
@@ -454,13 +341,7 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent
 if not MYPY:
     class ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgsDict(TypedDict):
         key_type: pulumi.Input[_builtins.str]
-        """
-        The type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
-        """
         key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the KMS key to use for encryption. Required when `key_type` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same region as the application.
-        """
 elif False:
     ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -469,10 +350,6 @@ class ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  key_type: pulumi.Input[_builtins.str],
                  key_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key_type: The type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
-        :param pulumi.Input[_builtins.str] key_id: The ARN of the KMS key to use for encryption. Required when `key_type` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same region as the application.
-        """
         pulumi.set(__self__, "key_type", key_type)
         if key_id is not None:
             pulumi.set(__self__, "key_id", key_id)
@@ -480,9 +357,6 @@ class ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="keyType")
     def key_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
-        """
         return pulumi.get(self, "key_type")
 
     @key_type.setter
@@ -492,9 +366,6 @@ class ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the KMS key to use for encryption. Required when `key_type` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same region as the application.
-        """
         return pulumi.get(self, "key_id")
 
     @key_id.setter
@@ -505,9 +376,6 @@ class ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs:
 if not MYPY:
     class ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgsDict(TypedDict):
         snapshots_enabled: pulumi.Input[_builtins.bool]
-        """
-        Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
-        """
 elif False:
     ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -515,17 +383,11 @@ elif False:
 class ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs:
     def __init__(__self__, *,
                  snapshots_enabled: pulumi.Input[_builtins.bool]):
-        """
-        :param pulumi.Input[_builtins.bool] snapshots_enabled: Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
-        """
         pulumi.set(__self__, "snapshots_enabled", snapshots_enabled)
 
     @_builtins.property
     @pulumi.getter(name="snapshotsEnabled")
     def snapshots_enabled(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
-        """
         return pulumi.get(self, "snapshots_enabled")
 
     @snapshots_enabled.setter
@@ -536,9 +398,6 @@ class ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs:
 if not MYPY:
     class ApplicationApplicationConfigurationEnvironmentPropertiesArgsDict(TypedDict):
         property_groups: pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgsDict']]]
-        """
-        Describes the execution property groups.
-        """
 elif False:
     ApplicationApplicationConfigurationEnvironmentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -546,17 +405,11 @@ elif False:
 class ApplicationApplicationConfigurationEnvironmentPropertiesArgs:
     def __init__(__self__, *,
                  property_groups: pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs']]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs']]] property_groups: Describes the execution property groups.
-        """
         pulumi.set(__self__, "property_groups", property_groups)
 
     @_builtins.property
     @pulumi.getter(name="propertyGroups")
     def property_groups(self) -> pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs']]]:
-        """
-        Describes the execution property groups.
-        """
         return pulumi.get(self, "property_groups")
 
     @property_groups.setter
@@ -567,13 +420,7 @@ class ApplicationApplicationConfigurationEnvironmentPropertiesArgs:
 if not MYPY:
     class ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgsDict(TypedDict):
         property_group_id: pulumi.Input[_builtins.str]
-        """
-        The key of the application execution property key-value map.
-        """
         property_map: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
-        """
-        Application execution property key-value map.
-        """
 elif False:
     ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -582,19 +429,12 @@ class ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs:
     def __init__(__self__, *,
                  property_group_id: pulumi.Input[_builtins.str],
                  property_map: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]):
-        """
-        :param pulumi.Input[_builtins.str] property_group_id: The key of the application execution property key-value map.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] property_map: Application execution property key-value map.
-        """
         pulumi.set(__self__, "property_group_id", property_group_id)
         pulumi.set(__self__, "property_map", property_map)
 
     @_builtins.property
     @pulumi.getter(name="propertyGroupId")
     def property_group_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The key of the application execution property key-value map.
-        """
         return pulumi.get(self, "property_group_id")
 
     @property_group_id.setter
@@ -604,9 +444,6 @@ class ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs:
     @_builtins.property
     @pulumi.getter(name="propertyMap")
     def property_map(self) -> pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]:
-        """
-        Application execution property key-value map.
-        """
         return pulumi.get(self, "property_map")
 
     @property_map.setter
@@ -617,17 +454,8 @@ class ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs:
 if not MYPY:
     class ApplicationApplicationConfigurationFlinkApplicationConfigurationArgsDict(TypedDict):
         checkpoint_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgsDict']]
-        """
-        Describes an application's checkpointing configuration.
-        """
         monitoring_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgsDict']]
-        """
-        Describes configuration parameters for CloudWatch logging for an application.
-        """
         parallelism_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgsDict']]
-        """
-        Describes parameters for how an application executes multiple tasks simultaneously.
-        """
 elif False:
     ApplicationApplicationConfigurationFlinkApplicationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -637,11 +465,6 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs:
                  checkpoint_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs']] = None,
                  monitoring_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs']] = None,
                  parallelism_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs']] = None):
-        """
-        :param pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs'] checkpoint_configuration: Describes an application's checkpointing configuration.
-        :param pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs'] monitoring_configuration: Describes configuration parameters for CloudWatch logging for an application.
-        :param pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs'] parallelism_configuration: Describes parameters for how an application executes multiple tasks simultaneously.
-        """
         if checkpoint_configuration is not None:
             pulumi.set(__self__, "checkpoint_configuration", checkpoint_configuration)
         if monitoring_configuration is not None:
@@ -652,9 +475,6 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="checkpointConfiguration")
     def checkpoint_configuration(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs']]:
-        """
-        Describes an application's checkpointing configuration.
-        """
         return pulumi.get(self, "checkpoint_configuration")
 
     @checkpoint_configuration.setter
@@ -664,9 +484,6 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="monitoringConfiguration")
     def monitoring_configuration(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs']]:
-        """
-        Describes configuration parameters for CloudWatch logging for an application.
-        """
         return pulumi.get(self, "monitoring_configuration")
 
     @monitoring_configuration.setter
@@ -676,9 +493,6 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="parallelismConfiguration")
     def parallelism_configuration(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs']]:
-        """
-        Describes parameters for how an application executes multiple tasks simultaneously.
-        """
         return pulumi.get(self, "parallelism_configuration")
 
     @parallelism_configuration.setter
@@ -689,24 +503,9 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs:
 if not MYPY:
     class ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgsDict(TypedDict):
         configuration_type: pulumi.Input[_builtins.str]
-        """
-        Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointing_enabled`, `checkpoint_interval`, or `min_pause_between_checkpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values:
-        * `checkpointing_enabled = true`
-        * `checkpoint_interval = 60000`
-        * `min_pause_between_checkpoints = 5000`
-        """
         checkpoint_interval: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Describes the interval in milliseconds between checkpoint operations.
-        """
         checkpointing_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
-        """
         min_pause_between_checkpoints: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start.
-        """
 elif False:
     ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -717,15 +516,6 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpoint
                  checkpoint_interval: Optional[pulumi.Input[_builtins.int]] = None,
                  checkpointing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  min_pause_between_checkpoints: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.str] configuration_type: Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointing_enabled`, `checkpoint_interval`, or `min_pause_between_checkpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values:
-               * `checkpointing_enabled = true`
-               * `checkpoint_interval = 60000`
-               * `min_pause_between_checkpoints = 5000`
-        :param pulumi.Input[_builtins.int] checkpoint_interval: Describes the interval in milliseconds between checkpoint operations.
-        :param pulumi.Input[_builtins.bool] checkpointing_enabled: Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
-        :param pulumi.Input[_builtins.int] min_pause_between_checkpoints: Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start.
-        """
         pulumi.set(__self__, "configuration_type", configuration_type)
         if checkpoint_interval is not None:
             pulumi.set(__self__, "checkpoint_interval", checkpoint_interval)
@@ -737,12 +527,6 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpoint
     @_builtins.property
     @pulumi.getter(name="configurationType")
     def configuration_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointing_enabled`, `checkpoint_interval`, or `min_pause_between_checkpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values:
-        * `checkpointing_enabled = true`
-        * `checkpoint_interval = 60000`
-        * `min_pause_between_checkpoints = 5000`
-        """
         return pulumi.get(self, "configuration_type")
 
     @configuration_type.setter
@@ -752,9 +536,6 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpoint
     @_builtins.property
     @pulumi.getter(name="checkpointInterval")
     def checkpoint_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Describes the interval in milliseconds between checkpoint operations.
-        """
         return pulumi.get(self, "checkpoint_interval")
 
     @checkpoint_interval.setter
@@ -764,9 +545,6 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpoint
     @_builtins.property
     @pulumi.getter(name="checkpointingEnabled")
     def checkpointing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
-        """
         return pulumi.get(self, "checkpointing_enabled")
 
     @checkpointing_enabled.setter
@@ -776,9 +554,6 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpoint
     @_builtins.property
     @pulumi.getter(name="minPauseBetweenCheckpoints")
     def min_pause_between_checkpoints(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start.
-        """
         return pulumi.get(self, "min_pause_between_checkpoints")
 
     @min_pause_between_checkpoints.setter
@@ -789,17 +564,8 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpoint
 if not MYPY:
     class ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgsDict(TypedDict):
         configuration_type: pulumi.Input[_builtins.str]
-        """
-        Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `log_level` or `metrics_level` attribute values to be effective.
-        """
         log_level: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Describes the verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
-        """
         metrics_level: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Describes the granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
-        """
 elif False:
     ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -809,11 +575,6 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoring
                  configuration_type: pulumi.Input[_builtins.str],
                  log_level: Optional[pulumi.Input[_builtins.str]] = None,
                  metrics_level: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] configuration_type: Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `log_level` or `metrics_level` attribute values to be effective.
-        :param pulumi.Input[_builtins.str] log_level: Describes the verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
-        :param pulumi.Input[_builtins.str] metrics_level: Describes the granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
-        """
         pulumi.set(__self__, "configuration_type", configuration_type)
         if log_level is not None:
             pulumi.set(__self__, "log_level", log_level)
@@ -823,9 +584,6 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoring
     @_builtins.property
     @pulumi.getter(name="configurationType")
     def configuration_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `log_level` or `metrics_level` attribute values to be effective.
-        """
         return pulumi.get(self, "configuration_type")
 
     @configuration_type.setter
@@ -835,9 +593,6 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoring
     @_builtins.property
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Describes the verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
-        """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
@@ -847,9 +602,6 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoring
     @_builtins.property
     @pulumi.getter(name="metricsLevel")
     def metrics_level(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Describes the granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
-        """
         return pulumi.get(self, "metrics_level")
 
     @metrics_level.setter
@@ -860,21 +612,9 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoring
 if not MYPY:
     class ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgsDict(TypedDict):
         configuration_type: pulumi.Input[_builtins.str]
-        """
-        Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `auto_scaling_enabled`, `parallelism`, or `parallelism_per_kpu` attribute values to be effective.
-        """
         auto_scaling_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
-        """
         parallelism: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
-        """
         parallelism_per_kpu: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application.
-        """
 elif False:
     ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -885,12 +625,6 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelis
                  auto_scaling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  parallelism: Optional[pulumi.Input[_builtins.int]] = None,
                  parallelism_per_kpu: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.str] configuration_type: Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `auto_scaling_enabled`, `parallelism`, or `parallelism_per_kpu` attribute values to be effective.
-        :param pulumi.Input[_builtins.bool] auto_scaling_enabled: Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
-        :param pulumi.Input[_builtins.int] parallelism: Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
-        :param pulumi.Input[_builtins.int] parallelism_per_kpu: Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application.
-        """
         pulumi.set(__self__, "configuration_type", configuration_type)
         if auto_scaling_enabled is not None:
             pulumi.set(__self__, "auto_scaling_enabled", auto_scaling_enabled)
@@ -902,9 +636,6 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelis
     @_builtins.property
     @pulumi.getter(name="configurationType")
     def configuration_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `auto_scaling_enabled`, `parallelism`, or `parallelism_per_kpu` attribute values to be effective.
-        """
         return pulumi.get(self, "configuration_type")
 
     @configuration_type.setter
@@ -914,9 +645,6 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelis
     @_builtins.property
     @pulumi.getter(name="autoScalingEnabled")
     def auto_scaling_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
-        """
         return pulumi.get(self, "auto_scaling_enabled")
 
     @auto_scaling_enabled.setter
@@ -926,9 +654,6 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelis
     @_builtins.property
     @pulumi.getter
     def parallelism(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
-        """
         return pulumi.get(self, "parallelism")
 
     @parallelism.setter
@@ -938,9 +663,6 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelis
     @_builtins.property
     @pulumi.getter(name="parallelismPerKpu")
     def parallelism_per_kpu(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application.
-        """
         return pulumi.get(self, "parallelism_per_kpu")
 
     @parallelism_per_kpu.setter
@@ -951,13 +673,7 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelis
 if not MYPY:
     class ApplicationApplicationConfigurationRunConfigurationArgsDict(TypedDict):
         application_restore_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgsDict']]
-        """
-        The restore behavior of a restarting application.
-        """
         flink_run_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgsDict']]
-        """
-        The starting parameters for a Flink-based Kinesis Data Analytics application.
-        """
 elif False:
     ApplicationApplicationConfigurationRunConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -966,10 +682,6 @@ class ApplicationApplicationConfigurationRunConfigurationArgs:
     def __init__(__self__, *,
                  application_restore_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs']] = None,
                  flink_run_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs']] = None):
-        """
-        :param pulumi.Input['ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs'] application_restore_configuration: The restore behavior of a restarting application.
-        :param pulumi.Input['ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs'] flink_run_configuration: The starting parameters for a Flink-based Kinesis Data Analytics application.
-        """
         if application_restore_configuration is not None:
             pulumi.set(__self__, "application_restore_configuration", application_restore_configuration)
         if flink_run_configuration is not None:
@@ -978,9 +690,6 @@ class ApplicationApplicationConfigurationRunConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="applicationRestoreConfiguration")
     def application_restore_configuration(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs']]:
-        """
-        The restore behavior of a restarting application.
-        """
         return pulumi.get(self, "application_restore_configuration")
 
     @application_restore_configuration.setter
@@ -990,9 +699,6 @@ class ApplicationApplicationConfigurationRunConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="flinkRunConfiguration")
     def flink_run_configuration(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs']]:
-        """
-        The starting parameters for a Flink-based Kinesis Data Analytics application.
-        """
         return pulumi.get(self, "flink_run_configuration")
 
     @flink_run_configuration.setter
@@ -1003,13 +709,7 @@ class ApplicationApplicationConfigurationRunConfigurationArgs:
 if not MYPY:
     class ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgsDict(TypedDict):
         application_restore_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
-        """
         snapshot_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `application_restore_type`.
-        """
 elif False:
     ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1018,10 +718,6 @@ class ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfi
     def __init__(__self__, *,
                  application_restore_type: Optional[pulumi.Input[_builtins.str]] = None,
                  snapshot_name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] application_restore_type: Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
-        :param pulumi.Input[_builtins.str] snapshot_name: The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `application_restore_type`.
-        """
         if application_restore_type is not None:
             pulumi.set(__self__, "application_restore_type", application_restore_type)
         if snapshot_name is not None:
@@ -1030,9 +726,6 @@ class ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfi
     @_builtins.property
     @pulumi.getter(name="applicationRestoreType")
     def application_restore_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
-        """
         return pulumi.get(self, "application_restore_type")
 
     @application_restore_type.setter
@@ -1042,9 +735,6 @@ class ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfi
     @_builtins.property
     @pulumi.getter(name="snapshotName")
     def snapshot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `application_restore_type`.
-        """
         return pulumi.get(self, "snapshot_name")
 
     @snapshot_name.setter
@@ -1055,9 +745,6 @@ class ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfi
 if not MYPY:
     class ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgsDict(TypedDict):
         allow_non_restored_state: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
-        """
 elif False:
     ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1065,18 +752,12 @@ elif False:
 class ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs:
     def __init__(__self__, *,
                  allow_non_restored_state: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] allow_non_restored_state: When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
-        """
         if allow_non_restored_state is not None:
             pulumi.set(__self__, "allow_non_restored_state", allow_non_restored_state)
 
     @_builtins.property
     @pulumi.getter(name="allowNonRestoredState")
     def allow_non_restored_state(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
-        """
         return pulumi.get(self, "allow_non_restored_state")
 
     @allow_non_restored_state.setter
@@ -1087,17 +768,8 @@ class ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationAr
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationArgsDict(TypedDict):
         input: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgsDict']]
-        """
-        The input stream used by the application.
-        """
         outputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgsDict']]]]
-        """
-        The destination streams used by the application.
-        """
         reference_data_source: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgsDict']]
-        """
-        The reference data source used by the application.
-        """
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1107,11 +779,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationArgs:
                  input: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs']] = None,
                  outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs']]]] = None,
                  reference_data_source: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs']] = None):
-        """
-        :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs'] input: The input stream used by the application.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs']]] outputs: The destination streams used by the application.
-        :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs'] reference_data_source: The reference data source used by the application.
-        """
         if input is not None:
             pulumi.set(__self__, "input", input)
         if outputs is not None:
@@ -1122,9 +789,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def input(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs']]:
-        """
-        The input stream used by the application.
-        """
         return pulumi.get(self, "input")
 
     @input.setter
@@ -1134,9 +798,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs']]]]:
-        """
-        The destination streams used by the application.
-        """
         return pulumi.get(self, "outputs")
 
     @outputs.setter
@@ -1146,9 +807,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="referenceDataSource")
     def reference_data_source(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs']]:
-        """
-        The reference data source used by the application.
-        """
         return pulumi.get(self, "reference_data_source")
 
     @reference_data_source.setter
@@ -1159,36 +817,14 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationArgs:
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgsDict(TypedDict):
         input_schema: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgsDict']
-        """
-        Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
-        """
         name_prefix: pulumi.Input[_builtins.str]
-        """
-        The name prefix to use when creating an in-application stream.
-        """
         in_app_stream_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         input_id: NotRequired[pulumi.Input[_builtins.str]]
         input_parallelism: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgsDict']]
-        """
-        Describes the number of in-application streams to create.
-        """
         input_processing_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgsDict']]
-        """
-        The input processing configuration for the input.
-        An input processor transforms records as they are received from the stream, before the application's SQL code executes.
-        """
         input_starting_position_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgsDict']]]]
-        """
-        The point at which the application starts processing records from the streaming source.
-        """
         kinesis_firehose_input: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgsDict']]
-        """
-        If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
-        """
         kinesis_streams_input: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgsDict']]
-        """
-        If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
-        """
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1204,16 +840,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs:
                  input_starting_position_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs']]]] = None,
                  kinesis_firehose_input: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs']] = None,
                  kinesis_streams_input: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs']] = None):
-        """
-        :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs'] input_schema: Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
-        :param pulumi.Input[_builtins.str] name_prefix: The name prefix to use when creating an in-application stream.
-        :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs'] input_parallelism: Describes the number of in-application streams to create.
-        :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs'] input_processing_configuration: The input processing configuration for the input.
-               An input processor transforms records as they are received from the stream, before the application's SQL code executes.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs']]] input_starting_position_configurations: The point at which the application starts processing records from the streaming source.
-        :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs'] kinesis_firehose_input: If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
-        :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs'] kinesis_streams_input: If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
-        """
         pulumi.set(__self__, "input_schema", input_schema)
         pulumi.set(__self__, "name_prefix", name_prefix)
         if in_app_stream_names is not None:
@@ -1234,9 +860,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs:
     @_builtins.property
     @pulumi.getter(name="inputSchema")
     def input_schema(self) -> pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs']:
-        """
-        Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
-        """
         return pulumi.get(self, "input_schema")
 
     @input_schema.setter
@@ -1246,9 +869,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs:
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name prefix to use when creating an in-application stream.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -1276,9 +896,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs:
     @_builtins.property
     @pulumi.getter(name="inputParallelism")
     def input_parallelism(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs']]:
-        """
-        Describes the number of in-application streams to create.
-        """
         return pulumi.get(self, "input_parallelism")
 
     @input_parallelism.setter
@@ -1288,10 +905,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs:
     @_builtins.property
     @pulumi.getter(name="inputProcessingConfiguration")
     def input_processing_configuration(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs']]:
-        """
-        The input processing configuration for the input.
-        An input processor transforms records as they are received from the stream, before the application's SQL code executes.
-        """
         return pulumi.get(self, "input_processing_configuration")
 
     @input_processing_configuration.setter
@@ -1301,9 +914,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs:
     @_builtins.property
     @pulumi.getter(name="inputStartingPositionConfigurations")
     def input_starting_position_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs']]]]:
-        """
-        The point at which the application starts processing records from the streaming source.
-        """
         return pulumi.get(self, "input_starting_position_configurations")
 
     @input_starting_position_configurations.setter
@@ -1313,9 +923,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs:
     @_builtins.property
     @pulumi.getter(name="kinesisFirehoseInput")
     def kinesis_firehose_input(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs']]:
-        """
-        If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
-        """
         return pulumi.get(self, "kinesis_firehose_input")
 
     @kinesis_firehose_input.setter
@@ -1325,9 +932,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs:
     @_builtins.property
     @pulumi.getter(name="kinesisStreamsInput")
     def kinesis_streams_input(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs']]:
-        """
-        If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
-        """
         return pulumi.get(self, "kinesis_streams_input")
 
     @kinesis_streams_input.setter
@@ -1338,9 +942,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs:
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgsDict(TypedDict):
         count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of in-application streams to create.
-        """
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1348,18 +949,12 @@ elif False:
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs:
     def __init__(__self__, *,
                  count: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.int] count: The number of in-application streams to create.
-        """
         if count is not None:
             pulumi.set(__self__, "count", count)
 
     @_builtins.property
     @pulumi.getter
     def count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of in-application streams to create.
-        """
         return pulumi.get(self, "count")
 
     @count.setter
@@ -1370,9 +965,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputPa
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgsDict(TypedDict):
         input_lambda_processor: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgsDict']
-        """
-        Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
-        """
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1380,17 +972,11 @@ elif False:
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs:
     def __init__(__self__, *,
                  input_lambda_processor: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs']):
-        """
-        :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs'] input_lambda_processor: Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
-        """
         pulumi.set(__self__, "input_lambda_processor", input_lambda_processor)
 
     @_builtins.property
     @pulumi.getter(name="inputLambdaProcessor")
     def input_lambda_processor(self) -> pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs']:
-        """
-        Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
-        """
         return pulumi.get(self, "input_lambda_processor")
 
     @input_lambda_processor.setter
@@ -1401,9 +987,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputPr
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgsDict(TypedDict):
         resource_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the Lambda function that operates on records in the stream.
-        """
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1411,17 +994,11 @@ elif False:
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] resource_arn: The ARN of the Lambda function that operates on records in the stream.
-        """
         pulumi.set(__self__, "resource_arn", resource_arn)
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the Lambda function that operates on records in the stream.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -1432,17 +1009,8 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputPr
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgsDict(TypedDict):
         record_columns: pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgsDict']]]
-        """
-        Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
-        """
         record_format: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgsDict']
-        """
-        Specifies the format of the records on the streaming source.
-        """
         record_encoding: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-        """
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1452,11 +1020,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
                  record_columns: pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs']]],
                  record_format: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs'],
                  record_encoding: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs']]] record_columns: Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
-        :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs'] record_format: Specifies the format of the records on the streaming source.
-        :param pulumi.Input[_builtins.str] record_encoding: Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-        """
         pulumi.set(__self__, "record_columns", record_columns)
         pulumi.set(__self__, "record_format", record_format)
         if record_encoding is not None:
@@ -1465,9 +1028,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
     @_builtins.property
     @pulumi.getter(name="recordColumns")
     def record_columns(self) -> pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs']]]:
-        """
-        Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
-        """
         return pulumi.get(self, "record_columns")
 
     @record_columns.setter
@@ -1477,9 +1037,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
     @_builtins.property
     @pulumi.getter(name="recordFormat")
     def record_format(self) -> pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs']:
-        """
-        Specifies the format of the records on the streaming source.
-        """
         return pulumi.get(self, "record_format")
 
     @record_format.setter
@@ -1489,9 +1046,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
     @_builtins.property
     @pulumi.getter(name="recordEncoding")
     def record_encoding(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-        """
         return pulumi.get(self, "record_encoding")
 
     @record_encoding.setter
@@ -1502,17 +1056,8 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        The name of the column that is created in the in-application input stream or reference table.
-        """
         sql_type: pulumi.Input[_builtins.str]
-        """
-        The type of column created in the in-application input stream or reference table.
-        """
         mapping: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A reference to the data element in the streaming input or the reference data source.
-        """
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1522,11 +1067,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
                  name: pulumi.Input[_builtins.str],
                  sql_type: pulumi.Input[_builtins.str],
                  mapping: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] name: The name of the column that is created in the in-application input stream or reference table.
-        :param pulumi.Input[_builtins.str] sql_type: The type of column created in the in-application input stream or reference table.
-        :param pulumi.Input[_builtins.str] mapping: A reference to the data element in the streaming input or the reference data source.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "sql_type", sql_type)
         if mapping is not None:
@@ -1535,9 +1075,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the column that is created in the in-application input stream or reference table.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1547,9 +1084,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
     @_builtins.property
     @pulumi.getter(name="sqlType")
     def sql_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of column created in the in-application input stream or reference table.
-        """
         return pulumi.get(self, "sql_type")
 
     @sql_type.setter
@@ -1559,9 +1093,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
     @_builtins.property
     @pulumi.getter
     def mapping(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A reference to the data element in the streaming input or the reference data source.
-        """
         return pulumi.get(self, "mapping")
 
     @mapping.setter
@@ -1572,13 +1103,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgsDict(TypedDict):
         mapping_parameters: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgsDict']
-        """
-        Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-        """
         record_format_type: pulumi.Input[_builtins.str]
-        """
-        The type of record format. Valid values: `CSV`, `JSON`.
-        """
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1587,19 +1112,12 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
     def __init__(__self__, *,
                  mapping_parameters: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs'],
                  record_format_type: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs'] mapping_parameters: Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-        :param pulumi.Input[_builtins.str] record_format_type: The type of record format. Valid values: `CSV`, `JSON`.
-        """
         pulumi.set(__self__, "mapping_parameters", mapping_parameters)
         pulumi.set(__self__, "record_format_type", record_format_type)
 
     @_builtins.property
     @pulumi.getter(name="mappingParameters")
     def mapping_parameters(self) -> pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs']:
-        """
-        Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-        """
         return pulumi.get(self, "mapping_parameters")
 
     @mapping_parameters.setter
@@ -1609,9 +1127,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
     @_builtins.property
     @pulumi.getter(name="recordFormatType")
     def record_format_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of record format. Valid values: `CSV`, `JSON`.
-        """
         return pulumi.get(self, "record_format_type")
 
     @record_format_type.setter
@@ -1622,13 +1137,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgsDict(TypedDict):
         csv_mapping_parameters: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgsDict']]
-        """
-        Provides additional mapping information when the record format uses delimiters (for example, CSV).
-        """
         json_mapping_parameters: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgsDict']]
-        """
-        Provides additional mapping information when JSON is the record format on the streaming source.
-        """
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1637,10 +1146,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
     def __init__(__self__, *,
                  csv_mapping_parameters: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs']] = None,
                  json_mapping_parameters: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgs']] = None):
-        """
-        :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs'] csv_mapping_parameters: Provides additional mapping information when the record format uses delimiters (for example, CSV).
-        :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgs'] json_mapping_parameters: Provides additional mapping information when JSON is the record format on the streaming source.
-        """
         if csv_mapping_parameters is not None:
             pulumi.set(__self__, "csv_mapping_parameters", csv_mapping_parameters)
         if json_mapping_parameters is not None:
@@ -1649,9 +1154,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
     @_builtins.property
     @pulumi.getter(name="csvMappingParameters")
     def csv_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs']]:
-        """
-        Provides additional mapping information when the record format uses delimiters (for example, CSV).
-        """
         return pulumi.get(self, "csv_mapping_parameters")
 
     @csv_mapping_parameters.setter
@@ -1661,9 +1163,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
     @_builtins.property
     @pulumi.getter(name="jsonMappingParameters")
     def json_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgs']]:
-        """
-        Provides additional mapping information when JSON is the record format on the streaming source.
-        """
         return pulumi.get(self, "json_mapping_parameters")
 
     @json_mapping_parameters.setter
@@ -1674,13 +1173,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgsDict(TypedDict):
         record_column_delimiter: pulumi.Input[_builtins.str]
-        """
-        The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
-        """
         record_row_delimiter: pulumi.Input[_builtins.str]
-        """
-        The row delimiter. For example, in a CSV format, `\\n` is the typical row delimiter.
-        """
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1689,19 +1182,12 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
     def __init__(__self__, *,
                  record_column_delimiter: pulumi.Input[_builtins.str],
                  record_row_delimiter: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] record_column_delimiter: The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
-        :param pulumi.Input[_builtins.str] record_row_delimiter: The row delimiter. For example, in a CSV format, `\\n` is the typical row delimiter.
-        """
         pulumi.set(__self__, "record_column_delimiter", record_column_delimiter)
         pulumi.set(__self__, "record_row_delimiter", record_row_delimiter)
 
     @_builtins.property
     @pulumi.getter(name="recordColumnDelimiter")
     def record_column_delimiter(self) -> pulumi.Input[_builtins.str]:
-        """
-        The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
-        """
         return pulumi.get(self, "record_column_delimiter")
 
     @record_column_delimiter.setter
@@ -1711,9 +1197,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
     @_builtins.property
     @pulumi.getter(name="recordRowDelimiter")
     def record_row_delimiter(self) -> pulumi.Input[_builtins.str]:
-        """
-        The row delimiter. For example, in a CSV format, `\\n` is the typical row delimiter.
-        """
         return pulumi.get(self, "record_row_delimiter")
 
     @record_row_delimiter.setter
@@ -1724,9 +1207,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgsDict(TypedDict):
         record_row_path: pulumi.Input[_builtins.str]
-        """
-        The path to the top-level parent that contains the records.
-        """
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1734,17 +1214,11 @@ elif False:
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgs:
     def __init__(__self__, *,
                  record_row_path: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] record_row_path: The path to the top-level parent that contains the records.
-        """
         pulumi.set(__self__, "record_row_path", record_row_path)
 
     @_builtins.property
     @pulumi.getter(name="recordRowPath")
     def record_row_path(self) -> pulumi.Input[_builtins.str]:
-        """
-        The path to the top-level parent that contains the records.
-        """
         return pulumi.get(self, "record_row_path")
 
     @record_row_path.setter
@@ -1755,9 +1229,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgsDict(TypedDict):
         input_starting_position: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
-        """
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1765,18 +1236,12 @@ elif False:
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs:
     def __init__(__self__, *,
                  input_starting_position: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] input_starting_position: The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
-        """
         if input_starting_position is not None:
             pulumi.set(__self__, "input_starting_position", input_starting_position)
 
     @_builtins.property
     @pulumi.getter(name="inputStartingPosition")
     def input_starting_position(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
-        """
         return pulumi.get(self, "input_starting_position")
 
     @input_starting_position.setter
@@ -1787,9 +1252,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSt
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgsDict(TypedDict):
         resource_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the delivery stream.
-        """
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1797,17 +1259,11 @@ elif False:
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] resource_arn: The ARN of the delivery stream.
-        """
         pulumi.set(__self__, "resource_arn", resource_arn)
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the delivery stream.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -1818,9 +1274,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesis
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgsDict(TypedDict):
         resource_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the input Kinesis data stream to read.
-        """
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1828,17 +1281,11 @@ elif False:
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] resource_arn: The ARN of the input Kinesis data stream to read.
-        """
         pulumi.set(__self__, "resource_arn", resource_arn)
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the input Kinesis data stream to read.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -1849,25 +1296,10 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesis
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgsDict(TypedDict):
         destination_schema: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgsDict']
-        """
-        Describes the data format when records are written to the destination.
-        """
         name: pulumi.Input[_builtins.str]
-        """
-        The name of the in-application stream.
-        """
         kinesis_firehose_output: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgsDict']]
-        """
-        Identifies a Kinesis Data Firehose delivery stream as the destination.
-        """
         kinesis_streams_output: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgsDict']]
-        """
-        Identifies a Kinesis data stream as the destination.
-        """
         lambda_output: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgsDict']]
-        """
-        Identifies a Lambda function as the destination.
-        """
         output_id: NotRequired[pulumi.Input[_builtins.str]]
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgsDict: TypeAlias = Mapping[str, Any]
@@ -1881,13 +1313,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs:
                  kinesis_streams_output: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs']] = None,
                  lambda_output: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs']] = None,
                  output_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs'] destination_schema: Describes the data format when records are written to the destination.
-        :param pulumi.Input[_builtins.str] name: The name of the in-application stream.
-        :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs'] kinesis_firehose_output: Identifies a Kinesis Data Firehose delivery stream as the destination.
-        :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs'] kinesis_streams_output: Identifies a Kinesis data stream as the destination.
-        :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs'] lambda_output: Identifies a Lambda function as the destination.
-        """
         pulumi.set(__self__, "destination_schema", destination_schema)
         pulumi.set(__self__, "name", name)
         if kinesis_firehose_output is not None:
@@ -1902,9 +1327,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs:
     @_builtins.property
     @pulumi.getter(name="destinationSchema")
     def destination_schema(self) -> pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs']:
-        """
-        Describes the data format when records are written to the destination.
-        """
         return pulumi.get(self, "destination_schema")
 
     @destination_schema.setter
@@ -1914,9 +1336,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the in-application stream.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1926,9 +1345,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs:
     @_builtins.property
     @pulumi.getter(name="kinesisFirehoseOutput")
     def kinesis_firehose_output(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs']]:
-        """
-        Identifies a Kinesis Data Firehose delivery stream as the destination.
-        """
         return pulumi.get(self, "kinesis_firehose_output")
 
     @kinesis_firehose_output.setter
@@ -1938,9 +1354,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs:
     @_builtins.property
     @pulumi.getter(name="kinesisStreamsOutput")
     def kinesis_streams_output(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs']]:
-        """
-        Identifies a Kinesis data stream as the destination.
-        """
         return pulumi.get(self, "kinesis_streams_output")
 
     @kinesis_streams_output.setter
@@ -1950,9 +1363,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs:
     @_builtins.property
     @pulumi.getter(name="lambdaOutput")
     def lambda_output(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs']]:
-        """
-        Identifies a Lambda function as the destination.
-        """
         return pulumi.get(self, "lambda_output")
 
     @lambda_output.setter
@@ -1972,9 +1382,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs:
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgsDict(TypedDict):
         record_format_type: pulumi.Input[_builtins.str]
-        """
-        Specifies the format of the records on the output stream. Valid values: `CSV`, `JSON`.
-        """
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1982,17 +1389,11 @@ elif False:
 class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs:
     def __init__(__self__, *,
                  record_format_type: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] record_format_type: Specifies the format of the records on the output stream. Valid values: `CSV`, `JSON`.
-        """
         pulumi.set(__self__, "record_format_type", record_format_type)
 
     @_builtins.property
     @pulumi.getter(name="recordFormatType")
     def record_format_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the format of the records on the output stream. Valid values: `CSV`, `JSON`.
-        """
         return pulumi.get(self, "record_format_type")
 
     @record_format_type.setter
@@ -2003,9 +1404,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestin
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgsDict(TypedDict):
         resource_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the destination delivery stream to write to.
-        """
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2013,17 +1411,11 @@ elif False:
 class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] resource_arn: The ARN of the destination delivery stream to write to.
-        """
         pulumi.set(__self__, "resource_arn", resource_arn)
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the destination delivery stream to write to.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -2034,9 +1426,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesi
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgsDict(TypedDict):
         resource_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the destination Kinesis data stream to write to.
-        """
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2044,17 +1433,11 @@ elif False:
 class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] resource_arn: The ARN of the destination Kinesis data stream to write to.
-        """
         pulumi.set(__self__, "resource_arn", resource_arn)
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the destination Kinesis data stream to write to.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -2065,9 +1448,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesi
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgsDict(TypedDict):
         resource_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the destination Lambda function to write to.
-        """
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2075,17 +1455,11 @@ elif False:
 class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] resource_arn: The ARN of the destination Lambda function to write to.
-        """
         pulumi.set(__self__, "resource_arn", resource_arn)
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the destination Lambda function to write to.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -2096,17 +1470,8 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambda
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgsDict(TypedDict):
         reference_schema: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgsDict']
-        """
-        Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
-        """
         s3_reference_data_source: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgsDict']
-        """
-        Identifies the S3 bucket and object that contains the reference data.
-        """
         table_name: pulumi.Input[_builtins.str]
-        """
-        The name of the in-application table to create.
-        """
         reference_id: NotRequired[pulumi.Input[_builtins.str]]
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgsDict: TypeAlias = Mapping[str, Any]
@@ -2118,11 +1483,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
                  s3_reference_data_source: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs'],
                  table_name: pulumi.Input[_builtins.str],
                  reference_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs'] reference_schema: Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
-        :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs'] s3_reference_data_source: Identifies the S3 bucket and object that contains the reference data.
-        :param pulumi.Input[_builtins.str] table_name: The name of the in-application table to create.
-        """
         pulumi.set(__self__, "reference_schema", reference_schema)
         pulumi.set(__self__, "s3_reference_data_source", s3_reference_data_source)
         pulumi.set(__self__, "table_name", table_name)
@@ -2132,9 +1492,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
     @_builtins.property
     @pulumi.getter(name="referenceSchema")
     def reference_schema(self) -> pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs']:
-        """
-        Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
-        """
         return pulumi.get(self, "reference_schema")
 
     @reference_schema.setter
@@ -2144,9 +1501,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
     @_builtins.property
     @pulumi.getter(name="s3ReferenceDataSource")
     def s3_reference_data_source(self) -> pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs']:
-        """
-        Identifies the S3 bucket and object that contains the reference data.
-        """
         return pulumi.get(self, "s3_reference_data_source")
 
     @s3_reference_data_source.setter
@@ -2156,9 +1510,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
     @_builtins.property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the in-application table to create.
-        """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -2178,17 +1529,8 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgsDict(TypedDict):
         record_columns: pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgsDict']]]
-        """
-        Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
-        """
         record_format: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgsDict']
-        """
-        Specifies the format of the records on the streaming source.
-        """
         record_encoding: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-        """
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2198,11 +1540,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
                  record_columns: pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs']]],
                  record_format: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs'],
                  record_encoding: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs']]] record_columns: Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
-        :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs'] record_format: Specifies the format of the records on the streaming source.
-        :param pulumi.Input[_builtins.str] record_encoding: Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-        """
         pulumi.set(__self__, "record_columns", record_columns)
         pulumi.set(__self__, "record_format", record_format)
         if record_encoding is not None:
@@ -2211,9 +1548,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
     @_builtins.property
     @pulumi.getter(name="recordColumns")
     def record_columns(self) -> pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs']]]:
-        """
-        Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
-        """
         return pulumi.get(self, "record_columns")
 
     @record_columns.setter
@@ -2223,9 +1557,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
     @_builtins.property
     @pulumi.getter(name="recordFormat")
     def record_format(self) -> pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs']:
-        """
-        Specifies the format of the records on the streaming source.
-        """
         return pulumi.get(self, "record_format")
 
     @record_format.setter
@@ -2235,9 +1566,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
     @_builtins.property
     @pulumi.getter(name="recordEncoding")
     def record_encoding(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-        """
         return pulumi.get(self, "record_encoding")
 
     @record_encoding.setter
@@ -2248,17 +1576,8 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        The name of the column that is created in the in-application input stream or reference table.
-        """
         sql_type: pulumi.Input[_builtins.str]
-        """
-        The type of column created in the in-application input stream or reference table.
-        """
         mapping: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A reference to the data element in the streaming input or the reference data source.
-        """
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2268,11 +1587,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
                  name: pulumi.Input[_builtins.str],
                  sql_type: pulumi.Input[_builtins.str],
                  mapping: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] name: The name of the column that is created in the in-application input stream or reference table.
-        :param pulumi.Input[_builtins.str] sql_type: The type of column created in the in-application input stream or reference table.
-        :param pulumi.Input[_builtins.str] mapping: A reference to the data element in the streaming input or the reference data source.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "sql_type", sql_type)
         if mapping is not None:
@@ -2281,9 +1595,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the column that is created in the in-application input stream or reference table.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -2293,9 +1604,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
     @_builtins.property
     @pulumi.getter(name="sqlType")
     def sql_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of column created in the in-application input stream or reference table.
-        """
         return pulumi.get(self, "sql_type")
 
     @sql_type.setter
@@ -2305,9 +1613,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
     @_builtins.property
     @pulumi.getter
     def mapping(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A reference to the data element in the streaming input or the reference data source.
-        """
         return pulumi.get(self, "mapping")
 
     @mapping.setter
@@ -2318,13 +1623,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgsDict(TypedDict):
         mapping_parameters: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgsDict']
-        """
-        Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-        """
         record_format_type: pulumi.Input[_builtins.str]
-        """
-        The type of record format. Valid values: `CSV`, `JSON`.
-        """
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2333,19 +1632,12 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
     def __init__(__self__, *,
                  mapping_parameters: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs'],
                  record_format_type: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs'] mapping_parameters: Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-        :param pulumi.Input[_builtins.str] record_format_type: The type of record format. Valid values: `CSV`, `JSON`.
-        """
         pulumi.set(__self__, "mapping_parameters", mapping_parameters)
         pulumi.set(__self__, "record_format_type", record_format_type)
 
     @_builtins.property
     @pulumi.getter(name="mappingParameters")
     def mapping_parameters(self) -> pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs']:
-        """
-        Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-        """
         return pulumi.get(self, "mapping_parameters")
 
     @mapping_parameters.setter
@@ -2355,9 +1647,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
     @_builtins.property
     @pulumi.getter(name="recordFormatType")
     def record_format_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of record format. Valid values: `CSV`, `JSON`.
-        """
         return pulumi.get(self, "record_format_type")
 
     @record_format_type.setter
@@ -2368,13 +1657,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgsDict(TypedDict):
         csv_mapping_parameters: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgsDict']]
-        """
-        Provides additional mapping information when the record format uses delimiters (for example, CSV).
-        """
         json_mapping_parameters: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgsDict']]
-        """
-        Provides additional mapping information when JSON is the record format on the streaming source.
-        """
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2383,10 +1666,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
     def __init__(__self__, *,
                  csv_mapping_parameters: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs']] = None,
                  json_mapping_parameters: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs']] = None):
-        """
-        :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs'] csv_mapping_parameters: Provides additional mapping information when the record format uses delimiters (for example, CSV).
-        :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs'] json_mapping_parameters: Provides additional mapping information when JSON is the record format on the streaming source.
-        """
         if csv_mapping_parameters is not None:
             pulumi.set(__self__, "csv_mapping_parameters", csv_mapping_parameters)
         if json_mapping_parameters is not None:
@@ -2395,9 +1674,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
     @_builtins.property
     @pulumi.getter(name="csvMappingParameters")
     def csv_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs']]:
-        """
-        Provides additional mapping information when the record format uses delimiters (for example, CSV).
-        """
         return pulumi.get(self, "csv_mapping_parameters")
 
     @csv_mapping_parameters.setter
@@ -2407,9 +1683,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
     @_builtins.property
     @pulumi.getter(name="jsonMappingParameters")
     def json_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs']]:
-        """
-        Provides additional mapping information when JSON is the record format on the streaming source.
-        """
         return pulumi.get(self, "json_mapping_parameters")
 
     @json_mapping_parameters.setter
@@ -2420,13 +1693,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgsDict(TypedDict):
         record_column_delimiter: pulumi.Input[_builtins.str]
-        """
-        The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
-        """
         record_row_delimiter: pulumi.Input[_builtins.str]
-        """
-        The row delimiter. For example, in a CSV format, `\\n` is the typical row delimiter.
-        """
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2435,19 +1702,12 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
     def __init__(__self__, *,
                  record_column_delimiter: pulumi.Input[_builtins.str],
                  record_row_delimiter: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] record_column_delimiter: The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
-        :param pulumi.Input[_builtins.str] record_row_delimiter: The row delimiter. For example, in a CSV format, `\\n` is the typical row delimiter.
-        """
         pulumi.set(__self__, "record_column_delimiter", record_column_delimiter)
         pulumi.set(__self__, "record_row_delimiter", record_row_delimiter)
 
     @_builtins.property
     @pulumi.getter(name="recordColumnDelimiter")
     def record_column_delimiter(self) -> pulumi.Input[_builtins.str]:
-        """
-        The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
-        """
         return pulumi.get(self, "record_column_delimiter")
 
     @record_column_delimiter.setter
@@ -2457,9 +1717,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
     @_builtins.property
     @pulumi.getter(name="recordRowDelimiter")
     def record_row_delimiter(self) -> pulumi.Input[_builtins.str]:
-        """
-        The row delimiter. For example, in a CSV format, `\\n` is the typical row delimiter.
-        """
         return pulumi.get(self, "record_row_delimiter")
 
     @record_row_delimiter.setter
@@ -2470,9 +1727,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgsDict(TypedDict):
         record_row_path: pulumi.Input[_builtins.str]
-        """
-        The path to the top-level parent that contains the records.
-        """
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2480,17 +1734,11 @@ elif False:
 class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs:
     def __init__(__self__, *,
                  record_row_path: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] record_row_path: The path to the top-level parent that contains the records.
-        """
         pulumi.set(__self__, "record_row_path", record_row_path)
 
     @_builtins.property
     @pulumi.getter(name="recordRowPath")
     def record_row_path(self) -> pulumi.Input[_builtins.str]:
-        """
-        The path to the top-level parent that contains the records.
-        """
         return pulumi.get(self, "record_row_path")
 
     @record_row_path.setter
@@ -2501,13 +1749,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
 if not MYPY:
     class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgsDict(TypedDict):
         bucket_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the S3 bucket.
-        """
         file_key: pulumi.Input[_builtins.str]
-        """
-        The object key name containing the reference data.
-        """
 elif False:
     ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2516,19 +1758,12 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
     def __init__(__self__, *,
                  bucket_arn: pulumi.Input[_builtins.str],
                  file_key: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] bucket_arn: The ARN of the S3 bucket.
-        :param pulumi.Input[_builtins.str] file_key: The object key name containing the reference data.
-        """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
         pulumi.set(__self__, "file_key", file_key)
 
     @_builtins.property
     @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the S3 bucket.
-        """
         return pulumi.get(self, "bucket_arn")
 
     @bucket_arn.setter
@@ -2538,9 +1773,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
     @_builtins.property
     @pulumi.getter(name="fileKey")
     def file_key(self) -> pulumi.Input[_builtins.str]:
-        """
-        The object key name containing the reference data.
-        """
         return pulumi.get(self, "file_key")
 
     @file_key.setter
@@ -2551,13 +1783,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
 if not MYPY:
     class ApplicationApplicationConfigurationVpcConfigurationArgsDict(TypedDict):
         security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The Security Group IDs used by the VPC configuration.
-        """
         subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The Subnet IDs used by the VPC configuration.
-        """
         vpc_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
         vpc_id: NotRequired[pulumi.Input[_builtins.str]]
 elif False:
@@ -2570,10 +1796,6 @@ class ApplicationApplicationConfigurationVpcConfigurationArgs:
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  vpc_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The Security Group IDs used by the VPC configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The Subnet IDs used by the VPC configuration.
-        """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if vpc_configuration_id is not None:
@@ -2584,9 +1806,6 @@ class ApplicationApplicationConfigurationVpcConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        The Security Group IDs used by the VPC configuration.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -2596,9 +1815,6 @@ class ApplicationApplicationConfigurationVpcConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        The Subnet IDs used by the VPC configuration.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -2627,9 +1843,6 @@ class ApplicationApplicationConfigurationVpcConfigurationArgs:
 if not MYPY:
     class ApplicationCloudwatchLoggingOptionsArgsDict(TypedDict):
         log_stream_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the CloudWatch log stream to receive application messages.
-        """
         cloudwatch_logging_option_id: NotRequired[pulumi.Input[_builtins.str]]
 elif False:
     ApplicationCloudwatchLoggingOptionsArgsDict: TypeAlias = Mapping[str, Any]
@@ -2639,9 +1852,6 @@ class ApplicationCloudwatchLoggingOptionsArgs:
     def __init__(__self__, *,
                  log_stream_arn: pulumi.Input[_builtins.str],
                  cloudwatch_logging_option_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] log_stream_arn: The ARN of the CloudWatch log stream to receive application messages.
-        """
         pulumi.set(__self__, "log_stream_arn", log_stream_arn)
         if cloudwatch_logging_option_id is not None:
             pulumi.set(__self__, "cloudwatch_logging_option_id", cloudwatch_logging_option_id)
@@ -2649,9 +1859,6 @@ class ApplicationCloudwatchLoggingOptionsArgs:
     @_builtins.property
     @pulumi.getter(name="logStreamArn")
     def log_stream_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the CloudWatch log stream to receive application messages.
-        """
         return pulumi.get(self, "log_stream_arn")
 
     @log_stream_arn.setter

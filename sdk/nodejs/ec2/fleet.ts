@@ -7,37 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage EC2 Fleets.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.Fleet("example", {
- *     launchTemplateConfigs: [{
- *         launchTemplateSpecification: {
- *             launchTemplateId: exampleAwsLaunchTemplate.id,
- *             version: exampleAwsLaunchTemplate.latestVersion,
- *         },
- *     }],
- *     targetCapacitySpecification: {
- *         defaultTargetCapacityType: "spot",
- *         totalTargetCapacity: 5,
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_ec2_fleet` using the Fleet identifier. For example:
- *
- * ```sh
- * $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
- * ```
- */
 export class Fleet extends pulumi.CustomResource {
     /**
      * Get an existing Fleet resource's state with the given name, ID, and optional extra
@@ -66,85 +35,25 @@ export class Fleet extends pulumi.CustomResource {
         return obj['__pulumiType'] === Fleet.__pulumiType;
     }
 
-    /**
-     * The ARN of the fleet
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Reserved.
-     */
     declare public readonly context: pulumi.Output<string | undefined>;
-    /**
-     * Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
-     */
     declare public readonly excessCapacityTerminationPolicy: pulumi.Output<string | undefined>;
-    /**
-     * Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
-     */
     declare public readonly fleetInstanceSets: pulumi.Output<outputs.ec2.FleetFleetInstanceSet[]>;
-    /**
-     * The state of the EC2 Fleet.
-     */
     declare public readonly fleetState: pulumi.Output<string>;
-    /**
-     * The number of units fulfilled by this request compared to the set target capacity.
-     */
     declare public readonly fulfilledCapacity: pulumi.Output<number>;
-    /**
-     * The number of units fulfilled by this request compared to the set target On-Demand capacity.
-     */
     declare public readonly fulfilledOnDemandCapacity: pulumi.Output<number>;
-    /**
-     * Nested argument containing EC2 Launch Template configurations. Defined below.
-     */
     declare public readonly launchTemplateConfigs: pulumi.Output<outputs.ec2.FleetLaunchTemplateConfig[]>;
-    /**
-     * Nested argument containing On-Demand configurations. Defined below.
-     */
     declare public readonly onDemandOptions: pulumi.Output<outputs.ec2.FleetOnDemandOptions | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
-     */
     declare public readonly replaceUnhealthyInstances: pulumi.Output<boolean | undefined>;
-    /**
-     * Nested argument containing Spot configurations. Defined below.
-     */
     declare public readonly spotOptions: pulumi.Output<outputs.ec2.FleetSpotOptions | undefined>;
-    /**
-     * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Nested argument containing target capacity configurations. Defined below.
-     */
     declare public readonly targetCapacitySpecification: pulumi.Output<outputs.ec2.FleetTargetCapacitySpecification>;
-    /**
-     * Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
-     */
     declare public readonly terminateInstances: pulumi.Output<boolean | undefined>;
-    /**
-     * Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
-     */
     declare public readonly terminateInstancesWithExpiration: pulumi.Output<boolean | undefined>;
-    /**
-     * The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
-     */
     declare public readonly type: pulumi.Output<string | undefined>;
-    /**
-     * The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-     */
     declare public readonly validFrom: pulumi.Output<string | undefined>;
-    /**
-     * The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
-     */
     declare public readonly validUntil: pulumi.Output<string | undefined>;
 
     /**
@@ -218,85 +127,25 @@ export class Fleet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Fleet resources.
  */
 export interface FleetState {
-    /**
-     * The ARN of the fleet
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Reserved.
-     */
     context?: pulumi.Input<string>;
-    /**
-     * Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
-     */
     excessCapacityTerminationPolicy?: pulumi.Input<string>;
-    /**
-     * Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
-     */
     fleetInstanceSets?: pulumi.Input<pulumi.Input<inputs.ec2.FleetFleetInstanceSet>[]>;
-    /**
-     * The state of the EC2 Fleet.
-     */
     fleetState?: pulumi.Input<string>;
-    /**
-     * The number of units fulfilled by this request compared to the set target capacity.
-     */
     fulfilledCapacity?: pulumi.Input<number>;
-    /**
-     * The number of units fulfilled by this request compared to the set target On-Demand capacity.
-     */
     fulfilledOnDemandCapacity?: pulumi.Input<number>;
-    /**
-     * Nested argument containing EC2 Launch Template configurations. Defined below.
-     */
     launchTemplateConfigs?: pulumi.Input<pulumi.Input<inputs.ec2.FleetLaunchTemplateConfig>[]>;
-    /**
-     * Nested argument containing On-Demand configurations. Defined below.
-     */
     onDemandOptions?: pulumi.Input<inputs.ec2.FleetOnDemandOptions>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
-     */
     replaceUnhealthyInstances?: pulumi.Input<boolean>;
-    /**
-     * Nested argument containing Spot configurations. Defined below.
-     */
     spotOptions?: pulumi.Input<inputs.ec2.FleetSpotOptions>;
-    /**
-     * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Nested argument containing target capacity configurations. Defined below.
-     */
     targetCapacitySpecification?: pulumi.Input<inputs.ec2.FleetTargetCapacitySpecification>;
-    /**
-     * Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
-     */
     terminateInstances?: pulumi.Input<boolean>;
-    /**
-     * Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
-     */
     terminateInstancesWithExpiration?: pulumi.Input<boolean>;
-    /**
-     * The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
-     */
     type?: pulumi.Input<string>;
-    /**
-     * The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-     */
     validFrom?: pulumi.Input<string>;
-    /**
-     * The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
-     */
     validUntil?: pulumi.Input<string>;
 }
 
@@ -304,76 +153,22 @@ export interface FleetState {
  * The set of arguments for constructing a Fleet resource.
  */
 export interface FleetArgs {
-    /**
-     * Reserved.
-     */
     context?: pulumi.Input<string>;
-    /**
-     * Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
-     */
     excessCapacityTerminationPolicy?: pulumi.Input<string>;
-    /**
-     * Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
-     */
     fleetInstanceSets?: pulumi.Input<pulumi.Input<inputs.ec2.FleetFleetInstanceSet>[]>;
-    /**
-     * The state of the EC2 Fleet.
-     */
     fleetState?: pulumi.Input<string>;
-    /**
-     * The number of units fulfilled by this request compared to the set target capacity.
-     */
     fulfilledCapacity?: pulumi.Input<number>;
-    /**
-     * The number of units fulfilled by this request compared to the set target On-Demand capacity.
-     */
     fulfilledOnDemandCapacity?: pulumi.Input<number>;
-    /**
-     * Nested argument containing EC2 Launch Template configurations. Defined below.
-     */
     launchTemplateConfigs: pulumi.Input<pulumi.Input<inputs.ec2.FleetLaunchTemplateConfig>[]>;
-    /**
-     * Nested argument containing On-Demand configurations. Defined below.
-     */
     onDemandOptions?: pulumi.Input<inputs.ec2.FleetOnDemandOptions>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
-     */
     replaceUnhealthyInstances?: pulumi.Input<boolean>;
-    /**
-     * Nested argument containing Spot configurations. Defined below.
-     */
     spotOptions?: pulumi.Input<inputs.ec2.FleetSpotOptions>;
-    /**
-     * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Nested argument containing target capacity configurations. Defined below.
-     */
     targetCapacitySpecification: pulumi.Input<inputs.ec2.FleetTargetCapacitySpecification>;
-    /**
-     * Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
-     */
     terminateInstances?: pulumi.Input<boolean>;
-    /**
-     * Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
-     */
     terminateInstancesWithExpiration?: pulumi.Input<boolean>;
-    /**
-     * The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
-     */
     type?: pulumi.Input<string>;
-    /**
-     * The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-     */
     validFrom?: pulumi.Input<string>;
-    /**
-     * The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
-     */
     validUntil?: pulumi.Input<string>;
 }

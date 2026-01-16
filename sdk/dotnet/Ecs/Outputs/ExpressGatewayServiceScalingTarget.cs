@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ExpressGatewayServiceScalingTarget
     {
-        /// <summary>
-        /// Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
-        /// </summary>
         public readonly string AutoScalingMetric;
-        /// <summary>
-        /// Target value for the auto-scaling metric (as a percentage). Defaults to `60`.
-        /// </summary>
         public readonly int AutoScalingTargetValue;
-        /// <summary>
-        /// Maximum number of tasks to run.
-        /// </summary>
         public readonly int MaxTaskCount;
-        /// <summary>
-        /// Minimum number of tasks to run.
-        /// </summary>
         public readonly int MinTaskCount;
 
         [OutputConstructor]

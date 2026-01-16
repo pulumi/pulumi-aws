@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WorkgroupEndpoint {
-    /**
-     * @return The DNS address of the VPC endpoint.
-     * 
-     */
     private @Nullable String address;
-    /**
-     * @return The port number on which the cluster accepts incoming connections.
-     * 
-     */
     private @Nullable Integer port;
-    /**
-     * @return The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
-     * 
-     */
     private @Nullable List<WorkgroupEndpointVpcEndpoint> vpcEndpoints;
 
     private WorkgroupEndpoint() {}
-    /**
-     * @return The DNS address of the VPC endpoint.
-     * 
-     */
     public Optional<String> address() {
         return Optional.ofNullable(this.address);
     }
-    /**
-     * @return The port number on which the cluster accepts incoming connections.
-     * 
-     */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }
-    /**
-     * @return The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
-     * 
-     */
     public List<WorkgroupEndpointVpcEndpoint> vpcEndpoints() {
         return this.vpcEndpoints == null ? List.of() : this.vpcEndpoints;
     }

@@ -24,11 +24,6 @@ class NotificationRuleTarget(dict):
                  address: _builtins.str,
                  status: Optional[_builtins.str] = None,
                  type: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str address: The ARN of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.
-        :param _builtins.str status: The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-        :param _builtins.str type: The type of the notification target. Valid values are `SNS`, `AWSChatbotSlack`, and `AWSChatbotMicrosoftTeams`. Default value is `SNS`.
-        """
         pulumi.set(__self__, "address", address)
         if status is not None:
             pulumi.set(__self__, "status", status)
@@ -38,25 +33,16 @@ class NotificationRuleTarget(dict):
     @_builtins.property
     @pulumi.getter
     def address(self) -> _builtins.str:
-        """
-        The ARN of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.
-        """
         return pulumi.get(self, "address")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[_builtins.str]:
-        """
-        The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
-        """
-        The type of the notification target. Valid values are `SNS`, `AWSChatbotSlack`, and `AWSChatbotMicrosoftTeams`. Default value is `SNS`.
-        """
         return pulumi.get(self, "type")
 
 

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionViewerMtlsConfigTrustStoreConfig
     {
-        /// <summary>
-        /// Whether to advertise the trust store CA names to clients. Defaults to `False`.
-        /// </summary>
         public readonly bool? AdvertiseTrustStoreCaNames;
-        /// <summary>
-        /// Whether to ignore certificate expiry for viewer mTLS. Defaults to `False`.
-        /// </summary>
         public readonly bool? IgnoreCertificateExpiry;
-        /// <summary>
-        /// Identifier of the trust store to use for viewer mTLS.
-        /// </summary>
         public readonly string TrustStoreId;
 
         [OutputConstructor]

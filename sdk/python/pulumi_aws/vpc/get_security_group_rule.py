@@ -81,33 +81,21 @@ class GetSecurityGroupRuleResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the security group rule.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="cidrIpv4")
     def cidr_ipv4(self) -> _builtins.str:
-        """
-        The destination IPv4 CIDR range.
-        """
         return pulumi.get(self, "cidr_ipv4")
 
     @_builtins.property
     @pulumi.getter(name="cidrIpv6")
     def cidr_ipv6(self) -> _builtins.str:
-        """
-        The destination IPv6 CIDR range.
-        """
         return pulumi.get(self, "cidr_ipv6")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        The security group rule description.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -118,9 +106,6 @@ class GetSecurityGroupRuleResult:
     @_builtins.property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> _builtins.int:
-        """
-        The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
-        """
         return pulumi.get(self, "from_port")
 
     @_builtins.property
@@ -131,33 +116,21 @@ class GetSecurityGroupRuleResult:
     @_builtins.property
     @pulumi.getter(name="ipProtocol")
     def ip_protocol(self) -> _builtins.str:
-        """
-        The IP protocol name or number. Use `-1` to specify all protocols.
-        """
         return pulumi.get(self, "ip_protocol")
 
     @_builtins.property
     @pulumi.getter(name="isEgress")
     def is_egress(self) -> _builtins.bool:
-        """
-        Indicates whether the security group rule is an outbound rule.
-        """
         return pulumi.get(self, "is_egress")
 
     @_builtins.property
     @pulumi.getter(name="prefixListId")
     def prefix_list_id(self) -> _builtins.str:
-        """
-        The ID of the destination prefix list.
-        """
         return pulumi.get(self, "prefix_list_id")
 
     @_builtins.property
     @pulumi.getter(name="referencedSecurityGroupId")
     def referenced_security_group_id(self) -> _builtins.str:
-        """
-        The destination security group that is referenced in the rule.
-        """
         return pulumi.get(self, "referenced_security_group_id")
 
     @_builtins.property
@@ -168,9 +141,6 @@ class GetSecurityGroupRuleResult:
     @_builtins.property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> _builtins.str:
-        """
-        The ID of the security group.
-        """
         return pulumi.get(self, "security_group_id")
 
     @_builtins.property
@@ -181,17 +151,11 @@ class GetSecurityGroupRuleResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        A map of tags assigned to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="toPort")
     def to_port(self) -> _builtins.int:
-        """
-        (Optional) The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
-        """
         return pulumi.get(self, "to_port")
 
 
@@ -224,25 +188,7 @@ def get_security_group_rule(filters: Optional[Sequence[Union['GetSecurityGroupRu
                             security_group_rule_id: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityGroupRuleResult:
     """
-    `vpc_get_security_group_rule` provides details about a specific security group rule.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.vpc.get_security_group_rule(security_group_rule_id=security_group_rule_id)
-    ```
-
-
-    :param Sequence[Union['GetSecurityGroupRuleFilterArgs', 'GetSecurityGroupRuleFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-           
-           The arguments of this data source act as filters for querying the available
-           security group rules. The given filters must match exactly one security group rule
-           whose data will be exported as attributes.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str security_group_rule_id: ID of the security group rule to select.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -273,25 +219,7 @@ def get_security_group_rule_output(filters: Optional[pulumi.Input[Optional[Seque
                                    security_group_rule_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityGroupRuleResult]:
     """
-    `vpc_get_security_group_rule` provides details about a specific security group rule.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.vpc.get_security_group_rule(security_group_rule_id=security_group_rule_id)
-    ```
-
-
-    :param Sequence[Union['GetSecurityGroupRuleFilterArgs', 'GetSecurityGroupRuleFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-           
-           The arguments of this data source act as filters for querying the available
-           security group rules. The given filters must match exactly one security group rule
-           whose data will be exported as attributes.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str security_group_rule_id: ID of the security group rule to select.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

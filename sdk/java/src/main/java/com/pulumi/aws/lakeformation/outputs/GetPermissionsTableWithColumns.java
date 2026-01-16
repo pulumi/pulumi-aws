@@ -14,81 +14,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPermissionsTableWithColumns {
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     private String catalogId;
-    /**
-     * @return Set of column names for the table. At least one of `columnNames` or `excludedColumnNames` is required.
-     * 
-     */
     private @Nullable List<String> columnNames;
-    /**
-     * @return Name of the database for the table with columns resource. Unique to the Data Catalog.
-     * 
-     */
     private String databaseName;
-    /**
-     * @return Set of column names for the table to exclude. At least one of `columnNames` or `excludedColumnNames` is required.
-     * 
-     */
     private @Nullable List<String> excludedColumnNames;
-    /**
-     * @return Name of the table resource.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String name;
-    /**
-     * @return Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean wildcard;
 
     private GetPermissionsTableWithColumns() {}
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public String catalogId() {
         return this.catalogId;
     }
-    /**
-     * @return Set of column names for the table. At least one of `columnNames` or `excludedColumnNames` is required.
-     * 
-     */
     public List<String> columnNames() {
         return this.columnNames == null ? List.of() : this.columnNames;
     }
-    /**
-     * @return Name of the database for the table with columns resource. Unique to the Data Catalog.
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }
-    /**
-     * @return Set of column names for the table to exclude. At least one of `columnNames` or `excludedColumnNames` is required.
-     * 
-     */
     public List<String> excludedColumnNames() {
         return this.excludedColumnNames == null ? List.of() : this.excludedColumnNames;
     }
-    /**
-     * @return Name of the table resource.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> wildcard() {
         return Optional.ofNullable(this.wildcard);
     }

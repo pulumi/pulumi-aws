@@ -16,15 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetFirewallPolicyResult {
     private @Nullable String arn;
-    /**
-     * @return Description of the firewall policy.
-     * 
-     */
     private String description;
-    /**
-     * @return The [policy][2] for the specified firewall policy.
-     * 
-     */
     private List<GetFirewallPolicyFirewallPolicy> firewallPolicies;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -33,32 +25,16 @@ public final class GetFirewallPolicyResult {
     private String id;
     private @Nullable String name;
     private String region;
-    /**
-     * @return Key-value tags for the firewall policy.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Token used for optimistic locking.
-     * 
-     */
     private String updateToken;
 
     private GetFirewallPolicyResult() {}
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
-    /**
-     * @return Description of the firewall policy.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return The [policy][2] for the specified firewall policy.
-     * 
-     */
     public List<GetFirewallPolicyFirewallPolicy> firewallPolicies() {
         return this.firewallPolicies;
     }
@@ -75,17 +51,9 @@ public final class GetFirewallPolicyResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Key-value tags for the firewall policy.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Token used for optimistic locking.
-     * 
-     */
     public String updateToken() {
         return this.updateToken;
     }

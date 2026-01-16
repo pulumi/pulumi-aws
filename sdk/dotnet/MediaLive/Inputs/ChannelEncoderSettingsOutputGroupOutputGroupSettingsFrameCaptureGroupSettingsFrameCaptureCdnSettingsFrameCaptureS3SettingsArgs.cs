@@ -12,9 +12,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specify the canned ACL to apply to each S3 request.
-        /// </summary>
         [Input("cannedAcl")]
         public Input<string>? CannedAcl { get; set; }
 

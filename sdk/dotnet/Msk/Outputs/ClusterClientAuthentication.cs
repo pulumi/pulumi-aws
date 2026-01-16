@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class ClusterClientAuthentication
     {
-        /// <summary>
-        /// Configuration block for specifying SASL client authentication. See ClientAuthentication sasl Argument Reference below.
-        /// </summary>
         public readonly Outputs.ClusterClientAuthenticationSasl? Sasl;
-        /// <summary>
-        /// Configuration block for specifying TLS client authentication. See ClientAuthentication tls Argument Reference below.
-        /// </summary>
         public readonly Outputs.ClusterClientAuthenticationTls? Tls;
-        /// <summary>
-        /// Enables unauthenticated access.
-        /// </summary>
         public readonly bool? Unauthenticated;
 
         [OutputConstructor]

@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric {
-    /**
-     * @return Dimensions of the metric.
-     * 
-     */
     private @Nullable List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension> dimensions;
-    /**
-     * @return Name of the metric.
-     * 
-     */
     private String metricName;
-    /**
-     * @return Namespace of the metric.
-     * 
-     */
     private String namespace;
 
     private PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric() {}
-    /**
-     * @return Dimensions of the metric.
-     * 
-     */
     public List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension> dimensions() {
         return this.dimensions == null ? List.of() : this.dimensions;
     }
-    /**
-     * @return Name of the metric.
-     * 
-     */
     public String metricName() {
         return this.metricName;
     }
-    /**
-     * @return Namespace of the metric.
-     * 
-     */
     public String namespace() {
         return this.namespace;
     }

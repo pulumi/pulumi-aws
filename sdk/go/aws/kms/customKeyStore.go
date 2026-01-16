@@ -12,134 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS KMS (Key Management) Custom Key Store.
-//
-// ## Example Usage
-//
-// ### CloudHSM
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "anchor-certificate.crt",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kms.NewCustomKeyStore(ctx, "test", &kms.CustomKeyStoreArgs{
-//				CloudHsmClusterId:      pulumi.Any(cloudHsmClusterId),
-//				CustomKeyStoreName:     pulumi.String("kms-custom-key-store-test"),
-//				KeyStorePassword:       pulumi.String("noplaintextpasswords1"),
-//				TrustAnchorCertificate: pulumi.String(invokeFile.Result),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### External Key Store (VPC)
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kms.NewCustomKeyStore(ctx, "example", &kms.CustomKeyStoreArgs{
-//				CustomKeyStoreName: pulumi.String("example-vpc-xks"),
-//				CustomKeyStoreType: pulumi.String("EXTERNAL_KEY_STORE"),
-//				XksProxyAuthenticationCredential: &kms.CustomKeyStoreXksProxyAuthenticationCredentialArgs{
-//					AccessKeyId:        pulumi.Any(ephemeralAccessKeyId),
-//					RawSecretAccessKey: pulumi.Any(ephemeralSecretAccessKey),
-//				},
-//				XksProxyConnectivity:           pulumi.String("VPC_ENDPOINT_SERVICE"),
-//				XksProxyUriEndpoint:            pulumi.String("https://myproxy-private.xks.example.com"),
-//				XksProxyUriPath:                pulumi.String("/kms/xks/v1"),
-//				XksProxyVpcEndpointServiceName: pulumi.String("com.amazonaws.vpce.us-east-1.vpce-svc-example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### External Key Store (Public)
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kms.NewCustomKeyStore(ctx, "example", &kms.CustomKeyStoreArgs{
-//				CustomKeyStoreName: pulumi.String("example-public-xks"),
-//				CustomKeyStoreType: pulumi.String("EXTERNAL_KEY_STORE"),
-//				XksProxyAuthenticationCredential: &kms.CustomKeyStoreXksProxyAuthenticationCredentialArgs{
-//					AccessKeyId:        pulumi.Any(ephemeralAccessKeyId),
-//					RawSecretAccessKey: pulumi.Any(ephemeralSecretAccessKey),
-//				},
-//				XksProxyConnectivity: pulumi.String("PUBLIC_ENDPOINT"),
-//				XksProxyUriEndpoint:  pulumi.String("https://myproxy.xks.example.com"),
-//				XksProxyUriPath:      pulumi.String("/kms/xks/v1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import KMS (Key Management) Custom Key Store using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
-// ```
 type CustomKeyStore struct {
 	pulumi.CustomResourceState
 
-	CloudHsmClusterId pulumi.StringPtrOutput `pulumi:"cloudHsmClusterId"`
-	// Unique name for Custom Key Store.
-	//
-	// The following arguments are optional:
-	CustomKeyStoreName pulumi.StringOutput `pulumi:"customKeyStoreName"`
-	// Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-	CustomKeyStoreType pulumi.StringOutput    `pulumi:"customKeyStoreType"`
-	KeyStorePassword   pulumi.StringPtrOutput `pulumi:"keyStorePassword"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	CloudHsmClusterId                pulumi.StringPtrOutput                                  `pulumi:"cloudHsmClusterId"`
+	CustomKeyStoreName               pulumi.StringOutput                                     `pulumi:"customKeyStoreName"`
+	CustomKeyStoreType               pulumi.StringOutput                                     `pulumi:"customKeyStoreType"`
+	KeyStorePassword                 pulumi.StringPtrOutput                                  `pulumi:"keyStorePassword"`
 	Region                           pulumi.StringOutput                                     `pulumi:"region"`
 	TrustAnchorCertificate           pulumi.StringPtrOutput                                  `pulumi:"trustAnchorCertificate"`
 	XksProxyAuthenticationCredential CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput `pulumi:"xksProxyAuthenticationCredential"`
@@ -182,15 +61,10 @@ func GetCustomKeyStore(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomKeyStore resources.
 type customKeyStoreState struct {
-	CloudHsmClusterId *string `pulumi:"cloudHsmClusterId"`
-	// Unique name for Custom Key Store.
-	//
-	// The following arguments are optional:
-	CustomKeyStoreName *string `pulumi:"customKeyStoreName"`
-	// Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-	CustomKeyStoreType *string `pulumi:"customKeyStoreType"`
-	KeyStorePassword   *string `pulumi:"keyStorePassword"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	CloudHsmClusterId                *string                                         `pulumi:"cloudHsmClusterId"`
+	CustomKeyStoreName               *string                                         `pulumi:"customKeyStoreName"`
+	CustomKeyStoreType               *string                                         `pulumi:"customKeyStoreType"`
+	KeyStorePassword                 *string                                         `pulumi:"keyStorePassword"`
 	Region                           *string                                         `pulumi:"region"`
 	TrustAnchorCertificate           *string                                         `pulumi:"trustAnchorCertificate"`
 	XksProxyAuthenticationCredential *CustomKeyStoreXksProxyAuthenticationCredential `pulumi:"xksProxyAuthenticationCredential"`
@@ -201,15 +75,10 @@ type customKeyStoreState struct {
 }
 
 type CustomKeyStoreState struct {
-	CloudHsmClusterId pulumi.StringPtrInput
-	// Unique name for Custom Key Store.
-	//
-	// The following arguments are optional:
-	CustomKeyStoreName pulumi.StringPtrInput
-	// Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-	CustomKeyStoreType pulumi.StringPtrInput
-	KeyStorePassword   pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	CloudHsmClusterId                pulumi.StringPtrInput
+	CustomKeyStoreName               pulumi.StringPtrInput
+	CustomKeyStoreType               pulumi.StringPtrInput
+	KeyStorePassword                 pulumi.StringPtrInput
 	Region                           pulumi.StringPtrInput
 	TrustAnchorCertificate           pulumi.StringPtrInput
 	XksProxyAuthenticationCredential CustomKeyStoreXksProxyAuthenticationCredentialPtrInput
@@ -224,15 +93,10 @@ func (CustomKeyStoreState) ElementType() reflect.Type {
 }
 
 type customKeyStoreArgs struct {
-	CloudHsmClusterId *string `pulumi:"cloudHsmClusterId"`
-	// Unique name for Custom Key Store.
-	//
-	// The following arguments are optional:
-	CustomKeyStoreName string `pulumi:"customKeyStoreName"`
-	// Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-	CustomKeyStoreType *string `pulumi:"customKeyStoreType"`
-	KeyStorePassword   *string `pulumi:"keyStorePassword"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	CloudHsmClusterId                *string                                         `pulumi:"cloudHsmClusterId"`
+	CustomKeyStoreName               string                                          `pulumi:"customKeyStoreName"`
+	CustomKeyStoreType               *string                                         `pulumi:"customKeyStoreType"`
+	KeyStorePassword                 *string                                         `pulumi:"keyStorePassword"`
 	Region                           *string                                         `pulumi:"region"`
 	TrustAnchorCertificate           *string                                         `pulumi:"trustAnchorCertificate"`
 	XksProxyAuthenticationCredential *CustomKeyStoreXksProxyAuthenticationCredential `pulumi:"xksProxyAuthenticationCredential"`
@@ -244,15 +108,10 @@ type customKeyStoreArgs struct {
 
 // The set of arguments for constructing a CustomKeyStore resource.
 type CustomKeyStoreArgs struct {
-	CloudHsmClusterId pulumi.StringPtrInput
-	// Unique name for Custom Key Store.
-	//
-	// The following arguments are optional:
-	CustomKeyStoreName pulumi.StringInput
-	// Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-	CustomKeyStoreType pulumi.StringPtrInput
-	KeyStorePassword   pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	CloudHsmClusterId                pulumi.StringPtrInput
+	CustomKeyStoreName               pulumi.StringInput
+	CustomKeyStoreType               pulumi.StringPtrInput
+	KeyStorePassword                 pulumi.StringPtrInput
 	Region                           pulumi.StringPtrInput
 	TrustAnchorCertificate           pulumi.StringPtrInput
 	XksProxyAuthenticationCredential CustomKeyStoreXksProxyAuthenticationCredentialPtrInput
@@ -353,14 +212,10 @@ func (o CustomKeyStoreOutput) CloudHsmClusterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomKeyStore) pulumi.StringPtrOutput { return v.CloudHsmClusterId }).(pulumi.StringPtrOutput)
 }
 
-// Unique name for Custom Key Store.
-//
-// The following arguments are optional:
 func (o CustomKeyStoreOutput) CustomKeyStoreName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomKeyStore) pulumi.StringOutput { return v.CustomKeyStoreName }).(pulumi.StringOutput)
 }
 
-// Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
 func (o CustomKeyStoreOutput) CustomKeyStoreType() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomKeyStore) pulumi.StringOutput { return v.CustomKeyStoreType }).(pulumi.StringOutput)
 }
@@ -369,7 +224,6 @@ func (o CustomKeyStoreOutput) KeyStorePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomKeyStore) pulumi.StringPtrOutput { return v.KeyStorePassword }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CustomKeyStoreOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomKeyStore) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

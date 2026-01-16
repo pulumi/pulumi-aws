@@ -9,117 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.GuardDuty
 {
-    /// <summary>
-    /// Provides a resource to manage a single Amazon GuardDuty [detector feature](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-features-activation-model.html#guardduty-features) for a member account.
-    /// 
-    /// &gt; **NOTE:** Deleting this resource does not disable the detector feature in the member account, the resource in simply removed from state instead.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.GuardDuty.Detector("example", new()
-    ///     {
-    ///         Enable = true,
-    ///     });
-    /// 
-    ///     var runtimeMonitoring = new Aws.GuardDuty.MemberDetectorFeature("runtime_monitoring", new()
-    ///     {
-    ///         DetectorId = example.Id,
-    ///         AccountId = "123456789012",
-    ///         Name = "S3_DATA_EVENTS",
-    ///         Status = "ENABLED",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Extended Threat Detection for EKS
-    /// 
-    /// To enable GuardDuty [Extended Threat Detection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html) for EKS, you need at least one of these features enabled: [EKS Protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html) or [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring-configuration.html). For maximum detection coverage, enabling both is recommended to enhance detection capabilities.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.GuardDuty.Detector("example", new()
-    ///     {
-    ///         Enable = true,
-    ///     });
-    /// 
-    ///     var eksProtection = new Aws.GuardDuty.DetectorFeature("eks_protection", new()
-    ///     {
-    ///         DetectorId = example.Id,
-    ///         AccountId = "123456789012",
-    ///         Name = "EKS_AUDIT_LOGS",
-    ///         Status = "ENABLED",
-    ///     });
-    /// 
-    ///     var eksRuntimeMonitoring = new Aws.GuardDuty.DetectorFeature("eks_runtime_monitoring", new()
-    ///     {
-    ///         DetectorId = example.Id,
-    ///         AccountId = "123456789012",
-    ///         Name = "EKS_RUNTIME_MONITORING",
-    ///         Status = "ENABLED",
-    ///         AdditionalConfigurations = new[]
-    ///         {
-    ///             new Aws.GuardDuty.Inputs.DetectorFeatureAdditionalConfigurationArgs
-    ///             {
-    ///                 Name = "EKS_ADDON_MANAGEMENT",
-    ///                 Status = "ENABLED",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:guardduty/memberDetectorFeature:MemberDetectorFeature")]
     public partial class MemberDetectorFeature : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Member account ID to be updated.
-        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Additional feature configuration block. See below.
-        /// </summary>
         [Output("additionalConfigurations")]
         public Output<ImmutableArray<Outputs.MemberDetectorFeatureAdditionalConfiguration>> AdditionalConfigurations { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon GuardDuty detector ID.
-        /// </summary>
         [Output("detectorId")]
         public Output<string> DetectorId { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -169,45 +76,26 @@ namespace Pulumi.Aws.GuardDuty
 
     public sealed class MemberDetectorFeatureArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Member account ID to be updated.
-        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
         [Input("additionalConfigurations")]
         private InputList<Inputs.MemberDetectorFeatureAdditionalConfigurationArgs>? _additionalConfigurations;
-
-        /// <summary>
-        /// Additional feature configuration block. See below.
-        /// </summary>
         public InputList<Inputs.MemberDetectorFeatureAdditionalConfigurationArgs> AdditionalConfigurations
         {
             get => _additionalConfigurations ?? (_additionalConfigurations = new InputList<Inputs.MemberDetectorFeatureAdditionalConfigurationArgs>());
             set => _additionalConfigurations = value;
         }
 
-        /// <summary>
-        /// Amazon GuardDuty detector ID.
-        /// </summary>
         [Input("detectorId", required: true)]
         public Input<string> DetectorId { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
-        /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 
@@ -219,45 +107,26 @@ namespace Pulumi.Aws.GuardDuty
 
     public sealed class MemberDetectorFeatureState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Member account ID to be updated.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         [Input("additionalConfigurations")]
         private InputList<Inputs.MemberDetectorFeatureAdditionalConfigurationGetArgs>? _additionalConfigurations;
-
-        /// <summary>
-        /// Additional feature configuration block. See below.
-        /// </summary>
         public InputList<Inputs.MemberDetectorFeatureAdditionalConfigurationGetArgs> AdditionalConfigurations
         {
             get => _additionalConfigurations ?? (_additionalConfigurations = new InputList<Inputs.MemberDetectorFeatureAdditionalConfigurationGetArgs>());
             set => _additionalConfigurations = value;
         }
 
-        /// <summary>
-        /// Amazon GuardDuty detector ID.
-        /// </summary>
         [Input("detectorId")]
         public Input<string>? DetectorId { get; set; }
 
-        /// <summary>
-        /// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

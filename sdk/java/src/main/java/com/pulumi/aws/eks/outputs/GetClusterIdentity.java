@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterIdentity {
-    /**
-     * @return Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
-     * 
-     */
     private List<GetClusterIdentityOidc> oidcs;
 
     private GetClusterIdentity() {}
-    /**
-     * @return Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
-     * 
-     */
     public List<GetClusterIdentityOidc> oidcs() {
         return this.oidcs;
     }

@@ -14,32 +14,16 @@ public final class DeploymentGroupEcsServiceArgs extends com.pulumi.resources.Re
 
     public static final DeploymentGroupEcsServiceArgs Empty = new DeploymentGroupEcsServiceArgs();
 
-    /**
-     * The name of the ECS cluster.
-     * 
-     */
     @Import(name="clusterName", required=true)
     private Output<String> clusterName;
 
-    /**
-     * @return The name of the ECS cluster.
-     * 
-     */
     public Output<String> clusterName() {
         return this.clusterName;
     }
 
-    /**
-     * The name of the ECS service.
-     * 
-     */
     @Import(name="serviceName", required=true)
     private Output<String> serviceName;
 
-    /**
-     * @return The name of the ECS service.
-     * 
-     */
     public Output<String> serviceName() {
         return this.serviceName;
     }
@@ -69,44 +53,20 @@ public final class DeploymentGroupEcsServiceArgs extends com.pulumi.resources.Re
             $ = new DeploymentGroupEcsServiceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusterName The name of the ECS cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterName(Output<String> clusterName) {
             $.clusterName = clusterName;
             return this;
         }
 
-        /**
-         * @param clusterName The name of the ECS cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterName(String clusterName) {
             return clusterName(Output.of(clusterName));
         }
 
-        /**
-         * @param serviceName The name of the ECS service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(Output<String> serviceName) {
             $.serviceName = serviceName;
             return this;
         }
 
-        /**
-         * @param serviceName The name of the ECS service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(String serviceName) {
             return serviceName(Output.of(serviceName));
         }

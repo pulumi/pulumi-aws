@@ -15,17 +15,9 @@ public final class ScheduledQueryTargetConfigurationArgs extends com.pulumi.reso
 
     public static final ScheduledQueryTargetConfigurationArgs Empty = new ScheduledQueryTargetConfigurationArgs();
 
-    /**
-     * Configuration block for information needed to write data into the Timestream database and table. See below.
-     * 
-     */
     @Import(name="timestreamConfiguration")
     private @Nullable Output<ScheduledQueryTargetConfigurationTimestreamConfigurationArgs> timestreamConfiguration;
 
-    /**
-     * @return Configuration block for information needed to write data into the Timestream database and table. See below.
-     * 
-     */
     public Optional<Output<ScheduledQueryTargetConfigurationTimestreamConfigurationArgs>> timestreamConfiguration() {
         return Optional.ofNullable(this.timestreamConfiguration);
     }
@@ -54,23 +46,11 @@ public final class ScheduledQueryTargetConfigurationArgs extends com.pulumi.reso
             $ = new ScheduledQueryTargetConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param timestreamConfiguration Configuration block for information needed to write data into the Timestream database and table. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timestreamConfiguration(@Nullable Output<ScheduledQueryTargetConfigurationTimestreamConfigurationArgs> timestreamConfiguration) {
             $.timestreamConfiguration = timestreamConfiguration;
             return this;
         }
 
-        /**
-         * @param timestreamConfiguration Configuration block for information needed to write data into the Timestream database and table. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timestreamConfiguration(ScheduledQueryTargetConfigurationTimestreamConfigurationArgs timestreamConfiguration) {
             return timestreamConfiguration(Output.of(timestreamConfiguration));
         }

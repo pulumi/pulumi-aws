@@ -66,25 +66,16 @@ class GetManagedPrefixListResult:
     @_builtins.property
     @pulumi.getter(name="addressFamily")
     def address_family(self) -> _builtins.str:
-        """
-        Address family of the prefix list. Valid values are `IPv4` and `IPv6`.
-        """
         return pulumi.get(self, "address_family")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the selected prefix list.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def entries(self) -> Sequence['outputs.GetManagedPrefixListEntryResult']:
-        """
-        Set of entries in this prefix list. Each entry is an object with `cidr` and `description`.
-        """
         return pulumi.get(self, "entries")
 
     @_builtins.property
@@ -95,33 +86,21 @@ class GetManagedPrefixListResult:
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        ID of the selected prefix list.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="maxEntries")
     def max_entries(self) -> _builtins.int:
-        """
-        When then prefix list is managed, the maximum number of entries it supports, or null otherwise.
-        """
         return pulumi.get(self, "max_entries")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the selected prefix list.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> _builtins.str:
-        """
-        Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
-        """
         return pulumi.get(self, "owner_id")
 
     @_builtins.property
@@ -132,9 +111,6 @@ class GetManagedPrefixListResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags assigned to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -169,43 +145,7 @@ def get_managed_prefix_list(filters: Optional[Sequence[Union['GetManagedPrefixLi
                             tags: Optional[Mapping[str, _builtins.str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedPrefixListResult:
     """
-    `ec2.ManagedPrefixList` provides details about a specific AWS prefix list or
-    customer-managed prefix list in the current region.
-
-    ## Example Usage
-
-    ### Find the regional DynamoDB prefix list
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_region()
-    example = aws.ec2.get_managed_prefix_list(name=f"com.amazonaws.{current.region}.dynamodb")
-    ```
-
-    ### Find a managed prefix list using filters
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_managed_prefix_list(filters=[{
-        "name": "prefix-list-name",
-        "values": ["my-prefix-list"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetManagedPrefixListFilterArgs', 'GetManagedPrefixListFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-           
-           The arguments of this data source act as filters for querying the available
-           prefix lists. The given filters must match exactly one prefix list
-           whose data will be exported as attributes.
-    :param _builtins.str id: ID of the prefix list to select.
-    :param _builtins.str name: Name of the prefix list to select.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -235,43 +175,7 @@ def get_managed_prefix_list_output(filters: Optional[pulumi.Input[Optional[Seque
                                    tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedPrefixListResult]:
     """
-    `ec2.ManagedPrefixList` provides details about a specific AWS prefix list or
-    customer-managed prefix list in the current region.
-
-    ## Example Usage
-
-    ### Find the regional DynamoDB prefix list
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_region()
-    example = aws.ec2.get_managed_prefix_list(name=f"com.amazonaws.{current.region}.dynamodb")
-    ```
-
-    ### Find a managed prefix list using filters
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_managed_prefix_list(filters=[{
-        "name": "prefix-list-name",
-        "values": ["my-prefix-list"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetManagedPrefixListFilterArgs', 'GetManagedPrefixListFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-           
-           The arguments of this data source act as filters for querying the available
-           prefix lists. The given filters must match exactly one prefix list
-           whose data will be exported as attributes.
-    :param _builtins.str id: ID of the prefix list to select.
-    :param _builtins.str name: Name of the prefix list to select.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

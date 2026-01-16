@@ -17,47 +17,23 @@ public final class ClusterClientAuthenticationArgs extends com.pulumi.resources.
 
     public static final ClusterClientAuthenticationArgs Empty = new ClusterClientAuthenticationArgs();
 
-    /**
-     * Configuration block for specifying SASL client authentication. See clientAuthentication sasl Argument Reference below.
-     * 
-     */
     @Import(name="sasl")
     private @Nullable Output<ClusterClientAuthenticationSaslArgs> sasl;
 
-    /**
-     * @return Configuration block for specifying SASL client authentication. See clientAuthentication sasl Argument Reference below.
-     * 
-     */
     public Optional<Output<ClusterClientAuthenticationSaslArgs>> sasl() {
         return Optional.ofNullable(this.sasl);
     }
 
-    /**
-     * Configuration block for specifying TLS client authentication. See clientAuthentication tls Argument Reference below.
-     * 
-     */
     @Import(name="tls")
     private @Nullable Output<ClusterClientAuthenticationTlsArgs> tls;
 
-    /**
-     * @return Configuration block for specifying TLS client authentication. See clientAuthentication tls Argument Reference below.
-     * 
-     */
     public Optional<Output<ClusterClientAuthenticationTlsArgs>> tls() {
         return Optional.ofNullable(this.tls);
     }
 
-    /**
-     * Enables unauthenticated access.
-     * 
-     */
     @Import(name="unauthenticated")
     private @Nullable Output<Boolean> unauthenticated;
 
-    /**
-     * @return Enables unauthenticated access.
-     * 
-     */
     public Optional<Output<Boolean>> unauthenticated() {
         return Optional.ofNullable(this.unauthenticated);
     }
@@ -88,65 +64,29 @@ public final class ClusterClientAuthenticationArgs extends com.pulumi.resources.
             $ = new ClusterClientAuthenticationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param sasl Configuration block for specifying SASL client authentication. See clientAuthentication sasl Argument Reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sasl(@Nullable Output<ClusterClientAuthenticationSaslArgs> sasl) {
             $.sasl = sasl;
             return this;
         }
 
-        /**
-         * @param sasl Configuration block for specifying SASL client authentication. See clientAuthentication sasl Argument Reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sasl(ClusterClientAuthenticationSaslArgs sasl) {
             return sasl(Output.of(sasl));
         }
 
-        /**
-         * @param tls Configuration block for specifying TLS client authentication. See clientAuthentication tls Argument Reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tls(@Nullable Output<ClusterClientAuthenticationTlsArgs> tls) {
             $.tls = tls;
             return this;
         }
 
-        /**
-         * @param tls Configuration block for specifying TLS client authentication. See clientAuthentication tls Argument Reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tls(ClusterClientAuthenticationTlsArgs tls) {
             return tls(Output.of(tls));
         }
 
-        /**
-         * @param unauthenticated Enables unauthenticated access.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unauthenticated(@Nullable Output<Boolean> unauthenticated) {
             $.unauthenticated = unauthenticated;
             return this;
         }
 
-        /**
-         * @param unauthenticated Enables unauthenticated access.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unauthenticated(Boolean unauthenticated) {
             return unauthenticated(Output.of(unauthenticated));
         }

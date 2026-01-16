@@ -12,213 +12,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an [AWS Mainframe Modernization Environment](https://docs.aws.amazon.com/m2/latest/userguide/environments-m2.html).
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/m2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := m2.NewEnvironment(ctx, "test", &m2.EnvironmentArgs{
-//				Name:         pulumi.String("test-env"),
-//				EngineType:   pulumi.String("bluage"),
-//				InstanceType: pulumi.String("M2.m5.large"),
-//				SecurityGroups: []string{
-//					"sg-01234567890abcdef",
-//				},
-//				SubnetIds: pulumi.StringArray{
-//					pulumi.String("subnet-01234567890abcdef"),
-//					pulumi.String("subnet-01234567890abcdea"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### High Availability
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/m2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := m2.NewEnvironment(ctx, "test", &m2.EnvironmentArgs{
-//				Name:         pulumi.String("test-env"),
-//				EngineType:   pulumi.String("bluage"),
-//				InstanceType: pulumi.String("M2.m5.large"),
-//				SecurityGroups: []string{
-//					"sg-01234567890abcdef",
-//				},
-//				SubnetIds: pulumi.StringArray{
-//					pulumi.String("subnet-01234567890abcdef"),
-//					pulumi.String("subnet-01234567890abcdea"),
-//				},
-//				HighAvailabilityConfig: &m2.EnvironmentHighAvailabilityConfigArgs{
-//					DesiredCapacity: pulumi.Int(2),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### EFS Filesystem
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/m2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := m2.NewEnvironment(ctx, "test", &m2.EnvironmentArgs{
-//				Name:         pulumi.String("test-env"),
-//				EngineType:   pulumi.String("bluage"),
-//				InstanceType: pulumi.String("M2.m5.large"),
-//				SecurityGroups: []string{
-//					"sg-01234567890abcdef",
-//				},
-//				SubnetIds: pulumi.StringArray{
-//					pulumi.String("subnet-01234567890abcdef"),
-//					pulumi.String("subnet-01234567890abcdea"),
-//				},
-//				StorageConfiguration: &m2.EnvironmentStorageConfigurationArgs{
-//					Efs: &m2.EnvironmentStorageConfigurationEfsArgs{
-//						FileSystemId: pulumi.String("fs-01234567890abcdef"),
-//						MountPoint:   pulumi.String("/m2/mount/example"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### FSX Filesystem
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/m2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := m2.NewEnvironment(ctx, "test", &m2.EnvironmentArgs{
-//				Name:         pulumi.String("test-env"),
-//				EngineType:   pulumi.String("bluage"),
-//				InstanceType: pulumi.String("M2.m5.large"),
-//				SecurityGroups: []string{
-//					"sg-01234567890abcdef",
-//				},
-//				SubnetIds: pulumi.StringArray{
-//					pulumi.String("subnet-01234567890abcdef"),
-//					pulumi.String("subnet-01234567890abcdea"),
-//				},
-//				StorageConfiguration: &m2.EnvironmentStorageConfigurationArgs{
-//					Fsx: &m2.EnvironmentStorageConfigurationFsxArgs{
-//						FileSystemId: pulumi.String("fs-01234567890abcdef"),
-//						MountPoint:   pulumi.String("/m2/mount/example"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Mainframe Modernization Environment using the `01234567890abcdef012345678`. For example:
-//
-// ```sh
-// $ pulumi import aws:m2/environment:Environment example 01234567890abcdef012345678
-// ```
 type Environment struct {
 	pulumi.CustomResourceState
 
-	ApplyChangesDuringMaintenanceWindow pulumi.BoolPtrOutput `pulumi:"applyChangesDuringMaintenanceWindow"`
-	// ARN of the Environment.
-	Arn         pulumi.StringOutput    `pulumi:"arn"`
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Engine type must be `microfocus` or `bluage`.
-	EngineType pulumi.StringOutput `pulumi:"engineType"`
-	// The specific version of the engine for the Environment.
-	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
-	// The id of the Environment.
-	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
-	// Force update the environment even if applications are running.
-	ForceUpdate            pulumi.BoolPtrOutput                       `pulumi:"forceUpdate"`
-	HighAvailabilityConfig EnvironmentHighAvailabilityConfigPtrOutput `pulumi:"highAvailabilityConfig"`
-	// M2 Instance Type.
-	//
-	// The following arguments are optional:
-	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
-	// ARN of the KMS key to use for the Environment.
-	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// ARN of the load balancer created by the Environment.
-	LoadBalancerArn pulumi.StringOutput `pulumi:"loadBalancerArn"`
-	// Name of the runtime environment. Must be unique within the account.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
-	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
-	// Allow applications deployed to this environment to be publicly accessible.
-	PubliclyAccessible pulumi.BoolOutput `pulumi:"publiclyAccessible"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// List of security group ids.
-	SecurityGroupIds     pulumi.StringArrayOutput                 `pulumi:"securityGroupIds"`
-	StorageConfiguration EnvironmentStorageConfigurationPtrOutput `pulumi:"storageConfiguration"`
-	// List of subnet ids to deploy environment to.
-	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapOutput       `pulumi:"tags"`
-	TagsAll  pulumi.StringMapOutput       `pulumi:"tagsAll"`
-	Timeouts EnvironmentTimeoutsPtrOutput `pulumi:"timeouts"`
+	ApplyChangesDuringMaintenanceWindow pulumi.BoolPtrOutput                       `pulumi:"applyChangesDuringMaintenanceWindow"`
+	Arn                                 pulumi.StringOutput                        `pulumi:"arn"`
+	Description                         pulumi.StringPtrOutput                     `pulumi:"description"`
+	EngineType                          pulumi.StringOutput                        `pulumi:"engineType"`
+	EngineVersion                       pulumi.StringOutput                        `pulumi:"engineVersion"`
+	EnvironmentId                       pulumi.StringOutput                        `pulumi:"environmentId"`
+	ForceUpdate                         pulumi.BoolPtrOutput                       `pulumi:"forceUpdate"`
+	HighAvailabilityConfig              EnvironmentHighAvailabilityConfigPtrOutput `pulumi:"highAvailabilityConfig"`
+	InstanceType                        pulumi.StringOutput                        `pulumi:"instanceType"`
+	KmsKeyId                            pulumi.StringPtrOutput                     `pulumi:"kmsKeyId"`
+	LoadBalancerArn                     pulumi.StringOutput                        `pulumi:"loadBalancerArn"`
+	Name                                pulumi.StringOutput                        `pulumi:"name"`
+	PreferredMaintenanceWindow          pulumi.StringOutput                        `pulumi:"preferredMaintenanceWindow"`
+	PubliclyAccessible                  pulumi.BoolOutput                          `pulumi:"publiclyAccessible"`
+	Region                              pulumi.StringOutput                        `pulumi:"region"`
+	SecurityGroupIds                    pulumi.StringArrayOutput                   `pulumi:"securityGroupIds"`
+	StorageConfiguration                EnvironmentStorageConfigurationPtrOutput   `pulumi:"storageConfiguration"`
+	SubnetIds                           pulumi.StringArrayOutput                   `pulumi:"subnetIds"`
+	Tags                                pulumi.StringMapOutput                     `pulumi:"tags"`
+	TagsAll                             pulumi.StringMapOutput                     `pulumi:"tagsAll"`
+	Timeouts                            EnvironmentTimeoutsPtrOutput               `pulumi:"timeouts"`
 }
 
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -257,85 +74,51 @@ func GetEnvironment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Environment resources.
 type environmentState struct {
-	ApplyChangesDuringMaintenanceWindow *bool `pulumi:"applyChangesDuringMaintenanceWindow"`
-	// ARN of the Environment.
-	Arn         *string `pulumi:"arn"`
-	Description *string `pulumi:"description"`
-	// Engine type must be `microfocus` or `bluage`.
-	EngineType *string `pulumi:"engineType"`
-	// The specific version of the engine for the Environment.
-	EngineVersion *string `pulumi:"engineVersion"`
-	// The id of the Environment.
-	EnvironmentId *string `pulumi:"environmentId"`
-	// Force update the environment even if applications are running.
-	ForceUpdate            *bool                              `pulumi:"forceUpdate"`
-	HighAvailabilityConfig *EnvironmentHighAvailabilityConfig `pulumi:"highAvailabilityConfig"`
-	// M2 Instance Type.
-	//
-	// The following arguments are optional:
-	InstanceType *string `pulumi:"instanceType"`
-	// ARN of the KMS key to use for the Environment.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// ARN of the load balancer created by the Environment.
-	LoadBalancerArn *string `pulumi:"loadBalancerArn"`
-	// Name of the runtime environment. Must be unique within the account.
-	Name *string `pulumi:"name"`
-	// Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
-	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
-	// Allow applications deployed to this environment to be publicly accessible.
-	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// List of security group ids.
-	SecurityGroupIds     []string                         `pulumi:"securityGroupIds"`
-	StorageConfiguration *EnvironmentStorageConfiguration `pulumi:"storageConfiguration"`
-	// List of subnet ids to deploy environment to.
-	SubnetIds []string `pulumi:"subnetIds"`
-	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string    `pulumi:"tags"`
-	TagsAll  map[string]string    `pulumi:"tagsAll"`
-	Timeouts *EnvironmentTimeouts `pulumi:"timeouts"`
+	ApplyChangesDuringMaintenanceWindow *bool                              `pulumi:"applyChangesDuringMaintenanceWindow"`
+	Arn                                 *string                            `pulumi:"arn"`
+	Description                         *string                            `pulumi:"description"`
+	EngineType                          *string                            `pulumi:"engineType"`
+	EngineVersion                       *string                            `pulumi:"engineVersion"`
+	EnvironmentId                       *string                            `pulumi:"environmentId"`
+	ForceUpdate                         *bool                              `pulumi:"forceUpdate"`
+	HighAvailabilityConfig              *EnvironmentHighAvailabilityConfig `pulumi:"highAvailabilityConfig"`
+	InstanceType                        *string                            `pulumi:"instanceType"`
+	KmsKeyId                            *string                            `pulumi:"kmsKeyId"`
+	LoadBalancerArn                     *string                            `pulumi:"loadBalancerArn"`
+	Name                                *string                            `pulumi:"name"`
+	PreferredMaintenanceWindow          *string                            `pulumi:"preferredMaintenanceWindow"`
+	PubliclyAccessible                  *bool                              `pulumi:"publiclyAccessible"`
+	Region                              *string                            `pulumi:"region"`
+	SecurityGroupIds                    []string                           `pulumi:"securityGroupIds"`
+	StorageConfiguration                *EnvironmentStorageConfiguration   `pulumi:"storageConfiguration"`
+	SubnetIds                           []string                           `pulumi:"subnetIds"`
+	Tags                                map[string]string                  `pulumi:"tags"`
+	TagsAll                             map[string]string                  `pulumi:"tagsAll"`
+	Timeouts                            *EnvironmentTimeouts               `pulumi:"timeouts"`
 }
 
 type EnvironmentState struct {
 	ApplyChangesDuringMaintenanceWindow pulumi.BoolPtrInput
-	// ARN of the Environment.
-	Arn         pulumi.StringPtrInput
-	Description pulumi.StringPtrInput
-	// Engine type must be `microfocus` or `bluage`.
-	EngineType pulumi.StringPtrInput
-	// The specific version of the engine for the Environment.
-	EngineVersion pulumi.StringPtrInput
-	// The id of the Environment.
-	EnvironmentId pulumi.StringPtrInput
-	// Force update the environment even if applications are running.
-	ForceUpdate            pulumi.BoolPtrInput
-	HighAvailabilityConfig EnvironmentHighAvailabilityConfigPtrInput
-	// M2 Instance Type.
-	//
-	// The following arguments are optional:
-	InstanceType pulumi.StringPtrInput
-	// ARN of the KMS key to use for the Environment.
-	KmsKeyId pulumi.StringPtrInput
-	// ARN of the load balancer created by the Environment.
-	LoadBalancerArn pulumi.StringPtrInput
-	// Name of the runtime environment. Must be unique within the account.
-	Name pulumi.StringPtrInput
-	// Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
-	PreferredMaintenanceWindow pulumi.StringPtrInput
-	// Allow applications deployed to this environment to be publicly accessible.
-	PubliclyAccessible pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// List of security group ids.
-	SecurityGroupIds     pulumi.StringArrayInput
-	StorageConfiguration EnvironmentStorageConfigurationPtrInput
-	// List of subnet ids to deploy environment to.
-	SubnetIds pulumi.StringArrayInput
-	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	TagsAll  pulumi.StringMapInput
-	Timeouts EnvironmentTimeoutsPtrInput
+	Arn                                 pulumi.StringPtrInput
+	Description                         pulumi.StringPtrInput
+	EngineType                          pulumi.StringPtrInput
+	EngineVersion                       pulumi.StringPtrInput
+	EnvironmentId                       pulumi.StringPtrInput
+	ForceUpdate                         pulumi.BoolPtrInput
+	HighAvailabilityConfig              EnvironmentHighAvailabilityConfigPtrInput
+	InstanceType                        pulumi.StringPtrInput
+	KmsKeyId                            pulumi.StringPtrInput
+	LoadBalancerArn                     pulumi.StringPtrInput
+	Name                                pulumi.StringPtrInput
+	PreferredMaintenanceWindow          pulumi.StringPtrInput
+	PubliclyAccessible                  pulumi.BoolPtrInput
+	Region                              pulumi.StringPtrInput
+	SecurityGroupIds                    pulumi.StringArrayInput
+	StorageConfiguration                EnvironmentStorageConfigurationPtrInput
+	SubnetIds                           pulumi.StringArrayInput
+	Tags                                pulumi.StringMapInput
+	TagsAll                             pulumi.StringMapInput
+	Timeouts                            EnvironmentTimeoutsPtrInput
 }
 
 func (EnvironmentState) ElementType() reflect.Type {
@@ -343,72 +126,44 @@ func (EnvironmentState) ElementType() reflect.Type {
 }
 
 type environmentArgs struct {
-	ApplyChangesDuringMaintenanceWindow *bool   `pulumi:"applyChangesDuringMaintenanceWindow"`
-	Description                         *string `pulumi:"description"`
-	// Engine type must be `microfocus` or `bluage`.
-	EngineType string `pulumi:"engineType"`
-	// The specific version of the engine for the Environment.
-	EngineVersion *string `pulumi:"engineVersion"`
-	// Force update the environment even if applications are running.
-	ForceUpdate            *bool                              `pulumi:"forceUpdate"`
-	HighAvailabilityConfig *EnvironmentHighAvailabilityConfig `pulumi:"highAvailabilityConfig"`
-	// M2 Instance Type.
-	//
-	// The following arguments are optional:
-	InstanceType string `pulumi:"instanceType"`
-	// ARN of the KMS key to use for the Environment.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Name of the runtime environment. Must be unique within the account.
-	Name *string `pulumi:"name"`
-	// Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
-	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
-	// Allow applications deployed to this environment to be publicly accessible.
-	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// List of security group ids.
-	SecurityGroupIds     []string                         `pulumi:"securityGroupIds"`
-	StorageConfiguration *EnvironmentStorageConfiguration `pulumi:"storageConfiguration"`
-	// List of subnet ids to deploy environment to.
-	SubnetIds []string `pulumi:"subnetIds"`
-	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string    `pulumi:"tags"`
-	Timeouts *EnvironmentTimeouts `pulumi:"timeouts"`
+	ApplyChangesDuringMaintenanceWindow *bool                              `pulumi:"applyChangesDuringMaintenanceWindow"`
+	Description                         *string                            `pulumi:"description"`
+	EngineType                          string                             `pulumi:"engineType"`
+	EngineVersion                       *string                            `pulumi:"engineVersion"`
+	ForceUpdate                         *bool                              `pulumi:"forceUpdate"`
+	HighAvailabilityConfig              *EnvironmentHighAvailabilityConfig `pulumi:"highAvailabilityConfig"`
+	InstanceType                        string                             `pulumi:"instanceType"`
+	KmsKeyId                            *string                            `pulumi:"kmsKeyId"`
+	Name                                *string                            `pulumi:"name"`
+	PreferredMaintenanceWindow          *string                            `pulumi:"preferredMaintenanceWindow"`
+	PubliclyAccessible                  *bool                              `pulumi:"publiclyAccessible"`
+	Region                              *string                            `pulumi:"region"`
+	SecurityGroupIds                    []string                           `pulumi:"securityGroupIds"`
+	StorageConfiguration                *EnvironmentStorageConfiguration   `pulumi:"storageConfiguration"`
+	SubnetIds                           []string                           `pulumi:"subnetIds"`
+	Tags                                map[string]string                  `pulumi:"tags"`
+	Timeouts                            *EnvironmentTimeouts               `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a Environment resource.
 type EnvironmentArgs struct {
 	ApplyChangesDuringMaintenanceWindow pulumi.BoolPtrInput
 	Description                         pulumi.StringPtrInput
-	// Engine type must be `microfocus` or `bluage`.
-	EngineType pulumi.StringInput
-	// The specific version of the engine for the Environment.
-	EngineVersion pulumi.StringPtrInput
-	// Force update the environment even if applications are running.
-	ForceUpdate            pulumi.BoolPtrInput
-	HighAvailabilityConfig EnvironmentHighAvailabilityConfigPtrInput
-	// M2 Instance Type.
-	//
-	// The following arguments are optional:
-	InstanceType pulumi.StringInput
-	// ARN of the KMS key to use for the Environment.
-	KmsKeyId pulumi.StringPtrInput
-	// Name of the runtime environment. Must be unique within the account.
-	Name pulumi.StringPtrInput
-	// Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
-	PreferredMaintenanceWindow pulumi.StringPtrInput
-	// Allow applications deployed to this environment to be publicly accessible.
-	PubliclyAccessible pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// List of security group ids.
-	SecurityGroupIds     pulumi.StringArrayInput
-	StorageConfiguration EnvironmentStorageConfigurationPtrInput
-	// List of subnet ids to deploy environment to.
-	SubnetIds pulumi.StringArrayInput
-	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts EnvironmentTimeoutsPtrInput
+	EngineType                          pulumi.StringInput
+	EngineVersion                       pulumi.StringPtrInput
+	ForceUpdate                         pulumi.BoolPtrInput
+	HighAvailabilityConfig              EnvironmentHighAvailabilityConfigPtrInput
+	InstanceType                        pulumi.StringInput
+	KmsKeyId                            pulumi.StringPtrInput
+	Name                                pulumi.StringPtrInput
+	PreferredMaintenanceWindow          pulumi.StringPtrInput
+	PubliclyAccessible                  pulumi.BoolPtrInput
+	Region                              pulumi.StringPtrInput
+	SecurityGroupIds                    pulumi.StringArrayInput
+	StorageConfiguration                EnvironmentStorageConfigurationPtrInput
+	SubnetIds                           pulumi.StringArrayInput
+	Tags                                pulumi.StringMapInput
+	Timeouts                            EnvironmentTimeoutsPtrInput
 }
 
 func (EnvironmentArgs) ElementType() reflect.Type {
@@ -502,7 +257,6 @@ func (o EnvironmentOutput) ApplyChangesDuringMaintenanceWindow() pulumi.BoolPtrO
 	return o.ApplyT(func(v *Environment) pulumi.BoolPtrOutput { return v.ApplyChangesDuringMaintenanceWindow }).(pulumi.BoolPtrOutput)
 }
 
-// ARN of the Environment.
 func (o EnvironmentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -511,22 +265,18 @@ func (o EnvironmentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Engine type must be `microfocus` or `bluage`.
 func (o EnvironmentOutput) EngineType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EngineType }).(pulumi.StringOutput)
 }
 
-// The specific version of the engine for the Environment.
 func (o EnvironmentOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }
 
-// The id of the Environment.
 func (o EnvironmentOutput) EnvironmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EnvironmentId }).(pulumi.StringOutput)
 }
 
-// Force update the environment even if applications are running.
 func (o EnvironmentOutput) ForceUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.BoolPtrOutput { return v.ForceUpdate }).(pulumi.BoolPtrOutput)
 }
@@ -535,44 +285,34 @@ func (o EnvironmentOutput) HighAvailabilityConfig() EnvironmentHighAvailabilityC
 	return o.ApplyT(func(v *Environment) EnvironmentHighAvailabilityConfigPtrOutput { return v.HighAvailabilityConfig }).(EnvironmentHighAvailabilityConfigPtrOutput)
 }
 
-// M2 Instance Type.
-//
-// The following arguments are optional:
 func (o EnvironmentOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// ARN of the KMS key to use for the Environment.
 func (o EnvironmentOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the load balancer created by the Environment.
 func (o EnvironmentOutput) LoadBalancerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.LoadBalancerArn }).(pulumi.StringOutput)
 }
 
-// Name of the runtime environment. Must be unique within the account.
 func (o EnvironmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
 func (o EnvironmentOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
 }
 
-// Allow applications deployed to this environment to be publicly accessible.
 func (o EnvironmentOutput) PubliclyAccessible() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Environment) pulumi.BoolOutput { return v.PubliclyAccessible }).(pulumi.BoolOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EnvironmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// List of security group ids.
 func (o EnvironmentOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -581,12 +321,10 @@ func (o EnvironmentOutput) StorageConfiguration() EnvironmentStorageConfiguratio
 	return o.ApplyT(func(v *Environment) EnvironmentStorageConfigurationPtrOutput { return v.StorageConfiguration }).(EnvironmentStorageConfigurationPtrOutput)
 }
 
-// List of subnet ids to deploy environment to.
 func (o EnvironmentOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o EnvironmentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

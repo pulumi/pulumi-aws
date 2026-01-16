@@ -56,17 +56,8 @@ MYPY = False
 if not MYPY:
     class ClusterClusterNodeArgsDict(TypedDict):
         node_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Whether the node is a leader node or a compute node
-        """
         private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The private IP address of a node within a cluster
-        """
         public_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The public IP address of a node within a cluster
-        """
 elif False:
     ClusterClusterNodeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -76,11 +67,6 @@ class ClusterClusterNodeArgs:
                  node_role: Optional[pulumi.Input[_builtins.str]] = None,
                  private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
                  public_ip_address: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] node_role: Whether the node is a leader node or a compute node
-        :param pulumi.Input[_builtins.str] private_ip_address: The private IP address of a node within a cluster
-        :param pulumi.Input[_builtins.str] public_ip_address: The public IP address of a node within a cluster
-        """
         if node_role is not None:
             pulumi.set(__self__, "node_role", node_role)
         if private_ip_address is not None:
@@ -91,9 +77,6 @@ class ClusterClusterNodeArgs:
     @_builtins.property
     @pulumi.getter(name="nodeRole")
     def node_role(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether the node is a leader node or a compute node
-        """
         return pulumi.get(self, "node_role")
 
     @node_role.setter
@@ -103,9 +86,6 @@ class ClusterClusterNodeArgs:
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The private IP address of a node within a cluster
-        """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
@@ -115,9 +95,6 @@ class ClusterClusterNodeArgs:
     @_builtins.property
     @pulumi.getter(name="publicIpAddress")
     def public_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The public IP address of a node within a cluster
-        """
         return pulumi.get(self, "public_ip_address")
 
     @public_ip_address.setter
@@ -128,17 +105,8 @@ class ClusterClusterNodeArgs:
 if not MYPY:
     class EndpointAccessVpcEndpointArgsDict(TypedDict):
         network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgsDict']]]]
-        """
-        One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
-        """
         vpc_endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
-        """
         vpc_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The VPC identifier that the endpoint is associated.
-        """
 elif False:
     EndpointAccessVpcEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -148,11 +116,6 @@ class EndpointAccessVpcEndpointArgs:
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgs']]]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgs']]] network_interfaces: One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
-        :param pulumi.Input[_builtins.str] vpc_endpoint_id: The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
-        :param pulumi.Input[_builtins.str] vpc_id: The VPC identifier that the endpoint is associated.
-        """
         if network_interfaces is not None:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
         if vpc_endpoint_id is not None:
@@ -163,9 +126,6 @@ class EndpointAccessVpcEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgs']]]]:
-        """
-        One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
-        """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
@@ -175,9 +135,6 @@ class EndpointAccessVpcEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
-        """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @vpc_endpoint_id.setter
@@ -187,9 +144,6 @@ class EndpointAccessVpcEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The VPC identifier that the endpoint is associated.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -200,21 +154,9 @@ class EndpointAccessVpcEndpointArgs:
 if not MYPY:
     class EndpointAccessVpcEndpointNetworkInterfaceArgsDict(TypedDict):
         availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Availability Zone.
-        """
         network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The network interface identifier.
-        """
         private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IPv4 address of the network interface within the subnet.
-        """
         subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The subnet identifier.
-        """
 elif False:
     EndpointAccessVpcEndpointNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -225,12 +167,6 @@ class EndpointAccessVpcEndpointNetworkInterfaceArgs:
                  network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
                  private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone.
-        :param pulumi.Input[_builtins.str] network_interface_id: The network interface identifier.
-        :param pulumi.Input[_builtins.str] private_ip_address: The IPv4 address of the network interface within the subnet.
-        :param pulumi.Input[_builtins.str] subnet_id: The subnet identifier.
-        """
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if network_interface_id is not None:
@@ -243,9 +179,6 @@ class EndpointAccessVpcEndpointNetworkInterfaceArgs:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Availability Zone.
-        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -255,9 +188,6 @@ class EndpointAccessVpcEndpointNetworkInterfaceArgs:
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The network interface identifier.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter
@@ -267,9 +197,6 @@ class EndpointAccessVpcEndpointNetworkInterfaceArgs:
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IPv4 address of the network interface within the subnet.
-        """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
@@ -279,9 +206,6 @@ class EndpointAccessVpcEndpointNetworkInterfaceArgs:
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The subnet identifier.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -292,13 +216,7 @@ class EndpointAccessVpcEndpointNetworkInterfaceArgs:
 if not MYPY:
     class IdcApplicationAuthorizedTokenIssuerArgsDict(TypedDict):
         authorized_audiences_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-        """
         trusted_token_issuer_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-        """
 elif False:
     IdcApplicationAuthorizedTokenIssuerArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -307,10 +225,6 @@ class IdcApplicationAuthorizedTokenIssuerArgs:
     def __init__(__self__, *,
                  authorized_audiences_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  trusted_token_issuer_arn: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorized_audiences_lists: List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-        :param pulumi.Input[_builtins.str] trusted_token_issuer_arn: ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-        """
         if authorized_audiences_lists is not None:
             pulumi.set(__self__, "authorized_audiences_lists", authorized_audiences_lists)
         if trusted_token_issuer_arn is not None:
@@ -319,9 +233,6 @@ class IdcApplicationAuthorizedTokenIssuerArgs:
     @_builtins.property
     @pulumi.getter(name="authorizedAudiencesLists")
     def authorized_audiences_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-        """
         return pulumi.get(self, "authorized_audiences_lists")
 
     @authorized_audiences_lists.setter
@@ -331,9 +242,6 @@ class IdcApplicationAuthorizedTokenIssuerArgs:
     @_builtins.property
     @pulumi.getter(name="trustedTokenIssuerArn")
     def trusted_token_issuer_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-        """
         return pulumi.get(self, "trusted_token_issuer_arn")
 
     @trusted_token_issuer_arn.setter
@@ -344,17 +252,8 @@ class IdcApplicationAuthorizedTokenIssuerArgs:
 if not MYPY:
     class IdcApplicationServiceIntegrationArgsDict(TypedDict):
         lake_formation: NotRequired[pulumi.Input['IdcApplicationServiceIntegrationLakeFormationArgsDict']]
-        """
-        List of scopes set up for Lake Formation integration. Refer to the lake_formation documentation for more details.
-        """
         redshift: NotRequired[pulumi.Input['IdcApplicationServiceIntegrationRedshiftArgsDict']]
-        """
-        List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
-        """
         s3_access_grants: NotRequired[pulumi.Input['IdcApplicationServiceIntegrationS3AccessGrantsArgsDict']]
-        """
-        List of scopes set up for S3 Access Grants integration. Refer to the s3_access_grants documentation for more details.
-        """
 elif False:
     IdcApplicationServiceIntegrationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -364,11 +263,6 @@ class IdcApplicationServiceIntegrationArgs:
                  lake_formation: Optional[pulumi.Input['IdcApplicationServiceIntegrationLakeFormationArgs']] = None,
                  redshift: Optional[pulumi.Input['IdcApplicationServiceIntegrationRedshiftArgs']] = None,
                  s3_access_grants: Optional[pulumi.Input['IdcApplicationServiceIntegrationS3AccessGrantsArgs']] = None):
-        """
-        :param pulumi.Input['IdcApplicationServiceIntegrationLakeFormationArgs'] lake_formation: List of scopes set up for Lake Formation integration. Refer to the lake_formation documentation for more details.
-        :param pulumi.Input['IdcApplicationServiceIntegrationRedshiftArgs'] redshift: List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
-        :param pulumi.Input['IdcApplicationServiceIntegrationS3AccessGrantsArgs'] s3_access_grants: List of scopes set up for S3 Access Grants integration. Refer to the s3_access_grants documentation for more details.
-        """
         if lake_formation is not None:
             pulumi.set(__self__, "lake_formation", lake_formation)
         if redshift is not None:
@@ -379,9 +273,6 @@ class IdcApplicationServiceIntegrationArgs:
     @_builtins.property
     @pulumi.getter(name="lakeFormation")
     def lake_formation(self) -> Optional[pulumi.Input['IdcApplicationServiceIntegrationLakeFormationArgs']]:
-        """
-        List of scopes set up for Lake Formation integration. Refer to the lake_formation documentation for more details.
-        """
         return pulumi.get(self, "lake_formation")
 
     @lake_formation.setter
@@ -391,9 +282,6 @@ class IdcApplicationServiceIntegrationArgs:
     @_builtins.property
     @pulumi.getter
     def redshift(self) -> Optional[pulumi.Input['IdcApplicationServiceIntegrationRedshiftArgs']]:
-        """
-        List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
-        """
         return pulumi.get(self, "redshift")
 
     @redshift.setter
@@ -403,9 +291,6 @@ class IdcApplicationServiceIntegrationArgs:
     @_builtins.property
     @pulumi.getter(name="s3AccessGrants")
     def s3_access_grants(self) -> Optional[pulumi.Input['IdcApplicationServiceIntegrationS3AccessGrantsArgs']]:
-        """
-        List of scopes set up for S3 Access Grants integration. Refer to the s3_access_grants documentation for more details.
-        """
         return pulumi.get(self, "s3_access_grants")
 
     @s3_access_grants.setter
@@ -416,9 +301,6 @@ class IdcApplicationServiceIntegrationArgs:
 if not MYPY:
     class IdcApplicationServiceIntegrationLakeFormationArgsDict(TypedDict):
         lake_formation_query: NotRequired[pulumi.Input['IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgsDict']]
-        """
-        Lake formation scope.
-        """
 elif False:
     IdcApplicationServiceIntegrationLakeFormationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -426,18 +308,12 @@ elif False:
 class IdcApplicationServiceIntegrationLakeFormationArgs:
     def __init__(__self__, *,
                  lake_formation_query: Optional[pulumi.Input['IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs']] = None):
-        """
-        :param pulumi.Input['IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs'] lake_formation_query: Lake formation scope.
-        """
         if lake_formation_query is not None:
             pulumi.set(__self__, "lake_formation_query", lake_formation_query)
 
     @_builtins.property
     @pulumi.getter(name="lakeFormationQuery")
     def lake_formation_query(self) -> Optional[pulumi.Input['IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs']]:
-        """
-        Lake formation scope.
-        """
         return pulumi.get(self, "lake_formation_query")
 
     @lake_formation_query.setter
@@ -448,9 +324,6 @@ class IdcApplicationServiceIntegrationLakeFormationArgs:
 if not MYPY:
     class IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgsDict(TypedDict):
         authorization: pulumi.Input[_builtins.str]
-        """
-        Determines whether the query scope is enabled or disabled.
-        """
 elif False:
     IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -458,17 +331,11 @@ elif False:
 class IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs:
     def __init__(__self__, *,
                  authorization: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] authorization: Determines whether the query scope is enabled or disabled.
-        """
         pulumi.set(__self__, "authorization", authorization)
 
     @_builtins.property
     @pulumi.getter
     def authorization(self) -> pulumi.Input[_builtins.str]:
-        """
-        Determines whether the query scope is enabled or disabled.
-        """
         return pulumi.get(self, "authorization")
 
     @authorization.setter
@@ -479,9 +346,6 @@ class IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs:
 if not MYPY:
     class IdcApplicationServiceIntegrationRedshiftArgsDict(TypedDict):
         connect: NotRequired[pulumi.Input['IdcApplicationServiceIntegrationRedshiftConnectArgsDict']]
-        """
-        Amazon Redshift connect service integration scope.
-        """
 elif False:
     IdcApplicationServiceIntegrationRedshiftArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -489,18 +353,12 @@ elif False:
 class IdcApplicationServiceIntegrationRedshiftArgs:
     def __init__(__self__, *,
                  connect: Optional[pulumi.Input['IdcApplicationServiceIntegrationRedshiftConnectArgs']] = None):
-        """
-        :param pulumi.Input['IdcApplicationServiceIntegrationRedshiftConnectArgs'] connect: Amazon Redshift connect service integration scope.
-        """
         if connect is not None:
             pulumi.set(__self__, "connect", connect)
 
     @_builtins.property
     @pulumi.getter
     def connect(self) -> Optional[pulumi.Input['IdcApplicationServiceIntegrationRedshiftConnectArgs']]:
-        """
-        Amazon Redshift connect service integration scope.
-        """
         return pulumi.get(self, "connect")
 
     @connect.setter
@@ -511,9 +369,6 @@ class IdcApplicationServiceIntegrationRedshiftArgs:
 if not MYPY:
     class IdcApplicationServiceIntegrationRedshiftConnectArgsDict(TypedDict):
         authorization: pulumi.Input[_builtins.str]
-        """
-        Determines whether the connect integration is enabled or disabled.
-        """
 elif False:
     IdcApplicationServiceIntegrationRedshiftConnectArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -521,17 +376,11 @@ elif False:
 class IdcApplicationServiceIntegrationRedshiftConnectArgs:
     def __init__(__self__, *,
                  authorization: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] authorization: Determines whether the connect integration is enabled or disabled.
-        """
         pulumi.set(__self__, "authorization", authorization)
 
     @_builtins.property
     @pulumi.getter
     def authorization(self) -> pulumi.Input[_builtins.str]:
-        """
-        Determines whether the connect integration is enabled or disabled.
-        """
         return pulumi.get(self, "authorization")
 
     @authorization.setter
@@ -542,9 +391,6 @@ class IdcApplicationServiceIntegrationRedshiftConnectArgs:
 if not MYPY:
     class IdcApplicationServiceIntegrationS3AccessGrantsArgsDict(TypedDict):
         read_write_access: NotRequired[pulumi.Input['IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgsDict']]
-        """
-        S3 Access grants integration scope.
-        """
 elif False:
     IdcApplicationServiceIntegrationS3AccessGrantsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -552,18 +398,12 @@ elif False:
 class IdcApplicationServiceIntegrationS3AccessGrantsArgs:
     def __init__(__self__, *,
                  read_write_access: Optional[pulumi.Input['IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs']] = None):
-        """
-        :param pulumi.Input['IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs'] read_write_access: S3 Access grants integration scope.
-        """
         if read_write_access is not None:
             pulumi.set(__self__, "read_write_access", read_write_access)
 
     @_builtins.property
     @pulumi.getter(name="readWriteAccess")
     def read_write_access(self) -> Optional[pulumi.Input['IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs']]:
-        """
-        S3 Access grants integration scope.
-        """
         return pulumi.get(self, "read_write_access")
 
     @read_write_access.setter
@@ -574,9 +414,6 @@ class IdcApplicationServiceIntegrationS3AccessGrantsArgs:
 if not MYPY:
     class IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgsDict(TypedDict):
         authorization: pulumi.Input[_builtins.str]
-        """
-        Determines whether read/write scope is enabled or disabled.
-        """
 elif False:
     IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -584,17 +421,11 @@ elif False:
 class IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs:
     def __init__(__self__, *,
                  authorization: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] authorization: Determines whether read/write scope is enabled or disabled.
-        """
         pulumi.set(__self__, "authorization", authorization)
 
     @_builtins.property
     @pulumi.getter
     def authorization(self) -> pulumi.Input[_builtins.str]:
-        """
-        Determines whether read/write scope is enabled or disabled.
-        """
         return pulumi.get(self, "authorization")
 
     @authorization.setter
@@ -677,13 +508,7 @@ class IntegrationTimeoutsArgs:
 if not MYPY:
     class ParameterGroupParameterArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        The name of the Redshift parameter.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        The value of the Redshift parameter.
-        """
 elif False:
     ParameterGroupParameterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -692,19 +517,12 @@ class ParameterGroupParameterArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] name: The name of the Redshift parameter.
-        :param pulumi.Input[_builtins.str] value: The value of the Redshift parameter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Redshift parameter.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -714,9 +532,6 @@ class ParameterGroupParameterArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        The value of the Redshift parameter.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -727,17 +542,8 @@ class ParameterGroupParameterArgs:
 if not MYPY:
     class ScheduledActionTargetActionArgsDict(TypedDict):
         pause_cluster: NotRequired[pulumi.Input['ScheduledActionTargetActionPauseClusterArgsDict']]
-        """
-        An action that runs a `PauseCluster` API operation. Documented below.
-        """
         resize_cluster: NotRequired[pulumi.Input['ScheduledActionTargetActionResizeClusterArgsDict']]
-        """
-        An action that runs a `ResizeCluster` API operation. Documented below.
-        """
         resume_cluster: NotRequired[pulumi.Input['ScheduledActionTargetActionResumeClusterArgsDict']]
-        """
-        An action that runs a `ResumeCluster` API operation. Documented below.
-        """
 elif False:
     ScheduledActionTargetActionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -747,11 +553,6 @@ class ScheduledActionTargetActionArgs:
                  pause_cluster: Optional[pulumi.Input['ScheduledActionTargetActionPauseClusterArgs']] = None,
                  resize_cluster: Optional[pulumi.Input['ScheduledActionTargetActionResizeClusterArgs']] = None,
                  resume_cluster: Optional[pulumi.Input['ScheduledActionTargetActionResumeClusterArgs']] = None):
-        """
-        :param pulumi.Input['ScheduledActionTargetActionPauseClusterArgs'] pause_cluster: An action that runs a `PauseCluster` API operation. Documented below.
-        :param pulumi.Input['ScheduledActionTargetActionResizeClusterArgs'] resize_cluster: An action that runs a `ResizeCluster` API operation. Documented below.
-        :param pulumi.Input['ScheduledActionTargetActionResumeClusterArgs'] resume_cluster: An action that runs a `ResumeCluster` API operation. Documented below.
-        """
         if pause_cluster is not None:
             pulumi.set(__self__, "pause_cluster", pause_cluster)
         if resize_cluster is not None:
@@ -762,9 +563,6 @@ class ScheduledActionTargetActionArgs:
     @_builtins.property
     @pulumi.getter(name="pauseCluster")
     def pause_cluster(self) -> Optional[pulumi.Input['ScheduledActionTargetActionPauseClusterArgs']]:
-        """
-        An action that runs a `PauseCluster` API operation. Documented below.
-        """
         return pulumi.get(self, "pause_cluster")
 
     @pause_cluster.setter
@@ -774,9 +572,6 @@ class ScheduledActionTargetActionArgs:
     @_builtins.property
     @pulumi.getter(name="resizeCluster")
     def resize_cluster(self) -> Optional[pulumi.Input['ScheduledActionTargetActionResizeClusterArgs']]:
-        """
-        An action that runs a `ResizeCluster` API operation. Documented below.
-        """
         return pulumi.get(self, "resize_cluster")
 
     @resize_cluster.setter
@@ -786,9 +581,6 @@ class ScheduledActionTargetActionArgs:
     @_builtins.property
     @pulumi.getter(name="resumeCluster")
     def resume_cluster(self) -> Optional[pulumi.Input['ScheduledActionTargetActionResumeClusterArgs']]:
-        """
-        An action that runs a `ResumeCluster` API operation. Documented below.
-        """
         return pulumi.get(self, "resume_cluster")
 
     @resume_cluster.setter
@@ -799,9 +591,6 @@ class ScheduledActionTargetActionArgs:
 if not MYPY:
     class ScheduledActionTargetActionPauseClusterArgsDict(TypedDict):
         cluster_identifier: pulumi.Input[_builtins.str]
-        """
-        The identifier of the cluster to be paused.
-        """
 elif False:
     ScheduledActionTargetActionPauseClusterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -809,17 +598,11 @@ elif False:
 class ScheduledActionTargetActionPauseClusterArgs:
     def __init__(__self__, *,
                  cluster_identifier: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] cluster_identifier: The identifier of the cluster to be paused.
-        """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The identifier of the cluster to be paused.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -830,25 +613,10 @@ class ScheduledActionTargetActionPauseClusterArgs:
 if not MYPY:
     class ScheduledActionTargetActionResizeClusterArgsDict(TypedDict):
         cluster_identifier: pulumi.Input[_builtins.str]
-        """
-        The unique identifier for the cluster to resize.
-        """
         classic: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
-        """
         cluster_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The new cluster type for the specified cluster.
-        """
         node_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The new node type for the nodes you are adding.
-        """
         number_of_nodes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The new number of nodes for the cluster.
-        """
 elif False:
     ScheduledActionTargetActionResizeClusterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -860,13 +628,6 @@ class ScheduledActionTargetActionResizeClusterArgs:
                  cluster_type: Optional[pulumi.Input[_builtins.str]] = None,
                  node_type: Optional[pulumi.Input[_builtins.str]] = None,
                  number_of_nodes: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.str] cluster_identifier: The unique identifier for the cluster to resize.
-        :param pulumi.Input[_builtins.bool] classic: A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
-        :param pulumi.Input[_builtins.str] cluster_type: The new cluster type for the specified cluster.
-        :param pulumi.Input[_builtins.str] node_type: The new node type for the nodes you are adding.
-        :param pulumi.Input[_builtins.int] number_of_nodes: The new number of nodes for the cluster.
-        """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         if classic is not None:
             pulumi.set(__self__, "classic", classic)
@@ -880,9 +641,6 @@ class ScheduledActionTargetActionResizeClusterArgs:
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The unique identifier for the cluster to resize.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -892,9 +650,6 @@ class ScheduledActionTargetActionResizeClusterArgs:
     @_builtins.property
     @pulumi.getter
     def classic(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
-        """
         return pulumi.get(self, "classic")
 
     @classic.setter
@@ -904,9 +659,6 @@ class ScheduledActionTargetActionResizeClusterArgs:
     @_builtins.property
     @pulumi.getter(name="clusterType")
     def cluster_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The new cluster type for the specified cluster.
-        """
         return pulumi.get(self, "cluster_type")
 
     @cluster_type.setter
@@ -916,9 +668,6 @@ class ScheduledActionTargetActionResizeClusterArgs:
     @_builtins.property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The new node type for the nodes you are adding.
-        """
         return pulumi.get(self, "node_type")
 
     @node_type.setter
@@ -928,9 +677,6 @@ class ScheduledActionTargetActionResizeClusterArgs:
     @_builtins.property
     @pulumi.getter(name="numberOfNodes")
     def number_of_nodes(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The new number of nodes for the cluster.
-        """
         return pulumi.get(self, "number_of_nodes")
 
     @number_of_nodes.setter
@@ -941,9 +687,6 @@ class ScheduledActionTargetActionResizeClusterArgs:
 if not MYPY:
     class ScheduledActionTargetActionResumeClusterArgsDict(TypedDict):
         cluster_identifier: pulumi.Input[_builtins.str]
-        """
-        The identifier of the cluster to be resumed.
-        """
 elif False:
     ScheduledActionTargetActionResumeClusterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -951,17 +694,11 @@ elif False:
 class ScheduledActionTargetActionResumeClusterArgs:
     def __init__(__self__, *,
                  cluster_identifier: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] cluster_identifier: The identifier of the cluster to be resumed.
-        """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The identifier of the cluster to be resumed.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter

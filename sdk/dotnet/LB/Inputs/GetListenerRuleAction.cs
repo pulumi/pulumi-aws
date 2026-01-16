@@ -14,11 +14,6 @@ namespace Pulumi.Aws.LB.Inputs
     {
         [Input("authenticateCognitos")]
         private List<Inputs.GetListenerRuleActionAuthenticateCognitoArgs>? _authenticateCognitos;
-
-        /// <summary>
-        /// An action to authenticate using Amazon Cognito.
-        /// Detailed below.
-        /// </summary>
         public List<Inputs.GetListenerRuleActionAuthenticateCognitoArgs> AuthenticateCognitos
         {
             get => _authenticateCognitos ?? (_authenticateCognitos = new List<Inputs.GetListenerRuleActionAuthenticateCognitoArgs>());
@@ -27,11 +22,6 @@ namespace Pulumi.Aws.LB.Inputs
 
         [Input("authenticateOidcs")]
         private List<Inputs.GetListenerRuleActionAuthenticateOidcArgs>? _authenticateOidcs;
-
-        /// <summary>
-        /// An action to authenticate using OIDC.
-        /// Detailed below.
-        /// </summary>
         public List<Inputs.GetListenerRuleActionAuthenticateOidcArgs> AuthenticateOidcs
         {
             get => _authenticateOidcs ?? (_authenticateOidcs = new List<Inputs.GetListenerRuleActionAuthenticateOidcArgs>());
@@ -40,11 +30,6 @@ namespace Pulumi.Aws.LB.Inputs
 
         [Input("fixedResponses")]
         private List<Inputs.GetListenerRuleActionFixedResponseArgs>? _fixedResponses;
-
-        /// <summary>
-        /// An action to return a fixed response.
-        /// Detailed below.
-        /// </summary>
         public List<Inputs.GetListenerRuleActionFixedResponseArgs> FixedResponses
         {
             get => _fixedResponses ?? (_fixedResponses = new List<Inputs.GetListenerRuleActionFixedResponseArgs>());
@@ -53,11 +38,6 @@ namespace Pulumi.Aws.LB.Inputs
 
         [Input("forwards")]
         private List<Inputs.GetListenerRuleActionForwardArgs>? _forwards;
-
-        /// <summary>
-        /// An action to forward the request.
-        /// Detailed below.
-        /// </summary>
         public List<Inputs.GetListenerRuleActionForwardArgs> Forwards
         {
             get => _forwards ?? (_forwards = new List<Inputs.GetListenerRuleActionForwardArgs>());
@@ -66,39 +46,23 @@ namespace Pulumi.Aws.LB.Inputs
 
         [Input("jwtValidations")]
         private List<Inputs.GetListenerRuleActionJwtValidationArgs>? _jwtValidations;
-
-        /// <summary>
-        /// An action to validate using JWT.
-        /// Detailed below.
-        /// </summary>
         public List<Inputs.GetListenerRuleActionJwtValidationArgs> JwtValidations
         {
             get => _jwtValidations ?? (_jwtValidations = new List<Inputs.GetListenerRuleActionJwtValidationArgs>());
             set => _jwtValidations = value;
         }
 
-        /// <summary>
-        /// The evaluation order of the action.
-        /// </summary>
         [Input("order", required: true)]
         public int Order { get; set; }
 
         [Input("redirects")]
         private List<Inputs.GetListenerRuleActionRedirectArgs>? _redirects;
-
-        /// <summary>
-        /// An action to redirect the request.
-        /// Detailed below.
-        /// </summary>
         public List<Inputs.GetListenerRuleActionRedirectArgs> Redirects
         {
             get => _redirects ?? (_redirects = new List<Inputs.GetListenerRuleActionRedirectArgs>());
             set => _redirects = value;
         }
 
-        /// <summary>
-        /// Type of transform.
-        /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;
 

@@ -11,50 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **Note:** `alb.LoadBalancer` is known as `lb.LoadBalancer`. The functionality is identical.
-//
-// Provides information about a Load Balancer.
-//
-// This data source can prove useful when a module accepts an LB as an input
-// variable and needs to, for example, determine the security groups associated
-// with it, etc.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			lbArn := ""
-//			if param := cfg.Get("lbArn"); param != "" {
-//				lbArn = param
-//			}
-//			lbName := ""
-//			if param := cfg.Get("lbName"); param != "" {
-//				lbName = param
-//			}
-//			_, err := lb.LookupLoadBalancer(ctx, &lb.LookupLoadBalancerArgs{
-//				Arn:  pulumi.StringRef(lbArn),
-//				Name: pulumi.StringRef(lbName),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupLoadBalancer(ctx *pulumi.Context, args *LookupLoadBalancerArgs, opts ...pulumi.InvokeOption) (*LookupLoadBalancerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLoadBalancerResult
@@ -67,16 +23,10 @@ func LookupLoadBalancer(ctx *pulumi.Context, args *LookupLoadBalancerArgs, opts 
 
 // A collection of arguments for invoking getLoadBalancer.
 type LookupLoadBalancerArgs struct {
-	// Full ARN of the load balancer.
-	Arn *string `pulumi:"arn"`
-	// Unique name of the load balancer.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
-	//
-	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has lowest precedence.
-	Tags map[string]string `pulumi:"tags"`
+	Arn    *string           `pulumi:"arn"`
+	Name   *string           `pulumi:"name"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getLoadBalancer.
@@ -131,16 +81,10 @@ func LookupLoadBalancerOutput(ctx *pulumi.Context, args LookupLoadBalancerOutput
 
 // A collection of arguments for invoking getLoadBalancer.
 type LookupLoadBalancerOutputArgs struct {
-	// Full ARN of the load balancer.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// Unique name of the load balancer.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Arn    pulumi.StringPtrInput `pulumi:"arn"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
-	//
-	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has lowest precedence.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupLoadBalancerOutputArgs) ElementType() reflect.Type {

@@ -92,13 +92,7 @@ class ConnectionAliasTimeoutsArgs:
 if not MYPY:
     class DirectoryActiveDirectoryConfigArgsDict(TypedDict):
         domain_name: pulumi.Input[_builtins.str]
-        """
-        Fully qualified domain name of the AWS Directory Service directory.
-        """
         service_account_secret_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the Secrets Manager secret that contains the credentials for the service account. For more information, see [Service Account Details](https://docs.aws.amazon.com/workspaces/latest/adminguide/pools-service-account-details.html).
-        """
 elif False:
     DirectoryActiveDirectoryConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -107,19 +101,12 @@ class DirectoryActiveDirectoryConfigArgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[_builtins.str],
                  service_account_secret_arn: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] domain_name: Fully qualified domain name of the AWS Directory Service directory.
-        :param pulumi.Input[_builtins.str] service_account_secret_arn: ARN of the Secrets Manager secret that contains the credentials for the service account. For more information, see [Service Account Details](https://docs.aws.amazon.com/workspaces/latest/adminguide/pools-service-account-details.html).
-        """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "service_account_secret_arn", service_account_secret_arn)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Fully qualified domain name of the AWS Directory Service directory.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -129,9 +116,6 @@ class DirectoryActiveDirectoryConfigArgs:
     @_builtins.property
     @pulumi.getter(name="serviceAccountSecretArn")
     def service_account_secret_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the Secrets Manager secret that contains the credentials for the service account. For more information, see [Service Account Details](https://docs.aws.amazon.com/workspaces/latest/adminguide/pools-service-account-details.html).
-        """
         return pulumi.get(self, "service_account_secret_arn")
 
     @service_account_secret_arn.setter
@@ -142,13 +126,7 @@ class DirectoryActiveDirectoryConfigArgs:
 if not MYPY:
     class DirectoryCertificateBasedAuthPropertiesArgsDict(TypedDict):
         certificate_authority_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
-        """
         status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status of certificate-based authentication. Default `DISABLED`.
-        """
 elif False:
     DirectoryCertificateBasedAuthPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -157,10 +135,6 @@ class DirectoryCertificateBasedAuthPropertiesArgs:
     def __init__(__self__, *,
                  certificate_authority_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] certificate_authority_arn: The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
-        :param pulumi.Input[_builtins.str] status: Status of certificate-based authentication. Default `DISABLED`.
-        """
         if certificate_authority_arn is not None:
             pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
         if status is not None:
@@ -169,9 +143,6 @@ class DirectoryCertificateBasedAuthPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
-        """
         return pulumi.get(self, "certificate_authority_arn")
 
     @certificate_authority_arn.setter
@@ -181,9 +152,6 @@ class DirectoryCertificateBasedAuthPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of certificate-based authentication. Default `DISABLED`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -194,17 +162,8 @@ class DirectoryCertificateBasedAuthPropertiesArgs:
 if not MYPY:
     class DirectorySamlPropertiesArgsDict(TypedDict):
         relay_state_parameter_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The relay state parameter name supported by the SAML 2.0 identity provider (IdP). Default `RelayState`.
-        """
         status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status of SAML 2.0 authentication. Default `DISABLED`.
-        """
         user_access_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SAML 2.0 identity provider (IdP) user access URL.
-        """
 elif False:
     DirectorySamlPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -214,11 +173,6 @@ class DirectorySamlPropertiesArgs:
                  relay_state_parameter_name: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  user_access_url: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] relay_state_parameter_name: The relay state parameter name supported by the SAML 2.0 identity provider (IdP). Default `RelayState`.
-        :param pulumi.Input[_builtins.str] status: Status of SAML 2.0 authentication. Default `DISABLED`.
-        :param pulumi.Input[_builtins.str] user_access_url: The SAML 2.0 identity provider (IdP) user access URL.
-        """
         if relay_state_parameter_name is not None:
             pulumi.set(__self__, "relay_state_parameter_name", relay_state_parameter_name)
         if status is not None:
@@ -229,9 +183,6 @@ class DirectorySamlPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="relayStateParameterName")
     def relay_state_parameter_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The relay state parameter name supported by the SAML 2.0 identity provider (IdP). Default `RelayState`.
-        """
         return pulumi.get(self, "relay_state_parameter_name")
 
     @relay_state_parameter_name.setter
@@ -241,9 +192,6 @@ class DirectorySamlPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of SAML 2.0 authentication. Default `DISABLED`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -253,9 +201,6 @@ class DirectorySamlPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="userAccessUrl")
     def user_access_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The SAML 2.0 identity provider (IdP) user access URL.
-        """
         return pulumi.get(self, "user_access_url")
 
     @user_access_url.setter
@@ -266,25 +211,10 @@ class DirectorySamlPropertiesArgs:
 if not MYPY:
     class DirectorySelfServicePermissionsArgsDict(TypedDict):
         change_compute_type: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
-        """
         increase_volume_size: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
-        """
         rebuild_workspace: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
-        """
         restart_workspace: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether WorkSpaces directory users can restart their workspace. Default `true`.
-        """
         switch_running_mode: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
-        """
 elif False:
     DirectorySelfServicePermissionsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -296,13 +226,6 @@ class DirectorySelfServicePermissionsArgs:
                  rebuild_workspace: Optional[pulumi.Input[_builtins.bool]] = None,
                  restart_workspace: Optional[pulumi.Input[_builtins.bool]] = None,
                  switch_running_mode: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] change_compute_type: Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
-        :param pulumi.Input[_builtins.bool] increase_volume_size: Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
-        :param pulumi.Input[_builtins.bool] rebuild_workspace: Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
-        :param pulumi.Input[_builtins.bool] restart_workspace: Whether WorkSpaces directory users can restart their workspace. Default `true`.
-        :param pulumi.Input[_builtins.bool] switch_running_mode: Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
-        """
         if change_compute_type is not None:
             pulumi.set(__self__, "change_compute_type", change_compute_type)
         if increase_volume_size is not None:
@@ -317,9 +240,6 @@ class DirectorySelfServicePermissionsArgs:
     @_builtins.property
     @pulumi.getter(name="changeComputeType")
     def change_compute_type(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
-        """
         return pulumi.get(self, "change_compute_type")
 
     @change_compute_type.setter
@@ -329,9 +249,6 @@ class DirectorySelfServicePermissionsArgs:
     @_builtins.property
     @pulumi.getter(name="increaseVolumeSize")
     def increase_volume_size(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
-        """
         return pulumi.get(self, "increase_volume_size")
 
     @increase_volume_size.setter
@@ -341,9 +258,6 @@ class DirectorySelfServicePermissionsArgs:
     @_builtins.property
     @pulumi.getter(name="rebuildWorkspace")
     def rebuild_workspace(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
-        """
         return pulumi.get(self, "rebuild_workspace")
 
     @rebuild_workspace.setter
@@ -353,9 +267,6 @@ class DirectorySelfServicePermissionsArgs:
     @_builtins.property
     @pulumi.getter(name="restartWorkspace")
     def restart_workspace(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether WorkSpaces directory users can restart their workspace. Default `true`.
-        """
         return pulumi.get(self, "restart_workspace")
 
     @restart_workspace.setter
@@ -365,9 +276,6 @@ class DirectorySelfServicePermissionsArgs:
     @_builtins.property
     @pulumi.getter(name="switchRunningMode")
     def switch_running_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
-        """
         return pulumi.get(self, "switch_running_mode")
 
     @switch_running_mode.setter
@@ -378,37 +286,13 @@ class DirectorySelfServicePermissionsArgs:
 if not MYPY:
     class DirectoryWorkspaceAccessPropertiesArgsDict(TypedDict):
         device_type_android: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether users can use Android devices to access their WorkSpaces.
-        """
         device_type_chromeos: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether users can use Chromebooks to access their WorkSpaces.
-        """
         device_type_ios: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether users can use iOS devices to access their WorkSpaces.
-        """
         device_type_linux: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether users can use Linux clients to access their WorkSpaces.
-        """
         device_type_osx: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether users can use macOS clients to access their WorkSpaces.
-        """
         device_type_web: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether users can access their WorkSpaces through a web browser.
-        """
         device_type_windows: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether users can use Windows clients to access their WorkSpaces.
-        """
         device_type_zeroclient: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether users can use zero client devices to access their WorkSpaces.
-        """
 elif False:
     DirectoryWorkspaceAccessPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -423,16 +307,6 @@ class DirectoryWorkspaceAccessPropertiesArgs:
                  device_type_web: Optional[pulumi.Input[_builtins.str]] = None,
                  device_type_windows: Optional[pulumi.Input[_builtins.str]] = None,
                  device_type_zeroclient: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] device_type_android: Indicates whether users can use Android devices to access their WorkSpaces.
-        :param pulumi.Input[_builtins.str] device_type_chromeos: Indicates whether users can use Chromebooks to access their WorkSpaces.
-        :param pulumi.Input[_builtins.str] device_type_ios: Indicates whether users can use iOS devices to access their WorkSpaces.
-        :param pulumi.Input[_builtins.str] device_type_linux: Indicates whether users can use Linux clients to access their WorkSpaces.
-        :param pulumi.Input[_builtins.str] device_type_osx: Indicates whether users can use macOS clients to access their WorkSpaces.
-        :param pulumi.Input[_builtins.str] device_type_web: Indicates whether users can access their WorkSpaces through a web browser.
-        :param pulumi.Input[_builtins.str] device_type_windows: Indicates whether users can use Windows clients to access their WorkSpaces.
-        :param pulumi.Input[_builtins.str] device_type_zeroclient: Indicates whether users can use zero client devices to access their WorkSpaces.
-        """
         if device_type_android is not None:
             pulumi.set(__self__, "device_type_android", device_type_android)
         if device_type_chromeos is not None:
@@ -453,9 +327,6 @@ class DirectoryWorkspaceAccessPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="deviceTypeAndroid")
     def device_type_android(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether users can use Android devices to access their WorkSpaces.
-        """
         return pulumi.get(self, "device_type_android")
 
     @device_type_android.setter
@@ -465,9 +336,6 @@ class DirectoryWorkspaceAccessPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="deviceTypeChromeos")
     def device_type_chromeos(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether users can use Chromebooks to access their WorkSpaces.
-        """
         return pulumi.get(self, "device_type_chromeos")
 
     @device_type_chromeos.setter
@@ -477,9 +345,6 @@ class DirectoryWorkspaceAccessPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="deviceTypeIos")
     def device_type_ios(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether users can use iOS devices to access their WorkSpaces.
-        """
         return pulumi.get(self, "device_type_ios")
 
     @device_type_ios.setter
@@ -489,9 +354,6 @@ class DirectoryWorkspaceAccessPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="deviceTypeLinux")
     def device_type_linux(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether users can use Linux clients to access their WorkSpaces.
-        """
         return pulumi.get(self, "device_type_linux")
 
     @device_type_linux.setter
@@ -501,9 +363,6 @@ class DirectoryWorkspaceAccessPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="deviceTypeOsx")
     def device_type_osx(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether users can use macOS clients to access their WorkSpaces.
-        """
         return pulumi.get(self, "device_type_osx")
 
     @device_type_osx.setter
@@ -513,9 +372,6 @@ class DirectoryWorkspaceAccessPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="deviceTypeWeb")
     def device_type_web(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether users can access their WorkSpaces through a web browser.
-        """
         return pulumi.get(self, "device_type_web")
 
     @device_type_web.setter
@@ -525,9 +381,6 @@ class DirectoryWorkspaceAccessPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="deviceTypeWindows")
     def device_type_windows(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether users can use Windows clients to access their WorkSpaces.
-        """
         return pulumi.get(self, "device_type_windows")
 
     @device_type_windows.setter
@@ -537,9 +390,6 @@ class DirectoryWorkspaceAccessPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="deviceTypeZeroclient")
     def device_type_zeroclient(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether users can use zero client devices to access their WorkSpaces.
-        """
         return pulumi.get(self, "device_type_zeroclient")
 
     @device_type_zeroclient.setter
@@ -550,25 +400,10 @@ class DirectoryWorkspaceAccessPropertiesArgs:
 if not MYPY:
     class DirectoryWorkspaceCreationPropertiesArgsDict(TypedDict):
         custom_security_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
-        """
         default_ou: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The default organizational unit (OU) for your WorkSpace directories. Should conform `"OU=<value>,DC=<value>,...,DC=<value>"` pattern.
-        """
         enable_internet_access: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether internet access is enabled for your WorkSpaces.
-        """
         enable_maintenance_mode: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
-        """
         user_enabled_as_local_administrator: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
-        """
 elif False:
     DirectoryWorkspaceCreationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -580,13 +415,6 @@ class DirectoryWorkspaceCreationPropertiesArgs:
                  enable_internet_access: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_maintenance_mode: Optional[pulumi.Input[_builtins.bool]] = None,
                  user_enabled_as_local_administrator: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.str] custom_security_group_id: The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
-        :param pulumi.Input[_builtins.str] default_ou: The default organizational unit (OU) for your WorkSpace directories. Should conform `"OU=<value>,DC=<value>,...,DC=<value>"` pattern.
-        :param pulumi.Input[_builtins.bool] enable_internet_access: Indicates whether internet access is enabled for your WorkSpaces.
-        :param pulumi.Input[_builtins.bool] enable_maintenance_mode: Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
-        :param pulumi.Input[_builtins.bool] user_enabled_as_local_administrator: Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
-        """
         if custom_security_group_id is not None:
             pulumi.set(__self__, "custom_security_group_id", custom_security_group_id)
         if default_ou is not None:
@@ -601,9 +429,6 @@ class DirectoryWorkspaceCreationPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="customSecurityGroupId")
     def custom_security_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
-        """
         return pulumi.get(self, "custom_security_group_id")
 
     @custom_security_group_id.setter
@@ -613,9 +438,6 @@ class DirectoryWorkspaceCreationPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="defaultOu")
     def default_ou(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The default organizational unit (OU) for your WorkSpace directories. Should conform `"OU=<value>,DC=<value>,...,DC=<value>"` pattern.
-        """
         return pulumi.get(self, "default_ou")
 
     @default_ou.setter
@@ -625,9 +447,6 @@ class DirectoryWorkspaceCreationPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="enableInternetAccess")
     def enable_internet_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether internet access is enabled for your WorkSpaces.
-        """
         return pulumi.get(self, "enable_internet_access")
 
     @enable_internet_access.setter
@@ -637,9 +456,6 @@ class DirectoryWorkspaceCreationPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="enableMaintenanceMode")
     def enable_maintenance_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
-        """
         return pulumi.get(self, "enable_maintenance_mode")
 
     @enable_maintenance_mode.setter
@@ -649,9 +465,6 @@ class DirectoryWorkspaceCreationPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="userEnabledAsLocalAdministrator")
     def user_enabled_as_local_administrator(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
-        """
         return pulumi.get(self, "user_enabled_as_local_administrator")
 
     @user_enabled_as_local_administrator.setter
@@ -662,13 +475,7 @@ class DirectoryWorkspaceCreationPropertiesArgs:
 if not MYPY:
     class IpGroupRuleArgsDict(TypedDict):
         source: pulumi.Input[_builtins.str]
-        """
-        The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
-        """
         description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the IP group.
-        """
 elif False:
     IpGroupRuleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -677,10 +484,6 @@ class IpGroupRuleArgs:
     def __init__(__self__, *,
                  source: pulumi.Input[_builtins.str],
                  description: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] source: The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
-        :param pulumi.Input[_builtins.str] description: The description of the IP group.
-        """
         pulumi.set(__self__, "source", source)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -688,9 +491,6 @@ class IpGroupRuleArgs:
     @_builtins.property
     @pulumi.getter
     def source(self) -> pulumi.Input[_builtins.str]:
-        """
-        The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
-        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -700,9 +500,6 @@ class IpGroupRuleArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the IP group.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -713,25 +510,10 @@ class IpGroupRuleArgs:
 if not MYPY:
     class WorkspaceWorkspacePropertiesArgsDict(TypedDict):
         compute_type_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
-        """
         root_volume_size_gib: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The size of the root volume.
-        """
         running_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
-        """
         running_mode_auto_stop_timeout_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
-        """
         user_volume_size_gib: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The size of the user storage.
-        """
 elif False:
     WorkspaceWorkspacePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -743,13 +525,6 @@ class WorkspaceWorkspacePropertiesArgs:
                  running_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  running_mode_auto_stop_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
                  user_volume_size_gib: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.str] compute_type_name: The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
-        :param pulumi.Input[_builtins.int] root_volume_size_gib: The size of the root volume.
-        :param pulumi.Input[_builtins.str] running_mode: The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
-        :param pulumi.Input[_builtins.int] running_mode_auto_stop_timeout_in_minutes: The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
-        :param pulumi.Input[_builtins.int] user_volume_size_gib: The size of the user storage.
-        """
         if compute_type_name is not None:
             pulumi.set(__self__, "compute_type_name", compute_type_name)
         if root_volume_size_gib is not None:
@@ -764,9 +539,6 @@ class WorkspaceWorkspacePropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="computeTypeName")
     def compute_type_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
-        """
         return pulumi.get(self, "compute_type_name")
 
     @compute_type_name.setter
@@ -776,9 +548,6 @@ class WorkspaceWorkspacePropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="rootVolumeSizeGib")
     def root_volume_size_gib(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The size of the root volume.
-        """
         return pulumi.get(self, "root_volume_size_gib")
 
     @root_volume_size_gib.setter
@@ -788,9 +557,6 @@ class WorkspaceWorkspacePropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="runningMode")
     def running_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
-        """
         return pulumi.get(self, "running_mode")
 
     @running_mode.setter
@@ -800,9 +566,6 @@ class WorkspaceWorkspacePropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="runningModeAutoStopTimeoutInMinutes")
     def running_mode_auto_stop_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
-        """
         return pulumi.get(self, "running_mode_auto_stop_timeout_in_minutes")
 
     @running_mode_auto_stop_timeout_in_minutes.setter
@@ -812,9 +575,6 @@ class WorkspaceWorkspacePropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="userVolumeSizeGib")
     def user_volume_size_gib(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The size of the user storage.
-        """
         return pulumi.get(self, "user_volume_size_gib")
 
     @user_volume_size_gib.setter

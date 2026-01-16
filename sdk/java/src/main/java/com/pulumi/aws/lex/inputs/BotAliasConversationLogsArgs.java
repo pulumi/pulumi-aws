@@ -18,32 +18,16 @@ public final class BotAliasConversationLogsArgs extends com.pulumi.resources.Res
 
     public static final BotAliasConversationLogsArgs Empty = new BotAliasConversationLogsArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
-     * 
-     */
     @Import(name="iamRoleArn", required=true)
     private Output<String> iamRoleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
-     * 
-     */
     public Output<String> iamRoleArn() {
         return this.iamRoleArn;
     }
 
-    /**
-     * The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
-     * 
-     */
     @Import(name="logSettings")
     private @Nullable Output<List<BotAliasConversationLogsLogSettingArgs>> logSettings;
 
-    /**
-     * @return The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
-     * 
-     */
     public Optional<Output<List<BotAliasConversationLogsLogSettingArgs>>> logSettings() {
         return Optional.ofNullable(this.logSettings);
     }
@@ -73,54 +57,24 @@ public final class BotAliasConversationLogsArgs extends com.pulumi.resources.Res
             $ = new BotAliasConversationLogsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param iamRoleArn The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iamRoleArn(Output<String> iamRoleArn) {
             $.iamRoleArn = iamRoleArn;
             return this;
         }
 
-        /**
-         * @param iamRoleArn The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iamRoleArn(String iamRoleArn) {
             return iamRoleArn(Output.of(iamRoleArn));
         }
 
-        /**
-         * @param logSettings The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logSettings(@Nullable Output<List<BotAliasConversationLogsLogSettingArgs>> logSettings) {
             $.logSettings = logSettings;
             return this;
         }
 
-        /**
-         * @param logSettings The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logSettings(List<BotAliasConversationLogsLogSettingArgs> logSettings) {
             return logSettings(Output.of(logSettings));
         }
 
-        /**
-         * @param logSettings The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logSettings(BotAliasConversationLogsLogSettingArgs... logSettings) {
             return logSettings(List.of(logSettings));
         }

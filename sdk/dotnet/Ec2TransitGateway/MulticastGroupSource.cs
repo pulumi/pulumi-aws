@@ -9,54 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2TransitGateway
 {
-    /// <summary>
-    /// Registers sources (network interfaces) with the transit gateway multicast group.
-    /// A multicast source is a network interface attached to a supported instance that sends multicast traffic.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2TransitGateway.MulticastGroupSource("example", new()
-    ///     {
-    ///         GroupIpAddress = "224.0.0.1",
-    ///         NetworkInterfaceId = exampleAwsNetworkInterface.Id,
-    ///         TransitGatewayMulticastDomainId = exampleAwsEc2TransitGatewayMulticastDomain.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2transitgateway/multicastGroupSource:MulticastGroupSource")]
     public partial class MulticastGroupSource : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The IP address assigned to the transit gateway multicast group.
-        /// </summary>
         [Output("groupIpAddress")]
         public Output<string> GroupIpAddress { get; private set; } = null!;
 
-        /// <summary>
-        /// The group members' network interface ID to register with the transit gateway multicast group.
-        /// </summary>
         [Output("networkInterfaceId")]
         public Output<string> NetworkInterfaceId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the transit gateway multicast domain.
-        /// </summary>
         [Output("transitGatewayMulticastDomainId")]
         public Output<string> TransitGatewayMulticastDomainId { get; private set; } = null!;
 
@@ -106,27 +70,15 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class MulticastGroupSourceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The IP address assigned to the transit gateway multicast group.
-        /// </summary>
         [Input("groupIpAddress", required: true)]
         public Input<string> GroupIpAddress { get; set; } = null!;
 
-        /// <summary>
-        /// The group members' network interface ID to register with the transit gateway multicast group.
-        /// </summary>
         [Input("networkInterfaceId", required: true)]
         public Input<string> NetworkInterfaceId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the transit gateway multicast domain.
-        /// </summary>
         [Input("transitGatewayMulticastDomainId", required: true)]
         public Input<string> TransitGatewayMulticastDomainId { get; set; } = null!;
 
@@ -138,27 +90,15 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class MulticastGroupSourceState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The IP address assigned to the transit gateway multicast group.
-        /// </summary>
         [Input("groupIpAddress")]
         public Input<string>? GroupIpAddress { get; set; }
 
-        /// <summary>
-        /// The group members' network interface ID to register with the transit gateway multicast group.
-        /// </summary>
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the transit gateway multicast domain.
-        /// </summary>
         [Input("transitGatewayMulticastDomainId")]
         public Input<string>? TransitGatewayMulticastDomainId { get; set; }
 

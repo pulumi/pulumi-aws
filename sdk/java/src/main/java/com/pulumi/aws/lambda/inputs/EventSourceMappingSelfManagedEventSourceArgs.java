@@ -15,17 +15,9 @@ public final class EventSourceMappingSelfManagedEventSourceArgs extends com.pulu
 
     public static final EventSourceMappingSelfManagedEventSourceArgs Empty = new EventSourceMappingSelfManagedEventSourceArgs();
 
-    /**
-     * Map of endpoints for the self managed source. For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
-     * 
-     */
     @Import(name="endpoints", required=true)
     private Output<Map<String,String>> endpoints;
 
-    /**
-     * @return Map of endpoints for the self managed source. For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
-     * 
-     */
     public Output<Map<String,String>> endpoints() {
         return this.endpoints;
     }
@@ -54,23 +46,11 @@ public final class EventSourceMappingSelfManagedEventSourceArgs extends com.pulu
             $ = new EventSourceMappingSelfManagedEventSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param endpoints Map of endpoints for the self managed source. For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoints(Output<Map<String,String>> endpoints) {
             $.endpoints = endpoints;
             return this;
         }
 
-        /**
-         * @param endpoints Map of endpoints for the self managed source. For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoints(Map<String,String> endpoints) {
             return endpoints(Output.of(endpoints));
         }

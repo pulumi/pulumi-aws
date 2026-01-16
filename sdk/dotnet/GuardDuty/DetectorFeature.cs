@@ -9,108 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.GuardDuty
 {
-    /// <summary>
-    /// Provides a resource to manage a single Amazon GuardDuty [detector feature](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-features-activation-model.html#guardduty-features).
-    /// 
-    /// &gt; **NOTE:** Deleting this resource does not disable the detector feature, the resource in simply removed from state instead.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.GuardDuty.Detector("example", new()
-    ///     {
-    ///         Enable = true,
-    ///     });
-    /// 
-    ///     var s3Protection = new Aws.GuardDuty.DetectorFeature("s3_protection", new()
-    ///     {
-    ///         DetectorId = example.Id,
-    ///         Name = "S3_DATA_EVENTS",
-    ///         Status = "ENABLED",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Extended Threat Detection for EKS
-    /// 
-    /// To enable GuardDuty [Extended Threat Detection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html) for EKS, you need at least one of these features enabled: [EKS Protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html) or [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring-configuration.html). For maximum detection coverage, enabling both is recommended to enhance detection capabilities.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.GuardDuty.Detector("example", new()
-    ///     {
-    ///         Enable = true,
-    ///     });
-    /// 
-    ///     var eksProtection = new Aws.GuardDuty.DetectorFeature("eks_protection", new()
-    ///     {
-    ///         DetectorId = example.Id,
-    ///         Name = "EKS_AUDIT_LOGS",
-    ///         Status = "ENABLED",
-    ///     });
-    /// 
-    ///     var eksRuntimeMonitoring = new Aws.GuardDuty.DetectorFeature("eks_runtime_monitoring", new()
-    ///     {
-    ///         DetectorId = example.Id,
-    ///         Name = "EKS_RUNTIME_MONITORING",
-    ///         Status = "ENABLED",
-    ///         AdditionalConfigurations = new[]
-    ///         {
-    ///             new Aws.GuardDuty.Inputs.DetectorFeatureAdditionalConfigurationArgs
-    ///             {
-    ///                 Name = "EKS_ADDON_MANAGEMENT",
-    ///                 Status = "ENABLED",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:guardduty/detectorFeature:DetectorFeature")]
     public partial class DetectorFeature : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
-        /// </summary>
         [Output("additionalConfigurations")]
         public Output<ImmutableArray<Outputs.DetectorFeatureAdditionalConfiguration>> AdditionalConfigurations { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon GuardDuty detector ID.
-        /// </summary>
         [Output("detectorId")]
         public Output<string> DetectorId { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -162,37 +75,21 @@ namespace Pulumi.Aws.GuardDuty
     {
         [Input("additionalConfigurations")]
         private InputList<Inputs.DetectorFeatureAdditionalConfigurationArgs>? _additionalConfigurations;
-
-        /// <summary>
-        /// Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
-        /// </summary>
         public InputList<Inputs.DetectorFeatureAdditionalConfigurationArgs> AdditionalConfigurations
         {
             get => _additionalConfigurations ?? (_additionalConfigurations = new InputList<Inputs.DetectorFeatureAdditionalConfigurationArgs>());
             set => _additionalConfigurations = value;
         }
 
-        /// <summary>
-        /// Amazon GuardDuty detector ID.
-        /// </summary>
         [Input("detectorId", required: true)]
         public Input<string> DetectorId { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
-        /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 
@@ -206,37 +103,21 @@ namespace Pulumi.Aws.GuardDuty
     {
         [Input("additionalConfigurations")]
         private InputList<Inputs.DetectorFeatureAdditionalConfigurationGetArgs>? _additionalConfigurations;
-
-        /// <summary>
-        /// Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
-        /// </summary>
         public InputList<Inputs.DetectorFeatureAdditionalConfigurationGetArgs> AdditionalConfigurations
         {
             get => _additionalConfigurations ?? (_additionalConfigurations = new InputList<Inputs.DetectorFeatureAdditionalConfigurationGetArgs>());
             set => _additionalConfigurations = value;
         }
 
-        /// <summary>
-        /// Amazon GuardDuty detector ID.
-        /// </summary>
         [Input("detectorId")]
         public Input<string>? DetectorId { get; set; }
 
-        /// <summary>
-        /// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

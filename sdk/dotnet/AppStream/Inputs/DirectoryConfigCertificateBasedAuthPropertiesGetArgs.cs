@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppStream.Inputs
 
     public sealed class DirectoryConfigCertificateBasedAuthPropertiesGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the AWS Certificate Manager Private CA resource.
-        /// </summary>
         [Input("certificateAuthorityArn")]
         public Input<string>? CertificateAuthorityArn { get; set; }
 
-        /// <summary>
-        /// The status of the certificate-based authentication properties. Valid values - ["DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"].
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

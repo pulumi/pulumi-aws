@@ -12,27 +12,15 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class ThemeConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Color properties that apply to chart data colors. See data_color_palette.
-        /// </summary>
         [Input("dataColorPalette")]
         public Input<Inputs.ThemeConfigurationDataColorPaletteGetArgs>? DataColorPalette { get; set; }
 
-        /// <summary>
-        /// Display options related to sheets. See sheet.
-        /// </summary>
         [Input("sheet")]
         public Input<Inputs.ThemeConfigurationSheetGetArgs>? Sheet { get; set; }
 
-        /// <summary>
-        /// Determines the typography options. See typography.
-        /// </summary>
         [Input("typography")]
         public Input<Inputs.ThemeConfigurationTypographyGetArgs>? Typography { get; set; }
 
-        /// <summary>
-        /// Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
-        /// </summary>
         [Input("uiColorPalette")]
         public Input<Inputs.ThemeConfigurationUiColorPaletteGetArgs>? UiColorPalette { get; set; }
 

@@ -17,32 +17,16 @@ public final class SlotTypeEnumerationValueArgs extends com.pulumi.resources.Res
 
     public static final SlotTypeEnumerationValueArgs Empty = new SlotTypeEnumerationValueArgs();
 
-    /**
-     * Additional values related to the slot type value. Each item must be less than or equal to 140 characters in length.
-     * 
-     */
     @Import(name="synonyms")
     private @Nullable Output<List<String>> synonyms;
 
-    /**
-     * @return Additional values related to the slot type value. Each item must be less than or equal to 140 characters in length.
-     * 
-     */
     public Optional<Output<List<String>>> synonyms() {
         return Optional.ofNullable(this.synonyms);
     }
 
-    /**
-     * The value of the slot type. Must be less than or equal to 140 characters in length.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return The value of the slot type. Must be less than or equal to 140 characters in length.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -72,54 +56,24 @@ public final class SlotTypeEnumerationValueArgs extends com.pulumi.resources.Res
             $ = new SlotTypeEnumerationValueArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param synonyms Additional values related to the slot type value. Each item must be less than or equal to 140 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder synonyms(@Nullable Output<List<String>> synonyms) {
             $.synonyms = synonyms;
             return this;
         }
 
-        /**
-         * @param synonyms Additional values related to the slot type value. Each item must be less than or equal to 140 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder synonyms(List<String> synonyms) {
             return synonyms(Output.of(synonyms));
         }
 
-        /**
-         * @param synonyms Additional values related to the slot type value. Each item must be less than or equal to 140 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder synonyms(String... synonyms) {
             return synonyms(List.of(synonyms));
         }
 
-        /**
-         * @param value The value of the slot type. Must be less than or equal to 140 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The value of the slot type. Must be less than or equal to 140 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

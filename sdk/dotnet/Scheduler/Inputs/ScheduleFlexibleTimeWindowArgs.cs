@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Scheduler.Inputs
 
     public sealed class ScheduleFlexibleTimeWindowArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Maximum time window during which a schedule can be invoked. Ranges from `1` to `1440` minutes.
-        /// </summary>
         [Input("maximumWindowInMinutes")]
         public Input<int>? MaximumWindowInMinutes { get; set; }
 
-        /// <summary>
-        /// Determines whether the schedule is invoked within a flexible time window. One of: `OFF`, `FLEXIBLE`.
-        /// </summary>
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
 

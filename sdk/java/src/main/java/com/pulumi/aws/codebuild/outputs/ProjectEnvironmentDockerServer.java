@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ProjectEnvironmentDockerServer {
-    /**
-     * @return Compute type for the Docker server. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, and `BUILD_GENERAL1_2XLARGE`.
-     * 
-     */
     private String computeType;
-    /**
-     * @return List of security group IDs to assign to the Docker server.
-     * 
-     */
     private @Nullable List<String> securityGroupIds;
 
     private ProjectEnvironmentDockerServer() {}
-    /**
-     * @return Compute type for the Docker server. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, and `BUILD_GENERAL1_2XLARGE`.
-     * 
-     */
     public String computeType() {
         return this.computeType;
     }
-    /**
-     * @return List of security group IDs to assign to the Docker server.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }

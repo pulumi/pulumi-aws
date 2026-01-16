@@ -15,32 +15,16 @@ public final class GetApprovalRuleTemplatePlainArgs extends com.pulumi.resources
 
     public static final GetApprovalRuleTemplatePlainArgs Empty = new GetApprovalRuleTemplatePlainArgs();
 
-    /**
-     * Name for the approval rule template. This needs to be less than 100 characters.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name for the approval rule template. This needs to be less than 100 characters.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,23 +54,11 @@ public final class GetApprovalRuleTemplatePlainArgs extends com.pulumi.resources
             $ = new GetApprovalRuleTemplatePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name for the approval rule template. This needs to be less than 100 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

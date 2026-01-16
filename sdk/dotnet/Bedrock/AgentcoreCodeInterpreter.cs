@@ -9,154 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Bedrock
 {
-    /// <summary>
-    /// Manages an AWS Bedrock AgentCore Code Interpreter. Code Interpreter provides a secure environment for AI agents to execute Python code, enabling data analysis, calculations, and file processing capabilities.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Bedrock.AgentcoreCodeInterpreter("example", new()
-    ///     {
-    ///         Name = "example-code-interpreter",
-    ///         Description = "Code interpreter for data analysis",
-    ///         NetworkConfiguration = new Aws.Bedrock.Inputs.AgentcoreCodeInterpreterNetworkConfigurationArgs
-    ///         {
-    ///             NetworkMode = "PUBLIC",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Code Interpreter with Execution Role
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "bedrock-agentcore.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var example = new Aws.Iam.Role("example", new()
-    ///     {
-    ///         Name = "bedrock-agentcore-code-interpreter-role",
-    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var exampleAgentcoreCodeInterpreter = new Aws.Bedrock.AgentcoreCodeInterpreter("example", new()
-    ///     {
-    ///         Name = "example-code-interpreter",
-    ///         Description = "Code interpreter with custom execution role",
-    ///         ExecutionRoleArn = example.Arn,
-    ///         NetworkConfiguration = new Aws.Bedrock.Inputs.AgentcoreCodeInterpreterNetworkConfigurationArgs
-    ///         {
-    ///             NetworkMode = "SANDBOX",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Bedrock AgentCore Code Interpreter using the code interpreter ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:bedrock/agentcoreCodeInterpreter:AgentcoreCodeInterpreter example CODEINTERPRETER1234567890
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:bedrock/agentcoreCodeInterpreter:AgentcoreCodeInterpreter")]
     public partial class AgentcoreCodeInterpreter : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Code Interpreter.
-        /// </summary>
         [Output("codeInterpreterArn")]
         public Output<string> CodeInterpreterArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique identifier of the Code Interpreter.
-        /// </summary>
         [Output("codeInterpreterId")]
         public Output<string> CodeInterpreterId { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the code interpreter.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
-        /// </summary>
         [Output("executionRoleArn")]
         public Output<string?> ExecutionRoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the code interpreter.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Network configuration for the code interpreter. See `NetworkConfiguration` below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("networkConfiguration")]
         public Output<Outputs.AgentcoreCodeInterpreterNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -209,44 +88,23 @@ namespace Pulumi.Aws.Bedrock
 
     public sealed class AgentcoreCodeInterpreterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the code interpreter.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
-        /// </summary>
         [Input("executionRoleArn")]
         public Input<string>? ExecutionRoleArn { get; set; }
 
-        /// <summary>
-        /// Name of the code interpreter.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Network configuration for the code interpreter. See `NetworkConfiguration` below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.AgentcoreCodeInterpreterNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -264,56 +122,29 @@ namespace Pulumi.Aws.Bedrock
 
     public sealed class AgentcoreCodeInterpreterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Code Interpreter.
-        /// </summary>
         [Input("codeInterpreterArn")]
         public Input<string>? CodeInterpreterArn { get; set; }
 
-        /// <summary>
-        /// Unique identifier of the Code Interpreter.
-        /// </summary>
         [Input("codeInterpreterId")]
         public Input<string>? CodeInterpreterId { get; set; }
 
-        /// <summary>
-        /// Description of the code interpreter.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
-        /// </summary>
         [Input("executionRoleArn")]
         public Input<string>? ExecutionRoleArn { get; set; }
 
-        /// <summary>
-        /// Name of the code interpreter.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Network configuration for the code interpreter. See `NetworkConfiguration` below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.AgentcoreCodeInterpreterNetworkConfigurationGetArgs>? NetworkConfiguration { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -322,10 +153,6 @@ namespace Pulumi.Aws.Bedrock
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

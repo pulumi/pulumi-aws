@@ -12,33 +12,18 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Allow the request. See below.
-        /// </summary>
         [Input("allow")]
         public Input<Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllowGetArgs>? Allow { get; set; }
 
-        /// <summary>
-        /// Block the request. See below.
-        /// </summary>
         [Input("block")]
         public Input<Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlockGetArgs>? Block { get; set; }
 
-        /// <summary>
-        /// Require CAPTCHA verification. See below.
-        /// </summary>
         [Input("captcha")]
         public Input<Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaGetArgs>? Captcha { get; set; }
 
-        /// <summary>
-        /// Require challenge verification. See below.
-        /// </summary>
         [Input("challenge")]
         public Input<Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeGetArgs>? Challenge { get; set; }
 
-        /// <summary>
-        /// Count the request without taking action. See below.
-        /// </summary>
         [Input("count")]
         public Input<Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountGetArgs>? Count { get; set; }
 

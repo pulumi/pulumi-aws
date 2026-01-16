@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Cognito.Inputs
 
     public sealed class LogDeliveryConfigurationLogConfigurationFirehoseConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the Kinesis Data Firehose delivery stream to which the logs should be delivered.
-        /// </summary>
         [Input("streamArn")]
         public Input<string>? StreamArn { get; set; }
 

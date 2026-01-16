@@ -16,115 +16,29 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS CodeConnections Connection.
- * 
- * &gt; **NOTE:** The `aws.codeconnections.Connection` resource is created in the state `PENDING`. Authentication with the connection provider must be completed in the AWS Console. See the [AWS documentation](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-update.html) for details.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.codeconnections.Connection;
- * import com.pulumi.aws.codeconnections.ConnectionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Connection("example", ConnectionArgs.builder()
- *             .name("example-connection")
- *             .providerType("Bitbucket")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the CodeConnections connection.
- * 
- * Using `pulumi import`, import CodeConnections connection using the ARN. For example:
- * 
- * % pulumi import aws_codeconnections_connection.test-connection arn:aws:codeconnections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
- * 
- */
 @ResourceType(type="aws:codeconnections/connection:Connection")
 public class Connection extends com.pulumi.resources.CustomResource {
-    /**
-     * The codeconnections connection ARN.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The codeconnections connection ARN.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
-     * 
-     */
     @Export(name="connectionStatus", refs={String.class}, tree="[0]")
     private Output<String> connectionStatus;
 
-    /**
-     * @return The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
-     * 
-     */
     public Output<String> connectionStatus() {
         return this.connectionStatus;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
-     * 
-     */
     @Export(name="hostArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> hostArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
-     * 
-     */
     public Output<Optional<String>> hostArn() {
         return Codegen.optional(this.hostArn);
     }
-    /**
-     * The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -134,59 +48,27 @@ public class Connection extends com.pulumi.resources.CustomResource {
     public Output<String> ownerAccountId() {
         return this.ownerAccountId;
     }
-    /**
-     * The name of the external provider where your third-party code repository is configured. Changing `providerType` will create a new resource. Conflicts with `hostArn`.
-     * 
-     */
     @Export(name="providerType", refs={String.class}, tree="[0]")
     private Output<String> providerType;
 
-    /**
-     * @return The name of the external provider where your third-party code repository is configured. Changing `providerType` will create a new resource. Conflicts with `hostArn`.
-     * 
-     */
     public Output<String> providerType() {
         return this.providerType;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

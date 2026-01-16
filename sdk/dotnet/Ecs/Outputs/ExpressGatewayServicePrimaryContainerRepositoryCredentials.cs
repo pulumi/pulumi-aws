@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ExpressGatewayServicePrimaryContainerRepositoryCredentials
     {
-        /// <summary>
-        /// ARN of the AWS Systems Manager parameter containing the repository credentials.
-        /// </summary>
         public readonly string CredentialsParameter;
 
         [OutputConstructor]

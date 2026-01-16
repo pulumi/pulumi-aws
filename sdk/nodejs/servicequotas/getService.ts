@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Retrieve information about a Service Quotas Service.
- *
- * > **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.servicequotas.getService({
- *     serviceName: "Amazon Virtual Private Cloud (Amazon VPC)",
- * });
- * ```
- */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicequotas/getService:getService", {
@@ -32,13 +16,7 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getService.
  */
 export interface GetServiceArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Service name to lookup within Service Quotas. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-     */
     serviceName: string;
 }
 
@@ -51,28 +29,9 @@ export interface GetServiceResult {
      */
     readonly id: string;
     readonly region: string;
-    /**
-     * Code of the service.
-     */
     readonly serviceCode: string;
     readonly serviceName: string;
 }
-/**
- * Retrieve information about a Service Quotas Service.
- *
- * > **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.servicequotas.getService({
- *     serviceName: "Amazon Virtual Private Cloud (Amazon VPC)",
- * });
- * ```
- */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:servicequotas/getService:getService", {
@@ -85,12 +44,6 @@ export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getService.
  */
 export interface GetServiceOutputArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Service name to lookup within Service Quotas. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-     */
     serviceName: pulumi.Input<string>;
 }

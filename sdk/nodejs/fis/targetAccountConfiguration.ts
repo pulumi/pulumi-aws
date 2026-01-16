@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an AWS FIS (Fault Injection Simulator) Target Account Configuration.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.fis.TargetAccountConfiguration("example", {
- *     experimentTemplateId: exampleAwsFisExperimentTemplate.id,
- *     accountId: current.accountId,
- *     roleArn: fisRole.arn,
- *     description: "Example",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import FIS (Fault Injection Simulator) Target Account Configuration using the `account_id,experiment_template_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:fis/targetAccountConfiguration:TargetAccountConfiguration example 123456789012,abcd123456789
- * ```
- */
 export class TargetAccountConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing TargetAccountConfiguration resource's state with the given name, ID, and optional extra
@@ -59,27 +32,10 @@ export class TargetAccountConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === TargetAccountConfiguration.__pulumiType;
     }
 
-    /**
-     * Account ID of the target account.
-     */
     declare public readonly accountId: pulumi.Output<string>;
-    /**
-     * Description of the target account.
-     */
     declare public readonly description: pulumi.Output<string>;
-    /**
-     * Experiment Template ID.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly experimentTemplateId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ARN of the IAM Role for the target account.
-     */
     declare public readonly roleArn: pulumi.Output<string>;
 
     /**
@@ -123,27 +79,10 @@ export class TargetAccountConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TargetAccountConfiguration resources.
  */
 export interface TargetAccountConfigurationState {
-    /**
-     * Account ID of the target account.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * Description of the target account.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Experiment Template ID.
-     *
-     * The following arguments are optional:
-     */
     experimentTemplateId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the IAM Role for the target account.
-     */
     roleArn?: pulumi.Input<string>;
 }
 
@@ -151,26 +90,9 @@ export interface TargetAccountConfigurationState {
  * The set of arguments for constructing a TargetAccountConfiguration resource.
  */
 export interface TargetAccountConfigurationArgs {
-    /**
-     * Account ID of the target account.
-     */
     accountId: pulumi.Input<string>;
-    /**
-     * Description of the target account.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Experiment Template ID.
-     *
-     * The following arguments are optional:
-     */
     experimentTemplateId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the IAM Role for the target account.
-     */
     roleArn?: pulumi.Input<string>;
 }

@@ -12,52 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Resource Access Manager (RAM) Resource Association.
-//
-// > *NOTE:* Certain AWS resources (e.g., EC2 Subnets) can only be shared in an AWS account that is a member of an AWS Organizations organization with organization-wide Resource Access Manager functionality enabled. See the [Resource Access Manager User Guide](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) and AWS service specific documentation for additional information.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ram"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ram.NewResourceAssociation(ctx, "example", &ram.ResourceAssociationArgs{
-//				ResourceArn:      pulumi.Any(exampleAwsSubnet.Arn),
-//				ResourceShareArn: pulumi.Any(exampleAwsRamResourceShare.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import RAM Resource Associations using their Resource Share ARN and Resource ARN separated by a comma. For example:
-//
-// ```sh
-// $ pulumi import aws:ram/resourceAssociation:ResourceAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,arn:aws:ec2:eu-west-1:123456789012:subnet/subnet-12345678
-// ```
 type ResourceAssociation struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
-	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
-	// Amazon Resource Name (ARN) of the RAM Resource Share.
+	Region           pulumi.StringOutput `pulumi:"region"`
+	ResourceArn      pulumi.StringOutput `pulumi:"resourceArn"`
 	ResourceShareArn pulumi.StringOutput `pulumi:"resourceShareArn"`
 }
 
@@ -97,20 +56,14 @@ func GetResourceAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourceAssociation resources.
 type resourceAssociationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
-	ResourceArn *string `pulumi:"resourceArn"`
-	// Amazon Resource Name (ARN) of the RAM Resource Share.
+	Region           *string `pulumi:"region"`
+	ResourceArn      *string `pulumi:"resourceArn"`
 	ResourceShareArn *string `pulumi:"resourceShareArn"`
 }
 
 type ResourceAssociationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
-	ResourceArn pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the RAM Resource Share.
+	Region           pulumi.StringPtrInput
+	ResourceArn      pulumi.StringPtrInput
 	ResourceShareArn pulumi.StringPtrInput
 }
 
@@ -119,21 +72,15 @@ func (ResourceAssociationState) ElementType() reflect.Type {
 }
 
 type resourceAssociationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
-	ResourceArn string `pulumi:"resourceArn"`
-	// Amazon Resource Name (ARN) of the RAM Resource Share.
-	ResourceShareArn string `pulumi:"resourceShareArn"`
+	Region           *string `pulumi:"region"`
+	ResourceArn      string  `pulumi:"resourceArn"`
+	ResourceShareArn string  `pulumi:"resourceShareArn"`
 }
 
 // The set of arguments for constructing a ResourceAssociation resource.
 type ResourceAssociationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
-	ResourceArn pulumi.StringInput
-	// Amazon Resource Name (ARN) of the RAM Resource Share.
+	Region           pulumi.StringPtrInput
+	ResourceArn      pulumi.StringInput
 	ResourceShareArn pulumi.StringInput
 }
 
@@ -224,17 +171,14 @@ func (o ResourceAssociationOutput) ToResourceAssociationOutputWithContext(ctx co
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResourceAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
 func (o ResourceAssociationOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceAssociation) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the RAM Resource Share.
 func (o ResourceAssociationOutput) ResourceShareArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceAssociation) pulumi.StringOutput { return v.ResourceShareArn }).(pulumi.StringOutput)
 }

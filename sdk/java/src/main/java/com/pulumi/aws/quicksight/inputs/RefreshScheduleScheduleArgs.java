@@ -17,47 +17,23 @@ public final class RefreshScheduleScheduleArgs extends com.pulumi.resources.Reso
 
     public static final RefreshScheduleScheduleArgs Empty = new RefreshScheduleScheduleArgs();
 
-    /**
-     * The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-     * 
-     */
     @Import(name="refreshType", required=true)
     private Output<String> refreshType;
 
-    /**
-     * @return The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-     * 
-     */
     public Output<String> refreshType() {
         return this.refreshType;
     }
 
-    /**
-     * The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
-     * 
-     */
     @Import(name="scheduleFrequency")
     private @Nullable Output<RefreshScheduleScheduleScheduleFrequencyArgs> scheduleFrequency;
 
-    /**
-     * @return The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
-     * 
-     */
     public Optional<Output<RefreshScheduleScheduleScheduleFrequencyArgs>> scheduleFrequency() {
         return Optional.ofNullable(this.scheduleFrequency);
     }
 
-    /**
-     * Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
-     * 
-     */
     @Import(name="startAfterDateTime")
     private @Nullable Output<String> startAfterDateTime;
 
-    /**
-     * @return Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
-     * 
-     */
     public Optional<Output<String>> startAfterDateTime() {
         return Optional.ofNullable(this.startAfterDateTime);
     }
@@ -88,65 +64,29 @@ public final class RefreshScheduleScheduleArgs extends com.pulumi.resources.Reso
             $ = new RefreshScheduleScheduleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param refreshType The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder refreshType(Output<String> refreshType) {
             $.refreshType = refreshType;
             return this;
         }
 
-        /**
-         * @param refreshType The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder refreshType(String refreshType) {
             return refreshType(Output.of(refreshType));
         }
 
-        /**
-         * @param scheduleFrequency The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scheduleFrequency(@Nullable Output<RefreshScheduleScheduleScheduleFrequencyArgs> scheduleFrequency) {
             $.scheduleFrequency = scheduleFrequency;
             return this;
         }
 
-        /**
-         * @param scheduleFrequency The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scheduleFrequency(RefreshScheduleScheduleScheduleFrequencyArgs scheduleFrequency) {
             return scheduleFrequency(Output.of(scheduleFrequency));
         }
 
-        /**
-         * @param startAfterDateTime Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startAfterDateTime(@Nullable Output<String> startAfterDateTime) {
             $.startAfterDateTime = startAfterDateTime;
             return this;
         }
 
-        /**
-         * @param startAfterDateTime Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startAfterDateTime(String startAfterDateTime) {
             return startAfterDateTime(Output.of(startAfterDateTime));
         }

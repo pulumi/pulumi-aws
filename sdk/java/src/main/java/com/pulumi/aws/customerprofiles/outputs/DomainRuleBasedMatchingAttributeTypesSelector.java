@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainRuleBasedMatchingAttributeTypesSelector {
-    /**
-     * @return The `Address` type. You can choose from `Address`, `BusinessAddress`, `MaillingAddress`, and `ShippingAddress`.
-     * 
-     */
     private @Nullable List<String> addresses;
-    /**
-     * @return Configures the `AttributeMatchingModel`, you can either choose `ONE_TO_ONE` or `MANY_TO_MANY`.
-     * 
-     */
     private String attributeMatchingModel;
-    /**
-     * @return The `Email` type. You can choose from `EmailAddress`, `BusinessEmailAddress` and `PersonalEmailAddress`.
-     * 
-     */
     private @Nullable List<String> emailAddresses;
-    /**
-     * @return The `PhoneNumber` type. You can choose from `PhoneNumber`, `HomePhoneNumber`, and `MobilePhoneNumber`.
-     * 
-     */
     private @Nullable List<String> phoneNumbers;
 
     private DomainRuleBasedMatchingAttributeTypesSelector() {}
-    /**
-     * @return The `Address` type. You can choose from `Address`, `BusinessAddress`, `MaillingAddress`, and `ShippingAddress`.
-     * 
-     */
     public List<String> addresses() {
         return this.addresses == null ? List.of() : this.addresses;
     }
-    /**
-     * @return Configures the `AttributeMatchingModel`, you can either choose `ONE_TO_ONE` or `MANY_TO_MANY`.
-     * 
-     */
     public String attributeMatchingModel() {
         return this.attributeMatchingModel;
     }
-    /**
-     * @return The `Email` type. You can choose from `EmailAddress`, `BusinessEmailAddress` and `PersonalEmailAddress`.
-     * 
-     */
     public List<String> emailAddresses() {
         return this.emailAddresses == null ? List.of() : this.emailAddresses;
     }
-    /**
-     * @return The `PhoneNumber` type. You can choose from `PhoneNumber`, `HomePhoneNumber`, and `MobilePhoneNumber`.
-     * 
-     */
     public List<String> phoneNumbers() {
         return this.phoneNumbers == null ? List.of() : this.phoneNumbers;
     }

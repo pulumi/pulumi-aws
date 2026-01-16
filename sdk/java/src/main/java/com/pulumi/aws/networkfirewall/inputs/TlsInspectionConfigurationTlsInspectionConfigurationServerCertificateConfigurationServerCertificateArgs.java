@@ -15,17 +15,9 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
 
     public static final TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs Empty = new TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs();
 
-    /**
-     * ARN of the Certificate Manager SSL/TLS server certificate that&#39;s used for inbound SSL/TLS inspection.
-     * 
-     */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
-    /**
-     * @return ARN of the Certificate Manager SSL/TLS server certificate that&#39;s used for inbound SSL/TLS inspection.
-     * 
-     */
     public Optional<Output<String>> resourceArn() {
         return Optional.ofNullable(this.resourceArn);
     }
@@ -54,23 +46,11 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
             $ = new TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param resourceArn ARN of the Certificate Manager SSL/TLS server certificate that&#39;s used for inbound SSL/TLS inspection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(@Nullable Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn ARN of the Certificate Manager SSL/TLS server certificate that&#39;s used for inbound SSL/TLS inspection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CodeGuruProfiler.Outputs
     [OutputType]
     public sealed class ProfilingGroupAgentOrchestrationConfig
     {
-        /// <summary>
-        /// (Required) Boolean that specifies whether the profiling agent collects profiling data or
-        /// </summary>
         public readonly bool ProfilingEnabled;
 
         [OutputConstructor]

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Example natural language query.
-        /// </summary>
         [Input("naturalLanguage", required: true)]
         public Input<string> NaturalLanguage { get; set; } = null!;
 
-        /// <summary>
-        /// SQL equivalent of `NaturalLanguage`.
-        /// </summary>
         [Input("sql", required: true)]
         public Input<string> Sql { get; set; } = null!;
 

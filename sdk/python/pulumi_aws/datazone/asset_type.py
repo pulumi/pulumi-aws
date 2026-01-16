@@ -30,14 +30,6 @@ class AssetTypeArgs:
                  timeouts: Optional[pulumi.Input['AssetTypeTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AssetType resource.
-        :param pulumi.Input[_builtins.str] domain_identifier: The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
-        :param pulumi.Input[_builtins.str] owning_project_identifier: The unique identifier of the Amazon DataZone project that owns the custom asset type.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: The description of the custom asset type.
-        :param pulumi.Input[Sequence[pulumi.Input['AssetTypeFormsInputArgs']]] forms_inputs: The metadata forms that are to be attached to the custom asset type.
-        :param pulumi.Input[_builtins.str] name: The name of the custom asset type.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
         pulumi.set(__self__, "owning_project_identifier", owning_project_identifier)
@@ -55,9 +47,6 @@ class AssetTypeArgs:
     @_builtins.property
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
-        """
         return pulumi.get(self, "domain_identifier")
 
     @domain_identifier.setter
@@ -67,11 +56,6 @@ class AssetTypeArgs:
     @_builtins.property
     @pulumi.getter(name="owningProjectIdentifier")
     def owning_project_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The unique identifier of the Amazon DataZone project that owns the custom asset type.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "owning_project_identifier")
 
     @owning_project_identifier.setter
@@ -81,9 +65,6 @@ class AssetTypeArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the custom asset type.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -93,9 +74,6 @@ class AssetTypeArgs:
     @_builtins.property
     @pulumi.getter(name="formsInputs")
     def forms_inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetTypeFormsInputArgs']]]]:
-        """
-        The metadata forms that are to be attached to the custom asset type.
-        """
         return pulumi.get(self, "forms_inputs")
 
     @forms_inputs.setter
@@ -105,9 +83,6 @@ class AssetTypeArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the custom asset type.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -117,9 +92,6 @@ class AssetTypeArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -151,17 +123,6 @@ class _AssetTypeState:
                  timeouts: Optional[pulumi.Input['AssetTypeTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AssetType resources.
-        :param pulumi.Input[_builtins.str] created_at: The timestamp when the custom asset type was created.
-        :param pulumi.Input[_builtins.str] created_by: The user who created the custom asset type.
-        :param pulumi.Input[_builtins.str] description: The description of the custom asset type.
-        :param pulumi.Input[_builtins.str] domain_identifier: The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
-        :param pulumi.Input[Sequence[pulumi.Input['AssetTypeFormsInputArgs']]] forms_inputs: The metadata forms that are to be attached to the custom asset type.
-        :param pulumi.Input[_builtins.str] name: The name of the custom asset type.
-        :param pulumi.Input[_builtins.str] owning_project_identifier: The unique identifier of the Amazon DataZone project that owns the custom asset type.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] revision: The revision of the asset type.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -187,9 +148,6 @@ class _AssetTypeState:
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The timestamp when the custom asset type was created.
-        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -199,9 +157,6 @@ class _AssetTypeState:
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The user who created the custom asset type.
-        """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
@@ -211,9 +166,6 @@ class _AssetTypeState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the custom asset type.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -223,9 +175,6 @@ class _AssetTypeState:
     @_builtins.property
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
-        """
         return pulumi.get(self, "domain_identifier")
 
     @domain_identifier.setter
@@ -235,9 +184,6 @@ class _AssetTypeState:
     @_builtins.property
     @pulumi.getter(name="formsInputs")
     def forms_inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetTypeFormsInputArgs']]]]:
-        """
-        The metadata forms that are to be attached to the custom asset type.
-        """
         return pulumi.get(self, "forms_inputs")
 
     @forms_inputs.setter
@@ -247,9 +193,6 @@ class _AssetTypeState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the custom asset type.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -259,11 +202,6 @@ class _AssetTypeState:
     @_builtins.property
     @pulumi.getter(name="owningProjectIdentifier")
     def owning_project_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The unique identifier of the Amazon DataZone project that owns the custom asset type.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "owning_project_identifier")
 
     @owning_project_identifier.setter
@@ -273,9 +211,6 @@ class _AssetTypeState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -285,9 +220,6 @@ class _AssetTypeState:
     @_builtins.property
     @pulumi.getter
     def revision(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The revision of the asset type.
-        """
         return pulumi.get(self, "revision")
 
     @revision.setter
@@ -319,41 +251,9 @@ class AssetType(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['AssetTypeTimeoutsArgs', 'AssetTypeTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS DataZone Asset Type.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.datazone.AssetType("test",
-            description="example",
-            domain_identifier=test_aws_datazone_domain["id"],
-            name="example",
-            owning_project_identifier=test_aws_datazone_project["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DataZone Asset Type using the `domain_identifier,name`. For example:
-
-        ```sh
-        $ pulumi import aws:datazone/assetType:AssetType example domain-id-12345678,example
-        ```
-
+        Create a AssetType resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: The description of the custom asset type.
-        :param pulumi.Input[_builtins.str] domain_identifier: The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AssetTypeFormsInputArgs', 'AssetTypeFormsInputArgsDict']]]] forms_inputs: The metadata forms that are to be attached to the custom asset type.
-        :param pulumi.Input[_builtins.str] name: The name of the custom asset type.
-        :param pulumi.Input[_builtins.str] owning_project_identifier: The unique identifier of the Amazon DataZone project that owns the custom asset type.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -362,31 +262,7 @@ class AssetType(pulumi.CustomResource):
                  args: AssetTypeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS DataZone Asset Type.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.datazone.AssetType("test",
-            description="example",
-            domain_identifier=test_aws_datazone_domain["id"],
-            name="example",
-            owning_project_identifier=test_aws_datazone_project["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DataZone Asset Type using the `domain_identifier,name`. For example:
-
-        ```sh
-        $ pulumi import aws:datazone/assetType:AssetType example domain-id-12345678,example
-        ```
-
+        Create a AssetType resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AssetTypeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -459,17 +335,6 @@ class AssetType(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] created_at: The timestamp when the custom asset type was created.
-        :param pulumi.Input[_builtins.str] created_by: The user who created the custom asset type.
-        :param pulumi.Input[_builtins.str] description: The description of the custom asset type.
-        :param pulumi.Input[_builtins.str] domain_identifier: The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AssetTypeFormsInputArgs', 'AssetTypeFormsInputArgsDict']]]] forms_inputs: The metadata forms that are to be attached to the custom asset type.
-        :param pulumi.Input[_builtins.str] name: The name of the custom asset type.
-        :param pulumi.Input[_builtins.str] owning_project_identifier: The unique identifier of the Amazon DataZone project that owns the custom asset type.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] revision: The revision of the asset type.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -490,75 +355,46 @@ class AssetType(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        The timestamp when the custom asset type was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> pulumi.Output[_builtins.str]:
-        """
-        The user who created the custom asset type.
-        """
         return pulumi.get(self, "created_by")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The description of the custom asset type.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
-        """
         return pulumi.get(self, "domain_identifier")
 
     @_builtins.property
     @pulumi.getter(name="formsInputs")
     def forms_inputs(self) -> pulumi.Output[Optional[Sequence['outputs.AssetTypeFormsInput']]]:
-        """
-        The metadata forms that are to be attached to the custom asset type.
-        """
         return pulumi.get(self, "forms_inputs")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the custom asset type.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="owningProjectIdentifier")
     def owning_project_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The unique identifier of the Amazon DataZone project that owns the custom asset type.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "owning_project_identifier")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def revision(self) -> pulumi.Output[_builtins.str]:
-        """
-        The revision of the asset type.
-        """
         return pulumi.get(self, "revision")
 
     @_builtins.property

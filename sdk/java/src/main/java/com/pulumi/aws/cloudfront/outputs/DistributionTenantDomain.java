@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionTenantDomain {
-    /**
-     * @return Set of domains associated with the distribution tenant.
-     * 
-     */
     private String domain;
-    /**
-     * @return Current status of the distribution tenant.
-     * 
-     */
     private @Nullable String status;
 
     private DistributionTenantDomain() {}
-    /**
-     * @return Set of domains associated with the distribution tenant.
-     * 
-     */
     public String domain() {
         return this.domain;
     }
-    /**
-     * @return Current status of the distribution tenant.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }

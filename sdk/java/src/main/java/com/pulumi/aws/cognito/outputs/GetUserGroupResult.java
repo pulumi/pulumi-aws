@@ -11,62 +11,30 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserGroupResult {
-    /**
-     * @return Description of the user group.
-     * 
-     */
     private String description;
-    /**
-     * @return A comma-delimited string concatenating `name` and `userPoolId`.
-     * 
-     */
     private String id;
     private String name;
-    /**
-     * @return Precedence of the user group.
-     * 
-     */
     private Integer precedence;
     private String region;
-    /**
-     * @return ARN of the IAM role to be associated with the user group.
-     * 
-     */
     private String roleArn;
     private String userPoolId;
 
     private GetUserGroupResult() {}
-    /**
-     * @return Description of the user group.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return A comma-delimited string concatenating `name` and `userPoolId`.
-     * 
-     */
     public String id() {
         return this.id;
     }
     public String name() {
         return this.name;
     }
-    /**
-     * @return Precedence of the user group.
-     * 
-     */
     public Integer precedence() {
         return this.precedence;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return ARN of the IAM role to be associated with the user group.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }

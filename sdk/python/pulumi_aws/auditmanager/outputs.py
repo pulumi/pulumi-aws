@@ -54,27 +54,17 @@ class AssessmentAssessmentReportsDestination(dict):
     def __init__(__self__, *,
                  destination: _builtins.str,
                  destination_type: _builtins.str):
-        """
-        :param _builtins.str destination: Destination of the assessment report. This value be in the form `s3://{bucket_name}`.
-        :param _builtins.str destination_type: Destination type. Currently, `S3` is the only valid value.
-        """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "destination_type", destination_type)
 
     @_builtins.property
     @pulumi.getter
     def destination(self) -> _builtins.str:
-        """
-        Destination of the assessment report. This value be in the form `s3://{bucket_name}`.
-        """
         return pulumi.get(self, "destination")
 
     @_builtins.property
     @pulumi.getter(name="destinationType")
     def destination_type(self) -> _builtins.str:
-        """
-        Destination type. Currently, `S3` is the only valid value.
-        """
         return pulumi.get(self, "destination_type")
 
 
@@ -102,27 +92,17 @@ class AssessmentRole(dict):
     def __init__(__self__, *,
                  role_arn: _builtins.str,
                  role_type: _builtins.str):
-        """
-        :param _builtins.str role_arn: Amazon Resource Name (ARN) of the IAM role.
-        :param _builtins.str role_type: Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
-        """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "role_type", role_type)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
-        """
-        Amazon Resource Name (ARN) of the IAM role.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter(name="roleType")
     def role_type(self) -> _builtins.str:
-        """
-        Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
-        """
         return pulumi.get(self, "role_type")
 
 
@@ -150,27 +130,17 @@ class AssessmentRolesAll(dict):
     def __init__(__self__, *,
                  role_arn: _builtins.str,
                  role_type: _builtins.str):
-        """
-        :param _builtins.str role_arn: Amazon Resource Name (ARN) of the IAM role.
-        :param _builtins.str role_type: Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
-        """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "role_type", role_type)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
-        """
-        Amazon Resource Name (ARN) of the IAM role.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter(name="roleType")
     def role_type(self) -> _builtins.str:
-        """
-        Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
-        """
         return pulumi.get(self, "role_type")
 
 
@@ -198,10 +168,6 @@ class AssessmentScope(dict):
     def __init__(__self__, *,
                  aws_accounts: Optional[Sequence['outputs.AssessmentScopeAwsAccount']] = None,
                  aws_services: Optional[Sequence['outputs.AssessmentScopeAwsService']] = None):
-        """
-        :param Sequence['AssessmentScopeAwsAccountArgs'] aws_accounts: Amazon Web Services accounts that are in scope for the assessment. See `aws_accounts` below.
-        :param Sequence['AssessmentScopeAwsServiceArgs'] aws_services: Amazon Web Services services that are included in the scope of the assessment. See `aws_services` below.
-        """
         if aws_accounts is not None:
             pulumi.set(__self__, "aws_accounts", aws_accounts)
         if aws_services is not None:
@@ -210,17 +176,11 @@ class AssessmentScope(dict):
     @_builtins.property
     @pulumi.getter(name="awsAccounts")
     def aws_accounts(self) -> Optional[Sequence['outputs.AssessmentScopeAwsAccount']]:
-        """
-        Amazon Web Services accounts that are in scope for the assessment. See `aws_accounts` below.
-        """
         return pulumi.get(self, "aws_accounts")
 
     @_builtins.property
     @pulumi.getter(name="awsServices")
     def aws_services(self) -> Optional[Sequence['outputs.AssessmentScopeAwsService']]:
-        """
-        Amazon Web Services services that are included in the scope of the assessment. See `aws_services` below.
-        """
         return pulumi.get(self, "aws_services")
 
 
@@ -228,17 +188,11 @@ class AssessmentScope(dict):
 class AssessmentScopeAwsAccount(dict):
     def __init__(__self__, *,
                  id: _builtins.str):
-        """
-        :param _builtins.str id: Identifier for the Amazon Web Services account.
-        """
         pulumi.set(__self__, "id", id)
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        Identifier for the Amazon Web Services account.
-        """
         return pulumi.get(self, "id")
 
 
@@ -263,17 +217,11 @@ class AssessmentScopeAwsService(dict):
 
     def __init__(__self__, *,
                  service_name: _builtins.str):
-        """
-        :param _builtins.str service_name: Name of the Amazon Web Service.
-        """
         pulumi.set(__self__, "service_name", service_name)
 
     @_builtins.property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> _builtins.str:
-        """
-        Name of the Amazon Web Service.
-        """
         return pulumi.get(self, "service_name")
 
 
@@ -319,17 +267,6 @@ class ControlControlMappingSource(dict):
                  source_id: Optional[_builtins.str] = None,
                  source_keyword: Optional['outputs.ControlControlMappingSourceSourceKeyword'] = None,
                  troubleshooting_text: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str source_name: Name of the source.
-        :param _builtins.str source_set_up_option: The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
-        :param _builtins.str source_type: Type of data source for evidence collection. If `source_set_up_option` is manual, the only valid value is `MANUAL`. If `source_set_up_option` is automated, valid values are `AWS_Cloudtrail`, `AWS_Config`, `AWS_Security_Hub`, or `AWS_API_Call`.
-               
-               The following arguments are optional:
-        :param _builtins.str source_description: Description of the source.
-        :param _builtins.str source_frequency: Frequency of evidence collection. Valid values are `DAILY`, `WEEKLY`, or `MONTHLY`.
-        :param 'ControlControlMappingSourceSourceKeywordArgs' source_keyword: The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
-        :param _builtins.str troubleshooting_text: Instructions for troubleshooting the control.
-        """
         pulumi.set(__self__, "source_name", source_name)
         pulumi.set(__self__, "source_set_up_option", source_set_up_option)
         pulumi.set(__self__, "source_type", source_type)
@@ -347,43 +284,26 @@ class ControlControlMappingSource(dict):
     @_builtins.property
     @pulumi.getter(name="sourceName")
     def source_name(self) -> _builtins.str:
-        """
-        Name of the source.
-        """
         return pulumi.get(self, "source_name")
 
     @_builtins.property
     @pulumi.getter(name="sourceSetUpOption")
     def source_set_up_option(self) -> _builtins.str:
-        """
-        The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
-        """
         return pulumi.get(self, "source_set_up_option")
 
     @_builtins.property
     @pulumi.getter(name="sourceType")
     def source_type(self) -> _builtins.str:
-        """
-        Type of data source for evidence collection. If `source_set_up_option` is manual, the only valid value is `MANUAL`. If `source_set_up_option` is automated, valid values are `AWS_Cloudtrail`, `AWS_Config`, `AWS_Security_Hub`, or `AWS_API_Call`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "source_type")
 
     @_builtins.property
     @pulumi.getter(name="sourceDescription")
     def source_description(self) -> Optional[_builtins.str]:
-        """
-        Description of the source.
-        """
         return pulumi.get(self, "source_description")
 
     @_builtins.property
     @pulumi.getter(name="sourceFrequency")
     def source_frequency(self) -> Optional[_builtins.str]:
-        """
-        Frequency of evidence collection. Valid values are `DAILY`, `WEEKLY`, or `MONTHLY`.
-        """
         return pulumi.get(self, "source_frequency")
 
     @_builtins.property
@@ -394,17 +314,11 @@ class ControlControlMappingSource(dict):
     @_builtins.property
     @pulumi.getter(name="sourceKeyword")
     def source_keyword(self) -> Optional['outputs.ControlControlMappingSourceSourceKeyword']:
-        """
-        The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
-        """
         return pulumi.get(self, "source_keyword")
 
     @_builtins.property
     @pulumi.getter(name="troubleshootingText")
     def troubleshooting_text(self) -> Optional[_builtins.str]:
-        """
-        Instructions for troubleshooting the control.
-        """
         return pulumi.get(self, "troubleshooting_text")
 
 
@@ -432,27 +346,17 @@ class ControlControlMappingSourceSourceKeyword(dict):
     def __init__(__self__, *,
                  keyword_input_type: _builtins.str,
                  keyword_value: _builtins.str):
-        """
-        :param _builtins.str keyword_input_type: Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
-        :param _builtins.str keyword_value: The value of the keyword that's used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
-        """
         pulumi.set(__self__, "keyword_input_type", keyword_input_type)
         pulumi.set(__self__, "keyword_value", keyword_value)
 
     @_builtins.property
     @pulumi.getter(name="keywordInputType")
     def keyword_input_type(self) -> _builtins.str:
-        """
-        Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
-        """
         return pulumi.get(self, "keyword_input_type")
 
     @_builtins.property
     @pulumi.getter(name="keywordValue")
     def keyword_value(self) -> _builtins.str:
-        """
-        The value of the keyword that's used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
-        """
         return pulumi.get(self, "keyword_value")
 
 
@@ -462,11 +366,6 @@ class FrameworkControlSet(dict):
                  name: _builtins.str,
                  controls: Optional[Sequence['outputs.FrameworkControlSetControl']] = None,
                  id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: Name of the control set.
-        :param Sequence['FrameworkControlSetControlArgs'] controls: Configuration block(s) for the controls within the control set. See `controls` Block below for details.
-        :param _builtins.str id: Unique identifier for the framework.
-        """
         pulumi.set(__self__, "name", name)
         if controls is not None:
             pulumi.set(__self__, "controls", controls)
@@ -476,25 +375,16 @@ class FrameworkControlSet(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the control set.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def controls(self) -> Optional[Sequence['outputs.FrameworkControlSetControl']]:
-        """
-        Configuration block(s) for the controls within the control set. See `controls` Block below for details.
-        """
         return pulumi.get(self, "controls")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
-        """
-        Unique identifier for the framework.
-        """
         return pulumi.get(self, "id")
 
 
@@ -502,17 +392,11 @@ class FrameworkControlSet(dict):
 class FrameworkControlSetControl(dict):
     def __init__(__self__, *,
                  id: _builtins.str):
-        """
-        :param _builtins.str id: Unique identifier of the control.
-        """
         pulumi.set(__self__, "id", id)
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        Unique identifier of the control.
-        """
         return pulumi.get(self, "id")
 
 
@@ -602,9 +486,6 @@ class GetFrameworkControlSetResult(dict):
                  controls: Sequence['outputs.GetFrameworkControlSetControlResult'],
                  id: _builtins.str,
                  name: _builtins.str):
-        """
-        :param _builtins.str name: Name of the framework.
-        """
         pulumi.set(__self__, "controls", controls)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -622,9 +503,6 @@ class GetFrameworkControlSetResult(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the framework.
-        """
         return pulumi.get(self, "name")
 
 

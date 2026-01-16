@@ -15,17 +15,9 @@ public final class GetOpenZfsSnapshotFilterArgs extends com.pulumi.resources.Res
 
     public static final GetOpenZfsSnapshotFilterArgs Empty = new GetOpenZfsSnapshotFilterArgs();
 
-    /**
-     * Name of the snapshot.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the snapshot.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -62,23 +54,11 @@ public final class GetOpenZfsSnapshotFilterArgs extends com.pulumi.resources.Res
             $ = new GetOpenZfsSnapshotFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

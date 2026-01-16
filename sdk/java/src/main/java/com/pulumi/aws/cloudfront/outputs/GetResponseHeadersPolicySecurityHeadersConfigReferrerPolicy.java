@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy {
-    /**
-     * @return Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-     * 
-     */
     private Boolean override;
-    /**
-     * @return Value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
-     * 
-     */
     private String referrerPolicy;
 
     private GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy() {}
-    /**
-     * @return Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-     * 
-     */
     public Boolean override() {
         return this.override;
     }
-    /**
-     * @return Value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
-     * 
-     */
     public String referrerPolicy() {
         return this.referrerPolicy;
     }

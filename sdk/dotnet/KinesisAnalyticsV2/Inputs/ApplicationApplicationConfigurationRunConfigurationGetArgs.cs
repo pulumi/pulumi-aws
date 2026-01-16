@@ -12,15 +12,9 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 
     public sealed class ApplicationApplicationConfigurationRunConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The restore behavior of a restarting application.
-        /// </summary>
         [Input("applicationRestoreConfiguration")]
         public Input<Inputs.ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationGetArgs>? ApplicationRestoreConfiguration { get; set; }
 
-        /// <summary>
-        /// The starting parameters for a Flink-based Kinesis Data Analytics application.
-        /// </summary>
         [Input("flinkRunConfiguration")]
         public Input<Inputs.ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationGetArgs>? FlinkRunConfiguration { get; set; }
 

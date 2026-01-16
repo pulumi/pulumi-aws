@@ -67,13 +67,6 @@ class JobTemplateJobTemplateData(dict):
                  release_label: _builtins.str,
                  configuration_overrides: Optional['outputs.JobTemplateJobTemplateDataConfigurationOverrides'] = None,
                  job_tags: Optional[Mapping[str, _builtins.str]] = None):
-        """
-        :param _builtins.str execution_role_arn: The execution role ARN of the job run.
-        :param 'JobTemplateJobTemplateDataJobDriverArgs' job_driver: Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either sparkSqlJobDriver or sparkSubmitJobDriver.
-        :param _builtins.str release_label: The release version of Amazon EMR.
-        :param 'JobTemplateJobTemplateDataConfigurationOverridesArgs' configuration_overrides: The configuration settings that are used to override defaults configuration.
-        :param Mapping[str, _builtins.str] job_tags: The tags assigned to jobs started using the job template.
-        """
         pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         pulumi.set(__self__, "job_driver", job_driver)
         pulumi.set(__self__, "release_label", release_label)
@@ -85,41 +78,26 @@ class JobTemplateJobTemplateData(dict):
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> _builtins.str:
-        """
-        The execution role ARN of the job run.
-        """
         return pulumi.get(self, "execution_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="jobDriver")
     def job_driver(self) -> 'outputs.JobTemplateJobTemplateDataJobDriver':
-        """
-        Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either sparkSqlJobDriver or sparkSubmitJobDriver.
-        """
         return pulumi.get(self, "job_driver")
 
     @_builtins.property
     @pulumi.getter(name="releaseLabel")
     def release_label(self) -> _builtins.str:
-        """
-        The release version of Amazon EMR.
-        """
         return pulumi.get(self, "release_label")
 
     @_builtins.property
     @pulumi.getter(name="configurationOverrides")
     def configuration_overrides(self) -> Optional['outputs.JobTemplateJobTemplateDataConfigurationOverrides']:
-        """
-        The configuration settings that are used to override defaults configuration.
-        """
         return pulumi.get(self, "configuration_overrides")
 
     @_builtins.property
     @pulumi.getter(name="jobTags")
     def job_tags(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        The tags assigned to jobs started using the job template.
-        """
         return pulumi.get(self, "job_tags")
 
 
@@ -147,10 +125,6 @@ class JobTemplateJobTemplateDataConfigurationOverrides(dict):
     def __init__(__self__, *,
                  application_configurations: Optional[Sequence['outputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration']] = None,
                  monitoring_configuration: Optional['outputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration'] = None):
-        """
-        :param Sequence['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs'] application_configurations: The configurations for the application running by the job run.
-        :param 'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs' monitoring_configuration: The configurations for monitoring.
-        """
         if application_configurations is not None:
             pulumi.set(__self__, "application_configurations", application_configurations)
         if monitoring_configuration is not None:
@@ -159,17 +133,11 @@ class JobTemplateJobTemplateDataConfigurationOverrides(dict):
     @_builtins.property
     @pulumi.getter(name="applicationConfigurations")
     def application_configurations(self) -> Optional[Sequence['outputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration']]:
-        """
-        The configurations for the application running by the job run.
-        """
         return pulumi.get(self, "application_configurations")
 
     @_builtins.property
     @pulumi.getter(name="monitoringConfiguration")
     def monitoring_configuration(self) -> Optional['outputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration']:
-        """
-        The configurations for monitoring.
-        """
         return pulumi.get(self, "monitoring_configuration")
 
 
@@ -179,11 +147,6 @@ class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration(d
                  classification: _builtins.str,
                  configurations: Optional[Sequence['outputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration']] = None,
                  properties: Optional[Mapping[str, _builtins.str]] = None):
-        """
-        :param _builtins.str classification: The classification within a configuration.
-        :param Sequence['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs'] configurations: A list of additional configurations to apply within a configuration object.
-        :param Mapping[str, _builtins.str] properties: A set of properties specified within a configuration classification.
-        """
         pulumi.set(__self__, "classification", classification)
         if configurations is not None:
             pulumi.set(__self__, "configurations", configurations)
@@ -193,25 +156,16 @@ class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration(d
     @_builtins.property
     @pulumi.getter
     def classification(self) -> _builtins.str:
-        """
-        The classification within a configuration.
-        """
         return pulumi.get(self, "classification")
 
     @_builtins.property
     @pulumi.getter
     def configurations(self) -> Optional[Sequence['outputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration']]:
-        """
-        A list of additional configurations to apply within a configuration object.
-        """
         return pulumi.get(self, "configurations")
 
     @_builtins.property
     @pulumi.getter
     def properties(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        A set of properties specified within a configuration classification.
-        """
         return pulumi.get(self, "properties")
 
 
@@ -220,10 +174,6 @@ class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationCo
     def __init__(__self__, *,
                  classification: Optional[_builtins.str] = None,
                  properties: Optional[Mapping[str, _builtins.str]] = None):
-        """
-        :param _builtins.str classification: The classification within a configuration.
-        :param Mapping[str, _builtins.str] properties: A set of properties specified within a configuration classification.
-        """
         if classification is not None:
             pulumi.set(__self__, "classification", classification)
         if properties is not None:
@@ -232,17 +182,11 @@ class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationCo
     @_builtins.property
     @pulumi.getter
     def classification(self) -> Optional[_builtins.str]:
-        """
-        The classification within a configuration.
-        """
         return pulumi.get(self, "classification")
 
     @_builtins.property
     @pulumi.getter
     def properties(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        A set of properties specified within a configuration classification.
-        """
         return pulumi.get(self, "properties")
 
 
@@ -273,11 +217,6 @@ class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration(di
                  cloud_watch_monitoring_configuration: Optional['outputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration'] = None,
                  persistent_app_ui: Optional[_builtins.str] = None,
                  s3_monitoring_configuration: Optional['outputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration'] = None):
-        """
-        :param 'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs' cloud_watch_monitoring_configuration: Monitoring configurations for CloudWatch.
-        :param _builtins.str persistent_app_ui: Monitoring configurations for the persistent application UI.
-        :param 'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs' s3_monitoring_configuration: Amazon S3 configuration for monitoring log publishing.
-        """
         if cloud_watch_monitoring_configuration is not None:
             pulumi.set(__self__, "cloud_watch_monitoring_configuration", cloud_watch_monitoring_configuration)
         if persistent_app_ui is not None:
@@ -288,25 +227,16 @@ class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration(di
     @_builtins.property
     @pulumi.getter(name="cloudWatchMonitoringConfiguration")
     def cloud_watch_monitoring_configuration(self) -> Optional['outputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration']:
-        """
-        Monitoring configurations for CloudWatch.
-        """
         return pulumi.get(self, "cloud_watch_monitoring_configuration")
 
     @_builtins.property
     @pulumi.getter(name="persistentAppUi")
     def persistent_app_ui(self) -> Optional[_builtins.str]:
-        """
-        Monitoring configurations for the persistent application UI.
-        """
         return pulumi.get(self, "persistent_app_ui")
 
     @_builtins.property
     @pulumi.getter(name="s3MonitoringConfiguration")
     def s3_monitoring_configuration(self) -> Optional['outputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration']:
-        """
-        Amazon S3 configuration for monitoring log publishing.
-        """
         return pulumi.get(self, "s3_monitoring_configuration")
 
 
@@ -334,10 +264,6 @@ class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationClo
     def __init__(__self__, *,
                  log_group_name: _builtins.str,
                  log_stream_name_prefix: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str log_group_name: The name of the log group for log publishing.
-        :param _builtins.str log_stream_name_prefix: The specified name prefix for log streams.
-        """
         pulumi.set(__self__, "log_group_name", log_group_name)
         if log_stream_name_prefix is not None:
             pulumi.set(__self__, "log_stream_name_prefix", log_stream_name_prefix)
@@ -345,17 +271,11 @@ class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationClo
     @_builtins.property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> _builtins.str:
-        """
-        The name of the log group for log publishing.
-        """
         return pulumi.get(self, "log_group_name")
 
     @_builtins.property
     @pulumi.getter(name="logStreamNamePrefix")
     def log_stream_name_prefix(self) -> Optional[_builtins.str]:
-        """
-        The specified name prefix for log streams.
-        """
         return pulumi.get(self, "log_stream_name_prefix")
 
 
@@ -380,17 +300,11 @@ class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3M
 
     def __init__(__self__, *,
                  log_uri: _builtins.str):
-        """
-        :param _builtins.str log_uri: Amazon S3 destination URI for log publishing.
-        """
         pulumi.set(__self__, "log_uri", log_uri)
 
     @_builtins.property
     @pulumi.getter(name="logUri")
     def log_uri(self) -> _builtins.str:
-        """
-        Amazon S3 destination URI for log publishing.
-        """
         return pulumi.get(self, "log_uri")
 
 
@@ -418,10 +332,6 @@ class JobTemplateJobTemplateDataJobDriver(dict):
     def __init__(__self__, *,
                  spark_sql_job_driver: Optional['outputs.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver'] = None,
                  spark_submit_job_driver: Optional['outputs.JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver'] = None):
-        """
-        :param 'JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs' spark_sql_job_driver: The job driver for job type.
-        :param 'JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs' spark_submit_job_driver: The job driver parameters specified for spark submit.
-        """
         if spark_sql_job_driver is not None:
             pulumi.set(__self__, "spark_sql_job_driver", spark_sql_job_driver)
         if spark_submit_job_driver is not None:
@@ -430,17 +340,11 @@ class JobTemplateJobTemplateDataJobDriver(dict):
     @_builtins.property
     @pulumi.getter(name="sparkSqlJobDriver")
     def spark_sql_job_driver(self) -> Optional['outputs.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver']:
-        """
-        The job driver for job type.
-        """
         return pulumi.get(self, "spark_sql_job_driver")
 
     @_builtins.property
     @pulumi.getter(name="sparkSubmitJobDriver")
     def spark_submit_job_driver(self) -> Optional['outputs.JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver']:
-        """
-        The job driver parameters specified for spark submit.
-        """
         return pulumi.get(self, "spark_submit_job_driver")
 
 
@@ -468,10 +372,6 @@ class JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver(dict):
     def __init__(__self__, *,
                  entry_point: Optional[_builtins.str] = None,
                  spark_sql_parameters: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str entry_point: The SQL file to be executed.
-        :param _builtins.str spark_sql_parameters: The Spark parameters to be included in the Spark SQL command.
-        """
         if entry_point is not None:
             pulumi.set(__self__, "entry_point", entry_point)
         if spark_sql_parameters is not None:
@@ -480,17 +380,11 @@ class JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver(dict):
     @_builtins.property
     @pulumi.getter(name="entryPoint")
     def entry_point(self) -> Optional[_builtins.str]:
-        """
-        The SQL file to be executed.
-        """
         return pulumi.get(self, "entry_point")
 
     @_builtins.property
     @pulumi.getter(name="sparkSqlParameters")
     def spark_sql_parameters(self) -> Optional[_builtins.str]:
-        """
-        The Spark parameters to be included in the Spark SQL command.
-        """
         return pulumi.get(self, "spark_sql_parameters")
 
 
@@ -521,11 +415,6 @@ class JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver(dict):
                  entry_point: _builtins.str,
                  entry_point_arguments: Optional[Sequence[_builtins.str]] = None,
                  spark_submit_parameters: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str entry_point: The entry point of job application.
-        :param Sequence[_builtins.str] entry_point_arguments: The arguments for job application.
-        :param _builtins.str spark_submit_parameters: The Spark submit parameters that are used for job runs.
-        """
         pulumi.set(__self__, "entry_point", entry_point)
         if entry_point_arguments is not None:
             pulumi.set(__self__, "entry_point_arguments", entry_point_arguments)
@@ -535,25 +424,16 @@ class JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver(dict):
     @_builtins.property
     @pulumi.getter(name="entryPoint")
     def entry_point(self) -> _builtins.str:
-        """
-        The entry point of job application.
-        """
         return pulumi.get(self, "entry_point")
 
     @_builtins.property
     @pulumi.getter(name="entryPointArguments")
     def entry_point_arguments(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The arguments for job application.
-        """
         return pulumi.get(self, "entry_point_arguments")
 
     @_builtins.property
     @pulumi.getter(name="sparkSubmitParameters")
     def spark_submit_parameters(self) -> Optional[_builtins.str]:
-        """
-        The Spark submit parameters that are used for job runs.
-        """
         return pulumi.get(self, "spark_submit_parameters")
 
 
@@ -563,11 +443,6 @@ class VirtualClusterContainerProvider(dict):
                  id: _builtins.str,
                  info: 'outputs.VirtualClusterContainerProviderInfo',
                  type: _builtins.str):
-        """
-        :param _builtins.str id: The name of the container provider that is running your EMR Containers cluster
-        :param 'VirtualClusterContainerProviderInfoArgs' info: Nested list containing information about the configuration of the container provider
-        :param _builtins.str type: The type of the container provider
-        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "info", info)
         pulumi.set(__self__, "type", type)
@@ -575,25 +450,16 @@ class VirtualClusterContainerProvider(dict):
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        The name of the container provider that is running your EMR Containers cluster
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def info(self) -> 'outputs.VirtualClusterContainerProviderInfo':
-        """
-        Nested list containing information about the configuration of the container provider
-        """
         return pulumi.get(self, "info")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        The type of the container provider
-        """
         return pulumi.get(self, "type")
 
 
@@ -618,17 +484,11 @@ class VirtualClusterContainerProviderInfo(dict):
 
     def __init__(__self__, *,
                  eks_info: 'outputs.VirtualClusterContainerProviderInfoEksInfo'):
-        """
-        :param 'VirtualClusterContainerProviderInfoEksInfoArgs' eks_info: Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
-        """
         pulumi.set(__self__, "eks_info", eks_info)
 
     @_builtins.property
     @pulumi.getter(name="eksInfo")
     def eks_info(self) -> 'outputs.VirtualClusterContainerProviderInfoEksInfo':
-        """
-        Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
-        """
         return pulumi.get(self, "eks_info")
 
 
@@ -636,18 +496,12 @@ class VirtualClusterContainerProviderInfo(dict):
 class VirtualClusterContainerProviderInfoEksInfo(dict):
     def __init__(__self__, *,
                  namespace: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str namespace: The namespace where the EMR Containers cluster is running
-        """
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
 
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> Optional[_builtins.str]:
-        """
-        The namespace where the EMR Containers cluster is running
-        """
         return pulumi.get(self, "namespace")
 
 
@@ -657,11 +511,6 @@ class GetVirtualClusterContainerProviderResult(dict):
                  id: _builtins.str,
                  infos: Sequence['outputs.GetVirtualClusterContainerProviderInfoResult'],
                  type: _builtins.str):
-        """
-        :param _builtins.str id: The name of the container provider that is running your EMR Containers cluster
-        :param Sequence['GetVirtualClusterContainerProviderInfoArgs'] infos: Nested list containing information about the configuration of the container provider
-        :param _builtins.str type: The type of the container provider
-        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "infos", infos)
         pulumi.set(__self__, "type", type)
@@ -669,25 +518,16 @@ class GetVirtualClusterContainerProviderResult(dict):
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        The name of the container provider that is running your EMR Containers cluster
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def infos(self) -> Sequence['outputs.GetVirtualClusterContainerProviderInfoResult']:
-        """
-        Nested list containing information about the configuration of the container provider
-        """
         return pulumi.get(self, "infos")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        The type of the container provider
-        """
         return pulumi.get(self, "type")
 
 
@@ -695,17 +535,11 @@ class GetVirtualClusterContainerProviderResult(dict):
 class GetVirtualClusterContainerProviderInfoResult(dict):
     def __init__(__self__, *,
                  eks_infos: Sequence['outputs.GetVirtualClusterContainerProviderInfoEksInfoResult']):
-        """
-        :param Sequence['GetVirtualClusterContainerProviderInfoEksInfoArgs'] eks_infos: Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
-        """
         pulumi.set(__self__, "eks_infos", eks_infos)
 
     @_builtins.property
     @pulumi.getter(name="eksInfos")
     def eks_infos(self) -> Sequence['outputs.GetVirtualClusterContainerProviderInfoEksInfoResult']:
-        """
-        Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
-        """
         return pulumi.get(self, "eks_infos")
 
 
@@ -713,17 +547,11 @@ class GetVirtualClusterContainerProviderInfoResult(dict):
 class GetVirtualClusterContainerProviderInfoEksInfoResult(dict):
     def __init__(__self__, *,
                  namespace: _builtins.str):
-        """
-        :param _builtins.str namespace: The namespace where the EMR Containers cluster is running
-        """
         pulumi.set(__self__, "namespace", namespace)
 
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> _builtins.str:
-        """
-        The namespace where the EMR Containers cluster is running
-        """
         return pulumi.get(self, "namespace")
 
 

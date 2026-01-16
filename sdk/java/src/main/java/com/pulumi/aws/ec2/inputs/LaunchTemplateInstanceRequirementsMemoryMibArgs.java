@@ -16,32 +16,16 @@ public final class LaunchTemplateInstanceRequirementsMemoryMibArgs extends com.p
 
     public static final LaunchTemplateInstanceRequirementsMemoryMibArgs Empty = new LaunchTemplateInstanceRequirementsMemoryMibArgs();
 
-    /**
-     * Maximum.
-     * 
-     */
     @Import(name="max")
     private @Nullable Output<Integer> max;
 
-    /**
-     * @return Maximum.
-     * 
-     */
     public Optional<Output<Integer>> max() {
         return Optional.ofNullable(this.max);
     }
 
-    /**
-     * Minimum.
-     * 
-     */
     @Import(name="min", required=true)
     private Output<Integer> min;
 
-    /**
-     * @return Minimum.
-     * 
-     */
     public Output<Integer> min() {
         return this.min;
     }
@@ -71,44 +55,20 @@ public final class LaunchTemplateInstanceRequirementsMemoryMibArgs extends com.p
             $ = new LaunchTemplateInstanceRequirementsMemoryMibArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param max Maximum.
-         * 
-         * @return builder
-         * 
-         */
         public Builder max(@Nullable Output<Integer> max) {
             $.max = max;
             return this;
         }
 
-        /**
-         * @param max Maximum.
-         * 
-         * @return builder
-         * 
-         */
         public Builder max(Integer max) {
             return max(Output.of(max));
         }
 
-        /**
-         * @param min Minimum.
-         * 
-         * @return builder
-         * 
-         */
         public Builder min(Output<Integer> min) {
             $.min = min;
             return this;
         }
 
-        /**
-         * @param min Minimum.
-         * 
-         * @return builder
-         * 
-         */
         public Builder min(Integer min) {
             return min(Output.of(min));
         }

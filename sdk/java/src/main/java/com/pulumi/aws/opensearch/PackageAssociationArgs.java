@@ -16,47 +16,23 @@ public final class PackageAssociationArgs extends com.pulumi.resources.ResourceA
 
     public static final PackageAssociationArgs Empty = new PackageAssociationArgs();
 
-    /**
-     * Name of the domain to associate the package with.
-     * 
-     */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
-    /**
-     * @return Name of the domain to associate the package with.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
 
-    /**
-     * Internal ID of the package to associate with a domain.
-     * 
-     */
     @Import(name="packageId", required=true)
     private Output<String> packageId;
 
-    /**
-     * @return Internal ID of the package to associate with a domain.
-     * 
-     */
     public Output<String> packageId() {
         return this.packageId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -87,65 +63,29 @@ public final class PackageAssociationArgs extends com.pulumi.resources.ResourceA
             $ = new PackageAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domainName Name of the domain to associate the package with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName Name of the domain to associate the package with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param packageId Internal ID of the package to associate with a domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder packageId(Output<String> packageId) {
             $.packageId = packageId;
             return this;
         }
 
-        /**
-         * @param packageId Internal ID of the package to associate with a domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder packageId(String packageId) {
             return packageId(Output.of(packageId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -31,15 +31,6 @@ class RepositoryArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Repository resource.
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryEncryptionConfigurationArgs']]] encryption_configurations: Encryption configuration for the repository. See below for schema.
-        :param pulumi.Input[_builtins.bool] force_delete: If `true`, will delete the repository even if it contains images.
-               Defaults to `false`.
-        :param pulumi.Input['RepositoryImageScanningConfigurationArgs'] image_scanning_configuration: Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
-        :param pulumi.Input[_builtins.str] image_tag_mutability: The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryImageTagMutabilityExclusionFilterArgs']]] image_tag_mutability_exclusion_filters: Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
-        :param pulumi.Input[_builtins.str] name: Name of the repository.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if encryption_configurations is not None:
             pulumi.set(__self__, "encryption_configurations", encryption_configurations)
@@ -61,9 +52,6 @@ class RepositoryArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionConfigurations")
     def encryption_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryEncryptionConfigurationArgs']]]]:
-        """
-        Encryption configuration for the repository. See below for schema.
-        """
         return pulumi.get(self, "encryption_configurations")
 
     @encryption_configurations.setter
@@ -73,10 +61,6 @@ class RepositoryArgs:
     @_builtins.property
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If `true`, will delete the repository even if it contains images.
-        Defaults to `false`.
-        """
         return pulumi.get(self, "force_delete")
 
     @force_delete.setter
@@ -86,9 +70,6 @@ class RepositoryArgs:
     @_builtins.property
     @pulumi.getter(name="imageScanningConfiguration")
     def image_scanning_configuration(self) -> Optional[pulumi.Input['RepositoryImageScanningConfigurationArgs']]:
-        """
-        Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
-        """
         return pulumi.get(self, "image_scanning_configuration")
 
     @image_scanning_configuration.setter
@@ -98,9 +79,6 @@ class RepositoryArgs:
     @_builtins.property
     @pulumi.getter(name="imageTagMutability")
     def image_tag_mutability(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
-        """
         return pulumi.get(self, "image_tag_mutability")
 
     @image_tag_mutability.setter
@@ -110,9 +88,6 @@ class RepositoryArgs:
     @_builtins.property
     @pulumi.getter(name="imageTagMutabilityExclusionFilters")
     def image_tag_mutability_exclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryImageTagMutabilityExclusionFilterArgs']]]]:
-        """
-        Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
-        """
         return pulumi.get(self, "image_tag_mutability_exclusion_filters")
 
     @image_tag_mutability_exclusion_filters.setter
@@ -122,9 +97,6 @@ class RepositoryArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the repository.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -134,9 +106,6 @@ class RepositoryArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -146,9 +115,6 @@ class RepositoryArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -173,19 +139,6 @@ class _RepositoryState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Repository resources.
-        :param pulumi.Input[_builtins.str] arn: Full ARN of the repository.
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryEncryptionConfigurationArgs']]] encryption_configurations: Encryption configuration for the repository. See below for schema.
-        :param pulumi.Input[_builtins.bool] force_delete: If `true`, will delete the repository even if it contains images.
-               Defaults to `false`.
-        :param pulumi.Input['RepositoryImageScanningConfigurationArgs'] image_scanning_configuration: Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
-        :param pulumi.Input[_builtins.str] image_tag_mutability: The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryImageTagMutabilityExclusionFilterArgs']]] image_tag_mutability_exclusion_filters: Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
-        :param pulumi.Input[_builtins.str] name: Name of the repository.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] registry_id: The registry ID where the repository was created.
-        :param pulumi.Input[_builtins.str] repository_url: The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -215,9 +168,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Full ARN of the repository.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -227,9 +177,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter(name="encryptionConfigurations")
     def encryption_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryEncryptionConfigurationArgs']]]]:
-        """
-        Encryption configuration for the repository. See below for schema.
-        """
         return pulumi.get(self, "encryption_configurations")
 
     @encryption_configurations.setter
@@ -239,10 +186,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If `true`, will delete the repository even if it contains images.
-        Defaults to `false`.
-        """
         return pulumi.get(self, "force_delete")
 
     @force_delete.setter
@@ -252,9 +195,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter(name="imageScanningConfiguration")
     def image_scanning_configuration(self) -> Optional[pulumi.Input['RepositoryImageScanningConfigurationArgs']]:
-        """
-        Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
-        """
         return pulumi.get(self, "image_scanning_configuration")
 
     @image_scanning_configuration.setter
@@ -264,9 +204,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter(name="imageTagMutability")
     def image_tag_mutability(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
-        """
         return pulumi.get(self, "image_tag_mutability")
 
     @image_tag_mutability.setter
@@ -276,9 +213,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter(name="imageTagMutabilityExclusionFilters")
     def image_tag_mutability_exclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryImageTagMutabilityExclusionFilterArgs']]]]:
-        """
-        Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
-        """
         return pulumi.get(self, "image_tag_mutability_exclusion_filters")
 
     @image_tag_mutability_exclusion_filters.setter
@@ -288,9 +222,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the repository.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -300,9 +231,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -312,9 +240,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The registry ID where the repository was created.
-        """
         return pulumi.get(self, "registry_id")
 
     @registry_id.setter
@@ -324,9 +249,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter(name="repositoryUrl")
     def repository_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
-        """
         return pulumi.get(self, "repository_url")
 
     @repository_url.setter
@@ -336,9 +258,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -348,9 +267,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -374,72 +290,9 @@ class Repository(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides an Elastic Container Registry Repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ecr.Repository("foo",
-            name="bar",
-            image_tag_mutability="MUTABLE",
-            image_scanning_configuration={
-                "scan_on_push": True,
-            })
-        ```
-
-        ### With Image Tag Mutability Exclusion
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ecr.Repository("example",
-            name="example-repo",
-            image_tag_mutability="IMMUTABLE_WITH_EXCLUSION",
-            image_tag_mutability_exclusion_filters=[
-                {
-                    "filter": "latest*",
-                    "filter_type": "WILDCARD",
-                },
-                {
-                    "filter": "dev-*",
-                    "filter_type": "WILDCARD",
-                },
-            ])
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `name` - (String) Name of the ECR repository.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
-        Using `pulumi import`, import ECR Repositories using the `name`. For example:
-
-        % pulumi import aws_ecr_repository.service test-service
-
+        Create a Repository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration for the repository. See below for schema.
-        :param pulumi.Input[_builtins.bool] force_delete: If `true`, will delete the repository even if it contains images.
-               Defaults to `false`.
-        :param pulumi.Input[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict']] image_scanning_configuration: Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
-        :param pulumi.Input[_builtins.str] image_tag_mutability: The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryImageTagMutabilityExclusionFilterArgs', 'RepositoryImageTagMutabilityExclusionFilterArgsDict']]]] image_tag_mutability_exclusion_filters: Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
-        :param pulumi.Input[_builtins.str] name: Name of the repository.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -448,61 +301,7 @@ class Repository(pulumi.CustomResource):
                  args: Optional[RepositoryArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Elastic Container Registry Repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ecr.Repository("foo",
-            name="bar",
-            image_tag_mutability="MUTABLE",
-            image_scanning_configuration={
-                "scan_on_push": True,
-            })
-        ```
-
-        ### With Image Tag Mutability Exclusion
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ecr.Repository("example",
-            name="example-repo",
-            image_tag_mutability="IMMUTABLE_WITH_EXCLUSION",
-            image_tag_mutability_exclusion_filters=[
-                {
-                    "filter": "latest*",
-                    "filter_type": "WILDCARD",
-                },
-                {
-                    "filter": "dev-*",
-                    "filter_type": "WILDCARD",
-                },
-            ])
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `name` - (String) Name of the ECR repository.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
-        Using `pulumi import`, import ECR Repositories using the `name`. For example:
-
-        % pulumi import aws_ecr_repository.service test-service
-
+        Create a Repository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -576,19 +375,6 @@ class Repository(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Full ARN of the repository.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration for the repository. See below for schema.
-        :param pulumi.Input[_builtins.bool] force_delete: If `true`, will delete the repository even if it contains images.
-               Defaults to `false`.
-        :param pulumi.Input[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict']] image_scanning_configuration: Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
-        :param pulumi.Input[_builtins.str] image_tag_mutability: The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryImageTagMutabilityExclusionFilterArgs', 'RepositoryImageTagMutabilityExclusionFilterArgsDict']]]] image_tag_mutability_exclusion_filters: Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
-        :param pulumi.Input[_builtins.str] name: Name of the repository.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] registry_id: The registry ID where the repository was created.
-        :param pulumi.Input[_builtins.str] repository_url: The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -611,97 +397,60 @@ class Repository(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Full ARN of the repository.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfigurations")
     def encryption_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.RepositoryEncryptionConfiguration']]]:
-        """
-        Encryption configuration for the repository. See below for schema.
-        """
         return pulumi.get(self, "encryption_configurations")
 
     @_builtins.property
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        If `true`, will delete the repository even if it contains images.
-        Defaults to `false`.
-        """
         return pulumi.get(self, "force_delete")
 
     @_builtins.property
     @pulumi.getter(name="imageScanningConfiguration")
     def image_scanning_configuration(self) -> pulumi.Output[Optional['outputs.RepositoryImageScanningConfiguration']]:
-        """
-        Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
-        """
         return pulumi.get(self, "image_scanning_configuration")
 
     @_builtins.property
     @pulumi.getter(name="imageTagMutability")
     def image_tag_mutability(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
-        """
         return pulumi.get(self, "image_tag_mutability")
 
     @_builtins.property
     @pulumi.getter(name="imageTagMutabilityExclusionFilters")
     def image_tag_mutability_exclusion_filters(self) -> pulumi.Output[Optional[Sequence['outputs.RepositoryImageTagMutabilityExclusionFilter']]]:
-        """
-        Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
-        """
         return pulumi.get(self, "image_tag_mutability_exclusion_filters")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the repository.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The registry ID where the repository was created.
-        """
         return pulumi.get(self, "registry_id")
 
     @_builtins.property
     @pulumi.getter(name="repositoryUrl")
     def repository_url(self) -> pulumi.Output[_builtins.str]:
-        """
-        The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
-        """
         return pulumi.get(self, "repository_url")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

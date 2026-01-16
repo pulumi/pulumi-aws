@@ -14,17 +14,9 @@ public final class FunctionTracingConfigArgs extends com.pulumi.resources.Resour
 
     public static final FunctionTracingConfigArgs Empty = new FunctionTracingConfigArgs();
 
-    /**
-     * X-Ray tracing mode. Valid values: `Active`, `PassThrough`.
-     * 
-     */
     @Import(name="mode", required=true)
     private Output<String> mode;
 
-    /**
-     * @return X-Ray tracing mode. Valid values: `Active`, `PassThrough`.
-     * 
-     */
     public Output<String> mode() {
         return this.mode;
     }
@@ -53,23 +45,11 @@ public final class FunctionTracingConfigArgs extends com.pulumi.resources.Resour
             $ = new FunctionTracingConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param mode X-Ray tracing mode. Valid values: `Active`, `PassThrough`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mode(Output<String> mode) {
             $.mode = mode;
             return this;
         }
 
-        /**
-         * @param mode X-Ray tracing mode. Valid values: `Active`, `PassThrough`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mode(String mode) {
             return mode(Output.of(mode));
         }

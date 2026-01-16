@@ -83,9 +83,6 @@ class GetAvailabilityZonesResult:
     @_builtins.property
     @pulumi.getter(name="groupNames")
     def group_names(self) -> Sequence[_builtins.str]:
-        """
-        A set of the Availability Zone Group names. For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
-        """
         return pulumi.get(self, "group_names")
 
     @_builtins.property
@@ -99,9 +96,6 @@ class GetAvailabilityZonesResult:
     @_builtins.property
     @pulumi.getter
     def names(self) -> Sequence[_builtins.str]:
-        """
-        List of the Availability Zone names available to the account.
-        """
         return pulumi.get(self, "names")
 
     @_builtins.property
@@ -117,9 +111,6 @@ class GetAvailabilityZonesResult:
     @_builtins.property
     @pulumi.getter(name="zoneIds")
     def zone_ids(self) -> Sequence[_builtins.str]:
-        """
-        List of the Availability Zone IDs available to the account.
-        """
         return pulumi.get(self, "zone_ids")
 
 
@@ -149,70 +140,7 @@ def get_availability_zones(all_availability_zones: Optional[_builtins.bool] = No
                            state: Optional[_builtins.str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAvailabilityZonesResult:
     """
-    The Availability Zones data source allows access to the list of AWS
-    Availability Zones which can be accessed by an AWS account within the region
-    configured in the provider.
-
-    This is different from the `get_availability_zone` (singular) data source,
-    which provides some details about a specific availability zone.
-
-    > When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
-
-    ## Example Usage
-
-    ### By State
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    # Declare the data source
-    available = aws.get_availability_zones(state="available")
-    # e.g., Create subnets in the first two available availability zones
-    primary = aws.ec2.Subnet("primary", availability_zone=available.names[0])
-    secondary = aws.ec2.Subnet("secondary", availability_zone=available.names[1])
-    ```
-
-    ### By Filter
-
-    All Local Zones (regardless of opt-in status):
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.get_availability_zones(all_availability_zones=True,
-        filters=[{
-            "name": "opt-in-status",
-            "values": [
-                "not-opted-in",
-                "opted-in",
-            ],
-        }])
-    ```
-
-    Only Availability Zones (no Local Zones):
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.get_availability_zones(filters=[{
-        "name": "opt-in-status",
-        "values": ["opt-in-not-required"],
-    }])
-    ```
-
-
-    :param _builtins.bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
-    :param Sequence[_builtins.str] exclude_names: List of Availability Zone names to exclude.
-    :param Sequence[_builtins.str] exclude_zone_ids: List of Availability Zone IDs to exclude.
-    :param Sequence[Union['GetAvailabilityZonesFilterArgs', 'GetAvailabilityZonesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str state: Allows to filter list of Availability Zones based on their
-           current state. Can be either `"available"`, `"information"`, `"impaired"` or
-           `"unavailable"`. By default the list includes a complete set of Availability Zones
-           to which the underlying AWS account has access, regardless of their state.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['allAvailabilityZones'] = all_availability_zones
@@ -243,70 +171,7 @@ def get_availability_zones_output(all_availability_zones: Optional[pulumi.Input[
                                   state: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAvailabilityZonesResult]:
     """
-    The Availability Zones data source allows access to the list of AWS
-    Availability Zones which can be accessed by an AWS account within the region
-    configured in the provider.
-
-    This is different from the `get_availability_zone` (singular) data source,
-    which provides some details about a specific availability zone.
-
-    > When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
-
-    ## Example Usage
-
-    ### By State
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    # Declare the data source
-    available = aws.get_availability_zones(state="available")
-    # e.g., Create subnets in the first two available availability zones
-    primary = aws.ec2.Subnet("primary", availability_zone=available.names[0])
-    secondary = aws.ec2.Subnet("secondary", availability_zone=available.names[1])
-    ```
-
-    ### By Filter
-
-    All Local Zones (regardless of opt-in status):
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.get_availability_zones(all_availability_zones=True,
-        filters=[{
-            "name": "opt-in-status",
-            "values": [
-                "not-opted-in",
-                "opted-in",
-            ],
-        }])
-    ```
-
-    Only Availability Zones (no Local Zones):
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.get_availability_zones(filters=[{
-        "name": "opt-in-status",
-        "values": ["opt-in-not-required"],
-    }])
-    ```
-
-
-    :param _builtins.bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
-    :param Sequence[_builtins.str] exclude_names: List of Availability Zone names to exclude.
-    :param Sequence[_builtins.str] exclude_zone_ids: List of Availability Zone IDs to exclude.
-    :param Sequence[Union['GetAvailabilityZonesFilterArgs', 'GetAvailabilityZonesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str state: Allows to filter list of Availability Zones based on their
-           current state. Can be either `"available"`, `"information"`, `"impaired"` or
-           `"unavailable"`. By default the list includes a complete set of Availability Zones
-           to which the underlying AWS account has access, regardless of their state.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['allAvailabilityZones'] = all_availability_zones

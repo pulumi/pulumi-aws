@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetImageImageScanningConfigurationEcrConfiguration {
-    /**
-     * @return Set of tags for Image Builder to apply to the output container image that that Amazon Inspector scans.
-     * 
-     */
     private List<String> containerTags;
-    /**
-     * @return The name of the container repository that Amazon Inspector scans to identify findings for your container images.
-     * 
-     */
     private String repositoryName;
 
     private GetImageImageScanningConfigurationEcrConfiguration() {}
-    /**
-     * @return Set of tags for Image Builder to apply to the output container image that that Amazon Inspector scans.
-     * 
-     */
     public List<String> containerTags() {
         return this.containerTags;
     }
-    /**
-     * @return The name of the container repository that Amazon Inspector scans to identify findings for your container images.
-     * 
-     */
     public String repositoryName() {
         return this.repositoryName;
     }

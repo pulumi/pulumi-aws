@@ -13,43 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StackStorageConnector {
-    /**
-     * @return Type of storage connector.
-     * Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
-     * 
-     */
     private String connectorType;
-    /**
-     * @return Names of the domains for the account.
-     * 
-     */
     private @Nullable List<String> domains;
-    /**
-     * @return ARN of the storage connector.
-     * 
-     */
     private @Nullable String resourceIdentifier;
 
     private StackStorageConnector() {}
-    /**
-     * @return Type of storage connector.
-     * Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
-     * 
-     */
     public String connectorType() {
         return this.connectorType;
     }
-    /**
-     * @return Names of the domains for the account.
-     * 
-     */
     public List<String> domains() {
         return this.domains == null ? List.of() : this.domains;
     }
-    /**
-     * @return ARN of the storage connector.
-     * 
-     */
     public Optional<String> resourceIdentifier() {
         return Optional.ofNullable(this.resourceIdentifier);
     }

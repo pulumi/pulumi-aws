@@ -4,52 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage an Amazon Kinesis Streams resource policy.
- * Use a resource policy to manage cross-account access to your data streams or consumers.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.kinesis.ResourcePolicy("example", {
- *     resourceArn: exampleAwsKinesisStream.arn,
- *     policy: `{
- *   \"Version\": \"2012-10-17\",
- *   \"Id\": \"writePolicy\",
- *   \"Statement\": [{
- *     \"Sid\": \"writestatement\",
- *     \"Effect\": \"Allow\",
- *     \"Principal\": {
- *       \"AWS\": \"123456789456\"
- *     },
- *     \"Action\": [
- *       \"kinesis:DescribeStreamSummary\",
- *       \"kinesis:ListShards\",
- *       \"kinesis:PutRecord\",
- *       \"kinesis:PutRecords\"
- *     ],
- *     \"Resource\": \"${exampleAwsKinesisStream.arn}\"
- *   }]
- * }
- * `,
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the Kinesis stream.
- *
- * Using `pulumi import`, import Kinesis resource policies using the `resource_arn`. For example:
- *
- * % pulumi import aws_kinesis_resource_policy.example arn:aws:kinesis:us-west-2:123456789012:stream/example
- */
 export class ResourcePolicy extends pulumi.CustomResource {
     /**
      * Get an existing ResourcePolicy resource's state with the given name, ID, and optional extra
@@ -78,17 +32,8 @@ export class ResourcePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourcePolicy.__pulumiType;
     }
 
-    /**
-     * The policy document.
-     */
     declare public readonly policy: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the data stream or consumer.
-     */
     declare public readonly resourceArn: pulumi.Output<string>;
 
     /**
@@ -128,17 +73,8 @@ export class ResourcePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResourcePolicy resources.
  */
 export interface ResourcePolicyState {
-    /**
-     * The policy document.
-     */
     policy?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the data stream or consumer.
-     */
     resourceArn?: pulumi.Input<string>;
 }
 
@@ -146,16 +82,7 @@ export interface ResourcePolicyState {
  * The set of arguments for constructing a ResourcePolicy resource.
  */
 export interface ResourcePolicyArgs {
-    /**
-     * The policy document.
-     */
     policy: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the data stream or consumer.
-     */
     resourceArn: pulumi.Input<string>;
 }

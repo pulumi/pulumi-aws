@@ -13,23 +13,9 @@ namespace Pulumi.Aws.DataSync.Outputs
     [OutputType]
     public sealed class TaskTaskReportConfigReportOverrides
     {
-        /// <summary>
-        /// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-        /// </summary>
         public readonly string? DeletedOverride;
-        /// <summary>
-        /// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-        /// </summary>
         public readonly string? SkippedOverride;
-        /// <summary>
-        /// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-        /// </summary>
         public readonly string? TransferredOverride;
-        /// <summary>
-        /// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-        /// 
-        /// &gt; **NOTE:** If any `ReportOverrides` are set to the same value as `task_report_config.report_level`, they will always be flagged as changed. Only set overrides to a value that differs from `task_report_config.report_level`.
-        /// </summary>
         public readonly string? VerifiedOverride;
 
         [OutputConstructor]

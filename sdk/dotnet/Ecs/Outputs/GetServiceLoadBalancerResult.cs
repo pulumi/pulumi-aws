@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetServiceLoadBalancerResult
     {
-        /// <summary>
-        /// Settings for Blue/Green deployment. See `AdvancedConfiguration` Block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceLoadBalancerAdvancedConfigurationResult> AdvancedConfigurations;
-        /// <summary>
-        /// Name of the container to associate with the load balancer.
-        /// </summary>
         public readonly string ContainerName;
-        /// <summary>
-        /// Port on the container to associate with the load balancer.
-        /// </summary>
         public readonly int ContainerPort;
-        /// <summary>
-        /// Name of the load balancer.
-        /// </summary>
         public readonly string ElbName;
-        /// <summary>
-        /// ARN of the target group to associate with the load balancer.
-        /// </summary>
         public readonly string TargetGroupArn;
 
         [OutputConstructor]

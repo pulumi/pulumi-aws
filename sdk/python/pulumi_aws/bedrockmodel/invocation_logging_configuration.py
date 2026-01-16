@@ -25,8 +25,6 @@ class InvocationLoggingConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a InvocationLoggingConfiguration resource.
-        :param pulumi.Input['InvocationLoggingConfigurationLoggingConfigArgs'] logging_config: The logging configuration values to set. See `logging_config` Block for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if logging_config is not None:
             pulumi.set(__self__, "logging_config", logging_config)
@@ -36,9 +34,6 @@ class InvocationLoggingConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="loggingConfig")
     def logging_config(self) -> Optional[pulumi.Input['InvocationLoggingConfigurationLoggingConfigArgs']]:
-        """
-        The logging configuration values to set. See `logging_config` Block for details.
-        """
         return pulumi.get(self, "logging_config")
 
     @logging_config.setter
@@ -48,9 +43,6 @@ class InvocationLoggingConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -65,8 +57,6 @@ class _InvocationLoggingConfigurationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering InvocationLoggingConfiguration resources.
-        :param pulumi.Input['InvocationLoggingConfigurationLoggingConfigArgs'] logging_config: The logging configuration values to set. See `logging_config` Block for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if logging_config is not None:
             pulumi.set(__self__, "logging_config", logging_config)
@@ -76,9 +66,6 @@ class _InvocationLoggingConfigurationState:
     @_builtins.property
     @pulumi.getter(name="loggingConfig")
     def logging_config(self) -> Optional[pulumi.Input['InvocationLoggingConfigurationLoggingConfigArgs']]:
-        """
-        The logging configuration values to set. See `logging_config` Block for details.
-        """
         return pulumi.get(self, "logging_config")
 
     @logging_config.setter
@@ -88,9 +75,6 @@ class _InvocationLoggingConfigurationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -108,75 +92,9 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages Bedrock model invocation logging configuration.
-
-        > Model invocation logging is configured per AWS region. To avoid overwriting settings, this resource should not be defined in multiple configurations.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.s3.Bucket("example",
-            bucket="example",
-            force_destroy=True)
-        example_bucket_policy = aws.s3.BucketPolicy("example",
-            bucket=example.bucket,
-            policy=example.arn.apply(lambda arn: f\"\"\"{{
-          \\"Version\\": \\"2012-10-17\\",
-          \\"Statement\\": [
-            {{
-              \\"Effect\\": \\"Allow\\",
-              \\"Principal\\": {{
-                \\"Service\\": \\"bedrock.amazonaws.com\\"
-              }},
-              \\"Action\\": [
-                \\"s3:*\\"
-              ],
-              \\"Resource\\": [
-                \\"{arn}/*\\"
-              ],
-              \\"Condition\\": {{
-                \\"StringEquals\\": {{
-                  \\"aws:SourceAccount\\": \\"{current.account_id}\\"
-                }},
-                \\"ArnLike\\": {{
-                  \\"aws:SourceArn\\": \\"arn:aws:bedrock:us-east-1:{current.account_id}:*\\"
-                }}
-              }}
-            }}
-          ]
-        }}
-        \"\"\"))
-        example_invocation_logging_configuration = aws.bedrockmodel.InvocationLoggingConfiguration("example", logging_config={
-            "embedding_data_delivery_enabled": True,
-            "image_data_delivery_enabled": True,
-            "text_data_delivery_enabled": True,
-            "video_data_delivery_enabled": True,
-            "s3_config": {
-                "bucket_name": example.id,
-                "key_prefix": "bedrock",
-            },
-        },
-        opts = pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Bedrock custom model using the `id` set to the AWS Region. For example:
-
-        ```sh
-        $ pulumi import aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration my_config us-east-1
-        ```
-
+        Create a InvocationLoggingConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict']] logging_config: The logging configuration values to set. See `logging_config` Block for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -185,71 +103,7 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
                  args: Optional[InvocationLoggingConfigurationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages Bedrock model invocation logging configuration.
-
-        > Model invocation logging is configured per AWS region. To avoid overwriting settings, this resource should not be defined in multiple configurations.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.s3.Bucket("example",
-            bucket="example",
-            force_destroy=True)
-        example_bucket_policy = aws.s3.BucketPolicy("example",
-            bucket=example.bucket,
-            policy=example.arn.apply(lambda arn: f\"\"\"{{
-          \\"Version\\": \\"2012-10-17\\",
-          \\"Statement\\": [
-            {{
-              \\"Effect\\": \\"Allow\\",
-              \\"Principal\\": {{
-                \\"Service\\": \\"bedrock.amazonaws.com\\"
-              }},
-              \\"Action\\": [
-                \\"s3:*\\"
-              ],
-              \\"Resource\\": [
-                \\"{arn}/*\\"
-              ],
-              \\"Condition\\": {{
-                \\"StringEquals\\": {{
-                  \\"aws:SourceAccount\\": \\"{current.account_id}\\"
-                }},
-                \\"ArnLike\\": {{
-                  \\"aws:SourceArn\\": \\"arn:aws:bedrock:us-east-1:{current.account_id}:*\\"
-                }}
-              }}
-            }}
-          ]
-        }}
-        \"\"\"))
-        example_invocation_logging_configuration = aws.bedrockmodel.InvocationLoggingConfiguration("example", logging_config={
-            "embedding_data_delivery_enabled": True,
-            "image_data_delivery_enabled": True,
-            "text_data_delivery_enabled": True,
-            "video_data_delivery_enabled": True,
-            "s3_config": {
-                "bucket_name": example.id,
-                "key_prefix": "bedrock",
-            },
-        },
-        opts = pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Bedrock custom model using the `id` set to the AWS Region. For example:
-
-        ```sh
-        $ pulumi import aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration my_config us-east-1
-        ```
-
+        Create a InvocationLoggingConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param InvocationLoggingConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -297,8 +151,6 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict']] logging_config: The logging configuration values to set. See `logging_config` Block for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -311,16 +163,10 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="loggingConfig")
     def logging_config(self) -> pulumi.Output[Optional['outputs.InvocationLoggingConfigurationLoggingConfig']]:
-        """
-        The logging configuration values to set. See `logging_config` Block for details.
-        """
         return pulumi.get(self, "logging_config")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

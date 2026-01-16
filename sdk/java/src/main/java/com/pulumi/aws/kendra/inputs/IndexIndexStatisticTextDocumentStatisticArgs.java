@@ -15,32 +15,16 @@ public final class IndexIndexStatisticTextDocumentStatisticArgs extends com.pulu
 
     public static final IndexIndexStatisticTextDocumentStatisticArgs Empty = new IndexIndexStatisticTextDocumentStatisticArgs();
 
-    /**
-     * The total size, in bytes, of the indexed documents.
-     * 
-     */
     @Import(name="indexedTextBytes")
     private @Nullable Output<Integer> indexedTextBytes;
 
-    /**
-     * @return The total size, in bytes, of the indexed documents.
-     * 
-     */
     public Optional<Output<Integer>> indexedTextBytes() {
         return Optional.ofNullable(this.indexedTextBytes);
     }
 
-    /**
-     * The number of text documents indexed.
-     * 
-     */
     @Import(name="indexedTextDocumentsCount")
     private @Nullable Output<Integer> indexedTextDocumentsCount;
 
-    /**
-     * @return The number of text documents indexed.
-     * 
-     */
     public Optional<Output<Integer>> indexedTextDocumentsCount() {
         return Optional.ofNullable(this.indexedTextDocumentsCount);
     }
@@ -70,44 +54,20 @@ public final class IndexIndexStatisticTextDocumentStatisticArgs extends com.pulu
             $ = new IndexIndexStatisticTextDocumentStatisticArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param indexedTextBytes The total size, in bytes, of the indexed documents.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexedTextBytes(@Nullable Output<Integer> indexedTextBytes) {
             $.indexedTextBytes = indexedTextBytes;
             return this;
         }
 
-        /**
-         * @param indexedTextBytes The total size, in bytes, of the indexed documents.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexedTextBytes(Integer indexedTextBytes) {
             return indexedTextBytes(Output.of(indexedTextBytes));
         }
 
-        /**
-         * @param indexedTextDocumentsCount The number of text documents indexed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexedTextDocumentsCount(@Nullable Output<Integer> indexedTextDocumentsCount) {
             $.indexedTextDocumentsCount = indexedTextDocumentsCount;
             return this;
         }
 
-        /**
-         * @param indexedTextDocumentsCount The number of text documents indexed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexedTextDocumentsCount(Integer indexedTextDocumentsCount) {
             return indexedTextDocumentsCount(Output.of(indexedTextDocumentsCount));
         }

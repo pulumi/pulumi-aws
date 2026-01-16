@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh {
-    /**
-     * @return The lookback window setup for an incremental refresh configuration. See lookback_window.
-     * 
-     */
     private DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow lookbackWindow;
 
     private DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh() {}
-    /**
-     * @return The lookback window setup for an incremental refresh configuration. See lookback_window.
-     * 
-     */
     public DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow lookbackWindow() {
         return this.lookbackWindow;
     }

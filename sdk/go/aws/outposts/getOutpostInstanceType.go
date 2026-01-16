@@ -11,44 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about single Outpost Instance Type.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/outposts"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := outposts.GetOutpostInstanceType(ctx, &outposts.GetOutpostInstanceTypeArgs{
-//				Arn: exampleAwsOutpostsOutpost.Arn,
-//				PreferredInstanceTypes: []string{
-//					"m5.large",
-//					"m5.4xlarge",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = aws.NewEc2Instance(ctx, "example", &aws.Ec2InstanceArgs{
-//				InstanceType: example.InstanceType,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetOutpostInstanceType(ctx *pulumi.Context, args *GetOutpostInstanceTypeArgs, opts ...pulumi.InvokeOption) (*GetOutpostInstanceTypeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOutpostInstanceTypeResult
@@ -61,16 +23,10 @@ func GetOutpostInstanceType(ctx *pulumi.Context, args *GetOutpostInstanceTypeArg
 
 // A collection of arguments for invoking getOutpostInstanceType.
 type GetOutpostInstanceTypeArgs struct {
-	// Outpost ARN.
-	//
-	// The following arguments are optional:
-	Arn string `pulumi:"arn"`
-	// Desired instance type. Conflicts with `preferredInstanceTypes`.
-	InstanceType *string `pulumi:"instanceType"`
-	// Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instanceType`.
+	Arn                    string   `pulumi:"arn"`
+	InstanceType           *string  `pulumi:"instanceType"`
 	PreferredInstanceTypes []string `pulumi:"preferredInstanceTypes"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region                 *string  `pulumi:"region"`
 }
 
 // A collection of values returned by getOutpostInstanceType.
@@ -94,16 +50,10 @@ func GetOutpostInstanceTypeOutput(ctx *pulumi.Context, args GetOutpostInstanceTy
 
 // A collection of arguments for invoking getOutpostInstanceType.
 type GetOutpostInstanceTypeOutputArgs struct {
-	// Outpost ARN.
-	//
-	// The following arguments are optional:
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// Desired instance type. Conflicts with `preferredInstanceTypes`.
-	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instanceType`.
+	Arn                    pulumi.StringInput      `pulumi:"arn"`
+	InstanceType           pulumi.StringPtrInput   `pulumi:"instanceType"`
 	PreferredInstanceTypes pulumi.StringArrayInput `pulumi:"preferredInstanceTypes"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Region                 pulumi.StringPtrInput   `pulumi:"region"`
 }
 
 func (GetOutpostInstanceTypeOutputArgs) ElementType() reflect.Type {

@@ -7,23 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get the ARNs and names of Image Builder Image Pipelines matching the specified criteria.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getImagePipelines({
- *     filters: [{
- *         name: "name",
- *         values: ["example"],
- *     }],
- * });
- * ```
- */
 export function getImagePipelines(args?: GetImagePipelinesArgs, opts?: pulumi.InvokeOptions): Promise<GetImagePipelinesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,13 +20,7 @@ export function getImagePipelines(args?: GetImagePipelinesArgs, opts?: pulumi.In
  * A collection of arguments for invoking getImagePipelines.
  */
 export interface GetImagePipelinesArgs {
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     */
     filters?: inputs.imagebuilder.GetImagePipelinesFilter[];
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -51,38 +28,15 @@ export interface GetImagePipelinesArgs {
  * A collection of values returned by getImagePipelines.
  */
 export interface GetImagePipelinesResult {
-    /**
-     * Set of ARNs of the matched Image Builder Image Pipelines.
-     */
     readonly arns: string[];
     readonly filters?: outputs.imagebuilder.GetImagePipelinesFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Set of names of the matched Image Builder Image Pipelines.
-     */
     readonly names: string[];
     readonly region: string;
 }
-/**
- * Use this data source to get the ARNs and names of Image Builder Image Pipelines matching the specified criteria.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getImagePipelines({
- *     filters: [{
- *         name: "name",
- *         values: ["example"],
- *     }],
- * });
- * ```
- */
 export function getImagePipelinesOutput(args?: GetImagePipelinesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetImagePipelinesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -96,12 +50,6 @@ export function getImagePipelinesOutput(args?: GetImagePipelinesOutputArgs, opts
  * A collection of arguments for invoking getImagePipelines.
  */
 export interface GetImagePipelinesOutputArgs {
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.imagebuilder.GetImagePipelinesFilterArgs>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

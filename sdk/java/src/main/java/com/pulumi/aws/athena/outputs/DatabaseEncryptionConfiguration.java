@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DatabaseEncryptionConfiguration {
-    /**
-     * @return Type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
-     * 
-     */
     private String encryptionOption;
-    /**
-     * @return KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
-     * 
-     */
     private @Nullable String kmsKey;
 
     private DatabaseEncryptionConfiguration() {}
-    /**
-     * @return Type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
-     * 
-     */
     public String encryptionOption() {
         return this.encryptionOption;
     }
-    /**
-     * @return KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
-     * 
-     */
     public Optional<String> kmsKey() {
         return Optional.ofNullable(this.kmsKey);
     }

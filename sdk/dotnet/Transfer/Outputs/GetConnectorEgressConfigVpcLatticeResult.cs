@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Transfer.Outputs
     [OutputType]
     public sealed class GetConnectorEgressConfigVpcLatticeResult
     {
-        /// <summary>
-        /// Port number for connecting to the SFTP server through VPC Lattice.
-        /// </summary>
         public readonly int PortNumber;
-        /// <summary>
-        /// ARN of the VPC Lattice Resource Configuration.
-        /// </summary>
         public readonly string ResourceConfigurationArn;
 
         [OutputConstructor]

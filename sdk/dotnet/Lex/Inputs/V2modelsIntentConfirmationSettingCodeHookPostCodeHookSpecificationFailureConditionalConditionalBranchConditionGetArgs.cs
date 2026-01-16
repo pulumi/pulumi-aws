@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchConditionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Expression string that is evaluated.
-        /// </summary>
         [Input("expressionString", required: true)]
         public Input<string> ExpressionString { get; set; } = null!;
 

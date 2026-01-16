@@ -16,66 +16,30 @@ public final class InstanceStateState extends com.pulumi.resources.ResourceArgs 
 
     public static final InstanceStateState Empty = new InstanceStateState();
 
-    /**
-     * Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
-     * 
-     */
     @Import(name="force")
     private @Nullable Output<Boolean> force;
 
-    /**
-     * @return Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> force() {
         return Optional.ofNullable(this.force);
     }
 
-    /**
-     * ID of the instance.
-     * 
-     */
     @Import(name="instanceId")
     private @Nullable Output<String> instanceId;
 
-    /**
-     * @return ID of the instance.
-     * 
-     */
     public Optional<Output<String>> instanceId() {
         return Optional.ofNullable(this.instanceId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * State of the instance. Valid values are `stopped`, `running`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
-    /**
-     * @return State of the instance. Valid values are `stopped`, `running`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
@@ -107,90 +71,38 @@ public final class InstanceStateState extends com.pulumi.resources.ResourceArgs 
             $ = new InstanceStateState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param force Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder force(@Nullable Output<Boolean> force) {
             $.force = force;
             return this;
         }
 
-        /**
-         * @param force Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder force(Boolean force) {
             return force(Output.of(force));
         }
 
-        /**
-         * @param instanceId ID of the instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceId(@Nullable Output<String> instanceId) {
             $.instanceId = instanceId;
             return this;
         }
 
-        /**
-         * @param instanceId ID of the instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param state State of the instance. Valid values are `stopped`, `running`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
-        /**
-         * @param state State of the instance. Valid values are `stopped`, `running`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(String state) {
             return state(Output.of(state));
         }

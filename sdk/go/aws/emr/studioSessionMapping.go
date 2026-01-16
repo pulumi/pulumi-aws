@@ -12,59 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Elastic MapReduce Studio Session Mapping.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emr.NewStudioSessionMapping(ctx, "example", &emr.StudioSessionMappingArgs{
-//				StudioId:         pulumi.Any(exampleAwsEmrStudio.Id),
-//				IdentityType:     pulumi.String("USER"),
-//				IdentityId:       pulumi.String("example"),
-//				SessionPolicyArn: pulumi.Any(exampleAwsIamPolicy.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EMR studio session mappings using `studio-id:identity-type:identity-id`. For example:
-//
-// ```sh
-// $ pulumi import aws:emr/studioSessionMapping:StudioSessionMapping example es-xxxxx:USER:xxxxx-xxx-xxx
-// ```
 type StudioSessionMapping struct {
 	pulumi.CustomResourceState
 
-	// The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
-	IdentityId pulumi.StringOutput `pulumi:"identityId"`
-	// The name of the user or group from the Amazon Web Services SSO Identity Store.
-	IdentityName pulumi.StringOutput `pulumi:"identityName"`
-	// Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
-	IdentityType pulumi.StringOutput `pulumi:"identityType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
+	IdentityId       pulumi.StringOutput `pulumi:"identityId"`
+	IdentityName     pulumi.StringOutput `pulumi:"identityName"`
+	IdentityType     pulumi.StringOutput `pulumi:"identityType"`
+	Region           pulumi.StringOutput `pulumi:"region"`
 	SessionPolicyArn pulumi.StringOutput `pulumi:"sessionPolicyArn"`
-	// The ID of the Amazon EMR Studio to which the user or group will be mapped.
-	StudioId pulumi.StringOutput `pulumi:"studioId"`
+	StudioId         pulumi.StringOutput `pulumi:"studioId"`
 }
 
 // NewStudioSessionMapping registers a new resource with the given unique name, arguments, and options.
@@ -106,33 +62,21 @@ func GetStudioSessionMapping(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StudioSessionMapping resources.
 type studioSessionMappingState struct {
-	// The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
-	IdentityId *string `pulumi:"identityId"`
-	// The name of the user or group from the Amazon Web Services SSO Identity Store.
-	IdentityName *string `pulumi:"identityName"`
-	// Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
-	IdentityType *string `pulumi:"identityType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
+	IdentityId       *string `pulumi:"identityId"`
+	IdentityName     *string `pulumi:"identityName"`
+	IdentityType     *string `pulumi:"identityType"`
+	Region           *string `pulumi:"region"`
 	SessionPolicyArn *string `pulumi:"sessionPolicyArn"`
-	// The ID of the Amazon EMR Studio to which the user or group will be mapped.
-	StudioId *string `pulumi:"studioId"`
+	StudioId         *string `pulumi:"studioId"`
 }
 
 type StudioSessionMappingState struct {
-	// The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
-	IdentityId pulumi.StringPtrInput
-	// The name of the user or group from the Amazon Web Services SSO Identity Store.
-	IdentityName pulumi.StringPtrInput
-	// Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
-	IdentityType pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
+	IdentityId       pulumi.StringPtrInput
+	IdentityName     pulumi.StringPtrInput
+	IdentityType     pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
 	SessionPolicyArn pulumi.StringPtrInput
-	// The ID of the Amazon EMR Studio to which the user or group will be mapped.
-	StudioId pulumi.StringPtrInput
+	StudioId         pulumi.StringPtrInput
 }
 
 func (StudioSessionMappingState) ElementType() reflect.Type {
@@ -140,34 +84,22 @@ func (StudioSessionMappingState) ElementType() reflect.Type {
 }
 
 type studioSessionMappingArgs struct {
-	// The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
-	IdentityId *string `pulumi:"identityId"`
-	// The name of the user or group from the Amazon Web Services SSO Identity Store.
-	IdentityName *string `pulumi:"identityName"`
-	// Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
-	IdentityType string `pulumi:"identityType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
-	SessionPolicyArn string `pulumi:"sessionPolicyArn"`
-	// The ID of the Amazon EMR Studio to which the user or group will be mapped.
-	StudioId string `pulumi:"studioId"`
+	IdentityId       *string `pulumi:"identityId"`
+	IdentityName     *string `pulumi:"identityName"`
+	IdentityType     string  `pulumi:"identityType"`
+	Region           *string `pulumi:"region"`
+	SessionPolicyArn string  `pulumi:"sessionPolicyArn"`
+	StudioId         string  `pulumi:"studioId"`
 }
 
 // The set of arguments for constructing a StudioSessionMapping resource.
 type StudioSessionMappingArgs struct {
-	// The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
-	IdentityId pulumi.StringPtrInput
-	// The name of the user or group from the Amazon Web Services SSO Identity Store.
-	IdentityName pulumi.StringPtrInput
-	// Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
-	IdentityType pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
+	IdentityId       pulumi.StringPtrInput
+	IdentityName     pulumi.StringPtrInput
+	IdentityType     pulumi.StringInput
+	Region           pulumi.StringPtrInput
 	SessionPolicyArn pulumi.StringInput
-	// The ID of the Amazon EMR Studio to which the user or group will be mapped.
-	StudioId pulumi.StringInput
+	StudioId         pulumi.StringInput
 }
 
 func (StudioSessionMappingArgs) ElementType() reflect.Type {
@@ -257,32 +189,26 @@ func (o StudioSessionMappingOutput) ToStudioSessionMappingOutputWithContext(ctx 
 	return o
 }
 
-// The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
 func (o StudioSessionMappingOutput) IdentityId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioSessionMapping) pulumi.StringOutput { return v.IdentityId }).(pulumi.StringOutput)
 }
 
-// The name of the user or group from the Amazon Web Services SSO Identity Store.
 func (o StudioSessionMappingOutput) IdentityName() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioSessionMapping) pulumi.StringOutput { return v.IdentityName }).(pulumi.StringOutput)
 }
 
-// Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
 func (o StudioSessionMappingOutput) IdentityType() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioSessionMapping) pulumi.StringOutput { return v.IdentityType }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o StudioSessionMappingOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioSessionMapping) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
 func (o StudioSessionMappingOutput) SessionPolicyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioSessionMapping) pulumi.StringOutput { return v.SessionPolicyArn }).(pulumi.StringOutput)
 }
 
-// The ID of the Amazon EMR Studio to which the user or group will be mapped.
 func (o StudioSessionMappingOutput) StudioId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioSessionMapping) pulumi.StringOutput { return v.StudioId }).(pulumi.StringOutput)
 }

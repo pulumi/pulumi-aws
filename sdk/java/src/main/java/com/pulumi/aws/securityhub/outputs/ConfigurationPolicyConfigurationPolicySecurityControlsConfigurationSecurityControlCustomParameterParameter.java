@@ -20,125 +20,45 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter {
-    /**
-     * @return The bool `value` for a Boolean-typed Security Hub Control Parameter.
-     * 
-     */
     private @Nullable ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool bool;
-    /**
-     * @return The float `value` for a Double-typed Security Hub Control Parameter.
-     * 
-     */
     private @Nullable ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble double_;
-    /**
-     * @return The string `value` for a Enum-typed Security Hub Control Parameter.
-     * 
-     */
     private @Nullable ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum enum_;
-    /**
-     * @return The string list `value` for a EnumList-typed Security Hub Control Parameter.
-     * 
-     */
     private @Nullable ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList enumList;
-    /**
-     * @return The int `value` for a Int-typed Security Hub Control Parameter.
-     * 
-     */
     private @Nullable ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt int_;
-    /**
-     * @return The int list `value` for a IntList-typed Security Hub Control Parameter.
-     * 
-     */
     private @Nullable ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList intList;
-    /**
-     * @return The name of the control parameter. For more information see the [Security Hub controls reference] documentation.
-     * 
-     */
     private String name;
-    /**
-     * @return The string `value` for a String-typed Security Hub Control Parameter.
-     * 
-     */
     private @Nullable ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString string;
-    /**
-     * @return The string list `value` for a StringList-typed Security Hub Control Parameter.
-     * 
-     */
     private @Nullable ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList stringList;
-    /**
-     * @return Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior. Valid values: `DEFAULT`, `CUSTOM`.
-     * 
-     */
     private String valueType;
 
     private ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter() {}
-    /**
-     * @return The bool `value` for a Boolean-typed Security Hub Control Parameter.
-     * 
-     */
     public Optional<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool> bool() {
         return Optional.ofNullable(this.bool);
     }
-    /**
-     * @return The float `value` for a Double-typed Security Hub Control Parameter.
-     * 
-     */
     public Optional<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble> double_() {
         return Optional.ofNullable(this.double_);
     }
-    /**
-     * @return The string `value` for a Enum-typed Security Hub Control Parameter.
-     * 
-     */
     public Optional<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum> enum_() {
         return Optional.ofNullable(this.enum_);
     }
-    /**
-     * @return The string list `value` for a EnumList-typed Security Hub Control Parameter.
-     * 
-     */
     public Optional<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList> enumList() {
         return Optional.ofNullable(this.enumList);
     }
-    /**
-     * @return The int `value` for a Int-typed Security Hub Control Parameter.
-     * 
-     */
     public Optional<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt> int_() {
         return Optional.ofNullable(this.int_);
     }
-    /**
-     * @return The int list `value` for a IntList-typed Security Hub Control Parameter.
-     * 
-     */
     public Optional<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList> intList() {
         return Optional.ofNullable(this.intList);
     }
-    /**
-     * @return The name of the control parameter. For more information see the [Security Hub controls reference] documentation.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The string `value` for a String-typed Security Hub Control Parameter.
-     * 
-     */
     public Optional<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString> string() {
         return Optional.ofNullable(this.string);
     }
-    /**
-     * @return The string list `value` for a StringList-typed Security Hub Control Parameter.
-     * 
-     */
     public Optional<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList> stringList() {
         return Optional.ofNullable(this.stringList);
     }
-    /**
-     * @return Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior. Valid values: `DEFAULT`, `CUSTOM`.
-     * 
-     */
     public String valueType() {
         return this.valueType;
     }

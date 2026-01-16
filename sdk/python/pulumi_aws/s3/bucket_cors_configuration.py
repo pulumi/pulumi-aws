@@ -27,10 +27,6 @@ class BucketCorsConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BucketCorsConfiguration resource.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketCorsConfigurationCorsRuleArgs']]] cors_rules: Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
-        :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "cors_rules", cors_rules)
@@ -42,9 +38,6 @@ class BucketCorsConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the bucket.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -54,9 +47,6 @@ class BucketCorsConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="corsRules")
     def cors_rules(self) -> pulumi.Input[Sequence[pulumi.Input['BucketCorsConfigurationCorsRuleArgs']]]:
-        """
-        Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
-        """
         return pulumi.get(self, "cors_rules")
 
     @cors_rules.setter
@@ -66,9 +56,6 @@ class BucketCorsConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Account ID of the expected bucket owner.
-        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
@@ -78,9 +65,6 @@ class BucketCorsConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -97,10 +81,6 @@ class _BucketCorsConfigurationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketCorsConfiguration resources.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketCorsConfigurationCorsRuleArgs']]] cors_rules: Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
-        :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -114,9 +94,6 @@ class _BucketCorsConfigurationState:
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the bucket.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -126,9 +103,6 @@ class _BucketCorsConfigurationState:
     @_builtins.property
     @pulumi.getter(name="corsRules")
     def cors_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketCorsConfigurationCorsRuleArgs']]]]:
-        """
-        Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
-        """
         return pulumi.get(self, "cors_rules")
 
     @cors_rules.setter
@@ -138,9 +112,6 @@ class _BucketCorsConfigurationState:
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Account ID of the expected bucket owner.
-        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
@@ -150,9 +121,6 @@ class _BucketCorsConfigurationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -172,83 +140,9 @@ class BucketCorsConfiguration(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an S3 bucket CORS configuration resource. For more information about CORS, go to [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html) in the Amazon S3 User Guide.
-
-        > **NOTE:** S3 Buckets only support a single CORS configuration. Declaring multiple `s3.BucketCorsConfiguration` resources to the same S3 Bucket will cause a perpetual difference in configuration.
-
-        > This resource cannot be used with S3 directory buckets.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.Bucket("example", bucket="mybucket")
-        example_bucket_cors_configuration = aws.s3.BucketCorsConfiguration("example",
-            bucket=example.id,
-            cors_rules=[
-                {
-                    "allowed_headers": ["*"],
-                    "allowed_methods": [
-                        "PUT",
-                        "POST",
-                    ],
-                    "allowed_origins": ["https://s3-website-test.domain.example"],
-                    "expose_headers": ["ETag"],
-                    "max_age_seconds": 3000,
-                },
-                {
-                    "allowed_methods": ["GET"],
-                    "allowed_origins": ["*"],
-                },
-            ])
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `bucket` (String) S3 bucket name.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
-
-        * `region` (String) Region where this resource is managed.
-
-        If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-
-        terraform
-
-        import {
-
-          to = aws_s3_bucket_cors_configuration.example
-
-          id = "bucket-name,123456789012"
-
-        }
-
-        **Using `pulumi import` to import** S3 bucket CORS configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
-
-        If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
-
-        % pulumi import aws_s3_bucket_cors_configuration.example bucket-name
-
-        If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-
-        % pulumi import aws_s3_bucket_cors_configuration.example bucket-name,123456789012
-
+        Create a BucketCorsConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketCorsConfigurationCorsRuleArgs', 'BucketCorsConfigurationCorsRuleArgsDict']]]] cors_rules: Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
-        :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -257,77 +151,7 @@ class BucketCorsConfiguration(pulumi.CustomResource):
                  args: BucketCorsConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an S3 bucket CORS configuration resource. For more information about CORS, go to [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html) in the Amazon S3 User Guide.
-
-        > **NOTE:** S3 Buckets only support a single CORS configuration. Declaring multiple `s3.BucketCorsConfiguration` resources to the same S3 Bucket will cause a perpetual difference in configuration.
-
-        > This resource cannot be used with S3 directory buckets.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.Bucket("example", bucket="mybucket")
-        example_bucket_cors_configuration = aws.s3.BucketCorsConfiguration("example",
-            bucket=example.id,
-            cors_rules=[
-                {
-                    "allowed_headers": ["*"],
-                    "allowed_methods": [
-                        "PUT",
-                        "POST",
-                    ],
-                    "allowed_origins": ["https://s3-website-test.domain.example"],
-                    "expose_headers": ["ETag"],
-                    "max_age_seconds": 3000,
-                },
-                {
-                    "allowed_methods": ["GET"],
-                    "allowed_origins": ["*"],
-                },
-            ])
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `bucket` (String) S3 bucket name.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
-
-        * `region` (String) Region where this resource is managed.
-
-        If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-
-        terraform
-
-        import {
-
-          to = aws_s3_bucket_cors_configuration.example
-
-          id = "bucket-name,123456789012"
-
-        }
-
-        **Using `pulumi import` to import** S3 bucket CORS configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
-
-        If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
-
-        % pulumi import aws_s3_bucket_cors_configuration.example bucket-name
-
-        If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-
-        % pulumi import aws_s3_bucket_cors_configuration.example bucket-name,123456789012
-
+        Create a BucketCorsConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BucketCorsConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -387,10 +211,6 @@ class BucketCorsConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketCorsConfigurationCorsRuleArgs', 'BucketCorsConfigurationCorsRuleArgsDict']]]] cors_rules: Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
-        :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -405,32 +225,20 @@ class BucketCorsConfiguration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the bucket.
-        """
         return pulumi.get(self, "bucket")
 
     @_builtins.property
     @pulumi.getter(name="corsRules")
     def cors_rules(self) -> pulumi.Output[Sequence['outputs.BucketCorsConfigurationCorsRule']]:
-        """
-        Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
-        """
         return pulumi.get(self, "cors_rules")
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Account ID of the expected bucket owner.
-        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

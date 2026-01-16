@@ -92,81 +92,51 @@ class GetFirewallResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the firewall.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneChangeProtection")
     def availability_zone_change_protection(self) -> _builtins.bool:
-        """
-        Indicates whether the firewall is protected against changes to its Availability Zone configuration.
-        """
         return pulumi.get(self, "availability_zone_change_protection")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneMappings")
     def availability_zone_mappings(self) -> Sequence['outputs.GetFirewallAvailabilityZoneMappingResult']:
-        """
-        Set of Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall.
-        """
         return pulumi.get(self, "availability_zone_mappings")
 
     @_builtins.property
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> _builtins.bool:
-        """
-        A flag indicating whether the firewall is protected against deletion.
-        """
         return pulumi.get(self, "delete_protection")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the firewall.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="enabledAnalysisTypes")
     def enabled_analysis_types(self) -> Sequence[_builtins.str]:
-        """
-        Set of types for which to collect analysis metrics.
-        """
         return pulumi.get(self, "enabled_analysis_types")
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfigurations")
     def encryption_configurations(self) -> Sequence['outputs.GetFirewallEncryptionConfigurationResult']:
-        """
-        AWS Key Management Service (AWS KMS) encryption settings for the firewall.
-        """
         return pulumi.get(self, "encryption_configurations")
 
     @_builtins.property
     @pulumi.getter(name="firewallPolicyArn")
     def firewall_policy_arn(self) -> _builtins.str:
-        """
-        ARN of the VPC Firewall policy.
-        """
         return pulumi.get(self, "firewall_policy_arn")
 
     @_builtins.property
     @pulumi.getter(name="firewallPolicyChangeProtection")
     def firewall_policy_change_protection(self) -> _builtins.bool:
-        """
-        A flag indicating whether the firewall is protected against a change to the firewall policy association.
-        """
         return pulumi.get(self, "firewall_policy_change_protection")
 
     @_builtins.property
     @pulumi.getter(name="firewallStatuses")
     def firewall_statuses(self) -> Sequence['outputs.GetFirewallFirewallStatusResult']:
-        """
-        Nested list of information about the current status of the firewall.
-        """
         return pulumi.get(self, "firewall_statuses")
 
     @_builtins.property
@@ -180,9 +150,6 @@ class GetFirewallResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Descriptive name of the firewall.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -193,57 +160,36 @@ class GetFirewallResult:
     @_builtins.property
     @pulumi.getter(name="subnetChangeProtection")
     def subnet_change_protection(self) -> _builtins.bool:
-        """
-        A flag indicating whether the firewall is protected against changes to the subnet associations.
-        """
         return pulumi.get(self, "subnet_change_protection")
 
     @_builtins.property
     @pulumi.getter(name="subnetMappings")
     def subnet_mappings(self) -> Sequence['outputs.GetFirewallSubnetMappingResult']:
-        """
-        Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet.
-        """
         return pulumi.get(self, "subnet_mappings")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> _builtins.str:
-        """
-        The unique identifier of the transit gateway associated with this firewall.
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayOwnerAccountId")
     def transit_gateway_owner_account_id(self) -> _builtins.str:
-        """
-        The AWS account ID that owns the transit gateway.
-        """
         return pulumi.get(self, "transit_gateway_owner_account_id")
 
     @_builtins.property
     @pulumi.getter(name="updateToken")
     def update_token(self) -> _builtins.str:
-        """
-        String token used when updating a firewall.
-        """
         return pulumi.get(self, "update_token")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> _builtins.str:
-        """
-        Unique identifier of the VPC where AWS Network Firewall should create the firewall.
-        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -281,45 +227,7 @@ def get_firewall(arn: Optional[_builtins.str] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallResult:
     """
-    Retrieve information about a firewall.
-
-    ## Example Usage
-
-    ### Find firewall policy by ARN
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_firewall(arn=arn)
-    ```
-
-    ### Find firewall policy by Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_firewall(name="Test")
-    ```
-
-    ### Find firewall policy by ARN and Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_firewall(arn=arn,
-        name="Test")
-    ```
-
-
-    :param _builtins.str arn: ARN of the firewall.
-    :param _builtins.str name: Descriptive name of the firewall.
-           
-           One or more of these arguments is required.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -356,45 +264,7 @@ def get_firewall_output(arn: Optional[pulumi.Input[Optional[_builtins.str]]] = N
                         tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallResult]:
     """
-    Retrieve information about a firewall.
-
-    ## Example Usage
-
-    ### Find firewall policy by ARN
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_firewall(arn=arn)
-    ```
-
-    ### Find firewall policy by Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_firewall(name="Test")
-    ```
-
-    ### Find firewall policy by ARN and Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_firewall(arn=arn,
-        name="Test")
-    ```
-
-
-    :param _builtins.str arn: ARN of the firewall.
-    :param _builtins.str name: Descriptive name of the firewall.
-           
-           One or more of these arguments is required.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

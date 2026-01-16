@@ -18,92 +18,44 @@ public final class BudgetNotificationArgs extends com.pulumi.resources.ResourceA
 
     public static final BudgetNotificationArgs Empty = new BudgetNotificationArgs();
 
-    /**
-     * (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
-     * 
-     */
     @Import(name="comparisonOperator", required=true)
     private Output<String> comparisonOperator;
 
-    /**
-     * @return (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
-     * 
-     */
     public Output<String> comparisonOperator() {
         return this.comparisonOperator;
     }
 
-    /**
-     * (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
-     * 
-     */
     @Import(name="notificationType", required=true)
     private Output<String> notificationType;
 
-    /**
-     * @return (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
-     * 
-     */
     public Output<String> notificationType() {
         return this.notificationType;
     }
 
-    /**
-     * (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
-     * 
-     */
     @Import(name="subscriberEmailAddresses")
     private @Nullable Output<List<String>> subscriberEmailAddresses;
 
-    /**
-     * @return (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
-     * 
-     */
     public Optional<Output<List<String>>> subscriberEmailAddresses() {
         return Optional.ofNullable(this.subscriberEmailAddresses);
     }
 
-    /**
-     * (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
-     * 
-     */
     @Import(name="subscriberSnsTopicArns")
     private @Nullable Output<List<String>> subscriberSnsTopicArns;
 
-    /**
-     * @return (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
-     * 
-     */
     public Optional<Output<List<String>>> subscriberSnsTopicArns() {
         return Optional.ofNullable(this.subscriberSnsTopicArns);
     }
 
-    /**
-     * (Required) Threshold when the notification should be sent.
-     * 
-     */
     @Import(name="threshold", required=true)
     private Output<Double> threshold;
 
-    /**
-     * @return (Required) Threshold when the notification should be sent.
-     * 
-     */
     public Output<Double> threshold() {
         return this.threshold;
     }
 
-    /**
-     * (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
-     * 
-     */
     @Import(name="thresholdType", required=true)
     private Output<String> thresholdType;
 
-    /**
-     * @return (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
-     * 
-     */
     public Output<String> thresholdType() {
         return this.thresholdType;
     }
@@ -137,148 +89,64 @@ public final class BudgetNotificationArgs extends com.pulumi.resources.ResourceA
             $ = new BudgetNotificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param comparisonOperator (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comparisonOperator(Output<String> comparisonOperator) {
             $.comparisonOperator = comparisonOperator;
             return this;
         }
 
-        /**
-         * @param comparisonOperator (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comparisonOperator(String comparisonOperator) {
             return comparisonOperator(Output.of(comparisonOperator));
         }
 
-        /**
-         * @param notificationType (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
-         * 
-         * @return builder
-         * 
-         */
         public Builder notificationType(Output<String> notificationType) {
             $.notificationType = notificationType;
             return this;
         }
 
-        /**
-         * @param notificationType (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
-         * 
-         * @return builder
-         * 
-         */
         public Builder notificationType(String notificationType) {
             return notificationType(Output.of(notificationType));
         }
 
-        /**
-         * @param subscriberEmailAddresses (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscriberEmailAddresses(@Nullable Output<List<String>> subscriberEmailAddresses) {
             $.subscriberEmailAddresses = subscriberEmailAddresses;
             return this;
         }
 
-        /**
-         * @param subscriberEmailAddresses (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscriberEmailAddresses(List<String> subscriberEmailAddresses) {
             return subscriberEmailAddresses(Output.of(subscriberEmailAddresses));
         }
 
-        /**
-         * @param subscriberEmailAddresses (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscriberEmailAddresses(String... subscriberEmailAddresses) {
             return subscriberEmailAddresses(List.of(subscriberEmailAddresses));
         }
 
-        /**
-         * @param subscriberSnsTopicArns (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscriberSnsTopicArns(@Nullable Output<List<String>> subscriberSnsTopicArns) {
             $.subscriberSnsTopicArns = subscriberSnsTopicArns;
             return this;
         }
 
-        /**
-         * @param subscriberSnsTopicArns (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscriberSnsTopicArns(List<String> subscriberSnsTopicArns) {
             return subscriberSnsTopicArns(Output.of(subscriberSnsTopicArns));
         }
 
-        /**
-         * @param subscriberSnsTopicArns (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscriberSnsTopicArns(String... subscriberSnsTopicArns) {
             return subscriberSnsTopicArns(List.of(subscriberSnsTopicArns));
         }
 
-        /**
-         * @param threshold (Required) Threshold when the notification should be sent.
-         * 
-         * @return builder
-         * 
-         */
         public Builder threshold(Output<Double> threshold) {
             $.threshold = threshold;
             return this;
         }
 
-        /**
-         * @param threshold (Required) Threshold when the notification should be sent.
-         * 
-         * @return builder
-         * 
-         */
         public Builder threshold(Double threshold) {
             return threshold(Output.of(threshold));
         }
 
-        /**
-         * @param thresholdType (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thresholdType(Output<String> thresholdType) {
             $.thresholdType = thresholdType;
             return this;
         }
 
-        /**
-         * @param thresholdType (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thresholdType(String thresholdType) {
             return thresholdType(Output.of(thresholdType));
         }

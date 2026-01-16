@@ -15,32 +15,16 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkI
 
     public static final FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs Empty = new FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs();
 
-    /**
-     * The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
-     * 
-     */
     @Import(name="max")
     private @Nullable Output<Integer> max;
 
-    /**
-     * @return The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
-     * 
-     */
     public Optional<Output<Integer>> max() {
         return Optional.ofNullable(this.max);
     }
 
-    /**
-     * The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
-     * 
-     */
     @Import(name="min")
     private @Nullable Output<Integer> min;
 
-    /**
-     * @return The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
-     * 
-     */
     public Optional<Output<Integer>> min() {
         return Optional.ofNullable(this.min);
     }
@@ -70,44 +54,20 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkI
             $ = new FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param max The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder max(@Nullable Output<Integer> max) {
             $.max = max;
             return this;
         }
 
-        /**
-         * @param max The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder max(Integer max) {
             return max(Output.of(max));
         }
 
-        /**
-         * @param min The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder min(@Nullable Output<Integer> min) {
             $.min = min;
             return this;
         }
 
-        /**
-         * @param min The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder min(Integer min) {
             return min(Output.of(min));
         }

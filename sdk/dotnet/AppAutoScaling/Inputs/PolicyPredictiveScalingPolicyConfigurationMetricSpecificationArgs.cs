@@ -12,45 +12,24 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
 
     public sealed class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Customized capacity metric specification. See supported fields below.
-        /// </summary>
         [Input("customizedCapacityMetricSpecification")]
         public Input<Inputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs>? CustomizedCapacityMetricSpecification { get; set; }
 
-        /// <summary>
-        /// Customized load metric specification. See supported fields below.
-        /// </summary>
         [Input("customizedLoadMetricSpecification")]
         public Input<Inputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs>? CustomizedLoadMetricSpecification { get; set; }
 
-        /// <summary>
-        /// Customized scaling metric specification. See supported fields below.
-        /// </summary>
         [Input("customizedScalingMetricSpecification")]
         public Input<Inputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs>? CustomizedScalingMetricSpecification { get; set; }
 
-        /// <summary>
-        /// Predefined load metric specification. See supported fields below.
-        /// </summary>
         [Input("predefinedLoadMetricSpecification")]
         public Input<Inputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs>? PredefinedLoadMetricSpecification { get; set; }
 
-        /// <summary>
-        /// Predefined metric pair specification that determines the appropriate scaling metric and load metric to use. See supported fields below.
-        /// </summary>
         [Input("predefinedMetricPairSpecification")]
         public Input<Inputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs>? PredefinedMetricPairSpecification { get; set; }
 
-        /// <summary>
-        /// Predefined scaling metric specification. See supported fields below.
-        /// </summary>
         [Input("predefinedScalingMetricSpecification")]
         public Input<Inputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs>? PredefinedScalingMetricSpecification { get; set; }
 
-        /// <summary>
-        /// Target utilization.
-        /// </summary>
         [Input("targetValue", required: true)]
         public Input<string> TargetValue { get; set; } = null!;
 

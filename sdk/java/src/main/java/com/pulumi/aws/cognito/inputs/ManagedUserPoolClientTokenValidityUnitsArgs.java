@@ -15,47 +15,23 @@ public final class ManagedUserPoolClientTokenValidityUnitsArgs extends com.pulum
 
     public static final ManagedUserPoolClientTokenValidityUnitsArgs Empty = new ManagedUserPoolClientTokenValidityUnitsArgs();
 
-    /**
-     * Time unit for the value in `accessTokenValidity` and defaults to `hours`.
-     * 
-     */
     @Import(name="accessToken")
     private @Nullable Output<String> accessToken;
 
-    /**
-     * @return Time unit for the value in `accessTokenValidity` and defaults to `hours`.
-     * 
-     */
     public Optional<Output<String>> accessToken() {
         return Optional.ofNullable(this.accessToken);
     }
 
-    /**
-     * Time unit for the value in `idTokenValidity`, and it defaults to `hours`.
-     * 
-     */
     @Import(name="idToken")
     private @Nullable Output<String> idToken;
 
-    /**
-     * @return Time unit for the value in `idTokenValidity`, and it defaults to `hours`.
-     * 
-     */
     public Optional<Output<String>> idToken() {
         return Optional.ofNullable(this.idToken);
     }
 
-    /**
-     * Time unit for the value in `refreshTokenValidity` and defaults to `days`.
-     * 
-     */
     @Import(name="refreshToken")
     private @Nullable Output<String> refreshToken;
 
-    /**
-     * @return Time unit for the value in `refreshTokenValidity` and defaults to `days`.
-     * 
-     */
     public Optional<Output<String>> refreshToken() {
         return Optional.ofNullable(this.refreshToken);
     }
@@ -86,65 +62,29 @@ public final class ManagedUserPoolClientTokenValidityUnitsArgs extends com.pulum
             $ = new ManagedUserPoolClientTokenValidityUnitsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessToken Time unit for the value in `accessTokenValidity` and defaults to `hours`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessToken(@Nullable Output<String> accessToken) {
             $.accessToken = accessToken;
             return this;
         }
 
-        /**
-         * @param accessToken Time unit for the value in `accessTokenValidity` and defaults to `hours`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessToken(String accessToken) {
             return accessToken(Output.of(accessToken));
         }
 
-        /**
-         * @param idToken Time unit for the value in `idTokenValidity`, and it defaults to `hours`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idToken(@Nullable Output<String> idToken) {
             $.idToken = idToken;
             return this;
         }
 
-        /**
-         * @param idToken Time unit for the value in `idTokenValidity`, and it defaults to `hours`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idToken(String idToken) {
             return idToken(Output.of(idToken));
         }
 
-        /**
-         * @param refreshToken Time unit for the value in `refreshTokenValidity` and defaults to `days`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder refreshToken(@Nullable Output<String> refreshToken) {
             $.refreshToken = refreshToken;
             return this;
         }
 
-        /**
-         * @param refreshToken Time unit for the value in `refreshTokenValidity` and defaults to `days`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder refreshToken(String refreshToken) {
             return refreshToken(Output.of(refreshToken));
         }

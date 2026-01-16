@@ -15,47 +15,23 @@ public final class SdkvoiceSipRuleTargetApplicationArgs extends com.pulumi.resou
 
     public static final SdkvoiceSipRuleTargetApplicationArgs Empty = new SdkvoiceSipRuleTargetApplicationArgs();
 
-    /**
-     * The AWS Region of the target application.
-     * 
-     */
     @Import(name="awsRegion", required=true)
     private Output<String> awsRegion;
 
-    /**
-     * @return The AWS Region of the target application.
-     * 
-     */
     public Output<String> awsRegion() {
         return this.awsRegion;
     }
 
-    /**
-     * Priority of the SIP media application in the target list.
-     * 
-     */
     @Import(name="priority", required=true)
     private Output<Integer> priority;
 
-    /**
-     * @return Priority of the SIP media application in the target list.
-     * 
-     */
     public Output<Integer> priority() {
         return this.priority;
     }
 
-    /**
-     * The SIP media application ID.
-     * 
-     */
     @Import(name="sipMediaApplicationId", required=true)
     private Output<String> sipMediaApplicationId;
 
-    /**
-     * @return The SIP media application ID.
-     * 
-     */
     public Output<String> sipMediaApplicationId() {
         return this.sipMediaApplicationId;
     }
@@ -86,65 +62,29 @@ public final class SdkvoiceSipRuleTargetApplicationArgs extends com.pulumi.resou
             $ = new SdkvoiceSipRuleTargetApplicationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsRegion The AWS Region of the target application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsRegion(Output<String> awsRegion) {
             $.awsRegion = awsRegion;
             return this;
         }
 
-        /**
-         * @param awsRegion The AWS Region of the target application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsRegion(String awsRegion) {
             return awsRegion(Output.of(awsRegion));
         }
 
-        /**
-         * @param priority Priority of the SIP media application in the target list.
-         * 
-         * @return builder
-         * 
-         */
         public Builder priority(Output<Integer> priority) {
             $.priority = priority;
             return this;
         }
 
-        /**
-         * @param priority Priority of the SIP media application in the target list.
-         * 
-         * @return builder
-         * 
-         */
         public Builder priority(Integer priority) {
             return priority(Output.of(priority));
         }
 
-        /**
-         * @param sipMediaApplicationId The SIP media application ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sipMediaApplicationId(Output<String> sipMediaApplicationId) {
             $.sipMediaApplicationId = sipMediaApplicationId;
             return this;
         }
 
-        /**
-         * @param sipMediaApplicationId The SIP media application ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sipMediaApplicationId(String sipMediaApplicationId) {
             return sipMediaApplicationId(Output.of(sipMediaApplicationId));
         }

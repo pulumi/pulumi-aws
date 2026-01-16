@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerSecret {
-    /**
-     * @return The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-     * 
-     */
     private String name;
-    /**
-     * @return The secret to expose to the container. The supported values are either the full Amazon Resource Name (ARN) of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
-     * 
-     */
     private String valueFrom;
 
     private GetJobDefinitionNodePropertyNodeRangePropertyContainerSecret() {}
-    /**
-     * @return The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The secret to expose to the container. The supported values are either the full Amazon Resource Name (ARN) of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
-     * 
-     */
     public String valueFrom() {
         return this.valueFrom;
     }

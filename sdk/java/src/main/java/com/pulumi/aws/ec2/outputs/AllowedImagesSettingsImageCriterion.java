@@ -14,65 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AllowedImagesSettingsImageCriterion {
-    /**
-     * @return Condition based on AMI creation date. See `creationDateCondition` below.
-     * 
-     */
     private @Nullable AllowedImagesSettingsImageCriterionCreationDateCondition creationDateCondition;
-    /**
-     * @return Condition based on AMI deprecation time. See `deprecationTimeCondition` below.
-     * 
-     */
     private @Nullable AllowedImagesSettingsImageCriterionDeprecationTimeCondition deprecationTimeCondition;
-    /**
-     * @return Set of AMI name patterns to allow. Maximum of 50 names.
-     * 
-     */
     private @Nullable List<String> imageNames;
-    /**
-     * @return Set of image providers to allow. Maximum of 200 providers. Valid values include `amazon`, `aws-marketplace`, `aws-backup-vault`, `none`, or a 12-digit AWS account ID.
-     * 
-     */
     private @Nullable List<String> imageProviders;
-    /**
-     * @return Set of AWS Marketplace product codes to allow. Maximum of 50 product codes.
-     * 
-     */
     private @Nullable List<String> marketplaceProductCodes;
 
     private AllowedImagesSettingsImageCriterion() {}
-    /**
-     * @return Condition based on AMI creation date. See `creationDateCondition` below.
-     * 
-     */
     public Optional<AllowedImagesSettingsImageCriterionCreationDateCondition> creationDateCondition() {
         return Optional.ofNullable(this.creationDateCondition);
     }
-    /**
-     * @return Condition based on AMI deprecation time. See `deprecationTimeCondition` below.
-     * 
-     */
     public Optional<AllowedImagesSettingsImageCriterionDeprecationTimeCondition> deprecationTimeCondition() {
         return Optional.ofNullable(this.deprecationTimeCondition);
     }
-    /**
-     * @return Set of AMI name patterns to allow. Maximum of 50 names.
-     * 
-     */
     public List<String> imageNames() {
         return this.imageNames == null ? List.of() : this.imageNames;
     }
-    /**
-     * @return Set of image providers to allow. Maximum of 200 providers. Valid values include `amazon`, `aws-marketplace`, `aws-backup-vault`, `none`, or a 12-digit AWS account ID.
-     * 
-     */
     public List<String> imageProviders() {
         return this.imageProviders == null ? List.of() : this.imageProviders;
     }
-    /**
-     * @return Set of AWS Marketplace product codes to allow. Maximum of 50 product codes.
-     * 
-     */
     public List<String> marketplaceProductCodes() {
         return this.marketplaceProductCodes == null ? List.of() : this.marketplaceProductCodes;
     }

@@ -17,101 +17,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentPromptVariant {
-    /**
-     * @return Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
-     * 
-     */
     private @Nullable String additionalModelRequestFields;
-    /**
-     * @return Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `genAiResource` must be defined. See Generative AI Resource for more information.
-     * 
-     */
     private @Nullable AgentPromptVariantGenAiResource genAiResource;
-    /**
-     * @return Contains inference configurations for the prompt variant. See Inference Configuration for more information.
-     * 
-     */
     private @Nullable AgentPromptVariantInferenceConfiguration inferenceConfiguration;
-    /**
-     * @return A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
-     * 
-     */
     private @Nullable List<AgentPromptVariantMetadata> metadatas;
-    /**
-     * @return Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `genAiResource` must be defined.
-     * 
-     */
     private @Nullable String modelId;
-    /**
-     * @return Name of the prompt variant.
-     * 
-     */
     private String name;
-    /**
-     * @return Contains configurations for the prompt template. See Template Configuration for more information.
-     * 
-     */
     private @Nullable AgentPromptVariantTemplateConfiguration templateConfiguration;
-    /**
-     * @return Type of prompt template to use. Valid values: `CHAT`, `TEXT`.
-     * 
-     */
     private String templateType;
 
     private AgentPromptVariant() {}
-    /**
-     * @return Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
-     * 
-     */
     public Optional<String> additionalModelRequestFields() {
         return Optional.ofNullable(this.additionalModelRequestFields);
     }
-    /**
-     * @return Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `genAiResource` must be defined. See Generative AI Resource for more information.
-     * 
-     */
     public Optional<AgentPromptVariantGenAiResource> genAiResource() {
         return Optional.ofNullable(this.genAiResource);
     }
-    /**
-     * @return Contains inference configurations for the prompt variant. See Inference Configuration for more information.
-     * 
-     */
     public Optional<AgentPromptVariantInferenceConfiguration> inferenceConfiguration() {
         return Optional.ofNullable(this.inferenceConfiguration);
     }
-    /**
-     * @return A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
-     * 
-     */
     public List<AgentPromptVariantMetadata> metadatas() {
         return this.metadatas == null ? List.of() : this.metadatas;
     }
-    /**
-     * @return Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `genAiResource` must be defined.
-     * 
-     */
     public Optional<String> modelId() {
         return Optional.ofNullable(this.modelId);
     }
-    /**
-     * @return Name of the prompt variant.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Contains configurations for the prompt template. See Template Configuration for more information.
-     * 
-     */
     public Optional<AgentPromptVariantTemplateConfiguration> templateConfiguration() {
         return Optional.ofNullable(this.templateConfiguration);
     }
-    /**
-     * @return Type of prompt template to use. Valid values: `CHAT`, `TEXT`.
-     * 
-     */
     public String templateType() {
         return this.templateType;
     }

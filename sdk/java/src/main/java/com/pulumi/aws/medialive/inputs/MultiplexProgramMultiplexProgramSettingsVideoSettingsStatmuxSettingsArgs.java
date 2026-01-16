@@ -15,47 +15,23 @@ public final class MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxS
 
     public static final MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs Empty = new MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs();
 
-    /**
-     * Maximum bitrate.
-     * 
-     */
     @Import(name="maximumBitrate")
     private @Nullable Output<Integer> maximumBitrate;
 
-    /**
-     * @return Maximum bitrate.
-     * 
-     */
     public Optional<Output<Integer>> maximumBitrate() {
         return Optional.ofNullable(this.maximumBitrate);
     }
 
-    /**
-     * Minimum bitrate.
-     * 
-     */
     @Import(name="minimumBitrate")
     private @Nullable Output<Integer> minimumBitrate;
 
-    /**
-     * @return Minimum bitrate.
-     * 
-     */
     public Optional<Output<Integer>> minimumBitrate() {
         return Optional.ofNullable(this.minimumBitrate);
     }
 
-    /**
-     * Priority value.
-     * 
-     */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
-    /**
-     * @return Priority value.
-     * 
-     */
     public Optional<Output<Integer>> priority() {
         return Optional.ofNullable(this.priority);
     }
@@ -86,65 +62,29 @@ public final class MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxS
             $ = new MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maximumBitrate Maximum bitrate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumBitrate(@Nullable Output<Integer> maximumBitrate) {
             $.maximumBitrate = maximumBitrate;
             return this;
         }
 
-        /**
-         * @param maximumBitrate Maximum bitrate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumBitrate(Integer maximumBitrate) {
             return maximumBitrate(Output.of(maximumBitrate));
         }
 
-        /**
-         * @param minimumBitrate Minimum bitrate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minimumBitrate(@Nullable Output<Integer> minimumBitrate) {
             $.minimumBitrate = minimumBitrate;
             return this;
         }
 
-        /**
-         * @param minimumBitrate Minimum bitrate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minimumBitrate(Integer minimumBitrate) {
             return minimumBitrate(Output.of(minimumBitrate));
         }
 
-        /**
-         * @param priority Priority value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder priority(@Nullable Output<Integer> priority) {
             $.priority = priority;
             return this;
         }
 
-        /**
-         * @param priority Priority value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder priority(Integer priority) {
             return priority(Output.of(priority));
         }

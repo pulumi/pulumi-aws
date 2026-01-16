@@ -14,32 +14,16 @@ public final class SnapshotImportDiskContainerUserBucketArgs extends com.pulumi.
 
     public static final SnapshotImportDiskContainerUserBucketArgs Empty = new SnapshotImportDiskContainerUserBucketArgs();
 
-    /**
-     * The name of the Amazon S3 bucket where the disk image is located.
-     * 
-     */
     @Import(name="s3Bucket", required=true)
     private Output<String> s3Bucket;
 
-    /**
-     * @return The name of the Amazon S3 bucket where the disk image is located.
-     * 
-     */
     public Output<String> s3Bucket() {
         return this.s3Bucket;
     }
 
-    /**
-     * The file name of the disk image.
-     * 
-     */
     @Import(name="s3Key", required=true)
     private Output<String> s3Key;
 
-    /**
-     * @return The file name of the disk image.
-     * 
-     */
     public Output<String> s3Key() {
         return this.s3Key;
     }
@@ -69,44 +53,20 @@ public final class SnapshotImportDiskContainerUserBucketArgs extends com.pulumi.
             $ = new SnapshotImportDiskContainerUserBucketArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3Bucket The name of the Amazon S3 bucket where the disk image is located.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Bucket(Output<String> s3Bucket) {
             $.s3Bucket = s3Bucket;
             return this;
         }
 
-        /**
-         * @param s3Bucket The name of the Amazon S3 bucket where the disk image is located.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Bucket(String s3Bucket) {
             return s3Bucket(Output.of(s3Bucket));
         }
 
-        /**
-         * @param s3Key The file name of the disk image.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Key(Output<String> s3Key) {
             $.s3Key = s3Key;
             return this;
         }
 
-        /**
-         * @param s3Key The file name of the disk image.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Key(String s3Key) {
             return s3Key(Output.of(s3Key));
         }

@@ -14,17 +14,9 @@ public final class InsightFiltersKeywordArgs extends com.pulumi.resources.Resour
 
     public static final InsightFiltersKeywordArgs Empty = new InsightFiltersKeywordArgs();
 
-    /**
-     * A value for the keyword.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return A value for the keyword.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -53,23 +45,11 @@ public final class InsightFiltersKeywordArgs extends com.pulumi.resources.Resour
             $ = new InsightFiltersKeywordArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param value A value for the keyword.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value A value for the keyword.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

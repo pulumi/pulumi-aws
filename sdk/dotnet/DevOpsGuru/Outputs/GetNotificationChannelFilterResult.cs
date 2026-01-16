@@ -13,13 +13,7 @@ namespace Pulumi.Aws.DevOpsGuru.Outputs
     [OutputType]
     public sealed class GetNotificationChannelFilterResult
     {
-        /// <summary>
-        /// Events to receive notifications for.
-        /// </summary>
         public readonly ImmutableArray<string> MessageTypes;
-        /// <summary>
-        /// Severity levels to receive notifications for.
-        /// </summary>
         public readonly ImmutableArray<string> Severities;
 
         [OutputConstructor]

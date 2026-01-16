@@ -15,17 +15,9 @@ public final class WebAclRuleCaptchaConfigArgs extends com.pulumi.resources.Reso
 
     public static final WebAclRuleCaptchaConfigArgs Empty = new WebAclRuleCaptchaConfigArgs();
 
-    /**
-     * Defines custom immunity time. See `immunityTimeProperty` below for details.
-     * 
-     */
     @Import(name="immunityTimeProperty")
     private @Nullable Output<WebAclRuleCaptchaConfigImmunityTimePropertyArgs> immunityTimeProperty;
 
-    /**
-     * @return Defines custom immunity time. See `immunityTimeProperty` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleCaptchaConfigImmunityTimePropertyArgs>> immunityTimeProperty() {
         return Optional.ofNullable(this.immunityTimeProperty);
     }
@@ -54,23 +46,11 @@ public final class WebAclRuleCaptchaConfigArgs extends com.pulumi.resources.Reso
             $ = new WebAclRuleCaptchaConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param immunityTimeProperty Defines custom immunity time. See `immunityTimeProperty` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder immunityTimeProperty(@Nullable Output<WebAclRuleCaptchaConfigImmunityTimePropertyArgs> immunityTimeProperty) {
             $.immunityTimeProperty = immunityTimeProperty;
             return this;
         }
 
-        /**
-         * @param immunityTimeProperty Defines custom immunity time. See `immunityTimeProperty` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder immunityTimeProperty(WebAclRuleCaptchaConfigImmunityTimePropertyArgs immunityTimeProperty) {
             return immunityTimeProperty(Output.of(immunityTimeProperty));
         }

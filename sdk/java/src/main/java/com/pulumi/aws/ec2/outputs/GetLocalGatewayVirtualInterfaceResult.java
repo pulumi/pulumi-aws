@@ -17,38 +17,14 @@ import javax.annotation.Nullable;
 public final class GetLocalGatewayVirtualInterfaceResult {
     private @Nullable List<GetLocalGatewayVirtualInterfaceFilter> filters;
     private String id;
-    /**
-     * @return Local address.
-     * 
-     */
     private String localAddress;
-    /**
-     * @return Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the EC2 Local Gateway.
-     * 
-     */
     private Integer localBgpAsn;
-    /**
-     * @return Identifier of the EC2 Local Gateway.
-     * 
-     */
     private String localGatewayId;
     private List<String> localGatewayVirtualInterfaceIds;
-    /**
-     * @return Peer address.
-     * 
-     */
     private String peerAddress;
-    /**
-     * @return Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the peer.
-     * 
-     */
     private Integer peerBgpAsn;
     private String region;
     private Map<String,String> tags;
-    /**
-     * @return Virtual Local Area Network.
-     * 
-     */
     private Integer vlan;
 
     private GetLocalGatewayVirtualInterfaceResult() {}
@@ -58,41 +34,21 @@ public final class GetLocalGatewayVirtualInterfaceResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Local address.
-     * 
-     */
     public String localAddress() {
         return this.localAddress;
     }
-    /**
-     * @return Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the EC2 Local Gateway.
-     * 
-     */
     public Integer localBgpAsn() {
         return this.localBgpAsn;
     }
-    /**
-     * @return Identifier of the EC2 Local Gateway.
-     * 
-     */
     public String localGatewayId() {
         return this.localGatewayId;
     }
     public List<String> localGatewayVirtualInterfaceIds() {
         return this.localGatewayVirtualInterfaceIds;
     }
-    /**
-     * @return Peer address.
-     * 
-     */
     public String peerAddress() {
         return this.peerAddress;
     }
-    /**
-     * @return Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the peer.
-     * 
-     */
     public Integer peerBgpAsn() {
         return this.peerBgpAsn;
     }
@@ -102,10 +58,6 @@ public final class GetLocalGatewayVirtualInterfaceResult {
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Virtual Local Area Network.
-     * 
-     */
     public Integer vlan() {
         return this.vlan;
     }

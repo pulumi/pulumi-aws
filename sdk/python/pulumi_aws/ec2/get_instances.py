@@ -73,9 +73,6 @@ class GetInstancesResult:
     @_builtins.property
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
-        """
-        IDs of instances found through the filter
-        """
         return pulumi.get(self, "ids")
 
     @_builtins.property
@@ -91,25 +88,16 @@ class GetInstancesResult:
     @_builtins.property
     @pulumi.getter(name="ipv6Addresses")
     def ipv6_addresses(self) -> Sequence[_builtins.str]:
-        """
-        IPv6 addresses of instances found through the filter
-        """
         return pulumi.get(self, "ipv6_addresses")
 
     @_builtins.property
     @pulumi.getter(name="privateIps")
     def private_ips(self) -> Sequence[_builtins.str]:
-        """
-        Private IP addresses of instances found through the filter
-        """
         return pulumi.get(self, "private_ips")
 
     @_builtins.property
     @pulumi.getter(name="publicIps")
     def public_ips(self) -> Sequence[_builtins.str]:
-        """
-        Public IP addresses of instances found through the filter
-        """
         return pulumi.get(self, "public_ips")
 
     @_builtins.property
@@ -141,48 +129,7 @@ def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'Ge
                   region: Optional[_builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstancesResult:
     """
-    Use this data source to get IDs or IPs of Amazon EC2 instances to be referenced elsewhere,
-    e.g., to allow easier migration from another management solution
-    or to make it easier for an operator to connect through bastion host(s).
-
-    > **Note:** It's strongly discouraged to use this data source for querying ephemeral
-    instances (e.g., managed via autoscaling group), as the output may change at any time
-    and you'd need to re-run `apply` every time an instance comes up or dies.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_instances(instance_tags={
-            "Role": "HardWorker",
-        },
-        filters=[{
-            "name": "instance.group-id",
-            "values": ["sg-12345678"],
-        }],
-        instance_state_names=[
-            "running",
-            "stopped",
-        ])
-    test_eip = []
-    def create_test(range_body):
-        for range in [{"value": i} for i in range(0, range_body)]:
-            test_eip.append(aws.ec2.Eip(f"test-{range['value']}", instance=test.ids[range["value"]]))
-
-    (len(test.ids)).apply(create_test)
-    ```
-
-
-    :param Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']] filters: One or more filters to apply to the search.
-           If multiple `filter` blocks are provided, they all must be true.
-           For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
-           See `filter` Block below.
-    :param Sequence[_builtins.str] instance_state_names: List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
-    :param Mapping[str, _builtins.str] instance_tags: Map of tags, each pair of which must
-           exactly match a pair on desired instances.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -208,48 +155,7 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[Union[
                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstancesResult]:
     """
-    Use this data source to get IDs or IPs of Amazon EC2 instances to be referenced elsewhere,
-    e.g., to allow easier migration from another management solution
-    or to make it easier for an operator to connect through bastion host(s).
-
-    > **Note:** It's strongly discouraged to use this data source for querying ephemeral
-    instances (e.g., managed via autoscaling group), as the output may change at any time
-    and you'd need to re-run `apply` every time an instance comes up or dies.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_instances(instance_tags={
-            "Role": "HardWorker",
-        },
-        filters=[{
-            "name": "instance.group-id",
-            "values": ["sg-12345678"],
-        }],
-        instance_state_names=[
-            "running",
-            "stopped",
-        ])
-    test_eip = []
-    def create_test(range_body):
-        for range in [{"value": i} for i in range(0, range_body)]:
-            test_eip.append(aws.ec2.Eip(f"test-{range['value']}", instance=test.ids[range["value"]]))
-
-    (len(test.ids)).apply(create_test)
-    ```
-
-
-    :param Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']] filters: One or more filters to apply to the search.
-           If multiple `filter` blocks are provided, they all must be true.
-           For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
-           See `filter` Block below.
-    :param Sequence[_builtins.str] instance_state_names: List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
-    :param Mapping[str, _builtins.str] instance_tags: Map of tags, each pair of which must
-           exactly match a pair on desired instances.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

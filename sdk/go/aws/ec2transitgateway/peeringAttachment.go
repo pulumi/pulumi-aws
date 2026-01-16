@@ -12,91 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an EC2 Transit Gateway Peering Attachment.
-// For examples of custom route table association and propagation, see the [EC2 Transit Gateway Networking Examples Guide](https://docs.aws.amazon.com/vpc/latest/tgw/TGW_Scenarios.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			peer, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			local, err := ec2transitgateway.NewTransitGateway(ctx, "local", &ec2transitgateway.TransitGatewayArgs{
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Local TGW"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			peerTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "peer", &ec2transitgateway.TransitGatewayArgs{
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Peer TGW"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2transitgateway.NewPeeringAttachment(ctx, "example", &ec2transitgateway.PeeringAttachmentArgs{
-//				PeerAccountId:        peerTransitGateway.OwnerId,
-//				PeerRegion:           pulumi.String(peer.Name),
-//				PeerTransitGatewayId: peerTransitGateway.ID(),
-//				TransitGatewayId:     local.ID(),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("TGW Peering Requestor"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_ec2_transit_gateway_peering_attachment` using the EC2 Transit Gateway Attachment identifier. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2transitgateway/peeringAttachment:PeeringAttachment example tgw-attach-12345678
-// ```
 type PeeringAttachment struct {
 	pulumi.CustomResourceState
 
-	// ARN of the attachment.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
-	Options PeeringAttachmentOptionsPtrOutput `pulumi:"options"`
-	// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
-	PeerAccountId pulumi.StringOutput `pulumi:"peerAccountId"`
-	// Region of EC2 Transit Gateway to peer with.
-	PeerRegion pulumi.StringOutput `pulumi:"peerRegion"`
-	// Identifier of EC2 Transit Gateway to peer with.
-	PeerTransitGatewayId pulumi.StringOutput `pulumi:"peerTransitGatewayId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	State  pulumi.StringOutput `pulumi:"state"`
-	// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Identifier of EC2 Transit Gateway.
-	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
+	Arn                  pulumi.StringOutput               `pulumi:"arn"`
+	Options              PeeringAttachmentOptionsPtrOutput `pulumi:"options"`
+	PeerAccountId        pulumi.StringOutput               `pulumi:"peerAccountId"`
+	PeerRegion           pulumi.StringOutput               `pulumi:"peerRegion"`
+	PeerTransitGatewayId pulumi.StringOutput               `pulumi:"peerTransitGatewayId"`
+	Region               pulumi.StringOutput               `pulumi:"region"`
+	State                pulumi.StringOutput               `pulumi:"state"`
+	Tags                 pulumi.StringMapOutput            `pulumi:"tags"`
+	TagsAll              pulumi.StringMapOutput            `pulumi:"tagsAll"`
+	TransitGatewayId     pulumi.StringOutput               `pulumi:"transitGatewayId"`
 }
 
 // NewPeeringAttachment registers a new resource with the given unique name, arguments, and options.
@@ -138,47 +66,29 @@ func GetPeeringAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PeeringAttachment resources.
 type peeringAttachmentState struct {
-	// ARN of the attachment.
-	Arn *string `pulumi:"arn"`
-	// Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
-	Options *PeeringAttachmentOptions `pulumi:"options"`
-	// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
-	PeerAccountId *string `pulumi:"peerAccountId"`
-	// Region of EC2 Transit Gateway to peer with.
-	PeerRegion *string `pulumi:"peerRegion"`
-	// Identifier of EC2 Transit Gateway to peer with.
-	PeerTransitGatewayId *string `pulumi:"peerTransitGatewayId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	State  *string `pulumi:"state"`
-	// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Identifier of EC2 Transit Gateway.
-	TransitGatewayId *string `pulumi:"transitGatewayId"`
+	Arn                  *string                   `pulumi:"arn"`
+	Options              *PeeringAttachmentOptions `pulumi:"options"`
+	PeerAccountId        *string                   `pulumi:"peerAccountId"`
+	PeerRegion           *string                   `pulumi:"peerRegion"`
+	PeerTransitGatewayId *string                   `pulumi:"peerTransitGatewayId"`
+	Region               *string                   `pulumi:"region"`
+	State                *string                   `pulumi:"state"`
+	Tags                 map[string]string         `pulumi:"tags"`
+	TagsAll              map[string]string         `pulumi:"tagsAll"`
+	TransitGatewayId     *string                   `pulumi:"transitGatewayId"`
 }
 
 type PeeringAttachmentState struct {
-	// ARN of the attachment.
-	Arn pulumi.StringPtrInput
-	// Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
-	Options PeeringAttachmentOptionsPtrInput
-	// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
-	PeerAccountId pulumi.StringPtrInput
-	// Region of EC2 Transit Gateway to peer with.
-	PeerRegion pulumi.StringPtrInput
-	// Identifier of EC2 Transit Gateway to peer with.
+	Arn                  pulumi.StringPtrInput
+	Options              PeeringAttachmentOptionsPtrInput
+	PeerAccountId        pulumi.StringPtrInput
+	PeerRegion           pulumi.StringPtrInput
 	PeerTransitGatewayId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	State  pulumi.StringPtrInput
-	// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Identifier of EC2 Transit Gateway.
-	TransitGatewayId pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
+	State                pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
+	TagsAll              pulumi.StringMapInput
+	TransitGatewayId     pulumi.StringPtrInput
 }
 
 func (PeeringAttachmentState) ElementType() reflect.Type {
@@ -186,38 +96,24 @@ func (PeeringAttachmentState) ElementType() reflect.Type {
 }
 
 type peeringAttachmentArgs struct {
-	// Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
-	Options *PeeringAttachmentOptions `pulumi:"options"`
-	// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
-	PeerAccountId *string `pulumi:"peerAccountId"`
-	// Region of EC2 Transit Gateway to peer with.
-	PeerRegion string `pulumi:"peerRegion"`
-	// Identifier of EC2 Transit Gateway to peer with.
-	PeerTransitGatewayId string `pulumi:"peerTransitGatewayId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Identifier of EC2 Transit Gateway.
-	TransitGatewayId string `pulumi:"transitGatewayId"`
+	Options              *PeeringAttachmentOptions `pulumi:"options"`
+	PeerAccountId        *string                   `pulumi:"peerAccountId"`
+	PeerRegion           string                    `pulumi:"peerRegion"`
+	PeerTransitGatewayId string                    `pulumi:"peerTransitGatewayId"`
+	Region               *string                   `pulumi:"region"`
+	Tags                 map[string]string         `pulumi:"tags"`
+	TransitGatewayId     string                    `pulumi:"transitGatewayId"`
 }
 
 // The set of arguments for constructing a PeeringAttachment resource.
 type PeeringAttachmentArgs struct {
-	// Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
-	Options PeeringAttachmentOptionsPtrInput
-	// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
-	PeerAccountId pulumi.StringPtrInput
-	// Region of EC2 Transit Gateway to peer with.
-	PeerRegion pulumi.StringInput
-	// Identifier of EC2 Transit Gateway to peer with.
+	Options              PeeringAttachmentOptionsPtrInput
+	PeerAccountId        pulumi.StringPtrInput
+	PeerRegion           pulumi.StringInput
 	PeerTransitGatewayId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Identifier of EC2 Transit Gateway.
-	TransitGatewayId pulumi.StringInput
+	Region               pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
+	TransitGatewayId     pulumi.StringInput
 }
 
 func (PeeringAttachmentArgs) ElementType() reflect.Type {
@@ -307,32 +203,26 @@ func (o PeeringAttachmentOutput) ToPeeringAttachmentOutputWithContext(ctx contex
 	return o
 }
 
-// ARN of the attachment.
 func (o PeeringAttachmentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PeeringAttachment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
 func (o PeeringAttachmentOutput) Options() PeeringAttachmentOptionsPtrOutput {
 	return o.ApplyT(func(v *PeeringAttachment) PeeringAttachmentOptionsPtrOutput { return v.Options }).(PeeringAttachmentOptionsPtrOutput)
 }
 
-// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
 func (o PeeringAttachmentOutput) PeerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PeeringAttachment) pulumi.StringOutput { return v.PeerAccountId }).(pulumi.StringOutput)
 }
 
-// Region of EC2 Transit Gateway to peer with.
 func (o PeeringAttachmentOutput) PeerRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v *PeeringAttachment) pulumi.StringOutput { return v.PeerRegion }).(pulumi.StringOutput)
 }
 
-// Identifier of EC2 Transit Gateway to peer with.
 func (o PeeringAttachmentOutput) PeerTransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PeeringAttachment) pulumi.StringOutput { return v.PeerTransitGatewayId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PeeringAttachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PeeringAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -341,17 +231,14 @@ func (o PeeringAttachmentOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *PeeringAttachment) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o PeeringAttachmentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PeeringAttachment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o PeeringAttachmentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PeeringAttachment) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Identifier of EC2 Transit Gateway.
 func (o PeeringAttachmentOutput) TransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PeeringAttachment) pulumi.StringOutput { return v.TransitGatewayId }).(pulumi.StringOutput)
 }

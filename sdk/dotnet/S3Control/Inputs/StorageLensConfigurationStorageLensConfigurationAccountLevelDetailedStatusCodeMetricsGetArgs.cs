@@ -12,9 +12,6 @@ namespace Pulumi.Aws.S3Control.Inputs
 
     public sealed class StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether detailed status code metrics are enabled.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

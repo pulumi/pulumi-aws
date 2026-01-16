@@ -16,32 +16,16 @@ public final class OptInResourceDataDataLocationArgs extends com.pulumi.resource
 
     public static final OptInResourceDataDataLocationArgs Empty = new OptInResourceDataDataLocationArgs();
 
-    /**
-     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public Optional<Output<String>> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
 
-    /**
-     * ARN that uniquely identifies the data location resource.
-     * 
-     */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
-    /**
-     * @return ARN that uniquely identifies the data location resource.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
@@ -71,44 +55,20 @@ public final class OptInResourceDataDataLocationArgs extends com.pulumi.resource
             $ = new OptInResourceDataDataLocationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(@Nullable Output<String> catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
-        /**
-         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(String catalogId) {
             return catalogId(Output.of(catalogId));
         }
 
-        /**
-         * @param resourceArn ARN that uniquely identifies the data location resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn ARN that uniquely identifies the data location resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }

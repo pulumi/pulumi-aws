@@ -13,61 +13,19 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolLambdaConfig
     {
-        /// <summary>
-        /// ARN of the lambda creating an authentication challenge.
-        /// </summary>
         public readonly string? CreateAuthChallenge;
-        /// <summary>
-        /// A custom email sender AWS Lambda trigger. See CustomEmailSender Below.
-        /// </summary>
         public readonly Outputs.UserPoolLambdaConfigCustomEmailSender? CustomEmailSender;
-        /// <summary>
-        /// Custom Message AWS Lambda trigger.
-        /// </summary>
         public readonly string? CustomMessage;
-        /// <summary>
-        /// A custom SMS sender AWS Lambda trigger. See CustomSmsSender Below.
-        /// </summary>
         public readonly Outputs.UserPoolLambdaConfigCustomSmsSender? CustomSmsSender;
-        /// <summary>
-        /// Defines the authentication challenge.
-        /// </summary>
         public readonly string? DefineAuthChallenge;
-        /// <summary>
-        /// The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
-        /// </summary>
         public readonly string? KmsKeyId;
-        /// <summary>
-        /// Post-authentication AWS Lambda trigger.
-        /// </summary>
         public readonly string? PostAuthentication;
-        /// <summary>
-        /// Post-confirmation AWS Lambda trigger.
-        /// </summary>
         public readonly string? PostConfirmation;
-        /// <summary>
-        /// Pre-authentication AWS Lambda trigger.
-        /// </summary>
         public readonly string? PreAuthentication;
-        /// <summary>
-        /// Pre-registration AWS Lambda trigger.
-        /// </summary>
         public readonly string? PreSignUp;
-        /// <summary>
-        /// Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the LambdaArn of `PreTokenGenerationConfig`.
-        /// </summary>
         public readonly string? PreTokenGeneration;
-        /// <summary>
-        /// Allow to customize access tokens. See pre_token_configuration_type
-        /// </summary>
         public readonly Outputs.UserPoolLambdaConfigPreTokenGenerationConfig? PreTokenGenerationConfig;
-        /// <summary>
-        /// User migration Lambda config type.
-        /// </summary>
         public readonly string? UserMigration;
-        /// <summary>
-        /// Verifies the authentication challenge response.
-        /// </summary>
         public readonly string? VerifyAuthChallengeResponse;
 
         [OutputConstructor]

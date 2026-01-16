@@ -12,92 +12,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage an S3 Access Grant.
-// Each access grant has its own ID and gives an IAM user or role or a directory user, or group (the grantee) access to a registered location. You determine the level of access, such as `READ` or `READWRITE`.
-// Before you can create a grant, you must have an S3 Access Grants instance in the same Region as the S3 data.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3control"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3control.NewAccessGrantsInstance(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccessGrantsLocation, err := s3control.NewAccessGrantsLocation(ctx, "example", &s3control.AccessGrantsLocationArgs{
-//				IamRoleArn:    pulumi.Any(exampleAwsIamRole.Arn),
-//				LocationScope: pulumi.Sprintf("s3://%v/prefixA*", exampleAwsS3Bucket.Bucket),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3control.NewAccessGrant(ctx, "example", &s3control.AccessGrantArgs{
-//				AccessGrantsLocationId: exampleAccessGrantsLocation.AccessGrantsLocationId,
-//				Permission:             pulumi.String("READ"),
-//				AccessGrantsLocationConfiguration: &s3control.AccessGrantAccessGrantsLocationConfigurationArgs{
-//					S3SubPrefix: pulumi.String("prefixB*"),
-//				},
-//				Grantee: &s3control.AccessGrantGranteeArgs{
-//					GranteeType:       pulumi.String("IAM"),
-//					GranteeIdentifier: pulumi.Any(exampleAwsIamUser.Arn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import S3 Access Grants using the `account_id` and `access_grant_id`, separated by a comma (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:s3control/accessGrant:AccessGrant example 123456789012,04549c5e-2f3c-4a07-824d-2cafe720aa22
-// ```
 type AccessGrant struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the S3 Access Grant.
-	AccessGrantArn pulumi.StringOutput `pulumi:"accessGrantArn"`
-	// Unique ID of the S3 Access Grant.
-	AccessGrantId pulumi.StringOutput `pulumi:"accessGrantId"`
-	// See Location Configuration below for more details.
+	AccessGrantArn                    pulumi.StringOutput                                   `pulumi:"accessGrantArn"`
+	AccessGrantId                     pulumi.StringOutput                                   `pulumi:"accessGrantId"`
 	AccessGrantsLocationConfiguration AccessGrantAccessGrantsLocationConfigurationPtrOutput `pulumi:"accessGrantsLocationConfiguration"`
-	// The ID of the S3 Access Grants location to with the access grant is giving access.
-	AccessGrantsLocationId pulumi.StringOutput `pulumi:"accessGrantsLocationId"`
-	AccountId              pulumi.StringOutput `pulumi:"accountId"`
-	// The access grant's scope.
-	GrantScope pulumi.StringOutput `pulumi:"grantScope"`
-	// See Grantee below for more details.
-	Grantee AccessGrantGranteePtrOutput `pulumi:"grantee"`
-	// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
-	Permission pulumi.StringOutput `pulumi:"permission"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
-	S3PrefixType pulumi.StringPtrOutput `pulumi:"s3PrefixType"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	AccessGrantsLocationId            pulumi.StringOutput                                   `pulumi:"accessGrantsLocationId"`
+	AccountId                         pulumi.StringOutput                                   `pulumi:"accountId"`
+	GrantScope                        pulumi.StringOutput                                   `pulumi:"grantScope"`
+	Grantee                           AccessGrantGranteePtrOutput                           `pulumi:"grantee"`
+	Permission                        pulumi.StringOutput                                   `pulumi:"permission"`
+	Region                            pulumi.StringOutput                                   `pulumi:"region"`
+	S3PrefixType                      pulumi.StringPtrOutput                                `pulumi:"s3PrefixType"`
+	Tags                              pulumi.StringMapOutput                                `pulumi:"tags"`
+	TagsAll                           pulumi.StringMapOutput                                `pulumi:"tagsAll"`
 }
 
 // NewAccessGrant registers a new resource with the given unique name, arguments, and options.
@@ -136,55 +65,33 @@ func GetAccessGrant(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccessGrant resources.
 type accessGrantState struct {
-	// Amazon Resource Name (ARN) of the S3 Access Grant.
-	AccessGrantArn *string `pulumi:"accessGrantArn"`
-	// Unique ID of the S3 Access Grant.
-	AccessGrantId *string `pulumi:"accessGrantId"`
-	// See Location Configuration below for more details.
+	AccessGrantArn                    *string                                       `pulumi:"accessGrantArn"`
+	AccessGrantId                     *string                                       `pulumi:"accessGrantId"`
 	AccessGrantsLocationConfiguration *AccessGrantAccessGrantsLocationConfiguration `pulumi:"accessGrantsLocationConfiguration"`
-	// The ID of the S3 Access Grants location to with the access grant is giving access.
-	AccessGrantsLocationId *string `pulumi:"accessGrantsLocationId"`
-	AccountId              *string `pulumi:"accountId"`
-	// The access grant's scope.
-	GrantScope *string `pulumi:"grantScope"`
-	// See Grantee below for more details.
-	Grantee *AccessGrantGrantee `pulumi:"grantee"`
-	// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
-	Permission *string `pulumi:"permission"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
-	S3PrefixType *string `pulumi:"s3PrefixType"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	AccessGrantsLocationId            *string                                       `pulumi:"accessGrantsLocationId"`
+	AccountId                         *string                                       `pulumi:"accountId"`
+	GrantScope                        *string                                       `pulumi:"grantScope"`
+	Grantee                           *AccessGrantGrantee                           `pulumi:"grantee"`
+	Permission                        *string                                       `pulumi:"permission"`
+	Region                            *string                                       `pulumi:"region"`
+	S3PrefixType                      *string                                       `pulumi:"s3PrefixType"`
+	Tags                              map[string]string                             `pulumi:"tags"`
+	TagsAll                           map[string]string                             `pulumi:"tagsAll"`
 }
 
 type AccessGrantState struct {
-	// Amazon Resource Name (ARN) of the S3 Access Grant.
-	AccessGrantArn pulumi.StringPtrInput
-	// Unique ID of the S3 Access Grant.
-	AccessGrantId pulumi.StringPtrInput
-	// See Location Configuration below for more details.
+	AccessGrantArn                    pulumi.StringPtrInput
+	AccessGrantId                     pulumi.StringPtrInput
 	AccessGrantsLocationConfiguration AccessGrantAccessGrantsLocationConfigurationPtrInput
-	// The ID of the S3 Access Grants location to with the access grant is giving access.
-	AccessGrantsLocationId pulumi.StringPtrInput
-	AccountId              pulumi.StringPtrInput
-	// The access grant's scope.
-	GrantScope pulumi.StringPtrInput
-	// See Grantee below for more details.
-	Grantee AccessGrantGranteePtrInput
-	// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
-	Permission pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
-	S3PrefixType pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	AccessGrantsLocationId            pulumi.StringPtrInput
+	AccountId                         pulumi.StringPtrInput
+	GrantScope                        pulumi.StringPtrInput
+	Grantee                           AccessGrantGranteePtrInput
+	Permission                        pulumi.StringPtrInput
+	Region                            pulumi.StringPtrInput
+	S3PrefixType                      pulumi.StringPtrInput
+	Tags                              pulumi.StringMapInput
+	TagsAll                           pulumi.StringMapInput
 }
 
 func (AccessGrantState) ElementType() reflect.Type {
@@ -192,40 +99,26 @@ func (AccessGrantState) ElementType() reflect.Type {
 }
 
 type accessGrantArgs struct {
-	// See Location Configuration below for more details.
 	AccessGrantsLocationConfiguration *AccessGrantAccessGrantsLocationConfiguration `pulumi:"accessGrantsLocationConfiguration"`
-	// The ID of the S3 Access Grants location to with the access grant is giving access.
-	AccessGrantsLocationId string  `pulumi:"accessGrantsLocationId"`
-	AccountId              *string `pulumi:"accountId"`
-	// See Grantee below for more details.
-	Grantee *AccessGrantGrantee `pulumi:"grantee"`
-	// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
-	Permission string `pulumi:"permission"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
-	S3PrefixType *string `pulumi:"s3PrefixType"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	AccessGrantsLocationId            string                                        `pulumi:"accessGrantsLocationId"`
+	AccountId                         *string                                       `pulumi:"accountId"`
+	Grantee                           *AccessGrantGrantee                           `pulumi:"grantee"`
+	Permission                        string                                        `pulumi:"permission"`
+	Region                            *string                                       `pulumi:"region"`
+	S3PrefixType                      *string                                       `pulumi:"s3PrefixType"`
+	Tags                              map[string]string                             `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AccessGrant resource.
 type AccessGrantArgs struct {
-	// See Location Configuration below for more details.
 	AccessGrantsLocationConfiguration AccessGrantAccessGrantsLocationConfigurationPtrInput
-	// The ID of the S3 Access Grants location to with the access grant is giving access.
-	AccessGrantsLocationId pulumi.StringInput
-	AccountId              pulumi.StringPtrInput
-	// See Grantee below for more details.
-	Grantee AccessGrantGranteePtrInput
-	// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
-	Permission pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
-	S3PrefixType pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	AccessGrantsLocationId            pulumi.StringInput
+	AccountId                         pulumi.StringPtrInput
+	Grantee                           AccessGrantGranteePtrInput
+	Permission                        pulumi.StringInput
+	Region                            pulumi.StringPtrInput
+	S3PrefixType                      pulumi.StringPtrInput
+	Tags                              pulumi.StringMapInput
 }
 
 func (AccessGrantArgs) ElementType() reflect.Type {
@@ -315,24 +208,20 @@ func (o AccessGrantOutput) ToAccessGrantOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// Amazon Resource Name (ARN) of the S3 Access Grant.
 func (o AccessGrantOutput) AccessGrantArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrant) pulumi.StringOutput { return v.AccessGrantArn }).(pulumi.StringOutput)
 }
 
-// Unique ID of the S3 Access Grant.
 func (o AccessGrantOutput) AccessGrantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrant) pulumi.StringOutput { return v.AccessGrantId }).(pulumi.StringOutput)
 }
 
-// See Location Configuration below for more details.
 func (o AccessGrantOutput) AccessGrantsLocationConfiguration() AccessGrantAccessGrantsLocationConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccessGrant) AccessGrantAccessGrantsLocationConfigurationPtrOutput {
 		return v.AccessGrantsLocationConfiguration
 	}).(AccessGrantAccessGrantsLocationConfigurationPtrOutput)
 }
 
-// The ID of the S3 Access Grants location to with the access grant is giving access.
 func (o AccessGrantOutput) AccessGrantsLocationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrant) pulumi.StringOutput { return v.AccessGrantsLocationId }).(pulumi.StringOutput)
 }
@@ -341,37 +230,30 @@ func (o AccessGrantOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrant) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// The access grant's scope.
 func (o AccessGrantOutput) GrantScope() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrant) pulumi.StringOutput { return v.GrantScope }).(pulumi.StringOutput)
 }
 
-// See Grantee below for more details.
 func (o AccessGrantOutput) Grantee() AccessGrantGranteePtrOutput {
 	return o.ApplyT(func(v *AccessGrant) AccessGrantGranteePtrOutput { return v.Grantee }).(AccessGrantGranteePtrOutput)
 }
 
-// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
 func (o AccessGrantOutput) Permission() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrant) pulumi.StringOutput { return v.Permission }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AccessGrantOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrant) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
 func (o AccessGrantOutput) S3PrefixType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessGrant) pulumi.StringPtrOutput { return v.S3PrefixType }).(pulumi.StringPtrOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AccessGrantOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AccessGrant) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AccessGrantOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AccessGrant) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

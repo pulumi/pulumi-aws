@@ -83,17 +83,11 @@ class GetInputResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Input.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="attachedChannels")
     def attached_channels(self) -> Sequence[_builtins.str]:
-        """
-        Channels attached to Input.
-        """
         return pulumi.get(self, "attached_channels")
 
     @_builtins.property
@@ -109,49 +103,31 @@ class GetInputResult:
     @_builtins.property
     @pulumi.getter(name="inputClass")
     def input_class(self) -> _builtins.str:
-        """
-        The input class.
-        """
         return pulumi.get(self, "input_class")
 
     @_builtins.property
     @pulumi.getter(name="inputDevices")
     def input_devices(self) -> Sequence['outputs.GetInputInputDeviceResult']:
-        """
-        Settings for the devices.
-        """
         return pulumi.get(self, "input_devices")
 
     @_builtins.property
     @pulumi.getter(name="inputPartnerIds")
     def input_partner_ids(self) -> Sequence[_builtins.str]:
-        """
-        A list of IDs for all Inputs which are partners of this one.
-        """
         return pulumi.get(self, "input_partner_ids")
 
     @_builtins.property
     @pulumi.getter(name="inputSourceType")
     def input_source_type(self) -> _builtins.str:
-        """
-        Source type of the input.
-        """
         return pulumi.get(self, "input_source_type")
 
     @_builtins.property
     @pulumi.getter(name="mediaConnectFlows")
     def media_connect_flows(self) -> Sequence['outputs.GetInputMediaConnectFlowResult']:
-        """
-        A list of the MediaConnect Flows.
-        """
         return pulumi.get(self, "media_connect_flows")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the input.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -162,49 +138,31 @@ class GetInputResult:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
-        """
-        The ARN of the role this input assumes during and after creation.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Sequence[_builtins.str]:
-        """
-        List of input security groups.
-        """
         return pulumi.get(self, "security_groups")
 
     @_builtins.property
     @pulumi.getter
     def sources(self) -> Sequence['outputs.GetInputSourceResult']:
-        """
-        The source URLs for a PULL-type input.
-        """
         return pulumi.get(self, "sources")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> _builtins.str:
-        """
-        The state of the input.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        A map of tags assigned to the Input.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        The type of the input.
-        """
         return pulumi.get(self, "type")
 
 
@@ -237,22 +195,7 @@ def get_input(id: Optional[_builtins.str] = None,
               region: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInputResult:
     """
-    Data source for managing an AWS Elemental MediaLive Input.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.medialive.get_input(id=example_aws_medialive_input["id"])
-    ```
-
-
-    :param _builtins.str id: The ID of the Input.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -282,22 +225,7 @@ def get_input_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInputResult]:
     """
-    Data source for managing an AWS Elemental MediaLive Input.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.medialive.get_input(id=example_aws_medialive_input["id"])
-    ```
-
-
-    :param _builtins.str id: The ID of the Input.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

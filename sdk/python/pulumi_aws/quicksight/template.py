@@ -31,15 +31,6 @@ class TemplateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Template resource.
-        :param pulumi.Input[_builtins.str] template_id: Identifier for the template.
-        :param pulumi.Input[_builtins.str] version_description: A description of the current template version being created/updated.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] name: Display name for the template.
-        :param pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['TemplateSourceEntityArgs'] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "template_id", template_id)
         pulumi.set(__self__, "version_description", version_description)
@@ -59,9 +50,6 @@ class TemplateArgs:
     @_builtins.property
     @pulumi.getter(name="templateId")
     def template_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier for the template.
-        """
         return pulumi.get(self, "template_id")
 
     @template_id.setter
@@ -71,11 +59,6 @@ class TemplateArgs:
     @_builtins.property
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> pulumi.Input[_builtins.str]:
-        """
-        A description of the current template version being created/updated.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "version_description")
 
     @version_description.setter
@@ -94,9 +77,6 @@ class TemplateArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Display name for the template.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -106,9 +86,6 @@ class TemplateArgs:
     @_builtins.property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]]]:
-        """
-        A set of resource permissions on the template. Maximum of 64 items. See permissions.
-        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -118,9 +95,6 @@ class TemplateArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -130,9 +104,6 @@ class TemplateArgs:
     @_builtins.property
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> Optional[pulumi.Input['TemplateSourceEntityArgs']]:
-        """
-        The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
-        """
         return pulumi.get(self, "source_entity")
 
     @source_entity.setter
@@ -142,9 +113,6 @@ class TemplateArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -172,22 +140,6 @@ class _TemplateState:
                  version_number: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Template resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the template.
-        :param pulumi.Input[_builtins.str] created_time: The time that the template was created.
-        :param pulumi.Input[_builtins.str] last_updated_time: The time that the template was last updated.
-        :param pulumi.Input[_builtins.str] name: Display name for the template.
-        :param pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['TemplateSourceEntityArgs'] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
-        :param pulumi.Input[_builtins.str] source_entity_arn: Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
-        :param pulumi.Input[_builtins.str] status: The template creation status.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] template_id: Identifier for the template.
-        :param pulumi.Input[_builtins.str] version_description: A description of the current template version being created/updated.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.int] version_number: The version number of the template version.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -223,9 +175,6 @@ class _TemplateState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the template.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -244,9 +193,6 @@ class _TemplateState:
     @_builtins.property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The time that the template was created.
-        """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
@@ -256,9 +202,6 @@ class _TemplateState:
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The time that the template was last updated.
-        """
         return pulumi.get(self, "last_updated_time")
 
     @last_updated_time.setter
@@ -268,9 +211,6 @@ class _TemplateState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Display name for the template.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -280,9 +220,6 @@ class _TemplateState:
     @_builtins.property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]]]:
-        """
-        A set of resource permissions on the template. Maximum of 64 items. See permissions.
-        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -292,9 +229,6 @@ class _TemplateState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -304,9 +238,6 @@ class _TemplateState:
     @_builtins.property
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> Optional[pulumi.Input['TemplateSourceEntityArgs']]:
-        """
-        The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
-        """
         return pulumi.get(self, "source_entity")
 
     @source_entity.setter
@@ -316,9 +247,6 @@ class _TemplateState:
     @_builtins.property
     @pulumi.getter(name="sourceEntityArn")
     def source_entity_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
-        """
         return pulumi.get(self, "source_entity_arn")
 
     @source_entity_arn.setter
@@ -328,9 +256,6 @@ class _TemplateState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The template creation status.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -340,9 +265,6 @@ class _TemplateState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -352,9 +274,6 @@ class _TemplateState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -364,9 +283,6 @@ class _TemplateState:
     @_builtins.property
     @pulumi.getter(name="templateId")
     def template_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier for the template.
-        """
         return pulumi.get(self, "template_id")
 
     @template_id.setter
@@ -376,11 +292,6 @@ class _TemplateState:
     @_builtins.property
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description of the current template version being created/updated.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "version_description")
 
     @version_description.setter
@@ -390,9 +301,6 @@ class _TemplateState:
     @_builtins.property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The version number of the template version.
-        """
         return pulumi.get(self, "version_number")
 
     @version_number.setter
@@ -416,111 +324,9 @@ class Template(pulumi.CustomResource):
                  version_description: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing a QuickSight Template.
-
-        ## Example Usage
-
-        ### From Source Template
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.Template("example",
-            template_id="example-id",
-            name="example-name",
-            version_description="version",
-            source_entity={
-                "source_template": {
-                    "arn": source["arn"],
-                },
-            })
-        ```
-
-        ### With Definition
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.Template("example",
-            template_id="example-id",
-            name="example-name",
-            version_description="version",
-            definition={
-                "dataSetConfigurations": [{
-                    "dataSetSchema": {
-                        "columnSchemaLists": [
-                            {
-                                "name": "Column1",
-                                "dataType": "STRING",
-                            },
-                            {
-                                "name": "Column2",
-                                "dataType": "INTEGER",
-                            },
-                        ],
-                    },
-                    "placeholder": "1",
-                }],
-                "sheets": [{
-                    "title": "Test",
-                    "sheetId": "Test1",
-                    "visuals": [{
-                        "barChartVisual": {
-                            "visualId": "BarChart",
-                            "chartConfiguration": {
-                                "fieldWells": {
-                                    "barChartAggregatedFieldWells": {
-                                        "categories": [{
-                                            "categoricalDimensionField": {
-                                                "fieldId": "1",
-                                                "column": {
-                                                    "columnName": "Column1",
-                                                    "dataSetIdentifier": "1",
-                                                },
-                                            },
-                                        }],
-                                        "values": [{
-                                            "numericalMeasureField": {
-                                                "fieldId": "2",
-                                                "column": {
-                                                    "columnName": "Column2",
-                                                    "dataSetIdentifier": "1",
-                                                },
-                                                "aggregationFunction": {
-                                                    "simpleNumericalAggregation": "SUM",
-                                                },
-                                            },
-                                        }],
-                                    },
-                                },
-                            },
-                        },
-                    }],
-                }],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
-        ```
-
+        Create a Template resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: Display name for the template.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TemplatePermissionArgs', 'TemplatePermissionArgsDict']]]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['TemplateSourceEntityArgs', 'TemplateSourceEntityArgsDict']] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] template_id: Identifier for the template.
-        :param pulumi.Input[_builtins.str] version_description: A description of the current template version being created/updated.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -529,100 +335,7 @@ class Template(pulumi.CustomResource):
                  args: TemplateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing a QuickSight Template.
-
-        ## Example Usage
-
-        ### From Source Template
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.Template("example",
-            template_id="example-id",
-            name="example-name",
-            version_description="version",
-            source_entity={
-                "source_template": {
-                    "arn": source["arn"],
-                },
-            })
-        ```
-
-        ### With Definition
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.Template("example",
-            template_id="example-id",
-            name="example-name",
-            version_description="version",
-            definition={
-                "dataSetConfigurations": [{
-                    "dataSetSchema": {
-                        "columnSchemaLists": [
-                            {
-                                "name": "Column1",
-                                "dataType": "STRING",
-                            },
-                            {
-                                "name": "Column2",
-                                "dataType": "INTEGER",
-                            },
-                        ],
-                    },
-                    "placeholder": "1",
-                }],
-                "sheets": [{
-                    "title": "Test",
-                    "sheetId": "Test1",
-                    "visuals": [{
-                        "barChartVisual": {
-                            "visualId": "BarChart",
-                            "chartConfiguration": {
-                                "fieldWells": {
-                                    "barChartAggregatedFieldWells": {
-                                        "categories": [{
-                                            "categoricalDimensionField": {
-                                                "fieldId": "1",
-                                                "column": {
-                                                    "columnName": "Column1",
-                                                    "dataSetIdentifier": "1",
-                                                },
-                                            },
-                                        }],
-                                        "values": [{
-                                            "numericalMeasureField": {
-                                                "fieldId": "2",
-                                                "column": {
-                                                    "columnName": "Column2",
-                                                    "dataSetIdentifier": "1",
-                                                },
-                                                "aggregationFunction": {
-                                                    "simpleNumericalAggregation": "SUM",
-                                                },
-                                            },
-                                        }],
-                                    },
-                                },
-                            },
-                        },
-                    }],
-                }],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
-        ```
-
+        Create a Template resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TemplateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -706,22 +419,6 @@ class Template(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the template.
-        :param pulumi.Input[_builtins.str] created_time: The time that the template was created.
-        :param pulumi.Input[_builtins.str] last_updated_time: The time that the template was last updated.
-        :param pulumi.Input[_builtins.str] name: Display name for the template.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TemplatePermissionArgs', 'TemplatePermissionArgsDict']]]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['TemplateSourceEntityArgs', 'TemplateSourceEntityArgsDict']] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
-        :param pulumi.Input[_builtins.str] source_entity_arn: Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
-        :param pulumi.Input[_builtins.str] status: The template creation status.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] template_id: Identifier for the template.
-        :param pulumi.Input[_builtins.str] version_description: A description of the current template version being created/updated.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.int] version_number: The version number of the template version.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -747,9 +444,6 @@ class Template(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the template.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -760,106 +454,65 @@ class Template(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        The time that the template was created.
-        """
         return pulumi.get(self, "created_time")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        The time that the template was last updated.
-        """
         return pulumi.get(self, "last_updated_time")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Display name for the template.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.TemplatePermission']]]:
-        """
-        A set of resource permissions on the template. Maximum of 64 items. See permissions.
-        """
         return pulumi.get(self, "permissions")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> pulumi.Output[Optional['outputs.TemplateSourceEntity']]:
-        """
-        The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
-        """
         return pulumi.get(self, "source_entity")
 
     @_builtins.property
     @pulumi.getter(name="sourceEntityArn")
     def source_entity_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
-        """
         return pulumi.get(self, "source_entity_arn")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The template creation status.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="templateId")
     def template_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier for the template.
-        """
         return pulumi.get(self, "template_id")
 
     @_builtins.property
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> pulumi.Output[_builtins.str]:
-        """
-        A description of the current template version being created/updated.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "version_description")
 
     @_builtins.property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> pulumi.Output[_builtins.int]:
-        """
-        The version number of the template version.
-        """
         return pulumi.get(self, "version_number")
 

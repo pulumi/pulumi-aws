@@ -18,96 +18,44 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GroupArgs Empty = new GroupArgs();
 
-    /**
-     * Description of the verified access group.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the verified access group.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The policy document that is associated with this resource.
-     * 
-     */
     @Import(name="policyDocument")
     private @Nullable Output<String> policyDocument;
 
-    /**
-     * @return The policy document that is associated with this resource.
-     * 
-     */
     public Optional<Output<String>> policyDocument() {
         return Optional.ofNullable(this.policyDocument);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Configuration block to use KMS keys for server-side encryption.
-     * 
-     */
     @Import(name="sseConfiguration")
     private @Nullable Output<GroupSseConfigurationArgs> sseConfiguration;
 
-    /**
-     * @return Configuration block to use KMS keys for server-side encryption.
-     * 
-     */
     public Optional<Output<GroupSseConfigurationArgs>> sseConfiguration() {
         return Optional.ofNullable(this.sseConfiguration);
     }
 
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * The id of the verified access instance this group is associated with.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="verifiedaccessInstanceId", required=true)
     private Output<String> verifiedaccessInstanceId;
 
-    /**
-     * @return The id of the verified access instance this group is associated with.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> verifiedaccessInstanceId() {
         return this.verifiedaccessInstanceId;
     }
@@ -141,132 +89,56 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
             $ = new GroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Description of the verified access group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the verified access group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param policyDocument The policy document that is associated with this resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyDocument(@Nullable Output<String> policyDocument) {
             $.policyDocument = policyDocument;
             return this;
         }
 
-        /**
-         * @param policyDocument The policy document that is associated with this resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyDocument(String policyDocument) {
             return policyDocument(Output.of(policyDocument));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param sseConfiguration Configuration block to use KMS keys for server-side encryption.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sseConfiguration(@Nullable Output<GroupSseConfigurationArgs> sseConfiguration) {
             $.sseConfiguration = sseConfiguration;
             return this;
         }
 
-        /**
-         * @param sseConfiguration Configuration block to use KMS keys for server-side encryption.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sseConfiguration(GroupSseConfigurationArgs sseConfiguration) {
             return sseConfiguration(Output.of(sseConfiguration));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param verifiedaccessInstanceId The id of the verified access instance this group is associated with.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder verifiedaccessInstanceId(Output<String> verifiedaccessInstanceId) {
             $.verifiedaccessInstanceId = verifiedaccessInstanceId;
             return this;
         }
 
-        /**
-         * @param verifiedaccessInstanceId The id of the verified access instance this group is associated with.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder verifiedaccessInstanceId(String verifiedaccessInstanceId) {
             return verifiedaccessInstanceId(Output.of(verifiedaccessInstanceId));
         }

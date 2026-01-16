@@ -21,10 +21,6 @@ public final class GetRouteTablesResult {
      * 
      */
     private String id;
-    /**
-     * @return List of all the route table ids found.
-     * 
-     */
     private List<String> ids;
     private String region;
     private Map<String,String> tags;
@@ -41,10 +37,6 @@ public final class GetRouteTablesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of all the route table ids found.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }

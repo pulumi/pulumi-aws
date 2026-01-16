@@ -13,9 +13,6 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     [OutputType]
     public sealed class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionResult
     {
-        /// <summary>
-        /// Set of routing policy names to associate when the conditions match.
-        /// </summary>
         public readonly ImmutableArray<string> AssociateRoutingPolicies;
 
         [OutputConstructor]

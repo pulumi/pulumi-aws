@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ResponseHeadersPolicyServerTimingHeadersConfig {
-    /**
-     * @return A Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that&#39;s associated with this response headers policy.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to. Valid range: Minimum value of 0.0. Maximum value of 100.0.
-     * 
-     */
     private Double samplingRate;
 
     private ResponseHeadersPolicyServerTimingHeadersConfig() {}
-    /**
-     * @return A Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that&#39;s associated with this response headers policy.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to. Valid range: Minimum value of 0.0. Maximum value of 100.0.
-     * 
-     */
     public Double samplingRate() {
         return this.samplingRate;
     }

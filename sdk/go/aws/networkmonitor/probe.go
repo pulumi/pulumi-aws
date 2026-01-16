@@ -12,81 +12,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Network Monitor Probe.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmonitor"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := networkmonitor.NewMonitor(ctx, "example", &networkmonitor.MonitorArgs{
-//				AggregationPeriod: pulumi.Int(30),
-//				MonitorName:       pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = networkmonitor.NewProbe(ctx, "example", &networkmonitor.ProbeArgs{
-//				MonitorName:     example.MonitorName,
-//				Destination:     pulumi.String("127.0.0.1"),
-//				DestinationPort: pulumi.Int(80),
-//				Protocol:        pulumi.String("TCP"),
-//				SourceArn:       pulumi.Any(exampleAwsSubnet.Arn),
-//				PacketSize:      pulumi.Int(200),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_networkmonitor_probe` using the monitor name and probe id. For example:
-//
-// ```sh
-// $ pulumi import aws:networkmonitor/probe:Probe example monitor-7786087912324693644,probe-3qm8p693i4fi1h8lqylzkbp42e
-// ```
 type Probe struct {
 	pulumi.CustomResourceState
 
-	AddressFamily pulumi.StringOutput `pulumi:"addressFamily"`
-	// The ARN of the attachment.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The destination IP address. This must be either IPV4 or IPV6.
-	Destination pulumi.StringOutput `pulumi:"destination"`
-	// The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
-	DestinationPort pulumi.IntPtrOutput `pulumi:"destinationPort"`
-	// The name of the monitor.
-	MonitorName pulumi.StringOutput `pulumi:"monitorName"`
-	// The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-	PacketSize pulumi.IntOutput    `pulumi:"packetSize"`
-	ProbeId    pulumi.StringOutput `pulumi:"probeId"`
-	// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
-	Protocol pulumi.StringOutput `pulumi:"protocol"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The ARN of the subnet.
-	SourceArn pulumi.StringOutput `pulumi:"sourceArn"`
-	// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	VpcId   pulumi.StringOutput    `pulumi:"vpcId"`
+	AddressFamily   pulumi.StringOutput    `pulumi:"addressFamily"`
+	Arn             pulumi.StringOutput    `pulumi:"arn"`
+	Destination     pulumi.StringOutput    `pulumi:"destination"`
+	DestinationPort pulumi.IntPtrOutput    `pulumi:"destinationPort"`
+	MonitorName     pulumi.StringOutput    `pulumi:"monitorName"`
+	PacketSize      pulumi.IntOutput       `pulumi:"packetSize"`
+	ProbeId         pulumi.StringOutput    `pulumi:"probeId"`
+	Protocol        pulumi.StringOutput    `pulumi:"protocol"`
+	Region          pulumi.StringOutput    `pulumi:"region"`
+	SourceArn       pulumi.StringOutput    `pulumi:"sourceArn"`
+	Tags            pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput `pulumi:"tagsAll"`
+	VpcId           pulumi.StringOutput    `pulumi:"vpcId"`
 }
 
 // NewProbe registers a new resource with the given unique name, arguments, and options.
@@ -131,55 +72,35 @@ func GetProbe(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Probe resources.
 type probeState struct {
-	AddressFamily *string `pulumi:"addressFamily"`
-	// The ARN of the attachment.
-	Arn *string `pulumi:"arn"`
-	// The destination IP address. This must be either IPV4 or IPV6.
-	Destination *string `pulumi:"destination"`
-	// The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
-	DestinationPort *int `pulumi:"destinationPort"`
-	// The name of the monitor.
-	MonitorName *string `pulumi:"monitorName"`
-	// The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-	PacketSize *int    `pulumi:"packetSize"`
-	ProbeId    *string `pulumi:"probeId"`
-	// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
-	Protocol *string `pulumi:"protocol"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ARN of the subnet.
-	SourceArn *string `pulumi:"sourceArn"`
-	// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	VpcId   *string           `pulumi:"vpcId"`
+	AddressFamily   *string           `pulumi:"addressFamily"`
+	Arn             *string           `pulumi:"arn"`
+	Destination     *string           `pulumi:"destination"`
+	DestinationPort *int              `pulumi:"destinationPort"`
+	MonitorName     *string           `pulumi:"monitorName"`
+	PacketSize      *int              `pulumi:"packetSize"`
+	ProbeId         *string           `pulumi:"probeId"`
+	Protocol        *string           `pulumi:"protocol"`
+	Region          *string           `pulumi:"region"`
+	SourceArn       *string           `pulumi:"sourceArn"`
+	Tags            map[string]string `pulumi:"tags"`
+	TagsAll         map[string]string `pulumi:"tagsAll"`
+	VpcId           *string           `pulumi:"vpcId"`
 }
 
 type ProbeState struct {
-	AddressFamily pulumi.StringPtrInput
-	// The ARN of the attachment.
-	Arn pulumi.StringPtrInput
-	// The destination IP address. This must be either IPV4 or IPV6.
-	Destination pulumi.StringPtrInput
-	// The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
+	AddressFamily   pulumi.StringPtrInput
+	Arn             pulumi.StringPtrInput
+	Destination     pulumi.StringPtrInput
 	DestinationPort pulumi.IntPtrInput
-	// The name of the monitor.
-	MonitorName pulumi.StringPtrInput
-	// The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-	PacketSize pulumi.IntPtrInput
-	ProbeId    pulumi.StringPtrInput
-	// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
-	Protocol pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ARN of the subnet.
-	SourceArn pulumi.StringPtrInput
-	// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	VpcId   pulumi.StringPtrInput
+	MonitorName     pulumi.StringPtrInput
+	PacketSize      pulumi.IntPtrInput
+	ProbeId         pulumi.StringPtrInput
+	Protocol        pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
+	SourceArn       pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
+	VpcId           pulumi.StringPtrInput
 }
 
 func (ProbeState) ElementType() reflect.Type {
@@ -187,42 +108,26 @@ func (ProbeState) ElementType() reflect.Type {
 }
 
 type probeArgs struct {
-	// The destination IP address. This must be either IPV4 or IPV6.
-	Destination string `pulumi:"destination"`
-	// The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
-	DestinationPort *int `pulumi:"destinationPort"`
-	// The name of the monitor.
-	MonitorName string `pulumi:"monitorName"`
-	// The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-	PacketSize *int `pulumi:"packetSize"`
-	// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
-	Protocol string `pulumi:"protocol"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ARN of the subnet.
-	SourceArn string `pulumi:"sourceArn"`
-	// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Destination     string            `pulumi:"destination"`
+	DestinationPort *int              `pulumi:"destinationPort"`
+	MonitorName     string            `pulumi:"monitorName"`
+	PacketSize      *int              `pulumi:"packetSize"`
+	Protocol        string            `pulumi:"protocol"`
+	Region          *string           `pulumi:"region"`
+	SourceArn       string            `pulumi:"sourceArn"`
+	Tags            map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Probe resource.
 type ProbeArgs struct {
-	// The destination IP address. This must be either IPV4 or IPV6.
-	Destination pulumi.StringInput
-	// The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
+	Destination     pulumi.StringInput
 	DestinationPort pulumi.IntPtrInput
-	// The name of the monitor.
-	MonitorName pulumi.StringInput
-	// The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-	PacketSize pulumi.IntPtrInput
-	// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
-	Protocol pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ARN of the subnet.
-	SourceArn pulumi.StringInput
-	// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	MonitorName     pulumi.StringInput
+	PacketSize      pulumi.IntPtrInput
+	Protocol        pulumi.StringInput
+	Region          pulumi.StringPtrInput
+	SourceArn       pulumi.StringInput
+	Tags            pulumi.StringMapInput
 }
 
 func (ProbeArgs) ElementType() reflect.Type {
@@ -316,27 +221,22 @@ func (o ProbeOutput) AddressFamily() pulumi.StringOutput {
 	return o.ApplyT(func(v *Probe) pulumi.StringOutput { return v.AddressFamily }).(pulumi.StringOutput)
 }
 
-// The ARN of the attachment.
 func (o ProbeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Probe) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The destination IP address. This must be either IPV4 or IPV6.
 func (o ProbeOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v *Probe) pulumi.StringOutput { return v.Destination }).(pulumi.StringOutput)
 }
 
-// The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
 func (o ProbeOutput) DestinationPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Probe) pulumi.IntPtrOutput { return v.DestinationPort }).(pulumi.IntPtrOutput)
 }
 
-// The name of the monitor.
 func (o ProbeOutput) MonitorName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Probe) pulumi.StringOutput { return v.MonitorName }).(pulumi.StringOutput)
 }
 
-// The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
 func (o ProbeOutput) PacketSize() pulumi.IntOutput {
 	return o.ApplyT(func(v *Probe) pulumi.IntOutput { return v.PacketSize }).(pulumi.IntOutput)
 }
@@ -345,27 +245,22 @@ func (o ProbeOutput) ProbeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Probe) pulumi.StringOutput { return v.ProbeId }).(pulumi.StringOutput)
 }
 
-// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
 func (o ProbeOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *Probe) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ProbeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Probe) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ARN of the subnet.
 func (o ProbeOutput) SourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Probe) pulumi.StringOutput { return v.SourceArn }).(pulumi.StringOutput)
 }
 
-// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ProbeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Probe) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ProbeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Probe) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

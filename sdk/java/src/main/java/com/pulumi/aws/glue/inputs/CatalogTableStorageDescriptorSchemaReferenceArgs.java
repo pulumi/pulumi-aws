@@ -18,47 +18,23 @@ public final class CatalogTableStorageDescriptorSchemaReferenceArgs extends com.
 
     public static final CatalogTableStorageDescriptorSchemaReferenceArgs Empty = new CatalogTableStorageDescriptorSchemaReferenceArgs();
 
-    /**
-     * Configuration block that contains schema identity fields. Either this or the `schemaVersionId` has to be provided. See `schemaId` below.
-     * 
-     */
     @Import(name="schemaId")
     private @Nullable Output<CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs> schemaId;
 
-    /**
-     * @return Configuration block that contains schema identity fields. Either this or the `schemaVersionId` has to be provided. See `schemaId` below.
-     * 
-     */
     public Optional<Output<CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs>> schemaId() {
         return Optional.ofNullable(this.schemaId);
     }
 
-    /**
-     * Unique ID assigned to a version of the schema. Either this or the `schemaId` has to be provided.
-     * 
-     */
     @Import(name="schemaVersionId")
     private @Nullable Output<String> schemaVersionId;
 
-    /**
-     * @return Unique ID assigned to a version of the schema. Either this or the `schemaId` has to be provided.
-     * 
-     */
     public Optional<Output<String>> schemaVersionId() {
         return Optional.ofNullable(this.schemaVersionId);
     }
 
-    /**
-     * Version number of the schema.
-     * 
-     */
     @Import(name="schemaVersionNumber", required=true)
     private Output<Integer> schemaVersionNumber;
 
-    /**
-     * @return Version number of the schema.
-     * 
-     */
     public Output<Integer> schemaVersionNumber() {
         return this.schemaVersionNumber;
     }
@@ -89,65 +65,29 @@ public final class CatalogTableStorageDescriptorSchemaReferenceArgs extends com.
             $ = new CatalogTableStorageDescriptorSchemaReferenceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param schemaId Configuration block that contains schema identity fields. Either this or the `schemaVersionId` has to be provided. See `schemaId` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schemaId(@Nullable Output<CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs> schemaId) {
             $.schemaId = schemaId;
             return this;
         }
 
-        /**
-         * @param schemaId Configuration block that contains schema identity fields. Either this or the `schemaVersionId` has to be provided. See `schemaId` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schemaId(CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs schemaId) {
             return schemaId(Output.of(schemaId));
         }
 
-        /**
-         * @param schemaVersionId Unique ID assigned to a version of the schema. Either this or the `schemaId` has to be provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schemaVersionId(@Nullable Output<String> schemaVersionId) {
             $.schemaVersionId = schemaVersionId;
             return this;
         }
 
-        /**
-         * @param schemaVersionId Unique ID assigned to a version of the schema. Either this or the `schemaId` has to be provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schemaVersionId(String schemaVersionId) {
             return schemaVersionId(Output.of(schemaVersionId));
         }
 
-        /**
-         * @param schemaVersionNumber Version number of the schema.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schemaVersionNumber(Output<Integer> schemaVersionNumber) {
             $.schemaVersionNumber = schemaVersionNumber;
             return this;
         }
 
-        /**
-         * @param schemaVersionNumber Version number of the schema.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schemaVersionNumber(Integer schemaVersionNumber) {
             return schemaVersionNumber(Output.of(schemaVersionNumber));
         }

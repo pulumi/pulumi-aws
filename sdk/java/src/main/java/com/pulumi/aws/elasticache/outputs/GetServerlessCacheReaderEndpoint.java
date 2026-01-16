@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServerlessCacheReaderEndpoint {
-    /**
-     * @return The DNS hostname of the cache node.
-     * 
-     */
     private String address;
-    /**
-     * @return The port number that the cache engine is listening on. Set as integer.
-     * 
-     */
     private Integer port;
 
     private GetServerlessCacheReaderEndpoint() {}
-    /**
-     * @return The DNS hostname of the cache node.
-     * 
-     */
     public String address() {
         return this.address;
     }
-    /**
-     * @return The port number that the cache engine is listening on. Set as integer.
-     * 
-     */
     public Integer port() {
         return this.port;
     }

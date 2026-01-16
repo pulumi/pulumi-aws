@@ -64,9 +64,6 @@ class GetModelResult:
     @_builtins.property
     @pulumi.getter(name="customizationsSupporteds")
     def customizations_supporteds(self) -> Sequence[_builtins.str]:
-        """
-        Customizations that the model supports.
-        """
         return pulumi.get(self, "customizations_supporteds")
 
     @_builtins.property
@@ -77,25 +74,16 @@ class GetModelResult:
     @_builtins.property
     @pulumi.getter(name="inferenceTypesSupporteds")
     def inference_types_supporteds(self) -> Sequence[_builtins.str]:
-        """
-        Inference types that the model supports.
-        """
         return pulumi.get(self, "inference_types_supporteds")
 
     @_builtins.property
     @pulumi.getter(name="inputModalities")
     def input_modalities(self) -> Sequence[_builtins.str]:
-        """
-        Input modalities that the model supports.
-        """
         return pulumi.get(self, "input_modalities")
 
     @_builtins.property
     @pulumi.getter(name="modelArn")
     def model_arn(self) -> _builtins.str:
-        """
-        Model ARN.
-        """
         return pulumi.get(self, "model_arn")
 
     @_builtins.property
@@ -106,25 +94,16 @@ class GetModelResult:
     @_builtins.property
     @pulumi.getter(name="modelName")
     def model_name(self) -> _builtins.str:
-        """
-        Model name.
-        """
         return pulumi.get(self, "model_name")
 
     @_builtins.property
     @pulumi.getter(name="outputModalities")
     def output_modalities(self) -> Sequence[_builtins.str]:
-        """
-        Output modalities that the model supports.
-        """
         return pulumi.get(self, "output_modalities")
 
     @_builtins.property
     @pulumi.getter(name="providerName")
     def provider_name(self) -> _builtins.str:
-        """
-        Model provider name.
-        """
         return pulumi.get(self, "provider_name")
 
     @_builtins.property
@@ -135,9 +114,6 @@ class GetModelResult:
     @_builtins.property
     @pulumi.getter(name="responseStreamingSupported")
     def response_streaming_supported(self) -> _builtins.bool:
-        """
-        Indicates whether the model supports streaming.
-        """
         return pulumi.get(self, "response_streaming_supported")
 
 
@@ -164,23 +140,7 @@ def get_model(model_id: Optional[_builtins.str] = None,
               region: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetModelResult:
     """
-    Data source for managing an AWS Bedrock Foundation Model.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.bedrockfoundation.get_models()
-    test_get_model = aws.bedrockfoundation.get_model(model_id=test.model_summaries[0].model_id)
-    ```
-
-
-    :param _builtins.str model_id: Model identifier.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['modelId'] = model_id
@@ -204,23 +164,7 @@ def get_model_output(model_id: Optional[pulumi.Input[_builtins.str]] = None,
                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModelResult]:
     """
-    Data source for managing an AWS Bedrock Foundation Model.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.bedrockfoundation.get_models()
-    test_get_model = aws.bedrockfoundation.get_model(model_id=test.model_summaries[0].model_id)
-    ```
-
-
-    :param _builtins.str model_id: Model identifier.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['modelId'] = model_id

@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class DomainAutoTuneOptionsMaintenanceSchedule {
-    /**
-     * @return A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
-     * 
-     */
     private String cronExpressionForRecurrence;
-    /**
-     * @return Configuration block for the duration of the Auto-Tune maintenance window. Detailed below.
-     * 
-     */
     private DomainAutoTuneOptionsMaintenanceScheduleDuration duration;
-    /**
-     * @return Date and time at which to start the Auto-Tune maintenance schedule in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     private String startAt;
 
     private DomainAutoTuneOptionsMaintenanceSchedule() {}
-    /**
-     * @return A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
-     * 
-     */
     public String cronExpressionForRecurrence() {
         return this.cronExpressionForRecurrence;
     }
-    /**
-     * @return Configuration block for the duration of the Auto-Tune maintenance window. Detailed below.
-     * 
-     */
     public DomainAutoTuneOptionsMaintenanceScheduleDuration duration() {
         return this.duration;
     }
-    /**
-     * @return Date and time at which to start the Auto-Tune maintenance schedule in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     public String startAt() {
         return this.startAt;
     }

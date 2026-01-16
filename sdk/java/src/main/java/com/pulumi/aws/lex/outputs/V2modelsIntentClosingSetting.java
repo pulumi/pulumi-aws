@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsIntentClosingSetting {
-    /**
-     * @return Whether an intent&#39;s closing response is used. When this field is false, the closing response isn&#39;t sent to the user. If the active field isn&#39;t specified, the default is true.
-     * 
-     */
     private @Nullable Boolean active;
-    /**
-     * @return Configuration block for response that Amazon Lex sends to the user when the intent is complete. See `closingResponse`.
-     * 
-     */
     private @Nullable V2modelsIntentClosingSettingClosingResponse closingResponse;
-    /**
-     * @return Configuration block for list of conditional branches associated with the intent&#39;s closing response. These branches are executed when the `nextStep` attribute is set to `EvalutateConditional`. See `conditional`.
-     * 
-     */
     private @Nullable V2modelsIntentClosingSettingConditional conditional;
-    /**
-     * @return Next step that the bot executes after playing the intent&#39;s closing response. See `nextStep`.
-     * 
-     */
     private @Nullable V2modelsIntentClosingSettingNextStep nextStep;
 
     private V2modelsIntentClosingSetting() {}
-    /**
-     * @return Whether an intent&#39;s closing response is used. When this field is false, the closing response isn&#39;t sent to the user. If the active field isn&#39;t specified, the default is true.
-     * 
-     */
     public Optional<Boolean> active() {
         return Optional.ofNullable(this.active);
     }
-    /**
-     * @return Configuration block for response that Amazon Lex sends to the user when the intent is complete. See `closingResponse`.
-     * 
-     */
     public Optional<V2modelsIntentClosingSettingClosingResponse> closingResponse() {
         return Optional.ofNullable(this.closingResponse);
     }
-    /**
-     * @return Configuration block for list of conditional branches associated with the intent&#39;s closing response. These branches are executed when the `nextStep` attribute is set to `EvalutateConditional`. See `conditional`.
-     * 
-     */
     public Optional<V2modelsIntentClosingSettingConditional> conditional() {
         return Optional.ofNullable(this.conditional);
     }
-    /**
-     * @return Next step that the bot executes after playing the intent&#39;s closing response. See `nextStep`.
-     * 
-     */
     public Optional<V2modelsIntentClosingSettingNextStep> nextStep() {
         return Optional.ofNullable(this.nextStep);
     }

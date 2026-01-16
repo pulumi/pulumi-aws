@@ -13,16 +13,8 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserHierarchyGroupResult {
-    /**
-     * @return ARN of the hierarchy group.
-     * 
-     */
     private String arn;
     private String hierarchyGroupId;
-    /**
-     * @return Block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
-     * 
-     */
     private List<GetUserHierarchyGroupHierarchyPath> hierarchyPaths;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -30,38 +22,18 @@ public final class GetUserHierarchyGroupResult {
      */
     private String id;
     private String instanceId;
-    /**
-     * @return Identifier of the level in the hierarchy group.
-     * 
-     */
     private String levelId;
-    /**
-     * @return Name of the hierarchy group.
-     * 
-     */
     private String name;
     private String region;
-    /**
-     * @return Map of tags to assign to the hierarchy group.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetUserHierarchyGroupResult() {}
-    /**
-     * @return ARN of the hierarchy group.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
     public String hierarchyGroupId() {
         return this.hierarchyGroupId;
     }
-    /**
-     * @return Block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
-     * 
-     */
     public List<GetUserHierarchyGroupHierarchyPath> hierarchyPaths() {
         return this.hierarchyPaths;
     }
@@ -75,27 +47,15 @@ public final class GetUserHierarchyGroupResult {
     public String instanceId() {
         return this.instanceId;
     }
-    /**
-     * @return Identifier of the level in the hierarchy group.
-     * 
-     */
     public String levelId() {
         return this.levelId;
     }
-    /**
-     * @return Name of the hierarchy group.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Map of tags to assign to the hierarchy group.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

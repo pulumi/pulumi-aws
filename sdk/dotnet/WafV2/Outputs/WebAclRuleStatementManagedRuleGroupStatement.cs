@@ -13,29 +13,11 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementManagedRuleGroupStatement
     {
-        /// <summary>
-        /// Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See `ManagedRuleGroupConfigs` for more details
-        /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig> ManagedRuleGroupConfigs;
-        /// <summary>
-        /// Name of the managed rule group.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `RuleActionOverride` below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride> RuleActionOverrides;
-        /// <summary>
-        /// Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `Statement` above for details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement? ScopeDownStatement;
-        /// <summary>
-        /// Name of the managed rule group vendor.
-        /// </summary>
         public readonly string VendorName;
-        /// <summary>
-        /// Version of the managed rule group. You can set `Version_1.0` or `Version_1.1` etc. If you want to use the default version, do not set anything.
-        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]

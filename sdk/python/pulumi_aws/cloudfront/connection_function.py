@@ -28,13 +28,6 @@ class ConnectionFunctionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConnectionFunction resource.
-        :param pulumi.Input[_builtins.str] connection_function_code: Code for the connection function. Maximum length is 40960 characters.
-        :param pulumi.Input['ConnectionFunctionConnectionFunctionConfigArgs'] connection_function_config: Configuration information for the connection function. See `connection_function_config` below.
-        :param pulumi.Input[_builtins.str] name: Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] publish: Whether to publish the function to the `LIVE` stage after creation or update. Defaults to `false`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "connection_function_code", connection_function_code)
         if connection_function_config is not None:
@@ -49,9 +42,6 @@ class ConnectionFunctionArgs:
     @_builtins.property
     @pulumi.getter(name="connectionFunctionCode")
     def connection_function_code(self) -> pulumi.Input[_builtins.str]:
-        """
-        Code for the connection function. Maximum length is 40960 characters.
-        """
         return pulumi.get(self, "connection_function_code")
 
     @connection_function_code.setter
@@ -61,9 +51,6 @@ class ConnectionFunctionArgs:
     @_builtins.property
     @pulumi.getter(name="connectionFunctionConfig")
     def connection_function_config(self) -> Optional[pulumi.Input['ConnectionFunctionConnectionFunctionConfigArgs']]:
-        """
-        Configuration information for the connection function. See `connection_function_config` below.
-        """
         return pulumi.get(self, "connection_function_config")
 
     @connection_function_config.setter
@@ -73,11 +60,6 @@ class ConnectionFunctionArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -87,9 +69,6 @@ class ConnectionFunctionArgs:
     @_builtins.property
     @pulumi.getter
     def publish(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to publish the function to the `LIVE` stage after creation or update. Defaults to `false`.
-        """
         return pulumi.get(self, "publish")
 
     @publish.setter
@@ -99,9 +78,6 @@ class ConnectionFunctionArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -124,18 +100,6 @@ class _ConnectionFunctionState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ConnectionFunction resources.
-        :param pulumi.Input[_builtins.str] connection_function_arn: ARN of the connection function.
-        :param pulumi.Input[_builtins.str] connection_function_code: Code for the connection function. Maximum length is 40960 characters.
-        :param pulumi.Input['ConnectionFunctionConnectionFunctionConfigArgs'] connection_function_config: Configuration information for the connection function. See `connection_function_config` below.
-        :param pulumi.Input[_builtins.str] etag: ETag of the connection function.
-        :param pulumi.Input[_builtins.str] live_stage_etag: ETag of the function's LIVE stage. Will be empty if the function has not been published.
-        :param pulumi.Input[_builtins.str] name: Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] publish: Whether to publish the function to the `LIVE` stage after creation or update. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] status: Status of the connection function.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if connection_function_arn is not None:
             pulumi.set(__self__, "connection_function_arn", connection_function_arn)
@@ -161,9 +125,6 @@ class _ConnectionFunctionState:
     @_builtins.property
     @pulumi.getter(name="connectionFunctionArn")
     def connection_function_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the connection function.
-        """
         return pulumi.get(self, "connection_function_arn")
 
     @connection_function_arn.setter
@@ -173,9 +134,6 @@ class _ConnectionFunctionState:
     @_builtins.property
     @pulumi.getter(name="connectionFunctionCode")
     def connection_function_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Code for the connection function. Maximum length is 40960 characters.
-        """
         return pulumi.get(self, "connection_function_code")
 
     @connection_function_code.setter
@@ -185,9 +143,6 @@ class _ConnectionFunctionState:
     @_builtins.property
     @pulumi.getter(name="connectionFunctionConfig")
     def connection_function_config(self) -> Optional[pulumi.Input['ConnectionFunctionConnectionFunctionConfigArgs']]:
-        """
-        Configuration information for the connection function. See `connection_function_config` below.
-        """
         return pulumi.get(self, "connection_function_config")
 
     @connection_function_config.setter
@@ -197,9 +152,6 @@ class _ConnectionFunctionState:
     @_builtins.property
     @pulumi.getter
     def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ETag of the connection function.
-        """
         return pulumi.get(self, "etag")
 
     @etag.setter
@@ -209,9 +161,6 @@ class _ConnectionFunctionState:
     @_builtins.property
     @pulumi.getter(name="liveStageEtag")
     def live_stage_etag(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ETag of the function's LIVE stage. Will be empty if the function has not been published.
-        """
         return pulumi.get(self, "live_stage_etag")
 
     @live_stage_etag.setter
@@ -221,11 +170,6 @@ class _ConnectionFunctionState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -235,9 +179,6 @@ class _ConnectionFunctionState:
     @_builtins.property
     @pulumi.getter
     def publish(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to publish the function to the `LIVE` stage after creation or update. Defaults to `false`.
-        """
         return pulumi.get(self, "publish")
 
     @publish.setter
@@ -247,9 +188,6 @@ class _ConnectionFunctionState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the connection function.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -259,9 +197,6 @@ class _ConnectionFunctionState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -271,9 +206,6 @@ class _ConnectionFunctionState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -294,98 +226,9 @@ class ConnectionFunction(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages an AWS CloudFront Connection Function.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudfront.ConnectionFunction("example",
-            name="example-connection-function",
-            connection_function_code="function handler(event) { return event.request; }",
-            connection_function_config={
-                "runtime": "cloudfront-js-2.0",
-                "comment": "Example connection function",
-            })
-        ```
-
-        ### With Publish Enabled
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudfront.ConnectionFunction("example",
-            name="example-connection-function",
-            connection_function_code="function handler(event) { return event.request; }",
-            connection_function_config={
-                "runtime": "cloudfront-js-2.0",
-                "comment": "Example connection function",
-            },
-            publish=True)
-        ```
-
-        ### With Key Value Store Associations
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudfront.KeyValueStore("example",
-            name="example-kvs",
-            comment="Example key value store")
-        example_connection_function = aws.cloudfront.ConnectionFunction("example",
-            name="example-connection-function",
-            connection_function_code="function handler(event) { return event.request; }",
-            connection_function_config={
-                "runtime": "cloudfront-js-2.0",
-                "comment": "Example connection function",
-                "key_value_store_association": {
-                    "key_value_store_arn": example.arn,
-                },
-            })
-        ```
-
-        ### With Tags
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudfront.ConnectionFunction("example",
-            name="example-connection-function",
-            connection_function_code="function handler(event) { return event.request; }",
-            connection_function_config={
-                "runtime": "cloudfront-js-2.0",
-                "comment": "Example connection function",
-            },
-            tags={
-                "Environment": "production",
-                "Team": "web",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudFront Connection Function using the function ID. For example:
-
-        ```sh
-        $ pulumi import aws:cloudfront/connectionFunction:ConnectionFunction example E1PA6795UKMFR9
-        ```
-
+        Create a ConnectionFunction resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] connection_function_code: Code for the connection function. Maximum length is 40960 characters.
-        :param pulumi.Input[Union['ConnectionFunctionConnectionFunctionConfigArgs', 'ConnectionFunctionConnectionFunctionConfigArgsDict']] connection_function_config: Configuration information for the connection function. See `connection_function_config` below.
-        :param pulumi.Input[_builtins.str] name: Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] publish: Whether to publish the function to the `LIVE` stage after creation or update. Defaults to `false`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -394,89 +237,7 @@ class ConnectionFunction(pulumi.CustomResource):
                  args: ConnectionFunctionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS CloudFront Connection Function.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudfront.ConnectionFunction("example",
-            name="example-connection-function",
-            connection_function_code="function handler(event) { return event.request; }",
-            connection_function_config={
-                "runtime": "cloudfront-js-2.0",
-                "comment": "Example connection function",
-            })
-        ```
-
-        ### With Publish Enabled
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudfront.ConnectionFunction("example",
-            name="example-connection-function",
-            connection_function_code="function handler(event) { return event.request; }",
-            connection_function_config={
-                "runtime": "cloudfront-js-2.0",
-                "comment": "Example connection function",
-            },
-            publish=True)
-        ```
-
-        ### With Key Value Store Associations
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudfront.KeyValueStore("example",
-            name="example-kvs",
-            comment="Example key value store")
-        example_connection_function = aws.cloudfront.ConnectionFunction("example",
-            name="example-connection-function",
-            connection_function_code="function handler(event) { return event.request; }",
-            connection_function_config={
-                "runtime": "cloudfront-js-2.0",
-                "comment": "Example connection function",
-                "key_value_store_association": {
-                    "key_value_store_arn": example.arn,
-                },
-            })
-        ```
-
-        ### With Tags
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudfront.ConnectionFunction("example",
-            name="example-connection-function",
-            connection_function_code="function handler(event) { return event.request; }",
-            connection_function_config={
-                "runtime": "cloudfront-js-2.0",
-                "comment": "Example connection function",
-            },
-            tags={
-                "Environment": "production",
-                "Team": "web",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudFront Connection Function using the function ID. For example:
-
-        ```sh
-        $ pulumi import aws:cloudfront/connectionFunction:ConnectionFunction example E1PA6795UKMFR9
-        ```
-
+        Create a ConnectionFunction resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ConnectionFunctionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -545,18 +306,6 @@ class ConnectionFunction(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] connection_function_arn: ARN of the connection function.
-        :param pulumi.Input[_builtins.str] connection_function_code: Code for the connection function. Maximum length is 40960 characters.
-        :param pulumi.Input[Union['ConnectionFunctionConnectionFunctionConfigArgs', 'ConnectionFunctionConnectionFunctionConfigArgsDict']] connection_function_config: Configuration information for the connection function. See `connection_function_config` below.
-        :param pulumi.Input[_builtins.str] etag: ETag of the connection function.
-        :param pulumi.Input[_builtins.str] live_stage_etag: ETag of the function's LIVE stage. Will be empty if the function has not been published.
-        :param pulumi.Input[_builtins.str] name: Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] publish: Whether to publish the function to the `LIVE` stage after creation or update. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] status: Status of the connection function.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -577,82 +326,50 @@ class ConnectionFunction(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="connectionFunctionArn")
     def connection_function_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the connection function.
-        """
         return pulumi.get(self, "connection_function_arn")
 
     @_builtins.property
     @pulumi.getter(name="connectionFunctionCode")
     def connection_function_code(self) -> pulumi.Output[_builtins.str]:
-        """
-        Code for the connection function. Maximum length is 40960 characters.
-        """
         return pulumi.get(self, "connection_function_code")
 
     @_builtins.property
     @pulumi.getter(name="connectionFunctionConfig")
     def connection_function_config(self) -> pulumi.Output[Optional['outputs.ConnectionFunctionConnectionFunctionConfig']]:
-        """
-        Configuration information for the connection function. See `connection_function_config` below.
-        """
         return pulumi.get(self, "connection_function_config")
 
     @_builtins.property
     @pulumi.getter
     def etag(self) -> pulumi.Output[_builtins.str]:
-        """
-        ETag of the connection function.
-        """
         return pulumi.get(self, "etag")
 
     @_builtins.property
     @pulumi.getter(name="liveStageEtag")
     def live_stage_etag(self) -> pulumi.Output[_builtins.str]:
-        """
-        ETag of the function's LIVE stage. Will be empty if the function has not been published.
-        """
         return pulumi.get(self, "live_stage_etag")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def publish(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether to publish the function to the `LIVE` stage after creation or update. Defaults to `false`.
-        """
         return pulumi.get(self, "publish")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status of the connection function.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

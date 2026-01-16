@@ -16,47 +16,23 @@ public final class GetSelectionArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSelectionArgs Empty = new GetSelectionArgs();
 
-    /**
-     * Backup plan ID associated with the selection of resources.
-     * 
-     */
     @Import(name="planId", required=true)
     private Output<String> planId;
 
-    /**
-     * @return Backup plan ID associated with the selection of resources.
-     * 
-     */
     public Output<String> planId() {
         return this.planId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Backup selection ID.
-     * 
-     */
     @Import(name="selectionId", required=true)
     private Output<String> selectionId;
 
-    /**
-     * @return Backup selection ID.
-     * 
-     */
     public Output<String> selectionId() {
         return this.selectionId;
     }
@@ -87,65 +63,29 @@ public final class GetSelectionArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetSelectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param planId Backup plan ID associated with the selection of resources.
-         * 
-         * @return builder
-         * 
-         */
         public Builder planId(Output<String> planId) {
             $.planId = planId;
             return this;
         }
 
-        /**
-         * @param planId Backup plan ID associated with the selection of resources.
-         * 
-         * @return builder
-         * 
-         */
         public Builder planId(String planId) {
             return planId(Output.of(planId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param selectionId Backup selection ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder selectionId(Output<String> selectionId) {
             $.selectionId = selectionId;
             return this;
         }
 
-        /**
-         * @param selectionId Backup selection ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder selectionId(String selectionId) {
             return selectionId(Output.of(selectionId));
         }

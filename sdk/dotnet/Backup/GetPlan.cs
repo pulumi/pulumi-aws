@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Backup
 {
     public static class GetPlan
     {
-        /// <summary>
-        /// Use this data source to get information on an existing backup plan.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Backup.GetPlan.Invoke(new()
-        ///     {
-        ///         PlanId = "my_example_backup_plan_id",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetPlanResult> InvokeAsync(GetPlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlanResult>("aws:backup/getPlan:getPlan", args ?? new GetPlanArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information on an existing backup plan.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Backup.GetPlan.Invoke(new()
-        ///     {
-        ///         PlanId = "my_example_backup_plan_id",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPlanResult> Invoke(GetPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlanResult>("aws:backup/getPlan:getPlan", args ?? new GetPlanInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information on an existing backup plan.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Backup.GetPlan.Invoke(new()
-        ///     {
-        ///         PlanId = "my_example_backup_plan_id",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPlanResult> Invoke(GetPlanInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlanResult>("aws:backup/getPlan:getPlan", args ?? new GetPlanInvokeArgs(), options.WithDefaults());
     }
@@ -87,24 +24,14 @@ namespace Pulumi.Aws.Backup
 
     public sealed class GetPlanArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Backup plan ID.
-        /// </summary>
         [Input("planId", required: true)]
         public string PlanId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Metadata that you can assign to help organize the plans you create.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -119,24 +46,14 @@ namespace Pulumi.Aws.Backup
 
     public sealed class GetPlanInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Backup plan ID.
-        /// </summary>
         [Input("planId", required: true)]
         public Input<string> PlanId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Metadata that you can assign to help organize the plans you create.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -153,35 +70,17 @@ namespace Pulumi.Aws.Backup
     [OutputType]
     public sealed class GetPlanResult
     {
-        /// <summary>
-        /// ARN of the backup plan.
-        /// </summary>
         public readonly string Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Display name of a backup plan.
-        /// </summary>
         public readonly string Name;
         public readonly string PlanId;
         public readonly string Region;
-        /// <summary>
-        /// Rules of a backup plan.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetPlanRuleResult> Rules;
-        /// <summary>
-        /// Scanning configuration for the backup rule.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetPlanScanSettingResult> ScanSettings;
-        /// <summary>
-        /// Metadata that you can assign to help organize the plans you create.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
-        /// </summary>
         public readonly string Version;
 
         [OutputConstructor]

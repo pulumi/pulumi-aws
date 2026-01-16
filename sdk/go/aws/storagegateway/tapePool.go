@@ -12,61 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Storage Gateway Tape Pool.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/storagegateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := storagegateway.NewTapePool(ctx, "example", &storagegateway.TapePoolArgs{
-//				PoolName:     pulumi.String("example"),
-//				StorageClass: pulumi.String("GLACIER"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_storagegateway_tape_pool` using the volume Amazon Resource Name (ARN). For example:
-//
-// ```sh
-// $ pulumi import aws:storagegateway/tapePool:TapePool example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678
-// ```
 type TapePool struct {
 	pulumi.CustomResourceState
 
-	// Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the new custom tape pool.
-	PoolName pulumi.StringOutput `pulumi:"poolName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
-	RetentionLockTimeInDays pulumi.IntPtrOutput `pulumi:"retentionLockTimeInDays"`
-	// Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
-	RetentionLockType pulumi.StringPtrOutput `pulumi:"retentionLockType"`
-	// The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class that corresponds to the pool. Possible values are `DEEP_ARCHIVE` or `GLACIER`.
-	StorageClass pulumi.StringOutput `pulumi:"storageClass"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                     pulumi.StringOutput    `pulumi:"arn"`
+	PoolName                pulumi.StringOutput    `pulumi:"poolName"`
+	Region                  pulumi.StringOutput    `pulumi:"region"`
+	RetentionLockTimeInDays pulumi.IntPtrOutput    `pulumi:"retentionLockTimeInDays"`
+	RetentionLockType       pulumi.StringPtrOutput `pulumi:"retentionLockType"`
+	StorageClass            pulumi.StringOutput    `pulumi:"storageClass"`
+	Tags                    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll                 pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewTapePool registers a new resource with the given unique name, arguments, and options.
@@ -105,41 +61,25 @@ func GetTapePool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TapePool resources.
 type tapePoolState struct {
-	// Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
-	Arn *string `pulumi:"arn"`
-	// The name of the new custom tape pool.
-	PoolName *string `pulumi:"poolName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
-	RetentionLockTimeInDays *int `pulumi:"retentionLockTimeInDays"`
-	// Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
-	RetentionLockType *string `pulumi:"retentionLockType"`
-	// The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class that corresponds to the pool. Possible values are `DEEP_ARCHIVE` or `GLACIER`.
-	StorageClass *string `pulumi:"storageClass"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                     *string           `pulumi:"arn"`
+	PoolName                *string           `pulumi:"poolName"`
+	Region                  *string           `pulumi:"region"`
+	RetentionLockTimeInDays *int              `pulumi:"retentionLockTimeInDays"`
+	RetentionLockType       *string           `pulumi:"retentionLockType"`
+	StorageClass            *string           `pulumi:"storageClass"`
+	Tags                    map[string]string `pulumi:"tags"`
+	TagsAll                 map[string]string `pulumi:"tagsAll"`
 }
 
 type TapePoolState struct {
-	// Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
-	Arn pulumi.StringPtrInput
-	// The name of the new custom tape pool.
-	PoolName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
+	Arn                     pulumi.StringPtrInput
+	PoolName                pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
 	RetentionLockTimeInDays pulumi.IntPtrInput
-	// Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
-	RetentionLockType pulumi.StringPtrInput
-	// The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class that corresponds to the pool. Possible values are `DEEP_ARCHIVE` or `GLACIER`.
-	StorageClass pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	RetentionLockType       pulumi.StringPtrInput
+	StorageClass            pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
+	TagsAll                 pulumi.StringMapInput
 }
 
 func (TapePoolState) ElementType() reflect.Type {
@@ -147,34 +87,22 @@ func (TapePoolState) ElementType() reflect.Type {
 }
 
 type tapePoolArgs struct {
-	// The name of the new custom tape pool.
-	PoolName string `pulumi:"poolName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
-	RetentionLockTimeInDays *int `pulumi:"retentionLockTimeInDays"`
-	// Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
-	RetentionLockType *string `pulumi:"retentionLockType"`
-	// The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class that corresponds to the pool. Possible values are `DEEP_ARCHIVE` or `GLACIER`.
-	StorageClass string `pulumi:"storageClass"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	PoolName                string            `pulumi:"poolName"`
+	Region                  *string           `pulumi:"region"`
+	RetentionLockTimeInDays *int              `pulumi:"retentionLockTimeInDays"`
+	RetentionLockType       *string           `pulumi:"retentionLockType"`
+	StorageClass            string            `pulumi:"storageClass"`
+	Tags                    map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TapePool resource.
 type TapePoolArgs struct {
-	// The name of the new custom tape pool.
-	PoolName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
+	PoolName                pulumi.StringInput
+	Region                  pulumi.StringPtrInput
 	RetentionLockTimeInDays pulumi.IntPtrInput
-	// Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
-	RetentionLockType pulumi.StringPtrInput
-	// The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class that corresponds to the pool. Possible values are `DEEP_ARCHIVE` or `GLACIER`.
-	StorageClass pulumi.StringInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	RetentionLockType       pulumi.StringPtrInput
+	StorageClass            pulumi.StringInput
+	Tags                    pulumi.StringMapInput
 }
 
 func (TapePoolArgs) ElementType() reflect.Type {
@@ -264,42 +192,34 @@ func (o TapePoolOutput) ToTapePoolOutputWithContext(ctx context.Context) TapePoo
 	return o
 }
 
-// Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
 func (o TapePoolOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TapePool) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the new custom tape pool.
 func (o TapePoolOutput) PoolName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TapePool) pulumi.StringOutput { return v.PoolName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TapePoolOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TapePool) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
 func (o TapePoolOutput) RetentionLockTimeInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TapePool) pulumi.IntPtrOutput { return v.RetentionLockTimeInDays }).(pulumi.IntPtrOutput)
 }
 
-// Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
 func (o TapePoolOutput) RetentionLockType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TapePool) pulumi.StringPtrOutput { return v.RetentionLockType }).(pulumi.StringPtrOutput)
 }
 
-// The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class that corresponds to the pool. Possible values are `DEEP_ARCHIVE` or `GLACIER`.
 func (o TapePoolOutput) StorageClass() pulumi.StringOutput {
 	return o.ApplyT(func(v *TapePool) pulumi.StringOutput { return v.StorageClass }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o TapePoolOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TapePool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TapePoolOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TapePool) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

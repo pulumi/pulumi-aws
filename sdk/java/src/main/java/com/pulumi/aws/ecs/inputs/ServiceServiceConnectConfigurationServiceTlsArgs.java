@@ -17,47 +17,23 @@ public final class ServiceServiceConnectConfigurationServiceTlsArgs extends com.
 
     public static final ServiceServiceConnectConfigurationServiceTlsArgs Empty = new ServiceServiceConnectConfigurationServiceTlsArgs();
 
-    /**
-     * Details of the certificate authority which will issue the certificate.
-     * 
-     */
     @Import(name="issuerCertAuthority", required=true)
     private Output<ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs> issuerCertAuthority;
 
-    /**
-     * @return Details of the certificate authority which will issue the certificate.
-     * 
-     */
     public Output<ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs> issuerCertAuthority() {
         return this.issuerCertAuthority;
     }
 
-    /**
-     * KMS key used to encrypt the private key in Secrets Manager.
-     * 
-     */
     @Import(name="kmsKey")
     private @Nullable Output<String> kmsKey;
 
-    /**
-     * @return KMS key used to encrypt the private key in Secrets Manager.
-     * 
-     */
     public Optional<Output<String>> kmsKey() {
         return Optional.ofNullable(this.kmsKey);
     }
 
-    /**
-     * ARN of the IAM Role that&#39;s associated with the Service Connect TLS.
-     * 
-     */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
-    /**
-     * @return ARN of the IAM Role that&#39;s associated with the Service Connect TLS.
-     * 
-     */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
@@ -88,65 +64,29 @@ public final class ServiceServiceConnectConfigurationServiceTlsArgs extends com.
             $ = new ServiceServiceConnectConfigurationServiceTlsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param issuerCertAuthority Details of the certificate authority which will issue the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issuerCertAuthority(Output<ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs> issuerCertAuthority) {
             $.issuerCertAuthority = issuerCertAuthority;
             return this;
         }
 
-        /**
-         * @param issuerCertAuthority Details of the certificate authority which will issue the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issuerCertAuthority(ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs issuerCertAuthority) {
             return issuerCertAuthority(Output.of(issuerCertAuthority));
         }
 
-        /**
-         * @param kmsKey KMS key used to encrypt the private key in Secrets Manager.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKey(@Nullable Output<String> kmsKey) {
             $.kmsKey = kmsKey;
             return this;
         }
 
-        /**
-         * @param kmsKey KMS key used to encrypt the private key in Secrets Manager.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKey(String kmsKey) {
             return kmsKey(Output.of(kmsKey));
         }
 
-        /**
-         * @param roleArn ARN of the IAM Role that&#39;s associated with the Service Connect TLS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn ARN of the IAM Role that&#39;s associated with the Service Connect TLS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

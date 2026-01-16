@@ -11,172 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CloudFront response headers policy resource.
-// A response headers policy contains information about a set of HTTP response headers and their values.
-// After you create a response headers policy, you can use its ID to attach it to one or more cache behaviors in a CloudFront distribution.
-// When it’s attached to a cache behavior, CloudFront adds the headers in the policy to every response that it sends for requests that match the cache behavior.
-//
-// ## Example Usage
-//
-// The example below creates a CloudFront response headers policy.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewResponseHeadersPolicy(ctx, "example", &cloudfront.ResponseHeadersPolicyArgs{
-//				Name:    pulumi.String("example-policy"),
-//				Comment: pulumi.String("test comment"),
-//				CorsConfig: &cloudfront.ResponseHeadersPolicyCorsConfigArgs{
-//					AccessControlAllowCredentials: pulumi.Bool(true),
-//					AccessControlAllowHeaders: &cloudfront.ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs{
-//						Items: pulumi.StringArray{
-//							pulumi.String("test"),
-//						},
-//					},
-//					AccessControlAllowMethods: &cloudfront.ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs{
-//						Items: pulumi.StringArray{
-//							pulumi.String("GET"),
-//						},
-//					},
-//					AccessControlAllowOrigins: &cloudfront.ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs{
-//						Items: pulumi.StringArray{
-//							pulumi.String("test.example.comtest"),
-//						},
-//					},
-//					OriginOverride: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// The example below creates a CloudFront response headers policy with a custom headers config.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewResponseHeadersPolicy(ctx, "example", &cloudfront.ResponseHeadersPolicyArgs{
-//				Name: pulumi.String("example-headers-policy"),
-//				CustomHeadersConfig: &cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs{
-//					Items: cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArray{
-//						&cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs{
-//							Header:   pulumi.String("X-Permitted-Cross-Domain-Policies"),
-//							Override: pulumi.Bool(true),
-//							Value:    pulumi.String("none"),
-//						},
-//						&cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs{
-//							Header:   pulumi.String("X-Test"),
-//							Override: pulumi.Bool(true),
-//							Value:    pulumi.String("none"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// The example below creates a CloudFront response headers policy with a custom headers config, remove headers config and server timing headers config.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewResponseHeadersPolicy(ctx, "example", &cloudfront.ResponseHeadersPolicyArgs{
-//				Name: pulumi.String("example-headers-policy"),
-//				CustomHeadersConfig: &cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs{
-//					Items: cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArray{
-//						&cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs{
-//							Header:   pulumi.String("X-Permitted-Cross-Domain-Policies"),
-//							Override: pulumi.Bool(true),
-//							Value:    pulumi.String("none"),
-//						},
-//					},
-//				},
-//				RemoveHeadersConfig: &cloudfront.ResponseHeadersPolicyRemoveHeadersConfigArgs{
-//					Items: cloudfront.ResponseHeadersPolicyRemoveHeadersConfigItemArray{
-//						&cloudfront.ResponseHeadersPolicyRemoveHeadersConfigItemArgs{
-//							Header: pulumi.String("Set-Cookie"),
-//						},
-//					},
-//				},
-//				ServerTimingHeadersConfig: &cloudfront.ResponseHeadersPolicyServerTimingHeadersConfigArgs{
-//					Enabled:      pulumi.Bool(true),
-//					SamplingRate: pulumi.Float64(50),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Cloudfront Response Headers Policies using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f9
-// ```
 type ResponseHeadersPolicy struct {
 	pulumi.CustomResourceState
 
-	// The response headers policy ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
-	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
-	CorsConfig ResponseHeadersPolicyCorsConfigPtrOutput `pulumi:"corsConfig"`
-	// Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
-	CustomHeadersConfig ResponseHeadersPolicyCustomHeadersConfigPtrOutput `pulumi:"customHeadersConfig"`
-	// The current version of the response headers policy.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// A unique name to identify the response headers policy.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
-	RemoveHeadersConfig ResponseHeadersPolicyRemoveHeadersConfigPtrOutput `pulumi:"removeHeadersConfig"`
-	// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
-	SecurityHeadersConfig ResponseHeadersPolicySecurityHeadersConfigPtrOutput `pulumi:"securityHeadersConfig"`
-	// A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+	Arn                       pulumi.StringOutput                                     `pulumi:"arn"`
+	Comment                   pulumi.StringPtrOutput                                  `pulumi:"comment"`
+	CorsConfig                ResponseHeadersPolicyCorsConfigPtrOutput                `pulumi:"corsConfig"`
+	CustomHeadersConfig       ResponseHeadersPolicyCustomHeadersConfigPtrOutput       `pulumi:"customHeadersConfig"`
+	Etag                      pulumi.StringOutput                                     `pulumi:"etag"`
+	Name                      pulumi.StringOutput                                     `pulumi:"name"`
+	RemoveHeadersConfig       ResponseHeadersPolicyRemoveHeadersConfigPtrOutput       `pulumi:"removeHeadersConfig"`
+	SecurityHeadersConfig     ResponseHeadersPolicySecurityHeadersConfigPtrOutput     `pulumi:"securityHeadersConfig"`
 	ServerTimingHeadersConfig ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput `pulumi:"serverTimingHeadersConfig"`
 }
 
@@ -210,44 +55,26 @@ func GetResponseHeadersPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResponseHeadersPolicy resources.
 type responseHeadersPolicyState struct {
-	// The response headers policy ARN.
-	Arn *string `pulumi:"arn"`
-	// A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
-	Comment *string `pulumi:"comment"`
-	// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
-	CorsConfig *ResponseHeadersPolicyCorsConfig `pulumi:"corsConfig"`
-	// Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
-	CustomHeadersConfig *ResponseHeadersPolicyCustomHeadersConfig `pulumi:"customHeadersConfig"`
-	// The current version of the response headers policy.
-	Etag *string `pulumi:"etag"`
-	// A unique name to identify the response headers policy.
-	Name *string `pulumi:"name"`
-	// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
-	RemoveHeadersConfig *ResponseHeadersPolicyRemoveHeadersConfig `pulumi:"removeHeadersConfig"`
-	// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
-	SecurityHeadersConfig *ResponseHeadersPolicySecurityHeadersConfig `pulumi:"securityHeadersConfig"`
-	// A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+	Arn                       *string                                         `pulumi:"arn"`
+	Comment                   *string                                         `pulumi:"comment"`
+	CorsConfig                *ResponseHeadersPolicyCorsConfig                `pulumi:"corsConfig"`
+	CustomHeadersConfig       *ResponseHeadersPolicyCustomHeadersConfig       `pulumi:"customHeadersConfig"`
+	Etag                      *string                                         `pulumi:"etag"`
+	Name                      *string                                         `pulumi:"name"`
+	RemoveHeadersConfig       *ResponseHeadersPolicyRemoveHeadersConfig       `pulumi:"removeHeadersConfig"`
+	SecurityHeadersConfig     *ResponseHeadersPolicySecurityHeadersConfig     `pulumi:"securityHeadersConfig"`
 	ServerTimingHeadersConfig *ResponseHeadersPolicyServerTimingHeadersConfig `pulumi:"serverTimingHeadersConfig"`
 }
 
 type ResponseHeadersPolicyState struct {
-	// The response headers policy ARN.
-	Arn pulumi.StringPtrInput
-	// A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
-	Comment pulumi.StringPtrInput
-	// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
-	CorsConfig ResponseHeadersPolicyCorsConfigPtrInput
-	// Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
-	CustomHeadersConfig ResponseHeadersPolicyCustomHeadersConfigPtrInput
-	// The current version of the response headers policy.
-	Etag pulumi.StringPtrInput
-	// A unique name to identify the response headers policy.
-	Name pulumi.StringPtrInput
-	// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
-	RemoveHeadersConfig ResponseHeadersPolicyRemoveHeadersConfigPtrInput
-	// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
-	SecurityHeadersConfig ResponseHeadersPolicySecurityHeadersConfigPtrInput
-	// A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+	Arn                       pulumi.StringPtrInput
+	Comment                   pulumi.StringPtrInput
+	CorsConfig                ResponseHeadersPolicyCorsConfigPtrInput
+	CustomHeadersConfig       ResponseHeadersPolicyCustomHeadersConfigPtrInput
+	Etag                      pulumi.StringPtrInput
+	Name                      pulumi.StringPtrInput
+	RemoveHeadersConfig       ResponseHeadersPolicyRemoveHeadersConfigPtrInput
+	SecurityHeadersConfig     ResponseHeadersPolicySecurityHeadersConfigPtrInput
 	ServerTimingHeadersConfig ResponseHeadersPolicyServerTimingHeadersConfigPtrInput
 }
 
@@ -256,37 +83,23 @@ func (ResponseHeadersPolicyState) ElementType() reflect.Type {
 }
 
 type responseHeadersPolicyArgs struct {
-	// A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
-	Comment *string `pulumi:"comment"`
-	// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
-	CorsConfig *ResponseHeadersPolicyCorsConfig `pulumi:"corsConfig"`
-	// Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
-	CustomHeadersConfig *ResponseHeadersPolicyCustomHeadersConfig `pulumi:"customHeadersConfig"`
-	// A unique name to identify the response headers policy.
-	Name *string `pulumi:"name"`
-	// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
-	RemoveHeadersConfig *ResponseHeadersPolicyRemoveHeadersConfig `pulumi:"removeHeadersConfig"`
-	// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
-	SecurityHeadersConfig *ResponseHeadersPolicySecurityHeadersConfig `pulumi:"securityHeadersConfig"`
-	// A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+	Comment                   *string                                         `pulumi:"comment"`
+	CorsConfig                *ResponseHeadersPolicyCorsConfig                `pulumi:"corsConfig"`
+	CustomHeadersConfig       *ResponseHeadersPolicyCustomHeadersConfig       `pulumi:"customHeadersConfig"`
+	Name                      *string                                         `pulumi:"name"`
+	RemoveHeadersConfig       *ResponseHeadersPolicyRemoveHeadersConfig       `pulumi:"removeHeadersConfig"`
+	SecurityHeadersConfig     *ResponseHeadersPolicySecurityHeadersConfig     `pulumi:"securityHeadersConfig"`
 	ServerTimingHeadersConfig *ResponseHeadersPolicyServerTimingHeadersConfig `pulumi:"serverTimingHeadersConfig"`
 }
 
 // The set of arguments for constructing a ResponseHeadersPolicy resource.
 type ResponseHeadersPolicyArgs struct {
-	// A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
-	Comment pulumi.StringPtrInput
-	// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
-	CorsConfig ResponseHeadersPolicyCorsConfigPtrInput
-	// Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
-	CustomHeadersConfig ResponseHeadersPolicyCustomHeadersConfigPtrInput
-	// A unique name to identify the response headers policy.
-	Name pulumi.StringPtrInput
-	// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
-	RemoveHeadersConfig ResponseHeadersPolicyRemoveHeadersConfigPtrInput
-	// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
-	SecurityHeadersConfig ResponseHeadersPolicySecurityHeadersConfigPtrInput
-	// A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+	Comment                   pulumi.StringPtrInput
+	CorsConfig                ResponseHeadersPolicyCorsConfigPtrInput
+	CustomHeadersConfig       ResponseHeadersPolicyCustomHeadersConfigPtrInput
+	Name                      pulumi.StringPtrInput
+	RemoveHeadersConfig       ResponseHeadersPolicyRemoveHeadersConfigPtrInput
+	SecurityHeadersConfig     ResponseHeadersPolicySecurityHeadersConfigPtrInput
 	ServerTimingHeadersConfig ResponseHeadersPolicyServerTimingHeadersConfigPtrInput
 }
 
@@ -377,53 +190,44 @@ func (o ResponseHeadersPolicyOutput) ToResponseHeadersPolicyOutputWithContext(ct
 	return o
 }
 
-// The response headers policy ARN.
 func (o ResponseHeadersPolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
 func (o ResponseHeadersPolicyOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicy) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
 func (o ResponseHeadersPolicyOutput) CorsConfig() ResponseHeadersPolicyCorsConfigPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicy) ResponseHeadersPolicyCorsConfigPtrOutput { return v.CorsConfig }).(ResponseHeadersPolicyCorsConfigPtrOutput)
 }
 
-// Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
 func (o ResponseHeadersPolicyOutput) CustomHeadersConfig() ResponseHeadersPolicyCustomHeadersConfigPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicy) ResponseHeadersPolicyCustomHeadersConfigPtrOutput {
 		return v.CustomHeadersConfig
 	}).(ResponseHeadersPolicyCustomHeadersConfigPtrOutput)
 }
 
-// The current version of the response headers policy.
 func (o ResponseHeadersPolicyOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicy) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
-// A unique name to identify the response headers policy.
 func (o ResponseHeadersPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
 func (o ResponseHeadersPolicyOutput) RemoveHeadersConfig() ResponseHeadersPolicyRemoveHeadersConfigPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicy) ResponseHeadersPolicyRemoveHeadersConfigPtrOutput {
 		return v.RemoveHeadersConfig
 	}).(ResponseHeadersPolicyRemoveHeadersConfigPtrOutput)
 }
 
-// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
 func (o ResponseHeadersPolicyOutput) SecurityHeadersConfig() ResponseHeadersPolicySecurityHeadersConfigPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicy) ResponseHeadersPolicySecurityHeadersConfigPtrOutput {
 		return v.SecurityHeadersConfig
 	}).(ResponseHeadersPolicySecurityHeadersConfigPtrOutput)
 }
 
-// A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
 func (o ResponseHeadersPolicyOutput) ServerTimingHeadersConfig() ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicy) ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput {
 		return v.ServerTimingHeadersConfig

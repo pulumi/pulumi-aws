@@ -12,276 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an S3 bucket ACL resource.
-//
-// > **Note:** destroy does not delete the S3 Bucket ACL but does remove the resource from state.
-//
-// > This resource cannot be used with S3 directory buckets.
-//
-// ## Example Usage
-//
-// ### With `private` ACL
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket: pulumi.String("my-tf-example-bucket"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucketOwnershipControls, err := s3.NewBucketOwnershipControls(ctx, "example", &s3.BucketOwnershipControlsArgs{
-//				Bucket: example.ID(),
-//				Rule: &s3.BucketOwnershipControlsRuleArgs{
-//					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
-//				Bucket: example.ID(),
-//				Acl:    pulumi.String("private"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleBucketOwnershipControls,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With `public-read` ACL
-//
-// > This example explicitly disables the default S3 bucket security settings. This
-// should be done with caution, as all bucket objects become publicly exposed.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket: pulumi.String("my-tf-example-bucket"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucketOwnershipControls, err := s3.NewBucketOwnershipControls(ctx, "example", &s3.BucketOwnershipControlsArgs{
-//				Bucket: example.ID(),
-//				Rule: &s3.BucketOwnershipControlsRuleArgs{
-//					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucketPublicAccessBlock, err := s3.NewBucketPublicAccessBlock(ctx, "example", &s3.BucketPublicAccessBlockArgs{
-//				Bucket:                example.ID(),
-//				BlockPublicAcls:       pulumi.Bool(false),
-//				BlockPublicPolicy:     pulumi.Bool(false),
-//				IgnorePublicAcls:      pulumi.Bool(false),
-//				RestrictPublicBuckets: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
-//				Bucket: example.ID(),
-//				Acl:    pulumi.String("public-read"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleBucketOwnershipControls,
-//				exampleBucketPublicAccessBlock,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Grants
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := s3.GetCanonicalUserId(ctx, map[string]interface{}{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket: pulumi.String("my-tf-example-bucket"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucketOwnershipControls, err := s3.NewBucketOwnershipControls(ctx, "example", &s3.BucketOwnershipControlsArgs{
-//				Bucket: example.ID(),
-//				Rule: &s3.BucketOwnershipControlsRuleArgs{
-//					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
-//				Bucket: example.ID(),
-//				AccessControlPolicy: &s3.BucketAclAccessControlPolicyArgs{
-//					Grants: s3.BucketAclAccessControlPolicyGrantArray{
-//						&s3.BucketAclAccessControlPolicyGrantArgs{
-//							Grantee: &s3.BucketAclAccessControlPolicyGrantGranteeArgs{
-//								Id:   pulumi.String(current.Id),
-//								Type: pulumi.String("CanonicalUser"),
-//							},
-//							Permission: pulumi.String("READ"),
-//						},
-//						&s3.BucketAclAccessControlPolicyGrantArgs{
-//							Grantee: &s3.BucketAclAccessControlPolicyGrantGranteeArgs{
-//								Type: pulumi.String("Group"),
-//								Uri:  pulumi.String("http://acs.amazonaws.com/groups/s3/LogDelivery"),
-//							},
-//							Permission: pulumi.String("READ_ACP"),
-//						},
-//					},
-//					Owner: &s3.BucketAclAccessControlPolicyOwnerArgs{
-//						Id: pulumi.String(current.Id),
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleBucketOwnershipControls,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// * `bucket` (String) S3 bucket name.
-//
-// #### Optional
-//
-// * `account_id` (String) AWS Account where this resource is managed.
-//
-// * `acl` (String) Canned ACL to apply to the bucket.
-//
-// * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
-//
-// * `region` (String) Region where this resource is managed.
-//
-// If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is **configured** with a
-//
-// [canned ACL][1] (i.e. predefined grant), import using the `bucket` and `acl` separated by a comma (`,`):
-//
-// terraform
-//
-// import {
-//
-//	to = aws_s3_bucket_acl.example
-//
-//	id = "bucket-name,private"
-//
-// }
-//
-// If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **not configured** with a [canned ACL][1] (i.e. predefined grant), imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-//
-// terraform
-//
-// import {
-//
-//	to = aws_s3_bucket_acl.example
-//
-//	id = "bucket-name,123456789012"
-//
-// }
-//
-// If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **configured** with a
-//
-// [canned ACL][1] (i.e. predefined grant), imported using the `bucket`, `expected_bucket_owner`, and `acl` separated by commas (`,`):
-//
-// terraform
-//
-// import {
-//
-//	to = aws_s3_bucket_acl.example
-//
-//	id = "bucket-name,123456789012,private"
-//
-// }
-//
-// **Using `pulumi import` to import** using `bucket`, `expected_bucket_owner`, and/or `acl`, depending on your situation. For example:
-//
-// If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is **not configured** with a
-//
-// [canned ACL][1] (i.e. predefined grant), import using the `bucket`:
-//
-// % pulumi import aws_s3_bucket_acl.example bucket-name
-//
-// If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is **configured** with a [canned ACL][1] (i.e. predefined grant), import using the `bucket` and `acl` separated by a comma (`,`):
-//
-// % pulumi import aws_s3_bucket_acl.example bucket-name,private
-//
-// If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **not configured** with a [canned ACL][1] (i.e. predefined grant), imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-//
-// % pulumi import aws_s3_bucket_acl.example bucket-name,123456789012
-//
-// If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **configured** with a [canned ACL][1] (i.e. predefined grant), imported using the `bucket`, `expected_bucket_owner`, and `acl` separated by commas (`,`):
-//
-// % pulumi import aws_s3_bucket_acl.example bucket-name,123456789012,private
-//
-// [1]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl
 type BucketAcl struct {
 	pulumi.CustomResourceState
 
-	// Configuration block that sets the ACL permissions for an object per grantee. See below.
 	AccessControlPolicy BucketAclAccessControlPolicyOutput `pulumi:"accessControlPolicy"`
-	// Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
-	Acl pulumi.StringPtrOutput `pulumi:"acl"`
-	// Bucket to which to apply the ACL.
-	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// Account ID of the expected bucket owner.
-	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Acl                 pulumi.StringPtrOutput             `pulumi:"acl"`
+	Bucket              pulumi.StringOutput                `pulumi:"bucket"`
+	ExpectedBucketOwner pulumi.StringPtrOutput             `pulumi:"expectedBucketOwner"`
+	Region              pulumi.StringOutput                `pulumi:"region"`
 }
 
 // NewBucketAcl registers a new resource with the given unique name, arguments, and options.
@@ -323,29 +61,19 @@ func GetBucketAcl(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketAcl resources.
 type bucketAclState struct {
-	// Configuration block that sets the ACL permissions for an object per grantee. See below.
 	AccessControlPolicy *BucketAclAccessControlPolicy `pulumi:"accessControlPolicy"`
-	// Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
-	Acl *string `pulumi:"acl"`
-	// Bucket to which to apply the ACL.
-	Bucket *string `pulumi:"bucket"`
-	// Account ID of the expected bucket owner.
-	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Acl                 *string                       `pulumi:"acl"`
+	Bucket              *string                       `pulumi:"bucket"`
+	ExpectedBucketOwner *string                       `pulumi:"expectedBucketOwner"`
+	Region              *string                       `pulumi:"region"`
 }
 
 type BucketAclState struct {
-	// Configuration block that sets the ACL permissions for an object per grantee. See below.
 	AccessControlPolicy BucketAclAccessControlPolicyPtrInput
-	// Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
-	Acl pulumi.StringPtrInput
-	// Bucket to which to apply the ACL.
-	Bucket pulumi.StringPtrInput
-	// Account ID of the expected bucket owner.
+	Acl                 pulumi.StringPtrInput
+	Bucket              pulumi.StringPtrInput
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
 }
 
 func (BucketAclState) ElementType() reflect.Type {
@@ -353,30 +81,20 @@ func (BucketAclState) ElementType() reflect.Type {
 }
 
 type bucketAclArgs struct {
-	// Configuration block that sets the ACL permissions for an object per grantee. See below.
 	AccessControlPolicy *BucketAclAccessControlPolicy `pulumi:"accessControlPolicy"`
-	// Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
-	Acl *string `pulumi:"acl"`
-	// Bucket to which to apply the ACL.
-	Bucket string `pulumi:"bucket"`
-	// Account ID of the expected bucket owner.
-	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Acl                 *string                       `pulumi:"acl"`
+	Bucket              string                        `pulumi:"bucket"`
+	ExpectedBucketOwner *string                       `pulumi:"expectedBucketOwner"`
+	Region              *string                       `pulumi:"region"`
 }
 
 // The set of arguments for constructing a BucketAcl resource.
 type BucketAclArgs struct {
-	// Configuration block that sets the ACL permissions for an object per grantee. See below.
 	AccessControlPolicy BucketAclAccessControlPolicyPtrInput
-	// Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
-	Acl pulumi.StringPtrInput
-	// Bucket to which to apply the ACL.
-	Bucket pulumi.StringInput
-	// Account ID of the expected bucket owner.
+	Acl                 pulumi.StringPtrInput
+	Bucket              pulumi.StringInput
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
 }
 
 func (BucketAclArgs) ElementType() reflect.Type {
@@ -466,27 +184,22 @@ func (o BucketAclOutput) ToBucketAclOutputWithContext(ctx context.Context) Bucke
 	return o
 }
 
-// Configuration block that sets the ACL permissions for an object per grantee. See below.
 func (o BucketAclOutput) AccessControlPolicy() BucketAclAccessControlPolicyOutput {
 	return o.ApplyT(func(v *BucketAcl) BucketAclAccessControlPolicyOutput { return v.AccessControlPolicy }).(BucketAclAccessControlPolicyOutput)
 }
 
-// Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
 func (o BucketAclOutput) Acl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAcl) pulumi.StringPtrOutput { return v.Acl }).(pulumi.StringPtrOutput)
 }
 
-// Bucket to which to apply the ACL.
 func (o BucketAclOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketAcl) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Account ID of the expected bucket owner.
 func (o BucketAclOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAcl) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BucketAclOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketAcl) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

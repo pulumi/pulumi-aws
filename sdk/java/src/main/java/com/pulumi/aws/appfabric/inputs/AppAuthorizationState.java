@@ -20,77 +20,37 @@ public final class AppAuthorizationState extends com.pulumi.resources.ResourceAr
 
     public static final AppAuthorizationState Empty = new AppAuthorizationState();
 
-    /**
-     * The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
-     * 
-     */
     @Import(name="app")
     private @Nullable Output<String> app;
 
-    /**
-     * @return The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
-     * 
-     */
     public Optional<Output<String>> app() {
         return Optional.ofNullable(this.app);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the app bundle to use for the request.
-     * 
-     */
     @Import(name="appBundleArn")
     private @Nullable Output<String> appBundleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the app bundle to use for the request.
-     * 
-     */
     public Optional<Output<String>> appBundleArn() {
         return Optional.ofNullable(this.appBundleArn);
     }
 
-    /**
-     * ARN of the App Authorization. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the App Authorization. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The authorization type for the app authorization valid values are oauth2 and apiKey.
-     * 
-     */
     @Import(name="authType")
     private @Nullable Output<String> authType;
 
-    /**
-     * @return The authorization type for the app authorization valid values are oauth2 and apiKey.
-     * 
-     */
     public Optional<Output<String>> authType() {
         return Optional.ofNullable(this.authType);
     }
 
-    /**
-     * The application URL for the OAuth flow.
-     * 
-     */
     @Import(name="authUrl")
     private @Nullable Output<String> authUrl;
 
-    /**
-     * @return The application URL for the OAuth flow.
-     * 
-     */
     public Optional<Output<String>> authUrl() {
         return Optional.ofNullable(this.authUrl);
     }
@@ -102,49 +62,23 @@ public final class AppAuthorizationState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.createdAt);
     }
 
-    /**
-     * Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
-     * Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
-     * 
-     */
     @Import(name="credential")
     private @Nullable Output<AppAuthorizationCredentialArgs> credential;
 
-    /**
-     * @return Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
-     * Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
-     * 
-     */
     public Optional<Output<AppAuthorizationCredentialArgs>> credential() {
         return Optional.ofNullable(this.credential);
     }
 
-    /**
-     * The user persona of the app authorization.
-     * 
-     */
     @Import(name="persona")
     private @Nullable Output<String> persona;
 
-    /**
-     * @return The user persona of the app authorization.
-     * 
-     */
     public Optional<Output<String>> persona() {
         return Optional.ofNullable(this.persona);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -163,17 +97,9 @@ public final class AppAuthorizationState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * Contains information about an application tenant, such as the application display name and identifier.
-     * 
-     */
     @Import(name="tenants")
     private @Nullable Output<List<AppAuthorizationTenantArgs>> tenants;
 
-    /**
-     * @return Contains information about an application tenant, such as the application display name and identifier.
-     * 
-     */
     public Optional<Output<List<AppAuthorizationTenantArgs>>> tenants() {
         return Optional.ofNullable(this.tenants);
     }
@@ -229,107 +155,47 @@ public final class AppAuthorizationState extends com.pulumi.resources.ResourceAr
             $ = new AppAuthorizationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param app The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
-         * 
-         * @return builder
-         * 
-         */
         public Builder app(@Nullable Output<String> app) {
             $.app = app;
             return this;
         }
 
-        /**
-         * @param app The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
-         * 
-         * @return builder
-         * 
-         */
         public Builder app(String app) {
             return app(Output.of(app));
         }
 
-        /**
-         * @param appBundleArn The Amazon Resource Name (ARN) of the app bundle to use for the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appBundleArn(@Nullable Output<String> appBundleArn) {
             $.appBundleArn = appBundleArn;
             return this;
         }
 
-        /**
-         * @param appBundleArn The Amazon Resource Name (ARN) of the app bundle to use for the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appBundleArn(String appBundleArn) {
             return appBundleArn(Output.of(appBundleArn));
         }
 
-        /**
-         * @param arn ARN of the App Authorization. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the App Authorization. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param authType The authorization type for the app authorization valid values are oauth2 and apiKey.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authType(@Nullable Output<String> authType) {
             $.authType = authType;
             return this;
         }
 
-        /**
-         * @param authType The authorization type for the app authorization valid values are oauth2 and apiKey.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authType(String authType) {
             return authType(Output.of(authType));
         }
 
-        /**
-         * @param authUrl The application URL for the OAuth flow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authUrl(@Nullable Output<String> authUrl) {
             $.authUrl = authUrl;
             return this;
         }
 
-        /**
-         * @param authUrl The application URL for the OAuth flow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authUrl(String authUrl) {
             return authUrl(Output.of(authUrl));
         }
@@ -343,67 +209,29 @@ public final class AppAuthorizationState extends com.pulumi.resources.ResourceAr
             return createdAt(Output.of(createdAt));
         }
 
-        /**
-         * @param credential Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
-         * Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credential(@Nullable Output<AppAuthorizationCredentialArgs> credential) {
             $.credential = credential;
             return this;
         }
 
-        /**
-         * @param credential Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
-         * Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credential(AppAuthorizationCredentialArgs credential) {
             return credential(Output.of(credential));
         }
 
-        /**
-         * @param persona The user persona of the app authorization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder persona(@Nullable Output<String> persona) {
             $.persona = persona;
             return this;
         }
 
-        /**
-         * @param persona The user persona of the app authorization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder persona(String persona) {
             return persona(Output.of(persona));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
@@ -426,33 +254,15 @@ public final class AppAuthorizationState extends com.pulumi.resources.ResourceAr
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param tenants Contains information about an application tenant, such as the application display name and identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tenants(@Nullable Output<List<AppAuthorizationTenantArgs>> tenants) {
             $.tenants = tenants;
             return this;
         }
 
-        /**
-         * @param tenants Contains information about an application tenant, such as the application display name and identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tenants(List<AppAuthorizationTenantArgs> tenants) {
             return tenants(Output.of(tenants));
         }
 
-        /**
-         * @param tenants Contains information about an application tenant, such as the application display name and identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tenants(AppAuthorizationTenantArgs... tenants) {
             return tenants(List.of(tenants));
         }

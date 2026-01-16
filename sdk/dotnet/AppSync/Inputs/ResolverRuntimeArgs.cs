@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppSync.Inputs
 
     public sealed class ResolverRuntimeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
-        /// </summary>
         [Input("runtimeVersion", required: true)]
         public Input<string> RuntimeVersion { get; set; } = null!;
 

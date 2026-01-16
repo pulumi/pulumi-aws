@@ -9,162 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CostExplorer
 {
-    /// <summary>
-    /// Provides a CE Cost Category.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.CostExplorer.CostCategory("test", new()
-    ///     {
-    ///         Name = "NAME",
-    ///         RuleVersion = "CostCategoryExpression.v1",
-    ///         Rules = new[]
-    ///         {
-    ///             new Aws.CostExplorer.Inputs.CostCategoryRuleArgs
-    ///             {
-    ///                 Value = "production",
-    ///                 Rule = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleArgs
-    ///                 {
-    ///                     Dimension = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleDimensionArgs
-    ///                     {
-    ///                         Key = "LINKED_ACCOUNT_NAME",
-    ///                         Values = new[]
-    ///                         {
-    ///                             "-prod",
-    ///                         },
-    ///                         MatchOptions = new[]
-    ///                         {
-    ///                             "ENDS_WITH",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Aws.CostExplorer.Inputs.CostCategoryRuleArgs
-    ///             {
-    ///                 Value = "staging",
-    ///                 Rule = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleArgs
-    ///                 {
-    ///                     Dimension = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleDimensionArgs
-    ///                     {
-    ///                         Key = "LINKED_ACCOUNT_NAME",
-    ///                         Values = new[]
-    ///                         {
-    ///                             "-stg",
-    ///                         },
-    ///                         MatchOptions = new[]
-    ///                         {
-    ///                             "ENDS_WITH",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Aws.CostExplorer.Inputs.CostCategoryRuleArgs
-    ///             {
-    ///                 Value = "testing",
-    ///                 Rule = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleArgs
-    ///                 {
-    ///                     Dimension = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleDimensionArgs
-    ///                     {
-    ///                         Key = "LINKED_ACCOUNT_NAME",
-    ///                         Values = new[]
-    ///                         {
-    ///                             "-dev",
-    ///                         },
-    ///                         MatchOptions = new[]
-    ///                         {
-    ///                             "ENDS_WITH",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the Cost Explorer cost category.
-    /// 
-    /// Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:
-    /// 
-    /// % pulumi import aws_ce_cost_category.example costCategoryARN
-    /// </summary>
     [AwsResourceType("aws:costexplorer/costCategory:CostCategory")]
     public partial class CostCategory : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the cost category.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Default value for the cost category.
-        /// </summary>
         [Output("defaultValue")]
         public Output<string?> DefaultValue { get; private set; } = null!;
 
-        /// <summary>
-        /// Effective end data of your Cost Category.
-        /// </summary>
         [Output("effectiveEnd")]
         public Output<string> EffectiveEnd { get; private set; } = null!;
 
-        /// <summary>
-        /// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
-        /// </summary>
         [Output("effectiveStart")]
         public Output<string> EffectiveStart { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique name for the Cost Category.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Rule schema version in this particular Cost Category.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("ruleVersion")]
         public Output<string> RuleVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for the Cost Category rules used to categorize costs. See below.
-        /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.CostCategoryRule>> Rules { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
-        /// </summary>
         [Output("splitChargeRules")]
         public Output<ImmutableArray<Outputs.CostCategorySplitChargeRule>> SplitChargeRules { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -214,38 +88,20 @@ namespace Pulumi.Aws.CostExplorer
 
     public sealed class CostCategoryArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Default value for the cost category.
-        /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
-        /// <summary>
-        /// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
-        /// </summary>
         [Input("effectiveStart")]
         public Input<string>? EffectiveStart { get; set; }
 
-        /// <summary>
-        /// Unique name for the Cost Category.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Rule schema version in this particular Cost Category.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("ruleVersion", required: true)]
         public Input<string> RuleVersion { get; set; } = null!;
 
         [Input("rules", required: true)]
         private InputList<Inputs.CostCategoryRuleArgs>? _rules;
-
-        /// <summary>
-        /// Configuration block for the Cost Category rules used to categorize costs. See below.
-        /// </summary>
         public InputList<Inputs.CostCategoryRuleArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.CostCategoryRuleArgs>());
@@ -254,10 +110,6 @@ namespace Pulumi.Aws.CostExplorer
 
         [Input("splitChargeRules")]
         private InputList<Inputs.CostCategorySplitChargeRuleArgs>? _splitChargeRules;
-
-        /// <summary>
-        /// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
-        /// </summary>
         public InputList<Inputs.CostCategorySplitChargeRuleArgs> SplitChargeRules
         {
             get => _splitChargeRules ?? (_splitChargeRules = new InputList<Inputs.CostCategorySplitChargeRuleArgs>());
@@ -266,10 +118,6 @@ namespace Pulumi.Aws.CostExplorer
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -284,50 +132,26 @@ namespace Pulumi.Aws.CostExplorer
 
     public sealed class CostCategoryState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the cost category.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Default value for the cost category.
-        /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
-        /// <summary>
-        /// Effective end data of your Cost Category.
-        /// </summary>
         [Input("effectiveEnd")]
         public Input<string>? EffectiveEnd { get; set; }
 
-        /// <summary>
-        /// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
-        /// </summary>
         [Input("effectiveStart")]
         public Input<string>? EffectiveStart { get; set; }
 
-        /// <summary>
-        /// Unique name for the Cost Category.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Rule schema version in this particular Cost Category.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("ruleVersion")]
         public Input<string>? RuleVersion { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.CostCategoryRuleGetArgs>? _rules;
-
-        /// <summary>
-        /// Configuration block for the Cost Category rules used to categorize costs. See below.
-        /// </summary>
         public InputList<Inputs.CostCategoryRuleGetArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.CostCategoryRuleGetArgs>());
@@ -336,10 +160,6 @@ namespace Pulumi.Aws.CostExplorer
 
         [Input("splitChargeRules")]
         private InputList<Inputs.CostCategorySplitChargeRuleGetArgs>? _splitChargeRules;
-
-        /// <summary>
-        /// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
-        /// </summary>
         public InputList<Inputs.CostCategorySplitChargeRuleGetArgs> SplitChargeRules
         {
             get => _splitChargeRules ?? (_splitChargeRules = new InputList<Inputs.CostCategorySplitChargeRuleGetArgs>());
@@ -348,10 +168,6 @@ namespace Pulumi.Aws.CostExplorer
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -360,10 +176,6 @@ namespace Pulumi.Aws.CostExplorer
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

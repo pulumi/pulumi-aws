@@ -16,47 +16,23 @@ public final class GetUserGroupArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetUserGroupArgs Empty = new GetUserGroupArgs();
 
-    /**
-     * Name of the user group.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the user group.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * User pool the client belongs to.
-     * 
-     */
     @Import(name="userPoolId", required=true)
     private Output<String> userPoolId;
 
-    /**
-     * @return User pool the client belongs to.
-     * 
-     */
     public Output<String> userPoolId() {
         return this.userPoolId;
     }
@@ -87,65 +63,29 @@ public final class GetUserGroupArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetUserGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the user group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the user group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param userPoolId User pool the client belongs to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolId(Output<String> userPoolId) {
             $.userPoolId = userPoolId;
             return this;
         }
 
-        /**
-         * @param userPoolId User pool the client belongs to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolId(String userPoolId) {
             return userPoolId(Output.of(userPoolId));
         }

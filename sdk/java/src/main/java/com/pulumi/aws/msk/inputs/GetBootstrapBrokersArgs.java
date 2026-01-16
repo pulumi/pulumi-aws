@@ -16,32 +16,16 @@ public final class GetBootstrapBrokersArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetBootstrapBrokersArgs Empty = new GetBootstrapBrokersArgs();
 
-    /**
-     * ARN of the cluster the nodes belong to.
-     * 
-     */
     @Import(name="clusterArn", required=true)
     private Output<String> clusterArn;
 
-    /**
-     * @return ARN of the cluster the nodes belong to.
-     * 
-     */
     public Output<String> clusterArn() {
         return this.clusterArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -71,44 +55,20 @@ public final class GetBootstrapBrokersArgs extends com.pulumi.resources.InvokeAr
             $ = new GetBootstrapBrokersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusterArn ARN of the cluster the nodes belong to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterArn(Output<String> clusterArn) {
             $.clusterArn = clusterArn;
             return this;
         }
 
-        /**
-         * @param clusterArn ARN of the cluster the nodes belong to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterArn(String clusterArn) {
             return clusterArn(Output.of(clusterArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

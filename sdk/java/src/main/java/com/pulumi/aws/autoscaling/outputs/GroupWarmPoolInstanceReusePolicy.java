@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GroupWarmPoolInstanceReusePolicy {
-    /**
-     * @return Whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
-     * 
-     */
     private @Nullable Boolean reuseOnScaleIn;
 
     private GroupWarmPoolInstanceReusePolicy() {}
-    /**
-     * @return Whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
-     * 
-     */
     public Optional<Boolean> reuseOnScaleIn() {
         return Optional.ofNullable(this.reuseOnScaleIn);
     }

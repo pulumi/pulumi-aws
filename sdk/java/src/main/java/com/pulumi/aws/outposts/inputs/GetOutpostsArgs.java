@@ -15,77 +15,37 @@ public final class GetOutpostsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetOutpostsArgs Empty = new GetOutpostsArgs();
 
-    /**
-     * Availability Zone name.
-     * 
-     */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
-    /**
-     * @return Availability Zone name.
-     * 
-     */
     public Optional<Output<String>> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
 
-    /**
-     * Availability Zone identifier.
-     * 
-     */
     @Import(name="availabilityZoneId")
     private @Nullable Output<String> availabilityZoneId;
 
-    /**
-     * @return Availability Zone identifier.
-     * 
-     */
     public Optional<Output<String>> availabilityZoneId() {
         return Optional.ofNullable(this.availabilityZoneId);
     }
 
-    /**
-     * AWS Account identifier of the Outpost owner.
-     * 
-     */
     @Import(name="ownerId")
     private @Nullable Output<String> ownerId;
 
-    /**
-     * @return AWS Account identifier of the Outpost owner.
-     * 
-     */
     public Optional<Output<String>> ownerId() {
         return Optional.ofNullable(this.ownerId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Site identifier.
-     * 
-     */
     @Import(name="siteId")
     private @Nullable Output<String> siteId;
 
-    /**
-     * @return Site identifier.
-     * 
-     */
     public Optional<Output<String>> siteId() {
         return Optional.ofNullable(this.siteId);
     }
@@ -118,107 +78,47 @@ public final class GetOutpostsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetOutpostsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param availabilityZone Availability Zone name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZone(@Nullable Output<String> availabilityZone) {
             $.availabilityZone = availabilityZone;
             return this;
         }
 
-        /**
-         * @param availabilityZone Availability Zone name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZone(String availabilityZone) {
             return availabilityZone(Output.of(availabilityZone));
         }
 
-        /**
-         * @param availabilityZoneId Availability Zone identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZoneId(@Nullable Output<String> availabilityZoneId) {
             $.availabilityZoneId = availabilityZoneId;
             return this;
         }
 
-        /**
-         * @param availabilityZoneId Availability Zone identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZoneId(String availabilityZoneId) {
             return availabilityZoneId(Output.of(availabilityZoneId));
         }
 
-        /**
-         * @param ownerId AWS Account identifier of the Outpost owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerId(@Nullable Output<String> ownerId) {
             $.ownerId = ownerId;
             return this;
         }
 
-        /**
-         * @param ownerId AWS Account identifier of the Outpost owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerId(String ownerId) {
             return ownerId(Output.of(ownerId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param siteId Site identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder siteId(@Nullable Output<String> siteId) {
             $.siteId = siteId;
             return this;
         }
 
-        /**
-         * @param siteId Site identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder siteId(String siteId) {
             return siteId(Output.of(siteId));
         }

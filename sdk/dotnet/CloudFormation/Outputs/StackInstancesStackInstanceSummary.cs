@@ -13,41 +13,14 @@ namespace Pulumi.Aws.CloudFormation.Outputs
     [OutputType]
     public sealed class StackInstancesStackInstanceSummary
     {
-        /// <summary>
-        /// Account ID in which the instance is deployed.
-        /// </summary>
         public readonly string? AccountId;
-        /// <summary>
-        /// Detailed status of the stack instance. Values include `PENDING`, `RUNNING`, `SUCCEEDED`, `FAILED`, `CANCELLED`, `INOPERABLE`, `SKIPPED_SUSPENDED_ACCOUNT`, `FAILED_IMPORT`.
-        /// </summary>
         public readonly string? DetailedStatus;
-        /// <summary>
-        /// Status of the stack instance's actual configuration compared to the expected template and parameter configuration of the stack set to which it belongs. Values include `DRIFTED`, `IN_SYNC`, `UNKNOWN`, `NOT_CHECKED`.
-        /// </summary>
         public readonly string? DriftStatus;
-        /// <summary>
-        /// Organization root ID or organizational unit (OU) IDs that you specified for `DeploymentTargets`.
-        /// </summary>
         public readonly string? OrganizationalUnitId;
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         public readonly string? Region;
-        /// <summary>
-        /// ID of the stack instance.
-        /// </summary>
         public readonly string? StackId;
-        /// <summary>
-        /// Name or unique ID of the stack set that the stack instance is associated with.
-        /// </summary>
         public readonly string? StackSetId;
-        /// <summary>
-        /// Status of the stack instance, in terms of its synchronization with its associated stack set. Values include `CURRENT`, `OUTDATED`, `INOPERABLE`.
-        /// </summary>
         public readonly string? Status;
-        /// <summary>
-        /// Explanation for the specific status code assigned to this stack instance.
-        /// </summary>
         public readonly string? StatusReason;
 
         [OutputConstructor]

@@ -13,67 +13,27 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSnapshotResult {
-    /**
-     * @return ARN of the snapshot.
-     * 
-     */
     private String arn;
-    /**
-     * @return The configuration of the cluster from which the snapshot was taken.
-     * 
-     */
     private List<GetSnapshotClusterConfiguration> clusterConfigurations;
-    /**
-     * @return Name of the MemoryDB cluster that this snapshot was taken from.
-     * 
-     */
     private String clusterName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return ARN of the KMS key used to encrypt the snapshot at rest.
-     * 
-     */
     private String kmsKeyArn;
-    /**
-     * @return Name of the cluster.
-     * 
-     */
     private String name;
     private String region;
-    /**
-     * @return Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
-     * 
-     */
     private String source;
-    /**
-     * @return Map of tags assigned to the snapshot.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetSnapshotResult() {}
-    /**
-     * @return ARN of the snapshot.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The configuration of the cluster from which the snapshot was taken.
-     * 
-     */
     public List<GetSnapshotClusterConfiguration> clusterConfigurations() {
         return this.clusterConfigurations;
     }
-    /**
-     * @return Name of the MemoryDB cluster that this snapshot was taken from.
-     * 
-     */
     public String clusterName() {
         return this.clusterName;
     }
@@ -84,34 +44,18 @@ public final class GetSnapshotResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return ARN of the KMS key used to encrypt the snapshot at rest.
-     * 
-     */
     public String kmsKeyArn() {
         return this.kmsKeyArn;
     }
-    /**
-     * @return Name of the cluster.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
-     * 
-     */
     public String source() {
         return this.source;
     }
-    /**
-     * @return Map of tags assigned to the snapshot.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

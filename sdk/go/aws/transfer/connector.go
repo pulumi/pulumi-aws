@@ -12,151 +12,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a AWS Transfer AS2 Connector resource.
-//
-// ## Example Usage
-//
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/transfer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transfer.NewConnector(ctx, "example", &transfer.ConnectorArgs{
-//				AccessRole: pulumi.Any(test.Arn),
-//				As2Config: &transfer.ConnectorAs2ConfigArgs{
-//					Compression:         pulumi.String("DISABLED"),
-//					EncryptionAlgorithm: pulumi.String("AWS128_CBC"),
-//					MessageSubject:      pulumi.String("For Connector"),
-//					LocalProfileId:      pulumi.Any(local.ProfileId),
-//					MdnResponse:         pulumi.String("NONE"),
-//					MdnSigningAlgorithm: pulumi.String("NONE"),
-//					PartnerProfileId:    pulumi.Any(partner.ProfileId),
-//					SigningAlgorithm:    pulumi.String("NONE"),
-//				},
-//				Url: pulumi.String("http://www.test.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### SFTP Connector
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/transfer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transfer.NewConnector(ctx, "example", &transfer.ConnectorArgs{
-//				AccessRole: pulumi.Any(test.Arn),
-//				SftpConfig: &transfer.ConnectorSftpConfigArgs{
-//					TrustedHostKeys: pulumi.StringArray{
-//						pulumi.String("ssh-rsa AAAAB3NYourKeysHere"),
-//					},
-//					UserSecretId: pulumi.Any(exampleAwsSecretsmanagerSecret.Id),
-//				},
-//				Url: pulumi.String("sftp://test.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### SFTP Connector with VPC Lattice
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/transfer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transfer.NewConnector(ctx, "example", &transfer.ConnectorArgs{
-//				AccessRole: pulumi.Any(test.Arn),
-//				SftpConfig: &transfer.ConnectorSftpConfigArgs{
-//					TrustedHostKeys: pulumi.StringArray{
-//						pulumi.String("ssh-rsa AAAAB3NYourKeysHere"),
-//					},
-//					UserSecretId: pulumi.Any(exampleAwsSecretsmanagerSecret.Id),
-//				},
-//				EgressConfig: &transfer.ConnectorEgressConfigArgs{
-//					VpcLattice: &transfer.ConnectorEgressConfigVpcLatticeArgs{
-//						ResourceConfigurationArn: pulumi.String("arn:aws:vpc-lattice:us-east-1:123456789012:resourceconfiguration/rcfg-12345678901234567"),
-//						PortNumber:               pulumi.Int(22),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Transfer AS2 Connector using the `connector_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:transfer/connector:Connector example c-4221a88afd5f4362a
-// ```
 type Connector struct {
 	pulumi.CustomResourceState
 
-	// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
-	AccessRole pulumi.StringOutput `pulumi:"accessRole"`
-	// The ARN of the connector.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
-	As2Config ConnectorAs2ConfigPtrOutput `pulumi:"as2Config"`
-	// The unique identifier for the AS2 profile or SFTP Profile.
-	ConnectorId pulumi.StringOutput `pulumi:"connectorId"`
-	// Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
-	EgressConfig ConnectorEgressConfigPtrOutput `pulumi:"egressConfig"`
-	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
-	LoggingRole pulumi.StringPtrOutput `pulumi:"loggingRole"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Name of the security policy for the connector.
-	SecurityPolicyName pulumi.StringOutput `pulumi:"securityPolicyName"`
-	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
-	SftpConfig ConnectorSftpConfigPtrOutput `pulumi:"sftpConfig"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
-	Url pulumi.StringPtrOutput `pulumi:"url"`
+	AccessRole         pulumi.StringOutput            `pulumi:"accessRole"`
+	Arn                pulumi.StringOutput            `pulumi:"arn"`
+	As2Config          ConnectorAs2ConfigPtrOutput    `pulumi:"as2Config"`
+	ConnectorId        pulumi.StringOutput            `pulumi:"connectorId"`
+	EgressConfig       ConnectorEgressConfigPtrOutput `pulumi:"egressConfig"`
+	LoggingRole        pulumi.StringPtrOutput         `pulumi:"loggingRole"`
+	Region             pulumi.StringOutput            `pulumi:"region"`
+	SecurityPolicyName pulumi.StringOutput            `pulumi:"securityPolicyName"`
+	SftpConfig         ConnectorSftpConfigPtrOutput   `pulumi:"sftpConfig"`
+	Tags               pulumi.StringMapOutput         `pulumi:"tags"`
+	TagsAll            pulumi.StringMapOutput         `pulumi:"tagsAll"`
+	Url                pulumi.StringPtrOutput         `pulumi:"url"`
 }
 
 // NewConnector registers a new resource with the given unique name, arguments, and options.
@@ -192,55 +62,33 @@ func GetConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Connector resources.
 type connectorState struct {
-	// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
-	AccessRole *string `pulumi:"accessRole"`
-	// The ARN of the connector.
-	Arn *string `pulumi:"arn"`
-	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
-	As2Config *ConnectorAs2Config `pulumi:"as2Config"`
-	// The unique identifier for the AS2 profile or SFTP Profile.
-	ConnectorId *string `pulumi:"connectorId"`
-	// Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
-	EgressConfig *ConnectorEgressConfig `pulumi:"egressConfig"`
-	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
-	LoggingRole *string `pulumi:"loggingRole"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Name of the security policy for the connector.
-	SecurityPolicyName *string `pulumi:"securityPolicyName"`
-	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
-	SftpConfig *ConnectorSftpConfig `pulumi:"sftpConfig"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
-	Url *string `pulumi:"url"`
+	AccessRole         *string                `pulumi:"accessRole"`
+	Arn                *string                `pulumi:"arn"`
+	As2Config          *ConnectorAs2Config    `pulumi:"as2Config"`
+	ConnectorId        *string                `pulumi:"connectorId"`
+	EgressConfig       *ConnectorEgressConfig `pulumi:"egressConfig"`
+	LoggingRole        *string                `pulumi:"loggingRole"`
+	Region             *string                `pulumi:"region"`
+	SecurityPolicyName *string                `pulumi:"securityPolicyName"`
+	SftpConfig         *ConnectorSftpConfig   `pulumi:"sftpConfig"`
+	Tags               map[string]string      `pulumi:"tags"`
+	TagsAll            map[string]string      `pulumi:"tagsAll"`
+	Url                *string                `pulumi:"url"`
 }
 
 type ConnectorState struct {
-	// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
-	AccessRole pulumi.StringPtrInput
-	// The ARN of the connector.
-	Arn pulumi.StringPtrInput
-	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
-	As2Config ConnectorAs2ConfigPtrInput
-	// The unique identifier for the AS2 profile or SFTP Profile.
-	ConnectorId pulumi.StringPtrInput
-	// Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
-	EgressConfig ConnectorEgressConfigPtrInput
-	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
-	LoggingRole pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Name of the security policy for the connector.
+	AccessRole         pulumi.StringPtrInput
+	Arn                pulumi.StringPtrInput
+	As2Config          ConnectorAs2ConfigPtrInput
+	ConnectorId        pulumi.StringPtrInput
+	EgressConfig       ConnectorEgressConfigPtrInput
+	LoggingRole        pulumi.StringPtrInput
+	Region             pulumi.StringPtrInput
 	SecurityPolicyName pulumi.StringPtrInput
-	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
-	SftpConfig ConnectorSftpConfigPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
-	// The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
-	Url pulumi.StringPtrInput
+	SftpConfig         ConnectorSftpConfigPtrInput
+	Tags               pulumi.StringMapInput
+	TagsAll            pulumi.StringMapInput
+	Url                pulumi.StringPtrInput
 }
 
 func (ConnectorState) ElementType() reflect.Type {
@@ -248,46 +96,28 @@ func (ConnectorState) ElementType() reflect.Type {
 }
 
 type connectorArgs struct {
-	// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
-	AccessRole string `pulumi:"accessRole"`
-	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
-	As2Config *ConnectorAs2Config `pulumi:"as2Config"`
-	// Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
-	EgressConfig *ConnectorEgressConfig `pulumi:"egressConfig"`
-	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
-	LoggingRole *string `pulumi:"loggingRole"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Name of the security policy for the connector.
-	SecurityPolicyName *string `pulumi:"securityPolicyName"`
-	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
-	SftpConfig *ConnectorSftpConfig `pulumi:"sftpConfig"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
-	Url *string `pulumi:"url"`
+	AccessRole         string                 `pulumi:"accessRole"`
+	As2Config          *ConnectorAs2Config    `pulumi:"as2Config"`
+	EgressConfig       *ConnectorEgressConfig `pulumi:"egressConfig"`
+	LoggingRole        *string                `pulumi:"loggingRole"`
+	Region             *string                `pulumi:"region"`
+	SecurityPolicyName *string                `pulumi:"securityPolicyName"`
+	SftpConfig         *ConnectorSftpConfig   `pulumi:"sftpConfig"`
+	Tags               map[string]string      `pulumi:"tags"`
+	Url                *string                `pulumi:"url"`
 }
 
 // The set of arguments for constructing a Connector resource.
 type ConnectorArgs struct {
-	// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
-	AccessRole pulumi.StringInput
-	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
-	As2Config ConnectorAs2ConfigPtrInput
-	// Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
-	EgressConfig ConnectorEgressConfigPtrInput
-	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
-	LoggingRole pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Name of the security policy for the connector.
+	AccessRole         pulumi.StringInput
+	As2Config          ConnectorAs2ConfigPtrInput
+	EgressConfig       ConnectorEgressConfigPtrInput
+	LoggingRole        pulumi.StringPtrInput
+	Region             pulumi.StringPtrInput
 	SecurityPolicyName pulumi.StringPtrInput
-	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
-	SftpConfig ConnectorSftpConfigPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
-	Url pulumi.StringPtrInput
+	SftpConfig         ConnectorSftpConfigPtrInput
+	Tags               pulumi.StringMapInput
+	Url                pulumi.StringPtrInput
 }
 
 func (ConnectorArgs) ElementType() reflect.Type {
@@ -377,52 +207,42 @@ func (o ConnectorOutput) ToConnectorOutputWithContext(ctx context.Context) Conne
 	return o
 }
 
-// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
 func (o ConnectorOutput) AccessRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.AccessRole }).(pulumi.StringOutput)
 }
 
-// The ARN of the connector.
 func (o ConnectorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
 func (o ConnectorOutput) As2Config() ConnectorAs2ConfigPtrOutput {
 	return o.ApplyT(func(v *Connector) ConnectorAs2ConfigPtrOutput { return v.As2Config }).(ConnectorAs2ConfigPtrOutput)
 }
 
-// The unique identifier for the AS2 profile or SFTP Profile.
 func (o ConnectorOutput) ConnectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.ConnectorId }).(pulumi.StringOutput)
 }
 
-// Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
 func (o ConnectorOutput) EgressConfig() ConnectorEgressConfigPtrOutput {
 	return o.ApplyT(func(v *Connector) ConnectorEgressConfigPtrOutput { return v.EgressConfig }).(ConnectorEgressConfigPtrOutput)
 }
 
-// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
 func (o ConnectorOutput) LoggingRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.LoggingRole }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ConnectorOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Name of the security policy for the connector.
 func (o ConnectorOutput) SecurityPolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.SecurityPolicyName }).(pulumi.StringOutput)
 }
 
-// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
 func (o ConnectorOutput) SftpConfig() ConnectorSftpConfigPtrOutput {
 	return o.ApplyT(func(v *Connector) ConnectorSftpConfigPtrOutput { return v.SftpConfig }).(ConnectorSftpConfigPtrOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ConnectorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -431,7 +251,6 @@ func (o ConnectorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
 func (o ConnectorOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.Url }).(pulumi.StringPtrOutput)
 }

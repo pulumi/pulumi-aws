@@ -9,85 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SesV2
 {
-    /// <summary>
-    /// Manages an AWS SESv2 (Simple Email V2) Tenant.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SesV2.Tenant("example", new()
-    ///     {
-    ///         TenantName = "example-tenant",
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "test" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import an SESv2 Tenant using the `tenant_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:sesv2/tenant:Tenant example example-tenant
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sesv2/tenant:Tenant")]
     public partial class Tenant : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Current sending status of the tenant.
-        /// </summary>
         [Output("sendingStatus")]
         public Output<string> SendingStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to the tenant.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the tenant, including provider default tags.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the Tenant.
-        /// </summary>
         [Output("tenantArn")]
         public Output<string> TenantArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the Tenant.
-        /// </summary>
         [Output("tenantId")]
         public Output<string> TenantId { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the SESV2 tenant.  The name must be unique within the AWS account and Region.  Changing the tenant name forces creation of a new tenant.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("tenantName")]
         public Output<string> TenantName { get; private set; } = null!;
 
@@ -137,29 +79,17 @@ namespace Pulumi.Aws.SesV2
 
     public sealed class TenantArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the tenant.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Name of the SESV2 tenant.  The name must be unique within the AWS account and Region.  Changing the tenant name forces creation of a new tenant.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("tenantName", required: true)]
         public Input<string> TenantName { get; set; } = null!;
 
@@ -171,24 +101,14 @@ namespace Pulumi.Aws.SesV2
 
     public sealed class TenantState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Current sending status of the tenant.
-        /// </summary>
         [Input("sendingStatus")]
         public Input<string>? SendingStatus { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the tenant.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -197,33 +117,18 @@ namespace Pulumi.Aws.SesV2
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the tenant, including provider default tags.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// ARN of the Tenant.
-        /// </summary>
         [Input("tenantArn")]
         public Input<string>? TenantArn { get; set; }
 
-        /// <summary>
-        /// ID of the Tenant.
-        /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
-        /// <summary>
-        /// Name of the SESV2 tenant.  The name must be unique within the AWS account and Region.  Changing the tenant name forces creation of a new tenant.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("tenantName")]
         public Input<string>? TenantName { get; set; }
 

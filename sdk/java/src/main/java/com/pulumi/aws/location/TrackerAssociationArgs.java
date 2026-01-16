@@ -16,47 +16,23 @@ public final class TrackerAssociationArgs extends com.pulumi.resources.ResourceA
 
     public static final TrackerAssociationArgs Empty = new TrackerAssociationArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
-     * 
-     */
     @Import(name="consumerArn", required=true)
     private Output<String> consumerArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
-     * 
-     */
     public Output<String> consumerArn() {
         return this.consumerArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The name of the tracker resource to be associated with a geofence collection.
-     * 
-     */
     @Import(name="trackerName", required=true)
     private Output<String> trackerName;
 
-    /**
-     * @return The name of the tracker resource to be associated with a geofence collection.
-     * 
-     */
     public Output<String> trackerName() {
         return this.trackerName;
     }
@@ -87,65 +63,29 @@ public final class TrackerAssociationArgs extends com.pulumi.resources.ResourceA
             $ = new TrackerAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param consumerArn The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consumerArn(Output<String> consumerArn) {
             $.consumerArn = consumerArn;
             return this;
         }
 
-        /**
-         * @param consumerArn The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consumerArn(String consumerArn) {
             return consumerArn(Output.of(consumerArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param trackerName The name of the tracker resource to be associated with a geofence collection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trackerName(Output<String> trackerName) {
             $.trackerName = trackerName;
             return this;
         }
 
-        /**
-         * @param trackerName The name of the tracker resource to be associated with a geofence collection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trackerName(String trackerName) {
             return trackerName(Output.of(trackerName));
         }

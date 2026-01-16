@@ -25,12 +25,6 @@ class AssessmentReportArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AssessmentReport resource.
-        :param pulumi.Input[_builtins.str] assessment_id: Unique identifier of the assessment to create the report from.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: Description of the assessment report.
-        :param pulumi.Input[_builtins.str] name: Name of the assessment report.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "assessment_id", assessment_id)
         if description is not None:
@@ -43,11 +37,6 @@ class AssessmentReportArgs:
     @_builtins.property
     @pulumi.getter(name="assessmentId")
     def assessment_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Unique identifier of the assessment to create the report from.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "assessment_id")
 
     @assessment_id.setter
@@ -57,9 +46,6 @@ class AssessmentReportArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the assessment report.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -69,9 +55,6 @@ class AssessmentReportArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the assessment report.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -81,9 +64,6 @@ class AssessmentReportArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -102,14 +82,6 @@ class _AssessmentReportState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AssessmentReport resources.
-        :param pulumi.Input[_builtins.str] assessment_id: Unique identifier of the assessment to create the report from.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] author: Name of the user who created the assessment report.
-        :param pulumi.Input[_builtins.str] description: Description of the assessment report.
-        :param pulumi.Input[_builtins.str] name: Name of the assessment report.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
         """
         if assessment_id is not None:
             pulumi.set(__self__, "assessment_id", assessment_id)
@@ -127,11 +99,6 @@ class _AssessmentReportState:
     @_builtins.property
     @pulumi.getter(name="assessmentId")
     def assessment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier of the assessment to create the report from.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "assessment_id")
 
     @assessment_id.setter
@@ -141,9 +108,6 @@ class _AssessmentReportState:
     @_builtins.property
     @pulumi.getter
     def author(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the user who created the assessment report.
-        """
         return pulumi.get(self, "author")
 
     @author.setter
@@ -153,9 +117,6 @@ class _AssessmentReportState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the assessment report.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -165,9 +126,6 @@ class _AssessmentReportState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the assessment report.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -177,9 +135,6 @@ class _AssessmentReportState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -189,9 +144,6 @@ class _AssessmentReportState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -211,37 +163,9 @@ class AssessmentReport(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Audit Manager Assessment Report.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.auditmanager.AssessmentReport("test",
-            name="example",
-            assessment_id=test_aws_auditmanager_assessment["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Audit Manager Assessment Reports using the assessment report `id`. For example:
-
-        ```sh
-        $ pulumi import aws:auditmanager/assessmentReport:AssessmentReport example abc123-de45
-        ```
-
+        Create a AssessmentReport resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] assessment_id: Unique identifier of the assessment to create the report from.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: Description of the assessment report.
-        :param pulumi.Input[_builtins.str] name: Name of the assessment report.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -250,29 +174,7 @@ class AssessmentReport(pulumi.CustomResource):
                  args: AssessmentReportArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Audit Manager Assessment Report.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.auditmanager.AssessmentReport("test",
-            name="example",
-            assessment_id=test_aws_auditmanager_assessment["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Audit Manager Assessment Reports using the assessment report `id`. For example:
-
-        ```sh
-        $ pulumi import aws:auditmanager/assessmentReport:AssessmentReport example abc123-de45
-        ```
-
+        Create a AssessmentReport resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AssessmentReportArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -332,14 +234,6 @@ class AssessmentReport(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] assessment_id: Unique identifier of the assessment to create the report from.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] author: Name of the user who created the assessment report.
-        :param pulumi.Input[_builtins.str] description: Description of the assessment report.
-        :param pulumi.Input[_builtins.str] name: Name of the assessment report.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -356,50 +250,30 @@ class AssessmentReport(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="assessmentId")
     def assessment_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique identifier of the assessment to create the report from.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "assessment_id")
 
     @_builtins.property
     @pulumi.getter
     def author(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the user who created the assessment report.
-        """
         return pulumi.get(self, "author")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the assessment report.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the assessment report.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
-        """
         return pulumi.get(self, "status")
 

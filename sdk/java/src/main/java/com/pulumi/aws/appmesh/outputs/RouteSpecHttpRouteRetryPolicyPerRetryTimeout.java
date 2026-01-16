@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class RouteSpecHttpRouteRetryPolicyPerRetryTimeout {
-    /**
-     * @return Retry unit. Valid values: `ms`, `s`.
-     * 
-     */
     private String unit;
-    /**
-     * @return Retry value.
-     * 
-     */
     private Integer value;
 
     private RouteSpecHttpRouteRetryPolicyPerRetryTimeout() {}
-    /**
-     * @return Retry unit. Valid values: `ms`, `s`.
-     * 
-     */
     public String unit() {
         return this.unit;
     }
-    /**
-     * @return Retry value.
-     * 
-     */
     public Integer value() {
         return this.value;
     }

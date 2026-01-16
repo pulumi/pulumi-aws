@@ -16,47 +16,23 @@ public final class TopicRuleSnsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TopicRuleSnsArgs Empty = new TopicRuleSnsArgs();
 
-    /**
-     * The message format of the message to publish. Accepted values are &#34;JSON&#34; and &#34;RAW&#34;.
-     * 
-     */
     @Import(name="messageFormat")
     private @Nullable Output<String> messageFormat;
 
-    /**
-     * @return The message format of the message to publish. Accepted values are &#34;JSON&#34; and &#34;RAW&#34;.
-     * 
-     */
     public Optional<Output<String>> messageFormat() {
         return Optional.ofNullable(this.messageFormat);
     }
 
-    /**
-     * The ARN of the IAM role that grants access.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The ARN of the IAM role that grants access.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
 
-    /**
-     * The ARN of the SNS topic.
-     * 
-     */
     @Import(name="targetArn", required=true)
     private Output<String> targetArn;
 
-    /**
-     * @return The ARN of the SNS topic.
-     * 
-     */
     public Output<String> targetArn() {
         return this.targetArn;
     }
@@ -87,65 +63,29 @@ public final class TopicRuleSnsArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TopicRuleSnsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param messageFormat The message format of the message to publish. Accepted values are &#34;JSON&#34; and &#34;RAW&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messageFormat(@Nullable Output<String> messageFormat) {
             $.messageFormat = messageFormat;
             return this;
         }
 
-        /**
-         * @param messageFormat The message format of the message to publish. Accepted values are &#34;JSON&#34; and &#34;RAW&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messageFormat(String messageFormat) {
             return messageFormat(Output.of(messageFormat));
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role that grants access.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role that grants access.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param targetArn The ARN of the SNS topic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetArn(Output<String> targetArn) {
             $.targetArn = targetArn;
             return this;
         }
 
-        /**
-         * @param targetArn The ARN of the SNS topic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetArn(String targetArn) {
             return targetArn(Output.of(targetArn));
         }

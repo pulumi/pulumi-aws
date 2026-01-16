@@ -14,17 +14,9 @@ public final class ServiceServiceConnectConfigurationServiceClientAliasTestTraff
 
     public static final ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs Empty = new ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs();
 
-    /**
-     * Exact string value to match in the header.
-     * 
-     */
     @Import(name="exact", required=true)
     private Output<String> exact;
 
-    /**
-     * @return Exact string value to match in the header.
-     * 
-     */
     public Output<String> exact() {
         return this.exact;
     }
@@ -53,23 +45,11 @@ public final class ServiceServiceConnectConfigurationServiceClientAliasTestTraff
             $ = new ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param exact Exact string value to match in the header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exact(Output<String> exact) {
             $.exact = exact;
             return this;
         }
 
-        /**
-         * @param exact Exact string value to match in the header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exact(String exact) {
             return exact(Output.of(exact));
         }

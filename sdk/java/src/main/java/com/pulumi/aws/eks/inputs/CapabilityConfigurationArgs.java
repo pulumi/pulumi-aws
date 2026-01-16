@@ -15,17 +15,9 @@ public final class CapabilityConfigurationArgs extends com.pulumi.resources.Reso
 
     public static final CapabilityConfigurationArgs Empty = new CapabilityConfigurationArgs();
 
-    /**
-     * ArgoCD configuration. See `argoCd` below.
-     * 
-     */
     @Import(name="argoCd")
     private @Nullable Output<CapabilityConfigurationArgoCdArgs> argoCd;
 
-    /**
-     * @return ArgoCD configuration. See `argoCd` below.
-     * 
-     */
     public Optional<Output<CapabilityConfigurationArgoCdArgs>> argoCd() {
         return Optional.ofNullable(this.argoCd);
     }
@@ -54,23 +46,11 @@ public final class CapabilityConfigurationArgs extends com.pulumi.resources.Reso
             $ = new CapabilityConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param argoCd ArgoCD configuration. See `argoCd` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder argoCd(@Nullable Output<CapabilityConfigurationArgoCdArgs> argoCd) {
             $.argoCd = argoCd;
             return this;
         }
 
-        /**
-         * @param argoCd ArgoCD configuration. See `argoCd` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder argoCd(CapabilityConfigurationArgoCdArgs argoCd) {
             return argoCd(Output.of(argoCd));
         }

@@ -12,55 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This setting defines how a user interacts with or uses a service or a feature of a service.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.NewServiceSetting(ctx, "test_setting", &ssm.ServiceSettingArgs{
-//				SettingId:    pulumi.String("arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled"),
-//				SettingValue: pulumi.String("true"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import AWS SSM Service Setting using the `setting_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ssm/serviceSetting:ServiceSetting example arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
-// ```
 type ServiceSetting struct {
 	pulumi.CustomResourceState
 
-	// ARN of the service setting.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
-	SettingId pulumi.StringOutput `pulumi:"settingId"`
-	// Value of the service setting.
+	Arn          pulumi.StringOutput `pulumi:"arn"`
+	Region       pulumi.StringOutput `pulumi:"region"`
+	SettingId    pulumi.StringOutput `pulumi:"settingId"`
 	SettingValue pulumi.StringOutput `pulumi:"settingValue"`
-	// Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status       pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewServiceSetting registers a new resource with the given unique name, arguments, and options.
@@ -99,29 +58,19 @@ func GetServiceSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceSetting resources.
 type serviceSettingState struct {
-	// ARN of the service setting.
-	Arn *string `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
-	SettingId *string `pulumi:"settingId"`
-	// Value of the service setting.
+	Arn          *string `pulumi:"arn"`
+	Region       *string `pulumi:"region"`
+	SettingId    *string `pulumi:"settingId"`
 	SettingValue *string `pulumi:"settingValue"`
-	// Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
-	Status *string `pulumi:"status"`
+	Status       *string `pulumi:"status"`
 }
 
 type ServiceSettingState struct {
-	// ARN of the service setting.
-	Arn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
-	SettingId pulumi.StringPtrInput
-	// Value of the service setting.
+	Arn          pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	SettingId    pulumi.StringPtrInput
 	SettingValue pulumi.StringPtrInput
-	// Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
-	Status pulumi.StringPtrInput
+	Status       pulumi.StringPtrInput
 }
 
 func (ServiceSettingState) ElementType() reflect.Type {
@@ -129,21 +78,15 @@ func (ServiceSettingState) ElementType() reflect.Type {
 }
 
 type serviceSettingArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
-	SettingId string `pulumi:"settingId"`
-	// Value of the service setting.
-	SettingValue string `pulumi:"settingValue"`
+	Region       *string `pulumi:"region"`
+	SettingId    string  `pulumi:"settingId"`
+	SettingValue string  `pulumi:"settingValue"`
 }
 
 // The set of arguments for constructing a ServiceSetting resource.
 type ServiceSettingArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
-	SettingId pulumi.StringInput
-	// Value of the service setting.
+	Region       pulumi.StringPtrInput
+	SettingId    pulumi.StringInput
 	SettingValue pulumi.StringInput
 }
 
@@ -234,27 +177,22 @@ func (o ServiceSettingOutput) ToServiceSettingOutputWithContext(ctx context.Cont
 	return o
 }
 
-// ARN of the service setting.
 func (o ServiceSettingOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceSetting) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ServiceSettingOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceSetting) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
 func (o ServiceSettingOutput) SettingId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceSetting) pulumi.StringOutput { return v.SettingId }).(pulumi.StringOutput)
 }
 
-// Value of the service setting.
 func (o ServiceSettingOutput) SettingValue() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceSetting) pulumi.StringOutput { return v.SettingValue }).(pulumi.StringOutput)
 }
 
-// Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
 func (o ServiceSettingOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceSetting) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

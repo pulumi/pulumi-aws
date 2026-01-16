@@ -15,125 +15,45 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe {
-    /**
-     * @return The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
-     * 
-     */
     private @Nullable Integer blockSizeBytes;
-    /**
-     * @return A list of column names for which you want Kinesis Data Firehose to create bloom filters.
-     * 
-     */
     private @Nullable List<String> bloomFilterColumns;
-    /**
-     * @return The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
-     * 
-     */
     private @Nullable Double bloomFilterFalsePositiveProbability;
-    /**
-     * @return The compression code to use over data blocks. The default is `SNAPPY`.
-     * 
-     */
     private @Nullable String compression;
-    /**
-     * @return A float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
-     * 
-     */
     private @Nullable Double dictionaryKeyThreshold;
-    /**
-     * @return Set this to `true` to indicate that you want stripes to be padded to the HDFS block boundaries. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `false`.
-     * 
-     */
     private @Nullable Boolean enablePadding;
-    /**
-     * @return The version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
-     * 
-     */
     private @Nullable String formatVersion;
-    /**
-     * @return A float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enablePadding` is `false`.
-     * 
-     */
     private @Nullable Double paddingTolerance;
-    /**
-     * @return The number of rows between index entries. The default is `10000` and the minimum is `1000`.
-     * 
-     */
     private @Nullable Integer rowIndexStride;
-    /**
-     * @return The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
-     * 
-     */
     private @Nullable Integer stripeSizeBytes;
 
     private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe() {}
-    /**
-     * @return The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
-     * 
-     */
     public Optional<Integer> blockSizeBytes() {
         return Optional.ofNullable(this.blockSizeBytes);
     }
-    /**
-     * @return A list of column names for which you want Kinesis Data Firehose to create bloom filters.
-     * 
-     */
     public List<String> bloomFilterColumns() {
         return this.bloomFilterColumns == null ? List.of() : this.bloomFilterColumns;
     }
-    /**
-     * @return The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
-     * 
-     */
     public Optional<Double> bloomFilterFalsePositiveProbability() {
         return Optional.ofNullable(this.bloomFilterFalsePositiveProbability);
     }
-    /**
-     * @return The compression code to use over data blocks. The default is `SNAPPY`.
-     * 
-     */
     public Optional<String> compression() {
         return Optional.ofNullable(this.compression);
     }
-    /**
-     * @return A float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
-     * 
-     */
     public Optional<Double> dictionaryKeyThreshold() {
         return Optional.ofNullable(this.dictionaryKeyThreshold);
     }
-    /**
-     * @return Set this to `true` to indicate that you want stripes to be padded to the HDFS block boundaries. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `false`.
-     * 
-     */
     public Optional<Boolean> enablePadding() {
         return Optional.ofNullable(this.enablePadding);
     }
-    /**
-     * @return The version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
-     * 
-     */
     public Optional<String> formatVersion() {
         return Optional.ofNullable(this.formatVersion);
     }
-    /**
-     * @return A float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enablePadding` is `false`.
-     * 
-     */
     public Optional<Double> paddingTolerance() {
         return Optional.ofNullable(this.paddingTolerance);
     }
-    /**
-     * @return The number of rows between index entries. The default is `10000` and the minimum is `1000`.
-     * 
-     */
     public Optional<Integer> rowIndexStride() {
         return Optional.ofNullable(this.rowIndexStride);
     }
-    /**
-     * @return The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
-     * 
-     */
     public Optional<Integer> stripeSizeBytes() {
         return Optional.ofNullable(this.stripeSizeBytes);
     }

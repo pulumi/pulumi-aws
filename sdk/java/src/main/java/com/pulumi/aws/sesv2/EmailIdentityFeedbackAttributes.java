@@ -15,101 +15,23 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Feedback Attributes.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sesv2.EmailIdentity;
- * import com.pulumi.aws.sesv2.EmailIdentityArgs;
- * import com.pulumi.aws.sesv2.EmailIdentityFeedbackAttributes;
- * import com.pulumi.aws.sesv2.EmailIdentityFeedbackAttributesArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new EmailIdentity("example", EmailIdentityArgs.builder()
- *             .emailIdentity("example.com")
- *             .build());
- * 
- *         var exampleEmailIdentityFeedbackAttributes = new EmailIdentityFeedbackAttributes("exampleEmailIdentityFeedbackAttributes", EmailIdentityFeedbackAttributesArgs.builder()
- *             .emailIdentity(example.emailIdentity())
- *             .emailForwardingEnabled(true)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Feedback Attributes using the `email_identity`. For example:
- * 
- * ```sh
- * $ pulumi import aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes example example.com
- * ```
- * 
- */
 @ResourceType(type="aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes")
 public class EmailIdentityFeedbackAttributes extends com.pulumi.resources.CustomResource {
-    /**
-     * Sets the feedback forwarding configuration for the identity.
-     * 
-     */
     @Export(name="emailForwardingEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> emailForwardingEnabled;
 
-    /**
-     * @return Sets the feedback forwarding configuration for the identity.
-     * 
-     */
     public Output<Optional<Boolean>> emailForwardingEnabled() {
         return Codegen.optional(this.emailForwardingEnabled);
     }
-    /**
-     * The email identity.
-     * 
-     */
     @Export(name="emailIdentity", refs={String.class}, tree="[0]")
     private Output<String> emailIdentity;
 
-    /**
-     * @return The email identity.
-     * 
-     */
     public Output<String> emailIdentity() {
         return this.emailIdentity;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

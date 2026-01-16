@@ -16,32 +16,16 @@ public final class GetCostCategoryPlainArgs extends com.pulumi.resources.InvokeA
 
     public static final GetCostCategoryPlainArgs Empty = new GetCostCategoryPlainArgs();
 
-    /**
-     * Unique name for the Cost Category.
-     * 
-     */
     @Import(name="costCategoryArn", required=true)
     private String costCategoryArn;
 
-    /**
-     * @return Unique name for the Cost Category.
-     * 
-     */
     public String costCategoryArn() {
         return this.costCategoryArn;
     }
 
-    /**
-     * Configuration block for the specific `Tag` to use for `Expression`. See below.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -71,23 +55,11 @@ public final class GetCostCategoryPlainArgs extends com.pulumi.resources.InvokeA
             $ = new GetCostCategoryPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param costCategoryArn Unique name for the Cost Category.
-         * 
-         * @return builder
-         * 
-         */
         public Builder costCategoryArn(String costCategoryArn) {
             $.costCategoryArn = costCategoryArn;
             return this;
         }
 
-        /**
-         * @param tags Configuration block for the specific `Tag` to use for `Expression`. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

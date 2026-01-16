@@ -13,113 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a CloudWatch Log Stream resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogGroup;
- * import com.pulumi.aws.cloudwatch.LogGroupArgs;
- * import com.pulumi.aws.cloudwatch.LogStream;
- * import com.pulumi.aws.cloudwatch.LogStreamArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var yada = new LogGroup("yada", LogGroupArgs.builder()
- *             .name("Yada")
- *             .build());
- * 
- *         var foo = new LogStream("foo", LogStreamArgs.builder()
- *             .name("SampleLogStream1234")
- *             .logGroupName(yada.name())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Cloudwatch Log Stream using the stream&#39;s `log_group_name` and `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
- * ```
- * 
- */
 @ResourceType(type="aws:cloudwatch/logStream:LogStream")
 public class LogStream extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) specifying the log stream.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) specifying the log stream.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The name of the log group under which the log stream is to be created.
-     * 
-     */
     @Export(name="logGroupName", refs={String.class}, tree="[0]")
     private Output<String> logGroupName;
 
-    /**
-     * @return The name of the log group under which the log stream is to be created.
-     * 
-     */
     public Output<String> logGroupName() {
         return this.logGroupName;
     }
-    /**
-     * The name of the log stream. Must not be longer than 512 characters and must not contain `:`
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the log stream. Must not be longer than 512 characters and must not contain `:`
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

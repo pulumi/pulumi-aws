@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an Amazon S3 Tables Namespace.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleTableBucket = new aws.s3tables.TableBucket("example", {name: "example-bucket"});
- * const example = new aws.s3tables.Namespace("example", {
- *     namespace: "example_namespace",
- *     tableBucketArn: exampleTableBucket.arn,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import S3 Tables Namespace using the `table_bucket_arn` and the value of `namespace`, separated by a semicolon (`;`). For example:
- *
- * ```sh
- * $ pulumi import aws:s3tables/namespace:Namespace example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace'
- * ```
- */
 export class Namespace extends pulumi.CustomResource {
     /**
      * Get an existing Namespace resource's state with the given name, ID, and optional extra
@@ -58,31 +32,11 @@ export class Namespace extends pulumi.CustomResource {
         return obj['__pulumiType'] === Namespace.__pulumiType;
     }
 
-    /**
-     * Date and time when the namespace was created.
-     */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
-    /**
-     * Account ID of the account that created the namespace.
-     */
     declare public /*out*/ readonly createdBy: pulumi.Output<string>;
-    /**
-     * Name of the namespace.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-     */
     declare public readonly namespace: pulumi.Output<string>;
-    /**
-     * Account ID of the account that owns the namespace.
-     */
     declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ARN referencing the Table Bucket that contains this Namespace.
-     */
     declare public readonly tableBucketArn: pulumi.Output<string>;
 
     /**
@@ -128,31 +82,11 @@ export class Namespace extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Namespace resources.
  */
 export interface NamespaceState {
-    /**
-     * Date and time when the namespace was created.
-     */
     createdAt?: pulumi.Input<string>;
-    /**
-     * Account ID of the account that created the namespace.
-     */
     createdBy?: pulumi.Input<string>;
-    /**
-     * Name of the namespace.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-     */
     namespace?: pulumi.Input<string>;
-    /**
-     * Account ID of the account that owns the namespace.
-     */
     ownerAccountId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN referencing the Table Bucket that contains this Namespace.
-     */
     tableBucketArn?: pulumi.Input<string>;
 }
 
@@ -160,18 +94,7 @@ export interface NamespaceState {
  * The set of arguments for constructing a Namespace resource.
  */
 export interface NamespaceArgs {
-    /**
-     * Name of the namespace.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-     */
     namespace: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN referencing the Table Bucket that contains this Namespace.
-     */
     tableBucketArn: pulumi.Input<string>;
 }

@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetTaskExecutionOverridesResult
     {
-        /// <summary>
-        /// One or more container overrides that are sent to a task. See below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetTaskExecutionOverridesContainerOverrideResult> ContainerOverrides;
-        /// <summary>
-        /// The CPU override for the task.
-        /// </summary>
         public readonly string? Cpu;
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the task execution role override for the task.
-        /// </summary>
         public readonly string? ExecutionRoleArn;
-        /// <summary>
-        /// The memory override for the task.
-        /// </summary>
         public readonly string? Memory;
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the role that containers in this task can assume.
-        /// </summary>
         public readonly string? TaskRoleArn;
 
         [OutputConstructor]

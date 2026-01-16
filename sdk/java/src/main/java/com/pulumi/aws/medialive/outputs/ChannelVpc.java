@@ -14,20 +14,8 @@ import javax.annotation.Nullable;
 public final class ChannelVpc {
     private @Nullable List<String> availabilityZones;
     private @Nullable List<String> networkInterfaceIds;
-    /**
-     * @return List of public address allocation ids to associate with ENIs that will be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for STANDARD channels.
-     * 
-     */
     private List<String> publicAddressAllocationIds;
-    /**
-     * @return A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces. If none are specified then the VPC default security group will be used.
-     * 
-     */
     private @Nullable List<String> securityGroupIds;
-    /**
-     * @return A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
-     * 
-     */
     private List<String> subnetIds;
 
     private ChannelVpc() {}
@@ -37,24 +25,12 @@ public final class ChannelVpc {
     public List<String> networkInterfaceIds() {
         return this.networkInterfaceIds == null ? List.of() : this.networkInterfaceIds;
     }
-    /**
-     * @return List of public address allocation ids to associate with ENIs that will be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for STANDARD channels.
-     * 
-     */
     public List<String> publicAddressAllocationIds() {
         return this.publicAddressAllocationIds;
     }
-    /**
-     * @return A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces. If none are specified then the VPC default security group will be used.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
-    /**
-     * @return A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }

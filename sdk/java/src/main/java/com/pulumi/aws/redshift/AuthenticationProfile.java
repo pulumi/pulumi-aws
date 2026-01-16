@@ -13,99 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Creates a Redshift authentication profile
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.redshift.AuthenticationProfile;
- * import com.pulumi.aws.redshift.AuthenticationProfileArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AuthenticationProfile("example", AuthenticationProfileArgs.builder()
- *             .authenticationProfileName("example")
- *             .authenticationProfileContent(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("AllowDBUserOverride", "1"),
- *                     jsonProperty("Client_ID", "ExampleClientID"),
- *                     jsonProperty("App_ID", "example")
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Redshift Authentication by `authentication_profile_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
- * ```
- * 
- */
 @ResourceType(type="aws:redshift/authenticationProfile:AuthenticationProfile")
 public class AuthenticationProfile extends com.pulumi.resources.CustomResource {
-    /**
-     * The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
-     * 
-     */
     @Export(name="authenticationProfileContent", refs={String.class}, tree="[0]")
     private Output<String> authenticationProfileContent;
 
-    /**
-     * @return The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
-     * 
-     */
     public Output<String> authenticationProfileContent() {
         return this.authenticationProfileContent;
     }
-    /**
-     * The name of the authentication profile.
-     * 
-     */
     @Export(name="authenticationProfileName", refs={String.class}, tree="[0]")
     private Output<String> authenticationProfileName;
 
-    /**
-     * @return The name of the authentication profile.
-     * 
-     */
     public Output<String> authenticationProfileName() {
         return this.authenticationProfileName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

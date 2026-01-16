@@ -10,77 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetListenerRuleActionRedirect {
-    /**
-     * @return The hostname.
-     * 
-     */
     private String host;
-    /**
-     * @return The absolute path, starting with `/`.
-     * 
-     */
     private String path;
-    /**
-     * @return The port.
-     * 
-     */
     private String port;
-    /**
-     * @return The protocol.
-     * 
-     */
     private String protocol;
-    /**
-     * @return The query parameters.
-     * 
-     */
     private String query;
-    /**
-     * @return The HTTP redirect code.
-     * 
-     */
     private String statusCode;
 
     private GetListenerRuleActionRedirect() {}
-    /**
-     * @return The hostname.
-     * 
-     */
     public String host() {
         return this.host;
     }
-    /**
-     * @return The absolute path, starting with `/`.
-     * 
-     */
     public String path() {
         return this.path;
     }
-    /**
-     * @return The port.
-     * 
-     */
     public String port() {
         return this.port;
     }
-    /**
-     * @return The protocol.
-     * 
-     */
     public String protocol() {
         return this.protocol;
     }
-    /**
-     * @return The query parameters.
-     * 
-     */
     public String query() {
         return this.query;
     }
-    /**
-     * @return The HTTP redirect code.
-     * 
-     */
     public String statusCode() {
         return this.statusCode;
     }

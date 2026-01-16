@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CodeStarNotifications.Outputs
     [OutputType]
     public sealed class NotificationRuleTarget
     {
-        /// <summary>
-        /// The ARN of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.
-        /// </summary>
         public readonly string Address;
-        /// <summary>
-        /// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-        /// </summary>
         public readonly string? Status;
-        /// <summary>
-        /// The type of the notification target. Valid values are `SNS`, `AWSChatbotSlack`, and `AWSChatbotMicrosoftTeams`. Default value is `SNS`.
-        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

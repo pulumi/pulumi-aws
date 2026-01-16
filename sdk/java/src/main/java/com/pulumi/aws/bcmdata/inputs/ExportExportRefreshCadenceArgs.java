@@ -14,17 +14,9 @@ public final class ExportExportRefreshCadenceArgs extends com.pulumi.resources.R
 
     public static final ExportExportRefreshCadenceArgs Empty = new ExportExportRefreshCadenceArgs();
 
-    /**
-     * Frequency that data exports are updated. The export refreshes each time the source data updates, up to three times daily. Valid values `SYNCHRONOUS`.
-     * 
-     */
     @Import(name="frequency", required=true)
     private Output<String> frequency;
 
-    /**
-     * @return Frequency that data exports are updated. The export refreshes each time the source data updates, up to three times daily. Valid values `SYNCHRONOUS`.
-     * 
-     */
     public Output<String> frequency() {
         return this.frequency;
     }
@@ -53,23 +45,11 @@ public final class ExportExportRefreshCadenceArgs extends com.pulumi.resources.R
             $ = new ExportExportRefreshCadenceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param frequency Frequency that data exports are updated. The export refreshes each time the source data updates, up to three times daily. Valid values `SYNCHRONOUS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder frequency(Output<String> frequency) {
             $.frequency = frequency;
             return this;
         }
 
-        /**
-         * @param frequency Frequency that data exports are updated. The export refreshes each time the source data updates, up to three times daily. Valid values `SYNCHRONOUS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder frequency(String frequency) {
             return frequency(Output.of(frequency));
         }

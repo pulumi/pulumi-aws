@@ -61,25 +61,16 @@ class GetLogGroupResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> _builtins.int:
-        """
-        Creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-        """
         return pulumi.get(self, "creation_time")
 
     @_builtins.property
     @pulumi.getter(name="deletionProtectionEnabled")
     def deletion_protection_enabled(self) -> _builtins.bool:
-        """
-        Boolean to indicate whether deletion protection is enabled.
-        """
         return pulumi.get(self, "deletion_protection_enabled")
 
     @_builtins.property
@@ -93,17 +84,11 @@ class GetLogGroupResult:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
-        """
-        ARN of the KMS Key to use when encrypting log data.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="logGroupClass")
     def log_group_class(self) -> _builtins.str:
-        """
-        The log class of the log group.
-        """
         return pulumi.get(self, "log_group_class")
 
     @_builtins.property
@@ -119,17 +104,11 @@ class GetLogGroupResult:
     @_builtins.property
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> _builtins.int:
-        """
-        Number of days log events retained in the specified log group.
-        """
         return pulumi.get(self, "retention_in_days")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags to assign to the resource.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -156,21 +135,7 @@ def get_log_group(name: Optional[_builtins.str] = None,
                   tags: Optional[Mapping[str, _builtins.str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogGroupResult:
     """
-    Use this data source to get information about an AWS Cloudwatch Log Group
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudwatch.get_log_group(name="MyImportantLogs")
-    ```
-
-
-    :param _builtins.str name: Name of the Cloudwatch log group
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags to assign to the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -195,21 +160,7 @@ def get_log_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogGroupResult]:
     """
-    Use this data source to get information about an AWS Cloudwatch Log Group
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudwatch.get_log_group(name="MyImportantLogs")
-    ```
-
-
-    :param _builtins.str name: Name of the Cloudwatch log group
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags to assign to the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

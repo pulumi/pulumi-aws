@@ -14,32 +14,16 @@ public final class AssessmentAssessmentReportsDestinationArgs extends com.pulumi
 
     public static final AssessmentAssessmentReportsDestinationArgs Empty = new AssessmentAssessmentReportsDestinationArgs();
 
-    /**
-     * Destination of the assessment report. This value be in the form `s3://{bucket_name}`.
-     * 
-     */
     @Import(name="destination", required=true)
     private Output<String> destination;
 
-    /**
-     * @return Destination of the assessment report. This value be in the form `s3://{bucket_name}`.
-     * 
-     */
     public Output<String> destination() {
         return this.destination;
     }
 
-    /**
-     * Destination type. Currently, `S3` is the only valid value.
-     * 
-     */
     @Import(name="destinationType", required=true)
     private Output<String> destinationType;
 
-    /**
-     * @return Destination type. Currently, `S3` is the only valid value.
-     * 
-     */
     public Output<String> destinationType() {
         return this.destinationType;
     }
@@ -69,44 +53,20 @@ public final class AssessmentAssessmentReportsDestinationArgs extends com.pulumi
             $ = new AssessmentAssessmentReportsDestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destination Destination of the assessment report. This value be in the form `s3://{bucket_name}`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(Output<String> destination) {
             $.destination = destination;
             return this;
         }
 
-        /**
-         * @param destination Destination of the assessment report. This value be in the form `s3://{bucket_name}`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(String destination) {
             return destination(Output.of(destination));
         }
 
-        /**
-         * @param destinationType Destination type. Currently, `S3` is the only valid value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationType(Output<String> destinationType) {
             $.destinationType = destinationType;
             return this;
         }
 
-        /**
-         * @param destinationType Destination type. Currently, `S3` is the only valid value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationType(String destinationType) {
             return destinationType(Output.of(destinationType));
         }

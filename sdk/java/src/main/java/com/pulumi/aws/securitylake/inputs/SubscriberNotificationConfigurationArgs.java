@@ -16,34 +16,16 @@ public final class SubscriberNotificationConfigurationArgs extends com.pulumi.re
 
     public static final SubscriberNotificationConfigurationArgs Empty = new SubscriberNotificationConfigurationArgs();
 
-    /**
-     * The configurations for HTTPS subscriber notification.
-     * 
-     */
     @Import(name="httpsNotificationConfiguration")
     private @Nullable Output<SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs> httpsNotificationConfiguration;
 
-    /**
-     * @return The configurations for HTTPS subscriber notification.
-     * 
-     */
     public Optional<Output<SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs>> httpsNotificationConfiguration() {
         return Optional.ofNullable(this.httpsNotificationConfiguration);
     }
 
-    /**
-     * The configurations for SQS subscriber notification.
-     * There are no parameters within `sqsNotificationConfiguration`.
-     * 
-     */
     @Import(name="sqsNotificationConfiguration")
     private @Nullable Output<SubscriberNotificationConfigurationSqsNotificationConfigurationArgs> sqsNotificationConfiguration;
 
-    /**
-     * @return The configurations for SQS subscriber notification.
-     * There are no parameters within `sqsNotificationConfiguration`.
-     * 
-     */
     public Optional<Output<SubscriberNotificationConfigurationSqsNotificationConfigurationArgs>> sqsNotificationConfiguration() {
         return Optional.ofNullable(this.sqsNotificationConfiguration);
     }
@@ -73,46 +55,20 @@ public final class SubscriberNotificationConfigurationArgs extends com.pulumi.re
             $ = new SubscriberNotificationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param httpsNotificationConfiguration The configurations for HTTPS subscriber notification.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpsNotificationConfiguration(@Nullable Output<SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs> httpsNotificationConfiguration) {
             $.httpsNotificationConfiguration = httpsNotificationConfiguration;
             return this;
         }
 
-        /**
-         * @param httpsNotificationConfiguration The configurations for HTTPS subscriber notification.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpsNotificationConfiguration(SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs httpsNotificationConfiguration) {
             return httpsNotificationConfiguration(Output.of(httpsNotificationConfiguration));
         }
 
-        /**
-         * @param sqsNotificationConfiguration The configurations for SQS subscriber notification.
-         * There are no parameters within `sqsNotificationConfiguration`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqsNotificationConfiguration(@Nullable Output<SubscriberNotificationConfigurationSqsNotificationConfigurationArgs> sqsNotificationConfiguration) {
             $.sqsNotificationConfiguration = sqsNotificationConfiguration;
             return this;
         }
 
-        /**
-         * @param sqsNotificationConfiguration The configurations for SQS subscriber notification.
-         * There are no parameters within `sqsNotificationConfiguration`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqsNotificationConfiguration(SubscriberNotificationConfigurationSqsNotificationConfigurationArgs sqsNotificationConfiguration) {
             return sqsNotificationConfiguration(Output.of(sqsNotificationConfiguration));
         }

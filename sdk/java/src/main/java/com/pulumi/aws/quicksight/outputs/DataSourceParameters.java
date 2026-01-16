@@ -31,257 +31,89 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSourceParameters {
-    /**
-     * @return Parameters for connecting to Amazon Elasticsearch.
-     * 
-     */
     private @Nullable DataSourceParametersAmazonElasticsearch amazonElasticsearch;
-    /**
-     * @return Parameters for connecting to Athena.
-     * 
-     */
     private @Nullable DataSourceParametersAthena athena;
-    /**
-     * @return Parameters for connecting to Aurora MySQL.
-     * 
-     */
     private @Nullable DataSourceParametersAurora aurora;
-    /**
-     * @return Parameters for connecting to Aurora Postgresql.
-     * 
-     */
     private @Nullable DataSourceParametersAuroraPostgresql auroraPostgresql;
-    /**
-     * @return Parameters for connecting to AWS IOT Analytics.
-     * 
-     */
     private @Nullable DataSourceParametersAwsIotAnalytics awsIotAnalytics;
-    /**
-     * @return Parameters for connecting to Databricks.
-     * 
-     */
     private @Nullable DataSourceParametersDatabricks databricks;
-    /**
-     * @return Parameters for connecting to Jira.
-     * 
-     */
     private @Nullable DataSourceParametersJira jira;
-    /**
-     * @return Parameters for connecting to MariaDB.
-     * 
-     */
     private @Nullable DataSourceParametersMariaDb mariaDb;
-    /**
-     * @return Parameters for connecting to MySQL.
-     * 
-     */
     private @Nullable DataSourceParametersMysql mysql;
-    /**
-     * @return Parameters for connecting to Oracle.
-     * 
-     */
     private @Nullable DataSourceParametersOracle oracle;
-    /**
-     * @return Parameters for connecting to Postgresql.
-     * 
-     */
     private @Nullable DataSourceParametersPostgresql postgresql;
-    /**
-     * @return Parameters for connecting to Presto.
-     * 
-     */
     private @Nullable DataSourceParametersPresto presto;
-    /**
-     * @return Parameters for connecting to RDS.
-     * 
-     */
     private @Nullable DataSourceParametersRds rds;
-    /**
-     * @return Parameters for connecting to Redshift.
-     * 
-     */
     private @Nullable DataSourceParametersRedshift redshift;
-    /**
-     * @return Parameters for connecting to S3.
-     * 
-     */
     private @Nullable DataSourceParametersS3 s3;
-    /**
-     * @return Parameters for connecting to ServiceNow.
-     * 
-     */
     private @Nullable DataSourceParametersServiceNow serviceNow;
-    /**
-     * @return Parameters for connecting to Snowflake.
-     * 
-     */
     private @Nullable DataSourceParametersSnowflake snowflake;
-    /**
-     * @return Parameters for connecting to Spark.
-     * 
-     */
     private @Nullable DataSourceParametersSpark spark;
-    /**
-     * @return Parameters for connecting to SQL Server.
-     * 
-     */
     private @Nullable DataSourceParametersSqlServer sqlServer;
-    /**
-     * @return Parameters for connecting to Teradata.
-     * 
-     */
     private @Nullable DataSourceParametersTeradata teradata;
-    /**
-     * @return Parameters for connecting to Twitter.
-     * 
-     */
     private @Nullable DataSourceParametersTwitter twitter;
 
     private DataSourceParameters() {}
-    /**
-     * @return Parameters for connecting to Amazon Elasticsearch.
-     * 
-     */
     public Optional<DataSourceParametersAmazonElasticsearch> amazonElasticsearch() {
         return Optional.ofNullable(this.amazonElasticsearch);
     }
-    /**
-     * @return Parameters for connecting to Athena.
-     * 
-     */
     public Optional<DataSourceParametersAthena> athena() {
         return Optional.ofNullable(this.athena);
     }
-    /**
-     * @return Parameters for connecting to Aurora MySQL.
-     * 
-     */
     public Optional<DataSourceParametersAurora> aurora() {
         return Optional.ofNullable(this.aurora);
     }
-    /**
-     * @return Parameters for connecting to Aurora Postgresql.
-     * 
-     */
     public Optional<DataSourceParametersAuroraPostgresql> auroraPostgresql() {
         return Optional.ofNullable(this.auroraPostgresql);
     }
-    /**
-     * @return Parameters for connecting to AWS IOT Analytics.
-     * 
-     */
     public Optional<DataSourceParametersAwsIotAnalytics> awsIotAnalytics() {
         return Optional.ofNullable(this.awsIotAnalytics);
     }
-    /**
-     * @return Parameters for connecting to Databricks.
-     * 
-     */
     public Optional<DataSourceParametersDatabricks> databricks() {
         return Optional.ofNullable(this.databricks);
     }
-    /**
-     * @return Parameters for connecting to Jira.
-     * 
-     */
     public Optional<DataSourceParametersJira> jira() {
         return Optional.ofNullable(this.jira);
     }
-    /**
-     * @return Parameters for connecting to MariaDB.
-     * 
-     */
     public Optional<DataSourceParametersMariaDb> mariaDb() {
         return Optional.ofNullable(this.mariaDb);
     }
-    /**
-     * @return Parameters for connecting to MySQL.
-     * 
-     */
     public Optional<DataSourceParametersMysql> mysql() {
         return Optional.ofNullable(this.mysql);
     }
-    /**
-     * @return Parameters for connecting to Oracle.
-     * 
-     */
     public Optional<DataSourceParametersOracle> oracle() {
         return Optional.ofNullable(this.oracle);
     }
-    /**
-     * @return Parameters for connecting to Postgresql.
-     * 
-     */
     public Optional<DataSourceParametersPostgresql> postgresql() {
         return Optional.ofNullable(this.postgresql);
     }
-    /**
-     * @return Parameters for connecting to Presto.
-     * 
-     */
     public Optional<DataSourceParametersPresto> presto() {
         return Optional.ofNullable(this.presto);
     }
-    /**
-     * @return Parameters for connecting to RDS.
-     * 
-     */
     public Optional<DataSourceParametersRds> rds() {
         return Optional.ofNullable(this.rds);
     }
-    /**
-     * @return Parameters for connecting to Redshift.
-     * 
-     */
     public Optional<DataSourceParametersRedshift> redshift() {
         return Optional.ofNullable(this.redshift);
     }
-    /**
-     * @return Parameters for connecting to S3.
-     * 
-     */
     public Optional<DataSourceParametersS3> s3() {
         return Optional.ofNullable(this.s3);
     }
-    /**
-     * @return Parameters for connecting to ServiceNow.
-     * 
-     */
     public Optional<DataSourceParametersServiceNow> serviceNow() {
         return Optional.ofNullable(this.serviceNow);
     }
-    /**
-     * @return Parameters for connecting to Snowflake.
-     * 
-     */
     public Optional<DataSourceParametersSnowflake> snowflake() {
         return Optional.ofNullable(this.snowflake);
     }
-    /**
-     * @return Parameters for connecting to Spark.
-     * 
-     */
     public Optional<DataSourceParametersSpark> spark() {
         return Optional.ofNullable(this.spark);
     }
-    /**
-     * @return Parameters for connecting to SQL Server.
-     * 
-     */
     public Optional<DataSourceParametersSqlServer> sqlServer() {
         return Optional.ofNullable(this.sqlServer);
     }
-    /**
-     * @return Parameters for connecting to Teradata.
-     * 
-     */
     public Optional<DataSourceParametersTeradata> teradata() {
         return Optional.ofNullable(this.teradata);
     }
-    /**
-     * @return Parameters for connecting to Twitter.
-     * 
-     */
     public Optional<DataSourceParametersTwitter> twitter() {
         return Optional.ofNullable(this.twitter);
     }

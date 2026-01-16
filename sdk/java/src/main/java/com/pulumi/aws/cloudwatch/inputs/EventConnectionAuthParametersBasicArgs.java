@@ -14,32 +14,16 @@ public final class EventConnectionAuthParametersBasicArgs extends com.pulumi.res
 
     public static final EventConnectionAuthParametersBasicArgs Empty = new EventConnectionAuthParametersBasicArgs();
 
-    /**
-     * A password for the authorization. Created and stored in AWS Secrets Manager.
-     * 
-     */
     @Import(name="password", required=true)
     private Output<String> password;
 
-    /**
-     * @return A password for the authorization. Created and stored in AWS Secrets Manager.
-     * 
-     */
     public Output<String> password() {
         return this.password;
     }
 
-    /**
-     * A username for the authorization.
-     * 
-     */
     @Import(name="username", required=true)
     private Output<String> username;
 
-    /**
-     * @return A username for the authorization.
-     * 
-     */
     public Output<String> username() {
         return this.username;
     }
@@ -69,44 +53,20 @@ public final class EventConnectionAuthParametersBasicArgs extends com.pulumi.res
             $ = new EventConnectionAuthParametersBasicArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param password A password for the authorization. Created and stored in AWS Secrets Manager.
-         * 
-         * @return builder
-         * 
-         */
         public Builder password(Output<String> password) {
             $.password = password;
             return this;
         }
 
-        /**
-         * @param password A password for the authorization. Created and stored in AWS Secrets Manager.
-         * 
-         * @return builder
-         * 
-         */
         public Builder password(String password) {
             return password(Output.of(password));
         }
 
-        /**
-         * @param username A username for the authorization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(Output<String> username) {
             $.username = username;
             return this;
         }
 
-        /**
-         * @param username A username for the authorization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(String username) {
             return username(Output.of(username));
         }

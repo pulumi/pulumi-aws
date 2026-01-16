@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class ServerlessClusterVpcConfig
     {
-        /// <summary>
-        /// Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// A list of subnets in at least two different Availability Zones that host your client applications.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
 
         [OutputConstructor]

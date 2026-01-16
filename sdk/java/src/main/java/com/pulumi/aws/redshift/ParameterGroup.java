@@ -17,181 +17,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Redshift Cluster parameter group resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.redshift.ParameterGroup;
- * import com.pulumi.aws.redshift.ParameterGroupArgs;
- * import com.pulumi.aws.redshift.inputs.ParameterGroupParameterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var bar = new ParameterGroup("bar", ParameterGroupArgs.builder()
- *             .name("parameter-group-test")
- *             .family("redshift-1.0")
- *             .parameters(            
- *                 ParameterGroupParameterArgs.builder()
- *                     .name("require_ssl")
- *                     .value("true")
- *                     .build(),
- *                 ParameterGroupParameterArgs.builder()
- *                     .name("query_group")
- *                     .value("example")
- *                     .build(),
- *                 ParameterGroupParameterArgs.builder()
- *                     .name("enable_user_activity_logging")
- *                     .value("true")
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Redshift Parameter Groups using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test-pulumi
- * ```
- * 
- */
 @ResourceType(type="aws:redshift/parameterGroup:ParameterGroup")
 public class ParameterGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of parameter group
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of parameter group
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The description of the Redshift parameter group. Defaults to &#34;Managed by Pulumi&#34;.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
-    /**
-     * @return The description of the Redshift parameter group. Defaults to &#34;Managed by Pulumi&#34;.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * The family of the Redshift parameter group.
-     * 
-     */
     @Export(name="family", refs={String.class}, tree="[0]")
     private Output<String> family;
 
-    /**
-     * @return The family of the Redshift parameter group.
-     * 
-     */
     public Output<String> family() {
         return this.family;
     }
-    /**
-     * The name of the Redshift parameter.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the Redshift parameter.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * A list of Redshift parameters to apply.
-     * 
-     */
     @Export(name="parameters", refs={List.class,ParameterGroupParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ParameterGroupParameter>> parameters;
 
-    /**
-     * @return A list of Redshift parameters to apply.
-     * 
-     */
     public Output<Optional<List<ParameterGroupParameter>>> parameters() {
         return Codegen.optional(this.parameters);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * You can read more about the parameters that Redshift supports in the [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html)
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * You can read more about the parameters that Redshift supports in the [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html)
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

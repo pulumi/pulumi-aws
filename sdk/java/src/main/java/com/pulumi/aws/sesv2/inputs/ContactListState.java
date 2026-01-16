@@ -25,96 +25,44 @@ public final class ContactListState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Name of the contact list.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="contactListName")
     private @Nullable Output<String> contactListName;
 
-    /**
-     * @return Name of the contact list.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> contactListName() {
         return Optional.ofNullable(this.contactListName);
     }
 
-    /**
-     * Timestamp noting when the contact list was created in ISO 8601 format.
-     * 
-     */
     @Import(name="createdTimestamp")
     private @Nullable Output<String> createdTimestamp;
 
-    /**
-     * @return Timestamp noting when the contact list was created in ISO 8601 format.
-     * 
-     */
     public Optional<Output<String>> createdTimestamp() {
         return Optional.ofNullable(this.createdTimestamp);
     }
 
-    /**
-     * Description of what the contact list is about.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of what the contact list is about.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Timestamp noting the last time the contact list was updated in ISO 8601 format.
-     * 
-     */
     @Import(name="lastUpdatedTimestamp")
     private @Nullable Output<String> lastUpdatedTimestamp;
 
-    /**
-     * @return Timestamp noting the last time the contact list was updated in ISO 8601 format.
-     * 
-     */
     public Optional<Output<String>> lastUpdatedTimestamp() {
         return Optional.ofNullable(this.lastUpdatedTimestamp);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -126,17 +74,9 @@ public final class ContactListState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * Configuration block(s) with topic for the contact list. Detailed below.
-     * 
-     */
     @Import(name="topics")
     private @Nullable Output<List<ContactListTopicArgs>> topics;
 
-    /**
-     * @return Configuration block(s) with topic for the contact list. Detailed below.
-     * 
-     */
     public Optional<Output<List<ContactListTopicArgs>>> topics() {
         return Optional.ofNullable(this.topics);
     }
@@ -182,132 +122,56 @@ public final class ContactListState extends com.pulumi.resources.ResourceArgs {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param contactListName Name of the contact list.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder contactListName(@Nullable Output<String> contactListName) {
             $.contactListName = contactListName;
             return this;
         }
 
-        /**
-         * @param contactListName Name of the contact list.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder contactListName(String contactListName) {
             return contactListName(Output.of(contactListName));
         }
 
-        /**
-         * @param createdTimestamp Timestamp noting when the contact list was created in ISO 8601 format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdTimestamp(@Nullable Output<String> createdTimestamp) {
             $.createdTimestamp = createdTimestamp;
             return this;
         }
 
-        /**
-         * @param createdTimestamp Timestamp noting when the contact list was created in ISO 8601 format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdTimestamp(String createdTimestamp) {
             return createdTimestamp(Output.of(createdTimestamp));
         }
 
-        /**
-         * @param description Description of what the contact list is about.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of what the contact list is about.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param lastUpdatedTimestamp Timestamp noting the last time the contact list was updated in ISO 8601 format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastUpdatedTimestamp(@Nullable Output<String> lastUpdatedTimestamp) {
             $.lastUpdatedTimestamp = lastUpdatedTimestamp;
             return this;
         }
 
-        /**
-         * @param lastUpdatedTimestamp Timestamp noting the last time the contact list was updated in ISO 8601 format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastUpdatedTimestamp(String lastUpdatedTimestamp) {
             return lastUpdatedTimestamp(Output.of(lastUpdatedTimestamp));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
@@ -321,33 +185,15 @@ public final class ContactListState extends com.pulumi.resources.ResourceArgs {
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param topics Configuration block(s) with topic for the contact list. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topics(@Nullable Output<List<ContactListTopicArgs>> topics) {
             $.topics = topics;
             return this;
         }
 
-        /**
-         * @param topics Configuration block(s) with topic for the contact list. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topics(List<ContactListTopicArgs> topics) {
             return topics(Output.of(topics));
         }
 
-        /**
-         * @param topics Configuration block(s) with topic for the contact list. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topics(ContactListTopicArgs... topics) {
             return topics(List.of(topics));
         }

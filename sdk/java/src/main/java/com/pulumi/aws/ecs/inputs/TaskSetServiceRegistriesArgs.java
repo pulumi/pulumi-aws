@@ -17,62 +17,30 @@ public final class TaskSetServiceRegistriesArgs extends com.pulumi.resources.Res
 
     public static final TaskSetServiceRegistriesArgs Empty = new TaskSetServiceRegistriesArgs();
 
-    /**
-     * The container name value, already specified in the task definition, to be used for your service discovery service.
-     * 
-     */
     @Import(name="containerName")
     private @Nullable Output<String> containerName;
 
-    /**
-     * @return The container name value, already specified in the task definition, to be used for your service discovery service.
-     * 
-     */
     public Optional<Output<String>> containerName() {
         return Optional.ofNullable(this.containerName);
     }
 
-    /**
-     * The port value, already specified in the task definition, to be used for your service discovery service.
-     * 
-     */
     @Import(name="containerPort")
     private @Nullable Output<Integer> containerPort;
 
-    /**
-     * @return The port value, already specified in the task definition, to be used for your service discovery service.
-     * 
-     */
     public Optional<Output<Integer>> containerPort() {
         return Optional.ofNullable(this.containerPort);
     }
 
-    /**
-     * The port value used if your Service Discovery service specified an SRV record.
-     * 
-     */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
-    /**
-     * @return The port value used if your Service Discovery service specified an SRV record.
-     * 
-     */
     public Optional<Output<Integer>> port() {
         return Optional.ofNullable(this.port);
     }
 
-    /**
-     * The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws.servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
-     * 
-     */
     @Import(name="registryArn", required=true)
     private Output<String> registryArn;
 
-    /**
-     * @return The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws.servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
-     * 
-     */
     public Output<String> registryArn() {
         return this.registryArn;
     }
@@ -104,86 +72,38 @@ public final class TaskSetServiceRegistriesArgs extends com.pulumi.resources.Res
             $ = new TaskSetServiceRegistriesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param containerName The container name value, already specified in the task definition, to be used for your service discovery service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerName(@Nullable Output<String> containerName) {
             $.containerName = containerName;
             return this;
         }
 
-        /**
-         * @param containerName The container name value, already specified in the task definition, to be used for your service discovery service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerName(String containerName) {
             return containerName(Output.of(containerName));
         }
 
-        /**
-         * @param containerPort The port value, already specified in the task definition, to be used for your service discovery service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerPort(@Nullable Output<Integer> containerPort) {
             $.containerPort = containerPort;
             return this;
         }
 
-        /**
-         * @param containerPort The port value, already specified in the task definition, to be used for your service discovery service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerPort(Integer containerPort) {
             return containerPort(Output.of(containerPort));
         }
 
-        /**
-         * @param port The port value used if your Service Discovery service specified an SRV record.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(@Nullable Output<Integer> port) {
             $.port = port;
             return this;
         }
 
-        /**
-         * @param port The port value used if your Service Discovery service specified an SRV record.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(Integer port) {
             return port(Output.of(port));
         }
 
-        /**
-         * @param registryArn The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws.servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryArn(Output<String> registryArn) {
             $.registryArn = registryArn;
             return this;
         }
 
-        /**
-         * @param registryArn The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws.servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryArn(String registryArn) {
             return registryArn(Output.of(registryArn));
         }

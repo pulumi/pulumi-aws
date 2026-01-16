@@ -16,107 +16,51 @@ public final class DomainNameDomainNameConfigurationArgs extends com.pulumi.reso
 
     public static final DomainNameDomainNameConfigurationArgs Empty = new DomainNameDomainNameConfigurationArgs();
 
-    /**
-     * ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `aws.acm.Certificate` resource to configure an ACM certificate.
-     * 
-     */
     @Import(name="certificateArn", required=true)
     private Output<String> certificateArn;
 
-    /**
-     * @return ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `aws.acm.Certificate` resource to configure an ACM certificate.
-     * 
-     */
     public Output<String> certificateArn() {
         return this.certificateArn;
     }
 
-    /**
-     * Endpoint type. Valid values: `REGIONAL`.
-     * 
-     */
     @Import(name="endpointType", required=true)
     private Output<String> endpointType;
 
-    /**
-     * @return Endpoint type. Valid values: `REGIONAL`.
-     * 
-     */
     public Output<String> endpointType() {
         return this.endpointType;
     }
 
-    /**
-     * Amazon Route 53 Hosted Zone ID of the endpoint.
-     * 
-     */
     @Import(name="hostedZoneId")
     private @Nullable Output<String> hostedZoneId;
 
-    /**
-     * @return Amazon Route 53 Hosted Zone ID of the endpoint.
-     * 
-     */
     public Optional<Output<String>> hostedZoneId() {
         return Optional.ofNullable(this.hostedZoneId);
     }
 
-    /**
-     * The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
-     * 
-     */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
-    /**
-     * @return The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
-     * 
-     */
     public Optional<Output<String>> ipAddressType() {
         return Optional.ofNullable(this.ipAddressType);
     }
 
-    /**
-     * ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
-     * 
-     */
     @Import(name="ownershipVerificationCertificateArn")
     private @Nullable Output<String> ownershipVerificationCertificateArn;
 
-    /**
-     * @return ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
-     * 
-     */
     public Optional<Output<String>> ownershipVerificationCertificateArn() {
         return Optional.ofNullable(this.ownershipVerificationCertificateArn);
     }
 
-    /**
-     * Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
-     * 
-     */
     @Import(name="securityPolicy", required=true)
     private Output<String> securityPolicy;
 
-    /**
-     * @return Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
-     * 
-     */
     public Output<String> securityPolicy() {
         return this.securityPolicy;
     }
 
-    /**
-     * Target domain name.
-     * 
-     */
     @Import(name="targetDomainName")
     private @Nullable Output<String> targetDomainName;
 
-    /**
-     * @return Target domain name.
-     * 
-     */
     public Optional<Output<String>> targetDomainName() {
         return Optional.ofNullable(this.targetDomainName);
     }
@@ -151,149 +95,65 @@ public final class DomainNameDomainNameConfigurationArgs extends com.pulumi.reso
             $ = new DomainNameDomainNameConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificateArn ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `aws.acm.Certificate` resource to configure an ACM certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateArn(Output<String> certificateArn) {
             $.certificateArn = certificateArn;
             return this;
         }
 
-        /**
-         * @param certificateArn ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `aws.acm.Certificate` resource to configure an ACM certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateArn(String certificateArn) {
             return certificateArn(Output.of(certificateArn));
         }
 
-        /**
-         * @param endpointType Endpoint type. Valid values: `REGIONAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointType(Output<String> endpointType) {
             $.endpointType = endpointType;
             return this;
         }
 
-        /**
-         * @param endpointType Endpoint type. Valid values: `REGIONAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointType(String endpointType) {
             return endpointType(Output.of(endpointType));
         }
 
-        /**
-         * @param hostedZoneId Amazon Route 53 Hosted Zone ID of the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostedZoneId(@Nullable Output<String> hostedZoneId) {
             $.hostedZoneId = hostedZoneId;
             return this;
         }
 
-        /**
-         * @param hostedZoneId Amazon Route 53 Hosted Zone ID of the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostedZoneId(String hostedZoneId) {
             return hostedZoneId(Output.of(hostedZoneId));
         }
 
-        /**
-         * @param ipAddressType The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
             $.ipAddressType = ipAddressType;
             return this;
         }
 
-        /**
-         * @param ipAddressType The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddressType(String ipAddressType) {
             return ipAddressType(Output.of(ipAddressType));
         }
 
-        /**
-         * @param ownershipVerificationCertificateArn ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownershipVerificationCertificateArn(@Nullable Output<String> ownershipVerificationCertificateArn) {
             $.ownershipVerificationCertificateArn = ownershipVerificationCertificateArn;
             return this;
         }
 
-        /**
-         * @param ownershipVerificationCertificateArn ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownershipVerificationCertificateArn(String ownershipVerificationCertificateArn) {
             return ownershipVerificationCertificateArn(Output.of(ownershipVerificationCertificateArn));
         }
 
-        /**
-         * @param securityPolicy Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityPolicy(Output<String> securityPolicy) {
             $.securityPolicy = securityPolicy;
             return this;
         }
 
-        /**
-         * @param securityPolicy Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityPolicy(String securityPolicy) {
             return securityPolicy(Output.of(securityPolicy));
         }
 
-        /**
-         * @param targetDomainName Target domain name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetDomainName(@Nullable Output<String> targetDomainName) {
             $.targetDomainName = targetDomainName;
             return this;
         }
 
-        /**
-         * @param targetDomainName Target domain name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetDomainName(String targetDomainName) {
             return targetDomainName(Output.of(targetDomainName));
         }

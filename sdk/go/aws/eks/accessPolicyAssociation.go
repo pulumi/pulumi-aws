@@ -12,66 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Access Entry Policy Association for an EKS Cluster.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/eks"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eks.NewAccessPolicyAssociation(ctx, "example", &eks.AccessPolicyAssociationArgs{
-//				ClusterName:  pulumi.Any(exampleAwsEksCluster.Name),
-//				PolicyArn:    pulumi.String("arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy"),
-//				PrincipalArn: pulumi.Any(exampleAwsIamUser.Arn),
-//				AccessScope: &eks.AccessPolicyAssociationAccessScopeArgs{
-//					Type: pulumi.String("namespace"),
-//					Namespaces: pulumi.StringArray{
-//						pulumi.String("example-namespace"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EKS access entry using the `cluster_name` `principal_arn` and `policy_arn` separated by an octothorp (`#`). For example:
-//
-// ```sh
-// $ pulumi import aws:eks/accessPolicyAssociation:AccessPolicyAssociation my_eks_access_entry my_cluster_name#my_principal_arn#my_policy_arn
-// ```
 type AccessPolicyAssociation struct {
 	pulumi.CustomResourceState
 
-	// The configuration block to determine the scope of the access. See `accessScope` Block below.
-	AccessScope AccessPolicyAssociationAccessScopeOutput `pulumi:"accessScope"`
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
-	AssociatedAt pulumi.StringOutput `pulumi:"associatedAt"`
-	// Name of the EKS Cluster.
-	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
-	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
-	// The ARN of the access policy that you're associating.
-	PolicyArn pulumi.StringOutput `pulumi:"policyArn"`
-	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
-	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	AccessScope  AccessPolicyAssociationAccessScopeOutput `pulumi:"accessScope"`
+	AssociatedAt pulumi.StringOutput                      `pulumi:"associatedAt"`
+	ClusterName  pulumi.StringOutput                      `pulumi:"clusterName"`
+	ModifiedAt   pulumi.StringOutput                      `pulumi:"modifiedAt"`
+	PolicyArn    pulumi.StringOutput                      `pulumi:"policyArn"`
+	PrincipalArn pulumi.StringOutput                      `pulumi:"principalArn"`
+	Region       pulumi.StringOutput                      `pulumi:"region"`
 }
 
 // NewAccessPolicyAssociation registers a new resource with the given unique name, arguments, and options.
@@ -116,37 +66,23 @@ func GetAccessPolicyAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccessPolicyAssociation resources.
 type accessPolicyAssociationState struct {
-	// The configuration block to determine the scope of the access. See `accessScope` Block below.
-	AccessScope *AccessPolicyAssociationAccessScope `pulumi:"accessScope"`
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
-	AssociatedAt *string `pulumi:"associatedAt"`
-	// Name of the EKS Cluster.
-	ClusterName *string `pulumi:"clusterName"`
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
-	ModifiedAt *string `pulumi:"modifiedAt"`
-	// The ARN of the access policy that you're associating.
-	PolicyArn *string `pulumi:"policyArn"`
-	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
-	PrincipalArn *string `pulumi:"principalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	AccessScope  *AccessPolicyAssociationAccessScope `pulumi:"accessScope"`
+	AssociatedAt *string                             `pulumi:"associatedAt"`
+	ClusterName  *string                             `pulumi:"clusterName"`
+	ModifiedAt   *string                             `pulumi:"modifiedAt"`
+	PolicyArn    *string                             `pulumi:"policyArn"`
+	PrincipalArn *string                             `pulumi:"principalArn"`
+	Region       *string                             `pulumi:"region"`
 }
 
 type AccessPolicyAssociationState struct {
-	// The configuration block to determine the scope of the access. See `accessScope` Block below.
-	AccessScope AccessPolicyAssociationAccessScopePtrInput
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
+	AccessScope  AccessPolicyAssociationAccessScopePtrInput
 	AssociatedAt pulumi.StringPtrInput
-	// Name of the EKS Cluster.
-	ClusterName pulumi.StringPtrInput
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
-	ModifiedAt pulumi.StringPtrInput
-	// The ARN of the access policy that you're associating.
-	PolicyArn pulumi.StringPtrInput
-	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
+	ClusterName  pulumi.StringPtrInput
+	ModifiedAt   pulumi.StringPtrInput
+	PolicyArn    pulumi.StringPtrInput
 	PrincipalArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
 }
 
 func (AccessPolicyAssociationState) ElementType() reflect.Type {
@@ -154,30 +90,20 @@ func (AccessPolicyAssociationState) ElementType() reflect.Type {
 }
 
 type accessPolicyAssociationArgs struct {
-	// The configuration block to determine the scope of the access. See `accessScope` Block below.
-	AccessScope AccessPolicyAssociationAccessScope `pulumi:"accessScope"`
-	// Name of the EKS Cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The ARN of the access policy that you're associating.
-	PolicyArn string `pulumi:"policyArn"`
-	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
-	PrincipalArn string `pulumi:"principalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	AccessScope  AccessPolicyAssociationAccessScope `pulumi:"accessScope"`
+	ClusterName  string                             `pulumi:"clusterName"`
+	PolicyArn    string                             `pulumi:"policyArn"`
+	PrincipalArn string                             `pulumi:"principalArn"`
+	Region       *string                            `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AccessPolicyAssociation resource.
 type AccessPolicyAssociationArgs struct {
-	// The configuration block to determine the scope of the access. See `accessScope` Block below.
-	AccessScope AccessPolicyAssociationAccessScopeInput
-	// Name of the EKS Cluster.
-	ClusterName pulumi.StringInput
-	// The ARN of the access policy that you're associating.
-	PolicyArn pulumi.StringInput
-	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
+	AccessScope  AccessPolicyAssociationAccessScopeInput
+	ClusterName  pulumi.StringInput
+	PolicyArn    pulumi.StringInput
 	PrincipalArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
 }
 
 func (AccessPolicyAssociationArgs) ElementType() reflect.Type {
@@ -267,37 +193,30 @@ func (o AccessPolicyAssociationOutput) ToAccessPolicyAssociationOutputWithContex
 	return o
 }
 
-// The configuration block to determine the scope of the access. See `accessScope` Block below.
 func (o AccessPolicyAssociationOutput) AccessScope() AccessPolicyAssociationAccessScopeOutput {
 	return o.ApplyT(func(v *AccessPolicyAssociation) AccessPolicyAssociationAccessScopeOutput { return v.AccessScope }).(AccessPolicyAssociationAccessScopeOutput)
 }
 
-// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
 func (o AccessPolicyAssociationOutput) AssociatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPolicyAssociation) pulumi.StringOutput { return v.AssociatedAt }).(pulumi.StringOutput)
 }
 
-// Name of the EKS Cluster.
 func (o AccessPolicyAssociationOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPolicyAssociation) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
 }
 
-// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
 func (o AccessPolicyAssociationOutput) ModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPolicyAssociation) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
 }
 
-// The ARN of the access policy that you're associating.
 func (o AccessPolicyAssociationOutput) PolicyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPolicyAssociation) pulumi.StringOutput { return v.PolicyArn }).(pulumi.StringOutput)
 }
 
-// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 func (o AccessPolicyAssociationOutput) PrincipalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPolicyAssociation) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AccessPolicyAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPolicyAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -58,17 +58,11 @@ class GetSubnetGroupResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN for the DB subnet group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Provides the description of the DB subnet group.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -92,33 +86,21 @@ class GetSubnetGroupResult:
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Provides the status of the DB subnet group.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[_builtins.str]:
-        """
-        Contains a list of subnet identifiers.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter(name="supportedNetworkTypes")
     def supported_network_types(self) -> Sequence[_builtins.str]:
-        """
-        The network type of the DB subnet group.
-        """
         return pulumi.get(self, "supported_network_types")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> _builtins.str:
-        """
-        Provides the VPC ID of the DB subnet group.
-        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -143,20 +125,7 @@ def get_subnet_group(name: Optional[_builtins.str] = None,
                      region: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetGroupResult:
     """
-    Use this data source to get information about an RDS subnet group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    database = aws.rds.get_subnet_group(name="my-test-database-subnet-group")
-    ```
-
-
-    :param _builtins.str name: Name of the RDS database subnet group.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -178,20 +147,7 @@ def get_subnet_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubnetGroupResult]:
     """
-    Use this data source to get information about an RDS subnet group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    database = aws.rds.get_subnet_group(name="my-test-database-subnet-group")
-    ```
-
-
-    :param _builtins.str name: Name of the RDS database subnet group.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

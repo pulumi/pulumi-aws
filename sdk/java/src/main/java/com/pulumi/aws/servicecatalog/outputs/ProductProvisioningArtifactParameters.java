@@ -12,77 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ProductProvisioningArtifactParameters {
-    /**
-     * @return Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
-     * 
-     */
     private @Nullable Boolean disableTemplateValidation;
-    /**
-     * @return Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
-     * 
-     */
     private @Nullable String templatePhysicalId;
-    /**
-     * @return Template source as URL of the CloudFormation template in Amazon S3.
-     * 
-     */
     private @Nullable String templateUrl;
-    /**
-     * @return Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
-     * 
-     */
     private @Nullable String type;
 
     private ProductProvisioningArtifactParameters() {}
-    /**
-     * @return Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
-     * 
-     */
     public Optional<Boolean> disableTemplateValidation() {
         return Optional.ofNullable(this.disableTemplateValidation);
     }
-    /**
-     * @return Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
-     * 
-     */
     public Optional<String> templatePhysicalId() {
         return Optional.ofNullable(this.templatePhysicalId);
     }
-    /**
-     * @return Template source as URL of the CloudFormation template in Amazon S3.
-     * 
-     */
     public Optional<String> templateUrl() {
         return Optional.ofNullable(this.templateUrl);
     }
-    /**
-     * @return Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

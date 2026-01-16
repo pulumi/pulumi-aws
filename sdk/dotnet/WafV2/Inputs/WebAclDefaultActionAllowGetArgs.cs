@@ -12,9 +12,6 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclDefaultActionAllowGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Defines custom handling for the web request. See `CustomRequestHandling` below for details.
-        /// </summary>
         [Input("customRequestHandling")]
         public Input<Inputs.WebAclDefaultActionAllowCustomRequestHandlingGetArgs>? CustomRequestHandling { get; set; }
 

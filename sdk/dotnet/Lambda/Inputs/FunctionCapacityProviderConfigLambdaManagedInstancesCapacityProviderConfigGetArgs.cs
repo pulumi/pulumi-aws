@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Lambda.Inputs
 
     public sealed class FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Capacity Provider.
-        /// </summary>
         [Input("capacityProviderArn", required: true)]
         public Input<string> CapacityProviderArn { get; set; } = null!;
 
-        /// <summary>
-        /// Memory GiB per vCPU for the execution environment.
-        /// </summary>
         [Input("executionEnvironmentMemoryGibPerVcpu")]
         public Input<double>? ExecutionEnvironmentMemoryGibPerVcpu { get; set; }
 
-        /// <summary>
-        /// Maximum concurrency per execution environment.
-        /// </summary>
         [Input("perExecutionEnvironmentMaxConcurrency")]
         public Input<int>? PerExecutionEnvironmentMaxConcurrency { get; set; }
 

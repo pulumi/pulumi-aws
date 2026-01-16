@@ -13,107 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS WorkSpaces Web IP Access Settings Association.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.workspacesweb.Portal;
- * import com.pulumi.aws.workspacesweb.PortalArgs;
- * import com.pulumi.aws.workspacesweb.IpAccessSettings;
- * import com.pulumi.aws.workspacesweb.IpAccessSettingsArgs;
- * import com.pulumi.aws.workspacesweb.inputs.IpAccessSettingsIpRuleArgs;
- * import com.pulumi.aws.workspacesweb.IpAccessSettingsAssociation;
- * import com.pulumi.aws.workspacesweb.IpAccessSettingsAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Portal("example", PortalArgs.builder()
- *             .displayName("example")
- *             .build());
- * 
- *         var exampleIpAccessSettings = new IpAccessSettings("exampleIpAccessSettings", IpAccessSettingsArgs.builder()
- *             .displayName("example")
- *             .ipRules(IpAccessSettingsIpRuleArgs.builder()
- *                 .ipRange("10.0.0.0/16")
- *                 .build())
- *             .build());
- * 
- *         var exampleIpAccessSettingsAssociation = new IpAccessSettingsAssociation("exampleIpAccessSettingsAssociation", IpAccessSettingsAssociationArgs.builder()
- *             .ipAccessSettingsArn(exampleIpAccessSettings.ipAccessSettingsArn())
- *             .portalArn(example.portalArn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:workspacesweb/ipAccessSettingsAssociation:IpAccessSettingsAssociation")
 public class IpAccessSettingsAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the IP access settings to associate with the portal. Forces replacement if changed.
-     * 
-     */
     @Export(name="ipAccessSettingsArn", refs={String.class}, tree="[0]")
     private Output<String> ipAccessSettingsArn;
 
-    /**
-     * @return ARN of the IP access settings to associate with the portal. Forces replacement if changed.
-     * 
-     */
     public Output<String> ipAccessSettingsArn() {
         return this.ipAccessSettingsArn;
     }
-    /**
-     * ARN of the portal to associate with the IP access settings. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="portalArn", refs={String.class}, tree="[0]")
     private Output<String> portalArn;
 
-    /**
-     * @return ARN of the portal to associate with the IP access settings. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> portalArn() {
         return this.portalArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

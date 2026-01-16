@@ -14,17 +14,9 @@ public final class GetRegionPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetRegionPlainArgs Empty = new GetRegionPlainArgs();
 
-    /**
-     * EC2 endpoint of the region to select.
-     * 
-     */
     @Import(name="endpoint")
     private @Nullable String endpoint;
 
-    /**
-     * @return EC2 endpoint of the region to select.
-     * 
-     */
     public Optional<String> endpoint() {
         return Optional.ofNullable(this.endpoint);
     }
@@ -37,8 +29,6 @@ public final class GetRegionPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Full name of the region to select. Use `region` instead.
-     * 
      * @deprecated
      * name is deprecated. Use region instead.
      * 
@@ -48,8 +38,6 @@ public final class GetRegionPlainArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable String name;
 
     /**
-     * @return Full name of the region to select. Use `region` instead.
-     * 
      * @deprecated
      * name is deprecated. Use region instead.
      * 
@@ -59,17 +47,9 @@ public final class GetRegionPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -101,12 +81,6 @@ public final class GetRegionPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetRegionPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param endpoint EC2 endpoint of the region to select.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoint(@Nullable String endpoint) {
             $.endpoint = endpoint;
             return this;
@@ -118,8 +92,6 @@ public final class GetRegionPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Full name of the region to select. Use `region` instead.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -132,12 +104,6 @@ public final class GetRegionPlainArgs extends com.pulumi.resources.InvokeArgs {
             return this;
         }
 
-        /**
-         * @param region Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

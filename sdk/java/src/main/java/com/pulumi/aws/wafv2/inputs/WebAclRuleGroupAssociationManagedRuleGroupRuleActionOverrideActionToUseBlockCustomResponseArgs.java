@@ -19,47 +19,23 @@ public final class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideA
 
     public static final WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseArgs Empty = new WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseArgs();
 
-    /**
-     * Key of a custom response body to use.
-     * 
-     */
     @Import(name="customResponseBodyKey")
     private @Nullable Output<String> customResponseBodyKey;
 
-    /**
-     * @return Key of a custom response body to use.
-     * 
-     */
     public Optional<Output<String>> customResponseBodyKey() {
         return Optional.ofNullable(this.customResponseBodyKey);
     }
 
-    /**
-     * HTTP response code to return (200-599).
-     * 
-     */
     @Import(name="responseCode", required=true)
     private Output<Integer> responseCode;
 
-    /**
-     * @return HTTP response code to return (200-599).
-     * 
-     */
     public Output<Integer> responseCode() {
         return this.responseCode;
     }
 
-    /**
-     * Headers to include in the response. See below.
-     * 
-     */
     @Import(name="responseHeaders")
     private @Nullable Output<List<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs>> responseHeaders;
 
-    /**
-     * @return Headers to include in the response. See below.
-     * 
-     */
     public Optional<Output<List<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs>>> responseHeaders() {
         return Optional.ofNullable(this.responseHeaders);
     }
@@ -90,75 +66,33 @@ public final class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideA
             $ = new WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customResponseBodyKey Key of a custom response body to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customResponseBodyKey(@Nullable Output<String> customResponseBodyKey) {
             $.customResponseBodyKey = customResponseBodyKey;
             return this;
         }
 
-        /**
-         * @param customResponseBodyKey Key of a custom response body to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customResponseBodyKey(String customResponseBodyKey) {
             return customResponseBodyKey(Output.of(customResponseBodyKey));
         }
 
-        /**
-         * @param responseCode HTTP response code to return (200-599).
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseCode(Output<Integer> responseCode) {
             $.responseCode = responseCode;
             return this;
         }
 
-        /**
-         * @param responseCode HTTP response code to return (200-599).
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseCode(Integer responseCode) {
             return responseCode(Output.of(responseCode));
         }
 
-        /**
-         * @param responseHeaders Headers to include in the response. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseHeaders(@Nullable Output<List<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs>> responseHeaders) {
             $.responseHeaders = responseHeaders;
             return this;
         }
 
-        /**
-         * @param responseHeaders Headers to include in the response. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseHeaders(List<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs> responseHeaders) {
             return responseHeaders(Output.of(responseHeaders));
         }
 
-        /**
-         * @param responseHeaders Headers to include in the response. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseHeaders(WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs... responseHeaders) {
             return responseHeaders(List.of(responseHeaders));
         }

@@ -25,10 +25,6 @@ class ApplicationAssignmentArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApplicationAssignment resource.
-        :param pulumi.Input[_builtins.str] application_arn: ARN of the application.
-        :param pulumi.Input[_builtins.str] principal_id: An identifier for an object in IAM Identity Center, such as a user or group.
-        :param pulumi.Input[_builtins.str] principal_type: Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "application_arn", application_arn)
         pulumi.set(__self__, "principal_id", principal_id)
@@ -39,9 +35,6 @@ class ApplicationAssignmentArgs:
     @_builtins.property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the application.
-        """
         return pulumi.get(self, "application_arn")
 
     @application_arn.setter
@@ -51,9 +44,6 @@ class ApplicationAssignmentArgs:
     @_builtins.property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        An identifier for an object in IAM Identity Center, such as a user or group.
-        """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
@@ -63,9 +53,6 @@ class ApplicationAssignmentArgs:
     @_builtins.property
     @pulumi.getter(name="principalType")
     def principal_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-        """
         return pulumi.get(self, "principal_type")
 
     @principal_type.setter
@@ -75,9 +62,6 @@ class ApplicationAssignmentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -94,10 +78,6 @@ class _ApplicationAssignmentState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApplicationAssignment resources.
-        :param pulumi.Input[_builtins.str] application_arn: ARN of the application.
-        :param pulumi.Input[_builtins.str] principal_id: An identifier for an object in IAM Identity Center, such as a user or group.
-        :param pulumi.Input[_builtins.str] principal_type: Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if application_arn is not None:
             pulumi.set(__self__, "application_arn", application_arn)
@@ -111,9 +91,6 @@ class _ApplicationAssignmentState:
     @_builtins.property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the application.
-        """
         return pulumi.get(self, "application_arn")
 
     @application_arn.setter
@@ -123,9 +100,6 @@ class _ApplicationAssignmentState:
     @_builtins.property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An identifier for an object in IAM Identity Center, such as a user or group.
-        """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
@@ -135,9 +109,6 @@ class _ApplicationAssignmentState:
     @_builtins.property
     @pulumi.getter(name="principalType")
     def principal_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-        """
         return pulumi.get(self, "principal_type")
 
     @principal_type.setter
@@ -147,9 +118,6 @@ class _ApplicationAssignmentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -169,48 +137,9 @@ class ApplicationAssignment(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS SSO Admin Application Assignment.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.ApplicationAssignment("example",
-            application_arn=example_aws_ssoadmin_application["arn"],
-            principal_id=example_aws_identitystore_user["userId"],
-            principal_type="USER")
-        ```
-
-        ### Group Type
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.ApplicationAssignment("example",
-            application_arn=example_aws_ssoadmin_application["arn"],
-            principal_id=example_aws_identitystore_group["groupId"],
-            principal_type="GROUP")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SSO Admin Application Assignment using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ssoadmin/applicationAssignment:ApplicationAssignment example arn:aws:sso::123456789012:application/id-12345678,abcd1234,USER
-        ```
-
+        Create a ApplicationAssignment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_arn: ARN of the application.
-        :param pulumi.Input[_builtins.str] principal_id: An identifier for an object in IAM Identity Center, such as a user or group.
-        :param pulumi.Input[_builtins.str] principal_type: Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -219,42 +148,7 @@ class ApplicationAssignment(pulumi.CustomResource):
                  args: ApplicationAssignmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS SSO Admin Application Assignment.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.ApplicationAssignment("example",
-            application_arn=example_aws_ssoadmin_application["arn"],
-            principal_id=example_aws_identitystore_user["userId"],
-            principal_type="USER")
-        ```
-
-        ### Group Type
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.ApplicationAssignment("example",
-            application_arn=example_aws_ssoadmin_application["arn"],
-            principal_id=example_aws_identitystore_group["groupId"],
-            principal_type="GROUP")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SSO Admin Application Assignment using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ssoadmin/applicationAssignment:ApplicationAssignment example arn:aws:sso::123456789012:application/id-12345678,abcd1234,USER
-        ```
-
+        Create a ApplicationAssignment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ApplicationAssignmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -314,10 +208,6 @@ class ApplicationAssignment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_arn: ARN of the application.
-        :param pulumi.Input[_builtins.str] principal_id: An identifier for an object in IAM Identity Center, such as a user or group.
-        :param pulumi.Input[_builtins.str] principal_type: Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -332,32 +222,20 @@ class ApplicationAssignment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the application.
-        """
         return pulumi.get(self, "application_arn")
 
     @_builtins.property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        An identifier for an object in IAM Identity Center, such as a user or group.
-        """
         return pulumi.get(self, "principal_id")
 
     @_builtins.property
     @pulumi.getter(name="principalType")
     def principal_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-        """
         return pulumi.get(self, "principal_type")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

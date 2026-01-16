@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OptInResourceDataDataLocation {
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     private @Nullable String catalogId;
-    /**
-     * @return ARN that uniquely identifies the data location resource.
-     * 
-     */
     private String resourceArn;
 
     private OptInResourceDataDataLocation() {}
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public Optional<String> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
-    /**
-     * @return ARN that uniquely identifies the data location resource.
-     * 
-     */
     public String resourceArn() {
         return this.resourceArn;
     }

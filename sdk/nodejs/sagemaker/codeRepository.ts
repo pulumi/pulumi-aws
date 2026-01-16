@@ -7,58 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a SageMaker AI Code Repository resource.
- *
- * ## Example Usage
- *
- * ### Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.CodeRepository("example", {
- *     codeRepositoryName: "example",
- *     gitConfig: {
- *         repositoryUrl: "https://github.com/github/docs.git",
- *     },
- * });
- * ```
- *
- * ### Example with Secret
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.secretsmanager.Secret("example", {name: "example"});
- * const exampleSecretVersion = new aws.secretsmanager.SecretVersion("example", {
- *     secretId: example.id,
- *     secretString: JSON.stringify({
- *         username: "example",
- *         password: "example",
- *     }),
- * });
- * const exampleCodeRepository = new aws.sagemaker.CodeRepository("example", {
- *     codeRepositoryName: "example",
- *     gitConfig: {
- *         repositoryUrl: "https://github.com/github/docs.git",
- *         secretArn: example.arn,
- *     },
- * }, {
- *     dependsOn: [exampleSecretVersion],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import SageMaker AI Code Repositories using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
- * ```
- */
 export class CodeRepository extends pulumi.CustomResource {
     /**
      * Get an existing CodeRepository resource's state with the given name, ID, and optional extra
@@ -87,29 +35,11 @@ export class CodeRepository extends pulumi.CustomResource {
         return obj['__pulumiType'] === CodeRepository.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The name of the Code Repository (must be unique).
-     */
     declare public readonly codeRepositoryName: pulumi.Output<string>;
-    /**
-     * Specifies details about the repository. see Git Config details below.
-     */
     declare public readonly gitConfig: pulumi.Output<outputs.sagemaker.CodeRepositoryGitConfig>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -155,29 +85,11 @@ export class CodeRepository extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CodeRepository resources.
  */
 export interface CodeRepositoryState {
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The name of the Code Repository (must be unique).
-     */
     codeRepositoryName?: pulumi.Input<string>;
-    /**
-     * Specifies details about the repository. see Git Config details below.
-     */
     gitConfig?: pulumi.Input<inputs.sagemaker.CodeRepositoryGitConfig>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -185,20 +97,8 @@ export interface CodeRepositoryState {
  * The set of arguments for constructing a CodeRepository resource.
  */
 export interface CodeRepositoryArgs {
-    /**
-     * The name of the Code Repository (must be unique).
-     */
     codeRepositoryName: pulumi.Input<string>;
-    /**
-     * Specifies details about the repository. see Git Config details below.
-     */
     gitConfig: pulumi.Input<inputs.sagemaker.CodeRepositoryGitConfig>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

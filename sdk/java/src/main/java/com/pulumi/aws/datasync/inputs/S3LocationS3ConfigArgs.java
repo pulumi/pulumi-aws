@@ -14,17 +14,9 @@ public final class S3LocationS3ConfigArgs extends com.pulumi.resources.ResourceA
 
     public static final S3LocationS3ConfigArgs Empty = new S3LocationS3ConfigArgs();
 
-    /**
-     * ARN of the IAM Role used to connect to the S3 Bucket.
-     * 
-     */
     @Import(name="bucketAccessRoleArn", required=true)
     private Output<String> bucketAccessRoleArn;
 
-    /**
-     * @return ARN of the IAM Role used to connect to the S3 Bucket.
-     * 
-     */
     public Output<String> bucketAccessRoleArn() {
         return this.bucketAccessRoleArn;
     }
@@ -53,23 +45,11 @@ public final class S3LocationS3ConfigArgs extends com.pulumi.resources.ResourceA
             $ = new S3LocationS3ConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketAccessRoleArn ARN of the IAM Role used to connect to the S3 Bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketAccessRoleArn(Output<String> bucketAccessRoleArn) {
             $.bucketAccessRoleArn = bucketAccessRoleArn;
             return this;
         }
 
-        /**
-         * @param bucketAccessRoleArn ARN of the IAM Role used to connect to the S3 Bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketAccessRoleArn(String bucketAccessRoleArn) {
             return bucketAccessRoleArn(Output.of(bucketAccessRoleArn));
         }

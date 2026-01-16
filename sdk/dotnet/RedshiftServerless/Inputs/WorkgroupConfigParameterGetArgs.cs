@@ -12,15 +12,9 @@ namespace Pulumi.Aws.RedshiftServerless.Inputs
 
     public sealed class WorkgroupConfigParameterGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The key of the parameter. The options are `AutoMv`, `Datestyle`, `EnableCaseSensitiveIdentifier`, `EnableUserActivityLogging`, `QueryGroup`, `SearchPath`, `RequireSsl`, `UseFipsSsl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `MaxQueryCpuTime`, `MaxQueryBlocksRead`, `MaxScanRowCount`, `MaxQueryExecutionTime`, `MaxQueryQueueTime`, `MaxQueryCpuUsagePercent`, `MaxQueryTempBlocksToDisk`, `MaxJoinRowCount` and `MaxNestedLoopJoinRowCount`.
-        /// </summary>
         [Input("parameterKey", required: true)]
         public Input<string> ParameterKey { get; set; } = null!;
 
-        /// <summary>
-        /// The value of the parameter to set.
-        /// </summary>
         [Input("parameterValue", required: true)]
         public Input<string> ParameterValue { get; set; } = null!;
 

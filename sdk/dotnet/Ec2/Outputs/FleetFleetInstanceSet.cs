@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class FleetFleetInstanceSet
     {
-        /// <summary>
-        /// The IDs of the instances.
-        /// </summary>
         public readonly ImmutableArray<string> InstanceIds;
-        /// <summary>
-        /// The instance type.
-        /// </summary>
         public readonly string? InstanceType;
-        /// <summary>
-        /// Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
-        /// </summary>
         public readonly string? Lifecycle;
-        /// <summary>
-        /// The value is `Windows` for Windows instances. Otherwise, the value is blank.
-        /// </summary>
         public readonly string? Platform;
 
         [OutputConstructor]

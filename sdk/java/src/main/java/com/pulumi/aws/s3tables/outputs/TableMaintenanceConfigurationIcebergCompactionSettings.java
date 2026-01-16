@@ -10,19 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class TableMaintenanceConfigurationIcebergCompactionSettings {
-    /**
-     * @return Data objects smaller than this size may be combined with others to improve query performance.
-     * Must be between `64` and `512`.
-     * 
-     */
     private Integer targetFileSizeMb;
 
     private TableMaintenanceConfigurationIcebergCompactionSettings() {}
-    /**
-     * @return Data objects smaller than this size may be combined with others to improve query performance.
-     * Must be between `64` and `512`.
-     * 
-     */
     public Integer targetFileSizeMb() {
         return this.targetFileSizeMb;
     }

@@ -15,96 +15,23 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS CloudWatch Contributor Managed Insight Rule.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.ContributorManagedInsightRule;
- * import com.pulumi.aws.cloudwatch.ContributorManagedInsightRuleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ContributorManagedInsightRule("example", ContributorManagedInsightRuleArgs.builder()
- *             .resourceArn(test.arn())
- *             .templateName("VpcEndpointService-BytesByEndpointId-v1")
- *             .ruleState("DISABLED")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CloudWatch Contributor Managed Insight Rule using the `resource_arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudwatch/contributorManagedInsightRule:ContributorManagedInsightRule example contributor_managed_insight_rule-id-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:cloudwatch/contributorManagedInsightRule:ContributorManagedInsightRule")
 public class ContributorManagedInsightRule extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Contributor Managed Insight Rule.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Contributor Managed Insight Rule.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-     * 
-     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
-    /**
-     * @return ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
@@ -132,21 +59,9 @@ public class ContributorManagedInsightRule extends com.pulumi.resources.CustomRe
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="templateName", refs={String.class}, tree="[0]")
     private Output<String> templateName;
 
-    /**
-     * @return Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> templateName() {
         return this.templateName;
     }

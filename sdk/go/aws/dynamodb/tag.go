@@ -12,89 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an individual DynamoDB resource tag. This resource should only be used in cases where DynamoDB resources are created outside the provider (e.g., Table replicas in other regions).
-//
-// > **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `dynamodb.Table` and `dynamodb.Tag` to manage tags of the same DynamoDB Table in the same region will cause a perpetual difference where the `awsDynamodbCluster` resource will try to remove the tag being added by the `dynamodb.Tag` resource.
-//
-// > **NOTE:** This tagging resource does not use the provider `ignoreTags` configuration.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dynamodb"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// replica, err := aws.GetRegion(ctx, &aws.GetRegionArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// example, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
-// Replicas: dynamodb.TableReplicaTypeArray{
-// &dynamodb.TableReplicaTypeArgs{
-// RegionName: pulumi.String(replica.Name),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// invokeReplace, err := std.Replace(ctx, &std.ReplaceArgs{
-// Text: arn,
-// Search: current.Region,
-// Replace: replica.Name,
-// }, nil)
-// if err != nil {
-// return err
-// }
-// _, err = dynamodb.NewTag(ctx, "test", &dynamodb.TagArgs{
-// ResourceArn: pulumi.String(example.Arn.ApplyT(func(arn string) (std.ReplaceResult, error) {
-// %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.ReplaceResultOutput).ApplyT(func(invoke std.ReplaceResult) (*string, error) {
-// return invoke.Result, nil
-// }).(pulumi.StringPtrOutput)),
-// Key: pulumi.String("testkey"),
-// Value: pulumi.String("testvalue"),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_dynamodb_tag` using the DynamoDB resource identifier and key, separated by a comma (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:dynamodb/tag:Tag example arn:aws:dynamodb:us-east-1:123456789012:table/example,Name
-// ```
 type Tag struct {
 	pulumi.CustomResourceState
 
-	// Tag name.
-	Key pulumi.StringOutput `pulumi:"key"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the DynamoDB resource to tag.
+	Key         pulumi.StringOutput `pulumi:"key"`
+	Region      pulumi.StringOutput `pulumi:"region"`
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
-	// Tag value.
-	Value pulumi.StringOutput `pulumi:"value"`
+	Value       pulumi.StringOutput `pulumi:"value"`
 }
 
 // NewTag registers a new resource with the given unique name, arguments, and options.
@@ -136,25 +60,17 @@ func GetTag(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Tag resources.
 type tagState struct {
-	// Tag name.
-	Key *string `pulumi:"key"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the DynamoDB resource to tag.
+	Key         *string `pulumi:"key"`
+	Region      *string `pulumi:"region"`
 	ResourceArn *string `pulumi:"resourceArn"`
-	// Tag value.
-	Value *string `pulumi:"value"`
+	Value       *string `pulumi:"value"`
 }
 
 type TagState struct {
-	// Tag name.
-	Key pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the DynamoDB resource to tag.
+	Key         pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
 	ResourceArn pulumi.StringPtrInput
-	// Tag value.
-	Value pulumi.StringPtrInput
+	Value       pulumi.StringPtrInput
 }
 
 func (TagState) ElementType() reflect.Type {
@@ -162,26 +78,18 @@ func (TagState) ElementType() reflect.Type {
 }
 
 type tagArgs struct {
-	// Tag name.
-	Key string `pulumi:"key"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the DynamoDB resource to tag.
-	ResourceArn string `pulumi:"resourceArn"`
-	// Tag value.
-	Value string `pulumi:"value"`
+	Key         string  `pulumi:"key"`
+	Region      *string `pulumi:"region"`
+	ResourceArn string  `pulumi:"resourceArn"`
+	Value       string  `pulumi:"value"`
 }
 
 // The set of arguments for constructing a Tag resource.
 type TagArgs struct {
-	// Tag name.
-	Key pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the DynamoDB resource to tag.
+	Key         pulumi.StringInput
+	Region      pulumi.StringPtrInput
 	ResourceArn pulumi.StringInput
-	// Tag value.
-	Value pulumi.StringInput
+	Value       pulumi.StringInput
 }
 
 func (TagArgs) ElementType() reflect.Type {
@@ -271,22 +179,18 @@ func (o TagOutput) ToTagOutputWithContext(ctx context.Context) TagOutput {
 	return o
 }
 
-// Tag name.
 func (o TagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TagOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the DynamoDB resource to tag.
 func (o TagOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-// Tag value.
 func (o TagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }

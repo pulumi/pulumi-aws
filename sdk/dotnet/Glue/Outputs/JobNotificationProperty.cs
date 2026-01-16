@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class JobNotificationProperty
     {
-        /// <summary>
-        /// After a job run starts, the number of minutes to wait before sending a job run delay notification.
-        /// </summary>
         public readonly int? NotifyDelayAfter;
 
         [OutputConstructor]

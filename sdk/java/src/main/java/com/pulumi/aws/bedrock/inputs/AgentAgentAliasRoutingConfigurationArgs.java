@@ -14,32 +14,16 @@ public final class AgentAgentAliasRoutingConfigurationArgs extends com.pulumi.re
 
     public static final AgentAgentAliasRoutingConfigurationArgs Empty = new AgentAgentAliasRoutingConfigurationArgs();
 
-    /**
-     * Version of the agent with which the alias is associated.
-     * 
-     */
     @Import(name="agentVersion", required=true)
     private Output<String> agentVersion;
 
-    /**
-     * @return Version of the agent with which the alias is associated.
-     * 
-     */
     public Output<String> agentVersion() {
         return this.agentVersion;
     }
 
-    /**
-     * ARN of the Provisioned Throughput assigned to the agent alias.
-     * 
-     */
     @Import(name="provisionedThroughput", required=true)
     private Output<String> provisionedThroughput;
 
-    /**
-     * @return ARN of the Provisioned Throughput assigned to the agent alias.
-     * 
-     */
     public Output<String> provisionedThroughput() {
         return this.provisionedThroughput;
     }
@@ -69,44 +53,20 @@ public final class AgentAgentAliasRoutingConfigurationArgs extends com.pulumi.re
             $ = new AgentAgentAliasRoutingConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param agentVersion Version of the agent with which the alias is associated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentVersion(Output<String> agentVersion) {
             $.agentVersion = agentVersion;
             return this;
         }
 
-        /**
-         * @param agentVersion Version of the agent with which the alias is associated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentVersion(String agentVersion) {
             return agentVersion(Output.of(agentVersion));
         }
 
-        /**
-         * @param provisionedThroughput ARN of the Provisioned Throughput assigned to the agent alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder provisionedThroughput(Output<String> provisionedThroughput) {
             $.provisionedThroughput = provisionedThroughput;
             return this;
         }
 
-        /**
-         * @param provisionedThroughput ARN of the Provisioned Throughput assigned to the agent alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder provisionedThroughput(String provisionedThroughput) {
             return provisionedThroughput(Output.of(provisionedThroughput));
         }

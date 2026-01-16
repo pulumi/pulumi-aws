@@ -12,41 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages Service Catalog AWS Organizations Access, a portfolio sharing feature through AWS Organizations. This allows Service Catalog to receive updates on your organization in order to sync your shares with the current structure. This resource will prompt AWS to set `organizations:EnableAWSServiceAccess` on your behalf so that your shares can be in sync with any changes in your AWS Organizations structure.
-//
-// > **NOTE:** This resource can only be used by the management account in the organization. In other words, a delegated administrator is not authorized to use the resource.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.NewOrganizationsAccess(ctx, "example", &servicecatalog.OrganizationsAccessArgs{
-//				Enabled: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type OrganizationsAccess struct {
 	pulumi.CustomResourceState
 
-	// Whether to enable AWS Organizations access.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 }
 
@@ -83,12 +51,10 @@ func GetOrganizationsAccess(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OrganizationsAccess resources.
 type organizationsAccessState struct {
-	// Whether to enable AWS Organizations access.
 	Enabled *bool `pulumi:"enabled"`
 }
 
 type OrganizationsAccessState struct {
-	// Whether to enable AWS Organizations access.
 	Enabled pulumi.BoolPtrInput
 }
 
@@ -97,13 +63,11 @@ func (OrganizationsAccessState) ElementType() reflect.Type {
 }
 
 type organizationsAccessArgs struct {
-	// Whether to enable AWS Organizations access.
 	Enabled bool `pulumi:"enabled"`
 }
 
 // The set of arguments for constructing a OrganizationsAccess resource.
 type OrganizationsAccessArgs struct {
-	// Whether to enable AWS Organizations access.
 	Enabled pulumi.BoolInput
 }
 
@@ -194,7 +158,6 @@ func (o OrganizationsAccessOutput) ToOrganizationsAccessOutputWithContext(ctx co
 	return o
 }
 
-// Whether to enable AWS Organizations access.
 func (o OrganizationsAccessOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *OrganizationsAccess) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }

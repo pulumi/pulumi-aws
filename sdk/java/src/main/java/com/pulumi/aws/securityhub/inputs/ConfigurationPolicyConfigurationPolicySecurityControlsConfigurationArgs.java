@@ -17,47 +17,23 @@ public final class ConfigurationPolicyConfigurationPolicySecurityControlsConfigu
 
     public static final ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs Empty = new ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs();
 
-    /**
-     * A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabledControlIdentifiers`.
-     * 
-     */
     @Import(name="disabledControlIdentifiers")
     private @Nullable Output<List<String>> disabledControlIdentifiers;
 
-    /**
-     * @return A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabledControlIdentifiers`.
-     * 
-     */
     public Optional<Output<List<String>>> disabledControlIdentifiers() {
         return Optional.ofNullable(this.disabledControlIdentifiers);
     }
 
-    /**
-     * A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabledControlIdentifiers`.
-     * 
-     */
     @Import(name="enabledControlIdentifiers")
     private @Nullable Output<List<String>> enabledControlIdentifiers;
 
-    /**
-     * @return A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabledControlIdentifiers`.
-     * 
-     */
     public Optional<Output<List<String>>> enabledControlIdentifiers() {
         return Optional.ofNullable(this.enabledControlIdentifiers);
     }
 
-    /**
-     * A list of control parameter customizations that are included in a configuration policy. Include multiple blocks to define multiple control custom parameters. See below.
-     * 
-     */
     @Import(name="securityControlCustomParameters")
     private @Nullable Output<List<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs>> securityControlCustomParameters;
 
-    /**
-     * @return A list of control parameter customizations that are included in a configuration policy. Include multiple blocks to define multiple control custom parameters. See below.
-     * 
-     */
     public Optional<Output<List<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs>>> securityControlCustomParameters() {
         return Optional.ofNullable(this.securityControlCustomParameters);
     }
@@ -88,95 +64,41 @@ public final class ConfigurationPolicyConfigurationPolicySecurityControlsConfigu
             $ = new ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param disabledControlIdentifiers A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabledControlIdentifiers`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disabledControlIdentifiers(@Nullable Output<List<String>> disabledControlIdentifiers) {
             $.disabledControlIdentifiers = disabledControlIdentifiers;
             return this;
         }
 
-        /**
-         * @param disabledControlIdentifiers A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabledControlIdentifiers`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disabledControlIdentifiers(List<String> disabledControlIdentifiers) {
             return disabledControlIdentifiers(Output.of(disabledControlIdentifiers));
         }
 
-        /**
-         * @param disabledControlIdentifiers A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabledControlIdentifiers`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disabledControlIdentifiers(String... disabledControlIdentifiers) {
             return disabledControlIdentifiers(List.of(disabledControlIdentifiers));
         }
 
-        /**
-         * @param enabledControlIdentifiers A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabledControlIdentifiers`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabledControlIdentifiers(@Nullable Output<List<String>> enabledControlIdentifiers) {
             $.enabledControlIdentifiers = enabledControlIdentifiers;
             return this;
         }
 
-        /**
-         * @param enabledControlIdentifiers A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabledControlIdentifiers`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabledControlIdentifiers(List<String> enabledControlIdentifiers) {
             return enabledControlIdentifiers(Output.of(enabledControlIdentifiers));
         }
 
-        /**
-         * @param enabledControlIdentifiers A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabledControlIdentifiers`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabledControlIdentifiers(String... enabledControlIdentifiers) {
             return enabledControlIdentifiers(List.of(enabledControlIdentifiers));
         }
 
-        /**
-         * @param securityControlCustomParameters A list of control parameter customizations that are included in a configuration policy. Include multiple blocks to define multiple control custom parameters. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityControlCustomParameters(@Nullable Output<List<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs>> securityControlCustomParameters) {
             $.securityControlCustomParameters = securityControlCustomParameters;
             return this;
         }
 
-        /**
-         * @param securityControlCustomParameters A list of control parameter customizations that are included in a configuration policy. Include multiple blocks to define multiple control custom parameters. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityControlCustomParameters(List<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs> securityControlCustomParameters) {
             return securityControlCustomParameters(Output.of(securityControlCustomParameters));
         }
 
-        /**
-         * @param securityControlCustomParameters A list of control parameter customizations that are included in a configuration policy. Include multiple blocks to define multiple control custom parameters. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityControlCustomParameters(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs... securityControlCustomParameters) {
             return securityControlCustomParameters(List.of(securityControlCustomParameters));
         }

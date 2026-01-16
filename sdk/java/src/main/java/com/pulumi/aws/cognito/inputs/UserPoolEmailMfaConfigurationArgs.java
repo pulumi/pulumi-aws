@@ -15,32 +15,16 @@ public final class UserPoolEmailMfaConfigurationArgs extends com.pulumi.resource
 
     public static final UserPoolEmailMfaConfigurationArgs Empty = new UserPoolEmailMfaConfigurationArgs();
 
-    /**
-     * The template for the email messages that your user pool sends to users with codes for MFA and sign-in with email OTPs. The message must contain the {####} placeholder. In the message, Amazon Cognito replaces this placeholder with the code. If you don&#39;t provide this parameter, Amazon Cognito sends messages in the default format.
-     * 
-     */
     @Import(name="message")
     private @Nullable Output<String> message;
 
-    /**
-     * @return The template for the email messages that your user pool sends to users with codes for MFA and sign-in with email OTPs. The message must contain the {####} placeholder. In the message, Amazon Cognito replaces this placeholder with the code. If you don&#39;t provide this parameter, Amazon Cognito sends messages in the default format.
-     * 
-     */
     public Optional<Output<String>> message() {
         return Optional.ofNullable(this.message);
     }
 
-    /**
-     * The subject of the email messages that your user pool sends to users with codes for MFA and email OTP sign-in.
-     * 
-     */
     @Import(name="subject")
     private @Nullable Output<String> subject;
 
-    /**
-     * @return The subject of the email messages that your user pool sends to users with codes for MFA and email OTP sign-in.
-     * 
-     */
     public Optional<Output<String>> subject() {
         return Optional.ofNullable(this.subject);
     }
@@ -70,44 +54,20 @@ public final class UserPoolEmailMfaConfigurationArgs extends com.pulumi.resource
             $ = new UserPoolEmailMfaConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param message The template for the email messages that your user pool sends to users with codes for MFA and sign-in with email OTPs. The message must contain the {####} placeholder. In the message, Amazon Cognito replaces this placeholder with the code. If you don&#39;t provide this parameter, Amazon Cognito sends messages in the default format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder message(@Nullable Output<String> message) {
             $.message = message;
             return this;
         }
 
-        /**
-         * @param message The template for the email messages that your user pool sends to users with codes for MFA and sign-in with email OTPs. The message must contain the {####} placeholder. In the message, Amazon Cognito replaces this placeholder with the code. If you don&#39;t provide this parameter, Amazon Cognito sends messages in the default format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder message(String message) {
             return message(Output.of(message));
         }
 
-        /**
-         * @param subject The subject of the email messages that your user pool sends to users with codes for MFA and email OTP sign-in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subject(@Nullable Output<String> subject) {
             $.subject = subject;
             return this;
         }
 
-        /**
-         * @param subject The subject of the email messages that your user pool sends to users with codes for MFA and email OTP sign-in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subject(String subject) {
             return subject(Output.of(subject));
         }

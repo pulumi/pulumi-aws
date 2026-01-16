@@ -23,8 +23,6 @@ class RetentionConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RetentionConfiguration resource.
-        :param pulumi.Input[_builtins.int] retention_period_in_days: The number of days AWS Config stores historical information.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
         if region is not None:
@@ -33,9 +31,6 @@ class RetentionConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="retentionPeriodInDays")
     def retention_period_in_days(self) -> pulumi.Input[_builtins.int]:
-        """
-        The number of days AWS Config stores historical information.
-        """
         return pulumi.get(self, "retention_period_in_days")
 
     @retention_period_in_days.setter
@@ -45,9 +40,6 @@ class RetentionConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -63,9 +55,6 @@ class _RetentionConfigurationState:
                  retention_period_in_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering RetentionConfiguration resources.
-        :param pulumi.Input[_builtins.str] name: The name of the retention configuration object. The object is always named **default**.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] retention_period_in_days: The number of days AWS Config stores historical information.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -77,9 +66,6 @@ class _RetentionConfigurationState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the retention configuration object. The object is always named **default**.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -89,9 +75,6 @@ class _RetentionConfigurationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -101,9 +84,6 @@ class _RetentionConfigurationState:
     @_builtins.property
     @pulumi.getter(name="retentionPeriodInDays")
     def retention_period_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of days AWS Config stores historical information.
-        """
         return pulumi.get(self, "retention_period_in_days")
 
     @retention_period_in_days.setter
@@ -121,30 +101,9 @@ class RetentionConfiguration(pulumi.CustomResource):
                  retention_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
-        Provides a resource to manage the AWS Config retention configuration.
-        The retention configuration defines the number of days that AWS Config stores historical information.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cfg.RetentionConfiguration("example", retention_period_in_days=90)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import the AWS Config retention configuration using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:cfg/retentionConfiguration:RetentionConfiguration example default
-        ```
-
+        Create a RetentionConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] retention_period_in_days: The number of days AWS Config stores historical information.
         """
         ...
     @overload
@@ -153,26 +112,7 @@ class RetentionConfiguration(pulumi.CustomResource):
                  args: RetentionConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage the AWS Config retention configuration.
-        The retention configuration defines the number of days that AWS Config stores historical information.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cfg.RetentionConfiguration("example", retention_period_in_days=90)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import the AWS Config retention configuration using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:cfg/retentionConfiguration:RetentionConfiguration example default
-        ```
-
+        Create a RetentionConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RetentionConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -224,9 +164,6 @@ class RetentionConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: The name of the retention configuration object. The object is always named **default**.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] retention_period_in_days: The number of days AWS Config stores historical information.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -240,24 +177,15 @@ class RetentionConfiguration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the retention configuration object. The object is always named **default**.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriodInDays")
     def retention_period_in_days(self) -> pulumi.Output[_builtins.int]:
-        """
-        The number of days AWS Config stores historical information.
-        """
         return pulumi.get(self, "retention_period_in_days")
 

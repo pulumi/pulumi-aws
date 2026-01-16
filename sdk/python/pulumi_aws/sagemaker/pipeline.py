@@ -32,15 +32,6 @@ class PipelineArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Pipeline resource.
-        :param pulumi.Input[_builtins.str] pipeline_display_name: The display name of the pipeline.
-        :param pulumi.Input[_builtins.str] pipeline_name: The name of the pipeline.
-        :param pulumi.Input['PipelineParallelismConfigurationArgs'] parallelism_configuration: This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
-        :param pulumi.Input[_builtins.str] pipeline_definition: The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
-        :param pulumi.Input['PipelinePipelineDefinitionS3LocationArgs'] pipeline_definition_s3_location: The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
-        :param pulumi.Input[_builtins.str] pipeline_description: A description of the pipeline.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role the pipeline will execute as.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "pipeline_display_name", pipeline_display_name)
         pulumi.set(__self__, "pipeline_name", pipeline_name)
@@ -62,9 +53,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter(name="pipelineDisplayName")
     def pipeline_display_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The display name of the pipeline.
-        """
         return pulumi.get(self, "pipeline_display_name")
 
     @pipeline_display_name.setter
@@ -74,9 +62,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter(name="pipelineName")
     def pipeline_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the pipeline.
-        """
         return pulumi.get(self, "pipeline_name")
 
     @pipeline_name.setter
@@ -86,9 +71,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter(name="parallelismConfiguration")
     def parallelism_configuration(self) -> Optional[pulumi.Input['PipelineParallelismConfigurationArgs']]:
-        """
-        This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
-        """
         return pulumi.get(self, "parallelism_configuration")
 
     @parallelism_configuration.setter
@@ -98,9 +80,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter(name="pipelineDefinition")
     def pipeline_definition(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
-        """
         return pulumi.get(self, "pipeline_definition")
 
     @pipeline_definition.setter
@@ -110,9 +89,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter(name="pipelineDefinitionS3Location")
     def pipeline_definition_s3_location(self) -> Optional[pulumi.Input['PipelinePipelineDefinitionS3LocationArgs']]:
-        """
-        The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
-        """
         return pulumi.get(self, "pipeline_definition_s3_location")
 
     @pipeline_definition_s3_location.setter
@@ -122,9 +98,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter(name="pipelineDescription")
     def pipeline_description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description of the pipeline.
-        """
         return pulumi.get(self, "pipeline_description")
 
     @pipeline_description.setter
@@ -134,9 +107,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -146,9 +116,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the IAM role the pipeline will execute as.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -158,9 +125,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -184,17 +148,6 @@ class _PipelineState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Pipeline resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
-        :param pulumi.Input['PipelineParallelismConfigurationArgs'] parallelism_configuration: This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
-        :param pulumi.Input[_builtins.str] pipeline_definition: The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
-        :param pulumi.Input['PipelinePipelineDefinitionS3LocationArgs'] pipeline_definition_s3_location: The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
-        :param pulumi.Input[_builtins.str] pipeline_description: A description of the pipeline.
-        :param pulumi.Input[_builtins.str] pipeline_display_name: The display name of the pipeline.
-        :param pulumi.Input[_builtins.str] pipeline_name: The name of the pipeline.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role the pipeline will execute as.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -222,9 +175,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -234,9 +184,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter(name="parallelismConfiguration")
     def parallelism_configuration(self) -> Optional[pulumi.Input['PipelineParallelismConfigurationArgs']]:
-        """
-        This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
-        """
         return pulumi.get(self, "parallelism_configuration")
 
     @parallelism_configuration.setter
@@ -246,9 +193,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter(name="pipelineDefinition")
     def pipeline_definition(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
-        """
         return pulumi.get(self, "pipeline_definition")
 
     @pipeline_definition.setter
@@ -258,9 +202,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter(name="pipelineDefinitionS3Location")
     def pipeline_definition_s3_location(self) -> Optional[pulumi.Input['PipelinePipelineDefinitionS3LocationArgs']]:
-        """
-        The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
-        """
         return pulumi.get(self, "pipeline_definition_s3_location")
 
     @pipeline_definition_s3_location.setter
@@ -270,9 +211,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter(name="pipelineDescription")
     def pipeline_description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description of the pipeline.
-        """
         return pulumi.get(self, "pipeline_description")
 
     @pipeline_description.setter
@@ -282,9 +220,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter(name="pipelineDisplayName")
     def pipeline_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The display name of the pipeline.
-        """
         return pulumi.get(self, "pipeline_display_name")
 
     @pipeline_display_name.setter
@@ -294,9 +229,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter(name="pipelineName")
     def pipeline_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the pipeline.
-        """
         return pulumi.get(self, "pipeline_name")
 
     @pipeline_name.setter
@@ -306,9 +238,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -318,9 +247,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the IAM role the pipeline will execute as.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -330,9 +256,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -342,9 +265,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -369,52 +289,9 @@ class Pipeline(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a SageMaker AI Pipeline resource.
-
-        ## Example Usage
-
-        ### Basic usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.sagemaker.Pipeline("example",
-            pipeline_name="example",
-            pipeline_display_name="example",
-            role_arn=example_aws_iam_role["arn"],
-            pipeline_definition=json.dumps({
-                "Version": "2020-12-01",
-                "Steps": [{
-                    "Name": "Test",
-                    "Type": "Fail",
-                    "Arguments": {
-                        "ErrorMessage": "test",
-                    },
-                }],
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import pipelines using the `pipeline_name`. For example:
-
-        ```sh
-        $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
-        ```
-
+        Create a Pipeline resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['PipelineParallelismConfigurationArgs', 'PipelineParallelismConfigurationArgsDict']] parallelism_configuration: This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
-        :param pulumi.Input[_builtins.str] pipeline_definition: The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
-        :param pulumi.Input[Union['PipelinePipelineDefinitionS3LocationArgs', 'PipelinePipelineDefinitionS3LocationArgsDict']] pipeline_definition_s3_location: The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
-        :param pulumi.Input[_builtins.str] pipeline_description: A description of the pipeline.
-        :param pulumi.Input[_builtins.str] pipeline_display_name: The display name of the pipeline.
-        :param pulumi.Input[_builtins.str] pipeline_name: The name of the pipeline.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role the pipeline will execute as.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -423,41 +300,7 @@ class Pipeline(pulumi.CustomResource):
                  args: PipelineArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker AI Pipeline resource.
-
-        ## Example Usage
-
-        ### Basic usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.sagemaker.Pipeline("example",
-            pipeline_name="example",
-            pipeline_display_name="example",
-            role_arn=example_aws_iam_role["arn"],
-            pipeline_definition=json.dumps({
-                "Version": "2020-12-01",
-                "Steps": [{
-                    "Name": "Test",
-                    "Type": "Fail",
-                    "Arguments": {
-                        "ErrorMessage": "test",
-                    },
-                }],
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import pipelines using the `pipeline_name`. For example:
-
-        ```sh
-        $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
-        ```
-
+        Create a Pipeline resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PipelineArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -534,17 +377,6 @@ class Pipeline(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
-        :param pulumi.Input[Union['PipelineParallelismConfigurationArgs', 'PipelineParallelismConfigurationArgsDict']] parallelism_configuration: This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
-        :param pulumi.Input[_builtins.str] pipeline_definition: The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
-        :param pulumi.Input[Union['PipelinePipelineDefinitionS3LocationArgs', 'PipelinePipelineDefinitionS3LocationArgsDict']] pipeline_definition_s3_location: The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
-        :param pulumi.Input[_builtins.str] pipeline_description: A description of the pipeline.
-        :param pulumi.Input[_builtins.str] pipeline_display_name: The display name of the pipeline.
-        :param pulumi.Input[_builtins.str] pipeline_name: The name of the pipeline.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role the pipeline will execute as.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -566,88 +398,55 @@ class Pipeline(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="parallelismConfiguration")
     def parallelism_configuration(self) -> pulumi.Output[Optional['outputs.PipelineParallelismConfiguration']]:
-        """
-        This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
-        """
         return pulumi.get(self, "parallelism_configuration")
 
     @_builtins.property
     @pulumi.getter(name="pipelineDefinition")
     def pipeline_definition(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
-        """
         return pulumi.get(self, "pipeline_definition")
 
     @_builtins.property
     @pulumi.getter(name="pipelineDefinitionS3Location")
     def pipeline_definition_s3_location(self) -> pulumi.Output[Optional['outputs.PipelinePipelineDefinitionS3Location']]:
-        """
-        The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
-        """
         return pulumi.get(self, "pipeline_definition_s3_location")
 
     @_builtins.property
     @pulumi.getter(name="pipelineDescription")
     def pipeline_description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A description of the pipeline.
-        """
         return pulumi.get(self, "pipeline_description")
 
     @_builtins.property
     @pulumi.getter(name="pipelineDisplayName")
     def pipeline_display_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The display name of the pipeline.
-        """
         return pulumi.get(self, "pipeline_display_name")
 
     @_builtins.property
     @pulumi.getter(name="pipelineName")
     def pipeline_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the pipeline.
-        """
         return pulumi.get(self, "pipeline_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The ARN of the IAM role the pipeline will execute as.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

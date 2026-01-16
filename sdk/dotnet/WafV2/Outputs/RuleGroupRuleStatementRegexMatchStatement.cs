@@ -13,19 +13,8 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class RuleGroupRuleStatementRegexMatchStatement
     {
-        /// <summary>
-        /// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
-        /// </summary>
         public readonly Outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatch? FieldToMatch;
-        /// <summary>
-        /// The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
-        /// </summary>
         public readonly string RegexString;
-        /// <summary>
-        /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        /// At least one required.
-        /// See Text Transformation below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupRuleStatementRegexMatchStatementTextTransformation> TextTransformations;
 
         [OutputConstructor]

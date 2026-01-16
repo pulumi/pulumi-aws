@@ -12,68 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Amazon API Gateway Version 2 VPC Link.
-//
-// > **Note:** Amazon API Gateway Version 2 VPC Links enable private integrations that connect HTTP APIs to private resources in a VPC.
-// To enable private integration for REST APIs, use the Amazon API Gateway Version 1 VPC Link resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigatewayv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigatewayv2.NewVpcLink(ctx, "example", &apigatewayv2.VpcLinkArgs{
-//				Name: pulumi.String("example"),
-//				SecurityGroupIds: pulumi.StringArray{
-//					exampleAwsSecurityGroup.Id,
-//				},
-//				SubnetIds: pulumi.Any(exampleAwsSubnets.Ids),
-//				Tags: pulumi.StringMap{
-//					"Usage": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_apigatewayv2_vpc_link` using the VPC Link identifier. For example:
-//
-// ```sh
-// $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
-// ```
 type VpcLink struct {
 	pulumi.CustomResourceState
 
-	// VPC Link ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of the VPC Link. Must be between 1 and 128 characters in length.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Security group IDs for the VPC Link.
+	Arn              pulumi.StringOutput      `pulumi:"arn"`
+	Name             pulumi.StringOutput      `pulumi:"name"`
+	Region           pulumi.StringOutput      `pulumi:"region"`
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// Subnet IDs for the VPC Link.
-	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// Map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	SubnetIds        pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	Tags             pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll          pulumi.StringMapOutput   `pulumi:"tagsAll"`
 }
 
 // NewVpcLink registers a new resource with the given unique name, arguments, and options.
@@ -112,37 +60,23 @@ func GetVpcLink(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcLink resources.
 type vpcLinkState struct {
-	// VPC Link ARN.
-	Arn *string `pulumi:"arn"`
-	// Name of the VPC Link. Must be between 1 and 128 characters in length.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Security group IDs for the VPC Link.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// Subnet IDs for the VPC Link.
-	SubnetIds []string `pulumi:"subnetIds"`
-	// Map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn              *string           `pulumi:"arn"`
+	Name             *string           `pulumi:"name"`
+	Region           *string           `pulumi:"region"`
+	SecurityGroupIds []string          `pulumi:"securityGroupIds"`
+	SubnetIds        []string          `pulumi:"subnetIds"`
+	Tags             map[string]string `pulumi:"tags"`
+	TagsAll          map[string]string `pulumi:"tagsAll"`
 }
 
 type VpcLinkState struct {
-	// VPC Link ARN.
-	Arn pulumi.StringPtrInput
-	// Name of the VPC Link. Must be between 1 and 128 characters in length.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Security group IDs for the VPC Link.
+	Arn              pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
 	SecurityGroupIds pulumi.StringArrayInput
-	// Subnet IDs for the VPC Link.
-	SubnetIds pulumi.StringArrayInput
-	// Map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	SubnetIds        pulumi.StringArrayInput
+	Tags             pulumi.StringMapInput
+	TagsAll          pulumi.StringMapInput
 }
 
 func (VpcLinkState) ElementType() reflect.Type {
@@ -150,30 +84,20 @@ func (VpcLinkState) ElementType() reflect.Type {
 }
 
 type vpcLinkArgs struct {
-	// Name of the VPC Link. Must be between 1 and 128 characters in length.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Security group IDs for the VPC Link.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// Subnet IDs for the VPC Link.
-	SubnetIds []string `pulumi:"subnetIds"`
-	// Map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Name             *string           `pulumi:"name"`
+	Region           *string           `pulumi:"region"`
+	SecurityGroupIds []string          `pulumi:"securityGroupIds"`
+	SubnetIds        []string          `pulumi:"subnetIds"`
+	Tags             map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VpcLink resource.
 type VpcLinkArgs struct {
-	// Name of the VPC Link. Must be between 1 and 128 characters in length.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Security group IDs for the VPC Link.
+	Name             pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
 	SecurityGroupIds pulumi.StringArrayInput
-	// Subnet IDs for the VPC Link.
-	SubnetIds pulumi.StringArrayInput
-	// Map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	SubnetIds        pulumi.StringArrayInput
+	Tags             pulumi.StringMapInput
 }
 
 func (VpcLinkArgs) ElementType() reflect.Type {
@@ -263,37 +187,30 @@ func (o VpcLinkOutput) ToVpcLinkOutputWithContext(ctx context.Context) VpcLinkOu
 	return o
 }
 
-// VPC Link ARN.
 func (o VpcLinkOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the VPC Link. Must be between 1 and 128 characters in length.
 func (o VpcLinkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcLinkOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Security group IDs for the VPC Link.
 func (o VpcLinkOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// Subnet IDs for the VPC Link.
 func (o VpcLinkOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// Map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VpcLinkOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VpcLinkOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

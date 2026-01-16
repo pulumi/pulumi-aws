@@ -12,107 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an RDS DB option group resource. Documentation of the available options for various RDS engines can be found at:
-//
-// * [MariaDB Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MariaDB.Options.html)
-// * [Microsoft SQL Server Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.Options.html)
-// * [MySQL Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MySQL.Options.html)
-// * [Oracle Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.html)
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.NewOptionGroup(ctx, "example", &rds.OptionGroupArgs{
-//				Name:                   pulumi.String("option-group-test"),
-//				OptionGroupDescription: pulumi.String("Option Group"),
-//				EngineName:             pulumi.String("sqlserver-ee"),
-//				MajorEngineVersion:     pulumi.String("11.00"),
-//				Options: rds.OptionGroupOptionArray{
-//					&rds.OptionGroupOptionArgs{
-//						OptionName: pulumi.String("Timezone"),
-//						OptionSettings: rds.OptionGroupOptionOptionSettingArray{
-//							&rds.OptionGroupOptionOptionSettingArgs{
-//								Name:  pulumi.String("TIME_ZONE"),
-//								Value: pulumi.String("UTC"),
-//							},
-//						},
-//					},
-//					&rds.OptionGroupOptionArgs{
-//						OptionName: pulumi.String("SQLSERVER_BACKUP_RESTORE"),
-//						OptionSettings: rds.OptionGroupOptionOptionSettingArray{
-//							&rds.OptionGroupOptionOptionSettingArgs{
-//								Name:  pulumi.String("IAM_ROLE_ARN"),
-//								Value: pulumi.Any(exampleAwsIamRole.Arn),
-//							},
-//						},
-//					},
-//					&rds.OptionGroupOptionArgs{
-//						OptionName: pulumi.String("TDE"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// > **Note:** Any modifications to the `rds.OptionGroup` are set to happen immediately as we default to applying immediately.
-//
-// > **WARNING:** You can perform a destroy on a `rds.OptionGroup`, as long as it is not associated with any Amazon RDS resource. An option group can be associated with a DB instance, a manual DB snapshot, or an automated DB snapshot.
-//
-// If you try to delete an option group that is associated with an Amazon RDS resource, an error similar to the following is returned:
-//
-// > An error occurred (InvalidOptionGroupStateFault) when calling the DeleteOptionGroup operation: The option group 'optionGroupName' cannot be deleted because it is in use.
-//
-// More information about this can be found [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithOptionGroups.html#USER_WorkingWithOptionGroups.Delete).
-//
-// ## Import
-//
-// Using `pulumi import`, import DB option groups using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
-// ```
 type OptionGroup struct {
 	pulumi.CustomResourceState
 
-	// ARN of the DB option group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Specifies the name of the engine that this option group should be associated with.
-	EngineName pulumi.StringOutput `pulumi:"engineName"`
-	// Specifies the major version of the engine that this option group should be associated with.
-	MajorEngineVersion pulumi.StringOutput `pulumi:"majorEngineVersion"`
-	// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// Description of the option group. Defaults to "Managed by Pulumi".
-	OptionGroupDescription pulumi.StringOutput `pulumi:"optionGroupDescription"`
-	// The options to apply. See `option` Block below for more details.
-	Options OptionGroupOptionArrayOutput `pulumi:"options"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
-	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                    pulumi.StringOutput          `pulumi:"arn"`
+	EngineName             pulumi.StringOutput          `pulumi:"engineName"`
+	MajorEngineVersion     pulumi.StringOutput          `pulumi:"majorEngineVersion"`
+	Name                   pulumi.StringOutput          `pulumi:"name"`
+	NamePrefix             pulumi.StringOutput          `pulumi:"namePrefix"`
+	OptionGroupDescription pulumi.StringOutput          `pulumi:"optionGroupDescription"`
+	Options                OptionGroupOptionArrayOutput `pulumi:"options"`
+	Region                 pulumi.StringOutput          `pulumi:"region"`
+	SkipDestroy            pulumi.BoolPtrOutput         `pulumi:"skipDestroy"`
+	Tags                   pulumi.StringMapOutput       `pulumi:"tags"`
+	TagsAll                pulumi.StringMapOutput       `pulumi:"tagsAll"`
 }
 
 // NewOptionGroup registers a new resource with the given unique name, arguments, and options.
@@ -154,53 +67,31 @@ func GetOptionGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OptionGroup resources.
 type optionGroupState struct {
-	// ARN of the DB option group.
-	Arn *string `pulumi:"arn"`
-	// Specifies the name of the engine that this option group should be associated with.
-	EngineName *string `pulumi:"engineName"`
-	// Specifies the major version of the engine that this option group should be associated with.
-	MajorEngineVersion *string `pulumi:"majorEngineVersion"`
-	// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Description of the option group. Defaults to "Managed by Pulumi".
-	OptionGroupDescription *string `pulumi:"optionGroupDescription"`
-	// The options to apply. See `option` Block below for more details.
-	Options []OptionGroupOption `pulumi:"options"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
-	SkipDestroy *bool `pulumi:"skipDestroy"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                    *string             `pulumi:"arn"`
+	EngineName             *string             `pulumi:"engineName"`
+	MajorEngineVersion     *string             `pulumi:"majorEngineVersion"`
+	Name                   *string             `pulumi:"name"`
+	NamePrefix             *string             `pulumi:"namePrefix"`
+	OptionGroupDescription *string             `pulumi:"optionGroupDescription"`
+	Options                []OptionGroupOption `pulumi:"options"`
+	Region                 *string             `pulumi:"region"`
+	SkipDestroy            *bool               `pulumi:"skipDestroy"`
+	Tags                   map[string]string   `pulumi:"tags"`
+	TagsAll                map[string]string   `pulumi:"tagsAll"`
 }
 
 type OptionGroupState struct {
-	// ARN of the DB option group.
-	Arn pulumi.StringPtrInput
-	// Specifies the name of the engine that this option group should be associated with.
-	EngineName pulumi.StringPtrInput
-	// Specifies the major version of the engine that this option group should be associated with.
-	MajorEngineVersion pulumi.StringPtrInput
-	// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
-	NamePrefix pulumi.StringPtrInput
-	// Description of the option group. Defaults to "Managed by Pulumi".
+	Arn                    pulumi.StringPtrInput
+	EngineName             pulumi.StringPtrInput
+	MajorEngineVersion     pulumi.StringPtrInput
+	Name                   pulumi.StringPtrInput
+	NamePrefix             pulumi.StringPtrInput
 	OptionGroupDescription pulumi.StringPtrInput
-	// The options to apply. See `option` Block below for more details.
-	Options OptionGroupOptionArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
-	SkipDestroy pulumi.BoolPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Options                OptionGroupOptionArrayInput
+	Region                 pulumi.StringPtrInput
+	SkipDestroy            pulumi.BoolPtrInput
+	Tags                   pulumi.StringMapInput
+	TagsAll                pulumi.StringMapInput
 }
 
 func (OptionGroupState) ElementType() reflect.Type {
@@ -208,46 +99,28 @@ func (OptionGroupState) ElementType() reflect.Type {
 }
 
 type optionGroupArgs struct {
-	// Specifies the name of the engine that this option group should be associated with.
-	EngineName string `pulumi:"engineName"`
-	// Specifies the major version of the engine that this option group should be associated with.
-	MajorEngineVersion string `pulumi:"majorEngineVersion"`
-	// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Description of the option group. Defaults to "Managed by Pulumi".
-	OptionGroupDescription *string `pulumi:"optionGroupDescription"`
-	// The options to apply. See `option` Block below for more details.
-	Options []OptionGroupOption `pulumi:"options"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
-	SkipDestroy *bool `pulumi:"skipDestroy"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	EngineName             string              `pulumi:"engineName"`
+	MajorEngineVersion     string              `pulumi:"majorEngineVersion"`
+	Name                   *string             `pulumi:"name"`
+	NamePrefix             *string             `pulumi:"namePrefix"`
+	OptionGroupDescription *string             `pulumi:"optionGroupDescription"`
+	Options                []OptionGroupOption `pulumi:"options"`
+	Region                 *string             `pulumi:"region"`
+	SkipDestroy            *bool               `pulumi:"skipDestroy"`
+	Tags                   map[string]string   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a OptionGroup resource.
 type OptionGroupArgs struct {
-	// Specifies the name of the engine that this option group should be associated with.
-	EngineName pulumi.StringInput
-	// Specifies the major version of the engine that this option group should be associated with.
-	MajorEngineVersion pulumi.StringInput
-	// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
-	NamePrefix pulumi.StringPtrInput
-	// Description of the option group. Defaults to "Managed by Pulumi".
+	EngineName             pulumi.StringInput
+	MajorEngineVersion     pulumi.StringInput
+	Name                   pulumi.StringPtrInput
+	NamePrefix             pulumi.StringPtrInput
 	OptionGroupDescription pulumi.StringPtrInput
-	// The options to apply. See `option` Block below for more details.
-	Options OptionGroupOptionArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
-	SkipDestroy pulumi.BoolPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Options                OptionGroupOptionArrayInput
+	Region                 pulumi.StringPtrInput
+	SkipDestroy            pulumi.BoolPtrInput
+	Tags                   pulumi.StringMapInput
 }
 
 func (OptionGroupArgs) ElementType() reflect.Type {
@@ -337,57 +210,46 @@ func (o OptionGroupOutput) ToOptionGroupOutputWithContext(ctx context.Context) O
 	return o
 }
 
-// ARN of the DB option group.
 func (o OptionGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the engine that this option group should be associated with.
 func (o OptionGroupOutput) EngineName() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.EngineName }).(pulumi.StringOutput)
 }
 
-// Specifies the major version of the engine that this option group should be associated with.
 func (o OptionGroupOutput) MajorEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.MajorEngineVersion }).(pulumi.StringOutput)
 }
 
-// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
 func (o OptionGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
 func (o OptionGroupOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// Description of the option group. Defaults to "Managed by Pulumi".
 func (o OptionGroupOutput) OptionGroupDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.OptionGroupDescription }).(pulumi.StringOutput)
 }
 
-// The options to apply. See `option` Block below for more details.
 func (o OptionGroupOutput) Options() OptionGroupOptionArrayOutput {
 	return o.ApplyT(func(v *OptionGroup) OptionGroupOptionArrayOutput { return v.Options }).(OptionGroupOptionArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o OptionGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
 func (o OptionGroupOutput) SkipDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.BoolPtrOutput { return v.SkipDestroy }).(pulumi.BoolPtrOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o OptionGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o OptionGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -12,172 +12,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a trust relationship between two Active Directory Directories.
-//
-// The directories may either be both AWS Managed Microsoft AD domains or an AWS Managed Microsoft AD domain and a self-managed Active Directory Domain.
-//
-// The Trust relationship must be configured on both sides of the relationship.
-// If a Trust has only been created on one side, it will be in the state `VerifyFailed`.
-// Once the second Trust is created, the first will update to the correct state.
-//
-// ## Example Usage
-//
-// ### Two-Way Trust
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directoryservice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			oneDirectory, err := directoryservice.NewDirectory(ctx, "one", &directoryservice.DirectoryArgs{
-//				Name: pulumi.String("one.example.com"),
-//				Type: pulumi.String("MicrosoftAD"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			twoDirectory, err := directoryservice.NewDirectory(ctx, "two", &directoryservice.DirectoryArgs{
-//				Name: pulumi.String("two.example.com"),
-//				Type: pulumi.String("MicrosoftAD"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = directoryservice.NewTrust(ctx, "one", &directoryservice.TrustArgs{
-//				DirectoryId:                 oneDirectory.ID(),
-//				RemoteDomainName:            twoDirectory.Name,
-//				TrustDirection:              pulumi.String("Two-Way"),
-//				TrustPassword:               pulumi.String("Some0therPassword"),
-//				ConditionalForwarderIpAddrs: twoDirectory.DnsIpAddresses,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = directoryservice.NewTrust(ctx, "two", &directoryservice.TrustArgs{
-//				DirectoryId:                 twoDirectory.ID(),
-//				RemoteDomainName:            oneDirectory.Name,
-//				TrustDirection:              pulumi.String("Two-Way"),
-//				TrustPassword:               pulumi.String("Some0therPassword"),
-//				ConditionalForwarderIpAddrs: oneDirectory.DnsIpAddresses,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### One-Way Trust
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directoryservice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			oneDirectory, err := directoryservice.NewDirectory(ctx, "one", &directoryservice.DirectoryArgs{
-//				Name: pulumi.String("one.example.com"),
-//				Type: pulumi.String("MicrosoftAD"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			twoDirectory, err := directoryservice.NewDirectory(ctx, "two", &directoryservice.DirectoryArgs{
-//				Name: pulumi.String("two.example.com"),
-//				Type: pulumi.String("MicrosoftAD"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = directoryservice.NewTrust(ctx, "one", &directoryservice.TrustArgs{
-//				DirectoryId:                 oneDirectory.ID(),
-//				RemoteDomainName:            twoDirectory.Name,
-//				TrustDirection:              pulumi.String("One-Way: Incoming"),
-//				TrustPassword:               pulumi.String("Some0therPassword"),
-//				ConditionalForwarderIpAddrs: twoDirectory.DnsIpAddresses,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = directoryservice.NewTrust(ctx, "two", &directoryservice.TrustArgs{
-//				DirectoryId:                 twoDirectory.ID(),
-//				RemoteDomainName:            oneDirectory.Name,
-//				TrustDirection:              pulumi.String("One-Way: Outgoing"),
-//				TrustPassword:               pulumi.String("Some0therPassword"),
-//				ConditionalForwarderIpAddrs: oneDirectory.DnsIpAddresses,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import the Trust relationship using the directory ID and remote domain name, separated by a `/`. For example:
-//
-// ```sh
-// $ pulumi import aws:directoryservice/trust:Trust example d-926724cf57/directory.example.com
-// ```
 type Trust struct {
 	pulumi.CustomResourceState
 
-	// Set of IPv4 addresses for the DNS server associated with the remote Directory.
-	// Can contain between 1 and 4 values.
-	ConditionalForwarderIpAddrs pulumi.StringArrayOutput `pulumi:"conditionalForwarderIpAddrs"`
-	// Date and time when the Trust was created.
-	CreatedDateTime pulumi.StringOutput `pulumi:"createdDateTime"`
-	// Whether to delete the conditional forwarder when deleting the Trust relationship.
-	DeleteAssociatedConditionalForwarder pulumi.BoolOutput `pulumi:"deleteAssociatedConditionalForwarder"`
-	// ID of the Directory.
-	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
-	// Date and time when the Trust was last updated.
-	LastUpdatedDateTime pulumi.StringOutput `pulumi:"lastUpdatedDateTime"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Fully qualified domain name of the remote Directory.
-	RemoteDomainName pulumi.StringOutput `pulumi:"remoteDomainName"`
-	// Whether to enable selective authentication.
-	// Valid values are `Enabled` and `Disabled`.
-	// Default value is `Disabled`.
-	SelectiveAuth pulumi.StringOutput `pulumi:"selectiveAuth"`
-	// Date and time when the Trust state in `trustState` was last updated.
-	StateLastUpdatedDateTime pulumi.StringOutput `pulumi:"stateLastUpdatedDateTime"`
-	// The direction of the Trust relationship.
-	// Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
-	TrustDirection pulumi.StringOutput `pulumi:"trustDirection"`
-	// Password for the Trust.
-	// Does not need to match the passwords for either Directory.
-	// Can contain upper- and lower-case letters, numbers, and punctuation characters.
-	// May be up to 128 characters long.
-	TrustPassword pulumi.StringOutput `pulumi:"trustPassword"`
-	// State of the Trust relationship.
-	// One of `Created`, `VerifyFailed`,`Verified`, `UpdateFailed`,`Updated`,`Deleted`, or `Failed`.
-	TrustState pulumi.StringOutput `pulumi:"trustState"`
-	// Reason for the Trust state set in `trustState`.
-	TrustStateReason pulumi.StringOutput `pulumi:"trustStateReason"`
-	// Type of the Trust relationship.
-	// Valid values are `Forest` and `External`.
-	// Default value is `Forest`.
-	TrustType pulumi.StringOutput `pulumi:"trustType"`
+	ConditionalForwarderIpAddrs          pulumi.StringArrayOutput `pulumi:"conditionalForwarderIpAddrs"`
+	CreatedDateTime                      pulumi.StringOutput      `pulumi:"createdDateTime"`
+	DeleteAssociatedConditionalForwarder pulumi.BoolOutput        `pulumi:"deleteAssociatedConditionalForwarder"`
+	DirectoryId                          pulumi.StringOutput      `pulumi:"directoryId"`
+	LastUpdatedDateTime                  pulumi.StringOutput      `pulumi:"lastUpdatedDateTime"`
+	Region                               pulumi.StringOutput      `pulumi:"region"`
+	RemoteDomainName                     pulumi.StringOutput      `pulumi:"remoteDomainName"`
+	SelectiveAuth                        pulumi.StringOutput      `pulumi:"selectiveAuth"`
+	StateLastUpdatedDateTime             pulumi.StringOutput      `pulumi:"stateLastUpdatedDateTime"`
+	TrustDirection                       pulumi.StringOutput      `pulumi:"trustDirection"`
+	TrustPassword                        pulumi.StringOutput      `pulumi:"trustPassword"`
+	TrustState                           pulumi.StringOutput      `pulumi:"trustState"`
+	TrustStateReason                     pulumi.StringOutput      `pulumi:"trustStateReason"`
+	TrustType                            pulumi.StringOutput      `pulumi:"trustType"`
 }
 
 // NewTrust registers a new resource with the given unique name, arguments, and options.
@@ -222,85 +73,37 @@ func GetTrust(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Trust resources.
 type trustState struct {
-	// Set of IPv4 addresses for the DNS server associated with the remote Directory.
-	// Can contain between 1 and 4 values.
-	ConditionalForwarderIpAddrs []string `pulumi:"conditionalForwarderIpAddrs"`
-	// Date and time when the Trust was created.
-	CreatedDateTime *string `pulumi:"createdDateTime"`
-	// Whether to delete the conditional forwarder when deleting the Trust relationship.
-	DeleteAssociatedConditionalForwarder *bool `pulumi:"deleteAssociatedConditionalForwarder"`
-	// ID of the Directory.
-	DirectoryId *string `pulumi:"directoryId"`
-	// Date and time when the Trust was last updated.
-	LastUpdatedDateTime *string `pulumi:"lastUpdatedDateTime"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Fully qualified domain name of the remote Directory.
-	RemoteDomainName *string `pulumi:"remoteDomainName"`
-	// Whether to enable selective authentication.
-	// Valid values are `Enabled` and `Disabled`.
-	// Default value is `Disabled`.
-	SelectiveAuth *string `pulumi:"selectiveAuth"`
-	// Date and time when the Trust state in `trustState` was last updated.
-	StateLastUpdatedDateTime *string `pulumi:"stateLastUpdatedDateTime"`
-	// The direction of the Trust relationship.
-	// Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
-	TrustDirection *string `pulumi:"trustDirection"`
-	// Password for the Trust.
-	// Does not need to match the passwords for either Directory.
-	// Can contain upper- and lower-case letters, numbers, and punctuation characters.
-	// May be up to 128 characters long.
-	TrustPassword *string `pulumi:"trustPassword"`
-	// State of the Trust relationship.
-	// One of `Created`, `VerifyFailed`,`Verified`, `UpdateFailed`,`Updated`,`Deleted`, or `Failed`.
-	TrustState *string `pulumi:"trustState"`
-	// Reason for the Trust state set in `trustState`.
-	TrustStateReason *string `pulumi:"trustStateReason"`
-	// Type of the Trust relationship.
-	// Valid values are `Forest` and `External`.
-	// Default value is `Forest`.
-	TrustType *string `pulumi:"trustType"`
+	ConditionalForwarderIpAddrs          []string `pulumi:"conditionalForwarderIpAddrs"`
+	CreatedDateTime                      *string  `pulumi:"createdDateTime"`
+	DeleteAssociatedConditionalForwarder *bool    `pulumi:"deleteAssociatedConditionalForwarder"`
+	DirectoryId                          *string  `pulumi:"directoryId"`
+	LastUpdatedDateTime                  *string  `pulumi:"lastUpdatedDateTime"`
+	Region                               *string  `pulumi:"region"`
+	RemoteDomainName                     *string  `pulumi:"remoteDomainName"`
+	SelectiveAuth                        *string  `pulumi:"selectiveAuth"`
+	StateLastUpdatedDateTime             *string  `pulumi:"stateLastUpdatedDateTime"`
+	TrustDirection                       *string  `pulumi:"trustDirection"`
+	TrustPassword                        *string  `pulumi:"trustPassword"`
+	TrustState                           *string  `pulumi:"trustState"`
+	TrustStateReason                     *string  `pulumi:"trustStateReason"`
+	TrustType                            *string  `pulumi:"trustType"`
 }
 
 type TrustState struct {
-	// Set of IPv4 addresses for the DNS server associated with the remote Directory.
-	// Can contain between 1 and 4 values.
-	ConditionalForwarderIpAddrs pulumi.StringArrayInput
-	// Date and time when the Trust was created.
-	CreatedDateTime pulumi.StringPtrInput
-	// Whether to delete the conditional forwarder when deleting the Trust relationship.
+	ConditionalForwarderIpAddrs          pulumi.StringArrayInput
+	CreatedDateTime                      pulumi.StringPtrInput
 	DeleteAssociatedConditionalForwarder pulumi.BoolPtrInput
-	// ID of the Directory.
-	DirectoryId pulumi.StringPtrInput
-	// Date and time when the Trust was last updated.
-	LastUpdatedDateTime pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Fully qualified domain name of the remote Directory.
-	RemoteDomainName pulumi.StringPtrInput
-	// Whether to enable selective authentication.
-	// Valid values are `Enabled` and `Disabled`.
-	// Default value is `Disabled`.
-	SelectiveAuth pulumi.StringPtrInput
-	// Date and time when the Trust state in `trustState` was last updated.
-	StateLastUpdatedDateTime pulumi.StringPtrInput
-	// The direction of the Trust relationship.
-	// Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
-	TrustDirection pulumi.StringPtrInput
-	// Password for the Trust.
-	// Does not need to match the passwords for either Directory.
-	// Can contain upper- and lower-case letters, numbers, and punctuation characters.
-	// May be up to 128 characters long.
-	TrustPassword pulumi.StringPtrInput
-	// State of the Trust relationship.
-	// One of `Created`, `VerifyFailed`,`Verified`, `UpdateFailed`,`Updated`,`Deleted`, or `Failed`.
-	TrustState pulumi.StringPtrInput
-	// Reason for the Trust state set in `trustState`.
-	TrustStateReason pulumi.StringPtrInput
-	// Type of the Trust relationship.
-	// Valid values are `Forest` and `External`.
-	// Default value is `Forest`.
-	TrustType pulumi.StringPtrInput
+	DirectoryId                          pulumi.StringPtrInput
+	LastUpdatedDateTime                  pulumi.StringPtrInput
+	Region                               pulumi.StringPtrInput
+	RemoteDomainName                     pulumi.StringPtrInput
+	SelectiveAuth                        pulumi.StringPtrInput
+	StateLastUpdatedDateTime             pulumi.StringPtrInput
+	TrustDirection                       pulumi.StringPtrInput
+	TrustPassword                        pulumi.StringPtrInput
+	TrustState                           pulumi.StringPtrInput
+	TrustStateReason                     pulumi.StringPtrInput
+	TrustType                            pulumi.StringPtrInput
 }
 
 func (TrustState) ElementType() reflect.Type {
@@ -308,64 +111,28 @@ func (TrustState) ElementType() reflect.Type {
 }
 
 type trustArgs struct {
-	// Set of IPv4 addresses for the DNS server associated with the remote Directory.
-	// Can contain between 1 and 4 values.
-	ConditionalForwarderIpAddrs []string `pulumi:"conditionalForwarderIpAddrs"`
-	// Whether to delete the conditional forwarder when deleting the Trust relationship.
-	DeleteAssociatedConditionalForwarder *bool `pulumi:"deleteAssociatedConditionalForwarder"`
-	// ID of the Directory.
-	DirectoryId string `pulumi:"directoryId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Fully qualified domain name of the remote Directory.
-	RemoteDomainName string `pulumi:"remoteDomainName"`
-	// Whether to enable selective authentication.
-	// Valid values are `Enabled` and `Disabled`.
-	// Default value is `Disabled`.
-	SelectiveAuth *string `pulumi:"selectiveAuth"`
-	// The direction of the Trust relationship.
-	// Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
-	TrustDirection string `pulumi:"trustDirection"`
-	// Password for the Trust.
-	// Does not need to match the passwords for either Directory.
-	// Can contain upper- and lower-case letters, numbers, and punctuation characters.
-	// May be up to 128 characters long.
-	TrustPassword string `pulumi:"trustPassword"`
-	// Type of the Trust relationship.
-	// Valid values are `Forest` and `External`.
-	// Default value is `Forest`.
-	TrustType *string `pulumi:"trustType"`
+	ConditionalForwarderIpAddrs          []string `pulumi:"conditionalForwarderIpAddrs"`
+	DeleteAssociatedConditionalForwarder *bool    `pulumi:"deleteAssociatedConditionalForwarder"`
+	DirectoryId                          string   `pulumi:"directoryId"`
+	Region                               *string  `pulumi:"region"`
+	RemoteDomainName                     string   `pulumi:"remoteDomainName"`
+	SelectiveAuth                        *string  `pulumi:"selectiveAuth"`
+	TrustDirection                       string   `pulumi:"trustDirection"`
+	TrustPassword                        string   `pulumi:"trustPassword"`
+	TrustType                            *string  `pulumi:"trustType"`
 }
 
 // The set of arguments for constructing a Trust resource.
 type TrustArgs struct {
-	// Set of IPv4 addresses for the DNS server associated with the remote Directory.
-	// Can contain between 1 and 4 values.
-	ConditionalForwarderIpAddrs pulumi.StringArrayInput
-	// Whether to delete the conditional forwarder when deleting the Trust relationship.
+	ConditionalForwarderIpAddrs          pulumi.StringArrayInput
 	DeleteAssociatedConditionalForwarder pulumi.BoolPtrInput
-	// ID of the Directory.
-	DirectoryId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Fully qualified domain name of the remote Directory.
-	RemoteDomainName pulumi.StringInput
-	// Whether to enable selective authentication.
-	// Valid values are `Enabled` and `Disabled`.
-	// Default value is `Disabled`.
-	SelectiveAuth pulumi.StringPtrInput
-	// The direction of the Trust relationship.
-	// Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
-	TrustDirection pulumi.StringInput
-	// Password for the Trust.
-	// Does not need to match the passwords for either Directory.
-	// Can contain upper- and lower-case letters, numbers, and punctuation characters.
-	// May be up to 128 characters long.
-	TrustPassword pulumi.StringInput
-	// Type of the Trust relationship.
-	// Valid values are `Forest` and `External`.
-	// Default value is `Forest`.
-	TrustType pulumi.StringPtrInput
+	DirectoryId                          pulumi.StringInput
+	Region                               pulumi.StringPtrInput
+	RemoteDomainName                     pulumi.StringInput
+	SelectiveAuth                        pulumi.StringPtrInput
+	TrustDirection                       pulumi.StringInput
+	TrustPassword                        pulumi.StringInput
+	TrustType                            pulumi.StringPtrInput
 }
 
 func (TrustArgs) ElementType() reflect.Type {
@@ -455,82 +222,58 @@ func (o TrustOutput) ToTrustOutputWithContext(ctx context.Context) TrustOutput {
 	return o
 }
 
-// Set of IPv4 addresses for the DNS server associated with the remote Directory.
-// Can contain between 1 and 4 values.
 func (o TrustOutput) ConditionalForwarderIpAddrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Trust) pulumi.StringArrayOutput { return v.ConditionalForwarderIpAddrs }).(pulumi.StringArrayOutput)
 }
 
-// Date and time when the Trust was created.
 func (o TrustOutput) CreatedDateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trust) pulumi.StringOutput { return v.CreatedDateTime }).(pulumi.StringOutput)
 }
 
-// Whether to delete the conditional forwarder when deleting the Trust relationship.
 func (o TrustOutput) DeleteAssociatedConditionalForwarder() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Trust) pulumi.BoolOutput { return v.DeleteAssociatedConditionalForwarder }).(pulumi.BoolOutput)
 }
 
-// ID of the Directory.
 func (o TrustOutput) DirectoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trust) pulumi.StringOutput { return v.DirectoryId }).(pulumi.StringOutput)
 }
 
-// Date and time when the Trust was last updated.
 func (o TrustOutput) LastUpdatedDateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trust) pulumi.StringOutput { return v.LastUpdatedDateTime }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TrustOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trust) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Fully qualified domain name of the remote Directory.
 func (o TrustOutput) RemoteDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trust) pulumi.StringOutput { return v.RemoteDomainName }).(pulumi.StringOutput)
 }
 
-// Whether to enable selective authentication.
-// Valid values are `Enabled` and `Disabled`.
-// Default value is `Disabled`.
 func (o TrustOutput) SelectiveAuth() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trust) pulumi.StringOutput { return v.SelectiveAuth }).(pulumi.StringOutput)
 }
 
-// Date and time when the Trust state in `trustState` was last updated.
 func (o TrustOutput) StateLastUpdatedDateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trust) pulumi.StringOutput { return v.StateLastUpdatedDateTime }).(pulumi.StringOutput)
 }
 
-// The direction of the Trust relationship.
-// Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
 func (o TrustOutput) TrustDirection() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trust) pulumi.StringOutput { return v.TrustDirection }).(pulumi.StringOutput)
 }
 
-// Password for the Trust.
-// Does not need to match the passwords for either Directory.
-// Can contain upper- and lower-case letters, numbers, and punctuation characters.
-// May be up to 128 characters long.
 func (o TrustOutput) TrustPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trust) pulumi.StringOutput { return v.TrustPassword }).(pulumi.StringOutput)
 }
 
-// State of the Trust relationship.
-// One of `Created`, `VerifyFailed`,`Verified`, `UpdateFailed`,`Updated`,`Deleted`, or `Failed`.
 func (o TrustOutput) TrustState() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trust) pulumi.StringOutput { return v.TrustState }).(pulumi.StringOutput)
 }
 
-// Reason for the Trust state set in `trustState`.
 func (o TrustOutput) TrustStateReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trust) pulumi.StringOutput { return v.TrustStateReason }).(pulumi.StringOutput)
 }
 
-// Type of the Trust relationship.
-// Valid values are `Forest` and `External`.
-// Default value is `Forest`.
 func (o TrustOutput) TrustType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trust) pulumi.StringOutput { return v.TrustType }).(pulumi.StringOutput)
 }

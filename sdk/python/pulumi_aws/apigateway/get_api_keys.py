@@ -47,17 +47,11 @@ class GetApiKeysResult:
     @_builtins.property
     @pulumi.getter(name="customerId")
     def customer_id(self) -> Optional[_builtins.str]:
-        """
-        Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
-        """
         return pulumi.get(self, "customer_id")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        ID of the API Key.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
@@ -68,9 +62,6 @@ class GetApiKeysResult:
     @_builtins.property
     @pulumi.getter
     def items(self) -> Sequence['outputs.GetApiKeysItemResult']:
-        """
-        List of objects containing API Key information. See below.
-        """
         return pulumi.get(self, "items")
 
     @_builtins.property
@@ -97,21 +88,7 @@ def get_api_keys(customer_id: Optional[_builtins.str] = None,
                  region: Optional[_builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiKeysResult:
     """
-    Data source for managing AWS API Gateway API Keys.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigateway.get_api_keys()
-    ```
-
-
-    :param _builtins.str customer_id: Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
-    :param _builtins.bool include_values: Set this value to `true` if you wish the result contains the key value. Defaults to `false`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['customerId'] = customer_id
@@ -131,21 +108,7 @@ def get_api_keys_output(customer_id: Optional[pulumi.Input[Optional[_builtins.st
                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiKeysResult]:
     """
-    Data source for managing AWS API Gateway API Keys.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigateway.get_api_keys()
-    ```
-
-
-    :param _builtins.str customer_id: Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
-    :param _builtins.bool include_values: Set this value to `true` if you wish the result contains the key value. Defaults to `false`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['customerId'] = customer_id

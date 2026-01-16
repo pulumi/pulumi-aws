@@ -12,161 +12,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Route 53 Key Signing Key. To manage Domain Name System Security Extensions (DNSSEC) for a Hosted Zone, see the `route53.HostedZoneDnsSec` resource. For more information about managing DNSSEC in Route 53, see the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Statement": []interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
-//							"kms:DescribeKey",
-//							"kms:GetPublicKey",
-//							"kms:Sign",
-//						},
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "dnssec-route53.amazonaws.com",
-//						},
-//						"Sid":      "Allow Route 53 DNSSEC Service",
-//						"Resource": "*",
-//						"Condition": map[string]interface{}{
-//							"StringEquals": map[string]interface{}{
-//								"aws:SourceAccount": current.AccountId,
-//							},
-//							"ArnLike": map[string]interface{}{
-//								"aws:SourceArn": "arn:aws:route53:::hostedzone/*",
-//							},
-//						},
-//					},
-//					map[string]interface{}{
-//						"Action": "kms:CreateGrant",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "dnssec-route53.amazonaws.com",
-//						},
-//						"Sid":      "Allow Route 53 DNSSEC Service to CreateGrant",
-//						"Resource": "*",
-//						"Condition": map[string]interface{}{
-//							"Bool": map[string]interface{}{
-//								"kms:GrantIsForAWSResource": "true",
-//							},
-//						},
-//					},
-//					map[string]interface{}{
-//						"Action": "kms:*",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"AWS": fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
-//						},
-//						"Resource": "*",
-//						"Sid":      "Enable IAM User Permissions",
-//					},
-//				},
-//				"Version": "2012-10-17",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = kms.NewKey(ctx, "example", &kms.KeyArgs{
-//				CustomerMasterKeySpec: pulumi.String("ECC_NIST_P256"),
-//				DeletionWindowInDays:  pulumi.Int(7),
-//				KeyUsage:              pulumi.String("SIGN_VERIFY"),
-//				Policy:                pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewZone(ctx, "example", &route53.ZoneArgs{
-//				Name: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleKeySigningKey, err := route53.NewKeySigningKey(ctx, "example", &route53.KeySigningKeyArgs{
-//				HostedZoneId:            pulumi.Any(test.Id),
-//				KeyManagementServiceArn: pulumi.Any(testAwsKmsKey.Arn),
-//				Name:                    pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewHostedZoneDnsSec(ctx, "example", &route53.HostedZoneDnsSecArgs{
-//				HostedZoneId: exampleKeySigningKey.HostedZoneId,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleKeySigningKey,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_route53_key_signing_key` resources using the Route 53 Hosted Zone identifier and KMS Key identifier, separated by a comma (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:route53/keySigningKey:KeySigningKey example Z1D633PJN98FT9,example
-// ```
 type KeySigningKey struct {
 	pulumi.CustomResourceState
 
-	// A string used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
-	DigestAlgorithmMnemonic pulumi.StringOutput `pulumi:"digestAlgorithmMnemonic"`
-	// An integer used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
-	DigestAlgorithmType pulumi.IntOutput `pulumi:"digestAlgorithmType"`
-	// A cryptographic digest of a DNSKEY resource record (RR). DNSKEY records are used to publish the public key that resolvers can use to verify DNSSEC signatures that are used to secure certain kinds of information provided by the DNS system.
-	DigestValue pulumi.StringOutput `pulumi:"digestValue"`
-	// A string that represents a DNSKEY record.
-	DnskeyRecord pulumi.StringOutput `pulumi:"dnskeyRecord"`
-	// A string that represents a delegation signer (DS) record.
-	DsRecord pulumi.StringOutput `pulumi:"dsRecord"`
-	// An integer that specifies how the key is used. For key-signing key (KSK), this value is always 257.
-	Flag pulumi.IntOutput `pulumi:"flag"`
-	// Identifier of the Route 53 Hosted Zone.
-	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
-	KeyManagementServiceArn pulumi.StringOutput `pulumi:"keyManagementServiceArn"`
-	// An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
-	KeyTag pulumi.IntOutput `pulumi:"keyTag"`
-	// Name of the key-signing key (KSK). Must be unique for each key-signing key in the same hosted zone.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
-	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
-	// A string used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
-	SigningAlgorithmMnemonic pulumi.StringOutput `pulumi:"signingAlgorithmMnemonic"`
-	// An integer used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
-	SigningAlgorithmType pulumi.IntOutput `pulumi:"signingAlgorithmType"`
-	// Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
-	Status pulumi.StringPtrOutput `pulumi:"status"`
+	DigestAlgorithmMnemonic  pulumi.StringOutput    `pulumi:"digestAlgorithmMnemonic"`
+	DigestAlgorithmType      pulumi.IntOutput       `pulumi:"digestAlgorithmType"`
+	DigestValue              pulumi.StringOutput    `pulumi:"digestValue"`
+	DnskeyRecord             pulumi.StringOutput    `pulumi:"dnskeyRecord"`
+	DsRecord                 pulumi.StringOutput    `pulumi:"dsRecord"`
+	Flag                     pulumi.IntOutput       `pulumi:"flag"`
+	HostedZoneId             pulumi.StringOutput    `pulumi:"hostedZoneId"`
+	KeyManagementServiceArn  pulumi.StringOutput    `pulumi:"keyManagementServiceArn"`
+	KeyTag                   pulumi.IntOutput       `pulumi:"keyTag"`
+	Name                     pulumi.StringOutput    `pulumi:"name"`
+	PublicKey                pulumi.StringOutput    `pulumi:"publicKey"`
+	SigningAlgorithmMnemonic pulumi.StringOutput    `pulumi:"signingAlgorithmMnemonic"`
+	SigningAlgorithmType     pulumi.IntOutput       `pulumi:"signingAlgorithmType"`
+	Status                   pulumi.StringPtrOutput `pulumi:"status"`
 }
 
 // NewKeySigningKey registers a new resource with the given unique name, arguments, and options.
@@ -205,69 +67,37 @@ func GetKeySigningKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KeySigningKey resources.
 type keySigningKeyState struct {
-	// A string used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
-	DigestAlgorithmMnemonic *string `pulumi:"digestAlgorithmMnemonic"`
-	// An integer used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
-	DigestAlgorithmType *int `pulumi:"digestAlgorithmType"`
-	// A cryptographic digest of a DNSKEY resource record (RR). DNSKEY records are used to publish the public key that resolvers can use to verify DNSSEC signatures that are used to secure certain kinds of information provided by the DNS system.
-	DigestValue *string `pulumi:"digestValue"`
-	// A string that represents a DNSKEY record.
-	DnskeyRecord *string `pulumi:"dnskeyRecord"`
-	// A string that represents a delegation signer (DS) record.
-	DsRecord *string `pulumi:"dsRecord"`
-	// An integer that specifies how the key is used. For key-signing key (KSK), this value is always 257.
-	Flag *int `pulumi:"flag"`
-	// Identifier of the Route 53 Hosted Zone.
-	HostedZoneId *string `pulumi:"hostedZoneId"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
-	KeyManagementServiceArn *string `pulumi:"keyManagementServiceArn"`
-	// An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
-	KeyTag *int `pulumi:"keyTag"`
-	// Name of the key-signing key (KSK). Must be unique for each key-signing key in the same hosted zone.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
-	PublicKey *string `pulumi:"publicKey"`
-	// A string used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
+	DigestAlgorithmMnemonic  *string `pulumi:"digestAlgorithmMnemonic"`
+	DigestAlgorithmType      *int    `pulumi:"digestAlgorithmType"`
+	DigestValue              *string `pulumi:"digestValue"`
+	DnskeyRecord             *string `pulumi:"dnskeyRecord"`
+	DsRecord                 *string `pulumi:"dsRecord"`
+	Flag                     *int    `pulumi:"flag"`
+	HostedZoneId             *string `pulumi:"hostedZoneId"`
+	KeyManagementServiceArn  *string `pulumi:"keyManagementServiceArn"`
+	KeyTag                   *int    `pulumi:"keyTag"`
+	Name                     *string `pulumi:"name"`
+	PublicKey                *string `pulumi:"publicKey"`
 	SigningAlgorithmMnemonic *string `pulumi:"signingAlgorithmMnemonic"`
-	// An integer used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
-	SigningAlgorithmType *int `pulumi:"signingAlgorithmType"`
-	// Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
-	Status *string `pulumi:"status"`
+	SigningAlgorithmType     *int    `pulumi:"signingAlgorithmType"`
+	Status                   *string `pulumi:"status"`
 }
 
 type KeySigningKeyState struct {
-	// A string used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
-	DigestAlgorithmMnemonic pulumi.StringPtrInput
-	// An integer used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
-	DigestAlgorithmType pulumi.IntPtrInput
-	// A cryptographic digest of a DNSKEY resource record (RR). DNSKEY records are used to publish the public key that resolvers can use to verify DNSSEC signatures that are used to secure certain kinds of information provided by the DNS system.
-	DigestValue pulumi.StringPtrInput
-	// A string that represents a DNSKEY record.
-	DnskeyRecord pulumi.StringPtrInput
-	// A string that represents a delegation signer (DS) record.
-	DsRecord pulumi.StringPtrInput
-	// An integer that specifies how the key is used. For key-signing key (KSK), this value is always 257.
-	Flag pulumi.IntPtrInput
-	// Identifier of the Route 53 Hosted Zone.
-	HostedZoneId pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
-	KeyManagementServiceArn pulumi.StringPtrInput
-	// An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
-	KeyTag pulumi.IntPtrInput
-	// Name of the key-signing key (KSK). Must be unique for each key-signing key in the same hosted zone.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
-	PublicKey pulumi.StringPtrInput
-	// A string used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
+	DigestAlgorithmMnemonic  pulumi.StringPtrInput
+	DigestAlgorithmType      pulumi.IntPtrInput
+	DigestValue              pulumi.StringPtrInput
+	DnskeyRecord             pulumi.StringPtrInput
+	DsRecord                 pulumi.StringPtrInput
+	Flag                     pulumi.IntPtrInput
+	HostedZoneId             pulumi.StringPtrInput
+	KeyManagementServiceArn  pulumi.StringPtrInput
+	KeyTag                   pulumi.IntPtrInput
+	Name                     pulumi.StringPtrInput
+	PublicKey                pulumi.StringPtrInput
 	SigningAlgorithmMnemonic pulumi.StringPtrInput
-	// An integer used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
-	SigningAlgorithmType pulumi.IntPtrInput
-	// Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
-	Status pulumi.StringPtrInput
+	SigningAlgorithmType     pulumi.IntPtrInput
+	Status                   pulumi.StringPtrInput
 }
 
 func (KeySigningKeyState) ElementType() reflect.Type {
@@ -275,30 +105,18 @@ func (KeySigningKeyState) ElementType() reflect.Type {
 }
 
 type keySigningKeyArgs struct {
-	// Identifier of the Route 53 Hosted Zone.
-	HostedZoneId string `pulumi:"hostedZoneId"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
-	KeyManagementServiceArn string `pulumi:"keyManagementServiceArn"`
-	// Name of the key-signing key (KSK). Must be unique for each key-signing key in the same hosted zone.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
-	Status *string `pulumi:"status"`
+	HostedZoneId            string  `pulumi:"hostedZoneId"`
+	KeyManagementServiceArn string  `pulumi:"keyManagementServiceArn"`
+	Name                    *string `pulumi:"name"`
+	Status                  *string `pulumi:"status"`
 }
 
 // The set of arguments for constructing a KeySigningKey resource.
 type KeySigningKeyArgs struct {
-	// Identifier of the Route 53 Hosted Zone.
-	HostedZoneId pulumi.StringInput
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
+	HostedZoneId            pulumi.StringInput
 	KeyManagementServiceArn pulumi.StringInput
-	// Name of the key-signing key (KSK). Must be unique for each key-signing key in the same hosted zone.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
-	Status pulumi.StringPtrInput
+	Name                    pulumi.StringPtrInput
+	Status                  pulumi.StringPtrInput
 }
 
 func (KeySigningKeyArgs) ElementType() reflect.Type {
@@ -388,74 +206,58 @@ func (o KeySigningKeyOutput) ToKeySigningKeyOutputWithContext(ctx context.Contex
 	return o
 }
 
-// A string used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
 func (o KeySigningKeyOutput) DigestAlgorithmMnemonic() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeySigningKey) pulumi.StringOutput { return v.DigestAlgorithmMnemonic }).(pulumi.StringOutput)
 }
 
-// An integer used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
 func (o KeySigningKeyOutput) DigestAlgorithmType() pulumi.IntOutput {
 	return o.ApplyT(func(v *KeySigningKey) pulumi.IntOutput { return v.DigestAlgorithmType }).(pulumi.IntOutput)
 }
 
-// A cryptographic digest of a DNSKEY resource record (RR). DNSKEY records are used to publish the public key that resolvers can use to verify DNSSEC signatures that are used to secure certain kinds of information provided by the DNS system.
 func (o KeySigningKeyOutput) DigestValue() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeySigningKey) pulumi.StringOutput { return v.DigestValue }).(pulumi.StringOutput)
 }
 
-// A string that represents a DNSKEY record.
 func (o KeySigningKeyOutput) DnskeyRecord() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeySigningKey) pulumi.StringOutput { return v.DnskeyRecord }).(pulumi.StringOutput)
 }
 
-// A string that represents a delegation signer (DS) record.
 func (o KeySigningKeyOutput) DsRecord() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeySigningKey) pulumi.StringOutput { return v.DsRecord }).(pulumi.StringOutput)
 }
 
-// An integer that specifies how the key is used. For key-signing key (KSK), this value is always 257.
 func (o KeySigningKeyOutput) Flag() pulumi.IntOutput {
 	return o.ApplyT(func(v *KeySigningKey) pulumi.IntOutput { return v.Flag }).(pulumi.IntOutput)
 }
 
-// Identifier of the Route 53 Hosted Zone.
 func (o KeySigningKeyOutput) HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeySigningKey) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
 func (o KeySigningKeyOutput) KeyManagementServiceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeySigningKey) pulumi.StringOutput { return v.KeyManagementServiceArn }).(pulumi.StringOutput)
 }
 
-// An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
 func (o KeySigningKeyOutput) KeyTag() pulumi.IntOutput {
 	return o.ApplyT(func(v *KeySigningKey) pulumi.IntOutput { return v.KeyTag }).(pulumi.IntOutput)
 }
 
-// Name of the key-signing key (KSK). Must be unique for each key-signing key in the same hosted zone.
-//
-// The following arguments are optional:
 func (o KeySigningKeyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeySigningKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
 func (o KeySigningKeyOutput) PublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeySigningKey) pulumi.StringOutput { return v.PublicKey }).(pulumi.StringOutput)
 }
 
-// A string used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
 func (o KeySigningKeyOutput) SigningAlgorithmMnemonic() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeySigningKey) pulumi.StringOutput { return v.SigningAlgorithmMnemonic }).(pulumi.StringOutput)
 }
 
-// An integer used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
 func (o KeySigningKeyOutput) SigningAlgorithmType() pulumi.IntOutput {
 	return o.ApplyT(func(v *KeySigningKey) pulumi.IntOutput { return v.SigningAlgorithmType }).(pulumi.IntOutput)
 }
 
-// Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
 func (o KeySigningKeyOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeySigningKey) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }

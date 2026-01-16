@@ -25,173 +25,61 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch {
-    /**
-     * @return Inspect all query arguments.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments allQueryArguments;
-    /**
-     * @return Inspect the request body, which immediately follows the request headers.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBody body;
-    /**
-     * @return Inspect the cookies in the web request. See Cookies below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies cookies;
-    /**
-     * @return Inspect the request headers. See Header Order below for details.
-     * 
-     */
     private @Nullable List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder> headerOrders;
-    /**
-     * @return Inspect the request headers. See Headers below for details.
-     * 
-     */
     private @Nullable List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader> headers;
-    /**
-     * @return Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
-    /**
-     * @return Inspect the JA4 fingerprint. See `ja4Fingerprint` below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint ja4Fingerprint;
-    /**
-     * @return Inspect the request body as JSON. See JSON Body for details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody jsonBody;
-    /**
-     * @return Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethod method;
-    /**
-     * @return Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString queryString;
-    /**
-     * @return Inspect a single header. See Single Header below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader singleHeader;
-    /**
-     * @return Inspect a single query argument. See Single Query Argument below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument singleQueryArgument;
-    /**
-     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See URI Fragment below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragment uriFragment;
-    /**
-     * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath uriPath;
 
     private RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch() {}
-    /**
-     * @return Inspect all query arguments.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments> allQueryArguments() {
         return Optional.ofNullable(this.allQueryArguments);
     }
-    /**
-     * @return Inspect the request body, which immediately follows the request headers.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBody> body() {
         return Optional.ofNullable(this.body);
     }
-    /**
-     * @return Inspect the cookies in the web request. See Cookies below for details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies> cookies() {
         return Optional.ofNullable(this.cookies);
     }
-    /**
-     * @return Inspect the request headers. See Header Order below for details.
-     * 
-     */
     public List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder> headerOrders() {
         return this.headerOrders == null ? List.of() : this.headerOrders;
     }
-    /**
-     * @return Inspect the request headers. See Headers below for details.
-     * 
-     */
     public List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
-    /**
-     * @return Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint> ja3Fingerprint() {
         return Optional.ofNullable(this.ja3Fingerprint);
     }
-    /**
-     * @return Inspect the JA4 fingerprint. See `ja4Fingerprint` below for details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint> ja4Fingerprint() {
         return Optional.ofNullable(this.ja4Fingerprint);
     }
-    /**
-     * @return Inspect the request body as JSON. See JSON Body for details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody> jsonBody() {
         return Optional.ofNullable(this.jsonBody);
     }
-    /**
-     * @return Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethod> method() {
         return Optional.ofNullable(this.method);
     }
-    /**
-     * @return Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString> queryString() {
         return Optional.ofNullable(this.queryString);
     }
-    /**
-     * @return Inspect a single header. See Single Header below for details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader> singleHeader() {
         return Optional.ofNullable(this.singleHeader);
     }
-    /**
-     * @return Inspect a single query argument. See Single Query Argument below for details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument> singleQueryArgument() {
         return Optional.ofNullable(this.singleQueryArgument);
     }
-    /**
-     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See URI Fragment below for details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragment> uriFragment() {
         return Optional.ofNullable(this.uriFragment);
     }
-    /**
-     * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath> uriPath() {
         return Optional.ofNullable(this.uriPath);
     }

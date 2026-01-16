@@ -15,10 +15,7 @@ var _ = internal.GetEnvOrDefault
 
 type ListenerDefaultAction struct {
 	FixedResponse *ListenerDefaultActionFixedResponse `pulumi:"fixedResponse"`
-	// Route requests to one or more target groups. See Forward blocks below.
-	//
-	// > **NOTE:** You must specify exactly one of the following argument blocks: `fixedResponse` or `forward`.
-	Forwards []ListenerDefaultActionForward `pulumi:"forwards"`
+	Forwards      []ListenerDefaultActionForward      `pulumi:"forwards"`
 }
 
 // ListenerDefaultActionInput is an input type that accepts ListenerDefaultActionArgs and ListenerDefaultActionOutput values.
@@ -34,10 +31,7 @@ type ListenerDefaultActionInput interface {
 
 type ListenerDefaultActionArgs struct {
 	FixedResponse ListenerDefaultActionFixedResponsePtrInput `pulumi:"fixedResponse"`
-	// Route requests to one or more target groups. See Forward blocks below.
-	//
-	// > **NOTE:** You must specify exactly one of the following argument blocks: `fixedResponse` or `forward`.
-	Forwards ListenerDefaultActionForwardArrayInput `pulumi:"forwards"`
+	Forwards      ListenerDefaultActionForwardArrayInput     `pulumi:"forwards"`
 }
 
 func (ListenerDefaultActionArgs) ElementType() reflect.Type {
@@ -121,9 +115,6 @@ func (o ListenerDefaultActionOutput) FixedResponse() ListenerDefaultActionFixedR
 	return o.ApplyT(func(v ListenerDefaultAction) *ListenerDefaultActionFixedResponse { return v.FixedResponse }).(ListenerDefaultActionFixedResponsePtrOutput)
 }
 
-// Route requests to one or more target groups. See Forward blocks below.
-//
-// > **NOTE:** You must specify exactly one of the following argument blocks: `fixedResponse` or `forward`.
 func (o ListenerDefaultActionOutput) Forwards() ListenerDefaultActionForwardArrayOutput {
 	return o.ApplyT(func(v ListenerDefaultAction) []ListenerDefaultActionForward { return v.Forwards }).(ListenerDefaultActionForwardArrayOutput)
 }
@@ -161,9 +152,6 @@ func (o ListenerDefaultActionPtrOutput) FixedResponse() ListenerDefaultActionFix
 	}).(ListenerDefaultActionFixedResponsePtrOutput)
 }
 
-// Route requests to one or more target groups. See Forward blocks below.
-//
-// > **NOTE:** You must specify exactly one of the following argument blocks: `fixedResponse` or `forward`.
 func (o ListenerDefaultActionPtrOutput) Forwards() ListenerDefaultActionForwardArrayOutput {
 	return o.ApplyT(func(v *ListenerDefaultAction) []ListenerDefaultActionForward {
 		if v == nil {
@@ -174,7 +162,6 @@ func (o ListenerDefaultActionPtrOutput) Forwards() ListenerDefaultActionForwardA
 }
 
 type ListenerDefaultActionFixedResponse struct {
-	// Custom HTTP status code to return, e.g. a 404 response code. See [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in the AWS documentation for a list of supported codes.
 	StatusCode int `pulumi:"statusCode"`
 }
 
@@ -190,7 +177,6 @@ type ListenerDefaultActionFixedResponseInput interface {
 }
 
 type ListenerDefaultActionFixedResponseArgs struct {
-	// Custom HTTP status code to return, e.g. a 404 response code. See [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in the AWS documentation for a list of supported codes.
 	StatusCode pulumi.IntInput `pulumi:"statusCode"`
 }
 
@@ -271,7 +257,6 @@ func (o ListenerDefaultActionFixedResponseOutput) ToListenerDefaultActionFixedRe
 	}).(ListenerDefaultActionFixedResponsePtrOutput)
 }
 
-// Custom HTTP status code to return, e.g. a 404 response code. See [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in the AWS documentation for a list of supported codes.
 func (o ListenerDefaultActionFixedResponseOutput) StatusCode() pulumi.IntOutput {
 	return o.ApplyT(func(v ListenerDefaultActionFixedResponse) int { return v.StatusCode }).(pulumi.IntOutput)
 }
@@ -300,7 +285,6 @@ func (o ListenerDefaultActionFixedResponsePtrOutput) Elem() ListenerDefaultActio
 	}).(ListenerDefaultActionFixedResponseOutput)
 }
 
-// Custom HTTP status code to return, e.g. a 404 response code. See [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in the AWS documentation for a list of supported codes.
 func (o ListenerDefaultActionFixedResponsePtrOutput) StatusCode() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionFixedResponse) *int {
 		if v == nil {
@@ -311,7 +295,6 @@ func (o ListenerDefaultActionFixedResponsePtrOutput) StatusCode() pulumi.IntPtrO
 }
 
 type ListenerDefaultActionForward struct {
-	// One or more target group blocks.
 	TargetGroups []ListenerDefaultActionForwardTargetGroup `pulumi:"targetGroups"`
 }
 
@@ -327,7 +310,6 @@ type ListenerDefaultActionForwardInput interface {
 }
 
 type ListenerDefaultActionForwardArgs struct {
-	// One or more target group blocks.
 	TargetGroups ListenerDefaultActionForwardTargetGroupArrayInput `pulumi:"targetGroups"`
 }
 
@@ -382,7 +364,6 @@ func (o ListenerDefaultActionForwardOutput) ToListenerDefaultActionForwardOutput
 	return o
 }
 
-// One or more target group blocks.
 func (o ListenerDefaultActionForwardOutput) TargetGroups() ListenerDefaultActionForwardTargetGroupArrayOutput {
 	return o.ApplyT(func(v ListenerDefaultActionForward) []ListenerDefaultActionForwardTargetGroup { return v.TargetGroups }).(ListenerDefaultActionForwardTargetGroupArrayOutput)
 }
@@ -408,11 +389,8 @@ func (o ListenerDefaultActionForwardArrayOutput) Index(i pulumi.IntInput) Listen
 }
 
 type ListenerDefaultActionForwardTargetGroup struct {
-	// ID or Amazon Resource Name (ARN) of the target group.
 	TargetGroupIdentifier *string `pulumi:"targetGroupIdentifier"`
-	// Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
-	// weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
-	Weight *int `pulumi:"weight"`
+	Weight                *int    `pulumi:"weight"`
 }
 
 // ListenerDefaultActionForwardTargetGroupInput is an input type that accepts ListenerDefaultActionForwardTargetGroupArgs and ListenerDefaultActionForwardTargetGroupOutput values.
@@ -427,11 +405,8 @@ type ListenerDefaultActionForwardTargetGroupInput interface {
 }
 
 type ListenerDefaultActionForwardTargetGroupArgs struct {
-	// ID or Amazon Resource Name (ARN) of the target group.
 	TargetGroupIdentifier pulumi.StringPtrInput `pulumi:"targetGroupIdentifier"`
-	// Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
-	// weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
-	Weight pulumi.IntPtrInput `pulumi:"weight"`
+	Weight                pulumi.IntPtrInput    `pulumi:"weight"`
 }
 
 func (ListenerDefaultActionForwardTargetGroupArgs) ElementType() reflect.Type {
@@ -485,13 +460,10 @@ func (o ListenerDefaultActionForwardTargetGroupOutput) ToListenerDefaultActionFo
 	return o
 }
 
-// ID or Amazon Resource Name (ARN) of the target group.
 func (o ListenerDefaultActionForwardTargetGroupOutput) TargetGroupIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionForwardTargetGroup) *string { return v.TargetGroupIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
-// weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
 func (o ListenerDefaultActionForwardTargetGroupOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionForwardTargetGroup) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -517,12 +489,8 @@ func (o ListenerDefaultActionForwardTargetGroupArrayOutput) Index(i pulumi.IntIn
 }
 
 type ListenerRuleAction struct {
-	// Describes the rule action that returns a custom HTTP response.
-	// See `fixedResponse` Block for details.
 	FixedResponse *ListenerRuleActionFixedResponse `pulumi:"fixedResponse"`
-	// The forward action. Traffic that matches the rule is forwarded to the specified target groups.
-	// See `forward` Block for details.
-	Forward *ListenerRuleActionForward `pulumi:"forward"`
+	Forward       *ListenerRuleActionForward       `pulumi:"forward"`
 }
 
 // ListenerRuleActionInput is an input type that accepts ListenerRuleActionArgs and ListenerRuleActionOutput values.
@@ -537,12 +505,8 @@ type ListenerRuleActionInput interface {
 }
 
 type ListenerRuleActionArgs struct {
-	// Describes the rule action that returns a custom HTTP response.
-	// See `fixedResponse` Block for details.
 	FixedResponse ListenerRuleActionFixedResponsePtrInput `pulumi:"fixedResponse"`
-	// The forward action. Traffic that matches the rule is forwarded to the specified target groups.
-	// See `forward` Block for details.
-	Forward ListenerRuleActionForwardPtrInput `pulumi:"forward"`
+	Forward       ListenerRuleActionForwardPtrInput       `pulumi:"forward"`
 }
 
 func (ListenerRuleActionArgs) ElementType() reflect.Type {
@@ -622,14 +586,10 @@ func (o ListenerRuleActionOutput) ToListenerRuleActionPtrOutputWithContext(ctx c
 	}).(ListenerRuleActionPtrOutput)
 }
 
-// Describes the rule action that returns a custom HTTP response.
-// See `fixedResponse` Block for details.
 func (o ListenerRuleActionOutput) FixedResponse() ListenerRuleActionFixedResponsePtrOutput {
 	return o.ApplyT(func(v ListenerRuleAction) *ListenerRuleActionFixedResponse { return v.FixedResponse }).(ListenerRuleActionFixedResponsePtrOutput)
 }
 
-// The forward action. Traffic that matches the rule is forwarded to the specified target groups.
-// See `forward` Block for details.
 func (o ListenerRuleActionOutput) Forward() ListenerRuleActionForwardPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAction) *ListenerRuleActionForward { return v.Forward }).(ListenerRuleActionForwardPtrOutput)
 }
@@ -658,8 +618,6 @@ func (o ListenerRuleActionPtrOutput) Elem() ListenerRuleActionOutput {
 	}).(ListenerRuleActionOutput)
 }
 
-// Describes the rule action that returns a custom HTTP response.
-// See `fixedResponse` Block for details.
 func (o ListenerRuleActionPtrOutput) FixedResponse() ListenerRuleActionFixedResponsePtrOutput {
 	return o.ApplyT(func(v *ListenerRuleAction) *ListenerRuleActionFixedResponse {
 		if v == nil {
@@ -669,8 +627,6 @@ func (o ListenerRuleActionPtrOutput) FixedResponse() ListenerRuleActionFixedResp
 	}).(ListenerRuleActionFixedResponsePtrOutput)
 }
 
-// The forward action. Traffic that matches the rule is forwarded to the specified target groups.
-// See `forward` Block for details.
 func (o ListenerRuleActionPtrOutput) Forward() ListenerRuleActionForwardPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleAction) *ListenerRuleActionForward {
 		if v == nil {
@@ -681,7 +637,6 @@ func (o ListenerRuleActionPtrOutput) Forward() ListenerRuleActionForwardPtrOutpu
 }
 
 type ListenerRuleActionFixedResponse struct {
-	// The HTTP response code.
 	StatusCode int `pulumi:"statusCode"`
 }
 
@@ -697,7 +652,6 @@ type ListenerRuleActionFixedResponseInput interface {
 }
 
 type ListenerRuleActionFixedResponseArgs struct {
-	// The HTTP response code.
 	StatusCode pulumi.IntInput `pulumi:"statusCode"`
 }
 
@@ -778,7 +732,6 @@ func (o ListenerRuleActionFixedResponseOutput) ToListenerRuleActionFixedResponse
 	}).(ListenerRuleActionFixedResponsePtrOutput)
 }
 
-// The HTTP response code.
 func (o ListenerRuleActionFixedResponseOutput) StatusCode() pulumi.IntOutput {
 	return o.ApplyT(func(v ListenerRuleActionFixedResponse) int { return v.StatusCode }).(pulumi.IntOutput)
 }
@@ -807,7 +760,6 @@ func (o ListenerRuleActionFixedResponsePtrOutput) Elem() ListenerRuleActionFixed
 	}).(ListenerRuleActionFixedResponseOutput)
 }
 
-// The HTTP response code.
 func (o ListenerRuleActionFixedResponsePtrOutput) StatusCode() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleActionFixedResponse) *int {
 		if v == nil {
@@ -818,9 +770,6 @@ func (o ListenerRuleActionFixedResponsePtrOutput) StatusCode() pulumi.IntPtrOutp
 }
 
 type ListenerRuleActionForward struct {
-	// The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
-	//
-	// The default value is 1 with maximum number of 2. If only one target group is provided, there is no need to set the weight; 100% of traffic will go to that target group.
 	TargetGroups []ListenerRuleActionForwardTargetGroup `pulumi:"targetGroups"`
 }
 
@@ -836,9 +785,6 @@ type ListenerRuleActionForwardInput interface {
 }
 
 type ListenerRuleActionForwardArgs struct {
-	// The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
-	//
-	// The default value is 1 with maximum number of 2. If only one target group is provided, there is no need to set the weight; 100% of traffic will go to that target group.
 	TargetGroups ListenerRuleActionForwardTargetGroupArrayInput `pulumi:"targetGroups"`
 }
 
@@ -919,9 +865,6 @@ func (o ListenerRuleActionForwardOutput) ToListenerRuleActionForwardPtrOutputWit
 	}).(ListenerRuleActionForwardPtrOutput)
 }
 
-// The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
-//
-// The default value is 1 with maximum number of 2. If only one target group is provided, there is no need to set the weight; 100% of traffic will go to that target group.
 func (o ListenerRuleActionForwardOutput) TargetGroups() ListenerRuleActionForwardTargetGroupArrayOutput {
 	return o.ApplyT(func(v ListenerRuleActionForward) []ListenerRuleActionForwardTargetGroup { return v.TargetGroups }).(ListenerRuleActionForwardTargetGroupArrayOutput)
 }
@@ -950,9 +893,6 @@ func (o ListenerRuleActionForwardPtrOutput) Elem() ListenerRuleActionForwardOutp
 	}).(ListenerRuleActionForwardOutput)
 }
 
-// The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
-//
-// The default value is 1 with maximum number of 2. If only one target group is provided, there is no need to set the weight; 100% of traffic will go to that target group.
 func (o ListenerRuleActionForwardPtrOutput) TargetGroups() ListenerRuleActionForwardTargetGroupArrayOutput {
 	return o.ApplyT(func(v *ListenerRuleActionForward) []ListenerRuleActionForwardTargetGroup {
 		if v == nil {
@@ -1063,8 +1003,6 @@ func (o ListenerRuleActionForwardTargetGroupArrayOutput) Index(i pulumi.IntInput
 }
 
 type ListenerRuleMatch struct {
-	// The HTTP criteria that a rule must match.
-	// See `httpMatch` Block for details.
 	HttpMatch ListenerRuleMatchHttpMatch `pulumi:"httpMatch"`
 }
 
@@ -1080,8 +1018,6 @@ type ListenerRuleMatchInput interface {
 }
 
 type ListenerRuleMatchArgs struct {
-	// The HTTP criteria that a rule must match.
-	// See `httpMatch` Block for details.
 	HttpMatch ListenerRuleMatchHttpMatchInput `pulumi:"httpMatch"`
 }
 
@@ -1162,8 +1098,6 @@ func (o ListenerRuleMatchOutput) ToListenerRuleMatchPtrOutputWithContext(ctx con
 	}).(ListenerRuleMatchPtrOutput)
 }
 
-// The HTTP criteria that a rule must match.
-// See `httpMatch` Block for details.
 func (o ListenerRuleMatchOutput) HttpMatch() ListenerRuleMatchHttpMatchOutput {
 	return o.ApplyT(func(v ListenerRuleMatch) ListenerRuleMatchHttpMatch { return v.HttpMatch }).(ListenerRuleMatchHttpMatchOutput)
 }
@@ -1192,8 +1126,6 @@ func (o ListenerRuleMatchPtrOutput) Elem() ListenerRuleMatchOutput {
 	}).(ListenerRuleMatchOutput)
 }
 
-// The HTTP criteria that a rule must match.
-// See `httpMatch` Block for details.
 func (o ListenerRuleMatchPtrOutput) HttpMatch() ListenerRuleMatchHttpMatchPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleMatch) *ListenerRuleMatchHttpMatch {
 		if v == nil {
@@ -1204,15 +1136,9 @@ func (o ListenerRuleMatchPtrOutput) HttpMatch() ListenerRuleMatchHttpMatchPtrOut
 }
 
 type ListenerRuleMatchHttpMatch struct {
-	// The header matches.
-	// Matches incoming requests with rule based on request header value before applying rule action.
-	// See `headerMatches` Block for details.
 	HeaderMatches []ListenerRuleMatchHttpMatchHeaderMatch `pulumi:"headerMatches"`
-	// The HTTP method type.
-	Method *string `pulumi:"method"`
-	// The path match.
-	// See `pathMatch` Block for details.
-	PathMatch *ListenerRuleMatchHttpMatchPathMatch `pulumi:"pathMatch"`
+	Method        *string                                 `pulumi:"method"`
+	PathMatch     *ListenerRuleMatchHttpMatchPathMatch    `pulumi:"pathMatch"`
 }
 
 // ListenerRuleMatchHttpMatchInput is an input type that accepts ListenerRuleMatchHttpMatchArgs and ListenerRuleMatchHttpMatchOutput values.
@@ -1227,15 +1153,9 @@ type ListenerRuleMatchHttpMatchInput interface {
 }
 
 type ListenerRuleMatchHttpMatchArgs struct {
-	// The header matches.
-	// Matches incoming requests with rule based on request header value before applying rule action.
-	// See `headerMatches` Block for details.
 	HeaderMatches ListenerRuleMatchHttpMatchHeaderMatchArrayInput `pulumi:"headerMatches"`
-	// The HTTP method type.
-	Method pulumi.StringPtrInput `pulumi:"method"`
-	// The path match.
-	// See `pathMatch` Block for details.
-	PathMatch ListenerRuleMatchHttpMatchPathMatchPtrInput `pulumi:"pathMatch"`
+	Method        pulumi.StringPtrInput                           `pulumi:"method"`
+	PathMatch     ListenerRuleMatchHttpMatchPathMatchPtrInput     `pulumi:"pathMatch"`
 }
 
 func (ListenerRuleMatchHttpMatchArgs) ElementType() reflect.Type {
@@ -1315,20 +1235,14 @@ func (o ListenerRuleMatchHttpMatchOutput) ToListenerRuleMatchHttpMatchPtrOutputW
 	}).(ListenerRuleMatchHttpMatchPtrOutput)
 }
 
-// The header matches.
-// Matches incoming requests with rule based on request header value before applying rule action.
-// See `headerMatches` Block for details.
 func (o ListenerRuleMatchHttpMatchOutput) HeaderMatches() ListenerRuleMatchHttpMatchHeaderMatchArrayOutput {
 	return o.ApplyT(func(v ListenerRuleMatchHttpMatch) []ListenerRuleMatchHttpMatchHeaderMatch { return v.HeaderMatches }).(ListenerRuleMatchHttpMatchHeaderMatchArrayOutput)
 }
 
-// The HTTP method type.
 func (o ListenerRuleMatchHttpMatchOutput) Method() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleMatchHttpMatch) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
-// The path match.
-// See `pathMatch` Block for details.
 func (o ListenerRuleMatchHttpMatchOutput) PathMatch() ListenerRuleMatchHttpMatchPathMatchPtrOutput {
 	return o.ApplyT(func(v ListenerRuleMatchHttpMatch) *ListenerRuleMatchHttpMatchPathMatch { return v.PathMatch }).(ListenerRuleMatchHttpMatchPathMatchPtrOutput)
 }
@@ -1357,9 +1271,6 @@ func (o ListenerRuleMatchHttpMatchPtrOutput) Elem() ListenerRuleMatchHttpMatchOu
 	}).(ListenerRuleMatchHttpMatchOutput)
 }
 
-// The header matches.
-// Matches incoming requests with rule based on request header value before applying rule action.
-// See `headerMatches` Block for details.
 func (o ListenerRuleMatchHttpMatchPtrOutput) HeaderMatches() ListenerRuleMatchHttpMatchHeaderMatchArrayOutput {
 	return o.ApplyT(func(v *ListenerRuleMatchHttpMatch) []ListenerRuleMatchHttpMatchHeaderMatch {
 		if v == nil {
@@ -1369,7 +1280,6 @@ func (o ListenerRuleMatchHttpMatchPtrOutput) HeaderMatches() ListenerRuleMatchHt
 	}).(ListenerRuleMatchHttpMatchHeaderMatchArrayOutput)
 }
 
-// The HTTP method type.
 func (o ListenerRuleMatchHttpMatchPtrOutput) Method() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleMatchHttpMatch) *string {
 		if v == nil {
@@ -1379,8 +1289,6 @@ func (o ListenerRuleMatchHttpMatchPtrOutput) Method() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The path match.
-// See `pathMatch` Block for details.
 func (o ListenerRuleMatchHttpMatchPtrOutput) PathMatch() ListenerRuleMatchHttpMatchPathMatchPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleMatchHttpMatch) *ListenerRuleMatchHttpMatchPathMatch {
 		if v == nil {
@@ -1391,14 +1299,9 @@ func (o ListenerRuleMatchHttpMatchPtrOutput) PathMatch() ListenerRuleMatchHttpMa
 }
 
 type ListenerRuleMatchHttpMatchHeaderMatch struct {
-	// Indicates whether the match is case sensitive.
-	// Default is `false`.
-	CaseSensitive *bool `pulumi:"caseSensitive"`
-	// The header match type.
-	// See Header Match `match` Block for details.
-	Match ListenerRuleMatchHttpMatchHeaderMatchMatch `pulumi:"match"`
-	// The name of the header.
-	Name string `pulumi:"name"`
+	CaseSensitive *bool                                      `pulumi:"caseSensitive"`
+	Match         ListenerRuleMatchHttpMatchHeaderMatchMatch `pulumi:"match"`
+	Name          string                                     `pulumi:"name"`
 }
 
 // ListenerRuleMatchHttpMatchHeaderMatchInput is an input type that accepts ListenerRuleMatchHttpMatchHeaderMatchArgs and ListenerRuleMatchHttpMatchHeaderMatchOutput values.
@@ -1413,14 +1316,9 @@ type ListenerRuleMatchHttpMatchHeaderMatchInput interface {
 }
 
 type ListenerRuleMatchHttpMatchHeaderMatchArgs struct {
-	// Indicates whether the match is case sensitive.
-	// Default is `false`.
-	CaseSensitive pulumi.BoolPtrInput `pulumi:"caseSensitive"`
-	// The header match type.
-	// See Header Match `match` Block for details.
-	Match ListenerRuleMatchHttpMatchHeaderMatchMatchInput `pulumi:"match"`
-	// The name of the header.
-	Name pulumi.StringInput `pulumi:"name"`
+	CaseSensitive pulumi.BoolPtrInput                             `pulumi:"caseSensitive"`
+	Match         ListenerRuleMatchHttpMatchHeaderMatchMatchInput `pulumi:"match"`
+	Name          pulumi.StringInput                              `pulumi:"name"`
 }
 
 func (ListenerRuleMatchHttpMatchHeaderMatchArgs) ElementType() reflect.Type {
@@ -1474,21 +1372,16 @@ func (o ListenerRuleMatchHttpMatchHeaderMatchOutput) ToListenerRuleMatchHttpMatc
 	return o
 }
 
-// Indicates whether the match is case sensitive.
-// Default is `false`.
 func (o ListenerRuleMatchHttpMatchHeaderMatchOutput) CaseSensitive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ListenerRuleMatchHttpMatchHeaderMatch) *bool { return v.CaseSensitive }).(pulumi.BoolPtrOutput)
 }
 
-// The header match type.
-// See Header Match `match` Block for details.
 func (o ListenerRuleMatchHttpMatchHeaderMatchOutput) Match() ListenerRuleMatchHttpMatchHeaderMatchMatchOutput {
 	return o.ApplyT(func(v ListenerRuleMatchHttpMatchHeaderMatch) ListenerRuleMatchHttpMatchHeaderMatchMatch {
 		return v.Match
 	}).(ListenerRuleMatchHttpMatchHeaderMatchMatchOutput)
 }
 
-// The name of the header.
 func (o ListenerRuleMatchHttpMatchHeaderMatchOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerRuleMatchHttpMatchHeaderMatch) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1514,13 +1407,9 @@ func (o ListenerRuleMatchHttpMatchHeaderMatchArrayOutput) Index(i pulumi.IntInpu
 }
 
 type ListenerRuleMatchHttpMatchHeaderMatchMatch struct {
-	// Specifies a contains type match.
 	Contains *string `pulumi:"contains"`
-	// Specifies an exact type match.
-	Exact *string `pulumi:"exact"`
-	// Specifies a prefix type match.
-	// Matches the value with the prefix.
-	Prefix *string `pulumi:"prefix"`
+	Exact    *string `pulumi:"exact"`
+	Prefix   *string `pulumi:"prefix"`
 }
 
 // ListenerRuleMatchHttpMatchHeaderMatchMatchInput is an input type that accepts ListenerRuleMatchHttpMatchHeaderMatchMatchArgs and ListenerRuleMatchHttpMatchHeaderMatchMatchOutput values.
@@ -1535,13 +1424,9 @@ type ListenerRuleMatchHttpMatchHeaderMatchMatchInput interface {
 }
 
 type ListenerRuleMatchHttpMatchHeaderMatchMatchArgs struct {
-	// Specifies a contains type match.
 	Contains pulumi.StringPtrInput `pulumi:"contains"`
-	// Specifies an exact type match.
-	Exact pulumi.StringPtrInput `pulumi:"exact"`
-	// Specifies a prefix type match.
-	// Matches the value with the prefix.
-	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	Exact    pulumi.StringPtrInput `pulumi:"exact"`
+	Prefix   pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
 func (ListenerRuleMatchHttpMatchHeaderMatchMatchArgs) ElementType() reflect.Type {
@@ -1570,29 +1455,21 @@ func (o ListenerRuleMatchHttpMatchHeaderMatchMatchOutput) ToListenerRuleMatchHtt
 	return o
 }
 
-// Specifies a contains type match.
 func (o ListenerRuleMatchHttpMatchHeaderMatchMatchOutput) Contains() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleMatchHttpMatchHeaderMatchMatch) *string { return v.Contains }).(pulumi.StringPtrOutput)
 }
 
-// Specifies an exact type match.
 func (o ListenerRuleMatchHttpMatchHeaderMatchMatchOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleMatchHttpMatchHeaderMatchMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a prefix type match.
-// Matches the value with the prefix.
 func (o ListenerRuleMatchHttpMatchHeaderMatchMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleMatchHttpMatchHeaderMatchMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
 type ListenerRuleMatchHttpMatchPathMatch struct {
-	// Indicates whether the match is case sensitive.
-	// Default is `false`.
-	CaseSensitive *bool `pulumi:"caseSensitive"`
-	// The header match type.
-	// See Path Match `match` Block for details.
-	Match ListenerRuleMatchHttpMatchPathMatchMatch `pulumi:"match"`
+	CaseSensitive *bool                                    `pulumi:"caseSensitive"`
+	Match         ListenerRuleMatchHttpMatchPathMatchMatch `pulumi:"match"`
 }
 
 // ListenerRuleMatchHttpMatchPathMatchInput is an input type that accepts ListenerRuleMatchHttpMatchPathMatchArgs and ListenerRuleMatchHttpMatchPathMatchOutput values.
@@ -1607,12 +1484,8 @@ type ListenerRuleMatchHttpMatchPathMatchInput interface {
 }
 
 type ListenerRuleMatchHttpMatchPathMatchArgs struct {
-	// Indicates whether the match is case sensitive.
-	// Default is `false`.
-	CaseSensitive pulumi.BoolPtrInput `pulumi:"caseSensitive"`
-	// The header match type.
-	// See Path Match `match` Block for details.
-	Match ListenerRuleMatchHttpMatchPathMatchMatchInput `pulumi:"match"`
+	CaseSensitive pulumi.BoolPtrInput                           `pulumi:"caseSensitive"`
+	Match         ListenerRuleMatchHttpMatchPathMatchMatchInput `pulumi:"match"`
 }
 
 func (ListenerRuleMatchHttpMatchPathMatchArgs) ElementType() reflect.Type {
@@ -1692,14 +1565,10 @@ func (o ListenerRuleMatchHttpMatchPathMatchOutput) ToListenerRuleMatchHttpMatchP
 	}).(ListenerRuleMatchHttpMatchPathMatchPtrOutput)
 }
 
-// Indicates whether the match is case sensitive.
-// Default is `false`.
 func (o ListenerRuleMatchHttpMatchPathMatchOutput) CaseSensitive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ListenerRuleMatchHttpMatchPathMatch) *bool { return v.CaseSensitive }).(pulumi.BoolPtrOutput)
 }
 
-// The header match type.
-// See Path Match `match` Block for details.
 func (o ListenerRuleMatchHttpMatchPathMatchOutput) Match() ListenerRuleMatchHttpMatchPathMatchMatchOutput {
 	return o.ApplyT(func(v ListenerRuleMatchHttpMatchPathMatch) ListenerRuleMatchHttpMatchPathMatchMatch { return v.Match }).(ListenerRuleMatchHttpMatchPathMatchMatchOutput)
 }
@@ -1728,8 +1597,6 @@ func (o ListenerRuleMatchHttpMatchPathMatchPtrOutput) Elem() ListenerRuleMatchHt
 	}).(ListenerRuleMatchHttpMatchPathMatchOutput)
 }
 
-// Indicates whether the match is case sensitive.
-// Default is `false`.
 func (o ListenerRuleMatchHttpMatchPathMatchPtrOutput) CaseSensitive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleMatchHttpMatchPathMatch) *bool {
 		if v == nil {
@@ -1739,8 +1606,6 @@ func (o ListenerRuleMatchHttpMatchPathMatchPtrOutput) CaseSensitive() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The header match type.
-// See Path Match `match` Block for details.
 func (o ListenerRuleMatchHttpMatchPathMatchPtrOutput) Match() ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleMatchHttpMatchPathMatch) *ListenerRuleMatchHttpMatchPathMatchMatch {
 		if v == nil {
@@ -1751,10 +1616,7 @@ func (o ListenerRuleMatchHttpMatchPathMatchPtrOutput) Match() ListenerRuleMatchH
 }
 
 type ListenerRuleMatchHttpMatchPathMatchMatch struct {
-	// Specifies an exact type match.
-	Exact *string `pulumi:"exact"`
-	// Specifies a prefix type match.
-	// Matches the value with the prefix.
+	Exact  *string `pulumi:"exact"`
 	Prefix *string `pulumi:"prefix"`
 }
 
@@ -1770,10 +1632,7 @@ type ListenerRuleMatchHttpMatchPathMatchMatchInput interface {
 }
 
 type ListenerRuleMatchHttpMatchPathMatchMatchArgs struct {
-	// Specifies an exact type match.
-	Exact pulumi.StringPtrInput `pulumi:"exact"`
-	// Specifies a prefix type match.
-	// Matches the value with the prefix.
+	Exact  pulumi.StringPtrInput `pulumi:"exact"`
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
@@ -1854,13 +1713,10 @@ func (o ListenerRuleMatchHttpMatchPathMatchMatchOutput) ToListenerRuleMatchHttpM
 	}).(ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput)
 }
 
-// Specifies an exact type match.
 func (o ListenerRuleMatchHttpMatchPathMatchMatchOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleMatchHttpMatchPathMatchMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a prefix type match.
-// Matches the value with the prefix.
 func (o ListenerRuleMatchHttpMatchPathMatchMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleMatchHttpMatchPathMatchMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -1889,7 +1745,6 @@ func (o ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput) Elem() ListenerRuleMa
 	}).(ListenerRuleMatchHttpMatchPathMatchMatchOutput)
 }
 
-// Specifies an exact type match.
 func (o ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleMatchHttpMatchPathMatchMatch) *string {
 		if v == nil {
@@ -1899,8 +1754,6 @@ func (o ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput) Exact() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a prefix type match.
-// Matches the value with the prefix.
 func (o ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleMatchHttpMatchPathMatchMatch) *string {
 		if v == nil {
@@ -1911,12 +1764,9 @@ func (o ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput) Prefix() pulumi.Strin
 }
 
 type ResourceConfigurationResourceConfigurationDefinition struct {
-	// Resource DNS Configuration. See `arnResource` Block for details.
 	ArnResource *ResourceConfigurationResourceConfigurationDefinitionArnResource `pulumi:"arnResource"`
-	// Resource DNS Configuration. See `dnsResource` Block for details.
 	DnsResource *ResourceConfigurationResourceConfigurationDefinitionDnsResource `pulumi:"dnsResource"`
-	// Resource DNS Configuration. See `ipResource` Block for details.
-	IpResource *ResourceConfigurationResourceConfigurationDefinitionIpResource `pulumi:"ipResource"`
+	IpResource  *ResourceConfigurationResourceConfigurationDefinitionIpResource  `pulumi:"ipResource"`
 }
 
 // ResourceConfigurationResourceConfigurationDefinitionInput is an input type that accepts ResourceConfigurationResourceConfigurationDefinitionArgs and ResourceConfigurationResourceConfigurationDefinitionOutput values.
@@ -1931,12 +1781,9 @@ type ResourceConfigurationResourceConfigurationDefinitionInput interface {
 }
 
 type ResourceConfigurationResourceConfigurationDefinitionArgs struct {
-	// Resource DNS Configuration. See `arnResource` Block for details.
 	ArnResource ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrInput `pulumi:"arnResource"`
-	// Resource DNS Configuration. See `dnsResource` Block for details.
 	DnsResource ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrInput `pulumi:"dnsResource"`
-	// Resource DNS Configuration. See `ipResource` Block for details.
-	IpResource ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrInput `pulumi:"ipResource"`
+	IpResource  ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrInput  `pulumi:"ipResource"`
 }
 
 func (ResourceConfigurationResourceConfigurationDefinitionArgs) ElementType() reflect.Type {
@@ -2016,21 +1863,18 @@ func (o ResourceConfigurationResourceConfigurationDefinitionOutput) ToResourceCo
 	}).(ResourceConfigurationResourceConfigurationDefinitionPtrOutput)
 }
 
-// Resource DNS Configuration. See `arnResource` Block for details.
 func (o ResourceConfigurationResourceConfigurationDefinitionOutput) ArnResource() ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput {
 	return o.ApplyT(func(v ResourceConfigurationResourceConfigurationDefinition) *ResourceConfigurationResourceConfigurationDefinitionArnResource {
 		return v.ArnResource
 	}).(ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput)
 }
 
-// Resource DNS Configuration. See `dnsResource` Block for details.
 func (o ResourceConfigurationResourceConfigurationDefinitionOutput) DnsResource() ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput {
 	return o.ApplyT(func(v ResourceConfigurationResourceConfigurationDefinition) *ResourceConfigurationResourceConfigurationDefinitionDnsResource {
 		return v.DnsResource
 	}).(ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput)
 }
 
-// Resource DNS Configuration. See `ipResource` Block for details.
 func (o ResourceConfigurationResourceConfigurationDefinitionOutput) IpResource() ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput {
 	return o.ApplyT(func(v ResourceConfigurationResourceConfigurationDefinition) *ResourceConfigurationResourceConfigurationDefinitionIpResource {
 		return v.IpResource
@@ -2061,7 +1905,6 @@ func (o ResourceConfigurationResourceConfigurationDefinitionPtrOutput) Elem() Re
 	}).(ResourceConfigurationResourceConfigurationDefinitionOutput)
 }
 
-// Resource DNS Configuration. See `arnResource` Block for details.
 func (o ResourceConfigurationResourceConfigurationDefinitionPtrOutput) ArnResource() ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput {
 	return o.ApplyT(func(v *ResourceConfigurationResourceConfigurationDefinition) *ResourceConfigurationResourceConfigurationDefinitionArnResource {
 		if v == nil {
@@ -2071,7 +1914,6 @@ func (o ResourceConfigurationResourceConfigurationDefinitionPtrOutput) ArnResour
 	}).(ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput)
 }
 
-// Resource DNS Configuration. See `dnsResource` Block for details.
 func (o ResourceConfigurationResourceConfigurationDefinitionPtrOutput) DnsResource() ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput {
 	return o.ApplyT(func(v *ResourceConfigurationResourceConfigurationDefinition) *ResourceConfigurationResourceConfigurationDefinitionDnsResource {
 		if v == nil {
@@ -2081,7 +1923,6 @@ func (o ResourceConfigurationResourceConfigurationDefinitionPtrOutput) DnsResour
 	}).(ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput)
 }
 
-// Resource DNS Configuration. See `ipResource` Block for details.
 func (o ResourceConfigurationResourceConfigurationDefinitionPtrOutput) IpResource() ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput {
 	return o.ApplyT(func(v *ResourceConfigurationResourceConfigurationDefinition) *ResourceConfigurationResourceConfigurationDefinitionIpResource {
 		if v == nil {
@@ -2092,7 +1933,6 @@ func (o ResourceConfigurationResourceConfigurationDefinitionPtrOutput) IpResourc
 }
 
 type ResourceConfigurationResourceConfigurationDefinitionArnResource struct {
-	// The ARN of the Resource for this configuration.
 	Arn string `pulumi:"arn"`
 }
 
@@ -2108,7 +1948,6 @@ type ResourceConfigurationResourceConfigurationDefinitionArnResourceInput interf
 }
 
 type ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs struct {
-	// The ARN of the Resource for this configuration.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -2189,7 +2028,6 @@ func (o ResourceConfigurationResourceConfigurationDefinitionArnResourceOutput) T
 	}).(ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput)
 }
 
-// The ARN of the Resource for this configuration.
 func (o ResourceConfigurationResourceConfigurationDefinitionArnResourceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceConfigurationResourceConfigurationDefinitionArnResource) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -2218,7 +2056,6 @@ func (o ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput
 	}).(ResourceConfigurationResourceConfigurationDefinitionArnResourceOutput)
 }
 
-// The ARN of the Resource for this configuration.
 func (o ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceConfigurationResourceConfigurationDefinitionArnResource) *string {
 		if v == nil {
@@ -2229,9 +2066,7 @@ func (o ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput
 }
 
 type ResourceConfigurationResourceConfigurationDefinitionDnsResource struct {
-	// The hostname of the Resource for this configuration.
-	DomainName string `pulumi:"domainName"`
-	// The IP Address type either `IPV4` or `IPV6`
+	DomainName    string `pulumi:"domainName"`
 	IpAddressType string `pulumi:"ipAddressType"`
 }
 
@@ -2247,9 +2082,7 @@ type ResourceConfigurationResourceConfigurationDefinitionDnsResourceInput interf
 }
 
 type ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs struct {
-	// The hostname of the Resource for this configuration.
-	DomainName pulumi.StringInput `pulumi:"domainName"`
-	// The IP Address type either `IPV4` or `IPV6`
+	DomainName    pulumi.StringInput `pulumi:"domainName"`
 	IpAddressType pulumi.StringInput `pulumi:"ipAddressType"`
 }
 
@@ -2330,12 +2163,10 @@ func (o ResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput) T
 	}).(ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput)
 }
 
-// The hostname of the Resource for this configuration.
 func (o ResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceConfigurationResourceConfigurationDefinitionDnsResource) string { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The IP Address type either `IPV4` or `IPV6`
 func (o ResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput) IpAddressType() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceConfigurationResourceConfigurationDefinitionDnsResource) string { return v.IpAddressType }).(pulumi.StringOutput)
 }
@@ -2364,7 +2195,6 @@ func (o ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput
 	}).(ResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput)
 }
 
-// The hostname of the Resource for this configuration.
 func (o ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceConfigurationResourceConfigurationDefinitionDnsResource) *string {
 		if v == nil {
@@ -2374,7 +2204,6 @@ func (o ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IP Address type either `IPV4` or `IPV6`
 func (o ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceConfigurationResourceConfigurationDefinitionDnsResource) *string {
 		if v == nil {
@@ -2385,7 +2214,6 @@ func (o ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput
 }
 
 type ResourceConfigurationResourceConfigurationDefinitionIpResource struct {
-	// The IP Address of the Resource for this configuration.
 	IpAddress string `pulumi:"ipAddress"`
 }
 
@@ -2401,7 +2229,6 @@ type ResourceConfigurationResourceConfigurationDefinitionIpResourceInput interfa
 }
 
 type ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs struct {
-	// The IP Address of the Resource for this configuration.
 	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 }
 
@@ -2482,7 +2309,6 @@ func (o ResourceConfigurationResourceConfigurationDefinitionIpResourceOutput) To
 	}).(ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput)
 }
 
-// The IP Address of the Resource for this configuration.
 func (o ResourceConfigurationResourceConfigurationDefinitionIpResourceOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceConfigurationResourceConfigurationDefinitionIpResource) string { return v.IpAddress }).(pulumi.StringOutput)
 }
@@ -2511,7 +2337,6 @@ func (o ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput)
 	}).(ResourceConfigurationResourceConfigurationDefinitionIpResourceOutput)
 }
 
-// The IP Address of the Resource for this configuration.
 func (o ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceConfigurationResourceConfigurationDefinitionIpResource) *string {
 		if v == nil {
@@ -2972,9 +2797,7 @@ func (o ServiceDnsEntryArrayOutput) Index(i pulumi.IntInput) ServiceDnsEntryOutp
 }
 
 type ServiceNetworkResourceAssociationDnsEntry struct {
-	// The domain name of the association in the service network.
-	DomainName string `pulumi:"domainName"`
-	// The ID of the hosted zone containing the domain name.
+	DomainName   string `pulumi:"domainName"`
 	HostedZoneId string `pulumi:"hostedZoneId"`
 }
 
@@ -2990,9 +2813,7 @@ type ServiceNetworkResourceAssociationDnsEntryInput interface {
 }
 
 type ServiceNetworkResourceAssociationDnsEntryArgs struct {
-	// The domain name of the association in the service network.
-	DomainName pulumi.StringInput `pulumi:"domainName"`
-	// The ID of the hosted zone containing the domain name.
+	DomainName   pulumi.StringInput `pulumi:"domainName"`
 	HostedZoneId pulumi.StringInput `pulumi:"hostedZoneId"`
 }
 
@@ -3047,12 +2868,10 @@ func (o ServiceNetworkResourceAssociationDnsEntryOutput) ToServiceNetworkResourc
 	return o
 }
 
-// The domain name of the association in the service network.
 func (o ServiceNetworkResourceAssociationDnsEntryOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceNetworkResourceAssociationDnsEntry) string { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The ID of the hosted zone containing the domain name.
 func (o ServiceNetworkResourceAssociationDnsEntryOutput) HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceNetworkResourceAssociationDnsEntry) string { return v.HostedZoneId }).(pulumi.StringOutput)
 }
@@ -3234,9 +3053,7 @@ func (o ServiceNetworkResourceAssociationTimeoutsPtrOutput) Delete() pulumi.Stri
 }
 
 type ServiceNetworkServiceAssociationDnsEntry struct {
-	// The domain name of the service.
-	DomainName *string `pulumi:"domainName"`
-	// The ID of the hosted zone.
+	DomainName   *string `pulumi:"domainName"`
 	HostedZoneId *string `pulumi:"hostedZoneId"`
 }
 
@@ -3252,9 +3069,7 @@ type ServiceNetworkServiceAssociationDnsEntryInput interface {
 }
 
 type ServiceNetworkServiceAssociationDnsEntryArgs struct {
-	// The domain name of the service.
-	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
-	// The ID of the hosted zone.
+	DomainName   pulumi.StringPtrInput `pulumi:"domainName"`
 	HostedZoneId pulumi.StringPtrInput `pulumi:"hostedZoneId"`
 }
 
@@ -3309,12 +3124,10 @@ func (o ServiceNetworkServiceAssociationDnsEntryOutput) ToServiceNetworkServiceA
 	return o
 }
 
-// The domain name of the service.
 func (o ServiceNetworkServiceAssociationDnsEntryOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkServiceAssociationDnsEntry) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the hosted zone.
 func (o ServiceNetworkServiceAssociationDnsEntryOutput) HostedZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkServiceAssociationDnsEntry) *string { return v.HostedZoneId }).(pulumi.StringPtrOutput)
 }
@@ -3340,9 +3153,7 @@ func (o ServiceNetworkServiceAssociationDnsEntryArrayOutput) Index(i pulumi.IntI
 }
 
 type ServiceNetworkVpcAssociationDnsOptions struct {
-	// Preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when `privateDnsEnabled` is `true`. Valid Values are `VERIFIED_DOMAINS_ONLY`, `ALL_DOMAINS`, `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` and `SPECIFIED_DOMAINS_ONLY`.
-	PrivateDnsPreference *string `pulumi:"privateDnsPreference"`
-	// Private domains to create private hosted zones for and associate with the specified VPC. Only supported when `privateDnsEnabled` is `true` and `privateDnsPreference` is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`.
+	PrivateDnsPreference       *string  `pulumi:"privateDnsPreference"`
 	PrivateDnsSpecifiedDomains []string `pulumi:"privateDnsSpecifiedDomains"`
 }
 
@@ -3358,9 +3169,7 @@ type ServiceNetworkVpcAssociationDnsOptionsInput interface {
 }
 
 type ServiceNetworkVpcAssociationDnsOptionsArgs struct {
-	// Preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when `privateDnsEnabled` is `true`. Valid Values are `VERIFIED_DOMAINS_ONLY`, `ALL_DOMAINS`, `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` and `SPECIFIED_DOMAINS_ONLY`.
-	PrivateDnsPreference pulumi.StringPtrInput `pulumi:"privateDnsPreference"`
-	// Private domains to create private hosted zones for and associate with the specified VPC. Only supported when `privateDnsEnabled` is `true` and `privateDnsPreference` is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`.
+	PrivateDnsPreference       pulumi.StringPtrInput   `pulumi:"privateDnsPreference"`
 	PrivateDnsSpecifiedDomains pulumi.StringArrayInput `pulumi:"privateDnsSpecifiedDomains"`
 }
 
@@ -3441,12 +3250,10 @@ func (o ServiceNetworkVpcAssociationDnsOptionsOutput) ToServiceNetworkVpcAssocia
 	}).(ServiceNetworkVpcAssociationDnsOptionsPtrOutput)
 }
 
-// Preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when `privateDnsEnabled` is `true`. Valid Values are `VERIFIED_DOMAINS_ONLY`, `ALL_DOMAINS`, `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` and `SPECIFIED_DOMAINS_ONLY`.
 func (o ServiceNetworkVpcAssociationDnsOptionsOutput) PrivateDnsPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkVpcAssociationDnsOptions) *string { return v.PrivateDnsPreference }).(pulumi.StringPtrOutput)
 }
 
-// Private domains to create private hosted zones for and associate with the specified VPC. Only supported when `privateDnsEnabled` is `true` and `privateDnsPreference` is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`.
 func (o ServiceNetworkVpcAssociationDnsOptionsOutput) PrivateDnsSpecifiedDomains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceNetworkVpcAssociationDnsOptions) []string { return v.PrivateDnsSpecifiedDomains }).(pulumi.StringArrayOutput)
 }
@@ -3475,7 +3282,6 @@ func (o ServiceNetworkVpcAssociationDnsOptionsPtrOutput) Elem() ServiceNetworkVp
 	}).(ServiceNetworkVpcAssociationDnsOptionsOutput)
 }
 
-// Preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when `privateDnsEnabled` is `true`. Valid Values are `VERIFIED_DOMAINS_ONLY`, `ALL_DOMAINS`, `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` and `SPECIFIED_DOMAINS_ONLY`.
 func (o ServiceNetworkVpcAssociationDnsOptionsPtrOutput) PrivateDnsPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkVpcAssociationDnsOptions) *string {
 		if v == nil {
@@ -3485,7 +3291,6 @@ func (o ServiceNetworkVpcAssociationDnsOptionsPtrOutput) PrivateDnsPreference() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private domains to create private hosted zones for and associate with the specified VPC. Only supported when `privateDnsEnabled` is `true` and `privateDnsPreference` is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`.
 func (o ServiceNetworkVpcAssociationDnsOptionsPtrOutput) PrivateDnsSpecifiedDomains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServiceNetworkVpcAssociationDnsOptions) []string {
 		if v == nil {
@@ -3496,10 +3301,8 @@ func (o ServiceNetworkVpcAssociationDnsOptionsPtrOutput) PrivateDnsSpecifiedDoma
 }
 
 type TargetGroupAttachmentTarget struct {
-	// The ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
-	Id string `pulumi:"id"`
-	// This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
-	Port *int `pulumi:"port"`
+	Id   string `pulumi:"id"`
+	Port *int   `pulumi:"port"`
 }
 
 // TargetGroupAttachmentTargetInput is an input type that accepts TargetGroupAttachmentTargetArgs and TargetGroupAttachmentTargetOutput values.
@@ -3514,9 +3317,7 @@ type TargetGroupAttachmentTargetInput interface {
 }
 
 type TargetGroupAttachmentTargetArgs struct {
-	// The ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
-	Id pulumi.StringInput `pulumi:"id"`
-	// This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
+	Id   pulumi.StringInput `pulumi:"id"`
 	Port pulumi.IntPtrInput `pulumi:"port"`
 }
 
@@ -3597,12 +3398,10 @@ func (o TargetGroupAttachmentTargetOutput) ToTargetGroupAttachmentTargetPtrOutpu
 	}).(TargetGroupAttachmentTargetPtrOutput)
 }
 
-// The ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
 func (o TargetGroupAttachmentTargetOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetGroupAttachmentTarget) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
 func (o TargetGroupAttachmentTargetOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TargetGroupAttachmentTarget) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
@@ -3631,7 +3430,6 @@ func (o TargetGroupAttachmentTargetPtrOutput) Elem() TargetGroupAttachmentTarget
 	}).(TargetGroupAttachmentTargetOutput)
 }
 
-// The ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
 func (o TargetGroupAttachmentTargetPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupAttachmentTarget) *string {
 		if v == nil {
@@ -3641,7 +3439,6 @@ func (o TargetGroupAttachmentTargetPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
 func (o TargetGroupAttachmentTargetPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TargetGroupAttachmentTarget) *int {
 		if v == nil {
@@ -3652,20 +3449,13 @@ func (o TargetGroupAttachmentTargetPtrOutput) Port() pulumi.IntPtrOutput {
 }
 
 type TargetGroupConfig struct {
-	// The health check configuration.
-	HealthCheck *TargetGroupConfigHealthCheck `pulumi:"healthCheck"`
-	// The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
-	IpAddressType *string `pulumi:"ipAddressType"`
-	// The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
-	LambdaEventStructureVersion *string `pulumi:"lambdaEventStructureVersion"`
-	// The port on which the targets are listening.
-	Port *int `pulumi:"port"`
-	// The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
-	Protocol *string `pulumi:"protocol"`
-	// The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
-	ProtocolVersion *string `pulumi:"protocolVersion"`
-	// The ID of the VPC.
-	VpcIdentifier *string `pulumi:"vpcIdentifier"`
+	HealthCheck                 *TargetGroupConfigHealthCheck `pulumi:"healthCheck"`
+	IpAddressType               *string                       `pulumi:"ipAddressType"`
+	LambdaEventStructureVersion *string                       `pulumi:"lambdaEventStructureVersion"`
+	Port                        *int                          `pulumi:"port"`
+	Protocol                    *string                       `pulumi:"protocol"`
+	ProtocolVersion             *string                       `pulumi:"protocolVersion"`
+	VpcIdentifier               *string                       `pulumi:"vpcIdentifier"`
 }
 
 // TargetGroupConfigInput is an input type that accepts TargetGroupConfigArgs and TargetGroupConfigOutput values.
@@ -3680,20 +3470,13 @@ type TargetGroupConfigInput interface {
 }
 
 type TargetGroupConfigArgs struct {
-	// The health check configuration.
-	HealthCheck TargetGroupConfigHealthCheckPtrInput `pulumi:"healthCheck"`
-	// The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
-	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
-	// The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
-	LambdaEventStructureVersion pulumi.StringPtrInput `pulumi:"lambdaEventStructureVersion"`
-	// The port on which the targets are listening.
-	Port pulumi.IntPtrInput `pulumi:"port"`
-	// The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
-	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
-	ProtocolVersion pulumi.StringPtrInput `pulumi:"protocolVersion"`
-	// The ID of the VPC.
-	VpcIdentifier pulumi.StringPtrInput `pulumi:"vpcIdentifier"`
+	HealthCheck                 TargetGroupConfigHealthCheckPtrInput `pulumi:"healthCheck"`
+	IpAddressType               pulumi.StringPtrInput                `pulumi:"ipAddressType"`
+	LambdaEventStructureVersion pulumi.StringPtrInput                `pulumi:"lambdaEventStructureVersion"`
+	Port                        pulumi.IntPtrInput                   `pulumi:"port"`
+	Protocol                    pulumi.StringPtrInput                `pulumi:"protocol"`
+	ProtocolVersion             pulumi.StringPtrInput                `pulumi:"protocolVersion"`
+	VpcIdentifier               pulumi.StringPtrInput                `pulumi:"vpcIdentifier"`
 }
 
 func (TargetGroupConfigArgs) ElementType() reflect.Type {
@@ -3773,37 +3556,30 @@ func (o TargetGroupConfigOutput) ToTargetGroupConfigPtrOutputWithContext(ctx con
 	}).(TargetGroupConfigPtrOutput)
 }
 
-// The health check configuration.
 func (o TargetGroupConfigOutput) HealthCheck() TargetGroupConfigHealthCheckPtrOutput {
 	return o.ApplyT(func(v TargetGroupConfig) *TargetGroupConfigHealthCheck { return v.HealthCheck }).(TargetGroupConfigHealthCheckPtrOutput)
 }
 
-// The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
 func (o TargetGroupConfigOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupConfig) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
-// The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
 func (o TargetGroupConfigOutput) LambdaEventStructureVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupConfig) *string { return v.LambdaEventStructureVersion }).(pulumi.StringPtrOutput)
 }
 
-// The port on which the targets are listening.
 func (o TargetGroupConfigOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TargetGroupConfig) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
 func (o TargetGroupConfigOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupConfig) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
 func (o TargetGroupConfigOutput) ProtocolVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupConfig) *string { return v.ProtocolVersion }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the VPC.
 func (o TargetGroupConfigOutput) VpcIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupConfig) *string { return v.VpcIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -3832,7 +3608,6 @@ func (o TargetGroupConfigPtrOutput) Elem() TargetGroupConfigOutput {
 	}).(TargetGroupConfigOutput)
 }
 
-// The health check configuration.
 func (o TargetGroupConfigPtrOutput) HealthCheck() TargetGroupConfigHealthCheckPtrOutput {
 	return o.ApplyT(func(v *TargetGroupConfig) *TargetGroupConfigHealthCheck {
 		if v == nil {
@@ -3842,7 +3617,6 @@ func (o TargetGroupConfigPtrOutput) HealthCheck() TargetGroupConfigHealthCheckPt
 	}).(TargetGroupConfigHealthCheckPtrOutput)
 }
 
-// The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
 func (o TargetGroupConfigPtrOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupConfig) *string {
 		if v == nil {
@@ -3852,7 +3626,6 @@ func (o TargetGroupConfigPtrOutput) IpAddressType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
 func (o TargetGroupConfigPtrOutput) LambdaEventStructureVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupConfig) *string {
 		if v == nil {
@@ -3862,7 +3635,6 @@ func (o TargetGroupConfigPtrOutput) LambdaEventStructureVersion() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port on which the targets are listening.
 func (o TargetGroupConfigPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TargetGroupConfig) *int {
 		if v == nil {
@@ -3872,7 +3644,6 @@ func (o TargetGroupConfigPtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
 func (o TargetGroupConfigPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupConfig) *string {
 		if v == nil {
@@ -3882,7 +3653,6 @@ func (o TargetGroupConfigPtrOutput) Protocol() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
 func (o TargetGroupConfigPtrOutput) ProtocolVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupConfig) *string {
 		if v == nil {
@@ -3892,7 +3662,6 @@ func (o TargetGroupConfigPtrOutput) ProtocolVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the VPC.
 func (o TargetGroupConfigPtrOutput) VpcIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupConfig) *string {
 		if v == nil {
@@ -3903,26 +3672,16 @@ func (o TargetGroupConfigPtrOutput) VpcIdentifier() pulumi.StringPtrOutput {
 }
 
 type TargetGroupConfigHealthCheck struct {
-	// Indicates whether health checking is enabled. Defaults to `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
-	HealthCheckIntervalSeconds *int `pulumi:"healthCheckIntervalSeconds"`
-	// The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
-	// * ` healthyThresholdCount  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
-	HealthCheckTimeoutSeconds *int `pulumi:"healthCheckTimeoutSeconds"`
-	HealthyThresholdCount     *int `pulumi:"healthyThresholdCount"`
-	// The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
-	Matcher *TargetGroupConfigHealthCheckMatcher `pulumi:"matcher"`
-	// The destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
-	Path *string `pulumi:"path"`
-	// The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
-	Port *int `pulumi:"port"`
-	// The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
-	Protocol *string `pulumi:"protocol"`
-	// The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`. The default is `HTTP1`.
-	ProtocolVersion *string `pulumi:"protocolVersion"`
-	// The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
-	UnhealthyThresholdCount *int `pulumi:"unhealthyThresholdCount"`
+	Enabled                    *bool                                `pulumi:"enabled"`
+	HealthCheckIntervalSeconds *int                                 `pulumi:"healthCheckIntervalSeconds"`
+	HealthCheckTimeoutSeconds  *int                                 `pulumi:"healthCheckTimeoutSeconds"`
+	HealthyThresholdCount      *int                                 `pulumi:"healthyThresholdCount"`
+	Matcher                    *TargetGroupConfigHealthCheckMatcher `pulumi:"matcher"`
+	Path                       *string                              `pulumi:"path"`
+	Port                       *int                                 `pulumi:"port"`
+	Protocol                   *string                              `pulumi:"protocol"`
+	ProtocolVersion            *string                              `pulumi:"protocolVersion"`
+	UnhealthyThresholdCount    *int                                 `pulumi:"unhealthyThresholdCount"`
 }
 
 // TargetGroupConfigHealthCheckInput is an input type that accepts TargetGroupConfigHealthCheckArgs and TargetGroupConfigHealthCheckOutput values.
@@ -3937,26 +3696,16 @@ type TargetGroupConfigHealthCheckInput interface {
 }
 
 type TargetGroupConfigHealthCheckArgs struct {
-	// Indicates whether health checking is enabled. Defaults to `true`.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
-	HealthCheckIntervalSeconds pulumi.IntPtrInput `pulumi:"healthCheckIntervalSeconds"`
-	// The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
-	// * ` healthyThresholdCount  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
-	HealthCheckTimeoutSeconds pulumi.IntPtrInput `pulumi:"healthCheckTimeoutSeconds"`
-	HealthyThresholdCount     pulumi.IntPtrInput `pulumi:"healthyThresholdCount"`
-	// The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
-	Matcher TargetGroupConfigHealthCheckMatcherPtrInput `pulumi:"matcher"`
-	// The destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
-	Port pulumi.IntPtrInput `pulumi:"port"`
-	// The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
-	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`. The default is `HTTP1`.
-	ProtocolVersion pulumi.StringPtrInput `pulumi:"protocolVersion"`
-	// The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
-	UnhealthyThresholdCount pulumi.IntPtrInput `pulumi:"unhealthyThresholdCount"`
+	Enabled                    pulumi.BoolPtrInput                         `pulumi:"enabled"`
+	HealthCheckIntervalSeconds pulumi.IntPtrInput                          `pulumi:"healthCheckIntervalSeconds"`
+	HealthCheckTimeoutSeconds  pulumi.IntPtrInput                          `pulumi:"healthCheckTimeoutSeconds"`
+	HealthyThresholdCount      pulumi.IntPtrInput                          `pulumi:"healthyThresholdCount"`
+	Matcher                    TargetGroupConfigHealthCheckMatcherPtrInput `pulumi:"matcher"`
+	Path                       pulumi.StringPtrInput                       `pulumi:"path"`
+	Port                       pulumi.IntPtrInput                          `pulumi:"port"`
+	Protocol                   pulumi.StringPtrInput                       `pulumi:"protocol"`
+	ProtocolVersion            pulumi.StringPtrInput                       `pulumi:"protocolVersion"`
+	UnhealthyThresholdCount    pulumi.IntPtrInput                          `pulumi:"unhealthyThresholdCount"`
 }
 
 func (TargetGroupConfigHealthCheckArgs) ElementType() reflect.Type {
@@ -4036,18 +3785,14 @@ func (o TargetGroupConfigHealthCheckOutput) ToTargetGroupConfigHealthCheckPtrOut
 	}).(TargetGroupConfigHealthCheckPtrOutput)
 }
 
-// Indicates whether health checking is enabled. Defaults to `true`.
 func (o TargetGroupConfigHealthCheckOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TargetGroupConfigHealthCheck) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
 func (o TargetGroupConfigHealthCheckOutput) HealthCheckIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TargetGroupConfigHealthCheck) *int { return v.HealthCheckIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
-// * ` healthyThresholdCount  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
 func (o TargetGroupConfigHealthCheckOutput) HealthCheckTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TargetGroupConfigHealthCheck) *int { return v.HealthCheckTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
@@ -4056,32 +3801,26 @@ func (o TargetGroupConfigHealthCheckOutput) HealthyThresholdCount() pulumi.IntPt
 	return o.ApplyT(func(v TargetGroupConfigHealthCheck) *int { return v.HealthyThresholdCount }).(pulumi.IntPtrOutput)
 }
 
-// The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
 func (o TargetGroupConfigHealthCheckOutput) Matcher() TargetGroupConfigHealthCheckMatcherPtrOutput {
 	return o.ApplyT(func(v TargetGroupConfigHealthCheck) *TargetGroupConfigHealthCheckMatcher { return v.Matcher }).(TargetGroupConfigHealthCheckMatcherPtrOutput)
 }
 
-// The destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
 func (o TargetGroupConfigHealthCheckOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupConfigHealthCheck) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
 func (o TargetGroupConfigHealthCheckOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TargetGroupConfigHealthCheck) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
 func (o TargetGroupConfigHealthCheckOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupConfigHealthCheck) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`. The default is `HTTP1`.
 func (o TargetGroupConfigHealthCheckOutput) ProtocolVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupConfigHealthCheck) *string { return v.ProtocolVersion }).(pulumi.StringPtrOutput)
 }
 
-// The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
 func (o TargetGroupConfigHealthCheckOutput) UnhealthyThresholdCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TargetGroupConfigHealthCheck) *int { return v.UnhealthyThresholdCount }).(pulumi.IntPtrOutput)
 }
@@ -4110,7 +3849,6 @@ func (o TargetGroupConfigHealthCheckPtrOutput) Elem() TargetGroupConfigHealthChe
 	}).(TargetGroupConfigHealthCheckOutput)
 }
 
-// Indicates whether health checking is enabled. Defaults to `true`.
 func (o TargetGroupConfigHealthCheckPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TargetGroupConfigHealthCheck) *bool {
 		if v == nil {
@@ -4120,7 +3858,6 @@ func (o TargetGroupConfigHealthCheckPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
 func (o TargetGroupConfigHealthCheckPtrOutput) HealthCheckIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TargetGroupConfigHealthCheck) *int {
 		if v == nil {
@@ -4130,8 +3867,6 @@ func (o TargetGroupConfigHealthCheckPtrOutput) HealthCheckIntervalSeconds() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
-// * ` healthyThresholdCount  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
 func (o TargetGroupConfigHealthCheckPtrOutput) HealthCheckTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TargetGroupConfigHealthCheck) *int {
 		if v == nil {
@@ -4150,7 +3885,6 @@ func (o TargetGroupConfigHealthCheckPtrOutput) HealthyThresholdCount() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
 func (o TargetGroupConfigHealthCheckPtrOutput) Matcher() TargetGroupConfigHealthCheckMatcherPtrOutput {
 	return o.ApplyT(func(v *TargetGroupConfigHealthCheck) *TargetGroupConfigHealthCheckMatcher {
 		if v == nil {
@@ -4160,7 +3894,6 @@ func (o TargetGroupConfigHealthCheckPtrOutput) Matcher() TargetGroupConfigHealth
 	}).(TargetGroupConfigHealthCheckMatcherPtrOutput)
 }
 
-// The destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
 func (o TargetGroupConfigHealthCheckPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupConfigHealthCheck) *string {
 		if v == nil {
@@ -4170,7 +3903,6 @@ func (o TargetGroupConfigHealthCheckPtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
 func (o TargetGroupConfigHealthCheckPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TargetGroupConfigHealthCheck) *int {
 		if v == nil {
@@ -4180,7 +3912,6 @@ func (o TargetGroupConfigHealthCheckPtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
 func (o TargetGroupConfigHealthCheckPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupConfigHealthCheck) *string {
 		if v == nil {
@@ -4190,7 +3921,6 @@ func (o TargetGroupConfigHealthCheckPtrOutput) Protocol() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`. The default is `HTTP1`.
 func (o TargetGroupConfigHealthCheckPtrOutput) ProtocolVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupConfigHealthCheck) *string {
 		if v == nil {
@@ -4200,7 +3930,6 @@ func (o TargetGroupConfigHealthCheckPtrOutput) ProtocolVersion() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
 func (o TargetGroupConfigHealthCheckPtrOutput) UnhealthyThresholdCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TargetGroupConfigHealthCheck) *int {
 		if v == nil {
@@ -4211,7 +3940,6 @@ func (o TargetGroupConfigHealthCheckPtrOutput) UnhealthyThresholdCount() pulumi.
 }
 
 type TargetGroupConfigHealthCheckMatcher struct {
-	// The HTTP codes to use when checking for a successful response from a target.
 	Value *string `pulumi:"value"`
 }
 
@@ -4227,7 +3955,6 @@ type TargetGroupConfigHealthCheckMatcherInput interface {
 }
 
 type TargetGroupConfigHealthCheckMatcherArgs struct {
-	// The HTTP codes to use when checking for a successful response from a target.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -4308,7 +4035,6 @@ func (o TargetGroupConfigHealthCheckMatcherOutput) ToTargetGroupConfigHealthChec
 	}).(TargetGroupConfigHealthCheckMatcherPtrOutput)
 }
 
-// The HTTP codes to use when checking for a successful response from a target.
 func (o TargetGroupConfigHealthCheckMatcherOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupConfigHealthCheckMatcher) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -4337,7 +4063,6 @@ func (o TargetGroupConfigHealthCheckMatcherPtrOutput) Elem() TargetGroupConfigHe
 	}).(TargetGroupConfigHealthCheckMatcherOutput)
 }
 
-// The HTTP codes to use when checking for a successful response from a target.
 func (o TargetGroupConfigHealthCheckMatcherPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupConfigHealthCheckMatcher) *string {
 		if v == nil {
@@ -4738,9 +4463,7 @@ func (o GetListenerDefaultActionForwardTargetGroupArrayOutput) Index(i pulumi.In
 }
 
 type GetServiceDnsEntry struct {
-	// DNS name for the service.
-	DomainName string `pulumi:"domainName"`
-	// Hosted zone ID where the DNS name is registered.
+	DomainName   string `pulumi:"domainName"`
 	HostedZoneId string `pulumi:"hostedZoneId"`
 }
 
@@ -4756,9 +4479,7 @@ type GetServiceDnsEntryInput interface {
 }
 
 type GetServiceDnsEntryArgs struct {
-	// DNS name for the service.
-	DomainName pulumi.StringInput `pulumi:"domainName"`
-	// Hosted zone ID where the DNS name is registered.
+	DomainName   pulumi.StringInput `pulumi:"domainName"`
 	HostedZoneId pulumi.StringInput `pulumi:"hostedZoneId"`
 }
 
@@ -4813,12 +4534,10 @@ func (o GetServiceDnsEntryOutput) ToGetServiceDnsEntryOutputWithContext(ctx cont
 	return o
 }
 
-// DNS name for the service.
 func (o GetServiceDnsEntryOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceDnsEntry) string { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// Hosted zone ID where the DNS name is registered.
 func (o GetServiceDnsEntryOutput) HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceDnsEntry) string { return v.HostedZoneId }).(pulumi.StringOutput)
 }

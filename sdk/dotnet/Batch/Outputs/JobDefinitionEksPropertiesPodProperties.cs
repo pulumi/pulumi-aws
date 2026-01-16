@@ -13,41 +13,14 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class JobDefinitionEksPropertiesPodProperties
     {
-        /// <summary>
-        /// Properties of the container that's used on the Amazon EKS pod. See containers below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionEksPropertiesPodPropertiesContainer> Containers;
-        /// <summary>
-        /// DNS policy for the pod. The default value is `ClusterFirst`. If the `HostNetwork` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
-        /// </summary>
         public readonly string? DnsPolicy;
-        /// <summary>
-        /// Whether the pod uses the hosts' network IP address. The default value is `True`. Setting this to `False` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
-        /// </summary>
         public readonly bool? HostNetwork;
-        /// <summary>
-        /// List of Kubernetes secret resources. See `ImagePullSecret` below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionEksPropertiesPodPropertiesImagePullSecret> ImagePullSecrets;
-        /// <summary>
-        /// Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionEksPropertiesPodPropertiesInitContainer> InitContainers;
-        /// <summary>
-        /// Metadata about the Kubernetes pod.
-        /// </summary>
         public readonly Outputs.JobDefinitionEksPropertiesPodPropertiesMetadata? Metadata;
-        /// <summary>
-        /// Name of the service account that's used to run the pod.
-        /// </summary>
         public readonly string? ServiceAccountName;
-        /// <summary>
-        /// Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
-        /// </summary>
         public readonly bool? ShareProcessNamespace;
-        /// <summary>
-        /// Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
-        /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionEksPropertiesPodPropertiesVolume> Volumes;
 
         [OutputConstructor]

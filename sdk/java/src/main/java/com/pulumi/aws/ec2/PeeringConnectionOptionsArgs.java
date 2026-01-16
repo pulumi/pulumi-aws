@@ -18,62 +18,30 @@ public final class PeeringConnectionOptionsArgs extends com.pulumi.resources.Res
 
     public static final PeeringConnectionOptionsArgs Empty = new PeeringConnectionOptionsArgs();
 
-    /**
-     * An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
-     * 
-     */
     @Import(name="accepter")
     private @Nullable Output<PeeringConnectionOptionsAccepterArgs> accepter;
 
-    /**
-     * @return An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
-     * 
-     */
     public Optional<Output<PeeringConnectionOptionsAccepterArgs>> accepter() {
         return Optional.ofNullable(this.accepter);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
-     * 
-     */
     @Import(name="requester")
     private @Nullable Output<PeeringConnectionOptionsRequesterArgs> requester;
 
-    /**
-     * @return A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
-     * 
-     */
     public Optional<Output<PeeringConnectionOptionsRequesterArgs>> requester() {
         return Optional.ofNullable(this.requester);
     }
 
-    /**
-     * The ID of the requester VPC peering connection.
-     * 
-     */
     @Import(name="vpcPeeringConnectionId", required=true)
     private Output<String> vpcPeeringConnectionId;
 
-    /**
-     * @return The ID of the requester VPC peering connection.
-     * 
-     */
     public Output<String> vpcPeeringConnectionId() {
         return this.vpcPeeringConnectionId;
     }
@@ -105,86 +73,38 @@ public final class PeeringConnectionOptionsArgs extends com.pulumi.resources.Res
             $ = new PeeringConnectionOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accepter An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
-         * 
-         * @return builder
-         * 
-         */
         public Builder accepter(@Nullable Output<PeeringConnectionOptionsAccepterArgs> accepter) {
             $.accepter = accepter;
             return this;
         }
 
-        /**
-         * @param accepter An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
-         * 
-         * @return builder
-         * 
-         */
         public Builder accepter(PeeringConnectionOptionsAccepterArgs accepter) {
             return accepter(Output.of(accepter));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param requester A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
-         * 
-         * @return builder
-         * 
-         */
         public Builder requester(@Nullable Output<PeeringConnectionOptionsRequesterArgs> requester) {
             $.requester = requester;
             return this;
         }
 
-        /**
-         * @param requester A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
-         * 
-         * @return builder
-         * 
-         */
         public Builder requester(PeeringConnectionOptionsRequesterArgs requester) {
             return requester(Output.of(requester));
         }
 
-        /**
-         * @param vpcPeeringConnectionId The ID of the requester VPC peering connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcPeeringConnectionId(Output<String> vpcPeeringConnectionId) {
             $.vpcPeeringConnectionId = vpcPeeringConnectionId;
             return this;
         }
 
-        /**
-         * @param vpcPeeringConnectionId The ID of the requester VPC peering connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcPeeringConnectionId(String vpcPeeringConnectionId) {
             return vpcPeeringConnectionId(Output.of(vpcPeeringConnectionId));
         }

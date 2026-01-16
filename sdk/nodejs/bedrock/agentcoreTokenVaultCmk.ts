@@ -7,31 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages the AWS KMS customer master key (CMK) for a token vault.
- *
- * > Deletion of this resource will not modify the CMK, only remove the resource from state.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.bedrock.AgentcoreTokenVaultCmk("example", {kmsConfiguration: {
- *     keyType: "CustomerManagedKey",
- *     kmsKeyArn: exampleAwsKmsKey.arn,
- * }});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import token vault CMKs using the token vault ID. For example:
- *
- * ```sh
- * $ pulumi import aws:bedrock/agentcoreTokenVaultCmk:AgentcoreTokenVaultCmk example "default"
- * ```
- */
 export class AgentcoreTokenVaultCmk extends pulumi.CustomResource {
     /**
      * Get an existing AgentcoreTokenVaultCmk resource's state with the given name, ID, and optional extra
@@ -60,17 +35,8 @@ export class AgentcoreTokenVaultCmk extends pulumi.CustomResource {
         return obj['__pulumiType'] === AgentcoreTokenVaultCmk.__pulumiType;
     }
 
-    /**
-     * KMS configuration for the token vault. See `kmsConfiguration` below.
-     */
     declare public readonly kmsConfiguration: pulumi.Output<outputs.bedrock.AgentcoreTokenVaultCmkKmsConfiguration | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Token vault ID. Defaults to `default`.
-     */
     declare public readonly tokenVaultId: pulumi.Output<string>;
 
     /**
@@ -104,17 +70,8 @@ export class AgentcoreTokenVaultCmk extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AgentcoreTokenVaultCmk resources.
  */
 export interface AgentcoreTokenVaultCmkState {
-    /**
-     * KMS configuration for the token vault. See `kmsConfiguration` below.
-     */
     kmsConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreTokenVaultCmkKmsConfiguration>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Token vault ID. Defaults to `default`.
-     */
     tokenVaultId?: pulumi.Input<string>;
 }
 
@@ -122,16 +79,7 @@ export interface AgentcoreTokenVaultCmkState {
  * The set of arguments for constructing a AgentcoreTokenVaultCmk resource.
  */
 export interface AgentcoreTokenVaultCmkArgs {
-    /**
-     * KMS configuration for the token vault. See `kmsConfiguration` below.
-     */
     kmsConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreTokenVaultCmkKmsConfiguration>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Token vault ID. Defaults to `default`.
-     */
     tokenVaultId?: pulumi.Input<string>;
 }

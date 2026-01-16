@@ -10,53 +10,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPartitionResult {
-    /**
-     * @return Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
-     * 
-     */
     private String dnsSuffix;
-    /**
-     * @return Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-     * 
-     */
     private String id;
-    /**
-     * @return Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-     * 
-     */
     private String partition;
-    /**
-     * @return Prefix of service names (e.g., `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
-     * 
-     */
     private String reverseDnsPrefix;
 
     private GetPartitionResult() {}
-    /**
-     * @return Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
-     * 
-     */
     public String dnsSuffix() {
         return this.dnsSuffix;
     }
-    /**
-     * @return Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-     * 
-     */
     public String partition() {
         return this.partition;
     }
-    /**
-     * @return Prefix of service names (e.g., `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
-     * 
-     */
     public String reverseDnsPrefix() {
         return this.reverseDnsPrefix;
     }

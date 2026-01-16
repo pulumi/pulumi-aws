@@ -15,15 +15,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("cbetCheckDigitString", required: true)]
         public Input<string> CbetCheckDigitString { get; set; } = null!;
 
-        /// <summary>
-        /// Determines the method of CBET insertion mode when prior encoding is detected on the same layer.
-        /// </summary>
         [Input("cbetStepaside", required: true)]
         public Input<string> CbetStepaside { get; set; } = null!;
 
-        /// <summary>
-        /// CBET source ID to use in the watermark.
-        /// </summary>
         [Input("csid", required: true)]
         public Input<string> Csid { get; set; } = null!;
 

@@ -20,197 +20,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an Amazon Aurora DSQL Cluster.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.dsql.Cluster;
- * import com.pulumi.aws.dsql.ClusterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Cluster("example", ClusterArgs.builder()
- *             .deletionProtectionEnabled(true)
- *             .tags(Map.of("Name", "TestCluster"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import DSQL Cluster using the `identifier`. For example:
- * 
- * ```sh
- * $ pulumi import aws:dsql/cluster:Cluster example abcde1f234ghijklmnop5qr6st
- * ```
- * 
- */
 @ResourceType(type="aws:dsql/cluster:Cluster")
 public class Cluster extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Cluster.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Cluster.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Whether deletion protection is enabled in this cluster.
-     * Default value is `false`.
-     * 
-     */
     @Export(name="deletionProtectionEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> deletionProtectionEnabled;
 
-    /**
-     * @return Whether deletion protection is enabled in this cluster.
-     * Default value is `false`.
-     * 
-     */
     public Output<Boolean> deletionProtectionEnabled() {
         return this.deletionProtectionEnabled;
     }
-    /**
-     * Encryption configuration details for the DSQL Cluster.
-     * 
-     */
     @Export(name="encryptionDetails", refs={List.class,ClusterEncryptionDetail.class}, tree="[0,1]")
     private Output<List<ClusterEncryptionDetail>> encryptionDetails;
 
-    /**
-     * @return Encryption configuration details for the DSQL Cluster.
-     * 
-     */
     public Output<List<ClusterEncryptionDetail>> encryptionDetails() {
         return this.encryptionDetails;
     }
-    /**
-     * Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
-     * Default value is `false`.
-     * 
-     */
     @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> forceDestroy;
 
-    /**
-     * @return Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
-     * Default value is `false`.
-     * 
-     */
     public Output<Boolean> forceDestroy() {
         return this.forceDestroy;
     }
-    /**
-     * Cluster Identifier.
-     * 
-     */
     @Export(name="identifier", refs={String.class}, tree="[0]")
     private Output<String> identifier;
 
-    /**
-     * @return Cluster Identifier.
-     * 
-     */
     public Output<String> identifier() {
         return this.identifier;
     }
-    /**
-     * The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `&#34;AWS_OWNED_KMS_KEY&#34;`.
-     * 
-     */
     @Export(name="kmsEncryptionKey", refs={String.class}, tree="[0]")
     private Output<String> kmsEncryptionKey;
 
-    /**
-     * @return The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `&#34;AWS_OWNED_KMS_KEY&#34;`.
-     * 
-     */
     public Output<String> kmsEncryptionKey() {
         return this.kmsEncryptionKey;
     }
-    /**
-     * Multi-region properties of the DSQL Cluster.
-     * 
-     */
     @Export(name="multiRegionProperties", refs={ClusterMultiRegionProperties.class}, tree="[0]")
     private Output</* @Nullable */ ClusterMultiRegionProperties> multiRegionProperties;
 
-    /**
-     * @return Multi-region properties of the DSQL Cluster.
-     * 
-     */
     public Output<Optional<ClusterMultiRegionProperties>> multiRegionProperties() {
         return Codegen.optional(this.multiRegionProperties);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Set of tags to be associated with the AWS DSQL Cluster resource.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Set of tags to be associated with the AWS DSQL Cluster resource.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
@@ -220,17 +88,9 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     public Output<Optional<ClusterTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * The DSQL Cluster&#39;s VPC endpoint service name.
-     * 
-     */
     @Export(name="vpcEndpointServiceName", refs={String.class}, tree="[0]")
     private Output<String> vpcEndpointServiceName;
 
-    /**
-     * @return The DSQL Cluster&#39;s VPC endpoint service name.
-     * 
-     */
     public Output<String> vpcEndpointServiceName() {
         return this.vpcEndpointServiceName;
     }

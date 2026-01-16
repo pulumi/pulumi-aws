@@ -17,92 +17,44 @@ public final class ReceiptRuleBounceActionArgs extends com.pulumi.resources.Reso
 
     public static final ReceiptRuleBounceActionArgs Empty = new ReceiptRuleBounceActionArgs();
 
-    /**
-     * The message to send
-     * 
-     */
     @Import(name="message", required=true)
     private Output<String> message;
 
-    /**
-     * @return The message to send
-     * 
-     */
     public Output<String> message() {
         return this.message;
     }
 
-    /**
-     * The position of the action in the receipt rule
-     * 
-     */
     @Import(name="position", required=true)
     private Output<Integer> position;
 
-    /**
-     * @return The position of the action in the receipt rule
-     * 
-     */
     public Output<Integer> position() {
         return this.position;
     }
 
-    /**
-     * The email address of the sender
-     * 
-     */
     @Import(name="sender", required=true)
     private Output<String> sender;
 
-    /**
-     * @return The email address of the sender
-     * 
-     */
     public Output<String> sender() {
         return this.sender;
     }
 
-    /**
-     * The RFC 5321 SMTP reply code
-     * 
-     */
     @Import(name="smtpReplyCode", required=true)
     private Output<String> smtpReplyCode;
 
-    /**
-     * @return The RFC 5321 SMTP reply code
-     * 
-     */
     public Output<String> smtpReplyCode() {
         return this.smtpReplyCode;
     }
 
-    /**
-     * The RFC 3463 SMTP enhanced status code
-     * 
-     */
     @Import(name="statusCode")
     private @Nullable Output<String> statusCode;
 
-    /**
-     * @return The RFC 3463 SMTP enhanced status code
-     * 
-     */
     public Optional<Output<String>> statusCode() {
         return Optional.ofNullable(this.statusCode);
     }
 
-    /**
-     * The ARN of an SNS topic to notify
-     * 
-     */
     @Import(name="topicArn")
     private @Nullable Output<String> topicArn;
 
-    /**
-     * @return The ARN of an SNS topic to notify
-     * 
-     */
     public Optional<Output<String>> topicArn() {
         return Optional.ofNullable(this.topicArn);
     }
@@ -136,128 +88,56 @@ public final class ReceiptRuleBounceActionArgs extends com.pulumi.resources.Reso
             $ = new ReceiptRuleBounceActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param message The message to send
-         * 
-         * @return builder
-         * 
-         */
         public Builder message(Output<String> message) {
             $.message = message;
             return this;
         }
 
-        /**
-         * @param message The message to send
-         * 
-         * @return builder
-         * 
-         */
         public Builder message(String message) {
             return message(Output.of(message));
         }
 
-        /**
-         * @param position The position of the action in the receipt rule
-         * 
-         * @return builder
-         * 
-         */
         public Builder position(Output<Integer> position) {
             $.position = position;
             return this;
         }
 
-        /**
-         * @param position The position of the action in the receipt rule
-         * 
-         * @return builder
-         * 
-         */
         public Builder position(Integer position) {
             return position(Output.of(position));
         }
 
-        /**
-         * @param sender The email address of the sender
-         * 
-         * @return builder
-         * 
-         */
         public Builder sender(Output<String> sender) {
             $.sender = sender;
             return this;
         }
 
-        /**
-         * @param sender The email address of the sender
-         * 
-         * @return builder
-         * 
-         */
         public Builder sender(String sender) {
             return sender(Output.of(sender));
         }
 
-        /**
-         * @param smtpReplyCode The RFC 5321 SMTP reply code
-         * 
-         * @return builder
-         * 
-         */
         public Builder smtpReplyCode(Output<String> smtpReplyCode) {
             $.smtpReplyCode = smtpReplyCode;
             return this;
         }
 
-        /**
-         * @param smtpReplyCode The RFC 5321 SMTP reply code
-         * 
-         * @return builder
-         * 
-         */
         public Builder smtpReplyCode(String smtpReplyCode) {
             return smtpReplyCode(Output.of(smtpReplyCode));
         }
 
-        /**
-         * @param statusCode The RFC 3463 SMTP enhanced status code
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusCode(@Nullable Output<String> statusCode) {
             $.statusCode = statusCode;
             return this;
         }
 
-        /**
-         * @param statusCode The RFC 3463 SMTP enhanced status code
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusCode(String statusCode) {
             return statusCode(Output.of(statusCode));
         }
 
-        /**
-         * @param topicArn The ARN of an SNS topic to notify
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicArn(@Nullable Output<String> topicArn) {
             $.topicArn = topicArn;
             return this;
         }
 
-        /**
-         * @param topicArn The ARN of an SNS topic to notify
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicArn(String topicArn) {
             return topicArn(Output.of(topicArn));
         }

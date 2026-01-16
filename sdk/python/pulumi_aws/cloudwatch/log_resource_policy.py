@@ -27,9 +27,6 @@ class LogResourcePolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogResourcePolicy resource.
-        :param pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']] policy_document: Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-        :param pulumi.Input[_builtins.str] policy_name: Name of the resource policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy_document", policy_document)
         pulumi.set(__self__, "policy_name", policy_name)
@@ -39,9 +36,6 @@ class LogResourcePolicyArgs:
     @_builtins.property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']]:
-        """
-        Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-        """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
@@ -51,9 +45,6 @@ class LogResourcePolicyArgs:
     @_builtins.property
     @pulumi.getter(name="policyName")
     def policy_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the resource policy.
-        """
         return pulumi.get(self, "policy_name")
 
     @policy_name.setter
@@ -63,9 +54,6 @@ class LogResourcePolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -81,9 +69,6 @@ class _LogResourcePolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogResourcePolicy resources.
-        :param pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']] policy_document: Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-        :param pulumi.Input[_builtins.str] policy_name: Name of the resource policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if policy_document is not None:
             pulumi.set(__self__, "policy_document", policy_document)
@@ -95,9 +80,6 @@ class _LogResourcePolicyState:
     @_builtins.property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']]]:
-        """
-        Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-        """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
@@ -107,9 +89,6 @@ class _LogResourcePolicyState:
     @_builtins.property
     @pulumi.getter(name="policyName")
     def policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the resource policy.
-        """
         return pulumi.get(self, "policy_name")
 
     @policy_name.setter
@@ -119,9 +98,6 @@ class _LogResourcePolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -140,68 +116,9 @@ class LogResourcePolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a resource to manage a CloudWatch log resource policy.
-
-        ## Example Usage
-
-        ### Elasticsearch Log Publishing
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        elasticsearch_log_publishing_policy = aws.iam.get_policy_document(statements=[{
-            "actions": [
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-                "logs:PutLogEventsBatch",
-            ],
-            "resources": ["arn:aws:logs:*"],
-            "principals": [{
-                "identifiers": ["es.amazonaws.com"],
-                "type": "Service",
-            }],
-        }])
-        elasticsearch_log_publishing_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("elasticsearch-log-publishing-policy",
-            policy_document=elasticsearch_log_publishing_policy.json,
-            policy_name="elasticsearch-log-publishing-policy")
-        ```
-
-        ### Route53 Query Logging
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        route53_query_logging_policy = aws.iam.get_policy_document(statements=[{
-            "actions": [
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-            ],
-            "resources": ["arn:aws:logs:*:*:log-group:/aws/route53/*"],
-            "principals": [{
-                "identifiers": ["route53.amazonaws.com"],
-                "type": "Service",
-            }],
-        }])
-        route53_query_logging_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("route53-query-logging-policy",
-            policy_document=route53_query_logging_policy.json,
-            policy_name="route53-query-logging-policy")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudWatch log resource policies using the policy name. For example:
-
-        ```sh
-        $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
-        ```
-
+        Create a LogResourcePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[_builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy_document: Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-        :param pulumi.Input[_builtins.str] policy_name: Name of the resource policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -210,63 +127,7 @@ class LogResourcePolicy(pulumi.CustomResource):
                  args: LogResourcePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage a CloudWatch log resource policy.
-
-        ## Example Usage
-
-        ### Elasticsearch Log Publishing
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        elasticsearch_log_publishing_policy = aws.iam.get_policy_document(statements=[{
-            "actions": [
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-                "logs:PutLogEventsBatch",
-            ],
-            "resources": ["arn:aws:logs:*"],
-            "principals": [{
-                "identifiers": ["es.amazonaws.com"],
-                "type": "Service",
-            }],
-        }])
-        elasticsearch_log_publishing_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("elasticsearch-log-publishing-policy",
-            policy_document=elasticsearch_log_publishing_policy.json,
-            policy_name="elasticsearch-log-publishing-policy")
-        ```
-
-        ### Route53 Query Logging
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        route53_query_logging_policy = aws.iam.get_policy_document(statements=[{
-            "actions": [
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-            ],
-            "resources": ["arn:aws:logs:*:*:log-group:/aws/route53/*"],
-            "principals": [{
-                "identifiers": ["route53.amazonaws.com"],
-                "type": "Service",
-            }],
-        }])
-        route53_query_logging_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("route53-query-logging-policy",
-            policy_document=route53_query_logging_policy.json,
-            policy_name="route53-query-logging-policy")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudWatch log resource policies using the policy name. For example:
-
-        ```sh
-        $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
-        ```
-
+        Create a LogResourcePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LogResourcePolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -321,9 +182,6 @@ class LogResourcePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[_builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy_document: Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-        :param pulumi.Input[_builtins.str] policy_name: Name of the resource policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -337,24 +195,15 @@ class LogResourcePolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Output[_builtins.str]:
-        """
-        Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-        """
         return pulumi.get(self, "policy_document")
 
     @_builtins.property
     @pulumi.getter(name="policyName")
     def policy_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the resource policy.
-        """
         return pulumi.get(self, "policy_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

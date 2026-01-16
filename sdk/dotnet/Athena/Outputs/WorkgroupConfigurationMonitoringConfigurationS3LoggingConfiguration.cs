@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Athena.Outputs
     [OutputType]
     public sealed class WorkgroupConfigurationMonitoringConfigurationS3LoggingConfiguration
     {
-        /// <summary>
-        /// Boolean whether Amazon S3 logging is enabled for the workgroup.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
-        /// </summary>
         public readonly string? KmsKey;
-        /// <summary>
-        /// Amazon S3 destination URI (`s3://bucket/prefix`) for log publishing.
-        /// </summary>
         public readonly string? LogLocation;
 
         [OutputConstructor]

@@ -15,93 +15,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ExperimentTemplateTarget {
-    /**
-     * @return Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
-     * 
-     */
     private @Nullable List<ExperimentTemplateTargetFilter> filters;
-    /**
-     * @return Friendly name given to the target.
-     * 
-     */
     private String name;
-    /**
-     * @return The resource type parameters.
-     * 
-     * &gt; **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
-     * 
-     */
     private @Nullable Map<String,String> parameters;
-    /**
-     * @return Set of ARNs of the resources to target with an action. Conflicts with `resourceTag`.
-     * 
-     */
     private @Nullable List<String> resourceArns;
-    /**
-     * @return Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resourceArns`. See below.
-     * 
-     */
     private @Nullable List<ExperimentTemplateTargetResourceTag> resourceTags;
-    /**
-     * @return AWS resource type. The resource type must be supported for the specified action. To find out what resource types are supported, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#resource-types).
-     * 
-     */
     private String resourceType;
-    /**
-     * @return Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
-     * 
-     */
     private String selectionMode;
 
     private ExperimentTemplateTarget() {}
-    /**
-     * @return Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
-     * 
-     */
     public List<ExperimentTemplateTargetFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
-    /**
-     * @return Friendly name given to the target.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The resource type parameters.
-     * 
-     * &gt; **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
-     * 
-     */
     public Map<String,String> parameters() {
         return this.parameters == null ? Map.of() : this.parameters;
     }
-    /**
-     * @return Set of ARNs of the resources to target with an action. Conflicts with `resourceTag`.
-     * 
-     */
     public List<String> resourceArns() {
         return this.resourceArns == null ? List.of() : this.resourceArns;
     }
-    /**
-     * @return Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resourceArns`. See below.
-     * 
-     */
     public List<ExperimentTemplateTargetResourceTag> resourceTags() {
         return this.resourceTags == null ? List.of() : this.resourceTags;
     }
-    /**
-     * @return AWS resource type. The resource type must be supported for the specified action. To find out what resource types are supported, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#resource-types).
-     * 
-     */
     public String resourceType() {
         return this.resourceType;
     }
-    /**
-     * @return Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
-     * 
-     */
     public String selectionMode() {
         return this.selectionMode;
     }

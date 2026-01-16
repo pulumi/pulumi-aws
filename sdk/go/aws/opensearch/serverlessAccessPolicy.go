@@ -12,215 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS OpenSearch Serverless Access Policy. See AWS documentation for [data access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html) and [supported data access policy permissions](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html#serverless-data-supported-permissions).
-//
-// ## Example Usage
-//
-// ### Grant all collection and index permissions
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal([]map[string]interface{}{
-//				map[string]interface{}{
-//					"Rules": []map[string]interface{}{
-//						map[string]interface{}{
-//							"ResourceType": "index",
-//							"Resource": []string{
-//								"index/example-collection/*",
-//							},
-//							"Permission": []string{
-//								"aoss:*",
-//							},
-//						},
-//						map[string]interface{}{
-//							"ResourceType": "collection",
-//							"Resource": []string{
-//								"collection/example-collection",
-//							},
-//							"Permission": []string{
-//								"aoss:*",
-//							},
-//						},
-//					},
-//					"Principal": []*string{
-//						current.Arn,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = opensearch.NewServerlessAccessPolicy(ctx, "example", &opensearch.ServerlessAccessPolicyArgs{
-//				Name:        pulumi.String("example"),
-//				Type:        pulumi.String("data"),
-//				Description: pulumi.String("read and write permissions"),
-//				Policy:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Grant read-only collection and index permissions
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal([]map[string]interface{}{
-//				map[string]interface{}{
-//					"Rules": []interface{}{
-//						map[string]interface{}{
-//							"ResourceType": "index",
-//							"Resource": []string{
-//								"index/example-collection/*",
-//							},
-//							"Permission": []string{
-//								"aoss:DescribeIndex",
-//								"aoss:ReadDocument",
-//							},
-//						},
-//						map[string]interface{}{
-//							"ResourceType": "collection",
-//							"Resource": []string{
-//								"collection/example-collection",
-//							},
-//							"Permission": []string{
-//								"aoss:DescribeCollectionItems",
-//							},
-//						},
-//					},
-//					"Principal": []*string{
-//						current.Arn,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = opensearch.NewServerlessAccessPolicy(ctx, "example", &opensearch.ServerlessAccessPolicyArgs{
-//				Name:        pulumi.String("example"),
-//				Type:        pulumi.String("data"),
-//				Description: pulumi.String("read-only permissions"),
-//				Policy:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Grant SAML identity permissions
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal([]map[string]interface{}{
-//				map[string]interface{}{
-//					"Rules": []map[string]interface{}{
-//						map[string]interface{}{
-//							"ResourceType": "index",
-//							"Resource": []string{
-//								"index/example-collection/*",
-//							},
-//							"Permission": []string{
-//								"aoss:*",
-//							},
-//						},
-//						map[string]interface{}{
-//							"ResourceType": "collection",
-//							"Resource": []string{
-//								"collection/example-collection",
-//							},
-//							"Permission": []string{
-//								"aoss:*",
-//							},
-//						},
-//					},
-//					"Principal": []string{
-//						"saml/123456789012/myprovider/user/Annie",
-//						"saml/123456789012/anotherprovider/group/Accounting",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = opensearch.NewServerlessAccessPolicy(ctx, "example", &opensearch.ServerlessAccessPolicyArgs{
-//				Name:        pulumi.String("example"),
-//				Type:        pulumi.String("data"),
-//				Description: pulumi.String("saml permissions"),
-//				Policy:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import OpenSearchServerless Access Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
-//
-// ```sh
-// $ pulumi import aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy example example/data
-// ```
 type ServerlessAccessPolicy struct {
 	pulumi.CustomResourceState
 
@@ -228,15 +19,12 @@ type ServerlessAccessPolicy struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the policy.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// JSON policy document to use as the content for the new policy
+	// JSON policy document to use as the content for the new policy.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// Version of the policy.
 	PolicyVersion pulumi.StringOutput `pulumi:"policyVersion"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region        pulumi.StringOutput `pulumi:"region"`
 	// Type of access policy. Must be `data`.
-	//
-	// The following arguments are optional:
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -280,15 +68,12 @@ type serverlessAccessPolicyState struct {
 	Description *string `pulumi:"description"`
 	// Name of the policy.
 	Name *string `pulumi:"name"`
-	// JSON policy document to use as the content for the new policy
+	// JSON policy document to use as the content for the new policy.
 	Policy *string `pulumi:"policy"`
 	// Version of the policy.
 	PolicyVersion *string `pulumi:"policyVersion"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region        *string `pulumi:"region"`
 	// Type of access policy. Must be `data`.
-	//
-	// The following arguments are optional:
 	Type *string `pulumi:"type"`
 }
 
@@ -297,15 +82,12 @@ type ServerlessAccessPolicyState struct {
 	Description pulumi.StringPtrInput
 	// Name of the policy.
 	Name pulumi.StringPtrInput
-	// JSON policy document to use as the content for the new policy
+	// JSON policy document to use as the content for the new policy.
 	Policy pulumi.StringPtrInput
 	// Version of the policy.
 	PolicyVersion pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
 	// Type of access policy. Must be `data`.
-	//
-	// The following arguments are optional:
 	Type pulumi.StringPtrInput
 }
 
@@ -318,13 +100,10 @@ type serverlessAccessPolicyArgs struct {
 	Description *string `pulumi:"description"`
 	// Name of the policy.
 	Name *string `pulumi:"name"`
-	// JSON policy document to use as the content for the new policy
-	Policy string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// JSON policy document to use as the content for the new policy.
+	Policy string  `pulumi:"policy"`
 	Region *string `pulumi:"region"`
 	// Type of access policy. Must be `data`.
-	//
-	// The following arguments are optional:
 	Type string `pulumi:"type"`
 }
 
@@ -334,13 +113,10 @@ type ServerlessAccessPolicyArgs struct {
 	Description pulumi.StringPtrInput
 	// Name of the policy.
 	Name pulumi.StringPtrInput
-	// JSON policy document to use as the content for the new policy
+	// JSON policy document to use as the content for the new policy.
 	Policy pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Type of access policy. Must be `data`.
-	//
-	// The following arguments are optional:
 	Type pulumi.StringInput
 }
 
@@ -441,7 +217,7 @@ func (o ServerlessAccessPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessAccessPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// JSON policy document to use as the content for the new policy
+// JSON policy document to use as the content for the new policy.
 func (o ServerlessAccessPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessAccessPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
@@ -451,14 +227,11 @@ func (o ServerlessAccessPolicyOutput) PolicyVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessAccessPolicy) pulumi.StringOutput { return v.PolicyVersion }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ServerlessAccessPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessAccessPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Type of access policy. Must be `data`.
-//
-// The following arguments are optional:
 func (o ServerlessAccessPolicyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessAccessPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

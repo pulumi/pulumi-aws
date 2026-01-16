@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirResult
     {
-        /// <summary>
-        /// The medium to store the volume.
-        /// </summary>
         public readonly string Medium;
-        /// <summary>
-        /// The maximum size of the volume. By default, there's no maximum size defined.
-        /// </summary>
         public readonly string SizeLimit;
 
         [OutputConstructor]

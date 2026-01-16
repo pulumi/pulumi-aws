@@ -15,89 +15,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipeTargetParametersEcsTaskParametersOverrides {
-    /**
-     * @return One or more container overrides that are sent to a task. Detailed below.
-     * 
-     */
     private @Nullable List<PipeTargetParametersEcsTaskParametersOverridesContainerOverride> containerOverrides;
-    /**
-     * @return The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
-     * 
-     */
     private @Nullable String cpu;
-    /**
-     * @return The ephemeral storage setting override for the task.  Detailed below.
-     * 
-     */
     private @Nullable PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage ephemeralStorage;
-    /**
-     * @return The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
-     * 
-     */
     private @Nullable String executionRoleArn;
-    /**
-     * @return List of Elastic Inference accelerator overrides for the task. Detailed below.
-     * 
-     */
     private @Nullable List<PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride> inferenceAcceleratorOverrides;
-    /**
-     * @return The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
-     * 
-     */
     private @Nullable String memory;
-    /**
-     * @return The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
-     * 
-     */
     private @Nullable String taskRoleArn;
 
     private PipeTargetParametersEcsTaskParametersOverrides() {}
-    /**
-     * @return One or more container overrides that are sent to a task. Detailed below.
-     * 
-     */
     public List<PipeTargetParametersEcsTaskParametersOverridesContainerOverride> containerOverrides() {
         return this.containerOverrides == null ? List.of() : this.containerOverrides;
     }
-    /**
-     * @return The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
-     * 
-     */
     public Optional<String> cpu() {
         return Optional.ofNullable(this.cpu);
     }
-    /**
-     * @return The ephemeral storage setting override for the task.  Detailed below.
-     * 
-     */
     public Optional<PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage> ephemeralStorage() {
         return Optional.ofNullable(this.ephemeralStorage);
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
-     * 
-     */
     public Optional<String> executionRoleArn() {
         return Optional.ofNullable(this.executionRoleArn);
     }
-    /**
-     * @return List of Elastic Inference accelerator overrides for the task. Detailed below.
-     * 
-     */
     public List<PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride> inferenceAcceleratorOverrides() {
         return this.inferenceAcceleratorOverrides == null ? List.of() : this.inferenceAcceleratorOverrides;
     }
-    /**
-     * @return The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
-     * 
-     */
     public Optional<String> memory() {
         return Optional.ofNullable(this.memory);
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
-     * 
-     */
     public Optional<String> taskRoleArn() {
         return Optional.ofNullable(this.taskRoleArn);
     }

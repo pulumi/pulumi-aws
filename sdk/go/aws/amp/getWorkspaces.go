@@ -11,60 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides the aliases, ARNs, and workspace IDs of Amazon Prometheus workspaces.
-//
-// ## Example Usage
-//
-// The following example returns all of the workspaces in a region:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amp"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := amp.GetWorkspaces(ctx, &amp.GetWorkspacesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// The following example filters the workspaces by alias. Only the workspaces with
-// aliases that begin with the value of `aliasPrefix` will be returned:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amp"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := amp.GetWorkspaces(ctx, &amp.GetWorkspacesArgs{
-//				AliasPrefix: pulumi.StringRef("example"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetWorkspaces(ctx *pulumi.Context, args *GetWorkspacesArgs, opts ...pulumi.InvokeOption) (*GetWorkspacesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetWorkspacesResult
@@ -77,23 +23,18 @@ func GetWorkspaces(ctx *pulumi.Context, args *GetWorkspacesArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getWorkspaces.
 type GetWorkspacesArgs struct {
-	// Limits results to workspaces with aliases that begin with this value.
 	AliasPrefix *string `pulumi:"aliasPrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region      *string `pulumi:"region"`
 }
 
 // A collection of values returned by getWorkspaces.
 type GetWorkspacesResult struct {
-	AliasPrefix *string `pulumi:"aliasPrefix"`
-	// List of aliases of the matched Prometheus workspaces.
-	Aliases []string `pulumi:"aliases"`
-	// List of ARNs of the matched Prometheus workspaces.
-	Arns []string `pulumi:"arns"`
+	AliasPrefix *string  `pulumi:"aliasPrefix"`
+	Aliases     []string `pulumi:"aliases"`
+	Arns        []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
-	// List of workspace IDs of the matched Prometheus workspaces.
+	Id           string   `pulumi:"id"`
+	Region       string   `pulumi:"region"`
 	WorkspaceIds []string `pulumi:"workspaceIds"`
 }
 
@@ -108,10 +49,8 @@ func GetWorkspacesOutput(ctx *pulumi.Context, args GetWorkspacesOutputArgs, opts
 
 // A collection of arguments for invoking getWorkspaces.
 type GetWorkspacesOutputArgs struct {
-	// Limits results to workspaces with aliases that begin with this value.
 	AliasPrefix pulumi.StringPtrInput `pulumi:"aliasPrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Region      pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetWorkspacesOutputArgs) ElementType() reflect.Type {
@@ -137,12 +76,10 @@ func (o GetWorkspacesResultOutput) AliasPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetWorkspacesResult) *string { return v.AliasPrefix }).(pulumi.StringPtrOutput)
 }
 
-// List of aliases of the matched Prometheus workspaces.
 func (o GetWorkspacesResultOutput) Aliases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetWorkspacesResult) []string { return v.Aliases }).(pulumi.StringArrayOutput)
 }
 
-// List of ARNs of the matched Prometheus workspaces.
 func (o GetWorkspacesResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetWorkspacesResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }
@@ -156,7 +93,6 @@ func (o GetWorkspacesResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWorkspacesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// List of workspace IDs of the matched Prometheus workspaces.
 func (o GetWorkspacesResultOutput) WorkspaceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetWorkspacesResult) []string { return v.WorkspaceIds }).(pulumi.StringArrayOutput)
 }

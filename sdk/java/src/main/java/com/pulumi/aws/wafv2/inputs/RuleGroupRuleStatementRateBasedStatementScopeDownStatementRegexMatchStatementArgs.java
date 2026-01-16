@@ -19,51 +19,23 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
 
     public static final RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs Empty = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs();
 
-    /**
-     * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
-     * 
-     */
     @Import(name="fieldToMatch")
     private @Nullable Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchArgs> fieldToMatch;
 
-    /**
-     * @return The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
-     * 
-     */
     public Optional<Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchArgs>> fieldToMatch() {
         return Optional.ofNullable(this.fieldToMatch);
     }
 
-    /**
-     * The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can&#39;t be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
-     * 
-     */
     @Import(name="regexString", required=true)
     private Output<String> regexString;
 
-    /**
-     * @return The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can&#39;t be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
-     * 
-     */
     public Output<String> regexString() {
         return this.regexString;
     }
 
-    /**
-     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
-     * 
-     */
     @Import(name="textTransformations", required=true)
     private Output<List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs>> textTransformations;
 
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
-     * 
-     */
     public Output<List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs>> textTransformations() {
         return this.textTransformations;
     }
@@ -94,81 +66,33 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
             $ = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fieldToMatch The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldToMatch(@Nullable Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchArgs> fieldToMatch) {
             $.fieldToMatch = fieldToMatch;
             return this;
         }
 
-        /**
-         * @param fieldToMatch The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldToMatch(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchArgs fieldToMatch) {
             return fieldToMatch(Output.of(fieldToMatch));
         }
 
-        /**
-         * @param regexString The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can&#39;t be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexString(Output<String> regexString) {
             $.regexString = regexString;
             return this;
         }
 
-        /**
-         * @param regexString The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can&#39;t be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexString(String regexString) {
             return regexString(Output.of(regexString));
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformations(Output<List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs>> textTransformations) {
             $.textTransformations = textTransformations;
             return this;
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformations(List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs> textTransformations) {
             return textTransformations(Output.of(textTransformations));
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformations(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs... textTransformations) {
             return textTransformations(List.of(textTransformations));
         }

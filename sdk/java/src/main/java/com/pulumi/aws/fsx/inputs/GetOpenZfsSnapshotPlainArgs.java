@@ -18,94 +18,44 @@ public final class GetOpenZfsSnapshotPlainArgs extends com.pulumi.resources.Invo
 
     public static final GetOpenZfsSnapshotPlainArgs Empty = new GetOpenZfsSnapshotPlainArgs();
 
-    /**
-     * One or more name/value pairs to filter off of. The
-     * supported names are file-system-id or volume-id.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetOpenZfsSnapshotFilter> filters;
 
-    /**
-     * @return One or more name/value pairs to filter off of. The
-     * supported names are file-system-id or volume-id.
-     * 
-     */
     public Optional<List<GetOpenZfsSnapshotFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * If more than one result is returned, use the most recent snapshot.
-     * 
-     */
     @Import(name="mostRecent")
     private @Nullable Boolean mostRecent;
 
-    /**
-     * @return If more than one result is returned, use the most recent snapshot.
-     * 
-     */
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
 
-    /**
-     * Name of the snapshot.
-     * 
-     */
     @Import(name="name")
     private @Nullable String name;
 
-    /**
-     * @return Name of the snapshot.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Returns information on a specific snapshot_id.
-     * 
-     */
     @Import(name="snapshotIds")
     private @Nullable List<String> snapshotIds;
 
-    /**
-     * @return Returns information on a specific snapshot_id.
-     * 
-     */
     public Optional<List<String>> snapshotIds() {
         return Optional.ofNullable(this.snapshotIds);
     }
 
-    /**
-     * List of Tag values, with a maximum of 50 elements.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return List of Tag values, with a maximum of 50 elements.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -139,89 +89,39 @@ public final class GetOpenZfsSnapshotPlainArgs extends com.pulumi.resources.Invo
             $ = new GetOpenZfsSnapshotPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters One or more name/value pairs to filter off of. The
-         * supported names are file-system-id or volume-id.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetOpenZfsSnapshotFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters One or more name/value pairs to filter off of. The
-         * supported names are file-system-id or volume-id.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetOpenZfsSnapshotFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param mostRecent If more than one result is returned, use the most recent snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mostRecent(@Nullable Boolean mostRecent) {
             $.mostRecent = mostRecent;
             return this;
         }
 
-        /**
-         * @param name Name of the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param snapshotIds Returns information on a specific snapshot_id.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotIds(@Nullable List<String> snapshotIds) {
             $.snapshotIds = snapshotIds;
             return this;
         }
 
-        /**
-         * @param snapshotIds Returns information on a specific snapshot_id.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotIds(String... snapshotIds) {
             return snapshotIds(List.of(snapshotIds));
         }
 
-        /**
-         * @param tags List of Tag values, with a maximum of 50 elements.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

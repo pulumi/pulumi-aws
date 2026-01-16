@@ -16,65 +16,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope {
-    /**
-     * @return Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Ports below for details.
-     * 
-     */
     private @Nullable List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPort> destinationPorts;
-    /**
-     * @return Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
-     * 
-     */
     private @Nullable List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination> destinations;
-    /**
-     * @return Set of protocols to inspect for, specified using the protocol&#39;s assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
-     * 
-     */
     private List<Integer> protocols;
-    /**
-     * @return Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Ports below for details.
-     * 
-     */
     private @Nullable List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePort> sourcePorts;
-    /**
-     * @return Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
-     * 
-     */
     private @Nullable List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSource> sources;
 
     private TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope() {}
-    /**
-     * @return Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Ports below for details.
-     * 
-     */
     public List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPort> destinationPorts() {
         return this.destinationPorts == null ? List.of() : this.destinationPorts;
     }
-    /**
-     * @return Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
-     * 
-     */
     public List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination> destinations() {
         return this.destinations == null ? List.of() : this.destinations;
     }
-    /**
-     * @return Set of protocols to inspect for, specified using the protocol&#39;s assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
-     * 
-     */
     public List<Integer> protocols() {
         return this.protocols;
     }
-    /**
-     * @return Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Ports below for details.
-     * 
-     */
     public List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePort> sourcePorts() {
         return this.sourcePorts == null ? List.of() : this.sourcePorts;
     }
-    /**
-     * @return Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
-     * 
-     */
     public List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSource> sources() {
         return this.sources == null ? List.of() : this.sources;
     }

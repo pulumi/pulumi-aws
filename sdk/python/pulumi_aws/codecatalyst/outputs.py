@@ -28,10 +28,6 @@ class DevEnvironmentIdes(dict):
     def __init__(__self__, *,
                  name: Optional[_builtins.str] = None,
                  runtime: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: The name of the IDE. Valid values include Cloud9, IntelliJ, PyCharm, GoLand, and VSCode.
-        :param _builtins.str runtime: A link to the IDE runtime image. This parameter is not required if the name is VSCode. Values of the runtime can be for example public.ecr.aws/jetbrains/py,public.ecr.aws/jetbrains/go
-        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if runtime is not None:
@@ -40,17 +36,11 @@ class DevEnvironmentIdes(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
-        """
-        The name of the IDE. Valid values include Cloud9, IntelliJ, PyCharm, GoLand, and VSCode.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def runtime(self) -> Optional[_builtins.str]:
-        """
-        A link to the IDE runtime image. This parameter is not required if the name is VSCode. Values of the runtime can be for example public.ecr.aws/jetbrains/py,public.ecr.aws/jetbrains/go
-        """
         return pulumi.get(self, "runtime")
 
 
@@ -58,17 +48,11 @@ class DevEnvironmentIdes(dict):
 class DevEnvironmentPersistentStorage(dict):
     def __init__(__self__, *,
                  size: _builtins.int):
-        """
-        :param _builtins.int size: The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
-        """
         pulumi.set(__self__, "size", size)
 
     @_builtins.property
     @pulumi.getter
     def size(self) -> _builtins.int:
-        """
-        The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
-        """
         return pulumi.get(self, "size")
 
 
@@ -96,12 +80,6 @@ class DevEnvironmentRepository(dict):
     def __init__(__self__, *,
                  repository_name: _builtins.str,
                  branch_name: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str repository_name: The name of the source repository.
-        :param _builtins.str branch_name: The name of the branch in a source repository.
-               
-               persistent storage (` persistent_storage`) supports the following:
-        """
         pulumi.set(__self__, "repository_name", repository_name)
         if branch_name is not None:
             pulumi.set(__self__, "branch_name", branch_name)
@@ -109,19 +87,11 @@ class DevEnvironmentRepository(dict):
     @_builtins.property
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> _builtins.str:
-        """
-        The name of the source repository.
-        """
         return pulumi.get(self, "repository_name")
 
     @_builtins.property
     @pulumi.getter(name="branchName")
     def branch_name(self) -> Optional[_builtins.str]:
-        """
-        The name of the branch in a source repository.
-
-        persistent storage (` persistent_storage`) supports the following:
-        """
         return pulumi.get(self, "branch_name")
 
 

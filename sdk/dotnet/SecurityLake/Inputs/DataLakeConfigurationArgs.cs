@@ -14,31 +14,18 @@ namespace Pulumi.Aws.SecurityLake.Inputs
     {
         [Input("encryptionConfigurations")]
         private InputList<Inputs.DataLakeConfigurationEncryptionConfigurationArgs>? _encryptionConfigurations;
-
-        /// <summary>
-        /// Provides encryption details of Amazon Security Lake object.
-        /// </summary>
         public InputList<Inputs.DataLakeConfigurationEncryptionConfigurationArgs> EncryptionConfigurations
         {
             get => _encryptionConfigurations ?? (_encryptionConfigurations = new InputList<Inputs.DataLakeConfigurationEncryptionConfigurationArgs>());
             set => _encryptionConfigurations = value;
         }
 
-        /// <summary>
-        /// Provides lifecycle details of Amazon Security Lake object.
-        /// </summary>
         [Input("lifecycleConfiguration")]
         public Input<Inputs.DataLakeConfigurationLifecycleConfigurationArgs>? LifecycleConfiguration { get; set; }
 
-        /// <summary>
-        /// The AWS Regions where Security Lake is automatically enabled.
-        /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
 
-        /// <summary>
-        /// Provides replication details of Amazon Security Lake object.
-        /// </summary>
         [Input("replicationConfiguration")]
         public Input<Inputs.DataLakeConfigurationReplicationConfigurationArgs>? ReplicationConfiguration { get; set; }
 

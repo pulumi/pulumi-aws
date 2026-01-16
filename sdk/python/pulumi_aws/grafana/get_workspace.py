@@ -97,65 +97,41 @@ class GetWorkspaceResult:
     @_builtins.property
     @pulumi.getter(name="accountAccessType")
     def account_access_type(self) -> _builtins.str:
-        """
-        (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
-        """
         return pulumi.get(self, "account_access_type")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Grafana workspace.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="authenticationProviders")
     def authentication_providers(self) -> Sequence[_builtins.str]:
-        """
-        (Required) Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
-        """
         return pulumi.get(self, "authentication_providers")
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> _builtins.str:
-        """
-        Creation date of the Grafana workspace.
-        """
         return pulumi.get(self, "created_date")
 
     @_builtins.property
     @pulumi.getter(name="dataSources")
     def data_sources(self) -> Sequence[_builtins.str]:
-        """
-        Data sources for the workspace.
-        """
         return pulumi.get(self, "data_sources")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Workspace description.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> _builtins.str:
-        """
-        Endpoint of the Grafana workspace.
-        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter(name="grafanaVersion")
     def grafana_version(self) -> _builtins.str:
-        """
-        Version of Grafana running on the workspace.
-        """
         return pulumi.get(self, "grafana_version")
 
     @_builtins.property
@@ -169,49 +145,31 @@ class GetWorkspaceResult:
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> _builtins.str:
-        """
-        Last updated date of the Grafana workspace.
-        """
         return pulumi.get(self, "last_updated_date")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Grafana workspace name.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="notificationDestinations")
     def notification_destinations(self) -> Sequence[_builtins.str]:
-        """
-        The notification destinations.
-        """
         return pulumi.get(self, "notification_destinations")
 
     @_builtins.property
     @pulumi.getter(name="organizationRoleName")
     def organization_role_name(self) -> _builtins.str:
-        """
-        The role name that the workspace uses to access resources through Amazon Organizations.
-        """
         return pulumi.get(self, "organization_role_name")
 
     @_builtins.property
     @pulumi.getter(name="organizationalUnits")
     def organizational_units(self) -> Sequence[_builtins.str]:
-        """
-        The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
-        """
         return pulumi.get(self, "organizational_units")
 
     @_builtins.property
     @pulumi.getter(name="permissionType")
     def permission_type(self) -> _builtins.str:
-        """
-        Permission type of the workspace.
-        """
         return pulumi.get(self, "permission_type")
 
     @_builtins.property
@@ -222,9 +180,6 @@ class GetWorkspaceResult:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
-        """
-        IAM role ARN that the workspace assumes.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
@@ -235,25 +190,16 @@ class GetWorkspaceResult:
     @_builtins.property
     @pulumi.getter(name="stackSetName")
     def stack_set_name(self) -> _builtins.str:
-        """
-        AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
-        """
         return pulumi.get(self, "stack_set_name")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the Grafana workspace.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Tags assigned to the resource
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -297,23 +243,7 @@ def get_workspace(region: Optional[_builtins.str] = None,
                   workspace_id: Optional[_builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
-    Provides an Amazon Managed Grafana workspace data source.
-
-    ## Example Usage
-
-    ### Basic configuration
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.grafana.get_workspace(workspace_id="g-2054c75a02")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tags assigned to the resource
-    :param _builtins.str workspace_id: Grafana workspace ID.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -350,23 +280,7 @@ def get_workspace_output(region: Optional[pulumi.Input[Optional[_builtins.str]]]
                          workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
-    Provides an Amazon Managed Grafana workspace data source.
-
-    ## Example Usage
-
-    ### Basic configuration
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.grafana.get_workspace(workspace_id="g-2054c75a02")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tags assigned to the resource
-    :param _builtins.str workspace_id: Grafana workspace ID.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

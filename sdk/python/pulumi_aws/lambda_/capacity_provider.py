@@ -32,14 +32,6 @@ class CapacityProviderArgs:
                  vpc_config: Optional[pulumi.Input['CapacityProviderVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a CapacityProvider resource.
-        :param pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementArgs']]] instance_requirements: Configuration block for instance requirements settings. See Instance Requirements below.
-        :param pulumi.Input[_builtins.str] name: The name of the Capacity Provider.
-        :param pulumi.Input['CapacityProviderPermissionsConfigArgs'] permissions_config: Configuration block for permissions settings. See Permissions Config below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['CapacityProviderVpcConfigArgs'] vpc_config: Configuration block for VPC settings. See VPC Config below.
         """
         if capacity_provider_scaling_configs is not None:
             pulumi.set(__self__, "capacity_provider_scaling_configs", capacity_provider_scaling_configs)
@@ -72,9 +64,6 @@ class CapacityProviderArgs:
     @_builtins.property
     @pulumi.getter(name="instanceRequirements")
     def instance_requirements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementArgs']]]]:
-        """
-        Configuration block for instance requirements settings. See Instance Requirements below.
-        """
         return pulumi.get(self, "instance_requirements")
 
     @instance_requirements.setter
@@ -93,9 +82,6 @@ class CapacityProviderArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Capacity Provider.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -105,11 +91,6 @@ class CapacityProviderArgs:
     @_builtins.property
     @pulumi.getter(name="permissionsConfig")
     def permissions_config(self) -> Optional[pulumi.Input['CapacityProviderPermissionsConfigArgs']]:
-        """
-        Configuration block for permissions settings. See Permissions Config below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "permissions_config")
 
     @permissions_config.setter
@@ -119,9 +100,6 @@ class CapacityProviderArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -131,9 +109,6 @@ class CapacityProviderArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -152,9 +127,6 @@ class CapacityProviderArgs:
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['CapacityProviderVpcConfigArgs']]:
-        """
-        Configuration block for VPC settings. See VPC Config below.
-        """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
@@ -178,16 +150,6 @@ class _CapacityProviderState:
                  vpc_config: Optional[pulumi.Input['CapacityProviderVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering CapacityProvider resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Capacity Provider.
-        :param pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementArgs']]] instance_requirements: Configuration block for instance requirements settings. See Instance Requirements below.
-        :param pulumi.Input[_builtins.str] name: The name of the Capacity Provider.
-        :param pulumi.Input['CapacityProviderPermissionsConfigArgs'] permissions_config: Configuration block for permissions settings. See Permissions Config below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['CapacityProviderVpcConfigArgs'] vpc_config: Configuration block for VPC settings. See VPC Config below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -215,9 +177,6 @@ class _CapacityProviderState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Capacity Provider.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -236,9 +195,6 @@ class _CapacityProviderState:
     @_builtins.property
     @pulumi.getter(name="instanceRequirements")
     def instance_requirements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementArgs']]]]:
-        """
-        Configuration block for instance requirements settings. See Instance Requirements below.
-        """
         return pulumi.get(self, "instance_requirements")
 
     @instance_requirements.setter
@@ -257,9 +213,6 @@ class _CapacityProviderState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Capacity Provider.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -269,11 +222,6 @@ class _CapacityProviderState:
     @_builtins.property
     @pulumi.getter(name="permissionsConfig")
     def permissions_config(self) -> Optional[pulumi.Input['CapacityProviderPermissionsConfigArgs']]:
-        """
-        Configuration block for permissions settings. See Permissions Config below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "permissions_config")
 
     @permissions_config.setter
@@ -283,9 +231,6 @@ class _CapacityProviderState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -295,9 +240,6 @@ class _CapacityProviderState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -307,9 +249,6 @@ class _CapacityProviderState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -328,9 +267,6 @@ class _CapacityProviderState:
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['CapacityProviderVpcConfigArgs']]:
-        """
-        Configuration block for VPC settings. See VPC Config below.
-        """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
@@ -355,45 +291,9 @@ class CapacityProvider(pulumi.CustomResource):
                  vpc_config: Optional[pulumi.Input[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
-        Manages an AWS Lambda Capacity Provider.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lambda_.CapacityProvider("example",
-            name="example",
-            vpc_config={
-                "subnet_ids": [__item["id"] for __item in example_aws_subnet],
-                "security_group_ids": [example_aws_security_group["id"]],
-            },
-            permissions_config={
-                "capacity_provider_operator_role_arn": example_aws_iam_role["arn"],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Lambda Capacity Provider using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:lambda/capacityProvider:CapacityProvider example example
-        ```
-
+        Create a CapacityProvider resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityProviderInstanceRequirementArgs', 'CapacityProviderInstanceRequirementArgsDict']]]] instance_requirements: Configuration block for instance requirements settings. See Instance Requirements below.
-        :param pulumi.Input[_builtins.str] name: The name of the Capacity Provider.
-        :param pulumi.Input[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict']] permissions_config: Configuration block for permissions settings. See Permissions Config below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict']] vpc_config: Configuration block for VPC settings. See VPC Config below.
         """
         ...
     @overload
@@ -402,35 +302,7 @@ class CapacityProvider(pulumi.CustomResource):
                  args: Optional[CapacityProviderArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS Lambda Capacity Provider.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lambda_.CapacityProvider("example",
-            name="example",
-            vpc_config={
-                "subnet_ids": [__item["id"] for __item in example_aws_subnet],
-                "security_group_ids": [example_aws_security_group["id"]],
-            },
-            permissions_config={
-                "capacity_provider_operator_role_arn": example_aws_iam_role["arn"],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Lambda Capacity Provider using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:lambda/capacityProvider:CapacityProvider example example
-        ```
-
+        Create a CapacityProvider resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CapacityProviderArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -503,16 +375,6 @@ class CapacityProvider(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Capacity Provider.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityProviderInstanceRequirementArgs', 'CapacityProviderInstanceRequirementArgsDict']]]] instance_requirements: Configuration block for instance requirements settings. See Instance Requirements below.
-        :param pulumi.Input[_builtins.str] name: The name of the Capacity Provider.
-        :param pulumi.Input[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict']] permissions_config: Configuration block for permissions settings. See Permissions Config below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict']] vpc_config: Configuration block for VPC settings. See VPC Config below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -534,9 +396,6 @@ class CapacityProvider(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Capacity Provider.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -547,9 +406,6 @@ class CapacityProvider(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="instanceRequirements")
     def instance_requirements(self) -> pulumi.Output[Sequence['outputs.CapacityProviderInstanceRequirement']]:
-        """
-        Configuration block for instance requirements settings. See Instance Requirements below.
-        """
         return pulumi.get(self, "instance_requirements")
 
     @_builtins.property
@@ -560,43 +416,26 @@ class CapacityProvider(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the Capacity Provider.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="permissionsConfig")
     def permissions_config(self) -> pulumi.Output[Optional['outputs.CapacityProviderPermissionsConfig']]:
-        """
-        Configuration block for permissions settings. See Permissions Config below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "permissions_config")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
@@ -607,8 +446,5 @@ class CapacityProvider(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Output[Optional['outputs.CapacityProviderVpcConfig']]:
-        """
-        Configuration block for VPC settings. See VPC Config below.
-        """
         return pulumi.get(self, "vpc_config")
 

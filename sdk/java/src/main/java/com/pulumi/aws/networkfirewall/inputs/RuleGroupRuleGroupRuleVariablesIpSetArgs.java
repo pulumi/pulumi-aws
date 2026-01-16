@@ -15,32 +15,16 @@ public final class RuleGroupRuleGroupRuleVariablesIpSetArgs extends com.pulumi.r
 
     public static final RuleGroupRuleGroupRuleVariablesIpSetArgs Empty = new RuleGroupRuleGroupRuleVariablesIpSetArgs();
 
-    /**
-     * A configuration block that defines a set of IP addresses. See IP Set below for details.
-     * 
-     */
     @Import(name="ipSet", required=true)
     private Output<RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs> ipSet;
 
-    /**
-     * @return A configuration block that defines a set of IP addresses. See IP Set below for details.
-     * 
-     */
     public Output<RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs> ipSet() {
         return this.ipSet;
     }
 
-    /**
-     * A unique alphanumeric string to identify the `ipSet`.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return A unique alphanumeric string to identify the `ipSet`.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
@@ -70,44 +54,20 @@ public final class RuleGroupRuleGroupRuleVariablesIpSetArgs extends com.pulumi.r
             $ = new RuleGroupRuleGroupRuleVariablesIpSetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ipSet A configuration block that defines a set of IP addresses. See IP Set below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipSet(Output<RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs> ipSet) {
             $.ipSet = ipSet;
             return this;
         }
 
-        /**
-         * @param ipSet A configuration block that defines a set of IP addresses. See IP Set below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipSet(RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs ipSet) {
             return ipSet(Output.of(ipSet));
         }
 
-        /**
-         * @param key A unique alphanumeric string to identify the `ipSet`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key A unique alphanumeric string to identify the `ipSet`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }

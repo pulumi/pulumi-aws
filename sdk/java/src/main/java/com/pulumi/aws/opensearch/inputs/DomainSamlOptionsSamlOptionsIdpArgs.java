@@ -14,32 +14,16 @@ public final class DomainSamlOptionsSamlOptionsIdpArgs extends com.pulumi.resour
 
     public static final DomainSamlOptionsSamlOptionsIdpArgs Empty = new DomainSamlOptionsSamlOptionsIdpArgs();
 
-    /**
-     * Unique Entity ID of the application in SAML Identity Provider.
-     * 
-     */
     @Import(name="entityId", required=true)
     private Output<String> entityId;
 
-    /**
-     * @return Unique Entity ID of the application in SAML Identity Provider.
-     * 
-     */
     public Output<String> entityId() {
         return this.entityId;
     }
 
-    /**
-     * Metadata of the SAML application in xml format.
-     * 
-     */
     @Import(name="metadataContent", required=true)
     private Output<String> metadataContent;
 
-    /**
-     * @return Metadata of the SAML application in xml format.
-     * 
-     */
     public Output<String> metadataContent() {
         return this.metadataContent;
     }
@@ -69,44 +53,20 @@ public final class DomainSamlOptionsSamlOptionsIdpArgs extends com.pulumi.resour
             $ = new DomainSamlOptionsSamlOptionsIdpArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param entityId Unique Entity ID of the application in SAML Identity Provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entityId(Output<String> entityId) {
             $.entityId = entityId;
             return this;
         }
 
-        /**
-         * @param entityId Unique Entity ID of the application in SAML Identity Provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entityId(String entityId) {
             return entityId(Output.of(entityId));
         }
 
-        /**
-         * @param metadataContent Metadata of the SAML application in xml format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metadataContent(Output<String> metadataContent) {
             $.metadataContent = metadataContent;
             return this;
         }
 
-        /**
-         * @param metadataContent Metadata of the SAML application in xml format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metadataContent(String metadataContent) {
             return metadataContent(Output.of(metadataContent));
         }

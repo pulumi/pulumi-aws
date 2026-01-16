@@ -18,62 +18,30 @@ public final class EndpointDeploymentConfigRollingUpdatePolicyArgs extends com.p
 
     public static final EndpointDeploymentConfigRollingUpdatePolicyArgs Empty = new EndpointDeploymentConfigRollingUpdatePolicyArgs();
 
-    /**
-     * Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant&#39;s total instance count. See Maximum Batch Size.
-     * 
-     */
     @Import(name="maximumBatchSize", required=true)
     private Output<EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs> maximumBatchSize;
 
-    /**
-     * @return Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant&#39;s total instance count. See Maximum Batch Size.
-     * 
-     */
     public Output<EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs> maximumBatchSize() {
         return this.maximumBatchSize;
     }
 
-    /**
-     * The time limit for the total deployment. Exceeding this limit causes a timeout. Valid values are between `600` and `14400`.
-     * 
-     */
     @Import(name="maximumExecutionTimeoutInSeconds")
     private @Nullable Output<Integer> maximumExecutionTimeoutInSeconds;
 
-    /**
-     * @return The time limit for the total deployment. Exceeding this limit causes a timeout. Valid values are between `600` and `14400`.
-     * 
-     */
     public Optional<Output<Integer>> maximumExecutionTimeoutInSeconds() {
         return Optional.ofNullable(this.maximumExecutionTimeoutInSeconds);
     }
 
-    /**
-     * Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
-     * 
-     */
     @Import(name="rollbackMaximumBatchSize")
     private @Nullable Output<EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs> rollbackMaximumBatchSize;
 
-    /**
-     * @return Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
-     * 
-     */
     public Optional<Output<EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs>> rollbackMaximumBatchSize() {
         return Optional.ofNullable(this.rollbackMaximumBatchSize);
     }
 
-    /**
-     * The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
-     * 
-     */
     @Import(name="waitIntervalInSeconds", required=true)
     private Output<Integer> waitIntervalInSeconds;
 
-    /**
-     * @return The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
-     * 
-     */
     public Output<Integer> waitIntervalInSeconds() {
         return this.waitIntervalInSeconds;
     }
@@ -105,86 +73,38 @@ public final class EndpointDeploymentConfigRollingUpdatePolicyArgs extends com.p
             $ = new EndpointDeploymentConfigRollingUpdatePolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maximumBatchSize Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant&#39;s total instance count. See Maximum Batch Size.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumBatchSize(Output<EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs> maximumBatchSize) {
             $.maximumBatchSize = maximumBatchSize;
             return this;
         }
 
-        /**
-         * @param maximumBatchSize Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant&#39;s total instance count. See Maximum Batch Size.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumBatchSize(EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs maximumBatchSize) {
             return maximumBatchSize(Output.of(maximumBatchSize));
         }
 
-        /**
-         * @param maximumExecutionTimeoutInSeconds The time limit for the total deployment. Exceeding this limit causes a timeout. Valid values are between `600` and `14400`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumExecutionTimeoutInSeconds(@Nullable Output<Integer> maximumExecutionTimeoutInSeconds) {
             $.maximumExecutionTimeoutInSeconds = maximumExecutionTimeoutInSeconds;
             return this;
         }
 
-        /**
-         * @param maximumExecutionTimeoutInSeconds The time limit for the total deployment. Exceeding this limit causes a timeout. Valid values are between `600` and `14400`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumExecutionTimeoutInSeconds(Integer maximumExecutionTimeoutInSeconds) {
             return maximumExecutionTimeoutInSeconds(Output.of(maximumExecutionTimeoutInSeconds));
         }
 
-        /**
-         * @param rollbackMaximumBatchSize Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rollbackMaximumBatchSize(@Nullable Output<EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs> rollbackMaximumBatchSize) {
             $.rollbackMaximumBatchSize = rollbackMaximumBatchSize;
             return this;
         }
 
-        /**
-         * @param rollbackMaximumBatchSize Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rollbackMaximumBatchSize(EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs rollbackMaximumBatchSize) {
             return rollbackMaximumBatchSize(Output.of(rollbackMaximumBatchSize));
         }
 
-        /**
-         * @param waitIntervalInSeconds The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder waitIntervalInSeconds(Output<Integer> waitIntervalInSeconds) {
             $.waitIntervalInSeconds = waitIntervalInSeconds;
             return this;
         }
 
-        /**
-         * @param waitIntervalInSeconds The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder waitIntervalInSeconds(Integer waitIntervalInSeconds) {
             return waitIntervalInSeconds(Output.of(waitIntervalInSeconds));
         }

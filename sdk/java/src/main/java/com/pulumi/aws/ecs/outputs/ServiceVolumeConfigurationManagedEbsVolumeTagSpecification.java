@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceVolumeConfigurationManagedEbsVolumeTagSpecification {
-    /**
-     * @return Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
-     * 
-     */
     private @Nullable String propagateTags;
-    /**
-     * @return The type of volume resource. Valid values, `volume`.
-     * 
-     */
     private String resourceType;
-    /**
-     * @return The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can&#39;t be used.
-     * 
-     */
     private @Nullable Map<String,String> tags;
 
     private ServiceVolumeConfigurationManagedEbsVolumeTagSpecification() {}
-    /**
-     * @return Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
-     * 
-     */
     public Optional<String> propagateTags() {
         return Optional.ofNullable(this.propagateTags);
     }
-    /**
-     * @return The type of volume resource. Valid values, `volume`.
-     * 
-     */
     public String resourceType() {
         return this.resourceType;
     }
-    /**
-     * @return The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can&#39;t be used.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }

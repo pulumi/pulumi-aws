@@ -14,40 +14,12 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGlobalClusterResult {
-    /**
-     * @return RDS Global Cluster Amazon Resource Name (ARN)
-     * 
-     */
     private String arn;
-    /**
-     * @return Name of the automatically created database on cluster creation.
-     * 
-     */
     private String databaseName;
-    /**
-     * @return If the Global Cluster should have deletion protection enabled. The database can&#39;t be deleted when this value is set to `true`.
-     * 
-     */
     private Boolean deletionProtection;
-    /**
-     * @return The endpoint for the Global Cluster.
-     * 
-     */
     private String endpoint;
-    /**
-     * @return Name of the database engine.
-     * 
-     */
     private String engine;
-    /**
-     * @return The current lifecycle support status of the database engine for this Global Cluster.
-     * 
-     */
     private String engineLifecycleSupport;
-    /**
-     * @return Version of the database engine for this Global Cluster.
-     * 
-     */
     private String engineVersion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -55,75 +27,31 @@ public final class GetGlobalClusterResult {
      */
     private String id;
     private String identifier;
-    /**
-     * @return Set of objects containing Global Cluster members.
-     * 
-     */
     private List<GetGlobalClusterMember> members;
     private String region;
-    /**
-     * @return AWS Region-unique, immutable identifier for the global database cluster.
-     * 
-     */
     private String resourceId;
-    /**
-     * @return Whether the DB cluster is encrypted.
-     * 
-     */
     private Boolean storageEncrypted;
-    /**
-     * @return A map of tags to assigned to the Global Cluster.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetGlobalClusterResult() {}
-    /**
-     * @return RDS Global Cluster Amazon Resource Name (ARN)
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Name of the automatically created database on cluster creation.
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }
-    /**
-     * @return If the Global Cluster should have deletion protection enabled. The database can&#39;t be deleted when this value is set to `true`.
-     * 
-     */
     public Boolean deletionProtection() {
         return this.deletionProtection;
     }
-    /**
-     * @return The endpoint for the Global Cluster.
-     * 
-     */
     public String endpoint() {
         return this.endpoint;
     }
-    /**
-     * @return Name of the database engine.
-     * 
-     */
     public String engine() {
         return this.engine;
     }
-    /**
-     * @return The current lifecycle support status of the database engine for this Global Cluster.
-     * 
-     */
     public String engineLifecycleSupport() {
         return this.engineLifecycleSupport;
     }
-    /**
-     * @return Version of the database engine for this Global Cluster.
-     * 
-     */
     public String engineVersion() {
         return this.engineVersion;
     }
@@ -137,34 +65,18 @@ public final class GetGlobalClusterResult {
     public String identifier() {
         return this.identifier;
     }
-    /**
-     * @return Set of objects containing Global Cluster members.
-     * 
-     */
     public List<GetGlobalClusterMember> members() {
         return this.members;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return AWS Region-unique, immutable identifier for the global database cluster.
-     * 
-     */
     public String resourceId() {
         return this.resourceId;
     }
-    /**
-     * @return Whether the DB cluster is encrypted.
-     * 
-     */
     public Boolean storageEncrypted() {
         return this.storageEncrypted;
     }
-    /**
-     * @return A map of tags to assigned to the Global Cluster.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

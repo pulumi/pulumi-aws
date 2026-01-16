@@ -4,47 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an AWS Lambda Provisioned Concurrency Configuration. Use this resource to configure provisioned concurrency for Lambda functions.
- *
- * > **Note:** Setting `skipDestroy` to `true` means that the AWS Provider will not destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is not managed by Pulumi and may incur extra expense in your AWS account.
- *
- * ## Example Usage
- *
- * ### Alias Name
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lambda.ProvisionedConcurrencyConfig("example", {
- *     functionName: exampleAwsLambdaAlias.functionName,
- *     provisionedConcurrentExecutions: 1,
- *     qualifier: exampleAwsLambdaAlias.name,
- * });
- * ```
- *
- * ### Function Version
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lambda.ProvisionedConcurrencyConfig("example", {
- *     functionName: exampleAwsLambdaFunction.functionName,
- *     provisionedConcurrentExecutions: 1,
- *     qualifier: exampleAwsLambdaFunction.version,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import a Lambda Provisioned Concurrency Configuration using the `function_name` and `qualifier` separated by a comma (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example example,production
- * ```
- */
 export class ProvisionedConcurrencyConfig extends pulumi.CustomResource {
     /**
      * Get an existing ProvisionedConcurrencyConfig resource's state with the given name, ID, and optional extra
@@ -73,27 +32,10 @@ export class ProvisionedConcurrencyConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === ProvisionedConcurrencyConfig.__pulumiType;
     }
 
-    /**
-     * Name or Amazon Resource Name (ARN) of the Lambda Function.
-     */
     declare public readonly functionName: pulumi.Output<string>;
-    /**
-     * Amount of capacity to allocate. Must be greater than or equal to 1.
-     */
     declare public readonly provisionedConcurrentExecutions: pulumi.Output<number>;
-    /**
-     * Lambda Function version or Lambda Alias name.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly qualifier: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
-     */
     declare public readonly skipDestroy: pulumi.Output<boolean | undefined>;
 
     /**
@@ -140,27 +82,10 @@ export class ProvisionedConcurrencyConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ProvisionedConcurrencyConfig resources.
  */
 export interface ProvisionedConcurrencyConfigState {
-    /**
-     * Name or Amazon Resource Name (ARN) of the Lambda Function.
-     */
     functionName?: pulumi.Input<string>;
-    /**
-     * Amount of capacity to allocate. Must be greater than or equal to 1.
-     */
     provisionedConcurrentExecutions?: pulumi.Input<number>;
-    /**
-     * Lambda Function version or Lambda Alias name.
-     *
-     * The following arguments are optional:
-     */
     qualifier?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
-     */
     skipDestroy?: pulumi.Input<boolean>;
 }
 
@@ -168,26 +93,9 @@ export interface ProvisionedConcurrencyConfigState {
  * The set of arguments for constructing a ProvisionedConcurrencyConfig resource.
  */
 export interface ProvisionedConcurrencyConfigArgs {
-    /**
-     * Name or Amazon Resource Name (ARN) of the Lambda Function.
-     */
     functionName: pulumi.Input<string>;
-    /**
-     * Amount of capacity to allocate. Must be greater than or equal to 1.
-     */
     provisionedConcurrentExecutions: pulumi.Input<number>;
-    /**
-     * Lambda Function version or Lambda Alias name.
-     *
-     * The following arguments are optional:
-     */
     qualifier: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
-     */
     skipDestroy?: pulumi.Input<boolean>;
 }

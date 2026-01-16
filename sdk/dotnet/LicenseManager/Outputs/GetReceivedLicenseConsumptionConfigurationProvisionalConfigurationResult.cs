@@ -13,9 +13,6 @@ namespace Pulumi.Aws.LicenseManager.Outputs
     [OutputType]
     public sealed class GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult
     {
-        /// <summary>
-        /// Maximum time for the provisional configuration, in minutes.
-        /// </summary>
         public readonly int MaxTimeToLiveInMinutes;
 
         [OutputConstructor]

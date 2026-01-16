@@ -17,107 +17,51 @@ public final class StackSetInstanceOperationPreferencesArgs extends com.pulumi.r
 
     public static final StackSetInstanceOperationPreferencesArgs Empty = new StackSetInstanceOperationPreferencesArgs();
 
-    /**
-     * Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
-     * 
-     */
     @Import(name="concurrencyMode")
     private @Nullable Output<String> concurrencyMode;
 
-    /**
-     * @return Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
-     * 
-     */
     public Optional<Output<String>> concurrencyMode() {
         return Optional.ofNullable(this.concurrencyMode);
     }
 
-    /**
-     * Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
-     * 
-     */
     @Import(name="failureToleranceCount")
     private @Nullable Output<Integer> failureToleranceCount;
 
-    /**
-     * @return Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
-     * 
-     */
     public Optional<Output<Integer>> failureToleranceCount() {
         return Optional.ofNullable(this.failureToleranceCount);
     }
 
-    /**
-     * Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
-     * 
-     */
     @Import(name="failureTolerancePercentage")
     private @Nullable Output<Integer> failureTolerancePercentage;
 
-    /**
-     * @return Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
-     * 
-     */
     public Optional<Output<Integer>> failureTolerancePercentage() {
         return Optional.ofNullable(this.failureTolerancePercentage);
     }
 
-    /**
-     * Maximum number of accounts in which to perform this operation at one time.
-     * 
-     */
     @Import(name="maxConcurrentCount")
     private @Nullable Output<Integer> maxConcurrentCount;
 
-    /**
-     * @return Maximum number of accounts in which to perform this operation at one time.
-     * 
-     */
     public Optional<Output<Integer>> maxConcurrentCount() {
         return Optional.ofNullable(this.maxConcurrentCount);
     }
 
-    /**
-     * Maximum percentage of accounts in which to perform this operation at one time.
-     * 
-     */
     @Import(name="maxConcurrentPercentage")
     private @Nullable Output<Integer> maxConcurrentPercentage;
 
-    /**
-     * @return Maximum percentage of accounts in which to perform this operation at one time.
-     * 
-     */
     public Optional<Output<Integer>> maxConcurrentPercentage() {
         return Optional.ofNullable(this.maxConcurrentPercentage);
     }
 
-    /**
-     * Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
-     * 
-     */
     @Import(name="regionConcurrencyType")
     private @Nullable Output<String> regionConcurrencyType;
 
-    /**
-     * @return Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
-     * 
-     */
     public Optional<Output<String>> regionConcurrencyType() {
         return Optional.ofNullable(this.regionConcurrencyType);
     }
 
-    /**
-     * Order of the Regions in where you want to perform the stack operation.
-     * 
-     */
     @Import(name="regionOrders")
     private @Nullable Output<List<String>> regionOrders;
 
-    /**
-     * @return Order of the Regions in where you want to perform the stack operation.
-     * 
-     */
     public Optional<Output<List<String>>> regionOrders() {
         return Optional.ofNullable(this.regionOrders);
     }
@@ -152,159 +96,69 @@ public final class StackSetInstanceOperationPreferencesArgs extends com.pulumi.r
             $ = new StackSetInstanceOperationPreferencesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param concurrencyMode Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder concurrencyMode(@Nullable Output<String> concurrencyMode) {
             $.concurrencyMode = concurrencyMode;
             return this;
         }
 
-        /**
-         * @param concurrencyMode Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder concurrencyMode(String concurrencyMode) {
             return concurrencyMode(Output.of(concurrencyMode));
         }
 
-        /**
-         * @param failureToleranceCount Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder failureToleranceCount(@Nullable Output<Integer> failureToleranceCount) {
             $.failureToleranceCount = failureToleranceCount;
             return this;
         }
 
-        /**
-         * @param failureToleranceCount Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder failureToleranceCount(Integer failureToleranceCount) {
             return failureToleranceCount(Output.of(failureToleranceCount));
         }
 
-        /**
-         * @param failureTolerancePercentage Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder failureTolerancePercentage(@Nullable Output<Integer> failureTolerancePercentage) {
             $.failureTolerancePercentage = failureTolerancePercentage;
             return this;
         }
 
-        /**
-         * @param failureTolerancePercentage Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder failureTolerancePercentage(Integer failureTolerancePercentage) {
             return failureTolerancePercentage(Output.of(failureTolerancePercentage));
         }
 
-        /**
-         * @param maxConcurrentCount Maximum number of accounts in which to perform this operation at one time.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxConcurrentCount(@Nullable Output<Integer> maxConcurrentCount) {
             $.maxConcurrentCount = maxConcurrentCount;
             return this;
         }
 
-        /**
-         * @param maxConcurrentCount Maximum number of accounts in which to perform this operation at one time.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxConcurrentCount(Integer maxConcurrentCount) {
             return maxConcurrentCount(Output.of(maxConcurrentCount));
         }
 
-        /**
-         * @param maxConcurrentPercentage Maximum percentage of accounts in which to perform this operation at one time.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxConcurrentPercentage(@Nullable Output<Integer> maxConcurrentPercentage) {
             $.maxConcurrentPercentage = maxConcurrentPercentage;
             return this;
         }
 
-        /**
-         * @param maxConcurrentPercentage Maximum percentage of accounts in which to perform this operation at one time.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxConcurrentPercentage(Integer maxConcurrentPercentage) {
             return maxConcurrentPercentage(Output.of(maxConcurrentPercentage));
         }
 
-        /**
-         * @param regionConcurrencyType Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regionConcurrencyType(@Nullable Output<String> regionConcurrencyType) {
             $.regionConcurrencyType = regionConcurrencyType;
             return this;
         }
 
-        /**
-         * @param regionConcurrencyType Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regionConcurrencyType(String regionConcurrencyType) {
             return regionConcurrencyType(Output.of(regionConcurrencyType));
         }
 
-        /**
-         * @param regionOrders Order of the Regions in where you want to perform the stack operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regionOrders(@Nullable Output<List<String>> regionOrders) {
             $.regionOrders = regionOrders;
             return this;
         }
 
-        /**
-         * @param regionOrders Order of the Regions in where you want to perform the stack operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regionOrders(List<String> regionOrders) {
             return regionOrders(Output.of(regionOrders));
         }
 
-        /**
-         * @param regionOrders Order of the Regions in where you want to perform the stack operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regionOrders(String... regionOrders) {
             return regionOrders(List.of(regionOrders));
         }

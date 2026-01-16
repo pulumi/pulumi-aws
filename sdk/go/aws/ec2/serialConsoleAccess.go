@@ -11,50 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage whether serial console access is enabled for your AWS account in the current AWS region.
-//
-// > **NOTE:** Removing this resource disables serial console access.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewSerialConsoleAccess(ctx, "example", &ec2.SerialConsoleAccessArgs{
-//				Enabled: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import serial console access state. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/serialConsoleAccess:SerialConsoleAccess example default
-// ```
 type SerialConsoleAccess struct {
 	pulumi.CustomResourceState
 
-	// Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region  pulumi.StringOutput  `pulumi:"region"`
 }
 
 // NewSerialConsoleAccess registers a new resource with the given unique name, arguments, and options.
@@ -87,17 +48,13 @@ func GetSerialConsoleAccess(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SerialConsoleAccess resources.
 type serialConsoleAccessState struct {
-	// Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Enabled *bool   `pulumi:"enabled"`
+	Region  *string `pulumi:"region"`
 }
 
 type SerialConsoleAccessState struct {
-	// Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region  pulumi.StringPtrInput
 }
 
 func (SerialConsoleAccessState) ElementType() reflect.Type {
@@ -105,18 +62,14 @@ func (SerialConsoleAccessState) ElementType() reflect.Type {
 }
 
 type serialConsoleAccessArgs struct {
-	// Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Enabled *bool   `pulumi:"enabled"`
+	Region  *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a SerialConsoleAccess resource.
 type SerialConsoleAccessArgs struct {
-	// Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region  pulumi.StringPtrInput
 }
 
 func (SerialConsoleAccessArgs) ElementType() reflect.Type {
@@ -206,12 +159,10 @@ func (o SerialConsoleAccessOutput) ToSerialConsoleAccessOutputWithContext(ctx co
 	return o
 }
 
-// Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
 func (o SerialConsoleAccessOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SerialConsoleAccess) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SerialConsoleAccessOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SerialConsoleAccess) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

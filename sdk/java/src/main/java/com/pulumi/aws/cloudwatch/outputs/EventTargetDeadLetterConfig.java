@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventTargetDeadLetterConfig {
-    /**
-     * @return ARN of the SQS queue specified as the target for the dead-letter queue.
-     * 
-     */
     private @Nullable String arn;
 
     private EventTargetDeadLetterConfig() {}
-    /**
-     * @return ARN of the SQS queue specified as the target for the dead-letter queue.
-     * 
-     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }

@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Eks.Inputs
 
     public sealed class ClusterEncryptionConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block with provider for encryption. Detailed below.
-        /// </summary>
         [Input("provider", required: true)]
         public Input<Inputs.ClusterEncryptionConfigProviderArgs> Provider { get; set; } = null!;
 
         [Input("resources", required: true)]
         private InputList<string>? _resources;
-
-        /// <summary>
-        /// List of strings with resources to be encrypted. Valid values: `Secrets`.
-        /// </summary>
         public InputList<string> Resources
         {
             get => _resources ?? (_resources = new InputList<string>());

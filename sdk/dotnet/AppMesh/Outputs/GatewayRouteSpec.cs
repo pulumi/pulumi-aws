@@ -13,21 +13,9 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GatewayRouteSpec
     {
-        /// <summary>
-        /// Specification of a gRPC gateway route.
-        /// </summary>
         public readonly Outputs.GatewayRouteSpecGrpcRoute? GrpcRoute;
-        /// <summary>
-        /// Specification of an HTTP/2 gateway route.
-        /// </summary>
         public readonly Outputs.GatewayRouteSpecHttp2Route? Http2Route;
-        /// <summary>
-        /// Specification of an HTTP gateway route.
-        /// </summary>
         public readonly Outputs.GatewayRouteSpecHttpRoute? HttpRoute;
-        /// <summary>
-        /// Priority for the gateway route, between `0` and `1000`.
-        /// </summary>
         public readonly int? Priority;
 
         [OutputConstructor]

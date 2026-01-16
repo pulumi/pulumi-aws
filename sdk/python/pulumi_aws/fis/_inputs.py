@@ -54,29 +54,11 @@ MYPY = False
 if not MYPY:
     class ExperimentTemplateActionArgsDict(TypedDict):
         action_id: pulumi.Input[_builtins.str]
-        """
-        ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
-        """
         name: pulumi.Input[_builtins.str]
-        """
-        Friendly name of the action.
-        """
         description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of the action.
-        """
         parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateActionParameterArgsDict']]]]
-        """
-        Parameter(s) for the action, if applicable. See below.
-        """
         start_afters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Set of action names that must complete before this action can be executed.
-        """
         target: NotRequired[pulumi.Input['ExperimentTemplateActionTargetArgsDict']]
-        """
-        Action's target, if applicable. See below.
-        """
 elif False:
     ExperimentTemplateActionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -89,14 +71,6 @@ class ExperimentTemplateActionArgs:
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateActionParameterArgs']]]] = None,
                  start_afters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  target: Optional[pulumi.Input['ExperimentTemplateActionTargetArgs']] = None):
-        """
-        :param pulumi.Input[_builtins.str] action_id: ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
-        :param pulumi.Input[_builtins.str] name: Friendly name of the action.
-        :param pulumi.Input[_builtins.str] description: Description of the action.
-        :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateActionParameterArgs']]] parameters: Parameter(s) for the action, if applicable. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] start_afters: Set of action names that must complete before this action can be executed.
-        :param pulumi.Input['ExperimentTemplateActionTargetArgs'] target: Action's target, if applicable. See below.
-        """
         pulumi.set(__self__, "action_id", action_id)
         pulumi.set(__self__, "name", name)
         if description is not None:
@@ -111,9 +85,6 @@ class ExperimentTemplateActionArgs:
     @_builtins.property
     @pulumi.getter(name="actionId")
     def action_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
-        """
         return pulumi.get(self, "action_id")
 
     @action_id.setter
@@ -123,9 +94,6 @@ class ExperimentTemplateActionArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Friendly name of the action.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -135,9 +103,6 @@ class ExperimentTemplateActionArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the action.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -147,9 +112,6 @@ class ExperimentTemplateActionArgs:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateActionParameterArgs']]]]:
-        """
-        Parameter(s) for the action, if applicable. See below.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -159,9 +121,6 @@ class ExperimentTemplateActionArgs:
     @_builtins.property
     @pulumi.getter(name="startAfters")
     def start_afters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Set of action names that must complete before this action can be executed.
-        """
         return pulumi.get(self, "start_afters")
 
     @start_afters.setter
@@ -171,9 +130,6 @@ class ExperimentTemplateActionArgs:
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input['ExperimentTemplateActionTargetArgs']]:
-        """
-        Action's target, if applicable. See below.
-        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -184,15 +140,7 @@ class ExperimentTemplateActionArgs:
 if not MYPY:
     class ExperimentTemplateActionParameterArgsDict(TypedDict):
         key: pulumi.Input[_builtins.str]
-        """
-        Parameter name.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        Parameter value.
-
-        For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
-        """
 elif False:
     ExperimentTemplateActionParameterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -201,21 +149,12 @@ class ExperimentTemplateActionParameterArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] key: Parameter name.
-        :param pulumi.Input[_builtins.str] value: Parameter value.
-               
-               For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Input[_builtins.str]:
-        """
-        Parameter name.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -225,11 +164,6 @@ class ExperimentTemplateActionParameterArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        Parameter value.
-
-        For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -240,13 +174,7 @@ class ExperimentTemplateActionParameterArgs:
 if not MYPY:
     class ExperimentTemplateActionTargetArgsDict(TypedDict):
         key: pulumi.Input[_builtins.str]
-        """
-        Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Functions` (Lambda Functions), `Instances` (EC2 Instances), `ManagedResources` (EKS clusters, Application and Network Load Balancers, and EC2 Auto Scaling groups that are enabled for ARC zonal shift), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/action-sequence.html#action-targets) for more details.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        Target name, referencing a corresponding target.
-        """
 elif False:
     ExperimentTemplateActionTargetArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -255,19 +183,12 @@ class ExperimentTemplateActionTargetArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] key: Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Functions` (Lambda Functions), `Instances` (EC2 Instances), `ManagedResources` (EKS clusters, Application and Network Load Balancers, and EC2 Auto Scaling groups that are enabled for ARC zonal shift), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/action-sequence.html#action-targets) for more details.
-        :param pulumi.Input[_builtins.str] value: Target name, referencing a corresponding target.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Input[_builtins.str]:
-        """
-        Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Functions` (Lambda Functions), `Instances` (EC2 Instances), `ManagedResources` (EKS clusters, Application and Network Load Balancers, and EC2 Auto Scaling groups that are enabled for ARC zonal shift), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/action-sequence.html#action-targets) for more details.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -277,9 +198,6 @@ class ExperimentTemplateActionTargetArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        Target name, referencing a corresponding target.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -290,13 +208,7 @@ class ExperimentTemplateActionTargetArgs:
 if not MYPY:
     class ExperimentTemplateExperimentOptionsArgsDict(TypedDict):
         account_targeting: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
-        """
         empty_target_resolution_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
-        """
 elif False:
     ExperimentTemplateExperimentOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -305,10 +217,6 @@ class ExperimentTemplateExperimentOptionsArgs:
     def __init__(__self__, *,
                  account_targeting: Optional[pulumi.Input[_builtins.str]] = None,
                  empty_target_resolution_mode: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] account_targeting: Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
-        :param pulumi.Input[_builtins.str] empty_target_resolution_mode: Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
-        """
         if account_targeting is not None:
             pulumi.set(__self__, "account_targeting", account_targeting)
         if empty_target_resolution_mode is not None:
@@ -317,9 +225,6 @@ class ExperimentTemplateExperimentOptionsArgs:
     @_builtins.property
     @pulumi.getter(name="accountTargeting")
     def account_targeting(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
-        """
         return pulumi.get(self, "account_targeting")
 
     @account_targeting.setter
@@ -329,9 +234,6 @@ class ExperimentTemplateExperimentOptionsArgs:
     @_builtins.property
     @pulumi.getter(name="emptyTargetResolutionMode")
     def empty_target_resolution_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
-        """
         return pulumi.get(self, "empty_target_resolution_mode")
 
     @empty_target_resolution_mode.setter
@@ -342,21 +244,9 @@ class ExperimentTemplateExperimentOptionsArgs:
 if not MYPY:
     class ExperimentTemplateExperimentReportConfigurationArgsDict(TypedDict):
         data_sources: NotRequired[pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesArgsDict']]
-        """
-        The data sources for the experiment report. See below.
-        """
         outputs: NotRequired[pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsArgsDict']]
-        """
-        The outputs for the experiment report. See below.
-        """
         post_experiment_duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The duration of the post-experiment period. Defaults to `PT20M`.
-        """
         pre_experiment_duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The duration of the pre-experiment period. Defaults to `PT20M`.
-        """
 elif False:
     ExperimentTemplateExperimentReportConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -367,12 +257,6 @@ class ExperimentTemplateExperimentReportConfigurationArgs:
                  outputs: Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsArgs']] = None,
                  post_experiment_duration: Optional[pulumi.Input[_builtins.str]] = None,
                  pre_experiment_duration: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesArgs'] data_sources: The data sources for the experiment report. See below.
-        :param pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsArgs'] outputs: The outputs for the experiment report. See below.
-        :param pulumi.Input[_builtins.str] post_experiment_duration: The duration of the post-experiment period. Defaults to `PT20M`.
-        :param pulumi.Input[_builtins.str] pre_experiment_duration: The duration of the pre-experiment period. Defaults to `PT20M`.
-        """
         if data_sources is not None:
             pulumi.set(__self__, "data_sources", data_sources)
         if outputs is not None:
@@ -385,9 +269,6 @@ class ExperimentTemplateExperimentReportConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="dataSources")
     def data_sources(self) -> Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesArgs']]:
-        """
-        The data sources for the experiment report. See below.
-        """
         return pulumi.get(self, "data_sources")
 
     @data_sources.setter
@@ -397,9 +278,6 @@ class ExperimentTemplateExperimentReportConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def outputs(self) -> Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsArgs']]:
-        """
-        The outputs for the experiment report. See below.
-        """
         return pulumi.get(self, "outputs")
 
     @outputs.setter
@@ -409,9 +287,6 @@ class ExperimentTemplateExperimentReportConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="postExperimentDuration")
     def post_experiment_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The duration of the post-experiment period. Defaults to `PT20M`.
-        """
         return pulumi.get(self, "post_experiment_duration")
 
     @post_experiment_duration.setter
@@ -421,9 +296,6 @@ class ExperimentTemplateExperimentReportConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="preExperimentDuration")
     def pre_experiment_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The duration of the pre-experiment period. Defaults to `PT20M`.
-        """
         return pulumi.get(self, "pre_experiment_duration")
 
     @pre_experiment_duration.setter
@@ -434,9 +306,6 @@ class ExperimentTemplateExperimentReportConfigurationArgs:
 if not MYPY:
     class ExperimentTemplateExperimentReportConfigurationDataSourcesArgsDict(TypedDict):
         cloudwatch_dashboards: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgsDict']]]]
-        """
-        The data sources for the experiment report. See below.
-        """
 elif False:
     ExperimentTemplateExperimentReportConfigurationDataSourcesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -444,18 +313,12 @@ elif False:
 class ExperimentTemplateExperimentReportConfigurationDataSourcesArgs:
     def __init__(__self__, *,
                  cloudwatch_dashboards: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs']]] cloudwatch_dashboards: The data sources for the experiment report. See below.
-        """
         if cloudwatch_dashboards is not None:
             pulumi.set(__self__, "cloudwatch_dashboards", cloudwatch_dashboards)
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchDashboards")
     def cloudwatch_dashboards(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs']]]]:
-        """
-        The data sources for the experiment report. See below.
-        """
         return pulumi.get(self, "cloudwatch_dashboards")
 
     @cloudwatch_dashboards.setter
@@ -466,9 +329,6 @@ class ExperimentTemplateExperimentReportConfigurationDataSourcesArgs:
 if not MYPY:
     class ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgsDict(TypedDict):
         dashboard_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the CloudWatch dashboard.
-        """
 elif False:
     ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -476,18 +336,12 @@ elif False:
 class ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs:
     def __init__(__self__, *,
                  dashboard_arn: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] dashboard_arn: The ARN of the CloudWatch dashboard.
-        """
         if dashboard_arn is not None:
             pulumi.set(__self__, "dashboard_arn", dashboard_arn)
 
     @_builtins.property
     @pulumi.getter(name="dashboardArn")
     def dashboard_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the CloudWatch dashboard.
-        """
         return pulumi.get(self, "dashboard_arn")
 
     @dashboard_arn.setter
@@ -498,9 +352,6 @@ class ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashbo
 if not MYPY:
     class ExperimentTemplateExperimentReportConfigurationOutputsArgsDict(TypedDict):
         s3_configuration: NotRequired[pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgsDict']]
-        """
-        The data sources for the experiment report. See below.
-        """
 elif False:
     ExperimentTemplateExperimentReportConfigurationOutputsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -508,18 +359,12 @@ elif False:
 class ExperimentTemplateExperimentReportConfigurationOutputsArgs:
     def __init__(__self__, *,
                  s3_configuration: Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs']] = None):
-        """
-        :param pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs'] s3_configuration: The data sources for the experiment report. See below.
-        """
         if s3_configuration is not None:
             pulumi.set(__self__, "s3_configuration", s3_configuration)
 
     @_builtins.property
     @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs']]:
-        """
-        The data sources for the experiment report. See below.
-        """
         return pulumi.get(self, "s3_configuration")
 
     @s3_configuration.setter
@@ -530,13 +375,7 @@ class ExperimentTemplateExperimentReportConfigurationOutputsArgs:
 if not MYPY:
     class ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgsDict(TypedDict):
         bucket_name: pulumi.Input[_builtins.str]
-        """
-        The name of the destination bucket.
-        """
         prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The bucket prefix.
-        """
 elif False:
     ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -545,10 +384,6 @@ class ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[_builtins.str],
                  prefix: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] bucket_name: The name of the destination bucket.
-        :param pulumi.Input[_builtins.str] prefix: The bucket prefix.
-        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
@@ -556,9 +391,6 @@ class ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the destination bucket.
-        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -568,9 +400,6 @@ class ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The bucket prefix.
-        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -581,17 +410,8 @@ class ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs:
 if not MYPY:
     class ExperimentTemplateLogConfigurationArgsDict(TypedDict):
         log_schema_version: pulumi.Input[_builtins.int]
-        """
-        The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
-        """
         cloudwatch_logs_configuration: NotRequired[pulumi.Input['ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgsDict']]
-        """
-        The configuration for experiment logging to Amazon CloudWatch Logs. See below.
-        """
         s3_configuration: NotRequired[pulumi.Input['ExperimentTemplateLogConfigurationS3ConfigurationArgsDict']]
-        """
-        The configuration for experiment logging to Amazon S3. See below.
-        """
 elif False:
     ExperimentTemplateLogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -601,11 +421,6 @@ class ExperimentTemplateLogConfigurationArgs:
                  log_schema_version: pulumi.Input[_builtins.int],
                  cloudwatch_logs_configuration: Optional[pulumi.Input['ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs']] = None,
                  s3_configuration: Optional[pulumi.Input['ExperimentTemplateLogConfigurationS3ConfigurationArgs']] = None):
-        """
-        :param pulumi.Input[_builtins.int] log_schema_version: The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
-        :param pulumi.Input['ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs'] cloudwatch_logs_configuration: The configuration for experiment logging to Amazon CloudWatch Logs. See below.
-        :param pulumi.Input['ExperimentTemplateLogConfigurationS3ConfigurationArgs'] s3_configuration: The configuration for experiment logging to Amazon S3. See below.
-        """
         pulumi.set(__self__, "log_schema_version", log_schema_version)
         if cloudwatch_logs_configuration is not None:
             pulumi.set(__self__, "cloudwatch_logs_configuration", cloudwatch_logs_configuration)
@@ -615,9 +430,6 @@ class ExperimentTemplateLogConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="logSchemaVersion")
     def log_schema_version(self) -> pulumi.Input[_builtins.int]:
-        """
-        The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
-        """
         return pulumi.get(self, "log_schema_version")
 
     @log_schema_version.setter
@@ -627,9 +439,6 @@ class ExperimentTemplateLogConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogsConfiguration")
     def cloudwatch_logs_configuration(self) -> Optional[pulumi.Input['ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs']]:
-        """
-        The configuration for experiment logging to Amazon CloudWatch Logs. See below.
-        """
         return pulumi.get(self, "cloudwatch_logs_configuration")
 
     @cloudwatch_logs_configuration.setter
@@ -639,9 +448,6 @@ class ExperimentTemplateLogConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> Optional[pulumi.Input['ExperimentTemplateLogConfigurationS3ConfigurationArgs']]:
-        """
-        The configuration for experiment logging to Amazon S3. See below.
-        """
         return pulumi.get(self, "s3_configuration")
 
     @s3_configuration.setter
@@ -652,9 +458,6 @@ class ExperimentTemplateLogConfigurationArgs:
 if not MYPY:
     class ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgsDict(TypedDict):
         log_group_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
-        """
 elif False:
     ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -662,17 +465,11 @@ elif False:
 class ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs:
     def __init__(__self__, *,
                  log_group_arn: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] log_group_arn: The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
-        """
         pulumi.set(__self__, "log_group_arn", log_group_arn)
 
     @_builtins.property
     @pulumi.getter(name="logGroupArn")
     def log_group_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
-        """
         return pulumi.get(self, "log_group_arn")
 
     @log_group_arn.setter
@@ -683,13 +480,7 @@ class ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs:
 if not MYPY:
     class ExperimentTemplateLogConfigurationS3ConfigurationArgsDict(TypedDict):
         bucket_name: pulumi.Input[_builtins.str]
-        """
-        The name of the destination bucket.
-        """
         prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The bucket prefix.
-        """
 elif False:
     ExperimentTemplateLogConfigurationS3ConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -698,10 +489,6 @@ class ExperimentTemplateLogConfigurationS3ConfigurationArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[_builtins.str],
                  prefix: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] bucket_name: The name of the destination bucket.
-        :param pulumi.Input[_builtins.str] prefix: The bucket prefix.
-        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
@@ -709,9 +496,6 @@ class ExperimentTemplateLogConfigurationS3ConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the destination bucket.
-        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -721,9 +505,6 @@ class ExperimentTemplateLogConfigurationS3ConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The bucket prefix.
-        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -734,13 +515,7 @@ class ExperimentTemplateLogConfigurationS3ConfigurationArgs:
 if not MYPY:
     class ExperimentTemplateStopConditionArgsDict(TypedDict):
         source: pulumi.Input[_builtins.str]
-        """
-        Source of the condition. One of `none`, `aws:cloudwatch:alarm`.
-        """
         value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the CloudWatch alarm. Required if the source is a CloudWatch alarm.
-        """
 elif False:
     ExperimentTemplateStopConditionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -749,10 +524,6 @@ class ExperimentTemplateStopConditionArgs:
     def __init__(__self__, *,
                  source: pulumi.Input[_builtins.str],
                  value: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] source: Source of the condition. One of `none`, `aws:cloudwatch:alarm`.
-        :param pulumi.Input[_builtins.str] value: ARN of the CloudWatch alarm. Required if the source is a CloudWatch alarm.
-        """
         pulumi.set(__self__, "source", source)
         if value is not None:
             pulumi.set(__self__, "value", value)
@@ -760,9 +531,6 @@ class ExperimentTemplateStopConditionArgs:
     @_builtins.property
     @pulumi.getter
     def source(self) -> pulumi.Input[_builtins.str]:
-        """
-        Source of the condition. One of `none`, `aws:cloudwatch:alarm`.
-        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -772,9 +540,6 @@ class ExperimentTemplateStopConditionArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the CloudWatch alarm. Required if the source is a CloudWatch alarm.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -785,35 +550,12 @@ class ExperimentTemplateStopConditionArgs:
 if not MYPY:
     class ExperimentTemplateTargetArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        Friendly name given to the target.
-        """
         resource_type: pulumi.Input[_builtins.str]
-        """
-        AWS resource type. The resource type must be supported for the specified action. To find out what resource types are supported, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#resource-types).
-        """
         selection_mode: pulumi.Input[_builtins.str]
-        """
-        Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
-        """
         filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetFilterArgsDict']]]]
-        """
-        Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
-        """
         parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The resource type parameters.
-
-        > **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
-        """
         resource_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
-        """
         resource_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetResourceTagArgsDict']]]]
-        """
-        Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
-        """
 elif False:
     ExperimentTemplateTargetArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -827,17 +569,6 @@ class ExperimentTemplateTargetArgs:
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetResourceTagArgs']]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] name: Friendly name given to the target.
-        :param pulumi.Input[_builtins.str] resource_type: AWS resource type. The resource type must be supported for the specified action. To find out what resource types are supported, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#resource-types).
-        :param pulumi.Input[_builtins.str] selection_mode: Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
-        :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetFilterArgs']]] filters: Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: The resource type parameters.
-               
-               > **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_arns: Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
-        :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetResourceTagArgs']]] resource_tags: Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_type", resource_type)
         pulumi.set(__self__, "selection_mode", selection_mode)
@@ -853,9 +584,6 @@ class ExperimentTemplateTargetArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Friendly name given to the target.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -865,9 +593,6 @@ class ExperimentTemplateTargetArgs:
     @_builtins.property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        AWS resource type. The resource type must be supported for the specified action. To find out what resource types are supported, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#resource-types).
-        """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
@@ -877,9 +602,6 @@ class ExperimentTemplateTargetArgs:
     @_builtins.property
     @pulumi.getter(name="selectionMode")
     def selection_mode(self) -> pulumi.Input[_builtins.str]:
-        """
-        Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
-        """
         return pulumi.get(self, "selection_mode")
 
     @selection_mode.setter
@@ -889,9 +611,6 @@ class ExperimentTemplateTargetArgs:
     @_builtins.property
     @pulumi.getter
     def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetFilterArgs']]]]:
-        """
-        Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
-        """
         return pulumi.get(self, "filters")
 
     @filters.setter
@@ -901,11 +620,6 @@ class ExperimentTemplateTargetArgs:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        The resource type parameters.
-
-        > **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -915,9 +629,6 @@ class ExperimentTemplateTargetArgs:
     @_builtins.property
     @pulumi.getter(name="resourceArns")
     def resource_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
-        """
         return pulumi.get(self, "resource_arns")
 
     @resource_arns.setter
@@ -927,9 +638,6 @@ class ExperimentTemplateTargetArgs:
     @_builtins.property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetResourceTagArgs']]]]:
-        """
-        Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
-        """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
@@ -940,15 +648,7 @@ class ExperimentTemplateTargetArgs:
 if not MYPY:
     class ExperimentTemplateTargetFilterArgsDict(TypedDict):
         path: pulumi.Input[_builtins.str]
-        """
-        Attribute path for the filter.
-        """
         values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Set of attribute values for the filter.
-
-        > **NOTE:** Values specified in a `filter` are joined with an `OR` clause, while values across multiple `filter` blocks are joined with an `AND` clause. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters).
-        """
 elif False:
     ExperimentTemplateTargetFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -957,21 +657,12 @@ class ExperimentTemplateTargetFilterArgs:
     def __init__(__self__, *,
                  path: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        """
-        :param pulumi.Input[_builtins.str] path: Attribute path for the filter.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Set of attribute values for the filter.
-               
-               > **NOTE:** Values specified in a `filter` are joined with an `OR` clause, while values across multiple `filter` blocks are joined with an `AND` clause. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters).
-        """
         pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def path(self) -> pulumi.Input[_builtins.str]:
-        """
-        Attribute path for the filter.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -981,11 +672,6 @@ class ExperimentTemplateTargetFilterArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Set of attribute values for the filter.
-
-        > **NOTE:** Values specified in a `filter` are joined with an `OR` clause, while values across multiple `filter` blocks are joined with an `AND` clause. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters).
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -996,13 +682,7 @@ class ExperimentTemplateTargetFilterArgs:
 if not MYPY:
     class ExperimentTemplateTargetResourceTagArgsDict(TypedDict):
         key: pulumi.Input[_builtins.str]
-        """
-        Tag key.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        Tag value.
-        """
 elif False:
     ExperimentTemplateTargetResourceTagArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1011,19 +691,12 @@ class ExperimentTemplateTargetResourceTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] key: Tag key.
-        :param pulumi.Input[_builtins.str] value: Tag value.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Input[_builtins.str]:
-        """
-        Tag key.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1033,9 +706,6 @@ class ExperimentTemplateTargetResourceTagArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        Tag value.
-        """
         return pulumi.get(self, "value")
 
     @value.setter

@@ -38,25 +38,6 @@ class ElasticClusterArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ElasticCluster resource.
-        :param pulumi.Input[_builtins.str] admin_user_name: Name of the Elastic DocumentDB cluster administrator
-        :param pulumi.Input[_builtins.str] admin_user_password: Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
-        :param pulumi.Input[_builtins.str] auth_type: Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
-        :param pulumi.Input[_builtins.int] shard_capacity: Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
-        :param pulumi.Input[_builtins.int] shard_count: Number of shards assigned to the elastic cluster. Maximum is 32
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.int] backup_retention_period: The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
-        :param pulumi.Input[_builtins.str] kms_key_id: ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
-        :param pulumi.Input[_builtins.str] name: Name of the Elastic DocumentDB cluster
-        :param pulumi.Input[_builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
-        :param pulumi.Input[_builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: IDs of subnets in which the Elastic DocumentDB Cluster operates.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Elastic DocumentDB Cluster
-               
-               For more detailed documentation about each argument, refer to
-               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
         """
         pulumi.set(__self__, "admin_user_name", admin_user_name)
         pulumi.set(__self__, "admin_user_password", admin_user_password)
@@ -87,9 +68,6 @@ class ElasticClusterArgs:
     @_builtins.property
     @pulumi.getter(name="adminUserName")
     def admin_user_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Elastic DocumentDB cluster administrator
-        """
         return pulumi.get(self, "admin_user_name")
 
     @admin_user_name.setter
@@ -99,9 +77,6 @@ class ElasticClusterArgs:
     @_builtins.property
     @pulumi.getter(name="adminUserPassword")
     def admin_user_password(self) -> pulumi.Input[_builtins.str]:
-        """
-        Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
-        """
         return pulumi.get(self, "admin_user_password")
 
     @admin_user_password.setter
@@ -111,9 +86,6 @@ class ElasticClusterArgs:
     @_builtins.property
     @pulumi.getter(name="authType")
     def auth_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
-        """
         return pulumi.get(self, "auth_type")
 
     @auth_type.setter
@@ -123,9 +95,6 @@ class ElasticClusterArgs:
     @_builtins.property
     @pulumi.getter(name="shardCapacity")
     def shard_capacity(self) -> pulumi.Input[_builtins.int]:
-        """
-        Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
-        """
         return pulumi.get(self, "shard_capacity")
 
     @shard_capacity.setter
@@ -135,11 +104,6 @@ class ElasticClusterArgs:
     @_builtins.property
     @pulumi.getter(name="shardCount")
     def shard_count(self) -> pulumi.Input[_builtins.int]:
-        """
-        Number of shards assigned to the elastic cluster. Maximum is 32
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "shard_count")
 
     @shard_count.setter
@@ -149,9 +113,6 @@ class ElasticClusterArgs:
     @_builtins.property
     @pulumi.getter(name="backupRetentionPeriod")
     def backup_retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
-        """
         return pulumi.get(self, "backup_retention_period")
 
     @backup_retention_period.setter
@@ -161,9 +122,6 @@ class ElasticClusterArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -173,9 +131,6 @@ class ElasticClusterArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Elastic DocumentDB cluster
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -185,9 +140,6 @@ class ElasticClusterArgs:
     @_builtins.property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
-        """
         return pulumi.get(self, "preferred_backup_window")
 
     @preferred_backup_window.setter
@@ -197,9 +149,6 @@ class ElasticClusterArgs:
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
-        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
@@ -209,9 +158,6 @@ class ElasticClusterArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -221,9 +167,6 @@ class ElasticClusterArgs:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        IDs of subnets in which the Elastic DocumentDB Cluster operates.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -233,9 +176,6 @@ class ElasticClusterArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -254,12 +194,6 @@ class ElasticClusterArgs:
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of VPC security groups to associate with the Elastic DocumentDB Cluster
-
-        For more detailed documentation about each argument, refer to
-        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
-        """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
@@ -290,27 +224,6 @@ class _ElasticClusterState:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ElasticCluster resources.
-        :param pulumi.Input[_builtins.str] admin_user_name: Name of the Elastic DocumentDB cluster administrator
-        :param pulumi.Input[_builtins.str] admin_user_password: Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
-        :param pulumi.Input[_builtins.str] arn: ARN of the DocumentDB Elastic Cluster
-        :param pulumi.Input[_builtins.str] auth_type: Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
-        :param pulumi.Input[_builtins.int] backup_retention_period: The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
-        :param pulumi.Input[_builtins.str] endpoint: The DNS address of the DocDB instance
-        :param pulumi.Input[_builtins.str] kms_key_id: ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
-        :param pulumi.Input[_builtins.str] name: Name of the Elastic DocumentDB cluster
-        :param pulumi.Input[_builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
-        :param pulumi.Input[_builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] shard_capacity: Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
-        :param pulumi.Input[_builtins.int] shard_count: Number of shards assigned to the elastic cluster. Maximum is 32
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: IDs of subnets in which the Elastic DocumentDB Cluster operates.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Elastic DocumentDB Cluster
-               
-               For more detailed documentation about each argument, refer to
-               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
         """
         if admin_user_name is not None:
             pulumi.set(__self__, "admin_user_name", admin_user_name)
@@ -352,9 +265,6 @@ class _ElasticClusterState:
     @_builtins.property
     @pulumi.getter(name="adminUserName")
     def admin_user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Elastic DocumentDB cluster administrator
-        """
         return pulumi.get(self, "admin_user_name")
 
     @admin_user_name.setter
@@ -364,9 +274,6 @@ class _ElasticClusterState:
     @_builtins.property
     @pulumi.getter(name="adminUserPassword")
     def admin_user_password(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
-        """
         return pulumi.get(self, "admin_user_password")
 
     @admin_user_password.setter
@@ -376,9 +283,6 @@ class _ElasticClusterState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the DocumentDB Elastic Cluster
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -388,9 +292,6 @@ class _ElasticClusterState:
     @_builtins.property
     @pulumi.getter(name="authType")
     def auth_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
-        """
         return pulumi.get(self, "auth_type")
 
     @auth_type.setter
@@ -400,9 +301,6 @@ class _ElasticClusterState:
     @_builtins.property
     @pulumi.getter(name="backupRetentionPeriod")
     def backup_retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
-        """
         return pulumi.get(self, "backup_retention_period")
 
     @backup_retention_period.setter
@@ -412,9 +310,6 @@ class _ElasticClusterState:
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The DNS address of the DocDB instance
-        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -424,9 +319,6 @@ class _ElasticClusterState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -436,9 +328,6 @@ class _ElasticClusterState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Elastic DocumentDB cluster
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -448,9 +337,6 @@ class _ElasticClusterState:
     @_builtins.property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
-        """
         return pulumi.get(self, "preferred_backup_window")
 
     @preferred_backup_window.setter
@@ -460,9 +346,6 @@ class _ElasticClusterState:
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
-        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
@@ -472,9 +355,6 @@ class _ElasticClusterState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -484,9 +364,6 @@ class _ElasticClusterState:
     @_builtins.property
     @pulumi.getter(name="shardCapacity")
     def shard_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
-        """
         return pulumi.get(self, "shard_capacity")
 
     @shard_capacity.setter
@@ -496,11 +373,6 @@ class _ElasticClusterState:
     @_builtins.property
     @pulumi.getter(name="shardCount")
     def shard_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of shards assigned to the elastic cluster. Maximum is 32
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "shard_count")
 
     @shard_count.setter
@@ -510,9 +382,6 @@ class _ElasticClusterState:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        IDs of subnets in which the Elastic DocumentDB Cluster operates.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -522,9 +391,6 @@ class _ElasticClusterState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -552,12 +418,6 @@ class _ElasticClusterState:
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of VPC security groups to associate with the Elastic DocumentDB Cluster
-
-        For more detailed documentation about each argument, refer to
-        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
-        """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
@@ -588,58 +448,9 @@ class ElasticCluster(pulumi.CustomResource):
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages an AWS DocDB (DocumentDB) Elastic Cluster.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.docdb.ElasticCluster("example",
-            name="my-docdb-cluster",
-            admin_user_name="foo",
-            admin_user_password="mustbeeightchars",
-            auth_type="PLAIN_TEXT",
-            shard_capacity=2,
-            shard_count=1)
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the DocDB Elastic cluster.
-
-        Using `pulumi import`, import DocDB (DocumentDB) Elastic Cluster using the `arn` argument. For example,
-
-        % pulumi import aws_docdbelastic_cluster.example arn:aws:docdb-elastic:us-east-1:000011112222:cluster/12345678-7abc-def0-1234-56789abcdef
-
+        Create a ElasticCluster resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] admin_user_name: Name of the Elastic DocumentDB cluster administrator
-        :param pulumi.Input[_builtins.str] admin_user_password: Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
-        :param pulumi.Input[_builtins.str] auth_type: Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
-        :param pulumi.Input[_builtins.int] backup_retention_period: The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
-        :param pulumi.Input[_builtins.str] kms_key_id: ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
-        :param pulumi.Input[_builtins.str] name: Name of the Elastic DocumentDB cluster
-        :param pulumi.Input[_builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
-        :param pulumi.Input[_builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] shard_capacity: Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
-        :param pulumi.Input[_builtins.int] shard_count: Number of shards assigned to the elastic cluster. Maximum is 32
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: IDs of subnets in which the Elastic DocumentDB Cluster operates.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Elastic DocumentDB Cluster
-               
-               For more detailed documentation about each argument, refer to
-               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
         """
         ...
     @overload
@@ -648,37 +459,7 @@ class ElasticCluster(pulumi.CustomResource):
                  args: ElasticClusterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS DocDB (DocumentDB) Elastic Cluster.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.docdb.ElasticCluster("example",
-            name="my-docdb-cluster",
-            admin_user_name="foo",
-            admin_user_password="mustbeeightchars",
-            auth_type="PLAIN_TEXT",
-            shard_capacity=2,
-            shard_count=1)
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the DocDB Elastic cluster.
-
-        Using `pulumi import`, import DocDB (DocumentDB) Elastic Cluster using the `arn` argument. For example,
-
-        % pulumi import aws_docdbelastic_cluster.example arn:aws:docdb-elastic:us-east-1:000011112222:cluster/12345678-7abc-def0-1234-56789abcdef
-
+        Create a ElasticCluster resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ElasticClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -783,27 +564,6 @@ class ElasticCluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] admin_user_name: Name of the Elastic DocumentDB cluster administrator
-        :param pulumi.Input[_builtins.str] admin_user_password: Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
-        :param pulumi.Input[_builtins.str] arn: ARN of the DocumentDB Elastic Cluster
-        :param pulumi.Input[_builtins.str] auth_type: Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
-        :param pulumi.Input[_builtins.int] backup_retention_period: The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
-        :param pulumi.Input[_builtins.str] endpoint: The DNS address of the DocDB instance
-        :param pulumi.Input[_builtins.str] kms_key_id: ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
-        :param pulumi.Input[_builtins.str] name: Name of the Elastic DocumentDB cluster
-        :param pulumi.Input[_builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
-        :param pulumi.Input[_builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] shard_capacity: Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
-        :param pulumi.Input[_builtins.int] shard_count: Number of shards assigned to the elastic cluster. Maximum is 32
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: IDs of subnets in which the Elastic DocumentDB Cluster operates.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Elastic DocumentDB Cluster
-               
-               For more detailed documentation about each argument, refer to
-               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -832,123 +592,76 @@ class ElasticCluster(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="adminUserName")
     def admin_user_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Elastic DocumentDB cluster administrator
-        """
         return pulumi.get(self, "admin_user_name")
 
     @_builtins.property
     @pulumi.getter(name="adminUserPassword")
     def admin_user_password(self) -> pulumi.Output[_builtins.str]:
-        """
-        Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
-        """
         return pulumi.get(self, "admin_user_password")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the DocumentDB Elastic Cluster
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="authType")
     def auth_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
-        """
         return pulumi.get(self, "auth_type")
 
     @_builtins.property
     @pulumi.getter(name="backupRetentionPeriod")
     def backup_retention_period(self) -> pulumi.Output[_builtins.int]:
-        """
-        The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
-        """
         return pulumi.get(self, "backup_retention_period")
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[_builtins.str]:
-        """
-        The DNS address of the DocDB instance
-        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Elastic DocumentDB cluster
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> pulumi.Output[_builtins.str]:
-        """
-        The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
-        """
         return pulumi.get(self, "preferred_backup_window")
 
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> pulumi.Output[_builtins.str]:
-        """
-        Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
-        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="shardCapacity")
     def shard_capacity(self) -> pulumi.Output[_builtins.int]:
-        """
-        Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
-        """
         return pulumi.get(self, "shard_capacity")
 
     @_builtins.property
     @pulumi.getter(name="shardCount")
     def shard_count(self) -> pulumi.Output[_builtins.int]:
-        """
-        Number of shards assigned to the elastic cluster. Maximum is 32
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "shard_count")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        IDs of subnets in which the Elastic DocumentDB Cluster operates.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -964,11 +677,5 @@ class ElasticCluster(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of VPC security groups to associate with the Elastic DocumentDB Cluster
-
-        For more detailed documentation about each argument, refer to
-        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
-        """
         return pulumi.get(self, "vpc_security_group_ids")
 

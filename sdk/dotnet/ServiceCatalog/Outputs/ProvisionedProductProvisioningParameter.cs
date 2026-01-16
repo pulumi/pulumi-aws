@@ -13,17 +13,8 @@ namespace Pulumi.Aws.ServiceCatalog.Outputs
     [OutputType]
     public sealed class ProvisionedProductProvisioningParameter
     {
-        /// <summary>
-        /// Parameter key.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// Whether to ignore `Value` and keep the previous parameter value. Ignored when initially provisioning a product.
-        /// </summary>
         public readonly bool? UsePreviousValue;
-        /// <summary>
-        /// Parameter value.
-        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

@@ -16,77 +16,37 @@ public final class GetSdkPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSdkPlainArgs Empty = new GetSdkPlainArgs();
 
-    /**
-     * Key-value map of query string parameters `sdkType` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
-     * 
-     */
     @Import(name="parameters")
     private @Nullable Map<String,String> parameters;
 
-    /**
-     * @return Key-value map of query string parameters `sdkType` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
-     * 
-     */
     public Optional<Map<String,String>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Identifier of the associated REST API.
-     * 
-     */
     @Import(name="restApiId", required=true)
     private String restApiId;
 
-    /**
-     * @return Identifier of the associated REST API.
-     * 
-     */
     public String restApiId() {
         return this.restApiId;
     }
 
-    /**
-     * Language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
-     * 
-     */
     @Import(name="sdkType", required=true)
     private String sdkType;
 
-    /**
-     * @return Language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
-     * 
-     */
     public String sdkType() {
         return this.sdkType;
     }
 
-    /**
-     * Name of the Stage that will be exported.
-     * 
-     */
     @Import(name="stageName", required=true)
     private String stageName;
 
-    /**
-     * @return Name of the Stage that will be exported.
-     * 
-     */
     public String stageName() {
         return this.stageName;
     }
@@ -119,56 +79,26 @@ public final class GetSdkPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetSdkPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param parameters Key-value map of query string parameters `sdkType` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(@Nullable Map<String,String> parameters) {
             $.parameters = parameters;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param restApiId Identifier of the associated REST API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restApiId(String restApiId) {
             $.restApiId = restApiId;
             return this;
         }
 
-        /**
-         * @param sdkType Language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sdkType(String sdkType) {
             $.sdkType = sdkType;
             return this;
         }
 
-        /**
-         * @param stageName Name of the Stage that will be exported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stageName(String stageName) {
             $.stageName = stageName;
             return this;

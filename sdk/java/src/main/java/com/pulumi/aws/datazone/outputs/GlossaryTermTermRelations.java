@@ -11,18 +11,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GlossaryTermTermRelations {
-    /**
-     * @return String array that calssifies the term relations.
-     * 
-     */
     private @Nullable List<String> classifies;
     private @Nullable List<String> isAs;
 
     private GlossaryTermTermRelations() {}
-    /**
-     * @return String array that calssifies the term relations.
-     * 
-     */
     public List<String> classifies() {
         return this.classifies == null ? List.of() : this.classifies;
     }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppSync.Outputs
     [OutputType]
     public sealed class DataSourceHttpConfigAuthorizationConfigAwsIamConfig
     {
-        /// <summary>
-        /// Signing Amazon Web Services Region for IAM authorization.
-        /// </summary>
         public readonly string? SigningRegion;
-        /// <summary>
-        /// Signing service name for IAM authorization.
-        /// </summary>
         public readonly string? SigningServiceName;
 
         [OutputConstructor]

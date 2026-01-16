@@ -26,13 +26,6 @@ class TargetAccountConfigurationArgs:
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TargetAccountConfiguration resource.
-        :param pulumi.Input[_builtins.str] account_id: Account ID of the target account.
-        :param pulumi.Input[_builtins.str] experiment_template_id: Experiment Template ID.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: Description of the target account.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM Role for the target account.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "experiment_template_id", experiment_template_id)
@@ -46,9 +39,6 @@ class TargetAccountConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Account ID of the target account.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -58,11 +48,6 @@ class TargetAccountConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="experimentTemplateId")
     def experiment_template_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Experiment Template ID.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "experiment_template_id")
 
     @experiment_template_id.setter
@@ -72,9 +57,6 @@ class TargetAccountConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the target account.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -84,9 +66,6 @@ class TargetAccountConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -96,9 +75,6 @@ class TargetAccountConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM Role for the target account.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -116,13 +92,6 @@ class _TargetAccountConfigurationState:
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TargetAccountConfiguration resources.
-        :param pulumi.Input[_builtins.str] account_id: Account ID of the target account.
-        :param pulumi.Input[_builtins.str] description: Description of the target account.
-        :param pulumi.Input[_builtins.str] experiment_template_id: Experiment Template ID.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM Role for the target account.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -138,9 +107,6 @@ class _TargetAccountConfigurationState:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Account ID of the target account.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -150,9 +116,6 @@ class _TargetAccountConfigurationState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the target account.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -162,11 +125,6 @@ class _TargetAccountConfigurationState:
     @_builtins.property
     @pulumi.getter(name="experimentTemplateId")
     def experiment_template_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Experiment Template ID.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "experiment_template_id")
 
     @experiment_template_id.setter
@@ -176,9 +134,6 @@ class _TargetAccountConfigurationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -188,9 +143,6 @@ class _TargetAccountConfigurationState:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM Role for the target account.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -211,40 +163,9 @@ class TargetAccountConfiguration(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an AWS FIS (Fault Injection Simulator) Target Account Configuration.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.fis.TargetAccountConfiguration("example",
-            experiment_template_id=example_aws_fis_experiment_template["id"],
-            account_id=current["accountId"],
-            role_arn=fis_role["arn"],
-            description="Example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import FIS (Fault Injection Simulator) Target Account Configuration using the `account_id,experiment_template_id`. For example:
-
-        ```sh
-        $ pulumi import aws:fis/targetAccountConfiguration:TargetAccountConfiguration example 123456789012,abcd123456789
-        ```
-
+        Create a TargetAccountConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: Account ID of the target account.
-        :param pulumi.Input[_builtins.str] description: Description of the target account.
-        :param pulumi.Input[_builtins.str] experiment_template_id: Experiment Template ID.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM Role for the target account.
         """
         ...
     @overload
@@ -253,31 +174,7 @@ class TargetAccountConfiguration(pulumi.CustomResource):
                  args: TargetAccountConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS FIS (Fault Injection Simulator) Target Account Configuration.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.fis.TargetAccountConfiguration("example",
-            experiment_template_id=example_aws_fis_experiment_template["id"],
-            account_id=current["accountId"],
-            role_arn=fis_role["arn"],
-            description="Example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import FIS (Fault Injection Simulator) Target Account Configuration using the `account_id,experiment_template_id`. For example:
-
-        ```sh
-        $ pulumi import aws:fis/targetAccountConfiguration:TargetAccountConfiguration example 123456789012,abcd123456789
-        ```
-
+        Create a TargetAccountConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TargetAccountConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -338,13 +235,6 @@ class TargetAccountConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: Account ID of the target account.
-        :param pulumi.Input[_builtins.str] description: Description of the target account.
-        :param pulumi.Input[_builtins.str] experiment_template_id: Experiment Template ID.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM Role for the target account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -360,42 +250,25 @@ class TargetAccountConfiguration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Account ID of the target account.
-        """
         return pulumi.get(self, "account_id")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
-        """
-        Description of the target account.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="experimentTemplateId")
     def experiment_template_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Experiment Template ID.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "experiment_template_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the IAM Role for the target account.
-        """
         return pulumi.get(self, "role_arn")
 

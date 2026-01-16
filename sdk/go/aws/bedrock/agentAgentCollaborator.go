@@ -12,193 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Bedrock Agents Agent Collaborator.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// currentGetRegion, err := aws.GetRegion(ctx, &aws.GetRegionArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// exampleAgentTrust, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "sts:AssumeRole",
-// },
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Identifiers: []string{
-// "bedrock.amazonaws.com",
-// },
-// Type: "Service",
-// },
-// },
-// Conditions: []iam.GetPolicyDocumentStatementCondition{
-// {
-// Test: "StringEquals",
-// Values: interface{}{
-// current.AccountId,
-// },
-// Variable: "aws:SourceAccount",
-// },
-// {
-// Test: "ArnLike",
-// Values: []string{
-// fmt.Sprintf("arn:%v:bedrock:%v:%v:agent/*", currentGetPartition.Partition, currentGetRegion.Region, current.AccountId),
-// },
-// Variable: "AWS:SourceArn",
-// },
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// exampleAgentPermissions, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "bedrock:InvokeModel",
-// },
-// Resources: []string{
-// fmt.Sprintf("arn:%v:bedrock:%v::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0", currentGetPartition.Partition, currentGetRegion.Region),
-// },
-// },
-// {
-// Actions: []string{
-// "bedrock:GetAgentAlias",
-// "bedrock:InvokeAgent",
-// },
-// Resources: []string{
-// fmt.Sprintf("arn:%v:bedrock:%v:%v:agent/*", currentAgent.Partition, currentGetRegion.Region, current.AccountId),
-// fmt.Sprintf("arn:%v:bedrock:%v:%v:agent-alias/*", currentAgent.Partition, currentGetRegion.Region, current.AccountId),
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-// AssumeRolePolicy: pulumi.String(exampleAgentTrust.Json),
-// NamePrefix: pulumi.String("AmazonBedrockExecutionRoleForAgents_"),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
-// Policy: pulumi.String(exampleAgentPermissions.Json),
-// Role: example.ID(),
-// })
-// if err != nil {
-// return err
-// }
-// exampleCollaborator, err := bedrock.NewAgentAgent(ctx, "example_collaborator", &bedrock.AgentAgentArgs{
-// AgentName: pulumi.String("my-agent-collaborator"),
-// AgentResourceRoleArn: example.Arn,
-// IdleSessionTtlInSeconds: pulumi.Int(500),
-// FoundationModel: pulumi.String("anthropic.claude-3-5-sonnet-20241022-v2:0"),
-// Instruction: pulumi.String("do what the supervisor tells you to do"),
-// })
-// if err != nil {
-// return err
-// }
-// exampleSupervisor, err := bedrock.NewAgentAgent(ctx, "example_supervisor", &bedrock.AgentAgentArgs{
-// AgentName: pulumi.String("my-agent-supervisor"),
-// AgentResourceRoleArn: example.Arn,
-// AgentCollaboration: pulumi.String("SUPERVISOR"),
-// IdleSessionTtlInSeconds: pulumi.Int(500),
-// FoundationModel: pulumi.String("anthropic.claude-3-5-sonnet-20241022-v2:0"),
-// Instruction: pulumi.String("tell the sub agent what to do"),
-// PrepareAgent: pulumi.Bool(false),
-// })
-// if err != nil {
-// return err
-// }
-// exampleAgentAgentAlias, err := bedrock.NewAgentAgentAlias(ctx, "example", &bedrock.AgentAgentAliasArgs{
-// AgentAliasName: pulumi.String("my-agent-alias"),
-// AgentId: exampleCollaborator.AgentId,
-// Description: pulumi.String("Test Alias"),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = bedrock.NewAgentAgentCollaborator(ctx, "example", &bedrock.AgentAgentCollaboratorArgs{
-// AgentId: exampleSupervisor.AgentId,
-// CollaborationInstruction: pulumi.String("tell the other agent what to do"),
-// CollaboratorName: pulumi.String("my-collab-example"),
-// RelayConversationHistory: pulumi.String("TO_COLLABORATOR"),
-// AgentDescriptor: &bedrock.AgentAgentCollaboratorAgentDescriptorArgs{
-// AliasArn: exampleAgentAgentAlias.AgentAliasArn,
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Bedrock Agents Agent Collaborator using a comma-delimited string combining `agent_id`, `agent_version`, and `collaborator_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:bedrock/agentAgentCollaborator:AgentAgentCollaborator example 9LSJO0BFI8,DRAFT,AG3TN4RQIY
-// ```
 type AgentAgentCollaborator struct {
 	pulumi.CustomResourceState
 
-	AgentDescriptor AgentAgentCollaboratorAgentDescriptorPtrOutput `pulumi:"agentDescriptor"`
-	// ID if the agent to associate the collaborator.
-	AgentId      pulumi.StringOutput `pulumi:"agentId"`
-	AgentVersion pulumi.StringOutput `pulumi:"agentVersion"`
-	// Instruction to give the collaborator.
-	CollaborationInstruction pulumi.StringOutput `pulumi:"collaborationInstruction"`
-	// ID of the Agent Collaborator.
-	CollaboratorId pulumi.StringOutput `pulumi:"collaboratorId"`
-	// Name of this collaborator.
-	//
-	// The following arguments are optional:
-	CollaboratorName pulumi.StringOutput `pulumi:"collaboratorName"`
-	// Whether to prepare the agent after creation or modification. Defaults to `true`.
-	PrepareAgent pulumi.BoolOutput `pulumi:"prepareAgent"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Configure relaying the history to the collaborator.
-	RelayConversationHistory pulumi.StringOutput                     `pulumi:"relayConversationHistory"`
-	Timeouts                 AgentAgentCollaboratorTimeoutsPtrOutput `pulumi:"timeouts"`
+	AgentDescriptor          AgentAgentCollaboratorAgentDescriptorPtrOutput `pulumi:"agentDescriptor"`
+	AgentId                  pulumi.StringOutput                            `pulumi:"agentId"`
+	AgentVersion             pulumi.StringOutput                            `pulumi:"agentVersion"`
+	CollaborationInstruction pulumi.StringOutput                            `pulumi:"collaborationInstruction"`
+	CollaboratorId           pulumi.StringOutput                            `pulumi:"collaboratorId"`
+	CollaboratorName         pulumi.StringOutput                            `pulumi:"collaboratorName"`
+	PrepareAgent             pulumi.BoolOutput                              `pulumi:"prepareAgent"`
+	Region                   pulumi.StringOutput                            `pulumi:"region"`
+	RelayConversationHistory pulumi.StringOutput                            `pulumi:"relayConversationHistory"`
+	Timeouts                 AgentAgentCollaboratorTimeoutsPtrOutput        `pulumi:"timeouts"`
 }
 
 // NewAgentAgentCollaborator registers a new resource with the given unique name, arguments, and options.
@@ -240,45 +66,27 @@ func GetAgentAgentCollaborator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentAgentCollaborator resources.
 type agentAgentCollaboratorState struct {
-	AgentDescriptor *AgentAgentCollaboratorAgentDescriptor `pulumi:"agentDescriptor"`
-	// ID if the agent to associate the collaborator.
-	AgentId      *string `pulumi:"agentId"`
-	AgentVersion *string `pulumi:"agentVersion"`
-	// Instruction to give the collaborator.
-	CollaborationInstruction *string `pulumi:"collaborationInstruction"`
-	// ID of the Agent Collaborator.
-	CollaboratorId *string `pulumi:"collaboratorId"`
-	// Name of this collaborator.
-	//
-	// The following arguments are optional:
-	CollaboratorName *string `pulumi:"collaboratorName"`
-	// Whether to prepare the agent after creation or modification. Defaults to `true`.
-	PrepareAgent *bool `pulumi:"prepareAgent"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configure relaying the history to the collaborator.
-	RelayConversationHistory *string                         `pulumi:"relayConversationHistory"`
-	Timeouts                 *AgentAgentCollaboratorTimeouts `pulumi:"timeouts"`
+	AgentDescriptor          *AgentAgentCollaboratorAgentDescriptor `pulumi:"agentDescriptor"`
+	AgentId                  *string                                `pulumi:"agentId"`
+	AgentVersion             *string                                `pulumi:"agentVersion"`
+	CollaborationInstruction *string                                `pulumi:"collaborationInstruction"`
+	CollaboratorId           *string                                `pulumi:"collaboratorId"`
+	CollaboratorName         *string                                `pulumi:"collaboratorName"`
+	PrepareAgent             *bool                                  `pulumi:"prepareAgent"`
+	Region                   *string                                `pulumi:"region"`
+	RelayConversationHistory *string                                `pulumi:"relayConversationHistory"`
+	Timeouts                 *AgentAgentCollaboratorTimeouts        `pulumi:"timeouts"`
 }
 
 type AgentAgentCollaboratorState struct {
-	AgentDescriptor AgentAgentCollaboratorAgentDescriptorPtrInput
-	// ID if the agent to associate the collaborator.
-	AgentId      pulumi.StringPtrInput
-	AgentVersion pulumi.StringPtrInput
-	// Instruction to give the collaborator.
+	AgentDescriptor          AgentAgentCollaboratorAgentDescriptorPtrInput
+	AgentId                  pulumi.StringPtrInput
+	AgentVersion             pulumi.StringPtrInput
 	CollaborationInstruction pulumi.StringPtrInput
-	// ID of the Agent Collaborator.
-	CollaboratorId pulumi.StringPtrInput
-	// Name of this collaborator.
-	//
-	// The following arguments are optional:
-	CollaboratorName pulumi.StringPtrInput
-	// Whether to prepare the agent after creation or modification. Defaults to `true`.
-	PrepareAgent pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configure relaying the history to the collaborator.
+	CollaboratorId           pulumi.StringPtrInput
+	CollaboratorName         pulumi.StringPtrInput
+	PrepareAgent             pulumi.BoolPtrInput
+	Region                   pulumi.StringPtrInput
 	RelayConversationHistory pulumi.StringPtrInput
 	Timeouts                 AgentAgentCollaboratorTimeoutsPtrInput
 }
@@ -288,42 +96,26 @@ func (AgentAgentCollaboratorState) ElementType() reflect.Type {
 }
 
 type agentAgentCollaboratorArgs struct {
-	AgentDescriptor *AgentAgentCollaboratorAgentDescriptor `pulumi:"agentDescriptor"`
-	// ID if the agent to associate the collaborator.
-	AgentId      string  `pulumi:"agentId"`
-	AgentVersion *string `pulumi:"agentVersion"`
-	// Instruction to give the collaborator.
-	CollaborationInstruction string `pulumi:"collaborationInstruction"`
-	// Name of this collaborator.
-	//
-	// The following arguments are optional:
-	CollaboratorName string `pulumi:"collaboratorName"`
-	// Whether to prepare the agent after creation or modification. Defaults to `true`.
-	PrepareAgent *bool `pulumi:"prepareAgent"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configure relaying the history to the collaborator.
-	RelayConversationHistory *string                         `pulumi:"relayConversationHistory"`
-	Timeouts                 *AgentAgentCollaboratorTimeouts `pulumi:"timeouts"`
+	AgentDescriptor          *AgentAgentCollaboratorAgentDescriptor `pulumi:"agentDescriptor"`
+	AgentId                  string                                 `pulumi:"agentId"`
+	AgentVersion             *string                                `pulumi:"agentVersion"`
+	CollaborationInstruction string                                 `pulumi:"collaborationInstruction"`
+	CollaboratorName         string                                 `pulumi:"collaboratorName"`
+	PrepareAgent             *bool                                  `pulumi:"prepareAgent"`
+	Region                   *string                                `pulumi:"region"`
+	RelayConversationHistory *string                                `pulumi:"relayConversationHistory"`
+	Timeouts                 *AgentAgentCollaboratorTimeouts        `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a AgentAgentCollaborator resource.
 type AgentAgentCollaboratorArgs struct {
-	AgentDescriptor AgentAgentCollaboratorAgentDescriptorPtrInput
-	// ID if the agent to associate the collaborator.
-	AgentId      pulumi.StringInput
-	AgentVersion pulumi.StringPtrInput
-	// Instruction to give the collaborator.
+	AgentDescriptor          AgentAgentCollaboratorAgentDescriptorPtrInput
+	AgentId                  pulumi.StringInput
+	AgentVersion             pulumi.StringPtrInput
 	CollaborationInstruction pulumi.StringInput
-	// Name of this collaborator.
-	//
-	// The following arguments are optional:
-	CollaboratorName pulumi.StringInput
-	// Whether to prepare the agent after creation or modification. Defaults to `true`.
-	PrepareAgent pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configure relaying the history to the collaborator.
+	CollaboratorName         pulumi.StringInput
+	PrepareAgent             pulumi.BoolPtrInput
+	Region                   pulumi.StringPtrInput
 	RelayConversationHistory pulumi.StringPtrInput
 	Timeouts                 AgentAgentCollaboratorTimeoutsPtrInput
 }
@@ -421,7 +213,6 @@ func (o AgentAgentCollaboratorOutput) AgentDescriptor() AgentAgentCollaboratorAg
 	}).(AgentAgentCollaboratorAgentDescriptorPtrOutput)
 }
 
-// ID if the agent to associate the collaborator.
 func (o AgentAgentCollaboratorOutput) AgentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentCollaborator) pulumi.StringOutput { return v.AgentId }).(pulumi.StringOutput)
 }
@@ -430,34 +221,26 @@ func (o AgentAgentCollaboratorOutput) AgentVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentCollaborator) pulumi.StringOutput { return v.AgentVersion }).(pulumi.StringOutput)
 }
 
-// Instruction to give the collaborator.
 func (o AgentAgentCollaboratorOutput) CollaborationInstruction() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentCollaborator) pulumi.StringOutput { return v.CollaborationInstruction }).(pulumi.StringOutput)
 }
 
-// ID of the Agent Collaborator.
 func (o AgentAgentCollaboratorOutput) CollaboratorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentCollaborator) pulumi.StringOutput { return v.CollaboratorId }).(pulumi.StringOutput)
 }
 
-// Name of this collaborator.
-//
-// The following arguments are optional:
 func (o AgentAgentCollaboratorOutput) CollaboratorName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentCollaborator) pulumi.StringOutput { return v.CollaboratorName }).(pulumi.StringOutput)
 }
 
-// Whether to prepare the agent after creation or modification. Defaults to `true`.
 func (o AgentAgentCollaboratorOutput) PrepareAgent() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AgentAgentCollaborator) pulumi.BoolOutput { return v.PrepareAgent }).(pulumi.BoolOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AgentAgentCollaboratorOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentCollaborator) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Configure relaying the history to the collaborator.
 func (o AgentAgentCollaboratorOutput) RelayConversationHistory() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentCollaborator) pulumi.StringOutput { return v.RelayConversationHistory }).(pulumi.StringOutput)
 }

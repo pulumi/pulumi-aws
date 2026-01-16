@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetThemeConfigurationSheet {
-    /**
-     * @return The layout options for tiles. See tile_layout.
-     * 
-     */
     private List<GetThemeConfigurationSheetTileLayout> tileLayouts;
-    /**
-     * @return The display options for tiles. See tile.
-     * 
-     */
     private List<GetThemeConfigurationSheetTile> tiles;
 
     private GetThemeConfigurationSheet() {}
-    /**
-     * @return The layout options for tiles. See tile_layout.
-     * 
-     */
     public List<GetThemeConfigurationSheetTileLayout> tileLayouts() {
         return this.tileLayouts;
     }
-    /**
-     * @return The display options for tiles. See tile.
-     * 
-     */
     public List<GetThemeConfigurationSheetTile> tiles() {
         return this.tiles;
     }

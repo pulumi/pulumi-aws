@@ -42,9 +42,6 @@ class GetDefaultTagsResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value mapping of provider default tags.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -61,34 +58,7 @@ class AwaitableGetDefaultTagsResult(GetDefaultTagsResult):
 def get_default_tags(id: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefaultTagsResult:
     """
-    Use this data source to get the default tags configured on the provider.
-
-    With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.get_default_tags()
-    ```
-
-    ### Dynamically Apply Default Tags to Auto Scaling Group
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.get_default_tags()
-    example_group = aws.autoscaling.Group("example", tags=[{"key": k, "value": v} for k, v in example.tags].apply(lambda entries: [{
-        "key": entry["key"],
-        "value": entry["value"],
-        "propagateAtLaunch": True,
-    } for entry in entries]))
-    ```
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -101,34 +71,7 @@ def get_default_tags(id: Optional[_builtins.str] = None,
 def get_default_tags_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDefaultTagsResult]:
     """
-    Use this data source to get the default tags configured on the provider.
-
-    With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.get_default_tags()
-    ```
-
-    ### Dynamically Apply Default Tags to Auto Scaling Group
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.get_default_tags()
-    example_group = aws.autoscaling.Group("example", tags=[{"key": k, "value": v} for k, v in example.tags].apply(lambda entries: [{
-        "key": entry["key"],
-        "value": entry["value"],
-        "propagateAtLaunch": True,
-    } for entry in entries]))
-    ```
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

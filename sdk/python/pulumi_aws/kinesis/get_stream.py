@@ -77,33 +77,21 @@ class GetStreamResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Kinesis Stream (same as `id`).
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="closedShards")
     def closed_shards(self) -> Sequence[_builtins.str]:
-        """
-        List of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
-        """
         return pulumi.get(self, "closed_shards")
 
     @_builtins.property
     @pulumi.getter(name="creationTimestamp")
     def creation_timestamp(self) -> _builtins.int:
-        """
-        Approximate UNIX timestamp that the stream was created.
-        """
         return pulumi.get(self, "creation_timestamp")
 
     @_builtins.property
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> _builtins.str:
-        """
-        Encryption type used.
-        """
         return pulumi.get(self, "encryption_type")
 
     @_builtins.property
@@ -117,33 +105,21 @@ class GetStreamResult:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
-        """
-        GUID for the customer-managed AWS KMS key to use for encryption.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="maxRecordSizeInKib")
     def max_record_size_in_kib(self) -> _builtins.int:
-        """
-        The maximum size for a single data record in KiB.
-        """
         return pulumi.get(self, "max_record_size_in_kib")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the Kinesis Stream.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="openShards")
     def open_shards(self) -> Sequence[_builtins.str]:
-        """
-        List of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
-        """
         return pulumi.get(self, "open_shards")
 
     @_builtins.property
@@ -154,41 +130,26 @@ class GetStreamResult:
     @_builtins.property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> _builtins.int:
-        """
-        Length of time (in hours) data records are accessible after they are added to the stream.
-        """
         return pulumi.get(self, "retention_period")
 
     @_builtins.property
     @pulumi.getter(name="shardLevelMetrics")
     def shard_level_metrics(self) -> Sequence[_builtins.str]:
-        """
-        List of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
-        """
         return pulumi.get(self, "shard_level_metrics")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="streamModeDetails")
     def stream_mode_details(self) -> Sequence['outputs.GetStreamStreamModeDetailResult']:
-        """
-        [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
-        """
         return pulumi.get(self, "stream_mode_details")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags to assigned to the stream.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -220,24 +181,7 @@ def get_stream(name: Optional[_builtins.str] = None,
                tags: Optional[Mapping[str, _builtins.str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamResult:
     """
-    Use this data source to get information about a Kinesis Stream for use in other
-    resources.
-
-    For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    stream = aws.kinesis.get_stream(name="stream-name")
-    ```
-
-
-    :param _builtins.str name: Name of the Kinesis Stream.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags to assigned to the stream.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -267,24 +211,7 @@ def get_stream_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamResult]:
     """
-    Use this data source to get information about a Kinesis Stream for use in other
-    resources.
-
-    For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    stream = aws.kinesis.get_stream(name="stream-name")
-    ```
-
-
-    :param _builtins.str name: Name of the Kinesis Stream.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags to assigned to the stream.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

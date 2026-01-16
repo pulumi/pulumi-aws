@@ -9,164 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3
 {
-    /// <summary>
-    /// Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
-    /// 
-    /// &gt; This resource cannot be used with S3 directory buckets.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Add inventory configuration
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.S3.Bucket("test", new()
-    ///     {
-    ///         BucketName = "my-tf-test-bucket",
-    ///     });
-    /// 
-    ///     var inventory = new Aws.S3.Bucket("inventory", new()
-    ///     {
-    ///         BucketName = "my-tf-inventory-bucket",
-    ///     });
-    /// 
-    ///     var testInventory = new Aws.S3.Inventory("test", new()
-    ///     {
-    ///         Bucket = test.Id,
-    ///         Name = "EntireBucketDaily",
-    ///         IncludedObjectVersions = "All",
-    ///         Schedule = new Aws.S3.Inputs.InventoryScheduleArgs
-    ///         {
-    ///             Frequency = "Daily",
-    ///         },
-    ///         Destination = new Aws.S3.Inputs.InventoryDestinationArgs
-    ///         {
-    ///             Bucket = new Aws.S3.Inputs.InventoryDestinationBucketArgs
-    ///             {
-    ///                 Format = "ORC",
-    ///                 BucketArn = inventory.Arn,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Add inventory configuration with S3 object prefix
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.S3.Bucket("test", new()
-    ///     {
-    ///         BucketName = "my-tf-test-bucket",
-    ///     });
-    /// 
-    ///     var inventory = new Aws.S3.Bucket("inventory", new()
-    ///     {
-    ///         BucketName = "my-tf-inventory-bucket",
-    ///     });
-    /// 
-    ///     var test_prefix = new Aws.S3.Inventory("test-prefix", new()
-    ///     {
-    ///         Bucket = test.Id,
-    ///         Name = "DocumentsWeekly",
-    ///         IncludedObjectVersions = "All",
-    ///         Schedule = new Aws.S3.Inputs.InventoryScheduleArgs
-    ///         {
-    ///             Frequency = "Daily",
-    ///         },
-    ///         Filter = new Aws.S3.Inputs.InventoryFilterArgs
-    ///         {
-    ///             Prefix = "documents/",
-    ///         },
-    ///         Destination = new Aws.S3.Inputs.InventoryDestinationArgs
-    ///         {
-    ///             Bucket = new Aws.S3.Inputs.InventoryDestinationBucketArgs
-    ///             {
-    ///                 Format = "ORC",
-    ///                 BucketArn = inventory.Arn,
-    ///                 Prefix = "inventory",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import S3 bucket inventory configurations using `bucket:inventory`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3/inventory:Inventory")]
     public partial class Inventory : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of the source bucket that inventory lists the objects for.
-        /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
-        /// <summary>
-        /// Contains information about where to publish the inventory results (documented below).
-        /// </summary>
         [Output("destination")]
         public Output<Outputs.InventoryDestination> Destination { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether the inventory is enabled or disabled.
-        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
-        /// </summary>
         [Output("filter")]
         public Output<Outputs.InventoryFilter?> Filter { get; private set; } = null!;
 
-        /// <summary>
-        /// Object versions to include in the inventory list. Valid values: `All`, `Current`.
-        /// </summary>
         [Output("includedObjectVersions")]
         public Output<string> IncludedObjectVersions { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique identifier of the inventory configuration for the bucket.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
-        /// </summary>
         [Output("optionalFields")]
         public Output<ImmutableArray<string>> OptionalFields { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the schedule for generating inventory results (documented below).
-        /// </summary>
         [Output("schedule")]
         public Output<Outputs.InventorySchedule> Schedule { get; private set; } = null!;
 
@@ -216,63 +85,35 @@ namespace Pulumi.Aws.S3
 
     public sealed class InventoryArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the source bucket that inventory lists the objects for.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// Contains information about where to publish the inventory results (documented below).
-        /// </summary>
         [Input("destination", required: true)]
         public Input<Inputs.InventoryDestinationArgs> Destination { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies whether the inventory is enabled or disabled.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
-        /// </summary>
         [Input("filter")]
         public Input<Inputs.InventoryFilterArgs>? Filter { get; set; }
 
-        /// <summary>
-        /// Object versions to include in the inventory list. Valid values: `All`, `Current`.
-        /// </summary>
         [Input("includedObjectVersions", required: true)]
         public Input<string> IncludedObjectVersions { get; set; } = null!;
 
-        /// <summary>
-        /// Unique identifier of the inventory configuration for the bucket.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("optionalFields")]
         private InputList<string>? _optionalFields;
-
-        /// <summary>
-        /// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
-        /// </summary>
         public InputList<string> OptionalFields
         {
             get => _optionalFields ?? (_optionalFields = new InputList<string>());
             set => _optionalFields = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Specifies the schedule for generating inventory results (documented below).
-        /// </summary>
         [Input("schedule", required: true)]
         public Input<Inputs.InventoryScheduleArgs> Schedule { get; set; } = null!;
 
@@ -284,63 +125,35 @@ namespace Pulumi.Aws.S3
 
     public sealed class InventoryState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the source bucket that inventory lists the objects for.
-        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
-        /// <summary>
-        /// Contains information about where to publish the inventory results (documented below).
-        /// </summary>
         [Input("destination")]
         public Input<Inputs.InventoryDestinationGetArgs>? Destination { get; set; }
 
-        /// <summary>
-        /// Specifies whether the inventory is enabled or disabled.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
-        /// </summary>
         [Input("filter")]
         public Input<Inputs.InventoryFilterGetArgs>? Filter { get; set; }
 
-        /// <summary>
-        /// Object versions to include in the inventory list. Valid values: `All`, `Current`.
-        /// </summary>
         [Input("includedObjectVersions")]
         public Input<string>? IncludedObjectVersions { get; set; }
 
-        /// <summary>
-        /// Unique identifier of the inventory configuration for the bucket.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("optionalFields")]
         private InputList<string>? _optionalFields;
-
-        /// <summary>
-        /// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
-        /// </summary>
         public InputList<string> OptionalFields
         {
             get => _optionalFields ?? (_optionalFields = new InputList<string>());
             set => _optionalFields = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Specifies the schedule for generating inventory results (documented below).
-        /// </summary>
         [Input("schedule")]
         public Input<Inputs.InventoryScheduleGetArgs>? Schedule { get; set; }
 

@@ -13,15 +13,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class InfrastructureConfigurationLoggingS3Logs
     {
-        /// <summary>
-        /// Name of the S3 Bucket.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public readonly string S3BucketName;
-        /// <summary>
-        /// Prefix to use for S3 logs. Defaults to `/`.
-        /// </summary>
         public readonly string? S3KeyPrefix;
 
         [OutputConstructor]

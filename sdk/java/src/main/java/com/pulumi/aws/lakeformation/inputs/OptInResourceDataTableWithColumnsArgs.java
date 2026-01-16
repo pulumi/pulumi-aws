@@ -18,77 +18,37 @@ public final class OptInResourceDataTableWithColumnsArgs extends com.pulumi.reso
 
     public static final OptInResourceDataTableWithColumnsArgs Empty = new OptInResourceDataTableWithColumnsArgs();
 
-    /**
-     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public Optional<Output<String>> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
 
-    /**
-     * List of column names for the table. At least one of ColumnNames or ColumnWildcard is required.
-     * 
-     */
     @Import(name="columnNames")
     private @Nullable Output<List<String>> columnNames;
 
-    /**
-     * @return List of column names for the table. At least one of ColumnNames or ColumnWildcard is required.
-     * 
-     */
     public Optional<Output<List<String>>> columnNames() {
         return Optional.ofNullable(this.columnNames);
     }
 
-    /**
-     * Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
-     * 
-     */
     @Import(name="columnWildcard")
     private @Nullable Output<OptInResourceDataTableWithColumnsColumnWildcardArgs> columnWildcard;
 
-    /**
-     * @return Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
-     * 
-     */
     public Optional<Output<OptInResourceDataTableWithColumnsColumnWildcardArgs>> columnWildcard() {
         return Optional.ofNullable(this.columnWildcard);
     }
 
-    /**
-     * The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
-     * 
-     */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
-    /**
-     * @return The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
-     * 
-     */
     public Output<String> databaseName() {
         return this.databaseName;
     }
 
-    /**
-     * Name of the table.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the table.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -121,117 +81,51 @@ public final class OptInResourceDataTableWithColumnsArgs extends com.pulumi.reso
             $ = new OptInResourceDataTableWithColumnsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(@Nullable Output<String> catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
-        /**
-         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(String catalogId) {
             return catalogId(Output.of(catalogId));
         }
 
-        /**
-         * @param columnNames List of column names for the table. At least one of ColumnNames or ColumnWildcard is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnNames(@Nullable Output<List<String>> columnNames) {
             $.columnNames = columnNames;
             return this;
         }
 
-        /**
-         * @param columnNames List of column names for the table. At least one of ColumnNames or ColumnWildcard is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnNames(List<String> columnNames) {
             return columnNames(Output.of(columnNames));
         }
 
-        /**
-         * @param columnNames List of column names for the table. At least one of ColumnNames or ColumnWildcard is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnNames(String... columnNames) {
             return columnNames(List.of(columnNames));
         }
 
-        /**
-         * @param columnWildcard Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnWildcard(@Nullable Output<OptInResourceDataTableWithColumnsColumnWildcardArgs> columnWildcard) {
             $.columnWildcard = columnWildcard;
             return this;
         }
 
-        /**
-         * @param columnWildcard Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnWildcard(OptInResourceDataTableWithColumnsColumnWildcardArgs columnWildcard) {
             return columnWildcard(Output.of(columnWildcard));
         }
 
-        /**
-         * @param databaseName The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(Output<String> databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
-        /**
-         * @param databaseName The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
         }
 
-        /**
-         * @param name Name of the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

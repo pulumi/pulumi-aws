@@ -13,110 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * &gt; **Note:** AWS accounts can only be associated with a single Security Hub master account. Destroying this resource will disassociate the member account from the master account.
- * 
- * Accepts a Security Hub invitation.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.securityhub.Account;
- * import com.pulumi.aws.securityhub.Member;
- * import com.pulumi.aws.securityhub.MemberArgs;
- * import com.pulumi.aws.securityhub.InviteAccepter;
- * import com.pulumi.aws.securityhub.InviteAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App }{{@code
- *     public static void main(String[] args) }{{@code
- *         Pulumi.run(App::stack);
- *     }}{@code
- * 
- *     public static void stack(Context ctx) }{{@code
- *         var example = new Account("example");
- * 
- *         var exampleMember = new Member("exampleMember", MemberArgs.builder()
- *             .accountId("123456789012")
- *             .email("example}{@literal @}{@code example.com")
- *             .invite(true)
- *             .build());
- * 
- *         var invitee = new Account("invitee");
- * 
- *         var inviteeInviteAccepter = new InviteAccepter("inviteeInviteAccepter", InviteAccepterArgs.builder()
- *             .masterId(exampleMember.masterId())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(invitee)
- *                 .build());
- * 
- *     }}{@code
- * }}{@code
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Security Hub invite acceptance using the account ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:securityhub/inviteAccepter:InviteAccepter")
 public class InviteAccepter extends com.pulumi.resources.CustomResource {
-    /**
-     * The ID of the invitation.
-     * 
-     */
     @Export(name="invitationId", refs={String.class}, tree="[0]")
     private Output<String> invitationId;
 
-    /**
-     * @return The ID of the invitation.
-     * 
-     */
     public Output<String> invitationId() {
         return this.invitationId;
     }
-    /**
-     * The account ID of the master Security Hub account whose invitation you&#39;re accepting.
-     * 
-     */
     @Export(name="masterId", refs={String.class}, tree="[0]")
     private Output<String> masterId;
 
-    /**
-     * @return The account ID of the master Security Hub account whose invitation you&#39;re accepting.
-     * 
-     */
     public Output<String> masterId() {
         return this.masterId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

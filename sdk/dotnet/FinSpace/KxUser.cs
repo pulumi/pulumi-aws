@@ -9,118 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.FinSpace
 {
-    /// <summary>
-    /// Resource for managing an AWS FinSpace Kx User.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Kms.Key("example", new()
-    ///     {
-    ///         Description = "Example KMS Key",
-    ///         DeletionWindowInDays = 7,
-    ///     });
-    /// 
-    ///     var exampleKxEnvironment = new Aws.FinSpace.KxEnvironment("example", new()
-    ///     {
-    ///         Name = "my-tf-kx-environment",
-    ///         KmsKeyId = example.Arn,
-    ///     });
-    /// 
-    ///     var exampleRole = new Aws.Iam.Role("example", new()
-    ///     {
-    ///         Name = "example-role",
-    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Sid"] = "",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Service"] = "ec2.amazonaws.com",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    ///     var exampleKxUser = new Aws.FinSpace.KxUser("example", new()
-    ///     {
-    ///         Name = "my-tf-kx-user",
-    ///         EnvironmentId = exampleKxEnvironment.Id,
-    ///         IamRole = exampleRole.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import an AWS FinSpace Kx User using the `id` (environment ID and user name, comma-delimited). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:finspace/kxUser:KxUser example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-user
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:finspace/kxUser:KxUser")]
     public partial class KxUser : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) identifier of the KX user.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique identifier for the KX environment.
-        /// </summary>
         [Output("environmentId")]
         public Output<string> EnvironmentId { get; private set; } = null!;
 
-        /// <summary>
-        /// IAM role ARN to be associated with the user.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("iamRole")]
         public Output<string> IamRole { get; private set; } = null!;
 
-        /// <summary>
-        /// A unique identifier for the user.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -170,38 +79,20 @@ namespace Pulumi.Aws.FinSpace
 
     public sealed class KxUserArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Unique identifier for the KX environment.
-        /// </summary>
         [Input("environmentId", required: true)]
         public Input<string> EnvironmentId { get; set; } = null!;
 
-        /// <summary>
-        /// IAM role ARN to be associated with the user.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("iamRole", required: true)]
         public Input<string> IamRole { get; set; } = null!;
 
-        /// <summary>
-        /// A unique identifier for the user.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -216,44 +107,23 @@ namespace Pulumi.Aws.FinSpace
 
     public sealed class KxUserState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) identifier of the KX user.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Unique identifier for the KX environment.
-        /// </summary>
         [Input("environmentId")]
         public Input<string>? EnvironmentId { get; set; }
 
-        /// <summary>
-        /// IAM role ARN to be associated with the user.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("iamRole")]
         public Input<string>? IamRole { get; set; }
 
-        /// <summary>
-        /// A unique identifier for the user.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -262,10 +132,6 @@ namespace Pulumi.Aws.FinSpace
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

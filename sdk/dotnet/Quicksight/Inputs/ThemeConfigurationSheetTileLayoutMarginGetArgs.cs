@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class ThemeConfigurationSheetTileLayoutMarginGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// This Boolean value controls whether to display sheet margins.
-        /// </summary>
         [Input("show")]
         public Input<bool>? Show { get; set; }
 

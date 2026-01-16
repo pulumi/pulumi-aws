@@ -14,19 +14,12 @@ namespace Pulumi.Aws.Glacier.Inputs
     {
         [Input("events", required: true)]
         private InputList<string>? _events;
-
-        /// <summary>
-        /// You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
-        /// </summary>
         public InputList<string> Events
         {
             get => _events ?? (_events = new InputList<string>());
             set => _events = value;
         }
 
-        /// <summary>
-        /// The SNS Topic ARN.
-        /// </summary>
         [Input("snsTopic", required: true)]
         public Input<string> SnsTopic { get; set; } = null!;
 

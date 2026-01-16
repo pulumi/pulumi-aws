@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LifecyclePolicyResourceSelection {
-    /**
-     * @return A list of recipe that are used as selection criteria for the output images that the lifecycle policy applies to. Detailed below.
-     * 
-     */
     private @Nullable List<LifecyclePolicyResourceSelectionRecipe> recipes;
-    /**
-     * @return A list of tags that are used as selection criteria for the Image Builder image resources that the lifecycle policy applies to.
-     * 
-     */
     private @Nullable Map<String,String> tagMap;
 
     private LifecyclePolicyResourceSelection() {}
-    /**
-     * @return A list of recipe that are used as selection criteria for the output images that the lifecycle policy applies to. Detailed below.
-     * 
-     */
     public List<LifecyclePolicyResourceSelectionRecipe> recipes() {
         return this.recipes == null ? List.of() : this.recipes;
     }
-    /**
-     * @return A list of tags that are used as selection criteria for the Image Builder image resources that the lifecycle policy applies to.
-     * 
-     */
     public Map<String,String> tagMap() {
         return this.tagMap == null ? Map.of() : this.tagMap;
     }

@@ -26,281 +26,97 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainResult {
-    /**
-     * @return Policy document attached to the domain.
-     * 
-     */
     private String accessPolicies;
-    /**
-     * @return Key-value string pairs to specify advanced configuration options.
-     * 
-     */
     private Map<String,String> advancedOptions;
-    /**
-     * @return Status of the OpenSearch domain&#39;s advanced security options. The block consists of the following attributes:
-     * 
-     */
     private List<GetDomainAdvancedSecurityOption> advancedSecurityOptions;
-    /**
-     * @return ARN of the domain.
-     * 
-     */
     private String arn;
-    /**
-     * @return Configuration of the Auto-Tune options of the domain.
-     * 
-     */
     private List<GetDomainAutoTuneOption> autoTuneOptions;
-    /**
-     * @return Cluster configuration of the domain.
-     * 
-     */
     private List<GetDomainClusterConfig> clusterConfigs;
-    /**
-     * @return Domain Amazon Cognito Authentication options for Dashboard.
-     * 
-     */
     private List<GetDomainCognitoOption> cognitoOptions;
-    /**
-     * @return Status of the creation of the domain.
-     * 
-     */
     private Boolean created;
-    /**
-     * @return Domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html).
-     * 
-     */
     private String dashboardEndpoint;
-    /**
-     * @return V2 domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html)
-     * 
-     */
     private String dashboardEndpointV2;
-    /**
-     * @return Status of the deletion of the domain.
-     * 
-     */
     private Boolean deleted;
-    /**
-     * @return Dual stack hosted zone ID for the domain.
-     * 
-     */
     private String domainEndpointV2HostedZoneId;
-    /**
-     * @return Unique identifier for the domain.
-     * 
-     */
     private String domainId;
     private String domainName;
-    /**
-     * @return EBS Options for the instances in the domain.
-     * 
-     */
     private List<GetDomainEbsOption> ebsOptions;
-    /**
-     * @return Domain encryption at rest related options.
-     * 
-     */
     private List<GetDomainEncryptionAtRest> encryptionAtRests;
-    /**
-     * @return Domain-specific endpoint used to submit index, search, and data upload requests.
-     * 
-     */
     private String endpoint;
-    /**
-     * @return V2 domain-specific endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
-     * 
-     */
     private String endpointV2;
-    /**
-     * @return OpenSearch version for the domain.
-     * 
-     */
     private String engineVersion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Configuration for enabling and managing IAM Identity Center integration within a domain.
-     * 
-     */
     private List<GetDomainIdentityCenterOption> identityCenterOptions;
-    /**
-     * @return Type of IP addresses supported by the endpoint for the domain.
-     * 
-     */
     private String ipAddressType;
-    /**
-     * @return Domain log publishing related options.
-     * 
-     */
     private List<GetDomainLogPublishingOption> logPublishingOptions;
-    /**
-     * @return Domain in transit encryption related options.
-     * 
-     */
     private List<GetDomainNodeToNodeEncryption> nodeToNodeEncryptions;
-    /**
-     * @return Off Peak update options
-     * 
-     */
     private GetDomainOffPeakWindowOptions offPeakWindowOptions;
-    /**
-     * @return Status of a configuration change in the domain.
-     * 
-     */
     private Boolean processing;
     private String region;
-    /**
-     * @return Domain snapshot related options.
-     * 
-     */
     private List<GetDomainSnapshotOption> snapshotOptions;
-    /**
-     * @return Software update options for the domain
-     * 
-     */
     private List<GetDomainSoftwareUpdateOption> softwareUpdateOptions;
-    /**
-     * @return Tags assigned to the domain.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return VPC Options for private OpenSearch domains.
-     * 
-     */
     private List<GetDomainVpcOption> vpcOptions;
 
     private GetDomainResult() {}
-    /**
-     * @return Policy document attached to the domain.
-     * 
-     */
     public String accessPolicies() {
         return this.accessPolicies;
     }
-    /**
-     * @return Key-value string pairs to specify advanced configuration options.
-     * 
-     */
     public Map<String,String> advancedOptions() {
         return this.advancedOptions;
     }
-    /**
-     * @return Status of the OpenSearch domain&#39;s advanced security options. The block consists of the following attributes:
-     * 
-     */
     public List<GetDomainAdvancedSecurityOption> advancedSecurityOptions() {
         return this.advancedSecurityOptions;
     }
-    /**
-     * @return ARN of the domain.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Configuration of the Auto-Tune options of the domain.
-     * 
-     */
     public List<GetDomainAutoTuneOption> autoTuneOptions() {
         return this.autoTuneOptions;
     }
-    /**
-     * @return Cluster configuration of the domain.
-     * 
-     */
     public List<GetDomainClusterConfig> clusterConfigs() {
         return this.clusterConfigs;
     }
-    /**
-     * @return Domain Amazon Cognito Authentication options for Dashboard.
-     * 
-     */
     public List<GetDomainCognitoOption> cognitoOptions() {
         return this.cognitoOptions;
     }
-    /**
-     * @return Status of the creation of the domain.
-     * 
-     */
     public Boolean created() {
         return this.created;
     }
-    /**
-     * @return Domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html).
-     * 
-     */
     public String dashboardEndpoint() {
         return this.dashboardEndpoint;
     }
-    /**
-     * @return V2 domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html)
-     * 
-     */
     public String dashboardEndpointV2() {
         return this.dashboardEndpointV2;
     }
-    /**
-     * @return Status of the deletion of the domain.
-     * 
-     */
     public Boolean deleted() {
         return this.deleted;
     }
-    /**
-     * @return Dual stack hosted zone ID for the domain.
-     * 
-     */
     public String domainEndpointV2HostedZoneId() {
         return this.domainEndpointV2HostedZoneId;
     }
-    /**
-     * @return Unique identifier for the domain.
-     * 
-     */
     public String domainId() {
         return this.domainId;
     }
     public String domainName() {
         return this.domainName;
     }
-    /**
-     * @return EBS Options for the instances in the domain.
-     * 
-     */
     public List<GetDomainEbsOption> ebsOptions() {
         return this.ebsOptions;
     }
-    /**
-     * @return Domain encryption at rest related options.
-     * 
-     */
     public List<GetDomainEncryptionAtRest> encryptionAtRests() {
         return this.encryptionAtRests;
     }
-    /**
-     * @return Domain-specific endpoint used to submit index, search, and data upload requests.
-     * 
-     */
     public String endpoint() {
         return this.endpoint;
     }
-    /**
-     * @return V2 domain-specific endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
-     * 
-     */
     public String endpointV2() {
         return this.endpointV2;
     }
-    /**
-     * @return OpenSearch version for the domain.
-     * 
-     */
     public String engineVersion() {
         return this.engineVersion;
     }
@@ -311,76 +127,36 @@ public final class GetDomainResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Configuration for enabling and managing IAM Identity Center integration within a domain.
-     * 
-     */
     public List<GetDomainIdentityCenterOption> identityCenterOptions() {
         return this.identityCenterOptions;
     }
-    /**
-     * @return Type of IP addresses supported by the endpoint for the domain.
-     * 
-     */
     public String ipAddressType() {
         return this.ipAddressType;
     }
-    /**
-     * @return Domain log publishing related options.
-     * 
-     */
     public List<GetDomainLogPublishingOption> logPublishingOptions() {
         return this.logPublishingOptions;
     }
-    /**
-     * @return Domain in transit encryption related options.
-     * 
-     */
     public List<GetDomainNodeToNodeEncryption> nodeToNodeEncryptions() {
         return this.nodeToNodeEncryptions;
     }
-    /**
-     * @return Off Peak update options
-     * 
-     */
     public GetDomainOffPeakWindowOptions offPeakWindowOptions() {
         return this.offPeakWindowOptions;
     }
-    /**
-     * @return Status of a configuration change in the domain.
-     * 
-     */
     public Boolean processing() {
         return this.processing;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Domain snapshot related options.
-     * 
-     */
     public List<GetDomainSnapshotOption> snapshotOptions() {
         return this.snapshotOptions;
     }
-    /**
-     * @return Software update options for the domain
-     * 
-     */
     public List<GetDomainSoftwareUpdateOption> softwareUpdateOptions() {
         return this.softwareUpdateOptions;
     }
-    /**
-     * @return Tags assigned to the domain.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return VPC Options for private OpenSearch domains.
-     * 
-     */
     public List<GetDomainVpcOption> vpcOptions() {
         return this.vpcOptions;
     }

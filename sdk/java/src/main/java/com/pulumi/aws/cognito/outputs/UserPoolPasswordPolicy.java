@@ -12,93 +12,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserPoolPasswordPolicy {
-    /**
-     * @return Minimum length of the password policy that you have set.
-     * 
-     */
     private @Nullable Integer minimumLength;
-    /**
-     * @return Number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can&#39;t set a password that matches any of number of previous passwords specified by this argument. A value of 0 means that password history is not enforced. Valid values are between 0 and 24.
-     * 
-     * **Note:** This argument requires advanced security features to be active in the user pool.
-     * 
-     */
     private @Nullable Integer passwordHistorySize;
-    /**
-     * @return Whether you have required users to use at least one lowercase letter in their password.
-     * 
-     */
     private @Nullable Boolean requireLowercase;
-    /**
-     * @return Whether you have required users to use at least one number in their password.
-     * 
-     */
     private @Nullable Boolean requireNumbers;
-    /**
-     * @return Whether you have required users to use at least one symbol in their password.
-     * 
-     */
     private @Nullable Boolean requireSymbols;
-    /**
-     * @return Whether you have required users to use at least one uppercase letter in their password.
-     * 
-     */
     private @Nullable Boolean requireUppercase;
-    /**
-     * @return In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
-     * 
-     */
     private @Nullable Integer temporaryPasswordValidityDays;
 
     private UserPoolPasswordPolicy() {}
-    /**
-     * @return Minimum length of the password policy that you have set.
-     * 
-     */
     public Optional<Integer> minimumLength() {
         return Optional.ofNullable(this.minimumLength);
     }
-    /**
-     * @return Number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can&#39;t set a password that matches any of number of previous passwords specified by this argument. A value of 0 means that password history is not enforced. Valid values are between 0 and 24.
-     * 
-     * **Note:** This argument requires advanced security features to be active in the user pool.
-     * 
-     */
     public Optional<Integer> passwordHistorySize() {
         return Optional.ofNullable(this.passwordHistorySize);
     }
-    /**
-     * @return Whether you have required users to use at least one lowercase letter in their password.
-     * 
-     */
     public Optional<Boolean> requireLowercase() {
         return Optional.ofNullable(this.requireLowercase);
     }
-    /**
-     * @return Whether you have required users to use at least one number in their password.
-     * 
-     */
     public Optional<Boolean> requireNumbers() {
         return Optional.ofNullable(this.requireNumbers);
     }
-    /**
-     * @return Whether you have required users to use at least one symbol in their password.
-     * 
-     */
     public Optional<Boolean> requireSymbols() {
         return Optional.ofNullable(this.requireSymbols);
     }
-    /**
-     * @return Whether you have required users to use at least one uppercase letter in their password.
-     * 
-     */
     public Optional<Boolean> requireUppercase() {
         return Optional.ofNullable(this.requireUppercase);
     }
-    /**
-     * @return In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
-     * 
-     */
     public Optional<Integer> temporaryPasswordValidityDays() {
         return Optional.ofNullable(this.temporaryPasswordValidityDays);
     }

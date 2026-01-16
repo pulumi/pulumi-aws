@@ -17,32 +17,16 @@ public final class WorkgroupPricePerformanceTargetArgs extends com.pulumi.resour
 
     public static final WorkgroupPricePerformanceTargetArgs Empty = new WorkgroupPricePerformanceTargetArgs();
 
-    /**
-     * Whether to enable price-performance scaling.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Whether to enable price-performance scaling.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
 
-    /**
-     * The price-performance scaling level. Valid values are `1` (LOW_COST), `25` (ECONOMICAL), `50` (BALANCED), `75` (RESOURCEFUL), and `100` (HIGH_PERFORMANCE).
-     * 
-     */
     @Import(name="level")
     private @Nullable Output<Integer> level;
 
-    /**
-     * @return The price-performance scaling level. Valid values are `1` (LOW_COST), `25` (ECONOMICAL), `50` (BALANCED), `75` (RESOURCEFUL), and `100` (HIGH_PERFORMANCE).
-     * 
-     */
     public Optional<Output<Integer>> level() {
         return Optional.ofNullable(this.level);
     }
@@ -72,44 +56,20 @@ public final class WorkgroupPricePerformanceTargetArgs extends com.pulumi.resour
             $ = new WorkgroupPricePerformanceTargetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Whether to enable price-performance scaling.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether to enable price-performance scaling.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param level The price-performance scaling level. Valid values are `1` (LOW_COST), `25` (ECONOMICAL), `50` (BALANCED), `75` (RESOURCEFUL), and `100` (HIGH_PERFORMANCE).
-         * 
-         * @return builder
-         * 
-         */
         public Builder level(@Nullable Output<Integer> level) {
             $.level = level;
             return this;
         }
 
-        /**
-         * @param level The price-performance scaling level. Valid values are `1` (LOW_COST), `25` (ECONOMICAL), `50` (BALANCED), `75` (RESOURCEFUL), and `100` (HIGH_PERFORMANCE).
-         * 
-         * @return builder
-         * 
-         */
         public Builder level(Integer level) {
             return level(Output.of(level));
         }

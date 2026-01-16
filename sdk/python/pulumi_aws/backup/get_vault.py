@@ -52,9 +52,6 @@ class GetVaultResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the vault.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -68,9 +65,6 @@ class GetVaultResult:
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> _builtins.str:
-        """
-        Server-side encryption key that is used to protect your backups.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @_builtins.property
@@ -81,9 +75,6 @@ class GetVaultResult:
     @_builtins.property
     @pulumi.getter(name="recoveryPoints")
     def recovery_points(self) -> _builtins.int:
-        """
-        Number of recovery points that are stored in a backup vault.
-        """
         return pulumi.get(self, "recovery_points")
 
     @_builtins.property
@@ -94,9 +85,6 @@ class GetVaultResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Metadata that you can assign to help organize the resources that you create.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -120,21 +108,7 @@ def get_vault(name: Optional[_builtins.str] = None,
               tags: Optional[Mapping[str, _builtins.str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVaultResult:
     """
-    Use this data source to get information on an existing backup vault.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.backup.get_vault(name="example_backup_vault")
-    ```
-
-
-    :param _builtins.str name: Name of the backup vault.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Metadata that you can assign to help organize the resources that you create.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -156,21 +130,7 @@ def get_vault_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVaultResult]:
     """
-    Use this data source to get information on an existing backup vault.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.backup.get_vault(name="example_backup_vault")
-    ```
-
-
-    :param _builtins.str name: Name of the backup vault.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Metadata that you can assign to help organize the resources that you create.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

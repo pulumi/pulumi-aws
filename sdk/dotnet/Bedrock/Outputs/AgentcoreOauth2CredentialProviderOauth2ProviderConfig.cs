@@ -13,29 +13,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreOauth2CredentialProviderOauth2ProviderConfig
     {
-        /// <summary>
-        /// Custom OAuth2 provider configuration. See `Custom` below.
-        /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig? CustomOauth2ProviderConfig;
-        /// <summary>
-        /// GitHub OAuth provider configuration. See `Github` below.
-        /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig? GithubOauth2ProviderConfig;
-        /// <summary>
-        /// Google OAuth provider configuration. See `Google` below.
-        /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig? GoogleOauth2ProviderConfig;
-        /// <summary>
-        /// Microsoft OAuth provider configuration. See `Microsoft` below.
-        /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig? MicrosoftOauth2ProviderConfig;
-        /// <summary>
-        /// Salesforce OAuth provider configuration. See `Salesforce` below.
-        /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig? SalesforceOauth2ProviderConfig;
-        /// <summary>
-        /// Slack OAuth provider configuration. See `Slack` below.
-        /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig? SlackOauth2ProviderConfig;
 
         [OutputConstructor]

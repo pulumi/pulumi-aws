@@ -13,28 +13,13 @@ namespace Pulumi.Aws.EcrPublic.Outputs
     [OutputType]
     public sealed class GetImagesImageResult
     {
-        /// <summary>
-        /// Media type of the artifact.
-        /// </summary>
         public readonly string ArtifactMediaType;
-        /// <summary>
-        /// Digest of the image manifest.
-        /// </summary>
         public readonly string ImageDigest;
-        /// <summary>
-        /// Media type of the image manifest.
-        /// </summary>
         public readonly string ImageManifestMediaType;
         public readonly string ImagePushedAt;
         public readonly int ImageSizeInBytes;
         public readonly ImmutableArray<string> ImageTags;
-        /// <summary>
-        /// AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
-        /// </summary>
         public readonly string RegistryId;
-        /// <summary>
-        /// Name of the public repository.
-        /// </summary>
         public readonly string RepositoryName;
 
         [OutputConstructor]

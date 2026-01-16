@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class VirtualServiceSpecProviderVirtualRouter
     {
-        /// <summary>
-        /// Name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
-        /// </summary>
         public readonly string VirtualRouterName;
 
         [OutputConstructor]

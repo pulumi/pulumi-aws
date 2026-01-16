@@ -18,66 +18,30 @@ public final class MultiplexProgramArgs extends com.pulumi.resources.ResourceArg
 
     public static final MultiplexProgramArgs Empty = new MultiplexProgramArgs();
 
-    /**
-     * Multiplex ID.
-     * 
-     */
     @Import(name="multiplexId", required=true)
     private Output<String> multiplexId;
 
-    /**
-     * @return Multiplex ID.
-     * 
-     */
     public Output<String> multiplexId() {
         return this.multiplexId;
     }
 
-    /**
-     * MultiplexProgram settings. See Multiplex Program Settings for more details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="multiplexProgramSettings")
     private @Nullable Output<MultiplexProgramMultiplexProgramSettingsArgs> multiplexProgramSettings;
 
-    /**
-     * @return MultiplexProgram settings. See Multiplex Program Settings for more details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<MultiplexProgramMultiplexProgramSettingsArgs>> multiplexProgramSettings() {
         return Optional.ofNullable(this.multiplexProgramSettings);
     }
 
-    /**
-     * Unique program name.
-     * 
-     */
     @Import(name="programName", required=true)
     private Output<String> programName;
 
-    /**
-     * @return Unique program name.
-     * 
-     */
     public Output<String> programName() {
         return this.programName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -117,90 +81,38 @@ public final class MultiplexProgramArgs extends com.pulumi.resources.ResourceArg
             $ = new MultiplexProgramArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param multiplexId Multiplex ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder multiplexId(Output<String> multiplexId) {
             $.multiplexId = multiplexId;
             return this;
         }
 
-        /**
-         * @param multiplexId Multiplex ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder multiplexId(String multiplexId) {
             return multiplexId(Output.of(multiplexId));
         }
 
-        /**
-         * @param multiplexProgramSettings MultiplexProgram settings. See Multiplex Program Settings for more details.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder multiplexProgramSettings(@Nullable Output<MultiplexProgramMultiplexProgramSettingsArgs> multiplexProgramSettings) {
             $.multiplexProgramSettings = multiplexProgramSettings;
             return this;
         }
 
-        /**
-         * @param multiplexProgramSettings MultiplexProgram settings. See Multiplex Program Settings for more details.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder multiplexProgramSettings(MultiplexProgramMultiplexProgramSettingsArgs multiplexProgramSettings) {
             return multiplexProgramSettings(Output.of(multiplexProgramSettings));
         }
 
-        /**
-         * @param programName Unique program name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder programName(Output<String> programName) {
             $.programName = programName;
             return this;
         }
 
-        /**
-         * @param programName Unique program name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder programName(String programName) {
             return programName(Output.of(programName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

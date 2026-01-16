@@ -9,62 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides a resource to create an association between a VPC endpoint and a subnet.
-    /// 
-    /// &gt; **NOTE on VPC Endpoints and VPC Endpoint Subnet Associations:** This provider provides
-    /// both a standalone VPC Endpoint Subnet Association (an association between a VPC endpoint
-    /// and a single `SubnetId`) and a VPC Endpoint resource with a `SubnetIds`
-    /// attribute. Do not use the same subnet ID in both a VPC Endpoint resource and a VPC Endpoint Subnet
-    /// Association resource. Doing so will cause a conflict of associations and will overwrite the association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var snEc2 = new Aws.Ec2.VpcEndpointSubnetAssociation("sn_ec2", new()
-    ///     {
-    ///         VpcEndpointId = ec2.Id,
-    ///         SubnetId = sn.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import VPC Endpoint Subnet Associations using `vpc_endpoint_id` together with `subnet_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation example vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation")]
     public partial class VpcEndpointSubnetAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the subnet to be associated with the VPC endpoint.
-        /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the VPC endpoint with which the subnet will be associated.
-        /// </summary>
         [Output("vpcEndpointId")]
         public Output<string> VpcEndpointId { get; private set; } = null!;
 
@@ -114,21 +67,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcEndpointSubnetAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the subnet to be associated with the VPC endpoint.
-        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the VPC endpoint with which the subnet will be associated.
-        /// </summary>
         [Input("vpcEndpointId", required: true)]
         public Input<string> VpcEndpointId { get; set; } = null!;
 
@@ -140,21 +84,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcEndpointSubnetAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the subnet to be associated with the VPC endpoint.
-        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
-        /// <summary>
-        /// The ID of the VPC endpoint with which the subnet will be associated.
-        /// </summary>
         [Input("vpcEndpointId")]
         public Input<string>? VpcEndpointId { get; set; }
 

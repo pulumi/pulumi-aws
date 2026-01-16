@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class EventEndpointRoutingConfigFailoverConfigSecondary
     {
-        /// <summary>
-        /// The name of the secondary Region.
-        /// </summary>
         public readonly string? Route;
 
         [OutputConstructor]

@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InstanceListenerEndpoint {
-    /**
-     * @return Specifies the DNS address of the DB instance.
-     * 
-     */
     private @Nullable String address;
-    /**
-     * @return Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
-     * 
-     */
     private @Nullable String hostedZoneId;
-    /**
-     * @return The port on which the DB accepts connections.
-     * 
-     */
     private @Nullable Integer port;
 
     private InstanceListenerEndpoint() {}
-    /**
-     * @return Specifies the DNS address of the DB instance.
-     * 
-     */
     public Optional<String> address() {
         return Optional.ofNullable(this.address);
     }
-    /**
-     * @return Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
-     * 
-     */
     public Optional<String> hostedZoneId() {
         return Optional.ofNullable(this.hostedZoneId);
     }
-    /**
-     * @return The port on which the DB accepts connections.
-     * 
-     */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }

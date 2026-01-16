@@ -15,51 +15,23 @@ public final class FunctionRecursionConfigState extends com.pulumi.resources.Res
 
     public static final FunctionRecursionConfigState Empty = new FunctionRecursionConfigState();
 
-    /**
-     * Name of the Lambda function.
-     * 
-     */
     @Import(name="functionName")
     private @Nullable Output<String> functionName;
 
-    /**
-     * @return Name of the Lambda function.
-     * 
-     */
     public Optional<Output<String>> functionName() {
         return Optional.ofNullable(this.functionName);
     }
 
-    /**
-     * Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="recursiveLoop")
     private @Nullable Output<String> recursiveLoop;
 
-    /**
-     * @return Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> recursiveLoop() {
         return Optional.ofNullable(this.recursiveLoop);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -90,69 +62,29 @@ public final class FunctionRecursionConfigState extends com.pulumi.resources.Res
             $ = new FunctionRecursionConfigState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param functionName Name of the Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionName(@Nullable Output<String> functionName) {
             $.functionName = functionName;
             return this;
         }
 
-        /**
-         * @param functionName Name of the Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionName(String functionName) {
             return functionName(Output.of(functionName));
         }
 
-        /**
-         * @param recursiveLoop Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder recursiveLoop(@Nullable Output<String> recursiveLoop) {
             $.recursiveLoop = recursiveLoop;
             return this;
         }
 
-        /**
-         * @param recursiveLoop Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder recursiveLoop(String recursiveLoop) {
             return recursiveLoop(Output.of(recursiveLoop));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

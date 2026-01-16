@@ -18,71 +18,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetImageResult {
     private List<GetImageApplication> applications;
-    /**
-     * @return Version of the AppStream 2.0 agent to use for instances that are launched from this image. Has a maximum length of 100 characters.
-     * 
-     */
     private String appstreamAgentVersion;
-    /**
-     * @return ARN of the image.
-     * 
-     */
     private String arn;
-    /**
-     * @return ARN of the image from which the image was created.
-     * 
-     */
     private String baseImageArn;
-    /**
-     * @return Time at which this image was created.
-     * 
-     */
     private String createdTime;
-    /**
-     * @return Description of image.
-     * 
-     */
     private String description;
-    /**
-     * @return Image name to display.
-     * 
-     */
     private String displayName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
-     * 
-     */
     private String imageBuilderName;
-    /**
-     * @return Boolean to indicate whether an image builder can be launched from this image.
-     * * `image error` - Resource error object that describes the error containing the following:
-     * 
-     */
     private Boolean imageBuilderSupported;
-    /**
-     * @return List of strings describing the image permissions containing the following:
-     * 
-     */
     private List<GetImageImagePermission> imagePermissions;
     private @Nullable Boolean mostRecent;
     private String name;
     private @Nullable String nameRegex;
-    /**
-     * @return Operating system platform of the image. Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
-     * 
-     */
     private String platform;
     private String publicBaseImageReleasedDate;
     private String region;
-    /**
-     * @return Current state of image. Image starts in PENDING state which changes to AVAILABLE if creation passes and FAILED if it fails. Values will be from: PENDING | AVAILABLE | FAILED | COPYING | DELETING | CREATING | IMPORTING.
-     * 
-     */
     private String state;
     private List<GetImageStateChangeReason> stateChangeReasons;
     private @Nullable String type;
@@ -91,45 +46,21 @@ public final class GetImageResult {
     public List<GetImageApplication> applications() {
         return this.applications;
     }
-    /**
-     * @return Version of the AppStream 2.0 agent to use for instances that are launched from this image. Has a maximum length of 100 characters.
-     * 
-     */
     public String appstreamAgentVersion() {
         return this.appstreamAgentVersion;
     }
-    /**
-     * @return ARN of the image.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return ARN of the image from which the image was created.
-     * 
-     */
     public String baseImageArn() {
         return this.baseImageArn;
     }
-    /**
-     * @return Time at which this image was created.
-     * 
-     */
     public String createdTime() {
         return this.createdTime;
     }
-    /**
-     * @return Description of image.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Image name to display.
-     * 
-     */
     public String displayName() {
         return this.displayName;
     }
@@ -140,25 +71,12 @@ public final class GetImageResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
-     * 
-     */
     public String imageBuilderName() {
         return this.imageBuilderName;
     }
-    /**
-     * @return Boolean to indicate whether an image builder can be launched from this image.
-     * * `image error` - Resource error object that describes the error containing the following:
-     * 
-     */
     public Boolean imageBuilderSupported() {
         return this.imageBuilderSupported;
     }
-    /**
-     * @return List of strings describing the image permissions containing the following:
-     * 
-     */
     public List<GetImageImagePermission> imagePermissions() {
         return this.imagePermissions;
     }
@@ -171,10 +89,6 @@ public final class GetImageResult {
     public Optional<String> nameRegex() {
         return Optional.ofNullable(this.nameRegex);
     }
-    /**
-     * @return Operating system platform of the image. Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
-     * 
-     */
     public String platform() {
         return this.platform;
     }
@@ -184,10 +98,6 @@ public final class GetImageResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Current state of image. Image starts in PENDING state which changes to AVAILABLE if creation passes and FAILED if it fails. Values will be from: PENDING | AVAILABLE | FAILED | COPYING | DELETING | CREATING | IMPORTING.
-     * 
-     */
     public String state() {
         return this.state;
     }

@@ -7,64 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Elastic Container Registry Repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = new aws.ecr.Repository("foo", {
- *     name: "bar",
- *     imageTagMutability: "MUTABLE",
- *     imageScanningConfiguration: {
- *         scanOnPush: true,
- *     },
- * });
- * ```
- *
- * ### With Image Tag Mutability Exclusion
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ecr.Repository("example", {
- *     name: "example-repo",
- *     imageTagMutability: "IMMUTABLE_WITH_EXCLUSION",
- *     imageTagMutabilityExclusionFilters: [
- *         {
- *             filter: "latest*",
- *             filterType: "WILDCARD",
- *         },
- *         {
- *             filter: "dev-*",
- *             filterType: "WILDCARD",
- *         },
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * * `name` - (String) Name of the ECR repository.
- *
- * #### Optional
- *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
- * * `region` (String) Region where this resource is managed.
- *
- * Using `pulumi import`, import ECR Repositories using the `name`. For example:
- *
- * % pulumi import aws_ecr_repository.service test-service
- */
 export class Repository extends pulumi.CustomResource {
     /**
      * Get an existing Repository resource's state with the given name, ID, and optional extra
@@ -93,54 +35,17 @@ export class Repository extends pulumi.CustomResource {
         return obj['__pulumiType'] === Repository.__pulumiType;
     }
 
-    /**
-     * Full ARN of the repository.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Encryption configuration for the repository. See below for schema.
-     */
     declare public readonly encryptionConfigurations: pulumi.Output<outputs.ecr.RepositoryEncryptionConfiguration[] | undefined>;
-    /**
-     * If `true`, will delete the repository even if it contains images.
-     * Defaults to `false`.
-     */
     declare public readonly forceDelete: pulumi.Output<boolean | undefined>;
-    /**
-     * Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
-     */
     declare public readonly imageScanningConfiguration: pulumi.Output<outputs.ecr.RepositoryImageScanningConfiguration | undefined>;
-    /**
-     * The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
-     */
     declare public readonly imageTagMutability: pulumi.Output<string | undefined>;
-    /**
-     * Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
-     */
     declare public readonly imageTagMutabilityExclusionFilters: pulumi.Output<outputs.ecr.RepositoryImageTagMutabilityExclusionFilter[] | undefined>;
-    /**
-     * Name of the repository.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The registry ID where the repository was created.
-     */
     declare public /*out*/ readonly registryId: pulumi.Output<string>;
-    /**
-     * The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
-     */
     declare public /*out*/ readonly repositoryUrl: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -192,54 +97,17 @@ export class Repository extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Repository resources.
  */
 export interface RepositoryState {
-    /**
-     * Full ARN of the repository.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Encryption configuration for the repository. See below for schema.
-     */
     encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryEncryptionConfiguration>[]>;
-    /**
-     * If `true`, will delete the repository even if it contains images.
-     * Defaults to `false`.
-     */
     forceDelete?: pulumi.Input<boolean>;
-    /**
-     * Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
-     */
     imageScanningConfiguration?: pulumi.Input<inputs.ecr.RepositoryImageScanningConfiguration>;
-    /**
-     * The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
-     */
     imageTagMutability?: pulumi.Input<string>;
-    /**
-     * Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
-     */
     imageTagMutabilityExclusionFilters?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryImageTagMutabilityExclusionFilter>[]>;
-    /**
-     * Name of the repository.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The registry ID where the repository was created.
-     */
     registryId?: pulumi.Input<string>;
-    /**
-     * The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
-     */
     repositoryUrl?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -247,37 +115,12 @@ export interface RepositoryState {
  * The set of arguments for constructing a Repository resource.
  */
 export interface RepositoryArgs {
-    /**
-     * Encryption configuration for the repository. See below for schema.
-     */
     encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryEncryptionConfiguration>[]>;
-    /**
-     * If `true`, will delete the repository even if it contains images.
-     * Defaults to `false`.
-     */
     forceDelete?: pulumi.Input<boolean>;
-    /**
-     * Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
-     */
     imageScanningConfiguration?: pulumi.Input<inputs.ecr.RepositoryImageScanningConfiguration>;
-    /**
-     * The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
-     */
     imageTagMutability?: pulumi.Input<string>;
-    /**
-     * Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
-     */
     imageTagMutabilityExclusionFilters?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryImageTagMutabilityExclusionFilter>[]>;
-    /**
-     * Name of the repository.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

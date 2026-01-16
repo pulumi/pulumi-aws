@@ -12,81 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConnectionGroupResult {
-    /**
-     * @return ID of the anycast IP list associated with this connection group, if any.
-     * 
-     */
     private String anycastIpListId;
-    /**
-     * @return ARN (Amazon Resource Name) for the connection group.
-     * 
-     */
     private String arn;
-    /**
-     * @return Whether the connection group is enabled.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return Current version of the connection group&#39;s information. For example:
-     * `E2QWRUHAPOMQZL`.
-     * 
-     */
     private String etag;
     private String id;
     private Boolean ipv6Enabled;
-    /**
-     * @return Whether the connection group is the default connection group for the distribution tenants.
-     * 
-     */
     private Boolean isDefault;
-    /**
-     * @return Date and time the connection group was last modified.
-     * 
-     */
     private String lastModifiedTime;
-    /**
-     * @return name of the connection group.
-     * 
-     */
     private String name;
     private String routingEndpoint;
-    /**
-     * @return Current status of the connection group. `Deployed` if the
-     * connection group&#39;s information is fully propagated throughout the Amazon
-     * CloudFront system.
-     * 
-     */
     private String status;
     private Map<String,String> tags;
 
     private GetConnectionGroupResult() {}
-    /**
-     * @return ID of the anycast IP list associated with this connection group, if any.
-     * 
-     */
     public String anycastIpListId() {
         return this.anycastIpListId;
     }
-    /**
-     * @return ARN (Amazon Resource Name) for the connection group.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Whether the connection group is enabled.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return Current version of the connection group&#39;s information. For example:
-     * `E2QWRUHAPOMQZL`.
-     * 
-     */
     public String etag() {
         return this.etag;
     }
@@ -96,36 +44,18 @@ public final class GetConnectionGroupResult {
     public Boolean ipv6Enabled() {
         return this.ipv6Enabled;
     }
-    /**
-     * @return Whether the connection group is the default connection group for the distribution tenants.
-     * 
-     */
     public Boolean isDefault() {
         return this.isDefault;
     }
-    /**
-     * @return Date and time the connection group was last modified.
-     * 
-     */
     public String lastModifiedTime() {
         return this.lastModifiedTime;
     }
-    /**
-     * @return name of the connection group.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public String routingEndpoint() {
         return this.routingEndpoint;
     }
-    /**
-     * @return Current status of the connection group. `Deployed` if the
-     * connection group&#39;s information is fully propagated throughout the Amazon
-     * CloudFront system.
-     * 
-     */
     public String status() {
         return this.status;
     }

@@ -15,21 +15,9 @@ public final class CapacityProviderManagedInstancesProviderInfrastructureOptimiz
 
     public static final CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs Empty = new CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs();
 
-    /**
-     * This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are:
-     * * Not set (null) - Uses the default optimization behavior.
-     * * `-1` - Disables automatic infrastructure optimization.
-     * 
-     */
     @Import(name="scaleInAfter")
     private @Nullable Output<Integer> scaleInAfter;
 
-    /**
-     * @return This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are:
-     * * Not set (null) - Uses the default optimization behavior.
-     * * `-1` - Disables automatic infrastructure optimization.
-     * 
-     */
     public Optional<Output<Integer>> scaleInAfter() {
         return Optional.ofNullable(this.scaleInAfter);
     }
@@ -58,27 +46,11 @@ public final class CapacityProviderManagedInstancesProviderInfrastructureOptimiz
             $ = new CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param scaleInAfter This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are:
-         * * Not set (null) - Uses the default optimization behavior.
-         * * `-1` - Disables automatic infrastructure optimization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scaleInAfter(@Nullable Output<Integer> scaleInAfter) {
             $.scaleInAfter = scaleInAfter;
             return this;
         }
 
-        /**
-         * @param scaleInAfter This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are:
-         * * Not set (null) - Uses the default optimization behavior.
-         * * `-1` - Disables automatic infrastructure optimization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scaleInAfter(Integer scaleInAfter) {
             return scaleInAfter(Output.of(scaleInAfter));
         }

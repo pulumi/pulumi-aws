@@ -13,13 +13,7 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class VectorsVectorBucketEncryptionConfiguration
     {
-        /// <summary>
-        /// AWS KMS CMK ARN to use for the default encryption of the vector bucket. Allowed if and only if `SseType` is set to `aws:kms`.
-        /// </summary>
         public readonly string KmsKeyArn;
-        /// <summary>
-        /// Server-side encryption type to use for the default encryption of the vector bucket. Valid values: `AES256`, `aws:kms`.
-        /// </summary>
         public readonly string SseType;
 
         [OutputConstructor]

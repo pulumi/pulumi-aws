@@ -9,55 +9,14 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Shield
 {
-    /// <summary>
-    /// Resource for managing an AWS Shield DRT Access Log Bucket Association.
-    /// Up to 10 log buckets can be associated for DRT Access sharing with the Shield Response Team (SRT).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Shield.DrtAccessRoleArnAssociation("test", new()
-    ///     {
-    ///         RoleArn = $"arn:aws:iam:{current.Region}:{currentAwsCallerIdentity.AccountId}:{shieldDrtAccessRoleName}",
-    ///     });
-    /// 
-    ///     var testDrtAccessLogBucketAssociation = new Aws.Shield.DrtAccessLogBucketAssociation("test", new()
-    ///     {
-    ///         LogBucket = shieldDrtAccessLogBucket,
-    ///         RoleArnAssociationId = test.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Shield DRT access log bucket associations using the `log_bucket`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation example example-bucket
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation")]
     public partial class DrtAccessLogBucketAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon S3 bucket that contains the logs that you want to share.
-        /// </summary>
         [Output("logBucket")]
         public Output<string> LogBucket { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Role Arn association used for allowing Shield DRT Access.
+        /// Unused
         /// </summary>
         [Output("roleArnAssociationId")]
         public Output<string> RoleArnAssociationId { get; private set; } = null!;
@@ -111,14 +70,11 @@ namespace Pulumi.Aws.Shield
 
     public sealed class DrtAccessLogBucketAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon S3 bucket that contains the logs that you want to share.
-        /// </summary>
         [Input("logBucket", required: true)]
         public Input<string> LogBucket { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Role Arn association used for allowing Shield DRT Access.
+        /// Unused
         /// </summary>
         [Input("roleArnAssociationId", required: true)]
         public Input<string> RoleArnAssociationId { get; set; } = null!;
@@ -134,14 +90,11 @@ namespace Pulumi.Aws.Shield
 
     public sealed class DrtAccessLogBucketAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon S3 bucket that contains the logs that you want to share.
-        /// </summary>
         [Input("logBucket")]
         public Input<string>? LogBucket { get; set; }
 
         /// <summary>
-        /// The ID of the Role Arn association used for allowing Shield DRT Access.
+        /// Unused
         /// </summary>
         [Input("roleArnAssociationId")]
         public Input<string>? RoleArnAssociationId { get; set; }

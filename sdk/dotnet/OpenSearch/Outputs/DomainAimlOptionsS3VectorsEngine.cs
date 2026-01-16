@@ -13,9 +13,6 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class DomainAimlOptionsS3VectorsEngine
     {
-        /// <summary>
-        /// Enables S3 vectors engine features.
-        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

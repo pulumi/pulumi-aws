@@ -62,33 +62,21 @@ class GetPlaceIndexResult:
     @_builtins.property
     @pulumi.getter(name="createTime")
     def create_time(self) -> _builtins.str:
-        """
-        Timestamp for when the place index resource was created in ISO 8601 format.
-        """
         return pulumi.get(self, "create_time")
 
     @_builtins.property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
-        """
-        Data provider of geospatial data.
-        """
         return pulumi.get(self, "data_source")
 
     @_builtins.property
     @pulumi.getter(name="dataSourceConfigurations")
     def data_source_configurations(self) -> Sequence['outputs.GetPlaceIndexDataSourceConfigurationResult']:
-        """
-        List of configurations that specify data storage option for requesting Places.
-        """
         return pulumi.get(self, "data_source_configurations")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Optional description for the place index resource.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -102,9 +90,6 @@ class GetPlaceIndexResult:
     @_builtins.property
     @pulumi.getter(name="indexArn")
     def index_arn(self) -> _builtins.str:
-        """
-        ARN for the place index resource.
-        """
         return pulumi.get(self, "index_arn")
 
     @_builtins.property
@@ -120,17 +105,11 @@ class GetPlaceIndexResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value map of resource tags for the place index.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> _builtins.str:
-        """
-        Timestamp for when the place index resource was last updated in ISO 8601 format.
-        """
         return pulumi.get(self, "update_time")
 
 
@@ -157,21 +136,7 @@ def get_place_index(index_name: Optional[_builtins.str] = None,
                     tags: Optional[Mapping[str, _builtins.str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPlaceIndexResult:
     """
-    Retrieve information about a Location Service Place Index.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.location.get_place_index(index_name="example")
-    ```
-
-
-    :param _builtins.str index_name: Name of the place index resource.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags for the place index.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['indexName'] = index_name
@@ -196,21 +161,7 @@ def get_place_index_output(index_name: Optional[pulumi.Input[_builtins.str]] = N
                            tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlaceIndexResult]:
     """
-    Retrieve information about a Location Service Place Index.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.location.get_place_index(index_name="example")
-    ```
-
-
-    :param _builtins.str index_name: Name of the place index resource.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags for the place index.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['indexName'] = index_name

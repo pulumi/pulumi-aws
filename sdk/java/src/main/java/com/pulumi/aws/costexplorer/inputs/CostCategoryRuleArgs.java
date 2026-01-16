@@ -17,62 +17,30 @@ public final class CostCategoryRuleArgs extends com.pulumi.resources.ResourceArg
 
     public static final CostCategoryRuleArgs Empty = new CostCategoryRuleArgs();
 
-    /**
-     * Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
-     * 
-     */
     @Import(name="inheritedValue")
     private @Nullable Output<CostCategoryRuleInheritedValueArgs> inheritedValue;
 
-    /**
-     * @return Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
-     * 
-     */
     public Optional<Output<CostCategoryRuleInheritedValueArgs>> inheritedValue() {
         return Optional.ofNullable(this.inheritedValue);
     }
 
-    /**
-     * Configuration block for the `Expression` object used to categorize costs. See below.
-     * 
-     */
     @Import(name="rule")
     private @Nullable Output<CostCategoryRuleRuleArgs> rule;
 
-    /**
-     * @return Configuration block for the `Expression` object used to categorize costs. See below.
-     * 
-     */
     public Optional<Output<CostCategoryRuleRuleArgs>> rule() {
         return Optional.ofNullable(this.rule);
     }
 
-    /**
-     * You can define the CostCategoryRule rule type as either `REGULAR` or `INHERITED_VALUE`.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return You can define the CostCategoryRule rule type as either `REGULAR` or `INHERITED_VALUE`.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
 
-    /**
-     * Default value for the cost category.
-     * 
-     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
-    /**
-     * @return Default value for the cost category.
-     * 
-     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -104,86 +72,38 @@ public final class CostCategoryRuleArgs extends com.pulumi.resources.ResourceArg
             $ = new CostCategoryRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param inheritedValue Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inheritedValue(@Nullable Output<CostCategoryRuleInheritedValueArgs> inheritedValue) {
             $.inheritedValue = inheritedValue;
             return this;
         }
 
-        /**
-         * @param inheritedValue Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inheritedValue(CostCategoryRuleInheritedValueArgs inheritedValue) {
             return inheritedValue(Output.of(inheritedValue));
         }
 
-        /**
-         * @param rule Configuration block for the `Expression` object used to categorize costs. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rule(@Nullable Output<CostCategoryRuleRuleArgs> rule) {
             $.rule = rule;
             return this;
         }
 
-        /**
-         * @param rule Configuration block for the `Expression` object used to categorize costs. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rule(CostCategoryRuleRuleArgs rule) {
             return rule(Output.of(rule));
         }
 
-        /**
-         * @param type You can define the CostCategoryRule rule type as either `REGULAR` or `INHERITED_VALUE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type You can define the CostCategoryRule rule type as either `REGULAR` or `INHERITED_VALUE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param value Default value for the cost category.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Default value for the cost category.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

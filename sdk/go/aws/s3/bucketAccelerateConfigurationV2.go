@@ -12,72 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an S3 bucket accelerate configuration resource. See the [Requirements for using Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/transfer-acceleration.html#transfer-acceleration-requirements) for more details.
-//
-// > This resource cannot be used with S3 directory buckets.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			mybucket, err := s3.NewBucket(ctx, "mybucket", &s3.BucketArgs{
-//				Bucket: pulumi.String("mybucket"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAccelerateConfiguration(ctx, "example", &s3.BucketAccelerateConfigurationArgs{
-//				Bucket: mybucket.ID(),
-//				Status: pulumi.String("Enabled"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-//
-// __Using `pulumi import` to import.__ For example:
-//
-// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
-//
-// ```sh
-// $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name
-// ```
-// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-//
-// ```sh
-// $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name,123456789012
-// ```
-//
 // Deprecated: aws.s3/bucketaccelerateconfigurationv2.BucketAccelerateConfigurationV2 has been deprecated in favor of aws.s3/bucketaccelerateconfiguration.BucketAccelerateConfiguration
 type BucketAccelerateConfigurationV2 struct {
 	pulumi.CustomResourceState
 
-	// Name of the bucket.
-	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// Account ID of the expected bucket owner.
+	Bucket              pulumi.StringOutput    `pulumi:"bucket"`
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Region              pulumi.StringOutput    `pulumi:"region"`
+	Status              pulumi.StringOutput    `pulumi:"status"`
 }
 
 // NewBucketAccelerateConfigurationV2 registers a new resource with the given unique name, arguments, and options.
@@ -122,25 +64,17 @@ func GetBucketAccelerateConfigurationV2(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketAccelerateConfigurationV2 resources.
 type bucketAccelerateConfigurationV2State struct {
-	// Name of the bucket.
-	Bucket *string `pulumi:"bucket"`
-	// Account ID of the expected bucket owner.
+	Bucket              *string `pulumi:"bucket"`
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
-	Status *string `pulumi:"status"`
+	Region              *string `pulumi:"region"`
+	Status              *string `pulumi:"status"`
 }
 
 type BucketAccelerateConfigurationV2State struct {
-	// Name of the bucket.
-	Bucket pulumi.StringPtrInput
-	// Account ID of the expected bucket owner.
+	Bucket              pulumi.StringPtrInput
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
-	Status pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
+	Status              pulumi.StringPtrInput
 }
 
 func (BucketAccelerateConfigurationV2State) ElementType() reflect.Type {
@@ -148,26 +82,18 @@ func (BucketAccelerateConfigurationV2State) ElementType() reflect.Type {
 }
 
 type bucketAccelerateConfigurationV2Args struct {
-	// Name of the bucket.
-	Bucket string `pulumi:"bucket"`
-	// Account ID of the expected bucket owner.
+	Bucket              string  `pulumi:"bucket"`
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
-	Status string `pulumi:"status"`
+	Region              *string `pulumi:"region"`
+	Status              string  `pulumi:"status"`
 }
 
 // The set of arguments for constructing a BucketAccelerateConfigurationV2 resource.
 type BucketAccelerateConfigurationV2Args struct {
-	// Name of the bucket.
-	Bucket pulumi.StringInput
-	// Account ID of the expected bucket owner.
+	Bucket              pulumi.StringInput
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
-	Status pulumi.StringInput
+	Region              pulumi.StringPtrInput
+	Status              pulumi.StringInput
 }
 
 func (BucketAccelerateConfigurationV2Args) ElementType() reflect.Type {
@@ -257,22 +183,18 @@ func (o BucketAccelerateConfigurationV2Output) ToBucketAccelerateConfigurationV2
 	return o
 }
 
-// Name of the bucket.
 func (o BucketAccelerateConfigurationV2Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketAccelerateConfigurationV2) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Account ID of the expected bucket owner.
 func (o BucketAccelerateConfigurationV2Output) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAccelerateConfigurationV2) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BucketAccelerateConfigurationV2Output) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketAccelerateConfigurationV2) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
 func (o BucketAccelerateConfigurationV2Output) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketAccelerateConfigurationV2) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class TlsInspectionConfigurationEncryptionConfiguration {
-    /**
-     * @return ARN of the Amazon Web Services Key Management Service (KMS) customer managed key.
-     * 
-     */
     private String keyId;
-    /**
-     * @return Type of KMS key to use for encryption of your Network Firewall resources. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_KMS`.
-     * 
-     */
     private String type;
 
     private TlsInspectionConfigurationEncryptionConfiguration() {}
-    /**
-     * @return ARN of the Amazon Web Services Key Management Service (KMS) customer managed key.
-     * 
-     */
     public String keyId() {
         return this.keyId;
     }
-    /**
-     * @return Type of KMS key to use for encryption of your Network Firewall resources. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_KMS`.
-     * 
-     */
     public String type() {
         return this.type;
     }

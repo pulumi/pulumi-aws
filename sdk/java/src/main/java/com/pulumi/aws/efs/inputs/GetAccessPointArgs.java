@@ -17,47 +17,23 @@ public final class GetAccessPointArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetAccessPointArgs Empty = new GetAccessPointArgs();
 
-    /**
-     * ID that identifies the file system.
-     * 
-     */
     @Import(name="accessPointId", required=true)
     private Output<String> accessPointId;
 
-    /**
-     * @return ID that identifies the file system.
-     * 
-     */
     public Output<String> accessPointId() {
         return this.accessPointId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value mapping of resource tags.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -88,65 +64,29 @@ public final class GetAccessPointArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetAccessPointArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessPointId ID that identifies the file system.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessPointId(Output<String> accessPointId) {
             $.accessPointId = accessPointId;
             return this;
         }
 
-        /**
-         * @param accessPointId ID that identifies the file system.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessPointId(String accessPointId) {
             return accessPointId(Output.of(accessPointId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

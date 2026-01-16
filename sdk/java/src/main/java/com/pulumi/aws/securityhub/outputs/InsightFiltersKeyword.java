@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class InsightFiltersKeyword {
-    /**
-     * @return A value for the keyword.
-     * 
-     */
     private String value;
 
     private InsightFiltersKeyword() {}
-    /**
-     * @return A value for the keyword.
-     * 
-     */
     public String value() {
         return this.value;
     }

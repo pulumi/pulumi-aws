@@ -11,72 +11,12 @@ namespace Pulumi.Aws.SsoAdmin
 {
     public static class GetApplicationProviders
     {
-        /// <summary>
-        /// Data source for managing AWS SSO Admin Application Providers.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetApplicationProviders.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetApplicationProvidersResult> InvokeAsync(GetApplicationProvidersArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationProvidersResult>("aws:ssoadmin/getApplicationProviders:getApplicationProviders", args ?? new GetApplicationProvidersArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing AWS SSO Admin Application Providers.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetApplicationProviders.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetApplicationProvidersResult> Invoke(GetApplicationProvidersInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationProvidersResult>("aws:ssoadmin/getApplicationProviders:getApplicationProviders", args ?? new GetApplicationProvidersInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing AWS SSO Admin Application Providers.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetApplicationProviders.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetApplicationProvidersResult> Invoke(GetApplicationProvidersInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationProvidersResult>("aws:ssoadmin/getApplicationProviders:getApplicationProviders", args ?? new GetApplicationProvidersInvokeArgs(), options.WithDefaults());
     }
@@ -84,9 +24,6 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class GetApplicationProvidersArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -98,9 +35,6 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class GetApplicationProvidersInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -114,13 +48,7 @@ namespace Pulumi.Aws.SsoAdmin
     [OutputType]
     public sealed class GetApplicationProvidersResult
     {
-        /// <summary>
-        /// A list of application providers available in the current region. See `ApplicationProviders` below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationProvidersApplicationProviderResult> ApplicationProviders;
-        /// <summary>
-        /// AWS region.
-        /// </summary>
         public readonly string Id;
         public readonly string Region;
 

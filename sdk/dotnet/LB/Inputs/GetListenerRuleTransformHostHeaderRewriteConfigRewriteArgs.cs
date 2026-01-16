@@ -12,15 +12,9 @@ namespace Pulumi.Aws.LB.Inputs
 
     public sealed class GetListenerRuleTransformHostHeaderRewriteConfigRewriteInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Regular expression to match in the input string.
-        /// </summary>
         [Input("regex", required: true)]
         public Input<string> Regex { get; set; } = null!;
 
-        /// <summary>
-        /// Replacement string to use when rewriting the matched input.
-        /// </summary>
         [Input("replace", required: true)]
         public Input<string> Replace { get; set; } = null!;
 

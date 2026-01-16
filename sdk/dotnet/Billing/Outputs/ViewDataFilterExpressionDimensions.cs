@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Billing.Outputs
     [OutputType]
     public sealed class ViewDataFilterExpressionDimensions
     {
-        /// <summary>
-        /// Key of the dimension. Possible values are `LINKED_ACCOUNT`.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// List of metadata values that you can use to filter and group your results.
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

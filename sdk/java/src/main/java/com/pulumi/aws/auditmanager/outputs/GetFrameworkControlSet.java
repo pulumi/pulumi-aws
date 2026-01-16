@@ -14,10 +14,6 @@ import java.util.Objects;
 public final class GetFrameworkControlSet {
     private List<GetFrameworkControlSetControl> controls;
     private String id;
-    /**
-     * @return Name of the framework.
-     * 
-     */
     private String name;
 
     private GetFrameworkControlSet() {}
@@ -27,10 +23,6 @@ public final class GetFrameworkControlSet {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the framework.
-     * 
-     */
     public String name() {
         return this.name;
     }

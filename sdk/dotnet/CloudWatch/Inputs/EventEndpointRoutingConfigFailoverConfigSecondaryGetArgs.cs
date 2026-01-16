@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class EventEndpointRoutingConfigFailoverConfigSecondaryGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the secondary Region.
-        /// </summary>
         [Input("route")]
         public Input<string>? Route { get; set; }
 

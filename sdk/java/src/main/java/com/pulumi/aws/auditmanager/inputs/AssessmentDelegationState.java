@@ -15,126 +15,58 @@ public final class AssessmentDelegationState extends com.pulumi.resources.Resour
 
     public static final AssessmentDelegationState Empty = new AssessmentDelegationState();
 
-    /**
-     * Identifier for the assessment.
-     * 
-     */
     @Import(name="assessmentId")
     private @Nullable Output<String> assessmentId;
 
-    /**
-     * @return Identifier for the assessment.
-     * 
-     */
     public Optional<Output<String>> assessmentId() {
         return Optional.ofNullable(this.assessmentId);
     }
 
-    /**
-     * Comment describing the delegation request.
-     * 
-     */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
-    /**
-     * @return Comment describing the delegation request.
-     * 
-     */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
     }
 
-    /**
-     * Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
-     * 
-     */
     @Import(name="controlSetId")
     private @Nullable Output<String> controlSetId;
 
-    /**
-     * @return Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
-     * 
-     */
     public Optional<Output<String>> controlSetId() {
         return Optional.ofNullable(this.controlSetId);
     }
 
-    /**
-     * Unique identifier for the delegation.
-     * 
-     */
     @Import(name="delegationId")
     private @Nullable Output<String> delegationId;
 
-    /**
-     * @return Unique identifier for the delegation.
-     * 
-     */
     public Optional<Output<String>> delegationId() {
         return Optional.ofNullable(this.delegationId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the IAM role.
-     * 
-     */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the IAM role.
-     * 
-     */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
 
-    /**
-     * Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="roleType")
     private @Nullable Output<String> roleType;
 
-    /**
-     * @return Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> roleType() {
         return Optional.ofNullable(this.roleType);
     }
 
-    /**
-     * Status of the delegation.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Status of the delegation.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -170,174 +102,74 @@ public final class AssessmentDelegationState extends com.pulumi.resources.Resour
             $ = new AssessmentDelegationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param assessmentId Identifier for the assessment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder assessmentId(@Nullable Output<String> assessmentId) {
             $.assessmentId = assessmentId;
             return this;
         }
 
-        /**
-         * @param assessmentId Identifier for the assessment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder assessmentId(String assessmentId) {
             return assessmentId(Output.of(assessmentId));
         }
 
-        /**
-         * @param comment Comment describing the delegation request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
             return this;
         }
 
-        /**
-         * @param comment Comment describing the delegation request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
         }
 
-        /**
-         * @param controlSetId Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder controlSetId(@Nullable Output<String> controlSetId) {
             $.controlSetId = controlSetId;
             return this;
         }
 
-        /**
-         * @param controlSetId Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder controlSetId(String controlSetId) {
             return controlSetId(Output.of(controlSetId));
         }
 
-        /**
-         * @param delegationId Unique identifier for the delegation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder delegationId(@Nullable Output<String> delegationId) {
             $.delegationId = delegationId;
             return this;
         }
 
-        /**
-         * @param delegationId Unique identifier for the delegation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder delegationId(String delegationId) {
             return delegationId(Output.of(delegationId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param roleArn Amazon Resource Name (ARN) of the IAM role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn Amazon Resource Name (ARN) of the IAM role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param roleType Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleType(@Nullable Output<String> roleType) {
             $.roleType = roleType;
             return this;
         }
 
-        /**
-         * @param roleType Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleType(String roleType) {
             return roleType(Output.of(roleType));
         }
 
-        /**
-         * @param status Status of the delegation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Status of the delegation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

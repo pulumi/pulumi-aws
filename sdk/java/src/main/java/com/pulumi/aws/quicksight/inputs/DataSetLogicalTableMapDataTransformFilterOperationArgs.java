@@ -14,17 +14,9 @@ public final class DataSetLogicalTableMapDataTransformFilterOperationArgs extend
 
     public static final DataSetLogicalTableMapDataTransformFilterOperationArgs Empty = new DataSetLogicalTableMapDataTransformFilterOperationArgs();
 
-    /**
-     * An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
-     * 
-     */
     @Import(name="conditionExpression", required=true)
     private Output<String> conditionExpression;
 
-    /**
-     * @return An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
-     * 
-     */
     public Output<String> conditionExpression() {
         return this.conditionExpression;
     }
@@ -53,23 +45,11 @@ public final class DataSetLogicalTableMapDataTransformFilterOperationArgs extend
             $ = new DataSetLogicalTableMapDataTransformFilterOperationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param conditionExpression An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditionExpression(Output<String> conditionExpression) {
             $.conditionExpression = conditionExpression;
             return this;
         }
 
-        /**
-         * @param conditionExpression An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditionExpression(String conditionExpression) {
             return conditionExpression(Output.of(conditionExpression));
         }

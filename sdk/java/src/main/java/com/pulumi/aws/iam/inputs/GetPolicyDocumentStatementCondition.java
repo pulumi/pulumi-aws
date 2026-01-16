@@ -14,47 +14,23 @@ public final class GetPolicyDocumentStatementCondition extends com.pulumi.resour
 
     public static final GetPolicyDocumentStatementCondition Empty = new GetPolicyDocumentStatementCondition();
 
-    /**
-     * Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate.
-     * 
-     */
     @Import(name="test", required=true)
     private String test;
 
-    /**
-     * @return Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate.
-     * 
-     */
     public String test() {
         return this.test;
     }
 
-    /**
-     * Values to evaluate the condition against. If multiple values are provided, the condition matches if at least one of them applies. That is, AWS evaluates multiple values as though using an &#34;OR&#34; boolean operation.
-     * 
-     */
     @Import(name="values", required=true)
     private List<String> values;
 
-    /**
-     * @return Values to evaluate the condition against. If multiple values are provided, the condition matches if at least one of them applies. That is, AWS evaluates multiple values as though using an &#34;OR&#34; boolean operation.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }
 
-    /**
-     * Name of a [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) to apply the condition to. Context variables may either be standard AWS variables starting with `aws:` or service-specific variables prefixed with the service name.
-     * 
-     */
     @Import(name="variable", required=true)
     private String variable;
 
-    /**
-     * @return Name of a [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) to apply the condition to. Context variables may either be standard AWS variables starting with `aws:` or service-specific variables prefixed with the service name.
-     * 
-     */
     public String variable() {
         return this.variable;
     }
@@ -85,44 +61,20 @@ public final class GetPolicyDocumentStatementCondition extends com.pulumi.resour
             $ = new GetPolicyDocumentStatementCondition(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param test Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder test(String test) {
             $.test = test;
             return this;
         }
 
-        /**
-         * @param values Values to evaluate the condition against. If multiple values are provided, the condition matches if at least one of them applies. That is, AWS evaluates multiple values as though using an &#34;OR&#34; boolean operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values Values to evaluate the condition against. If multiple values are provided, the condition matches if at least one of them applies. That is, AWS evaluates multiple values as though using an &#34;OR&#34; boolean operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }
 
-        /**
-         * @param variable Name of a [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) to apply the condition to. Context variables may either be standard AWS variables starting with `aws:` or service-specific variables prefixed with the service name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder variable(String variable) {
             $.variable = variable;
             return this;

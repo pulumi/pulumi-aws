@@ -18,62 +18,30 @@ public final class V2modelsIntentInitialResponseSettingArgs extends com.pulumi.r
 
     public static final V2modelsIntentInitialResponseSettingArgs Empty = new V2modelsIntentInitialResponseSettingArgs();
 
-    /**
-     * Configuration block for the dialog code hook that is called by Amazon Lex at a step of the conversation. See `codeHook`.
-     * 
-     */
     @Import(name="codeHook")
     private @Nullable Output<V2modelsIntentInitialResponseSettingCodeHookArgs> codeHook;
 
-    /**
-     * @return Configuration block for the dialog code hook that is called by Amazon Lex at a step of the conversation. See `codeHook`.
-     * 
-     */
     public Optional<Output<V2modelsIntentInitialResponseSettingCodeHookArgs>> codeHook() {
         return Optional.ofNullable(this.codeHook);
     }
 
-    /**
-     * Configuration block for conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition. See `conditional`.
-     * 
-     */
     @Import(name="conditional")
     private @Nullable Output<V2modelsIntentInitialResponseSettingConditionalArgs> conditional;
 
-    /**
-     * @return Configuration block for conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition. See `conditional`.
-     * 
-     */
     public Optional<Output<V2modelsIntentInitialResponseSettingConditionalArgs>> conditional() {
         return Optional.ofNullable(this.conditional);
     }
 
-    /**
-     * Configuration block for message groups that Amazon Lex uses to respond the user input. See `initialResponse`.
-     * 
-     */
     @Import(name="initialResponse")
     private @Nullable Output<V2modelsIntentInitialResponseSettingInitialResponseArgs> initialResponse;
 
-    /**
-     * @return Configuration block for message groups that Amazon Lex uses to respond the user input. See `initialResponse`.
-     * 
-     */
     public Optional<Output<V2modelsIntentInitialResponseSettingInitialResponseArgs>> initialResponse() {
         return Optional.ofNullable(this.initialResponse);
     }
 
-    /**
-     * Configuration block for the next step in the conversation. See `nextStep`.
-     * 
-     */
     @Import(name="nextStep")
     private @Nullable Output<V2modelsIntentInitialResponseSettingNextStepArgs> nextStep;
 
-    /**
-     * @return Configuration block for the next step in the conversation. See `nextStep`.
-     * 
-     */
     public Optional<Output<V2modelsIntentInitialResponseSettingNextStepArgs>> nextStep() {
         return Optional.ofNullable(this.nextStep);
     }
@@ -105,86 +73,38 @@ public final class V2modelsIntentInitialResponseSettingArgs extends com.pulumi.r
             $ = new V2modelsIntentInitialResponseSettingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param codeHook Configuration block for the dialog code hook that is called by Amazon Lex at a step of the conversation. See `codeHook`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder codeHook(@Nullable Output<V2modelsIntentInitialResponseSettingCodeHookArgs> codeHook) {
             $.codeHook = codeHook;
             return this;
         }
 
-        /**
-         * @param codeHook Configuration block for the dialog code hook that is called by Amazon Lex at a step of the conversation. See `codeHook`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder codeHook(V2modelsIntentInitialResponseSettingCodeHookArgs codeHook) {
             return codeHook(Output.of(codeHook));
         }
 
-        /**
-         * @param conditional Configuration block for conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition. See `conditional`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditional(@Nullable Output<V2modelsIntentInitialResponseSettingConditionalArgs> conditional) {
             $.conditional = conditional;
             return this;
         }
 
-        /**
-         * @param conditional Configuration block for conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition. See `conditional`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditional(V2modelsIntentInitialResponseSettingConditionalArgs conditional) {
             return conditional(Output.of(conditional));
         }
 
-        /**
-         * @param initialResponse Configuration block for message groups that Amazon Lex uses to respond the user input. See `initialResponse`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder initialResponse(@Nullable Output<V2modelsIntentInitialResponseSettingInitialResponseArgs> initialResponse) {
             $.initialResponse = initialResponse;
             return this;
         }
 
-        /**
-         * @param initialResponse Configuration block for message groups that Amazon Lex uses to respond the user input. See `initialResponse`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder initialResponse(V2modelsIntentInitialResponseSettingInitialResponseArgs initialResponse) {
             return initialResponse(Output.of(initialResponse));
         }
 
-        /**
-         * @param nextStep Configuration block for the next step in the conversation. See `nextStep`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nextStep(@Nullable Output<V2modelsIntentInitialResponseSettingNextStepArgs> nextStep) {
             $.nextStep = nextStep;
             return this;
         }
 
-        /**
-         * @param nextStep Configuration block for the next step in the conversation. See `nextStep`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nextStep(V2modelsIntentInitialResponseSettingNextStepArgs nextStep) {
             return nextStep(Output.of(nextStep));
         }

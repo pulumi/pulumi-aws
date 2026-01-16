@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MultitenantDistributionCacheBehaviorLambdaFunctionAssociation {
-    /**
-     * @return Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
-     * 
-     */
     private String eventType;
-    /**
-     * @return When set to true, the request body is exposed to the Lambda function. Default: `false`.
-     * 
-     */
     private @Nullable Boolean includeBody;
-    /**
-     * @return ARN of the Lambda function.
-     * 
-     */
     private String lambdaFunctionArn;
 
     private MultitenantDistributionCacheBehaviorLambdaFunctionAssociation() {}
-    /**
-     * @return Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
-     * 
-     */
     public String eventType() {
         return this.eventType;
     }
-    /**
-     * @return When set to true, the request body is exposed to the Lambda function. Default: `false`.
-     * 
-     */
     public Optional<Boolean> includeBody() {
         return Optional.ofNullable(this.includeBody);
     }
-    /**
-     * @return ARN of the Lambda function.
-     * 
-     */
     public String lambdaFunctionArn() {
         return this.lambdaFunctionArn;
     }

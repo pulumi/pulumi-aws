@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get information about an ElastiCache Serverless Cache.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticache"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticache.LookupServerlessCache(ctx, &elasticache.LookupServerlessCacheArgs{
-//				Name: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupServerlessCache(ctx *pulumi.Context, args *LookupServerlessCacheArgs, opts ...pulumi.InvokeOption) (*LookupServerlessCacheResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerlessCacheResult
@@ -50,50 +23,32 @@ func LookupServerlessCache(ctx *pulumi.Context, args *LookupServerlessCacheArgs,
 
 // A collection of arguments for invoking getServerlessCache.
 type LookupServerlessCacheArgs struct {
-	// Identifier for the serverless cache.
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   string  `pulumi:"name"`
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getServerlessCache.
 type LookupServerlessCacheResult struct {
-	// The Amazon Resource Name (ARN) of the serverless cache.
-	Arn string `pulumi:"arn"`
-	// The cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
-	CacheUsageLimits GetServerlessCacheCacheUsageLimits `pulumi:"cacheUsageLimits"`
-	// Timestamp of when the serverless cache was created.
-	CreateTime string `pulumi:"createTime"`
-	// The daily time that snapshots will be created from the new serverless cache. Only available for engine types `"redis"` and `"valkey"`.
-	DailySnapshotTime string `pulumi:"dailySnapshotTime"`
-	// Description of the serverless cache.
-	Description string `pulumi:"description"`
-	// Represents the information required for client programs to connect to the cache. See `endpoint` Block for details.
-	Endpoint GetServerlessCacheEndpoint `pulumi:"endpoint"`
-	// Name of the cache engine.
-	Engine string `pulumi:"engine"`
-	// The name and version number of the engine the serverless cache is compatible with.
-	FullEngineVersion string `pulumi:"fullEngineVersion"`
+	Arn               string                             `pulumi:"arn"`
+	CacheUsageLimits  GetServerlessCacheCacheUsageLimits `pulumi:"cacheUsageLimits"`
+	CreateTime        string                             `pulumi:"createTime"`
+	DailySnapshotTime string                             `pulumi:"dailySnapshotTime"`
+	Description       string                             `pulumi:"description"`
+	Endpoint          GetServerlessCacheEndpoint         `pulumi:"endpoint"`
+	Engine            string                             `pulumi:"engine"`
+	FullEngineVersion string                             `pulumi:"fullEngineVersion"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// ARN of the customer managed key for encrypting the data at rest.
-	KmsKeyId string `pulumi:"kmsKeyId"`
-	// The version number of the engine the serverless cache is compatible with.
-	MajorEngineVersion string `pulumi:"majorEngineVersion"`
-	Name               string `pulumi:"name"`
-	// Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
-	ReaderEndpoint GetServerlessCacheReaderEndpoint `pulumi:"readerEndpoint"`
-	Region         string                           `pulumi:"region"`
-	// A list of the one or more VPC security groups associated with the serverless cache.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The number of snapshots that will be retained for the serverless cache. Available for Redis only.
-	SnapshotRetentionLimit int `pulumi:"snapshotRetentionLimit"`
-	// The current status of the serverless cache.
-	Status string `pulumi:"status"`
-	// A list of the identifiers of the subnets where the VPC endpoint for the serverless cache are deployed.
-	SubnetIds []string `pulumi:"subnetIds"`
-	// The identifier of the UserGroup associated with the serverless cache. Available for Redis only.
-	UserGroupId string `pulumi:"userGroupId"`
+	Id                     string                           `pulumi:"id"`
+	KmsKeyId               string                           `pulumi:"kmsKeyId"`
+	MajorEngineVersion     string                           `pulumi:"majorEngineVersion"`
+	Name                   string                           `pulumi:"name"`
+	ReaderEndpoint         GetServerlessCacheReaderEndpoint `pulumi:"readerEndpoint"`
+	Region                 string                           `pulumi:"region"`
+	SecurityGroupIds       []string                         `pulumi:"securityGroupIds"`
+	SnapshotRetentionLimit int                              `pulumi:"snapshotRetentionLimit"`
+	Status                 string                           `pulumi:"status"`
+	SubnetIds              []string                         `pulumi:"subnetIds"`
+	UserGroupId            string                           `pulumi:"userGroupId"`
 }
 
 func LookupServerlessCacheOutput(ctx *pulumi.Context, args LookupServerlessCacheOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessCacheResultOutput {
@@ -107,9 +62,7 @@ func LookupServerlessCacheOutput(ctx *pulumi.Context, args LookupServerlessCache
 
 // A collection of arguments for invoking getServerlessCache.
 type LookupServerlessCacheOutputArgs struct {
-	// Identifier for the serverless cache.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringInput    `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -132,42 +85,34 @@ func (o LookupServerlessCacheResultOutput) ToLookupServerlessCacheResultOutputWi
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the serverless cache.
 func (o LookupServerlessCacheResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
 func (o LookupServerlessCacheResultOutput) CacheUsageLimits() GetServerlessCacheCacheUsageLimitsOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) GetServerlessCacheCacheUsageLimits { return v.CacheUsageLimits }).(GetServerlessCacheCacheUsageLimitsOutput)
 }
 
-// Timestamp of when the serverless cache was created.
 func (o LookupServerlessCacheResultOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) string { return v.CreateTime }).(pulumi.StringOutput)
 }
 
-// The daily time that snapshots will be created from the new serverless cache. Only available for engine types `"redis"` and `"valkey"`.
 func (o LookupServerlessCacheResultOutput) DailySnapshotTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) string { return v.DailySnapshotTime }).(pulumi.StringOutput)
 }
 
-// Description of the serverless cache.
 func (o LookupServerlessCacheResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Represents the information required for client programs to connect to the cache. See `endpoint` Block for details.
 func (o LookupServerlessCacheResultOutput) Endpoint() GetServerlessCacheEndpointOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) GetServerlessCacheEndpoint { return v.Endpoint }).(GetServerlessCacheEndpointOutput)
 }
 
-// Name of the cache engine.
 func (o LookupServerlessCacheResultOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) string { return v.Engine }).(pulumi.StringOutput)
 }
 
-// The name and version number of the engine the serverless cache is compatible with.
 func (o LookupServerlessCacheResultOutput) FullEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) string { return v.FullEngineVersion }).(pulumi.StringOutput)
 }
@@ -177,12 +122,10 @@ func (o LookupServerlessCacheResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// ARN of the customer managed key for encrypting the data at rest.
 func (o LookupServerlessCacheResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// The version number of the engine the serverless cache is compatible with.
 func (o LookupServerlessCacheResultOutput) MajorEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) string { return v.MajorEngineVersion }).(pulumi.StringOutput)
 }
@@ -191,7 +134,6 @@ func (o LookupServerlessCacheResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
 func (o LookupServerlessCacheResultOutput) ReaderEndpoint() GetServerlessCacheReaderEndpointOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) GetServerlessCacheReaderEndpoint { return v.ReaderEndpoint }).(GetServerlessCacheReaderEndpointOutput)
 }
@@ -200,27 +142,22 @@ func (o LookupServerlessCacheResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// A list of the one or more VPC security groups associated with the serverless cache.
 func (o LookupServerlessCacheResultOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The number of snapshots that will be retained for the serverless cache. Available for Redis only.
 func (o LookupServerlessCacheResultOutput) SnapshotRetentionLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) int { return v.SnapshotRetentionLimit }).(pulumi.IntOutput)
 }
 
-// The current status of the serverless cache.
 func (o LookupServerlessCacheResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// A list of the identifiers of the subnets where the VPC endpoint for the serverless cache are deployed.
 func (o LookupServerlessCacheResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// The identifier of the UserGroup associated with the serverless cache. Available for Redis only.
 func (o LookupServerlessCacheResultOutput) UserGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) string { return v.UserGroupId }).(pulumi.StringOutput)
 }

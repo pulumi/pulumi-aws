@@ -11,65 +11,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPatchBaselinesBaselineIdentity {
-    /**
-     * @return Description of the patch baseline.
-     * 
-     */
     private String baselineDescription;
-    /**
-     * @return ID of the patch baseline.
-     * 
-     */
     private String baselineId;
-    /**
-     * @return Name of the patch baseline.
-     * 
-     */
     private String baselineName;
-    /**
-     * @return Indicates whether this is the default baseline. AWS Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.
-     * 
-     */
     private Boolean defaultBaseline;
-    /**
-     * @return Operating system the patch baseline applies to.
-     * 
-     */
     private String operatingSystem;
 
     private GetPatchBaselinesBaselineIdentity() {}
-    /**
-     * @return Description of the patch baseline.
-     * 
-     */
     public String baselineDescription() {
         return this.baselineDescription;
     }
-    /**
-     * @return ID of the patch baseline.
-     * 
-     */
     public String baselineId() {
         return this.baselineId;
     }
-    /**
-     * @return Name of the patch baseline.
-     * 
-     */
     public String baselineName() {
         return this.baselineName;
     }
-    /**
-     * @return Indicates whether this is the default baseline. AWS Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.
-     * 
-     */
     public Boolean defaultBaseline() {
         return this.defaultBaseline;
     }
-    /**
-     * @return Operating system the patch baseline applies to.
-     * 
-     */
     public String operatingSystem() {
         return this.operatingSystem;
     }

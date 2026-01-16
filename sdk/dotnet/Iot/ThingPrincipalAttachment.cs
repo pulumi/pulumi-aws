@@ -9,67 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iot
 {
-    /// <summary>
-    /// Attaches Principal to AWS IoT Thing.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Iot.Thing("example", new()
-    ///     {
-    ///         Name = "example",
-    ///     });
-    /// 
-    ///     var cert = new Aws.Iot.Certificate("cert", new()
-    ///     {
-    ///         Csr = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "csr.pem",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Active = true,
-    ///     });
-    /// 
-    ///     var att = new Aws.Iot.ThingPrincipalAttachment("att", new()
-    ///     {
-    ///         Principal = cert.Arn,
-    ///         Thing = example.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment")]
     public partial class ThingPrincipalAttachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-        /// </summary>
         [Output("principal")]
         public Output<string> Principal { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the thing.
-        /// </summary>
         [Output("thing")]
         public Output<string> Thing { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
-        /// </summary>
         [Output("thingPrincipalType")]
         public Output<string> ThingPrincipalType { get; private set; } = null!;
 
@@ -119,27 +70,15 @@ namespace Pulumi.Aws.Iot
 
     public sealed class ThingPrincipalAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-        /// </summary>
         [Input("principal", required: true)]
         public Input<string> Principal { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the thing.
-        /// </summary>
         [Input("thing", required: true)]
         public Input<string> Thing { get; set; } = null!;
 
-        /// <summary>
-        /// The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
-        /// </summary>
         [Input("thingPrincipalType")]
         public Input<string>? ThingPrincipalType { get; set; }
 
@@ -151,27 +90,15 @@ namespace Pulumi.Aws.Iot
 
     public sealed class ThingPrincipalAttachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-        /// </summary>
         [Input("principal")]
         public Input<string>? Principal { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the thing.
-        /// </summary>
         [Input("thing")]
         public Input<string>? Thing { get; set; }
 
-        /// <summary>
-        /// The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
-        /// </summary>
         [Input("thingPrincipalType")]
         public Input<string>? ThingPrincipalType { get; set; }
 

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreAgentRuntimeLifecycleConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Timeout in seconds for idle runtime sessions.
-        /// </summary>
         [Input("idleRuntimeSessionTimeout", required: true)]
         public Input<int> IdleRuntimeSessionTimeout { get; set; } = null!;
 
-        /// <summary>
-        /// Maximum lifetime for the instance in seconds.
-        /// </summary>
         [Input("maxLifetime", required: true)]
         public Input<int> MaxLifetime { get; set; } = null!;
 

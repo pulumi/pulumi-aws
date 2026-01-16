@@ -9,73 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AutoScaling
 {
-    /// <summary>
-    /// Attaches a load balancer to an Auto Scaling group.
-    /// 
-    /// &gt; **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `LoadBalancers`, `TargetGroupArns` and `TrafficSource` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `Lifecycle` configuration block can be used to suppress differences if necessary.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Create a new load balancer attachment
-    ///     var example = new Aws.AutoScaling.Attachment("example", new()
-    ///     {
-    ///         AutoscalingGroupName = exampleAwsAutoscalingGroup.Id,
-    ///         Elb = exampleAwsElb.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Create a new ALB Target Group attachment
-    ///     var example = new Aws.AutoScaling.Attachment("example", new()
-    ///     {
-    ///         AutoscalingGroupName = exampleAwsAutoscalingGroup.Id,
-    ///         LbTargetGroupArn = exampleAwsLbTargetGroup.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:autoscaling/attachment:Attachment")]
     public partial class Attachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of ASG to associate with the ELB.
-        /// </summary>
         [Output("autoscalingGroupName")]
         public Output<string> AutoscalingGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the ELB.
-        /// </summary>
         [Output("elb")]
         public Output<string?> Elb { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of a load balancer target group.
-        /// </summary>
         [Output("lbTargetGroupArn")]
         public Output<string?> LbTargetGroupArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -125,27 +70,15 @@ namespace Pulumi.Aws.AutoScaling
 
     public sealed class AttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of ASG to associate with the ELB.
-        /// </summary>
         [Input("autoscalingGroupName", required: true)]
         public Input<string> AutoscalingGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the ELB.
-        /// </summary>
         [Input("elb")]
         public Input<string>? Elb { get; set; }
 
-        /// <summary>
-        /// ARN of a load balancer target group.
-        /// </summary>
         [Input("lbTargetGroupArn")]
         public Input<string>? LbTargetGroupArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -157,27 +90,15 @@ namespace Pulumi.Aws.AutoScaling
 
     public sealed class AttachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of ASG to associate with the ELB.
-        /// </summary>
         [Input("autoscalingGroupName")]
         public Input<string>? AutoscalingGroupName { get; set; }
 
-        /// <summary>
-        /// Name of the ELB.
-        /// </summary>
         [Input("elb")]
         public Input<string>? Elb { get; set; }
 
-        /// <summary>
-        /// ARN of a load balancer target group.
-        /// </summary>
         [Input("lbTargetGroupArn")]
         public Input<string>? LbTargetGroupArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

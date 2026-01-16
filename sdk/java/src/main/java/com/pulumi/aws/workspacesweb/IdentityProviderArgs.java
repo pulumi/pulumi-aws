@@ -17,98 +17,44 @@ public final class IdentityProviderArgs extends com.pulumi.resources.ResourceArg
 
     public static final IdentityProviderArgs Empty = new IdentityProviderArgs();
 
-    /**
-     * Identity provider details. The following list describes the provider detail keys for each identity provider type:
-     * * For Google and Login with Amazon:
-     * 
-     */
     @Import(name="identityProviderDetails", required=true)
     private Output<Map<String,String>> identityProviderDetails;
 
-    /**
-     * @return Identity provider details. The following list describes the provider detail keys for each identity provider type:
-     * * For Google and Login with Amazon:
-     * 
-     */
     public Output<Map<String,String>> identityProviderDetails() {
         return this.identityProviderDetails;
     }
 
-    /**
-     * Identity provider name.
-     * 
-     */
     @Import(name="identityProviderName", required=true)
     private Output<String> identityProviderName;
 
-    /**
-     * @return Identity provider name.
-     * 
-     */
     public Output<String> identityProviderName() {
         return this.identityProviderName;
     }
 
-    /**
-     * Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
-     * 
-     */
     @Import(name="identityProviderType", required=true)
     private Output<String> identityProviderType;
 
-    /**
-     * @return Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
-     * 
-     */
     public Output<String> identityProviderType() {
         return this.identityProviderType;
     }
 
-    /**
-     * ARN of the web portal. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="portalArn", required=true)
     private Output<String> portalArn;
 
-    /**
-     * @return ARN of the web portal. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> portalArn() {
         return this.portalArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -142,134 +88,56 @@ public final class IdentityProviderArgs extends com.pulumi.resources.ResourceArg
             $ = new IdentityProviderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param identityProviderDetails Identity provider details. The following list describes the provider detail keys for each identity provider type:
-         * * For Google and Login with Amazon:
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProviderDetails(Output<Map<String,String>> identityProviderDetails) {
             $.identityProviderDetails = identityProviderDetails;
             return this;
         }
 
-        /**
-         * @param identityProviderDetails Identity provider details. The following list describes the provider detail keys for each identity provider type:
-         * * For Google and Login with Amazon:
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProviderDetails(Map<String,String> identityProviderDetails) {
             return identityProviderDetails(Output.of(identityProviderDetails));
         }
 
-        /**
-         * @param identityProviderName Identity provider name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProviderName(Output<String> identityProviderName) {
             $.identityProviderName = identityProviderName;
             return this;
         }
 
-        /**
-         * @param identityProviderName Identity provider name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProviderName(String identityProviderName) {
             return identityProviderName(Output.of(identityProviderName));
         }
 
-        /**
-         * @param identityProviderType Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProviderType(Output<String> identityProviderType) {
             $.identityProviderType = identityProviderType;
             return this;
         }
 
-        /**
-         * @param identityProviderType Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProviderType(String identityProviderType) {
             return identityProviderType(Output.of(identityProviderType));
         }
 
-        /**
-         * @param portalArn ARN of the web portal. Forces replacement if changed.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder portalArn(Output<String> portalArn) {
             $.portalArn = portalArn;
             return this;
         }
 
-        /**
-         * @param portalArn ARN of the web portal. Forces replacement if changed.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder portalArn(String portalArn) {
             return portalArn(Output.of(portalArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

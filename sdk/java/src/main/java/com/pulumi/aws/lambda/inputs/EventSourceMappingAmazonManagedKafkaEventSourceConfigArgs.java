@@ -16,32 +16,16 @@ public final class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs ext
 
     public static final EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs Empty = new EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs();
 
-    /**
-     * Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
-     * 
-     */
     @Import(name="consumerGroupId")
     private @Nullable Output<String> consumerGroupId;
 
-    /**
-     * @return Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
-     * 
-     */
     public Optional<Output<String>> consumerGroupId() {
         return Optional.ofNullable(this.consumerGroupId);
     }
 
-    /**
-     * Block for a Kafka schema registry setting. See below.
-     * 
-     */
     @Import(name="schemaRegistryConfig")
     private @Nullable Output<EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs> schemaRegistryConfig;
 
-    /**
-     * @return Block for a Kafka schema registry setting. See below.
-     * 
-     */
     public Optional<Output<EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs>> schemaRegistryConfig() {
         return Optional.ofNullable(this.schemaRegistryConfig);
     }
@@ -71,44 +55,20 @@ public final class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs ext
             $ = new EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param consumerGroupId Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder consumerGroupId(@Nullable Output<String> consumerGroupId) {
             $.consumerGroupId = consumerGroupId;
             return this;
         }
 
-        /**
-         * @param consumerGroupId Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder consumerGroupId(String consumerGroupId) {
             return consumerGroupId(Output.of(consumerGroupId));
         }
 
-        /**
-         * @param schemaRegistryConfig Block for a Kafka schema registry setting. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schemaRegistryConfig(@Nullable Output<EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs> schemaRegistryConfig) {
             $.schemaRegistryConfig = schemaRegistryConfig;
             return this;
         }
 
-        /**
-         * @param schemaRegistryConfig Block for a Kafka schema registry setting. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schemaRegistryConfig(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs schemaRegistryConfig) {
             return schemaRegistryConfig(Output.of(schemaRegistryConfig));
         }

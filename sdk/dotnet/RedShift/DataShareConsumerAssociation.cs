@@ -9,107 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.RedShift
 {
-    /// <summary>
-    /// Resource for managing an AWS Redshift Data Share Consumer Association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.RedShift.DataShareConsumerAssociation("example", new()
-    ///     {
-    ///         DataShareArn = "arn:aws:redshift:us-west-2:123456789012:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example",
-    ///         AssociateEntireAccount = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Consumer Region
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.RedShift.DataShareConsumerAssociation("example", new()
-    ///     {
-    ///         DataShareArn = "arn:aws:redshift:us-west-2:123456789012:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example",
-    ///         ConsumerRegion = "us-west-2",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Redshift Data Share Consumer Association using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation example arn:aws:redshift:us-west-2:123456789012:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example,,,us-west-2
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation")]
     public partial class DataShareConsumerAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Whether to allow write operations for a datashare.
-        /// </summary>
         [Output("allowWrites")]
         public Output<bool?> AllowWrites { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether the datashare is associated with the entire account. Conflicts with `ConsumerArn` and `ConsumerRegion`.
-        /// </summary>
         [Output("associateEntireAccount")]
         public Output<bool?> AssociateEntireAccount { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `AssociateEntireAccount` and `ConsumerRegion`.
-        /// </summary>
         [Output("consumerArn")]
         public Output<string?> ConsumerArn { get; private set; } = null!;
 
-        /// <summary>
-        /// From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `AssociateEntireAccount` and `ConsumerArn`.
-        /// </summary>
         [Output("consumerRegion")]
         public Output<string?> ConsumerRegion { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("dataShareArn")]
         public Output<string> DataShareArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of a datashare to show its managing entity.
-        /// </summary>
         [Output("managedBy")]
         public Output<string> ManagedBy { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the producer.
-        /// </summary>
         [Output("producerArn")]
         public Output<string> ProducerArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -159,41 +82,21 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class DataShareConsumerAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to allow write operations for a datashare.
-        /// </summary>
         [Input("allowWrites")]
         public Input<bool>? AllowWrites { get; set; }
 
-        /// <summary>
-        /// Whether the datashare is associated with the entire account. Conflicts with `ConsumerArn` and `ConsumerRegion`.
-        /// </summary>
         [Input("associateEntireAccount")]
         public Input<bool>? AssociateEntireAccount { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `AssociateEntireAccount` and `ConsumerRegion`.
-        /// </summary>
         [Input("consumerArn")]
         public Input<string>? ConsumerArn { get; set; }
 
-        /// <summary>
-        /// From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `AssociateEntireAccount` and `ConsumerArn`.
-        /// </summary>
         [Input("consumerRegion")]
         public Input<string>? ConsumerRegion { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("dataShareArn", required: true)]
         public Input<string> DataShareArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -205,53 +108,27 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class DataShareConsumerAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to allow write operations for a datashare.
-        /// </summary>
         [Input("allowWrites")]
         public Input<bool>? AllowWrites { get; set; }
 
-        /// <summary>
-        /// Whether the datashare is associated with the entire account. Conflicts with `ConsumerArn` and `ConsumerRegion`.
-        /// </summary>
         [Input("associateEntireAccount")]
         public Input<bool>? AssociateEntireAccount { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `AssociateEntireAccount` and `ConsumerRegion`.
-        /// </summary>
         [Input("consumerArn")]
         public Input<string>? ConsumerArn { get; set; }
 
-        /// <summary>
-        /// From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `AssociateEntireAccount` and `ConsumerArn`.
-        /// </summary>
         [Input("consumerRegion")]
         public Input<string>? ConsumerRegion { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("dataShareArn")]
         public Input<string>? DataShareArn { get; set; }
 
-        /// <summary>
-        /// Identifier of a datashare to show its managing entity.
-        /// </summary>
         [Input("managedBy")]
         public Input<string>? ManagedBy { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the producer.
-        /// </summary>
         [Input("producerArn")]
         public Input<string>? ProducerArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

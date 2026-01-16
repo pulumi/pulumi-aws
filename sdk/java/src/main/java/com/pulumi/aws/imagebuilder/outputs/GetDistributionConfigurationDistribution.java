@@ -17,101 +17,37 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDistributionConfigurationDistribution {
-    /**
-     * @return Nested list of AMI distribution configuration.
-     * 
-     */
     private List<GetDistributionConfigurationDistributionAmiDistributionConfiguration> amiDistributionConfigurations;
-    /**
-     * @return Nested list of container distribution configurations.
-     * 
-     */
     private List<GetDistributionConfigurationDistributionContainerDistributionConfiguration> containerDistributionConfigurations;
-    /**
-     * @return Nested list of Windows faster-launching configurations to use for AMI distribution.
-     * 
-     */
     private List<GetDistributionConfigurationDistributionFastLaunchConfiguration> fastLaunchConfigurations;
-    /**
-     * @return Nested list of launch template configurations.
-     * 
-     */
     private List<GetDistributionConfigurationDistributionLaunchTemplateConfiguration> launchTemplateConfigurations;
-    /**
-     * @return Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
-     * 
-     */
     private List<String> licenseConfigurationArns;
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     private String region;
-    /**
-     * @return Nested list of S3 export configuration.
-     * 
-     */
     private List<GetDistributionConfigurationDistributionS3ExportConfiguration> s3ExportConfigurations;
-    /**
-     * @return Nested list of SSM parameter configuration.
-     * 
-     */
     private List<GetDistributionConfigurationDistributionSsmParameterConfiguration> ssmParameterConfigurations;
 
     private GetDistributionConfigurationDistribution() {}
-    /**
-     * @return Nested list of AMI distribution configuration.
-     * 
-     */
     public List<GetDistributionConfigurationDistributionAmiDistributionConfiguration> amiDistributionConfigurations() {
         return this.amiDistributionConfigurations;
     }
-    /**
-     * @return Nested list of container distribution configurations.
-     * 
-     */
     public List<GetDistributionConfigurationDistributionContainerDistributionConfiguration> containerDistributionConfigurations() {
         return this.containerDistributionConfigurations;
     }
-    /**
-     * @return Nested list of Windows faster-launching configurations to use for AMI distribution.
-     * 
-     */
     public List<GetDistributionConfigurationDistributionFastLaunchConfiguration> fastLaunchConfigurations() {
         return this.fastLaunchConfigurations;
     }
-    /**
-     * @return Nested list of launch template configurations.
-     * 
-     */
     public List<GetDistributionConfigurationDistributionLaunchTemplateConfiguration> launchTemplateConfigurations() {
         return this.launchTemplateConfigurations;
     }
-    /**
-     * @return Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
-     * 
-     */
     public List<String> licenseConfigurationArns() {
         return this.licenseConfigurationArns;
     }
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public String region() {
         return this.region;
     }
-    /**
-     * @return Nested list of S3 export configuration.
-     * 
-     */
     public List<GetDistributionConfigurationDistributionS3ExportConfiguration> s3ExportConfigurations() {
         return this.s3ExportConfigurations;
     }
-    /**
-     * @return Nested list of SSM parameter configuration.
-     * 
-     */
     public List<GetDistributionConfigurationDistributionSsmParameterConfiguration> ssmParameterConfigurations() {
         return this.ssmParameterConfigurations;
     }

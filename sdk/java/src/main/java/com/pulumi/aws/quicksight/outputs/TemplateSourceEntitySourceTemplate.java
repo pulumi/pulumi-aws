@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class TemplateSourceEntitySourceTemplate {
-    /**
-     * @return The Amazon Resource Name (ARN) of the resource.
-     * 
-     */
     private String arn;
 
     private TemplateSourceEntitySourceTemplate() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the resource.
-     * 
-     */
     public String arn() {
         return this.arn;
     }

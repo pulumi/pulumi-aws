@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Iam.Inputs
     {
         [Input("actions")]
         private List<string>? _actions;
-
-        /// <summary>
-        /// List of actions that this statement either allows or denies. For example, `["ec2:RunInstances", "s3:*"]`.
-        /// </summary>
         public List<string> Actions
         {
             get => _actions ?? (_actions = new List<string>());
@@ -26,28 +22,17 @@ namespace Pulumi.Aws.Iam.Inputs
 
         [Input("conditions")]
         private List<Inputs.GetPolicyDocumentStatementConditionArgs>? _conditions;
-
-        /// <summary>
-        /// Configuration block for a condition. Detailed below.
-        /// </summary>
         public List<Inputs.GetPolicyDocumentStatementConditionArgs> Conditions
         {
             get => _conditions ?? (_conditions = new List<Inputs.GetPolicyDocumentStatementConditionArgs>());
             set => _conditions = value;
         }
 
-        /// <summary>
-        /// Whether this statement allows or denies the given actions. Valid values are `Allow` and `Deny`. Defaults to `Allow`.
-        /// </summary>
         [Input("effect")]
         public string? Effect { get; set; }
 
         [Input("notActions")]
         private List<string>? _notActions;
-
-        /// <summary>
-        /// List of actions that this statement does *not* apply to. Use to apply a policy statement to all actions *except* those listed.
-        /// </summary>
         public List<string> NotActions
         {
             get => _notActions ?? (_notActions = new List<string>());
@@ -56,10 +41,6 @@ namespace Pulumi.Aws.Iam.Inputs
 
         [Input("notPrincipals")]
         private List<Inputs.GetPolicyDocumentStatementNotPrincipalArgs>? _notPrincipals;
-
-        /// <summary>
-        /// Like `Principals` except these are principals that the statement does *not* apply to.
-        /// </summary>
         public List<Inputs.GetPolicyDocumentStatementNotPrincipalArgs> NotPrincipals
         {
             get => _notPrincipals ?? (_notPrincipals = new List<Inputs.GetPolicyDocumentStatementNotPrincipalArgs>());
@@ -68,10 +49,6 @@ namespace Pulumi.Aws.Iam.Inputs
 
         [Input("notResources")]
         private List<string>? _notResources;
-
-        /// <summary>
-        /// List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `Resources`.
-        /// </summary>
         public List<string> NotResources
         {
             get => _notResources ?? (_notResources = new List<string>());
@@ -80,10 +57,6 @@ namespace Pulumi.Aws.Iam.Inputs
 
         [Input("principals")]
         private List<Inputs.GetPolicyDocumentStatementPrincipalArgs>? _principals;
-
-        /// <summary>
-        /// Configuration block for principals. Detailed below.
-        /// </summary>
         public List<Inputs.GetPolicyDocumentStatementPrincipalArgs> Principals
         {
             get => _principals ?? (_principals = new List<Inputs.GetPolicyDocumentStatementPrincipalArgs>());
@@ -92,19 +65,12 @@ namespace Pulumi.Aws.Iam.Inputs
 
         [Input("resources")]
         private List<string>? _resources;
-
-        /// <summary>
-        /// List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `NotResources`.
-        /// </summary>
         public List<string> Resources
         {
             get => _resources ?? (_resources = new List<string>());
             set => _resources = value;
         }
 
-        /// <summary>
-        /// Sid (statement ID) is an identifier for a policy statement.
-        /// </summary>
         [Input("sid")]
         public string? Sid { get; set; }
 

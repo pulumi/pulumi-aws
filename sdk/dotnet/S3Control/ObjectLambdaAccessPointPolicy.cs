@@ -9,120 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3Control
 {
-    /// <summary>
-    /// Provides a resource to manage an S3 Object Lambda Access Point resource policy.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3.Bucket("example", new()
-    ///     {
-    ///         BucketName = "example",
-    ///     });
-    /// 
-    ///     var exampleAccessPoint = new Aws.S3.AccessPoint("example", new()
-    ///     {
-    ///         Bucket = example.Id,
-    ///         Name = "example",
-    ///     });
-    /// 
-    ///     var exampleObjectLambdaAccessPoint = new Aws.S3Control.ObjectLambdaAccessPoint("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Configuration = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationArgs
-    ///         {
-    ///             SupportingAccessPoint = exampleAccessPoint.Arn,
-    ///             TransformationConfigurations = new[]
-    ///             {
-    ///                 new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs
-    ///                 {
-    ///                     Actions = new[]
-    ///                     {
-    ///                         "GetObject",
-    ///                     },
-    ///                     ContentTransformation = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs
-    ///                     {
-    ///                         AwsLambda = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs
-    ///                         {
-    ///                             FunctionArn = exampleAwsLambdaFunction.Arn,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleObjectLambdaAccessPointPolicy = new Aws.S3Control.ObjectLambdaAccessPointPolicy("example", new()
-    ///     {
-    ///         Name = exampleObjectLambdaAccessPoint.Name,
-    ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2008-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Action"] = "s3-object-lambda:GetObject",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["AWS"] = current.AccountId,
-    ///                     },
-    ///                     ["Resource"] = exampleObjectLambdaAccessPoint.Arn,
-    ///                 },
-    ///             },
-    ///         })),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Object Lambda Access Point policies using the `account_id` and `name`, separated by a colon (`:`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy example 123456789012:example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy")]
     public partial class ObjectLambdaAccessPointPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether this access point currently has a policy that allows public access.
-        /// </summary>
         [Output("hasPublicAccessPolicy")]
         public Output<bool> HasPublicAccessPolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Object Lambda Access Point.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The Object Lambda Access Point resource policy document.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -172,27 +73,15 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class ObjectLambdaAccessPointPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
-        /// <summary>
-        /// The name of the Object Lambda Access Point.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The Object Lambda Access Point resource policy document.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -204,33 +93,18 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class ObjectLambdaAccessPointPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
-        /// <summary>
-        /// Indicates whether this access point currently has a policy that allows public access.
-        /// </summary>
         [Input("hasPublicAccessPolicy")]
         public Input<bool>? HasPublicAccessPolicy { get; set; }
 
-        /// <summary>
-        /// The name of the Object Lambda Access Point.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The Object Lambda Access Point resource policy document.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

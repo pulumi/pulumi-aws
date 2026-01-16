@@ -54,9 +54,6 @@ class GetOpenIdConnectProviderResult:
     @_builtins.property
     @pulumi.getter(name="clientIdLists")
     def client_id_lists(self) -> Sequence[_builtins.str]:
-        """
-        List of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the client_id parameter on OAuth requests.)
-        """
         return pulumi.get(self, "client_id_lists")
 
     @_builtins.property
@@ -70,17 +67,11 @@ class GetOpenIdConnectProviderResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of resource tags for the IAM OIDC provider.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="thumbprintLists")
     def thumbprint_lists(self) -> Sequence[_builtins.str]:
-        """
-        List of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
-        """
         return pulumi.get(self, "thumbprint_lists")
 
     @_builtins.property
@@ -108,30 +99,7 @@ def get_open_id_connect_provider(arn: Optional[_builtins.str] = None,
                                  url: Optional[_builtins.str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOpenIdConnectProviderResult:
     """
-    This data source can be used to fetch information about a specific
-    IAM OpenID Connect provider. By using this data source, you can retrieve the
-    the resource information by either its `arn` or `url`.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.iam.get_open_id_connect_provider(arn="arn:aws:iam::123456789012:oidc-provider/accounts.google.com")
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.iam.get_open_id_connect_provider(url="https://accounts.google.com")
-    ```
-
-
-    :param _builtins.str arn: ARN of the OpenID Connect provider.
-    :param Mapping[str, _builtins.str] tags: Map of resource tags for the IAM OIDC provider.
-    :param _builtins.str url: URL of the OpenID Connect provider.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -152,30 +120,7 @@ def get_open_id_connect_provider_output(arn: Optional[pulumi.Input[Optional[_bui
                                         url: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOpenIdConnectProviderResult]:
     """
-    This data source can be used to fetch information about a specific
-    IAM OpenID Connect provider. By using this data source, you can retrieve the
-    the resource information by either its `arn` or `url`.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.iam.get_open_id_connect_provider(arn="arn:aws:iam::123456789012:oidc-provider/accounts.google.com")
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.iam.get_open_id_connect_provider(url="https://accounts.google.com")
-    ```
-
-
-    :param _builtins.str arn: ARN of the OpenID Connect provider.
-    :param Mapping[str, _builtins.str] tags: Map of resource tags for the IAM OIDC provider.
-    :param _builtins.str url: URL of the OpenID Connect provider.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

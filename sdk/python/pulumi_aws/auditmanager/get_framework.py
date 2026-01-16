@@ -124,23 +124,7 @@ def get_framework(framework_type: Optional[_builtins.str] = None,
                   region: Optional[_builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFrameworkResult:
     """
-    Data source for managing an AWS Audit Manager Framework.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.auditmanager.get_framework(name="Essential Eight",
-        framework_type="Standard")
-    ```
-
-
-    :param _builtins.str name: Name of the framework.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['frameworkType'] = framework_type
@@ -164,23 +148,7 @@ def get_framework_output(framework_type: Optional[pulumi.Input[_builtins.str]] =
                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFrameworkResult]:
     """
-    Data source for managing an AWS Audit Manager Framework.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.auditmanager.get_framework(name="Essential Eight",
-        framework_type="Standard")
-    ```
-
-
-    :param _builtins.str name: Name of the framework.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['frameworkType'] = framework_type

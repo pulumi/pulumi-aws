@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppSync.Outputs
     [OutputType]
     public sealed class DataSourceEventBridgeConfig
     {
-        /// <summary>
-        /// ARN for the EventBridge bus.
-        /// </summary>
         public readonly string EventBusArn;
 
         [OutputConstructor]

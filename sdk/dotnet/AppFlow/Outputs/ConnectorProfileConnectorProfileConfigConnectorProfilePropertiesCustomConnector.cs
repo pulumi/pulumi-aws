@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector
     {
-        /// <summary>
-        /// The OAuth 2.0 properties required for OAuth 2.0 authentication.
-        /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties? Oauth2Properties;
-        /// <summary>
-        /// A map of properties that are required to create a profile for the custom connector.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? ProfileProperties;
 
         [OutputConstructor]

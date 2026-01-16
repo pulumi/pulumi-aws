@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketReplicationConfigRuleFilter {
-    /**
-     * @return Configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
-     * 
-     */
     private @Nullable BucketReplicationConfigRuleFilterAnd and;
-    /**
-     * @return Object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
-     * 
-     */
     private @Nullable String prefix;
-    /**
-     * @return Configuration block for specifying a tag key and value. See below.
-     * 
-     */
     private @Nullable BucketReplicationConfigRuleFilterTag tag;
 
     private BucketReplicationConfigRuleFilter() {}
-    /**
-     * @return Configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
-     * 
-     */
     public Optional<BucketReplicationConfigRuleFilterAnd> and() {
         return Optional.ofNullable(this.and);
     }
-    /**
-     * @return Object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
-     * 
-     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
-    /**
-     * @return Configuration block for specifying a tag key and value. See below.
-     * 
-     */
     public Optional<BucketReplicationConfigRuleFilterTag> tag() {
         return Optional.ofNullable(this.tag);
     }

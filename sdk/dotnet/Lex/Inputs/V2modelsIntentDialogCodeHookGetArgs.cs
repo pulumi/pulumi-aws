@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsIntentDialogCodeHookGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Enables the dialog code hook so that it processes user requests.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 

@@ -12,131 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS WorkSpaces Web Browser Settings resource.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"AdditionalSettings": map[string]interface{}{
-//					"DownloadsSettings": map[string]interface{}{
-//						"Behavior": "DISABLE",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = workspacesweb.NewBrowserSettings(ctx, "example", &workspacesweb.BrowserSettingsArgs{
-//				BrowserPolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With All Arguments
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
-//				Description:          pulumi.String("KMS key for WorkSpaces Web Browser Settings"),
-//				DeletionWindowInDays: pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"chromePolicies": map[string]interface{}{
-//					"DefaultDownloadDirectory": map[string]interface{}{
-//						"value": "/home/as2-streaming-user/MyFiles/TemporaryFiles1",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = workspacesweb.NewBrowserSettings(ctx, "example", &workspacesweb.BrowserSettingsArgs{
-//				BrowserPolicy:      pulumi.String(json0),
-//				CustomerManagedKey: example.Arn,
-//				AdditionalEncryptionContext: pulumi.StringMap{
-//					"Environment": pulumi.String("Production"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example-browser-settings"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import WorkSpaces Web Browser Settings using the `browser_settings_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:workspacesweb/browserSettings:BrowserSettings example arn:aws:workspacesweb:us-west-2:123456789012:browsersettings/abcdef12345
-// ```
 type BrowserSettings struct {
 	pulumi.CustomResourceState
 
-	// Additional encryption context for the browser settings.
-	AdditionalEncryptionContext pulumi.StringMapOutput `pulumi:"additionalEncryptionContext"`
-	// List of web portal ARNs to associate with the browser settings.
-	AssociatedPortalArns pulumi.StringArrayOutput `pulumi:"associatedPortalArns"`
-	// Browser policy for the browser settings. This is a JSON string that defines the browser settings policy.
-	//
-	// The following arguments are optional:
-	BrowserPolicy pulumi.StringOutput `pulumi:"browserPolicy"`
-	// ARN of the browser settings resource.
-	BrowserSettingsArn pulumi.StringOutput `pulumi:"browserSettingsArn"`
-	// ARN of the customer managed KMS key.
-	CustomerManagedKey pulumi.StringPtrOutput `pulumi:"customerManagedKey"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	AdditionalEncryptionContext pulumi.StringMapOutput   `pulumi:"additionalEncryptionContext"`
+	AssociatedPortalArns        pulumi.StringArrayOutput `pulumi:"associatedPortalArns"`
+	BrowserPolicy               pulumi.StringOutput      `pulumi:"browserPolicy"`
+	BrowserSettingsArn          pulumi.StringOutput      `pulumi:"browserSettingsArn"`
+	CustomerManagedKey          pulumi.StringPtrOutput   `pulumi:"customerManagedKey"`
+	Region                      pulumi.StringOutput      `pulumi:"region"`
+	Tags                        pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll                     pulumi.StringMapOutput   `pulumi:"tagsAll"`
 }
 
 // NewBrowserSettings registers a new resource with the given unique name, arguments, and options.
@@ -178,45 +64,25 @@ func GetBrowserSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BrowserSettings resources.
 type browserSettingsState struct {
-	// Additional encryption context for the browser settings.
 	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`
-	// List of web portal ARNs to associate with the browser settings.
-	AssociatedPortalArns []string `pulumi:"associatedPortalArns"`
-	// Browser policy for the browser settings. This is a JSON string that defines the browser settings policy.
-	//
-	// The following arguments are optional:
-	BrowserPolicy *string `pulumi:"browserPolicy"`
-	// ARN of the browser settings resource.
-	BrowserSettingsArn *string `pulumi:"browserSettingsArn"`
-	// ARN of the customer managed KMS key.
-	CustomerManagedKey *string `pulumi:"customerManagedKey"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	AssociatedPortalArns        []string          `pulumi:"associatedPortalArns"`
+	BrowserPolicy               *string           `pulumi:"browserPolicy"`
+	BrowserSettingsArn          *string           `pulumi:"browserSettingsArn"`
+	CustomerManagedKey          *string           `pulumi:"customerManagedKey"`
+	Region                      *string           `pulumi:"region"`
+	Tags                        map[string]string `pulumi:"tags"`
+	TagsAll                     map[string]string `pulumi:"tagsAll"`
 }
 
 type BrowserSettingsState struct {
-	// Additional encryption context for the browser settings.
 	AdditionalEncryptionContext pulumi.StringMapInput
-	// List of web portal ARNs to associate with the browser settings.
-	AssociatedPortalArns pulumi.StringArrayInput
-	// Browser policy for the browser settings. This is a JSON string that defines the browser settings policy.
-	//
-	// The following arguments are optional:
-	BrowserPolicy pulumi.StringPtrInput
-	// ARN of the browser settings resource.
-	BrowserSettingsArn pulumi.StringPtrInput
-	// ARN of the customer managed KMS key.
-	CustomerManagedKey pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	AssociatedPortalArns        pulumi.StringArrayInput
+	BrowserPolicy               pulumi.StringPtrInput
+	BrowserSettingsArn          pulumi.StringPtrInput
+	CustomerManagedKey          pulumi.StringPtrInput
+	Region                      pulumi.StringPtrInput
+	Tags                        pulumi.StringMapInput
+	TagsAll                     pulumi.StringMapInput
 }
 
 func (BrowserSettingsState) ElementType() reflect.Type {
@@ -224,34 +90,20 @@ func (BrowserSettingsState) ElementType() reflect.Type {
 }
 
 type browserSettingsArgs struct {
-	// Additional encryption context for the browser settings.
 	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`
-	// Browser policy for the browser settings. This is a JSON string that defines the browser settings policy.
-	//
-	// The following arguments are optional:
-	BrowserPolicy string `pulumi:"browserPolicy"`
-	// ARN of the customer managed KMS key.
-	CustomerManagedKey *string `pulumi:"customerManagedKey"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	BrowserPolicy               string            `pulumi:"browserPolicy"`
+	CustomerManagedKey          *string           `pulumi:"customerManagedKey"`
+	Region                      *string           `pulumi:"region"`
+	Tags                        map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a BrowserSettings resource.
 type BrowserSettingsArgs struct {
-	// Additional encryption context for the browser settings.
 	AdditionalEncryptionContext pulumi.StringMapInput
-	// Browser policy for the browser settings. This is a JSON string that defines the browser settings policy.
-	//
-	// The following arguments are optional:
-	BrowserPolicy pulumi.StringInput
-	// ARN of the customer managed KMS key.
-	CustomerManagedKey pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	BrowserPolicy               pulumi.StringInput
+	CustomerManagedKey          pulumi.StringPtrInput
+	Region                      pulumi.StringPtrInput
+	Tags                        pulumi.StringMapInput
 }
 
 func (BrowserSettingsArgs) ElementType() reflect.Type {
@@ -341,44 +193,34 @@ func (o BrowserSettingsOutput) ToBrowserSettingsOutputWithContext(ctx context.Co
 	return o
 }
 
-// Additional encryption context for the browser settings.
 func (o BrowserSettingsOutput) AdditionalEncryptionContext() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BrowserSettings) pulumi.StringMapOutput { return v.AdditionalEncryptionContext }).(pulumi.StringMapOutput)
 }
 
-// List of web portal ARNs to associate with the browser settings.
 func (o BrowserSettingsOutput) AssociatedPortalArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BrowserSettings) pulumi.StringArrayOutput { return v.AssociatedPortalArns }).(pulumi.StringArrayOutput)
 }
 
-// Browser policy for the browser settings. This is a JSON string that defines the browser settings policy.
-//
-// The following arguments are optional:
 func (o BrowserSettingsOutput) BrowserPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *BrowserSettings) pulumi.StringOutput { return v.BrowserPolicy }).(pulumi.StringOutput)
 }
 
-// ARN of the browser settings resource.
 func (o BrowserSettingsOutput) BrowserSettingsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *BrowserSettings) pulumi.StringOutput { return v.BrowserSettingsArn }).(pulumi.StringOutput)
 }
 
-// ARN of the customer managed KMS key.
 func (o BrowserSettingsOutput) CustomerManagedKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrowserSettings) pulumi.StringPtrOutput { return v.CustomerManagedKey }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BrowserSettingsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BrowserSettings) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o BrowserSettingsOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BrowserSettings) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o BrowserSettingsOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BrowserSettings) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -9,95 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DataExchange
 {
-    /// <summary>
-    /// Resource for managing an AWS Data Exchange Event Action.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DataExchange.EventAction("example", new()
-    ///     {
-    ///         Event = new Aws.DataExchange.Inputs.EventActionEventArgs
-    ///         {
-    ///             RevisionPublished = new Aws.DataExchange.Inputs.EventActionEventRevisionPublishedArgs
-    ///             {
-    ///                 DataSetId = exampleAwsDataexchangeDataSet.Id,
-    ///             },
-    ///         },
-    ///         Action = new Aws.DataExchange.Inputs.EventActionActionArgs
-    ///         {
-    ///             ExportRevisionToS3 = new Aws.DataExchange.Inputs.EventActionActionExportRevisionToS3Args
-    ///             {
-    ///                 RevisionDestination = new Aws.DataExchange.Inputs.EventActionActionExportRevisionToS3RevisionDestinationArgs
-    ///                 {
-    ///                     Bucket = exampleAwsS3Bucket.Bucket,
-    ///                     KeyPattern = "${Revision.CreatedAt}/${Asset.Name}",
-    ///                 },
-    ///                 Encryption = new Aws.DataExchange.Inputs.EventActionActionExportRevisionToS3EncryptionArgs
-    ///                 {
-    ///                     Type = "aws:kms",
-    ///                     KmsKeyArn = exampleAwsKmsKey.Arn,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Data Exchange Event Action using the id. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:dataexchange/eventAction:EventAction example example-event-action-id
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:dataexchange/eventAction:EventAction")]
     public partial class EventAction : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Describes the action to take.
-        /// Described in `Action` Configuration Block below.
-        /// </summary>
         [Output("action")]
         public Output<Outputs.EventActionAction?> Action { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the event action.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Date and time when the resource was created.
-        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// Describes the event that triggers the `Action`.
-        /// Described in `Event` Configuration Block below.
-        /// </summary>
         [Output("event")]
         public Output<Outputs.EventActionEvent?> Event { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Data and time when the resource was last updated.
-        /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
@@ -147,23 +76,12 @@ namespace Pulumi.Aws.DataExchange
 
     public sealed class EventActionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Describes the action to take.
-        /// Described in `Action` Configuration Block below.
-        /// </summary>
         [Input("action")]
         public Input<Inputs.EventActionActionArgs>? Action { get; set; }
 
-        /// <summary>
-        /// Describes the event that triggers the `Action`.
-        /// Described in `Event` Configuration Block below.
-        /// </summary>
         [Input("event")]
         public Input<Inputs.EventActionEventArgs>? Event { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -175,41 +93,21 @@ namespace Pulumi.Aws.DataExchange
 
     public sealed class EventActionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Describes the action to take.
-        /// Described in `Action` Configuration Block below.
-        /// </summary>
         [Input("action")]
         public Input<Inputs.EventActionActionGetArgs>? Action { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the event action.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Date and time when the resource was created.
-        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
-        /// <summary>
-        /// Describes the event that triggers the `Action`.
-        /// Described in `Event` Configuration Block below.
-        /// </summary>
         [Input("event")]
         public Input<Inputs.EventActionEventGetArgs>? Event { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Data and time when the resource was last updated.
-        /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }
 

@@ -13,41 +13,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetWorkgroupEndpoint {
-    /**
-     * @return The DNS address of the VPC endpoint.
-     * 
-     */
     private String address;
-    /**
-     * @return The port that Amazon Redshift Serverless listens on.
-     * 
-     */
     private Integer port;
-    /**
-     * @return The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
-     * 
-     */
     private List<GetWorkgroupEndpointVpcEndpoint> vpcEndpoints;
 
     private GetWorkgroupEndpoint() {}
-    /**
-     * @return The DNS address of the VPC endpoint.
-     * 
-     */
     public String address() {
         return this.address;
     }
-    /**
-     * @return The port that Amazon Redshift Serverless listens on.
-     * 
-     */
     public Integer port() {
         return this.port;
     }
-    /**
-     * @return The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
-     * 
-     */
     public List<GetWorkgroupEndpointVpcEndpoint> vpcEndpoints() {
         return this.vpcEndpoints;
     }

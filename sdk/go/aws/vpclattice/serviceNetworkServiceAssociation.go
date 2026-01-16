@@ -12,67 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS VPC Lattice Service Network Service Association.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewServiceNetworkServiceAssociation(ctx, "example", &vpclattice.ServiceNetworkServiceAssociationArgs{
-//				ServiceIdentifier:        pulumi.Any(exampleAwsVpclatticeService.Id),
-//				ServiceNetworkIdentifier: pulumi.Any(exampleAwsVpclatticeServiceNetwork.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import VPC Lattice Service Network Service Association using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation example snsa-05e2474658a88f6ba
-// ```
 type ServiceNetworkServiceAssociation struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Association.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The account that created the association.
-	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
-	// The custom domain name of the service.
-	CustomDomainName pulumi.StringOutput `pulumi:"customDomainName"`
-	// The DNS name of the service.
-	DnsEntries ServiceNetworkServiceAssociationDnsEntryArrayOutput `pulumi:"dnsEntries"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The ID or Amazon Resource Identifier (ARN) of the service.
-	ServiceIdentifier pulumi.StringOutput `pulumi:"serviceIdentifier"`
-	// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-	ServiceNetworkIdentifier pulumi.StringOutput `pulumi:"serviceNetworkIdentifier"`
-	// The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                      pulumi.StringOutput                                 `pulumi:"arn"`
+	CreatedBy                pulumi.StringOutput                                 `pulumi:"createdBy"`
+	CustomDomainName         pulumi.StringOutput                                 `pulumi:"customDomainName"`
+	DnsEntries               ServiceNetworkServiceAssociationDnsEntryArrayOutput `pulumi:"dnsEntries"`
+	Region                   pulumi.StringOutput                                 `pulumi:"region"`
+	ServiceIdentifier        pulumi.StringOutput                                 `pulumi:"serviceIdentifier"`
+	ServiceNetworkIdentifier pulumi.StringOutput                                 `pulumi:"serviceNetworkIdentifier"`
+	Status                   pulumi.StringOutput                                 `pulumi:"status"`
+	Tags                     pulumi.StringMapOutput                              `pulumi:"tags"`
+	TagsAll                  pulumi.StringMapOutput                              `pulumi:"tagsAll"`
 }
 
 // NewServiceNetworkServiceAssociation registers a new resource with the given unique name, arguments, and options.
@@ -111,49 +63,29 @@ func GetServiceNetworkServiceAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceNetworkServiceAssociation resources.
 type serviceNetworkServiceAssociationState struct {
-	// The ARN of the Association.
-	Arn *string `pulumi:"arn"`
-	// The account that created the association.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The custom domain name of the service.
-	CustomDomainName *string `pulumi:"customDomainName"`
-	// The DNS name of the service.
-	DnsEntries []ServiceNetworkServiceAssociationDnsEntry `pulumi:"dnsEntries"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID or Amazon Resource Identifier (ARN) of the service.
-	ServiceIdentifier *string `pulumi:"serviceIdentifier"`
-	// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-	ServiceNetworkIdentifier *string `pulumi:"serviceNetworkIdentifier"`
-	// The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
-	Status *string `pulumi:"status"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                      *string                                    `pulumi:"arn"`
+	CreatedBy                *string                                    `pulumi:"createdBy"`
+	CustomDomainName         *string                                    `pulumi:"customDomainName"`
+	DnsEntries               []ServiceNetworkServiceAssociationDnsEntry `pulumi:"dnsEntries"`
+	Region                   *string                                    `pulumi:"region"`
+	ServiceIdentifier        *string                                    `pulumi:"serviceIdentifier"`
+	ServiceNetworkIdentifier *string                                    `pulumi:"serviceNetworkIdentifier"`
+	Status                   *string                                    `pulumi:"status"`
+	Tags                     map[string]string                          `pulumi:"tags"`
+	TagsAll                  map[string]string                          `pulumi:"tagsAll"`
 }
 
 type ServiceNetworkServiceAssociationState struct {
-	// The ARN of the Association.
-	Arn pulumi.StringPtrInput
-	// The account that created the association.
-	CreatedBy pulumi.StringPtrInput
-	// The custom domain name of the service.
-	CustomDomainName pulumi.StringPtrInput
-	// The DNS name of the service.
-	DnsEntries ServiceNetworkServiceAssociationDnsEntryArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID or Amazon Resource Identifier (ARN) of the service.
-	ServiceIdentifier pulumi.StringPtrInput
-	// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+	Arn                      pulumi.StringPtrInput
+	CreatedBy                pulumi.StringPtrInput
+	CustomDomainName         pulumi.StringPtrInput
+	DnsEntries               ServiceNetworkServiceAssociationDnsEntryArrayInput
+	Region                   pulumi.StringPtrInput
+	ServiceIdentifier        pulumi.StringPtrInput
 	ServiceNetworkIdentifier pulumi.StringPtrInput
-	// The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
-	Status pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Status                   pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
+	TagsAll                  pulumi.StringMapInput
 }
 
 func (ServiceNetworkServiceAssociationState) ElementType() reflect.Type {
@@ -161,26 +93,18 @@ func (ServiceNetworkServiceAssociationState) ElementType() reflect.Type {
 }
 
 type serviceNetworkServiceAssociationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID or Amazon Resource Identifier (ARN) of the service.
-	ServiceIdentifier string `pulumi:"serviceIdentifier"`
-	// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-	ServiceNetworkIdentifier string `pulumi:"serviceNetworkIdentifier"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Region                   *string           `pulumi:"region"`
+	ServiceIdentifier        string            `pulumi:"serviceIdentifier"`
+	ServiceNetworkIdentifier string            `pulumi:"serviceNetworkIdentifier"`
+	Tags                     map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ServiceNetworkServiceAssociation resource.
 type ServiceNetworkServiceAssociationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID or Amazon Resource Identifier (ARN) of the service.
-	ServiceIdentifier pulumi.StringInput
-	// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+	Region                   pulumi.StringPtrInput
+	ServiceIdentifier        pulumi.StringInput
 	ServiceNetworkIdentifier pulumi.StringInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags                     pulumi.StringMapInput
 }
 
 func (ServiceNetworkServiceAssociationArgs) ElementType() reflect.Type {
@@ -270,54 +194,44 @@ func (o ServiceNetworkServiceAssociationOutput) ToServiceNetworkServiceAssociati
 	return o
 }
 
-// The ARN of the Association.
 func (o ServiceNetworkServiceAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The account that created the association.
 func (o ServiceNetworkServiceAssociationOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
-// The custom domain name of the service.
 func (o ServiceNetworkServiceAssociationOutput) CustomDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) pulumi.StringOutput { return v.CustomDomainName }).(pulumi.StringOutput)
 }
 
-// The DNS name of the service.
 func (o ServiceNetworkServiceAssociationOutput) DnsEntries() ServiceNetworkServiceAssociationDnsEntryArrayOutput {
 	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) ServiceNetworkServiceAssociationDnsEntryArrayOutput {
 		return v.DnsEntries
 	}).(ServiceNetworkServiceAssociationDnsEntryArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ServiceNetworkServiceAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ID or Amazon Resource Identifier (ARN) of the service.
 func (o ServiceNetworkServiceAssociationOutput) ServiceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) pulumi.StringOutput { return v.ServiceIdentifier }).(pulumi.StringOutput)
 }
 
-// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
 func (o ServiceNetworkServiceAssociationOutput) ServiceNetworkIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) pulumi.StringOutput { return v.ServiceNetworkIdentifier }).(pulumi.StringOutput)
 }
 
-// The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
 func (o ServiceNetworkServiceAssociationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ServiceNetworkServiceAssociationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ServiceNetworkServiceAssociationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

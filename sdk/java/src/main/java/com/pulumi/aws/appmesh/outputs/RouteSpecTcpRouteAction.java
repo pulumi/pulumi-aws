@@ -11,19 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class RouteSpecTcpRouteAction {
-    /**
-     * @return Targets that traffic is routed to when a request matches the route.
-     * You can specify one or more targets and their relative weights with which to distribute traffic.
-     * 
-     */
     private List<RouteSpecTcpRouteActionWeightedTarget> weightedTargets;
 
     private RouteSpecTcpRouteAction() {}
-    /**
-     * @return Targets that traffic is routed to when a request matches the route.
-     * You can specify one or more targets and their relative weights with which to distribute traffic.
-     * 
-     */
     public List<RouteSpecTcpRouteActionWeightedTarget> weightedTargets() {
         return this.weightedTargets;
     }

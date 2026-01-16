@@ -34,281 +34,97 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LogTransformerTransformerConfig {
-    /**
-     * @return Adds new key-value pairs to the log event. See `addKeys` below for details.
-     * 
-     */
     private @Nullable LogTransformerTransformerConfigAddKeys addKeys;
-    /**
-     * @return Copies values within a log event. See `copyValue` below for details.
-     * 
-     */
     private @Nullable LogTransformerTransformerConfigCopyValue copyValue;
-    /**
-     * @return Parses comma-separated values (CSV) from the log events into columns. See `csv` below for details.
-     * 
-     */
     private @Nullable List<LogTransformerTransformerConfigCsv> csvs;
-    /**
-     * @return Converts a datetime string into a format that you specify. See `dateTimeConverter` below for details.
-     * 
-     */
     private @Nullable List<LogTransformerTransformerConfigDateTimeConverter> dateTimeConverters;
-    /**
-     * @return Deletes entry from a log event. See `deleteKeys` below for details.
-     * 
-     */
     private @Nullable List<LogTransformerTransformerConfigDeleteKey> deleteKeys;
-    /**
-     * @return Parses and structures unstructured data by using pattern matching. See `grok` below for details.
-     * 
-     */
     private @Nullable LogTransformerTransformerConfigGrok grok;
-    /**
-     * @return Converts list of objects that contain key fields into a map of target keys. See `listToMap` below for details.
-     * 
-     */
     private @Nullable List<LogTransformerTransformerConfigListToMap> listToMaps;
-    /**
-     * @return Converts a string to lowercase. See `lowerCaseString` below for details.
-     * 
-     */
     private @Nullable List<LogTransformerTransformerConfigLowerCaseString> lowerCaseStrings;
-    /**
-     * @return Moves a key from one field to another. See `moveKeys` below for details.
-     * 
-     */
     private @Nullable List<LogTransformerTransformerConfigMoveKey> moveKeys;
-    /**
-     * @return Parses CloudFront vended logs, extracts fields, and converts them into JSON format. See `parseCloudfront` below for details.
-     * 
-     */
     private @Nullable LogTransformerTransformerConfigParseCloudfront parseCloudfront;
-    /**
-     * @return Parses log events that are in JSON format. See `parseJson` below for details.
-     * 
-     */
     private @Nullable List<LogTransformerTransformerConfigParseJson> parseJsons;
-    /**
-     * @return Parses a specified field in the original log event into key-value pairs. See `parseKeyValue` below for details.
-     * 
-     */
     private @Nullable List<LogTransformerTransformerConfigParseKeyValue> parseKeyValues;
-    /**
-     * @return Parses RDS for PostgreSQL vended logs, extracts fields, and and convert them into a JSON format. See `parsePostgres` below for details.
-     * 
-     */
     private @Nullable LogTransformerTransformerConfigParsePostgres parsePostgres;
-    /**
-     * @return Parses Route 53 vended logs, extracts fields, and converts them into JSON format. See `parseRoute53` below for details.
-     * 
-     */
     private @Nullable LogTransformerTransformerConfigParseRoute53 parseRoute53;
-    /**
-     * @return Parses logs events and converts them into Open Cybersecurity Schema Framework (OCSF) events. See `parseToOcsf` below for details.
-     * 
-     */
     private @Nullable LogTransformerTransformerConfigParseToOcsf parseToOcsf;
-    /**
-     * @return Parses Amazon VPC vended logs, extracts fields, and converts them into JSON format. See `parseVpc` below for details.
-     * 
-     */
     private @Nullable LogTransformerTransformerConfigParseVpc parseVpc;
-    /**
-     * @return Parses AWS WAF vended logs, extracts fields, and converts them into JSON format. See `parseWaf` below for details.
-     * 
-     */
     private @Nullable LogTransformerTransformerConfigParseWaf parseWaf;
-    /**
-     * @return Renames keys in a log event. See `renameKeys` below for details.
-     * 
-     */
     private @Nullable List<LogTransformerTransformerConfigRenameKey> renameKeys;
-    /**
-     * @return Splits a field into an array of strings using a delimiting character. See `splitString` below for details.
-     * 
-     */
     private @Nullable List<LogTransformerTransformerConfigSplitString> splitStrings;
-    /**
-     * @return Matches a key’s value against a regular expression and replaces all matches with a replacement string. See `substituteString` below for details.
-     * 
-     */
     private @Nullable List<LogTransformerTransformerConfigSubstituteString> substituteStrings;
-    /**
-     * @return Removes leading and trailing whitespace from a string. See `trimString` below for details.
-     * 
-     */
     private @Nullable List<LogTransformerTransformerConfigTrimString> trimStrings;
-    /**
-     * @return Converts a value type associated with the specified key to the specified type. See `typeConverter` below for details.
-     * 
-     */
     private @Nullable List<LogTransformerTransformerConfigTypeConverter> typeConverters;
-    /**
-     * @return Converts a string to uppercase. See `upperCaseString` below for details.
-     * 
-     */
     private @Nullable List<LogTransformerTransformerConfigUpperCaseString> upperCaseStrings;
 
     private LogTransformerTransformerConfig() {}
-    /**
-     * @return Adds new key-value pairs to the log event. See `addKeys` below for details.
-     * 
-     */
     public Optional<LogTransformerTransformerConfigAddKeys> addKeys() {
         return Optional.ofNullable(this.addKeys);
     }
-    /**
-     * @return Copies values within a log event. See `copyValue` below for details.
-     * 
-     */
     public Optional<LogTransformerTransformerConfigCopyValue> copyValue() {
         return Optional.ofNullable(this.copyValue);
     }
-    /**
-     * @return Parses comma-separated values (CSV) from the log events into columns. See `csv` below for details.
-     * 
-     */
     public List<LogTransformerTransformerConfigCsv> csvs() {
         return this.csvs == null ? List.of() : this.csvs;
     }
-    /**
-     * @return Converts a datetime string into a format that you specify. See `dateTimeConverter` below for details.
-     * 
-     */
     public List<LogTransformerTransformerConfigDateTimeConverter> dateTimeConverters() {
         return this.dateTimeConverters == null ? List.of() : this.dateTimeConverters;
     }
-    /**
-     * @return Deletes entry from a log event. See `deleteKeys` below for details.
-     * 
-     */
     public List<LogTransformerTransformerConfigDeleteKey> deleteKeys() {
         return this.deleteKeys == null ? List.of() : this.deleteKeys;
     }
-    /**
-     * @return Parses and structures unstructured data by using pattern matching. See `grok` below for details.
-     * 
-     */
     public Optional<LogTransformerTransformerConfigGrok> grok() {
         return Optional.ofNullable(this.grok);
     }
-    /**
-     * @return Converts list of objects that contain key fields into a map of target keys. See `listToMap` below for details.
-     * 
-     */
     public List<LogTransformerTransformerConfigListToMap> listToMaps() {
         return this.listToMaps == null ? List.of() : this.listToMaps;
     }
-    /**
-     * @return Converts a string to lowercase. See `lowerCaseString` below for details.
-     * 
-     */
     public List<LogTransformerTransformerConfigLowerCaseString> lowerCaseStrings() {
         return this.lowerCaseStrings == null ? List.of() : this.lowerCaseStrings;
     }
-    /**
-     * @return Moves a key from one field to another. See `moveKeys` below for details.
-     * 
-     */
     public List<LogTransformerTransformerConfigMoveKey> moveKeys() {
         return this.moveKeys == null ? List.of() : this.moveKeys;
     }
-    /**
-     * @return Parses CloudFront vended logs, extracts fields, and converts them into JSON format. See `parseCloudfront` below for details.
-     * 
-     */
     public Optional<LogTransformerTransformerConfigParseCloudfront> parseCloudfront() {
         return Optional.ofNullable(this.parseCloudfront);
     }
-    /**
-     * @return Parses log events that are in JSON format. See `parseJson` below for details.
-     * 
-     */
     public List<LogTransformerTransformerConfigParseJson> parseJsons() {
         return this.parseJsons == null ? List.of() : this.parseJsons;
     }
-    /**
-     * @return Parses a specified field in the original log event into key-value pairs. See `parseKeyValue` below for details.
-     * 
-     */
     public List<LogTransformerTransformerConfigParseKeyValue> parseKeyValues() {
         return this.parseKeyValues == null ? List.of() : this.parseKeyValues;
     }
-    /**
-     * @return Parses RDS for PostgreSQL vended logs, extracts fields, and and convert them into a JSON format. See `parsePostgres` below for details.
-     * 
-     */
     public Optional<LogTransformerTransformerConfigParsePostgres> parsePostgres() {
         return Optional.ofNullable(this.parsePostgres);
     }
-    /**
-     * @return Parses Route 53 vended logs, extracts fields, and converts them into JSON format. See `parseRoute53` below for details.
-     * 
-     */
     public Optional<LogTransformerTransformerConfigParseRoute53> parseRoute53() {
         return Optional.ofNullable(this.parseRoute53);
     }
-    /**
-     * @return Parses logs events and converts them into Open Cybersecurity Schema Framework (OCSF) events. See `parseToOcsf` below for details.
-     * 
-     */
     public Optional<LogTransformerTransformerConfigParseToOcsf> parseToOcsf() {
         return Optional.ofNullable(this.parseToOcsf);
     }
-    /**
-     * @return Parses Amazon VPC vended logs, extracts fields, and converts them into JSON format. See `parseVpc` below for details.
-     * 
-     */
     public Optional<LogTransformerTransformerConfigParseVpc> parseVpc() {
         return Optional.ofNullable(this.parseVpc);
     }
-    /**
-     * @return Parses AWS WAF vended logs, extracts fields, and converts them into JSON format. See `parseWaf` below for details.
-     * 
-     */
     public Optional<LogTransformerTransformerConfigParseWaf> parseWaf() {
         return Optional.ofNullable(this.parseWaf);
     }
-    /**
-     * @return Renames keys in a log event. See `renameKeys` below for details.
-     * 
-     */
     public List<LogTransformerTransformerConfigRenameKey> renameKeys() {
         return this.renameKeys == null ? List.of() : this.renameKeys;
     }
-    /**
-     * @return Splits a field into an array of strings using a delimiting character. See `splitString` below for details.
-     * 
-     */
     public List<LogTransformerTransformerConfigSplitString> splitStrings() {
         return this.splitStrings == null ? List.of() : this.splitStrings;
     }
-    /**
-     * @return Matches a key’s value against a regular expression and replaces all matches with a replacement string. See `substituteString` below for details.
-     * 
-     */
     public List<LogTransformerTransformerConfigSubstituteString> substituteStrings() {
         return this.substituteStrings == null ? List.of() : this.substituteStrings;
     }
-    /**
-     * @return Removes leading and trailing whitespace from a string. See `trimString` below for details.
-     * 
-     */
     public List<LogTransformerTransformerConfigTrimString> trimStrings() {
         return this.trimStrings == null ? List.of() : this.trimStrings;
     }
-    /**
-     * @return Converts a value type associated with the specified key to the specified type. See `typeConverter` below for details.
-     * 
-     */
     public List<LogTransformerTransformerConfigTypeConverter> typeConverters() {
         return this.typeConverters == null ? List.of() : this.typeConverters;
     }
-    /**
-     * @return Converts a string to uppercase. See `upperCaseString` below for details.
-     * 
-     */
     public List<LogTransformerTransformerConfigUpperCaseString> upperCaseStrings() {
         return this.upperCaseStrings == null ? List.of() : this.upperCaseStrings;
     }

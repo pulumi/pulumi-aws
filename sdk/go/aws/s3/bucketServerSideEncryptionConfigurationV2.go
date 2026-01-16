@@ -12,162 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a S3 bucket server-side encryption configuration resource.
-//
-// > **NOTE:** Destroying an `s3.BucketServerSideEncryptionConfiguration` resource resets the bucket to [Amazon S3 bucket default encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html).
-//
-// > **NOTE:** Starting in March 2026, Amazon S3 will automatically block server-side encryption with customer-provided keys (SSE-C) for all new buckets. Use the `blockedEncryptionTypes` argument to manage this behavior. For more information, see the [SSE-C changes FAQ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-s3-c-encryption-setting-faq.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			mykey, err := kms.NewKey(ctx, "mykey", &kms.KeyArgs{
-//				Description:          pulumi.String("This key is used to encrypt bucket objects"),
-//				DeletionWindowInDays: pulumi.Int(10),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			mybucket, err := s3.NewBucket(ctx, "mybucket", &s3.BucketArgs{
-//				Bucket: pulumi.String("mybucket"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketServerSideEncryptionConfiguration(ctx, "example", &s3.BucketServerSideEncryptionConfigurationArgs{
-//				Bucket: mybucket.ID(),
-//				Rules: s3.BucketServerSideEncryptionConfigurationRuleArray{
-//					&s3.BucketServerSideEncryptionConfigurationRuleArgs{
-//						ApplyServerSideEncryptionByDefault: &s3.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs{
-//							KmsMasterKeyId: mykey.Arn,
-//							SseAlgorithm:   pulumi.String("aws:kms"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Blocking SSE-C Uploads
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			mykey, err := kms.NewKey(ctx, "mykey", &kms.KeyArgs{
-//				Description:          pulumi.String("This key is used to encrypt bucket objects"),
-//				DeletionWindowInDays: pulumi.Int(10),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			mybucket, err := s3.NewBucket(ctx, "mybucket", &s3.BucketArgs{
-//				Bucket: pulumi.String("mybucket"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketServerSideEncryptionConfiguration(ctx, "example", &s3.BucketServerSideEncryptionConfigurationArgs{
-//				Bucket: mybucket.ID(),
-//				Rules: s3.BucketServerSideEncryptionConfigurationRuleArray{
-//					&s3.BucketServerSideEncryptionConfigurationRuleArgs{
-//						ApplyServerSideEncryptionByDefault: &s3.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs{
-//							KmsMasterKeyId: mykey.Arn,
-//							SseAlgorithm:   pulumi.String("aws:kms"),
-//						},
-//						BucketKeyEnabled: pulumi.Bool(true),
-//						BlockedEncryptionTypes: pulumi.StringArray{
-//							pulumi.String("SSE-C"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// * `bucket` (String) S3 bucket name.
-//
-// #### Optional
-//
-// * `account_id` (String) AWS Account where this resource is managed.
-//
-// * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
-//
-// * `region` (String) Region where this resource is managed.
-//
-// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-//
-// terraform
-//
-// import {
-//
-//	to = aws_s3_bucket_server_side_encryption_configuration.example
-//
-//	id = "bucket-name,123456789012"
-//
-// }
-//
-// **Using `pulumi import` to import** S3 bucket server-side encryption configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
-//
-// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
-//
-// % pulumi import aws_s3_bucket_server_side_encryption_configuration.example bucket-name
-//
-// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-//
-// % pulumi import aws_s3_bucket_server_side_encryption_configuration.example bucket-name,123456789012
-//
 // Deprecated: aws.s3/bucketserversideencryptionconfigurationv2.BucketServerSideEncryptionConfigurationV2 has been deprecated in favor of aws.s3/bucketserversideencryptionconfiguration.BucketServerSideEncryptionConfiguration
 type BucketServerSideEncryptionConfigurationV2 struct {
 	pulumi.CustomResourceState
 
-	// ID (name) of the bucket.
-	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// Account ID of the expected bucket owner.
-	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
-	Rules BucketServerSideEncryptionConfigurationV2RuleArrayOutput `pulumi:"rules"`
+	Bucket              pulumi.StringOutput                                      `pulumi:"bucket"`
+	ExpectedBucketOwner pulumi.StringPtrOutput                                   `pulumi:"expectedBucketOwner"`
+	Region              pulumi.StringOutput                                      `pulumi:"region"`
+	Rules               BucketServerSideEncryptionConfigurationV2RuleArrayOutput `pulumi:"rules"`
 }
 
 // NewBucketServerSideEncryptionConfigurationV2 registers a new resource with the given unique name, arguments, and options.
@@ -212,25 +64,17 @@ func GetBucketServerSideEncryptionConfigurationV2(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketServerSideEncryptionConfigurationV2 resources.
 type bucketServerSideEncryptionConfigurationV2State struct {
-	// ID (name) of the bucket.
-	Bucket *string `pulumi:"bucket"`
-	// Account ID of the expected bucket owner.
-	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
-	Rules []BucketServerSideEncryptionConfigurationV2Rule `pulumi:"rules"`
+	Bucket              *string                                         `pulumi:"bucket"`
+	ExpectedBucketOwner *string                                         `pulumi:"expectedBucketOwner"`
+	Region              *string                                         `pulumi:"region"`
+	Rules               []BucketServerSideEncryptionConfigurationV2Rule `pulumi:"rules"`
 }
 
 type BucketServerSideEncryptionConfigurationV2State struct {
-	// ID (name) of the bucket.
-	Bucket pulumi.StringPtrInput
-	// Account ID of the expected bucket owner.
+	Bucket              pulumi.StringPtrInput
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
-	Rules BucketServerSideEncryptionConfigurationV2RuleArrayInput
+	Region              pulumi.StringPtrInput
+	Rules               BucketServerSideEncryptionConfigurationV2RuleArrayInput
 }
 
 func (BucketServerSideEncryptionConfigurationV2State) ElementType() reflect.Type {
@@ -238,26 +82,18 @@ func (BucketServerSideEncryptionConfigurationV2State) ElementType() reflect.Type
 }
 
 type bucketServerSideEncryptionConfigurationV2Args struct {
-	// ID (name) of the bucket.
-	Bucket string `pulumi:"bucket"`
-	// Account ID of the expected bucket owner.
-	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
-	Rules []BucketServerSideEncryptionConfigurationV2Rule `pulumi:"rules"`
+	Bucket              string                                          `pulumi:"bucket"`
+	ExpectedBucketOwner *string                                         `pulumi:"expectedBucketOwner"`
+	Region              *string                                         `pulumi:"region"`
+	Rules               []BucketServerSideEncryptionConfigurationV2Rule `pulumi:"rules"`
 }
 
 // The set of arguments for constructing a BucketServerSideEncryptionConfigurationV2 resource.
 type BucketServerSideEncryptionConfigurationV2Args struct {
-	// ID (name) of the bucket.
-	Bucket pulumi.StringInput
-	// Account ID of the expected bucket owner.
+	Bucket              pulumi.StringInput
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
-	Rules BucketServerSideEncryptionConfigurationV2RuleArrayInput
+	Region              pulumi.StringPtrInput
+	Rules               BucketServerSideEncryptionConfigurationV2RuleArrayInput
 }
 
 func (BucketServerSideEncryptionConfigurationV2Args) ElementType() reflect.Type {
@@ -347,24 +183,20 @@ func (o BucketServerSideEncryptionConfigurationV2Output) ToBucketServerSideEncry
 	return o
 }
 
-// ID (name) of the bucket.
 func (o BucketServerSideEncryptionConfigurationV2Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketServerSideEncryptionConfigurationV2) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Account ID of the expected bucket owner.
 func (o BucketServerSideEncryptionConfigurationV2Output) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketServerSideEncryptionConfigurationV2) pulumi.StringPtrOutput {
 		return v.ExpectedBucketOwner
 	}).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BucketServerSideEncryptionConfigurationV2Output) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketServerSideEncryptionConfigurationV2) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
 func (o BucketServerSideEncryptionConfigurationV2Output) Rules() BucketServerSideEncryptionConfigurationV2RuleArrayOutput {
 	return o.ApplyT(func(v *BucketServerSideEncryptionConfigurationV2) BucketServerSideEncryptionConfigurationV2RuleArrayOutput {
 		return v.Rules

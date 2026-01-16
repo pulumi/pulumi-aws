@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ReceiptRuleStopAction {
-    /**
-     * @return The position of the action in the receipt rule
-     * 
-     */
     private Integer position;
-    /**
-     * @return The scope to apply. The only acceptable value is `RuleSet`.
-     * 
-     */
     private String scope;
-    /**
-     * @return The ARN of an SNS topic to notify
-     * 
-     */
     private @Nullable String topicArn;
 
     private ReceiptRuleStopAction() {}
-    /**
-     * @return The position of the action in the receipt rule
-     * 
-     */
     public Integer position() {
         return this.position;
     }
-    /**
-     * @return The scope to apply. The only acceptable value is `RuleSet`.
-     * 
-     */
     public String scope() {
         return this.scope;
     }
-    /**
-     * @return The ARN of an SNS topic to notify
-     * 
-     */
     public Optional<String> topicArn() {
         return Optional.ofNullable(this.topicArn);
     }

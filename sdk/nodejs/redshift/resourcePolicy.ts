@@ -4,40 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Creates a new Amazon Redshift Resource Policy.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.redshift.ResourcePolicy("example", {
- *     resourceArn: exampleAwsRedshiftCluster.clusterNamespaceArn,
- *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Effect: "Allow",
- *             Principal: {
- *                 AWS: "arn:aws:iam::12345678901:root",
- *             },
- *             Action: "redshift:CreateInboundIntegration",
- *             Resource: exampleAwsRedshiftCluster.clusterNamespaceArn,
- *             Sid: "",
- *         }],
- *     }),
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Redshift Resource Policies using the `resource_arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:redshift/resourcePolicy:ResourcePolicy example example
- * ```
- */
 export class ResourcePolicy extends pulumi.CustomResource {
     /**
      * Get an existing ResourcePolicy resource's state with the given name, ID, and optional extra
@@ -66,17 +32,8 @@ export class ResourcePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourcePolicy.__pulumiType;
     }
 
-    /**
-     * The content of the resource policy being updated.
-     */
     declare public readonly policy: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
-     */
     declare public readonly resourceArn: pulumi.Output<string>;
 
     /**
@@ -116,17 +73,8 @@ export class ResourcePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResourcePolicy resources.
  */
 export interface ResourcePolicyState {
-    /**
-     * The content of the resource policy being updated.
-     */
     policy?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
-     */
     resourceArn?: pulumi.Input<string>;
 }
 
@@ -134,16 +82,7 @@ export interface ResourcePolicyState {
  * The set of arguments for constructing a ResourcePolicy resource.
  */
 export interface ResourcePolicyArgs {
-    /**
-     * The content of the resource policy being updated.
-     */
     policy: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
-     */
     resourceArn: pulumi.Input<string>;
 }

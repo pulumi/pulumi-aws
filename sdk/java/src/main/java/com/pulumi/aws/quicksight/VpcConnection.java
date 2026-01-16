@@ -17,122 +17,17 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS QuickSight VPC Connection.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.inputs.RoleInlinePolicyArgs;
- * import com.pulumi.aws.quicksight.VpcConnection;
- * import com.pulumi.aws.quicksight.VpcConnectionArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var vpcConnectionRole = new Role("vpcConnectionRole", RoleArgs.builder()
- *             .assumeRolePolicy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Version", "2012-10-17"),
- *                     jsonProperty("Statement", jsonArray(jsonObject(
- *                         jsonProperty("Effect", "Allow"),
- *                         jsonProperty("Action", "sts:AssumeRole"),
- *                         jsonProperty("Principal", jsonObject(
- *                             jsonProperty("Service", "quicksight.amazonaws.com")
- *                         ))
- *                     )))
- *                 )))
- *             .inlinePolicies(RoleInlinePolicyArgs.builder()
- *                 .name("QuickSightVPCConnectionRolePolicy")
- *                 .policy(serializeJson(
- *                     jsonObject(
- *                         jsonProperty("Version", "2012-10-17"),
- *                         jsonProperty("Statement", jsonArray(jsonObject(
- *                             jsonProperty("Effect", "Allow"),
- *                             jsonProperty("Action", jsonArray(
- *                                 "ec2:CreateNetworkInterface", 
- *                                 "ec2:ModifyNetworkInterfaceAttribute", 
- *                                 "ec2:DeleteNetworkInterface", 
- *                                 "ec2:DescribeSubnets", 
- *                                 "ec2:DescribeSecurityGroups"
- *                             )),
- *                             jsonProperty("Resource", jsonArray("*"))
- *                         )))
- *                     )))
- *                 .build())
- *             .build());
- * 
- *         var example = new VpcConnection("example", VpcConnectionArgs.builder()
- *             .vpcConnectionId("example-connection-id")
- *             .name("Example Connection")
- *             .roleArn(vpcConnectionRole.arn())
- *             .securityGroupIds("sg-00000000000000000")
- *             .subnetIds(            
- *                 "subnet-00000000000000000",
- *                 "subnet-00000000000000001")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import QuickSight VPC connection using the AWS account ID and VPC connection ID separated by commas (`,`). For example:
- * 
- * ```sh
- * $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
- * ```
- * 
- */
 @ResourceType(type="aws:quicksight/vpcConnection:VpcConnection")
 public class VpcConnection extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the VPC connection.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the VPC connection.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
-     * 
-     */
     @Export(name="availabilityStatus", refs={String.class}, tree="[0]")
     private Output<String> availabilityStatus;
 
-    /**
-     * @return The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
-     * 
-     */
     public Output<String> availabilityStatus() {
         return this.availabilityStatus;
     }
@@ -142,119 +37,51 @@ public class VpcConnection extends com.pulumi.resources.CustomResource {
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }
-    /**
-     * A list of IP addresses of DNS resolver endpoints for the VPC connection.
-     * 
-     */
     @Export(name="dnsResolvers", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dnsResolvers;
 
-    /**
-     * @return A list of IP addresses of DNS resolver endpoints for the VPC connection.
-     * 
-     */
     public Output<Optional<List<String>>> dnsResolvers() {
         return Codegen.optional(this.dnsResolvers);
     }
-    /**
-     * The display name for the VPC connection.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The display name for the VPC connection.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The IAM role to associate with the VPC connection.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
-    /**
-     * @return The IAM role to associate with the VPC connection.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
-    /**
-     * A list of security group IDs for the VPC connection.
-     * 
-     */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupIds;
 
-    /**
-     * @return A list of security group IDs for the VPC connection.
-     * 
-     */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * A list of subnet IDs for the VPC connection.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
-    /**
-     * @return A list of subnet IDs for the VPC connection.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
@@ -264,17 +91,9 @@ public class VpcConnection extends com.pulumi.resources.CustomResource {
     public Output<Optional<VpcConnectionTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * The ID of the VPC connection.
-     * 
-     */
     @Export(name="vpcConnectionId", refs={String.class}, tree="[0]")
     private Output<String> vpcConnectionId;
 
-    /**
-     * @return The ID of the VPC connection.
-     * 
-     */
     public Output<String> vpcConnectionId() {
         return this.vpcConnectionId;
     }

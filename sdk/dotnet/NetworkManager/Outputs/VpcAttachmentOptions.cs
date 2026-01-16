@@ -13,21 +13,9 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     [OutputType]
     public sealed class VpcAttachmentOptions
     {
-        /// <summary>
-        /// Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-        /// </summary>
         public readonly bool? ApplianceModeSupport;
-        /// <summary>
-        /// Whether to enable DNS support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-        /// </summary>
         public readonly bool? DnsSupport;
-        /// <summary>
-        /// Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-        /// </summary>
         public readonly bool? Ipv6Support;
-        /// <summary>
-        /// Whether to enable security group referencing support for this VPC attachment. The default is `True`. However, at the core network policy-level the default is set to `False`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-        /// </summary>
         public readonly bool? SecurityGroupReferencingSupport;
 
         [OutputConstructor]

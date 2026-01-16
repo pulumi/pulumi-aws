@@ -4,24 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.eks.getNodeGroups({
- *     clusterName: "example",
- * });
- * const exampleGetNodeGroup = example.then(example => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.eks.getNodeGroup({
- *     clusterName: "example",
- *     nodeGroupName: __value,
- * }) })));
- * ```
- */
 export function getNodeGroups(args: GetNodeGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetNodeGroupsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:eks/getNodeGroups:getNodeGroups", {
@@ -34,13 +16,7 @@ export function getNodeGroups(args: GetNodeGroupsArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getNodeGroups.
  */
 export interface GetNodeGroupsArgs {
-    /**
-     * Name of the cluster.
-     */
     clusterName: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -53,30 +29,9 @@ export interface GetNodeGroupsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Set of all node group names in an EKS Cluster.
-     */
     readonly names: string[];
     readonly region: string;
 }
-/**
- * Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.eks.getNodeGroups({
- *     clusterName: "example",
- * });
- * const exampleGetNodeGroup = example.then(example => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.eks.getNodeGroup({
- *     clusterName: "example",
- *     nodeGroupName: __value,
- * }) })));
- * ```
- */
 export function getNodeGroupsOutput(args: GetNodeGroupsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNodeGroupsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:eks/getNodeGroups:getNodeGroups", {
@@ -89,12 +44,6 @@ export function getNodeGroupsOutput(args: GetNodeGroupsOutputArgs, opts?: pulumi
  * A collection of arguments for invoking getNodeGroups.
  */
 export interface GetNodeGroupsOutputArgs {
-    /**
-     * Name of the cluster.
-     */
     clusterName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

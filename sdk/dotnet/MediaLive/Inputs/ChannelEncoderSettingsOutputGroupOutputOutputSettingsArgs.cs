@@ -12,9 +12,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Archive output settings. See Archive Output Settings for more details.
-        /// </summary>
         [Input("archiveOutputSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs>? ArchiveOutputSettings { get; set; }
 
@@ -24,30 +21,18 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("hlsOutputSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs>? HlsOutputSettings { get; set; }
 
-        /// <summary>
-        /// Media package output settings. This can be set as an empty block.
-        /// </summary>
         [Input("mediaPackageOutputSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArgs>? MediaPackageOutputSettings { get; set; }
 
         [Input("msSmoothOutputSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs>? MsSmoothOutputSettings { get; set; }
 
-        /// <summary>
-        /// Multiplex output settings. See Multiplex Output Settings for more details.
-        /// </summary>
         [Input("multiplexOutputSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs>? MultiplexOutputSettings { get; set; }
 
-        /// <summary>
-        /// RTMP output settings. See RTMP Output Settings for more details.
-        /// </summary>
         [Input("rtmpOutputSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs>? RtmpOutputSettings { get; set; }
 
-        /// <summary>
-        /// UDP output settings. See UDP Output Settings for more details.
-        /// </summary>
         [Input("udpOutputSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs>? UdpOutputSettings { get; set; }
 

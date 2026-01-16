@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSetRowLevelPermissionTagConfigurationTagRule
     {
-        /// <summary>
-        /// Column name that a tag key is assigned to.
-        /// </summary>
         public readonly string ColumnName;
-        /// <summary>
-        /// A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
-        /// </summary>
         public readonly string? MatchAllValue;
-        /// <summary>
-        /// Unique key for a tag.
-        /// </summary>
         public readonly string TagKey;
-        /// <summary>
-        /// A string that you want to use to delimit the values when you pass the values at run time.
-        /// </summary>
         public readonly string? TagMultiValueDelimiter;
 
         [OutputConstructor]

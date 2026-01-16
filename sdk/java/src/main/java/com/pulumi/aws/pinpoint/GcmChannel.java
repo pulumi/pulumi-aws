@@ -16,46 +16,17 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Pinpoint GCM Channel resource.
- * 
- * &gt; **Note:** Credentials (Service Account JSON and API Key) will be stored in the raw state as plain-text.
- * ## Import
- * 
- * Using `pulumi import`, import Pinpoint GCM Channel using the `application-id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
- * ```
- * 
- */
 @ResourceType(type="aws:pinpoint/gcmChannel:GcmChannel")
 public class GcmChannel extends com.pulumi.resources.CustomResource {
-    /**
-     * Platform credential API key from Google.
-     * 
-     */
     @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiKey;
 
-    /**
-     * @return Platform credential API key from Google.
-     * 
-     */
     public Output<Optional<String>> apiKey() {
         return Codegen.optional(this.apiKey);
     }
-    /**
-     * The application ID.
-     * 
-     */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
-    /**
-     * @return The application ID.
-     * 
-     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
@@ -65,31 +36,15 @@ public class GcmChannel extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> defaultAuthenticationMethod() {
         return Codegen.optional(this.defaultAuthenticationMethod);
     }
-    /**
-     * Whether the channel is enabled or disabled. Defaults to `true`.
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
-    /**
-     * @return Whether the channel is enabled or disabled. Defaults to `true`.
-     * 
-     */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

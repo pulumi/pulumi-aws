@@ -4,30 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Glue Registry resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.glue.Registry("example", {registryName: "example"});
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the Glue registry.
- *
- * Using `pulumi import`, import Glue Registries using `arn`. For example:
- *
- * % pulumi import aws_glue_registry.example arn:aws:glue:us-west-2:123456789012:registry/example
- */
 export class Registry extends pulumi.CustomResource {
     /**
      * Get an existing Registry resource's state with the given name, ID, and optional extra
@@ -56,29 +32,11 @@ export class Registry extends pulumi.CustomResource {
         return obj['__pulumiType'] === Registry.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of Glue Registry.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * A description of the registry.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The Name of the registry.
-     */
     declare public readonly registryName: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -121,29 +79,11 @@ export class Registry extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Registry resources.
  */
 export interface RegistryState {
-    /**
-     * Amazon Resource Name (ARN) of Glue Registry.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A description of the registry.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Name of the registry.
-     */
     registryName?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -151,20 +91,8 @@ export interface RegistryState {
  * The set of arguments for constructing a Registry resource.
  */
 export interface RegistryArgs {
-    /**
-     * A description of the registry.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Name of the registry.
-     */
     registryName: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of a Secrets Manager secret for authentication.
-        /// </summary>
         [Input("usernamePasswordSecretArn")]
         public Input<string>? UsernamePasswordSecretArn { get; set; }
 

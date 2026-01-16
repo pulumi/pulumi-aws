@@ -18,77 +18,37 @@ public final class SecretRotationArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final SecretRotationArgs Empty = new SecretRotationArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don&#39;t immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
-     * 
-     */
     @Import(name="rotateImmediately")
     private @Nullable Output<Boolean> rotateImmediately;
 
-    /**
-     * @return Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don&#39;t immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> rotateImmediately() {
         return Optional.ofNullable(this.rotateImmediately);
     }
 
-    /**
-     * Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
-     * 
-     */
     @Import(name="rotationLambdaArn")
     private @Nullable Output<String> rotationLambdaArn;
 
-    /**
-     * @return Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
-     * 
-     */
     public Optional<Output<String>> rotationLambdaArn() {
         return Optional.ofNullable(this.rotationLambdaArn);
     }
 
-    /**
-     * A structure that defines the rotation configuration for this secret. Defined below.
-     * 
-     */
     @Import(name="rotationRules", required=true)
     private Output<SecretRotationRotationRulesArgs> rotationRules;
 
-    /**
-     * @return A structure that defines the rotation configuration for this secret. Defined below.
-     * 
-     */
     public Output<SecretRotationRotationRulesArgs> rotationRules() {
         return this.rotationRules;
     }
 
-    /**
-     * Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-     * 
-     */
     @Import(name="secretId", required=true)
     private Output<String> secretId;
 
-    /**
-     * @return Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-     * 
-     */
     public Output<String> secretId() {
         return this.secretId;
     }
@@ -121,107 +81,47 @@ public final class SecretRotationArgs extends com.pulumi.resources.ResourceArgs 
             $ = new SecretRotationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param rotateImmediately Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don&#39;t immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rotateImmediately(@Nullable Output<Boolean> rotateImmediately) {
             $.rotateImmediately = rotateImmediately;
             return this;
         }
 
-        /**
-         * @param rotateImmediately Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don&#39;t immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rotateImmediately(Boolean rotateImmediately) {
             return rotateImmediately(Output.of(rotateImmediately));
         }
 
-        /**
-         * @param rotationLambdaArn Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rotationLambdaArn(@Nullable Output<String> rotationLambdaArn) {
             $.rotationLambdaArn = rotationLambdaArn;
             return this;
         }
 
-        /**
-         * @param rotationLambdaArn Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rotationLambdaArn(String rotationLambdaArn) {
             return rotationLambdaArn(Output.of(rotationLambdaArn));
         }
 
-        /**
-         * @param rotationRules A structure that defines the rotation configuration for this secret. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rotationRules(Output<SecretRotationRotationRulesArgs> rotationRules) {
             $.rotationRules = rotationRules;
             return this;
         }
 
-        /**
-         * @param rotationRules A structure that defines the rotation configuration for this secret. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rotationRules(SecretRotationRotationRulesArgs rotationRules) {
             return rotationRules(Output.of(rotationRules));
         }
 
-        /**
-         * @param secretId Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretId(Output<String> secretId) {
             $.secretId = secretId;
             return this;
         }
 
-        /**
-         * @param secretId Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretId(String secretId) {
             return secretId(Output.of(secretId));
         }

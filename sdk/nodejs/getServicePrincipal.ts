@@ -4,24 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Use this data source to create a Service Principal Name for a service in a given region. Service Principal Names should always end in the standard global format: `{servicename}.amazonaws.com`. However, in some AWS partitions, AWS may expect a different format.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getServicePrincipal({
- *     serviceName: "s3",
- * });
- * const test = aws.getServicePrincipal({
- *     serviceName: "s3",
- *     region: "us-iso-east-1",
- * });
- * ```
- */
 export function getServicePrincipal(args: GetServicePrincipalArgs, opts?: pulumi.InvokeOptions): Promise<GetServicePrincipalResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:index/getServicePrincipal:getServicePrincipal", {
@@ -34,13 +16,7 @@ export function getServicePrincipal(args: GetServicePrincipalArgs, opts?: pulumi
  * A collection of arguments for invoking getServicePrincipal.
  */
 export interface GetServicePrincipalArgs {
-    /**
-     * Region you'd like the SPN for. Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Name of the service you want to generate a Service Principal Name for.
-     */
     serviceName: string;
 }
 
@@ -48,39 +24,12 @@ export interface GetServicePrincipalArgs {
  * A collection of values returned by getServicePrincipal.
  */
 export interface GetServicePrincipalResult {
-    /**
-     * Identifier of the current Service Principal (compound of service, Region and suffix). (e.g. `logs.us-east-1.amazonaws.com`in AWS Commercial, `logs.cn-north-1.amazonaws.com.cn` in AWS China).
-     */
     readonly id: string;
-    /**
-     * Service Principal Name (e.g., `logs.amazonaws.com` in AWS Commercial, `logs.amazonaws.com.cn` in AWS China).
-     */
     readonly name: string;
     readonly region: string;
     readonly serviceName: string;
-    /**
-     * Suffix of the SPN (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
-     */
     readonly suffix: string;
 }
-/**
- * Use this data source to create a Service Principal Name for a service in a given region. Service Principal Names should always end in the standard global format: `{servicename}.amazonaws.com`. However, in some AWS partitions, AWS may expect a different format.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getServicePrincipal({
- *     serviceName: "s3",
- * });
- * const test = aws.getServicePrincipal({
- *     serviceName: "s3",
- *     region: "us-iso-east-1",
- * });
- * ```
- */
 export function getServicePrincipalOutput(args: GetServicePrincipalOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServicePrincipalResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:index/getServicePrincipal:getServicePrincipal", {
@@ -93,12 +42,6 @@ export function getServicePrincipalOutput(args: GetServicePrincipalOutputArgs, o
  * A collection of arguments for invoking getServicePrincipal.
  */
 export interface GetServicePrincipalOutputArgs {
-    /**
-     * Region you'd like the SPN for. Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Name of the service you want to generate a Service Principal Name for.
-     */
     serviceName: pulumi.Input<string>;
 }

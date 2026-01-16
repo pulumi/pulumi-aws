@@ -15,47 +15,23 @@ public final class LifecyclePolicyPolicyDetailActionIncludeResourcesArgs extends
 
     public static final LifecyclePolicyPolicyDetailActionIncludeResourcesArgs Empty = new LifecyclePolicyPolicyDetailActionIncludeResourcesArgs();
 
-    /**
-     * Specifies whether the lifecycle action should apply to distributed AMIs.
-     * 
-     */
     @Import(name="amis")
     private @Nullable Output<Boolean> amis;
 
-    /**
-     * @return Specifies whether the lifecycle action should apply to distributed AMIs.
-     * 
-     */
     public Optional<Output<Boolean>> amis() {
         return Optional.ofNullable(this.amis);
     }
 
-    /**
-     * Specifies whether the lifecycle action should apply to distributed containers.
-     * 
-     */
     @Import(name="containers")
     private @Nullable Output<Boolean> containers;
 
-    /**
-     * @return Specifies whether the lifecycle action should apply to distributed containers.
-     * 
-     */
     public Optional<Output<Boolean>> containers() {
         return Optional.ofNullable(this.containers);
     }
 
-    /**
-     * Specifies whether the lifecycle action should apply to snapshots associated with distributed AMIs.
-     * 
-     */
     @Import(name="snapshots")
     private @Nullable Output<Boolean> snapshots;
 
-    /**
-     * @return Specifies whether the lifecycle action should apply to snapshots associated with distributed AMIs.
-     * 
-     */
     public Optional<Output<Boolean>> snapshots() {
         return Optional.ofNullable(this.snapshots);
     }
@@ -86,65 +62,29 @@ public final class LifecyclePolicyPolicyDetailActionIncludeResourcesArgs extends
             $ = new LifecyclePolicyPolicyDetailActionIncludeResourcesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param amis Specifies whether the lifecycle action should apply to distributed AMIs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amis(@Nullable Output<Boolean> amis) {
             $.amis = amis;
             return this;
         }
 
-        /**
-         * @param amis Specifies whether the lifecycle action should apply to distributed AMIs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amis(Boolean amis) {
             return amis(Output.of(amis));
         }
 
-        /**
-         * @param containers Specifies whether the lifecycle action should apply to distributed containers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containers(@Nullable Output<Boolean> containers) {
             $.containers = containers;
             return this;
         }
 
-        /**
-         * @param containers Specifies whether the lifecycle action should apply to distributed containers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containers(Boolean containers) {
             return containers(Output.of(containers));
         }
 
-        /**
-         * @param snapshots Specifies whether the lifecycle action should apply to snapshots associated with distributed AMIs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshots(@Nullable Output<Boolean> snapshots) {
             $.snapshots = snapshots;
             return this;
         }
 
-        /**
-         * @param snapshots Specifies whether the lifecycle action should apply to snapshots associated with distributed AMIs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshots(Boolean snapshots) {
             return snapshots(Output.of(snapshots));
         }

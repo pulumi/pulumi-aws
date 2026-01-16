@@ -21,77 +21,37 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
 
     public static final TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs Empty = new TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs();
 
-    /**
-     * Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Ports below for details.
-     * 
-     */
     @Import(name="destinationPorts")
     private @Nullable Output<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs>> destinationPorts;
 
-    /**
-     * @return Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Ports below for details.
-     * 
-     */
     public Optional<Output<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs>>> destinationPorts() {
         return Optional.ofNullable(this.destinationPorts);
     }
 
-    /**
-     * Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
-     * 
-     */
     @Import(name="destinations")
     private @Nullable Output<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs>> destinations;
 
-    /**
-     * @return Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
-     * 
-     */
     public Optional<Output<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs>>> destinations() {
         return Optional.ofNullable(this.destinations);
     }
 
-    /**
-     * Set of protocols to inspect for, specified using the protocol&#39;s assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
-     * 
-     */
     @Import(name="protocols", required=true)
     private Output<List<Integer>> protocols;
 
-    /**
-     * @return Set of protocols to inspect for, specified using the protocol&#39;s assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
-     * 
-     */
     public Output<List<Integer>> protocols() {
         return this.protocols;
     }
 
-    /**
-     * Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Ports below for details.
-     * 
-     */
     @Import(name="sourcePorts")
     private @Nullable Output<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgs>> sourcePorts;
 
-    /**
-     * @return Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Ports below for details.
-     * 
-     */
     public Optional<Output<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgs>>> sourcePorts() {
         return Optional.ofNullable(this.sourcePorts);
     }
 
-    /**
-     * Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
-     * 
-     */
     @Import(name="sources")
     private @Nullable Output<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs>> sources;
 
-    /**
-     * @return Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
-     * 
-     */
     public Optional<Output<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs>>> sources() {
         return Optional.ofNullable(this.sources);
     }
@@ -124,157 +84,67 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
             $ = new TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destinationPorts Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Ports below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationPorts(@Nullable Output<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs>> destinationPorts) {
             $.destinationPorts = destinationPorts;
             return this;
         }
 
-        /**
-         * @param destinationPorts Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Ports below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationPorts(List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs> destinationPorts) {
             return destinationPorts(Output.of(destinationPorts));
         }
 
-        /**
-         * @param destinationPorts Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Ports below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationPorts(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs... destinationPorts) {
             return destinationPorts(List.of(destinationPorts));
         }
 
-        /**
-         * @param destinations Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinations(@Nullable Output<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs>> destinations) {
             $.destinations = destinations;
             return this;
         }
 
-        /**
-         * @param destinations Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinations(List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs> destinations) {
             return destinations(Output.of(destinations));
         }
 
-        /**
-         * @param destinations Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinations(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs... destinations) {
             return destinations(List.of(destinations));
         }
 
-        /**
-         * @param protocols Set of protocols to inspect for, specified using the protocol&#39;s assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocols(Output<List<Integer>> protocols) {
             $.protocols = protocols;
             return this;
         }
 
-        /**
-         * @param protocols Set of protocols to inspect for, specified using the protocol&#39;s assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocols(List<Integer> protocols) {
             return protocols(Output.of(protocols));
         }
 
-        /**
-         * @param protocols Set of protocols to inspect for, specified using the protocol&#39;s assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocols(Integer... protocols) {
             return protocols(List.of(protocols));
         }
 
-        /**
-         * @param sourcePorts Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Ports below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourcePorts(@Nullable Output<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgs>> sourcePorts) {
             $.sourcePorts = sourcePorts;
             return this;
         }
 
-        /**
-         * @param sourcePorts Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Ports below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourcePorts(List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgs> sourcePorts) {
             return sourcePorts(Output.of(sourcePorts));
         }
 
-        /**
-         * @param sourcePorts Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Ports below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourcePorts(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgs... sourcePorts) {
             return sourcePorts(List.of(sourcePorts));
         }
 
-        /**
-         * @param sources Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sources(@Nullable Output<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs>> sources) {
             $.sources = sources;
             return this;
         }
 
-        /**
-         * @param sources Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sources(List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs> sources) {
             return sources(Output.of(sources));
         }
 
-        /**
-         * @param sources Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sources(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs... sources) {
             return sources(List.of(sources));
         }

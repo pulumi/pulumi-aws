@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxis {
-    /**
-     * @return ARN of the table which is queried with the largest time range.
-     * 
-     */
     private @Nullable String tableArn;
-    /**
-     * @return Maximum duration in nanoseconds between the start and end of the query.
-     * 
-     */
     private @Nullable Integer value;
 
     private ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxis() {}
-    /**
-     * @return ARN of the table which is queried with the largest time range.
-     * 
-     */
     public Optional<String> tableArn() {
         return Optional.ofNullable(this.tableArn);
     }
-    /**
-     * @return Maximum duration in nanoseconds between the start and end of the query.
-     * 
-     */
     public Optional<Integer> value() {
         return Optional.ofNullable(this.value);
     }

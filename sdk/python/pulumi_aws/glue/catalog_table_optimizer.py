@@ -29,12 +29,6 @@ class CatalogTableOptimizerArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CatalogTableOptimizer resource.
-        :param pulumi.Input[_builtins.str] catalog_id: The Catalog ID of the table.
-        :param pulumi.Input[_builtins.str] database_name: The name of the database in the catalog in which the table resides.
-        :param pulumi.Input[_builtins.str] table_name: The name of the table.
-        :param pulumi.Input[_builtins.str] type: The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
-        :param pulumi.Input['CatalogTableOptimizerConfigurationArgs'] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "database_name", database_name)
@@ -48,9 +42,6 @@ class CatalogTableOptimizerArgs:
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Catalog ID of the table.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -60,9 +51,6 @@ class CatalogTableOptimizerArgs:
     @_builtins.property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the database in the catalog in which the table resides.
-        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -72,9 +60,6 @@ class CatalogTableOptimizerArgs:
     @_builtins.property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the table.
-        """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -84,9 +69,6 @@ class CatalogTableOptimizerArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -96,9 +78,6 @@ class CatalogTableOptimizerArgs:
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['CatalogTableOptimizerConfigurationArgs']]:
-        """
-        A configuration block that defines the table optimizer settings. See Configuration for additional details.
-        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -108,9 +87,6 @@ class CatalogTableOptimizerArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -129,12 +105,6 @@ class _CatalogTableOptimizerState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CatalogTableOptimizer resources.
-        :param pulumi.Input[_builtins.str] catalog_id: The Catalog ID of the table.
-        :param pulumi.Input['CatalogTableOptimizerConfigurationArgs'] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
-        :param pulumi.Input[_builtins.str] database_name: The name of the database in the catalog in which the table resides.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] table_name: The name of the table.
-        :param pulumi.Input[_builtins.str] type: The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         """
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
@@ -152,9 +122,6 @@ class _CatalogTableOptimizerState:
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Catalog ID of the table.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -164,9 +131,6 @@ class _CatalogTableOptimizerState:
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['CatalogTableOptimizerConfigurationArgs']]:
-        """
-        A configuration block that defines the table optimizer settings. See Configuration for additional details.
-        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -176,9 +140,6 @@ class _CatalogTableOptimizerState:
     @_builtins.property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the database in the catalog in which the table resides.
-        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -188,9 +149,6 @@ class _CatalogTableOptimizerState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -200,9 +158,6 @@ class _CatalogTableOptimizerState:
     @_builtins.property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the table.
-        """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -212,9 +167,6 @@ class _CatalogTableOptimizerState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -236,90 +188,9 @@ class CatalogTableOptimizer(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Glue Catalog Table Optimizer.
-
-        ## Example Usage
-
-        ### Compaction Optimizer
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.CatalogTableOptimizer("example",
-            catalog_id="123456789012",
-            database_name="example_database",
-            table_name="example_table",
-            configuration={
-                "role_arn": "arn:aws:iam::123456789012:role/example-role",
-                "enabled": True,
-            },
-            type="compaction")
-        ```
-
-        ### Snapshot Retention Optimizer
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.CatalogTableOptimizer("example",
-            catalog_id="123456789012",
-            database_name="example_database",
-            table_name="example_table",
-            configuration={
-                "role_arn": "arn:aws:iam::123456789012:role/example-role",
-                "enabled": True,
-                "retention_configuration": {
-                    "iceberg_configuration": {
-                        "snapshot_retention_period_in_days": 7,
-                        "number_of_snapshots_to_retain": 3,
-                        "clean_expired_files": True,
-                    },
-                },
-            },
-            type="retention")
-        ```
-
-        ### Orphan File Deletion Optimizer
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.CatalogTableOptimizer("example",
-            catalog_id="123456789012",
-            database_name="example_database",
-            table_name="example_table",
-            configuration={
-                "role_arn": "arn:aws:iam::123456789012:role/example-role",
-                "enabled": True,
-                "orphan_file_deletion_configuration": {
-                    "iceberg_configuration": {
-                        "orphan_file_retention_period_in_days": 7,
-                        "location": "s3://example-bucket/example_table/",
-                    },
-                },
-            },
-            type="orphan_file_deletion")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Glue Catalog Table Optimizer using the `catalog_id,database_name,table_name,type`. For example:
-
-        ```sh
-        $ pulumi import aws:glue/catalogTableOptimizer:CatalogTableOptimizer example 123456789012,example_database,example_table,compaction
-        ```
-
+        Create a CatalogTableOptimizer resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] catalog_id: The Catalog ID of the table.
-        :param pulumi.Input[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict']] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
-        :param pulumi.Input[_builtins.str] database_name: The name of the database in the catalog in which the table resides.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] table_name: The name of the table.
-        :param pulumi.Input[_builtins.str] type: The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         """
         ...
     @overload
@@ -328,82 +199,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
                  args: CatalogTableOptimizerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Glue Catalog Table Optimizer.
-
-        ## Example Usage
-
-        ### Compaction Optimizer
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.CatalogTableOptimizer("example",
-            catalog_id="123456789012",
-            database_name="example_database",
-            table_name="example_table",
-            configuration={
-                "role_arn": "arn:aws:iam::123456789012:role/example-role",
-                "enabled": True,
-            },
-            type="compaction")
-        ```
-
-        ### Snapshot Retention Optimizer
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.CatalogTableOptimizer("example",
-            catalog_id="123456789012",
-            database_name="example_database",
-            table_name="example_table",
-            configuration={
-                "role_arn": "arn:aws:iam::123456789012:role/example-role",
-                "enabled": True,
-                "retention_configuration": {
-                    "iceberg_configuration": {
-                        "snapshot_retention_period_in_days": 7,
-                        "number_of_snapshots_to_retain": 3,
-                        "clean_expired_files": True,
-                    },
-                },
-            },
-            type="retention")
-        ```
-
-        ### Orphan File Deletion Optimizer
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.CatalogTableOptimizer("example",
-            catalog_id="123456789012",
-            database_name="example_database",
-            table_name="example_table",
-            configuration={
-                "role_arn": "arn:aws:iam::123456789012:role/example-role",
-                "enabled": True,
-                "orphan_file_deletion_configuration": {
-                    "iceberg_configuration": {
-                        "orphan_file_retention_period_in_days": 7,
-                        "location": "s3://example-bucket/example_table/",
-                    },
-                },
-            },
-            type="orphan_file_deletion")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Glue Catalog Table Optimizer using the `catalog_id,database_name,table_name,type`. For example:
-
-        ```sh
-        $ pulumi import aws:glue/catalogTableOptimizer:CatalogTableOptimizer example 123456789012,example_database,example_table,compaction
-        ```
-
+        Create a CatalogTableOptimizer resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CatalogTableOptimizerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -471,12 +267,6 @@ class CatalogTableOptimizer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] catalog_id: The Catalog ID of the table.
-        :param pulumi.Input[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict']] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
-        :param pulumi.Input[_builtins.str] database_name: The name of the database in the catalog in which the table resides.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] table_name: The name of the table.
-        :param pulumi.Input[_builtins.str] type: The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -493,48 +283,30 @@ class CatalogTableOptimizer(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Catalog ID of the table.
-        """
         return pulumi.get(self, "catalog_id")
 
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Optional['outputs.CatalogTableOptimizerConfiguration']]:
-        """
-        A configuration block that defines the table optimizer settings. See Configuration for additional details.
-        """
         return pulumi.get(self, "configuration")
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the database in the catalog in which the table resides.
-        """
         return pulumi.get(self, "database_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the table.
-        """
         return pulumi.get(self, "table_name")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
-        """
         return pulumi.get(self, "type")
 

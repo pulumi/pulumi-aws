@@ -77,25 +77,16 @@ class GetListenerResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the listener.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> _builtins.str:
-        """
-        The date and time that the listener was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter(name="defaultActions")
     def default_actions(self) -> Sequence['outputs.GetListenerDefaultActionResult']:
-        """
-        The actions for the default listener rule.
-        """
         return pulumi.get(self, "default_actions")
 
     @_builtins.property
@@ -109,17 +100,11 @@ class GetListenerResult:
     @_builtins.property
     @pulumi.getter(name="lastUpdatedAt")
     def last_updated_at(self) -> _builtins.str:
-        """
-        The date and time the listener was last updated.
-        """
         return pulumi.get(self, "last_updated_at")
 
     @_builtins.property
     @pulumi.getter(name="listenerId")
     def listener_id(self) -> _builtins.str:
-        """
-        The ID of the listener.
-        """
         return pulumi.get(self, "listener_id")
 
     @_builtins.property
@@ -130,25 +115,16 @@ class GetListenerResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the listener.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> _builtins.int:
-        """
-        The listener port.
-        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> _builtins.str:
-        """
-        The listener protocol. Either `HTTPS` or `HTTP`.
-        """
         return pulumi.get(self, "protocol")
 
     @_builtins.property
@@ -159,17 +135,11 @@ class GetListenerResult:
     @_builtins.property
     @pulumi.getter(name="serviceArn")
     def service_arn(self) -> _builtins.str:
-        """
-        The ARN of the service.
-        """
         return pulumi.get(self, "service_arn")
 
     @_builtins.property
     @pulumi.getter(name="serviceId")
     def service_id(self) -> _builtins.str:
-        """
-        The ID of the service.
-        """
         return pulumi.get(self, "service_id")
 
     @_builtins.property
@@ -180,9 +150,6 @@ class GetListenerResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        List of tags associated with the listener.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -215,24 +182,7 @@ def get_listener(listener_identifier: Optional[_builtins.str] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetListenerResult:
     """
-    Data source for managing an AWS VPC Lattice Listener.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.vpclattice.get_listener()
-    ```
-
-
-    :param _builtins.str listener_identifier: ID or Amazon Resource Name (ARN) of the listener
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str service_identifier: ID or Amazon Resource Name (ARN) of the service network
-    :param Mapping[str, _builtins.str] tags: List of tags associated with the listener.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['listenerIdentifier'] = listener_identifier
@@ -264,24 +214,7 @@ def get_listener_output(listener_identifier: Optional[pulumi.Input[_builtins.str
                         tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetListenerResult]:
     """
-    Data source for managing an AWS VPC Lattice Listener.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.vpclattice.get_listener()
-    ```
-
-
-    :param _builtins.str listener_identifier: ID or Amazon Resource Name (ARN) of the listener
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str service_identifier: ID or Amazon Resource Name (ARN) of the service network
-    :param Mapping[str, _builtins.str] tags: List of tags associated with the listener.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['listenerIdentifier'] = listener_identifier

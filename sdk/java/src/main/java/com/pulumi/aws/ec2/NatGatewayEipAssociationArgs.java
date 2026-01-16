@@ -17,51 +17,23 @@ public final class NatGatewayEipAssociationArgs extends com.pulumi.resources.Res
 
     public static final NatGatewayEipAssociationArgs Empty = new NatGatewayEipAssociationArgs();
 
-    /**
-     * The ID of the Elastic IP Allocation to associate with the NAT Gateway.
-     * 
-     */
     @Import(name="allocationId", required=true)
     private Output<String> allocationId;
 
-    /**
-     * @return The ID of the Elastic IP Allocation to associate with the NAT Gateway.
-     * 
-     */
     public Output<String> allocationId() {
         return this.allocationId;
     }
 
-    /**
-     * The ID of the NAT Gateway to associate the Elastic IP Allocation to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="natGatewayId", required=true)
     private Output<String> natGatewayId;
 
-    /**
-     * @return The ID of the NAT Gateway to associate the Elastic IP Allocation to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> natGatewayId() {
         return this.natGatewayId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -100,69 +72,29 @@ public final class NatGatewayEipAssociationArgs extends com.pulumi.resources.Res
             $ = new NatGatewayEipAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allocationId The ID of the Elastic IP Allocation to associate with the NAT Gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allocationId(Output<String> allocationId) {
             $.allocationId = allocationId;
             return this;
         }
 
-        /**
-         * @param allocationId The ID of the Elastic IP Allocation to associate with the NAT Gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allocationId(String allocationId) {
             return allocationId(Output.of(allocationId));
         }
 
-        /**
-         * @param natGatewayId The ID of the NAT Gateway to associate the Elastic IP Allocation to.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder natGatewayId(Output<String> natGatewayId) {
             $.natGatewayId = natGatewayId;
             return this;
         }
 
-        /**
-         * @param natGatewayId The ID of the NAT Gateway to associate the Elastic IP Allocation to.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder natGatewayId(String natGatewayId) {
             return natGatewayId(Output.of(natGatewayId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

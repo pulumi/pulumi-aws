@@ -17,32 +17,16 @@ public final class V2modelsIntentConfirmationSettingConfirmationConditionalCondi
 
     public static final V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentArgs Empty = new V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentArgs();
 
-    /**
-     * Name of the intent.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the intent.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren&#39;t overridden. See `slot`.
-     * 
-     */
     @Import(name="slots")
     private @Nullable Output<List<V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentSlotArgs>> slots;
 
-    /**
-     * @return Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren&#39;t overridden. See `slot`.
-     * 
-     */
     public Optional<Output<List<V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentSlotArgs>>> slots() {
         return Optional.ofNullable(this.slots);
     }
@@ -72,54 +56,24 @@ public final class V2modelsIntentConfirmationSettingConfirmationConditionalCondi
             $ = new V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the intent.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the intent.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param slots Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren&#39;t overridden. See `slot`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slots(@Nullable Output<List<V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentSlotArgs>> slots) {
             $.slots = slots;
             return this;
         }
 
-        /**
-         * @param slots Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren&#39;t overridden. See `slot`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slots(List<V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentSlotArgs> slots) {
             return slots(Output.of(slots));
         }
 
-        /**
-         * @param slots Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren&#39;t overridden. See `slot`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slots(V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentSlotArgs... slots) {
             return slots(List.of(slots));
         }

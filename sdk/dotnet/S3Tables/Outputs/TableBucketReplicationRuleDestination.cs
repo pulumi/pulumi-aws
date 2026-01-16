@@ -13,9 +13,6 @@ namespace Pulumi.Aws.S3Tables.Outputs
     [OutputType]
     public sealed class TableBucketReplicationRuleDestination
     {
-        /// <summary>
-        /// ARN of destination table bucket to replicate source tables to.
-        /// </summary>
         public readonly string DestinationTableBucketArn;
 
         [OutputConstructor]

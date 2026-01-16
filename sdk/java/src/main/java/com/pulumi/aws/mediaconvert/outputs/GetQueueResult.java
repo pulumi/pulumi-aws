@@ -11,61 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetQueueResult {
-    /**
-     * @return The Arn of the queue.
-     * 
-     */
     private String arn;
     private String id;
-    /**
-     * @return The same as `id`.
-     * 
-     */
     private String name;
     private String region;
-    /**
-     * @return The status of the queue.
-     * 
-     */
     private String status;
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetQueueResult() {}
-    /**
-     * @return The Arn of the queue.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
     public String id() {
         return this.id;
     }
-    /**
-     * @return The same as `id`.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return The status of the queue.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

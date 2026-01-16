@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataLakeConfigurationLifecycleConfiguration {
-    /**
-     * @return Provides data expiration details of Amazon Security Lake object.
-     * 
-     */
     private @Nullable DataLakeConfigurationLifecycleConfigurationExpiration expiration;
-    /**
-     * @return Provides data storage transition details of Amazon Security Lake object.
-     * 
-     */
     private @Nullable List<DataLakeConfigurationLifecycleConfigurationTransition> transitions;
 
     private DataLakeConfigurationLifecycleConfiguration() {}
-    /**
-     * @return Provides data expiration details of Amazon Security Lake object.
-     * 
-     */
     public Optional<DataLakeConfigurationLifecycleConfigurationExpiration> expiration() {
         return Optional.ofNullable(this.expiration);
     }
-    /**
-     * @return Provides data storage transition details of Amazon Security Lake object.
-     * 
-     */
     public List<DataLakeConfigurationLifecycleConfigurationTransition> transitions() {
         return this.transitions == null ? List.of() : this.transitions;
     }

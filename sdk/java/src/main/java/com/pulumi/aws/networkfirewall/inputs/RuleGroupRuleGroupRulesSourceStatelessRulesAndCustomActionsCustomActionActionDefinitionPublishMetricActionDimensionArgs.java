@@ -14,17 +14,9 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCu
 
     public static final RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArgs Empty = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArgs();
 
-    /**
-     * The value to use in the custom metric dimension.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return The value to use in the custom metric dimension.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -53,23 +45,11 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCu
             $ = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param value The value to use in the custom metric dimension.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The value to use in the custom metric dimension.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

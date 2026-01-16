@@ -31,7 +31,6 @@ class _OutboundWebIdentityFederationState:
                  issuer_identifier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OutboundWebIdentityFederation resources.
-        :param pulumi.Input[_builtins.str] issuer_identifier: A unique issuer URL for your AWS account that hosts the OpenID Connect (OIDC) discovery endpoints.
         """
         if issuer_identifier is not None:
             pulumi.set(__self__, "issuer_identifier", issuer_identifier)
@@ -39,9 +38,6 @@ class _OutboundWebIdentityFederationState:
     @_builtins.property
     @pulumi.getter(name="issuerIdentifier")
     def issuer_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A unique issuer URL for your AWS account that hosts the OpenID Connect (OIDC) discovery endpoints.
-        """
         return pulumi.get(self, "issuer_identifier")
 
     @issuer_identifier.setter
@@ -57,23 +53,7 @@ class OutboundWebIdentityFederation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iam.OutboundWebIdentityFederation("example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import IAM Outbound Web Identity Federation resources using the AWS account ID. For example:
-
-        ```sh
-        $ pulumi import aws:iam/outboundWebIdentityFederation:OutboundWebIdentityFederation example 123456789012
-        ```
-
+        Create a OutboundWebIdentityFederation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -84,23 +64,7 @@ class OutboundWebIdentityFederation(pulumi.CustomResource):
                  args: Optional[OutboundWebIdentityFederationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iam.OutboundWebIdentityFederation("example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import IAM Outbound Web Identity Federation resources using the AWS account ID. For example:
-
-        ```sh
-        $ pulumi import aws:iam/outboundWebIdentityFederation:OutboundWebIdentityFederation example 123456789012
-        ```
-
+        Create a OutboundWebIdentityFederation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param OutboundWebIdentityFederationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,7 +108,6 @@ class OutboundWebIdentityFederation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] issuer_identifier: A unique issuer URL for your AWS account that hosts the OpenID Connect (OIDC) discovery endpoints.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -156,8 +119,5 @@ class OutboundWebIdentityFederation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="issuerIdentifier")
     def issuer_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        A unique issuer URL for your AWS account that hosts the OpenID Connect (OIDC) discovery endpoints.
-        """
         return pulumi.get(self, "issuer_identifier")
 

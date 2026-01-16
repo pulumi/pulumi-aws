@@ -16,62 +16,30 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
 
     public static final AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs Empty = new AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs();
 
-    /**
-     * Description of the array items.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the array items.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
-     * 
-     */
     @Import(name="itemsJson")
     private @Nullable Output<String> itemsJson;
 
-    /**
-     * @return JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
-     * 
-     */
     public Optional<Output<String>> itemsJson() {
         return Optional.ofNullable(this.itemsJson);
     }
 
-    /**
-     * JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
-     * 
-     */
     @Import(name="propertiesJson")
     private @Nullable Output<String> propertiesJson;
 
-    /**
-     * @return JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
-     * 
-     */
     public Optional<Output<String>> propertiesJson() {
         return Optional.ofNullable(this.propertiesJson);
     }
 
-    /**
-     * Data type of the array items.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Data type of the array items.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -103,86 +71,38 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
             $ = new AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Description of the array items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the array items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param itemsJson JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder itemsJson(@Nullable Output<String> itemsJson) {
             $.itemsJson = itemsJson;
             return this;
         }
 
-        /**
-         * @param itemsJson JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder itemsJson(String itemsJson) {
             return itemsJson(Output.of(itemsJson));
         }
 
-        /**
-         * @param propertiesJson JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder propertiesJson(@Nullable Output<String> propertiesJson) {
             $.propertiesJson = propertiesJson;
             return this;
         }
 
-        /**
-         * @param propertiesJson JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder propertiesJson(String propertiesJson) {
             return propertiesJson(Output.of(propertiesJson));
         }
 
-        /**
-         * @param type Data type of the array items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Data type of the array items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

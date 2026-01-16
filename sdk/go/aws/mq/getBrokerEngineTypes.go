@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about available MQ broker engine types. Use this data source to retrieve supported engine types and their versions for Amazon MQ brokers.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/mq"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mq.GetBrokerEngineTypes(ctx, &mq.GetBrokerEngineTypesArgs{
-//				EngineType: pulumi.StringRef("ACTIVEMQ"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetBrokerEngineTypes(ctx *pulumi.Context, args *GetBrokerEngineTypesArgs, opts ...pulumi.InvokeOption) (*GetBrokerEngineTypesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetBrokerEngineTypesResult
@@ -50,18 +23,14 @@ func GetBrokerEngineTypes(ctx *pulumi.Context, args *GetBrokerEngineTypesArgs, o
 
 // A collection of arguments for invoking getBrokerEngineTypes.
 type GetBrokerEngineTypesArgs struct {
-	// MQ engine type to return version details for.
 	EngineType *string `pulumi:"engineType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region     *string `pulumi:"region"`
 }
 
 // A collection of values returned by getBrokerEngineTypes.
 type GetBrokerEngineTypesResult struct {
-	// List of available engine types and versions. See Engine Types.
 	BrokerEngineTypes []GetBrokerEngineTypesBrokerEngineType `pulumi:"brokerEngineTypes"`
-	// Broker's engine type.
-	EngineType *string `pulumi:"engineType"`
+	EngineType        *string                                `pulumi:"engineType"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
 	Region string `pulumi:"region"`
@@ -78,10 +47,8 @@ func GetBrokerEngineTypesOutput(ctx *pulumi.Context, args GetBrokerEngineTypesOu
 
 // A collection of arguments for invoking getBrokerEngineTypes.
 type GetBrokerEngineTypesOutputArgs struct {
-	// MQ engine type to return version details for.
 	EngineType pulumi.StringPtrInput `pulumi:"engineType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetBrokerEngineTypesOutputArgs) ElementType() reflect.Type {
@@ -103,12 +70,10 @@ func (o GetBrokerEngineTypesResultOutput) ToGetBrokerEngineTypesResultOutputWith
 	return o
 }
 
-// List of available engine types and versions. See Engine Types.
 func (o GetBrokerEngineTypesResultOutput) BrokerEngineTypes() GetBrokerEngineTypesBrokerEngineTypeArrayOutput {
 	return o.ApplyT(func(v GetBrokerEngineTypesResult) []GetBrokerEngineTypesBrokerEngineType { return v.BrokerEngineTypes }).(GetBrokerEngineTypesBrokerEngineTypeArrayOutput)
 }
 
-// Broker's engine type.
 func (o GetBrokerEngineTypesResultOutput) EngineType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetBrokerEngineTypesResult) *string { return v.EngineType }).(pulumi.StringPtrOutput)
 }

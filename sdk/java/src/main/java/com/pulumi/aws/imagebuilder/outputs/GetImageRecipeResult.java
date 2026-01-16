@@ -14,115 +14,43 @@ import java.util.Objects;
 
 @CustomType
 public final class GetImageRecipeResult {
-    /**
-     * @return Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution.
-     * 
-     */
     private Map<String,String> amiTags;
     private String arn;
-    /**
-     * @return Set of objects with block device mappings for the image recipe.
-     * 
-     */
     private List<GetImageRecipeBlockDeviceMapping> blockDeviceMappings;
-    /**
-     * @return List of objects with components for the image recipe.
-     * 
-     */
     private List<GetImageRecipeComponent> components;
-    /**
-     * @return Date the image recipe was created.
-     * 
-     */
     private String dateCreated;
-    /**
-     * @return Description of the image recipe.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Name of the image recipe.
-     * 
-     */
     private String name;
-    /**
-     * @return Owner of the image recipe.
-     * 
-     */
     private String owner;
-    /**
-     * @return Base image of the image recipe.
-     * 
-     */
     private String parentImage;
-    /**
-     * @return Platform of the image recipe.
-     * 
-     */
     private String platform;
     private String region;
-    /**
-     * @return Key-value map of resource tags for the image recipe.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Base64 encoded contents of user data. Commands or a command script to run when build instance is launched.
-     * 
-     */
     private String userDataBase64;
-    /**
-     * @return Version of the image recipe.
-     * 
-     */
     private String version;
-    /**
-     * @return Working directory used during build and test workflows.
-     * 
-     */
     private String workingDirectory;
 
     private GetImageRecipeResult() {}
-    /**
-     * @return Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution.
-     * 
-     */
     public Map<String,String> amiTags() {
         return this.amiTags;
     }
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Set of objects with block device mappings for the image recipe.
-     * 
-     */
     public List<GetImageRecipeBlockDeviceMapping> blockDeviceMappings() {
         return this.blockDeviceMappings;
     }
-    /**
-     * @return List of objects with components for the image recipe.
-     * 
-     */
     public List<GetImageRecipeComponent> components() {
         return this.components;
     }
-    /**
-     * @return Date the image recipe was created.
-     * 
-     */
     public String dateCreated() {
         return this.dateCreated;
     }
-    /**
-     * @return Description of the image recipe.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -133,62 +61,30 @@ public final class GetImageRecipeResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the image recipe.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Owner of the image recipe.
-     * 
-     */
     public String owner() {
         return this.owner;
     }
-    /**
-     * @return Base image of the image recipe.
-     * 
-     */
     public String parentImage() {
         return this.parentImage;
     }
-    /**
-     * @return Platform of the image recipe.
-     * 
-     */
     public String platform() {
         return this.platform;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Key-value map of resource tags for the image recipe.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Base64 encoded contents of user data. Commands or a command script to run when build instance is launched.
-     * 
-     */
     public String userDataBase64() {
         return this.userDataBase64;
     }
-    /**
-     * @return Version of the image recipe.
-     * 
-     */
     public String version() {
         return this.version;
     }
-    /**
-     * @return Working directory used during build and test workflows.
-     * 
-     */
     public String workingDirectory() {
         return this.workingDirectory;
     }

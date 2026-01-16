@@ -18,70 +18,30 @@ public final class GetNetworkInsightsPathArgs extends com.pulumi.resources.Invok
 
     public static final GetNetworkInsightsPathArgs Empty = new GetNetworkInsightsPathArgs();
 
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     * 
-     * The arguments of this data source act as filters for querying the available
-     * Network Insights Paths. The given filters must match exactly one Network Insights Path
-     * whose data will be exported as attributes.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetNetworkInsightsPathFilterArgs>> filters;
 
-    /**
-     * @return Configuration block(s) for filtering. Detailed below.
-     * 
-     * The arguments of this data source act as filters for querying the available
-     * Network Insights Paths. The given filters must match exactly one Network Insights Path
-     * whose data will be exported as attributes.
-     * 
-     */
     public Optional<Output<List<GetNetworkInsightsPathFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * ID of the Network Insights Path to select.
-     * 
-     */
     @Import(name="networkInsightsPathId")
     private @Nullable Output<String> networkInsightsPathId;
 
-    /**
-     * @return ID of the Network Insights Path to select.
-     * 
-     */
     public Optional<Output<String>> networkInsightsPathId() {
         return Optional.ofNullable(this.networkInsightsPathId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags assigned to the resource.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags assigned to the resource.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -113,108 +73,42 @@ public final class GetNetworkInsightsPathArgs extends com.pulumi.resources.Invok
             $ = new GetNetworkInsightsPathArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * The arguments of this data source act as filters for querying the available
-         * Network Insights Paths. The given filters must match exactly one Network Insights Path
-         * whose data will be exported as attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetNetworkInsightsPathFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * The arguments of this data source act as filters for querying the available
-         * Network Insights Paths. The given filters must match exactly one Network Insights Path
-         * whose data will be exported as attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetNetworkInsightsPathFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * The arguments of this data source act as filters for querying the available
-         * Network Insights Paths. The given filters must match exactly one Network Insights Path
-         * whose data will be exported as attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetNetworkInsightsPathFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param networkInsightsPathId ID of the Network Insights Path to select.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInsightsPathId(@Nullable Output<String> networkInsightsPathId) {
             $.networkInsightsPathId = networkInsightsPathId;
             return this;
         }
 
-        /**
-         * @param networkInsightsPathId ID of the Network Insights Path to select.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInsightsPathId(String networkInsightsPathId) {
             return networkInsightsPathId(Output.of(networkInsightsPathId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Map of tags assigned to the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags assigned to the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

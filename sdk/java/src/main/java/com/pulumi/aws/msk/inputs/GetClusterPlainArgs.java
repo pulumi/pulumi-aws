@@ -16,47 +16,23 @@ public final class GetClusterPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetClusterPlainArgs Empty = new GetClusterPlainArgs();
 
-    /**
-     * Name of the cluster.
-     * 
-     */
     @Import(name="clusterName", required=true)
     private String clusterName;
 
-    /**
-     * @return Name of the cluster.
-     * 
-     */
     public String clusterName() {
         return this.clusterName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of key-value pairs assigned to the cluster.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of key-value pairs assigned to the cluster.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -87,34 +63,16 @@ public final class GetClusterPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetClusterPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusterName Name of the cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterName(String clusterName) {
             $.clusterName = clusterName;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Map of key-value pairs assigned to the cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

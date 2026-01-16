@@ -11,65 +11,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetNetworkInterfaceAttachment {
-    /**
-     * @return ID of the network interface attachment.
-     * 
-     */
     private String attachmentId;
-    /**
-     * @return Device index of the network interface attachment on the instance.
-     * 
-     */
     private Integer deviceIndex;
-    /**
-     * @return ID of the instance.
-     * 
-     */
     private String instanceId;
-    /**
-     * @return AWS account ID of the owner of the instance.
-     * 
-     */
     private String instanceOwnerId;
-    /**
-     * @return Index of the network card.
-     * 
-     */
     private Integer networkCardIndex;
 
     private GetNetworkInterfaceAttachment() {}
-    /**
-     * @return ID of the network interface attachment.
-     * 
-     */
     public String attachmentId() {
         return this.attachmentId;
     }
-    /**
-     * @return Device index of the network interface attachment on the instance.
-     * 
-     */
     public Integer deviceIndex() {
         return this.deviceIndex;
     }
-    /**
-     * @return ID of the instance.
-     * 
-     */
     public String instanceId() {
         return this.instanceId;
     }
-    /**
-     * @return AWS account ID of the owner of the instance.
-     * 
-     */
     public String instanceOwnerId() {
         return this.instanceOwnerId;
     }
-    /**
-     * @return Index of the network card.
-     * 
-     */
     public Integer networkCardIndex() {
         return this.networkCardIndex;
     }

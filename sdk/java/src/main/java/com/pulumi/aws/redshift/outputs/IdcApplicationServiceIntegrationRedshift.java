@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IdcApplicationServiceIntegrationRedshift {
-    /**
-     * @return Amazon Redshift connect service integration scope.
-     * 
-     */
     private @Nullable IdcApplicationServiceIntegrationRedshiftConnect connect;
 
     private IdcApplicationServiceIntegrationRedshift() {}
-    /**
-     * @return Amazon Redshift connect service integration scope.
-     * 
-     */
     public Optional<IdcApplicationServiceIntegrationRedshiftConnect> connect() {
         return Optional.ofNullable(this.connect);
     }

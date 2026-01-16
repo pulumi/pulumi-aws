@@ -14,28 +14,17 @@ namespace Pulumi.Aws.Bedrock.Inputs
     {
         [Input("customParameters")]
         private InputMap<string>? _customParameters;
-
-        /// <summary>
-        /// Map of custom parameters to include in OAuth requests.
-        /// </summary>
         public InputMap<string> CustomParameters
         {
             get => _customParameters ?? (_customParameters = new InputMap<string>());
             set => _customParameters = value;
         }
 
-        /// <summary>
-        /// ARN of the OIDC provider for OAuth authentication.
-        /// </summary>
         [Input("providerArn", required: true)]
         public Input<string> ProviderArn { get; set; } = null!;
 
         [Input("scopes", required: true)]
         private InputList<string>? _scopes;
-
-        /// <summary>
-        /// Set of OAuth scopes to request.
-        /// </summary>
         public InputList<string> Scopes
         {
             get => _scopes ?? (_scopes = new InputList<string>());

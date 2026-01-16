@@ -7,288 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Chime SDK Media Pipelines Media Insights Pipeline Configuration.
- * Consult the [Call analytics developer guide](https://docs.aws.amazon.com/chime-sdk/latest/dg/call-analytics.html) for more detailed information about usage.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.kinesis.Stream("example", {
- *     name: "example",
- *     shardCount: 2,
- * });
- * const mediaPipelinesAssumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["mediapipelines.chime.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const callAnalyticsRole = new aws.iam.Role("call_analytics_role", {
- *     name: "CallAnalyticsRole",
- *     assumeRolePolicy: mediaPipelinesAssumeRole.then(mediaPipelinesAssumeRole => mediaPipelinesAssumeRole.json),
- * });
- * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration", {
- *     name: "MyBasicConfiguration",
- *     resourceAccessRoleArn: callAnalyticsRole.arn,
- *     elements: [
- *         {
- *             type: "AmazonTranscribeCallAnalyticsProcessor",
- *             amazonTranscribeCallAnalyticsProcessorConfiguration: {
- *                 languageCode: "en-US",
- *             },
- *         },
- *         {
- *             type: "KinesisDataStreamSink",
- *             kinesisDataStreamSinkConfiguration: {
- *                 insightsTarget: example.arn,
- *             },
- *         },
- *     ],
- *     tags: {
- *         Key1: "Value1",
- *         Key2: "Value2",
- *     },
- * });
- * ```
- *
- * - The required policies on `callAnalyticsRole` will vary based on the selected processors. See [Call analytics resource access role](https://docs.aws.amazon.com/chime-sdk/latest/dg/ca-resource-access-role.html) for directions on choosing appropriate policies.
- *
- * ### Transcribe Call Analytics processor usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const transcribeAssumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["transcribe.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const postCallRole = new aws.iam.Role("post_call_role", {
- *     name: "PostCallAccessRole",
- *     assumeRolePolicy: transcribeAssumeRole.then(transcribeAssumeRole => transcribeAssumeRole.json),
- * });
- * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration", {
- *     name: "MyCallAnalyticsConfiguration",
- *     resourceAccessRoleArn: exampleAwsIamRole.arn,
- *     elements: [
- *         {
- *             type: "AmazonTranscribeCallAnalyticsProcessor",
- *             amazonTranscribeCallAnalyticsProcessorConfiguration: {
- *                 callAnalyticsStreamCategories: [
- *                     "category_1",
- *                     "category_2",
- *                 ],
- *                 contentRedactionType: "PII",
- *                 enablePartialResultsStabilization: true,
- *                 filterPartialResults: true,
- *                 languageCode: "en-US",
- *                 languageModelName: "MyLanguageModel",
- *                 partialResultsStability: "high",
- *                 piiEntityTypes: "ADDRESS,BANK_ACCOUNT_NUMBER",
- *                 postCallAnalyticsSettings: {
- *                     contentRedactionOutput: "redacted",
- *                     dataAccessRoleArn: postCallRole.arn,
- *                     outputEncryptionKmsKeyId: "MyKmsKeyId",
- *                     outputLocation: "s3://MyBucket",
- *                 },
- *                 vocabularyFilterMethod: "mask",
- *                 vocabularyFilterName: "MyVocabularyFilter",
- *                 vocabularyName: "MyVocabulary",
- *             },
- *         },
- *         {
- *             type: "KinesisDataStreamSink",
- *             kinesisDataStreamSinkConfiguration: {
- *                 insightsTarget: example.arn,
- *             },
- *         },
- *     ],
- * });
- * ```
- *
- * ### Real time alerts usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration", {
- *     name: "MyRealTimeAlertConfiguration",
- *     resourceAccessRoleArn: callAnalyticsRole.arn,
- *     elements: [
- *         {
- *             type: "AmazonTranscribeCallAnalyticsProcessor",
- *             amazonTranscribeCallAnalyticsProcessorConfiguration: {
- *                 languageCode: "en-US",
- *             },
- *         },
- *         {
- *             type: "KinesisDataStreamSink",
- *             kinesisDataStreamSinkConfiguration: {
- *                 insightsTarget: example.arn,
- *             },
- *         },
- *     ],
- *     realTimeAlertConfiguration: {
- *         disabled: false,
- *         rules: [
- *             {
- *                 type: "IssueDetection",
- *                 issueDetectionConfiguration: {
- *                     ruleName: "MyIssueDetectionRule",
- *                 },
- *             },
- *             {
- *                 type: "KeywordMatch",
- *                 keywordMatchConfiguration: {
- *                     keywords: [
- *                         "keyword1",
- *                         "keyword2",
- *                     ],
- *                     negate: false,
- *                     ruleName: "MyKeywordMatchRule",
- *                 },
- *             },
- *             {
- *                 type: "Sentiment",
- *                 sentimentConfiguration: {
- *                     ruleName: "MySentimentRule",
- *                     sentimentType: "NEGATIVE",
- *                     timePeriod: 60,
- *                 },
- *             },
- *         ],
- *     },
- * });
- * ```
- *
- * ### Transcribe processor usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration", {
- *     name: "MyTranscribeConfiguration",
- *     resourceAccessRoleArn: exampleAwsIamRole.arn,
- *     elements: [
- *         {
- *             type: "AmazonTranscribeProcessor",
- *             amazonTranscribeProcessorConfiguration: {
- *                 contentIdentificationType: "PII",
- *                 enablePartialResultsStabilization: true,
- *                 filterPartialResults: true,
- *                 languageCode: "en-US",
- *                 languageModelName: "MyLanguageModel",
- *                 partialResultsStability: "high",
- *                 piiEntityTypes: "ADDRESS,BANK_ACCOUNT_NUMBER",
- *                 showSpeakerLabel: true,
- *                 vocabularyFilterMethod: "mask",
- *                 vocabularyFilterName: "MyVocabularyFilter",
- *                 vocabularyName: "MyVocabulary",
- *             },
- *         },
- *         {
- *             type: "KinesisDataStreamSink",
- *             kinesisDataStreamSinkConfiguration: {
- *                 insightsTarget: example.arn,
- *             },
- *         },
- *     ],
- * });
- * ```
- *
- * ### Voice analytics processor usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration", {
- *     name: "MyVoiceAnalyticsConfiguration",
- *     resourceAccessRoleArn: example.arn,
- *     elements: [
- *         {
- *             type: "VoiceAnalyticsProcessor",
- *             voiceAnalyticsProcessorConfiguration: {
- *                 speakerSearchStatus: "Enabled",
- *                 voiceToneAnalysisStatus: "Enabled",
- *             },
- *         },
- *         {
- *             type: "LambdaFunctionSink",
- *             lambdaFunctionSinkConfiguration: {
- *                 insightsTarget: "arn:aws:lambda:us-west-2:1111111111:function:MyFunction",
- *             },
- *         },
- *         {
- *             type: "SnsTopicSink",
- *             snsTopicSinkConfiguration: {
- *                 insightsTarget: "arn:aws:sns:us-west-2:1111111111:topic/MyTopic",
- *             },
- *         },
- *         {
- *             type: "SqsQueueSink",
- *             sqsQueueSinkConfiguration: {
- *                 insightsTarget: "arn:aws:sqs:us-west-2:1111111111:queue/MyQueue",
- *             },
- *         },
- *         {
- *             type: "KinesisDataStreamSink",
- *             kinesisDataStreamSinkConfiguration: {
- *                 insightsTarget: test.arn,
- *             },
- *         },
- *     ],
- * });
- * ```
- *
- * ### S3 Recording sink usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration", {
- *     name: "MyS3RecordingConfiguration",
- *     resourceAccessRoleArn: example.arn,
- *     elements: [{
- *         type: "S3RecordingSink",
- *         s3RecordingSinkConfiguration: {
- *             destination: "arn:aws:s3:::MyBucket",
- *         },
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the Chime SDK media insights pipeline configuration.
- *
- * Using `pulumi import`, import Chime SDK Media Pipelines Media Insights Pipeline Configuration using the `id`. For example:
- *
- * % pulumi import aws_chimesdkmediapipelines_media_insights_pipeline_configuration.example abcdef123456
- */
 export class MediaInsightsPipelineConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing MediaInsightsPipelineConfiguration resource's state with the given name, ID, and optional extra
@@ -317,33 +35,12 @@ export class MediaInsightsPipelineConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === MediaInsightsPipelineConfiguration.__pulumiType;
     }
 
-    /**
-     * ARN of the Media Insights Pipeline Configuration.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Collection of processors and sinks to transform media and deliver data.
-     */
     declare public readonly elements: pulumi.Output<outputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElement[]>;
-    /**
-     * Configuration name.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
-     */
     declare public readonly realTimeAlertConfiguration: pulumi.Output<outputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
-     */
     declare public readonly resourceAccessRoleArn: pulumi.Output<string>;
-    /**
-     * Key-value map of tags for the resource.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -394,33 +91,12 @@ export class MediaInsightsPipelineConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering MediaInsightsPipelineConfiguration resources.
  */
 export interface MediaInsightsPipelineConfigurationState {
-    /**
-     * ARN of the Media Insights Pipeline Configuration.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Collection of processors and sinks to transform media and deliver data.
-     */
     elements?: pulumi.Input<pulumi.Input<inputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElement>[]>;
-    /**
-     * Configuration name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
-     */
     realTimeAlertConfiguration?: pulumi.Input<inputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
-     */
     resourceAccessRoleArn?: pulumi.Input<string>;
-    /**
-     * Key-value map of tags for the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -429,28 +105,10 @@ export interface MediaInsightsPipelineConfigurationState {
  * The set of arguments for constructing a MediaInsightsPipelineConfiguration resource.
  */
 export interface MediaInsightsPipelineConfigurationArgs {
-    /**
-     * Collection of processors and sinks to transform media and deliver data.
-     */
     elements: pulumi.Input<pulumi.Input<inputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElement>[]>;
-    /**
-     * Configuration name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
-     */
     realTimeAlertConfiguration?: pulumi.Input<inputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
-     */
     resourceAccessRoleArn: pulumi.Input<string>;
-    /**
-     * Key-value map of tags for the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

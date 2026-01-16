@@ -11,75 +11,12 @@ namespace Pulumi.Aws.NetworkManager
 {
     public static class GetGlobalNetwork
     {
-        /// <summary>
-        /// Provides details about an existing Network Manager global network.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.NetworkManager.GetGlobalNetwork.Invoke(new()
-        ///     {
-        ///         GlobalNetworkId = globalNetworkId,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetGlobalNetworkResult> InvokeAsync(GetGlobalNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGlobalNetworkResult>("aws:networkmanager/getGlobalNetwork:getGlobalNetwork", args ?? new GetGlobalNetworkArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about an existing Network Manager global network.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.NetworkManager.GetGlobalNetwork.Invoke(new()
-        ///     {
-        ///         GlobalNetworkId = globalNetworkId,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetGlobalNetworkResult> Invoke(GetGlobalNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalNetworkResult>("aws:networkmanager/getGlobalNetwork:getGlobalNetwork", args ?? new GetGlobalNetworkInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about an existing Network Manager global network.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.NetworkManager.GetGlobalNetwork.Invoke(new()
-        ///     {
-        ///         GlobalNetworkId = globalNetworkId,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetGlobalNetworkResult> Invoke(GetGlobalNetworkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalNetworkResult>("aws:networkmanager/getGlobalNetwork:getGlobalNetwork", args ?? new GetGlobalNetworkInvokeArgs(), options.WithDefaults());
     }
@@ -87,18 +24,11 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class GetGlobalNetworkArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the specific global network to retrieve.
-        /// </summary>
         [Input("globalNetworkId", required: true)]
         public string GlobalNetworkId { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of resource tags.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -113,18 +43,11 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class GetGlobalNetworkInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the specific global network to retrieve.
-        /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of resource tags.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -141,22 +64,13 @@ namespace Pulumi.Aws.NetworkManager
     [OutputType]
     public sealed class GetGlobalNetworkResult
     {
-        /// <summary>
-        /// ARN of the global network.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Description of the global network.
-        /// </summary>
         public readonly string Description;
         public readonly string GlobalNetworkId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Map of resource tags.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

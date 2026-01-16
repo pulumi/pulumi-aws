@@ -15,175 +15,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Cognito User Group resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cognito.UserPool;
- * import com.pulumi.aws.cognito.UserPoolArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.cognito.UserGroup;
- * import com.pulumi.aws.cognito.UserGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var main = new UserPool("main", UserPoolArgs.builder()
- *             .name("identity pool")
- *             .build());
- * 
- *         final var groupRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Federated")
- *                     .identifiers("cognito-identity.amazonaws.com")
- *                     .build())
- *                 .actions("sts:AssumeRoleWithWebIdentity")
- *                 .conditions(                
- *                     GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test("StringEquals")
- *                         .variable("cognito-identity.amazonaws.com:aud")
- *                         .values("us-east-1:12345678-dead-beef-cafe-123456790ab")
- *                         .build(),
- *                     GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test("ForAnyValue:StringLike")
- *                         .variable("cognito-identity.amazonaws.com:amr")
- *                         .values("authenticated")
- *                         .build())
- *                 .build())
- *             .build());
- * 
- *         var groupRoleRole = new Role("groupRoleRole", RoleArgs.builder()
- *             .name("user-group-role")
- *             .assumeRolePolicy(groupRole.json())
- *             .build());
- * 
- *         var mainUserGroup = new UserGroup("mainUserGroup", UserGroupArgs.builder()
- *             .name("user-group")
- *             .userPoolId(main.id())
- *             .description("Managed by Pulumi")
- *             .precedence(42)
- *             .roleArn(groupRoleRole.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Cognito User Groups using the `user_pool_id`/`name` attributes concatenated. For example:
- * 
- * ```sh
- * $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
- * ```
- * 
- */
 @ResourceType(type="aws:cognito/userGroup:UserGroup")
 public class UserGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * The description of the user group.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return The description of the user group.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The name of the user group.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the user group.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The precedence of the user group.
-     * 
-     */
     @Export(name="precedence", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> precedence;
 
-    /**
-     * @return The precedence of the user group.
-     * 
-     */
     public Output<Optional<Integer>> precedence() {
         return Codegen.optional(this.precedence);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The ARN of the IAM role to be associated with the user group.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleArn;
 
-    /**
-     * @return The ARN of the IAM role to be associated with the user group.
-     * 
-     */
     public Output<Optional<String>> roleArn() {
         return Codegen.optional(this.roleArn);
     }
-    /**
-     * The user pool ID.
-     * 
-     */
     @Export(name="userPoolId", refs={String.class}, tree="[0]")
     private Output<String> userPoolId;
 
-    /**
-     * @return The user pool ID.
-     * 
-     */
     public Output<String> userPoolId() {
         return this.userPoolId;
     }

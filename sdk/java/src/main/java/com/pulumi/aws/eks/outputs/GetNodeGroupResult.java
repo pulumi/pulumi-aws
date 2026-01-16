@@ -19,130 +19,46 @@ import java.util.Objects;
 
 @CustomType
 public final class GetNodeGroupResult {
-    /**
-     * @return Type of Amazon Machine Image (AMI) associated with the EKS Node Group.
-     * 
-     */
     private String amiType;
-    /**
-     * @return ARN of the EKS Node Group.
-     * 
-     */
     private String arn;
-    /**
-     * @return Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`.
-     * 
-     */
     private String capacityType;
     private String clusterName;
-    /**
-     * @return Disk size in GiB for worker nodes.
-     * 
-     */
     private Integer diskSize;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Set of instance types associated with the EKS Node Group.
-     * 
-     */
     private List<String> instanceTypes;
-    /**
-     * @return Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
-     * 
-     */
     private Map<String,String> labels;
-    /**
-     * @return Nested attribute containing information about the launch template used to create the EKS Node Group.
-     * 
-     */
     private List<GetNodeGroupLaunchTemplate> launchTemplates;
     private String nodeGroupName;
-    /**
-     * @return ARN of the IAM Role that provides permissions for the EKS Node Group.
-     * 
-     */
     private String nodeRoleArn;
     private String region;
-    /**
-     * @return AMI version of the EKS Node Group.
-     * 
-     */
     private String releaseVersion;
-    /**
-     * @return Configuration block with remote access settings.
-     * 
-     */
     private List<GetNodeGroupRemoteAccess> remoteAccesses;
-    /**
-     * @return List of objects containing information about underlying resources.
-     * 
-     */
     private List<GetNodeGroupResource> resources;
-    /**
-     * @return Configuration block with scaling settings.
-     * 
-     */
     private List<GetNodeGroupScalingConfig> scalingConfigs;
-    /**
-     * @return Status of the EKS Node Group.
-     * 
-     */
     private String status;
-    /**
-     * @return Identifiers of EC2 Subnets to associate with the EKS Node Group.
-     * 
-     */
     private List<String> subnetIds;
-    /**
-     * @return Key-value map of resource tags.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return List of objects containing information about taints applied to the nodes in the EKS Node Group.
-     * 
-     */
     private List<GetNodeGroupTaint> taints;
     private List<GetNodeGroupUpdateConfig> updateConfigs;
-    /**
-     * @return Kubernetes version.
-     * 
-     */
     private String version;
 
     private GetNodeGroupResult() {}
-    /**
-     * @return Type of Amazon Machine Image (AMI) associated with the EKS Node Group.
-     * 
-     */
     public String amiType() {
         return this.amiType;
     }
-    /**
-     * @return ARN of the EKS Node Group.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`.
-     * 
-     */
     public String capacityType() {
         return this.capacityType;
     }
     public String clusterName() {
         return this.clusterName;
     }
-    /**
-     * @return Disk size in GiB for worker nodes.
-     * 
-     */
     public Integer diskSize() {
         return this.diskSize;
     }
@@ -153,103 +69,51 @@ public final class GetNodeGroupResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Set of instance types associated with the EKS Node Group.
-     * 
-     */
     public List<String> instanceTypes() {
         return this.instanceTypes;
     }
-    /**
-     * @return Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
-     * 
-     */
     public Map<String,String> labels() {
         return this.labels;
     }
-    /**
-     * @return Nested attribute containing information about the launch template used to create the EKS Node Group.
-     * 
-     */
     public List<GetNodeGroupLaunchTemplate> launchTemplates() {
         return this.launchTemplates;
     }
     public String nodeGroupName() {
         return this.nodeGroupName;
     }
-    /**
-     * @return ARN of the IAM Role that provides permissions for the EKS Node Group.
-     * 
-     */
     public String nodeRoleArn() {
         return this.nodeRoleArn;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return AMI version of the EKS Node Group.
-     * 
-     */
     public String releaseVersion() {
         return this.releaseVersion;
     }
-    /**
-     * @return Configuration block with remote access settings.
-     * 
-     */
     public List<GetNodeGroupRemoteAccess> remoteAccesses() {
         return this.remoteAccesses;
     }
-    /**
-     * @return List of objects containing information about underlying resources.
-     * 
-     */
     public List<GetNodeGroupResource> resources() {
         return this.resources;
     }
-    /**
-     * @return Configuration block with scaling settings.
-     * 
-     */
     public List<GetNodeGroupScalingConfig> scalingConfigs() {
         return this.scalingConfigs;
     }
-    /**
-     * @return Status of the EKS Node Group.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Identifiers of EC2 Subnets to associate with the EKS Node Group.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
-    /**
-     * @return Key-value map of resource tags.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return List of objects containing information about taints applied to the nodes in the EKS Node Group.
-     * 
-     */
     public List<GetNodeGroupTaint> taints() {
         return this.taints;
     }
     public List<GetNodeGroupUpdateConfig> updateConfigs() {
         return this.updateConfigs;
     }
-    /**
-     * @return Kubernetes version.
-     * 
-     */
     public String version() {
         return this.version;
     }

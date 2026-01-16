@@ -18,47 +18,23 @@ public final class FunctionCapacityProviderConfigLambdaManagedInstancesCapacityP
 
     public static final FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs Empty = new FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs();
 
-    /**
-     * ARN of the Capacity Provider.
-     * 
-     */
     @Import(name="capacityProviderArn", required=true)
     private Output<String> capacityProviderArn;
 
-    /**
-     * @return ARN of the Capacity Provider.
-     * 
-     */
     public Output<String> capacityProviderArn() {
         return this.capacityProviderArn;
     }
 
-    /**
-     * Memory GiB per vCPU for the execution environment.
-     * 
-     */
     @Import(name="executionEnvironmentMemoryGibPerVcpu")
     private @Nullable Output<Double> executionEnvironmentMemoryGibPerVcpu;
 
-    /**
-     * @return Memory GiB per vCPU for the execution environment.
-     * 
-     */
     public Optional<Output<Double>> executionEnvironmentMemoryGibPerVcpu() {
         return Optional.ofNullable(this.executionEnvironmentMemoryGibPerVcpu);
     }
 
-    /**
-     * Maximum concurrency per execution environment.
-     * 
-     */
     @Import(name="perExecutionEnvironmentMaxConcurrency")
     private @Nullable Output<Integer> perExecutionEnvironmentMaxConcurrency;
 
-    /**
-     * @return Maximum concurrency per execution environment.
-     * 
-     */
     public Optional<Output<Integer>> perExecutionEnvironmentMaxConcurrency() {
         return Optional.ofNullable(this.perExecutionEnvironmentMaxConcurrency);
     }
@@ -89,65 +65,29 @@ public final class FunctionCapacityProviderConfigLambdaManagedInstancesCapacityP
             $ = new FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param capacityProviderArn ARN of the Capacity Provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityProviderArn(Output<String> capacityProviderArn) {
             $.capacityProviderArn = capacityProviderArn;
             return this;
         }
 
-        /**
-         * @param capacityProviderArn ARN of the Capacity Provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityProviderArn(String capacityProviderArn) {
             return capacityProviderArn(Output.of(capacityProviderArn));
         }
 
-        /**
-         * @param executionEnvironmentMemoryGibPerVcpu Memory GiB per vCPU for the execution environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionEnvironmentMemoryGibPerVcpu(@Nullable Output<Double> executionEnvironmentMemoryGibPerVcpu) {
             $.executionEnvironmentMemoryGibPerVcpu = executionEnvironmentMemoryGibPerVcpu;
             return this;
         }
 
-        /**
-         * @param executionEnvironmentMemoryGibPerVcpu Memory GiB per vCPU for the execution environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionEnvironmentMemoryGibPerVcpu(Double executionEnvironmentMemoryGibPerVcpu) {
             return executionEnvironmentMemoryGibPerVcpu(Output.of(executionEnvironmentMemoryGibPerVcpu));
         }
 
-        /**
-         * @param perExecutionEnvironmentMaxConcurrency Maximum concurrency per execution environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder perExecutionEnvironmentMaxConcurrency(@Nullable Output<Integer> perExecutionEnvironmentMaxConcurrency) {
             $.perExecutionEnvironmentMaxConcurrency = perExecutionEnvironmentMaxConcurrency;
             return this;
         }
 
-        /**
-         * @param perExecutionEnvironmentMaxConcurrency Maximum concurrency per execution environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder perExecutionEnvironmentMaxConcurrency(Integer perExecutionEnvironmentMaxConcurrency) {
             return perExecutionEnvironmentMaxConcurrency(Output.of(perExecutionEnvironmentMaxConcurrency));
         }

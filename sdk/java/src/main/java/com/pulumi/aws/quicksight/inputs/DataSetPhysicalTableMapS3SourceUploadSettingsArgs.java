@@ -17,77 +17,37 @@ public final class DataSetPhysicalTableMapS3SourceUploadSettingsArgs extends com
 
     public static final DataSetPhysicalTableMapS3SourceUploadSettingsArgs Empty = new DataSetPhysicalTableMapS3SourceUploadSettingsArgs();
 
-    /**
-     * Whether the file has a header row, or the files each have a header row.
-     * 
-     */
     @Import(name="containsHeader")
     private @Nullable Output<Boolean> containsHeader;
 
-    /**
-     * @return Whether the file has a header row, or the files each have a header row.
-     * 
-     */
     public Optional<Output<Boolean>> containsHeader() {
         return Optional.ofNullable(this.containsHeader);
     }
 
-    /**
-     * Delimiter between values in the file.
-     * 
-     */
     @Import(name="delimiter")
     private @Nullable Output<String> delimiter;
 
-    /**
-     * @return Delimiter between values in the file.
-     * 
-     */
     public Optional<Output<String>> delimiter() {
         return Optional.ofNullable(this.delimiter);
     }
 
-    /**
-     * File format. Valid values are `CSV`, `TSV`, `CLF`, `ELF`, `XLSX`, and `JSON`.
-     * 
-     */
     @Import(name="format")
     private @Nullable Output<String> format;
 
-    /**
-     * @return File format. Valid values are `CSV`, `TSV`, `CLF`, `ELF`, `XLSX`, and `JSON`.
-     * 
-     */
     public Optional<Output<String>> format() {
         return Optional.ofNullable(this.format);
     }
 
-    /**
-     * A row number to start reading data from.
-     * 
-     */
     @Import(name="startFromRow")
     private @Nullable Output<Integer> startFromRow;
 
-    /**
-     * @return A row number to start reading data from.
-     * 
-     */
     public Optional<Output<Integer>> startFromRow() {
         return Optional.ofNullable(this.startFromRow);
     }
 
-    /**
-     * Text qualifier. Valid values are `DOUBLE_QUOTE` and `SINGLE_QUOTE`.
-     * 
-     */
     @Import(name="textQualifier")
     private @Nullable Output<String> textQualifier;
 
-    /**
-     * @return Text qualifier. Valid values are `DOUBLE_QUOTE` and `SINGLE_QUOTE`.
-     * 
-     */
     public Optional<Output<String>> textQualifier() {
         return Optional.ofNullable(this.textQualifier);
     }
@@ -120,107 +80,47 @@ public final class DataSetPhysicalTableMapS3SourceUploadSettingsArgs extends com
             $ = new DataSetPhysicalTableMapS3SourceUploadSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param containsHeader Whether the file has a header row, or the files each have a header row.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containsHeader(@Nullable Output<Boolean> containsHeader) {
             $.containsHeader = containsHeader;
             return this;
         }
 
-        /**
-         * @param containsHeader Whether the file has a header row, or the files each have a header row.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containsHeader(Boolean containsHeader) {
             return containsHeader(Output.of(containsHeader));
         }
 
-        /**
-         * @param delimiter Delimiter between values in the file.
-         * 
-         * @return builder
-         * 
-         */
         public Builder delimiter(@Nullable Output<String> delimiter) {
             $.delimiter = delimiter;
             return this;
         }
 
-        /**
-         * @param delimiter Delimiter between values in the file.
-         * 
-         * @return builder
-         * 
-         */
         public Builder delimiter(String delimiter) {
             return delimiter(Output.of(delimiter));
         }
 
-        /**
-         * @param format File format. Valid values are `CSV`, `TSV`, `CLF`, `ELF`, `XLSX`, and `JSON`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder format(@Nullable Output<String> format) {
             $.format = format;
             return this;
         }
 
-        /**
-         * @param format File format. Valid values are `CSV`, `TSV`, `CLF`, `ELF`, `XLSX`, and `JSON`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder format(String format) {
             return format(Output.of(format));
         }
 
-        /**
-         * @param startFromRow A row number to start reading data from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startFromRow(@Nullable Output<Integer> startFromRow) {
             $.startFromRow = startFromRow;
             return this;
         }
 
-        /**
-         * @param startFromRow A row number to start reading data from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startFromRow(Integer startFromRow) {
             return startFromRow(Output.of(startFromRow));
         }
 
-        /**
-         * @param textQualifier Text qualifier. Valid values are `DOUBLE_QUOTE` and `SINGLE_QUOTE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textQualifier(@Nullable Output<String> textQualifier) {
             $.textQualifier = textQualifier;
             return this;
         }
 
-        /**
-         * @param textQualifier Text qualifier. Valid values are `DOUBLE_QUOTE` and `SINGLE_QUOTE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textQualifier(String textQualifier) {
             return textQualifier(Output.of(textQualifier));
         }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.S3Control.Outputs
     [OutputType]
     public sealed class AccessGrantAccessGrantsLocationConfiguration
     {
-        /// <summary>
-        /// Sub-prefix.
-        /// </summary>
         public readonly string? S3SubPrefix;
 
         [OutputConstructor]

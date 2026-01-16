@@ -11,60 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a WAF IPSet Resource
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/waf"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := waf.NewIpSet(ctx, "ipset", &waf.IpSetArgs{
-//				Name: pulumi.String("tfIPSet"),
-//				IpSetDescriptors: waf.IpSetIpSetDescriptorArray{
-//					&waf.IpSetIpSetDescriptorArgs{
-//						Type:  pulumi.String("IPV4"),
-//						Value: pulumi.String("192.0.7.0/24"),
-//					},
-//					&waf.IpSetIpSetDescriptorArgs{
-//						Type:  pulumi.String("IPV4"),
-//						Value: pulumi.String("10.16.16.0/16"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import WAF IPSets using their ID. For example:
-//
-// ```sh
-// $ pulumi import aws:waf/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-// ```
 type IpSet struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the WAF IPSet.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
+	Arn              pulumi.StringOutput             `pulumi:"arn"`
 	IpSetDescriptors IpSetIpSetDescriptorArrayOutput `pulumi:"ipSetDescriptors"`
-	// The name or description of the IPSet.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name             pulumi.StringOutput             `pulumi:"name"`
 }
 
 // NewIpSet registers a new resource with the given unique name, arguments, and options.
@@ -97,21 +49,15 @@ func GetIpSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IpSet resources.
 type ipSetState struct {
-	// The ARN of the WAF IPSet.
-	Arn *string `pulumi:"arn"`
-	// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
+	Arn              *string                `pulumi:"arn"`
 	IpSetDescriptors []IpSetIpSetDescriptor `pulumi:"ipSetDescriptors"`
-	// The name or description of the IPSet.
-	Name *string `pulumi:"name"`
+	Name             *string                `pulumi:"name"`
 }
 
 type IpSetState struct {
-	// The ARN of the WAF IPSet.
-	Arn pulumi.StringPtrInput
-	// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
+	Arn              pulumi.StringPtrInput
 	IpSetDescriptors IpSetIpSetDescriptorArrayInput
-	// The name or description of the IPSet.
-	Name pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
 }
 
 func (IpSetState) ElementType() reflect.Type {
@@ -119,18 +65,14 @@ func (IpSetState) ElementType() reflect.Type {
 }
 
 type ipSetArgs struct {
-	// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
 	IpSetDescriptors []IpSetIpSetDescriptor `pulumi:"ipSetDescriptors"`
-	// The name or description of the IPSet.
-	Name *string `pulumi:"name"`
+	Name             *string                `pulumi:"name"`
 }
 
 // The set of arguments for constructing a IpSet resource.
 type IpSetArgs struct {
-	// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
 	IpSetDescriptors IpSetIpSetDescriptorArrayInput
-	// The name or description of the IPSet.
-	Name pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
 }
 
 func (IpSetArgs) ElementType() reflect.Type {
@@ -220,17 +162,14 @@ func (o IpSetOutput) ToIpSetOutputWithContext(ctx context.Context) IpSetOutput {
 	return o
 }
 
-// The ARN of the WAF IPSet.
 func (o IpSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
 func (o IpSetOutput) IpSetDescriptors() IpSetIpSetDescriptorArrayOutput {
 	return o.ApplyT(func(v *IpSet) IpSetIpSetDescriptorArrayOutput { return v.IpSetDescriptors }).(IpSetIpSetDescriptorArrayOutput)
 }
 
-// The name or description of the IPSet.
 func (o IpSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -9,104 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.MediaStore
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetRegion.Invoke();
-    /// 
-    ///     var currentGetCallerIdentity = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var exampleContainer = new Aws.MediaStore.Container("example", new()
-    ///     {
-    ///         Name = "example",
-    ///     });
-    /// 
-    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Sid = "MediaStoreFullAccess",
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             $"arn:aws:iam::{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "mediastore:*",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     $"arn:aws:mediastore:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:container/{exampleContainer.Name}/*",
-    ///                 },
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "Bool",
-    ///                         Variable = "aws:SecureTransport",
-    ///                         Values = new[]
-    ///                         {
-    ///                             "true",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleContainerPolicy = new Aws.MediaStore.ContainerPolicy("example", new()
-    ///     {
-    ///         ContainerName = exampleContainer.Name,
-    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import MediaStore Container Policy using the MediaStore Container Name. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:mediastore/containerPolicy:ContainerPolicy")]
     public partial class ContainerPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The name of the container.
-        /// </summary>
         [Output("containerName")]
         public Output<string> ContainerName { get; private set; } = null!;
 
-        /// <summary>
-        /// The contents of the policy.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -156,21 +67,12 @@ namespace Pulumi.Aws.MediaStore
 
     public sealed class ContainerPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the container.
-        /// </summary>
         [Input("containerName", required: true)]
         public Input<string> ContainerName { get; set; } = null!;
 
-        /// <summary>
-        /// The contents of the policy.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -182,21 +84,12 @@ namespace Pulumi.Aws.MediaStore
 
     public sealed class ContainerPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the container.
-        /// </summary>
         [Input("containerName")]
         public Input<string>? ContainerName { get; set; }
 
-        /// <summary>
-        /// The contents of the policy.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

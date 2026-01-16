@@ -89,57 +89,36 @@ class GetLaunchConfigurationResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        Amazon Resource Name of the launch configuration.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="associatePublicIpAddress")
     def associate_public_ip_address(self) -> _builtins.bool:
-        """
-        Whether a Public IP address is associated with the instance.
-        """
         return pulumi.get(self, "associate_public_ip_address")
 
     @_builtins.property
     @pulumi.getter(name="ebsBlockDevices")
     def ebs_block_devices(self) -> Sequence['outputs.GetLaunchConfigurationEbsBlockDeviceResult']:
-        """
-        EBS Block Devices attached to the instance.
-        """
         return pulumi.get(self, "ebs_block_devices")
 
     @_builtins.property
     @pulumi.getter(name="ebsOptimized")
     def ebs_optimized(self) -> _builtins.bool:
-        """
-        Whether the launched EC2 instance will be EBS-optimized.
-        """
         return pulumi.get(self, "ebs_optimized")
 
     @_builtins.property
     @pulumi.getter(name="enableMonitoring")
     def enable_monitoring(self) -> _builtins.bool:
-        """
-        Whether Detailed Monitoring is Enabled.
-        """
         return pulumi.get(self, "enable_monitoring")
 
     @_builtins.property
     @pulumi.getter(name="ephemeralBlockDevices")
     def ephemeral_block_devices(self) -> Sequence['outputs.GetLaunchConfigurationEphemeralBlockDeviceResult']:
-        """
-        The Ephemeral volumes on the instance.
-        """
         return pulumi.get(self, "ephemeral_block_devices")
 
     @_builtins.property
     @pulumi.getter(name="iamInstanceProfile")
     def iam_instance_profile(self) -> _builtins.str:
-        """
-        The IAM Instance Profile to associate with launched instances.
-        """
         return pulumi.get(self, "iam_instance_profile")
 
     @_builtins.property
@@ -153,49 +132,31 @@ class GetLaunchConfigurationResult:
     @_builtins.property
     @pulumi.getter(name="imageId")
     def image_id(self) -> _builtins.str:
-        """
-        EC2 Image ID of the instance.
-        """
         return pulumi.get(self, "image_id")
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> _builtins.str:
-        """
-        Instance Type of the instance to launch.
-        """
         return pulumi.get(self, "instance_type")
 
     @_builtins.property
     @pulumi.getter(name="keyName")
     def key_name(self) -> _builtins.str:
-        """
-        Key Name that should be used for the instance.
-        """
         return pulumi.get(self, "key_name")
 
     @_builtins.property
     @pulumi.getter(name="metadataOptions")
     def metadata_options(self) -> Sequence['outputs.GetLaunchConfigurationMetadataOptionResult']:
-        """
-        Metadata options for the instance.
-        """
         return pulumi.get(self, "metadata_options")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the launch configuration.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="placementTenancy")
     def placement_tenancy(self) -> _builtins.str:
-        """
-        Tenancy of the instance.
-        """
         return pulumi.get(self, "placement_tenancy")
 
     @_builtins.property
@@ -206,33 +167,21 @@ class GetLaunchConfigurationResult:
     @_builtins.property
     @pulumi.getter(name="rootBlockDevices")
     def root_block_devices(self) -> Sequence['outputs.GetLaunchConfigurationRootBlockDeviceResult']:
-        """
-        Root Block Device of the instance.
-        """
         return pulumi.get(self, "root_block_devices")
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Sequence[_builtins.str]:
-        """
-        List of associated Security Group IDS.
-        """
         return pulumi.get(self, "security_groups")
 
     @_builtins.property
     @pulumi.getter(name="spotPrice")
     def spot_price(self) -> _builtins.str:
-        """
-        Price to use for reserving Spot instances.
-        """
         return pulumi.get(self, "spot_price")
 
     @_builtins.property
     @pulumi.getter(name="userData")
     def user_data(self) -> _builtins.str:
-        """
-        User Data of the instance.
-        """
         return pulumi.get(self, "user_data")
 
 
@@ -267,20 +216,7 @@ def get_launch_configuration(name: Optional[_builtins.str] = None,
                              region: Optional[_builtins.str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLaunchConfigurationResult:
     """
-    Provides information about a Launch Configuration.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    ubuntu = aws.ec2.get_launch_configuration(name="test-launch-config")
-    ```
-
-
-    :param _builtins.str name: Name of the launch configuration.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -312,20 +248,7 @@ def get_launch_configuration_output(name: Optional[pulumi.Input[_builtins.str]] 
                                     region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLaunchConfigurationResult]:
     """
-    Provides information about a Launch Configuration.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    ubuntu = aws.ec2.get_launch_configuration(name="test-launch-config")
-    ```
-
-
-    :param _builtins.str name: Name of the launch configuration.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

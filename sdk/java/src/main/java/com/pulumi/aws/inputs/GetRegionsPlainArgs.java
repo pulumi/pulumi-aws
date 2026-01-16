@@ -17,47 +17,23 @@ public final class GetRegionsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetRegionsPlainArgs Empty = new GetRegionsPlainArgs();
 
-    /**
-     * If true the source will query all regions regardless of availability.
-     * 
-     */
     @Import(name="allRegions")
     private @Nullable Boolean allRegions;
 
-    /**
-     * @return If true the source will query all regions regardless of availability.
-     * 
-     */
     public Optional<Boolean> allRegions() {
         return Optional.ofNullable(this.allRegions);
     }
 
-    /**
-     * Configuration block(s) to use as filters. Detailed below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetRegionsFilter> filters;
 
-    /**
-     * @return Configuration block(s) to use as filters. Detailed below.
-     * 
-     */
     public Optional<List<GetRegionsFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-     * 
-     */
     @Import(name="id")
     private @Nullable String id;
 
-    /**
-     * @return Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
@@ -88,44 +64,20 @@ public final class GetRegionsPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetRegionsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allRegions If true the source will query all regions regardless of availability.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allRegions(@Nullable Boolean allRegions) {
             $.allRegions = allRegions;
             return this;
         }
 
-        /**
-         * @param filters Configuration block(s) to use as filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetRegionsFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Configuration block(s) to use as filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetRegionsFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param id Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;

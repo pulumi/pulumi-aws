@@ -15,17 +15,9 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTraffic
 
     public static final DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs Empty = new DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs();
 
-    /**
-     * List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
-     * 
-     */
     @Import(name="listenerArns", required=true)
     private Output<List<String>> listenerArns;
 
-    /**
-     * @return List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
-     * 
-     */
     public Output<List<String>> listenerArns() {
         return this.listenerArns;
     }
@@ -54,33 +46,15 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTraffic
             $ = new DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param listenerArns List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder listenerArns(Output<List<String>> listenerArns) {
             $.listenerArns = listenerArns;
             return this;
         }
 
-        /**
-         * @param listenerArns List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder listenerArns(List<String> listenerArns) {
             return listenerArns(Output.of(listenerArns));
         }
 
-        /**
-         * @param listenerArns List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder listenerArns(String... listenerArns) {
             return listenerArns(List.of(listenerArns));
         }

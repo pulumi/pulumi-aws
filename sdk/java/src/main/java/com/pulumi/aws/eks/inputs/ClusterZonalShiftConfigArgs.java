@@ -15,17 +15,9 @@ public final class ClusterZonalShiftConfigArgs extends com.pulumi.resources.Reso
 
     public static final ClusterZonalShiftConfigArgs Empty = new ClusterZonalShiftConfigArgs();
 
-    /**
-     * Whether zonal shift is enabled for the cluster.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether zonal shift is enabled for the cluster.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -54,23 +46,11 @@ public final class ClusterZonalShiftConfigArgs extends com.pulumi.resources.Reso
             $ = new ClusterZonalShiftConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Whether zonal shift is enabled for the cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether zonal shift is enabled for the cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

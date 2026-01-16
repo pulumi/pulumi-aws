@@ -13,17 +13,8 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketObjectLockConfigurationV2RuleDefaultRetention
     {
-        /// <summary>
-        /// Number of days that you want to specify for the default retention period.
-        /// </summary>
         public readonly int? Days;
-        /// <summary>
-        /// Default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Valid values: `COMPLIANCE`, `GOVERNANCE`.
-        /// </summary>
         public readonly string? Mode;
-        /// <summary>
-        /// Number of years that you want to specify for the default retention period.
-        /// </summary>
         public readonly int? Years;
 
         [OutputConstructor]

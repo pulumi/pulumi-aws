@@ -16,65 +16,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipeLogConfiguration {
-    /**
-     * @return Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
-     * 
-     */
     private @Nullable PipeLogConfigurationCloudwatchLogsLogDestination cloudwatchLogsLogDestination;
-    /**
-     * @return Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
-     * 
-     */
     private @Nullable PipeLogConfigurationFirehoseLogDestination firehoseLogDestination;
-    /**
-     * @return String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
-     * 
-     */
     private @Nullable List<String> includeExecutionDatas;
-    /**
-     * @return The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
-     * 
-     */
     private String level;
-    /**
-     * @return Amazon S3 logging configuration settings for the pipe. Detailed below.
-     * 
-     */
     private @Nullable PipeLogConfigurationS3LogDestination s3LogDestination;
 
     private PipeLogConfiguration() {}
-    /**
-     * @return Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
-     * 
-     */
     public Optional<PipeLogConfigurationCloudwatchLogsLogDestination> cloudwatchLogsLogDestination() {
         return Optional.ofNullable(this.cloudwatchLogsLogDestination);
     }
-    /**
-     * @return Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
-     * 
-     */
     public Optional<PipeLogConfigurationFirehoseLogDestination> firehoseLogDestination() {
         return Optional.ofNullable(this.firehoseLogDestination);
     }
-    /**
-     * @return String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
-     * 
-     */
     public List<String> includeExecutionDatas() {
         return this.includeExecutionDatas == null ? List.of() : this.includeExecutionDatas;
     }
-    /**
-     * @return The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
-     * 
-     */
     public String level() {
         return this.level;
     }
-    /**
-     * @return Amazon S3 logging configuration settings for the pipe. Detailed below.
-     * 
-     */
     public Optional<PipeLogConfigurationS3LogDestination> s3LogDestination() {
         return Optional.ofNullable(this.s3LogDestination);
     }

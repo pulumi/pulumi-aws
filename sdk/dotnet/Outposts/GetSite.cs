@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Outposts
 {
     public static class GetSite
     {
-        /// <summary>
-        /// Provides details about an Outposts Site.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Outposts.GetSite.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetSiteResult> InvokeAsync(GetSiteArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("aws:outposts/getSite:getSite", args ?? new GetSiteArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about an Outposts Site.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Outposts.GetSite.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSiteResult>("aws:outposts/getSite:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about an Outposts Site.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Outposts.GetSite.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSiteResult>("aws:outposts/getSite:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
     }
@@ -87,21 +24,12 @@ namespace Pulumi.Aws.Outposts
 
     public sealed class GetSiteArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Identifier of the Site.
-        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
-        /// <summary>
-        /// Name of the Site.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -113,21 +41,12 @@ namespace Pulumi.Aws.Outposts
 
     public sealed class GetSiteInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Identifier of the Site.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// Name of the Site.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -141,13 +60,7 @@ namespace Pulumi.Aws.Outposts
     [OutputType]
     public sealed class GetSiteResult
     {
-        /// <summary>
-        /// AWS Account identifier.
-        /// </summary>
         public readonly string AccountId;
-        /// <summary>
-        /// Description.
-        /// </summary>
         public readonly string Description;
         public readonly string Id;
         public readonly string Name;

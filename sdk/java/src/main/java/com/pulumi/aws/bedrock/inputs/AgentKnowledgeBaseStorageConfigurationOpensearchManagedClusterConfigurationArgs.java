@@ -17,62 +17,30 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchManagedCluste
 
     public static final AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs Empty = new AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs();
 
-    /**
-     * ARN of the OpenSearch domain.
-     * 
-     */
     @Import(name="domainArn", required=true)
     private Output<String> domainArn;
 
-    /**
-     * @return ARN of the OpenSearch domain.
-     * 
-     */
     public Output<String> domainArn() {
         return this.domainArn;
     }
 
-    /**
-     * Endpoint URL of the OpenSearch domain.
-     * 
-     */
     @Import(name="domainEndpoint", required=true)
     private Output<String> domainEndpoint;
 
-    /**
-     * @return Endpoint URL of the OpenSearch domain.
-     * 
-     */
     public Output<String> domainEndpoint() {
         return this.domainEndpoint;
     }
 
-    /**
-     * The names of the fields to which to map information about the vector store. This block supports the following arguments:
-     * 
-     */
     @Import(name="fieldMapping")
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs> fieldMapping;
 
-    /**
-     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
-     * 
-     */
     public Optional<Output<AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs>> fieldMapping() {
         return Optional.ofNullable(this.fieldMapping);
     }
 
-    /**
-     * Name of the vector store.
-     * 
-     */
     @Import(name="vectorIndexName", required=true)
     private Output<String> vectorIndexName;
 
-    /**
-     * @return Name of the vector store.
-     * 
-     */
     public Output<String> vectorIndexName() {
         return this.vectorIndexName;
     }
@@ -104,86 +72,38 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchManagedCluste
             $ = new AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domainArn ARN of the OpenSearch domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainArn(Output<String> domainArn) {
             $.domainArn = domainArn;
             return this;
         }
 
-        /**
-         * @param domainArn ARN of the OpenSearch domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainArn(String domainArn) {
             return domainArn(Output.of(domainArn));
         }
 
-        /**
-         * @param domainEndpoint Endpoint URL of the OpenSearch domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainEndpoint(Output<String> domainEndpoint) {
             $.domainEndpoint = domainEndpoint;
             return this;
         }
 
-        /**
-         * @param domainEndpoint Endpoint URL of the OpenSearch domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainEndpoint(String domainEndpoint) {
             return domainEndpoint(Output.of(domainEndpoint));
         }
 
-        /**
-         * @param fieldMapping The names of the fields to which to map information about the vector store. This block supports the following arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldMapping(@Nullable Output<AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs> fieldMapping) {
             $.fieldMapping = fieldMapping;
             return this;
         }
 
-        /**
-         * @param fieldMapping The names of the fields to which to map information about the vector store. This block supports the following arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldMapping(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs fieldMapping) {
             return fieldMapping(Output.of(fieldMapping));
         }
 
-        /**
-         * @param vectorIndexName Name of the vector store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vectorIndexName(Output<String> vectorIndexName) {
             $.vectorIndexName = vectorIndexName;
             return this;
         }
 
-        /**
-         * @param vectorIndexName Name of the vector store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vectorIndexName(String vectorIndexName) {
             return vectorIndexName(Output.of(vectorIndexName));
         }

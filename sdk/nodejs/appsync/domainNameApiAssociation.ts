@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AppSync API Association.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appsync.DomainNameApiAssociation("example", {
- *     apiId: exampleAwsAppsyncGraphqlApi.id,
- *     domainName: exampleAwsAppsyncDomainName.domainName,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_appsync_domain_name_api_association` using the AppSync domain name. For example:
- *
- * ```sh
- * $ pulumi import aws:appsync/domainNameApiAssociation:DomainNameApiAssociation example example.com
- * ```
- */
 export class DomainNameApiAssociation extends pulumi.CustomResource {
     /**
      * Get an existing DomainNameApiAssociation resource's state with the given name, ID, and optional extra
@@ -55,17 +32,8 @@ export class DomainNameApiAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === DomainNameApiAssociation.__pulumiType;
     }
 
-    /**
-     * API ID.
-     */
     declare public readonly apiId: pulumi.Output<string>;
-    /**
-     * Appsync domain name.
-     */
     declare public readonly domainName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -105,17 +73,8 @@ export class DomainNameApiAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DomainNameApiAssociation resources.
  */
 export interface DomainNameApiAssociationState {
-    /**
-     * API ID.
-     */
     apiId?: pulumi.Input<string>;
-    /**
-     * Appsync domain name.
-     */
     domainName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -123,16 +82,7 @@ export interface DomainNameApiAssociationState {
  * The set of arguments for constructing a DomainNameApiAssociation resource.
  */
 export interface DomainNameApiAssociationArgs {
-    /**
-     * API ID.
-     */
     apiId: pulumi.Input<string>;
-    /**
-     * Appsync domain name.
-     */
     domainName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

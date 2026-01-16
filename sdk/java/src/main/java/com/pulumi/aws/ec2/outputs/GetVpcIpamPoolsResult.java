@@ -20,10 +20,6 @@ public final class GetVpcIpamPoolsResult {
      * 
      */
     private String id;
-    /**
-     * @return List of IPAM pools and their attributes. See below for details
-     * 
-     */
     private List<GetVpcIpamPoolsIpamPool> ipamPools;
     private String region;
 
@@ -38,10 +34,6 @@ public final class GetVpcIpamPoolsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of IPAM pools and their attributes. See below for details
-     * 
-     */
     public List<GetVpcIpamPoolsIpamPool> ipamPools() {
         return this.ipamPools;
     }

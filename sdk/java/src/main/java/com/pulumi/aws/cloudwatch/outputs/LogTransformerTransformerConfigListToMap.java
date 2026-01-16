@@ -13,77 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LogTransformerTransformerConfigListToMap {
-    /**
-     * @return Specifies whether the list will be flattened into single items. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean flatten;
-    /**
-     * @return Required if `flatten` is set to true. Specifies the element to keep. Allowed values are `first` and `last`.
-     * 
-     */
     private @Nullable String flattenedElement;
-    /**
-     * @return Specifies the key of the field to be extracted as keys in the generated map.
-     * 
-     */
     private String key;
-    /**
-     * @return Specifies the key in the log event that has a list of objects that will be converted to a map.
-     * 
-     */
     private String source;
-    /**
-     * @return Specifies the key of the field that will hold the generated map.
-     * 
-     */
     private @Nullable String target;
-    /**
-     * @return Specifies the values that will be extracted from the source objects and put into the values of the generated map. If omitted, original objects in the source list will be put into the values of the generated map.
-     * 
-     */
     private @Nullable String valueKey;
 
     private LogTransformerTransformerConfigListToMap() {}
-    /**
-     * @return Specifies whether the list will be flattened into single items. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> flatten() {
         return Optional.ofNullable(this.flatten);
     }
-    /**
-     * @return Required if `flatten` is set to true. Specifies the element to keep. Allowed values are `first` and `last`.
-     * 
-     */
     public Optional<String> flattenedElement() {
         return Optional.ofNullable(this.flattenedElement);
     }
-    /**
-     * @return Specifies the key of the field to be extracted as keys in the generated map.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return Specifies the key in the log event that has a list of objects that will be converted to a map.
-     * 
-     */
     public String source() {
         return this.source;
     }
-    /**
-     * @return Specifies the key of the field that will hold the generated map.
-     * 
-     */
     public Optional<String> target() {
         return Optional.ofNullable(this.target);
     }
-    /**
-     * @return Specifies the values that will be extracted from the source objects and put into the values of the generated map. If omitted, original objects in the source list will be put into the values of the generated map.
-     * 
-     */
     public Optional<String> valueKey() {
         return Optional.ofNullable(this.valueKey);
     }

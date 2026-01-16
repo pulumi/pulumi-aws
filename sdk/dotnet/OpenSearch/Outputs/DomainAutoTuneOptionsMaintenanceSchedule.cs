@@ -13,17 +13,8 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class DomainAutoTuneOptionsMaintenanceSchedule
     {
-        /// <summary>
-        /// A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
-        /// </summary>
         public readonly string CronExpressionForRecurrence;
-        /// <summary>
-        /// Configuration block for the duration of the Auto-Tune maintenance window. Detailed below.
-        /// </summary>
         public readonly Outputs.DomainAutoTuneOptionsMaintenanceScheduleDuration Duration;
-        /// <summary>
-        /// Date and time at which to start the Auto-Tune maintenance schedule in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        /// </summary>
         public readonly string StartAt;
 
         [OutputConstructor]

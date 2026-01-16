@@ -32,17 +32,8 @@ MYPY = False
 if not MYPY:
     class ViewDataFilterExpressionArgsDict(TypedDict):
         dimensions: NotRequired[pulumi.Input['ViewDataFilterExpressionDimensionsArgsDict']]
-        """
-        Dimension to use for `expression`. Refer to #dimensions for more details.
-        """
         tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['ViewDataFilterExpressionTagArgsDict']]]]
-        """
-        List of key value map specifying tags associated to the billing view being created.
-        """
         time_range: NotRequired[pulumi.Input['ViewDataFilterExpressionTimeRangeArgsDict']]
-        """
-        Time range to use for `expression`. Refer to #time-range for more details.
-        """
 elif False:
     ViewDataFilterExpressionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -52,11 +43,6 @@ class ViewDataFilterExpressionArgs:
                  dimensions: Optional[pulumi.Input['ViewDataFilterExpressionDimensionsArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ViewDataFilterExpressionTagArgs']]]] = None,
                  time_range: Optional[pulumi.Input['ViewDataFilterExpressionTimeRangeArgs']] = None):
-        """
-        :param pulumi.Input['ViewDataFilterExpressionDimensionsArgs'] dimensions: Dimension to use for `expression`. Refer to #dimensions for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['ViewDataFilterExpressionTagArgs']]] tags: List of key value map specifying tags associated to the billing view being created.
-        :param pulumi.Input['ViewDataFilterExpressionTimeRangeArgs'] time_range: Time range to use for `expression`. Refer to #time-range for more details.
-        """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
         if tags is not None:
@@ -67,9 +53,6 @@ class ViewDataFilterExpressionArgs:
     @_builtins.property
     @pulumi.getter
     def dimensions(self) -> Optional[pulumi.Input['ViewDataFilterExpressionDimensionsArgs']]:
-        """
-        Dimension to use for `expression`. Refer to #dimensions for more details.
-        """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
@@ -79,9 +62,6 @@ class ViewDataFilterExpressionArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ViewDataFilterExpressionTagArgs']]]]:
-        """
-        List of key value map specifying tags associated to the billing view being created.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -91,9 +71,6 @@ class ViewDataFilterExpressionArgs:
     @_builtins.property
     @pulumi.getter(name="timeRange")
     def time_range(self) -> Optional[pulumi.Input['ViewDataFilterExpressionTimeRangeArgs']]:
-        """
-        Time range to use for `expression`. Refer to #time-range for more details.
-        """
         return pulumi.get(self, "time_range")
 
     @time_range.setter
@@ -104,13 +81,7 @@ class ViewDataFilterExpressionArgs:
 if not MYPY:
     class ViewDataFilterExpressionDimensionsArgsDict(TypedDict):
         key: pulumi.Input[_builtins.str]
-        """
-        Key of the dimension. Possible values are `LINKED_ACCOUNT`.
-        """
         values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of metadata values that you can use to filter and group your results.
-        """
 elif False:
     ViewDataFilterExpressionDimensionsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -119,19 +90,12 @@ class ViewDataFilterExpressionDimensionsArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        """
-        :param pulumi.Input[_builtins.str] key: Key of the dimension. Possible values are `LINKED_ACCOUNT`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: List of metadata values that you can use to filter and group your results.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Input[_builtins.str]:
-        """
-        Key of the dimension. Possible values are `LINKED_ACCOUNT`.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -141,9 +105,6 @@ class ViewDataFilterExpressionDimensionsArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        List of metadata values that you can use to filter and group your results.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -154,13 +115,7 @@ class ViewDataFilterExpressionDimensionsArgs:
 if not MYPY:
     class ViewDataFilterExpressionTagArgsDict(TypedDict):
         key: pulumi.Input[_builtins.str]
-        """
-        Key of the tag.
-        """
         values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of values for the tag.
-        """
 elif False:
     ViewDataFilterExpressionTagArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -169,19 +124,12 @@ class ViewDataFilterExpressionTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        """
-        :param pulumi.Input[_builtins.str] key: Key of the tag.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: List of values for the tag.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Input[_builtins.str]:
-        """
-        Key of the tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -191,9 +139,6 @@ class ViewDataFilterExpressionTagArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        List of values for the tag.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -204,9 +149,6 @@ class ViewDataFilterExpressionTagArgs:
 if not MYPY:
     class ViewDataFilterExpressionTimeRangeArgsDict(TypedDict):
         begin_date_inclusive: pulumi.Input[_builtins.str]
-        """
-        Inclusive end date of the time range.
-        """
         end_date_inclusive: pulumi.Input[_builtins.str]
 elif False:
     ViewDataFilterExpressionTimeRangeArgsDict: TypeAlias = Mapping[str, Any]
@@ -216,18 +158,12 @@ class ViewDataFilterExpressionTimeRangeArgs:
     def __init__(__self__, *,
                  begin_date_inclusive: pulumi.Input[_builtins.str],
                  end_date_inclusive: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] begin_date_inclusive: Inclusive end date of the time range.
-        """
         pulumi.set(__self__, "begin_date_inclusive", begin_date_inclusive)
         pulumi.set(__self__, "end_date_inclusive", end_date_inclusive)
 
     @_builtins.property
     @pulumi.getter(name="beginDateInclusive")
     def begin_date_inclusive(self) -> pulumi.Input[_builtins.str]:
-        """
-        Inclusive end date of the time range.
-        """
         return pulumi.get(self, "begin_date_inclusive")
 
     @begin_date_inclusive.setter

@@ -12,60 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Enables the IPAM Service and promotes a delegated administrator.
-//
-// ## Example Usage
-//
-// Basic usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			delegated, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpcIpamOrganizationAdminAccount(ctx, "example", &ec2.VpcIpamOrganizationAdminAccountArgs{
-//				DelegatedAdminAccountId: pulumi.String(delegated.AccountId),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import IPAMs using the delegate account `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901
-// ```
 type VpcIpamOrganizationAdminAccount struct {
 	pulumi.CustomResourceState
 
-	// The Organizations ARN for the delegate account.
 	Arn                     pulumi.StringOutput `pulumi:"arn"`
 	DelegatedAdminAccountId pulumi.StringOutput `pulumi:"delegatedAdminAccountId"`
-	// The Organizations email for the delegate account.
-	Email pulumi.StringOutput `pulumi:"email"`
-	// The Organizations name for the delegate account.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS service principal.
-	ServicePrincipal pulumi.StringOutput `pulumi:"servicePrincipal"`
+	Email                   pulumi.StringOutput `pulumi:"email"`
+	Name                    pulumi.StringOutput `pulumi:"name"`
+	ServicePrincipal        pulumi.StringOutput `pulumi:"servicePrincipal"`
 }
 
 // NewVpcIpamOrganizationAdminAccount registers a new resource with the given unique name, arguments, and options.
@@ -101,27 +55,19 @@ func GetVpcIpamOrganizationAdminAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcIpamOrganizationAdminAccount resources.
 type vpcIpamOrganizationAdminAccountState struct {
-	// The Organizations ARN for the delegate account.
 	Arn                     *string `pulumi:"arn"`
 	DelegatedAdminAccountId *string `pulumi:"delegatedAdminAccountId"`
-	// The Organizations email for the delegate account.
-	Email *string `pulumi:"email"`
-	// The Organizations name for the delegate account.
-	Name *string `pulumi:"name"`
-	// The AWS service principal.
-	ServicePrincipal *string `pulumi:"servicePrincipal"`
+	Email                   *string `pulumi:"email"`
+	Name                    *string `pulumi:"name"`
+	ServicePrincipal        *string `pulumi:"servicePrincipal"`
 }
 
 type VpcIpamOrganizationAdminAccountState struct {
-	// The Organizations ARN for the delegate account.
 	Arn                     pulumi.StringPtrInput
 	DelegatedAdminAccountId pulumi.StringPtrInput
-	// The Organizations email for the delegate account.
-	Email pulumi.StringPtrInput
-	// The Organizations name for the delegate account.
-	Name pulumi.StringPtrInput
-	// The AWS service principal.
-	ServicePrincipal pulumi.StringPtrInput
+	Email                   pulumi.StringPtrInput
+	Name                    pulumi.StringPtrInput
+	ServicePrincipal        pulumi.StringPtrInput
 }
 
 func (VpcIpamOrganizationAdminAccountState) ElementType() reflect.Type {
@@ -224,7 +170,6 @@ func (o VpcIpamOrganizationAdminAccountOutput) ToVpcIpamOrganizationAdminAccount
 	return o
 }
 
-// The Organizations ARN for the delegate account.
 func (o VpcIpamOrganizationAdminAccountOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamOrganizationAdminAccount) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -233,17 +178,14 @@ func (o VpcIpamOrganizationAdminAccountOutput) DelegatedAdminAccountId() pulumi.
 	return o.ApplyT(func(v *VpcIpamOrganizationAdminAccount) pulumi.StringOutput { return v.DelegatedAdminAccountId }).(pulumi.StringOutput)
 }
 
-// The Organizations email for the delegate account.
 func (o VpcIpamOrganizationAdminAccountOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamOrganizationAdminAccount) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
 }
 
-// The Organizations name for the delegate account.
 func (o VpcIpamOrganizationAdminAccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamOrganizationAdminAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS service principal.
 func (o VpcIpamOrganizationAdminAccountOutput) ServicePrincipal() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamOrganizationAdminAccount) pulumi.StringOutput { return v.ServicePrincipal }).(pulumi.StringOutput)
 }

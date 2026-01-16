@@ -14,14 +14,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type LoadBalancerAccessLogs struct {
-	// The S3 bucket name to store the logs in.
-	Bucket string `pulumi:"bucket"`
-	// The S3 bucket prefix. Logs are stored in the root if not configured.
+	Bucket       string  `pulumi:"bucket"`
 	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// Boolean to enable / disable `accessLogs`. Default is `true`
-	Enabled *bool `pulumi:"enabled"`
-	// The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
-	Interval *int `pulumi:"interval"`
+	Enabled      *bool   `pulumi:"enabled"`
+	Interval     *int    `pulumi:"interval"`
 }
 
 // LoadBalancerAccessLogsInput is an input type that accepts LoadBalancerAccessLogsArgs and LoadBalancerAccessLogsOutput values.
@@ -36,14 +32,10 @@ type LoadBalancerAccessLogsInput interface {
 }
 
 type LoadBalancerAccessLogsArgs struct {
-	// The S3 bucket name to store the logs in.
-	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// The S3 bucket prefix. Logs are stored in the root if not configured.
+	Bucket       pulumi.StringInput    `pulumi:"bucket"`
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// Boolean to enable / disable `accessLogs`. Default is `true`
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
-	Interval pulumi.IntPtrInput `pulumi:"interval"`
+	Enabled      pulumi.BoolPtrInput   `pulumi:"enabled"`
+	Interval     pulumi.IntPtrInput    `pulumi:"interval"`
 }
 
 func (LoadBalancerAccessLogsArgs) ElementType() reflect.Type {
@@ -123,22 +115,18 @@ func (o LoadBalancerAccessLogsOutput) ToLoadBalancerAccessLogsPtrOutputWithConte
 	}).(LoadBalancerAccessLogsPtrOutput)
 }
 
-// The S3 bucket name to store the logs in.
 func (o LoadBalancerAccessLogsOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerAccessLogs) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The S3 bucket prefix. Logs are stored in the root if not configured.
 func (o LoadBalancerAccessLogsOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerAccessLogs) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Boolean to enable / disable `accessLogs`. Default is `true`
 func (o LoadBalancerAccessLogsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LoadBalancerAccessLogs) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
 func (o LoadBalancerAccessLogsOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LoadBalancerAccessLogs) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
@@ -167,7 +155,6 @@ func (o LoadBalancerAccessLogsPtrOutput) Elem() LoadBalancerAccessLogsOutput {
 	}).(LoadBalancerAccessLogsOutput)
 }
 
-// The S3 bucket name to store the logs in.
 func (o LoadBalancerAccessLogsPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerAccessLogs) *string {
 		if v == nil {
@@ -177,7 +164,6 @@ func (o LoadBalancerAccessLogsPtrOutput) Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The S3 bucket prefix. Logs are stored in the root if not configured.
 func (o LoadBalancerAccessLogsPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerAccessLogs) *string {
 		if v == nil {
@@ -187,7 +173,6 @@ func (o LoadBalancerAccessLogsPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Boolean to enable / disable `accessLogs`. Default is `true`
 func (o LoadBalancerAccessLogsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerAccessLogs) *bool {
 		if v == nil {
@@ -197,7 +182,6 @@ func (o LoadBalancerAccessLogsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
 func (o LoadBalancerAccessLogsPtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerAccessLogs) *int {
 		if v == nil {
@@ -208,19 +192,11 @@ func (o LoadBalancerAccessLogsPtrOutput) Interval() pulumi.IntPtrOutput {
 }
 
 type LoadBalancerHealthCheck struct {
-	// The number of checks before the instance is declared healthy.
-	HealthyThreshold int `pulumi:"healthyThreshold"`
-	// The interval between checks.
-	Interval int `pulumi:"interval"`
-	// The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
-	// values are:
-	// * `HTTP`, `HTTPS` - PORT and PATH are required
-	// * `TCP`, `SSL` - PORT is required, PATH is not supported
-	Target string `pulumi:"target"`
-	// The length of time before the check times out.
-	Timeout int `pulumi:"timeout"`
-	// The number of checks before the instance is declared unhealthy.
-	UnhealthyThreshold int `pulumi:"unhealthyThreshold"`
+	HealthyThreshold   int    `pulumi:"healthyThreshold"`
+	Interval           int    `pulumi:"interval"`
+	Target             string `pulumi:"target"`
+	Timeout            int    `pulumi:"timeout"`
+	UnhealthyThreshold int    `pulumi:"unhealthyThreshold"`
 }
 
 // LoadBalancerHealthCheckInput is an input type that accepts LoadBalancerHealthCheckArgs and LoadBalancerHealthCheckOutput values.
@@ -235,19 +211,11 @@ type LoadBalancerHealthCheckInput interface {
 }
 
 type LoadBalancerHealthCheckArgs struct {
-	// The number of checks before the instance is declared healthy.
-	HealthyThreshold pulumi.IntInput `pulumi:"healthyThreshold"`
-	// The interval between checks.
-	Interval pulumi.IntInput `pulumi:"interval"`
-	// The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
-	// values are:
-	// * `HTTP`, `HTTPS` - PORT and PATH are required
-	// * `TCP`, `SSL` - PORT is required, PATH is not supported
-	Target pulumi.StringInput `pulumi:"target"`
-	// The length of time before the check times out.
-	Timeout pulumi.IntInput `pulumi:"timeout"`
-	// The number of checks before the instance is declared unhealthy.
-	UnhealthyThreshold pulumi.IntInput `pulumi:"unhealthyThreshold"`
+	HealthyThreshold   pulumi.IntInput    `pulumi:"healthyThreshold"`
+	Interval           pulumi.IntInput    `pulumi:"interval"`
+	Target             pulumi.StringInput `pulumi:"target"`
+	Timeout            pulumi.IntInput    `pulumi:"timeout"`
+	UnhealthyThreshold pulumi.IntInput    `pulumi:"unhealthyThreshold"`
 }
 
 func (LoadBalancerHealthCheckArgs) ElementType() reflect.Type {
@@ -327,30 +295,22 @@ func (o LoadBalancerHealthCheckOutput) ToLoadBalancerHealthCheckPtrOutputWithCon
 	}).(LoadBalancerHealthCheckPtrOutput)
 }
 
-// The number of checks before the instance is declared healthy.
 func (o LoadBalancerHealthCheckOutput) HealthyThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v LoadBalancerHealthCheck) int { return v.HealthyThreshold }).(pulumi.IntOutput)
 }
 
-// The interval between checks.
 func (o LoadBalancerHealthCheckOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v LoadBalancerHealthCheck) int { return v.Interval }).(pulumi.IntOutput)
 }
 
-// The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
-// values are:
-// * `HTTP`, `HTTPS` - PORT and PATH are required
-// * `TCP`, `SSL` - PORT is required, PATH is not supported
 func (o LoadBalancerHealthCheckOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerHealthCheck) string { return v.Target }).(pulumi.StringOutput)
 }
 
-// The length of time before the check times out.
 func (o LoadBalancerHealthCheckOutput) Timeout() pulumi.IntOutput {
 	return o.ApplyT(func(v LoadBalancerHealthCheck) int { return v.Timeout }).(pulumi.IntOutput)
 }
 
-// The number of checks before the instance is declared unhealthy.
 func (o LoadBalancerHealthCheckOutput) UnhealthyThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v LoadBalancerHealthCheck) int { return v.UnhealthyThreshold }).(pulumi.IntOutput)
 }
@@ -379,7 +339,6 @@ func (o LoadBalancerHealthCheckPtrOutput) Elem() LoadBalancerHealthCheckOutput {
 	}).(LoadBalancerHealthCheckOutput)
 }
 
-// The number of checks before the instance is declared healthy.
 func (o LoadBalancerHealthCheckPtrOutput) HealthyThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerHealthCheck) *int {
 		if v == nil {
@@ -389,7 +348,6 @@ func (o LoadBalancerHealthCheckPtrOutput) HealthyThreshold() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// The interval between checks.
 func (o LoadBalancerHealthCheckPtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerHealthCheck) *int {
 		if v == nil {
@@ -399,10 +357,6 @@ func (o LoadBalancerHealthCheckPtrOutput) Interval() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
-// values are:
-// * `HTTP`, `HTTPS` - PORT and PATH are required
-// * `TCP`, `SSL` - PORT is required, PATH is not supported
 func (o LoadBalancerHealthCheckPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerHealthCheck) *string {
 		if v == nil {
@@ -412,7 +366,6 @@ func (o LoadBalancerHealthCheckPtrOutput) Target() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The length of time before the check times out.
 func (o LoadBalancerHealthCheckPtrOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerHealthCheck) *int {
 		if v == nil {
@@ -422,7 +375,6 @@ func (o LoadBalancerHealthCheckPtrOutput) Timeout() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The number of checks before the instance is declared unhealthy.
 func (o LoadBalancerHealthCheckPtrOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerHealthCheck) *int {
 		if v == nil {
@@ -433,18 +385,10 @@ func (o LoadBalancerHealthCheckPtrOutput) UnhealthyThreshold() pulumi.IntPtrOutp
 }
 
 type LoadBalancerListener struct {
-	// The port on the instance to route to
-	InstancePort int `pulumi:"instancePort"`
-	// The protocol to use to the instance. Valid
-	// values are `HTTP`, `HTTPS`, `TCP`, or `SSL`
-	InstanceProtocol string `pulumi:"instanceProtocol"`
-	// The port to listen on for the load balancer
-	LbPort int `pulumi:"lbPort"`
-	// The protocol to listen on. Valid values are `HTTP`,
-	// `HTTPS`, `TCP`, or `SSL`
-	LbProtocol string `pulumi:"lbProtocol"`
-	// The ARN of an SSL certificate you have
-	// uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lbProtocol` is either HTTPS or SSL**
+	InstancePort     int     `pulumi:"instancePort"`
+	InstanceProtocol string  `pulumi:"instanceProtocol"`
+	LbPort           int     `pulumi:"lbPort"`
+	LbProtocol       string  `pulumi:"lbProtocol"`
 	SslCertificateId *string `pulumi:"sslCertificateId"`
 }
 
@@ -460,18 +404,10 @@ type LoadBalancerListenerInput interface {
 }
 
 type LoadBalancerListenerArgs struct {
-	// The port on the instance to route to
-	InstancePort pulumi.IntInput `pulumi:"instancePort"`
-	// The protocol to use to the instance. Valid
-	// values are `HTTP`, `HTTPS`, `TCP`, or `SSL`
-	InstanceProtocol pulumi.StringInput `pulumi:"instanceProtocol"`
-	// The port to listen on for the load balancer
-	LbPort pulumi.IntInput `pulumi:"lbPort"`
-	// The protocol to listen on. Valid values are `HTTP`,
-	// `HTTPS`, `TCP`, or `SSL`
-	LbProtocol pulumi.StringInput `pulumi:"lbProtocol"`
-	// The ARN of an SSL certificate you have
-	// uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lbProtocol` is either HTTPS or SSL**
+	InstancePort     pulumi.IntInput       `pulumi:"instancePort"`
+	InstanceProtocol pulumi.StringInput    `pulumi:"instanceProtocol"`
+	LbPort           pulumi.IntInput       `pulumi:"lbPort"`
+	LbProtocol       pulumi.StringInput    `pulumi:"lbProtocol"`
 	SslCertificateId pulumi.StringPtrInput `pulumi:"sslCertificateId"`
 }
 
@@ -526,30 +462,22 @@ func (o LoadBalancerListenerOutput) ToLoadBalancerListenerOutputWithContext(ctx 
 	return o
 }
 
-// The port on the instance to route to
 func (o LoadBalancerListenerOutput) InstancePort() pulumi.IntOutput {
 	return o.ApplyT(func(v LoadBalancerListener) int { return v.InstancePort }).(pulumi.IntOutput)
 }
 
-// The protocol to use to the instance. Valid
-// values are `HTTP`, `HTTPS`, `TCP`, or `SSL`
 func (o LoadBalancerListenerOutput) InstanceProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerListener) string { return v.InstanceProtocol }).(pulumi.StringOutput)
 }
 
-// The port to listen on for the load balancer
 func (o LoadBalancerListenerOutput) LbPort() pulumi.IntOutput {
 	return o.ApplyT(func(v LoadBalancerListener) int { return v.LbPort }).(pulumi.IntOutput)
 }
 
-// The protocol to listen on. Valid values are `HTTP`,
-// `HTTPS`, `TCP`, or `SSL`
 func (o LoadBalancerListenerOutput) LbProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerListener) string { return v.LbProtocol }).(pulumi.StringOutput)
 }
 
-// The ARN of an SSL certificate you have
-// uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lbProtocol` is either HTTPS or SSL**
 func (o LoadBalancerListenerOutput) SslCertificateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerListener) *string { return v.SslCertificateId }).(pulumi.StringPtrOutput)
 }
@@ -675,9 +603,7 @@ func (o LoadBalancerPolicyPolicyAttributeArrayOutput) Index(i pulumi.IntInput) L
 }
 
 type SslNegotiationPolicyAttribute struct {
-	// The name of the attribute
-	Name string `pulumi:"name"`
-	// The value of the attribute
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -693,9 +619,7 @@ type SslNegotiationPolicyAttributeInput interface {
 }
 
 type SslNegotiationPolicyAttributeArgs struct {
-	// The name of the attribute
-	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the attribute
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -750,12 +674,10 @@ func (o SslNegotiationPolicyAttributeOutput) ToSslNegotiationPolicyAttributeOutp
 	return o
 }
 
-// The name of the attribute
 func (o SslNegotiationPolicyAttributeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SslNegotiationPolicyAttribute) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the attribute
 func (o SslNegotiationPolicyAttributeOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SslNegotiationPolicyAttribute) string { return v.Value }).(pulumi.StringOutput)
 }

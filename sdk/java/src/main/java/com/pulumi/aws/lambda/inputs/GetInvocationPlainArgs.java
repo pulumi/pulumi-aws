@@ -15,81 +15,37 @@ public final class GetInvocationPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetInvocationPlainArgs Empty = new GetInvocationPlainArgs();
 
-    /**
-     * Name of the Lambda function.
-     * 
-     */
     @Import(name="functionName", required=true)
     private String functionName;
 
-    /**
-     * @return Name of the Lambda function.
-     * 
-     */
     public String functionName() {
         return this.functionName;
     }
 
-    /**
-     * String in JSON format that is passed as payload to the Lambda function.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="input", required=true)
     private String input;
 
-    /**
-     * @return String in JSON format that is passed as payload to the Lambda function.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String input() {
         return this.input;
     }
 
-    /**
-     * Qualifier (a.k.a version) of the Lambda function. Defaults to `$LATEST`.
-     * 
-     */
     @Import(name="qualifier")
     private @Nullable String qualifier;
 
-    /**
-     * @return Qualifier (a.k.a version) of the Lambda function. Defaults to `$LATEST`.
-     * 
-     */
     public Optional<String> qualifier() {
         return Optional.ofNullable(this.qualifier);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Tenant Id to serve invocations from specified tenant.
-     * 
-     */
     @Import(name="tenantId")
     private @Nullable String tenantId;
 
-    /**
-     * @return Tenant Id to serve invocations from specified tenant.
-     * 
-     */
     public Optional<String> tenantId() {
         return Optional.ofNullable(this.tenantId);
     }
@@ -122,58 +78,26 @@ public final class GetInvocationPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetInvocationPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param functionName Name of the Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionName(String functionName) {
             $.functionName = functionName;
             return this;
         }
 
-        /**
-         * @param input String in JSON format that is passed as payload to the Lambda function.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder input(String input) {
             $.input = input;
             return this;
         }
 
-        /**
-         * @param qualifier Qualifier (a.k.a version) of the Lambda function. Defaults to `$LATEST`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder qualifier(@Nullable String qualifier) {
             $.qualifier = qualifier;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tenantId Tenant Id to serve invocations from specified tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tenantId(@Nullable String tenantId) {
             $.tenantId = tenantId;
             return this;

@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.LookupNetworkInsightsAnalysis(ctx, &ec2.LookupNetworkInsightsAnalysisArgs{
-//				NetworkInsightsAnalysisId: pulumi.StringRef(exampleAwsEc2NetworkInsightsAnalysis.Id),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupNetworkInsightsAnalysis(ctx *pulumi.Context, args *LookupNetworkInsightsAnalysisArgs, opts ...pulumi.InvokeOption) (*LookupNetworkInsightsAnalysisResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkInsightsAnalysisResult
@@ -50,51 +23,32 @@ func LookupNetworkInsightsAnalysis(ctx *pulumi.Context, args *LookupNetworkInsig
 
 // A collection of arguments for invoking getNetworkInsightsAnalysis.
 type LookupNetworkInsightsAnalysisArgs struct {
-	// Configuration block(s) for filtering. Detailed below.
-	//
-	// The arguments of this data source act as filters for querying the available
-	// Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
-	// whose data will be exported as attributes.
-	Filters []GetNetworkInsightsAnalysisFilter `pulumi:"filters"`
-	// ID of the Network Insights Analysis to select.
-	NetworkInsightsAnalysisId *string `pulumi:"networkInsightsAnalysisId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string           `pulumi:"region"`
-	Tags   map[string]string `pulumi:"tags"`
+	Filters                   []GetNetworkInsightsAnalysisFilter `pulumi:"filters"`
+	NetworkInsightsAnalysisId *string                            `pulumi:"networkInsightsAnalysisId"`
+	Region                    *string                            `pulumi:"region"`
+	Tags                      map[string]string                  `pulumi:"tags"`
 }
 
 // A collection of values returned by getNetworkInsightsAnalysis.
 type LookupNetworkInsightsAnalysisResult struct {
-	// Potential intermediate components of a feasible path.
-	AlternatePathHints []GetNetworkInsightsAnalysisAlternatePathHint `pulumi:"alternatePathHints"`
-	// ARN of the selected Network Insights Analysis.
-	Arn string `pulumi:"arn"`
-	// Explanation codes for an unreachable path.
-	Explanations []GetNetworkInsightsAnalysisExplanation `pulumi:"explanations"`
-	// ARNs of the AWS resources that the path must traverse.
-	FilterInArns []string                           `pulumi:"filterInArns"`
-	Filters      []GetNetworkInsightsAnalysisFilter `pulumi:"filters"`
-	// The components in the path from source to destination.
+	AlternatePathHints    []GetNetworkInsightsAnalysisAlternatePathHint    `pulumi:"alternatePathHints"`
+	Arn                   string                                           `pulumi:"arn"`
+	Explanations          []GetNetworkInsightsAnalysisExplanation          `pulumi:"explanations"`
+	FilterInArns          []string                                         `pulumi:"filterInArns"`
+	Filters               []GetNetworkInsightsAnalysisFilter               `pulumi:"filters"`
 	ForwardPathComponents []GetNetworkInsightsAnalysisForwardPathComponent `pulumi:"forwardPathComponents"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                        string `pulumi:"id"`
-	NetworkInsightsAnalysisId string `pulumi:"networkInsightsAnalysisId"`
-	// The ID of the path.
-	NetworkInsightsPathId string `pulumi:"networkInsightsPathId"`
-	// Set to `true` if the destination was reachable.
-	PathFound bool   `pulumi:"pathFound"`
-	Region    string `pulumi:"region"`
-	// The components in the path from destination to source.
-	ReturnPathComponents []GetNetworkInsightsAnalysisReturnPathComponent `pulumi:"returnPathComponents"`
-	// Date/time the analysis was started.
-	StartDate string `pulumi:"startDate"`
-	// Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
-	Status string `pulumi:"status"`
-	// Message to provide more context when the `status` is `failed`.
-	StatusMessage string            `pulumi:"statusMessage"`
-	Tags          map[string]string `pulumi:"tags"`
-	// Warning message.
-	WarningMessage string `pulumi:"warningMessage"`
+	Id                        string                                          `pulumi:"id"`
+	NetworkInsightsAnalysisId string                                          `pulumi:"networkInsightsAnalysisId"`
+	NetworkInsightsPathId     string                                          `pulumi:"networkInsightsPathId"`
+	PathFound                 bool                                            `pulumi:"pathFound"`
+	Region                    string                                          `pulumi:"region"`
+	ReturnPathComponents      []GetNetworkInsightsAnalysisReturnPathComponent `pulumi:"returnPathComponents"`
+	StartDate                 string                                          `pulumi:"startDate"`
+	Status                    string                                          `pulumi:"status"`
+	StatusMessage             string                                          `pulumi:"statusMessage"`
+	Tags                      map[string]string                               `pulumi:"tags"`
+	WarningMessage            string                                          `pulumi:"warningMessage"`
 }
 
 func LookupNetworkInsightsAnalysisOutput(ctx *pulumi.Context, args LookupNetworkInsightsAnalysisOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInsightsAnalysisResultOutput {
@@ -108,17 +62,10 @@ func LookupNetworkInsightsAnalysisOutput(ctx *pulumi.Context, args LookupNetwork
 
 // A collection of arguments for invoking getNetworkInsightsAnalysis.
 type LookupNetworkInsightsAnalysisOutputArgs struct {
-	// Configuration block(s) for filtering. Detailed below.
-	//
-	// The arguments of this data source act as filters for querying the available
-	// Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
-	// whose data will be exported as attributes.
-	Filters GetNetworkInsightsAnalysisFilterArrayInput `pulumi:"filters"`
-	// ID of the Network Insights Analysis to select.
-	NetworkInsightsAnalysisId pulumi.StringPtrInput `pulumi:"networkInsightsAnalysisId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	Tags   pulumi.StringMapInput `pulumi:"tags"`
+	Filters                   GetNetworkInsightsAnalysisFilterArrayInput `pulumi:"filters"`
+	NetworkInsightsAnalysisId pulumi.StringPtrInput                      `pulumi:"networkInsightsAnalysisId"`
+	Region                    pulumi.StringPtrInput                      `pulumi:"region"`
+	Tags                      pulumi.StringMapInput                      `pulumi:"tags"`
 }
 
 func (LookupNetworkInsightsAnalysisOutputArgs) ElementType() reflect.Type {
@@ -140,26 +87,22 @@ func (o LookupNetworkInsightsAnalysisResultOutput) ToLookupNetworkInsightsAnalys
 	return o
 }
 
-// Potential intermediate components of a feasible path.
 func (o LookupNetworkInsightsAnalysisResultOutput) AlternatePathHints() GetNetworkInsightsAnalysisAlternatePathHintArrayOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) []GetNetworkInsightsAnalysisAlternatePathHint {
 		return v.AlternatePathHints
 	}).(GetNetworkInsightsAnalysisAlternatePathHintArrayOutput)
 }
 
-// ARN of the selected Network Insights Analysis.
 func (o LookupNetworkInsightsAnalysisResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Explanation codes for an unreachable path.
 func (o LookupNetworkInsightsAnalysisResultOutput) Explanations() GetNetworkInsightsAnalysisExplanationArrayOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) []GetNetworkInsightsAnalysisExplanation {
 		return v.Explanations
 	}).(GetNetworkInsightsAnalysisExplanationArrayOutput)
 }
 
-// ARNs of the AWS resources that the path must traverse.
 func (o LookupNetworkInsightsAnalysisResultOutput) FilterInArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) []string { return v.FilterInArns }).(pulumi.StringArrayOutput)
 }
@@ -168,7 +111,6 @@ func (o LookupNetworkInsightsAnalysisResultOutput) Filters() GetNetworkInsightsA
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) []GetNetworkInsightsAnalysisFilter { return v.Filters }).(GetNetworkInsightsAnalysisFilterArrayOutput)
 }
 
-// The components in the path from source to destination.
 func (o LookupNetworkInsightsAnalysisResultOutput) ForwardPathComponents() GetNetworkInsightsAnalysisForwardPathComponentArrayOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) []GetNetworkInsightsAnalysisForwardPathComponent {
 		return v.ForwardPathComponents
@@ -184,12 +126,10 @@ func (o LookupNetworkInsightsAnalysisResultOutput) NetworkInsightsAnalysisId() p
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) string { return v.NetworkInsightsAnalysisId }).(pulumi.StringOutput)
 }
 
-// The ID of the path.
 func (o LookupNetworkInsightsAnalysisResultOutput) NetworkInsightsPathId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) string { return v.NetworkInsightsPathId }).(pulumi.StringOutput)
 }
 
-// Set to `true` if the destination was reachable.
 func (o LookupNetworkInsightsAnalysisResultOutput) PathFound() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) bool { return v.PathFound }).(pulumi.BoolOutput)
 }
@@ -198,24 +138,20 @@ func (o LookupNetworkInsightsAnalysisResultOutput) Region() pulumi.StringOutput 
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The components in the path from destination to source.
 func (o LookupNetworkInsightsAnalysisResultOutput) ReturnPathComponents() GetNetworkInsightsAnalysisReturnPathComponentArrayOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) []GetNetworkInsightsAnalysisReturnPathComponent {
 		return v.ReturnPathComponents
 	}).(GetNetworkInsightsAnalysisReturnPathComponentArrayOutput)
 }
 
-// Date/time the analysis was started.
 func (o LookupNetworkInsightsAnalysisResultOutput) StartDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) string { return v.StartDate }).(pulumi.StringOutput)
 }
 
-// Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
 func (o LookupNetworkInsightsAnalysisResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Message to provide more context when the `status` is `failed`.
 func (o LookupNetworkInsightsAnalysisResultOutput) StatusMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) string { return v.StatusMessage }).(pulumi.StringOutput)
 }
@@ -224,7 +160,6 @@ func (o LookupNetworkInsightsAnalysisResultOutput) Tags() pulumi.StringMapOutput
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Warning message.
 func (o LookupNetworkInsightsAnalysisResultOutput) WarningMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) string { return v.WarningMessage }).(pulumi.StringOutput)
 }

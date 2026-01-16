@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CustomLogSourceConfiguration {
-    /**
-     * @return The configuration for the Glue Crawler for the third-party custom source.
-     * 
-     */
     private @Nullable CustomLogSourceConfigurationCrawlerConfiguration crawlerConfiguration;
-    /**
-     * @return The identity of the log provider for the third-party custom source.
-     * 
-     */
     private @Nullable CustomLogSourceConfigurationProviderIdentity providerIdentity;
 
     private CustomLogSourceConfiguration() {}
-    /**
-     * @return The configuration for the Glue Crawler for the third-party custom source.
-     * 
-     */
     public Optional<CustomLogSourceConfigurationCrawlerConfiguration> crawlerConfiguration() {
         return Optional.ofNullable(this.crawlerConfiguration);
     }
-    /**
-     * @return The identity of the log provider for the third-party custom source.
-     * 
-     */
     public Optional<CustomLogSourceConfigurationProviderIdentity> providerIdentity() {
         return Optional.ofNullable(this.providerIdentity);
     }

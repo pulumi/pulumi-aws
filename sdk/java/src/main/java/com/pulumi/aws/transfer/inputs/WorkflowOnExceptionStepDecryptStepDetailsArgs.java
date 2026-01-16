@@ -17,77 +17,37 @@ public final class WorkflowOnExceptionStepDecryptStepDetailsArgs extends com.pul
 
     public static final WorkflowOnExceptionStepDecryptStepDetailsArgs Empty = new WorkflowOnExceptionStepDecryptStepDetailsArgs();
 
-    /**
-     * Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
-     * 
-     */
     @Import(name="destinationFileLocation")
     private @Nullable Output<WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgs> destinationFileLocation;
 
-    /**
-     * @return Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
-     * 
-     */
     public Optional<Output<WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgs>> destinationFileLocation() {
         return Optional.ofNullable(this.destinationFileLocation);
     }
 
-    /**
-     * The name of the step, used as an identifier.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the step, used as an identifier.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
-     * 
-     */
     @Import(name="overwriteExisting")
     private @Nullable Output<String> overwriteExisting;
 
-    /**
-     * @return A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
-     * 
-     */
     public Optional<Output<String>> overwriteExisting() {
         return Optional.ofNullable(this.overwriteExisting);
     }
 
-    /**
-     * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
-     * 
-     */
     @Import(name="sourceFileLocation")
     private @Nullable Output<String> sourceFileLocation;
 
-    /**
-     * @return Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
-     * 
-     */
     public Optional<Output<String>> sourceFileLocation() {
         return Optional.ofNullable(this.sourceFileLocation);
     }
 
-    /**
-     * The type of encryption used. Currently, this value must be `&#34;PGP&#34;`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The type of encryption used. Currently, this value must be `&#34;PGP&#34;`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -120,107 +80,47 @@ public final class WorkflowOnExceptionStepDecryptStepDetailsArgs extends com.pul
             $ = new WorkflowOnExceptionStepDecryptStepDetailsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destinationFileLocation Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationFileLocation(@Nullable Output<WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgs> destinationFileLocation) {
             $.destinationFileLocation = destinationFileLocation;
             return this;
         }
 
-        /**
-         * @param destinationFileLocation Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationFileLocation(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgs destinationFileLocation) {
             return destinationFileLocation(Output.of(destinationFileLocation));
         }
 
-        /**
-         * @param name The name of the step, used as an identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the step, used as an identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param overwriteExisting A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder overwriteExisting(@Nullable Output<String> overwriteExisting) {
             $.overwriteExisting = overwriteExisting;
             return this;
         }
 
-        /**
-         * @param overwriteExisting A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder overwriteExisting(String overwriteExisting) {
             return overwriteExisting(Output.of(overwriteExisting));
         }
 
-        /**
-         * @param sourceFileLocation Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceFileLocation(@Nullable Output<String> sourceFileLocation) {
             $.sourceFileLocation = sourceFileLocation;
             return this;
         }
 
-        /**
-         * @param sourceFileLocation Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceFileLocation(String sourceFileLocation) {
             return sourceFileLocation(Output.of(sourceFileLocation));
         }
 
-        /**
-         * @param type The type of encryption used. Currently, this value must be `&#34;PGP&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of encryption used. Currently, this value must be `&#34;PGP&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

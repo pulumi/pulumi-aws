@@ -17,53 +17,23 @@ public final class GetRouteTableRoutesPlainArgs extends com.pulumi.resources.Inv
 
     public static final GetRouteTableRoutesPlainArgs Empty = new GetRouteTableRoutesPlainArgs();
 
-    /**
-     * Custom filter block as described below.
-     * 
-     */
     @Import(name="filters", required=true)
     private List<GetRouteTableRoutesFilter> filters;
 
-    /**
-     * @return Custom filter block as described below.
-     * 
-     */
     public List<GetRouteTableRoutesFilter> filters() {
         return this.filters;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Identifier of EC2 Transit Gateway Route Table.
-     * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     * 
-     */
     @Import(name="transitGatewayRouteTableId", required=true)
     private String transitGatewayRouteTableId;
 
-    /**
-     * @return Identifier of EC2 Transit Gateway Route Table.
-     * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     * 
-     */
     public String transitGatewayRouteTableId() {
         return this.transitGatewayRouteTableId;
     }
@@ -94,47 +64,20 @@ public final class GetRouteTableRoutesPlainArgs extends com.pulumi.resources.Inv
             $ = new GetRouteTableRoutesPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetRouteTableRoutesFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetRouteTableRoutesFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param transitGatewayRouteTableId Identifier of EC2 Transit Gateway Route Table.
-         * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayRouteTableId(String transitGatewayRouteTableId) {
             $.transitGatewayRouteTableId = transitGatewayRouteTableId;
             return this;

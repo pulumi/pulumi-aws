@@ -82,9 +82,6 @@ class GetPrincipalPolicySimulationResult:
     @_builtins.property
     @pulumi.getter(name="allAllowed")
     def all_allowed(self) -> _builtins.bool:
-        """
-        `true` if all of the simulation results have decision "allowed", or `false` otherwise.
-        """
         return pulumi.get(self, "all_allowed")
 
     @_builtins.property
@@ -135,9 +132,6 @@ class GetPrincipalPolicySimulationResult:
     @_builtins.property
     @pulumi.getter
     def results(self) -> Sequence['outputs.GetPrincipalPolicySimulationResultResult']:
-        """
-        A set of result objects, one for each of the simulated requests, with the following nested attributes:
-        """
         return pulumi.get(self, "results")
 
 
@@ -174,115 +168,7 @@ def get_principal_policy_simulation(action_names: Optional[Sequence[_builtins.st
                                     resource_policy_json: Optional[_builtins.str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrincipalPolicySimulationResult:
     """
-    Runs a simulation of the IAM policies of a particular principal against a given hypothetical request.
-
-    You can use this data source in conjunction with
-    Preconditions and Postconditions so that your configuration can test either whether it should have sufficient access to do its own work, or whether policies your configuration declares itself are sufficient for their intended use elsewhere.
-
-    > **Note:** Correctly using this data source requires familiarity with various details of AWS Identity and Access Management, and how various AWS services integrate with it. For general information on the AWS IAM policy simulator, see [Testing IAM policies with the IAM policy simulator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html). This data source wraps the `iam:SimulatePrincipalPolicy` API action described on that page.
-
-    ## Example Usage
-
-    ### Self Access-checking Example
-
-    The following example raises an error if the credentials passed to the AWS provider do not have access to perform the three actions `s3:GetObject`, `s3:PutObject`, and `s3:DeleteObject` on the S3 bucket with the given ARN.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_caller_identity()
-    s3_object_access = aws.iam.get_principal_policy_simulation(action_names=[
-            "s3:GetObject",
-            "s3:PutObject",
-            "s3:DeleteObject",
-        ],
-        policy_source_arn=current.arn,
-        resource_arns=["arn:aws:s3:::my-test-bucket"])
-    ```
-
-    If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `depends_on` inside any resource which would require those credentials, to ensure that the policy check will run first:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.s3.BucketObjectv2("example", bucket="my-test-bucket",
-    opts = pulumi.ResourceOptions(depends_on=[s3_object_access]))
-    ```
-
-    ### Testing the Effect of a Declared Policy
-
-    The following example declares an S3 bucket and a user that should have access to the bucket, and then uses `iam_get_principal_policy_simulation` to verify that the user does indeed have access to perform needed operations against the bucket.
-
-    ```python
-    import pulumi
-    import json
-    import pulumi_aws as aws
-
-    current = aws.get_caller_identity()
-    example = aws.iam.User("example", name="example")
-    example_bucket = aws.s3.Bucket("example", bucket="my-test-bucket")
-    s3_access = aws.iam.UserPolicy("s3_access",
-        name="example_s3_access",
-        user=example.name,
-        policy=pulumi.Output.json_dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "s3:GetObject",
-                "Effect": "Allow",
-                "Resource": example_bucket.arn,
-            }],
-        }))
-    account_access = aws.s3.BucketPolicy("account_access",
-        bucket=example_bucket.bucket,
-        policy=pulumi.Output.json_dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "s3:*",
-                "Effect": "Allow",
-                "Principal": {
-                    "AWS": current.account_id,
-                },
-                "Resource": [
-                    example_bucket.arn,
-                    example_bucket.arn.apply(lambda arn: f"{arn}/*"),
-                ],
-            }],
-        }))
-    s3_object_access = aws.iam.get_principal_policy_simulation_output(action_names=["s3:GetObject"],
-        policy_source_arn=example.arn,
-        resource_arns=[example_bucket.arn],
-        resource_policy_json=account_access.policy)
-    ```
-
-    When using `iam_get_principal_policy_simulation` to test the effect of a policy declared elsewhere in the same configuration, it's important to use `depends_on` to make sure that the needed policy has been fully created or updated before running the simulation.
-
-
-    :param Sequence[_builtins.str] action_names: A set of IAM action names to run simulations for. Each entry in this set adds an additional hypothetical request to the simulation.
-           
-           Action names consist of a service prefix and an action verb separated by a colon, such as `s3:GetObject`. Refer to [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) to see the full set of possible IAM action names across all AWS services.
-    :param Sequence[_builtins.str] additional_policies_jsons: A set of additional principal policy documents to include in the simulation. The simulator will behave as if each of these policies were associated with the object specified in `policy_source_arn`, allowing you to test the effect of hypothetical policies not yet created.
-    :param _builtins.str caller_arn: The ARN of an user that will appear as the "caller" of the simulated requests. If you do not specify `caller_arn` then the simulation will use the `policy_source_arn` instead, if it contains a user ARN.
-    :param Sequence[Union['GetPrincipalPolicySimulationContextArgs', 'GetPrincipalPolicySimulationContextArgsDict']] contexts: Each `context` block defines an entry in the table of additional context keys in the simulated request.
-           
-           IAM uses context keys for both custom conditions and for interpolating dynamic request-specific values into policy values. If you use policies that include those features then you will need to provide suitable example values for those keys to achieve a realistic simulation.
-    :param Sequence[_builtins.str] permissions_boundary_policies_jsons: A set of [permissions boundary policy documents](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) to include in the simulation.
-    :param _builtins.str policy_source_arn: The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the IAM user, group, or role whose policies will be included in the simulation.
-           
-           You must closely match the form of the real service request you are simulating in order to achieve a realistic result. You can use the following additional arguments to specify other characteristics of the simulated requests:
-    :param Sequence[_builtins.str] resource_arns: A set of ARNs of resources to include in the simulation.
-           
-           This argument is important for actions that have either required or optional resource types listed in [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html), and you must provide ARNs that identify AWS objects of the appropriate types for the chosen actions.
-           
-           The policy simulator only automatically loads policies associated with the `policy_source_arn`, so if your given resources have their own resource-level policy then you'll also need to provide that explicitly using the `resource_policy_json` argument to achieve a realistic simulation.
-    :param _builtins.str resource_handling_option: Specifies a special simulation type to run. Some EC2 actions require special simulation behaviors and a particular set of resource ARNs to achieve a realistic result.
-           
-           For more details, see the `ResourceHandlingOption` request parameter for [the underlying `iam:SimulatePrincipalPolicy` action](https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html).
-    :param _builtins.str resource_owner_account_id: An AWS account ID to use for any resource ARN in `resource_arns` that doesn't include its own AWS account ID. If unspecified, the simulator will use the account ID from the `caller_arn` argument as a placeholder.
-    :param _builtins.str resource_policy_json: An IAM policy document representing the resource-level policy of all of the resources specified in `resource_arns`.
-           
-           The policy simulator cannot automatically load policies that are associated with individual resources, as described in the documentation for `resource_arns` above.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['actionNames'] = action_names
@@ -324,115 +210,7 @@ def get_principal_policy_simulation_output(action_names: Optional[pulumi.Input[S
                                            resource_policy_json: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrincipalPolicySimulationResult]:
     """
-    Runs a simulation of the IAM policies of a particular principal against a given hypothetical request.
-
-    You can use this data source in conjunction with
-    Preconditions and Postconditions so that your configuration can test either whether it should have sufficient access to do its own work, or whether policies your configuration declares itself are sufficient for their intended use elsewhere.
-
-    > **Note:** Correctly using this data source requires familiarity with various details of AWS Identity and Access Management, and how various AWS services integrate with it. For general information on the AWS IAM policy simulator, see [Testing IAM policies with the IAM policy simulator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html). This data source wraps the `iam:SimulatePrincipalPolicy` API action described on that page.
-
-    ## Example Usage
-
-    ### Self Access-checking Example
-
-    The following example raises an error if the credentials passed to the AWS provider do not have access to perform the three actions `s3:GetObject`, `s3:PutObject`, and `s3:DeleteObject` on the S3 bucket with the given ARN.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_caller_identity()
-    s3_object_access = aws.iam.get_principal_policy_simulation(action_names=[
-            "s3:GetObject",
-            "s3:PutObject",
-            "s3:DeleteObject",
-        ],
-        policy_source_arn=current.arn,
-        resource_arns=["arn:aws:s3:::my-test-bucket"])
-    ```
-
-    If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `depends_on` inside any resource which would require those credentials, to ensure that the policy check will run first:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.s3.BucketObjectv2("example", bucket="my-test-bucket",
-    opts = pulumi.ResourceOptions(depends_on=[s3_object_access]))
-    ```
-
-    ### Testing the Effect of a Declared Policy
-
-    The following example declares an S3 bucket and a user that should have access to the bucket, and then uses `iam_get_principal_policy_simulation` to verify that the user does indeed have access to perform needed operations against the bucket.
-
-    ```python
-    import pulumi
-    import json
-    import pulumi_aws as aws
-
-    current = aws.get_caller_identity()
-    example = aws.iam.User("example", name="example")
-    example_bucket = aws.s3.Bucket("example", bucket="my-test-bucket")
-    s3_access = aws.iam.UserPolicy("s3_access",
-        name="example_s3_access",
-        user=example.name,
-        policy=pulumi.Output.json_dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "s3:GetObject",
-                "Effect": "Allow",
-                "Resource": example_bucket.arn,
-            }],
-        }))
-    account_access = aws.s3.BucketPolicy("account_access",
-        bucket=example_bucket.bucket,
-        policy=pulumi.Output.json_dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "s3:*",
-                "Effect": "Allow",
-                "Principal": {
-                    "AWS": current.account_id,
-                },
-                "Resource": [
-                    example_bucket.arn,
-                    example_bucket.arn.apply(lambda arn: f"{arn}/*"),
-                ],
-            }],
-        }))
-    s3_object_access = aws.iam.get_principal_policy_simulation_output(action_names=["s3:GetObject"],
-        policy_source_arn=example.arn,
-        resource_arns=[example_bucket.arn],
-        resource_policy_json=account_access.policy)
-    ```
-
-    When using `iam_get_principal_policy_simulation` to test the effect of a policy declared elsewhere in the same configuration, it's important to use `depends_on` to make sure that the needed policy has been fully created or updated before running the simulation.
-
-
-    :param Sequence[_builtins.str] action_names: A set of IAM action names to run simulations for. Each entry in this set adds an additional hypothetical request to the simulation.
-           
-           Action names consist of a service prefix and an action verb separated by a colon, such as `s3:GetObject`. Refer to [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) to see the full set of possible IAM action names across all AWS services.
-    :param Sequence[_builtins.str] additional_policies_jsons: A set of additional principal policy documents to include in the simulation. The simulator will behave as if each of these policies were associated with the object specified in `policy_source_arn`, allowing you to test the effect of hypothetical policies not yet created.
-    :param _builtins.str caller_arn: The ARN of an user that will appear as the "caller" of the simulated requests. If you do not specify `caller_arn` then the simulation will use the `policy_source_arn` instead, if it contains a user ARN.
-    :param Sequence[Union['GetPrincipalPolicySimulationContextArgs', 'GetPrincipalPolicySimulationContextArgsDict']] contexts: Each `context` block defines an entry in the table of additional context keys in the simulated request.
-           
-           IAM uses context keys for both custom conditions and for interpolating dynamic request-specific values into policy values. If you use policies that include those features then you will need to provide suitable example values for those keys to achieve a realistic simulation.
-    :param Sequence[_builtins.str] permissions_boundary_policies_jsons: A set of [permissions boundary policy documents](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) to include in the simulation.
-    :param _builtins.str policy_source_arn: The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the IAM user, group, or role whose policies will be included in the simulation.
-           
-           You must closely match the form of the real service request you are simulating in order to achieve a realistic result. You can use the following additional arguments to specify other characteristics of the simulated requests:
-    :param Sequence[_builtins.str] resource_arns: A set of ARNs of resources to include in the simulation.
-           
-           This argument is important for actions that have either required or optional resource types listed in [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html), and you must provide ARNs that identify AWS objects of the appropriate types for the chosen actions.
-           
-           The policy simulator only automatically loads policies associated with the `policy_source_arn`, so if your given resources have their own resource-level policy then you'll also need to provide that explicitly using the `resource_policy_json` argument to achieve a realistic simulation.
-    :param _builtins.str resource_handling_option: Specifies a special simulation type to run. Some EC2 actions require special simulation behaviors and a particular set of resource ARNs to achieve a realistic result.
-           
-           For more details, see the `ResourceHandlingOption` request parameter for [the underlying `iam:SimulatePrincipalPolicy` action](https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html).
-    :param _builtins.str resource_owner_account_id: An AWS account ID to use for any resource ARN in `resource_arns` that doesn't include its own AWS account ID. If unspecified, the simulator will use the account ID from the `caller_arn` argument as a placeholder.
-    :param _builtins.str resource_policy_json: An IAM policy document representing the resource-level policy of all of the resources specified in `resource_arns`.
-           
-           The policy simulator cannot automatically load policies that are associated with individual resources, as described in the documentation for `resource_arns` above.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['actionNames'] = action_names

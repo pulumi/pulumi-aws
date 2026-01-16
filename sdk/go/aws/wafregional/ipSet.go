@@ -11,62 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a WAF Regional IPSet Resource for use with Application Load Balancer.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafregional"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafregional.NewIpSet(ctx, "ipset", &wafregional.IpSetArgs{
-//				Name: pulumi.String("tfIPSet"),
-//				IpSetDescriptors: wafregional.IpSetIpSetDescriptorArray{
-//					&wafregional.IpSetIpSetDescriptorArgs{
-//						Type:  pulumi.String("IPV4"),
-//						Value: pulumi.String("192.0.7.0/24"),
-//					},
-//					&wafregional.IpSetIpSetDescriptorArgs{
-//						Type:  pulumi.String("IPV4"),
-//						Value: pulumi.String("10.16.16.0/16"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import WAF Regional IPSets using their ID. For example:
-//
-// ```sh
-// $ pulumi import aws:wafregional/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-// ```
 type IpSet struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the WAF IPSet.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
+	Arn              pulumi.StringOutput             `pulumi:"arn"`
 	IpSetDescriptors IpSetIpSetDescriptorArrayOutput `pulumi:"ipSetDescriptors"`
-	// The name or description of the IPSet.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Name             pulumi.StringOutput             `pulumi:"name"`
+	Region           pulumi.StringOutput             `pulumi:"region"`
 }
 
 // NewIpSet registers a new resource with the given unique name, arguments, and options.
@@ -99,25 +50,17 @@ func GetIpSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IpSet resources.
 type ipSetState struct {
-	// The ARN of the WAF IPSet.
-	Arn *string `pulumi:"arn"`
-	// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
+	Arn              *string                `pulumi:"arn"`
 	IpSetDescriptors []IpSetIpSetDescriptor `pulumi:"ipSetDescriptors"`
-	// The name or description of the IPSet.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Name             *string                `pulumi:"name"`
+	Region           *string                `pulumi:"region"`
 }
 
 type IpSetState struct {
-	// The ARN of the WAF IPSet.
-	Arn pulumi.StringPtrInput
-	// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
+	Arn              pulumi.StringPtrInput
 	IpSetDescriptors IpSetIpSetDescriptorArrayInput
-	// The name or description of the IPSet.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
 }
 
 func (IpSetState) ElementType() reflect.Type {
@@ -125,22 +68,16 @@ func (IpSetState) ElementType() reflect.Type {
 }
 
 type ipSetArgs struct {
-	// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
 	IpSetDescriptors []IpSetIpSetDescriptor `pulumi:"ipSetDescriptors"`
-	// The name or description of the IPSet.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Name             *string                `pulumi:"name"`
+	Region           *string                `pulumi:"region"`
 }
 
 // The set of arguments for constructing a IpSet resource.
 type IpSetArgs struct {
-	// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
 	IpSetDescriptors IpSetIpSetDescriptorArrayInput
-	// The name or description of the IPSet.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
 }
 
 func (IpSetArgs) ElementType() reflect.Type {
@@ -230,22 +167,18 @@ func (o IpSetOutput) ToIpSetOutputWithContext(ctx context.Context) IpSetOutput {
 	return o
 }
 
-// The ARN of the WAF IPSet.
 func (o IpSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
 func (o IpSetOutput) IpSetDescriptors() IpSetIpSetDescriptorArrayOutput {
 	return o.ApplyT(func(v *IpSet) IpSetIpSetDescriptorArrayOutput { return v.IpSetDescriptors }).(IpSetIpSetDescriptorArrayOutput)
 }
 
-// The name or description of the IPSet.
 func (o IpSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o IpSetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -9,85 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Kms
 {
-    /// <summary>
-    /// Provides a resource-based access control mechanism for a KMS customer master key.
-    /// 
-    /// &gt; **Note:** All arguments including the grant token will be stored in the raw state as plain-text.
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import KMS Grants using the Key ID and Grant ID separated by a colon (`:`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:kms/grant:Grant test 1234abcd-12ab-34cd-56ef-1234567890ab:abcde1237f76e4ba7987489ac329fbfba6ad343d6f7075dbd1ef191f0120514
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:kms/grant:Grant")]
     public partial class Grant : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
-        /// </summary>
         [Output("constraints")]
         public Output<ImmutableArray<Outputs.GrantConstraint>> Constraints { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
-        /// </summary>
         [Output("grantCreationTokens")]
         public Output<ImmutableArray<string>> GrantCreationTokens { get; private set; } = null!;
 
-        /// <summary>
-        /// The unique identifier for the grant.
-        /// </summary>
         [Output("grantId")]
         public Output<string> GrantId { get; private set; } = null!;
 
-        /// <summary>
-        /// The grant token for the created grant. For more information, see [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token).
-        /// </summary>
         [Output("grantToken")]
         public Output<string> GrantToken { get; private set; } = null!;
 
-        /// <summary>
-        /// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
-        /// </summary>
         [Output("granteePrincipal")]
         public Output<string> GranteePrincipal { get; private set; } = null!;
 
-        /// <summary>
-        /// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
-        /// </summary>
         [Output("keyId")]
         public Output<string> KeyId { get; private set; } = null!;
 
-        /// <summary>
-        /// A friendly name for identifying the grant.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
-        /// </summary>
         [Output("operations")]
         public Output<ImmutableArray<string>> Operations { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-        /// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
-        /// </summary>
         [Output("retireOnDelete")]
         public Output<bool?> RetireOnDelete { get; private set; } = null!;
 
-        /// <summary>
-        /// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
-        /// </summary>
         [Output("retiringPrincipal")]
         public Output<string?> RetiringPrincipal { get; private set; } = null!;
 
@@ -143,10 +97,6 @@ namespace Pulumi.Aws.Kms
     {
         [Input("constraints")]
         private InputList<Inputs.GrantConstraintArgs>? _constraints;
-
-        /// <summary>
-        /// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
-        /// </summary>
         public InputList<Inputs.GrantConstraintArgs> Constraints
         {
             get => _constraints ?? (_constraints = new InputList<Inputs.GrantConstraintArgs>());
@@ -155,62 +105,35 @@ namespace Pulumi.Aws.Kms
 
         [Input("grantCreationTokens")]
         private InputList<string>? _grantCreationTokens;
-
-        /// <summary>
-        /// A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
-        /// </summary>
         public InputList<string> GrantCreationTokens
         {
             get => _grantCreationTokens ?? (_grantCreationTokens = new InputList<string>());
             set => _grantCreationTokens = value;
         }
 
-        /// <summary>
-        /// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
-        /// </summary>
         [Input("granteePrincipal", required: true)]
         public Input<string> GranteePrincipal { get; set; } = null!;
 
-        /// <summary>
-        /// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
-        /// </summary>
         [Input("keyId", required: true)]
         public Input<string> KeyId { get; set; } = null!;
 
-        /// <summary>
-        /// A friendly name for identifying the grant.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("operations", required: true)]
         private InputList<string>? _operations;
-
-        /// <summary>
-        /// A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
-        /// </summary>
         public InputList<string> Operations
         {
             get => _operations ?? (_operations = new InputList<string>());
             set => _operations = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-        /// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
-        /// </summary>
         [Input("retireOnDelete")]
         public Input<bool>? RetireOnDelete { get; set; }
 
-        /// <summary>
-        /// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
-        /// </summary>
         [Input("retiringPrincipal")]
         public Input<string>? RetiringPrincipal { get; set; }
 
@@ -224,10 +147,6 @@ namespace Pulumi.Aws.Kms
     {
         [Input("constraints")]
         private InputList<Inputs.GrantConstraintGetArgs>? _constraints;
-
-        /// <summary>
-        /// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
-        /// </summary>
         public InputList<Inputs.GrantConstraintGetArgs> Constraints
         {
             get => _constraints ?? (_constraints = new InputList<Inputs.GrantConstraintGetArgs>());
@@ -236,28 +155,17 @@ namespace Pulumi.Aws.Kms
 
         [Input("grantCreationTokens")]
         private InputList<string>? _grantCreationTokens;
-
-        /// <summary>
-        /// A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
-        /// </summary>
         public InputList<string> GrantCreationTokens
         {
             get => _grantCreationTokens ?? (_grantCreationTokens = new InputList<string>());
             set => _grantCreationTokens = value;
         }
 
-        /// <summary>
-        /// The unique identifier for the grant.
-        /// </summary>
         [Input("grantId")]
         public Input<string>? GrantId { get; set; }
 
         [Input("grantToken")]
         private Input<string>? _grantToken;
-
-        /// <summary>
-        /// The grant token for the created grant. For more information, see [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token).
-        /// </summary>
         public Input<string>? GrantToken
         {
             get => _grantToken;
@@ -268,52 +176,29 @@ namespace Pulumi.Aws.Kms
             }
         }
 
-        /// <summary>
-        /// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
-        /// </summary>
         [Input("granteePrincipal")]
         public Input<string>? GranteePrincipal { get; set; }
 
-        /// <summary>
-        /// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
-        /// </summary>
         [Input("keyId")]
         public Input<string>? KeyId { get; set; }
 
-        /// <summary>
-        /// A friendly name for identifying the grant.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("operations")]
         private InputList<string>? _operations;
-
-        /// <summary>
-        /// A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
-        /// </summary>
         public InputList<string> Operations
         {
             get => _operations ?? (_operations = new InputList<string>());
             set => _operations = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-        /// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
-        /// </summary>
         [Input("retireOnDelete")]
         public Input<bool>? RetireOnDelete { get; set; }
 
-        /// <summary>
-        /// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
-        /// </summary>
         [Input("retiringPrincipal")]
         public Input<string>? RetiringPrincipal { get; set; }
 

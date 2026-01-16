@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponse
     {
-        /// <summary>
-        /// Whether the user can interrupt the start message while it is playing.
-        /// </summary>
         public readonly bool? AllowInterrupt;
-        /// <summary>
-        /// Delay between when the Lambda fulfillment function starts running and the start message is played. If the Lambda function returns before the delay is over, the start message isn't played.
-        /// </summary>
         public readonly int? DelayInSeconds;
-        /// <summary>
-        /// Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `MessageGroup`.
-        /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroup> MessageGroups;
 
         [OutputConstructor]

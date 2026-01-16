@@ -12,36 +12,20 @@ namespace Pulumi.Aws.NetworkManager.Inputs
 
     public sealed class GetCoreNetworkPolicyDocumentRoutingPolicyInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the routing policy.
-        /// </summary>
         [Input("routingPolicyDescription")]
         public Input<string>? RoutingPolicyDescription { get; set; }
 
-        /// <summary>
-        /// Direction of the routing policy. Valid values: `Inbound`, `Outbound`.
-        /// </summary>
         [Input("routingPolicyDirection", required: true)]
         public Input<string> RoutingPolicyDirection { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the routing policy. Must be 1-100 alphanumeric characters.
-        /// </summary>
         [Input("routingPolicyName", required: true)]
         public Input<string> RoutingPolicyName { get; set; } = null!;
 
-        /// <summary>
-        /// Priority number for the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
-        /// </summary>
         [Input("routingPolicyNumber", required: true)]
         public Input<int> RoutingPolicyNumber { get; set; } = null!;
 
         [Input("routingPolicyRules", required: true)]
         private InputList<Inputs.GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleInputArgs>? _routingPolicyRules;
-
-        /// <summary>
-        /// List of routing policy rules. Each rule defines match conditions and actions. Detailed below.
-        /// </summary>
         public InputList<Inputs.GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleInputArgs> RoutingPolicyRules
         {
             get => _routingPolicyRules ?? (_routingPolicyRules = new InputList<Inputs.GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleInputArgs>());

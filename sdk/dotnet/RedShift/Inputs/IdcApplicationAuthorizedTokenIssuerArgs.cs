@@ -14,19 +14,12 @@ namespace Pulumi.Aws.RedShift.Inputs
     {
         [Input("authorizedAudiencesLists")]
         private InputList<string>? _authorizedAudiencesLists;
-
-        /// <summary>
-        /// List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-        /// </summary>
         public InputList<string> AuthorizedAudiencesLists
         {
             get => _authorizedAudiencesLists ?? (_authorizedAudiencesLists = new InputList<string>());
             set => _authorizedAudiencesLists = value;
         }
 
-        /// <summary>
-        /// ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-        /// </summary>
         [Input("trustedTokenIssuerArn")]
         public Input<string>? TrustedTokenIssuerArn { get; set; }
 

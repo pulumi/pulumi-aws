@@ -9,51 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ServiceQuotas
 {
-    /// <summary>
-    /// Resource for managing an AWS Service Quotas Template Association.
-    /// 
-    /// &gt; Only the management account of an organization can associate Service Quota templates, and this must be done from the `us-east-1` region.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceQuotas.TemplateAssociation("example");
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Service Quotas Template Association using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:servicequotas/templateAssociation:TemplateAssociation example 123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:servicequotas/templateAssociation:TemplateAssociation")]
     public partial class TemplateAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
         [Output("skipDestroy")]
         public Output<bool?> SkipDestroy { get; private set; } = null!;
 
-        /// <summary>
-        /// Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -103,9 +67,6 @@ namespace Pulumi.Aws.ServiceQuotas
 
     public sealed class TemplateAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -120,18 +81,12 @@ namespace Pulumi.Aws.ServiceQuotas
 
     public sealed class TemplateAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
-        /// <summary>
-        /// Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

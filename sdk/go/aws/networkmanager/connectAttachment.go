@@ -12,168 +12,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Network Manager Connect Attachment.
-//
-// Use this resource to create a Connect attachment in AWS Network Manager. Connect attachments enable you to connect your on-premises networks to your core network through a VPC or Transit Gateway attachment.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// var splat0 []interface{}
-// for _, val0 := range exampleAwsSubnet {
-// splat0 = append(splat0, val0.Arn)
-// }
-// example, err := networkmanager.NewVpcAttachment(ctx, "example", &networkmanager.VpcAttachmentArgs{
-// SubnetArns: toPulumiArray(splat0),
-// CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
-// VpcArn: pulumi.Any(exampleAwsVpc.Arn),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = networkmanager.NewConnectAttachment(ctx, "example", &networkmanager.ConnectAttachmentArgs{
-// CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
-// TransportAttachmentId: example.ID(),
-// EdgeLocation: example.EdgeLocation,
-// Options: &networkmanager.ConnectAttachmentOptionsArgs{
-// Protocol: pulumi.String("GRE"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// func toPulumiArray(arr []) pulumi.Array {
-// var pulumiArr pulumi.Array
-// for _, v := range arr {
-// pulumiArr = append(pulumiArr, pulumi.(v))
-// }
-// return pulumiArr
-// }
-// ```
-//
-// ### Usage with attachment accepter
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// var splat0 []interface{}
-// for _, val0 := range exampleAwsSubnet {
-// splat0 = append(splat0, val0.Arn)
-// }
-// example, err := networkmanager.NewVpcAttachment(ctx, "example", &networkmanager.VpcAttachmentArgs{
-// SubnetArns: toPulumiArray(splat0),
-// CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
-// VpcArn: pulumi.Any(exampleAwsVpc.Arn),
-// })
-// if err != nil {
-// return err
-// }
-// exampleAttachmentAccepter, err := networkmanager.NewAttachmentAccepter(ctx, "example", &networkmanager.AttachmentAccepterArgs{
-// AttachmentId: example.ID(),
-// AttachmentType: example.AttachmentType,
-// })
-// if err != nil {
-// return err
-// }
-// exampleConnectAttachment, err := networkmanager.NewConnectAttachment(ctx, "example", &networkmanager.ConnectAttachmentArgs{
-// CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
-// TransportAttachmentId: example.ID(),
-// EdgeLocation: example.EdgeLocation,
-// Options: &networkmanager.ConnectAttachmentOptionsArgs{
-// Protocol: pulumi.String("GRE"),
-// },
-// }, pulumi.DependsOn([]pulumi.Resource{
-// exampleAttachmentAccepter,
-// }))
-// if err != nil {
-// return err
-// }
-// _, err = networkmanager.NewAttachmentAccepter(ctx, "example2", &networkmanager.AttachmentAccepterArgs{
-// AttachmentId: exampleConnectAttachment.ID(),
-// AttachmentType: exampleConnectAttachment.AttachmentType,
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// func toPulumiArray(arr []) pulumi.Array {
-// var pulumiArr pulumi.Array
-// for _, v := range arr {
-// pulumiArr = append(pulumiArr, pulumi.(v))
-// }
-// return pulumiArr
-// }
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_networkmanager_connect_attachment` using the attachment ID. For example:
-//
-// ```sh
-// $ pulumi import aws:networkmanager/connectAttachment:ConnectAttachment example attachment-0f8fa60d2238d1bd8
-// ```
 type ConnectAttachment struct {
 	pulumi.CustomResourceState
 
-	// ARN of the attachment.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// ID of the attachment.
-	AttachmentId pulumi.StringOutput `pulumi:"attachmentId"`
-	// Policy rule number associated with the attachment.
-	AttachmentPolicyRuleNumber pulumi.IntOutput `pulumi:"attachmentPolicyRuleNumber"`
-	// Type of attachment.
-	AttachmentType pulumi.StringOutput `pulumi:"attachmentType"`
-	// ARN of a core network.
-	CoreNetworkArn pulumi.StringOutput `pulumi:"coreNetworkArn"`
-	// ID of a core network where you want to create the attachment.
-	CoreNetworkId pulumi.StringOutput `pulumi:"coreNetworkId"`
-	// Region where the edge is located.
-	EdgeLocation pulumi.StringOutput `pulumi:"edgeLocation"`
-	// Options block. See options for more information.
-	Options ConnectAttachmentOptionsOutput `pulumi:"options"`
-	// ID of the attachment account owner.
-	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
-	// Attachment resource ARN.
-	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
-	// The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-	RoutingPolicyLabel pulumi.StringPtrOutput `pulumi:"routingPolicyLabel"`
-	// Name of the segment attachment.
-	SegmentName pulumi.StringOutput `pulumi:"segmentName"`
-	// State of the attachment.
-	State pulumi.StringOutput `pulumi:"state"`
-	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// ID of the attachment between the two connections.
-	//
-	// The following arguments are optional:
-	TransportAttachmentId pulumi.StringOutput `pulumi:"transportAttachmentId"`
+	Arn                        pulumi.StringOutput            `pulumi:"arn"`
+	AttachmentId               pulumi.StringOutput            `pulumi:"attachmentId"`
+	AttachmentPolicyRuleNumber pulumi.IntOutput               `pulumi:"attachmentPolicyRuleNumber"`
+	AttachmentType             pulumi.StringOutput            `pulumi:"attachmentType"`
+	CoreNetworkArn             pulumi.StringOutput            `pulumi:"coreNetworkArn"`
+	CoreNetworkId              pulumi.StringOutput            `pulumi:"coreNetworkId"`
+	EdgeLocation               pulumi.StringOutput            `pulumi:"edgeLocation"`
+	Options                    ConnectAttachmentOptionsOutput `pulumi:"options"`
+	OwnerAccountId             pulumi.StringOutput            `pulumi:"ownerAccountId"`
+	ResourceArn                pulumi.StringOutput            `pulumi:"resourceArn"`
+	RoutingPolicyLabel         pulumi.StringPtrOutput         `pulumi:"routingPolicyLabel"`
+	SegmentName                pulumi.StringOutput            `pulumi:"segmentName"`
+	State                      pulumi.StringOutput            `pulumi:"state"`
+	Tags                       pulumi.StringMapOutput         `pulumi:"tags"`
+	TagsAll                    pulumi.StringMapOutput         `pulumi:"tagsAll"`
+	TransportAttachmentId      pulumi.StringOutput            `pulumi:"transportAttachmentId"`
 }
 
 // NewConnectAttachment registers a new resource with the given unique name, arguments, and options.
@@ -218,77 +75,41 @@ func GetConnectAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConnectAttachment resources.
 type connectAttachmentState struct {
-	// ARN of the attachment.
-	Arn *string `pulumi:"arn"`
-	// ID of the attachment.
-	AttachmentId *string `pulumi:"attachmentId"`
-	// Policy rule number associated with the attachment.
-	AttachmentPolicyRuleNumber *int `pulumi:"attachmentPolicyRuleNumber"`
-	// Type of attachment.
-	AttachmentType *string `pulumi:"attachmentType"`
-	// ARN of a core network.
-	CoreNetworkArn *string `pulumi:"coreNetworkArn"`
-	// ID of a core network where you want to create the attachment.
-	CoreNetworkId *string `pulumi:"coreNetworkId"`
-	// Region where the edge is located.
-	EdgeLocation *string `pulumi:"edgeLocation"`
-	// Options block. See options for more information.
-	Options *ConnectAttachmentOptions `pulumi:"options"`
-	// ID of the attachment account owner.
-	OwnerAccountId *string `pulumi:"ownerAccountId"`
-	// Attachment resource ARN.
-	ResourceArn *string `pulumi:"resourceArn"`
-	// The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-	RoutingPolicyLabel *string `pulumi:"routingPolicyLabel"`
-	// Name of the segment attachment.
-	SegmentName *string `pulumi:"segmentName"`
-	// State of the attachment.
-	State *string `pulumi:"state"`
-	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// ID of the attachment between the two connections.
-	//
-	// The following arguments are optional:
-	TransportAttachmentId *string `pulumi:"transportAttachmentId"`
+	Arn                        *string                   `pulumi:"arn"`
+	AttachmentId               *string                   `pulumi:"attachmentId"`
+	AttachmentPolicyRuleNumber *int                      `pulumi:"attachmentPolicyRuleNumber"`
+	AttachmentType             *string                   `pulumi:"attachmentType"`
+	CoreNetworkArn             *string                   `pulumi:"coreNetworkArn"`
+	CoreNetworkId              *string                   `pulumi:"coreNetworkId"`
+	EdgeLocation               *string                   `pulumi:"edgeLocation"`
+	Options                    *ConnectAttachmentOptions `pulumi:"options"`
+	OwnerAccountId             *string                   `pulumi:"ownerAccountId"`
+	ResourceArn                *string                   `pulumi:"resourceArn"`
+	RoutingPolicyLabel         *string                   `pulumi:"routingPolicyLabel"`
+	SegmentName                *string                   `pulumi:"segmentName"`
+	State                      *string                   `pulumi:"state"`
+	Tags                       map[string]string         `pulumi:"tags"`
+	TagsAll                    map[string]string         `pulumi:"tagsAll"`
+	TransportAttachmentId      *string                   `pulumi:"transportAttachmentId"`
 }
 
 type ConnectAttachmentState struct {
-	// ARN of the attachment.
-	Arn pulumi.StringPtrInput
-	// ID of the attachment.
-	AttachmentId pulumi.StringPtrInput
-	// Policy rule number associated with the attachment.
+	Arn                        pulumi.StringPtrInput
+	AttachmentId               pulumi.StringPtrInput
 	AttachmentPolicyRuleNumber pulumi.IntPtrInput
-	// Type of attachment.
-	AttachmentType pulumi.StringPtrInput
-	// ARN of a core network.
-	CoreNetworkArn pulumi.StringPtrInput
-	// ID of a core network where you want to create the attachment.
-	CoreNetworkId pulumi.StringPtrInput
-	// Region where the edge is located.
-	EdgeLocation pulumi.StringPtrInput
-	// Options block. See options for more information.
-	Options ConnectAttachmentOptionsPtrInput
-	// ID of the attachment account owner.
-	OwnerAccountId pulumi.StringPtrInput
-	// Attachment resource ARN.
-	ResourceArn pulumi.StringPtrInput
-	// The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-	RoutingPolicyLabel pulumi.StringPtrInput
-	// Name of the segment attachment.
-	SegmentName pulumi.StringPtrInput
-	// State of the attachment.
-	State pulumi.StringPtrInput
-	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// ID of the attachment between the two connections.
-	//
-	// The following arguments are optional:
-	TransportAttachmentId pulumi.StringPtrInput
+	AttachmentType             pulumi.StringPtrInput
+	CoreNetworkArn             pulumi.StringPtrInput
+	CoreNetworkId              pulumi.StringPtrInput
+	EdgeLocation               pulumi.StringPtrInput
+	Options                    ConnectAttachmentOptionsPtrInput
+	OwnerAccountId             pulumi.StringPtrInput
+	ResourceArn                pulumi.StringPtrInput
+	RoutingPolicyLabel         pulumi.StringPtrInput
+	SegmentName                pulumi.StringPtrInput
+	State                      pulumi.StringPtrInput
+	Tags                       pulumi.StringMapInput
+	TagsAll                    pulumi.StringMapInput
+	TransportAttachmentId      pulumi.StringPtrInput
 }
 
 func (ConnectAttachmentState) ElementType() reflect.Type {
@@ -296,37 +117,21 @@ func (ConnectAttachmentState) ElementType() reflect.Type {
 }
 
 type connectAttachmentArgs struct {
-	// ID of a core network where you want to create the attachment.
-	CoreNetworkId string `pulumi:"coreNetworkId"`
-	// Region where the edge is located.
-	EdgeLocation string `pulumi:"edgeLocation"`
-	// Options block. See options for more information.
-	Options ConnectAttachmentOptions `pulumi:"options"`
-	// The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-	RoutingPolicyLabel *string `pulumi:"routingPolicyLabel"`
-	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// ID of the attachment between the two connections.
-	//
-	// The following arguments are optional:
-	TransportAttachmentId string `pulumi:"transportAttachmentId"`
+	CoreNetworkId         string                   `pulumi:"coreNetworkId"`
+	EdgeLocation          string                   `pulumi:"edgeLocation"`
+	Options               ConnectAttachmentOptions `pulumi:"options"`
+	RoutingPolicyLabel    *string                  `pulumi:"routingPolicyLabel"`
+	Tags                  map[string]string        `pulumi:"tags"`
+	TransportAttachmentId string                   `pulumi:"transportAttachmentId"`
 }
 
 // The set of arguments for constructing a ConnectAttachment resource.
 type ConnectAttachmentArgs struct {
-	// ID of a core network where you want to create the attachment.
-	CoreNetworkId pulumi.StringInput
-	// Region where the edge is located.
-	EdgeLocation pulumi.StringInput
-	// Options block. See options for more information.
-	Options ConnectAttachmentOptionsInput
-	// The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-	RoutingPolicyLabel pulumi.StringPtrInput
-	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// ID of the attachment between the two connections.
-	//
-	// The following arguments are optional:
+	CoreNetworkId         pulumi.StringInput
+	EdgeLocation          pulumi.StringInput
+	Options               ConnectAttachmentOptionsInput
+	RoutingPolicyLabel    pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
 	TransportAttachmentId pulumi.StringInput
 }
 
@@ -417,84 +222,66 @@ func (o ConnectAttachmentOutput) ToConnectAttachmentOutputWithContext(ctx contex
 	return o
 }
 
-// ARN of the attachment.
 func (o ConnectAttachmentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// ID of the attachment.
 func (o ConnectAttachmentOutput) AttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.AttachmentId }).(pulumi.StringOutput)
 }
 
-// Policy rule number associated with the attachment.
 func (o ConnectAttachmentOutput) AttachmentPolicyRuleNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *ConnectAttachment) pulumi.IntOutput { return v.AttachmentPolicyRuleNumber }).(pulumi.IntOutput)
 }
 
-// Type of attachment.
 func (o ConnectAttachmentOutput) AttachmentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.AttachmentType }).(pulumi.StringOutput)
 }
 
-// ARN of a core network.
 func (o ConnectAttachmentOutput) CoreNetworkArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.CoreNetworkArn }).(pulumi.StringOutput)
 }
 
-// ID of a core network where you want to create the attachment.
 func (o ConnectAttachmentOutput) CoreNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.CoreNetworkId }).(pulumi.StringOutput)
 }
 
-// Region where the edge is located.
 func (o ConnectAttachmentOutput) EdgeLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.EdgeLocation }).(pulumi.StringOutput)
 }
 
-// Options block. See options for more information.
 func (o ConnectAttachmentOutput) Options() ConnectAttachmentOptionsOutput {
 	return o.ApplyT(func(v *ConnectAttachment) ConnectAttachmentOptionsOutput { return v.Options }).(ConnectAttachmentOptionsOutput)
 }
 
-// ID of the attachment account owner.
 func (o ConnectAttachmentOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
 }
 
-// Attachment resource ARN.
 func (o ConnectAttachmentOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-// The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
 func (o ConnectAttachmentOutput) RoutingPolicyLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringPtrOutput { return v.RoutingPolicyLabel }).(pulumi.StringPtrOutput)
 }
 
-// Name of the segment attachment.
 func (o ConnectAttachmentOutput) SegmentName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.SegmentName }).(pulumi.StringOutput)
 }
 
-// State of the attachment.
 func (o ConnectAttachmentOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ConnectAttachmentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ConnectAttachmentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// ID of the attachment between the two connections.
-//
-// The following arguments are optional:
 func (o ConnectAttachmentOutput) TransportAttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.TransportAttachmentId }).(pulumi.StringOutput)
 }

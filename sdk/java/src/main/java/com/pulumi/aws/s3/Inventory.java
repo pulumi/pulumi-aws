@@ -19,266 +19,59 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
- * 
- * &gt; This resource cannot be used with S3 directory buckets.
- * 
- * ## Example Usage
- * 
- * ### Add inventory configuration
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.Inventory;
- * import com.pulumi.aws.s3.InventoryArgs;
- * import com.pulumi.aws.s3.inputs.InventoryScheduleArgs;
- * import com.pulumi.aws.s3.inputs.InventoryDestinationArgs;
- * import com.pulumi.aws.s3.inputs.InventoryDestinationBucketArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new Bucket("test", BucketArgs.builder()
- *             .bucket("my-tf-test-bucket")
- *             .build());
- * 
- *         var inventory = new Bucket("inventory", BucketArgs.builder()
- *             .bucket("my-tf-inventory-bucket")
- *             .build());
- * 
- *         var testInventory = new Inventory("testInventory", InventoryArgs.builder()
- *             .bucket(test.id())
- *             .name("EntireBucketDaily")
- *             .includedObjectVersions("All")
- *             .schedule(InventoryScheduleArgs.builder()
- *                 .frequency("Daily")
- *                 .build())
- *             .destination(InventoryDestinationArgs.builder()
- *                 .bucket(InventoryDestinationBucketArgs.builder()
- *                     .format("ORC")
- *                     .bucketArn(inventory.arn())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Add inventory configuration with S3 object prefix
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.Inventory;
- * import com.pulumi.aws.s3.InventoryArgs;
- * import com.pulumi.aws.s3.inputs.InventoryScheduleArgs;
- * import com.pulumi.aws.s3.inputs.InventoryFilterArgs;
- * import com.pulumi.aws.s3.inputs.InventoryDestinationArgs;
- * import com.pulumi.aws.s3.inputs.InventoryDestinationBucketArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new Bucket("test", BucketArgs.builder()
- *             .bucket("my-tf-test-bucket")
- *             .build());
- * 
- *         var inventory = new Bucket("inventory", BucketArgs.builder()
- *             .bucket("my-tf-inventory-bucket")
- *             .build());
- * 
- *         var test_prefix = new Inventory("test-prefix", InventoryArgs.builder()
- *             .bucket(test.id())
- *             .name("DocumentsWeekly")
- *             .includedObjectVersions("All")
- *             .schedule(InventoryScheduleArgs.builder()
- *                 .frequency("Daily")
- *                 .build())
- *             .filter(InventoryFilterArgs.builder()
- *                 .prefix("documents/")
- *                 .build())
- *             .destination(InventoryDestinationArgs.builder()
- *                 .bucket(InventoryDestinationBucketArgs.builder()
- *                     .format("ORC")
- *                     .bucketArn(inventory.arn())
- *                     .prefix("inventory")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import S3 bucket inventory configurations using `bucket:inventory`. For example:
- * 
- * ```sh
- * $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
- * ```
- * 
- */
 @ResourceType(type="aws:s3/inventory:Inventory")
 public class Inventory extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of the source bucket that inventory lists the objects for.
-     * 
-     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
-    /**
-     * @return Name of the source bucket that inventory lists the objects for.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
-    /**
-     * Contains information about where to publish the inventory results (documented below).
-     * 
-     */
     @Export(name="destination", refs={InventoryDestination.class}, tree="[0]")
     private Output<InventoryDestination> destination;
 
-    /**
-     * @return Contains information about where to publish the inventory results (documented below).
-     * 
-     */
     public Output<InventoryDestination> destination() {
         return this.destination;
     }
-    /**
-     * Specifies whether the inventory is enabled or disabled.
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
-    /**
-     * @return Specifies whether the inventory is enabled or disabled.
-     * 
-     */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
-    /**
-     * Specifies an inventory filter. The inventory only includes objects that meet the filter&#39;s criteria (documented below).
-     * 
-     */
     @Export(name="filter", refs={InventoryFilter.class}, tree="[0]")
     private Output</* @Nullable */ InventoryFilter> filter;
 
-    /**
-     * @return Specifies an inventory filter. The inventory only includes objects that meet the filter&#39;s criteria (documented below).
-     * 
-     */
     public Output<Optional<InventoryFilter>> filter() {
         return Codegen.optional(this.filter);
     }
-    /**
-     * Object versions to include in the inventory list. Valid values: `All`, `Current`.
-     * 
-     */
     @Export(name="includedObjectVersions", refs={String.class}, tree="[0]")
     private Output<String> includedObjectVersions;
 
-    /**
-     * @return Object versions to include in the inventory list. Valid values: `All`, `Current`.
-     * 
-     */
     public Output<String> includedObjectVersions() {
         return this.includedObjectVersions;
     }
-    /**
-     * Unique identifier of the inventory configuration for the bucket.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Unique identifier of the inventory configuration for the bucket.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
-     * 
-     */
     @Export(name="optionalFields", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> optionalFields;
 
-    /**
-     * @return List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
-     * 
-     */
     public Output<Optional<List<String>>> optionalFields() {
         return Codegen.optional(this.optionalFields);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Specifies the schedule for generating inventory results (documented below).
-     * 
-     */
     @Export(name="schedule", refs={InventorySchedule.class}, tree="[0]")
     private Output<InventorySchedule> schedule;
 
-    /**
-     * @return Specifies the schedule for generating inventory results (documented below).
-     * 
-     */
     public Output<InventorySchedule> schedule() {
         return this.schedule;
     }

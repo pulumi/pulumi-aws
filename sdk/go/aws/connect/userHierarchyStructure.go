@@ -12,101 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Amazon Connect User Hierarchy Structure resource. For more information see
-// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
-//
-// ## Example Usage
-//
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewUserHierarchyStructure(ctx, "example", &connect.UserHierarchyStructureArgs{
-//				InstanceId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				HierarchyStructure: &connect.UserHierarchyStructureHierarchyStructureArgs{
-//					LevelOne: &connect.UserHierarchyStructureHierarchyStructureLevelOneArgs{
-//						Name: pulumi.String("levelone"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Five Levels
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewUserHierarchyStructure(ctx, "example", &connect.UserHierarchyStructureArgs{
-//				InstanceId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				HierarchyStructure: &connect.UserHierarchyStructureHierarchyStructureArgs{
-//					LevelOne: &connect.UserHierarchyStructureHierarchyStructureLevelOneArgs{
-//						Name: pulumi.String("levelone"),
-//					},
-//					LevelTwo: &connect.UserHierarchyStructureHierarchyStructureLevelTwoArgs{
-//						Name: pulumi.String("leveltwo"),
-//					},
-//					LevelThree: &connect.UserHierarchyStructureHierarchyStructureLevelThreeArgs{
-//						Name: pulumi.String("levelthree"),
-//					},
-//					LevelFour: &connect.UserHierarchyStructureHierarchyStructureLevelFourArgs{
-//						Name: pulumi.String("levelfour"),
-//					},
-//					LevelFive: &connect.UserHierarchyStructureHierarchyStructureLevelFiveArgs{
-//						Name: pulumi.String("levelfive"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Amazon Connect User Hierarchy Structures using the `instance_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
-// ```
 type UserHierarchyStructure struct {
 	pulumi.CustomResourceState
 
-	// A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
 	HierarchyStructure UserHierarchyStructureHierarchyStructureOutput `pulumi:"hierarchyStructure"`
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	InstanceId         pulumi.StringOutput                            `pulumi:"instanceId"`
+	Region             pulumi.StringOutput                            `pulumi:"region"`
 }
 
 // NewUserHierarchyStructure registers a new resource with the given unique name, arguments, and options.
@@ -145,21 +56,15 @@ func GetUserHierarchyStructure(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserHierarchyStructure resources.
 type userHierarchyStructureState struct {
-	// A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
 	HierarchyStructure *UserHierarchyStructureHierarchyStructure `pulumi:"hierarchyStructure"`
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId *string `pulumi:"instanceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	InstanceId         *string                                   `pulumi:"instanceId"`
+	Region             *string                                   `pulumi:"region"`
 }
 
 type UserHierarchyStructureState struct {
-	// A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
 	HierarchyStructure UserHierarchyStructureHierarchyStructurePtrInput
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	InstanceId         pulumi.StringPtrInput
+	Region             pulumi.StringPtrInput
 }
 
 func (UserHierarchyStructureState) ElementType() reflect.Type {
@@ -167,22 +72,16 @@ func (UserHierarchyStructureState) ElementType() reflect.Type {
 }
 
 type userHierarchyStructureArgs struct {
-	// A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
 	HierarchyStructure UserHierarchyStructureHierarchyStructure `pulumi:"hierarchyStructure"`
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId string `pulumi:"instanceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	InstanceId         string                                   `pulumi:"instanceId"`
+	Region             *string                                  `pulumi:"region"`
 }
 
 // The set of arguments for constructing a UserHierarchyStructure resource.
 type UserHierarchyStructureArgs struct {
-	// A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
 	HierarchyStructure UserHierarchyStructureHierarchyStructureInput
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	InstanceId         pulumi.StringInput
+	Region             pulumi.StringPtrInput
 }
 
 func (UserHierarchyStructureArgs) ElementType() reflect.Type {
@@ -272,19 +171,16 @@ func (o UserHierarchyStructureOutput) ToUserHierarchyStructureOutputWithContext(
 	return o
 }
 
-// A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
 func (o UserHierarchyStructureOutput) HierarchyStructure() UserHierarchyStructureHierarchyStructureOutput {
 	return o.ApplyT(func(v *UserHierarchyStructure) UserHierarchyStructureHierarchyStructureOutput {
 		return v.HierarchyStructure
 	}).(UserHierarchyStructureHierarchyStructureOutput)
 }
 
-// Specifies the identifier of the hosting Amazon Connect Instance.
 func (o UserHierarchyStructureOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserHierarchyStructure) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UserHierarchyStructureOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserHierarchyStructure) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

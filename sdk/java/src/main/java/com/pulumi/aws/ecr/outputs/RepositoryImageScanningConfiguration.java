@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class RepositoryImageScanningConfiguration {
-    /**
-     * @return Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
-     * 
-     */
     private Boolean scanOnPush;
 
     private RepositoryImageScanningConfiguration() {}
-    /**
-     * @return Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
-     * 
-     */
     public Boolean scanOnPush() {
         return this.scanOnPush;
     }

@@ -12,21 +12,12 @@ namespace Pulumi.Aws.IdentityStore.Inputs
 
     public sealed class UserEmailsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// When `True`, this is the primary email associated with the user.
-        /// </summary>
         [Input("primary")]
         public Input<bool>? Primary { get; set; }
 
-        /// <summary>
-        /// The type of email.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// The email address. This value must be unique across the identity store.
-        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

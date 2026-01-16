@@ -14,192 +14,6 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS OpenSearch Serverless Access Policy. See AWS documentation for [data access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html) and [supported data access policy permissions](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html#serverless-data-supported-permissions).
- * 
- * ## Example Usage
- * 
- * ### Grant all collection and index permissions
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.opensearch.ServerlessAccessPolicy;
- * import com.pulumi.aws.opensearch.ServerlessAccessPolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         var example = new ServerlessAccessPolicy("example", ServerlessAccessPolicyArgs.builder()
- *             .name("example")
- *             .type("data")
- *             .description("read and write permissions")
- *             .policy(serializeJson(
- *                 jsonArray(jsonObject(
- *                     jsonProperty("Rules", jsonArray(
- *                         jsonObject(
- *                             jsonProperty("ResourceType", "index"),
- *                             jsonProperty("Resource", jsonArray("index/example-collection/*")),
- *                             jsonProperty("Permission", jsonArray("aoss:*"))
- *                         ), 
- *                         jsonObject(
- *                             jsonProperty("ResourceType", "collection"),
- *                             jsonProperty("Resource", jsonArray("collection/example-collection")),
- *                             jsonProperty("Permission", jsonArray("aoss:*"))
- *                         )
- *                     )),
- *                     jsonProperty("Principal", jsonArray(current.arn()))
- *                 ))))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Grant read-only collection and index permissions
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.opensearch.ServerlessAccessPolicy;
- * import com.pulumi.aws.opensearch.ServerlessAccessPolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         var example = new ServerlessAccessPolicy("example", ServerlessAccessPolicyArgs.builder()
- *             .name("example")
- *             .type("data")
- *             .description("read-only permissions")
- *             .policy(serializeJson(
- *                 jsonArray(jsonObject(
- *                     jsonProperty("Rules", jsonArray(
- *                         jsonObject(
- *                             jsonProperty("ResourceType", "index"),
- *                             jsonProperty("Resource", jsonArray("index/example-collection/*")),
- *                             jsonProperty("Permission", jsonArray(
- *                                 "aoss:DescribeIndex", 
- *                                 "aoss:ReadDocument"
- *                             ))
- *                         ), 
- *                         jsonObject(
- *                             jsonProperty("ResourceType", "collection"),
- *                             jsonProperty("Resource", jsonArray("collection/example-collection")),
- *                             jsonProperty("Permission", jsonArray("aoss:DescribeCollectionItems"))
- *                         )
- *                     )),
- *                     jsonProperty("Principal", jsonArray(current.arn()))
- *                 ))))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Grant SAML identity permissions
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.opensearch.ServerlessAccessPolicy;
- * import com.pulumi.aws.opensearch.ServerlessAccessPolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ServerlessAccessPolicy("example", ServerlessAccessPolicyArgs.builder()
- *             .name("example")
- *             .type("data")
- *             .description("saml permissions")
- *             .policy(serializeJson(
- *                 jsonArray(jsonObject(
- *                     jsonProperty("Rules", jsonArray(
- *                         jsonObject(
- *                             jsonProperty("ResourceType", "index"),
- *                             jsonProperty("Resource", jsonArray("index/example-collection/*")),
- *                             jsonProperty("Permission", jsonArray("aoss:*"))
- *                         ), 
- *                         jsonObject(
- *                             jsonProperty("ResourceType", "collection"),
- *                             jsonProperty("Resource", jsonArray("collection/example-collection")),
- *                             jsonProperty("Permission", jsonArray("aoss:*"))
- *                         )
- *                     )),
- *                     jsonProperty("Principal", jsonArray(
- *                         "saml/123456789012/myprovider/user/Annie", 
- *                         "saml/123456789012/anotherprovider/group/Accounting"
- *                     ))
- *                 ))))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import OpenSearchServerless Access Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
- * 
- * ```sh
- * $ pulumi import aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy example example/data
- * ```
- * 
- */
 @ResourceType(type="aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy")
 public class ServerlessAccessPolicy extends com.pulumi.resources.CustomResource {
     /**
@@ -231,14 +45,14 @@ public class ServerlessAccessPolicy extends com.pulumi.resources.CustomResource 
         return this.name;
     }
     /**
-     * JSON policy document to use as the content for the new policy
+     * JSON policy document to use as the content for the new policy.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
-     * @return JSON policy document to use as the content for the new policy
+     * @return JSON policy document to use as the content for the new policy.
      * 
      */
     public Output<String> policy() {
@@ -258,24 +72,14 @@ public class ServerlessAccessPolicy extends com.pulumi.resources.CustomResource 
     public Output<String> policyVersion() {
         return this.policyVersion;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
     /**
      * Type of access policy. Must be `data`.
-     * 
-     * The following arguments are optional:
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
@@ -283,8 +87,6 @@ public class ServerlessAccessPolicy extends com.pulumi.resources.CustomResource 
 
     /**
      * @return Type of access policy. Must be `data`.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> type() {

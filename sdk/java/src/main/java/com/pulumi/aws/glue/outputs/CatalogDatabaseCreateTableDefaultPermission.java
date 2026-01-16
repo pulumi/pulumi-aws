@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CatalogDatabaseCreateTableDefaultPermission {
-    /**
-     * @return The permissions that are granted to the principal.
-     * 
-     */
     private @Nullable List<String> permissions;
-    /**
-     * @return The principal who is granted permissions.. See `principal` below.
-     * 
-     */
     private @Nullable CatalogDatabaseCreateTableDefaultPermissionPrincipal principal;
 
     private CatalogDatabaseCreateTableDefaultPermission() {}
-    /**
-     * @return The permissions that are granted to the principal.
-     * 
-     */
     public List<String> permissions() {
         return this.permissions == null ? List.of() : this.permissions;
     }
-    /**
-     * @return The principal who is granted permissions.. See `principal` below.
-     * 
-     */
     public Optional<CatalogDatabaseCreateTableDefaultPermissionPrincipal> principal() {
         return Optional.ofNullable(this.principal);
     }

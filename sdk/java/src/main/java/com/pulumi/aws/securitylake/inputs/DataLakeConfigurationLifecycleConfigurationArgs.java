@@ -17,32 +17,16 @@ public final class DataLakeConfigurationLifecycleConfigurationArgs extends com.p
 
     public static final DataLakeConfigurationLifecycleConfigurationArgs Empty = new DataLakeConfigurationLifecycleConfigurationArgs();
 
-    /**
-     * Provides data expiration details of Amazon Security Lake object.
-     * 
-     */
     @Import(name="expiration")
     private @Nullable Output<DataLakeConfigurationLifecycleConfigurationExpirationArgs> expiration;
 
-    /**
-     * @return Provides data expiration details of Amazon Security Lake object.
-     * 
-     */
     public Optional<Output<DataLakeConfigurationLifecycleConfigurationExpirationArgs>> expiration() {
         return Optional.ofNullable(this.expiration);
     }
 
-    /**
-     * Provides data storage transition details of Amazon Security Lake object.
-     * 
-     */
     @Import(name="transitions")
     private @Nullable Output<List<DataLakeConfigurationLifecycleConfigurationTransitionArgs>> transitions;
 
-    /**
-     * @return Provides data storage transition details of Amazon Security Lake object.
-     * 
-     */
     public Optional<Output<List<DataLakeConfigurationLifecycleConfigurationTransitionArgs>>> transitions() {
         return Optional.ofNullable(this.transitions);
     }
@@ -72,54 +56,24 @@ public final class DataLakeConfigurationLifecycleConfigurationArgs extends com.p
             $ = new DataLakeConfigurationLifecycleConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param expiration Provides data expiration details of Amazon Security Lake object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expiration(@Nullable Output<DataLakeConfigurationLifecycleConfigurationExpirationArgs> expiration) {
             $.expiration = expiration;
             return this;
         }
 
-        /**
-         * @param expiration Provides data expiration details of Amazon Security Lake object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expiration(DataLakeConfigurationLifecycleConfigurationExpirationArgs expiration) {
             return expiration(Output.of(expiration));
         }
 
-        /**
-         * @param transitions Provides data storage transition details of Amazon Security Lake object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitions(@Nullable Output<List<DataLakeConfigurationLifecycleConfigurationTransitionArgs>> transitions) {
             $.transitions = transitions;
             return this;
         }
 
-        /**
-         * @param transitions Provides data storage transition details of Amazon Security Lake object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitions(List<DataLakeConfigurationLifecycleConfigurationTransitionArgs> transitions) {
             return transitions(Output.of(transitions));
         }
 
-        /**
-         * @param transitions Provides data storage transition details of Amazon Security Lake object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitions(DataLakeConfigurationLifecycleConfigurationTransitionArgs... transitions) {
             return transitions(List.of(transitions));
         }

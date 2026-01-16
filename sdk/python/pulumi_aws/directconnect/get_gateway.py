@@ -49,17 +49,11 @@ class GetGatewayResult:
     @_builtins.property
     @pulumi.getter(name="amazonSideAsn")
     def amazon_side_asn(self) -> _builtins.str:
-        """
-        ASN on the Amazon side of the connection.
-        """
         return pulumi.get(self, "amazon_side_asn")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the gateway.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -78,17 +72,11 @@ class GetGatewayResult:
     @_builtins.property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> _builtins.str:
-        """
-        AWS Account ID of the gateway.
-        """
         return pulumi.get(self, "owner_account_id")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        A map of tags assigned to the gateway.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -110,20 +98,7 @@ def get_gateway(name: Optional[_builtins.str] = None,
                 tags: Optional[Mapping[str, _builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayResult:
     """
-    Retrieve information about a Direct Connect Gateway.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.directconnect.get_gateway(name="example")
-    ```
-
-
-    :param _builtins.str name: Name of the gateway to retrieve.
-    :param Mapping[str, _builtins.str] tags: A map of tags assigned to the gateway.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -142,20 +117,7 @@ def get_gateway_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayResult]:
     """
-    Retrieve information about a Direct Connect Gateway.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.directconnect.get_gateway(name="example")
-    ```
-
-
-    :param _builtins.str name: Name of the gateway to retrieve.
-    :param Mapping[str, _builtins.str] tags: A map of tags assigned to the gateway.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

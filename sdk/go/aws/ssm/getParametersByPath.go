@@ -23,30 +23,22 @@ func GetParametersByPath(ctx *pulumi.Context, args *GetParametersByPathArgs, opt
 
 // A collection of arguments for invoking getParametersByPath.
 type GetParametersByPathArgs struct {
-	// The hierarchy for the parameter. Hierarchies start with a forward slash (/). The hierarchy is the parameter name except the last part of the parameter. The last part of the parameter name can't be in the path. A parameter name hierarchy can have a maximum of 15 levels. **Note:** If the parameter name (e.g., `/my-app/my-param`) is specified, the data source will not retrieve any value as designed, unless there are other parameters that happen to use the former path in their hierarchy (e.g., `/my-app/my-param/my-actual-param`).
-	Path string `pulumi:"path"`
-	// Whether to retrieve all parameters within the hirerachy. Defaults to `false`.
-	Recursive *bool `pulumi:"recursive"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.
-	WithDecryption *bool `pulumi:"withDecryption"`
+	Path           string  `pulumi:"path"`
+	Recursive      *bool   `pulumi:"recursive"`
+	Region         *string `pulumi:"region"`
+	WithDecryption *bool   `pulumi:"withDecryption"`
 }
 
 // A collection of values returned by getParametersByPath.
 type GetParametersByPathResult struct {
-	// A list that contains the Amazon Resource Names (ARNs) of the retrieved parameters.
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// A list that contains the names of the retrieved parameters.
-	Names     []string `pulumi:"names"`
-	Path      string   `pulumi:"path"`
-	Recursive *bool    `pulumi:"recursive"`
-	Region    string   `pulumi:"region"`
-	// A list that contains the types (`String`, `StringList`, or `SecureString`) of retrieved parameters.
-	Types []string `pulumi:"types"`
-	// A list that contains the retrieved parameter values. **Note:** This value is always marked as sensitive in the pulumi preview output, regardless of whether any retrieved parameters are of `SecureString` type. Use the `nonsensitive` function to override the behavior at your own risk and discretion, if you are certain that there are no sensitive values being retrieved.
+	Id             string   `pulumi:"id"`
+	Names          []string `pulumi:"names"`
+	Path           string   `pulumi:"path"`
+	Recursive      *bool    `pulumi:"recursive"`
+	Region         string   `pulumi:"region"`
+	Types          []string `pulumi:"types"`
 	Values         []string `pulumi:"values"`
 	WithDecryption *bool    `pulumi:"withDecryption"`
 }
@@ -62,14 +54,10 @@ func GetParametersByPathOutput(ctx *pulumi.Context, args GetParametersByPathOutp
 
 // A collection of arguments for invoking getParametersByPath.
 type GetParametersByPathOutputArgs struct {
-	// The hierarchy for the parameter. Hierarchies start with a forward slash (/). The hierarchy is the parameter name except the last part of the parameter. The last part of the parameter name can't be in the path. A parameter name hierarchy can have a maximum of 15 levels. **Note:** If the parameter name (e.g., `/my-app/my-param`) is specified, the data source will not retrieve any value as designed, unless there are other parameters that happen to use the former path in their hierarchy (e.g., `/my-app/my-param/my-actual-param`).
-	Path pulumi.StringInput `pulumi:"path"`
-	// Whether to retrieve all parameters within the hirerachy. Defaults to `false`.
-	Recursive pulumi.BoolPtrInput `pulumi:"recursive"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.
-	WithDecryption pulumi.BoolPtrInput `pulumi:"withDecryption"`
+	Path           pulumi.StringInput    `pulumi:"path"`
+	Recursive      pulumi.BoolPtrInput   `pulumi:"recursive"`
+	Region         pulumi.StringPtrInput `pulumi:"region"`
+	WithDecryption pulumi.BoolPtrInput   `pulumi:"withDecryption"`
 }
 
 func (GetParametersByPathOutputArgs) ElementType() reflect.Type {
@@ -91,7 +79,6 @@ func (o GetParametersByPathResultOutput) ToGetParametersByPathResultOutputWithCo
 	return o
 }
 
-// A list that contains the Amazon Resource Names (ARNs) of the retrieved parameters.
 func (o GetParametersByPathResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetParametersByPathResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }
@@ -101,7 +88,6 @@ func (o GetParametersByPathResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetParametersByPathResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A list that contains the names of the retrieved parameters.
 func (o GetParametersByPathResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetParametersByPathResult) []string { return v.Names }).(pulumi.StringArrayOutput)
 }
@@ -118,12 +104,10 @@ func (o GetParametersByPathResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetParametersByPathResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// A list that contains the types (`String`, `StringList`, or `SecureString`) of retrieved parameters.
 func (o GetParametersByPathResultOutput) Types() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetParametersByPathResult) []string { return v.Types }).(pulumi.StringArrayOutput)
 }
 
-// A list that contains the retrieved parameter values. **Note:** This value is always marked as sensitive in the pulumi preview output, regardless of whether any retrieved parameters are of `SecureString` type. Use the `nonsensitive` function to override the behavior at your own risk and discretion, if you are certain that there are no sensitive values being retrieved.
 func (o GetParametersByPathResultOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetParametersByPathResult) []string { return v.Values }).(pulumi.StringArrayOutput)
 }

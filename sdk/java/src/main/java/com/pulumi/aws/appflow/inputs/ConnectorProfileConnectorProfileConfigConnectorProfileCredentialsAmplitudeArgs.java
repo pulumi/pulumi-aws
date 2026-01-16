@@ -21,17 +21,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         return this.apiKey;
     }
 
-    /**
-     * The Secret Access Key portion of the credentials.
-     * 
-     */
     @Import(name="secretKey", required=true)
     private Output<String> secretKey;
 
-    /**
-     * @return The Secret Access Key portion of the credentials.
-     * 
-     */
     public Output<String> secretKey() {
         return this.secretKey;
     }
@@ -70,23 +62,11 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             return apiKey(Output.of(apiKey));
         }
 
-        /**
-         * @param secretKey The Secret Access Key portion of the credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretKey(Output<String> secretKey) {
             $.secretKey = secretKey;
             return this;
         }
 
-        /**
-         * @param secretKey The Secret Access Key portion of the credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretKey(String secretKey) {
             return secretKey(Output.of(secretKey));
         }

@@ -12,87 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AWS App Mesh virtual router resource.
-//
-// ## Breaking Changes
-//
-// Because of backward incompatible API changes (read [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92) and [here](https://github.com/awslabs/aws-app-mesh-examples/issues/94)), `appmesh.VirtualRouter` resource definitions created with provider versions earlier than v2.3.0 will need to be modified:
-//
-// * Remove service `serviceNames` from the `spec` argument. AWS has created a `appmesh.VirtualService` resource for each service name. Import these resource using `pulumi import`.
-//
-// * Add a `listener` configuration block to the `spec` argument.
-//
-// The state associated with existing resources will automatically be migrated.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appmesh"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appmesh.NewVirtualRouter(ctx, "serviceb", &appmesh.VirtualRouterArgs{
-//				Name:     pulumi.String("serviceB"),
-//				MeshName: pulumi.Any(simple.Id),
-//				Spec: &appmesh.VirtualRouterSpecArgs{
-//					Listeners: appmesh.VirtualRouterSpecListenerArray{
-//						&appmesh.VirtualRouterSpecListenerArgs{
-//							PortMapping: &appmesh.VirtualRouterSpecListenerPortMappingArgs{
-//								Port:     pulumi.Int(8080),
-//								Protocol: pulumi.String("http"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import App Mesh virtual routers using `mesh_name` together with the virtual router's `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
-// ```
 type VirtualRouter struct {
 	pulumi.CustomResourceState
 
-	// ARN of the virtual router.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Creation date of the virtual router.
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// Last update date of the virtual router.
-	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
-	// Name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
-	MeshName pulumi.StringOutput `pulumi:"meshName"`
-	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-	MeshOwner pulumi.StringOutput `pulumi:"meshOwner"`
-	// Name to use for the virtual router. Must be between 1 and 255 characters in length.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Resource owner's AWS account ID.
-	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
-	// Virtual router specification to apply.
-	Spec VirtualRouterSpecOutput `pulumi:"spec"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn             pulumi.StringOutput     `pulumi:"arn"`
+	CreatedDate     pulumi.StringOutput     `pulumi:"createdDate"`
+	LastUpdatedDate pulumi.StringOutput     `pulumi:"lastUpdatedDate"`
+	MeshName        pulumi.StringOutput     `pulumi:"meshName"`
+	MeshOwner       pulumi.StringOutput     `pulumi:"meshOwner"`
+	Name            pulumi.StringOutput     `pulumi:"name"`
+	Region          pulumi.StringOutput     `pulumi:"region"`
+	ResourceOwner   pulumi.StringOutput     `pulumi:"resourceOwner"`
+	Spec            VirtualRouterSpecOutput `pulumi:"spec"`
+	Tags            pulumi.StringMapOutput  `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput  `pulumi:"tagsAll"`
 }
 
 // NewVirtualRouter registers a new resource with the given unique name, arguments, and options.
@@ -131,53 +64,31 @@ func GetVirtualRouter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualRouter resources.
 type virtualRouterState struct {
-	// ARN of the virtual router.
-	Arn *string `pulumi:"arn"`
-	// Creation date of the virtual router.
-	CreatedDate *string `pulumi:"createdDate"`
-	// Last update date of the virtual router.
-	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
-	// Name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
-	MeshName *string `pulumi:"meshName"`
-	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-	MeshOwner *string `pulumi:"meshOwner"`
-	// Name to use for the virtual router. Must be between 1 and 255 characters in length.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Resource owner's AWS account ID.
-	ResourceOwner *string `pulumi:"resourceOwner"`
-	// Virtual router specification to apply.
-	Spec *VirtualRouterSpec `pulumi:"spec"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn             *string            `pulumi:"arn"`
+	CreatedDate     *string            `pulumi:"createdDate"`
+	LastUpdatedDate *string            `pulumi:"lastUpdatedDate"`
+	MeshName        *string            `pulumi:"meshName"`
+	MeshOwner       *string            `pulumi:"meshOwner"`
+	Name            *string            `pulumi:"name"`
+	Region          *string            `pulumi:"region"`
+	ResourceOwner   *string            `pulumi:"resourceOwner"`
+	Spec            *VirtualRouterSpec `pulumi:"spec"`
+	Tags            map[string]string  `pulumi:"tags"`
+	TagsAll         map[string]string  `pulumi:"tagsAll"`
 }
 
 type VirtualRouterState struct {
-	// ARN of the virtual router.
-	Arn pulumi.StringPtrInput
-	// Creation date of the virtual router.
-	CreatedDate pulumi.StringPtrInput
-	// Last update date of the virtual router.
+	Arn             pulumi.StringPtrInput
+	CreatedDate     pulumi.StringPtrInput
 	LastUpdatedDate pulumi.StringPtrInput
-	// Name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
-	MeshName pulumi.StringPtrInput
-	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-	MeshOwner pulumi.StringPtrInput
-	// Name to use for the virtual router. Must be between 1 and 255 characters in length.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Resource owner's AWS account ID.
-	ResourceOwner pulumi.StringPtrInput
-	// Virtual router specification to apply.
-	Spec VirtualRouterSpecPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	MeshName        pulumi.StringPtrInput
+	MeshOwner       pulumi.StringPtrInput
+	Name            pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
+	ResourceOwner   pulumi.StringPtrInput
+	Spec            VirtualRouterSpecPtrInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
 }
 
 func (VirtualRouterState) ElementType() reflect.Type {
@@ -185,34 +96,22 @@ func (VirtualRouterState) ElementType() reflect.Type {
 }
 
 type virtualRouterArgs struct {
-	// Name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
-	MeshName string `pulumi:"meshName"`
-	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-	MeshOwner *string `pulumi:"meshOwner"`
-	// Name to use for the virtual router. Must be between 1 and 255 characters in length.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Virtual router specification to apply.
-	Spec VirtualRouterSpec `pulumi:"spec"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	MeshName  string            `pulumi:"meshName"`
+	MeshOwner *string           `pulumi:"meshOwner"`
+	Name      *string           `pulumi:"name"`
+	Region    *string           `pulumi:"region"`
+	Spec      VirtualRouterSpec `pulumi:"spec"`
+	Tags      map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VirtualRouter resource.
 type VirtualRouterArgs struct {
-	// Name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
-	MeshName pulumi.StringInput
-	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
+	MeshName  pulumi.StringInput
 	MeshOwner pulumi.StringPtrInput
-	// Name to use for the virtual router. Must be between 1 and 255 characters in length.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Virtual router specification to apply.
-	Spec VirtualRouterSpecInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name      pulumi.StringPtrInput
+	Region    pulumi.StringPtrInput
+	Spec      VirtualRouterSpecInput
+	Tags      pulumi.StringMapInput
 }
 
 func (VirtualRouterArgs) ElementType() reflect.Type {
@@ -302,57 +201,46 @@ func (o VirtualRouterOutput) ToVirtualRouterOutputWithContext(ctx context.Contex
 	return o
 }
 
-// ARN of the virtual router.
 func (o VirtualRouterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Creation date of the virtual router.
 func (o VirtualRouterOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// Last update date of the virtual router.
 func (o VirtualRouterOutput) LastUpdatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.LastUpdatedDate }).(pulumi.StringOutput)
 }
 
-// Name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
 func (o VirtualRouterOutput) MeshName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.MeshName }).(pulumi.StringOutput)
 }
 
-// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
 func (o VirtualRouterOutput) MeshOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.MeshOwner }).(pulumi.StringOutput)
 }
 
-// Name to use for the virtual router. Must be between 1 and 255 characters in length.
 func (o VirtualRouterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VirtualRouterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Resource owner's AWS account ID.
 func (o VirtualRouterOutput) ResourceOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.ResourceOwner }).(pulumi.StringOutput)
 }
 
-// Virtual router specification to apply.
 func (o VirtualRouterOutput) Spec() VirtualRouterSpecOutput {
 	return o.ApplyT(func(v *VirtualRouter) VirtualRouterSpecOutput { return v.Spec }).(VirtualRouterSpecOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VirtualRouterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VirtualRouter) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VirtualRouterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VirtualRouter) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -7,80 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * This resource creates a WAFv2 Web ACL Logging Configuration.
- *
- * !> **WARNING:** When logging from a WAFv2 Web ACL to a CloudWatch Log Group, the WAFv2 service tries to create or update a generic Log Resource Policy named `AWSWAF-LOGS`. However, if there are a large number of Web ACLs or if the account frequently creates and deletes Web ACLs, this policy may exceed the maximum policy size. As a result, this resource type will fail to be created. More details about this issue can be found in this issue. To prevent this issue, you can manage a specific resource policy. Please refer to the example below for managing a CloudWatch Log Group with a managed CloudWatch Log Resource Policy.
- *
- * ## Example Usage
- *
- * ### With Redacted Fields
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.wafv2.WebAclLoggingConfiguration("example", {
- *     logDestinationConfigs: [exampleAwsKinesisFirehoseDeliveryStream.arn],
- *     resourceArn: exampleAwsWafv2WebAcl.arn,
- *     redactedFields: [{
- *         singleHeader: {
- *             name: "user-agent",
- *         },
- *     }],
- * });
- * ```
- *
- * ### With Logging Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.wafv2.WebAclLoggingConfiguration("example", {
- *     logDestinationConfigs: [exampleAwsKinesisFirehoseDeliveryStream.arn],
- *     resourceArn: exampleAwsWafv2WebAcl.arn,
- *     loggingFilter: {
- *         defaultBehavior: "KEEP",
- *         filters: [
- *             {
- *                 behavior: "DROP",
- *                 conditions: [
- *                     {
- *                         actionCondition: {
- *                             action: "COUNT",
- *                         },
- *                     },
- *                     {
- *                         labelNameCondition: {
- *                             labelName: "awswaf:111122223333:rulegroup:testRules:LabelNameZ",
- *                         },
- *                     },
- *                 ],
- *                 requirement: "MEETS_ALL",
- *             },
- *             {
- *                 behavior: "KEEP",
- *                 conditions: [{
- *                     actionCondition: {
- *                         action: "ALLOW",
- *                     },
- *                 }],
- *                 requirement: "MEETS_ANY",
- *             },
- *         ],
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import WAFv2 Web ACL Logging Configurations using the ARN of the WAFv2 Web ACL. For example:
- *
- * ```sh
- * $ pulumi import aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration example arn:aws:wafv2:us-west-2:123456789012:regional/webacl/test-logs/a1b2c3d4-5678-90ab-cdef
- * ```
- */
 export class WebAclLoggingConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing WebAclLoggingConfiguration resource's state with the given name, ID, and optional extra
@@ -110,23 +36,17 @@ export class WebAclLoggingConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
+     * AWS Kinesis Firehose Delivery Stream ARNs
      */
     declare public readonly logDestinationConfigs: pulumi.Output<string[]>;
-    /**
-     * Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
-     */
     declare public readonly loggingFilter: pulumi.Output<outputs.wafv2.WebAclLoggingConfigurationLoggingFilter | undefined>;
     /**
-     * Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
+     * Parts of the request to exclude from logs
      */
     declare public readonly redactedFields: pulumi.Output<outputs.wafv2.WebAclLoggingConfigurationRedactedField[] | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
+     * AWS WebACL ARN
      */
     declare public readonly resourceArn: pulumi.Output<string>;
 
@@ -172,23 +92,17 @@ export class WebAclLoggingConfiguration extends pulumi.CustomResource {
  */
 export interface WebAclLoggingConfigurationState {
     /**
-     * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
+     * AWS Kinesis Firehose Delivery Stream ARNs
      */
     logDestinationConfigs?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
-     */
     loggingFilter?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationLoggingFilter>;
     /**
-     * Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
+     * Parts of the request to exclude from logs
      */
     redactedFields?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedField>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     /**
-     * Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
+     * AWS WebACL ARN
      */
     resourceArn?: pulumi.Input<string>;
 }
@@ -198,23 +112,17 @@ export interface WebAclLoggingConfigurationState {
  */
 export interface WebAclLoggingConfigurationArgs {
     /**
-     * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
+     * AWS Kinesis Firehose Delivery Stream ARNs
      */
     logDestinationConfigs: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
-     */
     loggingFilter?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationLoggingFilter>;
     /**
-     * Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
+     * Parts of the request to exclude from logs
      */
     redactedFields?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedField>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     /**
-     * Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
+     * AWS WebACL ARN
      */
     resourceArn: pulumi.Input<string>;
 }

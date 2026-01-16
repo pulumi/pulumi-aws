@@ -12,219 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Auto Scaling scaling plan.
-// More information can be found in the [AWS Auto Scaling User Guide](https://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-aws-auto-scaling.html).
-//
-// > **NOTE:** The AWS Auto Scaling service uses an AWS IAM service-linked role to manage predictive scaling of Amazon EC2 Auto Scaling groups. The service attempts to automatically create this role the first time a scaling plan with predictive scaling enabled is created.
-// An `iam.ServiceLinkedRole` resource can be used to manually manage this role.
-// See the [AWS documentation](https://docs.aws.amazon.com/autoscaling/plans/userguide/aws-auto-scaling-service-linked-roles.html#create-service-linked-role-manual) for more details.
-//
-// ## Example Usage
-//
-// ### Basic Dynamic Scaling
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscalingplans"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := autoscaling.NewGroup(ctx, "example", &autoscaling.GroupArgs{
-//				NamePrefix:          pulumi.String("example"),
-//				LaunchConfiguration: pulumi.Any(exampleAwsLaunchConfiguration.Name),
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String(available.Names[0]),
-//				},
-//				MinSize: pulumi.Int(0),
-//				MaxSize: pulumi.Int(3),
-//				Tags: autoscaling.GroupTagArray{
-//					&autoscaling.GroupTagArgs{
-//						Key:               pulumi.String("application"),
-//						Value:             pulumi.String("example"),
-//						PropagateAtLaunch: pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeFormat, err := std.Format(ctx, &std.FormatArgs{
-//				Input: "autoScalingGroup/%s",
-//				Args: pulumi.StringArray{
-//					example.Name,
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = autoscalingplans.NewScalingPlan(ctx, "example", &autoscalingplans.ScalingPlanArgs{
-//				Name: pulumi.String("example-dynamic-cost-optimization"),
-//				ApplicationSource: &autoscalingplans.ScalingPlanApplicationSourceArgs{
-//					TagFilters: autoscalingplans.ScalingPlanApplicationSourceTagFilterArray{
-//						&autoscalingplans.ScalingPlanApplicationSourceTagFilterArgs{
-//							Key: pulumi.String("application"),
-//							Values: pulumi.StringArray{
-//								pulumi.String("example"),
-//							},
-//						},
-//					},
-//				},
-//				ScalingInstructions: autoscalingplans.ScalingPlanScalingInstructionArray{
-//					&autoscalingplans.ScalingPlanScalingInstructionArgs{
-//						MaxCapacity:       pulumi.Int(3),
-//						MinCapacity:       pulumi.Int(0),
-//						ResourceId:        pulumi.String(invokeFormat.Result),
-//						ScalableDimension: pulumi.String("autoscaling:autoScalingGroup:DesiredCapacity"),
-//						ServiceNamespace:  pulumi.String("autoscaling"),
-//						TargetTrackingConfigurations: autoscalingplans.ScalingPlanScalingInstructionTargetTrackingConfigurationArray{
-//							&autoscalingplans.ScalingPlanScalingInstructionTargetTrackingConfigurationArgs{
-//								PredefinedScalingMetricSpecification: &autoscalingplans.ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs{
-//									PredefinedScalingMetricType: pulumi.String("ASGAverageCPUUtilization"),
-//								},
-//								TargetValue: pulumi.Float64(70),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Basic Predictive Scaling
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscalingplans"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := autoscaling.NewGroup(ctx, "example", &autoscaling.GroupArgs{
-//				NamePrefix:          pulumi.String("example"),
-//				LaunchConfiguration: pulumi.Any(exampleAwsLaunchConfiguration.Name),
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String(available.Names[0]),
-//				},
-//				MinSize: pulumi.Int(0),
-//				MaxSize: pulumi.Int(3),
-//				Tags: autoscaling.GroupTagArray{
-//					&autoscaling.GroupTagArgs{
-//						Key:               pulumi.String("application"),
-//						Value:             pulumi.String("example"),
-//						PropagateAtLaunch: pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeFormat, err := std.Format(ctx, &std.FormatArgs{
-//				Input: "autoScalingGroup/%s",
-//				Args: pulumi.StringArray{
-//					example.Name,
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = autoscalingplans.NewScalingPlan(ctx, "example", &autoscalingplans.ScalingPlanArgs{
-//				Name: pulumi.String("example-predictive-cost-optimization"),
-//				ApplicationSource: &autoscalingplans.ScalingPlanApplicationSourceArgs{
-//					TagFilters: autoscalingplans.ScalingPlanApplicationSourceTagFilterArray{
-//						&autoscalingplans.ScalingPlanApplicationSourceTagFilterArgs{
-//							Key: pulumi.String("application"),
-//							Values: pulumi.StringArray{
-//								pulumi.String("example"),
-//							},
-//						},
-//					},
-//				},
-//				ScalingInstructions: autoscalingplans.ScalingPlanScalingInstructionArray{
-//					&autoscalingplans.ScalingPlanScalingInstructionArgs{
-//						DisableDynamicScaling: pulumi.Bool(true),
-//						MaxCapacity:           pulumi.Int(3),
-//						MinCapacity:           pulumi.Int(0),
-//						ResourceId:            pulumi.String(invokeFormat.Result),
-//						ScalableDimension:     pulumi.String("autoscaling:autoScalingGroup:DesiredCapacity"),
-//						ServiceNamespace:      pulumi.String("autoscaling"),
-//						TargetTrackingConfigurations: autoscalingplans.ScalingPlanScalingInstructionTargetTrackingConfigurationArray{
-//							&autoscalingplans.ScalingPlanScalingInstructionTargetTrackingConfigurationArgs{
-//								PredefinedScalingMetricSpecification: &autoscalingplans.ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs{
-//									PredefinedScalingMetricType: pulumi.String("ASGAverageCPUUtilization"),
-//								},
-//								TargetValue: pulumi.Float64(70),
-//							},
-//						},
-//						PredictiveScalingMaxCapacityBehavior: pulumi.String("SetForecastCapacityToMaxCapacity"),
-//						PredictiveScalingMode:                pulumi.String("ForecastAndScale"),
-//						PredefinedLoadMetricSpecification: &autoscalingplans.ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs{
-//							PredefinedLoadMetricType: pulumi.String("ASGTotalCPUUtilization"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Auto Scaling scaling plans using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:autoscalingplans/scalingPlan:ScalingPlan example MyScale1
-// ```
 type ScalingPlan struct {
 	pulumi.CustomResourceState
 
-	// CloudFormation stack or set of tags. You can create one scaling plan per application source.
-	ApplicationSource ScalingPlanApplicationSourceOutput `pulumi:"applicationSource"`
-	// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+	ApplicationSource   ScalingPlanApplicationSourceOutput       `pulumi:"applicationSource"`
+	Name                pulumi.StringOutput                      `pulumi:"name"`
+	Region              pulumi.StringOutput                      `pulumi:"region"`
 	ScalingInstructions ScalingPlanScalingInstructionArrayOutput `pulumi:"scalingInstructions"`
-	// The version number of the scaling plan. This value is always 1.
-	ScalingPlanVersion pulumi.IntOutput `pulumi:"scalingPlanVersion"`
+	ScalingPlanVersion  pulumi.IntOutput                         `pulumi:"scalingPlanVersion"`
 }
 
 // NewScalingPlan registers a new resource with the given unique name, arguments, and options.
@@ -263,29 +58,19 @@ func GetScalingPlan(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ScalingPlan resources.
 type scalingPlanState struct {
-	// CloudFormation stack or set of tags. You can create one scaling plan per application source.
-	ApplicationSource *ScalingPlanApplicationSource `pulumi:"applicationSource"`
-	// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+	ApplicationSource   *ScalingPlanApplicationSource   `pulumi:"applicationSource"`
+	Name                *string                         `pulumi:"name"`
+	Region              *string                         `pulumi:"region"`
 	ScalingInstructions []ScalingPlanScalingInstruction `pulumi:"scalingInstructions"`
-	// The version number of the scaling plan. This value is always 1.
-	ScalingPlanVersion *int `pulumi:"scalingPlanVersion"`
+	ScalingPlanVersion  *int                            `pulumi:"scalingPlanVersion"`
 }
 
 type ScalingPlanState struct {
-	// CloudFormation stack or set of tags. You can create one scaling plan per application source.
-	ApplicationSource ScalingPlanApplicationSourcePtrInput
-	// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+	ApplicationSource   ScalingPlanApplicationSourcePtrInput
+	Name                pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
 	ScalingInstructions ScalingPlanScalingInstructionArrayInput
-	// The version number of the scaling plan. This value is always 1.
-	ScalingPlanVersion pulumi.IntPtrInput
+	ScalingPlanVersion  pulumi.IntPtrInput
 }
 
 func (ScalingPlanState) ElementType() reflect.Type {
@@ -293,25 +78,17 @@ func (ScalingPlanState) ElementType() reflect.Type {
 }
 
 type scalingPlanArgs struct {
-	// CloudFormation stack or set of tags. You can create one scaling plan per application source.
-	ApplicationSource ScalingPlanApplicationSource `pulumi:"applicationSource"`
-	// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+	ApplicationSource   ScalingPlanApplicationSource    `pulumi:"applicationSource"`
+	Name                *string                         `pulumi:"name"`
+	Region              *string                         `pulumi:"region"`
 	ScalingInstructions []ScalingPlanScalingInstruction `pulumi:"scalingInstructions"`
 }
 
 // The set of arguments for constructing a ScalingPlan resource.
 type ScalingPlanArgs struct {
-	// CloudFormation stack or set of tags. You can create one scaling plan per application source.
-	ApplicationSource ScalingPlanApplicationSourceInput
-	// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+	ApplicationSource   ScalingPlanApplicationSourceInput
+	Name                pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
 	ScalingInstructions ScalingPlanScalingInstructionArrayInput
 }
 
@@ -402,27 +179,22 @@ func (o ScalingPlanOutput) ToScalingPlanOutputWithContext(ctx context.Context) S
 	return o
 }
 
-// CloudFormation stack or set of tags. You can create one scaling plan per application source.
 func (o ScalingPlanOutput) ApplicationSource() ScalingPlanApplicationSourceOutput {
 	return o.ApplyT(func(v *ScalingPlan) ScalingPlanApplicationSourceOutput { return v.ApplicationSource }).(ScalingPlanApplicationSourceOutput)
 }
 
-// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
 func (o ScalingPlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScalingPlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ScalingPlanOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScalingPlan) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
 func (o ScalingPlanOutput) ScalingInstructions() ScalingPlanScalingInstructionArrayOutput {
 	return o.ApplyT(func(v *ScalingPlan) ScalingPlanScalingInstructionArrayOutput { return v.ScalingInstructions }).(ScalingPlanScalingInstructionArrayOutput)
 }
 
-// The version number of the scaling plan. This value is always 1.
 func (o ScalingPlanOutput) ScalingPlanVersion() pulumi.IntOutput {
 	return o.ApplyT(func(v *ScalingPlan) pulumi.IntOutput { return v.ScalingPlanVersion }).(pulumi.IntOutput)
 }

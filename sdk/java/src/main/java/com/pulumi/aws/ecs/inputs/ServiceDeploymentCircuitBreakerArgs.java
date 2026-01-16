@@ -14,32 +14,16 @@ public final class ServiceDeploymentCircuitBreakerArgs extends com.pulumi.resour
 
     public static final ServiceDeploymentCircuitBreakerArgs Empty = new ServiceDeploymentCircuitBreakerArgs();
 
-    /**
-     * Whether to enable the deployment circuit breaker logic for the service.
-     * 
-     */
     @Import(name="enable", required=true)
     private Output<Boolean> enable;
 
-    /**
-     * @return Whether to enable the deployment circuit breaker logic for the service.
-     * 
-     */
     public Output<Boolean> enable() {
         return this.enable;
     }
 
-    /**
-     * Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
-     * 
-     */
     @Import(name="rollback", required=true)
     private Output<Boolean> rollback;
 
-    /**
-     * @return Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
-     * 
-     */
     public Output<Boolean> rollback() {
         return this.rollback;
     }
@@ -69,44 +53,20 @@ public final class ServiceDeploymentCircuitBreakerArgs extends com.pulumi.resour
             $ = new ServiceDeploymentCircuitBreakerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enable Whether to enable the deployment circuit breaker logic for the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enable(Output<Boolean> enable) {
             $.enable = enable;
             return this;
         }
 
-        /**
-         * @param enable Whether to enable the deployment circuit breaker logic for the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enable(Boolean enable) {
             return enable(Output.of(enable));
         }
 
-        /**
-         * @param rollback Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rollback(Output<Boolean> rollback) {
             $.rollback = rollback;
             return this;
         }
 
-        /**
-         * @param rollback Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rollback(Boolean rollback) {
             return rollback(Output.of(rollback));
         }

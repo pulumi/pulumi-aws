@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CodePipeline.Inputs
     {
         [Input("pullRequests")]
         private InputList<Inputs.PipelineTriggerGitConfigurationPullRequestArgs>? _pullRequests;
-
-        /// <summary>
-        /// The field where the repository event that will start the pipeline is specified as pull requests. A `PullRequest` block is documented below.
-        /// </summary>
         public InputList<Inputs.PipelineTriggerGitConfigurationPullRequestArgs> PullRequests
         {
             get => _pullRequests ?? (_pullRequests = new InputList<Inputs.PipelineTriggerGitConfigurationPullRequestArgs>());
@@ -26,19 +22,12 @@ namespace Pulumi.Aws.CodePipeline.Inputs
 
         [Input("pushes")]
         private InputList<Inputs.PipelineTriggerGitConfigurationPushArgs>? _pushes;
-
-        /// <summary>
-        /// The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `Push` block is documented below.
-        /// </summary>
         public InputList<Inputs.PipelineTriggerGitConfigurationPushArgs> Pushes
         {
             get => _pushes ?? (_pushes = new InputList<Inputs.PipelineTriggerGitConfigurationPushArgs>());
             set => _pushes = value;
         }
 
-        /// <summary>
-        /// The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
-        /// </summary>
         [Input("sourceActionName", required: true)]
         public Input<string> SourceActionName { get; set; } = null!;
 

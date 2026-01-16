@@ -12,27 +12,15 @@ namespace Pulumi.Aws.WorkSpacesWeb.Inputs
 
     public sealed class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The keyword regex for the customer pattern.
-        /// </summary>
         [Input("keywordRegex")]
         public Input<string>? KeywordRegex { get; set; }
 
-        /// <summary>
-        /// The pattern description for the customer pattern.
-        /// </summary>
         [Input("patternDescription")]
         public Input<string>? PatternDescription { get; set; }
 
-        /// <summary>
-        /// The pattern name for the custom pattern.
-        /// </summary>
         [Input("patternName", required: true)]
         public Input<string> PatternName { get; set; } = null!;
 
-        /// <summary>
-        /// The pattern regex for the customer pattern. The format must follow JavaScript regex format.
-        /// </summary>
         [Input("patternRegex", required: true)]
         public Input<string> PatternRegex { get; set; } = null!;
 

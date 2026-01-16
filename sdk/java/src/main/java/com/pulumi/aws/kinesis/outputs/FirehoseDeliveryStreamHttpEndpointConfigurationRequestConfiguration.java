@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration {
-    /**
-     * @return Describes the metadata sent to the HTTP endpoint destination. See `commonAttributes` block below for details.
-     * 
-     */
     private @Nullable List<FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute> commonAttributes;
-    /**
-     * @return Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. Valid values are `NONE` and `GZIP`.  Default value is `NONE`.
-     * 
-     */
     private @Nullable String contentEncoding;
 
     private FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration() {}
-    /**
-     * @return Describes the metadata sent to the HTTP endpoint destination. See `commonAttributes` block below for details.
-     * 
-     */
     public List<FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute> commonAttributes() {
         return this.commonAttributes == null ? List.of() : this.commonAttributes;
     }
-    /**
-     * @return Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. Valid values are `NONE` and `GZIP`.  Default value is `NONE`.
-     * 
-     */
     public Optional<String> contentEncoding() {
         return Optional.ofNullable(this.contentEncoding);
     }

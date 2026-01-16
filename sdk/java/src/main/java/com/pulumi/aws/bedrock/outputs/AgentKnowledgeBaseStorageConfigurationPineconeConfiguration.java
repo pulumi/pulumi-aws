@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseStorageConfigurationPineconeConfiguration {
-    /**
-     * @return Endpoint URL for your index management page.
-     * 
-     */
     private String connectionString;
-    /**
-     * @return ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
-     * 
-     */
     private String credentialsSecretArn;
-    /**
-     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
-     * 
-     */
     private @Nullable AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping fieldMapping;
-    /**
-     * @return Namespace to be used to write new data to your database.
-     * 
-     */
     private @Nullable String namespace;
 
     private AgentKnowledgeBaseStorageConfigurationPineconeConfiguration() {}
-    /**
-     * @return Endpoint URL for your index management page.
-     * 
-     */
     public String connectionString() {
         return this.connectionString;
     }
-    /**
-     * @return ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
-     * 
-     */
     public String credentialsSecretArn() {
         return this.credentialsSecretArn;
     }
-    /**
-     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
-     * 
-     */
     public Optional<AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping> fieldMapping() {
         return Optional.ofNullable(this.fieldMapping);
     }
-    /**
-     * @return Namespace to be used to write new data to your database.
-     * 
-     */
     public Optional<String> namespace() {
         return Optional.ofNullable(this.namespace);
     }

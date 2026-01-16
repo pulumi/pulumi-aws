@@ -11,31 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetNetworkInterfacesFilter {
-    /**
-     * @return Name of the field to filter by, as defined by
-     * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInterfaces.html).
-     * 
-     */
     private String name;
-    /**
-     * @return Set of values that are accepted for the given field.
-     * 
-     */
     private List<String> values;
 
     private GetNetworkInterfacesFilter() {}
-    /**
-     * @return Name of the field to filter by, as defined by
-     * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInterfaces.html).
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Set of values that are accepted for the given field.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

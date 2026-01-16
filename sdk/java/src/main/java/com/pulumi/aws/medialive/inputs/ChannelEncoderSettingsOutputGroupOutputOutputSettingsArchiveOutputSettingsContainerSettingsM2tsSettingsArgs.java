@@ -293,17 +293,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
         return Optional.ofNullable(this.scte35Control);
     }
 
-    /**
-     * PID from which to read SCTE-35 messages.
-     * 
-     */
     @Import(name="scte35Pid")
     private @Nullable Output<String> scte35Pid;
 
-    /**
-     * @return PID from which to read SCTE-35 messages.
-     * 
-     */
     public Optional<Output<String>> scte35Pid() {
         return Optional.ofNullable(this.scte35Pid);
     }
@@ -778,23 +770,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
             return scte35Control(Output.of(scte35Control));
         }
 
-        /**
-         * @param scte35Pid PID from which to read SCTE-35 messages.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scte35Pid(@Nullable Output<String> scte35Pid) {
             $.scte35Pid = scte35Pid;
             return this;
         }
 
-        /**
-         * @param scte35Pid PID from which to read SCTE-35 messages.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scte35Pid(String scte35Pid) {
             return scte35Pid(Output.of(scte35Pid));
         }

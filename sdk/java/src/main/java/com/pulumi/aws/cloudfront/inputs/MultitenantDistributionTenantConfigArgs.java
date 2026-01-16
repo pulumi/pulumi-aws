@@ -16,17 +16,9 @@ public final class MultitenantDistributionTenantConfigArgs extends com.pulumi.re
 
     public static final MultitenantDistributionTenantConfigArgs Empty = new MultitenantDistributionTenantConfigArgs();
 
-    /**
-     * One or more parameter definitions for the tenant configuration. See Parameter Definition below.
-     * 
-     */
     @Import(name="parameterDefinitions")
     private @Nullable Output<List<MultitenantDistributionTenantConfigParameterDefinitionArgs>> parameterDefinitions;
 
-    /**
-     * @return One or more parameter definitions for the tenant configuration. See Parameter Definition below.
-     * 
-     */
     public Optional<Output<List<MultitenantDistributionTenantConfigParameterDefinitionArgs>>> parameterDefinitions() {
         return Optional.ofNullable(this.parameterDefinitions);
     }
@@ -55,33 +47,15 @@ public final class MultitenantDistributionTenantConfigArgs extends com.pulumi.re
             $ = new MultitenantDistributionTenantConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param parameterDefinitions One or more parameter definitions for the tenant configuration. See Parameter Definition below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterDefinitions(@Nullable Output<List<MultitenantDistributionTenantConfigParameterDefinitionArgs>> parameterDefinitions) {
             $.parameterDefinitions = parameterDefinitions;
             return this;
         }
 
-        /**
-         * @param parameterDefinitions One or more parameter definitions for the tenant configuration. See Parameter Definition below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterDefinitions(List<MultitenantDistributionTenantConfigParameterDefinitionArgs> parameterDefinitions) {
             return parameterDefinitions(Output.of(parameterDefinitions));
         }
 
-        /**
-         * @param parameterDefinitions One or more parameter definitions for the tenant configuration. See Parameter Definition below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterDefinitions(MultitenantDistributionTenantConfigParameterDefinitionArgs... parameterDefinitions) {
             return parameterDefinitions(List.of(parameterDefinitions));
         }

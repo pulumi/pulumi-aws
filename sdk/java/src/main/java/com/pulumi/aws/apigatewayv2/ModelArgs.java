@@ -16,92 +16,44 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ModelArgs Empty = new ModelArgs();
 
-    /**
-     * API identifier.
-     * 
-     */
     @Import(name="apiId", required=true)
     private Output<String> apiId;
 
-    /**
-     * @return API identifier.
-     * 
-     */
     public Output<String> apiId() {
         return this.apiId;
     }
 
-    /**
-     * The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-     * 
-     */
     @Import(name="contentType", required=true)
     private Output<String> contentType;
 
-    /**
-     * @return The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-     * 
-     */
     public Output<String> contentType() {
         return this.contentType;
     }
 
-    /**
-     * Description of the model. Must be between 1 and 128 characters in length.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the model. Must be between 1 and 128 characters in length.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-     * 
-     */
     @Import(name="schema", required=true)
     private Output<String> schema;
 
-    /**
-     * @return Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-     * 
-     */
     public Output<String> schema() {
         return this.schema;
     }
@@ -135,128 +87,56 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ModelArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param apiId API identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiId(Output<String> apiId) {
             $.apiId = apiId;
             return this;
         }
 
-        /**
-         * @param apiId API identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiId(String apiId) {
             return apiId(Output.of(apiId));
         }
 
-        /**
-         * @param contentType The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentType(Output<String> contentType) {
             $.contentType = contentType;
             return this;
         }
 
-        /**
-         * @param contentType The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentType(String contentType) {
             return contentType(Output.of(contentType));
         }
 
-        /**
-         * @param description Description of the model. Must be between 1 and 128 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the model. Must be between 1 and 128 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param name Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param schema Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schema(Output<String> schema) {
             $.schema = schema;
             return this;
         }
 
-        /**
-         * @param schema Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schema(String schema) {
             return schema(Output.of(schema));
         }

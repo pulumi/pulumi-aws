@@ -7,41 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage a Resource Explorer view.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.resourceexplorer.Index("example", {type: "LOCAL"});
- * const exampleView = new aws.resourceexplorer.View("example", {
- *     name: "exampleview",
- *     filters: {
- *         filterString: "resourcetype:ec2:instance",
- *     },
- *     includedProperties: [{
- *         name: "tags",
- *     }],
- * }, {
- *     dependsOn: [example],
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the Resource Explorer view.
- *
- * Using `pulumi import`, import Resource Explorer views using the `arn`. For example:
- *
- * % pulumi import aws_resourceexplorer2_view.example arn:aws:resource-explorer-2:us-west-2:123456789012:view/exampleview/e0914f6c-6c27-4b47-b5d4-6b28381a2421
- */
 export class View extends pulumi.CustomResource {
     /**
      * Get an existing View resource's state with the given name, ID, and optional extra
@@ -70,41 +35,14 @@ export class View extends pulumi.CustomResource {
         return obj['__pulumiType'] === View.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the Resource Explorer view.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
-     */
     declare public readonly defaultView: pulumi.Output<boolean>;
-    /**
-     * Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
-     */
     declare public readonly filters: pulumi.Output<outputs.resourceexplorer.ViewFilters | undefined>;
-    /**
-     * Optional fields to be included in search results from this view. See Included Properties below for more details.
-     */
     declare public readonly includedProperties: pulumi.Output<outputs.resourceexplorer.ViewIncludedProperty[] | undefined>;
-    /**
-     * The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
-     */
     declare public readonly scope: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -150,41 +88,14 @@ export class View extends pulumi.CustomResource {
  * Input properties used for looking up and filtering View resources.
  */
 export interface ViewState {
-    /**
-     * Amazon Resource Name (ARN) of the Resource Explorer view.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
-     */
     defaultView?: pulumi.Input<boolean>;
-    /**
-     * Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
-     */
     filters?: pulumi.Input<inputs.resourceexplorer.ViewFilters>;
-    /**
-     * Optional fields to be included in search results from this view. See Included Properties below for more details.
-     */
     includedProperties?: pulumi.Input<pulumi.Input<inputs.resourceexplorer.ViewIncludedProperty>[]>;
-    /**
-     * The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
-     */
     scope?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -192,32 +103,11 @@ export interface ViewState {
  * The set of arguments for constructing a View resource.
  */
 export interface ViewArgs {
-    /**
-     * Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
-     */
     defaultView?: pulumi.Input<boolean>;
-    /**
-     * Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
-     */
     filters?: pulumi.Input<inputs.resourceexplorer.ViewFilters>;
-    /**
-     * Optional fields to be included in search results from this view. See Included Properties below for more details.
-     */
     includedProperties?: pulumi.Input<pulumi.Input<inputs.resourceexplorer.ViewIncludedProperty>[]>;
-    /**
-     * The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
-     */
     scope?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

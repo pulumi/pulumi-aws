@@ -13,21 +13,9 @@ namespace Pulumi.Aws.PaymentCryptography.Outputs
     [OutputType]
     public sealed class KeyKeyAttribute
     {
-        /// <summary>
-        /// Key algorithm to be use during creation of an AWS Payment Cryptography key.
-        /// </summary>
         public readonly string KeyAlgorithm;
-        /// <summary>
-        /// Type of AWS Payment Cryptography key to create.
-        /// </summary>
         public readonly string KeyClass;
-        /// <summary>
-        /// List of cryptographic operations that you can perform using the key.
-        /// </summary>
         public readonly ImmutableArray<Outputs.KeyKeyAttributeKeyModesOfUse> KeyModesOfUses;
-        /// <summary>
-        /// Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
-        /// </summary>
         public readonly string KeyUsage;
 
         [OutputConstructor]

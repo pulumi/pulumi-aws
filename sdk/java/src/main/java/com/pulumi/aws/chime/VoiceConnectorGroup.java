@@ -16,118 +16,23 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates an Amazon Chime Voice Connector group under the administrator&#39;s AWS account. You can associate Amazon Chime Voice Connectors with the Amazon Chime Voice Connector group by including VoiceConnectorItems in the request.
- * 
- * You can include Amazon Chime Voice Connectors from different AWS Regions in your group. This creates a fault tolerant mechanism for fallback in case of availability events.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.chime.VoiceConnector;
- * import com.pulumi.aws.chime.VoiceConnectorArgs;
- * import com.pulumi.aws.chime.VoiceConnectorGroup;
- * import com.pulumi.aws.chime.VoiceConnectorGroupArgs;
- * import com.pulumi.aws.chime.inputs.VoiceConnectorGroupConnectorArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var vc1 = new VoiceConnector("vc1", VoiceConnectorArgs.builder()
- *             .name("connector-test-1")
- *             .requireEncryption(true)
- *             .awsRegion("us-east-1")
- *             .build());
- * 
- *         var vc2 = new VoiceConnector("vc2", VoiceConnectorArgs.builder()
- *             .name("connector-test-2")
- *             .requireEncryption(true)
- *             .awsRegion("us-west-2")
- *             .build());
- * 
- *         var group = new VoiceConnectorGroup("group", VoiceConnectorGroupArgs.builder()
- *             .name("test-group")
- *             .connectors(            
- *                 VoiceConnectorGroupConnectorArgs.builder()
- *                     .voiceConnectorId(vc1.id())
- *                     .priority(1)
- *                     .build(),
- *                 VoiceConnectorGroupConnectorArgs.builder()
- *                     .voiceConnectorId(vc2.id())
- *                     .priority(3)
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Configuration Recorder using the name. For example:
- * 
- * ```sh
- * $ pulumi import aws:chime/voiceConnectorGroup:VoiceConnectorGroup default example
- * ```
- * 
- */
 @ResourceType(type="aws:chime/voiceConnectorGroup:VoiceConnectorGroup")
 public class VoiceConnectorGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Chime Voice Connectors to route inbound calls to.
-     * 
-     */
     @Export(name="connectors", refs={List.class,VoiceConnectorGroupConnector.class}, tree="[0,1]")
     private Output</* @Nullable */ List<VoiceConnectorGroupConnector>> connectors;
 
-    /**
-     * @return The Amazon Chime Voice Connectors to route inbound calls to.
-     * 
-     */
     public Output<Optional<List<VoiceConnectorGroupConnector>>> connectors() {
         return Codegen.optional(this.connectors);
     }
-    /**
-     * The name of the Amazon Chime Voice Connector group.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the Amazon Chime Voice Connector group.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

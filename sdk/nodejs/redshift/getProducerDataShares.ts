@@ -7,22 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing AWS Redshift Producer Data Shares.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.redshift.getProducerDataShares({
- *     producerArn: "",
- * });
- * ```
- */
 export function getProducerDataShares(args: GetProducerDataSharesArgs, opts?: pulumi.InvokeOptions): Promise<GetProducerDataSharesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:redshift/getProducerDataShares:getProducerDataShares", {
@@ -36,19 +20,8 @@ export function getProducerDataShares(args: GetProducerDataSharesArgs, opts?: pu
  * A collection of arguments for invoking getProducerDataShares.
  */
 export interface GetProducerDataSharesArgs {
-    /**
-     * Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
-     *
-     * The following arguments are optional:
-     */
     producerArn: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Status of a datashare in the producer. Valid values are `ACTIVE`, `AUTHORIZED`, `PENDING_AUTHORIZATION`, `DEAUTHORIZED`, and `REJECTED`. Omit this argument to return all statuses.
-     */
     status?: string;
 }
 
@@ -56,37 +29,12 @@ export interface GetProducerDataSharesArgs {
  * A collection of values returned by getProducerDataShares.
  */
 export interface GetProducerDataSharesResult {
-    /**
-     * An array of all data shares in the producer. See `dataShares` below.
-     */
     readonly dataShares: outputs.redshift.GetProducerDataSharesDataShare[];
-    /**
-     * Producer ARN.
-     */
     readonly id: string;
-    /**
-     * ARN (Amazon Resource Name) of the producer.
-     */
     readonly producerArn: string;
     readonly region: string;
     readonly status?: string;
 }
-/**
- * Data source for managing AWS Redshift Producer Data Shares.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.redshift.getProducerDataShares({
- *     producerArn: "",
- * });
- * ```
- */
 export function getProducerDataSharesOutput(args: GetProducerDataSharesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProducerDataSharesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:redshift/getProducerDataShares:getProducerDataShares", {
@@ -100,18 +48,7 @@ export function getProducerDataSharesOutput(args: GetProducerDataSharesOutputArg
  * A collection of arguments for invoking getProducerDataShares.
  */
 export interface GetProducerDataSharesOutputArgs {
-    /**
-     * Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
-     *
-     * The following arguments are optional:
-     */
     producerArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Status of a datashare in the producer. Valid values are `ACTIVE`, `AUTHORIZED`, `PENDING_AUTHORIZATION`, `DEAUTHORIZED`, and `REJECTED`. Omit this argument to return all statuses.
-     */
     status?: pulumi.Input<string>;
 }

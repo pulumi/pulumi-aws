@@ -13,25 +13,10 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class RuleGroupRuleAction
     {
-        /// <summary>
-        /// Instructs AWS WAF to allow the web request. See Allow below for details.
-        /// </summary>
         public readonly Outputs.RuleGroupRuleActionAllow? Allow;
-        /// <summary>
-        /// Instructs AWS WAF to block the web request. See Block below for details.
-        /// </summary>
         public readonly Outputs.RuleGroupRuleActionBlock? Block;
-        /// <summary>
-        /// Instructs AWS WAF to run a `CAPTCHA` check against the web request. See Captcha below for details.
-        /// </summary>
         public readonly Outputs.RuleGroupRuleActionCaptcha? Captcha;
-        /// <summary>
-        /// Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See Challenge below for details.
-        /// </summary>
         public readonly Outputs.RuleGroupRuleActionChallenge? Challenge;
-        /// <summary>
-        /// Instructs AWS WAF to count the web request and allow it. See Count below for details.
-        /// </summary>
         public readonly Outputs.RuleGroupRuleActionCount? Count;
 
         [OutputConstructor]

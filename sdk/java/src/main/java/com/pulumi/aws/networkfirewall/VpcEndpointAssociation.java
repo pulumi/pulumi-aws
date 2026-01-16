@@ -19,144 +19,41 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a firewall endpoint for an AWS Network Firewall firewall.
- * 
- * Use `aws.networkfirewall.VpcEndpointAssociation` to establish new firewall endpoints in any Availability Zone where the firewall is already being used. The first use of a firewall in an Availability Zone must be defined by `aws.networkfirewall.Firewall` resource and `subnetMapping` argument.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkfirewall.VpcEndpointAssociation;
- * import com.pulumi.aws.networkfirewall.VpcEndpointAssociationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.VpcEndpointAssociationSubnetMappingArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new VpcEndpointAssociation("example", VpcEndpointAssociationArgs.builder()
- *             .firewallArn(exampleAwsNetworkfirewallFirewall.arn())
- *             .vpcId(exampleAwsVpc.id())
- *             .subnetMapping(VpcEndpointAssociationSubnetMappingArgs.builder()
- *                 .subnetId(exampleAwsSubnet.id())
- *                 .build())
- *             .tags(Map.of("Name", "example endpoint"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Network Firewall VPC Endpoint Association using the `vpc_endpoint_association_arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:networkfirewall/vpcEndpointAssociation:VpcEndpointAssociation example arn:aws:network-firewall:us-west-1:123456789012:vpc-endpoint-association/example
- * ```
- * 
- */
 @ResourceType(type="aws:networkfirewall/vpcEndpointAssociation:VpcEndpointAssociation")
 public class VpcEndpointAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * A description of the VPC endpoint association.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A description of the VPC endpoint association.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The Amazon Resource Name (ARN) that identifies the firewall.
-     * 
-     */
     @Export(name="firewallArn", refs={String.class}, tree="[0]")
     private Output<String> firewallArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) that identifies the firewall.
-     * 
-     */
     public Output<String> firewallArn() {
         return this.firewallArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The ID for a subnet that&#39;s used in an association with a firewall. See Subnet Mapping below for details.
-     * 
-     */
     @Export(name="subnetMapping", refs={VpcEndpointAssociationSubnetMapping.class}, tree="[0]")
     private Output</* @Nullable */ VpcEndpointAssociationSubnetMapping> subnetMapping;
 
-    /**
-     * @return The ID for a subnet that&#39;s used in an association with a firewall. See Subnet Mapping below for details.
-     * 
-     */
     public Output<Optional<VpcEndpointAssociationSubnetMapping>> subnetMapping() {
         return Codegen.optional(this.subnetMapping);
     }
-    /**
-     * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
@@ -166,59 +63,27 @@ public class VpcEndpointAssociation extends com.pulumi.resources.CustomResource 
     public Output<Optional<VpcEndpointAssociationTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * ARN of the VPC Endpoint Association.
-     * 
-     */
     @Export(name="vpcEndpointAssociationArn", refs={String.class}, tree="[0]")
     private Output<String> vpcEndpointAssociationArn;
 
-    /**
-     * @return ARN of the VPC Endpoint Association.
-     * 
-     */
     public Output<String> vpcEndpointAssociationArn() {
         return this.vpcEndpointAssociationArn;
     }
-    /**
-     * The unique identifier of the VPC endpoint association.
-     * 
-     */
     @Export(name="vpcEndpointAssociationId", refs={String.class}, tree="[0]")
     private Output<String> vpcEndpointAssociationId;
 
-    /**
-     * @return The unique identifier of the VPC endpoint association.
-     * 
-     */
     public Output<String> vpcEndpointAssociationId() {
         return this.vpcEndpointAssociationId;
     }
-    /**
-     * Nested list of information about the current status of the VPC Endpoint Association.
-     * 
-     */
     @Export(name="vpcEndpointAssociationStatuses", refs={List.class,VpcEndpointAssociationVpcEndpointAssociationStatus.class}, tree="[0,1]")
     private Output<List<VpcEndpointAssociationVpcEndpointAssociationStatus>> vpcEndpointAssociationStatuses;
 
-    /**
-     * @return Nested list of information about the current status of the VPC Endpoint Association.
-     * 
-     */
     public Output<List<VpcEndpointAssociationVpcEndpointAssociationStatus>> vpcEndpointAssociationStatuses() {
         return this.vpcEndpointAssociationStatuses;
     }
-    /**
-     * The unique identifier of the VPC for the endpoint association.
-     * 
-     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
-    /**
-     * @return The unique identifier of the VPC for the endpoint association.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }

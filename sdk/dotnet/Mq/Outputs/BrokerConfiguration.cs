@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Mq.Outputs
     [OutputType]
     public sealed class BrokerConfiguration
     {
-        /// <summary>
-        /// Configuration ID.
-        /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// Revision of the Configuration.
-        /// </summary>
         public readonly int? Revision;
 
         [OutputConstructor]

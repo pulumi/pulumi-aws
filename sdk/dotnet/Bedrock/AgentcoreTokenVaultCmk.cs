@@ -9,59 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Bedrock
 {
-    /// <summary>
-    /// Manages the AWS KMS customer master key (CMK) for a token vault.
-    /// 
-    /// &gt; Deletion of this resource will not modify the CMK, only remove the resource from state.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Bedrock.AgentcoreTokenVaultCmk("example", new()
-    ///     {
-    ///         KmsConfiguration = new Aws.Bedrock.Inputs.AgentcoreTokenVaultCmkKmsConfigurationArgs
-    ///         {
-    ///             KeyType = "CustomerManagedKey",
-    ///             KmsKeyArn = exampleAwsKmsKey.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import token vault CMKs using the token vault ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:bedrock/agentcoreTokenVaultCmk:AgentcoreTokenVaultCmk example "default"
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:bedrock/agentcoreTokenVaultCmk:AgentcoreTokenVaultCmk")]
     public partial class AgentcoreTokenVaultCmk : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// KMS configuration for the token vault. See `KmsConfiguration` below.
-        /// </summary>
         [Output("kmsConfiguration")]
         public Output<Outputs.AgentcoreTokenVaultCmkKmsConfiguration?> KmsConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Token vault ID. Defaults to `Default`.
-        /// </summary>
         [Output("tokenVaultId")]
         public Output<string> TokenVaultId { get; private set; } = null!;
 
@@ -111,21 +67,12 @@ namespace Pulumi.Aws.Bedrock
 
     public sealed class AgentcoreTokenVaultCmkArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// KMS configuration for the token vault. See `KmsConfiguration` below.
-        /// </summary>
         [Input("kmsConfiguration")]
         public Input<Inputs.AgentcoreTokenVaultCmkKmsConfigurationArgs>? KmsConfiguration { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Token vault ID. Defaults to `Default`.
-        /// </summary>
         [Input("tokenVaultId")]
         public Input<string>? TokenVaultId { get; set; }
 
@@ -137,21 +84,12 @@ namespace Pulumi.Aws.Bedrock
 
     public sealed class AgentcoreTokenVaultCmkState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// KMS configuration for the token vault. See `KmsConfiguration` below.
-        /// </summary>
         [Input("kmsConfiguration")]
         public Input<Inputs.AgentcoreTokenVaultCmkKmsConfigurationGetArgs>? KmsConfiguration { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Token vault ID. Defaults to `Default`.
-        /// </summary>
         [Input("tokenVaultId")]
         public Input<string>? TokenVaultId { get; set; }
 

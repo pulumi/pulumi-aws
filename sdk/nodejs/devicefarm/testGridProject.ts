@@ -7,39 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage AWS Device Farm Test Grid Projects.
- *
- * > **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.devicefarm.TestGridProject("example", {
- *     name: "example",
- *     vpcConfig: {
- *         vpcId: exampleAwsVpc.id,
- *         subnetIds: exampleAwsSubnet.map(__item => __item.id),
- *         securityGroupIds: exampleAwsSecurityGroup.map(__item => __item.id),
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the Device Farm test grid project.
- *
- * Using `pulumi import`, import DeviceFarm Test Grid Projects using their ARN. For example:
- *
- * % pulumi import aws_devicefarm_test_grid_project.example arn:aws:devicefarm:us-west-2:123456789012:testgrid-project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
- */
 export class TestGridProject extends pulumi.CustomResource {
     /**
      * Get an existing TestGridProject resource's state with the given name, ID, and optional extra
@@ -68,33 +35,12 @@ export class TestGridProject extends pulumi.CustomResource {
         return obj['__pulumiType'] === TestGridProject.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name of this Test Grid Project.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Human-readable description of the project.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The name of the Selenium testing project.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The VPC security groups and subnets that are attached to a project. See VPC Config below.
-     */
     declare public readonly vpcConfig: pulumi.Output<outputs.devicefarm.TestGridProjectVpcConfig | undefined>;
 
     /**
@@ -136,33 +82,12 @@ export class TestGridProject extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TestGridProject resources.
  */
 export interface TestGridProjectState {
-    /**
-     * The Amazon Resource Name of this Test Grid Project.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Human-readable description of the project.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name of the Selenium testing project.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The VPC security groups and subnets that are attached to a project. See VPC Config below.
-     */
     vpcConfig?: pulumi.Input<inputs.devicefarm.TestGridProjectVpcConfig>;
 }
 
@@ -170,24 +95,9 @@ export interface TestGridProjectState {
  * The set of arguments for constructing a TestGridProject resource.
  */
 export interface TestGridProjectArgs {
-    /**
-     * Human-readable description of the project.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name of the Selenium testing project.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The VPC security groups and subnets that are attached to a project. See VPC Config below.
-     */
     vpcConfig?: pulumi.Input<inputs.devicefarm.TestGridProjectVpcConfig>;
 }

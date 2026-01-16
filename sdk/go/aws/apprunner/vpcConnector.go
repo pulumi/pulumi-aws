@@ -12,74 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an App Runner VPC Connector.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apprunner"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apprunner.NewVpcConnector(ctx, "connector", &apprunner.VpcConnectorArgs{
-//				VpcConnectorName: pulumi.String("name"),
-//				Subnets: pulumi.StringArray{
-//					pulumi.String("subnet1"),
-//					pulumi.String("subnet2"),
-//				},
-//				SecurityGroups: pulumi.StringArray{
-//					pulumi.String("sg1"),
-//					pulumi.String("sg2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the App Runner VPC connector.
-//
-// Using `pulumi import`, import App Runner vpc connector using the `arn`. For example:
-//
-// % pulumi import aws_apprunner_vpc_connector.example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
 type VpcConnector struct {
 	pulumi.CustomResourceState
 
-	// ARN of VPC connector.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
-	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
-	// Current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can't be used. Inactive connector revisions are permanently removed some time after they are deleted.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
-	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Name for the VPC connector.
-	VpcConnectorName pulumi.StringOutput `pulumi:"vpcConnectorName"`
-	// The revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
-	VpcConnectorRevision pulumi.IntOutput `pulumi:"vpcConnectorRevision"`
+	Arn                  pulumi.StringOutput      `pulumi:"arn"`
+	Region               pulumi.StringOutput      `pulumi:"region"`
+	SecurityGroups       pulumi.StringArrayOutput `pulumi:"securityGroups"`
+	Status               pulumi.StringOutput      `pulumi:"status"`
+	Subnets              pulumi.StringArrayOutput `pulumi:"subnets"`
+	Tags                 pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll              pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	VpcConnectorName     pulumi.StringOutput      `pulumi:"vpcConnectorName"`
+	VpcConnectorRevision pulumi.IntOutput         `pulumi:"vpcConnectorRevision"`
 }
 
 // NewVpcConnector registers a new resource with the given unique name, arguments, and options.
@@ -121,44 +65,26 @@ func GetVpcConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcConnector resources.
 type vpcConnectorState struct {
-	// ARN of VPC connector.
-	Arn *string `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
-	SecurityGroups []string `pulumi:"securityGroups"`
-	// Current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can't be used. Inactive connector revisions are permanently removed some time after they are deleted.
-	Status *string `pulumi:"status"`
-	// List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
-	Subnets []string `pulumi:"subnets"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Name for the VPC connector.
-	VpcConnectorName *string `pulumi:"vpcConnectorName"`
-	// The revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
-	VpcConnectorRevision *int `pulumi:"vpcConnectorRevision"`
+	Arn                  *string           `pulumi:"arn"`
+	Region               *string           `pulumi:"region"`
+	SecurityGroups       []string          `pulumi:"securityGroups"`
+	Status               *string           `pulumi:"status"`
+	Subnets              []string          `pulumi:"subnets"`
+	Tags                 map[string]string `pulumi:"tags"`
+	TagsAll              map[string]string `pulumi:"tagsAll"`
+	VpcConnectorName     *string           `pulumi:"vpcConnectorName"`
+	VpcConnectorRevision *int              `pulumi:"vpcConnectorRevision"`
 }
 
 type VpcConnectorState struct {
-	// ARN of VPC connector.
-	Arn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
-	SecurityGroups pulumi.StringArrayInput
-	// Current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can't be used. Inactive connector revisions are permanently removed some time after they are deleted.
-	Status pulumi.StringPtrInput
-	// List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
-	Subnets pulumi.StringArrayInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Name for the VPC connector.
-	VpcConnectorName pulumi.StringPtrInput
-	// The revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
+	Arn                  pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
+	SecurityGroups       pulumi.StringArrayInput
+	Status               pulumi.StringPtrInput
+	Subnets              pulumi.StringArrayInput
+	Tags                 pulumi.StringMapInput
+	TagsAll              pulumi.StringMapInput
+	VpcConnectorName     pulumi.StringPtrInput
 	VpcConnectorRevision pulumi.IntPtrInput
 }
 
@@ -167,29 +93,19 @@ func (VpcConnectorState) ElementType() reflect.Type {
 }
 
 type vpcConnectorArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
-	SecurityGroups []string `pulumi:"securityGroups"`
-	// List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
-	Subnets []string `pulumi:"subnets"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Name for the VPC connector.
-	VpcConnectorName string `pulumi:"vpcConnectorName"`
+	Region           *string           `pulumi:"region"`
+	SecurityGroups   []string          `pulumi:"securityGroups"`
+	Subnets          []string          `pulumi:"subnets"`
+	Tags             map[string]string `pulumi:"tags"`
+	VpcConnectorName string            `pulumi:"vpcConnectorName"`
 }
 
 // The set of arguments for constructing a VpcConnector resource.
 type VpcConnectorArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
-	SecurityGroups pulumi.StringArrayInput
-	// List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
-	Subnets pulumi.StringArrayInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Name for the VPC connector.
+	Region           pulumi.StringPtrInput
+	SecurityGroups   pulumi.StringArrayInput
+	Subnets          pulumi.StringArrayInput
+	Tags             pulumi.StringMapInput
 	VpcConnectorName pulumi.StringInput
 }
 
@@ -280,47 +196,38 @@ func (o VpcConnectorOutput) ToVpcConnectorOutputWithContext(ctx context.Context)
 	return o
 }
 
-// ARN of VPC connector.
 func (o VpcConnectorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnector) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcConnectorOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnector) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
 func (o VpcConnectorOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcConnector) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// Current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can't be used. Inactive connector revisions are permanently removed some time after they are deleted.
 func (o VpcConnectorOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnector) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
 func (o VpcConnectorOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcConnector) pulumi.StringArrayOutput { return v.Subnets }).(pulumi.StringArrayOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VpcConnectorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcConnector) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VpcConnectorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcConnector) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Name for the VPC connector.
 func (o VpcConnectorOutput) VpcConnectorName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnector) pulumi.StringOutput { return v.VpcConnectorName }).(pulumi.StringOutput)
 }
 
-// The revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
 func (o VpcConnectorOutput) VpcConnectorRevision() pulumi.IntOutput {
 	return o.ApplyT(func(v *VpcConnector) pulumi.IntOutput { return v.VpcConnectorRevision }).(pulumi.IntOutput)
 }

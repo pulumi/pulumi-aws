@@ -15,92 +15,44 @@ public final class AlternativeContactState extends com.pulumi.resources.Resource
 
     public static final AlternativeContactState Empty = new AlternativeContactState();
 
-    /**
-     * ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
-     * 
-     */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
-    /**
-     * @return ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
-     * 
-     */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
-    /**
-     * Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
-     * 
-     */
     @Import(name="alternateContactType")
     private @Nullable Output<String> alternateContactType;
 
-    /**
-     * @return Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
-     * 
-     */
     public Optional<Output<String>> alternateContactType() {
         return Optional.ofNullable(this.alternateContactType);
     }
 
-    /**
-     * An email address for the alternate contact.
-     * 
-     */
     @Import(name="emailAddress")
     private @Nullable Output<String> emailAddress;
 
-    /**
-     * @return An email address for the alternate contact.
-     * 
-     */
     public Optional<Output<String>> emailAddress() {
         return Optional.ofNullable(this.emailAddress);
     }
 
-    /**
-     * Name of the alternate contact.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the alternate contact.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Phone number for the alternate contact.
-     * 
-     */
     @Import(name="phoneNumber")
     private @Nullable Output<String> phoneNumber;
 
-    /**
-     * @return Phone number for the alternate contact.
-     * 
-     */
     public Optional<Output<String>> phoneNumber() {
         return Optional.ofNullable(this.phoneNumber);
     }
 
-    /**
-     * Title for the alternate contact.
-     * 
-     */
     @Import(name="title")
     private @Nullable Output<String> title;
 
-    /**
-     * @return Title for the alternate contact.
-     * 
-     */
     public Optional<Output<String>> title() {
         return Optional.ofNullable(this.title);
     }
@@ -134,128 +86,56 @@ public final class AlternativeContactState extends com.pulumi.resources.Resource
             $ = new AlternativeContactState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param alternateContactType Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alternateContactType(@Nullable Output<String> alternateContactType) {
             $.alternateContactType = alternateContactType;
             return this;
         }
 
-        /**
-         * @param alternateContactType Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alternateContactType(String alternateContactType) {
             return alternateContactType(Output.of(alternateContactType));
         }
 
-        /**
-         * @param emailAddress An email address for the alternate contact.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailAddress(@Nullable Output<String> emailAddress) {
             $.emailAddress = emailAddress;
             return this;
         }
 
-        /**
-         * @param emailAddress An email address for the alternate contact.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailAddress(String emailAddress) {
             return emailAddress(Output.of(emailAddress));
         }
 
-        /**
-         * @param name Name of the alternate contact.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the alternate contact.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param phoneNumber Phone number for the alternate contact.
-         * 
-         * @return builder
-         * 
-         */
         public Builder phoneNumber(@Nullable Output<String> phoneNumber) {
             $.phoneNumber = phoneNumber;
             return this;
         }
 
-        /**
-         * @param phoneNumber Phone number for the alternate contact.
-         * 
-         * @return builder
-         * 
-         */
         public Builder phoneNumber(String phoneNumber) {
             return phoneNumber(Output.of(phoneNumber));
         }
 
-        /**
-         * @param title Title for the alternate contact.
-         * 
-         * @return builder
-         * 
-         */
         public Builder title(@Nullable Output<String> title) {
             $.title = title;
             return this;
         }
 
-        /**
-         * @param title Title for the alternate contact.
-         * 
-         * @return builder
-         * 
-         */
         public Builder title(String title) {
             return title(Output.of(title));
         }

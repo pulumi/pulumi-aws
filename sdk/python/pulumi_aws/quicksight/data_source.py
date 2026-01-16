@@ -34,18 +34,6 @@ class DataSourceArgs:
                  vpc_connection_properties: Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DataSource resource.
-        :param pulumi.Input[_builtins.str] data_source_id: An identifier for the data source.
-        :param pulumi.Input['DataSourceParametersArgs'] parameters: The parameters used to connect to this data source (exactly one).
-        :param pulumi.Input[_builtins.str] type: The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
-               
-               The following arguments are optional:
-        :param pulumi.Input['DataSourceCredentialsArgs'] credentials: The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
-        :param pulumi.Input[_builtins.str] name: A name for the data source, maximum of 128 characters.
-        :param pulumi.Input[Sequence[pulumi.Input['DataSourcePermissionArgs']]] permissions: A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['DataSourceSslPropertiesArgs'] ssl_properties: Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['DataSourceVpcConnectionPropertiesArgs'] vpc_connection_properties: Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
         """
         pulumi.set(__self__, "data_source_id", data_source_id)
         pulumi.set(__self__, "parameters", parameters)
@@ -70,9 +58,6 @@ class DataSourceArgs:
     @_builtins.property
     @pulumi.getter(name="dataSourceId")
     def data_source_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        An identifier for the data source.
-        """
         return pulumi.get(self, "data_source_id")
 
     @data_source_id.setter
@@ -82,9 +67,6 @@ class DataSourceArgs:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> pulumi.Input['DataSourceParametersArgs']:
-        """
-        The parameters used to connect to this data source (exactly one).
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -94,11 +76,6 @@ class DataSourceArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -117,9 +94,6 @@ class DataSourceArgs:
     @_builtins.property
     @pulumi.getter
     def credentials(self) -> Optional[pulumi.Input['DataSourceCredentialsArgs']]:
-        """
-        The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
-        """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
@@ -129,9 +103,6 @@ class DataSourceArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A name for the data source, maximum of 128 characters.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -141,9 +112,6 @@ class DataSourceArgs:
     @_builtins.property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourcePermissionArgs']]]]:
-        """
-        A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
-        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -153,9 +121,6 @@ class DataSourceArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -165,9 +130,6 @@ class DataSourceArgs:
     @_builtins.property
     @pulumi.getter(name="sslProperties")
     def ssl_properties(self) -> Optional[pulumi.Input['DataSourceSslPropertiesArgs']]:
-        """
-        Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
-        """
         return pulumi.get(self, "ssl_properties")
 
     @ssl_properties.setter
@@ -177,9 +139,6 @@ class DataSourceArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -189,9 +148,6 @@ class DataSourceArgs:
     @_builtins.property
     @pulumi.getter(name="vpcConnectionProperties")
     def vpc_connection_properties(self) -> Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']]:
-        """
-        Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
-        """
         return pulumi.get(self, "vpc_connection_properties")
 
     @vpc_connection_properties.setter
@@ -217,20 +173,6 @@ class _DataSourceState:
                  vpc_connection_properties: Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']] = None):
         """
         Input properties used for looking up and filtering DataSource resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the data source
-        :param pulumi.Input['DataSourceCredentialsArgs'] credentials: The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
-        :param pulumi.Input[_builtins.str] data_source_id: An identifier for the data source.
-        :param pulumi.Input[_builtins.str] name: A name for the data source, maximum of 128 characters.
-        :param pulumi.Input['DataSourceParametersArgs'] parameters: The parameters used to connect to this data source (exactly one).
-        :param pulumi.Input[Sequence[pulumi.Input['DataSourcePermissionArgs']]] permissions: A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['DataSourceSslPropertiesArgs'] ssl_properties: Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
-               
-               The following arguments are optional:
-        :param pulumi.Input['DataSourceVpcConnectionPropertiesArgs'] vpc_connection_properties: Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -262,9 +204,6 @@ class _DataSourceState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the data source
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -283,9 +222,6 @@ class _DataSourceState:
     @_builtins.property
     @pulumi.getter
     def credentials(self) -> Optional[pulumi.Input['DataSourceCredentialsArgs']]:
-        """
-        The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
-        """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
@@ -295,9 +231,6 @@ class _DataSourceState:
     @_builtins.property
     @pulumi.getter(name="dataSourceId")
     def data_source_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An identifier for the data source.
-        """
         return pulumi.get(self, "data_source_id")
 
     @data_source_id.setter
@@ -307,9 +240,6 @@ class _DataSourceState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A name for the data source, maximum of 128 characters.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -319,9 +249,6 @@ class _DataSourceState:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input['DataSourceParametersArgs']]:
-        """
-        The parameters used to connect to this data source (exactly one).
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -331,9 +258,6 @@ class _DataSourceState:
     @_builtins.property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourcePermissionArgs']]]]:
-        """
-        A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
-        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -343,9 +267,6 @@ class _DataSourceState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -355,9 +276,6 @@ class _DataSourceState:
     @_builtins.property
     @pulumi.getter(name="sslProperties")
     def ssl_properties(self) -> Optional[pulumi.Input['DataSourceSslPropertiesArgs']]:
-        """
-        Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
-        """
         return pulumi.get(self, "ssl_properties")
 
     @ssl_properties.setter
@@ -367,9 +285,6 @@ class _DataSourceState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -379,9 +294,6 @@ class _DataSourceState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -391,11 +303,6 @@ class _DataSourceState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -405,9 +312,6 @@ class _DataSourceState:
     @_builtins.property
     @pulumi.getter(name="vpcConnectionProperties")
     def vpc_connection_properties(self) -> Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']]:
-        """
-        Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
-        """
         return pulumi.get(self, "vpc_connection_properties")
 
     @vpc_connection_properties.setter
@@ -434,134 +338,9 @@ class DataSource(pulumi.CustomResource):
                  vpc_connection_properties: Optional[pulumi.Input[Union['DataSourceVpcConnectionPropertiesArgs', 'DataSourceVpcConnectionPropertiesArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing QuickSight Data Source
-
-        ## Example Usage
-
-        ### S3 Data Source
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.quicksight.DataSource("default",
-            data_source_id="example-id",
-            name="My Cool Data in S3",
-            parameters={
-                "s3": {
-                    "manifest_file_location": {
-                        "bucket": "my-bucket",
-                        "key": "path/to/manifest.json",
-                    },
-                },
-            },
-            type="S3")
-        ```
-
-        ### S3 Data Source with IAM Role ARN
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_partition = aws.get_partition()
-        current_get_region = aws.get_region()
-        example = aws.s3.Bucket("example")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
-            bucket=example.bucket,
-            key="manifest.json",
-            content=pulumi.Output.json_dumps({
-                "fileLocations": [{
-                    "URIPrefixes": [example.id.apply(lambda id: f"https://{id}.s3-{current_get_region.region}.{current_get_partition.dns_suffix}")],
-                }],
-                "globalUploadSettings": {
-                    "format": "CSV",
-                    "delimiter": ",",
-                    "textqualifier": "\\"",
-                    "containsHeader": True,
-                },
-            }))
-        example_role = aws.iam.Role("example",
-            name="example",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "quicksight.amazonaws.com",
-                    },
-                    "Condition": {
-                        "StringEquals": {
-                            "aws:SourceAccount": current.account_id,
-                        },
-                    },
-                }],
-            }))
-        example_policy = aws.iam.Policy("example",
-            name="example",
-            description="Policy to allow QuickSight access to S3 bucket",
-            policy=pulumi.Output.json_dumps({
-                "Version": "2012-10-17",
-                "Statement": [
-                    {
-                        "Action": ["s3:GetObject"],
-                        "Effect": "Allow",
-                        "Resource": pulumi.Output.all(
-                            arn=example.arn,
-                            key=example_bucket_objectv2.key
-        ).apply(lambda resolved_outputs: f"{resolved_outputs['arn']}/{resolved_outputs['key']}")
-        ,
-                    },
-                    {
-                        "Action": ["s3:ListBucket"],
-                        "Effect": "Allow",
-                        "Resource": example.arn,
-                    },
-                ],
-            }))
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
-            policy_arn=example_policy.arn,
-            role=example_role.name)
-        example_data_source = aws.quicksight.DataSource("example",
-            data_source_id="example-id",
-            name="manifest in S3",
-            parameters={
-                "s3": {
-                    "manifest_file_location": {
-                        "bucket": example.bucket,
-                        "key": example_bucket_objectv2.key,
-                    },
-                    "role_arn": example_role.arn,
-                },
-            },
-            type="S3")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import a QuickSight data source using the AWS account ID, and data source ID separated by a slash (`/`). For example:
-
-        ```sh
-        $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
-        ```
-
+        Create a DataSource resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DataSourceCredentialsArgs', 'DataSourceCredentialsArgsDict']] credentials: The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
-        :param pulumi.Input[_builtins.str] data_source_id: An identifier for the data source.
-        :param pulumi.Input[_builtins.str] name: A name for the data source, maximum of 128 characters.
-        :param pulumi.Input[Union['DataSourceParametersArgs', 'DataSourceParametersArgsDict']] parameters: The parameters used to connect to this data source (exactly one).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSourcePermissionArgs', 'DataSourcePermissionArgsDict']]]] permissions: A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DataSourceSslPropertiesArgs', 'DataSourceSslPropertiesArgsDict']] ssl_properties: Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Union['DataSourceVpcConnectionPropertiesArgs', 'DataSourceVpcConnectionPropertiesArgsDict']] vpc_connection_properties: Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
         """
         ...
     @overload
@@ -570,120 +349,7 @@ class DataSource(pulumi.CustomResource):
                  args: DataSourceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing QuickSight Data Source
-
-        ## Example Usage
-
-        ### S3 Data Source
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.quicksight.DataSource("default",
-            data_source_id="example-id",
-            name="My Cool Data in S3",
-            parameters={
-                "s3": {
-                    "manifest_file_location": {
-                        "bucket": "my-bucket",
-                        "key": "path/to/manifest.json",
-                    },
-                },
-            },
-            type="S3")
-        ```
-
-        ### S3 Data Source with IAM Role ARN
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_partition = aws.get_partition()
-        current_get_region = aws.get_region()
-        example = aws.s3.Bucket("example")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
-            bucket=example.bucket,
-            key="manifest.json",
-            content=pulumi.Output.json_dumps({
-                "fileLocations": [{
-                    "URIPrefixes": [example.id.apply(lambda id: f"https://{id}.s3-{current_get_region.region}.{current_get_partition.dns_suffix}")],
-                }],
-                "globalUploadSettings": {
-                    "format": "CSV",
-                    "delimiter": ",",
-                    "textqualifier": "\\"",
-                    "containsHeader": True,
-                },
-            }))
-        example_role = aws.iam.Role("example",
-            name="example",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "quicksight.amazonaws.com",
-                    },
-                    "Condition": {
-                        "StringEquals": {
-                            "aws:SourceAccount": current.account_id,
-                        },
-                    },
-                }],
-            }))
-        example_policy = aws.iam.Policy("example",
-            name="example",
-            description="Policy to allow QuickSight access to S3 bucket",
-            policy=pulumi.Output.json_dumps({
-                "Version": "2012-10-17",
-                "Statement": [
-                    {
-                        "Action": ["s3:GetObject"],
-                        "Effect": "Allow",
-                        "Resource": pulumi.Output.all(
-                            arn=example.arn,
-                            key=example_bucket_objectv2.key
-        ).apply(lambda resolved_outputs: f"{resolved_outputs['arn']}/{resolved_outputs['key']}")
-        ,
-                    },
-                    {
-                        "Action": ["s3:ListBucket"],
-                        "Effect": "Allow",
-                        "Resource": example.arn,
-                    },
-                ],
-            }))
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
-            policy_arn=example_policy.arn,
-            role=example_role.name)
-        example_data_source = aws.quicksight.DataSource("example",
-            data_source_id="example-id",
-            name="manifest in S3",
-            parameters={
-                "s3": {
-                    "manifest_file_location": {
-                        "bucket": example.bucket,
-                        "key": example_bucket_objectv2.key,
-                    },
-                    "role_arn": example_role.arn,
-                },
-            },
-            type="S3")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import a QuickSight data source using the AWS account ID, and data source ID separated by a slash (`/`). For example:
-
-        ```sh
-        $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
-        ```
-
+        Create a DataSource resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DataSourceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -768,20 +434,6 @@ class DataSource(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the data source
-        :param pulumi.Input[Union['DataSourceCredentialsArgs', 'DataSourceCredentialsArgsDict']] credentials: The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
-        :param pulumi.Input[_builtins.str] data_source_id: An identifier for the data source.
-        :param pulumi.Input[_builtins.str] name: A name for the data source, maximum of 128 characters.
-        :param pulumi.Input[Union['DataSourceParametersArgs', 'DataSourceParametersArgsDict']] parameters: The parameters used to connect to this data source (exactly one).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSourcePermissionArgs', 'DataSourcePermissionArgsDict']]]] permissions: A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DataSourceSslPropertiesArgs', 'DataSourceSslPropertiesArgsDict']] ssl_properties: Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Union['DataSourceVpcConnectionPropertiesArgs', 'DataSourceVpcConnectionPropertiesArgsDict']] vpc_connection_properties: Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -805,9 +457,6 @@ class DataSource(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the data source
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -818,90 +467,55 @@ class DataSource(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def credentials(self) -> pulumi.Output[Optional['outputs.DataSourceCredentials']]:
-        """
-        The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
-        """
         return pulumi.get(self, "credentials")
 
     @_builtins.property
     @pulumi.getter(name="dataSourceId")
     def data_source_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        An identifier for the data source.
-        """
         return pulumi.get(self, "data_source_id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        A name for the data source, maximum of 128 characters.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> pulumi.Output['outputs.DataSourceParameters']:
-        """
-        The parameters used to connect to this data source (exactly one).
-        """
         return pulumi.get(self, "parameters")
 
     @_builtins.property
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.DataSourcePermission']]]:
-        """
-        A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
-        """
         return pulumi.get(self, "permissions")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="sslProperties")
     def ssl_properties(self) -> pulumi.Output['outputs.DataSourceSslProperties']:
-        """
-        Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
-        """
         return pulumi.get(self, "ssl_properties")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="vpcConnectionProperties")
     def vpc_connection_properties(self) -> pulumi.Output[Optional['outputs.DataSourceVpcConnectionProperties']]:
-        """
-        Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
-        """
         return pulumi.get(self, "vpc_connection_properties")
 

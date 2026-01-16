@@ -18,77 +18,37 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SnapshotArgs Empty = new SnapshotArgs();
 
-    /**
-     * The DB Instance Identifier from which to take the snapshot.
-     * 
-     */
     @Import(name="dbInstanceIdentifier", required=true)
     private Output<String> dbInstanceIdentifier;
 
-    /**
-     * @return The DB Instance Identifier from which to take the snapshot.
-     * 
-     */
     public Output<String> dbInstanceIdentifier() {
         return this.dbInstanceIdentifier;
     }
 
-    /**
-     * The Identifier for the snapshot.
-     * 
-     */
     @Import(name="dbSnapshotIdentifier", required=true)
     private Output<String> dbSnapshotIdentifier;
 
-    /**
-     * @return The Identifier for the snapshot.
-     * 
-     */
     public Output<String> dbSnapshotIdentifier() {
         return this.dbSnapshotIdentifier;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-     * 
-     */
     @Import(name="sharedAccounts")
     private @Nullable Output<List<String>> sharedAccounts;
 
-    /**
-     * @return List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-     * 
-     */
     public Optional<Output<List<String>>> sharedAccounts() {
         return Optional.ofNullable(this.sharedAccounts);
     }
 
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -121,117 +81,51 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
             $ = new SnapshotArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dbInstanceIdentifier The DB Instance Identifier from which to take the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbInstanceIdentifier(Output<String> dbInstanceIdentifier) {
             $.dbInstanceIdentifier = dbInstanceIdentifier;
             return this;
         }
 
-        /**
-         * @param dbInstanceIdentifier The DB Instance Identifier from which to take the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbInstanceIdentifier(String dbInstanceIdentifier) {
             return dbInstanceIdentifier(Output.of(dbInstanceIdentifier));
         }
 
-        /**
-         * @param dbSnapshotIdentifier The Identifier for the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbSnapshotIdentifier(Output<String> dbSnapshotIdentifier) {
             $.dbSnapshotIdentifier = dbSnapshotIdentifier;
             return this;
         }
 
-        /**
-         * @param dbSnapshotIdentifier The Identifier for the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbSnapshotIdentifier(String dbSnapshotIdentifier) {
             return dbSnapshotIdentifier(Output.of(dbSnapshotIdentifier));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param sharedAccounts List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sharedAccounts(@Nullable Output<List<String>> sharedAccounts) {
             $.sharedAccounts = sharedAccounts;
             return this;
         }
 
-        /**
-         * @param sharedAccounts List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sharedAccounts(List<String> sharedAccounts) {
             return sharedAccounts(Output.of(sharedAccounts));
         }
 
-        /**
-         * @param sharedAccounts List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sharedAccounts(String... sharedAccounts) {
             return sharedAccounts(List.of(sharedAccounts));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

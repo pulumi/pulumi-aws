@@ -29,12 +29,6 @@ class ServiceRegionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServiceRegion resource.
-        :param pulumi.Input[_builtins.str] directory_id: The identifier of the directory to which you want to add Region replication.
-        :param pulumi.Input[_builtins.str] region_name: The name of the Region where you want to add domain controllers for replication.
-        :param pulumi.Input['ServiceRegionVpcSettingsArgs'] vpc_settings: VPC information in the replicated Region. Detailed below.
-        :param pulumi.Input[_builtins.int] desired_number_of_domain_controllers: The number of domain controllers desired in the replicated directory. Minimum value of `2`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "directory_id", directory_id)
         pulumi.set(__self__, "region_name", region_name)
@@ -49,9 +43,6 @@ class ServiceRegionArgs:
     @_builtins.property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The identifier of the directory to which you want to add Region replication.
-        """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
@@ -61,9 +52,6 @@ class ServiceRegionArgs:
     @_builtins.property
     @pulumi.getter(name="regionName")
     def region_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Region where you want to add domain controllers for replication.
-        """
         return pulumi.get(self, "region_name")
 
     @region_name.setter
@@ -73,9 +61,6 @@ class ServiceRegionArgs:
     @_builtins.property
     @pulumi.getter(name="vpcSettings")
     def vpc_settings(self) -> pulumi.Input['ServiceRegionVpcSettingsArgs']:
-        """
-        VPC information in the replicated Region. Detailed below.
-        """
         return pulumi.get(self, "vpc_settings")
 
     @vpc_settings.setter
@@ -85,9 +70,6 @@ class ServiceRegionArgs:
     @_builtins.property
     @pulumi.getter(name="desiredNumberOfDomainControllers")
     def desired_number_of_domain_controllers(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of domain controllers desired in the replicated directory. Minimum value of `2`.
-        """
         return pulumi.get(self, "desired_number_of_domain_controllers")
 
     @desired_number_of_domain_controllers.setter
@@ -97,9 +79,6 @@ class ServiceRegionArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -109,9 +88,6 @@ class ServiceRegionArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -131,13 +107,6 @@ class _ServiceRegionState:
                  vpc_settings: Optional[pulumi.Input['ServiceRegionVpcSettingsArgs']] = None):
         """
         Input properties used for looking up and filtering ServiceRegion resources.
-        :param pulumi.Input[_builtins.int] desired_number_of_domain_controllers: The number of domain controllers desired in the replicated directory. Minimum value of `2`.
-        :param pulumi.Input[_builtins.str] directory_id: The identifier of the directory to which you want to add Region replication.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] region_name: The name of the Region where you want to add domain controllers for replication.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['ServiceRegionVpcSettingsArgs'] vpc_settings: VPC information in the replicated Region. Detailed below.
         """
         if desired_number_of_domain_controllers is not None:
             pulumi.set(__self__, "desired_number_of_domain_controllers", desired_number_of_domain_controllers)
@@ -157,9 +126,6 @@ class _ServiceRegionState:
     @_builtins.property
     @pulumi.getter(name="desiredNumberOfDomainControllers")
     def desired_number_of_domain_controllers(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of domain controllers desired in the replicated directory. Minimum value of `2`.
-        """
         return pulumi.get(self, "desired_number_of_domain_controllers")
 
     @desired_number_of_domain_controllers.setter
@@ -169,9 +135,6 @@ class _ServiceRegionState:
     @_builtins.property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier of the directory to which you want to add Region replication.
-        """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
@@ -181,9 +144,6 @@ class _ServiceRegionState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -193,9 +153,6 @@ class _ServiceRegionState:
     @_builtins.property
     @pulumi.getter(name="regionName")
     def region_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Region where you want to add domain controllers for replication.
-        """
         return pulumi.get(self, "region_name")
 
     @region_name.setter
@@ -205,9 +162,6 @@ class _ServiceRegionState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -217,9 +171,6 @@ class _ServiceRegionState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -229,9 +180,6 @@ class _ServiceRegionState:
     @_builtins.property
     @pulumi.getter(name="vpcSettings")
     def vpc_settings(self) -> Optional[pulumi.Input['ServiceRegionVpcSettingsArgs']]:
-        """
-        VPC information in the replicated Region. Detailed below.
-        """
         return pulumi.get(self, "vpc_settings")
 
     @vpc_settings.setter
@@ -253,95 +201,9 @@ class ServiceRegion(pulumi.CustomResource):
                  vpc_settings: Optional[pulumi.Input[Union['ServiceRegionVpcSettingsArgs', 'ServiceRegionVpcSettingsArgsDict']]] = None,
                  __props__=None):
         """
-        Manages a replicated Region and directory for Multi-Region replication.
-        Multi-Region replication is only supported for the Enterprise Edition of AWS Managed Microsoft AD.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.get_region()
-        available = aws.get_availability_zones(state="available",
-            filters=[{
-                "name": "opt-in-status",
-                "values": ["opt-in-not-required"],
-            }])
-        example_vpc = aws.ec2.Vpc("example",
-            cidr_block="10.0.0.0/16",
-            tags={
-                "Name": "Primary",
-            })
-        example_subnet = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example_subnet.append(aws.ec2.Subnet(f"example-{range['value']}",
-                vpc_id=example_vpc.id,
-                availability_zone=available.names[range["value"]],
-                cidr_block=example_vpc.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
-                    newbits=8,
-                    netnum=range["value"])).apply(lambda invoke: invoke.result),
-                tags={
-                    "Name": "Primary",
-                }))
-        example_directory = aws.directoryservice.Directory("example",
-            name="example.com",
-            password="SuperSecretPassw0rd",
-            type="MicrosoftAD",
-            vpc_settings={
-                "vpc_id": example_vpc.id,
-                "subnet_ids": [__item.id for __item in example_subnet],
-            })
-        available_secondary = aws.get_availability_zones(state="available",
-            filters=[{
-                "name": "opt-in-status",
-                "values": ["opt-in-not-required"],
-            }])
-        example_secondary = aws.ec2.Vpc("example-secondary",
-            cidr_block="10.1.0.0/16",
-            tags={
-                "Name": "Secondary",
-            })
-        example_secondary_subnet = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example_secondary_subnet.append(aws.ec2.Subnet(f"example-secondary-{range['value']}",
-                vpc_id=example_secondary.id,
-                availability_zone=available_secondary.names[range["value"]],
-                cidr_block=example_secondary.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
-                    newbits=8,
-                    netnum=range["value"])).apply(lambda invoke: invoke.result),
-                tags={
-                    "Name": "Secondary",
-                }))
-        example_service_region = aws.directoryservice.ServiceRegion("example",
-            directory_id=example_directory.id,
-            region_name=example.name,
-            vpc_settings={
-                "vpc_id": example_secondary.id,
-                "subnet_ids": [__item.id for __item in example_secondary_subnet],
-            },
-            tags={
-                "Name": "Secondary",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Replicated Regions using directory ID,Region name. For example:
-
-        ```sh
-        $ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
-        ```
-
+        Create a ServiceRegion resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] desired_number_of_domain_controllers: The number of domain controllers desired in the replicated directory. Minimum value of `2`.
-        :param pulumi.Input[_builtins.str] directory_id: The identifier of the directory to which you want to add Region replication.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] region_name: The name of the Region where you want to add domain controllers for replication.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['ServiceRegionVpcSettingsArgs', 'ServiceRegionVpcSettingsArgsDict']] vpc_settings: VPC information in the replicated Region. Detailed below.
         """
         ...
     @overload
@@ -350,87 +212,7 @@ class ServiceRegion(pulumi.CustomResource):
                  args: ServiceRegionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a replicated Region and directory for Multi-Region replication.
-        Multi-Region replication is only supported for the Enterprise Edition of AWS Managed Microsoft AD.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.get_region()
-        available = aws.get_availability_zones(state="available",
-            filters=[{
-                "name": "opt-in-status",
-                "values": ["opt-in-not-required"],
-            }])
-        example_vpc = aws.ec2.Vpc("example",
-            cidr_block="10.0.0.0/16",
-            tags={
-                "Name": "Primary",
-            })
-        example_subnet = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example_subnet.append(aws.ec2.Subnet(f"example-{range['value']}",
-                vpc_id=example_vpc.id,
-                availability_zone=available.names[range["value"]],
-                cidr_block=example_vpc.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
-                    newbits=8,
-                    netnum=range["value"])).apply(lambda invoke: invoke.result),
-                tags={
-                    "Name": "Primary",
-                }))
-        example_directory = aws.directoryservice.Directory("example",
-            name="example.com",
-            password="SuperSecretPassw0rd",
-            type="MicrosoftAD",
-            vpc_settings={
-                "vpc_id": example_vpc.id,
-                "subnet_ids": [__item.id for __item in example_subnet],
-            })
-        available_secondary = aws.get_availability_zones(state="available",
-            filters=[{
-                "name": "opt-in-status",
-                "values": ["opt-in-not-required"],
-            }])
-        example_secondary = aws.ec2.Vpc("example-secondary",
-            cidr_block="10.1.0.0/16",
-            tags={
-                "Name": "Secondary",
-            })
-        example_secondary_subnet = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example_secondary_subnet.append(aws.ec2.Subnet(f"example-secondary-{range['value']}",
-                vpc_id=example_secondary.id,
-                availability_zone=available_secondary.names[range["value"]],
-                cidr_block=example_secondary.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
-                    newbits=8,
-                    netnum=range["value"])).apply(lambda invoke: invoke.result),
-                tags={
-                    "Name": "Secondary",
-                }))
-        example_service_region = aws.directoryservice.ServiceRegion("example",
-            directory_id=example_directory.id,
-            region_name=example.name,
-            vpc_settings={
-                "vpc_id": example_secondary.id,
-                "subnet_ids": [__item.id for __item in example_secondary_subnet],
-            },
-            tags={
-                "Name": "Secondary",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Replicated Regions using directory ID,Region name. For example:
-
-        ```sh
-        $ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
-        ```
-
+        Create a ServiceRegion resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ServiceRegionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -498,13 +280,6 @@ class ServiceRegion(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] desired_number_of_domain_controllers: The number of domain controllers desired in the replicated directory. Minimum value of `2`.
-        :param pulumi.Input[_builtins.str] directory_id: The identifier of the directory to which you want to add Region replication.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] region_name: The name of the Region where you want to add domain controllers for replication.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['ServiceRegionVpcSettingsArgs', 'ServiceRegionVpcSettingsArgsDict']] vpc_settings: VPC information in the replicated Region. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -522,56 +297,35 @@ class ServiceRegion(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="desiredNumberOfDomainControllers")
     def desired_number_of_domain_controllers(self) -> pulumi.Output[_builtins.int]:
-        """
-        The number of domain controllers desired in the replicated directory. Minimum value of `2`.
-        """
         return pulumi.get(self, "desired_number_of_domain_controllers")
 
     @_builtins.property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier of the directory to which you want to add Region replication.
-        """
         return pulumi.get(self, "directory_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="regionName")
     def region_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the Region where you want to add domain controllers for replication.
-        """
         return pulumi.get(self, "region_name")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="vpcSettings")
     def vpc_settings(self) -> pulumi.Output['outputs.ServiceRegionVpcSettings']:
-        """
-        VPC information in the replicated Region. Detailed below.
-        """
         return pulumi.get(self, "vpc_settings")
 

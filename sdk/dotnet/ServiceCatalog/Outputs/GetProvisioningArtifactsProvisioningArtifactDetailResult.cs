@@ -13,33 +13,12 @@ namespace Pulumi.Aws.ServiceCatalog.Outputs
     [OutputType]
     public sealed class GetProvisioningArtifactsProvisioningArtifactDetailResult
     {
-        /// <summary>
-        /// Indicates whether the product version is active.
-        /// </summary>
         public readonly bool Active;
-        /// <summary>
-        /// The UTC time stamp of the creation time.
-        /// </summary>
         public readonly string CreatedTime;
-        /// <summary>
-        /// The description of the provisioning artifact.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
-        /// </summary>
         public readonly string Guidance;
-        /// <summary>
-        /// The identifier of the provisioning artifact.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The name of the provisioning artifact.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The type of provisioning artifact.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

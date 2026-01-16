@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class LaunchTemplateHibernationOptionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// If set to `True`, the launched EC2 instance will hibernation enabled.
-        /// </summary>
         [Input("configured", required: true)]
         public Input<bool> Configured { get; set; } = null!;
 

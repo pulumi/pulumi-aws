@@ -31,12 +31,6 @@ class FormTypeArgs:
                  timeouts: Optional[pulumi.Input['FormTypeTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a FormType resource.
-        :param pulumi.Input[_builtins.str] domain_identifier: Identifier of the domain.
-        :param pulumi.Input[_builtins.str] owning_project_identifier: Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
-        :param pulumi.Input[_builtins.str] description: Description of form type. Must have a length of between 1 and 2048 characters.
-        :param pulumi.Input['FormTypeModelArgs'] model: Object of the model of the form type that contains the following attributes.
-        :param pulumi.Input[_builtins.str] name: Name of the form type. Must be the name of the structure in smithy document.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
         pulumi.set(__self__, "owning_project_identifier", owning_project_identifier)
@@ -56,9 +50,6 @@ class FormTypeArgs:
     @_builtins.property
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of the domain.
-        """
         return pulumi.get(self, "domain_identifier")
 
     @domain_identifier.setter
@@ -68,9 +59,6 @@ class FormTypeArgs:
     @_builtins.property
     @pulumi.getter(name="owningProjectIdentifier")
     def owning_project_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
-        """
         return pulumi.get(self, "owning_project_identifier")
 
     @owning_project_identifier.setter
@@ -80,9 +68,6 @@ class FormTypeArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of form type. Must have a length of between 1 and 2048 characters.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -92,9 +77,6 @@ class FormTypeArgs:
     @_builtins.property
     @pulumi.getter
     def model(self) -> Optional[pulumi.Input['FormTypeModelArgs']]:
-        """
-        Object of the model of the form type that contains the following attributes.
-        """
         return pulumi.get(self, "model")
 
     @model.setter
@@ -104,9 +86,6 @@ class FormTypeArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the form type. Must be the name of the structure in smithy document.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -116,9 +95,6 @@ class FormTypeArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -163,17 +139,6 @@ class _FormTypeState:
                  timeouts: Optional[pulumi.Input['FormTypeTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering FormType resources.
-        :param pulumi.Input[_builtins.str] created_at: Creation time of the Form Type.
-        :param pulumi.Input[_builtins.str] created_by: Creator of the Form Type.
-        :param pulumi.Input[_builtins.str] description: Description of form type. Must have a length of between 1 and 2048 characters.
-        :param pulumi.Input[_builtins.str] domain_identifier: Identifier of the domain.
-        :param pulumi.Input['FormTypeModelArgs'] model: Object of the model of the form type that contains the following attributes.
-        :param pulumi.Input[_builtins.str] name: Name of the form type. Must be the name of the structure in smithy document.
-        :param pulumi.Input[_builtins.str] origin_domain_id: Origin domain id of the Form Type.
-        :param pulumi.Input[_builtins.str] origin_project_id: Origin project id of the Form Type.
-        :param pulumi.Input[_builtins.str] owning_project_identifier: Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] revision: Revision of the Form Type.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -207,9 +172,6 @@ class _FormTypeState:
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creation time of the Form Type.
-        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -219,9 +181,6 @@ class _FormTypeState:
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creator of the Form Type.
-        """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
@@ -231,9 +190,6 @@ class _FormTypeState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of form type. Must have a length of between 1 and 2048 characters.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -243,9 +199,6 @@ class _FormTypeState:
     @_builtins.property
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the domain.
-        """
         return pulumi.get(self, "domain_identifier")
 
     @domain_identifier.setter
@@ -264,9 +217,6 @@ class _FormTypeState:
     @_builtins.property
     @pulumi.getter
     def model(self) -> Optional[pulumi.Input['FormTypeModelArgs']]:
-        """
-        Object of the model of the form type that contains the following attributes.
-        """
         return pulumi.get(self, "model")
 
     @model.setter
@@ -276,9 +226,6 @@ class _FormTypeState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the form type. Must be the name of the structure in smithy document.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -288,9 +235,6 @@ class _FormTypeState:
     @_builtins.property
     @pulumi.getter(name="originDomainId")
     def origin_domain_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Origin domain id of the Form Type.
-        """
         return pulumi.get(self, "origin_domain_id")
 
     @origin_domain_id.setter
@@ -300,9 +244,6 @@ class _FormTypeState:
     @_builtins.property
     @pulumi.getter(name="originProjectId")
     def origin_project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Origin project id of the Form Type.
-        """
         return pulumi.get(self, "origin_project_id")
 
     @origin_project_id.setter
@@ -312,9 +253,6 @@ class _FormTypeState:
     @_builtins.property
     @pulumi.getter(name="owningProjectIdentifier")
     def owning_project_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
-        """
         return pulumi.get(self, "owning_project_identifier")
 
     @owning_project_identifier.setter
@@ -324,9 +262,6 @@ class _FormTypeState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -336,9 +271,6 @@ class _FormTypeState:
     @_builtins.property
     @pulumi.getter
     def revision(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Revision of the Form Type.
-        """
         return pulumi.get(self, "revision")
 
     @revision.setter
@@ -380,108 +312,9 @@ class FormType(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['FormTypeTimeoutsArgs', 'FormTypeTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS DataZone Form Type.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        domain_execution_role = aws.iam.Role("domain_execution_role",
-            name="example-role",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [
-                    {
-                        "Action": [
-                            "sts:AssumeRole",
-                            "sts:TagSession",
-                        ],
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "datazone.amazonaws.com",
-                        },
-                    },
-                    {
-                        "Action": [
-                            "sts:AssumeRole",
-                            "sts:TagSession",
-                        ],
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "cloudformation.amazonaws.com",
-                        },
-                    },
-                ],
-            }),
-            inline_policies=[{
-                "name": "example-policy",
-                "policy": json.dumps({
-                    "Version": "2012-10-17",
-                    "Statement": [{
-                        "Action": [
-                            "datazone:*",
-                            "ram:*",
-                            "sso:*",
-                            "kms:*",
-                        ],
-                        "Effect": "Allow",
-                        "Resource": "*",
-                    }],
-                }),
-            }])
-        test = aws.datazone.Domain("test",
-            name="example",
-            domain_execution_role=domain_execution_role.arn)
-        test_security_group = aws.ec2.SecurityGroup("test", name="example")
-        test_project = aws.datazone.Project("test",
-            domain_identifier=test.id,
-            glossary_terms=["2N8w6XJCwZf"],
-            name="example name",
-            description="desc",
-            skip_deletion_check=True)
-        test_form_type = aws.datazone.FormType("test",
-            description="desc",
-            name="SageMakerModelFormType",
-            domain_identifier=test.id,
-            owning_project_identifier=test_project.id,
-            status="DISABLED",
-            model={
-                "smithy": \"\"\"\\tstructure SageMakerModelFormType {
-        \\t\\t\\t@required
-        \\t\\t\\t@amazon.datazone#searchable
-        \\t\\t\\tmodelName: String
-
-        \\t\\t\\t@required
-        \\t\\t\\tmodelArn: String
-
-        \\t\\t\\t@required
-        \\t\\t\\tcreationTime: String
-        \\t\\t\\t}
-        \"\"\",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DataZone Form Type using a comma separated value of `domain_identifier`,`name`,`revision`. For example:
-
-        ```sh
-        $ pulumi import aws:datazone/formType:FormType example domain_identifier,name,revision
-        ```
-
+        Create a FormType resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Description of form type. Must have a length of between 1 and 2048 characters.
-        :param pulumi.Input[_builtins.str] domain_identifier: Identifier of the domain.
-        :param pulumi.Input[Union['FormTypeModelArgs', 'FormTypeModelArgsDict']] model: Object of the model of the form type that contains the following attributes.
-        :param pulumi.Input[_builtins.str] name: Name of the form type. Must be the name of the structure in smithy document.
-        :param pulumi.Input[_builtins.str] owning_project_identifier: Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -490,100 +323,7 @@ class FormType(pulumi.CustomResource):
                  args: FormTypeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS DataZone Form Type.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        domain_execution_role = aws.iam.Role("domain_execution_role",
-            name="example-role",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [
-                    {
-                        "Action": [
-                            "sts:AssumeRole",
-                            "sts:TagSession",
-                        ],
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "datazone.amazonaws.com",
-                        },
-                    },
-                    {
-                        "Action": [
-                            "sts:AssumeRole",
-                            "sts:TagSession",
-                        ],
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "cloudformation.amazonaws.com",
-                        },
-                    },
-                ],
-            }),
-            inline_policies=[{
-                "name": "example-policy",
-                "policy": json.dumps({
-                    "Version": "2012-10-17",
-                    "Statement": [{
-                        "Action": [
-                            "datazone:*",
-                            "ram:*",
-                            "sso:*",
-                            "kms:*",
-                        ],
-                        "Effect": "Allow",
-                        "Resource": "*",
-                    }],
-                }),
-            }])
-        test = aws.datazone.Domain("test",
-            name="example",
-            domain_execution_role=domain_execution_role.arn)
-        test_security_group = aws.ec2.SecurityGroup("test", name="example")
-        test_project = aws.datazone.Project("test",
-            domain_identifier=test.id,
-            glossary_terms=["2N8w6XJCwZf"],
-            name="example name",
-            description="desc",
-            skip_deletion_check=True)
-        test_form_type = aws.datazone.FormType("test",
-            description="desc",
-            name="SageMakerModelFormType",
-            domain_identifier=test.id,
-            owning_project_identifier=test_project.id,
-            status="DISABLED",
-            model={
-                "smithy": \"\"\"\\tstructure SageMakerModelFormType {
-        \\t\\t\\t@required
-        \\t\\t\\t@amazon.datazone#searchable
-        \\t\\t\\tmodelName: String
-
-        \\t\\t\\t@required
-        \\t\\t\\tmodelArn: String
-
-        \\t\\t\\t@required
-        \\t\\t\\tcreationTime: String
-        \\t\\t\\t}
-        \"\"\",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DataZone Form Type using a comma separated value of `domain_identifier`,`name`,`revision`. For example:
-
-        ```sh
-        $ pulumi import aws:datazone/formType:FormType example domain_identifier,name,revision
-        ```
-
+        Create a FormType resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param FormTypeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -665,17 +405,6 @@ class FormType(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] created_at: Creation time of the Form Type.
-        :param pulumi.Input[_builtins.str] created_by: Creator of the Form Type.
-        :param pulumi.Input[_builtins.str] description: Description of form type. Must have a length of between 1 and 2048 characters.
-        :param pulumi.Input[_builtins.str] domain_identifier: Identifier of the domain.
-        :param pulumi.Input[Union['FormTypeModelArgs', 'FormTypeModelArgsDict']] model: Object of the model of the form type that contains the following attributes.
-        :param pulumi.Input[_builtins.str] name: Name of the form type. Must be the name of the structure in smithy document.
-        :param pulumi.Input[_builtins.str] origin_domain_id: Origin domain id of the Form Type.
-        :param pulumi.Input[_builtins.str] origin_project_id: Origin project id of the Form Type.
-        :param pulumi.Input[_builtins.str] owning_project_identifier: Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] revision: Revision of the Form Type.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -700,33 +429,21 @@ class FormType(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        Creation time of the Form Type.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> pulumi.Output[_builtins.str]:
-        """
-        Creator of the Form Type.
-        """
         return pulumi.get(self, "created_by")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of form type. Must have a length of between 1 and 2048 characters.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of the domain.
-        """
         return pulumi.get(self, "domain_identifier")
 
     @_builtins.property
@@ -737,57 +454,36 @@ class FormType(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def model(self) -> pulumi.Output[Optional['outputs.FormTypeModel']]:
-        """
-        Object of the model of the form type that contains the following attributes.
-        """
         return pulumi.get(self, "model")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the form type. Must be the name of the structure in smithy document.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="originDomainId")
     def origin_domain_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Origin domain id of the Form Type.
-        """
         return pulumi.get(self, "origin_domain_id")
 
     @_builtins.property
     @pulumi.getter(name="originProjectId")
     def origin_project_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Origin project id of the Form Type.
-        """
         return pulumi.get(self, "origin_project_id")
 
     @_builtins.property
     @pulumi.getter(name="owningProjectIdentifier")
     def owning_project_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
-        """
         return pulumi.get(self, "owning_project_identifier")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def revision(self) -> pulumi.Output[_builtins.str]:
-        """
-        Revision of the Form Type.
-        """
         return pulumi.get(self, "revision")
 
     @_builtins.property

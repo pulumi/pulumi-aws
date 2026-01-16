@@ -15,17 +15,9 @@ public final class ServiceServiceConnectConfigurationServiceClientAliasTestTraff
 
     public static final ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs Empty = new ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs();
 
-    /**
-     * Configuration block for header-based routing rules. See below.
-     * 
-     */
     @Import(name="header")
     private @Nullable Output<ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs> header;
 
-    /**
-     * @return Configuration block for header-based routing rules. See below.
-     * 
-     */
     public Optional<Output<ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs>> header() {
         return Optional.ofNullable(this.header);
     }
@@ -54,23 +46,11 @@ public final class ServiceServiceConnectConfigurationServiceClientAliasTestTraff
             $ = new ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param header Configuration block for header-based routing rules. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder header(@Nullable Output<ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs> header) {
             $.header = header;
             return this;
         }
 
-        /**
-         * @param header Configuration block for header-based routing rules. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder header(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderArgs header) {
             return header(Output.of(header));
         }

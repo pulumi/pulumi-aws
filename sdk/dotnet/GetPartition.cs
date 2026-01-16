@@ -11,126 +11,12 @@ namespace Pulumi.Aws
 {
     public static class GetPartition
     {
-        /// <summary>
-        /// Use this data source to lookup information about the current AWS partition in
-        /// which the provider is working.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.GetPartition.Invoke();
-        /// 
-        ///     var s3Policy = Aws.Iam.GetPolicyDocument.Invoke(new()
-        ///     {
-        ///         Statements = new[]
-        ///         {
-        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-        ///             {
-        ///                 Sid = "1",
-        ///                 Actions = new[]
-        ///                 {
-        ///                     "s3:ListBucket",
-        ///                 },
-        ///                 Resources = new[]
-        ///                 {
-        ///                     $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:s3:::my-bucket",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetPartitionResult> InvokeAsync(GetPartitionArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPartitionResult>("aws:index/getPartition:getPartition", args ?? new GetPartitionArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to lookup information about the current AWS partition in
-        /// which the provider is working.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.GetPartition.Invoke();
-        /// 
-        ///     var s3Policy = Aws.Iam.GetPolicyDocument.Invoke(new()
-        ///     {
-        ///         Statements = new[]
-        ///         {
-        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-        ///             {
-        ///                 Sid = "1",
-        ///                 Actions = new[]
-        ///                 {
-        ///                     "s3:ListBucket",
-        ///                 },
-        ///                 Resources = new[]
-        ///                 {
-        ///                     $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:s3:::my-bucket",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPartitionResult> Invoke(GetPartitionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartitionResult>("aws:index/getPartition:getPartition", args ?? new GetPartitionInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to lookup information about the current AWS partition in
-        /// which the provider is working.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.GetPartition.Invoke();
-        /// 
-        ///     var s3Policy = Aws.Iam.GetPolicyDocument.Invoke(new()
-        ///     {
-        ///         Statements = new[]
-        ///         {
-        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-        ///             {
-        ///                 Sid = "1",
-        ///                 Actions = new[]
-        ///                 {
-        ///                     "s3:ListBucket",
-        ///                 },
-        ///                 Resources = new[]
-        ///                 {
-        ///                     $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:s3:::my-bucket",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPartitionResult> Invoke(GetPartitionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartitionResult>("aws:index/getPartition:getPartition", args ?? new GetPartitionInvokeArgs(), options.WithDefaults());
     }
@@ -138,9 +24,6 @@ namespace Pulumi.Aws
 
     public sealed class GetPartitionArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Identifier of the current partition (e.g., `Aws` in AWS Commercial, `aws-cn` in AWS China).
-        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
@@ -152,9 +35,6 @@ namespace Pulumi.Aws
 
     public sealed class GetPartitionInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Identifier of the current partition (e.g., `Aws` in AWS Commercial, `aws-cn` in AWS China).
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
@@ -168,21 +48,9 @@ namespace Pulumi.Aws
     [OutputType]
     public sealed class GetPartitionResult
     {
-        /// <summary>
-        /// Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
-        /// </summary>
         public readonly string DnsSuffix;
-        /// <summary>
-        /// Identifier of the current partition (e.g., `Aws` in AWS Commercial, `aws-cn` in AWS China).
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Identifier of the current partition (e.g., `Aws` in AWS Commercial, `aws-cn` in AWS China).
-        /// </summary>
         public readonly string Partition;
-        /// <summary>
-        /// Prefix of service names (e.g., `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
-        /// </summary>
         public readonly string ReverseDnsPrefix;
 
         [OutputConstructor]

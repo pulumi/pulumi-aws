@@ -24,19 +24,8 @@ MYPY = False
 if not MYPY:
     class LanguageModelInputDataConfigArgsDict(TypedDict):
         data_access_role_arn: pulumi.Input[_builtins.str]
-        """
-        IAM role with access to S3 bucket.
-        """
         s3_uri: pulumi.Input[_builtins.str]
-        """
-        S3 URI where training data is located.
-        """
         tuning_data_s3_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        S3 URI where tuning data is located.
-
-        The following arguments are optional:
-        """
 elif False:
     LanguageModelInputDataConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -46,13 +35,6 @@ class LanguageModelInputDataConfigArgs:
                  data_access_role_arn: pulumi.Input[_builtins.str],
                  s3_uri: pulumi.Input[_builtins.str],
                  tuning_data_s3_uri: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] data_access_role_arn: IAM role with access to S3 bucket.
-        :param pulumi.Input[_builtins.str] s3_uri: S3 URI where training data is located.
-        :param pulumi.Input[_builtins.str] tuning_data_s3_uri: S3 URI where tuning data is located.
-               
-               The following arguments are optional:
-        """
         pulumi.set(__self__, "data_access_role_arn", data_access_role_arn)
         pulumi.set(__self__, "s3_uri", s3_uri)
         if tuning_data_s3_uri is not None:
@@ -61,9 +43,6 @@ class LanguageModelInputDataConfigArgs:
     @_builtins.property
     @pulumi.getter(name="dataAccessRoleArn")
     def data_access_role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        IAM role with access to S3 bucket.
-        """
         return pulumi.get(self, "data_access_role_arn")
 
     @data_access_role_arn.setter
@@ -73,9 +52,6 @@ class LanguageModelInputDataConfigArgs:
     @_builtins.property
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> pulumi.Input[_builtins.str]:
-        """
-        S3 URI where training data is located.
-        """
         return pulumi.get(self, "s3_uri")
 
     @s3_uri.setter
@@ -85,11 +61,6 @@ class LanguageModelInputDataConfigArgs:
     @_builtins.property
     @pulumi.getter(name="tuningDataS3Uri")
     def tuning_data_s3_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        S3 URI where tuning data is located.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "tuning_data_s3_uri")
 
     @tuning_data_s3_uri.setter

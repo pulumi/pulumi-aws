@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get information about an ElastiCache User.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticache"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticache.LookupUser(ctx, &elasticache.LookupUserArgs{
-//				UserId: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserResult
@@ -50,23 +23,18 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getUser.
 type LookupUserArgs struct {
-	// String for what access a user possesses within the associated ElastiCache replication groups or clusters.
 	AccessString        *string                     `pulumi:"accessString"`
 	AuthenticationModes []GetUserAuthenticationMode `pulumi:"authenticationModes"`
 	Engine              *string                     `pulumi:"engine"`
 	NoPasswordRequired  *bool                       `pulumi:"noPasswordRequired"`
 	Passwords           []string                    `pulumi:"passwords"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Identifier for the user.
-	UserId string `pulumi:"userId"`
-	// User name of the user.
-	UserName *string `pulumi:"userName"`
+	Region              *string                     `pulumi:"region"`
+	UserId              string                      `pulumi:"userId"`
+	UserName            *string                     `pulumi:"userName"`
 }
 
 // A collection of values returned by getUser.
 type LookupUserResult struct {
-	// String for what access a user possesses within the associated ElastiCache replication groups or clusters.
 	AccessString        *string                     `pulumi:"accessString"`
 	AuthenticationModes []GetUserAuthenticationMode `pulumi:"authenticationModes"`
 	Engine              *string                     `pulumi:"engine"`
@@ -75,10 +43,8 @@ type LookupUserResult struct {
 	NoPasswordRequired *bool    `pulumi:"noPasswordRequired"`
 	Passwords          []string `pulumi:"passwords"`
 	Region             string   `pulumi:"region"`
-	// Identifier for the user.
-	UserId string `pulumi:"userId"`
-	// User name of the user.
-	UserName *string `pulumi:"userName"`
+	UserId             string   `pulumi:"userId"`
+	UserName           *string  `pulumi:"userName"`
 }
 
 func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pulumi.InvokeOption) LookupUserResultOutput {
@@ -92,18 +58,14 @@ func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getUser.
 type LookupUserOutputArgs struct {
-	// String for what access a user possesses within the associated ElastiCache replication groups or clusters.
 	AccessString        pulumi.StringPtrInput               `pulumi:"accessString"`
 	AuthenticationModes GetUserAuthenticationModeArrayInput `pulumi:"authenticationModes"`
 	Engine              pulumi.StringPtrInput               `pulumi:"engine"`
 	NoPasswordRequired  pulumi.BoolPtrInput                 `pulumi:"noPasswordRequired"`
 	Passwords           pulumi.StringArrayInput             `pulumi:"passwords"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Identifier for the user.
-	UserId pulumi.StringInput `pulumi:"userId"`
-	// User name of the user.
-	UserName pulumi.StringPtrInput `pulumi:"userName"`
+	Region              pulumi.StringPtrInput               `pulumi:"region"`
+	UserId              pulumi.StringInput                  `pulumi:"userId"`
+	UserName            pulumi.StringPtrInput               `pulumi:"userName"`
 }
 
 func (LookupUserOutputArgs) ElementType() reflect.Type {
@@ -125,7 +87,6 @@ func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.
 	return o
 }
 
-// String for what access a user possesses within the associated ElastiCache replication groups or clusters.
 func (o LookupUserResultOutput) AccessString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserResult) *string { return v.AccessString }).(pulumi.StringPtrOutput)
 }
@@ -155,12 +116,10 @@ func (o LookupUserResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Identifier for the user.
 func (o LookupUserResultOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.UserId }).(pulumi.StringOutput)
 }
 
-// User name of the user.
 func (o LookupUserResultOutput) UserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserResult) *string { return v.UserName }).(pulumi.StringPtrOutput)
 }

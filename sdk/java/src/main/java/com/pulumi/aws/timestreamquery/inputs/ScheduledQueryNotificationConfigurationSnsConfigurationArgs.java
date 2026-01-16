@@ -14,17 +14,9 @@ public final class ScheduledQueryNotificationConfigurationSnsConfigurationArgs e
 
     public static final ScheduledQueryNotificationConfigurationSnsConfigurationArgs Empty = new ScheduledQueryNotificationConfigurationSnsConfigurationArgs();
 
-    /**
-     * SNS topic ARN that the scheduled query status notifications will be sent to.
-     * 
-     */
     @Import(name="topicArn", required=true)
     private Output<String> topicArn;
 
-    /**
-     * @return SNS topic ARN that the scheduled query status notifications will be sent to.
-     * 
-     */
     public Output<String> topicArn() {
         return this.topicArn;
     }
@@ -53,23 +45,11 @@ public final class ScheduledQueryNotificationConfigurationSnsConfigurationArgs e
             $ = new ScheduledQueryNotificationConfigurationSnsConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param topicArn SNS topic ARN that the scheduled query status notifications will be sent to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicArn(Output<String> topicArn) {
             $.topicArn = topicArn;
             return this;
         }
 
-        /**
-         * @param topicArn SNS topic ARN that the scheduled query status notifications will be sent to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicArn(String topicArn) {
             return topicArn(Output.of(topicArn));
         }

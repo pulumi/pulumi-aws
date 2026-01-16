@@ -16,32 +16,16 @@ public final class BucketWebsiteConfigurationRedirectAllRequestsToArgs extends c
 
     public static final BucketWebsiteConfigurationRedirectAllRequestsToArgs Empty = new BucketWebsiteConfigurationRedirectAllRequestsToArgs();
 
-    /**
-     * Name of the host where requests are redirected.
-     * 
-     */
     @Import(name="hostName", required=true)
     private Output<String> hostName;
 
-    /**
-     * @return Name of the host where requests are redirected.
-     * 
-     */
     public Output<String> hostName() {
         return this.hostName;
     }
 
-    /**
-     * Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
-     * 
-     */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
-    /**
-     * @return Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
-     * 
-     */
     public Optional<Output<String>> protocol() {
         return Optional.ofNullable(this.protocol);
     }
@@ -71,44 +55,20 @@ public final class BucketWebsiteConfigurationRedirectAllRequestsToArgs extends c
             $ = new BucketWebsiteConfigurationRedirectAllRequestsToArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param hostName Name of the host where requests are redirected.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostName(Output<String> hostName) {
             $.hostName = hostName;
             return this;
         }
 
-        /**
-         * @param hostName Name of the host where requests are redirected.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostName(String hostName) {
             return hostName(Output.of(hostName));
         }
 
-        /**
-         * @param protocol Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocol(@Nullable Output<String> protocol) {
             $.protocol = protocol;
             return this;
         }
 
-        /**
-         * @param protocol Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
         }

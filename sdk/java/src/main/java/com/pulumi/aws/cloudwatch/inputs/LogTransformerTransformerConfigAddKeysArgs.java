@@ -15,17 +15,9 @@ public final class LogTransformerTransformerConfigAddKeysArgs extends com.pulumi
 
     public static final LogTransformerTransformerConfigAddKeysArgs Empty = new LogTransformerTransformerConfigAddKeysArgs();
 
-    /**
-     * Objects containing the information about the keys to add to the log event. You must include at least one entry, and five at most. See `addKeys` `entry` below for details.
-     * 
-     */
     @Import(name="entries", required=true)
     private Output<List<LogTransformerTransformerConfigAddKeysEntryArgs>> entries;
 
-    /**
-     * @return Objects containing the information about the keys to add to the log event. You must include at least one entry, and five at most. See `addKeys` `entry` below for details.
-     * 
-     */
     public Output<List<LogTransformerTransformerConfigAddKeysEntryArgs>> entries() {
         return this.entries;
     }
@@ -54,33 +46,15 @@ public final class LogTransformerTransformerConfigAddKeysArgs extends com.pulumi
             $ = new LogTransformerTransformerConfigAddKeysArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param entries Objects containing the information about the keys to add to the log event. You must include at least one entry, and five at most. See `addKeys` `entry` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entries(Output<List<LogTransformerTransformerConfigAddKeysEntryArgs>> entries) {
             $.entries = entries;
             return this;
         }
 
-        /**
-         * @param entries Objects containing the information about the keys to add to the log event. You must include at least one entry, and five at most. See `addKeys` `entry` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entries(List<LogTransformerTransformerConfigAddKeysEntryArgs> entries) {
             return entries(Output.of(entries));
         }
 
-        /**
-         * @param entries Objects containing the information about the keys to add to the log event. You must include at least one entry, and five at most. See `addKeys` `entry` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entries(LogTransformerTransformerConfigAddKeysEntryArgs... entries) {
             return entries(List.of(entries));
         }

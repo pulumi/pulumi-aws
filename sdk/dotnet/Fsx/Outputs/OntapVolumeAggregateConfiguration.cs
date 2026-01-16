@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Fsx.Outputs
     [OutputType]
     public sealed class OntapVolumeAggregateConfiguration
     {
-        /// <summary>
-        /// Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
-        /// </summary>
         public readonly ImmutableArray<string> Aggregates;
-        /// <summary>
-        /// Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
-        /// </summary>
         public readonly int? ConstituentsPerAggregate;
-        /// <summary>
-        /// The total amount of constituents for a `FLEXGROUP` volume. This would equal ConstituentsPerAggregate x aggregates.
-        /// </summary>
         public readonly int? TotalConstituents;
 
         [OutputConstructor]

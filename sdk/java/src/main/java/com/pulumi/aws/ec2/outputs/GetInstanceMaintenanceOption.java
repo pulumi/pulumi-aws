@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInstanceMaintenanceOption {
-    /**
-     * @return Automatic recovery behavior of the instance.
-     * 
-     */
     private String autoRecovery;
 
     private GetInstanceMaintenanceOption() {}
-    /**
-     * @return Automatic recovery behavior of the instance.
-     * 
-     */
     public String autoRecovery() {
         return this.autoRecovery;
     }

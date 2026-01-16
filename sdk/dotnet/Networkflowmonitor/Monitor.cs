@@ -9,117 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Networkflowmonitor
 {
-    /// <summary>
-    /// Manages a Network Flow Monitor Monitor.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.Vpc("example", new()
-    ///     {
-    ///         CidrBlock = "10.0.0.0/16",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleMonitor = new Aws.Networkflowmonitor.Monitor("example", new()
-    ///     {
-    ///         MonitorName = "example-monitor",
-    ///         ScopeArn = exampleAwsNetworkflowmonitorScope.ScopeArn,
-    ///         LocalResources = new[]
-    ///         {
-    ///             new Aws.Networkflowmonitor.Inputs.MonitorLocalResourceArgs
-    ///             {
-    ///                 Type = "AWS::EC2::VPC",
-    ///                 Identifier = example.Arn,
-    ///             },
-    ///         },
-    ///         RemoteResources = new[]
-    ///         {
-    ///             new Aws.Networkflowmonitor.Inputs.MonitorRemoteResourceArgs
-    ///             {
-    ///                 Type = "AWS::EC2::VPC",
-    ///                 Identifier = example.Arn,
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Network Flow Monitor Monitor using the monitor name. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:networkflowmonitor/monitor:Monitor example example-monitor
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:networkflowmonitor/monitor:Monitor")]
     public partial class Monitor : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
-        /// </summary>
         [Output("localResources")]
         public Output<ImmutableArray<Outputs.MonitorLocalResource>> LocalResources { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the monitor.
-        /// </summary>
         [Output("monitorArn")]
         public Output<string> MonitorArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the monitor. Cannot be changed after creation.
-        /// </summary>
         [Output("monitorName")]
         public Output<string> MonitorName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource.
-        /// </summary>
         [Output("remoteResources")]
         public Output<ImmutableArray<Outputs.MonitorRemoteResource>> RemoteResources { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("scopeArn")]
         public Output<string> ScopeArn { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -174,54 +87,31 @@ namespace Pulumi.Aws.Networkflowmonitor
     {
         [Input("localResources")]
         private InputList<Inputs.MonitorLocalResourceArgs>? _localResources;
-
-        /// <summary>
-        /// The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
-        /// </summary>
         public InputList<Inputs.MonitorLocalResourceArgs> LocalResources
         {
             get => _localResources ?? (_localResources = new InputList<Inputs.MonitorLocalResourceArgs>());
             set => _localResources = value;
         }
 
-        /// <summary>
-        /// The name of the monitor. Cannot be changed after creation.
-        /// </summary>
         [Input("monitorName", required: true)]
         public Input<string> MonitorName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("remoteResources")]
         private InputList<Inputs.MonitorRemoteResourceArgs>? _remoteResources;
-
-        /// <summary>
-        /// The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource.
-        /// </summary>
         public InputList<Inputs.MonitorRemoteResourceArgs> RemoteResources
         {
             get => _remoteResources ?? (_remoteResources = new InputList<Inputs.MonitorRemoteResourceArgs>());
             set => _remoteResources = value;
         }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("scopeArn", required: true)]
         public Input<string> ScopeArn { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -241,60 +131,34 @@ namespace Pulumi.Aws.Networkflowmonitor
     {
         [Input("localResources")]
         private InputList<Inputs.MonitorLocalResourceGetArgs>? _localResources;
-
-        /// <summary>
-        /// The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
-        /// </summary>
         public InputList<Inputs.MonitorLocalResourceGetArgs> LocalResources
         {
             get => _localResources ?? (_localResources = new InputList<Inputs.MonitorLocalResourceGetArgs>());
             set => _localResources = value;
         }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the monitor.
-        /// </summary>
         [Input("monitorArn")]
         public Input<string>? MonitorArn { get; set; }
 
-        /// <summary>
-        /// The name of the monitor. Cannot be changed after creation.
-        /// </summary>
         [Input("monitorName")]
         public Input<string>? MonitorName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("remoteResources")]
         private InputList<Inputs.MonitorRemoteResourceGetArgs>? _remoteResources;
-
-        /// <summary>
-        /// The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource.
-        /// </summary>
         public InputList<Inputs.MonitorRemoteResourceGetArgs> RemoteResources
         {
             get => _remoteResources ?? (_remoteResources = new InputList<Inputs.MonitorRemoteResourceGetArgs>());
             set => _remoteResources = value;
         }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("scopeArn")]
         public Input<string>? ScopeArn { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -303,10 +167,6 @@ namespace Pulumi.Aws.Networkflowmonitor
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

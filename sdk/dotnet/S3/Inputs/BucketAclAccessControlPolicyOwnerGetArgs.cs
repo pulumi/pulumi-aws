@@ -12,15 +12,9 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketAclAccessControlPolicyOwnerGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Display name of the owner.
-        /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
-        /// <summary>
-        /// ID of the owner.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 

@@ -15,53 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleSource {
-    /**
-     * @return Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`. See Custom Policy Details Below.
-     * 
-     */
     private @Nullable RuleSourceCustomPolicyDetails customPolicyDetails;
-    /**
-     * @return Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS`, `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g., via the `aws.lambda.Permission` resource.
-     * 
-     */
     private String owner;
-    /**
-     * @return Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
-     * 
-     */
     private @Nullable List<RuleSourceSourceDetail> sourceDetails;
-    /**
-     * @return For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `aws.lambda.Function` resource.
-     * 
-     */
     private @Nullable String sourceIdentifier;
 
     private RuleSource() {}
-    /**
-     * @return Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`. See Custom Policy Details Below.
-     * 
-     */
     public Optional<RuleSourceCustomPolicyDetails> customPolicyDetails() {
         return Optional.ofNullable(this.customPolicyDetails);
     }
-    /**
-     * @return Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS`, `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g., via the `aws.lambda.Permission` resource.
-     * 
-     */
     public String owner() {
         return this.owner;
     }
-    /**
-     * @return Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
-     * 
-     */
     public List<RuleSourceSourceDetail> sourceDetails() {
         return this.sourceDetails == null ? List.of() : this.sourceDetails;
     }
-    /**
-     * @return For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `aws.lambda.Function` resource.
-     * 
-     */
     public Optional<String> sourceIdentifier() {
         return Optional.ofNullable(this.sourceIdentifier);
     }

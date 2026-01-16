@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipelineTriggerGitConfigurationPush {
-    /**
-     * @return The field that specifies to filter on branches for the push trigger configuration. A `branches` block is documented below.
-     * 
-     */
     private @Nullable PipelineTriggerGitConfigurationPushBranches branches;
-    /**
-     * @return The field that specifies to filter on file paths for the push trigger configuration. A `filePaths` block is documented below.
-     * 
-     */
     private @Nullable PipelineTriggerGitConfigurationPushFilePaths filePaths;
-    /**
-     * @return The field that contains the details for the Git tags trigger configuration. A `tags` block is documented below.
-     * 
-     */
     private @Nullable PipelineTriggerGitConfigurationPushTags tags;
 
     private PipelineTriggerGitConfigurationPush() {}
-    /**
-     * @return The field that specifies to filter on branches for the push trigger configuration. A `branches` block is documented below.
-     * 
-     */
     public Optional<PipelineTriggerGitConfigurationPushBranches> branches() {
         return Optional.ofNullable(this.branches);
     }
-    /**
-     * @return The field that specifies to filter on file paths for the push trigger configuration. A `filePaths` block is documented below.
-     * 
-     */
     public Optional<PipelineTriggerGitConfigurationPushFilePaths> filePaths() {
         return Optional.ofNullable(this.filePaths);
     }
-    /**
-     * @return The field that contains the details for the Git tags trigger configuration. A `tags` block is documented below.
-     * 
-     */
     public Optional<PipelineTriggerGitConfigurationPushTags> tags() {
         return Optional.ofNullable(this.tags);
     }

@@ -17,32 +17,16 @@ public final class VirtualNodeSpecListenerTlsValidationArgs extends com.pulumi.r
 
     public static final VirtualNodeSpecListenerTlsValidationArgs Empty = new VirtualNodeSpecListenerTlsValidationArgs();
 
-    /**
-     * SANs for a TLS validation context.
-     * 
-     */
     @Import(name="subjectAlternativeNames")
     private @Nullable Output<VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs> subjectAlternativeNames;
 
-    /**
-     * @return SANs for a TLS validation context.
-     * 
-     */
     public Optional<Output<VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs>> subjectAlternativeNames() {
         return Optional.ofNullable(this.subjectAlternativeNames);
     }
 
-    /**
-     * TLS validation context trust.
-     * 
-     */
     @Import(name="trust", required=true)
     private Output<VirtualNodeSpecListenerTlsValidationTrustArgs> trust;
 
-    /**
-     * @return TLS validation context trust.
-     * 
-     */
     public Output<VirtualNodeSpecListenerTlsValidationTrustArgs> trust() {
         return this.trust;
     }
@@ -72,44 +56,20 @@ public final class VirtualNodeSpecListenerTlsValidationArgs extends com.pulumi.r
             $ = new VirtualNodeSpecListenerTlsValidationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param subjectAlternativeNames SANs for a TLS validation context.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subjectAlternativeNames(@Nullable Output<VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs> subjectAlternativeNames) {
             $.subjectAlternativeNames = subjectAlternativeNames;
             return this;
         }
 
-        /**
-         * @param subjectAlternativeNames SANs for a TLS validation context.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subjectAlternativeNames(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs subjectAlternativeNames) {
             return subjectAlternativeNames(Output.of(subjectAlternativeNames));
         }
 
-        /**
-         * @param trust TLS validation context trust.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trust(Output<VirtualNodeSpecListenerTlsValidationTrustArgs> trust) {
             $.trust = trust;
             return this;
         }
 
-        /**
-         * @param trust TLS validation context trust.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trust(VirtualNodeSpecListenerTlsValidationTrustArgs trust) {
             return trust(Output.of(trust));
         }

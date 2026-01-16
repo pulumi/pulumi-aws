@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Ecs.Inputs
     {
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
-
-        /// <summary>
-        /// The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
-        /// </summary>
         public InputList<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.Ecs.Inputs
 
         [Input("subnets", required: true)]
         private InputList<string>? _subnets;
-
-        /// <summary>
-        /// The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
-        /// </summary>
         public InputList<string> Subnets
         {
             get => _subnets ?? (_subnets = new InputList<string>());

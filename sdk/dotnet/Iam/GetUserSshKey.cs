@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Iam
 {
     public static class GetUserSshKey
     {
-        /// <summary>
-        /// Use this data source to get information about a SSH public key associated with the specified IAM user.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetUserSshKey.Invoke(new()
-        ///     {
-        ///         Encoding = "SSH",
-        ///         SshPublicKeyId = "APKARUZ32GUTKIGARLXE",
-        ///         Username = "test-user",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetUserSshKeyResult> InvokeAsync(GetUserSshKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserSshKeyResult>("aws:iam/getUserSshKey:getUserSshKey", args ?? new GetUserSshKeyArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about a SSH public key associated with the specified IAM user.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetUserSshKey.Invoke(new()
-        ///     {
-        ///         Encoding = "SSH",
-        ///         SshPublicKeyId = "APKARUZ32GUTKIGARLXE",
-        ///         Username = "test-user",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetUserSshKeyResult> Invoke(GetUserSshKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserSshKeyResult>("aws:iam/getUserSshKey:getUserSshKey", args ?? new GetUserSshKeyInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about a SSH public key associated with the specified IAM user.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetUserSshKey.Invoke(new()
-        ///     {
-        ///         Encoding = "SSH",
-        ///         SshPublicKeyId = "APKARUZ32GUTKIGARLXE",
-        ///         Username = "test-user",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetUserSshKeyResult> Invoke(GetUserSshKeyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserSshKeyResult>("aws:iam/getUserSshKey:getUserSshKey", args ?? new GetUserSshKeyInvokeArgs(), options.WithDefaults());
     }
@@ -93,21 +24,12 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GetUserSshKeyArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
-        /// </summary>
         [Input("encoding", required: true)]
         public string Encoding { get; set; } = null!;
 
-        /// <summary>
-        /// Unique identifier for the SSH public key.
-        /// </summary>
         [Input("sshPublicKeyId", required: true)]
         public string SshPublicKeyId { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the IAM user associated with the SSH public key.
-        /// </summary>
         [Input("username", required: true)]
         public string Username { get; set; } = null!;
 
@@ -119,21 +41,12 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GetUserSshKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
-        /// </summary>
         [Input("encoding", required: true)]
         public Input<string> Encoding { get; set; } = null!;
 
-        /// <summary>
-        /// Unique identifier for the SSH public key.
-        /// </summary>
         [Input("sshPublicKeyId", required: true)]
         public Input<string> SshPublicKeyId { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the IAM user associated with the SSH public key.
-        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
@@ -148,22 +61,13 @@ namespace Pulumi.Aws.Iam
     public sealed class GetUserSshKeyResult
     {
         public readonly string Encoding;
-        /// <summary>
-        /// MD5 message digest of the SSH public key.
-        /// </summary>
         public readonly string Fingerprint;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// SSH public key.
-        /// </summary>
         public readonly string PublicKey;
         public readonly string SshPublicKeyId;
-        /// <summary>
-        /// Status of the SSH public key. Active means that the key can be used for authentication with an CodeCommit repository. Inactive means that the key cannot be used.
-        /// </summary>
         public readonly string Status;
         public readonly string Username;
 

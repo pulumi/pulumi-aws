@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OntapVolumeAggregateConfiguration {
-    /**
-     * @return Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
-     * 
-     */
     private @Nullable List<String> aggregates;
-    /**
-     * @return Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
-     * 
-     */
     private @Nullable Integer constituentsPerAggregate;
-    /**
-     * @return The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
-     * 
-     */
     private @Nullable Integer totalConstituents;
 
     private OntapVolumeAggregateConfiguration() {}
-    /**
-     * @return Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
-     * 
-     */
     public List<String> aggregates() {
         return this.aggregates == null ? List.of() : this.aggregates;
     }
-    /**
-     * @return Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
-     * 
-     */
     public Optional<Integer> constituentsPerAggregate() {
         return Optional.ofNullable(this.constituentsPerAggregate);
     }
-    /**
-     * @return The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
-     * 
-     */
     public Optional<Integer> totalConstituents() {
         return Optional.ofNullable(this.totalConstituents);
     }

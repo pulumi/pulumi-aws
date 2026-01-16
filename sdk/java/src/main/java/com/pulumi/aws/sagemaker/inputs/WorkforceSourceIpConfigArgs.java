@@ -15,17 +15,9 @@ public final class WorkforceSourceIpConfigArgs extends com.pulumi.resources.Reso
 
     public static final WorkforceSourceIpConfigArgs Empty = new WorkforceSourceIpConfigArgs();
 
-    /**
-     * A list of up to 10 CIDR values.
-     * 
-     */
     @Import(name="cidrs", required=true)
     private Output<List<String>> cidrs;
 
-    /**
-     * @return A list of up to 10 CIDR values.
-     * 
-     */
     public Output<List<String>> cidrs() {
         return this.cidrs;
     }
@@ -54,33 +46,15 @@ public final class WorkforceSourceIpConfigArgs extends com.pulumi.resources.Reso
             $ = new WorkforceSourceIpConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cidrs A list of up to 10 CIDR values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrs(Output<List<String>> cidrs) {
             $.cidrs = cidrs;
             return this;
         }
 
-        /**
-         * @param cidrs A list of up to 10 CIDR values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrs(List<String> cidrs) {
             return cidrs(Output.of(cidrs));
         }
 
-        /**
-         * @param cidrs A list of up to 10 CIDR values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrs(String... cidrs) {
             return cidrs(List.of(cidrs));
         }

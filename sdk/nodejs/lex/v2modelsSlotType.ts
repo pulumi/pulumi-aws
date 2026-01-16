@@ -7,80 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Lex V2 Models Slot Type.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lex.V2modelsBot("example", {
- *     name: "example",
- *     idleSessionTtlInSeconds: 60,
- *     roleArn: exampleAwsIamRole.arn,
- *     dataPrivacies: [{
- *         childDirected: true,
- *     }],
- * });
- * const exampleV2modelsBotLocale = new aws.lex.V2modelsBotLocale("example", {
- *     localeId: "en_US",
- *     botId: example.id,
- *     botVersion: "DRAFT",
- *     nLuIntentConfidenceThreshold: 0.7,
- * });
- * const exampleV2modelsBotVersion = new aws.lex.V2modelsBotVersion("example", {
- *     botId: example.id,
- *     localeSpecification: exampleV2modelsBotLocale.localeId.apply(localeId => {
- *         [localeId]: {
- *             sourceBotVersion: "DRAFT",
- *         },
- *     }),
- * });
- * const exampleV2modelsSlotType = new aws.lex.V2modelsSlotType("example", {
- *     botId: example.id,
- *     botVersion: exampleV2modelsBotLocale.botVersion,
- *     name: "example",
- *     localeId: exampleV2modelsBotLocale.localeId,
- * });
- * ```
- *
- * ### valueSelectionSetting Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lex.V2modelsSlotType("example", {
- *     botId: exampleAwsLexv2modelsBot.id,
- *     botVersion: exampleAwsLexv2modelsBotLocale.botVersion,
- *     name: "example",
- *     localeId: exampleAwsLexv2modelsBotLocale.localeId,
- *     valueSelectionSetting: {
- *         resolutionStrategy: "OriginalValue",
- *         advancedRecognitionSettings: [{
- *             audioRecognitionStrategy: "UseSlotValuesAsCustomVocabulary",
- *         }],
- *     },
- *     slotTypeValues: [{
- *         sampleValues: [{
- *             value: "exampleValue",
- *         }],
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Lex V2 Models Slot Type using using a comma-delimited string concatenating `bot_id`, `bot_version`, `locale_id`, and `slot_type_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:lex/v2modelsSlotType:V2modelsSlotType example bot-1234,DRAFT,en_US,slot_type-id-12345678
- * ```
- */
 export class V2modelsSlotType extends pulumi.CustomResource {
     /**
      * Get an existing V2modelsSlotType resource's state with the given name, ID, and optional extra
@@ -109,64 +35,18 @@ export class V2modelsSlotType extends pulumi.CustomResource {
         return obj['__pulumiType'] === V2modelsSlotType.__pulumiType;
     }
 
-    /**
-     * Identifier of the bot associated with this slot type.
-     */
     declare public readonly botId: pulumi.Output<string>;
-    /**
-     * Version of the bot associated with this slot type.
-     */
     declare public readonly botVersion: pulumi.Output<string>;
-    /**
-     * Specifications for a composite slot type.
-     * See `compositeSlotTypeSetting` argument reference below.
-     */
     declare public readonly compositeSlotTypeSettings: pulumi.Output<outputs.lex.V2modelsSlotTypeCompositeSlotTypeSetting[] | undefined>;
-    /**
-     * Description of the slot type.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Type of external information used to create the slot type.
-     * See `externalSourceSetting` argument reference below.
-     */
     declare public readonly externalSourceSettings: pulumi.Output<outputs.lex.V2modelsSlotTypeExternalSourceSetting[] | undefined>;
-    /**
-     * Identifier of the language and locale where this slot type is used.
-     * All of the bots, slot types, and slots used by the intent must have the same locale.
-     */
     declare public readonly localeId: pulumi.Output<string>;
-    /**
-     * Name of the slot type.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Built-in slot type used as a parent of this slot type.
-     * When you define a parent slot type, the new slot type has the configuration of the parent slot type.
-     * Only `AMAZON.AlphaNumeric` is supported.
-     */
     declare public readonly parentSlotTypeSignature: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Unique identifier for the slot type.
-     */
     declare public /*out*/ readonly slotTypeId: pulumi.Output<string>;
-    /**
-     * List of SlotTypeValue objects that defines the values that the slot type can take.
-     * Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
-     * See `slotTypeValues` argument reference below.
-     */
     declare public readonly slotTypeValues: pulumi.Output<outputs.lex.V2modelsSlotTypeSlotTypeValue[] | undefined>;
     declare public readonly timeouts: pulumi.Output<outputs.lex.V2modelsSlotTypeTimeouts | undefined>;
-    /**
-     * Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
-     * See `valueSelectionSetting` argument reference below.
-     */
     declare public readonly valueSelectionSetting: pulumi.Output<outputs.lex.V2modelsSlotTypeValueSelectionSetting | undefined>;
 
     /**
@@ -229,64 +109,18 @@ export class V2modelsSlotType extends pulumi.CustomResource {
  * Input properties used for looking up and filtering V2modelsSlotType resources.
  */
 export interface V2modelsSlotTypeState {
-    /**
-     * Identifier of the bot associated with this slot type.
-     */
     botId?: pulumi.Input<string>;
-    /**
-     * Version of the bot associated with this slot type.
-     */
     botVersion?: pulumi.Input<string>;
-    /**
-     * Specifications for a composite slot type.
-     * See `compositeSlotTypeSetting` argument reference below.
-     */
     compositeSlotTypeSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotTypeCompositeSlotTypeSetting>[]>;
-    /**
-     * Description of the slot type.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Type of external information used to create the slot type.
-     * See `externalSourceSetting` argument reference below.
-     */
     externalSourceSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotTypeExternalSourceSetting>[]>;
-    /**
-     * Identifier of the language and locale where this slot type is used.
-     * All of the bots, slot types, and slots used by the intent must have the same locale.
-     */
     localeId?: pulumi.Input<string>;
-    /**
-     * Name of the slot type.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Built-in slot type used as a parent of this slot type.
-     * When you define a parent slot type, the new slot type has the configuration of the parent slot type.
-     * Only `AMAZON.AlphaNumeric` is supported.
-     */
     parentSlotTypeSignature?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Unique identifier for the slot type.
-     */
     slotTypeId?: pulumi.Input<string>;
-    /**
-     * List of SlotTypeValue objects that defines the values that the slot type can take.
-     * Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
-     * See `slotTypeValues` argument reference below.
-     */
     slotTypeValues?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotTypeSlotTypeValue>[]>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsSlotTypeTimeouts>;
-    /**
-     * Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
-     * See `valueSelectionSetting` argument reference below.
-     */
     valueSelectionSetting?: pulumi.Input<inputs.lex.V2modelsSlotTypeValueSelectionSetting>;
 }
 
@@ -294,59 +128,16 @@ export interface V2modelsSlotTypeState {
  * The set of arguments for constructing a V2modelsSlotType resource.
  */
 export interface V2modelsSlotTypeArgs {
-    /**
-     * Identifier of the bot associated with this slot type.
-     */
     botId: pulumi.Input<string>;
-    /**
-     * Version of the bot associated with this slot type.
-     */
     botVersion: pulumi.Input<string>;
-    /**
-     * Specifications for a composite slot type.
-     * See `compositeSlotTypeSetting` argument reference below.
-     */
     compositeSlotTypeSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotTypeCompositeSlotTypeSetting>[]>;
-    /**
-     * Description of the slot type.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Type of external information used to create the slot type.
-     * See `externalSourceSetting` argument reference below.
-     */
     externalSourceSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotTypeExternalSourceSetting>[]>;
-    /**
-     * Identifier of the language and locale where this slot type is used.
-     * All of the bots, slot types, and slots used by the intent must have the same locale.
-     */
     localeId: pulumi.Input<string>;
-    /**
-     * Name of the slot type.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Built-in slot type used as a parent of this slot type.
-     * When you define a parent slot type, the new slot type has the configuration of the parent slot type.
-     * Only `AMAZON.AlphaNumeric` is supported.
-     */
     parentSlotTypeSignature?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * List of SlotTypeValue objects that defines the values that the slot type can take.
-     * Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
-     * See `slotTypeValues` argument reference below.
-     */
     slotTypeValues?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotTypeSlotTypeValue>[]>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsSlotTypeTimeouts>;
-    /**
-     * Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
-     * See `valueSelectionSetting` argument reference below.
-     */
     valueSelectionSetting?: pulumi.Input<inputs.lex.V2modelsSlotTypeValueSelectionSetting>;
 }

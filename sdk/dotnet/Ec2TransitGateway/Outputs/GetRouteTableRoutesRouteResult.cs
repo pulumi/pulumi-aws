@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Ec2TransitGateway.Outputs
     [OutputType]
     public sealed class GetRouteTableRoutesRouteResult
     {
-        /// <summary>
-        /// The CIDR used for route destination matches.
-        /// </summary>
         public readonly string DestinationCidrBlock;
-        /// <summary>
-        /// The ID of the prefix list used for destination matches.
-        /// </summary>
         public readonly string PrefixListId;
-        /// <summary>
-        /// The current state of the route, can be `Active`, `Deleted`, `Pending`, `Blackhole`, `Deleting`.
-        /// </summary>
         public readonly string State;
-        /// <summary>
-        /// The id of the transit gateway route table announcement, most of the time it is an empty string.
-        /// </summary>
         public readonly string TransitGatewayRouteTableAnnouncementId;
-        /// <summary>
-        /// The type of the route, can be `Propagated` or `Static`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class RouteSpecHttpRouteMatchPath
     {
-        /// <summary>
-        /// The exact path to match on.
-        /// </summary>
         public readonly string? Exact;
-        /// <summary>
-        /// The regex used to match the path.
-        /// </summary>
         public readonly string? Regex;
 
         [OutputConstructor]

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.TimestreamQuery.Outputs
     [OutputType]
     public sealed class ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocation
     {
-        /// <summary>
-        /// S3 bucket name.
-        /// </summary>
         public readonly string? BucketName;
-        /// <summary>
-        /// S3 key.
-        /// </summary>
         public readonly string? ObjectKey;
 
         [OutputConstructor]

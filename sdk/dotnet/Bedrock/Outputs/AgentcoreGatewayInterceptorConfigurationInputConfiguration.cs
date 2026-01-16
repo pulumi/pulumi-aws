@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreGatewayInterceptorConfigurationInputConfiguration
     {
-        /// <summary>
-        /// Whether to pass request headers to the interceptor.
-        /// </summary>
         public readonly bool PassRequestHeaders;
 
         [OutputConstructor]

@@ -12,61 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to create a VPC Internet Gateway Attachment.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVpc, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.1.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleInternetGateway, err := ec2.NewInternetGateway(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewInternetGatewayAttachment(ctx, "example", &ec2.InternetGatewayAttachmentArgs{
-//				InternetGatewayId: exampleInternetGateway.ID(),
-//				VpcId:             exampleVpc.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Internet Gateway Attachments using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/internetGatewayAttachment:InternetGatewayAttachment example igw-c0a643a9:vpc-123456
-// ```
 type InternetGatewayAttachment struct {
 	pulumi.CustomResourceState
 
-	// The ID of the internet gateway.
 	InternetGatewayId pulumi.StringOutput `pulumi:"internetGatewayId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The ID of the VPC.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	Region            pulumi.StringOutput `pulumi:"region"`
+	VpcId             pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewInternetGatewayAttachment registers a new resource with the given unique name, arguments, and options.
@@ -105,21 +56,15 @@ func GetInternetGatewayAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InternetGatewayAttachment resources.
 type internetGatewayAttachmentState struct {
-	// The ID of the internet gateway.
 	InternetGatewayId *string `pulumi:"internetGatewayId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the VPC.
-	VpcId *string `pulumi:"vpcId"`
+	Region            *string `pulumi:"region"`
+	VpcId             *string `pulumi:"vpcId"`
 }
 
 type InternetGatewayAttachmentState struct {
-	// The ID of the internet gateway.
 	InternetGatewayId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the VPC.
-	VpcId pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
+	VpcId             pulumi.StringPtrInput
 }
 
 func (InternetGatewayAttachmentState) ElementType() reflect.Type {
@@ -127,22 +72,16 @@ func (InternetGatewayAttachmentState) ElementType() reflect.Type {
 }
 
 type internetGatewayAttachmentArgs struct {
-	// The ID of the internet gateway.
-	InternetGatewayId string `pulumi:"internetGatewayId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the VPC.
-	VpcId string `pulumi:"vpcId"`
+	InternetGatewayId string  `pulumi:"internetGatewayId"`
+	Region            *string `pulumi:"region"`
+	VpcId             string  `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a InternetGatewayAttachment resource.
 type InternetGatewayAttachmentArgs struct {
-	// The ID of the internet gateway.
 	InternetGatewayId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the VPC.
-	VpcId pulumi.StringInput
+	Region            pulumi.StringPtrInput
+	VpcId             pulumi.StringInput
 }
 
 func (InternetGatewayAttachmentArgs) ElementType() reflect.Type {
@@ -232,17 +171,14 @@ func (o InternetGatewayAttachmentOutput) ToInternetGatewayAttachmentOutputWithCo
 	return o
 }
 
-// The ID of the internet gateway.
 func (o InternetGatewayAttachmentOutput) InternetGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InternetGatewayAttachment) pulumi.StringOutput { return v.InternetGatewayId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InternetGatewayAttachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InternetGatewayAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ID of the VPC.
 func (o InternetGatewayAttachmentOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InternetGatewayAttachment) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

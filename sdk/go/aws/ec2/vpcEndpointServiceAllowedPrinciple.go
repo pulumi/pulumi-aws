@@ -12,55 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to allow a principal to discover a VPC endpoint service.
-//
-// > **NOTE on VPC Endpoint Services and VPC Endpoint Service Allowed Principals:** This provider provides
-// both a standalone VPC Endpoint Service Allowed Principal resource
-// and a VPC Endpoint Service resource with an `allowedPrincipals` attribute. Do not use the same principal ARN in both
-// a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
-// and will overwrite the association.
-//
-// ## Example Usage
-//
-// Basic usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpcEndpointServiceAllowedPrinciple(ctx, "allow_me_to_foo", &ec2.VpcEndpointServiceAllowedPrincipleArgs{
-//				VpcEndpointServiceId: pulumi.Any(foo.Id),
-//				PrincipalArn:         pulumi.String(current.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type VpcEndpointServiceAllowedPrinciple struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the principal to allow permissions.
-	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The ID of the VPC endpoint service to allow permission.
+	PrincipalArn         pulumi.StringOutput `pulumi:"principalArn"`
+	Region               pulumi.StringOutput `pulumi:"region"`
 	VpcEndpointServiceId pulumi.StringOutput `pulumi:"vpcEndpointServiceId"`
 }
 
@@ -100,20 +56,14 @@ func GetVpcEndpointServiceAllowedPrinciple(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcEndpointServiceAllowedPrinciple resources.
 type vpcEndpointServiceAllowedPrincipleState struct {
-	// The ARN of the principal to allow permissions.
-	PrincipalArn *string `pulumi:"principalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the VPC endpoint service to allow permission.
+	PrincipalArn         *string `pulumi:"principalArn"`
+	Region               *string `pulumi:"region"`
 	VpcEndpointServiceId *string `pulumi:"vpcEndpointServiceId"`
 }
 
 type VpcEndpointServiceAllowedPrincipleState struct {
-	// The ARN of the principal to allow permissions.
-	PrincipalArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the VPC endpoint service to allow permission.
+	PrincipalArn         pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
 	VpcEndpointServiceId pulumi.StringPtrInput
 }
 
@@ -122,21 +72,15 @@ func (VpcEndpointServiceAllowedPrincipleState) ElementType() reflect.Type {
 }
 
 type vpcEndpointServiceAllowedPrincipleArgs struct {
-	// The ARN of the principal to allow permissions.
-	PrincipalArn string `pulumi:"principalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the VPC endpoint service to allow permission.
-	VpcEndpointServiceId string `pulumi:"vpcEndpointServiceId"`
+	PrincipalArn         string  `pulumi:"principalArn"`
+	Region               *string `pulumi:"region"`
+	VpcEndpointServiceId string  `pulumi:"vpcEndpointServiceId"`
 }
 
 // The set of arguments for constructing a VpcEndpointServiceAllowedPrinciple resource.
 type VpcEndpointServiceAllowedPrincipleArgs struct {
-	// The ARN of the principal to allow permissions.
-	PrincipalArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the VPC endpoint service to allow permission.
+	PrincipalArn         pulumi.StringInput
+	Region               pulumi.StringPtrInput
 	VpcEndpointServiceId pulumi.StringInput
 }
 
@@ -227,17 +171,14 @@ func (o VpcEndpointServiceAllowedPrincipleOutput) ToVpcEndpointServiceAllowedPri
 	return o
 }
 
-// The ARN of the principal to allow permissions.
 func (o VpcEndpointServiceAllowedPrincipleOutput) PrincipalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointServiceAllowedPrinciple) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcEndpointServiceAllowedPrincipleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointServiceAllowedPrinciple) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ID of the VPC endpoint service to allow permission.
 func (o VpcEndpointServiceAllowedPrincipleOutput) VpcEndpointServiceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointServiceAllowedPrinciple) pulumi.StringOutput { return v.VpcEndpointServiceId }).(pulumi.StringOutput)
 }

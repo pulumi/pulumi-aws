@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MultitenantDistributionOriginOriginShield {
-    /**
-     * @return Whether Origin Shield is enabled.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return AWS Region for Origin Shield. Required when `enabled` is `true`.
-     * 
-     */
     private @Nullable String originShieldRegion;
 
     private MultitenantDistributionOriginOriginShield() {}
-    /**
-     * @return Whether Origin Shield is enabled.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return AWS Region for Origin Shield. Required when `enabled` is `true`.
-     * 
-     */
     public Optional<String> originShieldRegion() {
         return Optional.ofNullable(this.originShieldRegion);
     }

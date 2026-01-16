@@ -7,22 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing a QuickSight Data Set.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.quicksight.getDataSet({
- *     dataSetId: "example-id",
- * });
- * ```
- */
 export function getDataSet(args: GetDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:quicksight/getDataSet:getDataSet", {
@@ -38,13 +22,7 @@ export function getDataSet(args: GetDataSetArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetDataSetArgs {
     awsAccountId?: string;
-    /**
-     * Identifier for the data set.
-     */
     dataSetId: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
     tags?: {[key: string]: string};
 }
@@ -74,22 +52,6 @@ export interface GetDataSetResult {
     readonly rowLevelPermissionTagConfigurations: outputs.quicksight.GetDataSetRowLevelPermissionTagConfiguration[];
     readonly tags: {[key: string]: string};
 }
-/**
- * Data source for managing a QuickSight Data Set.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.quicksight.getDataSet({
- *     dataSetId: "example-id",
- * });
- * ```
- */
 export function getDataSetOutput(args: GetDataSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:quicksight/getDataSet:getDataSet", {
@@ -105,13 +67,7 @@ export function getDataSetOutput(args: GetDataSetOutputArgs, opts?: pulumi.Invok
  */
 export interface GetDataSetOutputArgs {
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * Identifier for the data set.
-     */
     dataSetId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

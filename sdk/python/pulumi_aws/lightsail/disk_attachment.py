@@ -25,10 +25,6 @@ class Disk_attachmentArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Disk_attachment resource.
-        :param pulumi.Input[_builtins.str] disk_name: Name of the Lightsail disk.
-        :param pulumi.Input[_builtins.str] disk_path: Disk path to expose to the instance.
-        :param pulumi.Input[_builtins.str] instance_name: Name of the Lightsail instance to attach to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "disk_name", disk_name)
         pulumi.set(__self__, "disk_path", disk_path)
@@ -39,9 +35,6 @@ class Disk_attachmentArgs:
     @_builtins.property
     @pulumi.getter(name="diskName")
     def disk_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Lightsail disk.
-        """
         return pulumi.get(self, "disk_name")
 
     @disk_name.setter
@@ -51,9 +44,6 @@ class Disk_attachmentArgs:
     @_builtins.property
     @pulumi.getter(name="diskPath")
     def disk_path(self) -> pulumi.Input[_builtins.str]:
-        """
-        Disk path to expose to the instance.
-        """
         return pulumi.get(self, "disk_path")
 
     @disk_path.setter
@@ -63,9 +53,6 @@ class Disk_attachmentArgs:
     @_builtins.property
     @pulumi.getter(name="instanceName")
     def instance_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Lightsail instance to attach to.
-        """
         return pulumi.get(self, "instance_name")
 
     @instance_name.setter
@@ -75,9 +62,6 @@ class Disk_attachmentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -94,10 +78,6 @@ class _Disk_attachmentState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Disk_attachment resources.
-        :param pulumi.Input[_builtins.str] disk_name: Name of the Lightsail disk.
-        :param pulumi.Input[_builtins.str] disk_path: Disk path to expose to the instance.
-        :param pulumi.Input[_builtins.str] instance_name: Name of the Lightsail instance to attach to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if disk_name is not None:
             pulumi.set(__self__, "disk_name", disk_name)
@@ -111,9 +91,6 @@ class _Disk_attachmentState:
     @_builtins.property
     @pulumi.getter(name="diskName")
     def disk_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Lightsail disk.
-        """
         return pulumi.get(self, "disk_name")
 
     @disk_name.setter
@@ -123,9 +100,6 @@ class _Disk_attachmentState:
     @_builtins.property
     @pulumi.getter(name="diskPath")
     def disk_path(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Disk path to expose to the instance.
-        """
         return pulumi.get(self, "disk_path")
 
     @disk_path.setter
@@ -135,9 +109,6 @@ class _Disk_attachmentState:
     @_builtins.property
     @pulumi.getter(name="instanceName")
     def instance_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Lightsail instance to attach to.
-        """
         return pulumi.get(self, "instance_name")
 
     @instance_name.setter
@@ -147,9 +118,6 @@ class _Disk_attachmentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -169,48 +137,9 @@ class Disk_attachment(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a Lightsail disk attachment. Use this resource to attach additional storage disks to your Lightsail instances for expanded storage capacity.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available",
-            filters=[{
-                "name": "opt-in-status",
-                "values": ["opt-in-not-required"],
-            }])
-        example = aws.lightsail.Disk("example",
-            name="example-disk",
-            size_in_gb=8,
-            availability_zone=available.names[0])
-        example_instance = aws.lightsail.Instance("example",
-            name="example-instance",
-            availability_zone=available.names[0],
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_3_0")
-        example_disk_attachment = aws.lightsail.Disk_attachment("example",
-            disk_name=example.name,
-            instance_name=example_instance.name,
-            disk_path="/dev/xvdf")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_lightsail_disk_attachment` using the id attribute. For example:
-
-        ```sh
-        $ pulumi import aws:lightsail/disk_attachment:Disk_attachment example example-disk,example-instance
-        ```
-
+        Create a Disk_attachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] disk_name: Name of the Lightsail disk.
-        :param pulumi.Input[_builtins.str] disk_path: Disk path to expose to the instance.
-        :param pulumi.Input[_builtins.str] instance_name: Name of the Lightsail instance to attach to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -219,42 +148,7 @@ class Disk_attachment(pulumi.CustomResource):
                  args: Disk_attachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Lightsail disk attachment. Use this resource to attach additional storage disks to your Lightsail instances for expanded storage capacity.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available",
-            filters=[{
-                "name": "opt-in-status",
-                "values": ["opt-in-not-required"],
-            }])
-        example = aws.lightsail.Disk("example",
-            name="example-disk",
-            size_in_gb=8,
-            availability_zone=available.names[0])
-        example_instance = aws.lightsail.Instance("example",
-            name="example-instance",
-            availability_zone=available.names[0],
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_3_0")
-        example_disk_attachment = aws.lightsail.Disk_attachment("example",
-            disk_name=example.name,
-            instance_name=example_instance.name,
-            disk_path="/dev/xvdf")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_lightsail_disk_attachment` using the id attribute. For example:
-
-        ```sh
-        $ pulumi import aws:lightsail/disk_attachment:Disk_attachment example example-disk,example-instance
-        ```
-
+        Create a Disk_attachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param Disk_attachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -314,10 +208,6 @@ class Disk_attachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] disk_name: Name of the Lightsail disk.
-        :param pulumi.Input[_builtins.str] disk_path: Disk path to expose to the instance.
-        :param pulumi.Input[_builtins.str] instance_name: Name of the Lightsail instance to attach to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -332,32 +222,20 @@ class Disk_attachment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="diskName")
     def disk_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Lightsail disk.
-        """
         return pulumi.get(self, "disk_name")
 
     @_builtins.property
     @pulumi.getter(name="diskPath")
     def disk_path(self) -> pulumi.Output[_builtins.str]:
-        """
-        Disk path to expose to the instance.
-        """
         return pulumi.get(self, "disk_path")
 
     @_builtins.property
     @pulumi.getter(name="instanceName")
     def instance_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Lightsail instance to attach to.
-        """
         return pulumi.get(self, "instance_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

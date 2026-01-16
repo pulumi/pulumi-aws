@@ -17,47 +17,23 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPostExtraction
 
     public static final DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs Empty = new DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs();
 
-    /**
-     * A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
-     * 
-     */
     @Import(name="invocationCondition")
     private @Nullable Output<DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs> invocationCondition;
 
-    /**
-     * @return A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
-     * 
-     */
     public Optional<Output<DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs>> invocationCondition() {
         return Optional.ofNullable(this.invocationCondition);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
-     * 
-     */
     @Import(name="lambdaArn", required=true)
     private Output<String> lambdaArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
-     * 
-     */
     public Output<String> lambdaArn() {
         return this.lambdaArn;
     }
 
-    /**
-     * Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
-     * 
-     */
     @Import(name="s3Bucket", required=true)
     private Output<String> s3Bucket;
 
-    /**
-     * @return Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
-     * 
-     */
     public Output<String> s3Bucket() {
         return this.s3Bucket;
     }
@@ -88,65 +64,29 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPostExtraction
             $ = new DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param invocationCondition A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invocationCondition(@Nullable Output<DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs> invocationCondition) {
             $.invocationCondition = invocationCondition;
             return this;
         }
 
-        /**
-         * @param invocationCondition A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invocationCondition(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs invocationCondition) {
             return invocationCondition(Output.of(invocationCondition));
         }
 
-        /**
-         * @param lambdaArn The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaArn(Output<String> lambdaArn) {
             $.lambdaArn = lambdaArn;
             return this;
         }
 
-        /**
-         * @param lambdaArn The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaArn(String lambdaArn) {
             return lambdaArn(Output.of(lambdaArn));
         }
 
-        /**
-         * @param s3Bucket Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Bucket(Output<String> s3Bucket) {
             $.s3Bucket = s3Bucket;
             return this;
         }
 
-        /**
-         * @param s3Bucket Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Bucket(String s3Bucket) {
             return s3Bucket(Output.of(s3Bucket));
         }

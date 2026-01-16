@@ -9,74 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.OpenSearch
 {
-    /// <summary>
-    /// Manages an [AWS Opensearch VPC Endpoint](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateVpcEndpoint.html). Creates an Amazon OpenSearch Service-managed VPC endpoint.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Aws.OpenSearch.VpcEndpoint("foo", new()
-    ///     {
-    ///         DomainArn = domain1.Arn,
-    ///         VpcOptions = new Aws.OpenSearch.Inputs.VpcEndpointVpcOptionsArgs
-    ///         {
-    ///             SecurityGroupIds = new[]
-    ///             {
-    ///                 test.Id,
-    ///                 test2.Id,
-    ///             },
-    ///             SubnetIds = new[]
-    ///             {
-    ///                 testAwsSubnet.Id,
-    ///                 test2AwsSubnet.Id,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import OpenSearch VPC endpoint connections using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:opensearch/vpcEndpoint:VpcEndpoint example endpoint-id
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:opensearch/vpcEndpoint:VpcEndpoint")]
     public partial class VpcEndpoint : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
-        /// </summary>
         [Output("domainArn")]
         public Output<string> DomainArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The connection endpoint ID for connecting to the domain.
-        /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Options to specify the subnets and security groups for the endpoint.
-        /// </summary>
         [Output("vpcOptions")]
         public Output<Outputs.VpcEndpointVpcOptions> VpcOptions { get; private set; } = null!;
 
@@ -126,21 +70,12 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class VpcEndpointArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
-        /// </summary>
         [Input("domainArn", required: true)]
         public Input<string> DomainArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Options to specify the subnets and security groups for the endpoint.
-        /// </summary>
         [Input("vpcOptions", required: true)]
         public Input<Inputs.VpcEndpointVpcOptionsArgs> VpcOptions { get; set; } = null!;
 
@@ -152,27 +87,15 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class VpcEndpointState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
-        /// </summary>
         [Input("domainArn")]
         public Input<string>? DomainArn { get; set; }
 
-        /// <summary>
-        /// The connection endpoint ID for connecting to the domain.
-        /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Options to specify the subnets and security groups for the endpoint.
-        /// </summary>
         [Input("vpcOptions")]
         public Input<Inputs.VpcEndpointVpcOptionsGetArgs>? VpcOptions { get; set; }
 

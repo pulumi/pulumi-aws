@@ -15,32 +15,16 @@ public final class ApplicationApplicationConfigurationEnvironmentPropertiesPrope
 
     public static final ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs Empty = new ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs();
 
-    /**
-     * The key of the application execution property key-value map.
-     * 
-     */
     @Import(name="propertyGroupId", required=true)
     private Output<String> propertyGroupId;
 
-    /**
-     * @return The key of the application execution property key-value map.
-     * 
-     */
     public Output<String> propertyGroupId() {
         return this.propertyGroupId;
     }
 
-    /**
-     * Application execution property key-value map.
-     * 
-     */
     @Import(name="propertyMap", required=true)
     private Output<Map<String,String>> propertyMap;
 
-    /**
-     * @return Application execution property key-value map.
-     * 
-     */
     public Output<Map<String,String>> propertyMap() {
         return this.propertyMap;
     }
@@ -70,44 +54,20 @@ public final class ApplicationApplicationConfigurationEnvironmentPropertiesPrope
             $ = new ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param propertyGroupId The key of the application execution property key-value map.
-         * 
-         * @return builder
-         * 
-         */
         public Builder propertyGroupId(Output<String> propertyGroupId) {
             $.propertyGroupId = propertyGroupId;
             return this;
         }
 
-        /**
-         * @param propertyGroupId The key of the application execution property key-value map.
-         * 
-         * @return builder
-         * 
-         */
         public Builder propertyGroupId(String propertyGroupId) {
             return propertyGroupId(Output.of(propertyGroupId));
         }
 
-        /**
-         * @param propertyMap Application execution property key-value map.
-         * 
-         * @return builder
-         * 
-         */
         public Builder propertyMap(Output<Map<String,String>> propertyMap) {
             $.propertyMap = propertyMap;
             return this;
         }
 
-        /**
-         * @param propertyMap Application execution property key-value map.
-         * 
-         * @return builder
-         * 
-         */
         public Builder propertyMap(Map<String,String> propertyMap) {
             return propertyMap(Output.of(propertyMap));
         }

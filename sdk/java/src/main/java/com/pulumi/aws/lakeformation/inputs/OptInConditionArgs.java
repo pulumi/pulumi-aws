@@ -15,17 +15,9 @@ public final class OptInConditionArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final OptInConditionArgs Empty = new OptInConditionArgs();
 
-    /**
-     * List of LF-tag conditions or a saved expression that apply to the resource&#39;s LF-Tag policy.
-     * 
-     */
     @Import(name="expression")
     private @Nullable Output<String> expression;
 
-    /**
-     * @return List of LF-tag conditions or a saved expression that apply to the resource&#39;s LF-Tag policy.
-     * 
-     */
     public Optional<Output<String>> expression() {
         return Optional.ofNullable(this.expression);
     }
@@ -54,23 +46,11 @@ public final class OptInConditionArgs extends com.pulumi.resources.ResourceArgs 
             $ = new OptInConditionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param expression List of LF-tag conditions or a saved expression that apply to the resource&#39;s LF-Tag policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expression(@Nullable Output<String> expression) {
             $.expression = expression;
             return this;
         }
 
-        /**
-         * @param expression List of LF-tag conditions or a saved expression that apply to the resource&#39;s LF-Tag policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expression(String expression) {
             return expression(Output.of(expression));
         }

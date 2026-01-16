@@ -12,57 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a RDS DB Cluster association with an IAM Role. Example use cases:
-//
-// * [Creating an IAM Role to Allow Amazon Aurora to Access AWS Services](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.IAM.CreateRole.html)
-// * [Importing Amazon S3 Data into an RDS PostgreSQL DB Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PostgreSQL.S3Import.html)
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.NewClusterRoleAssociation(ctx, "example", &rds.ClusterRoleAssociationArgs{
-//				DbClusterIdentifier: pulumi.Any(exampleAwsRdsCluster.Id),
-//				FeatureName:         pulumi.String("S3_INTEGRATION"),
-//				RoleArn:             pulumi.Any(exampleAwsIamRole.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_rds_cluster_role_association` using the DB Cluster Identifier and IAM Role ARN separated by a comma (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:rds/clusterRoleAssociation:ClusterRoleAssociation example my-db-cluster,arn:aws:iam::123456789012:role/my-role
-// ```
 type ClusterRoleAssociation struct {
 	pulumi.CustomResourceState
 
-	// DB Cluster Identifier to associate with the IAM Role.
-	DbClusterIdentifier pulumi.StringOutput `pulumi:"dbClusterIdentifier"`
-	// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-	FeatureName pulumi.StringPtrOutput `pulumi:"featureName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	DbClusterIdentifier pulumi.StringOutput    `pulumi:"dbClusterIdentifier"`
+	FeatureName         pulumi.StringPtrOutput `pulumi:"featureName"`
+	Region              pulumi.StringOutput    `pulumi:"region"`
+	RoleArn             pulumi.StringOutput    `pulumi:"roleArn"`
 }
 
 // NewClusterRoleAssociation registers a new resource with the given unique name, arguments, and options.
@@ -101,25 +57,17 @@ func GetClusterRoleAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ClusterRoleAssociation resources.
 type clusterRoleAssociationState struct {
-	// DB Cluster Identifier to associate with the IAM Role.
 	DbClusterIdentifier *string `pulumi:"dbClusterIdentifier"`
-	// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-	FeatureName *string `pulumi:"featureName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
-	RoleArn *string `pulumi:"roleArn"`
+	FeatureName         *string `pulumi:"featureName"`
+	Region              *string `pulumi:"region"`
+	RoleArn             *string `pulumi:"roleArn"`
 }
 
 type ClusterRoleAssociationState struct {
-	// DB Cluster Identifier to associate with the IAM Role.
 	DbClusterIdentifier pulumi.StringPtrInput
-	// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-	FeatureName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
-	RoleArn pulumi.StringPtrInput
+	FeatureName         pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
+	RoleArn             pulumi.StringPtrInput
 }
 
 func (ClusterRoleAssociationState) ElementType() reflect.Type {
@@ -127,26 +75,18 @@ func (ClusterRoleAssociationState) ElementType() reflect.Type {
 }
 
 type clusterRoleAssociationArgs struct {
-	// DB Cluster Identifier to associate with the IAM Role.
-	DbClusterIdentifier string `pulumi:"dbClusterIdentifier"`
-	// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-	FeatureName *string `pulumi:"featureName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
-	RoleArn string `pulumi:"roleArn"`
+	DbClusterIdentifier string  `pulumi:"dbClusterIdentifier"`
+	FeatureName         *string `pulumi:"featureName"`
+	Region              *string `pulumi:"region"`
+	RoleArn             string  `pulumi:"roleArn"`
 }
 
 // The set of arguments for constructing a ClusterRoleAssociation resource.
 type ClusterRoleAssociationArgs struct {
-	// DB Cluster Identifier to associate with the IAM Role.
 	DbClusterIdentifier pulumi.StringInput
-	// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-	FeatureName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
-	RoleArn pulumi.StringInput
+	FeatureName         pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
+	RoleArn             pulumi.StringInput
 }
 
 func (ClusterRoleAssociationArgs) ElementType() reflect.Type {
@@ -236,22 +176,18 @@ func (o ClusterRoleAssociationOutput) ToClusterRoleAssociationOutputWithContext(
 	return o
 }
 
-// DB Cluster Identifier to associate with the IAM Role.
 func (o ClusterRoleAssociationOutput) DbClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterRoleAssociation) pulumi.StringOutput { return v.DbClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
 func (o ClusterRoleAssociationOutput) FeatureName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterRoleAssociation) pulumi.StringPtrOutput { return v.FeatureName }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ClusterRoleAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterRoleAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
 func (o ClusterRoleAssociationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterRoleAssociation) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

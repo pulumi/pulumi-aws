@@ -13,26 +13,10 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class FleetTargetCapacitySpecification
     {
-        /// <summary>
-        /// Default target capacity type. Valid values: `on-demand`, `Spot`.
-        /// </summary>
         public readonly string DefaultTargetCapacityType;
-        /// <summary>
-        /// The number of On-Demand units to request.
-        /// </summary>
         public readonly int? OnDemandTargetCapacity;
-        /// <summary>
-        /// The number of Spot units to request.
-        /// </summary>
         public readonly int? SpotTargetCapacity;
-        /// <summary>
-        /// The unit for the target capacity.
-        /// If you specify `TargetCapacityUnitType`, `InstanceRequirements` must be specified.
-        /// </summary>
         public readonly string? TargetCapacityUnitType;
-        /// <summary>
-        /// The number of units to request, filled using `DefaultTargetCapacityType`.
-        /// </summary>
         public readonly int TotalTargetCapacity;
 
         [OutputConstructor]

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Amazon Kendra index.
-        /// </summary>
         [Input("kendraIndexArn", required: true)]
         public Input<string> KendraIndexArn { get; set; } = null!;
 

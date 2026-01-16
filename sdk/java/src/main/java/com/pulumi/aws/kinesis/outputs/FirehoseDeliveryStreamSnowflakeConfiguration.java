@@ -19,257 +19,89 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirehoseDeliveryStreamSnowflakeConfiguration {
-    /**
-     * @return The URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
-     * 
-     */
     private String accountUrl;
-    /**
-     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
-     * 
-     */
     private @Nullable Integer bufferingInterval;
-    /**
-     * @return Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
-     * 
-     */
     private @Nullable Integer bufferingSize;
-    /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
-     * 
-     */
     private @Nullable FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
-    /**
-     * @return The name of the content column.
-     * 
-     */
     private @Nullable String contentColumnName;
-    /**
-     * @return The data loading option.
-     * 
-     */
     private @Nullable String dataLoadingOption;
-    /**
-     * @return The Snowflake database name.
-     * 
-     */
     private String database;
-    /**
-     * @return The passphrase for the private key.
-     * 
-     */
     private @Nullable String keyPassphrase;
-    /**
-     * @return The name of the metadata column.
-     * 
-     */
     private @Nullable String metadataColumnName;
-    /**
-     * @return The private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
-     * 
-     */
     private @Nullable String privateKey;
-    /**
-     * @return The processing configuration. See `processingConfiguration` block below for details.
-     * 
-     */
     private @Nullable FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration processingConfiguration;
-    /**
-     * @return After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
-     * 
-     */
     private @Nullable Integer retryDuration;
-    /**
-     * @return The ARN of the IAM role.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return The S3 backup mode.
-     * 
-     */
     private @Nullable String s3BackupMode;
-    /**
-     * @return The S3 configuration. See `s3Configuration` block below for details.
-     * 
-     */
     private FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration s3Configuration;
-    /**
-     * @return The Snowflake schema name.
-     * 
-     */
     private String schema;
-    /**
-     * @return The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
-     * 
-     */
     private @Nullable FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration secretsManagerConfiguration;
-    /**
-     * @return The configuration for Snowflake role.
-     * 
-     */
     private @Nullable FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration snowflakeRoleConfiguration;
-    /**
-     * @return The VPC configuration for Snowflake.
-     * 
-     */
     private @Nullable FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration snowflakeVpcConfiguration;
-    /**
-     * @return The Snowflake table name.
-     * 
-     */
     private String table;
-    /**
-     * @return The user for authentication. This value is required if `secretsManagerConfiguration` is not provided.
-     * 
-     */
     private @Nullable String user;
 
     private FirehoseDeliveryStreamSnowflakeConfiguration() {}
-    /**
-     * @return The URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
-     * 
-     */
     public String accountUrl() {
         return this.accountUrl;
     }
-    /**
-     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
-     * 
-     */
     public Optional<Integer> bufferingInterval() {
         return Optional.ofNullable(this.bufferingInterval);
     }
-    /**
-     * @return Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
-     * 
-     */
     public Optional<Integer> bufferingSize() {
         return Optional.ofNullable(this.bufferingSize);
     }
-    /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
-     * 
-     */
     public Optional<FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
         return Optional.ofNullable(this.cloudwatchLoggingOptions);
     }
-    /**
-     * @return The name of the content column.
-     * 
-     */
     public Optional<String> contentColumnName() {
         return Optional.ofNullable(this.contentColumnName);
     }
-    /**
-     * @return The data loading option.
-     * 
-     */
     public Optional<String> dataLoadingOption() {
         return Optional.ofNullable(this.dataLoadingOption);
     }
-    /**
-     * @return The Snowflake database name.
-     * 
-     */
     public String database() {
         return this.database;
     }
-    /**
-     * @return The passphrase for the private key.
-     * 
-     */
     public Optional<String> keyPassphrase() {
         return Optional.ofNullable(this.keyPassphrase);
     }
-    /**
-     * @return The name of the metadata column.
-     * 
-     */
     public Optional<String> metadataColumnName() {
         return Optional.ofNullable(this.metadataColumnName);
     }
-    /**
-     * @return The private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
-     * 
-     */
     public Optional<String> privateKey() {
         return Optional.ofNullable(this.privateKey);
     }
-    /**
-     * @return The processing configuration. See `processingConfiguration` block below for details.
-     * 
-     */
     public Optional<FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration> processingConfiguration() {
         return Optional.ofNullable(this.processingConfiguration);
     }
-    /**
-     * @return After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
-     * 
-     */
     public Optional<Integer> retryDuration() {
         return Optional.ofNullable(this.retryDuration);
     }
-    /**
-     * @return The ARN of the IAM role.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return The S3 backup mode.
-     * 
-     */
     public Optional<String> s3BackupMode() {
         return Optional.ofNullable(this.s3BackupMode);
     }
-    /**
-     * @return The S3 configuration. See `s3Configuration` block below for details.
-     * 
-     */
     public FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration s3Configuration() {
         return this.s3Configuration;
     }
-    /**
-     * @return The Snowflake schema name.
-     * 
-     */
     public String schema() {
         return this.schema;
     }
-    /**
-     * @return The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
-     * 
-     */
     public Optional<FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration> secretsManagerConfiguration() {
         return Optional.ofNullable(this.secretsManagerConfiguration);
     }
-    /**
-     * @return The configuration for Snowflake role.
-     * 
-     */
     public Optional<FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration> snowflakeRoleConfiguration() {
         return Optional.ofNullable(this.snowflakeRoleConfiguration);
     }
-    /**
-     * @return The VPC configuration for Snowflake.
-     * 
-     */
     public Optional<FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration> snowflakeVpcConfiguration() {
         return Optional.ofNullable(this.snowflakeVpcConfiguration);
     }
-    /**
-     * @return The Snowflake table name.
-     * 
-     */
     public String table() {
         return this.table;
     }
-    /**
-     * @return The user for authentication. This value is required if `secretsManagerConfiguration` is not provided.
-     * 
-     */
     public Optional<String> user() {
         return Optional.ofNullable(this.user);
     }

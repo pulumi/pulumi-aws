@@ -19,32 +19,16 @@ public final class ResourceSetArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ResourceSetArgs Empty = new ResourceSetArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
-     * 
-     */
     @Import(name="resourceSets")
     private @Nullable Output<List<ResourceSetResourceSetArgs>> resourceSets;
 
-    /**
-     * @return Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
-     * 
-     */
     public Optional<Output<List<ResourceSetResourceSetArgs>>> resourceSets() {
         return Optional.ofNullable(this.resourceSets);
     }
@@ -90,54 +74,24 @@ public final class ResourceSetArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ResourceSetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceSets Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceSets(@Nullable Output<List<ResourceSetResourceSetArgs>> resourceSets) {
             $.resourceSets = resourceSets;
             return this;
         }
 
-        /**
-         * @param resourceSets Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceSets(List<ResourceSetResourceSetArgs> resourceSets) {
             return resourceSets(Output.of(resourceSets));
         }
 
-        /**
-         * @param resourceSets Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceSets(ResourceSetResourceSetArgs... resourceSets) {
             return resourceSets(List.of(resourceSets));
         }

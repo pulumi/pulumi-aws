@@ -4,50 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Associate an existing ElastiCache user and an existing user group.
- *
- * > Pulumi will detect changes in the `aws.elasticache.UserGroup` since `aws.elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `lifecycle` `ignoreChanges` meta argument as shown in the example.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.elasticache.User("default", {
- *     userId: "defaultUserID",
- *     userName: "default",
- *     accessString: "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
- *     engine: "REDIS",
- *     passwords: ["password123456789"],
- * });
- * const example = new aws.elasticache.UserGroup("example", {
- *     engine: "REDIS",
- *     userGroupId: "userGroupId",
- *     userIds: [_default.userId],
- * });
- * const exampleUser = new aws.elasticache.User("example", {
- *     userId: "exampleUserID",
- *     userName: "exampleuser",
- *     accessString: "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
- *     engine: "REDIS",
- *     passwords: ["password123456789"],
- * });
- * const exampleUserGroupAssociation = new aws.elasticache.UserGroupAssociation("example", {
- *     userGroupId: example.userGroupId,
- *     userId: exampleUser.userId,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import ElastiCache user group associations using the `user_group_id` and `user_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
- * ```
- */
 export class UserGroupAssociation extends pulumi.CustomResource {
     /**
      * Get an existing UserGroupAssociation resource's state with the given name, ID, and optional extra
@@ -76,17 +32,8 @@ export class UserGroupAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserGroupAssociation.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ID of the user group.
-     */
     declare public readonly userGroupId: pulumi.Output<string>;
-    /**
-     * ID of the user to associated with the user group.
-     */
     declare public readonly userId: pulumi.Output<string>;
 
     /**
@@ -126,17 +73,8 @@ export class UserGroupAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserGroupAssociation resources.
  */
 export interface UserGroupAssociationState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ID of the user group.
-     */
     userGroupId?: pulumi.Input<string>;
-    /**
-     * ID of the user to associated with the user group.
-     */
     userId?: pulumi.Input<string>;
 }
 
@@ -144,16 +82,7 @@ export interface UserGroupAssociationState {
  * The set of arguments for constructing a UserGroupAssociation resource.
  */
 export interface UserGroupAssociationArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ID of the user group.
-     */
     userGroupId: pulumi.Input<string>;
-    /**
-     * ID of the user to associated with the user group.
-     */
     userId: pulumi.Input<string>;
 }

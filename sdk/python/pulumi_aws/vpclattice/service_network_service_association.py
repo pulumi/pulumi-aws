@@ -27,10 +27,6 @@ class ServiceNetworkServiceAssociationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServiceNetworkServiceAssociation resource.
-        :param pulumi.Input[_builtins.str] service_identifier: The ID or Amazon Resource Identifier (ARN) of the service.
-        :param pulumi.Input[_builtins.str] service_network_identifier: The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "service_identifier", service_identifier)
         pulumi.set(__self__, "service_network_identifier", service_network_identifier)
@@ -42,9 +38,6 @@ class ServiceNetworkServiceAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="serviceIdentifier")
     def service_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID or Amazon Resource Identifier (ARN) of the service.
-        """
         return pulumi.get(self, "service_identifier")
 
     @service_identifier.setter
@@ -54,9 +47,6 @@ class ServiceNetworkServiceAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="serviceNetworkIdentifier")
     def service_network_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-        """
         return pulumi.get(self, "service_network_identifier")
 
     @service_network_identifier.setter
@@ -66,9 +56,6 @@ class ServiceNetworkServiceAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +65,6 @@ class ServiceNetworkServiceAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -103,16 +87,6 @@ class _ServiceNetworkServiceAssociationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ServiceNetworkServiceAssociation resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Association.
-        :param pulumi.Input[_builtins.str] created_by: The account that created the association.
-        :param pulumi.Input[_builtins.str] custom_domain_name: The custom domain name of the service.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceNetworkServiceAssociationDnsEntryArgs']]] dns_entries: The DNS name of the service.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_identifier: The ID or Amazon Resource Identifier (ARN) of the service.
-        :param pulumi.Input[_builtins.str] service_network_identifier: The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-        :param pulumi.Input[_builtins.str] status: The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -138,9 +112,6 @@ class _ServiceNetworkServiceAssociationState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the Association.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -150,9 +121,6 @@ class _ServiceNetworkServiceAssociationState:
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The account that created the association.
-        """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
@@ -162,9 +130,6 @@ class _ServiceNetworkServiceAssociationState:
     @_builtins.property
     @pulumi.getter(name="customDomainName")
     def custom_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The custom domain name of the service.
-        """
         return pulumi.get(self, "custom_domain_name")
 
     @custom_domain_name.setter
@@ -174,9 +139,6 @@ class _ServiceNetworkServiceAssociationState:
     @_builtins.property
     @pulumi.getter(name="dnsEntries")
     def dns_entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkServiceAssociationDnsEntryArgs']]]]:
-        """
-        The DNS name of the service.
-        """
         return pulumi.get(self, "dns_entries")
 
     @dns_entries.setter
@@ -186,9 +148,6 @@ class _ServiceNetworkServiceAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -198,9 +157,6 @@ class _ServiceNetworkServiceAssociationState:
     @_builtins.property
     @pulumi.getter(name="serviceIdentifier")
     def service_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID or Amazon Resource Identifier (ARN) of the service.
-        """
         return pulumi.get(self, "service_identifier")
 
     @service_identifier.setter
@@ -210,9 +166,6 @@ class _ServiceNetworkServiceAssociationState:
     @_builtins.property
     @pulumi.getter(name="serviceNetworkIdentifier")
     def service_network_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-        """
         return pulumi.get(self, "service_network_identifier")
 
     @service_network_identifier.setter
@@ -222,9 +175,6 @@ class _ServiceNetworkServiceAssociationState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -234,9 +184,6 @@ class _ServiceNetworkServiceAssociationState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -246,9 +193,6 @@ class _ServiceNetworkServiceAssociationState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -268,35 +212,9 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS VPC Lattice Service Network Service Association.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.ServiceNetworkServiceAssociation("example",
-            service_identifier=example_aws_vpclattice_service["id"],
-            service_network_identifier=example_aws_vpclattice_service_network["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import VPC Lattice Service Network Service Association using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation example snsa-05e2474658a88f6ba
-        ```
-
+        Create a ServiceNetworkServiceAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_identifier: The ID or Amazon Resource Identifier (ARN) of the service.
-        :param pulumi.Input[_builtins.str] service_network_identifier: The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -305,29 +223,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
                  args: ServiceNetworkServiceAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS VPC Lattice Service Network Service Association.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.ServiceNetworkServiceAssociation("example",
-            service_identifier=example_aws_vpclattice_service["id"],
-            service_network_identifier=example_aws_vpclattice_service_network["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import VPC Lattice Service Network Service Association using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation example snsa-05e2474658a88f6ba
-        ```
-
+        Create a ServiceNetworkServiceAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ServiceNetworkServiceAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -397,16 +293,6 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Association.
-        :param pulumi.Input[_builtins.str] created_by: The account that created the association.
-        :param pulumi.Input[_builtins.str] custom_domain_name: The custom domain name of the service.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceNetworkServiceAssociationDnsEntryArgs', 'ServiceNetworkServiceAssociationDnsEntryArgsDict']]]] dns_entries: The DNS name of the service.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_identifier: The ID or Amazon Resource Identifier (ARN) of the service.
-        :param pulumi.Input[_builtins.str] service_network_identifier: The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-        :param pulumi.Input[_builtins.str] status: The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -427,80 +313,50 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the Association.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> pulumi.Output[_builtins.str]:
-        """
-        The account that created the association.
-        """
         return pulumi.get(self, "created_by")
 
     @_builtins.property
     @pulumi.getter(name="customDomainName")
     def custom_domain_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The custom domain name of the service.
-        """
         return pulumi.get(self, "custom_domain_name")
 
     @_builtins.property
     @pulumi.getter(name="dnsEntries")
     def dns_entries(self) -> pulumi.Output[Sequence['outputs.ServiceNetworkServiceAssociationDnsEntry']]:
-        """
-        The DNS name of the service.
-        """
         return pulumi.get(self, "dns_entries")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="serviceIdentifier")
     def service_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID or Amazon Resource Identifier (ARN) of the service.
-        """
         return pulumi.get(self, "service_identifier")
 
     @_builtins.property
     @pulumi.getter(name="serviceNetworkIdentifier")
     def service_network_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-        """
         return pulumi.get(self, "service_network_identifier")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

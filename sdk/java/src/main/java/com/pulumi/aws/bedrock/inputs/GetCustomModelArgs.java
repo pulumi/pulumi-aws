@@ -16,32 +16,16 @@ public final class GetCustomModelArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetCustomModelArgs Empty = new GetCustomModelArgs();
 
-    /**
-     * Name or ARN of the custom model.
-     * 
-     */
     @Import(name="modelId", required=true)
     private Output<String> modelId;
 
-    /**
-     * @return Name or ARN of the custom model.
-     * 
-     */
     public Output<String> modelId() {
         return this.modelId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -71,44 +55,20 @@ public final class GetCustomModelArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetCustomModelArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param modelId Name or ARN of the custom model.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelId(Output<String> modelId) {
             $.modelId = modelId;
             return this;
         }
 
-        /**
-         * @param modelId Name or ARN of the custom model.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelId(String modelId) {
             return modelId(Output.of(modelId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Keyspaces.Outputs
     [OutputType]
     public sealed class TableSchemaDefinition
     {
-        /// <summary>
-        /// The columns that are part of the clustering key of the table.
-        /// </summary>
         public readonly ImmutableArray<Outputs.TableSchemaDefinitionClusteringKey> ClusteringKeys;
-        /// <summary>
-        /// The regular columns of the table.
-        /// </summary>
         public readonly ImmutableArray<Outputs.TableSchemaDefinitionColumn> Columns;
-        /// <summary>
-        /// The columns that are part of the partition key of the table .
-        /// </summary>
         public readonly ImmutableArray<Outputs.TableSchemaDefinitionPartitionKey> PartitionKeys;
-        /// <summary>
-        /// The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
-        /// </summary>
         public readonly ImmutableArray<Outputs.TableSchemaDefinitionStaticColumn> StaticColumns;
 
         [OutputConstructor]

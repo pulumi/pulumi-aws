@@ -16,47 +16,23 @@ public final class RegistryPolicyArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final RegistryPolicyArgs Empty = new RegistryPolicyArgs();
 
-    /**
-     * Resource Policy for EventBridge Schema Registry
-     * 
-     */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
-    /**
-     * @return Resource Policy for EventBridge Schema Registry
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Name of EventBridge Schema Registry
-     * 
-     */
     @Import(name="registryName", required=true)
     private Output<String> registryName;
 
-    /**
-     * @return Name of EventBridge Schema Registry
-     * 
-     */
     public Output<String> registryName() {
         return this.registryName;
     }
@@ -87,65 +63,29 @@ public final class RegistryPolicyArgs extends com.pulumi.resources.ResourceArgs 
             $ = new RegistryPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policy Resource Policy for EventBridge Schema Registry
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy Resource Policy for EventBridge Schema Registry
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param registryName Name of EventBridge Schema Registry
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryName(Output<String> registryName) {
             $.registryName = registryName;
             return this;
         }
 
-        /**
-         * @param registryName Name of EventBridge Schema Registry
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryName(String registryName) {
             return registryName(Output.of(registryName));
         }

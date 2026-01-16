@@ -26,11 +26,6 @@ class HostedPrivateVirtualInterfaceAccepterArgs:
                  vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a HostedPrivateVirtualInterfaceAccepter resource.
-        :param pulumi.Input[_builtins.str] virtual_interface_id: The ID of the Direct Connect virtual interface to accept.
-        :param pulumi.Input[_builtins.str] dx_gateway_id: The ID of the Direct Connect gateway to which to connect the virtual interface.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vpn_gateway_id: The ID of the virtual private gateway to which to connect the virtual interface.
         """
         pulumi.set(__self__, "virtual_interface_id", virtual_interface_id)
         if dx_gateway_id is not None:
@@ -45,9 +40,6 @@ class HostedPrivateVirtualInterfaceAccepterArgs:
     @_builtins.property
     @pulumi.getter(name="virtualInterfaceId")
     def virtual_interface_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the Direct Connect virtual interface to accept.
-        """
         return pulumi.get(self, "virtual_interface_id")
 
     @virtual_interface_id.setter
@@ -57,9 +49,6 @@ class HostedPrivateVirtualInterfaceAccepterArgs:
     @_builtins.property
     @pulumi.getter(name="dxGatewayId")
     def dx_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the Direct Connect gateway to which to connect the virtual interface.
-        """
         return pulumi.get(self, "dx_gateway_id")
 
     @dx_gateway_id.setter
@@ -69,9 +58,6 @@ class HostedPrivateVirtualInterfaceAccepterArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -81,9 +67,6 @@ class HostedPrivateVirtualInterfaceAccepterArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -93,9 +76,6 @@ class HostedPrivateVirtualInterfaceAccepterArgs:
     @_builtins.property
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the virtual private gateway to which to connect the virtual interface.
-        """
         return pulumi.get(self, "vpn_gateway_id")
 
     @vpn_gateway_id.setter
@@ -115,13 +95,6 @@ class _HostedPrivateVirtualInterfaceAccepterState:
                  vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HostedPrivateVirtualInterfaceAccepter resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the virtual interface.
-        :param pulumi.Input[_builtins.str] dx_gateway_id: The ID of the Direct Connect gateway to which to connect the virtual interface.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] virtual_interface_id: The ID of the Direct Connect virtual interface to accept.
-        :param pulumi.Input[_builtins.str] vpn_gateway_id: The ID of the virtual private gateway to which to connect the virtual interface.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -141,9 +114,6 @@ class _HostedPrivateVirtualInterfaceAccepterState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the virtual interface.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -153,9 +123,6 @@ class _HostedPrivateVirtualInterfaceAccepterState:
     @_builtins.property
     @pulumi.getter(name="dxGatewayId")
     def dx_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the Direct Connect gateway to which to connect the virtual interface.
-        """
         return pulumi.get(self, "dx_gateway_id")
 
     @dx_gateway_id.setter
@@ -165,9 +132,6 @@ class _HostedPrivateVirtualInterfaceAccepterState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -177,9 +141,6 @@ class _HostedPrivateVirtualInterfaceAccepterState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -189,9 +150,6 @@ class _HostedPrivateVirtualInterfaceAccepterState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -201,9 +159,6 @@ class _HostedPrivateVirtualInterfaceAccepterState:
     @_builtins.property
     @pulumi.getter(name="virtualInterfaceId")
     def virtual_interface_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the Direct Connect virtual interface to accept.
-        """
         return pulumi.get(self, "virtual_interface_id")
 
     @virtual_interface_id.setter
@@ -213,9 +168,6 @@ class _HostedPrivateVirtualInterfaceAccepterState:
     @_builtins.property
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the virtual private gateway to which to connect the virtual interface.
-        """
         return pulumi.get(self, "vpn_gateway_id")
 
     @vpn_gateway_id.setter
@@ -236,50 +188,9 @@ class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
                  vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a resource to manage the accepter's side of a Direct Connect hosted private virtual interface.
-        This resource accepts ownership of a private virtual interface created by another AWS account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        accepter = aws.get_caller_identity()
-        # Accepter's side of the VIF.
-        vpn_gw = aws.ec2.VpnGateway("vpn_gw")
-        # Creator's side of the VIF
-        creator = aws.directconnect.HostedPrivateVirtualInterface("creator",
-            connection_id="dxcon-zzzzzzzz",
-            owner_account_id=accepter.account_id,
-            name="vif-foo",
-            vlan=4094,
-            address_family="ipv4",
-            bgp_asn=65352,
-            opts = pulumi.ResourceOptions(depends_on=[vpn_gw]))
-        accepter_hosted_private_virtual_interface_accepter = aws.directconnect.HostedPrivateVirtualInterfaceAccepter("accepter",
-            virtual_interface_id=creator.id,
-            vpn_gateway_id=vpn_gw.id,
-            tags={
-                "Side": "Accepter",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Direct Connect hosted private virtual interfaces using the VIF `id`. For example:
-
-        ```sh
-        $ pulumi import aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter test dxvif-33cc44dd
-        ```
-
+        Create a HostedPrivateVirtualInterfaceAccepter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] dx_gateway_id: The ID of the Direct Connect gateway to which to connect the virtual interface.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] virtual_interface_id: The ID of the Direct Connect virtual interface to accept.
-        :param pulumi.Input[_builtins.str] vpn_gateway_id: The ID of the virtual private gateway to which to connect the virtual interface.
         """
         ...
     @overload
@@ -288,43 +199,7 @@ class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
                  args: HostedPrivateVirtualInterfaceAccepterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage the accepter's side of a Direct Connect hosted private virtual interface.
-        This resource accepts ownership of a private virtual interface created by another AWS account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        accepter = aws.get_caller_identity()
-        # Accepter's side of the VIF.
-        vpn_gw = aws.ec2.VpnGateway("vpn_gw")
-        # Creator's side of the VIF
-        creator = aws.directconnect.HostedPrivateVirtualInterface("creator",
-            connection_id="dxcon-zzzzzzzz",
-            owner_account_id=accepter.account_id,
-            name="vif-foo",
-            vlan=4094,
-            address_family="ipv4",
-            bgp_asn=65352,
-            opts = pulumi.ResourceOptions(depends_on=[vpn_gw]))
-        accepter_hosted_private_virtual_interface_accepter = aws.directconnect.HostedPrivateVirtualInterfaceAccepter("accepter",
-            virtual_interface_id=creator.id,
-            vpn_gateway_id=vpn_gw.id,
-            tags={
-                "Side": "Accepter",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Direct Connect hosted private virtual interfaces using the VIF `id`. For example:
-
-        ```sh
-        $ pulumi import aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter test dxvif-33cc44dd
-        ```
-
+        Create a HostedPrivateVirtualInterfaceAccepter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param HostedPrivateVirtualInterfaceAccepterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -387,13 +262,6 @@ class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the virtual interface.
-        :param pulumi.Input[_builtins.str] dx_gateway_id: The ID of the Direct Connect gateway to which to connect the virtual interface.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] virtual_interface_id: The ID of the Direct Connect virtual interface to accept.
-        :param pulumi.Input[_builtins.str] vpn_gateway_id: The ID of the virtual private gateway to which to connect the virtual interface.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -411,56 +279,35 @@ class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the virtual interface.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="dxGatewayId")
     def dx_gateway_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The ID of the Direct Connect gateway to which to connect the virtual interface.
-        """
         return pulumi.get(self, "dx_gateway_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="virtualInterfaceId")
     def virtual_interface_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the Direct Connect virtual interface to accept.
-        """
         return pulumi.get(self, "virtual_interface_id")
 
     @_builtins.property
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The ID of the virtual private gateway to which to connect the virtual interface.
-        """
         return pulumi.get(self, "vpn_gateway_id")
 

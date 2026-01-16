@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TopicRuleKinesis {
-    /**
-     * @return The partition key.
-     * 
-     */
     private @Nullable String partitionKey;
-    /**
-     * @return The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return The name of the Amazon Kinesis stream.
-     * 
-     */
     private String streamName;
 
     private TopicRuleKinesis() {}
-    /**
-     * @return The partition key.
-     * 
-     */
     public Optional<String> partitionKey() {
         return Optional.ofNullable(this.partitionKey);
     }
-    /**
-     * @return The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return The name of the Amazon Kinesis stream.
-     * 
-     */
     public String streamName() {
         return this.streamName;
     }

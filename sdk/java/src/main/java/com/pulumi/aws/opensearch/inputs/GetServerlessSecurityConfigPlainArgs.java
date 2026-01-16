@@ -17,47 +17,23 @@ public final class GetServerlessSecurityConfigPlainArgs extends com.pulumi.resou
 
     public static final GetServerlessSecurityConfigPlainArgs Empty = new GetServerlessSecurityConfigPlainArgs();
 
-    /**
-     * The unique identifier of the security configuration.
-     * 
-     */
     @Import(name="id", required=true)
     private String id;
 
-    /**
-     * @return The unique identifier of the security configuration.
-     * 
-     */
     public String id() {
         return this.id;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * SAML options for the security configuration.
-     * 
-     */
     @Import(name="samlOptions")
     private @Nullable List<GetServerlessSecurityConfigSamlOption> samlOptions;
 
-    /**
-     * @return SAML options for the security configuration.
-     * 
-     */
     public Optional<List<GetServerlessSecurityConfigSamlOption>> samlOptions() {
         return Optional.ofNullable(this.samlOptions);
     }
@@ -88,45 +64,21 @@ public final class GetServerlessSecurityConfigPlainArgs extends com.pulumi.resou
             $ = new GetServerlessSecurityConfigPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id The unique identifier of the security configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param samlOptions SAML options for the security configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder samlOptions(@Nullable List<GetServerlessSecurityConfigSamlOption> samlOptions) {
             $.samlOptions = samlOptions;
             return this;
         }
 
-        /**
-         * @param samlOptions SAML options for the security configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder samlOptions(GetServerlessSecurityConfigSamlOption... samlOptions) {
             return samlOptions(List.of(samlOptions));
         }

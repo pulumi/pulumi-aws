@@ -12,33 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRuntimeVersionsResult {
-    /**
-     * @return Name of the AWS region from which runtime versions are fetched.
-     * 
-     */
     private String id;
     private String region;
-    /**
-     * @return List of runtime versions. See `runtimeVersions` attribute reference.
-     * 
-     */
     private List<GetRuntimeVersionsRuntimeVersion> runtimeVersions;
 
     private GetRuntimeVersionsResult() {}
-    /**
-     * @return Name of the AWS region from which runtime versions are fetched.
-     * 
-     */
     public String id() {
         return this.id;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return List of runtime versions. See `runtimeVersions` attribute reference.
-     * 
-     */
     public List<GetRuntimeVersionsRuntimeVersion> runtimeVersions() {
         return this.runtimeVersions;
     }

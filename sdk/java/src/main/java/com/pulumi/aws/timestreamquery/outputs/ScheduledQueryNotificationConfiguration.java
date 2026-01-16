@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ScheduledQueryNotificationConfiguration {
-    /**
-     * @return Configuration block for details about the Amazon Simple Notification Service (SNS) configuration. See below.
-     * 
-     */
     private ScheduledQueryNotificationConfigurationSnsConfiguration snsConfiguration;
 
     private ScheduledQueryNotificationConfiguration() {}
-    /**
-     * @return Configuration block for details about the Amazon Simple Notification Service (SNS) configuration. See below.
-     * 
-     */
     public ScheduledQueryNotificationConfigurationSnsConfiguration snsConfiguration() {
         return this.snsConfiguration;
     }

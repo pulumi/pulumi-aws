@@ -12,27 +12,15 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
     public sealed class ImageRecipeBlockDeviceMappingGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
-        /// </summary>
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
 
-        /// <summary>
-        /// Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
-        /// </summary>
         [Input("ebs")]
         public Input<Inputs.ImageRecipeBlockDeviceMappingEbsGetArgs>? Ebs { get; set; }
 
-        /// <summary>
-        /// Set to `True` to remove a mapping from the parent image.
-        /// </summary>
         [Input("noDevice")]
         public Input<bool>? NoDevice { get; set; }
 
-        /// <summary>
-        /// Virtual device name. For example, `Ephemeral0`. Instance store volumes are numbered starting from 0.
-        /// </summary>
         [Input("virtualName")]
         public Input<string>? VirtualName { get; set; }
 

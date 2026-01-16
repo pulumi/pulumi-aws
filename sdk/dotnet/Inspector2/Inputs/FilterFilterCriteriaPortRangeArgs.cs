@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
     public sealed class FilterFilterCriteriaPortRangeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// (Required) The beginning of the port range, inclusive.
-        /// </summary>
         [Input("beginInclusive", required: true)]
         public Input<int> BeginInclusive { get; set; } = null!;
 
-        /// <summary>
-        /// (Required) The end of the port range, inclusive.
-        /// </summary>
         [Input("endInclusive", required: true)]
         public Input<int> EndInclusive { get; set; } = null!;
 

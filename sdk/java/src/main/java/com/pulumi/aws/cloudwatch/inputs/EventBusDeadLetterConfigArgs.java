@@ -15,17 +15,9 @@ public final class EventBusDeadLetterConfigArgs extends com.pulumi.resources.Res
 
     public static final EventBusDeadLetterConfigArgs Empty = new EventBusDeadLetterConfigArgs();
 
-    /**
-     * The ARN of the SQS queue specified as the target for the dead-letter queue.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The ARN of the SQS queue specified as the target for the dead-letter queue.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
@@ -54,23 +46,11 @@ public final class EventBusDeadLetterConfigArgs extends com.pulumi.resources.Res
             $ = new EventBusDeadLetterConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The ARN of the SQS queue specified as the target for the dead-letter queue.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The ARN of the SQS queue specified as the target for the dead-letter queue.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }

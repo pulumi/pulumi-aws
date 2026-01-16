@@ -15,65 +15,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUse {
-    /**
-     * @return Allow the request. See below.
-     * 
-     */
     private @Nullable WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllow allow;
-    /**
-     * @return Block the request. See below.
-     * 
-     */
     private @Nullable WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlock block;
-    /**
-     * @return Require CAPTCHA verification. See below.
-     * 
-     */
     private @Nullable WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptcha captcha;
-    /**
-     * @return Require challenge verification. See below.
-     * 
-     */
     private @Nullable WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallenge challenge;
-    /**
-     * @return Count the request without taking action. See below.
-     * 
-     */
     private @Nullable WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCount count;
 
     private WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUse() {}
-    /**
-     * @return Allow the request. See below.
-     * 
-     */
     public Optional<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseAllow> allow() {
         return Optional.ofNullable(this.allow);
     }
-    /**
-     * @return Block the request. See below.
-     * 
-     */
     public Optional<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseBlock> block() {
         return Optional.ofNullable(this.block);
     }
-    /**
-     * @return Require CAPTCHA verification. See below.
-     * 
-     */
     public Optional<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptcha> captcha() {
         return Optional.ofNullable(this.captcha);
     }
-    /**
-     * @return Require challenge verification. See below.
-     * 
-     */
     public Optional<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallenge> challenge() {
         return Optional.ofNullable(this.challenge);
     }
-    /**
-     * @return Count the request without taking action. See below.
-     * 
-     */
     public Optional<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCount> count() {
         return Optional.ofNullable(this.count);
     }

@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainClusterConfigNodeOptionNodeConfig {
-    /**
-     * @return Number of nodes of a particular node type in the cluster.
-     * 
-     */
     private @Nullable Integer count;
-    /**
-     * @return Whether a particular node type is enabled.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return The instance type of a particular node type in the cluster.
-     * 
-     */
     private @Nullable String type;
 
     private DomainClusterConfigNodeOptionNodeConfig() {}
-    /**
-     * @return Number of nodes of a particular node type in the cluster.
-     * 
-     */
     public Optional<Integer> count() {
         return Optional.ofNullable(this.count);
     }
-    /**
-     * @return Whether a particular node type is enabled.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return The instance type of a particular node type in the cluster.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

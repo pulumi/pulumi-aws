@@ -15,17 +15,9 @@ public final class ConnectorCapacityAutoscalingScaleInPolicyArgs extends com.pul
 
     public static final ConnectorCapacityAutoscalingScaleInPolicyArgs Empty = new ConnectorCapacityAutoscalingScaleInPolicyArgs();
 
-    /**
-     * Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.
-     * 
-     */
     @Import(name="cpuUtilizationPercentage")
     private @Nullable Output<Integer> cpuUtilizationPercentage;
 
-    /**
-     * @return Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.
-     * 
-     */
     public Optional<Output<Integer>> cpuUtilizationPercentage() {
         return Optional.ofNullable(this.cpuUtilizationPercentage);
     }
@@ -54,23 +46,11 @@ public final class ConnectorCapacityAutoscalingScaleInPolicyArgs extends com.pul
             $ = new ConnectorCapacityAutoscalingScaleInPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cpuUtilizationPercentage Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cpuUtilizationPercentage(@Nullable Output<Integer> cpuUtilizationPercentage) {
             $.cpuUtilizationPercentage = cpuUtilizationPercentage;
             return this;
         }
 
-        /**
-         * @param cpuUtilizationPercentage Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cpuUtilizationPercentage(Integer cpuUtilizationPercentage) {
             return cpuUtilizationPercentage(Output.of(cpuUtilizationPercentage));
         }

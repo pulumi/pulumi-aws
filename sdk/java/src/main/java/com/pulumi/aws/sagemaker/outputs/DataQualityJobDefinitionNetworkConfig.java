@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataQualityJobDefinitionNetworkConfig {
-    /**
-     * @return Whether to encrypt all communications between the instances used for the monitoring jobs. Choose `true` to encrypt communications. Encryption provides greater security for distributed jobs, but the processing might take longer.
-     * 
-     */
     private @Nullable Boolean enableInterContainerTrafficEncryption;
-    /**
-     * @return Whether to allow inbound and outbound network calls to and from the containers used for the monitoring job.
-     * 
-     */
     private @Nullable Boolean enableNetworkIsolation;
-    /**
-     * @return Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. Fields are documented below.
-     * 
-     */
     private @Nullable DataQualityJobDefinitionNetworkConfigVpcConfig vpcConfig;
 
     private DataQualityJobDefinitionNetworkConfig() {}
-    /**
-     * @return Whether to encrypt all communications between the instances used for the monitoring jobs. Choose `true` to encrypt communications. Encryption provides greater security for distributed jobs, but the processing might take longer.
-     * 
-     */
     public Optional<Boolean> enableInterContainerTrafficEncryption() {
         return Optional.ofNullable(this.enableInterContainerTrafficEncryption);
     }
-    /**
-     * @return Whether to allow inbound and outbound network calls to and from the containers used for the monitoring job.
-     * 
-     */
     public Optional<Boolean> enableNetworkIsolation() {
         return Optional.ofNullable(this.enableNetworkIsolation);
     }
-    /**
-     * @return Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. Fields are documented below.
-     * 
-     */
     public Optional<DataQualityJobDefinitionNetworkConfigVpcConfig> vpcConfig() {
         return Optional.ofNullable(this.vpcConfig);
     }

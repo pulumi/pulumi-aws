@@ -14,17 +14,9 @@ public final class SpaceSpaceSettingsCustomFileSystemArgs extends com.pulumi.res
 
     public static final SpaceSpaceSettingsCustomFileSystemArgs Empty = new SpaceSpaceSettingsCustomFileSystemArgs();
 
-    /**
-     * A custom file system in Amazon EFS. See `efsFileSystem` Block below.
-     * 
-     */
     @Import(name="efsFileSystem", required=true)
     private Output<SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs> efsFileSystem;
 
-    /**
-     * @return A custom file system in Amazon EFS. See `efsFileSystem` Block below.
-     * 
-     */
     public Output<SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs> efsFileSystem() {
         return this.efsFileSystem;
     }
@@ -53,23 +45,11 @@ public final class SpaceSpaceSettingsCustomFileSystemArgs extends com.pulumi.res
             $ = new SpaceSpaceSettingsCustomFileSystemArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param efsFileSystem A custom file system in Amazon EFS. See `efsFileSystem` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder efsFileSystem(Output<SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs> efsFileSystem) {
             $.efsFileSystem = efsFileSystem;
             return this;
         }
 
-        /**
-         * @param efsFileSystem A custom file system in Amazon EFS. See `efsFileSystem` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder efsFileSystem(SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs efsFileSystem) {
             return efsFileSystem(Output.of(efsFileSystem));
         }

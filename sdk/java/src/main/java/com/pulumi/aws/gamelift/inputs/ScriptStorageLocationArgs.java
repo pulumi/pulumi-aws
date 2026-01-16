@@ -16,62 +16,30 @@ public final class ScriptStorageLocationArgs extends com.pulumi.resources.Resour
 
     public static final ScriptStorageLocationArgs Empty = new ScriptStorageLocationArgs();
 
-    /**
-     * Name of your S3 bucket.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return Name of your S3 bucket.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * Name of the zip file containing your script files.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return Name of the zip file containing your script files.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * A specific version of the file. If not set, the latest version of the file is retrieved.
-     * 
-     */
     @Import(name="objectVersion")
     private @Nullable Output<String> objectVersion;
 
-    /**
-     * @return A specific version of the file. If not set, the latest version of the file is retrieved.
-     * 
-     */
     public Optional<Output<String>> objectVersion() {
         return Optional.ofNullable(this.objectVersion);
     }
 
-    /**
-     * ARN of the access role that allows Amazon GameLift to access your S3 bucket.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return ARN of the access role that allows Amazon GameLift to access your S3 bucket.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
@@ -103,86 +71,38 @@ public final class ScriptStorageLocationArgs extends com.pulumi.resources.Resour
             $ = new ScriptStorageLocationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket Name of your S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket Name of your S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param key Name of the zip file containing your script files.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Name of the zip file containing your script files.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param objectVersion A specific version of the file. If not set, the latest version of the file is retrieved.
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectVersion(@Nullable Output<String> objectVersion) {
             $.objectVersion = objectVersion;
             return this;
         }
 
-        /**
-         * @param objectVersion A specific version of the file. If not set, the latest version of the file is retrieved.
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectVersion(String objectVersion) {
             return objectVersion(Output.of(objectVersion));
         }
 
-        /**
-         * @param roleArn ARN of the access role that allows Amazon GameLift to access your S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn ARN of the access role that allows Amazon GameLift to access your S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

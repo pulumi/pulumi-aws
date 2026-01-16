@@ -11,75 +11,12 @@ namespace Pulumi.Aws.ElasticSearch
 {
     public static class GetDomain
     {
-        /// <summary>
-        /// Use this data source to get information about an Elasticsearch Domain
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var myDomain = Aws.ElasticSearch.GetDomain.Invoke(new()
-        ///     {
-        ///         DomainName = "my-domain-name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("aws:elasticsearch/getDomain:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about an Elasticsearch Domain
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var myDomain = Aws.ElasticSearch.GetDomain.Invoke(new()
-        ///     {
-        ///         DomainName = "my-domain-name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("aws:elasticsearch/getDomain:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about an Elasticsearch Domain
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var myDomain = Aws.ElasticSearch.GetDomain.Invoke(new()
-        ///     {
-        ///         DomainName = "my-domain-name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("aws:elasticsearch/getDomain:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
@@ -87,24 +24,14 @@ namespace Pulumi.Aws.ElasticSearch
 
     public sealed class GetDomainArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the domain.
-        /// </summary>
         [Input("domainName", required: true)]
         public string DomainName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Tags assigned to the domain.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -119,24 +46,14 @@ namespace Pulumi.Aws.ElasticSearch
 
     public sealed class GetDomainInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the domain.
-        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags assigned to the domain.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -153,95 +70,32 @@ namespace Pulumi.Aws.ElasticSearch
     [OutputType]
     public sealed class GetDomainResult
     {
-        /// <summary>
-        /// The policy document attached to the domain.
-        /// </summary>
         public readonly string AccessPolicies;
-        /// <summary>
-        /// Key-value string pairs to specify advanced configuration options.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> AdvancedOptions;
-        /// <summary>
-        /// Status of the Elasticsearch domain's advanced security options. The block consists of the following attributes:
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainAdvancedSecurityOptionResult> AdvancedSecurityOptions;
-        /// <summary>
-        /// The ARN of the domain.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Configuration of the Auto-Tune options of the domain.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainAutoTuneOptionResult> AutoTuneOptions;
-        /// <summary>
-        /// Cluster configuration of the domain.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainClusterConfigResult> ClusterConfigs;
-        /// <summary>
-        /// Domain Amazon Cognito Authentication options for Kibana.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainCognitoOptionResult> CognitoOptions;
-        /// <summary>
-        /// Status of the creation of the domain.
-        /// </summary>
         public readonly bool Created;
-        /// <summary>
-        /// Status of the deletion of the domain.
-        /// </summary>
         public readonly bool Deleted;
-        /// <summary>
-        /// Unique identifier for the domain.
-        /// </summary>
         public readonly string DomainId;
         public readonly string DomainName;
-        /// <summary>
-        /// EBS Options for the instances in the domain.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainEbsOptionResult> EbsOptions;
-        /// <summary>
-        /// Elasticsearch version for the domain.
-        /// </summary>
         public readonly string ElasticsearchVersion;
-        /// <summary>
-        /// Domain encryption at rest related options.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainEncryptionAtRestResult> EncryptionAtRests;
-        /// <summary>
-        /// Domain-specific endpoint used to submit index, search, and data upload requests.
-        /// </summary>
         public readonly string Endpoint;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Domain-specific endpoint used to access the Kibana application.
-        /// </summary>
         public readonly string KibanaEndpoint;
-        /// <summary>
-        /// Domain log publishing related options.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainLogPublishingOptionResult> LogPublishingOptions;
-        /// <summary>
-        /// Domain in transit encryption related options.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainNodeToNodeEncryptionResult> NodeToNodeEncryptions;
-        /// <summary>
-        /// Status of a configuration change in the domain.
-        /// </summary>
         public readonly bool Processing;
         public readonly string Region;
-        /// <summary>
-        /// Domain snapshot related options.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainSnapshotOptionResult> SnapshotOptions;
-        /// <summary>
-        /// Tags assigned to the domain.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// VPC Options for private Elasticsearch domains.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainVpcOptionResult> VpcOptions;
 
         [OutputConstructor]

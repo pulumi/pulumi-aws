@@ -9,168 +9,51 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Grafana
 {
-    /// <summary>
-    /// Provides an Amazon Managed Grafana workspace SAML configuration resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic configuration
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var assume = new Aws.Iam.Role("assume", new()
-    ///     {
-    ///         Name = "grafana-assume",
-    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Sid"] = "",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Service"] = "grafana.amazonaws.com",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    ///     var exampleWorkspace = new Aws.Grafana.Workspace("example", new()
-    ///     {
-    ///         AccountAccessType = "CURRENT_ACCOUNT",
-    ///         AuthenticationProviders = new[]
-    ///         {
-    ///             "SAML",
-    ///         },
-    ///         PermissionType = "SERVICE_MANAGED",
-    ///         RoleArn = assume.Arn,
-    ///     });
-    /// 
-    ///     var example = new Aws.Grafana.WorkspaceSamlConfiguration("example", new()
-    ///     {
-    ///         EditorRoleValues = new[]
-    ///         {
-    ///             "editor",
-    ///         },
-    ///         IdpMetadataUrl = "https://my_idp_metadata.url",
-    ///         WorkspaceId = exampleWorkspace.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Grafana Workspace SAML configuration using the workspace's `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration example g-2054c75a02
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration")]
     public partial class WorkspaceSamlConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The admin role values.
-        /// </summary>
         [Output("adminRoleValues")]
         public Output<ImmutableArray<string>> AdminRoleValues { get; private set; } = null!;
 
-        /// <summary>
-        /// The allowed organizations.
-        /// </summary>
         [Output("allowedOrganizations")]
         public Output<ImmutableArray<string>> AllowedOrganizations { get; private set; } = null!;
 
-        /// <summary>
-        /// The editor role values.
-        /// </summary>
         [Output("editorRoleValues")]
         public Output<ImmutableArray<string>> EditorRoleValues { get; private set; } = null!;
 
-        /// <summary>
-        /// The email assertion.
-        /// </summary>
         [Output("emailAssertion")]
         public Output<string> EmailAssertion { get; private set; } = null!;
 
-        /// <summary>
-        /// The groups assertion.
-        /// </summary>
         [Output("groupsAssertion")]
         public Output<string?> GroupsAssertion { get; private set; } = null!;
 
-        /// <summary>
-        /// The IDP Metadata URL. Note that either `IdpMetadataUrl` or `IdpMetadataXml` (but not both) must be specified.
-        /// </summary>
         [Output("idpMetadataUrl")]
         public Output<string?> IdpMetadataUrl { get; private set; } = null!;
 
-        /// <summary>
-        /// The IDP Metadata XML. Note that either `IdpMetadataUrl` or `IdpMetadataXml` (but not both) must be specified.
-        /// </summary>
         [Output("idpMetadataXml")]
         public Output<string?> IdpMetadataXml { get; private set; } = null!;
 
-        /// <summary>
-        /// The login assertion.
-        /// </summary>
         [Output("loginAssertion")]
         public Output<string> LoginAssertion { get; private set; } = null!;
 
-        /// <summary>
-        /// The login validity duration.
-        /// </summary>
         [Output("loginValidityDuration")]
         public Output<int> LoginValidityDuration { get; private set; } = null!;
 
-        /// <summary>
-        /// The name assertion.
-        /// </summary>
         [Output("nameAssertion")]
         public Output<string> NameAssertion { get; private set; } = null!;
 
-        /// <summary>
-        /// The org assertion.
-        /// </summary>
         [Output("orgAssertion")]
         public Output<string?> OrgAssertion { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The role assertion.
-        /// </summary>
         [Output("roleAssertion")]
         public Output<string?> RoleAssertion { get; private set; } = null!;
 
-        /// <summary>
-        /// The status of the SAML configuration.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// The workspace id.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("workspaceId")]
         public Output<string> WorkspaceId { get; private set; } = null!;
 
@@ -222,10 +105,6 @@ namespace Pulumi.Aws.Grafana
     {
         [Input("adminRoleValues")]
         private InputList<string>? _adminRoleValues;
-
-        /// <summary>
-        /// The admin role values.
-        /// </summary>
         public InputList<string> AdminRoleValues
         {
             get => _adminRoleValues ?? (_adminRoleValues = new InputList<string>());
@@ -234,10 +113,6 @@ namespace Pulumi.Aws.Grafana
 
         [Input("allowedOrganizations")]
         private InputList<string>? _allowedOrganizations;
-
-        /// <summary>
-        /// The allowed organizations.
-        /// </summary>
         public InputList<string> AllowedOrganizations
         {
             get => _allowedOrganizations ?? (_allowedOrganizations = new InputList<string>());
@@ -246,81 +121,42 @@ namespace Pulumi.Aws.Grafana
 
         [Input("editorRoleValues", required: true)]
         private InputList<string>? _editorRoleValues;
-
-        /// <summary>
-        /// The editor role values.
-        /// </summary>
         public InputList<string> EditorRoleValues
         {
             get => _editorRoleValues ?? (_editorRoleValues = new InputList<string>());
             set => _editorRoleValues = value;
         }
 
-        /// <summary>
-        /// The email assertion.
-        /// </summary>
         [Input("emailAssertion")]
         public Input<string>? EmailAssertion { get; set; }
 
-        /// <summary>
-        /// The groups assertion.
-        /// </summary>
         [Input("groupsAssertion")]
         public Input<string>? GroupsAssertion { get; set; }
 
-        /// <summary>
-        /// The IDP Metadata URL. Note that either `IdpMetadataUrl` or `IdpMetadataXml` (but not both) must be specified.
-        /// </summary>
         [Input("idpMetadataUrl")]
         public Input<string>? IdpMetadataUrl { get; set; }
 
-        /// <summary>
-        /// The IDP Metadata XML. Note that either `IdpMetadataUrl` or `IdpMetadataXml` (but not both) must be specified.
-        /// </summary>
         [Input("idpMetadataXml")]
         public Input<string>? IdpMetadataXml { get; set; }
 
-        /// <summary>
-        /// The login assertion.
-        /// </summary>
         [Input("loginAssertion")]
         public Input<string>? LoginAssertion { get; set; }
 
-        /// <summary>
-        /// The login validity duration.
-        /// </summary>
         [Input("loginValidityDuration")]
         public Input<int>? LoginValidityDuration { get; set; }
 
-        /// <summary>
-        /// The name assertion.
-        /// </summary>
         [Input("nameAssertion")]
         public Input<string>? NameAssertion { get; set; }
 
-        /// <summary>
-        /// The org assertion.
-        /// </summary>
         [Input("orgAssertion")]
         public Input<string>? OrgAssertion { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The role assertion.
-        /// </summary>
         [Input("roleAssertion")]
         public Input<string>? RoleAssertion { get; set; }
 
-        /// <summary>
-        /// The workspace id.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
 
@@ -334,10 +170,6 @@ namespace Pulumi.Aws.Grafana
     {
         [Input("adminRoleValues")]
         private InputList<string>? _adminRoleValues;
-
-        /// <summary>
-        /// The admin role values.
-        /// </summary>
         public InputList<string> AdminRoleValues
         {
             get => _adminRoleValues ?? (_adminRoleValues = new InputList<string>());
@@ -346,10 +178,6 @@ namespace Pulumi.Aws.Grafana
 
         [Input("allowedOrganizations")]
         private InputList<string>? _allowedOrganizations;
-
-        /// <summary>
-        /// The allowed organizations.
-        /// </summary>
         public InputList<string> AllowedOrganizations
         {
             get => _allowedOrganizations ?? (_allowedOrganizations = new InputList<string>());
@@ -358,87 +186,45 @@ namespace Pulumi.Aws.Grafana
 
         [Input("editorRoleValues")]
         private InputList<string>? _editorRoleValues;
-
-        /// <summary>
-        /// The editor role values.
-        /// </summary>
         public InputList<string> EditorRoleValues
         {
             get => _editorRoleValues ?? (_editorRoleValues = new InputList<string>());
             set => _editorRoleValues = value;
         }
 
-        /// <summary>
-        /// The email assertion.
-        /// </summary>
         [Input("emailAssertion")]
         public Input<string>? EmailAssertion { get; set; }
 
-        /// <summary>
-        /// The groups assertion.
-        /// </summary>
         [Input("groupsAssertion")]
         public Input<string>? GroupsAssertion { get; set; }
 
-        /// <summary>
-        /// The IDP Metadata URL. Note that either `IdpMetadataUrl` or `IdpMetadataXml` (but not both) must be specified.
-        /// </summary>
         [Input("idpMetadataUrl")]
         public Input<string>? IdpMetadataUrl { get; set; }
 
-        /// <summary>
-        /// The IDP Metadata XML. Note that either `IdpMetadataUrl` or `IdpMetadataXml` (but not both) must be specified.
-        /// </summary>
         [Input("idpMetadataXml")]
         public Input<string>? IdpMetadataXml { get; set; }
 
-        /// <summary>
-        /// The login assertion.
-        /// </summary>
         [Input("loginAssertion")]
         public Input<string>? LoginAssertion { get; set; }
 
-        /// <summary>
-        /// The login validity duration.
-        /// </summary>
         [Input("loginValidityDuration")]
         public Input<int>? LoginValidityDuration { get; set; }
 
-        /// <summary>
-        /// The name assertion.
-        /// </summary>
         [Input("nameAssertion")]
         public Input<string>? NameAssertion { get; set; }
 
-        /// <summary>
-        /// The org assertion.
-        /// </summary>
         [Input("orgAssertion")]
         public Input<string>? OrgAssertion { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The role assertion.
-        /// </summary>
         [Input("roleAssertion")]
         public Input<string>? RoleAssertion { get; set; }
 
-        /// <summary>
-        /// The status of the SAML configuration.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        /// <summary>
-        /// The workspace id.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }
 

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository {
-    /**
-     * @return The URL of the Git repository.
-     * 
-     */
     private String repositoryUrl;
 
     private SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository() {}
-    /**
-     * @return The URL of the Git repository.
-     * 
-     */
     public String repositoryUrl() {
         return this.repositoryUrl;
     }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.M2.Outputs
     [OutputType]
     public sealed class EnvironmentStorageConfigurationFsx
     {
-        /// <summary>
-        /// Id of the FSX filesystem to mount.
-        /// </summary>
         public readonly string FileSystemId;
-        /// <summary>
-        /// Path to mount the filesystem on, must start with `/m2/mount/`.
-        /// </summary>
         public readonly string MountPoint;
 
         [OutputConstructor]

@@ -21,122 +21,58 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final WebhookArgs Empty = new WebhookArgs();
 
-    /**
-     * A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
-     * 
-     */
     @Import(name="branchFilter")
     private @Nullable Output<String> branchFilter;
 
-    /**
-     * @return A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
-     * 
-     */
     public Optional<Output<String>> branchFilter() {
         return Optional.ofNullable(this.branchFilter);
     }
 
-    /**
-     * The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
-     * 
-     */
     @Import(name="buildType")
     private @Nullable Output<String> buildType;
 
-    /**
-     * @return The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
-     * 
-     */
     public Optional<Output<String>> buildType() {
         return Optional.ofNullable(this.buildType);
     }
 
-    /**
-     * Information about the webhook&#39;s trigger. See filterGroup for details.
-     * 
-     */
     @Import(name="filterGroups")
     private @Nullable Output<List<WebhookFilterGroupArgs>> filterGroups;
 
-    /**
-     * @return Information about the webhook&#39;s trigger. See filterGroup for details.
-     * 
-     */
     public Optional<Output<List<WebhookFilterGroupArgs>>> filterGroups() {
         return Optional.ofNullable(this.filterGroups);
     }
 
-    /**
-     * If true, CodeBuild doesn&#39;t create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
-     * 
-     */
     @Import(name="manualCreation")
     private @Nullable Output<Boolean> manualCreation;
 
-    /**
-     * @return If true, CodeBuild doesn&#39;t create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
-     * 
-     */
     public Optional<Output<Boolean>> manualCreation() {
         return Optional.ofNullable(this.manualCreation);
     }
 
-    /**
-     * The name of the build project.
-     * 
-     */
     @Import(name="projectName", required=true)
     private Output<String> projectName;
 
-    /**
-     * @return The name of the build project.
-     * 
-     */
     public Output<String> projectName() {
         return this.projectName;
     }
 
-    /**
-     * Defines comment-based approval requirements for triggering builds on pull requests. See pullRequestBuildPolicy for details.
-     * 
-     */
     @Import(name="pullRequestBuildPolicy")
     private @Nullable Output<WebhookPullRequestBuildPolicyArgs> pullRequestBuildPolicy;
 
-    /**
-     * @return Defines comment-based approval requirements for triggering builds on pull requests. See pullRequestBuildPolicy for details.
-     * 
-     */
     public Optional<Output<WebhookPullRequestBuildPolicyArgs>> pullRequestBuildPolicy() {
         return Optional.ofNullable(this.pullRequestBuildPolicy);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Scope configuration for global or organization webhooks. See scopeConfiguration for details.
-     * 
-     */
     @Import(name="scopeConfiguration")
     private @Nullable Output<WebhookScopeConfigurationArgs> scopeConfiguration;
 
-    /**
-     * @return Scope configuration for global or organization webhooks. See scopeConfiguration for details.
-     * 
-     */
     public Optional<Output<WebhookScopeConfigurationArgs>> scopeConfiguration() {
         return Optional.ofNullable(this.scopeConfiguration);
     }
@@ -172,180 +108,78 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
             $ = new WebhookArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param branchFilter A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder branchFilter(@Nullable Output<String> branchFilter) {
             $.branchFilter = branchFilter;
             return this;
         }
 
-        /**
-         * @param branchFilter A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder branchFilter(String branchFilter) {
             return branchFilter(Output.of(branchFilter));
         }
 
-        /**
-         * @param buildType The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder buildType(@Nullable Output<String> buildType) {
             $.buildType = buildType;
             return this;
         }
 
-        /**
-         * @param buildType The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder buildType(String buildType) {
             return buildType(Output.of(buildType));
         }
 
-        /**
-         * @param filterGroups Information about the webhook&#39;s trigger. See filterGroup for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterGroups(@Nullable Output<List<WebhookFilterGroupArgs>> filterGroups) {
             $.filterGroups = filterGroups;
             return this;
         }
 
-        /**
-         * @param filterGroups Information about the webhook&#39;s trigger. See filterGroup for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterGroups(List<WebhookFilterGroupArgs> filterGroups) {
             return filterGroups(Output.of(filterGroups));
         }
 
-        /**
-         * @param filterGroups Information about the webhook&#39;s trigger. See filterGroup for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterGroups(WebhookFilterGroupArgs... filterGroups) {
             return filterGroups(List.of(filterGroups));
         }
 
-        /**
-         * @param manualCreation If true, CodeBuild doesn&#39;t create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
-         * 
-         * @return builder
-         * 
-         */
         public Builder manualCreation(@Nullable Output<Boolean> manualCreation) {
             $.manualCreation = manualCreation;
             return this;
         }
 
-        /**
-         * @param manualCreation If true, CodeBuild doesn&#39;t create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
-         * 
-         * @return builder
-         * 
-         */
         public Builder manualCreation(Boolean manualCreation) {
             return manualCreation(Output.of(manualCreation));
         }
 
-        /**
-         * @param projectName The name of the build project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectName(Output<String> projectName) {
             $.projectName = projectName;
             return this;
         }
 
-        /**
-         * @param projectName The name of the build project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectName(String projectName) {
             return projectName(Output.of(projectName));
         }
 
-        /**
-         * @param pullRequestBuildPolicy Defines comment-based approval requirements for triggering builds on pull requests. See pullRequestBuildPolicy for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pullRequestBuildPolicy(@Nullable Output<WebhookPullRequestBuildPolicyArgs> pullRequestBuildPolicy) {
             $.pullRequestBuildPolicy = pullRequestBuildPolicy;
             return this;
         }
 
-        /**
-         * @param pullRequestBuildPolicy Defines comment-based approval requirements for triggering builds on pull requests. See pullRequestBuildPolicy for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pullRequestBuildPolicy(WebhookPullRequestBuildPolicyArgs pullRequestBuildPolicy) {
             return pullRequestBuildPolicy(Output.of(pullRequestBuildPolicy));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param scopeConfiguration Scope configuration for global or organization webhooks. See scopeConfiguration for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scopeConfiguration(@Nullable Output<WebhookScopeConfigurationArgs> scopeConfiguration) {
             $.scopeConfiguration = scopeConfiguration;
             return this;
         }
 
-        /**
-         * @param scopeConfiguration Scope configuration for global or organization webhooks. See scopeConfiguration for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scopeConfiguration(WebhookScopeConfigurationArgs scopeConfiguration) {
             return scopeConfiguration(Output.of(scopeConfiguration));
         }

@@ -12,122 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource managing cloud autonomous vm cluster in AWS for Oracle Database@AWS.
-//
-// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/odb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := odb.NewCloudAutonomousVmCluster(ctx, "avmc_with_minimum_parameters", &odb.CloudAutonomousVmClusterArgs{
-//				CloudExadataInfrastructureId:    pulumi.String("<aws_odb_cloud_exadata_infrastructure_id>"),
-//				OdbNetworkId:                    pulumi.String("<aws_odb_network_id>"),
-//				DisplayName:                     pulumi.String("my_autonomous_vm_cluster"),
-//				AutonomousDataStorageSizeInTbs:  pulumi.Float64(5),
-//				MemoryPerOracleComputeUnitInGbs: pulumi.Int(2),
-//				TotalContainerDatabases:         pulumi.Int(1),
-//				CpuCoreCountPerNode:             pulumi.Int(40),
-//				LicenseModel:                    pulumi.String("LICENSE_INCLUDED"),
-//				DbServers: pulumi.StringArray{
-//					pulumi.String("<my_db_server_id>"),
-//				},
-//				ScanListenerPortTls:    pulumi.Int(8561),
-//				ScanListenerPortNonTls: pulumi.Int(1024),
-//				MaintenanceWindow: &odb.CloudAutonomousVmClusterMaintenanceWindowArgs{
-//					Preference: pulumi.String("NO_PREFERENCE"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = odb.NewCloudAutonomousVmCluster(ctx, "avmc_with_all_params", &odb.CloudAutonomousVmClusterArgs{
-//				Description:                     pulumi.String("my first avmc"),
-//				TimeZone:                        pulumi.String("UTC"),
-//				CloudExadataInfrastructureId:    pulumi.String("<aws_odb_cloud_exadata_infrastructure_id>"),
-//				OdbNetworkId:                    pulumi.String("<aws_odb_network_id>"),
-//				DisplayName:                     pulumi.String("my_autonomous_vm_cluster"),
-//				AutonomousDataStorageSizeInTbs:  pulumi.Float64(5),
-//				MemoryPerOracleComputeUnitInGbs: pulumi.Int(2),
-//				TotalContainerDatabases:         pulumi.Int(1),
-//				CpuCoreCountPerNode:             pulumi.Int(40),
-//				LicenseModel:                    pulumi.String("LICENSE_INCLUDED"),
-//				DbServers: pulumi.StringArray{
-//					pulumi.String("<my_db_server_1>"),
-//					pulumi.String("<my_db_server_2>"),
-//				},
-//				ScanListenerPortTls:    pulumi.Int(8561),
-//				ScanListenerPortNonTls: pulumi.Int(1024),
-//				MaintenanceWindow: &odb.CloudAutonomousVmClusterMaintenanceWindowArgs{
-//					DaysOfWeeks: odb.CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArray{
-//						&odb.CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs{
-//							Name: pulumi.String("MONDAY"),
-//						},
-//						&odb.CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs{
-//							Name: pulumi.String("TUESDAY"),
-//						},
-//					},
-//					HoursOfDays: pulumi.IntArray{
-//						pulumi.Int(4),
-//						pulumi.Int(16),
-//					},
-//					LeadTimeInWeeks: pulumi.Int(3),
-//					Months: odb.CloudAutonomousVmClusterMaintenanceWindowMonthArray{
-//						&odb.CloudAutonomousVmClusterMaintenanceWindowMonthArgs{
-//							Name: pulumi.String("FEBRUARY"),
-//						},
-//						&odb.CloudAutonomousVmClusterMaintenanceWindowMonthArgs{
-//							Name: pulumi.String("MAY"),
-//						},
-//						&odb.CloudAutonomousVmClusterMaintenanceWindowMonthArgs{
-//							Name: pulumi.String("AUGUST"),
-//						},
-//						&odb.CloudAutonomousVmClusterMaintenanceWindowMonthArgs{
-//							Name: pulumi.String("NOVEMBER"),
-//						},
-//					},
-//					Preference: pulumi.String("CUSTOM_PREFERENCE"),
-//					WeeksOfMonths: pulumi.IntArray{
-//						pulumi.Int(2),
-//						pulumi.Int(4),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"env": pulumi.String("dev"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import cloud autonomous vm cluster `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:odb/cloudAutonomousVmCluster:CloudAutonomousVmCluster example example
-// ```
 type CloudAutonomousVmCluster struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) for the Exadata infrastructure.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The progress of the current operation on the Autonomous VM cluster, as a percentage.
 	AutonomousDataStoragePercentage pulumi.Float64Output `pulumi:"autonomousDataStoragePercentage"`
@@ -136,7 +23,7 @@ type CloudAutonomousVmCluster struct {
 	AvailableAutonomousDataStorageSizeInTbs pulumi.Float64Output `pulumi:"availableAutonomousDataStorageSizeInTbs"`
 	// The number of Autonomous CDBs that you can create with the currently available storage.
 	AvailableContainerDatabases pulumi.IntOutput `pulumi:"availableContainerDatabases"`
-	// The number of CPU cores available for allocation to Autonomous Databases.
+	// The number of CPU cores available for allocation to Autonomous Databases
 	AvailableCpus                pulumi.Float64Output `pulumi:"availableCpus"`
 	CloudExadataInfrastructureId pulumi.StringOutput  `pulumi:"cloudExadataInfrastructureId"`
 	// The compute model of the Autonomous VM cluster: ECPU or OCPU.
@@ -183,7 +70,7 @@ type CloudAutonomousVmCluster struct {
 	// The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
 	Ocid         pulumi.StringOutput `pulumi:"ocid"`
 	OdbNetworkId pulumi.StringOutput `pulumi:"odbNetworkId"`
-	// The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
+	// The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB)
 	OdbNodeStorageSizeInGbs pulumi.IntOutput `pulumi:"odbNodeStorageSizeInGbs"`
 	// The progress of the current operation on the Autonomous VM cluster, as a percentage.
 	PercentProgress pulumi.Float64Output `pulumi:"percentProgress"`
@@ -195,29 +82,25 @@ type CloudAutonomousVmCluster struct {
 	ProvisionedCpus pulumi.Float64Output `pulumi:"provisionedCpus"`
 	// The number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
 	ReclaimableCpus pulumi.Float64Output `pulumi:"reclaimableCpus"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region          pulumi.StringOutput  `pulumi:"region"`
 	// The number of CPU cores reserved for system operations and redundancy.
 	ReservedCpus           pulumi.Float64Output `pulumi:"reservedCpus"`
 	ScanListenerPortNonTls pulumi.IntOutput     `pulumi:"scanListenerPortNonTls"`
 	ScanListenerPortTls    pulumi.IntOutput     `pulumi:"scanListenerPortTls"`
 	// The shape of the Exadata infrastructure for the Autonomous VM cluster.
 	Shape pulumi.StringOutput `pulumi:"shape"`
-	// The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
+	// The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE , UPDATING , DELETING , DELETED , FAILED
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Additional information about the current status of the Autonomous VM cluster.
-	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
-	// A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The combined set of user-defined and provider-defined tags.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	StatusReason pulumi.StringOutput    `pulumi:"statusReason"`
+	Tags         pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll      pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The expiration date and time of the database SSL certificate.
-	TimeDatabaseSslCertificateExpires pulumi.StringOutput `pulumi:"timeDatabaseSslCertificateExpires"`
-	// The expiration date and time of the ORDS certificate.
-	TimeOrdsCertificateExpires pulumi.StringOutput                       `pulumi:"timeOrdsCertificateExpires"`
-	TimeZone                   pulumi.StringOutput                       `pulumi:"timeZone"`
-	Timeouts                   CloudAutonomousVmClusterTimeoutsPtrOutput `pulumi:"timeouts"`
-	TotalContainerDatabases    pulumi.IntOutput                          `pulumi:"totalContainerDatabases"`
+	TimeDatabaseSslCertificateExpires pulumi.StringOutput                       `pulumi:"timeDatabaseSslCertificateExpires"`
+	TimeOrdsCertificateExpires        pulumi.StringOutput                       `pulumi:"timeOrdsCertificateExpires"`
+	TimeZone                          pulumi.StringOutput                       `pulumi:"timeZone"`
+	Timeouts                          CloudAutonomousVmClusterTimeoutsPtrOutput `pulumi:"timeouts"`
+	TotalContainerDatabases           pulumi.IntOutput                          `pulumi:"totalContainerDatabases"`
 }
 
 // NewCloudAutonomousVmCluster registers a new resource with the given unique name, arguments, and options.
@@ -280,7 +163,6 @@ func GetCloudAutonomousVmCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CloudAutonomousVmCluster resources.
 type cloudAutonomousVmClusterState struct {
-	// The Amazon Resource Name (ARN) for the Exadata infrastructure.
 	Arn *string `pulumi:"arn"`
 	// The progress of the current operation on the Autonomous VM cluster, as a percentage.
 	AutonomousDataStoragePercentage *float64 `pulumi:"autonomousDataStoragePercentage"`
@@ -289,7 +171,7 @@ type cloudAutonomousVmClusterState struct {
 	AvailableAutonomousDataStorageSizeInTbs *float64 `pulumi:"availableAutonomousDataStorageSizeInTbs"`
 	// The number of Autonomous CDBs that you can create with the currently available storage.
 	AvailableContainerDatabases *int `pulumi:"availableContainerDatabases"`
-	// The number of CPU cores available for allocation to Autonomous Databases.
+	// The number of CPU cores available for allocation to Autonomous Databases
 	AvailableCpus                *float64 `pulumi:"availableCpus"`
 	CloudExadataInfrastructureId *string  `pulumi:"cloudExadataInfrastructureId"`
 	// The compute model of the Autonomous VM cluster: ECPU or OCPU.
@@ -336,7 +218,7 @@ type cloudAutonomousVmClusterState struct {
 	// The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
 	Ocid         *string `pulumi:"ocid"`
 	OdbNetworkId *string `pulumi:"odbNetworkId"`
-	// The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
+	// The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB)
 	OdbNodeStorageSizeInGbs *int `pulumi:"odbNodeStorageSizeInGbs"`
 	// The progress of the current operation on the Autonomous VM cluster, as a percentage.
 	PercentProgress *float64 `pulumi:"percentProgress"`
@@ -348,33 +230,28 @@ type cloudAutonomousVmClusterState struct {
 	ProvisionedCpus *float64 `pulumi:"provisionedCpus"`
 	// The number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
 	ReclaimableCpus *float64 `pulumi:"reclaimableCpus"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region          *string  `pulumi:"region"`
 	// The number of CPU cores reserved for system operations and redundancy.
 	ReservedCpus           *float64 `pulumi:"reservedCpus"`
 	ScanListenerPortNonTls *int     `pulumi:"scanListenerPortNonTls"`
 	ScanListenerPortTls    *int     `pulumi:"scanListenerPortTls"`
 	// The shape of the Exadata infrastructure for the Autonomous VM cluster.
 	Shape *string `pulumi:"shape"`
-	// The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
+	// The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE , UPDATING , DELETING , DELETED , FAILED
 	Status *string `pulumi:"status"`
 	// Additional information about the current status of the Autonomous VM cluster.
-	StatusReason *string `pulumi:"statusReason"`
-	// A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The combined set of user-defined and provider-defined tags.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	StatusReason *string           `pulumi:"statusReason"`
+	Tags         map[string]string `pulumi:"tags"`
+	TagsAll      map[string]string `pulumi:"tagsAll"`
 	// The expiration date and time of the database SSL certificate.
-	TimeDatabaseSslCertificateExpires *string `pulumi:"timeDatabaseSslCertificateExpires"`
-	// The expiration date and time of the ORDS certificate.
-	TimeOrdsCertificateExpires *string                           `pulumi:"timeOrdsCertificateExpires"`
-	TimeZone                   *string                           `pulumi:"timeZone"`
-	Timeouts                   *CloudAutonomousVmClusterTimeouts `pulumi:"timeouts"`
-	TotalContainerDatabases    *int                              `pulumi:"totalContainerDatabases"`
+	TimeDatabaseSslCertificateExpires *string                           `pulumi:"timeDatabaseSslCertificateExpires"`
+	TimeOrdsCertificateExpires        *string                           `pulumi:"timeOrdsCertificateExpires"`
+	TimeZone                          *string                           `pulumi:"timeZone"`
+	Timeouts                          *CloudAutonomousVmClusterTimeouts `pulumi:"timeouts"`
+	TotalContainerDatabases           *int                              `pulumi:"totalContainerDatabases"`
 }
 
 type CloudAutonomousVmClusterState struct {
-	// The Amazon Resource Name (ARN) for the Exadata infrastructure.
 	Arn pulumi.StringPtrInput
 	// The progress of the current operation on the Autonomous VM cluster, as a percentage.
 	AutonomousDataStoragePercentage pulumi.Float64PtrInput
@@ -383,7 +260,7 @@ type CloudAutonomousVmClusterState struct {
 	AvailableAutonomousDataStorageSizeInTbs pulumi.Float64PtrInput
 	// The number of Autonomous CDBs that you can create with the currently available storage.
 	AvailableContainerDatabases pulumi.IntPtrInput
-	// The number of CPU cores available for allocation to Autonomous Databases.
+	// The number of CPU cores available for allocation to Autonomous Databases
 	AvailableCpus                pulumi.Float64PtrInput
 	CloudExadataInfrastructureId pulumi.StringPtrInput
 	// The compute model of the Autonomous VM cluster: ECPU or OCPU.
@@ -430,7 +307,7 @@ type CloudAutonomousVmClusterState struct {
 	// The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
 	Ocid         pulumi.StringPtrInput
 	OdbNetworkId pulumi.StringPtrInput
-	// The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
+	// The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB)
 	OdbNodeStorageSizeInGbs pulumi.IntPtrInput
 	// The progress of the current operation on the Autonomous VM cluster, as a percentage.
 	PercentProgress pulumi.Float64PtrInput
@@ -442,29 +319,25 @@ type CloudAutonomousVmClusterState struct {
 	ProvisionedCpus pulumi.Float64PtrInput
 	// The number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
 	ReclaimableCpus pulumi.Float64PtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
 	// The number of CPU cores reserved for system operations and redundancy.
 	ReservedCpus           pulumi.Float64PtrInput
 	ScanListenerPortNonTls pulumi.IntPtrInput
 	ScanListenerPortTls    pulumi.IntPtrInput
 	// The shape of the Exadata infrastructure for the Autonomous VM cluster.
 	Shape pulumi.StringPtrInput
-	// The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
+	// The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE , UPDATING , DELETING , DELETED , FAILED
 	Status pulumi.StringPtrInput
 	// Additional information about the current status of the Autonomous VM cluster.
 	StatusReason pulumi.StringPtrInput
-	// A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The combined set of user-defined and provider-defined tags.
-	TagsAll pulumi.StringMapInput
+	Tags         pulumi.StringMapInput
+	TagsAll      pulumi.StringMapInput
 	// The expiration date and time of the database SSL certificate.
 	TimeDatabaseSslCertificateExpires pulumi.StringPtrInput
-	// The expiration date and time of the ORDS certificate.
-	TimeOrdsCertificateExpires pulumi.StringPtrInput
-	TimeZone                   pulumi.StringPtrInput
-	Timeouts                   CloudAutonomousVmClusterTimeoutsPtrInput
-	TotalContainerDatabases    pulumi.IntPtrInput
+	TimeOrdsCertificateExpires        pulumi.StringPtrInput
+	TimeZone                          pulumi.StringPtrInput
+	Timeouts                          CloudAutonomousVmClusterTimeoutsPtrInput
+	TotalContainerDatabases           pulumi.IntPtrInput
 }
 
 func (CloudAutonomousVmClusterState) ElementType() reflect.Type {
@@ -486,15 +359,13 @@ type cloudAutonomousVmClusterArgs struct {
 	MaintenanceWindow               *CloudAutonomousVmClusterMaintenanceWindow `pulumi:"maintenanceWindow"`
 	MemoryPerOracleComputeUnitInGbs int                                        `pulumi:"memoryPerOracleComputeUnitInGbs"`
 	OdbNetworkId                    string                                     `pulumi:"odbNetworkId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region                 *string `pulumi:"region"`
-	ScanListenerPortNonTls int     `pulumi:"scanListenerPortNonTls"`
-	ScanListenerPortTls    int     `pulumi:"scanListenerPortTls"`
-	// A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags                    map[string]string                 `pulumi:"tags"`
-	TimeZone                *string                           `pulumi:"timeZone"`
-	Timeouts                *CloudAutonomousVmClusterTimeouts `pulumi:"timeouts"`
-	TotalContainerDatabases int                               `pulumi:"totalContainerDatabases"`
+	Region                          *string                                    `pulumi:"region"`
+	ScanListenerPortNonTls          int                                        `pulumi:"scanListenerPortNonTls"`
+	ScanListenerPortTls             int                                        `pulumi:"scanListenerPortTls"`
+	Tags                            map[string]string                          `pulumi:"tags"`
+	TimeZone                        *string                                    `pulumi:"timeZone"`
+	Timeouts                        *CloudAutonomousVmClusterTimeouts          `pulumi:"timeouts"`
+	TotalContainerDatabases         int                                        `pulumi:"totalContainerDatabases"`
 }
 
 // The set of arguments for constructing a CloudAutonomousVmCluster resource.
@@ -513,15 +384,13 @@ type CloudAutonomousVmClusterArgs struct {
 	MaintenanceWindow               CloudAutonomousVmClusterMaintenanceWindowPtrInput
 	MemoryPerOracleComputeUnitInGbs pulumi.IntInput
 	OdbNetworkId                    pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region                 pulumi.StringPtrInput
-	ScanListenerPortNonTls pulumi.IntInput
-	ScanListenerPortTls    pulumi.IntInput
-	// A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags                    pulumi.StringMapInput
-	TimeZone                pulumi.StringPtrInput
-	Timeouts                CloudAutonomousVmClusterTimeoutsPtrInput
-	TotalContainerDatabases pulumi.IntInput
+	Region                          pulumi.StringPtrInput
+	ScanListenerPortNonTls          pulumi.IntInput
+	ScanListenerPortTls             pulumi.IntInput
+	Tags                            pulumi.StringMapInput
+	TimeZone                        pulumi.StringPtrInput
+	Timeouts                        CloudAutonomousVmClusterTimeoutsPtrInput
+	TotalContainerDatabases         pulumi.IntInput
 }
 
 func (CloudAutonomousVmClusterArgs) ElementType() reflect.Type {
@@ -611,7 +480,6 @@ func (o CloudAutonomousVmClusterOutput) ToCloudAutonomousVmClusterOutputWithCont
 	return o
 }
 
-// The Amazon Resource Name (ARN) for the Exadata infrastructure.
 func (o CloudAutonomousVmClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmCluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -637,7 +505,7 @@ func (o CloudAutonomousVmClusterOutput) AvailableContainerDatabases() pulumi.Int
 	return o.ApplyT(func(v *CloudAutonomousVmCluster) pulumi.IntOutput { return v.AvailableContainerDatabases }).(pulumi.IntOutput)
 }
 
-// The number of CPU cores available for allocation to Autonomous Databases.
+// The number of CPU cores available for allocation to Autonomous Databases
 func (o CloudAutonomousVmClusterOutput) AvailableCpus() pulumi.Float64Output {
 	return o.ApplyT(func(v *CloudAutonomousVmCluster) pulumi.Float64Output { return v.AvailableCpus }).(pulumi.Float64Output)
 }
@@ -769,7 +637,7 @@ func (o CloudAutonomousVmClusterOutput) OdbNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmCluster) pulumi.StringOutput { return v.OdbNetworkId }).(pulumi.StringOutput)
 }
 
-// The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
+// The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB)
 func (o CloudAutonomousVmClusterOutput) OdbNodeStorageSizeInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmCluster) pulumi.IntOutput { return v.OdbNodeStorageSizeInGbs }).(pulumi.IntOutput)
 }
@@ -799,7 +667,6 @@ func (o CloudAutonomousVmClusterOutput) ReclaimableCpus() pulumi.Float64Output {
 	return o.ApplyT(func(v *CloudAutonomousVmCluster) pulumi.Float64Output { return v.ReclaimableCpus }).(pulumi.Float64Output)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CloudAutonomousVmClusterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmCluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -822,7 +689,7 @@ func (o CloudAutonomousVmClusterOutput) Shape() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmCluster) pulumi.StringOutput { return v.Shape }).(pulumi.StringOutput)
 }
 
-// The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
+// The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE , UPDATING , DELETING , DELETED , FAILED
 func (o CloudAutonomousVmClusterOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmCluster) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
@@ -832,12 +699,10 @@ func (o CloudAutonomousVmClusterOutput) StatusReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmCluster) pulumi.StringOutput { return v.StatusReason }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CloudAutonomousVmClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The combined set of user-defined and provider-defined tags.
 func (o CloudAutonomousVmClusterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmCluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -847,7 +712,6 @@ func (o CloudAutonomousVmClusterOutput) TimeDatabaseSslCertificateExpires() pulu
 	return o.ApplyT(func(v *CloudAutonomousVmCluster) pulumi.StringOutput { return v.TimeDatabaseSslCertificateExpires }).(pulumi.StringOutput)
 }
 
-// The expiration date and time of the ORDS certificate.
 func (o CloudAutonomousVmClusterOutput) TimeOrdsCertificateExpires() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmCluster) pulumi.StringOutput { return v.TimeOrdsCertificateExpires }).(pulumi.StringOutput)
 }

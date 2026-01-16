@@ -7,37 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Creates and manages an AWS XRay Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.xray.Group("example", {
- *     groupName: "example",
- *     filterExpression: "responsetime > 5",
- *     insightsConfiguration: {
- *         insightsEnabled: true,
- *         notificationsEnabled: true,
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the X-Ray group.
- *
- * Using `pulumi import`, import XRay Groups using the ARN. For example:
- *
- * % pulumi import aws_xray_group.example arn:aws:xray:us-west-2:1234567890:group/example-group/TNGX7SW5U6QY36T4ZMOUA3HVLBYCZTWDIOOXY3CJAXTHSS3YCWUA
- */
 export class Group extends pulumi.CustomResource {
     /**
      * Get an existing Group resource's state with the given name, ID, and optional extra
@@ -66,33 +35,12 @@ export class Group extends pulumi.CustomResource {
         return obj['__pulumiType'] === Group.__pulumiType;
     }
 
-    /**
-     * The ARN of the Group.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
-     */
     declare public readonly filterExpression: pulumi.Output<string>;
-    /**
-     * The name of the group.
-     */
     declare public readonly groupName: pulumi.Output<string>;
-    /**
-     * Configuration options for enabling insights.
-     */
     declare public readonly insightsConfiguration: pulumi.Output<outputs.xray.GroupInsightsConfiguration>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -140,33 +88,12 @@ export class Group extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Group resources.
  */
 export interface GroupState {
-    /**
-     * The ARN of the Group.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
-     */
     filterExpression?: pulumi.Input<string>;
-    /**
-     * The name of the group.
-     */
     groupName?: pulumi.Input<string>;
-    /**
-     * Configuration options for enabling insights.
-     */
     insightsConfiguration?: pulumi.Input<inputs.xray.GroupInsightsConfiguration>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -174,24 +101,9 @@ export interface GroupState {
  * The set of arguments for constructing a Group resource.
  */
 export interface GroupArgs {
-    /**
-     * The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
-     */
     filterExpression: pulumi.Input<string>;
-    /**
-     * The name of the group.
-     */
     groupName: pulumi.Input<string>;
-    /**
-     * Configuration options for enabling insights.
-     */
     insightsConfiguration?: pulumi.Input<inputs.xray.GroupInsightsConfiguration>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

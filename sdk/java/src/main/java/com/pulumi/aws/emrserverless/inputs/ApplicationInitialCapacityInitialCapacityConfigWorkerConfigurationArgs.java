@@ -16,47 +16,23 @@ public final class ApplicationInitialCapacityInitialCapacityConfigWorkerConfigur
 
     public static final ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs Empty = new ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs();
 
-    /**
-     * The CPU requirements for every worker instance of the worker type.
-     * 
-     */
     @Import(name="cpu", required=true)
     private Output<String> cpu;
 
-    /**
-     * @return The CPU requirements for every worker instance of the worker type.
-     * 
-     */
     public Output<String> cpu() {
         return this.cpu;
     }
 
-    /**
-     * The disk requirements for every worker instance of the worker type.
-     * 
-     */
     @Import(name="disk")
     private @Nullable Output<String> disk;
 
-    /**
-     * @return The disk requirements for every worker instance of the worker type.
-     * 
-     */
     public Optional<Output<String>> disk() {
         return Optional.ofNullable(this.disk);
     }
 
-    /**
-     * The memory requirements for every worker instance of the worker type.
-     * 
-     */
     @Import(name="memory", required=true)
     private Output<String> memory;
 
-    /**
-     * @return The memory requirements for every worker instance of the worker type.
-     * 
-     */
     public Output<String> memory() {
         return this.memory;
     }
@@ -87,65 +63,29 @@ public final class ApplicationInitialCapacityInitialCapacityConfigWorkerConfigur
             $ = new ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cpu The CPU requirements for every worker instance of the worker type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cpu(Output<String> cpu) {
             $.cpu = cpu;
             return this;
         }
 
-        /**
-         * @param cpu The CPU requirements for every worker instance of the worker type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cpu(String cpu) {
             return cpu(Output.of(cpu));
         }
 
-        /**
-         * @param disk The disk requirements for every worker instance of the worker type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disk(@Nullable Output<String> disk) {
             $.disk = disk;
             return this;
         }
 
-        /**
-         * @param disk The disk requirements for every worker instance of the worker type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disk(String disk) {
             return disk(Output.of(disk));
         }
 
-        /**
-         * @param memory The memory requirements for every worker instance of the worker type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memory(Output<String> memory) {
             $.memory = memory;
             return this;
         }
 
-        /**
-         * @param memory The memory requirements for every worker instance of the worker type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memory(String memory) {
             return memory(Output.of(memory));
         }

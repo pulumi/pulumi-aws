@@ -12,83 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Route 53 Profiles Association.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := route53.NewProfilesProfile(ctx, "example", &route53.ProfilesProfileArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpc, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
-//				Cidr: "10.0.0.0/16",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewProfilesAssociation(ctx, "example", &route53.ProfilesAssociationArgs{
-//				Name:       pulumi.String("example"),
-//				ProfileId:  example.ID(),
-//				ResourceId: exampleVpc.ID(),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("dev"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Route 53 Profiles Association using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:route53/profilesAssociation:ProfilesAssociation example rpa-id-12345678
-// ```
 type ProfilesAssociation struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)`.
-	Name    pulumi.StringOutput `pulumi:"name"`
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// ID of the profile associated with the VPC.
-	ProfileId pulumi.StringOutput `pulumi:"profileId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Resource ID of the VPC the profile to be associated with.
-	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	// Status of the Profile Association.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Status message of the Profile Association.
-	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput               `pulumi:"tagsAll"`
-	Timeouts ProfilesAssociationTimeoutsPtrOutput `pulumi:"timeouts"`
+	Arn           pulumi.StringOutput                  `pulumi:"arn"`
+	Name          pulumi.StringOutput                  `pulumi:"name"`
+	OwnerId       pulumi.StringOutput                  `pulumi:"ownerId"`
+	ProfileId     pulumi.StringOutput                  `pulumi:"profileId"`
+	Region        pulumi.StringOutput                  `pulumi:"region"`
+	ResourceId    pulumi.StringOutput                  `pulumi:"resourceId"`
+	Status        pulumi.StringOutput                  `pulumi:"status"`
+	StatusMessage pulumi.StringOutput                  `pulumi:"statusMessage"`
+	Tags          pulumi.StringMapOutput               `pulumi:"tags"`
+	TagsAll       pulumi.StringMapOutput               `pulumi:"tagsAll"`
+	Timeouts      ProfilesAssociationTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewProfilesAssociation registers a new resource with the given unique name, arguments, and options.
@@ -127,47 +64,31 @@ func GetProfilesAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProfilesAssociation resources.
 type profilesAssociationState struct {
-	Arn *string `pulumi:"arn"`
-	// Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)`.
-	Name    *string `pulumi:"name"`
-	OwnerId *string `pulumi:"ownerId"`
-	// ID of the profile associated with the VPC.
-	ProfileId *string `pulumi:"profileId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Resource ID of the VPC the profile to be associated with.
-	ResourceId *string `pulumi:"resourceId"`
-	// Status of the Profile Association.
-	Status *string `pulumi:"status"`
-	// Status message of the Profile Association.
-	StatusMessage *string `pulumi:"statusMessage"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string            `pulumi:"tagsAll"`
-	Timeouts *ProfilesAssociationTimeouts `pulumi:"timeouts"`
+	Arn           *string                      `pulumi:"arn"`
+	Name          *string                      `pulumi:"name"`
+	OwnerId       *string                      `pulumi:"ownerId"`
+	ProfileId     *string                      `pulumi:"profileId"`
+	Region        *string                      `pulumi:"region"`
+	ResourceId    *string                      `pulumi:"resourceId"`
+	Status        *string                      `pulumi:"status"`
+	StatusMessage *string                      `pulumi:"statusMessage"`
+	Tags          map[string]string            `pulumi:"tags"`
+	TagsAll       map[string]string            `pulumi:"tagsAll"`
+	Timeouts      *ProfilesAssociationTimeouts `pulumi:"timeouts"`
 }
 
 type ProfilesAssociationState struct {
-	Arn pulumi.StringPtrInput
-	// Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)`.
-	Name    pulumi.StringPtrInput
-	OwnerId pulumi.StringPtrInput
-	// ID of the profile associated with the VPC.
-	ProfileId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Resource ID of the VPC the profile to be associated with.
-	ResourceId pulumi.StringPtrInput
-	// Status of the Profile Association.
-	Status pulumi.StringPtrInput
-	// Status message of the Profile Association.
+	Arn           pulumi.StringPtrInput
+	Name          pulumi.StringPtrInput
+	OwnerId       pulumi.StringPtrInput
+	ProfileId     pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
+	ResourceId    pulumi.StringPtrInput
+	Status        pulumi.StringPtrInput
 	StatusMessage pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts ProfilesAssociationTimeoutsPtrInput
+	Tags          pulumi.StringMapInput
+	TagsAll       pulumi.StringMapInput
+	Timeouts      ProfilesAssociationTimeoutsPtrInput
 }
 
 func (ProfilesAssociationState) ElementType() reflect.Type {
@@ -175,32 +96,22 @@ func (ProfilesAssociationState) ElementType() reflect.Type {
 }
 
 type profilesAssociationArgs struct {
-	// Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)`.
-	Name *string `pulumi:"name"`
-	// ID of the profile associated with the VPC.
-	ProfileId string `pulumi:"profileId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Resource ID of the VPC the profile to be associated with.
-	ResourceId string `pulumi:"resourceId"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string            `pulumi:"tags"`
-	Timeouts *ProfilesAssociationTimeouts `pulumi:"timeouts"`
+	Name       *string                      `pulumi:"name"`
+	ProfileId  string                       `pulumi:"profileId"`
+	Region     *string                      `pulumi:"region"`
+	ResourceId string                       `pulumi:"resourceId"`
+	Tags       map[string]string            `pulumi:"tags"`
+	Timeouts   *ProfilesAssociationTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a ProfilesAssociation resource.
 type ProfilesAssociationArgs struct {
-	// Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)`.
-	Name pulumi.StringPtrInput
-	// ID of the profile associated with the VPC.
-	ProfileId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Resource ID of the VPC the profile to be associated with.
+	Name       pulumi.StringPtrInput
+	ProfileId  pulumi.StringInput
+	Region     pulumi.StringPtrInput
 	ResourceId pulumi.StringInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts ProfilesAssociationTimeoutsPtrInput
+	Tags       pulumi.StringMapInput
+	Timeouts   ProfilesAssociationTimeoutsPtrInput
 }
 
 func (ProfilesAssociationArgs) ElementType() reflect.Type {
@@ -294,7 +205,6 @@ func (o ProfilesAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)`.
 func (o ProfilesAssociationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesAssociation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -303,37 +213,30 @@ func (o ProfilesAssociationOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesAssociation) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// ID of the profile associated with the VPC.
 func (o ProfilesAssociationOutput) ProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesAssociation) pulumi.StringOutput { return v.ProfileId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ProfilesAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Resource ID of the VPC the profile to be associated with.
 func (o ProfilesAssociationOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesAssociation) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// Status of the Profile Association.
 func (o ProfilesAssociationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesAssociation) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Status message of the Profile Association.
 func (o ProfilesAssociationOutput) StatusMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesAssociation) pulumi.StringOutput { return v.StatusMessage }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ProfilesAssociationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProfilesAssociation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ProfilesAssociationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProfilesAssociation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

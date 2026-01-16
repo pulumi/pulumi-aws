@@ -12,75 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Grant cross-account access to an Elastic network interface (ENI).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ec2.NewNetworkInterface(ctx, "example", &ec2.NetworkInterfaceArgs{
-//				SubnetId: pulumi.Any(exampleAwsSubnet.Id),
-//				PrivateIps: pulumi.StringArray{
-//					pulumi.String("10.0.0.50"),
-//				},
-//				SecurityGroups: pulumi.StringArray{
-//					exampleAwsSecurityGroup.Id,
-//				},
-//				Attachments: ec2.NetworkInterfaceAttachmentTypeArray{
-//					&ec2.NetworkInterfaceAttachmentTypeArgs{
-//						Instance:    pulumi.Any(exampleAwsInstance.Id),
-//						DeviceIndex: pulumi.Int(1),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewNetworkInterfacePermission(ctx, "example", &ec2.NetworkInterfacePermissionArgs{
-//				NetworkInterfaceId: example.ID(),
-//				AwsAccountId:       pulumi.String("123456789012"),
-//				Permission:         pulumi.String("INSTANCE-ATTACH"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Network Interface Permissions using the `network_interface_permission_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/networkInterfacePermission:NetworkInterfacePermission example eni-perm-056ad97ce2ac377ed
-// ```
 type NetworkInterfacePermission struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Web Services account ID.
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// The ID of the network interface.
-	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
-	// ENI permission ID.
-	NetworkInterfacePermissionId pulumi.StringOutput `pulumi:"networkInterfacePermissionId"`
-	// The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
-	Permission pulumi.StringOutput `pulumi:"permission"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringOutput                         `pulumi:"region"`
-	Timeouts NetworkInterfacePermissionTimeoutsPtrOutput `pulumi:"timeouts"`
+	AwsAccountId                 pulumi.StringOutput                         `pulumi:"awsAccountId"`
+	NetworkInterfaceId           pulumi.StringOutput                         `pulumi:"networkInterfaceId"`
+	NetworkInterfacePermissionId pulumi.StringOutput                         `pulumi:"networkInterfacePermissionId"`
+	Permission                   pulumi.StringOutput                         `pulumi:"permission"`
+	Region                       pulumi.StringOutput                         `pulumi:"region"`
+	Timeouts                     NetworkInterfacePermissionTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewNetworkInterfacePermission registers a new resource with the given unique name, arguments, and options.
@@ -122,31 +62,21 @@ func GetNetworkInterfacePermission(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkInterfacePermission resources.
 type networkInterfacePermissionState struct {
-	// The Amazon Web Services account ID.
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The ID of the network interface.
-	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	// ENI permission ID.
-	NetworkInterfacePermissionId *string `pulumi:"networkInterfacePermissionId"`
-	// The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
-	Permission *string `pulumi:"permission"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   *string                             `pulumi:"region"`
-	Timeouts *NetworkInterfacePermissionTimeouts `pulumi:"timeouts"`
+	AwsAccountId                 *string                             `pulumi:"awsAccountId"`
+	NetworkInterfaceId           *string                             `pulumi:"networkInterfaceId"`
+	NetworkInterfacePermissionId *string                             `pulumi:"networkInterfacePermissionId"`
+	Permission                   *string                             `pulumi:"permission"`
+	Region                       *string                             `pulumi:"region"`
+	Timeouts                     *NetworkInterfacePermissionTimeouts `pulumi:"timeouts"`
 }
 
 type NetworkInterfacePermissionState struct {
-	// The Amazon Web Services account ID.
-	AwsAccountId pulumi.StringPtrInput
-	// The ID of the network interface.
-	NetworkInterfaceId pulumi.StringPtrInput
-	// ENI permission ID.
+	AwsAccountId                 pulumi.StringPtrInput
+	NetworkInterfaceId           pulumi.StringPtrInput
 	NetworkInterfacePermissionId pulumi.StringPtrInput
-	// The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
-	Permission pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringPtrInput
-	Timeouts NetworkInterfacePermissionTimeoutsPtrInput
+	Permission                   pulumi.StringPtrInput
+	Region                       pulumi.StringPtrInput
+	Timeouts                     NetworkInterfacePermissionTimeoutsPtrInput
 }
 
 func (NetworkInterfacePermissionState) ElementType() reflect.Type {
@@ -154,28 +84,20 @@ func (NetworkInterfacePermissionState) ElementType() reflect.Type {
 }
 
 type networkInterfacePermissionArgs struct {
-	// The Amazon Web Services account ID.
-	AwsAccountId string `pulumi:"awsAccountId"`
-	// The ID of the network interface.
-	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
-	// The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
-	Permission string `pulumi:"permission"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   *string                             `pulumi:"region"`
-	Timeouts *NetworkInterfacePermissionTimeouts `pulumi:"timeouts"`
+	AwsAccountId       string                              `pulumi:"awsAccountId"`
+	NetworkInterfaceId string                              `pulumi:"networkInterfaceId"`
+	Permission         string                              `pulumi:"permission"`
+	Region             *string                             `pulumi:"region"`
+	Timeouts           *NetworkInterfacePermissionTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a NetworkInterfacePermission resource.
 type NetworkInterfacePermissionArgs struct {
-	// The Amazon Web Services account ID.
-	AwsAccountId pulumi.StringInput
-	// The ID of the network interface.
+	AwsAccountId       pulumi.StringInput
 	NetworkInterfaceId pulumi.StringInput
-	// The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
-	Permission pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringPtrInput
-	Timeouts NetworkInterfacePermissionTimeoutsPtrInput
+	Permission         pulumi.StringInput
+	Region             pulumi.StringPtrInput
+	Timeouts           NetworkInterfacePermissionTimeoutsPtrInput
 }
 
 func (NetworkInterfacePermissionArgs) ElementType() reflect.Type {
@@ -265,27 +187,22 @@ func (o NetworkInterfacePermissionOutput) ToNetworkInterfacePermissionOutputWith
 	return o
 }
 
-// The Amazon Web Services account ID.
 func (o NetworkInterfacePermissionOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfacePermission) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// The ID of the network interface.
 func (o NetworkInterfacePermissionOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfacePermission) pulumi.StringOutput { return v.NetworkInterfaceId }).(pulumi.StringOutput)
 }
 
-// ENI permission ID.
 func (o NetworkInterfacePermissionOutput) NetworkInterfacePermissionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfacePermission) pulumi.StringOutput { return v.NetworkInterfacePermissionId }).(pulumi.StringOutput)
 }
 
-// The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
 func (o NetworkInterfacePermissionOutput) Permission() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfacePermission) pulumi.StringOutput { return v.Permission }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NetworkInterfacePermissionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfacePermission) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

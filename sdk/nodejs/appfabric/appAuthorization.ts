@@ -7,33 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS AppFabric App Authorization.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appfabric.AppAuthorization("example", {
- *     app: "TERRAFORMCLOUD",
- *     appBundleArn: arn,
- *     authType: "apiKey",
- *     credential: {
- *         apiKeyCredentials: [{
- *             apiKey: "exampleapikeytoken",
- *         }],
- *     },
- *     tenants: [{
- *         tenantDisplayName: "example",
- *         tenantIdentifier: "example",
- *     }],
- * });
- * ```
- */
 export class AppAuthorization extends pulumi.CustomResource {
     /**
      * Get an existing AppAuthorization resource's state with the given name, ID, and optional extra
@@ -62,45 +35,17 @@ export class AppAuthorization extends pulumi.CustomResource {
         return obj['__pulumiType'] === AppAuthorization.__pulumiType;
     }
 
-    /**
-     * The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
-     */
     declare public readonly app: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the app bundle to use for the request.
-     */
     declare public readonly appBundleArn: pulumi.Output<string>;
-    /**
-     * ARN of the App Authorization. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The authorization type for the app authorization valid values are oauth2 and apiKey.
-     */
     declare public readonly authType: pulumi.Output<string>;
-    /**
-     * The application URL for the OAuth flow.
-     */
     declare public /*out*/ readonly authUrl: pulumi.Output<string>;
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
-    /**
-     * Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
-     * Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
-     */
     declare public readonly credential: pulumi.Output<outputs.appfabric.AppAuthorizationCredential | undefined>;
-    /**
-     * The user persona of the app authorization.
-     */
     declare public /*out*/ readonly persona: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Contains information about an application tenant, such as the application display name and identifier.
-     */
     declare public readonly tenants: pulumi.Output<outputs.appfabric.AppAuthorizationTenant[] | undefined>;
     declare public readonly timeouts: pulumi.Output<outputs.appfabric.AppAuthorizationTimeouts | undefined>;
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
@@ -167,45 +112,17 @@ export class AppAuthorization extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AppAuthorization resources.
  */
 export interface AppAuthorizationState {
-    /**
-     * The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
-     */
     app?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the app bundle to use for the request.
-     */
     appBundleArn?: pulumi.Input<string>;
-    /**
-     * ARN of the App Authorization. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The authorization type for the app authorization valid values are oauth2 and apiKey.
-     */
     authType?: pulumi.Input<string>;
-    /**
-     * The application URL for the OAuth flow.
-     */
     authUrl?: pulumi.Input<string>;
     createdAt?: pulumi.Input<string>;
-    /**
-     * Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
-     * Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
-     */
     credential?: pulumi.Input<inputs.appfabric.AppAuthorizationCredential>;
-    /**
-     * The user persona of the app authorization.
-     */
     persona?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Contains information about an application tenant, such as the application display name and identifier.
-     */
     tenants?: pulumi.Input<pulumi.Input<inputs.appfabric.AppAuthorizationTenant>[]>;
     timeouts?: pulumi.Input<inputs.appfabric.AppAuthorizationTimeouts>;
     updatedAt?: pulumi.Input<string>;
@@ -215,31 +132,12 @@ export interface AppAuthorizationState {
  * The set of arguments for constructing a AppAuthorization resource.
  */
 export interface AppAuthorizationArgs {
-    /**
-     * The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
-     */
     app: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the app bundle to use for the request.
-     */
     appBundleArn: pulumi.Input<string>;
-    /**
-     * The authorization type for the app authorization valid values are oauth2 and apiKey.
-     */
     authType: pulumi.Input<string>;
-    /**
-     * Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
-     * Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
-     */
     credential?: pulumi.Input<inputs.appfabric.AppAuthorizationCredential>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Contains information about an application tenant, such as the application display name and identifier.
-     */
     tenants?: pulumi.Input<pulumi.Input<inputs.appfabric.AppAuthorizationTenant>[]>;
     timeouts?: pulumi.Input<inputs.appfabric.AppAuthorizationTimeouts>;
 }

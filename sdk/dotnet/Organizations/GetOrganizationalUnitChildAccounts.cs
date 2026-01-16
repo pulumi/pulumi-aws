@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Organizations
 {
     public static class GetOrganizationalUnitChildAccounts
     {
-        /// <summary>
-        /// Get all direct child accounts under a parent organizational unit. This only provides immediate children, not all children.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var org = Aws.Organizations.GetOrganization.Invoke();
-        /// 
-        ///     var accounts = Aws.Organizations.GetOrganizationalUnitChildAccounts.Invoke(new()
-        ///     {
-        ///         ParentId = org.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetOrganizationalUnitChildAccountsResult> InvokeAsync(GetOrganizationalUnitChildAccountsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationalUnitChildAccountsResult>("aws:organizations/getOrganizationalUnitChildAccounts:getOrganizationalUnitChildAccounts", args ?? new GetOrganizationalUnitChildAccountsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get all direct child accounts under a parent organizational unit. This only provides immediate children, not all children.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var org = Aws.Organizations.GetOrganization.Invoke();
-        /// 
-        ///     var accounts = Aws.Organizations.GetOrganizationalUnitChildAccounts.Invoke(new()
-        ///     {
-        ///         ParentId = org.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetOrganizationalUnitChildAccountsResult> Invoke(GetOrganizationalUnitChildAccountsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationalUnitChildAccountsResult>("aws:organizations/getOrganizationalUnitChildAccounts:getOrganizationalUnitChildAccounts", args ?? new GetOrganizationalUnitChildAccountsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get all direct child accounts under a parent organizational unit. This only provides immediate children, not all children.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var org = Aws.Organizations.GetOrganization.Invoke();
-        /// 
-        ///     var accounts = Aws.Organizations.GetOrganizationalUnitChildAccounts.Invoke(new()
-        ///     {
-        ///         ParentId = org.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetOrganizationalUnitChildAccountsResult> Invoke(GetOrganizationalUnitChildAccountsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationalUnitChildAccountsResult>("aws:organizations/getOrganizationalUnitChildAccounts:getOrganizationalUnitChildAccounts", args ?? new GetOrganizationalUnitChildAccountsInvokeArgs(), options.WithDefaults());
     }
@@ -93,9 +24,6 @@ namespace Pulumi.Aws.Organizations
 
     public sealed class GetOrganizationalUnitChildAccountsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The parent ID of the accounts.
-        /// </summary>
         [Input("parentId", required: true)]
         public string ParentId { get; set; } = null!;
 
@@ -107,9 +35,6 @@ namespace Pulumi.Aws.Organizations
 
     public sealed class GetOrganizationalUnitChildAccountsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The parent ID of the accounts.
-        /// </summary>
         [Input("parentId", required: true)]
         public Input<string> ParentId { get; set; } = null!;
 
@@ -123,9 +48,6 @@ namespace Pulumi.Aws.Organizations
     [OutputType]
     public sealed class GetOrganizationalUnitChildAccountsResult
     {
-        /// <summary>
-        /// List of child accounts, which have the following attributes:
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetOrganizationalUnitChildAccountsAccountResult> Accounts;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

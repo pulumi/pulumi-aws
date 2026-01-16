@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Organizations.Outputs
     [OutputType]
     public sealed class OrganizationalUnitAccount
     {
-        /// <summary>
-        /// ARN of the organizational unit
-        /// </summary>
         public readonly string? Arn;
-        /// <summary>
-        /// Email of the account
-        /// </summary>
         public readonly string? Email;
-        /// <summary>
-        /// Identifier of the organization unit
-        /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// The name for the organizational unit
-        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

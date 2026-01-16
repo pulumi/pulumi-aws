@@ -12,68 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Amazon Lex Bot Alias resource. For more information see
-// [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lex"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lex.NewBotAlias(ctx, "order_flowers_prod", &lex.BotAliasArgs{
-//				BotName:     pulumi.String("OrderFlowers"),
-//				BotVersion:  pulumi.String("1"),
-//				Description: pulumi.String("Production Version of the OrderFlowers Bot."),
-//				Name:        pulumi.String("OrderFlowersProd"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import bot aliases using an ID with the format `bot_name:bot_alias_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
-// ```
 type BotAlias struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the bot alias.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the bot.
-	BotName pulumi.StringOutput `pulumi:"botName"`
-	// The version of the bot.
-	BotVersion pulumi.StringOutput `pulumi:"botVersion"`
-	// Checksum of the bot alias.
-	Checksum pulumi.StringOutput `pulumi:"checksum"`
-	// The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
+	Arn              pulumi.StringOutput               `pulumi:"arn"`
+	BotName          pulumi.StringOutput               `pulumi:"botName"`
+	BotVersion       pulumi.StringOutput               `pulumi:"botVersion"`
+	Checksum         pulumi.StringOutput               `pulumi:"checksum"`
 	ConversationLogs BotAliasConversationLogsPtrOutput `pulumi:"conversationLogs"`
-	// The date that the bot alias was created.
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// A description of the alias. Must be less than or equal to 200 characters in length.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
-	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
-	// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	CreatedDate      pulumi.StringOutput               `pulumi:"createdDate"`
+	Description      pulumi.StringPtrOutput            `pulumi:"description"`
+	LastUpdatedDate  pulumi.StringOutput               `pulumi:"lastUpdatedDate"`
+	Name             pulumi.StringOutput               `pulumi:"name"`
+	Region           pulumi.StringOutput               `pulumi:"region"`
 }
 
 // NewBotAlias registers a new resource with the given unique name, arguments, and options.
@@ -112,49 +63,29 @@ func GetBotAlias(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BotAlias resources.
 type botAliasState struct {
-	// The ARN of the bot alias.
-	Arn *string `pulumi:"arn"`
-	// The name of the bot.
-	BotName *string `pulumi:"botName"`
-	// The version of the bot.
-	BotVersion *string `pulumi:"botVersion"`
-	// Checksum of the bot alias.
-	Checksum *string `pulumi:"checksum"`
-	// The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
+	Arn              *string                   `pulumi:"arn"`
+	BotName          *string                   `pulumi:"botName"`
+	BotVersion       *string                   `pulumi:"botVersion"`
+	Checksum         *string                   `pulumi:"checksum"`
 	ConversationLogs *BotAliasConversationLogs `pulumi:"conversationLogs"`
-	// The date that the bot alias was created.
-	CreatedDate *string `pulumi:"createdDate"`
-	// A description of the alias. Must be less than or equal to 200 characters in length.
-	Description *string `pulumi:"description"`
-	// The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
-	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
-	// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	CreatedDate      *string                   `pulumi:"createdDate"`
+	Description      *string                   `pulumi:"description"`
+	LastUpdatedDate  *string                   `pulumi:"lastUpdatedDate"`
+	Name             *string                   `pulumi:"name"`
+	Region           *string                   `pulumi:"region"`
 }
 
 type BotAliasState struct {
-	// The ARN of the bot alias.
-	Arn pulumi.StringPtrInput
-	// The name of the bot.
-	BotName pulumi.StringPtrInput
-	// The version of the bot.
-	BotVersion pulumi.StringPtrInput
-	// Checksum of the bot alias.
-	Checksum pulumi.StringPtrInput
-	// The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
+	Arn              pulumi.StringPtrInput
+	BotName          pulumi.StringPtrInput
+	BotVersion       pulumi.StringPtrInput
+	Checksum         pulumi.StringPtrInput
 	ConversationLogs BotAliasConversationLogsPtrInput
-	// The date that the bot alias was created.
-	CreatedDate pulumi.StringPtrInput
-	// A description of the alias. Must be less than or equal to 200 characters in length.
-	Description pulumi.StringPtrInput
-	// The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
-	LastUpdatedDate pulumi.StringPtrInput
-	// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	CreatedDate      pulumi.StringPtrInput
+	Description      pulumi.StringPtrInput
+	LastUpdatedDate  pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
 }
 
 func (BotAliasState) ElementType() reflect.Type {
@@ -162,34 +93,22 @@ func (BotAliasState) ElementType() reflect.Type {
 }
 
 type botAliasArgs struct {
-	// The name of the bot.
-	BotName string `pulumi:"botName"`
-	// The version of the bot.
-	BotVersion string `pulumi:"botVersion"`
-	// The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
+	BotName          string                    `pulumi:"botName"`
+	BotVersion       string                    `pulumi:"botVersion"`
 	ConversationLogs *BotAliasConversationLogs `pulumi:"conversationLogs"`
-	// A description of the alias. Must be less than or equal to 200 characters in length.
-	Description *string `pulumi:"description"`
-	// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Description      *string                   `pulumi:"description"`
+	Name             *string                   `pulumi:"name"`
+	Region           *string                   `pulumi:"region"`
 }
 
 // The set of arguments for constructing a BotAlias resource.
 type BotAliasArgs struct {
-	// The name of the bot.
-	BotName pulumi.StringInput
-	// The version of the bot.
-	BotVersion pulumi.StringInput
-	// The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
+	BotName          pulumi.StringInput
+	BotVersion       pulumi.StringInput
 	ConversationLogs BotAliasConversationLogsPtrInput
-	// A description of the alias. Must be less than or equal to 200 characters in length.
-	Description pulumi.StringPtrInput
-	// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Description      pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
 }
 
 func (BotAliasArgs) ElementType() reflect.Type {
@@ -279,52 +198,42 @@ func (o BotAliasOutput) ToBotAliasOutputWithContext(ctx context.Context) BotAlia
 	return o
 }
 
-// The ARN of the bot alias.
 func (o BotAliasOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *BotAlias) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the bot.
 func (o BotAliasOutput) BotName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BotAlias) pulumi.StringOutput { return v.BotName }).(pulumi.StringOutput)
 }
 
-// The version of the bot.
 func (o BotAliasOutput) BotVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *BotAlias) pulumi.StringOutput { return v.BotVersion }).(pulumi.StringOutput)
 }
 
-// Checksum of the bot alias.
 func (o BotAliasOutput) Checksum() pulumi.StringOutput {
 	return o.ApplyT(func(v *BotAlias) pulumi.StringOutput { return v.Checksum }).(pulumi.StringOutput)
 }
 
-// The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
 func (o BotAliasOutput) ConversationLogs() BotAliasConversationLogsPtrOutput {
 	return o.ApplyT(func(v *BotAlias) BotAliasConversationLogsPtrOutput { return v.ConversationLogs }).(BotAliasConversationLogsPtrOutput)
 }
 
-// The date that the bot alias was created.
 func (o BotAliasOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *BotAlias) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// A description of the alias. Must be less than or equal to 200 characters in length.
 func (o BotAliasOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotAlias) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
 func (o BotAliasOutput) LastUpdatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *BotAlias) pulumi.StringOutput { return v.LastUpdatedDate }).(pulumi.StringOutput)
 }
 
-// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
 func (o BotAliasOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BotAlias) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BotAliasOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BotAlias) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

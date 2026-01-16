@@ -15,17 +15,9 @@ public final class UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs ext
 
     public static final UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs Empty = new UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs();
 
-    /**
-     * Mode of threat protection operation in custom authentication. Valid values are `AUDIT` or `ENFORCED`. The default value is `AUDIT`.
-     * 
-     */
     @Import(name="customAuthMode")
     private @Nullable Output<String> customAuthMode;
 
-    /**
-     * @return Mode of threat protection operation in custom authentication. Valid values are `AUDIT` or `ENFORCED`. The default value is `AUDIT`.
-     * 
-     */
     public Optional<Output<String>> customAuthMode() {
         return Optional.ofNullable(this.customAuthMode);
     }
@@ -54,23 +46,11 @@ public final class UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs ext
             $ = new UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customAuthMode Mode of threat protection operation in custom authentication. Valid values are `AUDIT` or `ENFORCED`. The default value is `AUDIT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customAuthMode(@Nullable Output<String> customAuthMode) {
             $.customAuthMode = customAuthMode;
             return this;
         }
 
-        /**
-         * @param customAuthMode Mode of threat protection operation in custom authentication. Valid values are `AUDIT` or `ENFORCED`. The default value is `AUDIT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customAuthMode(String customAuthMode) {
             return customAuthMode(Output.of(customAuthMode));
         }

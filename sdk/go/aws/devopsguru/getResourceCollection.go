@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS DevOps Guru Resource Collection.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/devopsguru"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := devopsguru.LookupResourceCollection(ctx, &devopsguru.LookupResourceCollectionArgs{
-//				Type: "AWS_SERVICE",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupResourceCollection(ctx *pulumi.Context, args *LookupResourceCollectionArgs, opts ...pulumi.InvokeOption) (*LookupResourceCollectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResourceCollectionResult
@@ -52,22 +23,17 @@ func LookupResourceCollection(ctx *pulumi.Context, args *LookupResourceCollectio
 
 // A collection of arguments for invoking getResourceCollection.
 type LookupResourceCollectionArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
-	Type string `pulumi:"type"`
+	Type   string  `pulumi:"type"`
 }
 
 // A collection of values returned by getResourceCollection.
 type LookupResourceCollectionResult struct {
-	// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
 	Cloudformations []GetResourceCollectionCloudformation `pulumi:"cloudformations"`
-	// Type of AWS resource collection to create (same value as `type`).
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
-	// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-	Tags []GetResourceCollectionTag `pulumi:"tags"`
-	Type string                     `pulumi:"type"`
+	Id              string                                `pulumi:"id"`
+	Region          string                                `pulumi:"region"`
+	Tags            []GetResourceCollectionTag            `pulumi:"tags"`
+	Type            string                                `pulumi:"type"`
 }
 
 func LookupResourceCollectionOutput(ctx *pulumi.Context, args LookupResourceCollectionOutputArgs, opts ...pulumi.InvokeOption) LookupResourceCollectionResultOutput {
@@ -81,10 +47,8 @@ func LookupResourceCollectionOutput(ctx *pulumi.Context, args LookupResourceColl
 
 // A collection of arguments for invoking getResourceCollection.
 type LookupResourceCollectionOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type   pulumi.StringInput    `pulumi:"type"`
 }
 
 func (LookupResourceCollectionOutputArgs) ElementType() reflect.Type {
@@ -106,12 +70,10 @@ func (o LookupResourceCollectionResultOutput) ToLookupResourceCollectionResultOu
 	return o
 }
 
-// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
 func (o LookupResourceCollectionResultOutput) Cloudformations() GetResourceCollectionCloudformationArrayOutput {
 	return o.ApplyT(func(v LookupResourceCollectionResult) []GetResourceCollectionCloudformation { return v.Cloudformations }).(GetResourceCollectionCloudformationArrayOutput)
 }
 
-// Type of AWS resource collection to create (same value as `type`).
 func (o LookupResourceCollectionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceCollectionResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -120,7 +82,6 @@ func (o LookupResourceCollectionResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceCollectionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
 func (o LookupResourceCollectionResultOutput) Tags() GetResourceCollectionTagArrayOutput {
 	return o.ApplyT(func(v LookupResourceCollectionResult) []GetResourceCollectionTag { return v.Tags }).(GetResourceCollectionTagArrayOutput)
 }

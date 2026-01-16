@@ -12,9 +12,6 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Custom response for blocked requests. See below.
-        /// </summary>
         [Input("customResponse")]
         public Input<Inputs.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseGetArgs>? CustomResponse { get; set; }
 

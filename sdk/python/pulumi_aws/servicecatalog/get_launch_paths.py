@@ -70,9 +70,6 @@ class GetLaunchPathsResult:
     @_builtins.property
     @pulumi.getter
     def summaries(self) -> Sequence['outputs.GetLaunchPathsSummaryResult']:
-        """
-        Block with information about the launch path. See details below.
-        """
         return pulumi.get(self, "summaries")
 
 
@@ -94,25 +91,7 @@ def get_launch_paths(accept_language: Optional[_builtins.str] = None,
                      region: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLaunchPathsResult:
     """
-    Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicecatalog.get_launch_paths(product_id="prod-yakog5pdriver")
-    ```
-
-
-    :param _builtins.str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-    :param _builtins.str product_id: Product identifier.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
@@ -132,25 +111,7 @@ def get_launch_paths_output(accept_language: Optional[pulumi.Input[Optional[_bui
                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLaunchPathsResult]:
     """
-    Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicecatalog.get_launch_paths(product_id="prod-yakog5pdriver")
-    ```
-
-
-    :param _builtins.str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-    :param _builtins.str product_id: Product identifier.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language

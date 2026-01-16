@@ -13,94 +13,11 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Managed Streaming for Kafka Cluster Policy.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.inputs.GetPartitionArgs;
- * import com.pulumi.aws.msk.ClusterPolicy;
- * import com.pulumi.aws.msk.ClusterPolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
- *             .build());
- * 
- *         var example = new ClusterPolicy("example", ClusterPolicyArgs.builder()
- *             .clusterArn(exampleAwsMskCluster.arn())
- *             .policy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Version", "2012-10-17"),
- *                     jsonProperty("Statement", jsonArray(jsonObject(
- *                         jsonProperty("Sid", "ExampleMskClusterPolicy"),
- *                         jsonProperty("Effect", "Allow"),
- *                         jsonProperty("Principal", jsonObject(
- *                             jsonProperty("AWS", String.format("arn:%s:iam::%s:root", currentGetPartition.partition(),current.accountId()))
- *                         )),
- *                         jsonProperty("Action", jsonArray(
- *                             "kafka:Describe*", 
- *                             "kafka:Get*", 
- *                             "kafka:CreateVpcConnection", 
- *                             "kafka:GetBootstrapBrokers"
- *                         )),
- *                         jsonProperty("Resource", exampleAwsMskCluster.arn())
- *                     )))
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Managed Streaming for Kafka Cluster Policy using the `cluster_arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:msk/clusterPolicy:ClusterPolicy example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
- * ```
- * 
- */
 @ResourceType(type="aws:msk/clusterPolicy:ClusterPolicy")
 public class ClusterPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) that uniquely identifies the cluster.
-     * 
-     */
     @Export(name="clusterArn", refs={String.class}, tree="[0]")
     private Output<String> clusterArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) that uniquely identifies the cluster.
-     * 
-     */
     public Output<String> clusterArn() {
         return this.clusterArn;
     }
@@ -110,31 +27,15 @@ public class ClusterPolicy extends com.pulumi.resources.CustomResource {
     public Output<String> currentVersion() {
         return this.currentVersion;
     }
-    /**
-     * Resource policy for cluster.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return Resource policy for cluster.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

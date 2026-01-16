@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MetricStreamIncludeFilter {
-    /**
-     * @return An array that defines the metrics you want to include for this metric namespace
-     * 
-     */
     private @Nullable List<String> metricNames;
-    /**
-     * @return Name of the metric namespace in the filter.
-     * 
-     */
     private String namespace;
 
     private MetricStreamIncludeFilter() {}
-    /**
-     * @return An array that defines the metrics you want to include for this metric namespace
-     * 
-     */
     public List<String> metricNames() {
         return this.metricNames == null ? List.of() : this.metricNames;
     }
-    /**
-     * @return Name of the metric namespace in the filter.
-     * 
-     */
     public String namespace() {
         return this.namespace;
     }

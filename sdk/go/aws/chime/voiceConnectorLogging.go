@@ -12,61 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Adds a logging configuration for the specified Amazon Chime Voice Connector. The logging configuration specifies whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chime"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_default, err := chime.NewVoiceConnector(ctx, "default", &chime.VoiceConnectorArgs{
-//				Name:              pulumi.String("vc-name-test"),
-//				RequireEncryption: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = chime.NewVoiceConnectorLogging(ctx, "default", &chime.VoiceConnectorLoggingArgs{
-//				EnableSipLogs:         pulumi.Bool(true),
-//				EnableMediaMetricLogs: pulumi.Bool(true),
-//				VoiceConnectorId:      _default.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Chime Voice Connector Logging using the `voice_connector_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:chime/voiceConnectorLogging:VoiceConnectorLogging default abcdef1ghij2klmno3pqr4
-// ```
 type VoiceConnectorLogging struct {
 	pulumi.CustomResourceState
 
-	// When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
 	EnableMediaMetricLogs pulumi.BoolPtrOutput `pulumi:"enableMediaMetricLogs"`
-	// When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
-	EnableSipLogs pulumi.BoolPtrOutput `pulumi:"enableSipLogs"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Chime Voice Connector ID.
-	VoiceConnectorId pulumi.StringOutput `pulumi:"voiceConnectorId"`
+	EnableSipLogs         pulumi.BoolPtrOutput `pulumi:"enableSipLogs"`
+	Region                pulumi.StringOutput  `pulumi:"region"`
+	VoiceConnectorId      pulumi.StringOutput  `pulumi:"voiceConnectorId"`
 }
 
 // NewVoiceConnectorLogging registers a new resource with the given unique name, arguments, and options.
@@ -102,25 +54,17 @@ func GetVoiceConnectorLogging(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VoiceConnectorLogging resources.
 type voiceConnectorLoggingState struct {
-	// When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
-	EnableMediaMetricLogs *bool `pulumi:"enableMediaMetricLogs"`
-	// When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
-	EnableSipLogs *bool `pulumi:"enableSipLogs"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon Chime Voice Connector ID.
-	VoiceConnectorId *string `pulumi:"voiceConnectorId"`
+	EnableMediaMetricLogs *bool   `pulumi:"enableMediaMetricLogs"`
+	EnableSipLogs         *bool   `pulumi:"enableSipLogs"`
+	Region                *string `pulumi:"region"`
+	VoiceConnectorId      *string `pulumi:"voiceConnectorId"`
 }
 
 type VoiceConnectorLoggingState struct {
-	// When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
 	EnableMediaMetricLogs pulumi.BoolPtrInput
-	// When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
-	EnableSipLogs pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon Chime Voice Connector ID.
-	VoiceConnectorId pulumi.StringPtrInput
+	EnableSipLogs         pulumi.BoolPtrInput
+	Region                pulumi.StringPtrInput
+	VoiceConnectorId      pulumi.StringPtrInput
 }
 
 func (VoiceConnectorLoggingState) ElementType() reflect.Type {
@@ -128,26 +72,18 @@ func (VoiceConnectorLoggingState) ElementType() reflect.Type {
 }
 
 type voiceConnectorLoggingArgs struct {
-	// When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
-	EnableMediaMetricLogs *bool `pulumi:"enableMediaMetricLogs"`
-	// When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
-	EnableSipLogs *bool `pulumi:"enableSipLogs"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon Chime Voice Connector ID.
-	VoiceConnectorId string `pulumi:"voiceConnectorId"`
+	EnableMediaMetricLogs *bool   `pulumi:"enableMediaMetricLogs"`
+	EnableSipLogs         *bool   `pulumi:"enableSipLogs"`
+	Region                *string `pulumi:"region"`
+	VoiceConnectorId      string  `pulumi:"voiceConnectorId"`
 }
 
 // The set of arguments for constructing a VoiceConnectorLogging resource.
 type VoiceConnectorLoggingArgs struct {
-	// When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
 	EnableMediaMetricLogs pulumi.BoolPtrInput
-	// When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
-	EnableSipLogs pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon Chime Voice Connector ID.
-	VoiceConnectorId pulumi.StringInput
+	EnableSipLogs         pulumi.BoolPtrInput
+	Region                pulumi.StringPtrInput
+	VoiceConnectorId      pulumi.StringInput
 }
 
 func (VoiceConnectorLoggingArgs) ElementType() reflect.Type {
@@ -237,22 +173,18 @@ func (o VoiceConnectorLoggingOutput) ToVoiceConnectorLoggingOutputWithContext(ct
 	return o
 }
 
-// When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
 func (o VoiceConnectorLoggingOutput) EnableMediaMetricLogs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VoiceConnectorLogging) pulumi.BoolPtrOutput { return v.EnableMediaMetricLogs }).(pulumi.BoolPtrOutput)
 }
 
-// When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
 func (o VoiceConnectorLoggingOutput) EnableSipLogs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VoiceConnectorLogging) pulumi.BoolPtrOutput { return v.EnableSipLogs }).(pulumi.BoolPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VoiceConnectorLoggingOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VoiceConnectorLogging) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Chime Voice Connector ID.
 func (o VoiceConnectorLoggingOutput) VoiceConnectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VoiceConnectorLogging) pulumi.StringOutput { return v.VoiceConnectorId }).(pulumi.StringOutput)
 }

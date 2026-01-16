@@ -7,20 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing an AWS Route 53 Profiles.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.route53.getProfilesProfiles({});
- * ```
- */
 export function getProfilesProfiles(args?: GetProfilesProfilesArgs, opts?: pulumi.InvokeOptions): Promise<GetProfilesProfilesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,9 +19,6 @@ export function getProfilesProfiles(args?: GetProfilesProfilesArgs, opts?: pulum
  * A collection of arguments for invoking getProfilesProfiles.
  */
 export interface GetProfilesProfilesArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -47,26 +30,9 @@ export interface GetProfilesProfilesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * List of Profiles.
-     */
     readonly profiles: outputs.route53.GetProfilesProfilesProfile[];
     readonly region: string;
 }
-/**
- * Data source for managing an AWS Route 53 Profiles.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.route53.getProfilesProfiles({});
- * ```
- */
 export function getProfilesProfilesOutput(args?: GetProfilesProfilesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProfilesProfilesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -79,8 +45,5 @@ export function getProfilesProfilesOutput(args?: GetProfilesProfilesOutputArgs, 
  * A collection of arguments for invoking getProfilesProfiles.
  */
 export interface GetProfilesProfilesOutputArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

@@ -16,32 +16,16 @@ public final class ApplicationPortalOptionsArgs extends com.pulumi.resources.Res
 
     public static final ApplicationPortalOptionsArgs Empty = new ApplicationPortalOptionsArgs();
 
-    /**
-     * Sign-in options for the access portal. See `signInOptions` below.
-     * 
-     */
     @Import(name="signInOptions")
     private @Nullable Output<ApplicationPortalOptionsSignInOptionsArgs> signInOptions;
 
-    /**
-     * @return Sign-in options for the access portal. See `signInOptions` below.
-     * 
-     */
     public Optional<Output<ApplicationPortalOptionsSignInOptionsArgs>> signInOptions() {
         return Optional.ofNullable(this.signInOptions);
     }
 
-    /**
-     * Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     @Import(name="visibility")
     private @Nullable Output<String> visibility;
 
-    /**
-     * @return Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> visibility() {
         return Optional.ofNullable(this.visibility);
     }
@@ -71,44 +55,20 @@ public final class ApplicationPortalOptionsArgs extends com.pulumi.resources.Res
             $ = new ApplicationPortalOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param signInOptions Sign-in options for the access portal. See `signInOptions` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder signInOptions(@Nullable Output<ApplicationPortalOptionsSignInOptionsArgs> signInOptions) {
             $.signInOptions = signInOptions;
             return this;
         }
 
-        /**
-         * @param signInOptions Sign-in options for the access portal. See `signInOptions` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder signInOptions(ApplicationPortalOptionsSignInOptionsArgs signInOptions) {
             return signInOptions(Output.of(signInOptions));
         }
 
-        /**
-         * @param visibility Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder visibility(@Nullable Output<String> visibility) {
             $.visibility = visibility;
             return this;
         }
 
-        /**
-         * @param visibility Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder visibility(String visibility) {
             return visibility(Output.of(visibility));
         }

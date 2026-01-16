@@ -28,11 +28,8 @@ class ServerlessLifecyclePolicyArgs:
         The set of arguments for constructing a ServerlessLifecyclePolicy resource.
         :param pulumi.Input[_builtins.str] policy: JSON policy document to use as the content for the new policy.
         :param pulumi.Input[_builtins.str] type: Type of lifecycle policy. Must be `retention`.
-               
-               The following arguments are optional:
         :param pulumi.Input[_builtins.str] description: Description of the policy.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "type", type)
@@ -60,8 +57,6 @@ class ServerlessLifecyclePolicyArgs:
     def type(self) -> pulumi.Input[_builtins.str]:
         """
         Type of lifecycle policy. Must be `retention`.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -96,9 +91,6 @@ class ServerlessLifecyclePolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -121,10 +113,7 @@ class _ServerlessLifecyclePolicyState:
         :param pulumi.Input[_builtins.str] name: Name of the policy.
         :param pulumi.Input[_builtins.str] policy: JSON policy document to use as the content for the new policy.
         :param pulumi.Input[_builtins.str] policy_version: Version of the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] type: Type of lifecycle policy. Must be `retention`.
-               
-               The following arguments are optional:
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -190,9 +179,6 @@ class _ServerlessLifecyclePolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -204,8 +190,6 @@ class _ServerlessLifecyclePolicyState:
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Type of lifecycle policy. Must be `retention`.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -227,53 +211,13 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS OpenSearch Serverless Lifecycle Policy. See AWS documentation for [lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html).
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.opensearch.ServerlessLifecyclePolicy("example",
-            name="example",
-            type="retention",
-            policy=json.dumps({
-                "Rules": [
-                    {
-                        "ResourceType": "index",
-                        "Resource": ["index/autoparts-inventory/*"],
-                        "MinIndexRetention": "81d",
-                    },
-                    {
-                        "ResourceType": "index",
-                        "Resource": ["index/sales/orders*"],
-                        "NoMinIndexRetention": True,
-                    },
-                ],
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import OpenSearch Serverless Lifecycle Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
-
-        ```sh
-        $ pulumi import aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy example example/retention
-        ```
-
+        Create a ServerlessLifecyclePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the policy.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
         :param pulumi.Input[_builtins.str] policy: JSON policy document to use as the content for the new policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] type: Type of lifecycle policy. Must be `retention`.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -282,44 +226,7 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
                  args: ServerlessLifecyclePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS OpenSearch Serverless Lifecycle Policy. See AWS documentation for [lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html).
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.opensearch.ServerlessLifecyclePolicy("example",
-            name="example",
-            type="retention",
-            policy=json.dumps({
-                "Rules": [
-                    {
-                        "ResourceType": "index",
-                        "Resource": ["index/autoparts-inventory/*"],
-                        "MinIndexRetention": "81d",
-                    },
-                    {
-                        "ResourceType": "index",
-                        "Resource": ["index/sales/orders*"],
-                        "NoMinIndexRetention": True,
-                    },
-                ],
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import OpenSearch Serverless Lifecycle Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
-
-        ```sh
-        $ pulumi import aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy example example/retention
-        ```
-
+        Create a ServerlessLifecyclePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ServerlessLifecyclePolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -386,10 +293,7 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the policy.
         :param pulumi.Input[_builtins.str] policy: JSON policy document to use as the content for the new policy.
         :param pulumi.Input[_builtins.str] policy_version: Version of the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] type: Type of lifecycle policy. Must be `retention`.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -438,9 +342,6 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
@@ -448,8 +349,6 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
     def type(self) -> pulumi.Output[_builtins.str]:
         """
         Type of lifecycle policy. Must be `retention`.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 

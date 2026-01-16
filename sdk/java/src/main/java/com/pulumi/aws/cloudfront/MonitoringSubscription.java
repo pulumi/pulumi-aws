@@ -14,85 +14,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a CloudFront real-time log configuration resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudfront.MonitoringSubscription;
- * import com.pulumi.aws.cloudfront.MonitoringSubscriptionArgs;
- * import com.pulumi.aws.cloudfront.inputs.MonitoringSubscriptionMonitoringSubscriptionArgs;
- * import com.pulumi.aws.cloudfront.inputs.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new MonitoringSubscription("example", MonitoringSubscriptionArgs.builder()
- *             .distributionId(exampleAwsCloudfrontDistribution.id())
- *             .monitoringSubscription(MonitoringSubscriptionMonitoringSubscriptionArgs.builder()
- *                 .realtimeMetricsSubscriptionConfig(MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs.builder()
- *                     .realtimeMetricsSubscriptionStatus("Enabled")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CloudFront monitoring subscription using the id. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
- * ```
- * 
- */
 @ResourceType(type="aws:cloudfront/monitoringSubscription:MonitoringSubscription")
 public class MonitoringSubscription extends com.pulumi.resources.CustomResource {
-    /**
-     * The ID of the distribution that you are enabling metrics for.
-     * 
-     */
     @Export(name="distributionId", refs={String.class}, tree="[0]")
     private Output<String> distributionId;
 
-    /**
-     * @return The ID of the distribution that you are enabling metrics for.
-     * 
-     */
     public Output<String> distributionId() {
         return this.distributionId;
     }
-    /**
-     * A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
-     * 
-     */
     @Export(name="monitoringSubscription", refs={MonitoringSubscriptionMonitoringSubscription.class}, tree="[0]")
     private Output<MonitoringSubscriptionMonitoringSubscription> monitoringSubscription;
 
-    /**
-     * @return A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
-     * 
-     */
     public Output<MonitoringSubscriptionMonitoringSubscription> monitoringSubscription() {
         return this.monitoringSubscription;
     }

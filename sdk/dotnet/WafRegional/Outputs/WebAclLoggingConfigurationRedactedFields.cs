@@ -13,9 +13,6 @@ namespace Pulumi.Aws.WafRegional.Outputs
     [OutputType]
     public sealed class WebAclLoggingConfigurationRedactedFields
     {
-        /// <summary>
-        /// Set of configuration blocks for fields to redact. Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatch> FieldToMatches;
 
         [OutputConstructor]

@@ -15,46 +15,22 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetApiKeysResult {
-    /**
-     * @return Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
-     * 
-     */
     private @Nullable String customerId;
-    /**
-     * @return ID of the API Key.
-     * 
-     */
     private String id;
     private @Nullable Boolean includeValues;
-    /**
-     * @return List of objects containing API Key information. See below.
-     * 
-     */
     private List<GetApiKeysItem> items;
     private String region;
 
     private GetApiKeysResult() {}
-    /**
-     * @return Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
-     * 
-     */
     public Optional<String> customerId() {
         return Optional.ofNullable(this.customerId);
     }
-    /**
-     * @return ID of the API Key.
-     * 
-     */
     public String id() {
         return this.id;
     }
     public Optional<Boolean> includeValues() {
         return Optional.ofNullable(this.includeValues);
     }
-    /**
-     * @return List of objects containing API Key information. See below.
-     * 
-     */
     public List<GetApiKeysItem> items() {
         return this.items;
     }

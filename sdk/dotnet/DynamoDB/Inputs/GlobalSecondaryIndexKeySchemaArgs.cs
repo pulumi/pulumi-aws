@@ -12,23 +12,12 @@ namespace Pulumi.Aws.DynamoDB.Inputs
 
     public sealed class GlobalSecondaryIndexKeySchemaArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the attribute.
-        /// </summary>
         [Input("attributeName", required: true)]
         public Input<string> AttributeName { get; set; } = null!;
 
-        /// <summary>
-        /// Type of the attribute in the index.
-        /// Valid values are `S` (string), `N` (number), or `B` (binary).
-        /// </summary>
         [Input("attributeType", required: true)]
         public Input<string> AttributeType { get; set; } = null!;
 
-        /// <summary>
-        /// Key type.
-        /// Valid values are `HASH` or `RANGE`.
-        /// </summary>
         [Input("keyType", required: true)]
         public Input<string> KeyType { get; set; } = null!;
 

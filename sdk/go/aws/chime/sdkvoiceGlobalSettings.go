@@ -12,49 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing Amazon Chime SDK Voice Global Settings.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chime"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := chime.NewSdkvoiceGlobalSettings(ctx, "example", &chime.SdkvoiceGlobalSettingsArgs{
-//				VoiceConnector: &chime.SdkvoiceGlobalSettingsVoiceConnectorArgs{
-//					CdrBucket: pulumi.String("example-bucket-name"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import AWS Chime SDK Voice Global Settings using the `id` (AWS account ID). For example:
-//
-// ```sh
-// $ pulumi import aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings example 123456789012
-// ```
 type SdkvoiceGlobalSettings struct {
 	pulumi.CustomResourceState
 
-	// The Voice Connector settings. See voice_connector.
 	VoiceConnector SdkvoiceGlobalSettingsVoiceConnectorOutput `pulumi:"voiceConnector"`
 }
 
@@ -91,12 +51,10 @@ func GetSdkvoiceGlobalSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SdkvoiceGlobalSettings resources.
 type sdkvoiceGlobalSettingsState struct {
-	// The Voice Connector settings. See voice_connector.
 	VoiceConnector *SdkvoiceGlobalSettingsVoiceConnector `pulumi:"voiceConnector"`
 }
 
 type SdkvoiceGlobalSettingsState struct {
-	// The Voice Connector settings. See voice_connector.
 	VoiceConnector SdkvoiceGlobalSettingsVoiceConnectorPtrInput
 }
 
@@ -105,13 +63,11 @@ func (SdkvoiceGlobalSettingsState) ElementType() reflect.Type {
 }
 
 type sdkvoiceGlobalSettingsArgs struct {
-	// The Voice Connector settings. See voice_connector.
 	VoiceConnector SdkvoiceGlobalSettingsVoiceConnector `pulumi:"voiceConnector"`
 }
 
 // The set of arguments for constructing a SdkvoiceGlobalSettings resource.
 type SdkvoiceGlobalSettingsArgs struct {
-	// The Voice Connector settings. See voice_connector.
 	VoiceConnector SdkvoiceGlobalSettingsVoiceConnectorInput
 }
 
@@ -202,7 +158,6 @@ func (o SdkvoiceGlobalSettingsOutput) ToSdkvoiceGlobalSettingsOutputWithContext(
 	return o
 }
 
-// The Voice Connector settings. See voice_connector.
 func (o SdkvoiceGlobalSettingsOutput) VoiceConnector() SdkvoiceGlobalSettingsVoiceConnectorOutput {
 	return o.ApplyT(func(v *SdkvoiceGlobalSettings) SdkvoiceGlobalSettingsVoiceConnectorOutput { return v.VoiceConnector }).(SdkvoiceGlobalSettingsVoiceConnectorOutput)
 }

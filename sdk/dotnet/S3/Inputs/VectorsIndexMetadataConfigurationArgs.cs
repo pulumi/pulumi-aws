@@ -14,10 +14,6 @@ namespace Pulumi.Aws.S3.Inputs
     {
         [Input("nonFilterableMetadataKeys", required: true)]
         private InputList<string>? _nonFilterableMetadataKeys;
-
-        /// <summary>
-        /// List of non-filterable metadata keys.
-        /// </summary>
         public InputList<string> NonFilterableMetadataKeys
         {
             get => _nonFilterableMetadataKeys ?? (_nonFilterableMetadataKeys = new InputList<string>());

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class JobDefinitionEksPropertiesPodPropertiesImagePullSecret {
-    /**
-     * @return Unique identifier.
-     * 
-     */
     private String name;
 
     private JobDefinitionEksPropertiesPodPropertiesImagePullSecret() {}
-    /**
-     * @return Unique identifier.
-     * 
-     */
     public String name() {
         return this.name;
     }

@@ -17,39 +17,21 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TemplateArgs Empty = new TemplateArgs();
 
-    /**
-     * AWS Region to which the template applies.
-     * 
-     */
     @Import(name="awsRegion")
     private @Nullable Output<String> awsRegion;
 
-    /**
-     * @return AWS Region to which the template applies.
-     * 
-     */
     public Optional<Output<String>> awsRegion() {
         return Optional.ofNullable(this.awsRegion);
     }
 
-    /**
-     * Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
-     * 
-     */
     @Import(name="quotaCode", required=true)
     private Output<String> quotaCode;
 
-    /**
-     * @return Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
-     * 
-     */
     public Output<String> quotaCode() {
         return this.quotaCode;
     }
 
     /**
-     * AWS Region to which the template applies. Use `aws.getRegion` instead.
-     * 
      * @deprecated
      * region is deprecated. Use aws.getRegion instead.
      * 
@@ -59,8 +41,6 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> region;
 
     /**
-     * @return AWS Region to which the template applies. Use `aws.getRegion` instead.
-     * 
      * @deprecated
      * region is deprecated. Use aws.getRegion instead.
      * 
@@ -70,32 +50,16 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Service identifier. To find the service code value for an AWS service, use the aws.servicequotas.getService data source.
-     * 
-     */
     @Import(name="serviceCode", required=true)
     private Output<String> serviceCode;
 
-    /**
-     * @return Service identifier. To find the service code value for an AWS service, use the aws.servicequotas.getService data source.
-     * 
-     */
     public Output<String> serviceCode() {
         return this.serviceCode;
     }
 
-    /**
-     * The new, increased value for the quota.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<Double> value;
 
-    /**
-     * @return The new, increased value for the quota.
-     * 
-     */
     public Output<Double> value() {
         return this.value;
     }
@@ -128,51 +92,25 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TemplateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsRegion AWS Region to which the template applies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsRegion(@Nullable Output<String> awsRegion) {
             $.awsRegion = awsRegion;
             return this;
         }
 
-        /**
-         * @param awsRegion AWS Region to which the template applies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsRegion(String awsRegion) {
             return awsRegion(Output.of(awsRegion));
         }
 
-        /**
-         * @param quotaCode Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder quotaCode(Output<String> quotaCode) {
             $.quotaCode = quotaCode;
             return this;
         }
 
-        /**
-         * @param quotaCode Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder quotaCode(String quotaCode) {
             return quotaCode(Output.of(quotaCode));
         }
 
         /**
-         * @param region AWS Region to which the template applies. Use `aws.getRegion` instead.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -186,8 +124,6 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region AWS Region to which the template applies. Use `aws.getRegion` instead.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -199,44 +135,20 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
             return region(Output.of(region));
         }
 
-        /**
-         * @param serviceCode Service identifier. To find the service code value for an AWS service, use the aws.servicequotas.getService data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceCode(Output<String> serviceCode) {
             $.serviceCode = serviceCode;
             return this;
         }
 
-        /**
-         * @param serviceCode Service identifier. To find the service code value for an AWS service, use the aws.servicequotas.getService data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceCode(String serviceCode) {
             return serviceCode(Output.of(serviceCode));
         }
 
-        /**
-         * @param value The new, increased value for the quota.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<Double> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The new, increased value for the quota.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Double value) {
             return value(Output.of(value));
         }

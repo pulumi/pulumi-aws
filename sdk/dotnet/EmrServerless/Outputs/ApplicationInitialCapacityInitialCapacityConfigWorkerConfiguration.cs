@@ -13,17 +13,8 @@ namespace Pulumi.Aws.EmrServerless.Outputs
     [OutputType]
     public sealed class ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration
     {
-        /// <summary>
-        /// The CPU requirements for every worker instance of the worker type.
-        /// </summary>
         public readonly string Cpu;
-        /// <summary>
-        /// The disk requirements for every worker instance of the worker type.
-        /// </summary>
         public readonly string? Disk;
-        /// <summary>
-        /// The memory requirements for every worker instance of the worker type.
-        /// </summary>
         public readonly string Memory;
 
         [OutputConstructor]

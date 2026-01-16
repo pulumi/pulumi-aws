@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GatewayRouteSpecGrpcRouteActionTarget
     {
-        /// <summary>
-        /// The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
-        /// </summary>
         public readonly int? Port;
-        /// <summary>
-        /// Virtual service gateway route target.
-        /// </summary>
         public readonly Outputs.GatewayRouteSpecGrpcRouteActionTargetVirtualService VirtualService;
 
         [OutputConstructor]

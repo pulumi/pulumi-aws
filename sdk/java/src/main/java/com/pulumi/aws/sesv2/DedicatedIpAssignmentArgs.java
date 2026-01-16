@@ -16,47 +16,23 @@ public final class DedicatedIpAssignmentArgs extends com.pulumi.resources.Resour
 
     public static final DedicatedIpAssignmentArgs Empty = new DedicatedIpAssignmentArgs();
 
-    /**
-     * Dedicated IP address.
-     * 
-     */
     @Import(name="destinationPoolName", required=true)
     private Output<String> destinationPoolName;
 
-    /**
-     * @return Dedicated IP address.
-     * 
-     */
     public Output<String> destinationPoolName() {
         return this.destinationPoolName;
     }
 
-    /**
-     * Dedicated IP address.
-     * 
-     */
     @Import(name="ip", required=true)
     private Output<String> ip;
 
-    /**
-     * @return Dedicated IP address.
-     * 
-     */
     public Output<String> ip() {
         return this.ip;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -87,65 +63,29 @@ public final class DedicatedIpAssignmentArgs extends com.pulumi.resources.Resour
             $ = new DedicatedIpAssignmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destinationPoolName Dedicated IP address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationPoolName(Output<String> destinationPoolName) {
             $.destinationPoolName = destinationPoolName;
             return this;
         }
 
-        /**
-         * @param destinationPoolName Dedicated IP address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationPoolName(String destinationPoolName) {
             return destinationPoolName(Output.of(destinationPoolName));
         }
 
-        /**
-         * @param ip Dedicated IP address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ip(Output<String> ip) {
             $.ip = ip;
             return this;
         }
 
-        /**
-         * @param ip Dedicated IP address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ip(String ip) {
             return ip(Output.of(ip));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

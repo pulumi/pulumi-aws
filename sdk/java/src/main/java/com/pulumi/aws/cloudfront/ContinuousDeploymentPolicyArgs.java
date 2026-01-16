@@ -18,47 +18,23 @@ public final class ContinuousDeploymentPolicyArgs extends com.pulumi.resources.R
 
     public static final ContinuousDeploymentPolicyArgs Empty = new ContinuousDeploymentPolicyArgs();
 
-    /**
-     * Whether this continuous deployment policy is enabled.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Whether this continuous deployment policy is enabled.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
 
-    /**
-     * CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
-     * 
-     */
     @Import(name="stagingDistributionDnsNames")
     private @Nullable Output<ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs> stagingDistributionDnsNames;
 
-    /**
-     * @return CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
-     * 
-     */
     public Optional<Output<ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs>> stagingDistributionDnsNames() {
         return Optional.ofNullable(this.stagingDistributionDnsNames);
     }
 
-    /**
-     * Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
-     * 
-     */
     @Import(name="trafficConfig")
     private @Nullable Output<ContinuousDeploymentPolicyTrafficConfigArgs> trafficConfig;
 
-    /**
-     * @return Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
-     * 
-     */
     public Optional<Output<ContinuousDeploymentPolicyTrafficConfigArgs>> trafficConfig() {
         return Optional.ofNullable(this.trafficConfig);
     }
@@ -89,65 +65,29 @@ public final class ContinuousDeploymentPolicyArgs extends com.pulumi.resources.R
             $ = new ContinuousDeploymentPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Whether this continuous deployment policy is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether this continuous deployment policy is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param stagingDistributionDnsNames CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stagingDistributionDnsNames(@Nullable Output<ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs> stagingDistributionDnsNames) {
             $.stagingDistributionDnsNames = stagingDistributionDnsNames;
             return this;
         }
 
-        /**
-         * @param stagingDistributionDnsNames CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stagingDistributionDnsNames(ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs stagingDistributionDnsNames) {
             return stagingDistributionDnsNames(Output.of(stagingDistributionDnsNames));
         }
 
-        /**
-         * @param trafficConfig Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trafficConfig(@Nullable Output<ContinuousDeploymentPolicyTrafficConfigArgs> trafficConfig) {
             $.trafficConfig = trafficConfig;
             return this;
         }
 
-        /**
-         * @param trafficConfig Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trafficConfig(ContinuousDeploymentPolicyTrafficConfigArgs trafficConfig) {
             return trafficConfig(Output.of(trafficConfig));
         }

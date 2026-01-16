@@ -9,76 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.M2
 {
-    /// <summary>
-    /// Resource for managing an [AWS Mainframe Modernization Deployment.](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-deploy.html)
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.M2.Deployment("test", new()
-    ///     {
-    ///         EnvironmentId = "01234567890abcdef012345678",
-    ///         ApplicationId = "34567890abcdef012345678012",
-    ///         ApplicationVersion = 1,
-    ///         Start = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Mainframe Modernization Deployment using the `APPLICATION-ID,DEPLOYMENT-ID`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:m2/deployment:Deployment example APPLICATION-ID,DEPLOYMENT-ID
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:m2/deployment:Deployment")]
     public partial class Deployment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Application to deploy.
-        /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
-        /// <summary>
-        /// Version to application to deploy
-        /// </summary>
         [Output("applicationVersion")]
         public Output<int> ApplicationVersion { get; private set; } = null!;
 
         [Output("deploymentId")]
         public Output<string> DeploymentId { get; private set; } = null!;
 
-        /// <summary>
-        /// Environment to deploy application to.
-        /// </summary>
         [Output("environmentId")]
         public Output<string> EnvironmentId { get; private set; } = null!;
 
         [Output("forceStop")]
         public Output<bool?> ForceStop { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Start the application once deployed.
-        /// </summary>
         [Output("start")]
         public Output<bool> Start { get; private set; } = null!;
 
@@ -131,36 +82,21 @@ namespace Pulumi.Aws.M2
 
     public sealed class DeploymentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Application to deploy.
-        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
-        /// <summary>
-        /// Version to application to deploy
-        /// </summary>
         [Input("applicationVersion", required: true)]
         public Input<int> ApplicationVersion { get; set; } = null!;
 
-        /// <summary>
-        /// Environment to deploy application to.
-        /// </summary>
         [Input("environmentId", required: true)]
         public Input<string> EnvironmentId { get; set; } = null!;
 
         [Input("forceStop")]
         public Input<bool>? ForceStop { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Start the application once deployed.
-        /// </summary>
         [Input("start", required: true)]
         public Input<bool> Start { get; set; } = null!;
 
@@ -175,39 +111,24 @@ namespace Pulumi.Aws.M2
 
     public sealed class DeploymentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Application to deploy.
-        /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
 
-        /// <summary>
-        /// Version to application to deploy
-        /// </summary>
         [Input("applicationVersion")]
         public Input<int>? ApplicationVersion { get; set; }
 
         [Input("deploymentId")]
         public Input<string>? DeploymentId { get; set; }
 
-        /// <summary>
-        /// Environment to deploy application to.
-        /// </summary>
         [Input("environmentId")]
         public Input<string>? EnvironmentId { get; set; }
 
         [Input("forceStop")]
         public Input<bool>? ForceStop { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Start the application once deployed.
-        /// </summary>
         [Input("start")]
         public Input<bool>? Start { get; set; }
 

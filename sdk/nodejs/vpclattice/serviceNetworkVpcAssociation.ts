@@ -7,32 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS VPC Lattice Service Network VPC Association.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.vpclattice.ServiceNetworkVpcAssociation("example", {
- *     vpcIdentifier: exampleAwsVpc.id,
- *     serviceNetworkIdentifier: exampleAwsVpclatticeServiceNetwork.id,
- *     securityGroupIds: [exampleAwsSecurityGroup.id],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import VPC Lattice Service Network VPC Association using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation example snsa-05e2474658a88f6ba
- * ```
- */
 export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
     /**
      * Get an existing ServiceNetworkVpcAssociation resource's state with the given name, ID, and optional extra
@@ -61,50 +35,16 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceNetworkVpcAssociation.__pulumiType;
     }
 
-    /**
-     * The ARN of the Association.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The account that created the association.
-     */
     declare public /*out*/ readonly createdBy: pulumi.Output<string>;
-    /**
-     * Configuration block for DNS option. See `dnsOptions` block below for details.
-     */
     declare public readonly dnsOptions: pulumi.Output<outputs.vpclattice.ServiceNetworkVpcAssociationDnsOptions | undefined>;
-    /**
-     * Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `false`.
-     */
     declare public readonly privateDnsEnabled: pulumi.Output<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The IDs of the security groups.
-     */
     declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
-    /**
-     * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-     * The following arguments are optional:
-     */
     declare public readonly serviceNetworkIdentifier: pulumi.Output<string>;
-    /**
-     * The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The ID of the VPC.
-     */
     declare public readonly vpcIdentifier: pulumi.Output<string>;
 
     /**
@@ -160,50 +100,16 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceNetworkVpcAssociation resources.
  */
 export interface ServiceNetworkVpcAssociationState {
-    /**
-     * The ARN of the Association.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The account that created the association.
-     */
     createdBy?: pulumi.Input<string>;
-    /**
-     * Configuration block for DNS option. See `dnsOptions` block below for details.
-     */
     dnsOptions?: pulumi.Input<inputs.vpclattice.ServiceNetworkVpcAssociationDnsOptions>;
-    /**
-     * Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `false`.
-     */
     privateDnsEnabled?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The IDs of the security groups.
-     */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-     * The following arguments are optional:
-     */
     serviceNetworkIdentifier?: pulumi.Input<string>;
-    /**
-     * The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
-     */
     status?: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The ID of the VPC.
-     */
     vpcIdentifier?: pulumi.Input<string>;
 }
 
@@ -211,33 +117,11 @@ export interface ServiceNetworkVpcAssociationState {
  * The set of arguments for constructing a ServiceNetworkVpcAssociation resource.
  */
 export interface ServiceNetworkVpcAssociationArgs {
-    /**
-     * Configuration block for DNS option. See `dnsOptions` block below for details.
-     */
     dnsOptions?: pulumi.Input<inputs.vpclattice.ServiceNetworkVpcAssociationDnsOptions>;
-    /**
-     * Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `false`.
-     */
     privateDnsEnabled?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The IDs of the security groups.
-     */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-     * The following arguments are optional:
-     */
     serviceNetworkIdentifier: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The ID of the VPC.
-     */
     vpcIdentifier: pulumi.Input<string>;
 }

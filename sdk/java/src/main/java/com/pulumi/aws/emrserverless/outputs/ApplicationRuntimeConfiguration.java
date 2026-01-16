@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationRuntimeConfiguration {
-    /**
-     * @return The classification within a configuration.
-     * 
-     */
     private String classification;
-    /**
-     * @return A set of properties specified within a configuration classification.
-     * 
-     */
     private @Nullable Map<String,String> properties;
 
     private ApplicationRuntimeConfiguration() {}
-    /**
-     * @return The classification within a configuration.
-     * 
-     */
     public String classification() {
         return this.classification;
     }
-    /**
-     * @return A set of properties specified within a configuration classification.
-     * 
-     */
     public Map<String,String> properties() {
         return this.properties == null ? Map.of() : this.properties;
     }

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventTargetAppsyncTarget {
-    /**
-     * @return Contains the GraphQL mutation to be parsed and executed.
-     * 
-     */
     private @Nullable String graphqlOperation;
 
     private EventTargetAppsyncTarget() {}
-    /**
-     * @return Contains the GraphQL mutation to be parsed and executed.
-     * 
-     */
     public Optional<String> graphqlOperation() {
         return Optional.ofNullable(this.graphqlOperation);
     }

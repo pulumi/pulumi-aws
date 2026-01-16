@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Iam
 {
     public static class GetInstanceProfiles
     {
-        /// <summary>
-        /// This data source can be used to fetch information about all
-        /// IAM instance profiles under a role. By using this data source, you can reference IAM
-        /// instance profile properties without having to hard code ARNs as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetInstanceProfiles.Invoke(new()
-        ///     {
-        ///         RoleName = "an_example_iam_role_name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetInstanceProfilesResult> InvokeAsync(GetInstanceProfilesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceProfilesResult>("aws:iam/getInstanceProfiles:getInstanceProfiles", args ?? new GetInstanceProfilesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This data source can be used to fetch information about all
-        /// IAM instance profiles under a role. By using this data source, you can reference IAM
-        /// instance profile properties without having to hard code ARNs as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetInstanceProfiles.Invoke(new()
-        ///     {
-        ///         RoleName = "an_example_iam_role_name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetInstanceProfilesResult> Invoke(GetInstanceProfilesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceProfilesResult>("aws:iam/getInstanceProfiles:getInstanceProfiles", args ?? new GetInstanceProfilesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This data source can be used to fetch information about all
-        /// IAM instance profiles under a role. By using this data source, you can reference IAM
-        /// instance profile properties without having to hard code ARNs as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetInstanceProfiles.Invoke(new()
-        ///     {
-        ///         RoleName = "an_example_iam_role_name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetInstanceProfilesResult> Invoke(GetInstanceProfilesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceProfilesResult>("aws:iam/getInstanceProfiles:getInstanceProfiles", args ?? new GetInstanceProfilesInvokeArgs(), options.WithDefaults());
     }
@@ -93,9 +24,6 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GetInstanceProfilesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// IAM role name.
-        /// </summary>
         [Input("roleName", required: true)]
         public string RoleName { get; set; } = null!;
 
@@ -107,9 +35,6 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GetInstanceProfilesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// IAM role name.
-        /// </summary>
         [Input("roleName", required: true)]
         public Input<string> RoleName { get; set; } = null!;
 
@@ -123,21 +48,12 @@ namespace Pulumi.Aws.Iam
     [OutputType]
     public sealed class GetInstanceProfilesResult
     {
-        /// <summary>
-        /// Set of ARNs of instance profiles.
-        /// </summary>
         public readonly ImmutableArray<string> Arns;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Set of IAM instance profile names.
-        /// </summary>
         public readonly ImmutableArray<string> Names;
-        /// <summary>
-        /// Set of IAM instance profile paths.
-        /// </summary>
         public readonly ImmutableArray<string> Paths;
         public readonly string RoleName;
 

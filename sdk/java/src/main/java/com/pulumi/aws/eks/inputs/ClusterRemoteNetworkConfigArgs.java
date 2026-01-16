@@ -17,32 +17,16 @@ public final class ClusterRemoteNetworkConfigArgs extends com.pulumi.resources.R
 
     public static final ClusterRemoteNetworkConfigArgs Empty = new ClusterRemoteNetworkConfigArgs();
 
-    /**
-     * Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
-     * 
-     */
     @Import(name="remoteNodeNetworks", required=true)
     private Output<ClusterRemoteNetworkConfigRemoteNodeNetworksArgs> remoteNodeNetworks;
 
-    /**
-     * @return Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
-     * 
-     */
     public Output<ClusterRemoteNetworkConfigRemoteNodeNetworksArgs> remoteNodeNetworks() {
         return this.remoteNodeNetworks;
     }
 
-    /**
-     * Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
-     * 
-     */
     @Import(name="remotePodNetworks")
     private @Nullable Output<ClusterRemoteNetworkConfigRemotePodNetworksArgs> remotePodNetworks;
 
-    /**
-     * @return Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
-     * 
-     */
     public Optional<Output<ClusterRemoteNetworkConfigRemotePodNetworksArgs>> remotePodNetworks() {
         return Optional.ofNullable(this.remotePodNetworks);
     }
@@ -72,44 +56,20 @@ public final class ClusterRemoteNetworkConfigArgs extends com.pulumi.resources.R
             $ = new ClusterRemoteNetworkConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param remoteNodeNetworks Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder remoteNodeNetworks(Output<ClusterRemoteNetworkConfigRemoteNodeNetworksArgs> remoteNodeNetworks) {
             $.remoteNodeNetworks = remoteNodeNetworks;
             return this;
         }
 
-        /**
-         * @param remoteNodeNetworks Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder remoteNodeNetworks(ClusterRemoteNetworkConfigRemoteNodeNetworksArgs remoteNodeNetworks) {
             return remoteNodeNetworks(Output.of(remoteNodeNetworks));
         }
 
-        /**
-         * @param remotePodNetworks Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder remotePodNetworks(@Nullable Output<ClusterRemoteNetworkConfigRemotePodNetworksArgs> remotePodNetworks) {
             $.remotePodNetworks = remotePodNetworks;
             return this;
         }
 
-        /**
-         * @param remotePodNetworks Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder remotePodNetworks(ClusterRemoteNetworkConfigRemotePodNetworksArgs remotePodNetworks) {
             return remotePodNetworks(Output.of(remotePodNetworks));
         }

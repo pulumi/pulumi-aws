@@ -13,9 +13,6 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class RuleGroupRuleCaptchaConfig
     {
-        /// <summary>
-        /// Defines custom immunity time. See Immunity Time Property below for details.
-        /// </summary>
         public readonly Outputs.RuleGroupRuleCaptchaConfigImmunityTimeProperty? ImmunityTimeProperty;
 
         [OutputConstructor]

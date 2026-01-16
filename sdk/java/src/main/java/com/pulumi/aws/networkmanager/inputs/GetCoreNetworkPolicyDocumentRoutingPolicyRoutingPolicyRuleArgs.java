@@ -15,32 +15,16 @@ public final class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArg
 
     public static final GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArgs Empty = new GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArgs();
 
-    /**
-     * Defines the match conditions and actions for the rule. Detailed below.
-     * 
-     */
     @Import(name="ruleDefinition", required=true)
     private Output<GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionArgs> ruleDefinition;
 
-    /**
-     * @return Defines the match conditions and actions for the rule. Detailed below.
-     * 
-     */
     public Output<GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionArgs> ruleDefinition() {
         return this.ruleDefinition;
     }
 
-    /**
-     * Priority number for the rule within the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
-     * 
-     */
     @Import(name="ruleNumber", required=true)
     private Output<Integer> ruleNumber;
 
-    /**
-     * @return Priority number for the rule within the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
-     * 
-     */
     public Output<Integer> ruleNumber() {
         return this.ruleNumber;
     }
@@ -70,44 +54,20 @@ public final class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArg
             $ = new GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ruleDefinition Defines the match conditions and actions for the rule. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleDefinition(Output<GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionArgs> ruleDefinition) {
             $.ruleDefinition = ruleDefinition;
             return this;
         }
 
-        /**
-         * @param ruleDefinition Defines the match conditions and actions for the rule. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleDefinition(GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionArgs ruleDefinition) {
             return ruleDefinition(Output.of(ruleDefinition));
         }
 
-        /**
-         * @param ruleNumber Priority number for the rule within the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleNumber(Output<Integer> ruleNumber) {
             $.ruleNumber = ruleNumber;
             return this;
         }
 
-        /**
-         * @param ruleNumber Priority number for the rule within the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleNumber(Integer ruleNumber) {
             return ruleNumber(Output.of(ruleNumber));
         }

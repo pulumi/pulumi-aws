@@ -18,32 +18,16 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
 
     public static final WebAclRuleStatementRuleGroupReferenceStatementArgs Empty = new WebAclRuleStatementRuleGroupReferenceStatementArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the `aws.wafv2.RuleGroup` resource.
-     * 
-     */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the `aws.wafv2.RuleGroup` resource.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
 
-    /**
-     * Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
-     * 
-     */
     @Import(name="ruleActionOverrides")
     private @Nullable Output<List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs>> ruleActionOverrides;
 
-    /**
-     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
-     * 
-     */
     public Optional<Output<List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs>>> ruleActionOverrides() {
         return Optional.ofNullable(this.ruleActionOverrides);
     }
@@ -73,54 +57,24 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
             $ = new WebAclRuleStatementRuleGroupReferenceStatementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the `aws.wafv2.RuleGroup` resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the `aws.wafv2.RuleGroup` resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param ruleActionOverrides Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleActionOverrides(@Nullable Output<List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs>> ruleActionOverrides) {
             $.ruleActionOverrides = ruleActionOverrides;
             return this;
         }
 
-        /**
-         * @param ruleActionOverrides Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleActionOverrides(List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs> ruleActionOverrides) {
             return ruleActionOverrides(Output.of(ruleActionOverrides));
         }
 
-        /**
-         * @param ruleActionOverrides Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleActionOverrides(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs... ruleActionOverrides) {
             return ruleActionOverrides(List.of(ruleActionOverrides));
         }

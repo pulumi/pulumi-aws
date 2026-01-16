@@ -16,51 +16,23 @@ public final class IpAccessSettingsAssociationArgs extends com.pulumi.resources.
 
     public static final IpAccessSettingsAssociationArgs Empty = new IpAccessSettingsAssociationArgs();
 
-    /**
-     * ARN of the IP access settings to associate with the portal. Forces replacement if changed.
-     * 
-     */
     @Import(name="ipAccessSettingsArn", required=true)
     private Output<String> ipAccessSettingsArn;
 
-    /**
-     * @return ARN of the IP access settings to associate with the portal. Forces replacement if changed.
-     * 
-     */
     public Output<String> ipAccessSettingsArn() {
         return this.ipAccessSettingsArn;
     }
 
-    /**
-     * ARN of the portal to associate with the IP access settings. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="portalArn", required=true)
     private Output<String> portalArn;
 
-    /**
-     * @return ARN of the portal to associate with the IP access settings. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> portalArn() {
         return this.portalArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -91,69 +63,29 @@ public final class IpAccessSettingsAssociationArgs extends com.pulumi.resources.
             $ = new IpAccessSettingsAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ipAccessSettingsArn ARN of the IP access settings to associate with the portal. Forces replacement if changed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAccessSettingsArn(Output<String> ipAccessSettingsArn) {
             $.ipAccessSettingsArn = ipAccessSettingsArn;
             return this;
         }
 
-        /**
-         * @param ipAccessSettingsArn ARN of the IP access settings to associate with the portal. Forces replacement if changed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAccessSettingsArn(String ipAccessSettingsArn) {
             return ipAccessSettingsArn(Output.of(ipAccessSettingsArn));
         }
 
-        /**
-         * @param portalArn ARN of the portal to associate with the IP access settings. Forces replacement if changed.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder portalArn(Output<String> portalArn) {
             $.portalArn = portalArn;
             return this;
         }
 
-        /**
-         * @param portalArn ARN of the portal to associate with the IP access settings. Forces replacement if changed.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder portalArn(String portalArn) {
             return portalArn(Output.of(portalArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

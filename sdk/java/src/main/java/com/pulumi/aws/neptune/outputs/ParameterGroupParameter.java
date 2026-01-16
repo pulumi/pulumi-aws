@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ParameterGroupParameter {
-    /**
-     * @return The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-     * 
-     */
     private @Nullable String applyMethod;
-    /**
-     * @return The name of the Neptune parameter.
-     * 
-     */
     private String name;
-    /**
-     * @return The value of the Neptune parameter.
-     * 
-     */
     private String value;
 
     private ParameterGroupParameter() {}
-    /**
-     * @return The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-     * 
-     */
     public Optional<String> applyMethod() {
         return Optional.ofNullable(this.applyMethod);
     }
-    /**
-     * @return The name of the Neptune parameter.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The value of the Neptune parameter.
-     * 
-     */
     public String value() {
         return this.value;
     }

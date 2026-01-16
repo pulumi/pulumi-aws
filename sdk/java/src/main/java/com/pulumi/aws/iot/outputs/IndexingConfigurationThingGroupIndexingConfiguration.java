@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IndexingConfigurationThingGroupIndexingConfiguration {
-    /**
-     * @return A list of thing group fields to index. This list cannot contain any managed fields. See below.
-     * 
-     */
     private @Nullable List<IndexingConfigurationThingGroupIndexingConfigurationCustomField> customFields;
-    /**
-     * @return Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
-     * 
-     */
     private @Nullable List<IndexingConfigurationThingGroupIndexingConfigurationManagedField> managedFields;
-    /**
-     * @return Thing group indexing mode. Valid values: `OFF`, `ON`.
-     * 
-     */
     private String thingGroupIndexingMode;
 
     private IndexingConfigurationThingGroupIndexingConfiguration() {}
-    /**
-     * @return A list of thing group fields to index. This list cannot contain any managed fields. See below.
-     * 
-     */
     public List<IndexingConfigurationThingGroupIndexingConfigurationCustomField> customFields() {
         return this.customFields == null ? List.of() : this.customFields;
     }
-    /**
-     * @return Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
-     * 
-     */
     public List<IndexingConfigurationThingGroupIndexingConfigurationManagedField> managedFields() {
         return this.managedFields == null ? List.of() : this.managedFields;
     }
-    /**
-     * @return Thing group indexing mode. Valid values: `OFF`, `ON`.
-     * 
-     */
     public String thingGroupIndexingMode() {
         return this.thingGroupIndexingMode;
     }

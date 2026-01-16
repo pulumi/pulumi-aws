@@ -15,32 +15,16 @@ public final class PlanAdvancedBackupSettingArgs extends com.pulumi.resources.Re
 
     public static final PlanAdvancedBackupSettingArgs Empty = new PlanAdvancedBackupSettingArgs();
 
-    /**
-     * Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = &#34;enabled&#34; }` to enable Windows VSS backup option and create a VSS Windows backup.
-     * 
-     */
     @Import(name="backupOptions", required=true)
     private Output<Map<String,String>> backupOptions;
 
-    /**
-     * @return Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = &#34;enabled&#34; }` to enable Windows VSS backup option and create a VSS Windows backup.
-     * 
-     */
     public Output<Map<String,String>> backupOptions() {
         return this.backupOptions;
     }
 
-    /**
-     * The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
-     * 
-     */
     @Import(name="resourceType", required=true)
     private Output<String> resourceType;
 
-    /**
-     * @return The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
-     * 
-     */
     public Output<String> resourceType() {
         return this.resourceType;
     }
@@ -70,44 +54,20 @@ public final class PlanAdvancedBackupSettingArgs extends com.pulumi.resources.Re
             $ = new PlanAdvancedBackupSettingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param backupOptions Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = &#34;enabled&#34; }` to enable Windows VSS backup option and create a VSS Windows backup.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backupOptions(Output<Map<String,String>> backupOptions) {
             $.backupOptions = backupOptions;
             return this;
         }
 
-        /**
-         * @param backupOptions Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = &#34;enabled&#34; }` to enable Windows VSS backup option and create a VSS Windows backup.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backupOptions(Map<String,String> backupOptions) {
             return backupOptions(Output.of(backupOptions));
         }
 
-        /**
-         * @param resourceType The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceType(Output<String> resourceType) {
             $.resourceType = resourceType;
             return this;
         }
 
-        /**
-         * @param resourceType The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceType(String resourceType) {
             return resourceType(Output.of(resourceType));
         }

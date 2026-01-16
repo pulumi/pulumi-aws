@@ -14,44 +14,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NetworkInterfaceAttachment {
     private @Nullable String attachmentId;
-    /**
-     * @return Integer to define the devices index.
-     * 
-     */
     private Integer deviceIndex;
-    /**
-     * @return ID of the instance to attach to.
-     * 
-     */
     private String instance;
-    /**
-     * @return Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
-     * 
-     */
     private @Nullable Integer networkCardIndex;
 
     private NetworkInterfaceAttachment() {}
     public Optional<String> attachmentId() {
         return Optional.ofNullable(this.attachmentId);
     }
-    /**
-     * @return Integer to define the devices index.
-     * 
-     */
     public Integer deviceIndex() {
         return this.deviceIndex;
     }
-    /**
-     * @return ID of the instance to attach to.
-     * 
-     */
     public String instance() {
         return this.instance;
     }
-    /**
-     * @return Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
-     * 
-     */
     public Optional<Integer> networkCardIndex() {
         return Optional.ofNullable(this.networkCardIndex);
     }

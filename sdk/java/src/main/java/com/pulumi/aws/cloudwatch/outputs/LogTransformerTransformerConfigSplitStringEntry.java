@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class LogTransformerTransformerConfigSplitStringEntry {
-    /**
-     * @return Specifies the separator characters to split the string entry on.
-     * 
-     */
     private String delimiter;
-    /**
-     * @return Specifies the key to modify.
-     * 
-     */
     private String source;
 
     private LogTransformerTransformerConfigSplitStringEntry() {}
-    /**
-     * @return Specifies the separator characters to split the string entry on.
-     * 
-     */
     public String delimiter() {
         return this.delimiter;
     }
-    /**
-     * @return Specifies the key to modify.
-     * 
-     */
     public String source() {
         return this.source;
     }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentAgentCollaboratorAgentDescriptor
     {
-        /// <summary>
-        /// ARN of the Alias of an Agent to use as the collaborator.
-        /// </summary>
         public readonly string AliasArn;
 
         [OutputConstructor]

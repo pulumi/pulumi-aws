@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MultiplexMultiplexSettings {
-    /**
-     * @return Maximum video buffer delay.
-     * 
-     */
     private @Nullable Integer maximumVideoBufferDelayMilliseconds;
-    /**
-     * @return Transport stream bit rate.
-     * 
-     */
     private Integer transportStreamBitrate;
-    /**
-     * @return Unique ID for each multiplex.
-     * 
-     */
     private Integer transportStreamId;
-    /**
-     * @return Transport stream reserved bit rate.
-     * 
-     */
     private @Nullable Integer transportStreamReservedBitrate;
 
     private MultiplexMultiplexSettings() {}
-    /**
-     * @return Maximum video buffer delay.
-     * 
-     */
     public Optional<Integer> maximumVideoBufferDelayMilliseconds() {
         return Optional.ofNullable(this.maximumVideoBufferDelayMilliseconds);
     }
-    /**
-     * @return Transport stream bit rate.
-     * 
-     */
     public Integer transportStreamBitrate() {
         return this.transportStreamBitrate;
     }
-    /**
-     * @return Unique ID for each multiplex.
-     * 
-     */
     public Integer transportStreamId() {
         return this.transportStreamId;
     }
-    /**
-     * @return Transport stream reserved bit rate.
-     * 
-     */
     public Optional<Integer> transportStreamReservedBitrate() {
         return Optional.ofNullable(this.transportStreamReservedBitrate);
     }

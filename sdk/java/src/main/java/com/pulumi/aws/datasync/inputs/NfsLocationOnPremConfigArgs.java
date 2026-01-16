@@ -15,17 +15,9 @@ public final class NfsLocationOnPremConfigArgs extends com.pulumi.resources.Reso
 
     public static final NfsLocationOnPremConfigArgs Empty = new NfsLocationOnPremConfigArgs();
 
-    /**
-     * List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
-     * 
-     */
     @Import(name="agentArns", required=true)
     private Output<List<String>> agentArns;
 
-    /**
-     * @return List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
-     * 
-     */
     public Output<List<String>> agentArns() {
         return this.agentArns;
     }
@@ -54,33 +46,15 @@ public final class NfsLocationOnPremConfigArgs extends com.pulumi.resources.Reso
             $ = new NfsLocationOnPremConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param agentArns List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentArns(Output<List<String>> agentArns) {
             $.agentArns = agentArns;
             return this;
         }
 
-        /**
-         * @param agentArns List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentArns(List<String> agentArns) {
             return agentArns(Output.of(agentArns));
         }
 
-        /**
-         * @param agentArns List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentArns(String... agentArns) {
             return agentArns(List.of(agentArns));
         }

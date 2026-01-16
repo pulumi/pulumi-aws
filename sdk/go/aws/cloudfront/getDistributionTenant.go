@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve information about a CloudFront distribution tenant.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.LookupDistributionTenant(ctx, &cloudfront.LookupDistributionTenantArgs{
-//				Id: pulumi.StringRef("EDFDVBD632BHDS5"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupDistributionTenant(ctx *pulumi.Context, args *LookupDistributionTenantArgs, opts ...pulumi.InvokeOption) (*LookupDistributionTenantResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDistributionTenantResult
@@ -50,41 +23,28 @@ func LookupDistributionTenant(ctx *pulumi.Context, args *LookupDistributionTenan
 
 // A collection of arguments for invoking getDistributionTenant.
 type LookupDistributionTenantArgs struct {
-	// ARN (Amazon Resource Name) for the distribution tenant.
-	Arn *string `pulumi:"arn"`
-	// An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
+	Arn    *string `pulumi:"arn"`
 	Domain *string `pulumi:"domain"`
-	// Identifier for the distribution tenant. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `domain` must be specified.
-	Id   *string `pulumi:"id"`
-	Name *string `pulumi:"name"`
+	Id     *string `pulumi:"id"`
+	Name   *string `pulumi:"name"`
 }
 
 // A collection of values returned by getDistributionTenant.
 type LookupDistributionTenantResult struct {
-	// ARN (Amazon Resource Name) for the distribution tenant.
-	Arn string `pulumi:"arn"`
-	// The CloudFront connection group the tenant is associated with.
-	ConnectionGroupId string                               `pulumi:"connectionGroupId"`
-	Customizations    []GetDistributionTenantCustomization `pulumi:"customizations"`
-	// The ID of the CloudFront distribution the tenant is associated with.
-	DistributionId string  `pulumi:"distributionId"`
-	Domain         *string `pulumi:"domain"`
-	// List of domains for the distribution tenant.
-	Domains []GetDistributionTenantDomain `pulumi:"domains"`
-	// Whether the distribution tenant is enabled.
-	Enabled bool `pulumi:"enabled"`
-	// Current version of the distribution tenant's information. For example:
-	// `E2QWRUHAPOMQZL`.
+	Arn                        string                                           `pulumi:"arn"`
+	ConnectionGroupId          string                                           `pulumi:"connectionGroupId"`
+	Customizations             []GetDistributionTenantCustomization             `pulumi:"customizations"`
+	DistributionId             string                                           `pulumi:"distributionId"`
+	Domain                     *string                                          `pulumi:"domain"`
+	Domains                    []GetDistributionTenantDomain                    `pulumi:"domains"`
+	Enabled                    bool                                             `pulumi:"enabled"`
 	Etag                       string                                           `pulumi:"etag"`
 	Id                         string                                           `pulumi:"id"`
 	ManagedCertificateRequests []GetDistributionTenantManagedCertificateRequest `pulumi:"managedCertificateRequests"`
 	Name                       string                                           `pulumi:"name"`
 	Parameters                 []GetDistributionTenantParameter                 `pulumi:"parameters"`
-	// Current status of the distribution tenant. `Deployed` if the
-	// distribution tenant's information is fully propagated throughout the Amazon
-	// CloudFront system.
-	Status string            `pulumi:"status"`
-	Tags   map[string]string `pulumi:"tags"`
+	Status                     string                                           `pulumi:"status"`
+	Tags                       map[string]string                                `pulumi:"tags"`
 }
 
 func LookupDistributionTenantOutput(ctx *pulumi.Context, args LookupDistributionTenantOutputArgs, opts ...pulumi.InvokeOption) LookupDistributionTenantResultOutput {
@@ -98,13 +58,10 @@ func LookupDistributionTenantOutput(ctx *pulumi.Context, args LookupDistribution
 
 // A collection of arguments for invoking getDistributionTenant.
 type LookupDistributionTenantOutputArgs struct {
-	// ARN (Amazon Resource Name) for the distribution tenant.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
+	Arn    pulumi.StringPtrInput `pulumi:"arn"`
 	Domain pulumi.StringPtrInput `pulumi:"domain"`
-	// Identifier for the distribution tenant. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `domain` must be specified.
-	Id   pulumi.StringPtrInput `pulumi:"id"`
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (LookupDistributionTenantOutputArgs) ElementType() reflect.Type {
@@ -126,12 +83,10 @@ func (o LookupDistributionTenantResultOutput) ToLookupDistributionTenantResultOu
 	return o
 }
 
-// ARN (Amazon Resource Name) for the distribution tenant.
 func (o LookupDistributionTenantResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDistributionTenantResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The CloudFront connection group the tenant is associated with.
 func (o LookupDistributionTenantResultOutput) ConnectionGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDistributionTenantResult) string { return v.ConnectionGroupId }).(pulumi.StringOutput)
 }
@@ -140,7 +95,6 @@ func (o LookupDistributionTenantResultOutput) Customizations() GetDistributionTe
 	return o.ApplyT(func(v LookupDistributionTenantResult) []GetDistributionTenantCustomization { return v.Customizations }).(GetDistributionTenantCustomizationArrayOutput)
 }
 
-// The ID of the CloudFront distribution the tenant is associated with.
 func (o LookupDistributionTenantResultOutput) DistributionId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDistributionTenantResult) string { return v.DistributionId }).(pulumi.StringOutput)
 }
@@ -149,18 +103,14 @@ func (o LookupDistributionTenantResultOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDistributionTenantResult) *string { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
-// List of domains for the distribution tenant.
 func (o LookupDistributionTenantResultOutput) Domains() GetDistributionTenantDomainArrayOutput {
 	return o.ApplyT(func(v LookupDistributionTenantResult) []GetDistributionTenantDomain { return v.Domains }).(GetDistributionTenantDomainArrayOutput)
 }
 
-// Whether the distribution tenant is enabled.
 func (o LookupDistributionTenantResultOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupDistributionTenantResult) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Current version of the distribution tenant's information. For example:
-// `E2QWRUHAPOMQZL`.
 func (o LookupDistributionTenantResultOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDistributionTenantResult) string { return v.Etag }).(pulumi.StringOutput)
 }
@@ -183,9 +133,6 @@ func (o LookupDistributionTenantResultOutput) Parameters() GetDistributionTenant
 	return o.ApplyT(func(v LookupDistributionTenantResult) []GetDistributionTenantParameter { return v.Parameters }).(GetDistributionTenantParameterArrayOutput)
 }
 
-// Current status of the distribution tenant. `Deployed` if the
-// distribution tenant's information is fully propagated throughout the Amazon
-// CloudFront system.
 func (o LookupDistributionTenantResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDistributionTenantResult) string { return v.Status }).(pulumi.StringOutput)
 }

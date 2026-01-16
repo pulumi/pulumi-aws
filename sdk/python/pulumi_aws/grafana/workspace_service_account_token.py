@@ -26,11 +26,6 @@ class WorkspaceServiceAccountTokenArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceServiceAccountToken resource.
-        :param pulumi.Input[_builtins.int] seconds_to_live: Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
-        :param pulumi.Input[_builtins.str] service_account_id: The ID of the service account for which to create a token.
-        :param pulumi.Input[_builtins.str] workspace_id: The Grafana workspace with which the service account token is associated.
-        :param pulumi.Input[_builtins.str] name: A name for the token to create. The name must be unique within the workspace.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "seconds_to_live", seconds_to_live)
         pulumi.set(__self__, "service_account_id", service_account_id)
@@ -43,9 +38,6 @@ class WorkspaceServiceAccountTokenArgs:
     @_builtins.property
     @pulumi.getter(name="secondsToLive")
     def seconds_to_live(self) -> pulumi.Input[_builtins.int]:
-        """
-        Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
-        """
         return pulumi.get(self, "seconds_to_live")
 
     @seconds_to_live.setter
@@ -55,9 +47,6 @@ class WorkspaceServiceAccountTokenArgs:
     @_builtins.property
     @pulumi.getter(name="serviceAccountId")
     def service_account_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the service account for which to create a token.
-        """
         return pulumi.get(self, "service_account_id")
 
     @service_account_id.setter
@@ -67,9 +56,6 @@ class WorkspaceServiceAccountTokenArgs:
     @_builtins.property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Grafana workspace with which the service account token is associated.
-        """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
@@ -79,9 +65,6 @@ class WorkspaceServiceAccountTokenArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A name for the token to create. The name must be unique within the workspace.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -91,9 +74,6 @@ class WorkspaceServiceAccountTokenArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -115,15 +95,6 @@ class _WorkspaceServiceAccountTokenState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceServiceAccountToken resources.
-        :param pulumi.Input[_builtins.str] created_at: Specifies when the service account token was created.
-        :param pulumi.Input[_builtins.str] expires_at: Specifies when the service account token will expire.
-        :param pulumi.Input[_builtins.str] key: The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
-        :param pulumi.Input[_builtins.str] name: A name for the token to create. The name must be unique within the workspace.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] seconds_to_live: Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
-        :param pulumi.Input[_builtins.str] service_account_id: The ID of the service account for which to create a token.
-        :param pulumi.Input[_builtins.str] service_account_token_id: Identifier of the service account token in the given Grafana workspace.
-        :param pulumi.Input[_builtins.str] workspace_id: The Grafana workspace with which the service account token is associated.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -147,9 +118,6 @@ class _WorkspaceServiceAccountTokenState:
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies when the service account token was created.
-        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -159,9 +127,6 @@ class _WorkspaceServiceAccountTokenState:
     @_builtins.property
     @pulumi.getter(name="expiresAt")
     def expires_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies when the service account token will expire.
-        """
         return pulumi.get(self, "expires_at")
 
     @expires_at.setter
@@ -171,9 +136,6 @@ class _WorkspaceServiceAccountTokenState:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -183,9 +145,6 @@ class _WorkspaceServiceAccountTokenState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A name for the token to create. The name must be unique within the workspace.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -195,9 +154,6 @@ class _WorkspaceServiceAccountTokenState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -207,9 +163,6 @@ class _WorkspaceServiceAccountTokenState:
     @_builtins.property
     @pulumi.getter(name="secondsToLive")
     def seconds_to_live(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
-        """
         return pulumi.get(self, "seconds_to_live")
 
     @seconds_to_live.setter
@@ -219,9 +172,6 @@ class _WorkspaceServiceAccountTokenState:
     @_builtins.property
     @pulumi.getter(name="serviceAccountId")
     def service_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the service account for which to create a token.
-        """
         return pulumi.get(self, "service_account_id")
 
     @service_account_id.setter
@@ -231,9 +181,6 @@ class _WorkspaceServiceAccountTokenState:
     @_builtins.property
     @pulumi.getter(name="serviceAccountTokenId")
     def service_account_token_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the service account token in the given Grafana workspace.
-        """
         return pulumi.get(self, "service_account_token_id")
 
     @service_account_token_id.setter
@@ -243,9 +190,6 @@ class _WorkspaceServiceAccountTokenState:
     @_builtins.property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Grafana workspace with which the service account token is associated.
-        """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
@@ -266,32 +210,9 @@ class WorkspaceServiceAccountToken(pulumi.CustomResource):
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.grafana.WorkspaceServiceAccount("example",
-            name="example-admin",
-            grafana_role="ADMIN",
-            workspace_id=example_aws_grafana_workspace["id"])
-        example_workspace_service_account_token = aws.grafana.WorkspaceServiceAccountToken("example",
-            name="example-key",
-            service_account_id=example.service_account_id,
-            seconds_to_live=3600,
-            workspace_id=example_aws_grafana_workspace["id"])
-        ```
-
+        Create a WorkspaceServiceAccountToken resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: A name for the token to create. The name must be unique within the workspace.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] seconds_to_live: Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
-        :param pulumi.Input[_builtins.str] service_account_id: The ID of the service account for which to create a token.
-        :param pulumi.Input[_builtins.str] workspace_id: The Grafana workspace with which the service account token is associated.
         """
         ...
     @overload
@@ -300,25 +221,7 @@ class WorkspaceServiceAccountToken(pulumi.CustomResource):
                  args: WorkspaceServiceAccountTokenArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.grafana.WorkspaceServiceAccount("example",
-            name="example-admin",
-            grafana_role="ADMIN",
-            workspace_id=example_aws_grafana_workspace["id"])
-        example_workspace_service_account_token = aws.grafana.WorkspaceServiceAccountToken("example",
-            name="example-key",
-            service_account_id=example.service_account_id,
-            seconds_to_live=3600,
-            workspace_id=example_aws_grafana_workspace["id"])
-        ```
-
+        Create a WorkspaceServiceAccountToken resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param WorkspaceServiceAccountTokenArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -391,15 +294,6 @@ class WorkspaceServiceAccountToken(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] created_at: Specifies when the service account token was created.
-        :param pulumi.Input[_builtins.str] expires_at: Specifies when the service account token will expire.
-        :param pulumi.Input[_builtins.str] key: The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
-        :param pulumi.Input[_builtins.str] name: A name for the token to create. The name must be unique within the workspace.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] seconds_to_live: Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
-        :param pulumi.Input[_builtins.str] service_account_id: The ID of the service account for which to create a token.
-        :param pulumi.Input[_builtins.str] service_account_token_id: Identifier of the service account token in the given Grafana workspace.
-        :param pulumi.Input[_builtins.str] workspace_id: The Grafana workspace with which the service account token is associated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -419,72 +313,45 @@ class WorkspaceServiceAccountToken(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies when the service account token was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter(name="expiresAt")
     def expires_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies when the service account token will expire.
-        """
         return pulumi.get(self, "expires_at")
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Output[_builtins.str]:
-        """
-        The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        A name for the token to create. The name must be unique within the workspace.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="secondsToLive")
     def seconds_to_live(self) -> pulumi.Output[_builtins.int]:
-        """
-        Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
-        """
         return pulumi.get(self, "seconds_to_live")
 
     @_builtins.property
     @pulumi.getter(name="serviceAccountId")
     def service_account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the service account for which to create a token.
-        """
         return pulumi.get(self, "service_account_id")
 
     @_builtins.property
     @pulumi.getter(name="serviceAccountTokenId")
     def service_account_token_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of the service account token in the given Grafana workspace.
-        """
         return pulumi.get(self, "service_account_token_id")
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Grafana workspace with which the service account token is associated.
-        """
         return pulumi.get(self, "workspace_id")
 

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class CapabilityConfigurationArgoCdRbacRoleMappingIdentity {
-    /**
-     * @return Identity ID.
-     * 
-     */
     private String id;
-    /**
-     * @return Identity type. Valid values: `SSO_USER`, `SSO_GROUP`.
-     * 
-     */
     private String type;
 
     private CapabilityConfigurationArgoCdRbacRoleMappingIdentity() {}
-    /**
-     * @return Identity ID.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Identity type. Valid values: `SSO_USER`, `SSO_GROUP`.
-     * 
-     */
     public String type() {
         return this.type;
     }

@@ -9,27 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import exclusive management of inline policy assignments using the `group_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:iam/groupPoliciesExclusive:GroupPoliciesExclusive example MyGroup
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iam/groupPoliciesExclusive:GroupPoliciesExclusive")]
     public partial class GroupPoliciesExclusive : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// IAM group name.
-        /// </summary>
         [Output("groupName")]
         public Output<string> GroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
-        /// </summary>
         [Output("policyNames")]
         public Output<ImmutableArray<string>> PolicyNames { get; private set; } = null!;
 
@@ -79,18 +64,11 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GroupPoliciesExclusiveArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// IAM group name.
-        /// </summary>
         [Input("groupName", required: true)]
         public Input<string> GroupName { get; set; } = null!;
 
         [Input("policyNames", required: true)]
         private InputList<string>? _policyNames;
-
-        /// <summary>
-        /// A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
-        /// </summary>
         public InputList<string> PolicyNames
         {
             get => _policyNames ?? (_policyNames = new InputList<string>());
@@ -105,18 +83,11 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GroupPoliciesExclusiveState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// IAM group name.
-        /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
 
         [Input("policyNames")]
         private InputList<string>? _policyNames;
-
-        /// <summary>
-        /// A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
-        /// </summary>
         public InputList<string> PolicyNames
         {
             get => _policyNames ?? (_policyNames = new InputList<string>());

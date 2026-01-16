@@ -12,33 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InfrastructureConfigurationLoggingS3Logs {
-    /**
-     * @return Name of the S3 Bucket.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String s3BucketName;
-    /**
-     * @return Prefix to use for S3 logs. Defaults to `/`.
-     * 
-     */
     private @Nullable String s3KeyPrefix;
 
     private InfrastructureConfigurationLoggingS3Logs() {}
-    /**
-     * @return Name of the S3 Bucket.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String s3BucketName() {
         return this.s3BucketName;
     }
-    /**
-     * @return Prefix to use for S3 logs. Defaults to `/`.
-     * 
-     */
     public Optional<String> s3KeyPrefix() {
         return Optional.ofNullable(this.s3KeyPrefix);
     }

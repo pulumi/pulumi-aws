@@ -40,9 +40,6 @@ class GetSerialConsoleAccessResult:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
-        """
-        Whether or not serial console access is enabled. Returns as `true` or `false`.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
@@ -73,19 +70,7 @@ class AwaitableGetSerialConsoleAccessResult(GetSerialConsoleAccessResult):
 def get_serial_console_access(region: Optional[_builtins.str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSerialConsoleAccessResult:
     """
-    Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.ec2.get_serial_console_access()
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -99,19 +84,7 @@ def get_serial_console_access(region: Optional[_builtins.str] = None,
 def get_serial_console_access_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSerialConsoleAccessResult]:
     """
-    Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.ec2.get_serial_console_access()
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResponseHeadersPolicyCustomHeadersConfigItem {
-    /**
-     * @return The HTTP header name.
-     * 
-     */
     private String header;
-    /**
-     * @return Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-     * 
-     */
     private Boolean override;
-    /**
-     * @return Value for the HTTP response header.
-     * 
-     */
     private String value;
 
     private GetResponseHeadersPolicyCustomHeadersConfigItem() {}
-    /**
-     * @return The HTTP header name.
-     * 
-     */
     public String header() {
         return this.header;
     }
-    /**
-     * @return Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-     * 
-     */
     public Boolean override() {
         return this.override;
     }
-    /**
-     * @return Value for the HTTP response header.
-     * 
-     */
     public String value() {
         return this.value;
     }

@@ -13,15 +13,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     [OutputType]
     public sealed class ProjectSourceAuth
     {
-        /// <summary>
-        /// The ARN of the resource to use for authentication. For type `CODECONNECTIONS` this should be
-        /// an AWS CodeStar Connection. For type `SECRETS_MANAGER` this should be an AWS Secrets Manager secret.
-        /// </summary>
         public readonly string Resource;
-        /// <summary>
-        /// The type of authentication AWS CodeBuild should perform. Valid values are `CODECONNECTIONS` and
-        /// `SECRETS_MANAGER`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

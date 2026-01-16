@@ -13,45 +13,15 @@ namespace Pulumi.Aws.SecurityHub.Outputs
     [OutputType]
     public sealed class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter
     {
-        /// <summary>
-        /// The bool `Value` for a Boolean-typed Security Hub Control Parameter.
-        /// </summary>
         public readonly Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool? Bool;
-        /// <summary>
-        /// The float `Value` for a Double-typed Security Hub Control Parameter.
-        /// </summary>
         public readonly Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble? Double;
-        /// <summary>
-        /// The string `Value` for a Enum-typed Security Hub Control Parameter.
-        /// </summary>
         public readonly Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum? Enum;
-        /// <summary>
-        /// The string list `Value` for a EnumList-typed Security Hub Control Parameter.
-        /// </summary>
         public readonly Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList? EnumList;
-        /// <summary>
-        /// The int `Value` for a Int-typed Security Hub Control Parameter.
-        /// </summary>
         public readonly Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt? Int;
-        /// <summary>
-        /// The int list `Value` for a IntList-typed Security Hub Control Parameter.
-        /// </summary>
         public readonly Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList? IntList;
-        /// <summary>
-        /// The name of the control parameter. For more information see the [Security Hub controls reference] documentation.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The string `Value` for a String-typed Security Hub Control Parameter.
-        /// </summary>
         public readonly Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString? String;
-        /// <summary>
-        /// The string list `Value` for a StringList-typed Security Hub Control Parameter.
-        /// </summary>
         public readonly Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList? StringList;
-        /// <summary>
-        /// Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior. Valid values: `DEFAULT`, `CUSTOM`.
-        /// </summary>
         public readonly string ValueType;
 
         [OutputConstructor]

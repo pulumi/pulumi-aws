@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ScheduledActionTargetActionResumeCluster {
-    /**
-     * @return The identifier of the cluster to be resumed.
-     * 
-     */
     private String clusterIdentifier;
 
     private ScheduledActionTargetActionResumeCluster() {}
-    /**
-     * @return The identifier of the cluster to be resumed.
-     * 
-     */
     public String clusterIdentifier() {
         return this.clusterIdentifier;
     }

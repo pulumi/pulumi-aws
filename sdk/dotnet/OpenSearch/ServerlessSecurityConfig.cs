@@ -9,19 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.OpenSearch
 {
-    /// <summary>
-    /// Resource for managing an AWS OpenSearch Serverless Security Config.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import OpenSearchServerless Access Policy using the `name` argument prefixed with the string `saml/account_id/`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig example saml/123456789012/example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig")]
     public partial class ServerlessSecurityConfig : global::Pulumi.CustomResource
     {
@@ -43,22 +30,14 @@ namespace Pulumi.Aws.OpenSearch
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for SAML options.
-        /// </summary>
         [Output("samlOptions")]
         public Output<Outputs.ServerlessSecurityConfigSamlOptions?> SamlOptions { get; private set; } = null!;
 
         /// <summary>
         /// Type of configuration. Must be `Saml`.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -121,22 +100,14 @@ namespace Pulumi.Aws.OpenSearch
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Configuration block for SAML options.
-        /// </summary>
         [Input("samlOptions")]
         public Input<Inputs.ServerlessSecurityConfigSamlOptionsArgs>? SamlOptions { get; set; }
 
         /// <summary>
         /// Type of configuration. Must be `Saml`.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -167,22 +138,14 @@ namespace Pulumi.Aws.OpenSearch
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Configuration block for SAML options.
-        /// </summary>
         [Input("samlOptions")]
         public Input<Inputs.ServerlessSecurityConfigSamlOptionsGetArgs>? SamlOptions { get; set; }
 
         /// <summary>
         /// Type of configuration. Must be `Saml`.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

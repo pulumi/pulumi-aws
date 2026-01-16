@@ -12,15 +12,9 @@ namespace Pulumi.Aws.EmrServerless.Inputs
 
     public sealed class ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Enables managed log persistence for monitoring logs.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// The KMS key ARN to encrypt the logs stored in managed persistence.
-        /// </summary>
         [Input("encryptionKeyArn")]
         public Input<string>? EncryptionKeyArn { get; set; }
 

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.EmrServerless.Inputs
 
     public sealed class ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
-        /// </summary>
         [Input("encryptionKeyArn")]
         public Input<string>? EncryptionKeyArn { get; set; }
 
-        /// <summary>
-        /// The Amazon S3 destination URI for log publishing.
-        /// </summary>
         [Input("logUri")]
         public Input<string>? LogUri { get; set; }
 

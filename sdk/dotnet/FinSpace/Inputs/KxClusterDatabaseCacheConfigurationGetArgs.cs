@@ -12,18 +12,11 @@ namespace Pulumi.Aws.FinSpace.Inputs
 
     public sealed class KxClusterDatabaseCacheConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Type of disk cache.
-        /// </summary>
         [Input("cacheType", required: true)]
         public Input<string> CacheType { get; set; } = null!;
 
         [Input("dbPaths")]
         private InputList<string>? _dbPaths;
-
-        /// <summary>
-        /// Paths within the database to cache.
-        /// </summary>
         public InputList<string> DbPaths
         {
             get => _dbPaths ?? (_dbPaths = new InputList<string>());

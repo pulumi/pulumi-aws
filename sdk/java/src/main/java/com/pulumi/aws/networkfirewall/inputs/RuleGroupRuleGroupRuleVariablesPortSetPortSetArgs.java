@@ -15,17 +15,9 @@ public final class RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs extends com
 
     public static final RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs Empty = new RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs();
 
-    /**
-     * Set of port ranges.
-     * 
-     */
     @Import(name="definitions", required=true)
     private Output<List<String>> definitions;
 
-    /**
-     * @return Set of port ranges.
-     * 
-     */
     public Output<List<String>> definitions() {
         return this.definitions;
     }
@@ -54,33 +46,15 @@ public final class RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs extends com
             $ = new RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param definitions Set of port ranges.
-         * 
-         * @return builder
-         * 
-         */
         public Builder definitions(Output<List<String>> definitions) {
             $.definitions = definitions;
             return this;
         }
 
-        /**
-         * @param definitions Set of port ranges.
-         * 
-         * @return builder
-         * 
-         */
         public Builder definitions(List<String> definitions) {
             return definitions(Output.of(definitions));
         }
 
-        /**
-         * @param definitions Set of port ranges.
-         * 
-         * @return builder
-         * 
-         */
         public Builder definitions(String... definitions) {
             return definitions(List.of(definitions));
         }

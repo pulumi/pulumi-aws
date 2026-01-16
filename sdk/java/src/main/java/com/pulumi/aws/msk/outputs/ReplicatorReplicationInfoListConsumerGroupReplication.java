@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ReplicatorReplicationInfoListConsumerGroupReplication {
-    /**
-     * @return List of regular expression patterns indicating the consumer groups that should not be replicated.
-     * 
-     */
     private @Nullable List<String> consumerGroupsToExcludes;
-    /**
-     * @return List of regular expression patterns indicating the consumer groups to copy.
-     * 
-     */
     private List<String> consumerGroupsToReplicates;
-    /**
-     * @return Whether to periodically check for new consumer groups.
-     * 
-     */
     private @Nullable Boolean detectAndCopyNewConsumerGroups;
-    /**
-     * @return Whether to periodically write the translated offsets to __consumer_offsets topic in target cluster.
-     * 
-     */
     private @Nullable Boolean synchroniseConsumerGroupOffsets;
 
     private ReplicatorReplicationInfoListConsumerGroupReplication() {}
-    /**
-     * @return List of regular expression patterns indicating the consumer groups that should not be replicated.
-     * 
-     */
     public List<String> consumerGroupsToExcludes() {
         return this.consumerGroupsToExcludes == null ? List.of() : this.consumerGroupsToExcludes;
     }
-    /**
-     * @return List of regular expression patterns indicating the consumer groups to copy.
-     * 
-     */
     public List<String> consumerGroupsToReplicates() {
         return this.consumerGroupsToReplicates;
     }
-    /**
-     * @return Whether to periodically check for new consumer groups.
-     * 
-     */
     public Optional<Boolean> detectAndCopyNewConsumerGroups() {
         return Optional.ofNullable(this.detectAndCopyNewConsumerGroups);
     }
-    /**
-     * @return Whether to periodically write the translated offsets to __consumer_offsets topic in target cluster.
-     * 
-     */
     public Optional<Boolean> synchroniseConsumerGroupOffsets() {
         return Optional.ofNullable(this.synchroniseConsumerGroupOffsets);
     }

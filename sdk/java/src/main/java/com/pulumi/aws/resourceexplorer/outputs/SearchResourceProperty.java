@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class SearchResourceProperty {
-    /**
-     * @return Details about this property. The content of this field is a JSON object that varies based on the resource type.
-     * 
-     */
     private String data;
-    /**
-     * @return The date and time that the information about this resource property was last updated.
-     * 
-     */
     private String lastReportedAt;
-    /**
-     * @return Name of this property of the resource.
-     * 
-     */
     private String name;
 
     private SearchResourceProperty() {}
-    /**
-     * @return Details about this property. The content of this field is a JSON object that varies based on the resource type.
-     * 
-     */
     public String data() {
         return this.data;
     }
-    /**
-     * @return The date and time that the information about this resource property was last updated.
-     * 
-     */
     public String lastReportedAt() {
         return this.lastReportedAt;
     }
-    /**
-     * @return Name of this property of the resource.
-     * 
-     */
     public String name() {
         return this.name;
     }

@@ -12,23 +12,12 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
 
     public sealed class DeploymentGroupEc2TagFilterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The key of the tag filter.
-        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
-        /// <summary>
-        /// The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// The value of the tag filter.
-        /// 
-        /// Multiple occurrences of `Ec2TagFilter` are allowed, where any instance that matches to at least one of the tag filters is selected.
-        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

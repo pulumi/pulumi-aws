@@ -14,121 +14,35 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a CloudWatch RUM Metrics Destination resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.rum.MetricsDestination;
- * import com.pulumi.aws.rum.MetricsDestinationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new MetricsDestination("example", MetricsDestinationArgs.builder()
- *             .appMonitorName(exampleAwsRumAppMonitor.name())
- *             .destination("CloudWatch")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Cloudwatch RUM Metrics Destination using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:rum/metricsDestination:MetricsDestination example example
- * ```
- * 
- */
 @ResourceType(type="aws:rum/metricsDestination:MetricsDestination")
 public class MetricsDestination extends com.pulumi.resources.CustomResource {
-    /**
-     * The name of the CloudWatch RUM app monitor that will send the metrics.
-     * 
-     */
     @Export(name="appMonitorName", refs={String.class}, tree="[0]")
     private Output<String> appMonitorName;
 
-    /**
-     * @return The name of the CloudWatch RUM app monitor that will send the metrics.
-     * 
-     */
     public Output<String> appMonitorName() {
         return this.appMonitorName;
     }
-    /**
-     * Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
-     * 
-     */
     @Export(name="destination", refs={String.class}, tree="[0]")
     private Output<String> destination;
 
-    /**
-     * @return Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
-     * 
-     */
     public Output<String> destination() {
         return this.destination;
     }
-    /**
-     * Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
-     * 
-     */
     @Export(name="destinationArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> destinationArn;
 
-    /**
-     * @return Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
-     * 
-     */
     public Output<Optional<String>> destinationArn() {
         return Codegen.optional(this.destinationArn);
     }
-    /**
-     * This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
-     * 
-     */
     @Export(name="iamRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> iamRoleArn;
 
-    /**
-     * @return This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
-     * 
-     */
     public Output<Optional<String>> iamRoleArn() {
         return Codegen.optional(this.iamRoleArn);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

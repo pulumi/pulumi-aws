@@ -18,92 +18,44 @@ public final class S3AccessPointAttachmentState extends com.pulumi.resources.Res
 
     public static final S3AccessPointAttachmentState Empty = new S3AccessPointAttachmentState();
 
-    /**
-     * Name of the S3 access point.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the S3 access point.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
-     * 
-     */
     @Import(name="openzfsConfiguration")
     private @Nullable Output<S3AccessPointAttachmentOpenzfsConfigurationArgs> openzfsConfiguration;
 
-    /**
-     * @return Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
-     * 
-     */
     public Optional<Output<S3AccessPointAttachmentOpenzfsConfigurationArgs>> openzfsConfiguration() {
         return Optional.ofNullable(this.openzfsConfiguration);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * S3 access point configuration. See `s3AccessPoint` Block for details.
-     * 
-     */
     @Import(name="s3AccessPoint")
     private @Nullable Output<S3AccessPointAttachmentS3AccessPointArgs> s3AccessPoint;
 
-    /**
-     * @return S3 access point configuration. See `s3AccessPoint` Block for details.
-     * 
-     */
     public Optional<Output<S3AccessPointAttachmentS3AccessPointArgs>> s3AccessPoint() {
         return Optional.ofNullable(this.s3AccessPoint);
     }
 
-    /**
-     * S3 access point&#39;s alias.
-     * 
-     */
     @Import(name="s3AccessPointAlias")
     private @Nullable Output<String> s3AccessPointAlias;
 
-    /**
-     * @return S3 access point&#39;s alias.
-     * 
-     */
     public Optional<Output<String>> s3AccessPointAlias() {
         return Optional.ofNullable(this.s3AccessPointAlias);
     }
 
-    /**
-     * S3 access point&#39;s ARN.
-     * 
-     */
     @Import(name="s3AccessPointArn")
     private @Nullable Output<String> s3AccessPointArn;
 
-    /**
-     * @return S3 access point&#39;s ARN.
-     * 
-     */
     public Optional<Output<String>> s3AccessPointArn() {
         return Optional.ofNullable(this.s3AccessPointArn);
     }
@@ -115,21 +67,9 @@ public final class S3AccessPointAttachmentState extends com.pulumi.resources.Res
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * Type of S3 access point. Valid values: `OpenZFS`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return Type of S3 access point. Valid values: `OpenZFS`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -165,128 +105,56 @@ public final class S3AccessPointAttachmentState extends com.pulumi.resources.Res
             $ = new S3AccessPointAttachmentState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the S3 access point.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the S3 access point.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param openzfsConfiguration Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder openzfsConfiguration(@Nullable Output<S3AccessPointAttachmentOpenzfsConfigurationArgs> openzfsConfiguration) {
             $.openzfsConfiguration = openzfsConfiguration;
             return this;
         }
 
-        /**
-         * @param openzfsConfiguration Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder openzfsConfiguration(S3AccessPointAttachmentOpenzfsConfigurationArgs openzfsConfiguration) {
             return openzfsConfiguration(Output.of(openzfsConfiguration));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param s3AccessPoint S3 access point configuration. See `s3AccessPoint` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3AccessPoint(@Nullable Output<S3AccessPointAttachmentS3AccessPointArgs> s3AccessPoint) {
             $.s3AccessPoint = s3AccessPoint;
             return this;
         }
 
-        /**
-         * @param s3AccessPoint S3 access point configuration. See `s3AccessPoint` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3AccessPoint(S3AccessPointAttachmentS3AccessPointArgs s3AccessPoint) {
             return s3AccessPoint(Output.of(s3AccessPoint));
         }
 
-        /**
-         * @param s3AccessPointAlias S3 access point&#39;s alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3AccessPointAlias(@Nullable Output<String> s3AccessPointAlias) {
             $.s3AccessPointAlias = s3AccessPointAlias;
             return this;
         }
 
-        /**
-         * @param s3AccessPointAlias S3 access point&#39;s alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3AccessPointAlias(String s3AccessPointAlias) {
             return s3AccessPointAlias(Output.of(s3AccessPointAlias));
         }
 
-        /**
-         * @param s3AccessPointArn S3 access point&#39;s ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3AccessPointArn(@Nullable Output<String> s3AccessPointArn) {
             $.s3AccessPointArn = s3AccessPointArn;
             return this;
         }
 
-        /**
-         * @param s3AccessPointArn S3 access point&#39;s ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3AccessPointArn(String s3AccessPointArn) {
             return s3AccessPointArn(Output.of(s3AccessPointArn));
         }
@@ -300,27 +168,11 @@ public final class S3AccessPointAttachmentState extends com.pulumi.resources.Res
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param type Type of S3 access point. Valid values: `OpenZFS`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of S3 access point. Valid values: `OpenZFS`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

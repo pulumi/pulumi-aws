@@ -11,75 +11,12 @@ namespace Pulumi.Aws.MskConnect
 {
     public static class GetConnector
     {
-        /// <summary>
-        /// Get information on an Amazon MSK Connect Connector.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.MskConnect.GetConnector.Invoke(new()
-        ///     {
-        ///         Name = "example-mskconnector",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("aws:mskconnect/getConnector:getConnector", args ?? new GetConnectorArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get information on an Amazon MSK Connect Connector.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.MskConnect.GetConnector.Invoke(new()
-        ///     {
-        ///         Name = "example-mskconnector",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("aws:mskconnect/getConnector:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get information on an Amazon MSK Connect Connector.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.MskConnect.GetConnector.Invoke(new()
-        ///     {
-        ///         Name = "example-mskconnector",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("aws:mskconnect/getConnector:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
     }
@@ -87,24 +24,14 @@ namespace Pulumi.Aws.MskConnect
 
     public sealed class GetConnectorArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the connector.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// A map of tags assigned to the resource.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -119,24 +46,14 @@ namespace Pulumi.Aws.MskConnect
 
     public sealed class GetConnectorInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the connector.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags assigned to the resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -153,13 +70,7 @@ namespace Pulumi.Aws.MskConnect
     [OutputType]
     public sealed class GetConnectorResult
     {
-        /// <summary>
-        /// ARN of the connector.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Summary description of the connector.
-        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -167,13 +78,7 @@ namespace Pulumi.Aws.MskConnect
         public readonly string Id;
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// A map of tags assigned to the resource.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Current version of the connector.
-        /// </summary>
         public readonly string Version;
 
         [OutputConstructor]

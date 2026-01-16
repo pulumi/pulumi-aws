@@ -16,47 +16,23 @@ public final class GetContainerRecipesPlainArgs extends com.pulumi.resources.Inv
 
     public static final GetContainerRecipesPlainArgs Empty = new GetContainerRecipesPlainArgs();
 
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetContainerRecipesFilter> filters;
 
-    /**
-     * @return Configuration block(s) for filtering. Detailed below.
-     * 
-     */
     public Optional<List<GetContainerRecipesFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
-     * 
-     */
     @Import(name="owner")
     private @Nullable String owner;
 
-    /**
-     * @return Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
-     * 
-     */
     public Optional<String> owner() {
         return Optional.ofNullable(this.owner);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -87,44 +63,20 @@ public final class GetContainerRecipesPlainArgs extends com.pulumi.resources.Inv
             $ = new GetContainerRecipesPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetContainerRecipesFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetContainerRecipesFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param owner Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(@Nullable String owner) {
             $.owner = owner;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

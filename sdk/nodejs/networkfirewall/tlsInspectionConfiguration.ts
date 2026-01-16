@@ -7,242 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Network Firewall TLS Inspection Configuration.
- *
- * ## Example Usage
- *
- * > **NOTE:** You must configure either inbound inspection, outbound inspection, or both.
- *
- * ### Basic inbound/ingress inspection
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkfirewall.TlsInspectionConfiguration("example", {
- *     name: "example",
- *     description: "example",
- *     encryptionConfigurations: [{
- *         keyId: "AWS_OWNED_KMS_KEY",
- *         type: "AWS_OWNED_KMS_KEY",
- *     }],
- *     tlsInspectionConfiguration: {
- *         serverCertificateConfiguration: {
- *             serverCertificates: [{
- *                 resourceArn: example1.arn,
- *             }],
- *             scopes: [{
- *                 protocols: [6],
- *                 destinationPorts: [{
- *                     fromPort: 443,
- *                     toPort: 443,
- *                 }],
- *                 destinations: [{
- *                     addressDefinition: "0.0.0.0/0",
- *                 }],
- *                 sourcePorts: [{
- *                     fromPort: 0,
- *                     toPort: 65535,
- *                 }],
- *                 sources: [{
- *                     addressDefinition: "0.0.0.0/0",
- *                 }],
- *             }],
- *         },
- *     },
- * });
- * ```
- *
- * ### Basic outbound/engress inspection
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkfirewall.TlsInspectionConfiguration("example", {
- *     name: "example",
- *     description: "example",
- *     encryptionConfigurations: [{
- *         keyId: "AWS_OWNED_KMS_KEY",
- *         type: "AWS_OWNED_KMS_KEY",
- *     }],
- *     tlsInspectionConfiguration: {
- *         serverCertificateConfiguration: {
- *             certificateAuthorityArn: example1.arn,
- *             checkCertificateRevocationStatus: {
- *                 revokedStatusAction: "REJECT",
- *                 unknownStatusAction: "PASS",
- *             },
- *             scopes: [{
- *                 protocols: [6],
- *                 destinationPorts: [{
- *                     fromPort: 443,
- *                     toPort: 443,
- *                 }],
- *                 destinations: [{
- *                     addressDefinition: "0.0.0.0/0",
- *                 }],
- *                 sourcePorts: [{
- *                     fromPort: 0,
- *                     toPort: 65535,
- *                 }],
- *                 sources: [{
- *                     addressDefinition: "0.0.0.0/0",
- *                 }],
- *             }],
- *         },
- *     },
- * });
- * ```
- *
- * ### Inbound with encryption configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.kms.Key("example", {
- *     description: "example",
- *     deletionWindowInDays: 7,
- * });
- * const exampleTlsInspectionConfiguration = new aws.networkfirewall.TlsInspectionConfiguration("example", {
- *     name: "example",
- *     description: "example",
- *     encryptionConfigurations: [{
- *         keyId: example.arn,
- *         type: "CUSTOMER_KMS",
- *     }],
- *     tlsInspectionConfiguration: {
- *         serverCertificateConfiguration: {
- *             serverCertificates: [{
- *                 resourceArn: example1.arn,
- *             }],
- *             scopes: [{
- *                 protocols: [6],
- *                 destinationPorts: [{
- *                     fromPort: 443,
- *                     toPort: 443,
- *                 }],
- *                 destinations: [{
- *                     addressDefinition: "0.0.0.0/0",
- *                 }],
- *                 sourcePorts: [{
- *                     fromPort: 0,
- *                     toPort: 65535,
- *                 }],
- *                 sources: [{
- *                     addressDefinition: "0.0.0.0/0",
- *                 }],
- *             }],
- *         },
- *     },
- * });
- * ```
- *
- * ### Outbound with encryption configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.kms.Key("example", {
- *     description: "example",
- *     deletionWindowInDays: 7,
- * });
- * const exampleTlsInspectionConfiguration = new aws.networkfirewall.TlsInspectionConfiguration("example", {
- *     name: "example",
- *     description: "example",
- *     encryptionConfigurations: [{
- *         keyId: example.arn,
- *         type: "CUSTOMER_KMS",
- *     }],
- *     tlsInspectionConfiguration: {
- *         serverCertificateConfigurations: [{
- *             certificateAuthorityArn: example1.arn,
- *             checkCertificateRevocationStatus: [{
- *                 revokedStatusAction: "REJECT",
- *                 unknownStatusAction: "PASS",
- *             }],
- *             scope: [{
- *                 protocols: [6],
- *                 destinationPorts: [{
- *                     fromPort: 443,
- *                     toPort: 443,
- *                 }],
- *                 destination: [{
- *                     addressDefinition: "0.0.0.0/0",
- *                 }],
- *                 sourcePorts: [{
- *                     fromPort: 0,
- *                     toPort: 65535,
- *                 }],
- *                 source: [{
- *                     addressDefinition: "0.0.0.0/0",
- *                 }],
- *             }],
- *         }],
- *     },
- * });
- * ```
- *
- * ### Combined inbound and outbound
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkfirewall.TlsInspectionConfiguration("example", {
- *     name: "example",
- *     description: "example",
- *     encryptionConfigurations: [{
- *         keyId: "AWS_OWNED_KMS_KEY",
- *         type: "AWS_OWNED_KMS_KEY",
- *     }],
- *     tlsInspectionConfiguration: {
- *         serverCertificateConfiguration: {
- *             certificateAuthorityArn: example1.arn,
- *             checkCertificateRevocationStatus: {
- *                 revokedStatusAction: "REJECT",
- *                 unknownStatusAction: "PASS",
- *             },
- *             serverCertificates: [{
- *                 resourceArn: example2.arn,
- *             }],
- *             scopes: [{
- *                 protocols: [6],
- *                 destinationPorts: [{
- *                     fromPort: 443,
- *                     toPort: 443,
- *                 }],
- *                 destinations: [{
- *                     addressDefinition: "0.0.0.0/0",
- *                 }],
- *                 sourcePorts: [{
- *                     fromPort: 0,
- *                     toPort: 65535,
- *                 }],
- *                 sources: [{
- *                     addressDefinition: "0.0.0.0/0",
- *                 }],
- *             }],
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the Network Firewall TLS inspection configuration.
- *
- * Using `pulumi import`, import Network Firewall TLS Inspection Configuration using the `arn`. For example:
- *
- * % pulumi import aws_networkfirewall_tls_inspection_configuration.example arn:aws:network-firewall::<region>:<account_id>:tls-configuration/example
- */
 export class TlsInspectionConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing TlsInspectionConfiguration resource's state with the given name, ID, and optional extra
@@ -271,54 +35,19 @@ export class TlsInspectionConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === TlsInspectionConfiguration.__pulumiType;
     }
 
-    /**
-     * ARN of the TLS Inspection Configuration.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Certificate Manager certificate block. See Certificate Authority below for details.
-     */
     declare public /*out*/ readonly certificateAuthorities: pulumi.Output<outputs.networkfirewall.TlsInspectionConfigurationCertificateAuthority[]>;
-    /**
-     * List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
-     */
     declare public /*out*/ readonly certificates: pulumi.Output<outputs.networkfirewall.TlsInspectionConfigurationCertificate[]>;
-    /**
-     * Description of the TLS inspection configuration.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Encryption configuration block. Detailed below.
-     */
     declare public readonly encryptionConfigurations: pulumi.Output<outputs.networkfirewall.TlsInspectionConfigurationEncryptionConfiguration[]>;
-    /**
-     * Descriptive name of the TLS inspection configuration.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Number of firewall policies that use this TLS inspection configuration.
-     */
     declare public /*out*/ readonly numberOfAssociations: pulumi.Output<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.networkfirewall.TlsInspectionConfigurationTimeouts | undefined>;
-    /**
-     * TLS inspection configuration block. Detailed below.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly tlsInspectionConfiguration: pulumi.Output<outputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfiguration | undefined>;
-    /**
-     * A unique identifier for the TLS inspection configuration.
-     */
     declare public /*out*/ readonly tlsInspectionConfigurationId: pulumi.Output<string>;
-    /**
-     * String token used when updating the rule group.
-     */
     declare public /*out*/ readonly updateToken: pulumi.Output<string>;
 
     /**
@@ -374,54 +103,19 @@ export class TlsInspectionConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TlsInspectionConfiguration resources.
  */
 export interface TlsInspectionConfigurationState {
-    /**
-     * ARN of the TLS Inspection Configuration.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Certificate Manager certificate block. See Certificate Authority below for details.
-     */
     certificateAuthorities?: pulumi.Input<pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationCertificateAuthority>[]>;
-    /**
-     * List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
-     */
     certificates?: pulumi.Input<pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationCertificate>[]>;
-    /**
-     * Description of the TLS inspection configuration.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Encryption configuration block. Detailed below.
-     */
     encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationEncryptionConfiguration>[]>;
-    /**
-     * Descriptive name of the TLS inspection configuration.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Number of firewall policies that use this TLS inspection configuration.
-     */
     numberOfAssociations?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationTimeouts>;
-    /**
-     * TLS inspection configuration block. Detailed below.
-     *
-     * The following arguments are optional:
-     */
     tlsInspectionConfiguration?: pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfiguration>;
-    /**
-     * A unique identifier for the TLS inspection configuration.
-     */
     tlsInspectionConfigurationId?: pulumi.Input<string>;
-    /**
-     * String token used when updating the rule group.
-     */
     updateToken?: pulumi.Input<string>;
 }
 
@@ -429,28 +123,11 @@ export interface TlsInspectionConfigurationState {
  * The set of arguments for constructing a TlsInspectionConfiguration resource.
  */
 export interface TlsInspectionConfigurationArgs {
-    /**
-     * Description of the TLS inspection configuration.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Encryption configuration block. Detailed below.
-     */
     encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationEncryptionConfiguration>[]>;
-    /**
-     * Descriptive name of the TLS inspection configuration.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationTimeouts>;
-    /**
-     * TLS inspection configuration block. Detailed below.
-     *
-     * The following arguments are optional:
-     */
     tlsInspectionConfiguration?: pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfiguration>;
 }

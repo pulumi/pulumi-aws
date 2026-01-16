@@ -13,39 +13,19 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketAclV2AccessControlPolicyGrantGrantee {
     /**
-     * @return Display name of the owner.
-     * 
      * @deprecated
      * display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
      * 
      */
     @Deprecated /* display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version. */
     private @Nullable String displayName;
-    /**
-     * @return Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
-     * 
-     */
     private @Nullable String emailAddress;
-    /**
-     * @return Canonical user ID of the grantee.
-     * 
-     */
     private @Nullable String id;
-    /**
-     * @return Type of grantee. Valid values: `CanonicalUser`, `AmazonCustomerByEmail`, `Group`.
-     * 
-     */
     private String type;
-    /**
-     * @return URI of the grantee group.
-     * 
-     */
     private @Nullable String uri;
 
     private BucketAclV2AccessControlPolicyGrantGrantee() {}
     /**
-     * @return Display name of the owner.
-     * 
      * @deprecated
      * display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
      * 
@@ -54,31 +34,15 @@ public final class BucketAclV2AccessControlPolicyGrantGrantee {
     public Optional<String> displayName() {
         return Optional.ofNullable(this.displayName);
     }
-    /**
-     * @return Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
-     * 
-     */
     public Optional<String> emailAddress() {
         return Optional.ofNullable(this.emailAddress);
     }
-    /**
-     * @return Canonical user ID of the grantee.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return Type of grantee. Valid values: `CanonicalUser`, `AmazonCustomerByEmail`, `Group`.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return URI of the grantee group.
-     * 
-     */
     public Optional<String> uri() {
         return Optional.ofNullable(this.uri);
     }

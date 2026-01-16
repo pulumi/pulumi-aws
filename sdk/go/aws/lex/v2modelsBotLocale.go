@@ -12,101 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Lex V2 Models Bot Locale.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lex"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lex.NewV2modelsBotLocale(ctx, "example", &lex.V2modelsBotLocaleArgs{
-//				BotId:                        pulumi.Any(exampleAwsLexv2modelsBot.Id),
-//				BotVersion:                   pulumi.String("DRAFT"),
-//				LocaleId:                     pulumi.String("en_US"),
-//				NLuIntentConfidenceThreshold: pulumi.Float64(0.7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Voice Settings
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lex"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lex.NewV2modelsBotLocale(ctx, "example", &lex.V2modelsBotLocaleArgs{
-//				BotId:                        pulumi.Any(exampleAwsLexv2modelsBot.Id),
-//				BotVersion:                   pulumi.String("DRAFT"),
-//				LocaleId:                     pulumi.String("en_US"),
-//				NLuIntentConfidenceThreshold: pulumi.Float64(0.7),
-//				VoiceSettings: &lex.V2modelsBotLocaleVoiceSettingsArgs{
-//					VoiceId: pulumi.String("Kendra"),
-//					Engine:  pulumi.String("standard"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Lex V2 Models Bot Locale using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:lex/v2modelsBotLocale:V2modelsBotLocale example en_US,abcd-12345678,1
-// ```
 type V2modelsBotLocale struct {
 	pulumi.CustomResourceState
 
-	// Identifier of the bot to create the locale for.
-	BotId pulumi.StringOutput `pulumi:"botId"`
-	// Version of the bot to create the locale for. This can only be the draft version of the bot.
-	BotVersion pulumi.StringOutput `pulumi:"botVersion"`
-	// Description of the bot locale. Use this to help identify the bot locale in lists.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
-	LocaleId pulumi.StringOutput `pulumi:"localeId"`
-	// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
-	//
-	// The following arguments are optional:
-	NLuIntentConfidenceThreshold pulumi.Float64Output `pulumi:"nLuIntentConfidenceThreshold"`
-	// Specified locale name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringOutput                `pulumi:"region"`
-	Timeouts V2modelsBotLocaleTimeoutsPtrOutput `pulumi:"timeouts"`
-	// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
-	VoiceSettings V2modelsBotLocaleVoiceSettingsPtrOutput `pulumi:"voiceSettings"`
+	BotId                        pulumi.StringOutput                     `pulumi:"botId"`
+	BotVersion                   pulumi.StringOutput                     `pulumi:"botVersion"`
+	Description                  pulumi.StringPtrOutput                  `pulumi:"description"`
+	LocaleId                     pulumi.StringOutput                     `pulumi:"localeId"`
+	NLuIntentConfidenceThreshold pulumi.Float64Output                    `pulumi:"nLuIntentConfidenceThreshold"`
+	Name                         pulumi.StringOutput                     `pulumi:"name"`
+	Region                       pulumi.StringOutput                     `pulumi:"region"`
+	Timeouts                     V2modelsBotLocaleTimeoutsPtrOutput      `pulumi:"timeouts"`
+	VoiceSettings                V2modelsBotLocaleVoiceSettingsPtrOutput `pulumi:"voiceSettings"`
 }
 
 // NewV2modelsBotLocale registers a new resource with the given unique name, arguments, and options.
@@ -151,47 +68,27 @@ func GetV2modelsBotLocale(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering V2modelsBotLocale resources.
 type v2modelsBotLocaleState struct {
-	// Identifier of the bot to create the locale for.
-	BotId *string `pulumi:"botId"`
-	// Version of the bot to create the locale for. This can only be the draft version of the bot.
-	BotVersion *string `pulumi:"botVersion"`
-	// Description of the bot locale. Use this to help identify the bot locale in lists.
-	Description *string `pulumi:"description"`
-	// Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
-	LocaleId *string `pulumi:"localeId"`
-	// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
-	//
-	// The following arguments are optional:
-	NLuIntentConfidenceThreshold *float64 `pulumi:"nLuIntentConfidenceThreshold"`
-	// Specified locale name.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   *string                    `pulumi:"region"`
-	Timeouts *V2modelsBotLocaleTimeouts `pulumi:"timeouts"`
-	// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
-	VoiceSettings *V2modelsBotLocaleVoiceSettings `pulumi:"voiceSettings"`
+	BotId                        *string                         `pulumi:"botId"`
+	BotVersion                   *string                         `pulumi:"botVersion"`
+	Description                  *string                         `pulumi:"description"`
+	LocaleId                     *string                         `pulumi:"localeId"`
+	NLuIntentConfidenceThreshold *float64                        `pulumi:"nLuIntentConfidenceThreshold"`
+	Name                         *string                         `pulumi:"name"`
+	Region                       *string                         `pulumi:"region"`
+	Timeouts                     *V2modelsBotLocaleTimeouts      `pulumi:"timeouts"`
+	VoiceSettings                *V2modelsBotLocaleVoiceSettings `pulumi:"voiceSettings"`
 }
 
 type V2modelsBotLocaleState struct {
-	// Identifier of the bot to create the locale for.
-	BotId pulumi.StringPtrInput
-	// Version of the bot to create the locale for. This can only be the draft version of the bot.
-	BotVersion pulumi.StringPtrInput
-	// Description of the bot locale. Use this to help identify the bot locale in lists.
-	Description pulumi.StringPtrInput
-	// Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
-	LocaleId pulumi.StringPtrInput
-	// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
-	//
-	// The following arguments are optional:
+	BotId                        pulumi.StringPtrInput
+	BotVersion                   pulumi.StringPtrInput
+	Description                  pulumi.StringPtrInput
+	LocaleId                     pulumi.StringPtrInput
 	NLuIntentConfidenceThreshold pulumi.Float64PtrInput
-	// Specified locale name.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringPtrInput
-	Timeouts V2modelsBotLocaleTimeoutsPtrInput
-	// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
-	VoiceSettings V2modelsBotLocaleVoiceSettingsPtrInput
+	Name                         pulumi.StringPtrInput
+	Region                       pulumi.StringPtrInput
+	Timeouts                     V2modelsBotLocaleTimeoutsPtrInput
+	VoiceSettings                V2modelsBotLocaleVoiceSettingsPtrInput
 }
 
 func (V2modelsBotLocaleState) ElementType() reflect.Type {
@@ -199,48 +96,28 @@ func (V2modelsBotLocaleState) ElementType() reflect.Type {
 }
 
 type v2modelsBotLocaleArgs struct {
-	// Identifier of the bot to create the locale for.
-	BotId string `pulumi:"botId"`
-	// Version of the bot to create the locale for. This can only be the draft version of the bot.
-	BotVersion string `pulumi:"botVersion"`
-	// Description of the bot locale. Use this to help identify the bot locale in lists.
-	Description *string `pulumi:"description"`
-	// Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
-	LocaleId string `pulumi:"localeId"`
-	// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
-	//
-	// The following arguments are optional:
-	NLuIntentConfidenceThreshold float64 `pulumi:"nLuIntentConfidenceThreshold"`
-	// Specified locale name.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   *string                    `pulumi:"region"`
-	Timeouts *V2modelsBotLocaleTimeouts `pulumi:"timeouts"`
-	// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
-	VoiceSettings *V2modelsBotLocaleVoiceSettings `pulumi:"voiceSettings"`
+	BotId                        string                          `pulumi:"botId"`
+	BotVersion                   string                          `pulumi:"botVersion"`
+	Description                  *string                         `pulumi:"description"`
+	LocaleId                     string                          `pulumi:"localeId"`
+	NLuIntentConfidenceThreshold float64                         `pulumi:"nLuIntentConfidenceThreshold"`
+	Name                         *string                         `pulumi:"name"`
+	Region                       *string                         `pulumi:"region"`
+	Timeouts                     *V2modelsBotLocaleTimeouts      `pulumi:"timeouts"`
+	VoiceSettings                *V2modelsBotLocaleVoiceSettings `pulumi:"voiceSettings"`
 }
 
 // The set of arguments for constructing a V2modelsBotLocale resource.
 type V2modelsBotLocaleArgs struct {
-	// Identifier of the bot to create the locale for.
-	BotId pulumi.StringInput
-	// Version of the bot to create the locale for. This can only be the draft version of the bot.
-	BotVersion pulumi.StringInput
-	// Description of the bot locale. Use this to help identify the bot locale in lists.
-	Description pulumi.StringPtrInput
-	// Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
-	LocaleId pulumi.StringInput
-	// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
-	//
-	// The following arguments are optional:
+	BotId                        pulumi.StringInput
+	BotVersion                   pulumi.StringInput
+	Description                  pulumi.StringPtrInput
+	LocaleId                     pulumi.StringInput
 	NLuIntentConfidenceThreshold pulumi.Float64Input
-	// Specified locale name.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringPtrInput
-	Timeouts V2modelsBotLocaleTimeoutsPtrInput
-	// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
-	VoiceSettings V2modelsBotLocaleVoiceSettingsPtrInput
+	Name                         pulumi.StringPtrInput
+	Region                       pulumi.StringPtrInput
+	Timeouts                     V2modelsBotLocaleTimeoutsPtrInput
+	VoiceSettings                V2modelsBotLocaleVoiceSettingsPtrInput
 }
 
 func (V2modelsBotLocaleArgs) ElementType() reflect.Type {
@@ -330,39 +207,30 @@ func (o V2modelsBotLocaleOutput) ToV2modelsBotLocaleOutputWithContext(ctx contex
 	return o
 }
 
-// Identifier of the bot to create the locale for.
 func (o V2modelsBotLocaleOutput) BotId() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsBotLocale) pulumi.StringOutput { return v.BotId }).(pulumi.StringOutput)
 }
 
-// Version of the bot to create the locale for. This can only be the draft version of the bot.
 func (o V2modelsBotLocaleOutput) BotVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsBotLocale) pulumi.StringOutput { return v.BotVersion }).(pulumi.StringOutput)
 }
 
-// Description of the bot locale. Use this to help identify the bot locale in lists.
 func (o V2modelsBotLocaleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *V2modelsBotLocale) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
 func (o V2modelsBotLocaleOutput) LocaleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsBotLocale) pulumi.StringOutput { return v.LocaleId }).(pulumi.StringOutput)
 }
 
-// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
-//
-// The following arguments are optional:
 func (o V2modelsBotLocaleOutput) NLuIntentConfidenceThreshold() pulumi.Float64Output {
 	return o.ApplyT(func(v *V2modelsBotLocale) pulumi.Float64Output { return v.NLuIntentConfidenceThreshold }).(pulumi.Float64Output)
 }
 
-// Specified locale name.
 func (o V2modelsBotLocaleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsBotLocale) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o V2modelsBotLocaleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsBotLocale) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -371,7 +239,6 @@ func (o V2modelsBotLocaleOutput) Timeouts() V2modelsBotLocaleTimeoutsPtrOutput {
 	return o.ApplyT(func(v *V2modelsBotLocale) V2modelsBotLocaleTimeoutsPtrOutput { return v.Timeouts }).(V2modelsBotLocaleTimeoutsPtrOutput)
 }
 
-// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
 func (o V2modelsBotLocaleOutput) VoiceSettings() V2modelsBotLocaleVoiceSettingsPtrOutput {
 	return o.ApplyT(func(v *V2modelsBotLocale) V2modelsBotLocaleVoiceSettingsPtrOutput { return v.VoiceSettings }).(V2modelsBotLocaleVoiceSettingsPtrOutput)
 }

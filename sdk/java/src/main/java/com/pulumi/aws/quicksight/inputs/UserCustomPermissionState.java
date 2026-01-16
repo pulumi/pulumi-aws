@@ -22,66 +22,30 @@ public final class UserCustomPermissionState extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.awsAccountId);
     }
 
-    /**
-     * Custom permissions profile name.
-     * 
-     */
     @Import(name="customPermissionsName")
     private @Nullable Output<String> customPermissionsName;
 
-    /**
-     * @return Custom permissions profile name.
-     * 
-     */
     public Optional<Output<String>> customPermissionsName() {
         return Optional.ofNullable(this.customPermissionsName);
     }
 
-    /**
-     * Namespace that the user belongs to. Defaults to `default`.
-     * 
-     */
     @Import(name="namespace")
     private @Nullable Output<String> namespace;
 
-    /**
-     * @return Namespace that the user belongs to. Defaults to `default`.
-     * 
-     */
     public Optional<Output<String>> namespace() {
         return Optional.ofNullable(this.namespace);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Username of the user.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="userName")
     private @Nullable Output<String> userName;
 
-    /**
-     * @return Username of the user.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> userName() {
         return Optional.ofNullable(this.userName);
     }
@@ -123,90 +87,38 @@ public final class UserCustomPermissionState extends com.pulumi.resources.Resour
             return awsAccountId(Output.of(awsAccountId));
         }
 
-        /**
-         * @param customPermissionsName Custom permissions profile name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customPermissionsName(@Nullable Output<String> customPermissionsName) {
             $.customPermissionsName = customPermissionsName;
             return this;
         }
 
-        /**
-         * @param customPermissionsName Custom permissions profile name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customPermissionsName(String customPermissionsName) {
             return customPermissionsName(Output.of(customPermissionsName));
         }
 
-        /**
-         * @param namespace Namespace that the user belongs to. Defaults to `default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(@Nullable Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
 
-        /**
-         * @param namespace Namespace that the user belongs to. Defaults to `default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param userName Username of the user.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(@Nullable Output<String> userName) {
             $.userName = userName;
             return this;
         }
 
-        /**
-         * @param userName Username of the user.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(String userName) {
             return userName(Output.of(userName));
         }

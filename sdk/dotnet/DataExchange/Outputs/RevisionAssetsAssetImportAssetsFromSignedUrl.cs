@@ -13,9 +13,6 @@ namespace Pulumi.Aws.DataExchange.Outputs
     [OutputType]
     public sealed class RevisionAssetsAssetImportAssetsFromSignedUrl
     {
-        /// <summary>
-        /// The name of the file to import.
-        /// </summary>
         public readonly string Filename;
 
         [OutputConstructor]

@@ -19,107 +19,51 @@ public final class GetDevEnvironmentArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetDevEnvironmentArgs Empty = new GetDevEnvironmentArgs();
 
-    /**
-     * The user-specified alias for the Dev Environment.
-     * 
-     */
     @Import(name="alias")
     private @Nullable Output<String> alias;
 
-    /**
-     * @return The user-specified alias for the Dev Environment.
-     * 
-     */
     public Optional<Output<String>> alias() {
         return Optional.ofNullable(this.alias);
     }
 
-    /**
-     * The system-generated unique ID of the user who created the Dev Environment.
-     * 
-     */
     @Import(name="creatorId")
     private @Nullable Output<String> creatorId;
 
-    /**
-     * @return The system-generated unique ID of the user who created the Dev Environment.
-     * 
-     */
     public Optional<Output<String>> creatorId() {
         return Optional.ofNullable(this.creatorId);
     }
 
-    /**
-     * - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
-     * 
-     */
     @Import(name="envId", required=true)
     private Output<String> envId;
 
-    /**
-     * @return - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
-     * 
-     */
     public Output<String> envId() {
         return this.envId;
     }
 
-    /**
-     * The name of the project in the space.
-     * 
-     */
     @Import(name="projectName", required=true)
     private Output<String> projectName;
 
-    /**
-     * @return The name of the project in the space.
-     * 
-     */
     public Output<String> projectName() {
         return this.projectName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The source repository that contains the branch to clone into the Dev Environment.
-     * 
-     */
     @Import(name="repositories")
     private @Nullable Output<List<GetDevEnvironmentRepositoryArgs>> repositories;
 
-    /**
-     * @return The source repository that contains the branch to clone into the Dev Environment.
-     * 
-     */
     public Optional<Output<List<GetDevEnvironmentRepositoryArgs>>> repositories() {
         return Optional.ofNullable(this.repositories);
     }
 
-    /**
-     * The name of the space.
-     * 
-     */
     @Import(name="spaceName", required=true)
     private Output<String> spaceName;
 
-    /**
-     * @return The name of the space.
-     * 
-     */
     public Output<String> spaceName() {
         return this.spaceName;
     }
@@ -162,159 +106,69 @@ public final class GetDevEnvironmentArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetDevEnvironmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param alias The user-specified alias for the Dev Environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alias(@Nullable Output<String> alias) {
             $.alias = alias;
             return this;
         }
 
-        /**
-         * @param alias The user-specified alias for the Dev Environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alias(String alias) {
             return alias(Output.of(alias));
         }
 
-        /**
-         * @param creatorId The system-generated unique ID of the user who created the Dev Environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder creatorId(@Nullable Output<String> creatorId) {
             $.creatorId = creatorId;
             return this;
         }
 
-        /**
-         * @param creatorId The system-generated unique ID of the user who created the Dev Environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder creatorId(String creatorId) {
             return creatorId(Output.of(creatorId));
         }
 
-        /**
-         * @param envId - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder envId(Output<String> envId) {
             $.envId = envId;
             return this;
         }
 
-        /**
-         * @param envId - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder envId(String envId) {
             return envId(Output.of(envId));
         }
 
-        /**
-         * @param projectName The name of the project in the space.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectName(Output<String> projectName) {
             $.projectName = projectName;
             return this;
         }
 
-        /**
-         * @param projectName The name of the project in the space.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectName(String projectName) {
             return projectName(Output.of(projectName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param repositories The source repository that contains the branch to clone into the Dev Environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositories(@Nullable Output<List<GetDevEnvironmentRepositoryArgs>> repositories) {
             $.repositories = repositories;
             return this;
         }
 
-        /**
-         * @param repositories The source repository that contains the branch to clone into the Dev Environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositories(List<GetDevEnvironmentRepositoryArgs> repositories) {
             return repositories(Output.of(repositories));
         }
 
-        /**
-         * @param repositories The source repository that contains the branch to clone into the Dev Environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositories(GetDevEnvironmentRepositoryArgs... repositories) {
             return repositories(List.of(repositories));
         }
 
-        /**
-         * @param spaceName The name of the space.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spaceName(Output<String> spaceName) {
             $.spaceName = spaceName;
             return this;
         }
 
-        /**
-         * @param spaceName The name of the space.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spaceName(String spaceName) {
             return spaceName(Output.of(spaceName));
         }

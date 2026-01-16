@@ -24,11 +24,6 @@ class NetworkSettingsAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkSettingsAssociation resource.
-        :param pulumi.Input[_builtins.str] network_settings_arn: ARN of the network settings to associate with the portal. Forces replacement if changed.
-        :param pulumi.Input[_builtins.str] portal_arn: ARN of the portal to associate with the network settings. Forces replacement if changed.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "network_settings_arn", network_settings_arn)
         pulumi.set(__self__, "portal_arn", portal_arn)
@@ -38,9 +33,6 @@ class NetworkSettingsAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="networkSettingsArn")
     def network_settings_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the network settings to associate with the portal. Forces replacement if changed.
-        """
         return pulumi.get(self, "network_settings_arn")
 
     @network_settings_arn.setter
@@ -50,11 +42,6 @@ class NetworkSettingsAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="portalArn")
     def portal_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the portal to associate with the network settings. Forces replacement if changed.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "portal_arn")
 
     @portal_arn.setter
@@ -64,9 +51,6 @@ class NetworkSettingsAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -82,11 +66,6 @@ class _NetworkSettingsAssociationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkSettingsAssociation resources.
-        :param pulumi.Input[_builtins.str] network_settings_arn: ARN of the network settings to associate with the portal. Forces replacement if changed.
-        :param pulumi.Input[_builtins.str] portal_arn: ARN of the portal to associate with the network settings. Forces replacement if changed.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if network_settings_arn is not None:
             pulumi.set(__self__, "network_settings_arn", network_settings_arn)
@@ -98,9 +77,6 @@ class _NetworkSettingsAssociationState:
     @_builtins.property
     @pulumi.getter(name="networkSettingsArn")
     def network_settings_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the network settings to associate with the portal. Forces replacement if changed.
-        """
         return pulumi.get(self, "network_settings_arn")
 
     @network_settings_arn.setter
@@ -110,11 +86,6 @@ class _NetworkSettingsAssociationState:
     @_builtins.property
     @pulumi.getter(name="portalArn")
     def portal_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the portal to associate with the network settings. Forces replacement if changed.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "portal_arn")
 
     @portal_arn.setter
@@ -124,9 +95,6 @@ class _NetworkSettingsAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -145,69 +113,9 @@ class NetworkSettingsAssociation(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS WorkSpaces Web Network Settings Association.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        available = aws.get_availability_zones(state="available",
-            filters=[{
-                "name": "opt-in-status",
-                "values": ["opt-in-not-required"],
-            }])
-        example = aws.ec2.Vpc("example",
-            cidr_block="10.0.0.0/16",
-            tags={
-                "Name": "example",
-            })
-        example_subnet = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example_subnet.append(aws.ec2.Subnet(f"example-{range['value']}",
-                vpc_id=example.id,
-                cidr_block=example.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
-                    newbits=8,
-                    netnum=range["value"])).apply(lambda invoke: invoke.result),
-                availability_zone=available.names[range["value"]],
-                tags={
-                    "Name": "example",
-                }))
-        example_security_group = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example_security_group.append(aws.ec2.SecurityGroup(f"example-{range['value']}",
-                vpc_id=example.id,
-                name=f"example-{range['value']}",
-                tags={
-                    "Name": "example",
-                }))
-        example_portal = aws.workspacesweb.Portal("example", display_name="example")
-        example_network_settings = aws.workspacesweb.NetworkSettings("example",
-            vpc_id=example.id,
-            subnet_ids=[
-                example_subnet[0].id,
-                example_subnet[1].id,
-            ],
-            security_group_ids=[
-                example_security_group[0].id,
-                example_security_group[1].id,
-            ])
-        example_network_settings_association = aws.workspacesweb.NetworkSettingsAssociation("example",
-            network_settings_arn=example_network_settings.network_settings_arn,
-            portal_arn=example_portal.portal_arn)
-        ```
-
+        Create a NetworkSettingsAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] network_settings_arn: ARN of the network settings to associate with the portal. Forces replacement if changed.
-        :param pulumi.Input[_builtins.str] portal_arn: ARN of the portal to associate with the network settings. Forces replacement if changed.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -216,62 +124,7 @@ class NetworkSettingsAssociation(pulumi.CustomResource):
                  args: NetworkSettingsAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS WorkSpaces Web Network Settings Association.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        available = aws.get_availability_zones(state="available",
-            filters=[{
-                "name": "opt-in-status",
-                "values": ["opt-in-not-required"],
-            }])
-        example = aws.ec2.Vpc("example",
-            cidr_block="10.0.0.0/16",
-            tags={
-                "Name": "example",
-            })
-        example_subnet = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example_subnet.append(aws.ec2.Subnet(f"example-{range['value']}",
-                vpc_id=example.id,
-                cidr_block=example.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
-                    newbits=8,
-                    netnum=range["value"])).apply(lambda invoke: invoke.result),
-                availability_zone=available.names[range["value"]],
-                tags={
-                    "Name": "example",
-                }))
-        example_security_group = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example_security_group.append(aws.ec2.SecurityGroup(f"example-{range['value']}",
-                vpc_id=example.id,
-                name=f"example-{range['value']}",
-                tags={
-                    "Name": "example",
-                }))
-        example_portal = aws.workspacesweb.Portal("example", display_name="example")
-        example_network_settings = aws.workspacesweb.NetworkSettings("example",
-            vpc_id=example.id,
-            subnet_ids=[
-                example_subnet[0].id,
-                example_subnet[1].id,
-            ],
-            security_group_ids=[
-                example_security_group[0].id,
-                example_security_group[1].id,
-            ])
-        example_network_settings_association = aws.workspacesweb.NetworkSettingsAssociation("example",
-            network_settings_arn=example_network_settings.network_settings_arn,
-            portal_arn=example_portal.portal_arn)
-        ```
-
+        Create a NetworkSettingsAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param NetworkSettingsAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -326,11 +179,6 @@ class NetworkSettingsAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] network_settings_arn: ARN of the network settings to associate with the portal. Forces replacement if changed.
-        :param pulumi.Input[_builtins.str] portal_arn: ARN of the portal to associate with the network settings. Forces replacement if changed.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -344,26 +192,15 @@ class NetworkSettingsAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="networkSettingsArn")
     def network_settings_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the network settings to associate with the portal. Forces replacement if changed.
-        """
         return pulumi.get(self, "network_settings_arn")
 
     @_builtins.property
     @pulumi.getter(name="portalArn")
     def portal_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the portal to associate with the network settings. Forces replacement if changed.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "portal_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

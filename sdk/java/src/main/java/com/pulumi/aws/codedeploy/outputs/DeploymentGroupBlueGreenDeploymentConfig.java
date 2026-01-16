@@ -13,45 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DeploymentGroupBlueGreenDeploymentConfig {
-    /**
-     * @return Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
-     * 
-     */
     private @Nullable DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption deploymentReadyOption;
-    /**
-     * @return Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
-     * 
-     */
     private @Nullable DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption greenFleetProvisioningOption;
-    /**
-     * @return Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
-     * 
-     * _Only one `blueGreenDeploymentConfig` is allowed_.
-     * 
-     */
     private @Nullable DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess terminateBlueInstancesOnDeploymentSuccess;
 
     private DeploymentGroupBlueGreenDeploymentConfig() {}
-    /**
-     * @return Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
-     * 
-     */
     public Optional<DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption> deploymentReadyOption() {
         return Optional.ofNullable(this.deploymentReadyOption);
     }
-    /**
-     * @return Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
-     * 
-     */
     public Optional<DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption> greenFleetProvisioningOption() {
         return Optional.ofNullable(this.greenFleetProvisioningOption);
     }
-    /**
-     * @return Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
-     * 
-     * _Only one `blueGreenDeploymentConfig` is allowed_.
-     * 
-     */
     public Optional<DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess> terminateBlueInstancesOnDeploymentSuccess() {
         return Optional.ofNullable(this.terminateBlueInstancesOnDeploymentSuccess);
     }

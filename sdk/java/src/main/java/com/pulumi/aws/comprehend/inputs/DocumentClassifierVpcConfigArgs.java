@@ -15,32 +15,16 @@ public final class DocumentClassifierVpcConfigArgs extends com.pulumi.resources.
 
     public static final DocumentClassifierVpcConfigArgs Empty = new DocumentClassifierVpcConfigArgs();
 
-    /**
-     * List of security group IDs.
-     * 
-     */
     @Import(name="securityGroupIds", required=true)
     private Output<List<String>> securityGroupIds;
 
-    /**
-     * @return List of security group IDs.
-     * 
-     */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
     }
 
-    /**
-     * List of VPC subnets.
-     * 
-     */
     @Import(name="subnets", required=true)
     private Output<List<String>> subnets;
 
-    /**
-     * @return List of VPC subnets.
-     * 
-     */
     public Output<List<String>> subnets() {
         return this.subnets;
     }
@@ -70,64 +54,28 @@ public final class DocumentClassifierVpcConfigArgs extends com.pulumi.resources.
             $ = new DocumentClassifierVpcConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param securityGroupIds List of security group IDs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
-        /**
-         * @param securityGroupIds List of security group IDs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
-        /**
-         * @param securityGroupIds List of security group IDs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
 
-        /**
-         * @param subnets List of VPC subnets.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnets(Output<List<String>> subnets) {
             $.subnets = subnets;
             return this;
         }
 
-        /**
-         * @param subnets List of VPC subnets.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnets(List<String> subnets) {
             return subnets(Output.of(subnets));
         }
 
-        /**
-         * @param subnets List of VPC subnets.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnets(String... subnets) {
             return subnets(List.of(subnets));
         }

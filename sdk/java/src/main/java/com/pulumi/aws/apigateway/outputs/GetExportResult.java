@@ -14,20 +14,8 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetExportResult {
     private @Nullable String accepts;
-    /**
-     * @return API Spec.
-     * 
-     */
     private String body;
-    /**
-     * @return Content-disposition header value in the HTTP response.
-     * 
-     */
     private String contentDisposition;
-    /**
-     * @return Content-type header value in the HTTP response.
-     * 
-     */
     private String contentType;
     private String exportType;
     /**
@@ -44,24 +32,12 @@ public final class GetExportResult {
     public Optional<String> accepts() {
         return Optional.ofNullable(this.accepts);
     }
-    /**
-     * @return API Spec.
-     * 
-     */
     public String body() {
         return this.body;
     }
-    /**
-     * @return Content-disposition header value in the HTTP response.
-     * 
-     */
     public String contentDisposition() {
         return this.contentDisposition;
     }
-    /**
-     * @return Content-type header value in the HTTP response.
-     * 
-     */
     public String contentType() {
         return this.contentType;
     }

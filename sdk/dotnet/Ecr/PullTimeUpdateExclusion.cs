@@ -9,147 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ecr
 {
-    /// <summary>
-    /// Manages an AWS ECR (Elastic Container Registry) Pull Time Update Exclusion.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Iam.Role("example", new()
-    ///     {
-    ///         Name = "example-role",
-    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Service"] = "ec2.amazonaws.com",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("example", new()
-    ///     {
-    ///         Name = "example-role-policy",
-    ///         Role = example.Id,
-    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "ecr:GetAuthorizationToken",
-    ///                         "ecr:BatchCheckLayerAvailability",
-    ///                         "ecr:GetDownloadUrlForLayer",
-    ///                         "ecr:BatchGetImage",
-    ///                     },
-    ///                     ["Resource"] = "*",
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    ///     var examplePullTimeUpdateExclusion = new Aws.Ecr.PullTimeUpdateExclusion("example", new()
-    ///     {
-    ///         PrincipalArn = example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With IAM User
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Iam.User("example", new()
-    ///     {
-    ///         Name = "example-user",
-    ///     });
-    /// 
-    ///     var exampleUserPolicy = new Aws.Iam.UserPolicy("example", new()
-    ///     {
-    ///         Name = "example-user-policy",
-    ///         User = example.Name,
-    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "ecr:GetAuthorizationToken",
-    ///                         "ecr:BatchCheckLayerAvailability",
-    ///                         "ecr:GetDownloadUrlForLayer",
-    ///                         "ecr:BatchGetImage",
-    ///                     },
-    ///                     ["Resource"] = "*",
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    ///     var examplePullTimeUpdateExclusion = new Aws.Ecr.PullTimeUpdateExclusion("example", new()
-    ///     {
-    ///         PrincipalArn = example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import ECR (Elastic Container Registry) Pull Time Update Exclusion using the `principal_arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ecr/pullTimeUpdateExclusion:PullTimeUpdateExclusion example arn:aws:iam::123456789012:role/example-role
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ecr/pullTimeUpdateExclusion:PullTimeUpdateExclusion")]
     public partial class PullTimeUpdateExclusion : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the IAM principal to exclude from having image pull times recorded.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("principalArn")]
         public Output<string> PrincipalArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -199,17 +64,9 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class PullTimeUpdateExclusionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the IAM principal to exclude from having image pull times recorded.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("principalArn", required: true)]
         public Input<string> PrincipalArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -221,17 +78,9 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class PullTimeUpdateExclusionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the IAM principal to exclude from having image pull times recorded.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("principalArn")]
         public Input<string>? PrincipalArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

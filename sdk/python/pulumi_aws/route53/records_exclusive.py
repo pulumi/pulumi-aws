@@ -26,11 +26,6 @@ class RecordsExclusiveArgs:
                  timeouts: Optional[pulumi.Input['RecordsExclusiveTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a RecordsExclusive resource.
-        :param pulumi.Input[_builtins.str] zone_id: ID of the hosted zone containing the resource record sets.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['RecordsExclusiveResourceRecordSetArgs']]] resource_record_sets: A list of all resource record sets associated with the hosted zone.
-               See `resource_record_set` below.
         """
         pulumi.set(__self__, "zone_id", zone_id)
         if resource_record_sets is not None:
@@ -41,11 +36,6 @@ class RecordsExclusiveArgs:
     @_builtins.property
     @pulumi.getter(name="zoneId")
     def zone_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the hosted zone containing the resource record sets.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "zone_id")
 
     @zone_id.setter
@@ -55,10 +45,6 @@ class RecordsExclusiveArgs:
     @_builtins.property
     @pulumi.getter(name="resourceRecordSets")
     def resource_record_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordsExclusiveResourceRecordSetArgs']]]]:
-        """
-        A list of all resource record sets associated with the hosted zone.
-        See `resource_record_set` below.
-        """
         return pulumi.get(self, "resource_record_sets")
 
     @resource_record_sets.setter
@@ -83,11 +69,6 @@ class _RecordsExclusiveState:
                  zone_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RecordsExclusive resources.
-        :param pulumi.Input[Sequence[pulumi.Input['RecordsExclusiveResourceRecordSetArgs']]] resource_record_sets: A list of all resource record sets associated with the hosted zone.
-               See `resource_record_set` below.
-        :param pulumi.Input[_builtins.str] zone_id: ID of the hosted zone containing the resource record sets.
-               
-               The following arguments are optional:
         """
         if resource_record_sets is not None:
             pulumi.set(__self__, "resource_record_sets", resource_record_sets)
@@ -99,10 +80,6 @@ class _RecordsExclusiveState:
     @_builtins.property
     @pulumi.getter(name="resourceRecordSets")
     def resource_record_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordsExclusiveResourceRecordSetArgs']]]]:
-        """
-        A list of all resource record sets associated with the hosted zone.
-        See `resource_record_set` below.
-        """
         return pulumi.get(self, "resource_record_sets")
 
     @resource_record_sets.setter
@@ -121,11 +98,6 @@ class _RecordsExclusiveState:
     @_builtins.property
     @pulumi.getter(name="zoneId")
     def zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the hosted zone containing the resource record sets.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "zone_id")
 
     @zone_id.setter
@@ -144,21 +116,9 @@ class RecordsExclusive(pulumi.CustomResource):
                  zone_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        ## Import
-
-        Using `pulumi import`, import Route 53 Records Exclusive using the `zone_id`. For example:
-
-        ```sh
-        $ pulumi import aws:route53/recordsExclusive:RecordsExclusive example ABCD1234
-        ```
-
+        Create a RecordsExclusive resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordsExclusiveResourceRecordSetArgs', 'RecordsExclusiveResourceRecordSetArgsDict']]]] resource_record_sets: A list of all resource record sets associated with the hosted zone.
-               See `resource_record_set` below.
-        :param pulumi.Input[_builtins.str] zone_id: ID of the hosted zone containing the resource record sets.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -167,14 +127,7 @@ class RecordsExclusive(pulumi.CustomResource):
                  args: RecordsExclusiveArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
-
-        Using `pulumi import`, import Route 53 Records Exclusive using the `zone_id`. For example:
-
-        ```sh
-        $ pulumi import aws:route53/recordsExclusive:RecordsExclusive example ABCD1234
-        ```
-
+        Create a RecordsExclusive resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RecordsExclusiveArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,11 +180,6 @@ class RecordsExclusive(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordsExclusiveResourceRecordSetArgs', 'RecordsExclusiveResourceRecordSetArgsDict']]]] resource_record_sets: A list of all resource record sets associated with the hosted zone.
-               See `resource_record_set` below.
-        :param pulumi.Input[_builtins.str] zone_id: ID of the hosted zone containing the resource record sets.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -245,10 +193,6 @@ class RecordsExclusive(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="resourceRecordSets")
     def resource_record_sets(self) -> pulumi.Output[Optional[Sequence['outputs.RecordsExclusiveResourceRecordSet']]]:
-        """
-        A list of all resource record sets associated with the hosted zone.
-        See `resource_record_set` below.
-        """
         return pulumi.get(self, "resource_record_sets")
 
     @_builtins.property
@@ -259,10 +203,5 @@ class RecordsExclusive(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="zoneId")
     def zone_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the hosted zone containing the resource record sets.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "zone_id")
 

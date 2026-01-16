@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration {
-    /**
-     * @return The maximum number of tokens that a chunk can contain in this layer.
-     * 
-     */
     private Integer maxTokens;
 
     private AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration() {}
-    /**
-     * @return The maximum number of tokens that a chunk can contain in this layer.
-     * 
-     */
     public Integer maxTokens() {
         return this.maxTokens;
     }

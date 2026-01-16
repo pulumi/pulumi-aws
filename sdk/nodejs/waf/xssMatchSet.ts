@@ -7,42 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a WAF XSS Match Set Resource
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const xssMatchSet = new aws.waf.XssMatchSet("xss_match_set", {
- *     name: "xss_match_set",
- *     xssMatchTuples: [
- *         {
- *             textTransformation: "NONE",
- *             fieldToMatch: {
- *                 type: "URI",
- *             },
- *         },
- *         {
- *             textTransformation: "NONE",
- *             fieldToMatch: {
- *                 type: "QUERY_STRING",
- *             },
- *         },
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import WAF XSS Match Set using their ID. For example:
- *
- * ```sh
- * $ pulumi import aws:waf/xssMatchSet:XssMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
- * ```
- */
 export class XssMatchSet extends pulumi.CustomResource {
     /**
      * Get an existing XssMatchSet resource's state with the given name, ID, and optional extra
@@ -71,17 +35,8 @@ export class XssMatchSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === XssMatchSet.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN)
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The name or description of the SizeConstraintSet.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * The parts of web requests that you want to inspect for cross-site scripting attacks.
-     */
     declare public readonly xssMatchTuples: pulumi.Output<outputs.waf.XssMatchSetXssMatchTuple[] | undefined>;
 
     /**
@@ -115,17 +70,8 @@ export class XssMatchSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering XssMatchSet resources.
  */
 export interface XssMatchSetState {
-    /**
-     * Amazon Resource Name (ARN)
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The name or description of the SizeConstraintSet.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The parts of web requests that you want to inspect for cross-site scripting attacks.
-     */
     xssMatchTuples?: pulumi.Input<pulumi.Input<inputs.waf.XssMatchSetXssMatchTuple>[]>;
 }
 
@@ -133,12 +79,6 @@ export interface XssMatchSetState {
  * The set of arguments for constructing a XssMatchSet resource.
  */
 export interface XssMatchSetArgs {
-    /**
-     * The name or description of the SizeConstraintSet.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The parts of web requests that you want to inspect for cross-site scripting attacks.
-     */
     xssMatchTuples?: pulumi.Input<pulumi.Input<inputs.waf.XssMatchSetXssMatchTuple>[]>;
 }

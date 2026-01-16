@@ -17,66 +17,30 @@ public final class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionPar
 
     public static final AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs Empty = new AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs();
 
-    /**
-     * Description of the parameter. Helps the foundation model determine how to elicit the parameters from the user.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the parameter. Helps the foundation model determine how to elicit the parameters from the user.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Name of the parameter.
-     * 
-     * **Note:** The argument name `mapBlockKey` may seem out of context, but is necessary for backward compatibility reasons in the provider.
-     * 
-     */
     @Import(name="mapBlockKey", required=true)
     private Output<String> mapBlockKey;
 
-    /**
-     * @return Name of the parameter.
-     * 
-     * **Note:** The argument name `mapBlockKey` may seem out of context, but is necessary for backward compatibility reasons in the provider.
-     * 
-     */
     public Output<String> mapBlockKey() {
         return this.mapBlockKey;
     }
 
-    /**
-     * Whether the parameter is required for the agent to complete the function for action group invocation.
-     * 
-     */
     @Import(name="required")
     private @Nullable Output<Boolean> required;
 
-    /**
-     * @return Whether the parameter is required for the agent to complete the function for action group invocation.
-     * 
-     */
     public Optional<Output<Boolean>> required() {
         return Optional.ofNullable(this.required);
     }
 
-    /**
-     * Data type of the parameter. Valid values: `string`, `number`, `integer`, `boolean`, `array`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Data type of the parameter. Valid values: `string`, `number`, `integer`, `boolean`, `array`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -108,90 +72,38 @@ public final class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionPar
             $ = new AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Description of the parameter. Helps the foundation model determine how to elicit the parameters from the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the parameter. Helps the foundation model determine how to elicit the parameters from the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param mapBlockKey Name of the parameter.
-         * 
-         * **Note:** The argument name `mapBlockKey` may seem out of context, but is necessary for backward compatibility reasons in the provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mapBlockKey(Output<String> mapBlockKey) {
             $.mapBlockKey = mapBlockKey;
             return this;
         }
 
-        /**
-         * @param mapBlockKey Name of the parameter.
-         * 
-         * **Note:** The argument name `mapBlockKey` may seem out of context, but is necessary for backward compatibility reasons in the provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mapBlockKey(String mapBlockKey) {
             return mapBlockKey(Output.of(mapBlockKey));
         }
 
-        /**
-         * @param required Whether the parameter is required for the agent to complete the function for action group invocation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder required(@Nullable Output<Boolean> required) {
             $.required = required;
             return this;
         }
 
-        /**
-         * @param required Whether the parameter is required for the agent to complete the function for action group invocation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder required(Boolean required) {
             return required(Output.of(required));
         }
 
-        /**
-         * @param type Data type of the parameter. Valid values: `string`, `number`, `integer`, `boolean`, `array`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Data type of the parameter. Valid values: `string`, `number`, `integer`, `boolean`, `array`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

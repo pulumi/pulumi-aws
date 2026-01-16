@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage {
-    /**
-     * @return Configuration block for intermedia S3 storage.
-     * 
-     */
     private @Nullable AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location s3Location;
 
     private AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage() {}
-    /**
-     * @return Configuration block for intermedia S3 storage.
-     * 
-     */
     public Optional<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location> s3Location() {
         return Optional.ofNullable(this.s3Location);
     }

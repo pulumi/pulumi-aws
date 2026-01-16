@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ProvisioningTemplatePreProvisioningHook {
-    /**
-     * @return The version of the payload that was sent to the target function. The only valid (and the default) payload version is `&#34;2020-04-01&#34;`.
-     * 
-     */
     private @Nullable String payloadVersion;
-    /**
-     * @return The ARN of the target function.
-     * 
-     */
     private String targetArn;
 
     private ProvisioningTemplatePreProvisioningHook() {}
-    /**
-     * @return The version of the payload that was sent to the target function. The only valid (and the default) payload version is `&#34;2020-04-01&#34;`.
-     * 
-     */
     public Optional<String> payloadVersion() {
         return Optional.ofNullable(this.payloadVersion);
     }
-    /**
-     * @return The ARN of the target function.
-     * 
-     */
     public String targetArn() {
         return this.targetArn;
     }

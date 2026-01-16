@@ -18,77 +18,37 @@ public final class DataSourceDynamodbConfigArgs extends com.pulumi.resources.Res
 
     public static final DataSourceDynamodbConfigArgs Empty = new DataSourceDynamodbConfigArgs();
 
-    /**
-     * The DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
-     * 
-     */
     @Import(name="deltaSyncConfig")
     private @Nullable Output<DataSourceDynamodbConfigDeltaSyncConfigArgs> deltaSyncConfig;
 
-    /**
-     * @return The DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
-     * 
-     */
     public Optional<Output<DataSourceDynamodbConfigDeltaSyncConfigArgs>> deltaSyncConfig() {
         return Optional.ofNullable(this.deltaSyncConfig);
     }
 
-    /**
-     * AWS region of the DynamoDB table. Defaults to current region.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return AWS region of the DynamoDB table. Defaults to current region.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Name of the DynamoDB table.
-     * 
-     */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
-    /**
-     * @return Name of the DynamoDB table.
-     * 
-     */
     public Output<String> tableName() {
         return this.tableName;
     }
 
-    /**
-     * Set to `true` to use Amazon Cognito credentials with this data source.
-     * 
-     */
     @Import(name="useCallerCredentials")
     private @Nullable Output<Boolean> useCallerCredentials;
 
-    /**
-     * @return Set to `true` to use Amazon Cognito credentials with this data source.
-     * 
-     */
     public Optional<Output<Boolean>> useCallerCredentials() {
         return Optional.ofNullable(this.useCallerCredentials);
     }
 
-    /**
-     * Detects Conflict Detection and Resolution with this data source.
-     * 
-     */
     @Import(name="versioned")
     private @Nullable Output<Boolean> versioned;
 
-    /**
-     * @return Detects Conflict Detection and Resolution with this data source.
-     * 
-     */
     public Optional<Output<Boolean>> versioned() {
         return Optional.ofNullable(this.versioned);
     }
@@ -121,107 +81,47 @@ public final class DataSourceDynamodbConfigArgs extends com.pulumi.resources.Res
             $ = new DataSourceDynamodbConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param deltaSyncConfig The DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deltaSyncConfig(@Nullable Output<DataSourceDynamodbConfigDeltaSyncConfigArgs> deltaSyncConfig) {
             $.deltaSyncConfig = deltaSyncConfig;
             return this;
         }
 
-        /**
-         * @param deltaSyncConfig The DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deltaSyncConfig(DataSourceDynamodbConfigDeltaSyncConfigArgs deltaSyncConfig) {
             return deltaSyncConfig(Output.of(deltaSyncConfig));
         }
 
-        /**
-         * @param region AWS region of the DynamoDB table. Defaults to current region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region AWS region of the DynamoDB table. Defaults to current region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tableName Name of the DynamoDB table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
-        /**
-         * @param tableName Name of the DynamoDB table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }
 
-        /**
-         * @param useCallerCredentials Set to `true` to use Amazon Cognito credentials with this data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder useCallerCredentials(@Nullable Output<Boolean> useCallerCredentials) {
             $.useCallerCredentials = useCallerCredentials;
             return this;
         }
 
-        /**
-         * @param useCallerCredentials Set to `true` to use Amazon Cognito credentials with this data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder useCallerCredentials(Boolean useCallerCredentials) {
             return useCallerCredentials(Output.of(useCallerCredentials));
         }
 
-        /**
-         * @param versioned Detects Conflict Detection and Resolution with this data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder versioned(@Nullable Output<Boolean> versioned) {
             $.versioned = versioned;
             return this;
         }
 
-        /**
-         * @param versioned Detects Conflict Detection and Resolution with this data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder versioned(Boolean versioned) {
             return versioned(Output.of(versioned));
         }

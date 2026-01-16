@@ -16,47 +16,23 @@ public final class AuthenticationProfileArgs extends com.pulumi.resources.Resour
 
     public static final AuthenticationProfileArgs Empty = new AuthenticationProfileArgs();
 
-    /**
-     * The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
-     * 
-     */
     @Import(name="authenticationProfileContent", required=true)
     private Output<String> authenticationProfileContent;
 
-    /**
-     * @return The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
-     * 
-     */
     public Output<String> authenticationProfileContent() {
         return this.authenticationProfileContent;
     }
 
-    /**
-     * The name of the authentication profile.
-     * 
-     */
     @Import(name="authenticationProfileName", required=true)
     private Output<String> authenticationProfileName;
 
-    /**
-     * @return The name of the authentication profile.
-     * 
-     */
     public Output<String> authenticationProfileName() {
         return this.authenticationProfileName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -87,65 +63,29 @@ public final class AuthenticationProfileArgs extends com.pulumi.resources.Resour
             $ = new AuthenticationProfileArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authenticationProfileContent The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationProfileContent(Output<String> authenticationProfileContent) {
             $.authenticationProfileContent = authenticationProfileContent;
             return this;
         }
 
-        /**
-         * @param authenticationProfileContent The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationProfileContent(String authenticationProfileContent) {
             return authenticationProfileContent(Output.of(authenticationProfileContent));
         }
 
-        /**
-         * @param authenticationProfileName The name of the authentication profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationProfileName(Output<String> authenticationProfileName) {
             $.authenticationProfileName = authenticationProfileName;
             return this;
         }
 
-        /**
-         * @param authenticationProfileName The name of the authentication profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationProfileName(String authenticationProfileName) {
             return authenticationProfileName(Output.of(authenticationProfileName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

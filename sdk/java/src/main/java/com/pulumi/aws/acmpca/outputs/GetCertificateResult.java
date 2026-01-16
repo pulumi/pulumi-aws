@@ -11,16 +11,8 @@ import java.util.Objects;
 @CustomType
 public final class GetCertificateResult {
     private String arn;
-    /**
-     * @return PEM-encoded certificate value.
-     * 
-     */
     private String certificate;
     private String certificateAuthorityArn;
-    /**
-     * @return PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
-     * 
-     */
     private String certificateChain;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -33,20 +25,12 @@ public final class GetCertificateResult {
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return PEM-encoded certificate value.
-     * 
-     */
     public String certificate() {
         return this.certificate;
     }
     public String certificateAuthorityArn() {
         return this.certificateAuthorityArn;
     }
-    /**
-     * @return PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
-     * 
-     */
     public String certificateChain() {
         return this.certificateChain;
     }

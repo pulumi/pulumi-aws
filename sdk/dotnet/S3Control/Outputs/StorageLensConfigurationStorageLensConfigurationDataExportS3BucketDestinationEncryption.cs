@@ -13,13 +13,7 @@ namespace Pulumi.Aws.S3Control.Outputs
     [OutputType]
     public sealed class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption
     {
-        /// <summary>
-        /// SSE-KMS encryption. See SSE KMS below for more details.
-        /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms? SseKms;
-        /// <summary>
-        /// SSE-S3 encryption. An empty configuration block `{}` should be used.
-        /// </summary>
         public readonly ImmutableArray<Outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3> SseS3s;
 
         [OutputConstructor]

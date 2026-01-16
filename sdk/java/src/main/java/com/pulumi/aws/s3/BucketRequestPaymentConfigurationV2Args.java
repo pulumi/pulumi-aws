@@ -16,62 +16,30 @@ public final class BucketRequestPaymentConfigurationV2Args extends com.pulumi.re
 
     public static final BucketRequestPaymentConfigurationV2Args Empty = new BucketRequestPaymentConfigurationV2Args();
 
-    /**
-     * Name of the bucket.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return Name of the bucket.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * Account ID of the expected bucket owner.
-     * 
-     */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
-    /**
-     * @return Account ID of the expected bucket owner.
-     * 
-     */
     public Optional<Output<String>> expectedBucketOwner() {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
 
-    /**
-     * Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-     * 
-     */
     @Import(name="payer", required=true)
     private Output<String> payer;
 
-    /**
-     * @return Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-     * 
-     */
     public Output<String> payer() {
         return this.payer;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -103,86 +71,38 @@ public final class BucketRequestPaymentConfigurationV2Args extends com.pulumi.re
             $ = new BucketRequestPaymentConfigurationV2Args(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket Name of the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket Name of the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param expectedBucketOwner Account ID of the expected bucket owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expectedBucketOwner(@Nullable Output<String> expectedBucketOwner) {
             $.expectedBucketOwner = expectedBucketOwner;
             return this;
         }
 
-        /**
-         * @param expectedBucketOwner Account ID of the expected bucket owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expectedBucketOwner(String expectedBucketOwner) {
             return expectedBucketOwner(Output.of(expectedBucketOwner));
         }
 
-        /**
-         * @param payer Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder payer(Output<String> payer) {
             $.payer = payer;
             return this;
         }
 
-        /**
-         * @param payer Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder payer(String payer) {
             return payer(Output.of(payer));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

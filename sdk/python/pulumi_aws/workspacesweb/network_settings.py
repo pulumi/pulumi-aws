@@ -26,13 +26,6 @@ class NetworkSettingsArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkSettings resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: One or more security groups used to control access from streaming instances to your VPC.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
-        :param pulumi.Input[_builtins.str] vpc_id: The VPC that streaming instances will connect to.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -45,9 +38,6 @@ class NetworkSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        One or more security groups used to control access from streaming instances to your VPC.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -57,9 +47,6 @@ class NetworkSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -69,11 +56,6 @@ class NetworkSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The VPC that streaming instances will connect to.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -83,9 +65,6 @@ class NetworkSettingsArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -95,9 +74,6 @@ class NetworkSettingsArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -118,16 +94,6 @@ class _NetworkSettingsState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkSettings resources.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_portal_arns: List of web portal ARNs associated with the network settings.
-        :param pulumi.Input[_builtins.str] network_settings_arn: ARN of the network settings resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: One or more security groups used to control access from streaming instances to your VPC.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: The VPC that streaming instances will connect to.
-               
-               The following arguments are optional:
         """
         if associated_portal_arns is not None:
             pulumi.set(__self__, "associated_portal_arns", associated_portal_arns)
@@ -149,9 +115,6 @@ class _NetworkSettingsState:
     @_builtins.property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of web portal ARNs associated with the network settings.
-        """
         return pulumi.get(self, "associated_portal_arns")
 
     @associated_portal_arns.setter
@@ -161,9 +124,6 @@ class _NetworkSettingsState:
     @_builtins.property
     @pulumi.getter(name="networkSettingsArn")
     def network_settings_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the network settings resource.
-        """
         return pulumi.get(self, "network_settings_arn")
 
     @network_settings_arn.setter
@@ -173,9 +133,6 @@ class _NetworkSettingsState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -185,9 +142,6 @@ class _NetworkSettingsState:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        One or more security groups used to control access from streaming instances to your VPC.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -197,9 +151,6 @@ class _NetworkSettingsState:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -209,9 +160,6 @@ class _NetworkSettingsState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -221,9 +169,6 @@ class _NetworkSettingsState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -233,11 +178,6 @@ class _NetworkSettingsState:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The VPC that streaming instances will connect to.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -258,60 +198,9 @@ class NetworkSettings(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS WorkSpaces Web Network Settings resource. Once associated with a web portal, network settings define how streaming instances will connect with your specified VPC.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
-        example_subnet = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example_subnet.append(aws.ec2.Subnet(f"example-{range['value']}",
-                vpc_id=example.id,
-                cidr_block=example.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
-                    newbits=8,
-                    netnum=range["value"])).apply(lambda invoke: invoke.result),
-                availability_zone=available["names"][range["value"]]))
-        example1 = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example1.append(aws.ec2.SecurityGroup(f"example1-{range['value']}",
-                vpc_id=example.id,
-                name=f"example-sg-{range['value']}$"))
-        example_network_settings = aws.workspacesweb.NetworkSettings("example",
-            vpc_id=example.id,
-            subnet_ids=[
-                example_subnet[0].id,
-                example_subnet[1].id,
-            ],
-            security_group_ids=[
-                example_aws_security_group[0]["id"],
-                example_aws_security_group[1]["id"],
-            ])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import WorkSpaces Web Network Settings using the `network_settings_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:workspacesweb/networkSettings:NetworkSettings example arn:aws:workspacesweb:us-west-2:123456789012:networksettings/abcdef12345
-        ```
-
+        Create a NetworkSettings resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: One or more security groups used to control access from streaming instances to your VPC.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vpc_id: The VPC that streaming instances will connect to.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -320,51 +209,7 @@ class NetworkSettings(pulumi.CustomResource):
                  args: NetworkSettingsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS WorkSpaces Web Network Settings resource. Once associated with a web portal, network settings define how streaming instances will connect with your specified VPC.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
-        example_subnet = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example_subnet.append(aws.ec2.Subnet(f"example-{range['value']}",
-                vpc_id=example.id,
-                cidr_block=example.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
-                    newbits=8,
-                    netnum=range["value"])).apply(lambda invoke: invoke.result),
-                availability_zone=available["names"][range["value"]]))
-        example1 = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example1.append(aws.ec2.SecurityGroup(f"example1-{range['value']}",
-                vpc_id=example.id,
-                name=f"example-sg-{range['value']}$"))
-        example_network_settings = aws.workspacesweb.NetworkSettings("example",
-            vpc_id=example.id,
-            subnet_ids=[
-                example_subnet[0].id,
-                example_subnet[1].id,
-            ],
-            security_group_ids=[
-                example_aws_security_group[0]["id"],
-                example_aws_security_group[1]["id"],
-            ])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import WorkSpaces Web Network Settings using the `network_settings_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:workspacesweb/networkSettings:NetworkSettings example arn:aws:workspacesweb:us-west-2:123456789012:networksettings/abcdef12345
-        ```
-
+        Create a NetworkSettings resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param NetworkSettingsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -435,16 +280,6 @@ class NetworkSettings(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_portal_arns: List of web portal ARNs associated with the network settings.
-        :param pulumi.Input[_builtins.str] network_settings_arn: ARN of the network settings resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: One or more security groups used to control access from streaming instances to your VPC.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: The VPC that streaming instances will connect to.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -463,66 +298,40 @@ class NetworkSettings(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of web portal ARNs associated with the network settings.
-        """
         return pulumi.get(self, "associated_portal_arns")
 
     @_builtins.property
     @pulumi.getter(name="networkSettingsArn")
     def network_settings_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the network settings resource.
-        """
         return pulumi.get(self, "network_settings_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        One or more security groups used to control access from streaming instances to your VPC.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The VPC that streaming instances will connect to.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vpc_id")
 

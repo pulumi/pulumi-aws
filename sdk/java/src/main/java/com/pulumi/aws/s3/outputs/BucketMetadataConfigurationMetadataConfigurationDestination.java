@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class BucketMetadataConfigurationMetadataConfigurationDestination {
-    /**
-     * @return ARN of the table bucket where the metadata configuration is stored.
-     * 
-     */
     private String tableBucketArn;
-    /**
-     * @return Type of the table bucket where the metadata configuration is stored.
-     * 
-     */
     private String tableBucketType;
-    /**
-     * @return Namespace in the table bucket where the metadata tables for the metadata configuration are stored.
-     * 
-     */
     private String tableNamespace;
 
     private BucketMetadataConfigurationMetadataConfigurationDestination() {}
-    /**
-     * @return ARN of the table bucket where the metadata configuration is stored.
-     * 
-     */
     public String tableBucketArn() {
         return this.tableBucketArn;
     }
-    /**
-     * @return Type of the table bucket where the metadata configuration is stored.
-     * 
-     */
     public String tableBucketType() {
         return this.tableBucketType;
     }
-    /**
-     * @return Namespace in the table bucket where the metadata tables for the metadata configuration are stored.
-     * 
-     */
     public String tableNamespace() {
         return this.tableNamespace;
     }

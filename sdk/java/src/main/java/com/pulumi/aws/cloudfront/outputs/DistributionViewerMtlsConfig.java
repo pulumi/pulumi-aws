@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionViewerMtlsConfig {
-    /**
-     * @return The mode for viewer mTLS. Valid values: `required`, `optional`.
-     * 
-     */
     private @Nullable String mode;
-    /**
-     * @return The trust store configuration for viewer mTLS (maximum one).
-     * 
-     */
     private @Nullable DistributionViewerMtlsConfigTrustStoreConfig trustStoreConfig;
 
     private DistributionViewerMtlsConfig() {}
-    /**
-     * @return The mode for viewer mTLS. Valid values: `required`, `optional`.
-     * 
-     */
     public Optional<String> mode() {
         return Optional.ofNullable(this.mode);
     }
-    /**
-     * @return The trust store configuration for viewer mTLS (maximum one).
-     * 
-     */
     public Optional<DistributionViewerMtlsConfigTrustStoreConfig> trustStoreConfig() {
         return Optional.ofNullable(this.trustStoreConfig);
     }

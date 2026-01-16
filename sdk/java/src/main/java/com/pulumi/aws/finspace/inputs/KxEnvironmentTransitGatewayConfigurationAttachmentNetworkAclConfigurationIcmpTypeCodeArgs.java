@@ -14,32 +14,16 @@ public final class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclC
 
     public static final KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs Empty = new KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs();
 
-    /**
-     * ICMP code. A value of `-1` means all codes for the specified ICMP type.
-     * 
-     */
     @Import(name="code", required=true)
     private Output<Integer> code;
 
-    /**
-     * @return ICMP code. A value of `-1` means all codes for the specified ICMP type.
-     * 
-     */
     public Output<Integer> code() {
         return this.code;
     }
 
-    /**
-     * ICMP type. A value of `-1` means all types.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<Integer> type;
 
-    /**
-     * @return ICMP type. A value of `-1` means all types.
-     * 
-     */
     public Output<Integer> type() {
         return this.type;
     }
@@ -69,44 +53,20 @@ public final class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclC
             $ = new KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param code ICMP code. A value of `-1` means all codes for the specified ICMP type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder code(Output<Integer> code) {
             $.code = code;
             return this;
         }
 
-        /**
-         * @param code ICMP code. A value of `-1` means all codes for the specified ICMP type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder code(Integer code) {
             return code(Output.of(code));
         }
 
-        /**
-         * @param type ICMP type. A value of `-1` means all types.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<Integer> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type ICMP type. A value of `-1` means all types.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Integer type) {
             return type(Output.of(type));
         }

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
     {
         [Input("entries", required: true)]
         private InputList<Inputs.LogTransformerTransformerConfigSplitStringEntryGetArgs>? _entries;
-
-        /// <summary>
-        /// Objects containing the information about the fields to split. You must include at least one entry, and ten at most. See `SplitString` `Entry` below for details.
-        /// </summary>
         public InputList<Inputs.LogTransformerTransformerConfigSplitStringEntryGetArgs> Entries
         {
             get => _entries ?? (_entries = new InputList<Inputs.LogTransformerTransformerConfigSplitStringEntryGetArgs>());

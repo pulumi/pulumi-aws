@@ -96,41 +96,26 @@ class GetNetworkInterfaceResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the network interface.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def associations(self) -> Sequence['outputs.GetNetworkInterfaceAssociationResult']:
-        """
-        Association information for an Elastic IP address (IPv4) associated with the network interface. See association below.
-        """
         return pulumi.get(self, "associations")
 
     @_builtins.property
     @pulumi.getter
     def attachments(self) -> Sequence['outputs.GetNetworkInterfaceAttachmentResult']:
-        """
-        Attachment of the ENI. See attachment below.
-        """
         return pulumi.get(self, "attachments")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> _builtins.str:
-        """
-        Availability Zone.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the network interface.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -146,65 +131,41 @@ class GetNetworkInterfaceResult:
     @_builtins.property
     @pulumi.getter(name="interfaceType")
     def interface_type(self) -> _builtins.str:
-        """
-        Type of interface.
-        """
         return pulumi.get(self, "interface_type")
 
     @_builtins.property
     @pulumi.getter(name="ipv6Addresses")
     def ipv6_addresses(self) -> Sequence[_builtins.str]:
-        """
-        List of IPv6 addresses to assign to the ENI.
-        """
         return pulumi.get(self, "ipv6_addresses")
 
     @_builtins.property
     @pulumi.getter(name="macAddress")
     def mac_address(self) -> _builtins.str:
-        """
-        MAC address.
-        """
         return pulumi.get(self, "mac_address")
 
     @_builtins.property
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> _builtins.str:
-        """
-        ARN of the Outpost.
-        """
         return pulumi.get(self, "outpost_arn")
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> _builtins.str:
-        """
-        AWS account ID of the owner of the network interface.
-        """
         return pulumi.get(self, "owner_id")
 
     @_builtins.property
     @pulumi.getter(name="privateDnsName")
     def private_dns_name(self) -> _builtins.str:
-        """
-        Private DNS name.
-        """
         return pulumi.get(self, "private_dns_name")
 
     @_builtins.property
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> _builtins.str:
-        """
-        Private IPv4 address of the network interface within the subnet.
-        """
         return pulumi.get(self, "private_ip")
 
     @_builtins.property
     @pulumi.getter(name="privateIps")
     def private_ips(self) -> Sequence[_builtins.str]:
-        """
-        Private IPv4 addresses associated with the network interface.
-        """
         return pulumi.get(self, "private_ips")
 
     @_builtins.property
@@ -215,41 +176,26 @@ class GetNetworkInterfaceResult:
     @_builtins.property
     @pulumi.getter(name="requesterId")
     def requester_id(self) -> _builtins.str:
-        """
-        ID of the entity that launched the instance on your behalf.
-        """
         return pulumi.get(self, "requester_id")
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Sequence[_builtins.str]:
-        """
-        List of security groups for the network interface.
-        """
         return pulumi.get(self, "security_groups")
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> _builtins.str:
-        """
-        ID of the subnet.
-        """
         return pulumi.get(self, "subnet_id")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Any tags assigned to the network interface.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> _builtins.str:
-        """
-        ID of the VPC.
-        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -288,22 +234,7 @@ def get_network_interface(filters: Optional[Sequence[Union['GetNetworkInterfaceF
                           tags: Optional[Mapping[str, _builtins.str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfaceResult:
     """
-    Use this data source to get information about a Network Interface.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    bar = aws.ec2.get_network_interface(id="eni-01234567")
-    ```
-
-
-    :param Sequence[Union['GetNetworkInterfaceFilterArgs', 'GetNetworkInterfaceFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
-    :param _builtins.str id: Identifier for the network interface.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Any tags assigned to the network interface.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -341,22 +272,7 @@ def get_network_interface_output(filters: Optional[pulumi.Input[Optional[Sequenc
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInterfaceResult]:
     """
-    Use this data source to get information about a Network Interface.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    bar = aws.ec2.get_network_interface(id="eni-01234567")
-    ```
-
-
-    :param Sequence[Union['GetNetworkInterfaceFilterArgs', 'GetNetworkInterfaceFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
-    :param _builtins.str id: Identifier for the network interface.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Any tags assigned to the network interface.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

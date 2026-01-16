@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Amplify.Outputs
     [OutputType]
     public sealed class AppCacheConfig
     {
-        /// <summary>
-        /// Type of cache configuration to use for an Amplify app. Valid values: `AMPLIFY_MANAGED`, `AMPLIFY_MANAGED_NO_COOKIES`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

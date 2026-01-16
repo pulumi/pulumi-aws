@@ -28,13 +28,6 @@ class ApiArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Api resource.
-        :param pulumi.Input['ApiEventConfigArgs'] event_config: Configuration for the Event API. See Event Config below.
-        :param pulumi.Input[_builtins.str] name: Name of the Event API.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] owner_contact: Contact information for the owner of the Event API.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if event_config is not None:
             pulumi.set(__self__, "event_config", event_config)
@@ -50,9 +43,6 @@ class ApiArgs:
     @_builtins.property
     @pulumi.getter(name="eventConfig")
     def event_config(self) -> Optional[pulumi.Input['ApiEventConfigArgs']]:
-        """
-        Configuration for the Event API. See Event Config below.
-        """
         return pulumi.get(self, "event_config")
 
     @event_config.setter
@@ -62,11 +52,6 @@ class ApiArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Event API.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -76,9 +61,6 @@ class ApiArgs:
     @_builtins.property
     @pulumi.getter(name="ownerContact")
     def owner_contact(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Contact information for the owner of the Event API.
-        """
         return pulumi.get(self, "owner_contact")
 
     @owner_contact.setter
@@ -88,9 +70,6 @@ class ApiArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -100,9 +79,6 @@ class ApiArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -126,18 +102,6 @@ class _ApiState:
                  xray_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Api resources.
-        :param pulumi.Input[_builtins.str] api_arn: ARN of the Event API.
-        :param pulumi.Input[_builtins.str] api_id: ID of the Event API.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] dns: DNS configuration for the Event API.
-        :param pulumi.Input['ApiEventConfigArgs'] event_config: Configuration for the Event API. See Event Config below.
-        :param pulumi.Input[_builtins.str] name: Name of the Event API.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] owner_contact: Contact information for the owner of the Event API.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] waf_web_acl_arn: ARN of the associated WAF web ACL.
         """
         if api_arn is not None:
             pulumi.set(__self__, "api_arn", api_arn)
@@ -165,9 +129,6 @@ class _ApiState:
     @_builtins.property
     @pulumi.getter(name="apiArn")
     def api_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Event API.
-        """
         return pulumi.get(self, "api_arn")
 
     @api_arn.setter
@@ -177,9 +138,6 @@ class _ApiState:
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the Event API.
-        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -189,9 +147,6 @@ class _ApiState:
     @_builtins.property
     @pulumi.getter
     def dns(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        DNS configuration for the Event API.
-        """
         return pulumi.get(self, "dns")
 
     @dns.setter
@@ -201,9 +156,6 @@ class _ApiState:
     @_builtins.property
     @pulumi.getter(name="eventConfig")
     def event_config(self) -> Optional[pulumi.Input['ApiEventConfigArgs']]:
-        """
-        Configuration for the Event API. See Event Config below.
-        """
         return pulumi.get(self, "event_config")
 
     @event_config.setter
@@ -213,11 +165,6 @@ class _ApiState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Event API.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -227,9 +174,6 @@ class _ApiState:
     @_builtins.property
     @pulumi.getter(name="ownerContact")
     def owner_contact(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Contact information for the owner of the Event API.
-        """
         return pulumi.get(self, "owner_contact")
 
     @owner_contact.setter
@@ -239,9 +183,6 @@ class _ApiState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -251,9 +192,6 @@ class _ApiState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -263,9 +201,6 @@ class _ApiState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -275,9 +210,6 @@ class _ApiState:
     @_builtins.property
     @pulumi.getter(name="wafWebAclArn")
     def waf_web_acl_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the associated WAF web ACL.
-        """
         return pulumi.get(self, "waf_web_acl_arn")
 
     @waf_web_acl_arn.setter
@@ -307,109 +239,9 @@ class Api(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages an [AWS AppSync Event API](https://docs.aws.amazon.com/appsync/latest/eventapi/event-api-concepts.html#API). Event APIs enable real-time subscriptions and event-driven communication in AppSync applications.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.Api("example",
-            name="example-event-api",
-            event_config={
-                "auth_providers": [{
-                    "auth_type": "API_KEY",
-                }],
-                "connection_auth_modes": [{
-                    "auth_type": "API_KEY",
-                }],
-                "default_publish_auth_modes": [{
-                    "auth_type": "API_KEY",
-                }],
-                "default_subscribe_auth_modes": [{
-                    "auth_type": "API_KEY",
-                }],
-            })
-        ```
-
-        ### With Cognito Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cognito.UserPool("example", name="example-user-pool")
-        current = aws.get_region()
-        example_api = aws.appsync.Api("example",
-            name="example-event-api",
-            event_config={
-                "auth_providers": [{
-                    "auth_type": "AMAZON_COGNITO_USER_POOLS",
-                    "cognito_config": {
-                        "user_pool_id": example.id,
-                        "aws_region": current.name,
-                    },
-                }],
-                "connection_auth_modes": [{
-                    "auth_type": "AMAZON_COGNITO_USER_POOLS",
-                }],
-                "default_publish_auth_modes": [{
-                    "auth_type": "AMAZON_COGNITO_USER_POOLS",
-                }],
-                "default_subscribe_auth_modes": [{
-                    "auth_type": "AMAZON_COGNITO_USER_POOLS",
-                }],
-            })
-        ```
-
-        ### With Lambda Authorizer
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.Api("example",
-            name="example-event-api",
-            event_config={
-                "auth_providers": [{
-                    "auth_type": "AWS_LAMBDA",
-                    "lambda_authorizer_config": {
-                        "authorizer_uri": example_aws_lambda_function["arn"],
-                        "authorizer_result_ttl_in_seconds": 300,
-                    },
-                }],
-                "connection_auth_modes": [{
-                    "auth_type": "AWS_LAMBDA",
-                }],
-                "default_publish_auth_modes": [{
-                    "auth_type": "AWS_LAMBDA",
-                }],
-                "default_subscribe_auth_modes": [{
-                    "auth_type": "AWS_LAMBDA",
-                }],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AppSync Event API using the `api_id`. For example:
-
-        ```sh
-        $ pulumi import aws:appsync/api:Api example example-api-id
-        ```
-
+        Create a Api resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']] event_config: Configuration for the Event API. See Event Config below.
-        :param pulumi.Input[_builtins.str] name: Name of the Event API.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] owner_contact: Contact information for the owner of the Event API.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -418,100 +250,7 @@ class Api(pulumi.CustomResource):
                  args: Optional[ApiArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an [AWS AppSync Event API](https://docs.aws.amazon.com/appsync/latest/eventapi/event-api-concepts.html#API). Event APIs enable real-time subscriptions and event-driven communication in AppSync applications.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.Api("example",
-            name="example-event-api",
-            event_config={
-                "auth_providers": [{
-                    "auth_type": "API_KEY",
-                }],
-                "connection_auth_modes": [{
-                    "auth_type": "API_KEY",
-                }],
-                "default_publish_auth_modes": [{
-                    "auth_type": "API_KEY",
-                }],
-                "default_subscribe_auth_modes": [{
-                    "auth_type": "API_KEY",
-                }],
-            })
-        ```
-
-        ### With Cognito Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cognito.UserPool("example", name="example-user-pool")
-        current = aws.get_region()
-        example_api = aws.appsync.Api("example",
-            name="example-event-api",
-            event_config={
-                "auth_providers": [{
-                    "auth_type": "AMAZON_COGNITO_USER_POOLS",
-                    "cognito_config": {
-                        "user_pool_id": example.id,
-                        "aws_region": current.name,
-                    },
-                }],
-                "connection_auth_modes": [{
-                    "auth_type": "AMAZON_COGNITO_USER_POOLS",
-                }],
-                "default_publish_auth_modes": [{
-                    "auth_type": "AMAZON_COGNITO_USER_POOLS",
-                }],
-                "default_subscribe_auth_modes": [{
-                    "auth_type": "AMAZON_COGNITO_USER_POOLS",
-                }],
-            })
-        ```
-
-        ### With Lambda Authorizer
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.Api("example",
-            name="example-event-api",
-            event_config={
-                "auth_providers": [{
-                    "auth_type": "AWS_LAMBDA",
-                    "lambda_authorizer_config": {
-                        "authorizer_uri": example_aws_lambda_function["arn"],
-                        "authorizer_result_ttl_in_seconds": 300,
-                    },
-                }],
-                "connection_auth_modes": [{
-                    "auth_type": "AWS_LAMBDA",
-                }],
-                "default_publish_auth_modes": [{
-                    "auth_type": "AWS_LAMBDA",
-                }],
-                "default_subscribe_auth_modes": [{
-                    "auth_type": "AWS_LAMBDA",
-                }],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AppSync Event API using the `api_id`. For example:
-
-        ```sh
-        $ pulumi import aws:appsync/api:Api example example-api-id
-        ```
-
+        Create a Api resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ApiArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -580,18 +319,6 @@ class Api(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_arn: ARN of the Event API.
-        :param pulumi.Input[_builtins.str] api_id: ID of the Event API.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] dns: DNS configuration for the Event API.
-        :param pulumi.Input[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']] event_config: Configuration for the Event API. See Event Config below.
-        :param pulumi.Input[_builtins.str] name: Name of the Event API.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] owner_contact: Contact information for the owner of the Event API.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] waf_web_acl_arn: ARN of the associated WAF web ACL.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -613,83 +340,51 @@ class Api(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="apiArn")
     def api_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Event API.
-        """
         return pulumi.get(self, "api_arn")
 
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the Event API.
-        """
         return pulumi.get(self, "api_id")
 
     @_builtins.property
     @pulumi.getter
     def dns(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        DNS configuration for the Event API.
-        """
         return pulumi.get(self, "dns")
 
     @_builtins.property
     @pulumi.getter(name="eventConfig")
     def event_config(self) -> pulumi.Output[Optional['outputs.ApiEventConfig']]:
-        """
-        Configuration for the Event API. See Event Config below.
-        """
         return pulumi.get(self, "event_config")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Event API.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="ownerContact")
     def owner_contact(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Contact information for the owner of the Event API.
-        """
         return pulumi.get(self, "owner_contact")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="wafWebAclArn")
     def waf_web_acl_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the associated WAF web ACL.
-        """
         return pulumi.get(self, "waf_web_acl_arn")
 
     @_builtins.property

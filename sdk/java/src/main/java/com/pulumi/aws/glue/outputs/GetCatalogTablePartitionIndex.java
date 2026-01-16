@@ -11,33 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCatalogTablePartitionIndex {
-    /**
-     * @return Name of the partition index.
-     * 
-     */
     private String indexName;
     private String indexStatus;
-    /**
-     * @return Keys for the partition index.
-     * 
-     */
     private List<String> keys;
 
     private GetCatalogTablePartitionIndex() {}
-    /**
-     * @return Name of the partition index.
-     * 
-     */
     public String indexName() {
         return this.indexName;
     }
     public String indexStatus() {
         return this.indexStatus;
     }
-    /**
-     * @return Keys for the partition index.
-     * 
-     */
     public List<String> keys() {
         return this.keys;
     }

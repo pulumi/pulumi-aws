@@ -14,17 +14,9 @@ public final class ViewFiltersArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ViewFiltersArgs Empty = new ViewFiltersArgs();
 
-    /**
-     * The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a search operation. For more details, see [Search query syntax](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html).
-     * 
-     */
     @Import(name="filterString", required=true)
     private Output<String> filterString;
 
-    /**
-     * @return The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a search operation. For more details, see [Search query syntax](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html).
-     * 
-     */
     public Output<String> filterString() {
         return this.filterString;
     }
@@ -53,23 +45,11 @@ public final class ViewFiltersArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ViewFiltersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filterString The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a search operation. For more details, see [Search query syntax](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterString(Output<String> filterString) {
             $.filterString = filterString;
             return this;
         }
 
-        /**
-         * @param filterString The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a search operation. For more details, see [Search query syntax](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterString(String filterString) {
             return filterString(Output.of(filterString));
         }

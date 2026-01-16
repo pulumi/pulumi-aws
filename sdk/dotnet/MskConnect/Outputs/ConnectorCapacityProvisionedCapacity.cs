@@ -13,13 +13,7 @@ namespace Pulumi.Aws.MskConnect.Outputs
     [OutputType]
     public sealed class ConnectorCapacityProvisionedCapacity
     {
-        /// <summary>
-        /// The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
-        /// </summary>
         public readonly int? McuCount;
-        /// <summary>
-        /// The number of workers that are allocated to the connector.
-        /// </summary>
         public readonly int WorkerCount;
 
         [OutputConstructor]

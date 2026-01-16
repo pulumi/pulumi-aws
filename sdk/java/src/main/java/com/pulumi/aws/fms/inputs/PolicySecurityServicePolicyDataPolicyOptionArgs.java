@@ -17,32 +17,16 @@ public final class PolicySecurityServicePolicyDataPolicyOptionArgs extends com.p
 
     public static final PolicySecurityServicePolicyDataPolicyOptionArgs Empty = new PolicySecurityServicePolicyDataPolicyOptionArgs();
 
-    /**
-     * Defines NACL rules across accounts in their AWS Organization. See the `networkAclCommonPolicy` block.
-     * 
-     */
     @Import(name="networkAclCommonPolicy")
     private @Nullable Output<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs> networkAclCommonPolicy;
 
-    /**
-     * @return Defines NACL rules across accounts in their AWS Organization. See the `networkAclCommonPolicy` block.
-     * 
-     */
     public Optional<Output<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs>> networkAclCommonPolicy() {
         return Optional.ofNullable(this.networkAclCommonPolicy);
     }
 
-    /**
-     * Defines the deployment model to use for the firewall policy.  See the `networkFirewallPolicy` block.
-     * 
-     */
     @Import(name="networkFirewallPolicy")
     private @Nullable Output<PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs> networkFirewallPolicy;
 
-    /**
-     * @return Defines the deployment model to use for the firewall policy.  See the `networkFirewallPolicy` block.
-     * 
-     */
     public Optional<Output<PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs>> networkFirewallPolicy() {
         return Optional.ofNullable(this.networkFirewallPolicy);
     }
@@ -80,44 +64,20 @@ public final class PolicySecurityServicePolicyDataPolicyOptionArgs extends com.p
             $ = new PolicySecurityServicePolicyDataPolicyOptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param networkAclCommonPolicy Defines NACL rules across accounts in their AWS Organization. See the `networkAclCommonPolicy` block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkAclCommonPolicy(@Nullable Output<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs> networkAclCommonPolicy) {
             $.networkAclCommonPolicy = networkAclCommonPolicy;
             return this;
         }
 
-        /**
-         * @param networkAclCommonPolicy Defines NACL rules across accounts in their AWS Organization. See the `networkAclCommonPolicy` block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkAclCommonPolicy(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs networkAclCommonPolicy) {
             return networkAclCommonPolicy(Output.of(networkAclCommonPolicy));
         }
 
-        /**
-         * @param networkFirewallPolicy Defines the deployment model to use for the firewall policy.  See the `networkFirewallPolicy` block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkFirewallPolicy(@Nullable Output<PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs> networkFirewallPolicy) {
             $.networkFirewallPolicy = networkFirewallPolicy;
             return this;
         }
 
-        /**
-         * @param networkFirewallPolicy Defines the deployment model to use for the firewall policy.  See the `networkFirewallPolicy` block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkFirewallPolicy(PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs networkFirewallPolicy) {
             return networkFirewallPolicy(Output.of(networkFirewallPolicy));
         }

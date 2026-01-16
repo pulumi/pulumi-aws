@@ -7,52 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * Use the `aws.cloudfront.CachePolicy` resource to create a cache policy for CloudFront.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudfront.CachePolicy("example", {
- *     name: "example-policy",
- *     comment: "test comment",
- *     defaultTtl: 50,
- *     maxTtl: 100,
- *     minTtl: 1,
- *     parametersInCacheKeyAndForwardedToOrigin: {
- *         cookiesConfig: {
- *             cookieBehavior: "whitelist",
- *             cookies: {
- *                 items: ["example"],
- *             },
- *         },
- *         headersConfig: {
- *             headerBehavior: "whitelist",
- *             headers: {
- *                 items: ["example"],
- *             },
- *         },
- *         queryStringsConfig: {
- *             queryStringBehavior: "whitelist",
- *             queryStrings: {
- *                 items: ["example"],
- *             },
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import CloudFront cache policies using the `id` of the cache policy. For example:
- *
- * ```sh
- * $ pulumi import aws:cloudfront/cachePolicy:CachePolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f6
- * ```
- */
 export class CachePolicy extends pulumi.CustomResource {
     /**
      * Get an existing CachePolicy resource's state with the given name, ID, and optional extra
@@ -81,37 +35,13 @@ export class CachePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === CachePolicy.__pulumiType;
     }
 
-    /**
-     * The cache policy ARN.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Description for the cache policy.
-     */
     declare public readonly comment: pulumi.Output<string | undefined>;
-    /**
-     * Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
-     */
     declare public readonly defaultTtl: pulumi.Output<number | undefined>;
-    /**
-     * Current version of the cache policy.
-     */
     declare public /*out*/ readonly etag: pulumi.Output<string>;
-    /**
-     * Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
-     */
     declare public readonly maxTtl: pulumi.Output<number | undefined>;
-    /**
-     * Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
-     */
     declare public readonly minTtl: pulumi.Output<number | undefined>;
-    /**
-     * Unique name used to identify the cache policy.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
-     */
     declare public readonly parametersInCacheKeyAndForwardedToOrigin: pulumi.Output<outputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOrigin>;
 
     /**
@@ -158,37 +88,13 @@ export class CachePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CachePolicy resources.
  */
 export interface CachePolicyState {
-    /**
-     * The cache policy ARN.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Description for the cache policy.
-     */
     comment?: pulumi.Input<string>;
-    /**
-     * Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
-     */
     defaultTtl?: pulumi.Input<number>;
-    /**
-     * Current version of the cache policy.
-     */
     etag?: pulumi.Input<string>;
-    /**
-     * Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
-     */
     maxTtl?: pulumi.Input<number>;
-    /**
-     * Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
-     */
     minTtl?: pulumi.Input<number>;
-    /**
-     * Unique name used to identify the cache policy.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
-     */
     parametersInCacheKeyAndForwardedToOrigin?: pulumi.Input<inputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOrigin>;
 }
 
@@ -196,28 +102,10 @@ export interface CachePolicyState {
  * The set of arguments for constructing a CachePolicy resource.
  */
 export interface CachePolicyArgs {
-    /**
-     * Description for the cache policy.
-     */
     comment?: pulumi.Input<string>;
-    /**
-     * Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
-     */
     defaultTtl?: pulumi.Input<number>;
-    /**
-     * Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
-     */
     maxTtl?: pulumi.Input<number>;
-    /**
-     * Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
-     */
     minTtl?: pulumi.Input<number>;
-    /**
-     * Unique name used to identify the cache policy.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
-     */
     parametersInCacheKeyAndForwardedToOrigin: pulumi.Input<inputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOrigin>;
 }

@@ -16,51 +16,23 @@ public final class KeyAliasArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final KeyAliasArgs Empty = new KeyAliasArgs();
 
-    /**
-     * Name of the Key Alias.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="aliasName", required=true)
     private Output<String> aliasName;
 
-    /**
-     * @return Name of the Key Alias.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> aliasName() {
         return this.aliasName;
     }
 
-    /**
-     * ARN of the key.
-     * 
-     */
     @Import(name="keyArn")
     private @Nullable Output<String> keyArn;
 
-    /**
-     * @return ARN of the key.
-     * 
-     */
     public Optional<Output<String>> keyArn() {
         return Optional.ofNullable(this.keyArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -91,69 +63,29 @@ public final class KeyAliasArgs extends com.pulumi.resources.ResourceArgs {
             $ = new KeyAliasArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param aliasName Name of the Key Alias.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder aliasName(Output<String> aliasName) {
             $.aliasName = aliasName;
             return this;
         }
 
-        /**
-         * @param aliasName Name of the Key Alias.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder aliasName(String aliasName) {
             return aliasName(Output.of(aliasName));
         }
 
-        /**
-         * @param keyArn ARN of the key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyArn(@Nullable Output<String> keyArn) {
             $.keyArn = keyArn;
             return this;
         }
 
-        /**
-         * @param keyArn ARN of the key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyArn(String keyArn) {
             return keyArn(Output.of(keyArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

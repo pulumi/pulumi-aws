@@ -4,43 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getInstances({});
- * const examplePermissionSet = new aws.ssoadmin.PermissionSet("example", {
- *     name: "Example",
- *     instanceArn: example.then(example => example.arns?.[0]),
- * });
- * const exampleGetPolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "1",
- *         actions: [
- *             "s3:ListAllMyBuckets",
- *             "s3:GetBucketLocation",
- *         ],
- *         resources: ["arn:aws:s3:::*"],
- *     }],
- * });
- * const examplePermissionSetInlinePolicy = new aws.ssoadmin.PermissionSetInlinePolicy("example", {
- *     inlinePolicy: exampleGetPolicyDocument.then(exampleGetPolicyDocument => exampleGetPolicyDocument.json),
- *     instanceArn: example.then(example => example.arns?.[0]),
- *     permissionSetArn: examplePermissionSet.arn,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import SSO Permission Set Inline Policies using the `permission_set_arn` and `instance_arn` separated by a comma (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
- * ```
- */
 export class PermissionSetInlinePolicy extends pulumi.CustomResource {
     /**
      * Get an existing PermissionSetInlinePolicy resource's state with the given name, ID, and optional extra
@@ -69,21 +32,9 @@ export class PermissionSetInlinePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === PermissionSetInlinePolicy.__pulumiType;
     }
 
-    /**
-     * The IAM inline policy to attach to a Permission Set.
-     */
     declare public readonly inlinePolicy: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     */
     declare public readonly instanceArn: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
-     */
     declare public readonly permissionSetArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -128,21 +79,9 @@ export class PermissionSetInlinePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PermissionSetInlinePolicy resources.
  */
 export interface PermissionSetInlinePolicyState {
-    /**
-     * The IAM inline policy to attach to a Permission Set.
-     */
     inlinePolicy?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     */
     instanceArn?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
-     */
     permissionSetArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -150,20 +89,8 @@ export interface PermissionSetInlinePolicyState {
  * The set of arguments for constructing a PermissionSetInlinePolicy resource.
  */
 export interface PermissionSetInlinePolicyArgs {
-    /**
-     * The IAM inline policy to attach to a Permission Set.
-     */
     inlinePolicy: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     */
     instanceArn: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
-     */
     permissionSetArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

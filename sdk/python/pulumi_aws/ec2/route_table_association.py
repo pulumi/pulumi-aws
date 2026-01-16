@@ -25,12 +25,6 @@ class RouteTableAssociationArgs:
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RouteTableAssociation resource.
-        :param pulumi.Input[_builtins.str] route_table_id: The ID of the routing table to associate with.
-               
-               > **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
-        :param pulumi.Input[_builtins.str] gateway_id: The gateway ID to create an association. Conflicts with `subnet_id`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] subnet_id: The subnet ID to create an association. Conflicts with `gateway_id`.
         """
         pulumi.set(__self__, "route_table_id", route_table_id)
         if gateway_id is not None:
@@ -43,11 +37,6 @@ class RouteTableAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the routing table to associate with.
-
-        > **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
-        """
         return pulumi.get(self, "route_table_id")
 
     @route_table_id.setter
@@ -57,9 +46,6 @@ class RouteTableAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The gateway ID to create an association. Conflicts with `subnet_id`.
-        """
         return pulumi.get(self, "gateway_id")
 
     @gateway_id.setter
@@ -69,9 +55,6 @@ class RouteTableAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -81,9 +64,6 @@ class RouteTableAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The subnet ID to create an association. Conflicts with `gateway_id`.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -100,12 +80,6 @@ class _RouteTableAssociationState:
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RouteTableAssociation resources.
-        :param pulumi.Input[_builtins.str] gateway_id: The gateway ID to create an association. Conflicts with `subnet_id`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_table_id: The ID of the routing table to associate with.
-               
-               > **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
-        :param pulumi.Input[_builtins.str] subnet_id: The subnet ID to create an association. Conflicts with `gateway_id`.
         """
         if gateway_id is not None:
             pulumi.set(__self__, "gateway_id", gateway_id)
@@ -119,9 +93,6 @@ class _RouteTableAssociationState:
     @_builtins.property
     @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The gateway ID to create an association. Conflicts with `subnet_id`.
-        """
         return pulumi.get(self, "gateway_id")
 
     @gateway_id.setter
@@ -131,9 +102,6 @@ class _RouteTableAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -143,11 +111,6 @@ class _RouteTableAssociationState:
     @_builtins.property
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the routing table to associate with.
-
-        > **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
-        """
         return pulumi.get(self, "route_table_id")
 
     @route_table_id.setter
@@ -157,9 +120,6 @@ class _RouteTableAssociationState:
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The subnet ID to create an association. Conflicts with `gateway_id`.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -179,54 +139,9 @@ class RouteTableAssociation(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a resource to create an association between a route table and a subnet or a route table and an
-        internet gateway or virtual private gateway.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        a = aws.ec2.RouteTableAssociation("a",
-            subnet_id=foo["id"],
-            route_table_id=bar["id"])
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        b = aws.ec2.RouteTableAssociation("b",
-            gateway_id=foo["id"],
-            route_table_id=bar["id"])
-        ```
-
-        ## Import
-
-        With EC2 Internet Gateways:
-
-        __Using `pulumi import` to import__ EC2 Route Table Associations using the associated resource ID and Route Table ID separated by a forward slash (`/`). For example:
-
-        With EC2 Subnets:
-
-        ```sh
-        $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
-        ```
-        With EC2 Internet Gateways:
-
-        ```sh
-        $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
-        ```
-
+        Create a RouteTableAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] gateway_id: The gateway ID to create an association. Conflicts with `subnet_id`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_table_id: The ID of the routing table to associate with.
-               
-               > **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
-        :param pulumi.Input[_builtins.str] subnet_id: The subnet ID to create an association. Conflicts with `gateway_id`.
         """
         ...
     @overload
@@ -235,46 +150,7 @@ class RouteTableAssociation(pulumi.CustomResource):
                  args: RouteTableAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to create an association between a route table and a subnet or a route table and an
-        internet gateway or virtual private gateway.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        a = aws.ec2.RouteTableAssociation("a",
-            subnet_id=foo["id"],
-            route_table_id=bar["id"])
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        b = aws.ec2.RouteTableAssociation("b",
-            gateway_id=foo["id"],
-            route_table_id=bar["id"])
-        ```
-
-        ## Import
-
-        With EC2 Internet Gateways:
-
-        __Using `pulumi import` to import__ EC2 Route Table Associations using the associated resource ID and Route Table ID separated by a forward slash (`/`). For example:
-
-        With EC2 Subnets:
-
-        ```sh
-        $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
-        ```
-        With EC2 Internet Gateways:
-
-        ```sh
-        $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
-        ```
-
+        Create a RouteTableAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RouteTableAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -330,12 +206,6 @@ class RouteTableAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] gateway_id: The gateway ID to create an association. Conflicts with `subnet_id`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_table_id: The ID of the routing table to associate with.
-               
-               > **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
-        :param pulumi.Input[_builtins.str] subnet_id: The subnet ID to create an association. Conflicts with `gateway_id`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -350,34 +220,20 @@ class RouteTableAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The gateway ID to create an association. Conflicts with `subnet_id`.
-        """
         return pulumi.get(self, "gateway_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the routing table to associate with.
-
-        > **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
-        """
         return pulumi.get(self, "route_table_id")
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The subnet ID to create an association. Conflicts with `gateway_id`.
-        """
         return pulumi.get(self, "subnet_id")
 

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ExpressGatewayServicePrimaryContainerEnvironment {
-    /**
-     * @return Name of the environment variable.
-     * 
-     */
     private String name;
-    /**
-     * @return Value of the environment variable.
-     * 
-     */
     private String value;
 
     private ExpressGatewayServicePrimaryContainerEnvironment() {}
-    /**
-     * @return Name of the environment variable.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Value of the environment variable.
-     * 
-     */
     public String value() {
         return this.value;
     }

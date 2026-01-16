@@ -15,19 +15,9 @@ public final class EventActionActionArgs extends com.pulumi.resources.ResourceAr
 
     public static final EventActionActionArgs Empty = new EventActionActionArgs();
 
-    /**
-     * Configuration for an Export Revision to S3 action.
-     * Described in `exportRevisionToS3` Configuration Block
-     * 
-     */
     @Import(name="exportRevisionToS3")
     private @Nullable Output<EventActionActionExportRevisionToS3Args> exportRevisionToS3;
 
-    /**
-     * @return Configuration for an Export Revision to S3 action.
-     * Described in `exportRevisionToS3` Configuration Block
-     * 
-     */
     public Optional<Output<EventActionActionExportRevisionToS3Args>> exportRevisionToS3() {
         return Optional.ofNullable(this.exportRevisionToS3);
     }
@@ -56,25 +46,11 @@ public final class EventActionActionArgs extends com.pulumi.resources.ResourceAr
             $ = new EventActionActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param exportRevisionToS3 Configuration for an Export Revision to S3 action.
-         * Described in `exportRevisionToS3` Configuration Block
-         * 
-         * @return builder
-         * 
-         */
         public Builder exportRevisionToS3(@Nullable Output<EventActionActionExportRevisionToS3Args> exportRevisionToS3) {
             $.exportRevisionToS3 = exportRevisionToS3;
             return this;
         }
 
-        /**
-         * @param exportRevisionToS3 Configuration for an Export Revision to S3 action.
-         * Described in `exportRevisionToS3` Configuration Block
-         * 
-         * @return builder
-         * 
-         */
         public Builder exportRevisionToS3(EventActionActionExportRevisionToS3Args exportRevisionToS3) {
             return exportRevisionToS3(Output.of(exportRevisionToS3));
         }

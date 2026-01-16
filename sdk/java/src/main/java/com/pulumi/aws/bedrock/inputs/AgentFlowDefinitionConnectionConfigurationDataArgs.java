@@ -14,32 +14,16 @@ public final class AgentFlowDefinitionConnectionConfigurationDataArgs extends co
 
     public static final AgentFlowDefinitionConnectionConfigurationDataArgs Empty = new AgentFlowDefinitionConnectionConfigurationDataArgs();
 
-    /**
-     * The name of the output in the source node that the connection begins from.
-     * 
-     */
     @Import(name="sourceOutput", required=true)
     private Output<String> sourceOutput;
 
-    /**
-     * @return The name of the output in the source node that the connection begins from.
-     * 
-     */
     public Output<String> sourceOutput() {
         return this.sourceOutput;
     }
 
-    /**
-     * The name of the input in the target node that the connection ends at.
-     * 
-     */
     @Import(name="targetInput", required=true)
     private Output<String> targetInput;
 
-    /**
-     * @return The name of the input in the target node that the connection ends at.
-     * 
-     */
     public Output<String> targetInput() {
         return this.targetInput;
     }
@@ -69,44 +53,20 @@ public final class AgentFlowDefinitionConnectionConfigurationDataArgs extends co
             $ = new AgentFlowDefinitionConnectionConfigurationDataArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param sourceOutput The name of the output in the source node that the connection begins from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceOutput(Output<String> sourceOutput) {
             $.sourceOutput = sourceOutput;
             return this;
         }
 
-        /**
-         * @param sourceOutput The name of the output in the source node that the connection begins from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceOutput(String sourceOutput) {
             return sourceOutput(Output.of(sourceOutput));
         }
 
-        /**
-         * @param targetInput The name of the input in the target node that the connection ends at.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetInput(Output<String> targetInput) {
             $.targetInput = targetInput;
             return this;
         }
 
-        /**
-         * @param targetInput The name of the input in the target node that the connection ends at.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetInput(String targetInput) {
             return targetInput(Output.of(targetInput));
         }

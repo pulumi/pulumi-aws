@@ -20,9 +20,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
             set => _containerTags = value;
         }
 
-        /// <summary>
-        /// The name of the repository to scan
-        /// </summary>
         [Input("repositoryName")]
         public Input<string>? RepositoryName { get; set; }
 

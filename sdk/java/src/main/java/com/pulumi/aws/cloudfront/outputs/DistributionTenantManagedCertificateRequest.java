@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionTenantManagedCertificateRequest {
-    /**
-     * @return Certificate transparency logging preference. Valid values: `enabled`, `disabled`.
-     * 
-     */
     private @Nullable String certificateTransparencyLoggingPreference;
-    /**
-     * @return Primary domain name for the certificate.
-     * 
-     */
     private @Nullable String primaryDomainName;
-    /**
-     * @return Host for validation token. Valid values: `cloudfront`, `domain`.
-     * 
-     */
     private @Nullable String validationTokenHost;
 
     private DistributionTenantManagedCertificateRequest() {}
-    /**
-     * @return Certificate transparency logging preference. Valid values: `enabled`, `disabled`.
-     * 
-     */
     public Optional<String> certificateTransparencyLoggingPreference() {
         return Optional.ofNullable(this.certificateTransparencyLoggingPreference);
     }
-    /**
-     * @return Primary domain name for the certificate.
-     * 
-     */
     public Optional<String> primaryDomainName() {
         return Optional.ofNullable(this.primaryDomainName);
     }
-    /**
-     * @return Host for validation token. Valid values: `cloudfront`, `domain`.
-     * 
-     */
     public Optional<String> validationTokenHost() {
         return Optional.ofNullable(this.validationTokenHost);
     }

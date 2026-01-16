@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreAgentRuntimeAgentRuntimeArtifactGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Code configuration block for the agent runtime artifact, including the source code location and execution settings. Exactly one of `CodeConfiguration` or `ContainerConfiguration` must be specified. See `CodeConfiguration` below.
-        /// </summary>
         [Input("codeConfiguration")]
         public Input<Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationGetArgs>? CodeConfiguration { get; set; }
 
-        /// <summary>
-        /// Container configuration block for the agent artifact. Exactly one of `CodeConfiguration` or `ContainerConfiguration` must be specified. See `ContainerConfiguration` below.
-        /// </summary>
         [Input("containerConfiguration")]
         public Input<Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationGetArgs>? ContainerConfiguration { get; set; }
 

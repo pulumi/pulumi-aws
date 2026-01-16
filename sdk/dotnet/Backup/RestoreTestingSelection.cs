@@ -9,130 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Backup
 {
-    /// <summary>
-    /// Resource for managing an AWS Backup Restore Testing Selection.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Backup.RestoreTestingSelection("example", new()
-    ///     {
-    ///         Name = "ec2_selection",
-    ///         RestoreTestingPlanName = exampleAwsBackupRestoreTestingPlan.Name,
-    ///         ProtectedResourceType = "EC2",
-    ///         IamRoleArn = exampleAwsIamRole.Arn,
-    ///         ProtectedResourceArns = new[]
-    ///         {
-    ///             "*",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Advanced Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Backup.RestoreTestingSelection("example", new()
-    ///     {
-    ///         Name = "ec2_selection",
-    ///         RestoreTestingPlanName = exampleAwsBackupRestoreTestingPlan.Name,
-    ///         ProtectedResourceType = "EC2",
-    ///         IamRoleArn = exampleAwsIamRole.Arn,
-    ///         ProtectedResourceConditions = new Aws.Backup.Inputs.RestoreTestingSelectionProtectedResourceConditionsArgs
-    ///         {
-    ///             StringEquals = new[]
-    ///             {
-    ///                 new Aws.Backup.Inputs.RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs
-    ///                 {
-    ///                     Key = "aws:ResourceTag/backup",
-    ///                     Value = "true",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Backup Restore Testing Selection using `name:restore_testing_plan_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:backup/restoreTestingSelection:RestoreTestingSelection example restore_testing_selection_12345678:restore_testing_plan_12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:backup/restoreTestingSelection:RestoreTestingSelection")]
     public partial class RestoreTestingSelection : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the IAM role.
-        /// </summary>
         [Output("iamRoleArn")]
         public Output<string> IamRoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the backup restore testing selection.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARNs for the protected resources.
-        /// </summary>
         [Output("protectedResourceArns")]
         public Output<ImmutableArray<string>> ProtectedResourceArns { get; private set; } = null!;
 
-        /// <summary>
-        /// The conditions for the protected resource.
-        /// </summary>
         [Output("protectedResourceConditions")]
         public Output<Outputs.RestoreTestingSelectionProtectedResourceConditions?> ProtectedResourceConditions { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of the protected resource.
-        /// </summary>
         [Output("protectedResourceType")]
         public Output<string> ProtectedResourceType { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
-        /// </summary>
         [Output("restoreMetadataOverrides")]
         public Output<ImmutableDictionary<string, string>> RestoreMetadataOverrides { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the restore testing plan.
-        /// </summary>
         [Output("restoreTestingPlanName")]
         public Output<string> RestoreTestingPlanName { get; private set; } = null!;
 
-        /// <summary>
-        /// The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
-        /// </summary>
         [Output("validationWindowHours")]
         public Output<int> ValidationWindowHours { get; private set; } = null!;
 
@@ -182,69 +85,40 @@ namespace Pulumi.Aws.Backup
 
     public sealed class RestoreTestingSelectionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the IAM role.
-        /// </summary>
         [Input("iamRoleArn", required: true)]
         public Input<string> IamRoleArn { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the backup restore testing selection.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("protectedResourceArns")]
         private InputList<string>? _protectedResourceArns;
-
-        /// <summary>
-        /// The ARNs for the protected resources.
-        /// </summary>
         public InputList<string> ProtectedResourceArns
         {
             get => _protectedResourceArns ?? (_protectedResourceArns = new InputList<string>());
             set => _protectedResourceArns = value;
         }
 
-        /// <summary>
-        /// The conditions for the protected resource.
-        /// </summary>
         [Input("protectedResourceConditions")]
         public Input<Inputs.RestoreTestingSelectionProtectedResourceConditionsArgs>? ProtectedResourceConditions { get; set; }
 
-        /// <summary>
-        /// The type of the protected resource.
-        /// </summary>
         [Input("protectedResourceType", required: true)]
         public Input<string> ProtectedResourceType { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("restoreMetadataOverrides")]
         private InputMap<string>? _restoreMetadataOverrides;
-
-        /// <summary>
-        /// Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
-        /// </summary>
         public InputMap<string> RestoreMetadataOverrides
         {
             get => _restoreMetadataOverrides ?? (_restoreMetadataOverrides = new InputMap<string>());
             set => _restoreMetadataOverrides = value;
         }
 
-        /// <summary>
-        /// The name of the restore testing plan.
-        /// </summary>
         [Input("restoreTestingPlanName", required: true)]
         public Input<string> RestoreTestingPlanName { get; set; } = null!;
 
-        /// <summary>
-        /// The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
-        /// </summary>
         [Input("validationWindowHours")]
         public Input<int>? ValidationWindowHours { get; set; }
 
@@ -256,69 +130,40 @@ namespace Pulumi.Aws.Backup
 
     public sealed class RestoreTestingSelectionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the IAM role.
-        /// </summary>
         [Input("iamRoleArn")]
         public Input<string>? IamRoleArn { get; set; }
 
-        /// <summary>
-        /// The name of the backup restore testing selection.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("protectedResourceArns")]
         private InputList<string>? _protectedResourceArns;
-
-        /// <summary>
-        /// The ARNs for the protected resources.
-        /// </summary>
         public InputList<string> ProtectedResourceArns
         {
             get => _protectedResourceArns ?? (_protectedResourceArns = new InputList<string>());
             set => _protectedResourceArns = value;
         }
 
-        /// <summary>
-        /// The conditions for the protected resource.
-        /// </summary>
         [Input("protectedResourceConditions")]
         public Input<Inputs.RestoreTestingSelectionProtectedResourceConditionsGetArgs>? ProtectedResourceConditions { get; set; }
 
-        /// <summary>
-        /// The type of the protected resource.
-        /// </summary>
         [Input("protectedResourceType")]
         public Input<string>? ProtectedResourceType { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("restoreMetadataOverrides")]
         private InputMap<string>? _restoreMetadataOverrides;
-
-        /// <summary>
-        /// Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
-        /// </summary>
         public InputMap<string> RestoreMetadataOverrides
         {
             get => _restoreMetadataOverrides ?? (_restoreMetadataOverrides = new InputMap<string>());
             set => _restoreMetadataOverrides = value;
         }
 
-        /// <summary>
-        /// The name of the restore testing plan.
-        /// </summary>
         [Input("restoreTestingPlanName")]
         public Input<string>? RestoreTestingPlanName { get; set; }
 
-        /// <summary>
-        /// The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
-        /// </summary>
         [Input("validationWindowHours")]
         public Input<int>? ValidationWindowHours { get; set; }
 

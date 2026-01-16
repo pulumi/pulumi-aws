@@ -17,32 +17,16 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
 
     public static final FaqState Empty = new FaqState();
 
-    /**
-     * ARN of the FAQ.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the FAQ.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The Unix datetime that the FAQ was created.
-     * 
-     */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
-    /**
-     * @return The Unix datetime that the FAQ was created.
-     * 
-     */
     public Optional<Output<String>> createdAt() {
         return Optional.ofNullable(this.createdAt);
     }
@@ -54,32 +38,16 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * When the Status field value is `FAILED`, this contains a message that explains why.
-     * 
-     */
     @Import(name="errorMessage")
     private @Nullable Output<String> errorMessage;
 
-    /**
-     * @return When the Status field value is `FAILED`, this contains a message that explains why.
-     * 
-     */
     public Optional<Output<String>> errorMessage() {
         return Optional.ofNullable(this.errorMessage);
     }
 
-    /**
-     * The identifier of the FAQ.
-     * 
-     */
     @Import(name="faqId")
     private @Nullable Output<String> faqId;
 
-    /**
-     * @return The identifier of the FAQ.
-     * 
-     */
     public Optional<Output<String>> faqId() {
         return Optional.ofNullable(this.faqId);
     }
@@ -91,17 +59,9 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.fileFormat);
     }
 
-    /**
-     * The identifier of the index for a FAQ.
-     * 
-     */
     @Import(name="indexId")
     private @Nullable Output<String> indexId;
 
-    /**
-     * @return The identifier of the index for a FAQ.
-     * 
-     */
     public Optional<Output<String>> indexId() {
         return Optional.ofNullable(this.indexId);
     }
@@ -113,17 +73,9 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.languageCode);
     }
 
-    /**
-     * The name that should be associated with the FAQ.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name that should be associated with the FAQ.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -135,47 +87,23 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-     * 
-     */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-     * 
-     */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
 
-    /**
-     * The S3 location of the FAQ input data. Detailed below.
-     * 
-     */
     @Import(name="s3Path")
     private @Nullable Output<FaqS3PathArgs> s3Path;
 
-    /**
-     * @return The S3 location of the FAQ input data. Detailed below.
-     * 
-     */
     public Optional<Output<FaqS3PathArgs>> s3Path() {
         return Optional.ofNullable(this.s3Path);
     }
 
-    /**
-     * The status of the FAQ. It is ready to use when the status is ACTIVE.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The status of the FAQ. It is ready to use when the status is ACTIVE.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -187,32 +115,16 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * The date and time that the FAQ was last updated.
-     * 
-     */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
-    /**
-     * @return The date and time that the FAQ was last updated.
-     * 
-     */
     public Optional<Output<String>> updatedAt() {
         return Optional.ofNullable(this.updatedAt);
     }
@@ -256,44 +168,20 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
             $ = new FaqState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the FAQ.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the FAQ.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param createdAt The Unix datetime that the FAQ was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(@Nullable Output<String> createdAt) {
             $.createdAt = createdAt;
             return this;
         }
 
-        /**
-         * @param createdAt The Unix datetime that the FAQ was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(String createdAt) {
             return createdAt(Output.of(createdAt));
         }
@@ -307,44 +195,20 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
             return description(Output.of(description));
         }
 
-        /**
-         * @param errorMessage When the Status field value is `FAILED`, this contains a message that explains why.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorMessage(@Nullable Output<String> errorMessage) {
             $.errorMessage = errorMessage;
             return this;
         }
 
-        /**
-         * @param errorMessage When the Status field value is `FAILED`, this contains a message that explains why.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorMessage(String errorMessage) {
             return errorMessage(Output.of(errorMessage));
         }
 
-        /**
-         * @param faqId The identifier of the FAQ.
-         * 
-         * @return builder
-         * 
-         */
         public Builder faqId(@Nullable Output<String> faqId) {
             $.faqId = faqId;
             return this;
         }
 
-        /**
-         * @param faqId The identifier of the FAQ.
-         * 
-         * @return builder
-         * 
-         */
         public Builder faqId(String faqId) {
             return faqId(Output.of(faqId));
         }
@@ -358,23 +222,11 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
             return fileFormat(Output.of(fileFormat));
         }
 
-        /**
-         * @param indexId The identifier of the index for a FAQ.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexId(@Nullable Output<String> indexId) {
             $.indexId = indexId;
             return this;
         }
 
-        /**
-         * @param indexId The identifier of the index for a FAQ.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexId(String indexId) {
             return indexId(Output.of(indexId));
         }
@@ -388,23 +240,11 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
             return languageCode(Output.of(languageCode));
         }
 
-        /**
-         * @param name The name that should be associated with the FAQ.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name that should be associated with the FAQ.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
@@ -418,65 +258,29 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
             return region(Output.of(region));
         }
 
-        /**
-         * @param roleArn The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param s3Path The S3 location of the FAQ input data. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Path(@Nullable Output<FaqS3PathArgs> s3Path) {
             $.s3Path = s3Path;
             return this;
         }
 
-        /**
-         * @param s3Path The S3 location of the FAQ input data. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Path(FaqS3PathArgs s3Path) {
             return s3Path(Output.of(s3Path));
         }
 
-        /**
-         * @param status The status of the FAQ. It is ready to use when the status is ACTIVE.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The status of the FAQ. It is ready to use when the status is ACTIVE.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
@@ -490,44 +294,20 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param updatedAt The date and time that the FAQ was last updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder updatedAt(@Nullable Output<String> updatedAt) {
             $.updatedAt = updatedAt;
             return this;
         }
 
-        /**
-         * @param updatedAt The date and time that the FAQ was last updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder updatedAt(String updatedAt) {
             return updatedAt(Output.of(updatedAt));
         }

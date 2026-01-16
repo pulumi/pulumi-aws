@@ -15,32 +15,16 @@ public final class GatewayRouteSpecHttp2RouteArgs extends com.pulumi.resources.R
 
     public static final GatewayRouteSpecHttp2RouteArgs Empty = new GatewayRouteSpecHttp2RouteArgs();
 
-    /**
-     * Action to take if a match is determined.
-     * 
-     */
     @Import(name="action", required=true)
     private Output<GatewayRouteSpecHttp2RouteActionArgs> action;
 
-    /**
-     * @return Action to take if a match is determined.
-     * 
-     */
     public Output<GatewayRouteSpecHttp2RouteActionArgs> action() {
         return this.action;
     }
 
-    /**
-     * Criteria for determining a request match.
-     * 
-     */
     @Import(name="match", required=true)
     private Output<GatewayRouteSpecHttp2RouteMatchArgs> match;
 
-    /**
-     * @return Criteria for determining a request match.
-     * 
-     */
     public Output<GatewayRouteSpecHttp2RouteMatchArgs> match() {
         return this.match;
     }
@@ -70,44 +54,20 @@ public final class GatewayRouteSpecHttp2RouteArgs extends com.pulumi.resources.R
             $ = new GatewayRouteSpecHttp2RouteArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param action Action to take if a match is determined.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(Output<GatewayRouteSpecHttp2RouteActionArgs> action) {
             $.action = action;
             return this;
         }
 
-        /**
-         * @param action Action to take if a match is determined.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(GatewayRouteSpecHttp2RouteActionArgs action) {
             return action(Output.of(action));
         }
 
-        /**
-         * @param match Criteria for determining a request match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder match(Output<GatewayRouteSpecHttp2RouteMatchArgs> match) {
             $.match = match;
             return this;
         }
 
-        /**
-         * @param match Criteria for determining a request match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder match(GatewayRouteSpecHttp2RouteMatchArgs match) {
             return match(Output.of(match));
         }

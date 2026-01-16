@@ -25,7 +25,6 @@ class DrtAccessRoleArnAssociationArgs:
                  timeouts: Optional[pulumi.Input['DrtAccessRoleArnAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a DrtAccessRoleArnAssociation resource.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         if timeouts is not None:
@@ -34,9 +33,6 @@ class DrtAccessRoleArnAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -60,7 +56,6 @@ class _DrtAccessRoleArnAssociationState:
                  timeouts: Optional[pulumi.Input['DrtAccessRoleArnAssociationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering DrtAccessRoleArnAssociation resources.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
         """
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
@@ -70,9 +65,6 @@ class _DrtAccessRoleArnAssociationState:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -99,48 +91,9 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['DrtAccessRoleArnAssociationTimeoutsArgs', 'DrtAccessRoleArnAssociationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Authorizes the Shield Response Team (SRT) using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks.
-        For more information see [Configure AWS SRT Support](https://docs.aws.amazon.com/waf/latest/developerguide/authorize-srt.html)
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_role = aws.iam.Role("example",
-            name="example-role",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "drt.shield.amazonaws.com",
-                    },
-                    "Action": "sts:AssumeRole",
-                }],
-            }))
-        example = aws.shield.DrtAccessRoleArnAssociation("example", role_arn=example_role.arn)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
-            role=example_role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Shield DRT access role ARN association using the AWS account ID. For example:
-
-        ```sh
-        $ pulumi import aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation example 123456789012
-        ```
-
+        Create a DrtAccessRoleArnAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
         """
         ...
     @overload
@@ -149,45 +102,7 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
                  args: DrtAccessRoleArnAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Authorizes the Shield Response Team (SRT) using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks.
-        For more information see [Configure AWS SRT Support](https://docs.aws.amazon.com/waf/latest/developerguide/authorize-srt.html)
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_role = aws.iam.Role("example",
-            name="example-role",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "drt.shield.amazonaws.com",
-                    },
-                    "Action": "sts:AssumeRole",
-                }],
-            }))
-        example = aws.shield.DrtAccessRoleArnAssociation("example", role_arn=example_role.arn)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
-            role=example_role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Shield DRT access role ARN association using the AWS account ID. For example:
-
-        ```sh
-        $ pulumi import aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation example 123456789012
-        ```
-
+        Create a DrtAccessRoleArnAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DrtAccessRoleArnAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -237,7 +152,6 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -250,9 +164,6 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Kendra.Outputs
     [OutputType]
     public sealed class ExperienceEndpoint
     {
-        /// <summary>
-        /// The endpoint of your Amazon Kendra experience.
-        /// </summary>
         public readonly string? Endpoint;
-        /// <summary>
-        /// The type of endpoint for your Amazon Kendra experience.
-        /// </summary>
         public readonly string? EndpointType;
 
         [OutputConstructor]

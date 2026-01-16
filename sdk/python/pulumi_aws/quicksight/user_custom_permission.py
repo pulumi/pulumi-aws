@@ -26,12 +26,6 @@ class UserCustomPermissionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserCustomPermission resource.
-        :param pulumi.Input[_builtins.str] custom_permissions_name: Custom permissions profile name.
-        :param pulumi.Input[_builtins.str] user_name: Username of the user.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] namespace: Namespace that the user belongs to. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "custom_permissions_name", custom_permissions_name)
         pulumi.set(__self__, "user_name", user_name)
@@ -45,9 +39,6 @@ class UserCustomPermissionArgs:
     @_builtins.property
     @pulumi.getter(name="customPermissionsName")
     def custom_permissions_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Custom permissions profile name.
-        """
         return pulumi.get(self, "custom_permissions_name")
 
     @custom_permissions_name.setter
@@ -57,11 +48,6 @@ class UserCustomPermissionArgs:
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Username of the user.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -80,9 +66,6 @@ class UserCustomPermissionArgs:
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Namespace that the user belongs to. Defaults to `default`.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -92,9 +75,6 @@ class UserCustomPermissionArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -112,12 +92,6 @@ class _UserCustomPermissionState:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserCustomPermission resources.
-        :param pulumi.Input[_builtins.str] custom_permissions_name: Custom permissions profile name.
-        :param pulumi.Input[_builtins.str] namespace: Namespace that the user belongs to. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] user_name: Username of the user.
-               
-               The following arguments are optional:
         """
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
@@ -142,9 +116,6 @@ class _UserCustomPermissionState:
     @_builtins.property
     @pulumi.getter(name="customPermissionsName")
     def custom_permissions_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Custom permissions profile name.
-        """
         return pulumi.get(self, "custom_permissions_name")
 
     @custom_permissions_name.setter
@@ -154,9 +125,6 @@ class _UserCustomPermissionState:
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Namespace that the user belongs to. Defaults to `default`.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -166,9 +134,6 @@ class _UserCustomPermissionState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -178,11 +143,6 @@ class _UserCustomPermissionState:
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Username of the user.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -203,35 +163,9 @@ class UserCustomPermission(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages the custom permissions profile for a user.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.UserCustomPermission("example",
-            user_name=example_aws_quicksight_user["userName"],
-            custom_permissions_name=example_aws_quicksight_custom_permissions["customPermissionsName"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import QuickSight user custom permissions using a comma-delimited string combining the `aws_account_id`, `namespace`, and `user_name`. For example:
-
-        ```sh
-        $ pulumi import aws:quicksight/userCustomPermission:UserCustomPermission example 012345678901,default,user1
-        ```
-
+        Create a UserCustomPermission resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] custom_permissions_name: Custom permissions profile name.
-        :param pulumi.Input[_builtins.str] namespace: Namespace that the user belongs to. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] user_name: Username of the user.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -240,27 +174,7 @@ class UserCustomPermission(pulumi.CustomResource):
                  args: UserCustomPermissionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages the custom permissions profile for a user.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.UserCustomPermission("example",
-            user_name=example_aws_quicksight_user["userName"],
-            custom_permissions_name=example_aws_quicksight_custom_permissions["customPermissionsName"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import QuickSight user custom permissions using a comma-delimited string combining the `aws_account_id`, `namespace`, and `user_name`. For example:
-
-        ```sh
-        $ pulumi import aws:quicksight/userCustomPermission:UserCustomPermission example 012345678901,default,user1
-        ```
-
+        Create a UserCustomPermission resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserCustomPermissionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -321,12 +235,6 @@ class UserCustomPermission(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] custom_permissions_name: Custom permissions profile name.
-        :param pulumi.Input[_builtins.str] namespace: Namespace that the user belongs to. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] user_name: Username of the user.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -347,34 +255,20 @@ class UserCustomPermission(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="customPermissionsName")
     def custom_permissions_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Custom permissions profile name.
-        """
         return pulumi.get(self, "custom_permissions_name")
 
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> pulumi.Output[_builtins.str]:
-        """
-        Namespace that the user belongs to. Defaults to `default`.
-        """
         return pulumi.get(self, "namespace")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Username of the user.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "user_name")
 

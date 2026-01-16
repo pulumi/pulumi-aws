@@ -13,17 +13,8 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     [OutputType]
     public sealed class GetCoreNetworkPolicyDocumentNetworkFunctionGroupResult
     {
-        /// <summary>
-        /// Optional description of the network function group.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// This identifies the network function group container.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// This will be either `True`, that attachment acceptance is required, or `False`, that it is not required.
-        /// </summary>
         public readonly bool RequireAttachmentAcceptance;
 
         [OutputConstructor]

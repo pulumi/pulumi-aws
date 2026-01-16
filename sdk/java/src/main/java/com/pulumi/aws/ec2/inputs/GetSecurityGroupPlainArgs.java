@@ -17,102 +17,44 @@ public final class GetSecurityGroupPlainArgs extends com.pulumi.resources.Invoke
 
     public static final GetSecurityGroupPlainArgs Empty = new GetSecurityGroupPlainArgs();
 
-    /**
-     * Custom filter block as described below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetSecurityGroupFilter> filters;
 
-    /**
-     * @return Custom filter block as described below.
-     * 
-     */
     public Optional<List<GetSecurityGroupFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Id of the specific security group to retrieve.
-     * 
-     */
     @Import(name="id")
     private @Nullable String id;
 
-    /**
-     * @return Id of the specific security group to retrieve.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Name of the field to filter by, as defined by
-     * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
-     * 
-     */
     @Import(name="name")
     private @Nullable String name;
 
-    /**
-     * @return Name of the field to filter by, as defined by
-     * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired security group.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags, each pair of which must exactly match
-     * a pair on the desired security group.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Id of the VPC that the desired security group belongs to.
-     * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     * 
-     */
     @Import(name="vpcId")
     private @Nullable String vpcId;
 
-    /**
-     * @return Id of the VPC that the desired security group belongs to.
-     * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     * 
-     */
     public Optional<String> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -146,82 +88,35 @@ public final class GetSecurityGroupPlainArgs extends com.pulumi.resources.Invoke
             $ = new GetSecurityGroupPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetSecurityGroupFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetSecurityGroupFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param id Id of the specific security group to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param name Name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Map of tags, each pair of which must exactly match
-         * a pair on the desired security group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param vpcId Id of the VPC that the desired security group belongs to.
-         * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(@Nullable String vpcId) {
             $.vpcId = vpcId;
             return this;

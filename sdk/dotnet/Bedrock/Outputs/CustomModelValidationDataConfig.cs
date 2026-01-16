@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class CustomModelValidationDataConfig
     {
-        /// <summary>
-        /// Information about the validators.
-        /// </summary>
         public readonly ImmutableArray<Outputs.CustomModelValidationDataConfigValidator> Validators;
 
         [OutputConstructor]

@@ -21,92 +21,44 @@ public final class ParameterGroupArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final ParameterGroupArgs Empty = new ParameterGroupArgs();
 
-    /**
-     * The description of the DB parameter group. Defaults to &#34;Managed by Pulumi&#34;.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return The description of the DB parameter group. Defaults to &#34;Managed by Pulumi&#34;.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The family of the DB parameter group.
-     * 
-     */
     @Import(name="family", required=true)
     private Output<String> family;
 
-    /**
-     * @return The family of the DB parameter group.
-     * 
-     */
     public Output<String> family() {
         return this.family;
     }
 
-    /**
-     * The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     @Import(name="namePrefix")
     private @Nullable Output<String> namePrefix;
 
-    /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     public Optional<Output<String>> namePrefix() {
         return Optional.ofNullable(this.namePrefix);
     }
 
-    /**
-     * The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
-     * 
-     */
     @Import(name="parameters")
     private @Nullable Output<List<ParameterGroupParameterArgs>> parameters;
 
-    /**
-     * @return The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
-     * 
-     */
     public Optional<Output<List<ParameterGroupParameterArgs>>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -118,17 +70,9 @@ public final class ParameterGroupArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.skipDestroy);
     }
 
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -164,138 +108,60 @@ public final class ParameterGroupArgs extends com.pulumi.resources.ResourceArgs 
             $ = new ParameterGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description The description of the DB parameter group. Defaults to &#34;Managed by Pulumi&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The description of the DB parameter group. Defaults to &#34;Managed by Pulumi&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param family The family of the DB parameter group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder family(Output<String> family) {
             $.family = family;
             return this;
         }
 
-        /**
-         * @param family The family of the DB parameter group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder family(String family) {
             return family(Output.of(family));
         }
 
-        /**
-         * @param name The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namePrefix(@Nullable Output<String> namePrefix) {
             $.namePrefix = namePrefix;
             return this;
         }
 
-        /**
-         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namePrefix(String namePrefix) {
             return namePrefix(Output.of(namePrefix));
         }
 
-        /**
-         * @param parameters The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(@Nullable Output<List<ParameterGroupParameterArgs>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
-        /**
-         * @param parameters The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(List<ParameterGroupParameterArgs> parameters) {
             return parameters(Output.of(parameters));
         }
 
-        /**
-         * @param parameters The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(ParameterGroupParameterArgs... parameters) {
             return parameters(List.of(parameters));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
@@ -309,23 +175,11 @@ public final class ParameterGroupArgs extends com.pulumi.resources.ResourceArgs 
             return skipDestroy(Output.of(skipDestroy));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

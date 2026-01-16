@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyTargetTrackingConfigurationPredefinedMetricSpecification {
-    /**
-     * @return Metric type.
-     * 
-     */
     private String predefinedMetricType;
-    /**
-     * @return Identifies the resource associated with the metric type.
-     * 
-     */
     private @Nullable String resourceLabel;
 
     private PolicyTargetTrackingConfigurationPredefinedMetricSpecification() {}
-    /**
-     * @return Metric type.
-     * 
-     */
     public String predefinedMetricType() {
         return this.predefinedMetricType;
     }
-    /**
-     * @return Identifies the resource associated with the metric type.
-     * 
-     */
     public Optional<String> resourceLabel() {
         return Optional.ofNullable(this.resourceLabel);
     }

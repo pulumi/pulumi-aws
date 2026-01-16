@@ -12,24 +12,14 @@ namespace Pulumi.Aws.Macie2.Inputs
 
     public sealed class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-        /// </summary>
         [Input("comparator")]
         public Input<string>? Comparator { get; set; }
 
-        /// <summary>
-        /// The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
-        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         [Input("values")]
         private InputList<string>? _values;
-
-        /// <summary>
-        /// An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
-        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

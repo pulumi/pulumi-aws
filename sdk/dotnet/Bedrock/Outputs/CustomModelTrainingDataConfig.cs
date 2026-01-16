@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class CustomModelTrainingDataConfig
     {
-        /// <summary>
-        /// The S3 URI where the training data is stored.
-        /// </summary>
         public readonly string S3Uri;
 
         [OutputConstructor]

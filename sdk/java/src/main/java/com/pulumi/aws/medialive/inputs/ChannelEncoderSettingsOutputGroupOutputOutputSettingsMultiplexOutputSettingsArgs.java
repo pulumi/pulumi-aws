@@ -14,17 +14,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiple
 
     public static final ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs();
 
-    /**
-     * Destination is a multiplex. See Destination for more details.
-     * 
-     */
     @Import(name="destination", required=true)
     private Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs> destination;
 
-    /**
-     * @return Destination is a multiplex. See Destination for more details.
-     * 
-     */
     public Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs> destination() {
         return this.destination;
     }
@@ -53,23 +45,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiple
             $ = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destination Destination is a multiplex. See Destination for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs> destination) {
             $.destination = destination;
             return this;
         }
 
-        /**
-         * @param destination Destination is a multiplex. See Destination for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs destination) {
             return destination(Output.of(destination));
         }

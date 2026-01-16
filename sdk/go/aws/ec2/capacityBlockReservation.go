@@ -12,91 +12,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an EC2 Capacity Block Reservation. This allows you to purchase capacity block for your Amazon EC2 instances in a specific Availability Zone for machine learning (ML) Workloads.
-//
-// > **NOTE:** Once created, a reservation is valid for the `duration` of the provided `capacityBlockOfferingId` and cannot be deleted. Performing a `destroy` will only remove the resource from state. For more information see [EC2 Capacity Block Reservation Documentation](https://aws.amazon.com/ec2/instance-types/p5/) and [PurchaseReservedDBInstancesOffering](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-blocks-pricing-billing.html).
-//
-// > **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := ec2.GetCapacityBlockOffering(ctx, &ec2.GetCapacityBlockOfferingArgs{
-//				CapacityDurationHours: 24,
-//				EndDateRange:          pulumi.StringRef("2024-05-30T15:04:05Z"),
-//				InstanceCount:         1,
-//				InstanceType:          "p4d.24xlarge",
-//				StartDateRange:        pulumi.StringRef("2024-04-28T15:04:05Z"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewCapacityBlockReservation(ctx, "example", &ec2.CapacityBlockReservationArgs{
-//				CapacityBlockOfferingId: pulumi.String(test.CapacityBlockOfferingId),
-//				InstancePlatform:        pulumi.String("Linux/UNIX"),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("dev"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type CapacityBlockReservation struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the reservation.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The Availability Zone in which to create the Capacity Block Reservation.
-	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
-	// The Capacity Block Reservation ID.
-	CapacityBlockOfferingId pulumi.StringOutput `pulumi:"capacityBlockOfferingId"`
-	// The date and time at which the Capacity Block Reservation was created.
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// Indicates whether the Capacity Reservation supports EBS-optimized instances.
-	EbsOptimized pulumi.BoolOutput `pulumi:"ebsOptimized"`
-	// The date and time at which the Capacity Block Reservation expires. When a Capacity Block Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-	EndDate pulumi.StringOutput `pulumi:"endDate"`
-	// Indicates the way in which the Capacity Reservation ends.
-	EndDateType pulumi.StringOutput `pulumi:"endDateType"`
-	// The number of instances for which to reserve capacity.
-	InstanceCount pulumi.IntOutput `pulumi:"instanceCount"`
-	// The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-	InstancePlatform pulumi.StringOutput `pulumi:"instancePlatform"`
-	// The instance type for which to reserve capacity.
-	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
-	// The ARN of the Outpost on which to create the Capacity Block Reservation.
-	OutpostArn pulumi.StringOutput `pulumi:"outpostArn"`
-	// The ARN of the placement group in which to create the Capacity Block Reservation.
-	PlacementGroupArn pulumi.StringOutput `pulumi:"placementGroupArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The type of Capacity Reservation.
-	ReservationType pulumi.StringOutput `pulumi:"reservationType"`
-	// The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-	StartDate pulumi.StringOutput `pulumi:"startDate"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Indicates the tenancy of the Capacity Block Reservation. Specify either `default` or `dedicated`.
-	Tenancy  pulumi.StringOutput                       `pulumi:"tenancy"`
-	Timeouts CapacityBlockReservationTimeoutsPtrOutput `pulumi:"timeouts"`
+	Arn                     pulumi.StringOutput                       `pulumi:"arn"`
+	AvailabilityZone        pulumi.StringOutput                       `pulumi:"availabilityZone"`
+	CapacityBlockOfferingId pulumi.StringOutput                       `pulumi:"capacityBlockOfferingId"`
+	CreatedDate             pulumi.StringOutput                       `pulumi:"createdDate"`
+	EbsOptimized            pulumi.BoolOutput                         `pulumi:"ebsOptimized"`
+	EndDate                 pulumi.StringOutput                       `pulumi:"endDate"`
+	EndDateType             pulumi.StringOutput                       `pulumi:"endDateType"`
+	InstanceCount           pulumi.IntOutput                          `pulumi:"instanceCount"`
+	InstancePlatform        pulumi.StringOutput                       `pulumi:"instancePlatform"`
+	InstanceType            pulumi.StringOutput                       `pulumi:"instanceType"`
+	OutpostArn              pulumi.StringOutput                       `pulumi:"outpostArn"`
+	PlacementGroupArn       pulumi.StringOutput                       `pulumi:"placementGroupArn"`
+	Region                  pulumi.StringOutput                       `pulumi:"region"`
+	ReservationType         pulumi.StringOutput                       `pulumi:"reservationType"`
+	StartDate               pulumi.StringOutput                       `pulumi:"startDate"`
+	Tags                    pulumi.StringMapOutput                    `pulumi:"tags"`
+	TagsAll                 pulumi.StringMapOutput                    `pulumi:"tagsAll"`
+	Tenancy                 pulumi.StringOutput                       `pulumi:"tenancy"`
+	Timeouts                CapacityBlockReservationTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewCapacityBlockReservation registers a new resource with the given unique name, arguments, and options.
@@ -135,83 +72,47 @@ func GetCapacityBlockReservation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CapacityBlockReservation resources.
 type capacityBlockReservationState struct {
-	// The ARN of the reservation.
-	Arn *string `pulumi:"arn"`
-	// The Availability Zone in which to create the Capacity Block Reservation.
-	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The Capacity Block Reservation ID.
-	CapacityBlockOfferingId *string `pulumi:"capacityBlockOfferingId"`
-	// The date and time at which the Capacity Block Reservation was created.
-	CreatedDate *string `pulumi:"createdDate"`
-	// Indicates whether the Capacity Reservation supports EBS-optimized instances.
-	EbsOptimized *bool `pulumi:"ebsOptimized"`
-	// The date and time at which the Capacity Block Reservation expires. When a Capacity Block Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-	EndDate *string `pulumi:"endDate"`
-	// Indicates the way in which the Capacity Reservation ends.
-	EndDateType *string `pulumi:"endDateType"`
-	// The number of instances for which to reserve capacity.
-	InstanceCount *int `pulumi:"instanceCount"`
-	// The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-	InstancePlatform *string `pulumi:"instancePlatform"`
-	// The instance type for which to reserve capacity.
-	InstanceType *string `pulumi:"instanceType"`
-	// The ARN of the Outpost on which to create the Capacity Block Reservation.
-	OutpostArn *string `pulumi:"outpostArn"`
-	// The ARN of the placement group in which to create the Capacity Block Reservation.
-	PlacementGroupArn *string `pulumi:"placementGroupArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The type of Capacity Reservation.
-	ReservationType *string `pulumi:"reservationType"`
-	// The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-	StartDate *string `pulumi:"startDate"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Indicates the tenancy of the Capacity Block Reservation. Specify either `default` or `dedicated`.
-	Tenancy  *string                           `pulumi:"tenancy"`
-	Timeouts *CapacityBlockReservationTimeouts `pulumi:"timeouts"`
+	Arn                     *string                           `pulumi:"arn"`
+	AvailabilityZone        *string                           `pulumi:"availabilityZone"`
+	CapacityBlockOfferingId *string                           `pulumi:"capacityBlockOfferingId"`
+	CreatedDate             *string                           `pulumi:"createdDate"`
+	EbsOptimized            *bool                             `pulumi:"ebsOptimized"`
+	EndDate                 *string                           `pulumi:"endDate"`
+	EndDateType             *string                           `pulumi:"endDateType"`
+	InstanceCount           *int                              `pulumi:"instanceCount"`
+	InstancePlatform        *string                           `pulumi:"instancePlatform"`
+	InstanceType            *string                           `pulumi:"instanceType"`
+	OutpostArn              *string                           `pulumi:"outpostArn"`
+	PlacementGroupArn       *string                           `pulumi:"placementGroupArn"`
+	Region                  *string                           `pulumi:"region"`
+	ReservationType         *string                           `pulumi:"reservationType"`
+	StartDate               *string                           `pulumi:"startDate"`
+	Tags                    map[string]string                 `pulumi:"tags"`
+	TagsAll                 map[string]string                 `pulumi:"tagsAll"`
+	Tenancy                 *string                           `pulumi:"tenancy"`
+	Timeouts                *CapacityBlockReservationTimeouts `pulumi:"timeouts"`
 }
 
 type CapacityBlockReservationState struct {
-	// The ARN of the reservation.
-	Arn pulumi.StringPtrInput
-	// The Availability Zone in which to create the Capacity Block Reservation.
-	AvailabilityZone pulumi.StringPtrInput
-	// The Capacity Block Reservation ID.
+	Arn                     pulumi.StringPtrInput
+	AvailabilityZone        pulumi.StringPtrInput
 	CapacityBlockOfferingId pulumi.StringPtrInput
-	// The date and time at which the Capacity Block Reservation was created.
-	CreatedDate pulumi.StringPtrInput
-	// Indicates whether the Capacity Reservation supports EBS-optimized instances.
-	EbsOptimized pulumi.BoolPtrInput
-	// The date and time at which the Capacity Block Reservation expires. When a Capacity Block Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-	EndDate pulumi.StringPtrInput
-	// Indicates the way in which the Capacity Reservation ends.
-	EndDateType pulumi.StringPtrInput
-	// The number of instances for which to reserve capacity.
-	InstanceCount pulumi.IntPtrInput
-	// The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-	InstancePlatform pulumi.StringPtrInput
-	// The instance type for which to reserve capacity.
-	InstanceType pulumi.StringPtrInput
-	// The ARN of the Outpost on which to create the Capacity Block Reservation.
-	OutpostArn pulumi.StringPtrInput
-	// The ARN of the placement group in which to create the Capacity Block Reservation.
-	PlacementGroupArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The type of Capacity Reservation.
-	ReservationType pulumi.StringPtrInput
-	// The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-	StartDate pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block
-	TagsAll pulumi.StringMapInput
-	// Indicates the tenancy of the Capacity Block Reservation. Specify either `default` or `dedicated`.
-	Tenancy  pulumi.StringPtrInput
-	Timeouts CapacityBlockReservationTimeoutsPtrInput
+	CreatedDate             pulumi.StringPtrInput
+	EbsOptimized            pulumi.BoolPtrInput
+	EndDate                 pulumi.StringPtrInput
+	EndDateType             pulumi.StringPtrInput
+	InstanceCount           pulumi.IntPtrInput
+	InstancePlatform        pulumi.StringPtrInput
+	InstanceType            pulumi.StringPtrInput
+	OutpostArn              pulumi.StringPtrInput
+	PlacementGroupArn       pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
+	ReservationType         pulumi.StringPtrInput
+	StartDate               pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
+	TagsAll                 pulumi.StringMapInput
+	Tenancy                 pulumi.StringPtrInput
+	Timeouts                CapacityBlockReservationTimeoutsPtrInput
 }
 
 func (CapacityBlockReservationState) ElementType() reflect.Type {
@@ -219,28 +120,20 @@ func (CapacityBlockReservationState) ElementType() reflect.Type {
 }
 
 type capacityBlockReservationArgs struct {
-	// The Capacity Block Reservation ID.
-	CapacityBlockOfferingId string `pulumi:"capacityBlockOfferingId"`
-	// The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-	InstancePlatform string `pulumi:"instancePlatform"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string                 `pulumi:"tags"`
-	Timeouts *CapacityBlockReservationTimeouts `pulumi:"timeouts"`
+	CapacityBlockOfferingId string                            `pulumi:"capacityBlockOfferingId"`
+	InstancePlatform        string                            `pulumi:"instancePlatform"`
+	Region                  *string                           `pulumi:"region"`
+	Tags                    map[string]string                 `pulumi:"tags"`
+	Timeouts                *CapacityBlockReservationTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a CapacityBlockReservation resource.
 type CapacityBlockReservationArgs struct {
-	// The Capacity Block Reservation ID.
 	CapacityBlockOfferingId pulumi.StringInput
-	// The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-	InstancePlatform pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts CapacityBlockReservationTimeoutsPtrInput
+	InstancePlatform        pulumi.StringInput
+	Region                  pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
+	Timeouts                CapacityBlockReservationTimeoutsPtrInput
 }
 
 func (CapacityBlockReservationArgs) ElementType() reflect.Type {
@@ -330,92 +223,74 @@ func (o CapacityBlockReservationOutput) ToCapacityBlockReservationOutputWithCont
 	return o
 }
 
-// The ARN of the reservation.
 func (o CapacityBlockReservationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityBlockReservation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The Availability Zone in which to create the Capacity Block Reservation.
 func (o CapacityBlockReservationOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityBlockReservation) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
-// The Capacity Block Reservation ID.
 func (o CapacityBlockReservationOutput) CapacityBlockOfferingId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityBlockReservation) pulumi.StringOutput { return v.CapacityBlockOfferingId }).(pulumi.StringOutput)
 }
 
-// The date and time at which the Capacity Block Reservation was created.
 func (o CapacityBlockReservationOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityBlockReservation) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// Indicates whether the Capacity Reservation supports EBS-optimized instances.
 func (o CapacityBlockReservationOutput) EbsOptimized() pulumi.BoolOutput {
 	return o.ApplyT(func(v *CapacityBlockReservation) pulumi.BoolOutput { return v.EbsOptimized }).(pulumi.BoolOutput)
 }
 
-// The date and time at which the Capacity Block Reservation expires. When a Capacity Block Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 func (o CapacityBlockReservationOutput) EndDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityBlockReservation) pulumi.StringOutput { return v.EndDate }).(pulumi.StringOutput)
 }
 
-// Indicates the way in which the Capacity Reservation ends.
 func (o CapacityBlockReservationOutput) EndDateType() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityBlockReservation) pulumi.StringOutput { return v.EndDateType }).(pulumi.StringOutput)
 }
 
-// The number of instances for which to reserve capacity.
 func (o CapacityBlockReservationOutput) InstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *CapacityBlockReservation) pulumi.IntOutput { return v.InstanceCount }).(pulumi.IntOutput)
 }
 
-// The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
 func (o CapacityBlockReservationOutput) InstancePlatform() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityBlockReservation) pulumi.StringOutput { return v.InstancePlatform }).(pulumi.StringOutput)
 }
 
-// The instance type for which to reserve capacity.
 func (o CapacityBlockReservationOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityBlockReservation) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// The ARN of the Outpost on which to create the Capacity Block Reservation.
 func (o CapacityBlockReservationOutput) OutpostArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityBlockReservation) pulumi.StringOutput { return v.OutpostArn }).(pulumi.StringOutput)
 }
 
-// The ARN of the placement group in which to create the Capacity Block Reservation.
 func (o CapacityBlockReservationOutput) PlacementGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityBlockReservation) pulumi.StringOutput { return v.PlacementGroupArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CapacityBlockReservationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityBlockReservation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The type of Capacity Reservation.
 func (o CapacityBlockReservationOutput) ReservationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityBlockReservation) pulumi.StringOutput { return v.ReservationType }).(pulumi.StringOutput)
 }
 
-// The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 func (o CapacityBlockReservationOutput) StartDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityBlockReservation) pulumi.StringOutput { return v.StartDate }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CapacityBlockReservationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CapacityBlockReservation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block
 func (o CapacityBlockReservationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CapacityBlockReservation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Indicates the tenancy of the Capacity Block Reservation. Specify either `default` or `dedicated`.
 func (o CapacityBlockReservationOutput) Tenancy() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityBlockReservation) pulumi.StringOutput { return v.Tenancy }).(pulumi.StringOutput)
 }

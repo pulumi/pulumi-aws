@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class TrafficMirrorFilterRuleDestinationPortRange
     {
-        /// <summary>
-        /// Starting port of the range
-        /// </summary>
         public readonly int? FromPort;
-        /// <summary>
-        /// Ending port of the range
-        /// </summary>
         public readonly int? ToPort;
 
         [OutputConstructor]

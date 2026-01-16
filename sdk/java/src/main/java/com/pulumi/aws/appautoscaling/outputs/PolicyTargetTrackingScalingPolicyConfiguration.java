@@ -16,77 +16,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyTargetTrackingScalingPolicyConfiguration {
-    /**
-     * @return Custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
-     * 
-     */
     private @Nullable PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification customizedMetricSpecification;
-    /**
-     * @return Whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won&#39;t remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
-     * 
-     */
     private @Nullable Boolean disableScaleIn;
-    /**
-     * @return Predefined metric. See supported fields below.
-     * 
-     */
     private @Nullable PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification predefinedMetricSpecification;
-    /**
-     * @return Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
-     * 
-     */
     private @Nullable Integer scaleInCooldown;
-    /**
-     * @return Amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
-     * 
-     */
     private @Nullable Integer scaleOutCooldown;
-    /**
-     * @return Target value for the metric.
-     * 
-     */
     private Double targetValue;
 
     private PolicyTargetTrackingScalingPolicyConfiguration() {}
-    /**
-     * @return Custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
-     * 
-     */
     public Optional<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification> customizedMetricSpecification() {
         return Optional.ofNullable(this.customizedMetricSpecification);
     }
-    /**
-     * @return Whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won&#39;t remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
-     * 
-     */
     public Optional<Boolean> disableScaleIn() {
         return Optional.ofNullable(this.disableScaleIn);
     }
-    /**
-     * @return Predefined metric. See supported fields below.
-     * 
-     */
     public Optional<PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification> predefinedMetricSpecification() {
         return Optional.ofNullable(this.predefinedMetricSpecification);
     }
-    /**
-     * @return Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
-     * 
-     */
     public Optional<Integer> scaleInCooldown() {
         return Optional.ofNullable(this.scaleInCooldown);
     }
-    /**
-     * @return Amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
-     * 
-     */
     public Optional<Integer> scaleOutCooldown() {
         return Optional.ofNullable(this.scaleOutCooldown);
     }
-    /**
-     * @return Target value for the metric.
-     * 
-     */
     public Double targetValue() {
         return this.targetValue;
     }

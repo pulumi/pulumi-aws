@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AppCustomRule {
-    /**
-     * @return Condition for a URL rewrite or redirect rule, such as a country code.
-     * 
-     */
     private @Nullable String condition;
-    /**
-     * @return Source pattern for a URL rewrite or redirect rule.
-     * 
-     */
     private String source;
-    /**
-     * @return Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
-     * 
-     */
     private @Nullable String status;
-    /**
-     * @return Target pattern for a URL rewrite or redirect rule.
-     * 
-     */
     private String target;
 
     private AppCustomRule() {}
-    /**
-     * @return Condition for a URL rewrite or redirect rule, such as a country code.
-     * 
-     */
     public Optional<String> condition() {
         return Optional.ofNullable(this.condition);
     }
-    /**
-     * @return Source pattern for a URL rewrite or redirect rule.
-     * 
-     */
     public String source() {
         return this.source;
     }
-    /**
-     * @return Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }
-    /**
-     * @return Target pattern for a URL rewrite or redirect rule.
-     * 
-     */
     public String target() {
         return this.target;
     }

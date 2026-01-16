@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing an AWS VPC Lattice Resource Policy.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.vpclattice.getResourcePolicy({
- *     resourceArn: exampleAwsVpclatticeServiceNetwork.arn,
- * });
- * ```
- */
 export function getResourcePolicy(args: GetResourcePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcePolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:vpclattice/getResourcePolicy:getResourcePolicy", {
@@ -32,13 +16,7 @@ export function getResourcePolicy(args: GetResourcePolicyArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getResourcePolicy.
  */
 export interface GetResourcePolicyArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Resource ARN of the resource for which a policy is retrieved.
-     */
     resourceArn: string;
 }
 
@@ -50,29 +28,10 @@ export interface GetResourcePolicyResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * JSON-encoded string representation of the applied resource policy.
-     */
     readonly policy: string;
     readonly region: string;
     readonly resourceArn: string;
 }
-/**
- * Data source for managing an AWS VPC Lattice Resource Policy.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.vpclattice.getResourcePolicy({
- *     resourceArn: exampleAwsVpclatticeServiceNetwork.arn,
- * });
- * ```
- */
 export function getResourcePolicyOutput(args: GetResourcePolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourcePolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:vpclattice/getResourcePolicy:getResourcePolicy", {
@@ -85,12 +44,6 @@ export function getResourcePolicyOutput(args: GetResourcePolicyOutputArgs, opts?
  * A collection of arguments for invoking getResourcePolicy.
  */
 export interface GetResourcePolicyOutputArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Resource ARN of the resource for which a policy is retrieved.
-     */
     resourceArn: pulumi.Input<string>;
 }

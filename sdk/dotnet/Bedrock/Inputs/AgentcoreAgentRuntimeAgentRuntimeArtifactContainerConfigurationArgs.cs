@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// URI of the container image in Amazon ECR.
-        /// </summary>
         [Input("containerUri", required: true)]
         public Input<string> ContainerUri { get; set; } = null!;
 

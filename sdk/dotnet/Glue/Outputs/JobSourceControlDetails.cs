@@ -13,37 +13,13 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class JobSourceControlDetails
     {
-        /// <summary>
-        /// The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
-        /// </summary>
         public readonly string? AuthStrategy;
-        /// <summary>
-        /// The value of an authorization token.
-        /// </summary>
         public readonly string? AuthToken;
-        /// <summary>
-        /// A branch in the remote repository.
-        /// </summary>
         public readonly string? Branch;
-        /// <summary>
-        /// A folder in the remote repository.
-        /// </summary>
         public readonly string? Folder;
-        /// <summary>
-        /// The last commit ID for a commit in the remote repository.
-        /// </summary>
         public readonly string? LastCommitId;
-        /// <summary>
-        /// The owner of the remote repository that contains the job artifacts.
-        /// </summary>
         public readonly string? Owner;
-        /// <summary>
-        /// The provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
-        /// </summary>
         public readonly string? Provider;
-        /// <summary>
-        /// The name of the remote repository that contains the job artifacts.
-        /// </summary>
         public readonly string? Repository;
 
         [OutputConstructor]

@@ -16,137 +16,49 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCoreNetworkPolicyDocumentSegmentAction {
-    /**
-     * @return Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via`, `send-to`, and `associate-routing-policy` (available in policy version `2025.11` and later).
-     * 
-     */
     private String action;
-    /**
-     * @return A user-defined string describing the segment action.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return List of strings containing CIDRs. You can define the IPv4 and IPv6 CIDR notation for each AWS Region. For example, `10.1.0.0/16` or `2001:db8::/56`. This is an array of CIDR notation strings.
-     * 
-     */
     private @Nullable List<String> destinationCidrBlocks;
-    /**
-     * @return A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment ids.
-     * 
-     */
     private @Nullable List<String> destinations;
-    /**
-     * @return Associates routing policies with specific edge location pairs. Available in policy version `2025.11` and later. Detailed below.
-     * 
-     */
     private @Nullable GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation edgeLocationAssociation;
-    /**
-     * @return String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `shareWith` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
-     * 
-     */
     private @Nullable String mode;
-    /**
-     * @return Name of the segment.
-     * 
-     */
     private String segment;
-    /**
-     * @return A set subtraction of segments to not share with.
-     * 
-     */
     private @Nullable List<String> shareWithExcepts;
-    /**
-     * @return A list of strings to share with. Must be a substring is all segments. Valid values include: `[&#34;*&#34;]` or `[&#34;&lt;segment-names&gt;&#34;]`.
-     * 
-     */
     private @Nullable List<String> shareWiths;
-    /**
-     * @return The network function groups and any edge overrides associated with the action.
-     * 
-     */
     private @Nullable GetCoreNetworkPolicyDocumentSegmentActionVia via;
-    /**
-     * @return The destination segments for the `send-via` or `send-to` `action`.
-     * 
-     */
     private @Nullable GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo whenSentTo;
 
     private GetCoreNetworkPolicyDocumentSegmentAction() {}
-    /**
-     * @return Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via`, `send-to`, and `associate-routing-policy` (available in policy version `2025.11` and later).
-     * 
-     */
     public String action() {
         return this.action;
     }
-    /**
-     * @return A user-defined string describing the segment action.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return List of strings containing CIDRs. You can define the IPv4 and IPv6 CIDR notation for each AWS Region. For example, `10.1.0.0/16` or `2001:db8::/56`. This is an array of CIDR notation strings.
-     * 
-     */
     public List<String> destinationCidrBlocks() {
         return this.destinationCidrBlocks == null ? List.of() : this.destinationCidrBlocks;
     }
-    /**
-     * @return A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment ids.
-     * 
-     */
     public List<String> destinations() {
         return this.destinations == null ? List.of() : this.destinations;
     }
-    /**
-     * @return Associates routing policies with specific edge location pairs. Available in policy version `2025.11` and later. Detailed below.
-     * 
-     */
     public Optional<GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation> edgeLocationAssociation() {
         return Optional.ofNullable(this.edgeLocationAssociation);
     }
-    /**
-     * @return String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `shareWith` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
-     * 
-     */
     public Optional<String> mode() {
         return Optional.ofNullable(this.mode);
     }
-    /**
-     * @return Name of the segment.
-     * 
-     */
     public String segment() {
         return this.segment;
     }
-    /**
-     * @return A set subtraction of segments to not share with.
-     * 
-     */
     public List<String> shareWithExcepts() {
         return this.shareWithExcepts == null ? List.of() : this.shareWithExcepts;
     }
-    /**
-     * @return A list of strings to share with. Must be a substring is all segments. Valid values include: `[&#34;*&#34;]` or `[&#34;&lt;segment-names&gt;&#34;]`.
-     * 
-     */
     public List<String> shareWiths() {
         return this.shareWiths == null ? List.of() : this.shareWiths;
     }
-    /**
-     * @return The network function groups and any edge overrides associated with the action.
-     * 
-     */
     public Optional<GetCoreNetworkPolicyDocumentSegmentActionVia> via() {
         return Optional.ofNullable(this.via);
     }
-    /**
-     * @return The destination segments for the `send-via` or `send-to` `action`.
-     * 
-     */
     public Optional<GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo> whenSentTo() {
         return Optional.ofNullable(this.whenSentTo);
     }

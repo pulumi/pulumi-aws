@@ -11,43 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
-//
-// ## Example Usage
-//
-// ### Root volume Example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/fsx"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fsx.LookupOpenZfsSnapshot(ctx, &fsx.LookupOpenZfsSnapshotArgs{
-//				MostRecent: pulumi.BoolRef(true),
-//				Filters: []fsx.GetOpenZfsSnapshotFilter{
-//					{
-//						Name: "volume-id",
-//						Values: []string{
-//							"fsvol-073a32b6098a73feb",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupOpenZfsSnapshot(ctx *pulumi.Context, args *LookupOpenZfsSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupOpenZfsSnapshotResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOpenZfsSnapshotResult
@@ -60,41 +23,28 @@ func LookupOpenZfsSnapshot(ctx *pulumi.Context, args *LookupOpenZfsSnapshotArgs,
 
 // A collection of arguments for invoking getOpenZfsSnapshot.
 type LookupOpenZfsSnapshotArgs struct {
-	// One or more name/value pairs to filter off of. The
-	// supported names are file-system-id or volume-id.
-	Filters []GetOpenZfsSnapshotFilter `pulumi:"filters"`
-	// If more than one result is returned, use the most recent snapshot.
-	MostRecent *bool `pulumi:"mostRecent"`
-	// Name of the snapshot.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Returns information on a specific snapshot_id.
-	SnapshotIds []string `pulumi:"snapshotIds"`
-	// List of Tag values, with a maximum of 50 elements.
-	Tags map[string]string `pulumi:"tags"`
+	Filters     []GetOpenZfsSnapshotFilter `pulumi:"filters"`
+	MostRecent  *bool                      `pulumi:"mostRecent"`
+	Name        *string                    `pulumi:"name"`
+	Region      *string                    `pulumi:"region"`
+	SnapshotIds []string                   `pulumi:"snapshotIds"`
+	Tags        map[string]string          `pulumi:"tags"`
 }
 
 // A collection of values returned by getOpenZfsSnapshot.
 type LookupOpenZfsSnapshotResult struct {
-	// Amazon Resource Name of the snapshot.
-	Arn string `pulumi:"arn"`
-	// Time that the resource was created.
+	Arn          string                     `pulumi:"arn"`
 	CreationTime string                     `pulumi:"creationTime"`
 	Filters      []GetOpenZfsSnapshotFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	MostRecent *bool  `pulumi:"mostRecent"`
-	// Name of the snapshot.
-	Name   *string `pulumi:"name"`
-	Region string  `pulumi:"region"`
-	// ID of the snapshot.
-	SnapshotId  string   `pulumi:"snapshotId"`
-	SnapshotIds []string `pulumi:"snapshotIds"`
-	// List of Tag values, with a maximum of 50 elements.
-	Tags map[string]string `pulumi:"tags"`
-	// ID of the volume that the snapshot is of.
-	VolumeId string `pulumi:"volumeId"`
+	Id          string            `pulumi:"id"`
+	MostRecent  *bool             `pulumi:"mostRecent"`
+	Name        *string           `pulumi:"name"`
+	Region      string            `pulumi:"region"`
+	SnapshotId  string            `pulumi:"snapshotId"`
+	SnapshotIds []string          `pulumi:"snapshotIds"`
+	Tags        map[string]string `pulumi:"tags"`
+	VolumeId    string            `pulumi:"volumeId"`
 }
 
 func LookupOpenZfsSnapshotOutput(ctx *pulumi.Context, args LookupOpenZfsSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupOpenZfsSnapshotResultOutput {
@@ -108,19 +58,12 @@ func LookupOpenZfsSnapshotOutput(ctx *pulumi.Context, args LookupOpenZfsSnapshot
 
 // A collection of arguments for invoking getOpenZfsSnapshot.
 type LookupOpenZfsSnapshotOutputArgs struct {
-	// One or more name/value pairs to filter off of. The
-	// supported names are file-system-id or volume-id.
-	Filters GetOpenZfsSnapshotFilterArrayInput `pulumi:"filters"`
-	// If more than one result is returned, use the most recent snapshot.
-	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
-	// Name of the snapshot.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Returns information on a specific snapshot_id.
-	SnapshotIds pulumi.StringArrayInput `pulumi:"snapshotIds"`
-	// List of Tag values, with a maximum of 50 elements.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Filters     GetOpenZfsSnapshotFilterArrayInput `pulumi:"filters"`
+	MostRecent  pulumi.BoolPtrInput                `pulumi:"mostRecent"`
+	Name        pulumi.StringPtrInput              `pulumi:"name"`
+	Region      pulumi.StringPtrInput              `pulumi:"region"`
+	SnapshotIds pulumi.StringArrayInput            `pulumi:"snapshotIds"`
+	Tags        pulumi.StringMapInput              `pulumi:"tags"`
 }
 
 func (LookupOpenZfsSnapshotOutputArgs) ElementType() reflect.Type {
@@ -142,12 +85,10 @@ func (o LookupOpenZfsSnapshotResultOutput) ToLookupOpenZfsSnapshotResultOutputWi
 	return o
 }
 
-// Amazon Resource Name of the snapshot.
 func (o LookupOpenZfsSnapshotResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOpenZfsSnapshotResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Time that the resource was created.
 func (o LookupOpenZfsSnapshotResultOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOpenZfsSnapshotResult) string { return v.CreationTime }).(pulumi.StringOutput)
 }
@@ -165,7 +106,6 @@ func (o LookupOpenZfsSnapshotResultOutput) MostRecent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupOpenZfsSnapshotResult) *bool { return v.MostRecent }).(pulumi.BoolPtrOutput)
 }
 
-// Name of the snapshot.
 func (o LookupOpenZfsSnapshotResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOpenZfsSnapshotResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -174,7 +114,6 @@ func (o LookupOpenZfsSnapshotResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOpenZfsSnapshotResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// ID of the snapshot.
 func (o LookupOpenZfsSnapshotResultOutput) SnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOpenZfsSnapshotResult) string { return v.SnapshotId }).(pulumi.StringOutput)
 }
@@ -183,12 +122,10 @@ func (o LookupOpenZfsSnapshotResultOutput) SnapshotIds() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v LookupOpenZfsSnapshotResult) []string { return v.SnapshotIds }).(pulumi.StringArrayOutput)
 }
 
-// List of Tag values, with a maximum of 50 elements.
 func (o LookupOpenZfsSnapshotResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupOpenZfsSnapshotResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// ID of the volume that the snapshot is of.
 func (o LookupOpenZfsSnapshotResultOutput) VolumeId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOpenZfsSnapshotResult) string { return v.VolumeId }).(pulumi.StringOutput)
 }

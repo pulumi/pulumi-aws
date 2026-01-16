@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Rbin.Outputs
     [OutputType]
     public sealed class RuleLockConfigurationUnlockDelay
     {
-        /// <summary>
-        /// Unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
-        /// </summary>
         public readonly string UnlockDelayUnit;
-        /// <summary>
-        /// Unlock delay period, measured in the unit specified for UnlockDelayUnit.
-        /// </summary>
         public readonly int UnlockDelayValue;
 
         [OutputConstructor]

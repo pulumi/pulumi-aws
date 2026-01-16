@@ -16,154 +16,72 @@ public final class GetListenerRuleActionAuthenticateOidcArgs extends com.pulumi.
 
     public static final GetListenerRuleActionAuthenticateOidcArgs Empty = new GetListenerRuleActionAuthenticateOidcArgs();
 
-    /**
-     * Set of additional parameters for the request.
-     * Detailed below.
-     * 
-     */
     @Import(name="authenticationRequestExtraParams", required=true)
     private Output<Map<String,String>> authenticationRequestExtraParams;
 
-    /**
-     * @return Set of additional parameters for the request.
-     * Detailed below.
-     * 
-     */
     public Output<Map<String,String>> authenticationRequestExtraParams() {
         return this.authenticationRequestExtraParams;
     }
 
-    /**
-     * The authorization endpoint of the IdP.
-     * 
-     */
     @Import(name="authorizationEndpoint", required=true)
     private Output<String> authorizationEndpoint;
 
-    /**
-     * @return The authorization endpoint of the IdP.
-     * 
-     */
     public Output<String> authorizationEndpoint() {
         return this.authorizationEndpoint;
     }
 
-    /**
-     * OAuth 2.0 client identifier.
-     * 
-     */
     @Import(name="clientId", required=true)
     private Output<String> clientId;
 
-    /**
-     * @return OAuth 2.0 client identifier.
-     * 
-     */
     public Output<String> clientId() {
         return this.clientId;
     }
 
-    /**
-     * Issuer of the JWT.
-     * 
-     */
     @Import(name="issuer", required=true)
     private Output<String> issuer;
 
-    /**
-     * @return Issuer of the JWT.
-     * 
-     */
     public Output<String> issuer() {
         return this.issuer;
     }
 
-    /**
-     * Behavior when the client is not authenticated.
-     * 
-     */
     @Import(name="onUnauthenticatedRequest", required=true)
     private Output<String> onUnauthenticatedRequest;
 
-    /**
-     * @return Behavior when the client is not authenticated.
-     * 
-     */
     public Output<String> onUnauthenticatedRequest() {
         return this.onUnauthenticatedRequest;
     }
 
-    /**
-     * Set of user claims requested.
-     * 
-     */
     @Import(name="scope", required=true)
     private Output<String> scope;
 
-    /**
-     * @return Set of user claims requested.
-     * 
-     */
     public Output<String> scope() {
         return this.scope;
     }
 
-    /**
-     * Name of the cookie used to maintain session information.
-     * 
-     */
     @Import(name="sessionCookieName", required=true)
     private Output<String> sessionCookieName;
 
-    /**
-     * @return Name of the cookie used to maintain session information.
-     * 
-     */
     public Output<String> sessionCookieName() {
         return this.sessionCookieName;
     }
 
-    /**
-     * Maximum duration of the authentication session in seconds.
-     * 
-     */
     @Import(name="sessionTimeout", required=true)
     private Output<Integer> sessionTimeout;
 
-    /**
-     * @return Maximum duration of the authentication session in seconds.
-     * 
-     */
     public Output<Integer> sessionTimeout() {
         return this.sessionTimeout;
     }
 
-    /**
-     * The token endpoint of the IdP.
-     * 
-     */
     @Import(name="tokenEndpoint", required=true)
     private Output<String> tokenEndpoint;
 
-    /**
-     * @return The token endpoint of the IdP.
-     * 
-     */
     public Output<String> tokenEndpoint() {
         return this.tokenEndpoint;
     }
 
-    /**
-     * The user info endpoint of the IdP.
-     * 
-     */
     @Import(name="userInfoEndpoint", required=true)
     private Output<String> userInfoEndpoint;
 
-    /**
-     * @return The user info endpoint of the IdP.
-     * 
-     */
     public Output<String> userInfoEndpoint() {
         return this.userInfoEndpoint;
     }
@@ -201,214 +119,92 @@ public final class GetListenerRuleActionAuthenticateOidcArgs extends com.pulumi.
             $ = new GetListenerRuleActionAuthenticateOidcArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authenticationRequestExtraParams Set of additional parameters for the request.
-         * Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationRequestExtraParams(Output<Map<String,String>> authenticationRequestExtraParams) {
             $.authenticationRequestExtraParams = authenticationRequestExtraParams;
             return this;
         }
 
-        /**
-         * @param authenticationRequestExtraParams Set of additional parameters for the request.
-         * Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationRequestExtraParams(Map<String,String> authenticationRequestExtraParams) {
             return authenticationRequestExtraParams(Output.of(authenticationRequestExtraParams));
         }
 
-        /**
-         * @param authorizationEndpoint The authorization endpoint of the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationEndpoint(Output<String> authorizationEndpoint) {
             $.authorizationEndpoint = authorizationEndpoint;
             return this;
         }
 
-        /**
-         * @param authorizationEndpoint The authorization endpoint of the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationEndpoint(String authorizationEndpoint) {
             return authorizationEndpoint(Output.of(authorizationEndpoint));
         }
 
-        /**
-         * @param clientId OAuth 2.0 client identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientId(Output<String> clientId) {
             $.clientId = clientId;
             return this;
         }
 
-        /**
-         * @param clientId OAuth 2.0 client identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientId(String clientId) {
             return clientId(Output.of(clientId));
         }
 
-        /**
-         * @param issuer Issuer of the JWT.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issuer(Output<String> issuer) {
             $.issuer = issuer;
             return this;
         }
 
-        /**
-         * @param issuer Issuer of the JWT.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issuer(String issuer) {
             return issuer(Output.of(issuer));
         }
 
-        /**
-         * @param onUnauthenticatedRequest Behavior when the client is not authenticated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onUnauthenticatedRequest(Output<String> onUnauthenticatedRequest) {
             $.onUnauthenticatedRequest = onUnauthenticatedRequest;
             return this;
         }
 
-        /**
-         * @param onUnauthenticatedRequest Behavior when the client is not authenticated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onUnauthenticatedRequest(String onUnauthenticatedRequest) {
             return onUnauthenticatedRequest(Output.of(onUnauthenticatedRequest));
         }
 
-        /**
-         * @param scope Set of user claims requested.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scope(Output<String> scope) {
             $.scope = scope;
             return this;
         }
 
-        /**
-         * @param scope Set of user claims requested.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scope(String scope) {
             return scope(Output.of(scope));
         }
 
-        /**
-         * @param sessionCookieName Name of the cookie used to maintain session information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sessionCookieName(Output<String> sessionCookieName) {
             $.sessionCookieName = sessionCookieName;
             return this;
         }
 
-        /**
-         * @param sessionCookieName Name of the cookie used to maintain session information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sessionCookieName(String sessionCookieName) {
             return sessionCookieName(Output.of(sessionCookieName));
         }
 
-        /**
-         * @param sessionTimeout Maximum duration of the authentication session in seconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sessionTimeout(Output<Integer> sessionTimeout) {
             $.sessionTimeout = sessionTimeout;
             return this;
         }
 
-        /**
-         * @param sessionTimeout Maximum duration of the authentication session in seconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sessionTimeout(Integer sessionTimeout) {
             return sessionTimeout(Output.of(sessionTimeout));
         }
 
-        /**
-         * @param tokenEndpoint The token endpoint of the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tokenEndpoint(Output<String> tokenEndpoint) {
             $.tokenEndpoint = tokenEndpoint;
             return this;
         }
 
-        /**
-         * @param tokenEndpoint The token endpoint of the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tokenEndpoint(String tokenEndpoint) {
             return tokenEndpoint(Output.of(tokenEndpoint));
         }
 
-        /**
-         * @param userInfoEndpoint The user info endpoint of the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userInfoEndpoint(Output<String> userInfoEndpoint) {
             $.userInfoEndpoint = userInfoEndpoint;
             return this;
         }
 
-        /**
-         * @param userInfoEndpoint The user info endpoint of the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userInfoEndpoint(String userInfoEndpoint) {
             return userInfoEndpoint(Output.of(userInfoEndpoint));
         }

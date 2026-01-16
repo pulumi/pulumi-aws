@@ -13,136 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a CodeBuild Resource Policy Resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.codebuild.ReportGroup;
- * import com.pulumi.aws.codebuild.ReportGroupArgs;
- * import com.pulumi.aws.codebuild.inputs.ReportGroupExportConfigArgs;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetPartitionArgs;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.codebuild.ResourcePolicy;
- * import com.pulumi.aws.codebuild.ResourcePolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ReportGroup("example", ReportGroupArgs.builder()
- *             .name("example")
- *             .type("TEST")
- *             .exportConfig(ReportGroupExportConfigArgs.builder()
- *                 .type("NO_EXPORT")
- *                 .build())
- *             .build());
- * 
- *         final var current = AwsFunctions.getPartition(GetPartitionArgs.builder()
- *             .build());
- * 
- *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         var exampleResourcePolicy = new ResourcePolicy("exampleResourcePolicy", ResourcePolicyArgs.builder()
- *             .resourceArn(example.arn())
- *             .policy(example.arn().applyValue(_arn -> serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Version", "2012-10-17"),
- *                     jsonProperty("Id", "default"),
- *                     jsonProperty("Statement", jsonArray(jsonObject(
- *                         jsonProperty("Sid", "default"),
- *                         jsonProperty("Effect", "Allow"),
- *                         jsonProperty("Principal", jsonObject(
- *                             jsonProperty("AWS", String.format("arn:%s:iam::%s:root", current.partition(),currentGetCallerIdentity.accountId()))
- *                         )),
- *                         jsonProperty("Action", jsonArray(
- *                             "codebuild:BatchGetReportGroups", 
- *                             "codebuild:BatchGetReports", 
- *                             "codebuild:ListReportsForReportGroup", 
- *                             "codebuild:DescribeTestCases"
- *                         )),
- *                         jsonProperty("Resource", _arn)
- *                     )))
- *                 ))))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild resource.
- * 
- * Using `pulumi import`, import CodeBuild Resource Policy using the CodeBuild Resource Policy arn. For example:
- * 
- * % pulumi import aws_codebuild_resource_policy.example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
- * 
- */
 @ResourceType(type="aws:codebuild/resourcePolicy:ResourcePolicy")
 public class ResourcePolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * A JSON-formatted resource policy. For more information, see [Sharing a Projec](https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share) and [Sharing a Report Group](https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share).
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return A JSON-formatted resource policy. For more information, see [Sharing a Projec](https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share) and [Sharing a Report Group](https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share).
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The ARN of the Project or ReportGroup resource you want to associate with a resource policy.
-     * 
-     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
-    /**
-     * @return The ARN of the Project or ReportGroup resource you want to associate with a resource policy.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }

@@ -18,62 +18,30 @@ public final class ClusterCapacityProvidersArgs extends com.pulumi.resources.Res
 
     public static final ClusterCapacityProvidersArgs Empty = new ClusterCapacityProvidersArgs();
 
-    /**
-     * Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-     * 
-     */
     @Import(name="capacityProviders")
     private @Nullable Output<List<String>> capacityProviders;
 
-    /**
-     * @return Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-     * 
-     */
     public Optional<Output<List<String>>> capacityProviders() {
         return Optional.ofNullable(this.capacityProviders);
     }
 
-    /**
-     * Name of the ECS cluster to manage capacity providers for.
-     * 
-     */
     @Import(name="clusterName", required=true)
     private Output<String> clusterName;
 
-    /**
-     * @return Name of the ECS cluster to manage capacity providers for.
-     * 
-     */
     public Output<String> clusterName() {
         return this.clusterName;
     }
 
-    /**
-     * Set of capacity provider strategies to use by default for the cluster. Detailed below.
-     * 
-     */
     @Import(name="defaultCapacityProviderStrategies")
     private @Nullable Output<List<ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs>> defaultCapacityProviderStrategies;
 
-    /**
-     * @return Set of capacity provider strategies to use by default for the cluster. Detailed below.
-     * 
-     */
     public Optional<Output<List<ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs>>> defaultCapacityProviderStrategies() {
         return Optional.ofNullable(this.defaultCapacityProviderStrategies);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -105,106 +73,46 @@ public final class ClusterCapacityProvidersArgs extends com.pulumi.resources.Res
             $ = new ClusterCapacityProvidersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param capacityProviders Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityProviders(@Nullable Output<List<String>> capacityProviders) {
             $.capacityProviders = capacityProviders;
             return this;
         }
 
-        /**
-         * @param capacityProviders Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityProviders(List<String> capacityProviders) {
             return capacityProviders(Output.of(capacityProviders));
         }
 
-        /**
-         * @param capacityProviders Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityProviders(String... capacityProviders) {
             return capacityProviders(List.of(capacityProviders));
         }
 
-        /**
-         * @param clusterName Name of the ECS cluster to manage capacity providers for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterName(Output<String> clusterName) {
             $.clusterName = clusterName;
             return this;
         }
 
-        /**
-         * @param clusterName Name of the ECS cluster to manage capacity providers for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterName(String clusterName) {
             return clusterName(Output.of(clusterName));
         }
 
-        /**
-         * @param defaultCapacityProviderStrategies Set of capacity provider strategies to use by default for the cluster. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultCapacityProviderStrategies(@Nullable Output<List<ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs>> defaultCapacityProviderStrategies) {
             $.defaultCapacityProviderStrategies = defaultCapacityProviderStrategies;
             return this;
         }
 
-        /**
-         * @param defaultCapacityProviderStrategies Set of capacity provider strategies to use by default for the cluster. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultCapacityProviderStrategies(List<ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs> defaultCapacityProviderStrategies) {
             return defaultCapacityProviderStrategies(Output.of(defaultCapacityProviderStrategies));
         }
 
-        /**
-         * @param defaultCapacityProviderStrategies Set of capacity provider strategies to use by default for the cluster. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultCapacityProviderStrategies(ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs... defaultCapacityProviderStrategies) {
             return defaultCapacityProviderStrategies(List.of(defaultCapacityProviderStrategies));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

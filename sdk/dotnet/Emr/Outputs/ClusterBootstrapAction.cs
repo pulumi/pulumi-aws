@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Emr.Outputs
     [OutputType]
     public sealed class ClusterBootstrapAction
     {
-        /// <summary>
-        /// List of command line arguments to pass to the bootstrap action script.
-        /// </summary>
         public readonly ImmutableArray<string> Args;
-        /// <summary>
-        /// Name of the bootstrap action.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.
-        /// </summary>
         public readonly string Path;
 
         [OutputConstructor]

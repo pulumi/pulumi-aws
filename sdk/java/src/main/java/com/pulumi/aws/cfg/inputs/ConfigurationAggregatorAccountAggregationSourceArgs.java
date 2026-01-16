@@ -18,51 +18,23 @@ public final class ConfigurationAggregatorAccountAggregationSourceArgs extends c
 
     public static final ConfigurationAggregatorAccountAggregationSourceArgs Empty = new ConfigurationAggregatorAccountAggregationSourceArgs();
 
-    /**
-     * List of 12-digit account IDs of the account(s) being aggregated.
-     * 
-     */
     @Import(name="accountIds", required=true)
     private Output<List<String>> accountIds;
 
-    /**
-     * @return List of 12-digit account IDs of the account(s) being aggregated.
-     * 
-     */
     public Output<List<String>> accountIds() {
         return this.accountIds;
     }
 
-    /**
-     * If true, aggregate existing AWS Config regions and future regions.
-     * 
-     */
     @Import(name="allRegions")
     private @Nullable Output<Boolean> allRegions;
 
-    /**
-     * @return If true, aggregate existing AWS Config regions and future regions.
-     * 
-     */
     public Optional<Output<Boolean>> allRegions() {
         return Optional.ofNullable(this.allRegions);
     }
 
-    /**
-     * List of source regions being aggregated.
-     * 
-     * Either `regions` or `allRegions` (as true) must be specified.
-     * 
-     */
     @Import(name="regions")
     private @Nullable Output<List<String>> regions;
 
-    /**
-     * @return List of source regions being aggregated.
-     * 
-     * Either `regions` or `allRegions` (as true) must be specified.
-     * 
-     */
     public Optional<Output<List<String>>> regions() {
         return Optional.ofNullable(this.regions);
     }
@@ -93,91 +65,37 @@ public final class ConfigurationAggregatorAccountAggregationSourceArgs extends c
             $ = new ConfigurationAggregatorAccountAggregationSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountIds List of 12-digit account IDs of the account(s) being aggregated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountIds(Output<List<String>> accountIds) {
             $.accountIds = accountIds;
             return this;
         }
 
-        /**
-         * @param accountIds List of 12-digit account IDs of the account(s) being aggregated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountIds(List<String> accountIds) {
             return accountIds(Output.of(accountIds));
         }
 
-        /**
-         * @param accountIds List of 12-digit account IDs of the account(s) being aggregated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountIds(String... accountIds) {
             return accountIds(List.of(accountIds));
         }
 
-        /**
-         * @param allRegions If true, aggregate existing AWS Config regions and future regions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allRegions(@Nullable Output<Boolean> allRegions) {
             $.allRegions = allRegions;
             return this;
         }
 
-        /**
-         * @param allRegions If true, aggregate existing AWS Config regions and future regions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allRegions(Boolean allRegions) {
             return allRegions(Output.of(allRegions));
         }
 
-        /**
-         * @param regions List of source regions being aggregated.
-         * 
-         * Either `regions` or `allRegions` (as true) must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(@Nullable Output<List<String>> regions) {
             $.regions = regions;
             return this;
         }
 
-        /**
-         * @param regions List of source regions being aggregated.
-         * 
-         * Either `regions` or `allRegions` (as true) must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(List<String> regions) {
             return regions(Output.of(regions));
         }
 
-        /**
-         * @param regions List of source regions being aggregated.
-         * 
-         * Either `regions` or `allRegions` (as true) must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(String... regions) {
             return regions(List.of(regions));
         }

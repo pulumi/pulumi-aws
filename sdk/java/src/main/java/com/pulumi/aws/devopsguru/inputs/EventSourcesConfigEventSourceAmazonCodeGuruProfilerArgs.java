@@ -14,17 +14,9 @@ public final class EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs exten
 
     public static final EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs Empty = new EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs();
 
-    /**
-     * Status of the CodeGuru Profiler integration. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     @Import(name="status", required=true)
     private Output<String> status;
 
-    /**
-     * @return Status of the CodeGuru Profiler integration. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
@@ -53,23 +45,11 @@ public final class EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs exten
             $ = new EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param status Status of the CodeGuru Profiler integration. Valid values are `ENABLED` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Status of the CodeGuru Profiler integration. Valid values are `ENABLED` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

@@ -13,19 +13,8 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     [OutputType]
     public sealed class GlobalSecondaryIndexKeySchema
     {
-        /// <summary>
-        /// Name of the attribute.
-        /// </summary>
         public readonly string AttributeName;
-        /// <summary>
-        /// Type of the attribute in the index.
-        /// Valid values are `S` (string), `N` (number), or `B` (binary).
-        /// </summary>
         public readonly string AttributeType;
-        /// <summary>
-        /// Key type.
-        /// Valid values are `HASH` or `RANGE`.
-        /// </summary>
         public readonly string KeyType;
 
         [OutputConstructor]

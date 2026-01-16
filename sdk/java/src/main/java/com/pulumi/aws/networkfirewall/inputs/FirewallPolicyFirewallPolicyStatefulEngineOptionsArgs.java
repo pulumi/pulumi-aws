@@ -16,47 +16,23 @@ public final class FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs extends
 
     public static final FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs Empty = new FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs();
 
-    /**
-     * Amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
-     * 
-     */
     @Import(name="flowTimeouts")
     private @Nullable Output<FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs> flowTimeouts;
 
-    /**
-     * @return Amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
-     * 
-     */
     public Optional<Output<FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs>> flowTimeouts() {
         return Optional.ofNullable(this.flowTimeouts);
     }
 
-    /**
-     * Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
-     * 
-     */
     @Import(name="ruleOrder")
     private @Nullable Output<String> ruleOrder;
 
-    /**
-     * @return Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
-     * 
-     */
     public Optional<Output<String>> ruleOrder() {
         return Optional.ofNullable(this.ruleOrder);
     }
 
-    /**
-     * Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
-     * 
-     */
     @Import(name="streamExceptionPolicy")
     private @Nullable Output<String> streamExceptionPolicy;
 
-    /**
-     * @return Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
-     * 
-     */
     public Optional<Output<String>> streamExceptionPolicy() {
         return Optional.ofNullable(this.streamExceptionPolicy);
     }
@@ -87,65 +63,29 @@ public final class FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs extends
             $ = new FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param flowTimeouts Amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
-         * 
-         * @return builder
-         * 
-         */
         public Builder flowTimeouts(@Nullable Output<FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs> flowTimeouts) {
             $.flowTimeouts = flowTimeouts;
             return this;
         }
 
-        /**
-         * @param flowTimeouts Amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
-         * 
-         * @return builder
-         * 
-         */
         public Builder flowTimeouts(FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs flowTimeouts) {
             return flowTimeouts(Output.of(flowTimeouts));
         }
 
-        /**
-         * @param ruleOrder Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleOrder(@Nullable Output<String> ruleOrder) {
             $.ruleOrder = ruleOrder;
             return this;
         }
 
-        /**
-         * @param ruleOrder Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleOrder(String ruleOrder) {
             return ruleOrder(Output.of(ruleOrder));
         }
 
-        /**
-         * @param streamExceptionPolicy Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder streamExceptionPolicy(@Nullable Output<String> streamExceptionPolicy) {
             $.streamExceptionPolicy = streamExceptionPolicy;
             return this;
         }
 
-        /**
-         * @param streamExceptionPolicy Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder streamExceptionPolicy(String streamExceptionPolicy) {
             return streamExceptionPolicy(Output.of(streamExceptionPolicy));
         }

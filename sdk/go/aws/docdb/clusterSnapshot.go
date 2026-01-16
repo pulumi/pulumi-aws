@@ -12,71 +12,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a DocumentDB database cluster snapshot for DocumentDB clusters.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/docdb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := docdb.NewClusterSnapshot(ctx, "example", &docdb.ClusterSnapshotArgs{
-//				DbClusterIdentifier:         pulumi.Any(exampleAwsDocdbCluster.Id),
-//				DbClusterSnapshotIdentifier: pulumi.String("resourcetestsnapshot1234"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_docdb_cluster_snapshot` using the cluster snapshot identifier. For example:
-//
-// ```sh
-// $ pulumi import aws:docdb/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
-// ```
 type ClusterSnapshot struct {
 	pulumi.CustomResourceState
 
-	// List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
-	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
-	// The DocumentDB Cluster Identifier from which to take the snapshot.
-	DbClusterIdentifier pulumi.StringOutput `pulumi:"dbClusterIdentifier"`
-	// The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
-	DbClusterSnapshotArn pulumi.StringOutput `pulumi:"dbClusterSnapshotArn"`
-	// The Identifier for the snapshot.
-	DbClusterSnapshotIdentifier pulumi.StringOutput `pulumi:"dbClusterSnapshotIdentifier"`
-	// Specifies the name of the database engine.
-	Engine pulumi.StringOutput `pulumi:"engine"`
-	// Version of the database engine for this DocumentDB cluster snapshot.
-	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
-	// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	// Port that the DocumentDB cluster was listening on at the time of the snapshot.
-	Port pulumi.IntOutput `pulumi:"port"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region                     pulumi.StringOutput `pulumi:"region"`
-	SnapshotType               pulumi.StringOutput `pulumi:"snapshotType"`
-	SourceDbClusterSnapshotArn pulumi.StringOutput `pulumi:"sourceDbClusterSnapshotArn"`
-	// The status of this DocumentDB Cluster Snapshot.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Specifies whether the DocumentDB cluster snapshot is encrypted.
-	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
-	// The VPC ID associated with the DocumentDB cluster snapshot.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	AvailabilityZones           pulumi.StringArrayOutput `pulumi:"availabilityZones"`
+	DbClusterIdentifier         pulumi.StringOutput      `pulumi:"dbClusterIdentifier"`
+	DbClusterSnapshotArn        pulumi.StringOutput      `pulumi:"dbClusterSnapshotArn"`
+	DbClusterSnapshotIdentifier pulumi.StringOutput      `pulumi:"dbClusterSnapshotIdentifier"`
+	Engine                      pulumi.StringOutput      `pulumi:"engine"`
+	EngineVersion               pulumi.StringOutput      `pulumi:"engineVersion"`
+	KmsKeyId                    pulumi.StringOutput      `pulumi:"kmsKeyId"`
+	Port                        pulumi.IntOutput         `pulumi:"port"`
+	Region                      pulumi.StringOutput      `pulumi:"region"`
+	SnapshotType                pulumi.StringOutput      `pulumi:"snapshotType"`
+	SourceDbClusterSnapshotArn  pulumi.StringOutput      `pulumi:"sourceDbClusterSnapshotArn"`
+	Status                      pulumi.StringOutput      `pulumi:"status"`
+	StorageEncrypted            pulumi.BoolOutput        `pulumi:"storageEncrypted"`
+	VpcId                       pulumi.StringOutput      `pulumi:"vpcId"`
 }
 
 // NewClusterSnapshot registers a new resource with the given unique name, arguments, and options.
@@ -115,61 +67,37 @@ func GetClusterSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ClusterSnapshot resources.
 type clusterSnapshotState struct {
-	// List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
-	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// The DocumentDB Cluster Identifier from which to take the snapshot.
-	DbClusterIdentifier *string `pulumi:"dbClusterIdentifier"`
-	// The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
-	DbClusterSnapshotArn *string `pulumi:"dbClusterSnapshotArn"`
-	// The Identifier for the snapshot.
-	DbClusterSnapshotIdentifier *string `pulumi:"dbClusterSnapshotIdentifier"`
-	// Specifies the name of the database engine.
-	Engine *string `pulumi:"engine"`
-	// Version of the database engine for this DocumentDB cluster snapshot.
-	EngineVersion *string `pulumi:"engineVersion"`
-	// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Port that the DocumentDB cluster was listening on at the time of the snapshot.
-	Port *int `pulumi:"port"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region                     *string `pulumi:"region"`
-	SnapshotType               *string `pulumi:"snapshotType"`
-	SourceDbClusterSnapshotArn *string `pulumi:"sourceDbClusterSnapshotArn"`
-	// The status of this DocumentDB Cluster Snapshot.
-	Status *string `pulumi:"status"`
-	// Specifies whether the DocumentDB cluster snapshot is encrypted.
-	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// The VPC ID associated with the DocumentDB cluster snapshot.
-	VpcId *string `pulumi:"vpcId"`
+	AvailabilityZones           []string `pulumi:"availabilityZones"`
+	DbClusterIdentifier         *string  `pulumi:"dbClusterIdentifier"`
+	DbClusterSnapshotArn        *string  `pulumi:"dbClusterSnapshotArn"`
+	DbClusterSnapshotIdentifier *string  `pulumi:"dbClusterSnapshotIdentifier"`
+	Engine                      *string  `pulumi:"engine"`
+	EngineVersion               *string  `pulumi:"engineVersion"`
+	KmsKeyId                    *string  `pulumi:"kmsKeyId"`
+	Port                        *int     `pulumi:"port"`
+	Region                      *string  `pulumi:"region"`
+	SnapshotType                *string  `pulumi:"snapshotType"`
+	SourceDbClusterSnapshotArn  *string  `pulumi:"sourceDbClusterSnapshotArn"`
+	Status                      *string  `pulumi:"status"`
+	StorageEncrypted            *bool    `pulumi:"storageEncrypted"`
+	VpcId                       *string  `pulumi:"vpcId"`
 }
 
 type ClusterSnapshotState struct {
-	// List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
-	AvailabilityZones pulumi.StringArrayInput
-	// The DocumentDB Cluster Identifier from which to take the snapshot.
-	DbClusterIdentifier pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
-	DbClusterSnapshotArn pulumi.StringPtrInput
-	// The Identifier for the snapshot.
+	AvailabilityZones           pulumi.StringArrayInput
+	DbClusterIdentifier         pulumi.StringPtrInput
+	DbClusterSnapshotArn        pulumi.StringPtrInput
 	DbClusterSnapshotIdentifier pulumi.StringPtrInput
-	// Specifies the name of the database engine.
-	Engine pulumi.StringPtrInput
-	// Version of the database engine for this DocumentDB cluster snapshot.
-	EngineVersion pulumi.StringPtrInput
-	// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
-	KmsKeyId pulumi.StringPtrInput
-	// Port that the DocumentDB cluster was listening on at the time of the snapshot.
-	Port pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region                     pulumi.StringPtrInput
-	SnapshotType               pulumi.StringPtrInput
-	SourceDbClusterSnapshotArn pulumi.StringPtrInput
-	// The status of this DocumentDB Cluster Snapshot.
-	Status pulumi.StringPtrInput
-	// Specifies whether the DocumentDB cluster snapshot is encrypted.
-	StorageEncrypted pulumi.BoolPtrInput
-	// The VPC ID associated with the DocumentDB cluster snapshot.
-	VpcId pulumi.StringPtrInput
+	Engine                      pulumi.StringPtrInput
+	EngineVersion               pulumi.StringPtrInput
+	KmsKeyId                    pulumi.StringPtrInput
+	Port                        pulumi.IntPtrInput
+	Region                      pulumi.StringPtrInput
+	SnapshotType                pulumi.StringPtrInput
+	SourceDbClusterSnapshotArn  pulumi.StringPtrInput
+	Status                      pulumi.StringPtrInput
+	StorageEncrypted            pulumi.BoolPtrInput
+	VpcId                       pulumi.StringPtrInput
 }
 
 func (ClusterSnapshotState) ElementType() reflect.Type {
@@ -177,22 +105,16 @@ func (ClusterSnapshotState) ElementType() reflect.Type {
 }
 
 type clusterSnapshotArgs struct {
-	// The DocumentDB Cluster Identifier from which to take the snapshot.
-	DbClusterIdentifier string `pulumi:"dbClusterIdentifier"`
-	// The Identifier for the snapshot.
-	DbClusterSnapshotIdentifier string `pulumi:"dbClusterSnapshotIdentifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	DbClusterIdentifier         string  `pulumi:"dbClusterIdentifier"`
+	DbClusterSnapshotIdentifier string  `pulumi:"dbClusterSnapshotIdentifier"`
+	Region                      *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ClusterSnapshot resource.
 type ClusterSnapshotArgs struct {
-	// The DocumentDB Cluster Identifier from which to take the snapshot.
-	DbClusterIdentifier pulumi.StringInput
-	// The Identifier for the snapshot.
+	DbClusterIdentifier         pulumi.StringInput
 	DbClusterSnapshotIdentifier pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region                      pulumi.StringPtrInput
 }
 
 func (ClusterSnapshotArgs) ElementType() reflect.Type {
@@ -282,47 +204,38 @@ func (o ClusterSnapshotOutput) ToClusterSnapshotOutputWithContext(ctx context.Co
 	return o
 }
 
-// List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
 func (o ClusterSnapshotOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringArrayOutput { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-// The DocumentDB Cluster Identifier from which to take the snapshot.
 func (o ClusterSnapshotOutput) DbClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.DbClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
 func (o ClusterSnapshotOutput) DbClusterSnapshotArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.DbClusterSnapshotArn }).(pulumi.StringOutput)
 }
 
-// The Identifier for the snapshot.
 func (o ClusterSnapshotOutput) DbClusterSnapshotIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.DbClusterSnapshotIdentifier }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the database engine.
 func (o ClusterSnapshotOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
 }
 
-// Version of the database engine for this DocumentDB cluster snapshot.
 func (o ClusterSnapshotOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }
 
-// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
 func (o ClusterSnapshotOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// Port that the DocumentDB cluster was listening on at the time of the snapshot.
 func (o ClusterSnapshotOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ClusterSnapshotOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -335,17 +248,14 @@ func (o ClusterSnapshotOutput) SourceDbClusterSnapshotArn() pulumi.StringOutput 
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.SourceDbClusterSnapshotArn }).(pulumi.StringOutput)
 }
 
-// The status of this DocumentDB Cluster Snapshot.
 func (o ClusterSnapshotOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Specifies whether the DocumentDB cluster snapshot is encrypted.
 func (o ClusterSnapshotOutput) StorageEncrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.BoolOutput { return v.StorageEncrypted }).(pulumi.BoolOutput)
 }
 
-// The VPC ID associated with the DocumentDB cluster snapshot.
 func (o ClusterSnapshotOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

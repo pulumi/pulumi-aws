@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AutoScaling.Inputs
 
     public sealed class GroupInstanceMaintenancePolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
-        /// </summary>
         [Input("maxHealthyPercentage", required: true)]
         public Input<int> MaxHealthyPercentage { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
-        /// </summary>
         [Input("minHealthyPercentage", required: true)]
         public Input<int> MinHealthyPercentage { get; set; } = null!;
 

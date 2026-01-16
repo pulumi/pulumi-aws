@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Synthetics.Inputs
 
     public sealed class CanaryVpcConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// If `True`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `False`.
-        /// </summary>
         [Input("ipv6AllowedForDualStack")]
         public Input<bool>? Ipv6AllowedForDualStack { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// IDs of the security groups for this canary.
-        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -32,19 +25,12 @@ namespace Pulumi.Aws.Synthetics.Inputs
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// IDs of the subnets where this canary is to run.
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
             set => _subnetIds = value;
         }
 
-        /// <summary>
-        /// ID of the VPC where this canary is to run.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

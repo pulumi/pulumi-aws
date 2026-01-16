@@ -13,20 +13,8 @@ import java.util.Objects;
 
 @CustomType
 public final class GetWorkgroupResult {
-    /**
-     * @return Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
-     * 
-     */
     private String arn;
-    /**
-     * @return The endpoint that is created from the workgroup. See `Endpoint` below.
-     * 
-     */
     private List<GetWorkgroupEndpoint> endpoints;
-    /**
-     * @return The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
-     * 
-     */
     private Boolean enhancedVpcRouting;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -34,53 +22,21 @@ public final class GetWorkgroupResult {
      */
     private String id;
     private String namespaceName;
-    /**
-     * @return A value that specifies whether the workgroup can be accessed from a public network.
-     * 
-     */
     private Boolean publiclyAccessible;
     private String region;
-    /**
-     * @return An array of security group IDs to associate with the workgroup.
-     * 
-     */
     private List<String> securityGroupIds;
-    /**
-     * @return An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
-     * 
-     */
     private List<String> subnetIds;
-    /**
-     * @return The name of the track for the workgroup.
-     * 
-     */
     private String trackName;
-    /**
-     * @return The Redshift Workgroup ID.
-     * 
-     */
     private String workgroupId;
     private String workgroupName;
 
     private GetWorkgroupResult() {}
-    /**
-     * @return Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The endpoint that is created from the workgroup. See `Endpoint` below.
-     * 
-     */
     public List<GetWorkgroupEndpoint> endpoints() {
         return this.endpoints;
     }
-    /**
-     * @return The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
-     * 
-     */
     public Boolean enhancedVpcRouting() {
         return this.enhancedVpcRouting;
     }
@@ -94,41 +50,21 @@ public final class GetWorkgroupResult {
     public String namespaceName() {
         return this.namespaceName;
     }
-    /**
-     * @return A value that specifies whether the workgroup can be accessed from a public network.
-     * 
-     */
     public Boolean publiclyAccessible() {
         return this.publiclyAccessible;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return An array of security group IDs to associate with the workgroup.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * @return An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
-    /**
-     * @return The name of the track for the workgroup.
-     * 
-     */
     public String trackName() {
         return this.trackName;
     }
-    /**
-     * @return The Redshift Workgroup ID.
-     * 
-     */
     public String workgroupId() {
         return this.workgroupId;
     }

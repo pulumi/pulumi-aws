@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an EC2 Carrier Gateway. See the AWS [documentation](https://docs.aws.amazon.com/vpc/latest/userguide/Carrier_Gateway.html) for more information.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.CarrierGateway("example", {
- *     vpcId: exampleAwsVpc.id,
- *     tags: {
- *         Name: "example-carrier-gateway",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_ec2_carrier_gateway` using the carrier gateway's ID. For example:
- *
- * ```sh
- * $ pulumi import aws:ec2/carrierGateway:CarrierGateway example cgw-12345
- * ```
- */
 export class CarrierGateway extends pulumi.CustomResource {
     /**
      * Get an existing CarrierGateway resource's state with the given name, ID, and optional extra
@@ -57,29 +32,11 @@ export class CarrierGateway extends pulumi.CustomResource {
         return obj['__pulumiType'] === CarrierGateway.__pulumiType;
     }
 
-    /**
-     * The ARN of the carrier gateway.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The AWS account ID of the owner of the carrier gateway.
-     */
     declare public /*out*/ readonly ownerId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The ID of the VPC to associate with the carrier gateway.
-     */
     declare public readonly vpcId: pulumi.Output<string>;
 
     /**
@@ -122,29 +79,11 @@ export class CarrierGateway extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CarrierGateway resources.
  */
 export interface CarrierGatewayState {
-    /**
-     * The ARN of the carrier gateway.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The AWS account ID of the owner of the carrier gateway.
-     */
     ownerId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The ID of the VPC to associate with the carrier gateway.
-     */
     vpcId?: pulumi.Input<string>;
 }
 
@@ -152,16 +91,7 @@ export interface CarrierGatewayState {
  * The set of arguments for constructing a CarrierGateway resource.
  */
 export interface CarrierGatewayArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The ID of the VPC to associate with the carrier gateway.
-     */
     vpcId: pulumi.Input<string>;
 }

@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages the custom permissions profile for a user.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.quicksight.UserCustomPermission("example", {
- *     userName: exampleAwsQuicksightUser.userName,
- *     customPermissionsName: exampleAwsQuicksightCustomPermissions.customPermissionsName,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import QuickSight user custom permissions using a comma-delimited string combining the `aws_account_id`, `namespace`, and `user_name`. For example:
- *
- * ```sh
- * $ pulumi import aws:quicksight/userCustomPermission:UserCustomPermission example 012345678901,default,user1
- * ```
- */
 export class UserCustomPermission extends pulumi.CustomResource {
     /**
      * Get an existing UserCustomPermission resource's state with the given name, ID, and optional extra
@@ -56,23 +33,9 @@ export class UserCustomPermission extends pulumi.CustomResource {
     }
 
     declare public readonly awsAccountId: pulumi.Output<string>;
-    /**
-     * Custom permissions profile name.
-     */
     declare public readonly customPermissionsName: pulumi.Output<string>;
-    /**
-     * Namespace that the user belongs to. Defaults to `default`.
-     */
     declare public readonly namespace: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Username of the user.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly userName: pulumi.Output<string>;
 
     /**
@@ -117,23 +80,9 @@ export class UserCustomPermission extends pulumi.CustomResource {
  */
 export interface UserCustomPermissionState {
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * Custom permissions profile name.
-     */
     customPermissionsName?: pulumi.Input<string>;
-    /**
-     * Namespace that the user belongs to. Defaults to `default`.
-     */
     namespace?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Username of the user.
-     *
-     * The following arguments are optional:
-     */
     userName?: pulumi.Input<string>;
 }
 
@@ -142,22 +91,8 @@ export interface UserCustomPermissionState {
  */
 export interface UserCustomPermissionArgs {
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * Custom permissions profile name.
-     */
     customPermissionsName: pulumi.Input<string>;
-    /**
-     * Namespace that the user belongs to. Defaults to `default`.
-     */
     namespace?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Username of the user.
-     *
-     * The following arguments are optional:
-     */
     userName: pulumi.Input<string>;
 }

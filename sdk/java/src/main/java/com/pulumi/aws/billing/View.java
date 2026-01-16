@@ -19,240 +19,83 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS Billing View.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.billing.View;
- * import com.pulumi.aws.billing.ViewArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new View("example", ViewArgs.builder()
- *             .name("example")
- *             .description("example description")
- *             .sourceViews("arn:aws:billing::123456789012:billingview/example")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Billing View using the `arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:billing/view:View example arn:aws:billing::123456789012:billing-view/example
- * ```
- * 
- */
 @ResourceType(type="aws:billing/view:View")
 public class View extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the View.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the View.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Type of billing group. Valid values are PRIMARY|BILLING_GROUP|CUSTOM.
-     * 
-     */
     @Export(name="billingViewType", refs={String.class}, tree="[0]")
     private Output<String> billingViewType;
 
-    /**
-     * @return Type of billing group. Valid values are PRIMARY|BILLING_GROUP|CUSTOM.
-     * 
-     */
     public Output<String> billingViewType() {
         return this.billingViewType;
     }
-    /**
-     * Timestamp when the billing view was created.
-     * 
-     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
-    /**
-     * @return Timestamp when the billing view was created.
-     * 
-     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
-    /**
-     * Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
-     * 
-     */
     @Export(name="dataFilterExpression", refs={ViewDataFilterExpression.class}, tree="[0]")
     private Output</* @Nullable */ ViewDataFilterExpression> dataFilterExpression;
 
-    /**
-     * @return Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
-     * 
-     */
     public Output<Optional<ViewDataFilterExpression>> dataFilterExpression() {
         return Codegen.optional(this.dataFilterExpression);
     }
-    /**
-     * Number of billing views that use this billing view as a source.
-     * 
-     */
     @Export(name="derivedViewCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> derivedViewCount;
 
-    /**
-     * @return Number of billing views that use this billing view as a source.
-     * 
-     */
     public Output<Integer> derivedViewCount() {
         return this.derivedViewCount;
     }
-    /**
-     * Description of the custom billing view.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the custom billing view.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Name of the custom billing view to be created.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the custom billing view to be created.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Account owner of the billing view.
-     * 
-     */
     @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
     private Output<String> ownerAccountId;
 
-    /**
-     * @return Account owner of the billing view.
-     * 
-     */
     public Output<String> ownerAccountId() {
         return this.ownerAccountId;
     }
-    /**
-     * AWS account ID that owns the source billing view, if this is a derived billing view.
-     * 
-     */
     @Export(name="sourceAccountId", refs={String.class}, tree="[0]")
     private Output<String> sourceAccountId;
 
-    /**
-     * @return AWS account ID that owns the source billing view, if this is a derived billing view.
-     * 
-     */
     public Output<String> sourceAccountId() {
         return this.sourceAccountId;
     }
-    /**
-     * Number of source views associated with this billing view.
-     * 
-     */
     @Export(name="sourceViewCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> sourceViewCount;
 
-    /**
-     * @return Number of source views associated with this billing view.
-     * 
-     */
     public Output<Integer> sourceViewCount() {
         return this.sourceViewCount;
     }
-    /**
-     * List of ARNs of the source data views for the custom billing view.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="sourceViews", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sourceViews;
 
-    /**
-     * @return List of ARNs of the source data views for the custom billing view.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<List<String>>> sourceViews() {
         return Codegen.optional(this.sourceViews);
     }
-    /**
-     * List of key value map specifying tags associated to the billing view being created.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return List of key value map specifying tags associated to the billing view being created.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * List of key value map specifying tags associated to the billing view.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return List of key value map specifying tags associated to the billing view.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
@@ -262,31 +105,15 @@ public class View extends com.pulumi.resources.CustomResource {
     public Output<Optional<ViewTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * Time when the billing view was last updated.
-     * 
-     */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
-    /**
-     * @return Time when the billing view was last updated.
-     * 
-     */
     public Output<String> updatedAt() {
         return this.updatedAt;
     }
-    /**
-     * Timestamp of when the billing view definition was last updated.
-     * 
-     */
     @Export(name="viewDefinitionLastUpdatedAt", refs={String.class}, tree="[0]")
     private Output<String> viewDefinitionLastUpdatedAt;
 
-    /**
-     * @return Timestamp of when the billing view definition was last updated.
-     * 
-     */
     public Output<String> viewDefinitionLastUpdatedAt() {
         return this.viewDefinitionLastUpdatedAt;
     }

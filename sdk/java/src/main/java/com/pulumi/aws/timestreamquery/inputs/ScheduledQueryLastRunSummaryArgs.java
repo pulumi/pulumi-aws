@@ -19,107 +19,51 @@ public final class ScheduledQueryLastRunSummaryArgs extends com.pulumi.resources
 
     public static final ScheduledQueryLastRunSummaryArgs Empty = new ScheduledQueryLastRunSummaryArgs();
 
-    /**
-     * S3 location for error report.
-     * 
-     */
     @Import(name="errorReportLocations")
     private @Nullable Output<List<ScheduledQueryLastRunSummaryErrorReportLocationArgs>> errorReportLocations;
 
-    /**
-     * @return S3 location for error report.
-     * 
-     */
     public Optional<Output<List<ScheduledQueryLastRunSummaryErrorReportLocationArgs>>> errorReportLocations() {
         return Optional.ofNullable(this.errorReportLocations);
     }
 
-    /**
-     * Statistics for a single scheduled query run.
-     * 
-     */
     @Import(name="executionStats")
     private @Nullable Output<List<ScheduledQueryLastRunSummaryExecutionStatArgs>> executionStats;
 
-    /**
-     * @return Statistics for a single scheduled query run.
-     * 
-     */
     public Optional<Output<List<ScheduledQueryLastRunSummaryExecutionStatArgs>>> executionStats() {
         return Optional.ofNullable(this.executionStats);
     }
 
-    /**
-     * Error message for the scheduled query in case of failure. You might have to look at the error report to get more detailed error reasons.
-     * 
-     */
     @Import(name="failureReason")
     private @Nullable Output<String> failureReason;
 
-    /**
-     * @return Error message for the scheduled query in case of failure. You might have to look at the error report to get more detailed error reasons.
-     * 
-     */
     public Optional<Output<String>> failureReason() {
         return Optional.ofNullable(this.failureReason);
     }
 
-    /**
-     * InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `{@literal @}scheduled_runtime` can be used in the query to get the value.
-     * 
-     */
     @Import(name="invocationTime")
     private @Nullable Output<String> invocationTime;
 
-    /**
-     * @return InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `{@literal @}scheduled_runtime` can be used in the query to get the value.
-     * 
-     */
     public Optional<Output<String>> invocationTime() {
         return Optional.ofNullable(this.invocationTime);
     }
 
-    /**
-     * Various insights and metrics related to the run summary of the scheduled query.
-     * 
-     */
     @Import(name="queryInsightsResponses")
     private @Nullable Output<List<ScheduledQueryLastRunSummaryQueryInsightsResponseArgs>> queryInsightsResponses;
 
-    /**
-     * @return Various insights and metrics related to the run summary of the scheduled query.
-     * 
-     */
     public Optional<Output<List<ScheduledQueryLastRunSummaryQueryInsightsResponseArgs>>> queryInsightsResponses() {
         return Optional.ofNullable(this.queryInsightsResponses);
     }
 
-    /**
-     * Status of a scheduled query run. Valid values: `AUTO_TRIGGER_SUCCESS`, `AUTO_TRIGGER_FAILURE`, `MANUAL_TRIGGER_SUCCESS`, `MANUAL_TRIGGER_FAILURE`.
-     * 
-     */
     @Import(name="runStatus")
     private @Nullable Output<String> runStatus;
 
-    /**
-     * @return Status of a scheduled query run. Valid values: `AUTO_TRIGGER_SUCCESS`, `AUTO_TRIGGER_FAILURE`, `MANUAL_TRIGGER_SUCCESS`, `MANUAL_TRIGGER_FAILURE`.
-     * 
-     */
     public Optional<Output<String>> runStatus() {
         return Optional.ofNullable(this.runStatus);
     }
 
-    /**
-     * Actual time when the query was run.
-     * 
-     */
     @Import(name="triggerTime")
     private @Nullable Output<String> triggerTime;
 
-    /**
-     * @return Actual time when the query was run.
-     * 
-     */
     public Optional<Output<String>> triggerTime() {
         return Optional.ofNullable(this.triggerTime);
     }
@@ -154,179 +98,77 @@ public final class ScheduledQueryLastRunSummaryArgs extends com.pulumi.resources
             $ = new ScheduledQueryLastRunSummaryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param errorReportLocations S3 location for error report.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorReportLocations(@Nullable Output<List<ScheduledQueryLastRunSummaryErrorReportLocationArgs>> errorReportLocations) {
             $.errorReportLocations = errorReportLocations;
             return this;
         }
 
-        /**
-         * @param errorReportLocations S3 location for error report.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorReportLocations(List<ScheduledQueryLastRunSummaryErrorReportLocationArgs> errorReportLocations) {
             return errorReportLocations(Output.of(errorReportLocations));
         }
 
-        /**
-         * @param errorReportLocations S3 location for error report.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorReportLocations(ScheduledQueryLastRunSummaryErrorReportLocationArgs... errorReportLocations) {
             return errorReportLocations(List.of(errorReportLocations));
         }
 
-        /**
-         * @param executionStats Statistics for a single scheduled query run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionStats(@Nullable Output<List<ScheduledQueryLastRunSummaryExecutionStatArgs>> executionStats) {
             $.executionStats = executionStats;
             return this;
         }
 
-        /**
-         * @param executionStats Statistics for a single scheduled query run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionStats(List<ScheduledQueryLastRunSummaryExecutionStatArgs> executionStats) {
             return executionStats(Output.of(executionStats));
         }
 
-        /**
-         * @param executionStats Statistics for a single scheduled query run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionStats(ScheduledQueryLastRunSummaryExecutionStatArgs... executionStats) {
             return executionStats(List.of(executionStats));
         }
 
-        /**
-         * @param failureReason Error message for the scheduled query in case of failure. You might have to look at the error report to get more detailed error reasons.
-         * 
-         * @return builder
-         * 
-         */
         public Builder failureReason(@Nullable Output<String> failureReason) {
             $.failureReason = failureReason;
             return this;
         }
 
-        /**
-         * @param failureReason Error message for the scheduled query in case of failure. You might have to look at the error report to get more detailed error reasons.
-         * 
-         * @return builder
-         * 
-         */
         public Builder failureReason(String failureReason) {
             return failureReason(Output.of(failureReason));
         }
 
-        /**
-         * @param invocationTime InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `{@literal @}scheduled_runtime` can be used in the query to get the value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invocationTime(@Nullable Output<String> invocationTime) {
             $.invocationTime = invocationTime;
             return this;
         }
 
-        /**
-         * @param invocationTime InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `{@literal @}scheduled_runtime` can be used in the query to get the value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invocationTime(String invocationTime) {
             return invocationTime(Output.of(invocationTime));
         }
 
-        /**
-         * @param queryInsightsResponses Various insights and metrics related to the run summary of the scheduled query.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryInsightsResponses(@Nullable Output<List<ScheduledQueryLastRunSummaryQueryInsightsResponseArgs>> queryInsightsResponses) {
             $.queryInsightsResponses = queryInsightsResponses;
             return this;
         }
 
-        /**
-         * @param queryInsightsResponses Various insights and metrics related to the run summary of the scheduled query.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryInsightsResponses(List<ScheduledQueryLastRunSummaryQueryInsightsResponseArgs> queryInsightsResponses) {
             return queryInsightsResponses(Output.of(queryInsightsResponses));
         }
 
-        /**
-         * @param queryInsightsResponses Various insights and metrics related to the run summary of the scheduled query.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryInsightsResponses(ScheduledQueryLastRunSummaryQueryInsightsResponseArgs... queryInsightsResponses) {
             return queryInsightsResponses(List.of(queryInsightsResponses));
         }
 
-        /**
-         * @param runStatus Status of a scheduled query run. Valid values: `AUTO_TRIGGER_SUCCESS`, `AUTO_TRIGGER_FAILURE`, `MANUAL_TRIGGER_SUCCESS`, `MANUAL_TRIGGER_FAILURE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runStatus(@Nullable Output<String> runStatus) {
             $.runStatus = runStatus;
             return this;
         }
 
-        /**
-         * @param runStatus Status of a scheduled query run. Valid values: `AUTO_TRIGGER_SUCCESS`, `AUTO_TRIGGER_FAILURE`, `MANUAL_TRIGGER_SUCCESS`, `MANUAL_TRIGGER_FAILURE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runStatus(String runStatus) {
             return runStatus(Output.of(runStatus));
         }
 
-        /**
-         * @param triggerTime Actual time when the query was run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder triggerTime(@Nullable Output<String> triggerTime) {
             $.triggerTime = triggerTime;
             return this;
         }
 
-        /**
-         * @param triggerTime Actual time when the query was run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder triggerTime(String triggerTime) {
             return triggerTime(Output.of(triggerTime));
         }

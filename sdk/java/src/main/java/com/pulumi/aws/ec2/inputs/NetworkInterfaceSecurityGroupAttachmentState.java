@@ -15,47 +15,23 @@ public final class NetworkInterfaceSecurityGroupAttachmentState extends com.pulu
 
     public static final NetworkInterfaceSecurityGroupAttachmentState Empty = new NetworkInterfaceSecurityGroupAttachmentState();
 
-    /**
-     * The ID of the network interface to attach to.
-     * 
-     */
     @Import(name="networkInterfaceId")
     private @Nullable Output<String> networkInterfaceId;
 
-    /**
-     * @return The ID of the network interface to attach to.
-     * 
-     */
     public Optional<Output<String>> networkInterfaceId() {
         return Optional.ofNullable(this.networkInterfaceId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID of the security group.
-     * 
-     */
     @Import(name="securityGroupId")
     private @Nullable Output<String> securityGroupId;
 
-    /**
-     * @return The ID of the security group.
-     * 
-     */
     public Optional<Output<String>> securityGroupId() {
         return Optional.ofNullable(this.securityGroupId);
     }
@@ -86,65 +62,29 @@ public final class NetworkInterfaceSecurityGroupAttachmentState extends com.pulu
             $ = new NetworkInterfaceSecurityGroupAttachmentState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param networkInterfaceId The ID of the network interface to attach to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfaceId(@Nullable Output<String> networkInterfaceId) {
             $.networkInterfaceId = networkInterfaceId;
             return this;
         }
 
-        /**
-         * @param networkInterfaceId The ID of the network interface to attach to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfaceId(String networkInterfaceId) {
             return networkInterfaceId(Output.of(networkInterfaceId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param securityGroupId The ID of the security group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupId(@Nullable Output<String> securityGroupId) {
             $.securityGroupId = securityGroupId;
             return this;
         }
 
-        /**
-         * @param securityGroupId The ID of the security group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupId(String securityGroupId) {
             return securityGroupId(Output.of(securityGroupId));
         }

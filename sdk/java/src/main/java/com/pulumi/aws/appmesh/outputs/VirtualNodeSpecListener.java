@@ -17,77 +17,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VirtualNodeSpecListener {
-    /**
-     * @return Connection pool information for the listener.
-     * 
-     */
     private @Nullable VirtualNodeSpecListenerConnectionPool connectionPool;
-    /**
-     * @return Health check information for the listener.
-     * 
-     */
     private @Nullable VirtualNodeSpecListenerHealthCheck healthCheck;
-    /**
-     * @return Outlier detection information for the listener.
-     * 
-     */
     private @Nullable VirtualNodeSpecListenerOutlierDetection outlierDetection;
-    /**
-     * @return Port mapping information for the listener.
-     * 
-     */
     private VirtualNodeSpecListenerPortMapping portMapping;
-    /**
-     * @return Timeouts for different protocols.
-     * 
-     */
     private @Nullable VirtualNodeSpecListenerTimeout timeout;
-    /**
-     * @return Transport Layer Security (TLS) properties for the listener
-     * 
-     */
     private @Nullable VirtualNodeSpecListenerTls tls;
 
     private VirtualNodeSpecListener() {}
-    /**
-     * @return Connection pool information for the listener.
-     * 
-     */
     public Optional<VirtualNodeSpecListenerConnectionPool> connectionPool() {
         return Optional.ofNullable(this.connectionPool);
     }
-    /**
-     * @return Health check information for the listener.
-     * 
-     */
     public Optional<VirtualNodeSpecListenerHealthCheck> healthCheck() {
         return Optional.ofNullable(this.healthCheck);
     }
-    /**
-     * @return Outlier detection information for the listener.
-     * 
-     */
     public Optional<VirtualNodeSpecListenerOutlierDetection> outlierDetection() {
         return Optional.ofNullable(this.outlierDetection);
     }
-    /**
-     * @return Port mapping information for the listener.
-     * 
-     */
     public VirtualNodeSpecListenerPortMapping portMapping() {
         return this.portMapping;
     }
-    /**
-     * @return Timeouts for different protocols.
-     * 
-     */
     public Optional<VirtualNodeSpecListenerTimeout> timeout() {
         return Optional.ofNullable(this.timeout);
     }
-    /**
-     * @return Transport Layer Security (TLS) properties for the listener
-     * 
-     */
     public Optional<VirtualNodeSpecListenerTls> tls() {
         return Optional.ofNullable(this.tls);
     }

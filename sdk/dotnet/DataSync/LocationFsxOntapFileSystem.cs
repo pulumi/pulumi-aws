@@ -9,116 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DataSync
 {
-    /// <summary>
-    /// Resource for managing an AWS DataSync Location FSx Ontap File System.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.DataSync.LocationFsxOntapFileSystem("test", new()
-    ///     {
-    ///         FsxFilesystemArn = testAwsFsxOntapFileSystem.Arn,
-    ///         SecurityGroupArns = new[]
-    ///         {
-    ///             testAwsSecurityGroup.Arn,
-    ///         },
-    ///         StorageVirtualMachineArn = testAwsFsxOntapStorageVirtualMachine.Arn,
-    ///         Protocol = new Aws.DataSync.Inputs.LocationFsxOntapFileSystemProtocolArgs
-    ///         {
-    ///             Nfs = new Aws.DataSync.Inputs.LocationFsxOntapFileSystemProtocolNfsArgs
-    ///             {
-    ///                 MountOptions = new Aws.DataSync.Inputs.LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs
-    ///                 {
-    ///                     Version = "NFS3",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_datasync_location_fsx_ontap_file_system` using the `DataSync-ARN#FSx-ontap-svm-ARN`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:datasync/locationFsxOntapFileSystem:LocationFsxOntapFileSystem example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:storage-virtual-machine/svm-12345678abcdef123
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:datasync/locationFsxOntapFileSystem:LocationFsxOntapFileSystem")]
     public partial class LocationFsxOntapFileSystem : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the DataSync Location for the FSx Ontap File System.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the FSx Ontap File System.
-        /// </summary>
         [Output("fsxFilesystemArn")]
         public Output<string> FsxFilesystemArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
-        /// </summary>
         [Output("protocol")]
         public Output<Outputs.LocationFsxOntapFileSystemProtocol> Protocol { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
-        /// * Network File System (NFS): TCP ports 111, 635, and 2049
-        /// * Server Message Block (SMB): TCP port 445
-        /// </summary>
         [Output("securityGroupArns")]
         public Output<ImmutableArray<string>> SecurityGroupArns { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the SVM in your file system where you want to copy data to of from.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("storageVirtualMachineArn")]
         public Output<string> StorageVirtualMachineArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `Share1`).
-        /// </summary>
         [Output("subdirectory")]
         public Output<string> Subdirectory { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// URI of the FSx ONTAP file system location
-        /// </summary>
         [Output("uri")]
         public Output<string> Uri { get; private set; } = null!;
 
@@ -168,52 +91,28 @@ namespace Pulumi.Aws.DataSync
 
     public sealed class LocationFsxOntapFileSystemArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
-        /// </summary>
         [Input("protocol", required: true)]
         public Input<Inputs.LocationFsxOntapFileSystemProtocolArgs> Protocol { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("securityGroupArns", required: true)]
         private InputList<string>? _securityGroupArns;
-
-        /// <summary>
-        /// The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
-        /// * Network File System (NFS): TCP ports 111, 635, and 2049
-        /// * Server Message Block (SMB): TCP port 445
-        /// </summary>
         public InputList<string> SecurityGroupArns
         {
             get => _securityGroupArns ?? (_securityGroupArns = new InputList<string>());
             set => _securityGroupArns = value;
         }
 
-        /// <summary>
-        /// The ARN of the SVM in your file system where you want to copy data to of from.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("storageVirtualMachineArn", required: true)]
         public Input<string> StorageVirtualMachineArn { get; set; } = null!;
 
-        /// <summary>
-        /// Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `Share1`).
-        /// </summary>
         [Input("subdirectory")]
         public Input<string>? Subdirectory { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -228,67 +127,37 @@ namespace Pulumi.Aws.DataSync
 
     public sealed class LocationFsxOntapFileSystemState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the DataSync Location for the FSx Ontap File System.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("creationTime")]
         public Input<string>? CreationTime { get; set; }
 
-        /// <summary>
-        /// ARN of the FSx Ontap File System.
-        /// </summary>
         [Input("fsxFilesystemArn")]
         public Input<string>? FsxFilesystemArn { get; set; }
 
-        /// <summary>
-        /// The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
-        /// </summary>
         [Input("protocol")]
         public Input<Inputs.LocationFsxOntapFileSystemProtocolGetArgs>? Protocol { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("securityGroupArns")]
         private InputList<string>? _securityGroupArns;
-
-        /// <summary>
-        /// The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
-        /// * Network File System (NFS): TCP ports 111, 635, and 2049
-        /// * Server Message Block (SMB): TCP port 445
-        /// </summary>
         public InputList<string> SecurityGroupArns
         {
             get => _securityGroupArns ?? (_securityGroupArns = new InputList<string>());
             set => _securityGroupArns = value;
         }
 
-        /// <summary>
-        /// The ARN of the SVM in your file system where you want to copy data to of from.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("storageVirtualMachineArn")]
         public Input<string>? StorageVirtualMachineArn { get; set; }
 
-        /// <summary>
-        /// Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `Share1`).
-        /// </summary>
         [Input("subdirectory")]
         public Input<string>? Subdirectory { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -303,9 +172,6 @@ namespace Pulumi.Aws.DataSync
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// URI of the FSx ONTAP file system location
-        /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }
 

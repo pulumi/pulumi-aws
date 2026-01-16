@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsSlotObfuscationSettingArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether Amazon Lex obscures slot values in conversation logs. Valid values are `DefaultObfuscation` and `None`.
-        /// </summary>
         [Input("obfuscationSettingType", required: true)]
         public Input<string> ObfuscationSettingType { get; set; } = null!;
 

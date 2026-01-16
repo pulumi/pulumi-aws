@@ -10,21 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool {
-    /**
-     * @return Name of the prompt.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String name;
 
     private AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool() {}
-    /**
-     * @return Name of the prompt.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String name() {
         return this.name;
     }

@@ -9,62 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Detective
 {
-    /// <summary>
-    /// Manages a Detective Organization Admin Account. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in Detective can be found in the [Detective User Guide](https://docs.aws.amazon.com/detective/latest/adminguide/accounts-orgs-transition.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Organizations.Organization("example", new()
-    ///     {
-    ///         AwsServiceAccessPrincipals = new[]
-    ///         {
-    ///             "detective.amazonaws.com",
-    ///         },
-    ///         FeatureSet = "ALL",
-    ///     });
-    /// 
-    ///     var exampleOrganizationAdminAccount = new Aws.Detective.OrganizationAdminAccount("example", new()
-    ///     {
-    ///         AccountId = "123456789012",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_detective_organization_admin_account` using `account_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:detective/organizationAdminAccount:OrganizationAdminAccount example 123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:detective/organizationAdminAccount:OrganizationAdminAccount")]
     public partial class OrganizationAdminAccount : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// AWS account identifier to designate as a delegated administrator for Detective.
-        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -114,15 +64,9 @@ namespace Pulumi.Aws.Detective
 
     public sealed class OrganizationAdminAccountArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// AWS account identifier to designate as a delegated administrator for Detective.
-        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -134,15 +78,9 @@ namespace Pulumi.Aws.Detective
 
     public sealed class OrganizationAdminAccountState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// AWS account identifier to designate as a delegated administrator for Detective.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

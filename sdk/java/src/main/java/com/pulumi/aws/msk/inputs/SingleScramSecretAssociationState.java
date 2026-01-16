@@ -15,47 +15,23 @@ public final class SingleScramSecretAssociationState extends com.pulumi.resource
 
     public static final SingleScramSecretAssociationState Empty = new SingleScramSecretAssociationState();
 
-    /**
-     * Amazon Resource Name (ARN) of the MSK cluster.
-     * 
-     */
     @Import(name="clusterArn")
     private @Nullable Output<String> clusterArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the MSK cluster.
-     * 
-     */
     public Optional<Output<String>> clusterArn() {
         return Optional.ofNullable(this.clusterArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * AWS Secrets Manager secret ARN.
-     * 
-     */
     @Import(name="secretArn")
     private @Nullable Output<String> secretArn;
 
-    /**
-     * @return AWS Secrets Manager secret ARN.
-     * 
-     */
     public Optional<Output<String>> secretArn() {
         return Optional.ofNullable(this.secretArn);
     }
@@ -86,65 +62,29 @@ public final class SingleScramSecretAssociationState extends com.pulumi.resource
             $ = new SingleScramSecretAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusterArn Amazon Resource Name (ARN) of the MSK cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterArn(@Nullable Output<String> clusterArn) {
             $.clusterArn = clusterArn;
             return this;
         }
 
-        /**
-         * @param clusterArn Amazon Resource Name (ARN) of the MSK cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterArn(String clusterArn) {
             return clusterArn(Output.of(clusterArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param secretArn AWS Secrets Manager secret ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretArn(@Nullable Output<String> secretArn) {
             $.secretArn = secretArn;
             return this;
         }
 
-        /**
-         * @param secretArn AWS Secrets Manager secret ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretArn(String secretArn) {
             return secretArn(Output.of(secretArn));
         }

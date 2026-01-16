@@ -14,32 +14,16 @@ public final class MultitenantDistributionDefaultCacheBehaviorFunctionAssociatio
 
     public static final MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArgs Empty = new MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArgs();
 
-    /**
-     * Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
-     * 
-     */
     @Import(name="eventType", required=true)
     private Output<String> eventType;
 
-    /**
-     * @return Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
-     * 
-     */
     public Output<String> eventType() {
         return this.eventType;
     }
 
-    /**
-     * ARN of the CloudFront function.
-     * 
-     */
     @Import(name="functionArn", required=true)
     private Output<String> functionArn;
 
-    /**
-     * @return ARN of the CloudFront function.
-     * 
-     */
     public Output<String> functionArn() {
         return this.functionArn;
     }
@@ -69,44 +53,20 @@ public final class MultitenantDistributionDefaultCacheBehaviorFunctionAssociatio
             $ = new MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param eventType Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventType(Output<String> eventType) {
             $.eventType = eventType;
             return this;
         }
 
-        /**
-         * @param eventType Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventType(String eventType) {
             return eventType(Output.of(eventType));
         }
 
-        /**
-         * @param functionArn ARN of the CloudFront function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionArn(Output<String> functionArn) {
             $.functionArn = functionArn;
             return this;
         }
 
-        /**
-         * @param functionArn ARN of the CloudFront function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionArn(String functionArn) {
             return functionArn(Output.of(functionArn));
         }

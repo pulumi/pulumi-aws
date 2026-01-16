@@ -20,141 +20,65 @@ public final class ClusterSnapshotCopyArgs extends com.pulumi.resources.Resource
 
     public static final ClusterSnapshotCopyArgs Empty = new ClusterSnapshotCopyArgs();
 
-    /**
-     * Whether to copy existing tags. Defaults to `false`.
-     * 
-     */
     @Import(name="copyTags")
     private @Nullable Output<Boolean> copyTags;
 
-    /**
-     * @return Whether to copy existing tags. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> copyTags() {
         return Optional.ofNullable(this.copyTags);
     }
 
-    /**
-     * The Destination region to place snapshot copy.
-     * 
-     */
     @Import(name="destinationRegion")
     private @Nullable Output<String> destinationRegion;
 
-    /**
-     * @return The Destination region to place snapshot copy.
-     * 
-     */
     public Optional<Output<String>> destinationRegion() {
         return Optional.ofNullable(this.destinationRegion);
     }
 
-    /**
-     * KMS key ID.
-     * 
-     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
-    /**
-     * @return KMS key ID.
-     * 
-     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
 
-    /**
-     * URL that contains a Signature Version 4 signed request.
-     * 
-     */
     @Import(name="presignedUrl")
     private @Nullable Output<String> presignedUrl;
 
-    /**
-     * @return URL that contains a Signature Version 4 signed request.
-     * 
-     */
     public Optional<Output<String>> presignedUrl() {
         return Optional.ofNullable(this.presignedUrl);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-     * 
-     */
     @Import(name="sharedAccounts")
     private @Nullable Output<List<String>> sharedAccounts;
 
-    /**
-     * @return List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-     * 
-     */
     public Optional<Output<List<String>>> sharedAccounts() {
         return Optional.ofNullable(this.sharedAccounts);
     }
 
-    /**
-     * Identifier of the source snapshot.
-     * 
-     */
     @Import(name="sourceDbClusterSnapshotIdentifier", required=true)
     private Output<String> sourceDbClusterSnapshotIdentifier;
 
-    /**
-     * @return Identifier of the source snapshot.
-     * 
-     */
     public Output<String> sourceDbClusterSnapshotIdentifier() {
         return this.sourceDbClusterSnapshotIdentifier;
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Identifier for the snapshot.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="targetDbClusterSnapshotIdentifier", required=true)
     private Output<String> targetDbClusterSnapshotIdentifier;
 
-    /**
-     * @return Identifier for the snapshot.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> targetDbClusterSnapshotIdentifier() {
         return this.targetDbClusterSnapshotIdentifier;
     }
@@ -199,205 +123,87 @@ public final class ClusterSnapshotCopyArgs extends com.pulumi.resources.Resource
             $ = new ClusterSnapshotCopyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param copyTags Whether to copy existing tags. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder copyTags(@Nullable Output<Boolean> copyTags) {
             $.copyTags = copyTags;
             return this;
         }
 
-        /**
-         * @param copyTags Whether to copy existing tags. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder copyTags(Boolean copyTags) {
             return copyTags(Output.of(copyTags));
         }
 
-        /**
-         * @param destinationRegion The Destination region to place snapshot copy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationRegion(@Nullable Output<String> destinationRegion) {
             $.destinationRegion = destinationRegion;
             return this;
         }
 
-        /**
-         * @param destinationRegion The Destination region to place snapshot copy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationRegion(String destinationRegion) {
             return destinationRegion(Output.of(destinationRegion));
         }
 
-        /**
-         * @param kmsKeyId KMS key ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId KMS key ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }
 
-        /**
-         * @param presignedUrl URL that contains a Signature Version 4 signed request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder presignedUrl(@Nullable Output<String> presignedUrl) {
             $.presignedUrl = presignedUrl;
             return this;
         }
 
-        /**
-         * @param presignedUrl URL that contains a Signature Version 4 signed request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder presignedUrl(String presignedUrl) {
             return presignedUrl(Output.of(presignedUrl));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param sharedAccounts List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sharedAccounts(@Nullable Output<List<String>> sharedAccounts) {
             $.sharedAccounts = sharedAccounts;
             return this;
         }
 
-        /**
-         * @param sharedAccounts List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sharedAccounts(List<String> sharedAccounts) {
             return sharedAccounts(Output.of(sharedAccounts));
         }
 
-        /**
-         * @param sharedAccounts List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sharedAccounts(String... sharedAccounts) {
             return sharedAccounts(List.of(sharedAccounts));
         }
 
-        /**
-         * @param sourceDbClusterSnapshotIdentifier Identifier of the source snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceDbClusterSnapshotIdentifier(Output<String> sourceDbClusterSnapshotIdentifier) {
             $.sourceDbClusterSnapshotIdentifier = sourceDbClusterSnapshotIdentifier;
             return this;
         }
 
-        /**
-         * @param sourceDbClusterSnapshotIdentifier Identifier of the source snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceDbClusterSnapshotIdentifier(String sourceDbClusterSnapshotIdentifier) {
             return sourceDbClusterSnapshotIdentifier(Output.of(sourceDbClusterSnapshotIdentifier));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param targetDbClusterSnapshotIdentifier Identifier for the snapshot.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetDbClusterSnapshotIdentifier(Output<String> targetDbClusterSnapshotIdentifier) {
             $.targetDbClusterSnapshotIdentifier = targetDbClusterSnapshotIdentifier;
             return this;
         }
 
-        /**
-         * @param targetDbClusterSnapshotIdentifier Identifier for the snapshot.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetDbClusterSnapshotIdentifier(String targetDbClusterSnapshotIdentifier) {
             return targetDbClusterSnapshotIdentifier(Output.of(targetDbClusterSnapshotIdentifier));
         }

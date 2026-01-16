@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleGroupRuleGroupRuleVariables {
-    /**
-     * @return Set of configuration blocks that define IP address information. See IP Sets below for details.
-     * 
-     */
     private @Nullable List<RuleGroupRuleGroupRuleVariablesIpSet> ipSets;
-    /**
-     * @return Set of configuration blocks that define port range information. See Port Sets below for details.
-     * 
-     */
     private @Nullable List<RuleGroupRuleGroupRuleVariablesPortSet> portSets;
 
     private RuleGroupRuleGroupRuleVariables() {}
-    /**
-     * @return Set of configuration blocks that define IP address information. See IP Sets below for details.
-     * 
-     */
     public List<RuleGroupRuleGroupRuleVariablesIpSet> ipSets() {
         return this.ipSets == null ? List.of() : this.ipSets;
     }
-    /**
-     * @return Set of configuration blocks that define port range information. See Port Sets below for details.
-     * 
-     */
     public List<RuleGroupRuleGroupRuleVariablesPortSet> portSets() {
         return this.portSets == null ? List.of() : this.portSets;
     }

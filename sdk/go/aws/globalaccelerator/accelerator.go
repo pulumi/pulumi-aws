@@ -11,84 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a Global Accelerator accelerator.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/globalaccelerator"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := globalaccelerator.NewAccelerator(ctx, "example", &globalaccelerator.AcceleratorArgs{
-//				Name:          pulumi.String("Example"),
-//				IpAddressType: pulumi.String("IPV4"),
-//				IpAddresses: pulumi.StringArray{
-//					pulumi.String("1.2.3.4"),
-//				},
-//				Enabled: pulumi.Bool(true),
-//				Attributes: &globalaccelerator.AcceleratorAttributesArgs{
-//					FlowLogsEnabled:  pulumi.Bool(true),
-//					FlowLogsS3Bucket: pulumi.String("example-bucket"),
-//					FlowLogsS3Prefix: pulumi.String("flow-logs/"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator accelerator.
-//
-// Using `pulumi import`, import Global Accelerator accelerators using the `arn`. For example:
-//
-// % pulumi import aws_globalaccelerator_accelerator.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 type Accelerator struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the accelerator.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The attributes of the accelerator. Fields documented below.
-	Attributes AcceleratorAttributesPtrOutput `pulumi:"attributes"`
-	// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
-	DnsName pulumi.StringOutput `pulumi:"dnsName"`
-	// The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
-	DualStackDnsName pulumi.StringOutput `pulumi:"dualStackDnsName"`
-	// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// -  The Global Accelerator Route 53 zone ID that can be used to
-	//    route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-	//    is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
-	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
-	// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
-	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
-	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-	IpAddresses pulumi.StringArrayOutput `pulumi:"ipAddresses"`
-	// IP address set associated with the accelerator.
-	IpSets AcceleratorIpSetArrayOutput `pulumi:"ipSets"`
-	// The name of the accelerator.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn              pulumi.StringOutput            `pulumi:"arn"`
+	Attributes       AcceleratorAttributesPtrOutput `pulumi:"attributes"`
+	DnsName          pulumi.StringOutput            `pulumi:"dnsName"`
+	DualStackDnsName pulumi.StringOutput            `pulumi:"dualStackDnsName"`
+	Enabled          pulumi.BoolPtrOutput           `pulumi:"enabled"`
+	HostedZoneId     pulumi.StringOutput            `pulumi:"hostedZoneId"`
+	IpAddressType    pulumi.StringPtrOutput         `pulumi:"ipAddressType"`
+	IpAddresses      pulumi.StringArrayOutput       `pulumi:"ipAddresses"`
+	IpSets           AcceleratorIpSetArrayOutput    `pulumi:"ipSets"`
+	Name             pulumi.StringOutput            `pulumi:"name"`
+	Tags             pulumi.StringMapOutput         `pulumi:"tags"`
+	TagsAll          pulumi.StringMapOutput         `pulumi:"tagsAll"`
 }
 
 // NewAccelerator registers a new resource with the given unique name, arguments, and options.
@@ -121,61 +58,33 @@ func GetAccelerator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Accelerator resources.
 type acceleratorState struct {
-	// The Amazon Resource Name (ARN) of the accelerator.
-	Arn *string `pulumi:"arn"`
-	// The attributes of the accelerator. Fields documented below.
-	Attributes *AcceleratorAttributes `pulumi:"attributes"`
-	// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
-	DnsName *string `pulumi:"dnsName"`
-	// The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
-	DualStackDnsName *string `pulumi:"dualStackDnsName"`
-	// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
-	Enabled *bool `pulumi:"enabled"`
-	// -  The Global Accelerator Route 53 zone ID that can be used to
-	//    route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-	//    is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
-	HostedZoneId *string `pulumi:"hostedZoneId"`
-	// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
-	IpAddressType *string `pulumi:"ipAddressType"`
-	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-	IpAddresses []string `pulumi:"ipAddresses"`
-	// IP address set associated with the accelerator.
-	IpSets []AcceleratorIpSet `pulumi:"ipSets"`
-	// The name of the accelerator.
-	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn              *string                `pulumi:"arn"`
+	Attributes       *AcceleratorAttributes `pulumi:"attributes"`
+	DnsName          *string                `pulumi:"dnsName"`
+	DualStackDnsName *string                `pulumi:"dualStackDnsName"`
+	Enabled          *bool                  `pulumi:"enabled"`
+	HostedZoneId     *string                `pulumi:"hostedZoneId"`
+	IpAddressType    *string                `pulumi:"ipAddressType"`
+	IpAddresses      []string               `pulumi:"ipAddresses"`
+	IpSets           []AcceleratorIpSet     `pulumi:"ipSets"`
+	Name             *string                `pulumi:"name"`
+	Tags             map[string]string      `pulumi:"tags"`
+	TagsAll          map[string]string      `pulumi:"tagsAll"`
 }
 
 type AcceleratorState struct {
-	// The Amazon Resource Name (ARN) of the accelerator.
-	Arn pulumi.StringPtrInput
-	// The attributes of the accelerator. Fields documented below.
-	Attributes AcceleratorAttributesPtrInput
-	// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
-	DnsName pulumi.StringPtrInput
-	// The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+	Arn              pulumi.StringPtrInput
+	Attributes       AcceleratorAttributesPtrInput
+	DnsName          pulumi.StringPtrInput
 	DualStackDnsName pulumi.StringPtrInput
-	// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
-	Enabled pulumi.BoolPtrInput
-	// -  The Global Accelerator Route 53 zone ID that can be used to
-	//    route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-	//    is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
-	HostedZoneId pulumi.StringPtrInput
-	// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
-	IpAddressType pulumi.StringPtrInput
-	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-	IpAddresses pulumi.StringArrayInput
-	// IP address set associated with the accelerator.
-	IpSets AcceleratorIpSetArrayInput
-	// The name of the accelerator.
-	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Enabled          pulumi.BoolPtrInput
+	HostedZoneId     pulumi.StringPtrInput
+	IpAddressType    pulumi.StringPtrInput
+	IpAddresses      pulumi.StringArrayInput
+	IpSets           AcceleratorIpSetArrayInput
+	Name             pulumi.StringPtrInput
+	Tags             pulumi.StringMapInput
+	TagsAll          pulumi.StringMapInput
 }
 
 func (AcceleratorState) ElementType() reflect.Type {
@@ -183,34 +92,22 @@ func (AcceleratorState) ElementType() reflect.Type {
 }
 
 type acceleratorArgs struct {
-	// The attributes of the accelerator. Fields documented below.
-	Attributes *AcceleratorAttributes `pulumi:"attributes"`
-	// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
-	Enabled *bool `pulumi:"enabled"`
-	// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
-	IpAddressType *string `pulumi:"ipAddressType"`
-	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-	IpAddresses []string `pulumi:"ipAddresses"`
-	// The name of the accelerator.
-	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Attributes    *AcceleratorAttributes `pulumi:"attributes"`
+	Enabled       *bool                  `pulumi:"enabled"`
+	IpAddressType *string                `pulumi:"ipAddressType"`
+	IpAddresses   []string               `pulumi:"ipAddresses"`
+	Name          *string                `pulumi:"name"`
+	Tags          map[string]string      `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Accelerator resource.
 type AcceleratorArgs struct {
-	// The attributes of the accelerator. Fields documented below.
-	Attributes AcceleratorAttributesPtrInput
-	// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
-	Enabled pulumi.BoolPtrInput
-	// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
+	Attributes    AcceleratorAttributesPtrInput
+	Enabled       pulumi.BoolPtrInput
 	IpAddressType pulumi.StringPtrInput
-	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-	IpAddresses pulumi.StringArrayInput
-	// The name of the accelerator.
-	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	IpAddresses   pulumi.StringArrayInput
+	Name          pulumi.StringPtrInput
+	Tags          pulumi.StringMapInput
 }
 
 func (AcceleratorArgs) ElementType() reflect.Type {
@@ -300,64 +197,50 @@ func (o AcceleratorOutput) ToAcceleratorOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the accelerator.
 func (o AcceleratorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Accelerator) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The attributes of the accelerator. Fields documented below.
 func (o AcceleratorOutput) Attributes() AcceleratorAttributesPtrOutput {
 	return o.ApplyT(func(v *Accelerator) AcceleratorAttributesPtrOutput { return v.Attributes }).(AcceleratorAttributesPtrOutput)
 }
 
-// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
 func (o AcceleratorOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Accelerator) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
 }
 
-// The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
 func (o AcceleratorOutput) DualStackDnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Accelerator) pulumi.StringOutput { return v.DualStackDnsName }).(pulumi.StringOutput)
 }
 
-// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
 func (o AcceleratorOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Accelerator) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-//   - The Global Accelerator Route 53 zone ID that can be used to
-//     route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-//     is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
 func (o AcceleratorOutput) HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Accelerator) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
 }
 
-// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
 func (o AcceleratorOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Accelerator) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
-// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
 func (o AcceleratorOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Accelerator) pulumi.StringArrayOutput { return v.IpAddresses }).(pulumi.StringArrayOutput)
 }
 
-// IP address set associated with the accelerator.
 func (o AcceleratorOutput) IpSets() AcceleratorIpSetArrayOutput {
 	return o.ApplyT(func(v *Accelerator) AcceleratorIpSetArrayOutput { return v.IpSets }).(AcceleratorIpSetArrayOutput)
 }
 
-// The name of the accelerator.
 func (o AcceleratorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Accelerator) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AcceleratorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Accelerator) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AcceleratorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Accelerator) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -13,37 +13,13 @@ namespace Pulumi.Aws.Organizations.Outputs
     [OutputType]
     public sealed class GetDelegatedAdministratorsDelegatedAdministratorResult
     {
-        /// <summary>
-        /// The ARN of the delegated administrator's account.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The date when the account was made a delegated administrator.
-        /// </summary>
         public readonly string DelegationEnabledDate;
-        /// <summary>
-        /// The email address that is associated with the delegated administrator's AWS account.
-        /// </summary>
         public readonly string Email;
-        /// <summary>
-        /// The unique identifier (ID) of the delegated administrator's account.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The method by which the delegated administrator's account joined the organization.
-        /// </summary>
         public readonly string JoinedMethod;
-        /// <summary>
-        /// The date when the delegated administrator's account became a part of the organization.
-        /// </summary>
         public readonly string JoinedTimestamp;
-        /// <summary>
-        /// The friendly name of the delegated administrator's account.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The status of the delegated administrator's account in the organization.
-        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

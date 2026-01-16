@@ -26,111 +26,51 @@ public final class FolderArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.awsAccountId);
     }
 
-    /**
-     * Identifier for the folder.
-     * 
-     */
     @Import(name="folderId", required=true)
     private Output<String> folderId;
 
-    /**
-     * @return Identifier for the folder.
-     * 
-     */
     public Output<String> folderId() {
         return this.folderId;
     }
 
-    /**
-     * The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
-     * 
-     */
     @Import(name="folderType")
     private @Nullable Output<String> folderType;
 
-    /**
-     * @return The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
-     * 
-     */
     public Optional<Output<String>> folderType() {
         return Optional.ofNullable(this.folderType);
     }
 
-    /**
-     * Display name for the folder.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Display name for the folder.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
-     * 
-     */
     @Import(name="parentFolderArn")
     private @Nullable Output<String> parentFolderArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
-     * 
-     */
     public Optional<Output<String>> parentFolderArn() {
         return Optional.ofNullable(this.parentFolderArn);
     }
 
-    /**
-     * A set of resource permissions on the folder. Maximum of 64 items. See permissions.
-     * 
-     */
     @Import(name="permissions")
     private @Nullable Output<List<FolderPermissionArgs>> permissions;
 
-    /**
-     * @return A set of resource permissions on the folder. Maximum of 64 items. See permissions.
-     * 
-     */
     public Optional<Output<List<FolderPermissionArgs>>> permissions() {
         return Optional.ofNullable(this.permissions);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -175,163 +115,69 @@ public final class FolderArgs extends com.pulumi.resources.ResourceArgs {
             return awsAccountId(Output.of(awsAccountId));
         }
 
-        /**
-         * @param folderId Identifier for the folder.
-         * 
-         * @return builder
-         * 
-         */
         public Builder folderId(Output<String> folderId) {
             $.folderId = folderId;
             return this;
         }
 
-        /**
-         * @param folderId Identifier for the folder.
-         * 
-         * @return builder
-         * 
-         */
         public Builder folderId(String folderId) {
             return folderId(Output.of(folderId));
         }
 
-        /**
-         * @param folderType The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder folderType(@Nullable Output<String> folderType) {
             $.folderType = folderType;
             return this;
         }
 
-        /**
-         * @param folderType The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder folderType(String folderType) {
             return folderType(Output.of(folderType));
         }
 
-        /**
-         * @param name Display name for the folder.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Display name for the folder.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param parentFolderArn The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parentFolderArn(@Nullable Output<String> parentFolderArn) {
             $.parentFolderArn = parentFolderArn;
             return this;
         }
 
-        /**
-         * @param parentFolderArn The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parentFolderArn(String parentFolderArn) {
             return parentFolderArn(Output.of(parentFolderArn));
         }
 
-        /**
-         * @param permissions A set of resource permissions on the folder. Maximum of 64 items. See permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissions(@Nullable Output<List<FolderPermissionArgs>> permissions) {
             $.permissions = permissions;
             return this;
         }
 
-        /**
-         * @param permissions A set of resource permissions on the folder. Maximum of 64 items. See permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissions(List<FolderPermissionArgs> permissions) {
             return permissions(Output.of(permissions));
         }
 
-        /**
-         * @param permissions A set of resource permissions on the folder. Maximum of 64 items. See permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissions(FolderPermissionArgs... permissions) {
             return permissions(List.of(permissions));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

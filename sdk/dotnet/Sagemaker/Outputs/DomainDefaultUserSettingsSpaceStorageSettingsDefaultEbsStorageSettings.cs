@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings
     {
-        /// <summary>
-        /// The default size of the EBS storage volume for a private space.
-        /// </summary>
         public readonly int DefaultEbsVolumeSizeInGb;
-        /// <summary>
-        /// The maximum size of the EBS storage volume for a private space.
-        /// </summary>
         public readonly int MaximumEbsVolumeSizeInGb;
 
         [OutputConstructor]

@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CentralizationRuleForOrganizationRuleDestination {
-    /**
-     * @return AWS account ID where logs will be centralized.
-     * 
-     */
     private String account;
-    /**
-     * @return Configuration block for destination logs settings. See `destinationLogsConfiguration` below.
-     * 
-     */
     private @Nullable CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration destinationLogsConfiguration;
-    /**
-     * @return AWS region where logs will be centralized.
-     * 
-     */
     private String region;
 
     private CentralizationRuleForOrganizationRuleDestination() {}
-    /**
-     * @return AWS account ID where logs will be centralized.
-     * 
-     */
     public String account() {
         return this.account;
     }
-    /**
-     * @return Configuration block for destination logs settings. See `destinationLogsConfiguration` below.
-     * 
-     */
     public Optional<CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration> destinationLogsConfiguration() {
         return Optional.ofNullable(this.destinationLogsConfiguration);
     }
-    /**
-     * @return AWS region where logs will be centralized.
-     * 
-     */
     public String region() {
         return this.region;
     }

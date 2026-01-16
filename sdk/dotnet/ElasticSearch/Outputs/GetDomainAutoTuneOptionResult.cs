@@ -13,17 +13,8 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
     [OutputType]
     public sealed class GetDomainAutoTuneOptionResult
     {
-        /// <summary>
-        /// The Auto-Tune desired state for the domain.
-        /// </summary>
         public readonly string DesiredState;
-        /// <summary>
-        /// A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainAutoTuneOptionMaintenanceScheduleResult> MaintenanceSchedules;
-        /// <summary>
-        /// Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
-        /// </summary>
         public readonly string RollbackOnDisable;
 
         [OutputConstructor]

@@ -26,11 +26,6 @@ class DeploymentArgs:
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Deployment resource.
-        :param pulumi.Input[_builtins.str] rest_api: REST API identifier.
-        :param pulumi.Input[_builtins.str] description: Description of the deployment.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] variables: Map to set on the related stage.
         """
         pulumi.set(__self__, "rest_api", rest_api)
         if description is not None:
@@ -45,9 +40,6 @@ class DeploymentArgs:
     @_builtins.property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Input[_builtins.str]:
-        """
-        REST API identifier.
-        """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
@@ -57,9 +49,6 @@ class DeploymentArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the deployment.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -69,9 +58,6 @@ class DeploymentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -81,9 +67,6 @@ class DeploymentArgs:
     @_builtins.property
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-        """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
@@ -93,9 +76,6 @@ class DeploymentArgs:
     @_builtins.property
     @pulumi.getter
     def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map to set on the related stage.
-        """
         return pulumi.get(self, "variables")
 
     @variables.setter
@@ -114,12 +94,6 @@ class _DeploymentState:
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
-        :param pulumi.Input[_builtins.str] created_date: Creation date of the deployment
-        :param pulumi.Input[_builtins.str] description: Description of the deployment.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rest_api: REST API identifier.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] variables: Map to set on the related stage.
         """
         if created_date is not None:
             pulumi.set(__self__, "created_date", created_date)
@@ -137,9 +111,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creation date of the deployment
-        """
         return pulumi.get(self, "created_date")
 
     @created_date.setter
@@ -149,9 +120,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the deployment.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -161,9 +129,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -173,9 +138,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        REST API identifier.
-        """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
@@ -185,9 +147,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-        """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
@@ -197,9 +156,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter
     def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map to set on the related stage.
-        """
         return pulumi.get(self, "variables")
 
     @variables.setter
@@ -220,33 +176,9 @@ class Deployment(pulumi.CustomResource):
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages an API Gateway REST Deployment. A deployment is a snapshot of the REST API configuration. The deployment can then be published to callable endpoints via the `apigateway.Stage` resource and optionally managed further with the `apigateway.BasePathMapping` resource, `apigateway.DomainName` resource, and `aws_api_method_settings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html).
-
-        To properly capture all REST API configuration in a deployment, this resource must have dependencies on all prior resources that manage resources/paths, methods, integrations, etc.
-
-        * For REST APIs that are configured via OpenAPI specification (`apigateway.RestApi` resource `body` argument), no special dependency setup is needed beyond referencing the  `id` attribute of that resource unless additional resources have further customized the REST API.
-        * When the REST API configuration involves other resources (`apigateway.Integration` resource), the dependency setup can be done with implicit resource references in the `triggers` argument or explicit resource references using the [resource `dependsOn` custom option](https://www.pulumi.com/docs/intro/concepts/resources/#dependson). The `triggers` argument should be preferred over `depends_on`, since `depends_on` can only capture dependency ordering and will not cause the resource to recreate (redeploy the REST API) with upstream configuration changes.
-
-        ## Example Usage
-
-        ## Import
-
-        Using `pulumi import`, import `aws_api_gateway_deployment` using `REST-API-ID/DEPLOYMENT-ID`. For example:
-
-        ```sh
-        $ pulumi import aws:apigateway/deployment:Deployment example aabbccddee/1122334
-        ```
-        The `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages.
-
-        The `triggers` argument cannot be imported.
-
+        Create a Deployment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Description of the deployment.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rest_api: REST API identifier.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] variables: Map to set on the related stage.
         """
         ...
     @overload
@@ -255,26 +187,7 @@ class Deployment(pulumi.CustomResource):
                  args: DeploymentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an API Gateway REST Deployment. A deployment is a snapshot of the REST API configuration. The deployment can then be published to callable endpoints via the `apigateway.Stage` resource and optionally managed further with the `apigateway.BasePathMapping` resource, `apigateway.DomainName` resource, and `aws_api_method_settings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html).
-
-        To properly capture all REST API configuration in a deployment, this resource must have dependencies on all prior resources that manage resources/paths, methods, integrations, etc.
-
-        * For REST APIs that are configured via OpenAPI specification (`apigateway.RestApi` resource `body` argument), no special dependency setup is needed beyond referencing the  `id` attribute of that resource unless additional resources have further customized the REST API.
-        * When the REST API configuration involves other resources (`apigateway.Integration` resource), the dependency setup can be done with implicit resource references in the `triggers` argument or explicit resource references using the [resource `dependsOn` custom option](https://www.pulumi.com/docs/intro/concepts/resources/#dependson). The `triggers` argument should be preferred over `depends_on`, since `depends_on` can only capture dependency ordering and will not cause the resource to recreate (redeploy the REST API) with upstream configuration changes.
-
-        ## Example Usage
-
-        ## Import
-
-        Using `pulumi import`, import `aws_api_gateway_deployment` using `REST-API-ID/DEPLOYMENT-ID`. For example:
-
-        ```sh
-        $ pulumi import aws:apigateway/deployment:Deployment example aabbccddee/1122334
-        ```
-        The `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages.
-
-        The `triggers` argument cannot be imported.
-
+        Create a Deployment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -335,12 +248,6 @@ class Deployment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] created_date: Creation date of the deployment
-        :param pulumi.Input[_builtins.str] description: Description of the deployment.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rest_api: REST API identifier.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] variables: Map to set on the related stage.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -357,48 +264,30 @@ class Deployment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> pulumi.Output[_builtins.str]:
-        """
-        Creation date of the deployment
-        """
         return pulumi.get(self, "created_date")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the deployment.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Output[_builtins.str]:
-        """
-        REST API identifier.
-        """
         return pulumi.get(self, "rest_api")
 
     @_builtins.property
     @pulumi.getter
     def triggers(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-        """
         return pulumi.get(self, "triggers")
 
     @_builtins.property
     @pulumi.getter
     def variables(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map to set on the related stage.
-        """
         return pulumi.get(self, "variables")
 

@@ -10,21 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class PolicyStoreValidationSettings {
-    /**
-     * @return The mode for the validation settings. Valid values: `OFF`, `STRICT`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String mode;
 
     private PolicyStoreValidationSettings() {}
-    /**
-     * @return The mode for the validation settings. Valid values: `OFF`, `STRICT`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String mode() {
         return this.mode;
     }

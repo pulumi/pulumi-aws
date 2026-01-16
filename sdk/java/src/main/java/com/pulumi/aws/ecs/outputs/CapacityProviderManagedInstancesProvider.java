@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CapacityProviderManagedInstancesProvider {
-    /**
-     * @return Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
-     * 
-     */
     private @Nullable CapacityProviderManagedInstancesProviderInfrastructureOptimization infrastructureOptimization;
-    /**
-     * @return The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
-     * 
-     */
     private String infrastructureRoleArn;
-    /**
-     * @return The launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
-     * 
-     */
     private CapacityProviderManagedInstancesProviderInstanceLaunchTemplate instanceLaunchTemplate;
-    /**
-     * @return Specifies whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
-     * 
-     */
     private @Nullable String propagateTags;
 
     private CapacityProviderManagedInstancesProvider() {}
-    /**
-     * @return Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
-     * 
-     */
     public Optional<CapacityProviderManagedInstancesProviderInfrastructureOptimization> infrastructureOptimization() {
         return Optional.ofNullable(this.infrastructureOptimization);
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
-     * 
-     */
     public String infrastructureRoleArn() {
         return this.infrastructureRoleArn;
     }
-    /**
-     * @return The launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
-     * 
-     */
     public CapacityProviderManagedInstancesProviderInstanceLaunchTemplate instanceLaunchTemplate() {
         return this.instanceLaunchTemplate;
     }
-    /**
-     * @return Specifies whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
-     * 
-     */
     public Optional<String> propagateTags() {
         return Optional.ofNullable(this.propagateTags);
     }

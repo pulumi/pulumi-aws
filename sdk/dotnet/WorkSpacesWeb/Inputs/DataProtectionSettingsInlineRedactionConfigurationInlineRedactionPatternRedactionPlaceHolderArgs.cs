@@ -12,15 +12,9 @@ namespace Pulumi.Aws.WorkSpacesWeb.Inputs
 
     public sealed class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
-        /// </summary>
         [Input("redactionPlaceHolderText")]
         public Input<string>? RedactionPlaceHolderText { get; set; }
 
-        /// <summary>
-        /// The redaction placeholder type that will replace the redacted text in session. Currently, only `CustomText` is supported.
-        /// </summary>
         [Input("redactionPlaceHolderType", required: true)]
         public Input<string> RedactionPlaceHolderType { get; set; } = null!;
 

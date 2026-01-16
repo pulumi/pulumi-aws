@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FsxOpenZfsFileSystemProtocolNfsMountOptions {
-    /**
-     * @return The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
-     * 
-     */
     private @Nullable String version;
 
     private FsxOpenZfsFileSystemProtocolNfsMountOptions() {}
-    /**
-     * @return The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
-     * 
-     */
     public Optional<String> version() {
         return Optional.ofNullable(this.version);
     }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DomainDomainSettingsDockerSettings
     {
-        /// <summary>
-        /// Indicates whether the domain can access Docker. Valid values are `ENABLED` and `DISABLED`.
-        /// </summary>
         public readonly string? EnableDockerAccess;
-        /// <summary>
-        /// The list of Amazon Web Services accounts that are trusted when the domain is created in VPC-only mode.
-        /// </summary>
         public readonly ImmutableArray<string> VpcOnlyTrustedAccounts;
 
         [OutputConstructor]

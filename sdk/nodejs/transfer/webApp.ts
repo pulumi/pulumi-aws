@@ -7,98 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Transfer Family Web App.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const currentGetRegion = aws.getRegion({});
- * const currentGetPartition = aws.getPartition({});
- * const example = aws.ssoadmin.getInstances({});
- * const assumeRoleTransfer = current.then(current => aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         actions: [
- *             "sts:AssumeRole",
- *             "sts:SetContext",
- *         ],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["transfer.amazonaws.com"],
- *         }],
- *         conditions: [{
- *             test: "StringEquals",
- *             values: [current.accountId],
- *             variable: "aws:SourceAccount",
- *         }],
- *     }],
- * }));
- * const exampleRole = new aws.iam.Role("example", {
- *     name: "example",
- *     assumeRolePolicy: assumeRoleTransfer.then(assumeRoleTransfer => assumeRoleTransfer.json),
- * });
- * const exampleGetPolicyDocument = Promise.all([currentGetPartition, currentGetRegion, current, current, current]).then(([currentGetPartition, currentGetRegion, current, current1, current2]) => aws.iam.getPolicyDocument({
- *     statements: [
- *         {
- *             effect: "Allow",
- *             actions: [
- *                 "s3:GetDataAccess",
- *                 "s3:ListCallerAccessGrants",
- *             ],
- *             resources: [`arn:${currentGetPartition.partition}:s3:${currentGetRegion.name}:${current.accountId}:access-grants/*`],
- *             conditions: [{
- *                 test: "StringEquals",
- *                 values: [current1.accountId],
- *                 variable: "s3:ResourceAccount",
- *             }],
- *         },
- *         {
- *             effect: "Allow",
- *             actions: ["s3:ListAccessGrantsInstances"],
- *             resources: ["*"],
- *             conditions: [{
- *                 test: "StringEquals",
- *                 values: [current2.accountId],
- *                 variable: "s3:ResourceAccount",
- *             }],
- *         },
- *     ],
- * }));
- * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
- *     policy: exampleGetPolicyDocument.then(exampleGetPolicyDocument => exampleGetPolicyDocument.json),
- *     role: exampleRole.name,
- * });
- * const exampleWebApp = new aws.transfer.WebApp("example", {
- *     identityProviderDetails: {
- *         identityCenterConfig: {
- *             instanceArn: example.then(example => example.arns?.[0]),
- *             role: exampleRole.arn,
- *         },
- *     },
- *     webAppUnits: [{
- *         provisioned: 1,
- *     }],
- *     tags: {
- *         Name: "test",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Transfer Family Web App using the `web_app_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:transfer/webApp:WebApp example web_app-id-12345678
- * ```
- */
 export class WebApp extends pulumi.CustomResource {
     /**
      * Get an existing WebApp resource's state with the given name, ID, and optional extra
@@ -127,45 +35,15 @@ export class WebApp extends pulumi.CustomResource {
         return obj['__pulumiType'] === WebApp.__pulumiType;
     }
 
-    /**
-     * URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
-     */
     declare public readonly accessEndpoint: pulumi.Output<string>;
-    /**
-     * ARN of the Web App.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
-     */
     declare public readonly endpointDetails: pulumi.Output<outputs.transfer.WebAppEndpointDetails | undefined>;
-    /**
-     * Block for details of the identity provider to use with the web app. See Identity provider details below.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly identityProviderDetails: pulumi.Output<outputs.transfer.WebAppIdentityProviderDetails | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value pairs that can be used to group and search for web apps.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
-     */
     declare public readonly webAppEndpointPolicy: pulumi.Output<string>;
-    /**
-     * ID of the Wep App resource.
-     */
     declare public /*out*/ readonly webAppId: pulumi.Output<string>;
-    /**
-     * Block for number of concurrent connections or the user sessions on the web app.
-     * * provisioned - (Optional) Number of units of concurrent connections.
-     */
     declare public readonly webAppUnits: pulumi.Output<outputs.transfer.WebAppWebAppUnit[]>;
 
     /**
@@ -213,45 +91,15 @@ export class WebApp extends pulumi.CustomResource {
  * Input properties used for looking up and filtering WebApp resources.
  */
 export interface WebAppState {
-    /**
-     * URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
-     */
     accessEndpoint?: pulumi.Input<string>;
-    /**
-     * ARN of the Web App.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
-     */
     endpointDetails?: pulumi.Input<inputs.transfer.WebAppEndpointDetails>;
-    /**
-     * Block for details of the identity provider to use with the web app. See Identity provider details below.
-     *
-     * The following arguments are optional:
-     */
     identityProviderDetails?: pulumi.Input<inputs.transfer.WebAppIdentityProviderDetails>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value pairs that can be used to group and search for web apps.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
-     */
     webAppEndpointPolicy?: pulumi.Input<string>;
-    /**
-     * ID of the Wep App resource.
-     */
     webAppId?: pulumi.Input<string>;
-    /**
-     * Block for number of concurrent connections or the user sessions on the web app.
-     * * provisioned - (Optional) Number of units of concurrent connections.
-     */
     webAppUnits?: pulumi.Input<pulumi.Input<inputs.transfer.WebAppWebAppUnit>[]>;
 }
 
@@ -259,35 +107,11 @@ export interface WebAppState {
  * The set of arguments for constructing a WebApp resource.
  */
 export interface WebAppArgs {
-    /**
-     * URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
-     */
     accessEndpoint?: pulumi.Input<string>;
-    /**
-     * Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
-     */
     endpointDetails?: pulumi.Input<inputs.transfer.WebAppEndpointDetails>;
-    /**
-     * Block for details of the identity provider to use with the web app. See Identity provider details below.
-     *
-     * The following arguments are optional:
-     */
     identityProviderDetails?: pulumi.Input<inputs.transfer.WebAppIdentityProviderDetails>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value pairs that can be used to group and search for web apps.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
-     */
     webAppEndpointPolicy?: pulumi.Input<string>;
-    /**
-     * Block for number of concurrent connections or the user sessions on the web app.
-     * * provisioned - (Optional) Number of units of concurrent connections.
-     */
     webAppUnits?: pulumi.Input<pulumi.Input<inputs.transfer.WebAppWebAppUnit>[]>;
 }

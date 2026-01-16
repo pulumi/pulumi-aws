@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel {
-    /**
-     * @return Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
-     * 
-     */
     private StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics storageMetrics;
 
     private StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel() {}
-    /**
-     * @return Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
-     * 
-     */
     public StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics storageMetrics() {
         return this.storageMetrics;
     }

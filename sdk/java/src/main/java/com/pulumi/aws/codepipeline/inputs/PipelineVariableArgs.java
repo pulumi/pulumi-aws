@@ -16,47 +16,23 @@ public final class PipelineVariableArgs extends com.pulumi.resources.ResourceArg
 
     public static final PipelineVariableArgs Empty = new PipelineVariableArgs();
 
-    /**
-     * The default value of a pipeline-level variable.
-     * 
-     */
     @Import(name="defaultValue")
     private @Nullable Output<String> defaultValue;
 
-    /**
-     * @return The default value of a pipeline-level variable.
-     * 
-     */
     public Optional<Output<String>> defaultValue() {
         return Optional.ofNullable(this.defaultValue);
     }
 
-    /**
-     * The description of a pipeline-level variable.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return The description of a pipeline-level variable.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The name of a pipeline-level variable.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of a pipeline-level variable.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -87,65 +63,29 @@ public final class PipelineVariableArgs extends com.pulumi.resources.ResourceArg
             $ = new PipelineVariableArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultValue The default value of a pipeline-level variable.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultValue(@Nullable Output<String> defaultValue) {
             $.defaultValue = defaultValue;
             return this;
         }
 
-        /**
-         * @param defaultValue The default value of a pipeline-level variable.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultValue(String defaultValue) {
             return defaultValue(Output.of(defaultValue));
         }
 
-        /**
-         * @param description The description of a pipeline-level variable.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The description of a pipeline-level variable.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param name The name of a pipeline-level variable.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of a pipeline-level variable.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an EC2 Transit Gateway Policy Table association.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2transitgateway.PolicyTableAssociation("example", {
- *     transitGatewayAttachmentId: exampleAwsNetworkmanagerTransitGatewayPeering.transitGatewayPeeringAttachmentId,
- *     transitGatewayPolicyTableId: exampleAwsEc2TransitGatewayPolicyTable.id,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_ec2_transit_gateway_policy_table_association` using the EC2 Transit Gateway Policy Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For example:
- *
- * ```sh
- * $ pulumi import aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
- * ```
- */
 export class PolicyTableAssociation extends pulumi.CustomResource {
     /**
      * Get an existing PolicyTableAssociation resource's state with the given name, ID, and optional extra
@@ -55,25 +32,10 @@ export class PolicyTableAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === PolicyTableAssociation.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Identifier of the resource
-     */
     declare public /*out*/ readonly resourceId: pulumi.Output<string>;
-    /**
-     * Type of the resource
-     */
     declare public /*out*/ readonly resourceType: pulumi.Output<string>;
-    /**
-     * Identifier of EC2 Transit Gateway Attachment.
-     */
     declare public readonly transitGatewayAttachmentId: pulumi.Output<string>;
-    /**
-     * Identifier of EC2 Transit Gateway Policy Table.
-     */
     declare public readonly transitGatewayPolicyTableId: pulumi.Output<string>;
 
     /**
@@ -117,25 +79,10 @@ export class PolicyTableAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PolicyTableAssociation resources.
  */
 export interface PolicyTableAssociationState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Identifier of the resource
-     */
     resourceId?: pulumi.Input<string>;
-    /**
-     * Type of the resource
-     */
     resourceType?: pulumi.Input<string>;
-    /**
-     * Identifier of EC2 Transit Gateway Attachment.
-     */
     transitGatewayAttachmentId?: pulumi.Input<string>;
-    /**
-     * Identifier of EC2 Transit Gateway Policy Table.
-     */
     transitGatewayPolicyTableId?: pulumi.Input<string>;
 }
 
@@ -143,16 +90,7 @@ export interface PolicyTableAssociationState {
  * The set of arguments for constructing a PolicyTableAssociation resource.
  */
 export interface PolicyTableAssociationArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Identifier of EC2 Transit Gateway Attachment.
-     */
     transitGatewayAttachmentId: pulumi.Input<string>;
-    /**
-     * Identifier of EC2 Transit Gateway Policy Table.
-     */
     transitGatewayPolicyTableId: pulumi.Input<string>;
 }

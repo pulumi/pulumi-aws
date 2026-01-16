@@ -12,56 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an API Gateway Request Validator.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigateway.NewRequestValidator(ctx, "example", &apigateway.RequestValidatorArgs{
-//				Name:                      pulumi.String("example"),
-//				RestApi:                   pulumi.Any(exampleAwsApiGatewayRestApi.Id),
-//				ValidateRequestBody:       pulumi.Bool(true),
-//				ValidateRequestParameters: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_api_gateway_request_validator` using `REST-API-ID/REQUEST-VALIDATOR-ID`. For example:
-//
-// ```sh
-// $ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
-// ```
 type RequestValidator struct {
 	pulumi.CustomResourceState
 
-	// Name of the request validator
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ID of the associated Rest API
-	RestApi pulumi.StringOutput `pulumi:"restApi"`
-	// Boolean whether to validate request body. Defaults to `false`.
-	ValidateRequestBody pulumi.BoolPtrOutput `pulumi:"validateRequestBody"`
-	// Boolean whether to validate request parameters. Defaults to `false`.
+	Name                      pulumi.StringOutput  `pulumi:"name"`
+	Region                    pulumi.StringOutput  `pulumi:"region"`
+	RestApi                   pulumi.StringOutput  `pulumi:"restApi"`
+	ValidateRequestBody       pulumi.BoolPtrOutput `pulumi:"validateRequestBody"`
 	ValidateRequestParameters pulumi.BoolPtrOutput `pulumi:"validateRequestParameters"`
 }
 
@@ -98,28 +55,18 @@ func GetRequestValidator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RequestValidator resources.
 type requestValidatorState struct {
-	// Name of the request validator
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the associated Rest API
-	RestApi interface{} `pulumi:"restApi"`
-	// Boolean whether to validate request body. Defaults to `false`.
-	ValidateRequestBody *bool `pulumi:"validateRequestBody"`
-	// Boolean whether to validate request parameters. Defaults to `false`.
-	ValidateRequestParameters *bool `pulumi:"validateRequestParameters"`
+	Name                      *string     `pulumi:"name"`
+	Region                    *string     `pulumi:"region"`
+	RestApi                   interface{} `pulumi:"restApi"`
+	ValidateRequestBody       *bool       `pulumi:"validateRequestBody"`
+	ValidateRequestParameters *bool       `pulumi:"validateRequestParameters"`
 }
 
 type RequestValidatorState struct {
-	// Name of the request validator
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the associated Rest API
-	RestApi pulumi.Input
-	// Boolean whether to validate request body. Defaults to `false`.
-	ValidateRequestBody pulumi.BoolPtrInput
-	// Boolean whether to validate request parameters. Defaults to `false`.
+	Name                      pulumi.StringPtrInput
+	Region                    pulumi.StringPtrInput
+	RestApi                   pulumi.Input
+	ValidateRequestBody       pulumi.BoolPtrInput
 	ValidateRequestParameters pulumi.BoolPtrInput
 }
 
@@ -128,29 +75,19 @@ func (RequestValidatorState) ElementType() reflect.Type {
 }
 
 type requestValidatorArgs struct {
-	// Name of the request validator
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the associated Rest API
-	RestApi interface{} `pulumi:"restApi"`
-	// Boolean whether to validate request body. Defaults to `false`.
-	ValidateRequestBody *bool `pulumi:"validateRequestBody"`
-	// Boolean whether to validate request parameters. Defaults to `false`.
-	ValidateRequestParameters *bool `pulumi:"validateRequestParameters"`
+	Name                      *string     `pulumi:"name"`
+	Region                    *string     `pulumi:"region"`
+	RestApi                   interface{} `pulumi:"restApi"`
+	ValidateRequestBody       *bool       `pulumi:"validateRequestBody"`
+	ValidateRequestParameters *bool       `pulumi:"validateRequestParameters"`
 }
 
 // The set of arguments for constructing a RequestValidator resource.
 type RequestValidatorArgs struct {
-	// Name of the request validator
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the associated Rest API
-	RestApi pulumi.Input
-	// Boolean whether to validate request body. Defaults to `false`.
-	ValidateRequestBody pulumi.BoolPtrInput
-	// Boolean whether to validate request parameters. Defaults to `false`.
+	Name                      pulumi.StringPtrInput
+	Region                    pulumi.StringPtrInput
+	RestApi                   pulumi.Input
+	ValidateRequestBody       pulumi.BoolPtrInput
 	ValidateRequestParameters pulumi.BoolPtrInput
 }
 
@@ -241,27 +178,22 @@ func (o RequestValidatorOutput) ToRequestValidatorOutputWithContext(ctx context.
 	return o
 }
 
-// Name of the request validator
 func (o RequestValidatorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RequestValidator) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RequestValidatorOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RequestValidator) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ID of the associated Rest API
 func (o RequestValidatorOutput) RestApi() pulumi.StringOutput {
 	return o.ApplyT(func(v *RequestValidator) pulumi.StringOutput { return v.RestApi }).(pulumi.StringOutput)
 }
 
-// Boolean whether to validate request body. Defaults to `false`.
 func (o RequestValidatorOutput) ValidateRequestBody() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RequestValidator) pulumi.BoolPtrOutput { return v.ValidateRequestBody }).(pulumi.BoolPtrOutput)
 }
 
-// Boolean whether to validate request parameters. Defaults to `false`.
 func (o RequestValidatorOutput) ValidateRequestParameters() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RequestValidator) pulumi.BoolPtrOutput { return v.ValidateRequestParameters }).(pulumi.BoolPtrOutput)
 }

@@ -17,53 +17,23 @@ public final class EnablerArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final EnablerArgs Empty = new EnablerArgs();
 
-    /**
-     * Set of account IDs.
-     * Can contain one of: the Organization&#39;s Administrator Account, or one or more Member Accounts.
-     * 
-     */
     @Import(name="accountIds", required=true)
     private Output<List<String>> accountIds;
 
-    /**
-     * @return Set of account IDs.
-     * Can contain one of: the Organization&#39;s Administrator Account, or one or more Member Accounts.
-     * 
-     */
     public Output<List<String>> accountIds() {
         return this.accountIds;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Type of resources to scan.
-     * Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
-     * At least one item is required.
-     * 
-     */
     @Import(name="resourceTypes", required=true)
     private Output<List<String>> resourceTypes;
 
-    /**
-     * @return Type of resources to scan.
-     * Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
-     * At least one item is required.
-     * 
-     */
     public Output<List<String>> resourceTypes() {
         return this.resourceTypes;
     }
@@ -94,94 +64,37 @@ public final class EnablerArgs extends com.pulumi.resources.ResourceArgs {
             $ = new EnablerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountIds Set of account IDs.
-         * Can contain one of: the Organization&#39;s Administrator Account, or one or more Member Accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountIds(Output<List<String>> accountIds) {
             $.accountIds = accountIds;
             return this;
         }
 
-        /**
-         * @param accountIds Set of account IDs.
-         * Can contain one of: the Organization&#39;s Administrator Account, or one or more Member Accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountIds(List<String> accountIds) {
             return accountIds(Output.of(accountIds));
         }
 
-        /**
-         * @param accountIds Set of account IDs.
-         * Can contain one of: the Organization&#39;s Administrator Account, or one or more Member Accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountIds(String... accountIds) {
             return accountIds(List.of(accountIds));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceTypes Type of resources to scan.
-         * Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
-         * At least one item is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTypes(Output<List<String>> resourceTypes) {
             $.resourceTypes = resourceTypes;
             return this;
         }
 
-        /**
-         * @param resourceTypes Type of resources to scan.
-         * Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
-         * At least one item is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTypes(List<String> resourceTypes) {
             return resourceTypes(Output.of(resourceTypes));
         }
 
-        /**
-         * @param resourceTypes Type of resources to scan.
-         * Valid values are `EC2`, `ECR`, `LAMBDA`, `LAMBDA_CODE` and `CODE_REPOSITORY`.
-         * At least one item is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTypes(String... resourceTypes) {
             return resourceTypes(List.of(resourceTypes));
         }

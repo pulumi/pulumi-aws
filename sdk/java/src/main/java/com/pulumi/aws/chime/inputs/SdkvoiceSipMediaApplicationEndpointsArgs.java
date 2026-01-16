@@ -14,17 +14,9 @@ public final class SdkvoiceSipMediaApplicationEndpointsArgs extends com.pulumi.r
 
     public static final SdkvoiceSipMediaApplicationEndpointsArgs Empty = new SdkvoiceSipMediaApplicationEndpointsArgs();
 
-    /**
-     * Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
-     * 
-     */
     @Import(name="lambdaArn", required=true)
     private Output<String> lambdaArn;
 
-    /**
-     * @return Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
-     * 
-     */
     public Output<String> lambdaArn() {
         return this.lambdaArn;
     }
@@ -53,23 +45,11 @@ public final class SdkvoiceSipMediaApplicationEndpointsArgs extends com.pulumi.r
             $ = new SdkvoiceSipMediaApplicationEndpointsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param lambdaArn Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaArn(Output<String> lambdaArn) {
             $.lambdaArn = lambdaArn;
             return this;
         }
 
-        /**
-         * @param lambdaArn Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaArn(String lambdaArn) {
             return lambdaArn(Output.of(lambdaArn));
         }

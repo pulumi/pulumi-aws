@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainConfigurationTlsConfig {
-    /**
-     * @return The security policy for a domain configuration.
-     * 
-     */
     private @Nullable String securityPolicy;
 
     private DomainConfigurationTlsConfig() {}
-    /**
-     * @return The security policy for a domain configuration.
-     * 
-     */
     public Optional<String> securityPolicy() {
         return Optional.ofNullable(this.securityPolicy);
     }

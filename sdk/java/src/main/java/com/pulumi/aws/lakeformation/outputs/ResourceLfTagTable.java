@@ -13,57 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ResourceLfTagTable {
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     private @Nullable String catalogId;
-    /**
-     * @return Name of the database for the table. Unique to a Data Catalog.
-     * 
-     */
     private String databaseName;
-    /**
-     * @return Name of the table.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return Whether to use a wildcard representing every table under a database. Defaults to `false`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private @Nullable Boolean wildcard;
 
     private ResourceLfTagTable() {}
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public Optional<String> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
-    /**
-     * @return Name of the database for the table. Unique to a Data Catalog.
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }
-    /**
-     * @return Name of the table.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return Whether to use a wildcard representing every table under a database. Defaults to `false`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Boolean> wildcard() {
         return Optional.ofNullable(this.wildcard);
     }

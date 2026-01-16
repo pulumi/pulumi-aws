@@ -7,46 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Global Accelerator custom routing listener.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.globalaccelerator.CustomRoutingAccelerator("example", {
- *     name: "Example",
- *     ipAddressType: "IPV4",
- *     enabled: true,
- *     attributes: {
- *         flowLogsEnabled: true,
- *         flowLogsS3Bucket: "example-bucket",
- *         flowLogsS3Prefix: "flow-logs/",
- *     },
- * });
- * const exampleCustomRoutingListener = new aws.globalaccelerator.CustomRoutingListener("example", {
- *     acceleratorArn: example.arn,
- *     portRanges: [{
- *         fromPort: 80,
- *         toPort: 80,
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator custom routing listener.
- *
- * Using `pulumi import`, import Global Accelerator custom routing listeners using the `id`. For example:
- *
- * % pulumi import aws_globalaccelerator_custom_routing_listener.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
- */
 export class CustomRoutingListener extends pulumi.CustomResource {
     /**
      * Get an existing CustomRoutingListener resource's state with the given name, ID, and optional extra
@@ -75,14 +35,8 @@ export class CustomRoutingListener extends pulumi.CustomResource {
         return obj['__pulumiType'] === CustomRoutingListener.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of a custom routing accelerator.
-     */
     declare public readonly acceleratorArn: pulumi.Output<string>;
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-     */
     declare public readonly portRanges: pulumi.Output<outputs.globalaccelerator.CustomRoutingListenerPortRange[]>;
 
     /**
@@ -122,14 +76,8 @@ export class CustomRoutingListener extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CustomRoutingListener resources.
  */
 export interface CustomRoutingListenerState {
-    /**
-     * The Amazon Resource Name (ARN) of a custom routing accelerator.
-     */
     acceleratorArn?: pulumi.Input<string>;
     arn?: pulumi.Input<string>;
-    /**
-     * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-     */
     portRanges?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CustomRoutingListenerPortRange>[]>;
 }
 
@@ -137,12 +85,6 @@ export interface CustomRoutingListenerState {
  * The set of arguments for constructing a CustomRoutingListener resource.
  */
 export interface CustomRoutingListenerArgs {
-    /**
-     * The Amazon Resource Name (ARN) of a custom routing accelerator.
-     */
     acceleratorArn: pulumi.Input<string>;
-    /**
-     * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-     */
     portRanges: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CustomRoutingListenerPortRange>[]>;
 }

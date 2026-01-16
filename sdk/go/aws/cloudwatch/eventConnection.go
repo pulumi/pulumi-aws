@@ -12,327 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an EventBridge connection resource.
-//
-// > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewEventConnection(ctx, "test", &cloudwatch.EventConnectionArgs{
-//				Name:              pulumi.String("ngrok-connection"),
-//				Description:       pulumi.String("A connection description"),
-//				AuthorizationType: pulumi.String("API_KEY"),
-//				AuthParameters: &cloudwatch.EventConnectionAuthParametersArgs{
-//					ApiKey: &cloudwatch.EventConnectionAuthParametersApiKeyArgs{
-//						Key:   pulumi.String("x-signature"),
-//						Value: pulumi.String("1234"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Basic Authorization
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewEventConnection(ctx, "test", &cloudwatch.EventConnectionArgs{
-//				Name:              pulumi.String("ngrok-connection"),
-//				Description:       pulumi.String("A connection description"),
-//				AuthorizationType: pulumi.String("BASIC"),
-//				AuthParameters: &cloudwatch.EventConnectionAuthParametersArgs{
-//					Basic: &cloudwatch.EventConnectionAuthParametersBasicArgs{
-//						Username: pulumi.String("user"),
-//						Password: pulumi.String("Pass1234!"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### OAuth Authorization
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewEventConnection(ctx, "test", &cloudwatch.EventConnectionArgs{
-//				Name:              pulumi.String("ngrok-connection"),
-//				Description:       pulumi.String("A connection description"),
-//				AuthorizationType: pulumi.String("OAUTH_CLIENT_CREDENTIALS"),
-//				AuthParameters: &cloudwatch.EventConnectionAuthParametersArgs{
-//					Oauth: &cloudwatch.EventConnectionAuthParametersOauthArgs{
-//						AuthorizationEndpoint: pulumi.String("https://auth.url.com/endpoint"),
-//						HttpMethod:            pulumi.String("GET"),
-//						ClientParameters: &cloudwatch.EventConnectionAuthParametersOauthClientParametersArgs{
-//							ClientId:     pulumi.String("1234567890"),
-//							ClientSecret: pulumi.String("Pass1234!"),
-//						},
-//						OauthHttpParameters: &cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersArgs{
-//							Bodies: cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersBodyArray{
-//								&cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs{
-//									Key:           pulumi.String("body-parameter-key"),
-//									Value:         pulumi.String("body-parameter-value"),
-//									IsValueSecret: pulumi.Bool(false),
-//								},
-//							},
-//							Headers: cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersHeaderArray{
-//								&cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs{
-//									Key:           pulumi.String("header-parameter-key"),
-//									Value:         pulumi.String("header-parameter-value"),
-//									IsValueSecret: pulumi.Bool(false),
-//								},
-//							},
-//							QueryStrings: cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArray{
-//								&cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs{
-//									Key:           pulumi.String("query-string-parameter-key"),
-//									Value:         pulumi.String("query-string-parameter-value"),
-//									IsValueSecret: pulumi.Bool(false),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Invocation Http Parameters
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewEventConnection(ctx, "test", &cloudwatch.EventConnectionArgs{
-//				Name:              pulumi.String("ngrok-connection"),
-//				Description:       pulumi.String("A connection description"),
-//				AuthorizationType: pulumi.String("BASIC"),
-//				AuthParameters: &cloudwatch.EventConnectionAuthParametersArgs{
-//					Basic: &cloudwatch.EventConnectionAuthParametersBasicArgs{
-//						Username: pulumi.String("user"),
-//						Password: pulumi.String("Pass1234!"),
-//					},
-//					InvocationHttpParameters: &cloudwatch.EventConnectionAuthParametersInvocationHttpParametersArgs{
-//						Bodies: cloudwatch.EventConnectionAuthParametersInvocationHttpParametersBodyArray{
-//							&cloudwatch.EventConnectionAuthParametersInvocationHttpParametersBodyArgs{
-//								Key:           pulumi.String("body-parameter-key"),
-//								Value:         pulumi.String("body-parameter-value"),
-//								IsValueSecret: pulumi.Bool(false),
-//							},
-//							&cloudwatch.EventConnectionAuthParametersInvocationHttpParametersBodyArgs{
-//								Key:           pulumi.String("body-parameter-key2"),
-//								Value:         pulumi.String("body-parameter-value2"),
-//								IsValueSecret: pulumi.Bool(true),
-//							},
-//						},
-//						Headers: cloudwatch.EventConnectionAuthParametersInvocationHttpParametersHeaderArray{
-//							&cloudwatch.EventConnectionAuthParametersInvocationHttpParametersHeaderArgs{
-//								Key:           pulumi.String("header-parameter-key"),
-//								Value:         pulumi.String("header-parameter-value"),
-//								IsValueSecret: pulumi.Bool(false),
-//							},
-//						},
-//						QueryStrings: cloudwatch.EventConnectionAuthParametersInvocationHttpParametersQueryStringArray{
-//							&cloudwatch.EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs{
-//								Key:           pulumi.String("query-string-parameter-key"),
-//								Value:         pulumi.String("query-string-parameter-value"),
-//								IsValueSecret: pulumi.Bool(false),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### CMK Encryption
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Id":      "key-policy-example",
-//				"Statement": []interface{}{
-//					map[string]interface{}{
-//						"Sid":    "Enable IAM User Permissions",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentGetPartition.Partition, current.AccountId),
-//						},
-//						"Action":   "kms:*",
-//						"Resource": "*",
-//					},
-//					map[string]interface{}{
-//						"Sid":    "Allow use of the key",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentGetPartition.Partition, current.AccountId),
-//						},
-//						"Action": []string{
-//							"kms:DescribeKey",
-//							"kms:Decrypt",
-//							"kms:GenerateDataKey",
-//						},
-//						"Resource": "*",
-//						"Condition": map[string]interface{}{
-//							"StringLike": map[string]interface{}{
-//								"kms:ViaService": "secretsmanager.*.amazonaws.com",
-//								"kms:EncryptionContext:SecretARN": []string{
-//									"arn:aws:secretsmanager:*:*:secret:events!connection/*",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = kms.NewKey(ctx, "test", &kms.KeyArgs{
-//				DeletionWindowInDays: pulumi.Int(7),
-//				Policy:               pulumi.String(json0),
-//				Tags: pulumi.StringMap{
-//					"EventBridgeApiDestinations": pulumi.String("true"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewEventConnection(ctx, "test", &cloudwatch.EventConnectionArgs{
-//				Name:              pulumi.String("ngrok-connection"),
-//				Description:       pulumi.String("A connection description"),
-//				AuthorizationType: pulumi.String("BASIC"),
-//				AuthParameters: &cloudwatch.EventConnectionAuthParametersArgs{
-//					Basic: &cloudwatch.EventConnectionAuthParametersBasicArgs{
-//						Username: pulumi.String("user"),
-//						Password: pulumi.String("Pass1234!"),
-//					},
-//				},
-//				KmsKeyIdentifier: pulumi.Any(example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EventBridge EventBridge connection using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
-// ```
 type EventConnection struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the connection.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
-	AuthParameters EventConnectionAuthParametersOutput `pulumi:"authParameters"`
-	// Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-	AuthorizationType pulumi.StringOutput `pulumi:"authorizationType"`
-	// Description for the connection. Maximum of 512 characters.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Parameters to use for invoking a private API. Documented below.
+	Arn                              pulumi.StringOutput                                      `pulumi:"arn"`
+	AuthParameters                   EventConnectionAuthParametersOutput                      `pulumi:"authParameters"`
+	AuthorizationType                pulumi.StringOutput                                      `pulumi:"authorizationType"`
+	Description                      pulumi.StringPtrOutput                                   `pulumi:"description"`
 	InvocationConnectivityParameters EventConnectionInvocationConnectivityParametersPtrOutput `pulumi:"invocationConnectivityParameters"`
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
-	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
-	// The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
-	SecretArn pulumi.StringOutput `pulumi:"secretArn"`
+	KmsKeyIdentifier                 pulumi.StringPtrOutput                                   `pulumi:"kmsKeyIdentifier"`
+	Name                             pulumi.StringOutput                                      `pulumi:"name"`
+	Region                           pulumi.StringOutput                                      `pulumi:"region"`
+	SecretArn                        pulumi.StringOutput                                      `pulumi:"secretArn"`
 }
 
 // NewEventConnection registers a new resource with the given unique name, arguments, and options.
@@ -371,45 +62,27 @@ func GetEventConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventConnection resources.
 type eventConnectionState struct {
-	// The Amazon Resource Name (ARN) of the connection.
-	Arn *string `pulumi:"arn"`
-	// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
-	AuthParameters *EventConnectionAuthParameters `pulumi:"authParameters"`
-	// Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-	AuthorizationType *string `pulumi:"authorizationType"`
-	// Description for the connection. Maximum of 512 characters.
-	Description *string `pulumi:"description"`
-	// Parameters to use for invoking a private API. Documented below.
+	Arn                              *string                                          `pulumi:"arn"`
+	AuthParameters                   *EventConnectionAuthParameters                   `pulumi:"authParameters"`
+	AuthorizationType                *string                                          `pulumi:"authorizationType"`
+	Description                      *string                                          `pulumi:"description"`
 	InvocationConnectivityParameters *EventConnectionInvocationConnectivityParameters `pulumi:"invocationConnectivityParameters"`
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
-	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
-	// The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
-	SecretArn *string `pulumi:"secretArn"`
+	KmsKeyIdentifier                 *string                                          `pulumi:"kmsKeyIdentifier"`
+	Name                             *string                                          `pulumi:"name"`
+	Region                           *string                                          `pulumi:"region"`
+	SecretArn                        *string                                          `pulumi:"secretArn"`
 }
 
 type EventConnectionState struct {
-	// The Amazon Resource Name (ARN) of the connection.
-	Arn pulumi.StringPtrInput
-	// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
-	AuthParameters EventConnectionAuthParametersPtrInput
-	// Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-	AuthorizationType pulumi.StringPtrInput
-	// Description for the connection. Maximum of 512 characters.
-	Description pulumi.StringPtrInput
-	// Parameters to use for invoking a private API. Documented below.
+	Arn                              pulumi.StringPtrInput
+	AuthParameters                   EventConnectionAuthParametersPtrInput
+	AuthorizationType                pulumi.StringPtrInput
+	Description                      pulumi.StringPtrInput
 	InvocationConnectivityParameters EventConnectionInvocationConnectivityParametersPtrInput
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
-	KmsKeyIdentifier pulumi.StringPtrInput
-	// The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
-	SecretArn pulumi.StringPtrInput
+	KmsKeyIdentifier                 pulumi.StringPtrInput
+	Name                             pulumi.StringPtrInput
+	Region                           pulumi.StringPtrInput
+	SecretArn                        pulumi.StringPtrInput
 }
 
 func (EventConnectionState) ElementType() reflect.Type {
@@ -417,38 +90,24 @@ func (EventConnectionState) ElementType() reflect.Type {
 }
 
 type eventConnectionArgs struct {
-	// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
-	AuthParameters EventConnectionAuthParameters `pulumi:"authParameters"`
-	// Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-	AuthorizationType string `pulumi:"authorizationType"`
-	// Description for the connection. Maximum of 512 characters.
-	Description *string `pulumi:"description"`
-	// Parameters to use for invoking a private API. Documented below.
+	AuthParameters                   EventConnectionAuthParameters                    `pulumi:"authParameters"`
+	AuthorizationType                string                                           `pulumi:"authorizationType"`
+	Description                      *string                                          `pulumi:"description"`
 	InvocationConnectivityParameters *EventConnectionInvocationConnectivityParameters `pulumi:"invocationConnectivityParameters"`
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
-	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
-	// The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	KmsKeyIdentifier                 *string                                          `pulumi:"kmsKeyIdentifier"`
+	Name                             *string                                          `pulumi:"name"`
+	Region                           *string                                          `pulumi:"region"`
 }
 
 // The set of arguments for constructing a EventConnection resource.
 type EventConnectionArgs struct {
-	// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
-	AuthParameters EventConnectionAuthParametersInput
-	// Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-	AuthorizationType pulumi.StringInput
-	// Description for the connection. Maximum of 512 characters.
-	Description pulumi.StringPtrInput
-	// Parameters to use for invoking a private API. Documented below.
+	AuthParameters                   EventConnectionAuthParametersInput
+	AuthorizationType                pulumi.StringInput
+	Description                      pulumi.StringPtrInput
 	InvocationConnectivityParameters EventConnectionInvocationConnectivityParametersPtrInput
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
-	KmsKeyIdentifier pulumi.StringPtrInput
-	// The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	KmsKeyIdentifier                 pulumi.StringPtrInput
+	Name                             pulumi.StringPtrInput
+	Region                           pulumi.StringPtrInput
 }
 
 func (EventConnectionArgs) ElementType() reflect.Type {
@@ -538,49 +197,40 @@ func (o EventConnectionOutput) ToEventConnectionOutputWithContext(ctx context.Co
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the connection.
 func (o EventConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventConnection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
 func (o EventConnectionOutput) AuthParameters() EventConnectionAuthParametersOutput {
 	return o.ApplyT(func(v *EventConnection) EventConnectionAuthParametersOutput { return v.AuthParameters }).(EventConnectionAuthParametersOutput)
 }
 
-// Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
 func (o EventConnectionOutput) AuthorizationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventConnection) pulumi.StringOutput { return v.AuthorizationType }).(pulumi.StringOutput)
 }
 
-// Description for the connection. Maximum of 512 characters.
 func (o EventConnectionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventConnection) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Parameters to use for invoking a private API. Documented below.
 func (o EventConnectionOutput) InvocationConnectivityParameters() EventConnectionInvocationConnectivityParametersPtrOutput {
 	return o.ApplyT(func(v *EventConnection) EventConnectionInvocationConnectivityParametersPtrOutput {
 		return v.InvocationConnectivityParameters
 	}).(EventConnectionInvocationConnectivityParametersPtrOutput)
 }
 
-// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
 func (o EventConnectionOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventConnection) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 func (o EventConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EventConnectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
 func (o EventConnectionOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventConnection) pulumi.StringOutput { return v.SecretArn }).(pulumi.StringOutput)
 }

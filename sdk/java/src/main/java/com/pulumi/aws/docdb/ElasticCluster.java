@@ -18,275 +18,95 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS DocDB (DocumentDB) Elastic Cluster.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.docdb.ElasticCluster;
- * import com.pulumi.aws.docdb.ElasticClusterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ElasticCluster("example", ElasticClusterArgs.builder()
- *             .name("my-docdb-cluster")
- *             .adminUserName("foo")
- *             .adminUserPassword("mustbeeightchars")
- *             .authType("PLAIN_TEXT")
- *             .shardCapacity(2)
- *             .shardCount(1)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the DocDB Elastic cluster.
- * 
- * Using `pulumi import`, import DocDB (DocumentDB) Elastic Cluster using the `arn` argument. For example,
- * 
- * % pulumi import aws_docdbelastic_cluster.example arn:aws:docdb-elastic:us-east-1:000011112222:cluster/12345678-7abc-def0-1234-56789abcdef
- * 
- */
 @ResourceType(type="aws:docdb/elasticCluster:ElasticCluster")
 public class ElasticCluster extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of the Elastic DocumentDB cluster administrator
-     * 
-     */
     @Export(name="adminUserName", refs={String.class}, tree="[0]")
     private Output<String> adminUserName;
 
-    /**
-     * @return Name of the Elastic DocumentDB cluster administrator
-     * 
-     */
     public Output<String> adminUserName() {
         return this.adminUserName;
     }
-    /**
-     * Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
-     * 
-     */
     @Export(name="adminUserPassword", refs={String.class}, tree="[0]")
     private Output<String> adminUserPassword;
 
-    /**
-     * @return Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
-     * 
-     */
     public Output<String> adminUserPassword() {
         return this.adminUserPassword;
     }
-    /**
-     * ARN of the DocumentDB Elastic Cluster
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the DocumentDB Elastic Cluster
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
-     * 
-     */
     @Export(name="authType", refs={String.class}, tree="[0]")
     private Output<String> authType;
 
-    /**
-     * @return Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
-     * 
-     */
     public Output<String> authType() {
         return this.authType;
     }
-    /**
-     * The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
-     * 
-     */
     @Export(name="backupRetentionPeriod", refs={Integer.class}, tree="[0]")
     private Output<Integer> backupRetentionPeriod;
 
-    /**
-     * @return The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
-     * 
-     */
     public Output<Integer> backupRetentionPeriod() {
         return this.backupRetentionPeriod;
     }
-    /**
-     * The DNS address of the DocDB instance
-     * 
-     */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
-    /**
-     * @return The DNS address of the DocDB instance
-     * 
-     */
     public Output<String> endpoint() {
         return this.endpoint;
     }
-    /**
-     * ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
-     * 
-     */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
-    /**
-     * @return ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
-     * 
-     */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
-    /**
-     * Name of the Elastic DocumentDB cluster
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the Elastic DocumentDB cluster
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backupRetentionPeriod`.
-     * 
-     */
     @Export(name="preferredBackupWindow", refs={String.class}, tree="[0]")
     private Output<String> preferredBackupWindow;
 
-    /**
-     * @return The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backupRetentionPeriod`.
-     * 
-     */
     public Output<String> preferredBackupWindow() {
         return this.preferredBackupWindow;
     }
-    /**
-     * Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
-     * 
-     */
     @Export(name="preferredMaintenanceWindow", refs={String.class}, tree="[0]")
     private Output<String> preferredMaintenanceWindow;
 
-    /**
-     * @return Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
-     * 
-     */
     public Output<String> preferredMaintenanceWindow() {
         return this.preferredMaintenanceWindow;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
-     * 
-     */
     @Export(name="shardCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> shardCapacity;
 
-    /**
-     * @return Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
-     * 
-     */
     public Output<Integer> shardCapacity() {
         return this.shardCapacity;
     }
-    /**
-     * Number of shards assigned to the elastic cluster. Maximum is 32
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="shardCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> shardCount;
 
-    /**
-     * @return Number of shards assigned to the elastic cluster. Maximum is 32
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Integer> shardCount() {
         return this.shardCount;
     }
-    /**
-     * IDs of subnets in which the Elastic DocumentDB Cluster operates.
-     * 
-     */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
-    /**
-     * @return IDs of subnets in which the Elastic DocumentDB Cluster operates.
-     * 
-     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
-    /**
-     * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -302,23 +122,9 @@ public class ElasticCluster extends com.pulumi.resources.CustomResource {
     public Output<Optional<ElasticClusterTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * List of VPC security groups to associate with the Elastic DocumentDB Cluster
-     * 
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
-     * 
-     */
     @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> vpcSecurityGroupIds;
 
-    /**
-     * @return List of VPC security groups to associate with the Elastic DocumentDB Cluster
-     * 
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
-     * 
-     */
     public Output<List<String>> vpcSecurityGroupIds() {
         return this.vpcSecurityGroupIds;
     }

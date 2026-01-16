@@ -13,13 +13,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     [OutputType]
     public sealed class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationResult
     {
-        /// <summary>
-        /// ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `AsnRanges`
-        /// </summary>
         public readonly string? Asn;
-        /// <summary>
-        /// The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `InsideCidrBlocks`.
-        /// </summary>
         public readonly ImmutableArray<string> InsideCidrBlocks;
         public readonly string Location;
 

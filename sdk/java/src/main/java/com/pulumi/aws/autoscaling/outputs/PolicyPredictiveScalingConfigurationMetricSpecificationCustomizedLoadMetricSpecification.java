@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification {
-    /**
-     * @return List of up to 10 structures that defines custom load metric in predictive scaling policy
-     * 
-     */
     private List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery> metricDataQueries;
 
     private PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification() {}
-    /**
-     * @return List of up to 10 structures that defines custom load metric in predictive scaling policy
-     * 
-     */
     public List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery> metricDataQueries() {
         return this.metricDataQueries;
     }

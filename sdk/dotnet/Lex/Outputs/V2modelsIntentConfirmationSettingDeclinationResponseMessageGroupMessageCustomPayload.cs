@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessageCustomPayload
     {
-        /// <summary>
-        /// String that is sent to your application.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

@@ -14,10 +14,6 @@ import java.util.Objects;
 public final class SecurityConfigurationEncryptionConfiguration {
     private SecurityConfigurationEncryptionConfigurationCloudwatchEncryption cloudwatchEncryption;
     private SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption jobBookmarksEncryption;
-    /**
-     * @return A ` s3Encryption  ` block as described below, which contains encryption configuration for S3 data.
-     * 
-     */
     private SecurityConfigurationEncryptionConfigurationS3Encryption s3Encryption;
 
     private SecurityConfigurationEncryptionConfiguration() {}
@@ -27,10 +23,6 @@ public final class SecurityConfigurationEncryptionConfiguration {
     public SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption jobBookmarksEncryption() {
         return this.jobBookmarksEncryption;
     }
-    /**
-     * @return A ` s3Encryption  ` block as described below, which contains encryption configuration for S3 data.
-     * 
-     */
     public SecurityConfigurationEncryptionConfigurationS3Encryption s3Encryption() {
         return this.s3Encryption;
     }

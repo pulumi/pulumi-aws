@@ -14,10 +14,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
     {
         [Input("organizationArns")]
         private InputList<string>? _organizationArns;
-
-        /// <summary>
-        /// Set of AWS Organization ARNs to assign.
-        /// </summary>
         public InputList<string> OrganizationArns
         {
             get => _organizationArns ?? (_organizationArns = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
         [Input("organizationalUnitArns")]
         private InputList<string>? _organizationalUnitArns;
-
-        /// <summary>
-        /// Set of AWS Organizational Unit ARNs to assign.
-        /// </summary>
         public InputList<string> OrganizationalUnitArns
         {
             get => _organizationalUnitArns ?? (_organizationalUnitArns = new InputList<string>());
@@ -38,10 +30,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
         [Input("userGroups")]
         private InputList<string>? _userGroups;
-
-        /// <summary>
-        /// Set of EC2 launch permission user groups to assign. Use `All` to distribute a public AMI.
-        /// </summary>
         public InputList<string> UserGroups
         {
             get => _userGroups ?? (_userGroups = new InputList<string>());
@@ -50,10 +38,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
         [Input("userIds")]
         private InputList<string>? _userIds;
-
-        /// <summary>
-        /// Set of AWS Account identifiers to assign.
-        /// </summary>
         public InputList<string> UserIds
         {
             get => _userIds ?? (_userIds = new InputList<string>());

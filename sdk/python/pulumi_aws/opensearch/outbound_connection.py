@@ -30,13 +30,6 @@ class OutboundConnectionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OutboundConnection resource.
-        :param pulumi.Input[_builtins.str] connection_alias: Specifies the connection alias that will be used by the customer for this connection.
-        :param pulumi.Input['OutboundConnectionLocalDomainInfoArgs'] local_domain_info: Configuration block for the local Opensearch domain.
-        :param pulumi.Input['OutboundConnectionRemoteDomainInfoArgs'] remote_domain_info: Configuration block for the remote Opensearch domain.
-        :param pulumi.Input[_builtins.bool] accept_connection: Accepts the connection.
-        :param pulumi.Input[_builtins.str] connection_mode: Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
-        :param pulumi.Input['OutboundConnectionConnectionPropertiesArgs'] connection_properties: Configuration block for the outbound connection.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "connection_alias", connection_alias)
         pulumi.set(__self__, "local_domain_info", local_domain_info)
@@ -53,9 +46,6 @@ class OutboundConnectionArgs:
     @_builtins.property
     @pulumi.getter(name="connectionAlias")
     def connection_alias(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the connection alias that will be used by the customer for this connection.
-        """
         return pulumi.get(self, "connection_alias")
 
     @connection_alias.setter
@@ -65,9 +55,6 @@ class OutboundConnectionArgs:
     @_builtins.property
     @pulumi.getter(name="localDomainInfo")
     def local_domain_info(self) -> pulumi.Input['OutboundConnectionLocalDomainInfoArgs']:
-        """
-        Configuration block for the local Opensearch domain.
-        """
         return pulumi.get(self, "local_domain_info")
 
     @local_domain_info.setter
@@ -77,9 +64,6 @@ class OutboundConnectionArgs:
     @_builtins.property
     @pulumi.getter(name="remoteDomainInfo")
     def remote_domain_info(self) -> pulumi.Input['OutboundConnectionRemoteDomainInfoArgs']:
-        """
-        Configuration block for the remote Opensearch domain.
-        """
         return pulumi.get(self, "remote_domain_info")
 
     @remote_domain_info.setter
@@ -89,9 +73,6 @@ class OutboundConnectionArgs:
     @_builtins.property
     @pulumi.getter(name="acceptConnection")
     def accept_connection(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Accepts the connection.
-        """
         return pulumi.get(self, "accept_connection")
 
     @accept_connection.setter
@@ -101,9 +82,6 @@ class OutboundConnectionArgs:
     @_builtins.property
     @pulumi.getter(name="connectionMode")
     def connection_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
-        """
         return pulumi.get(self, "connection_mode")
 
     @connection_mode.setter
@@ -113,9 +91,6 @@ class OutboundConnectionArgs:
     @_builtins.property
     @pulumi.getter(name="connectionProperties")
     def connection_properties(self) -> Optional[pulumi.Input['OutboundConnectionConnectionPropertiesArgs']]:
-        """
-        Configuration block for the outbound connection.
-        """
         return pulumi.get(self, "connection_properties")
 
     @connection_properties.setter
@@ -125,9 +100,6 @@ class OutboundConnectionArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -148,14 +120,6 @@ class _OutboundConnectionState:
                  remote_domain_info: Optional[pulumi.Input['OutboundConnectionRemoteDomainInfoArgs']] = None):
         """
         Input properties used for looking up and filtering OutboundConnection resources.
-        :param pulumi.Input[_builtins.bool] accept_connection: Accepts the connection.
-        :param pulumi.Input[_builtins.str] connection_alias: Specifies the connection alias that will be used by the customer for this connection.
-        :param pulumi.Input[_builtins.str] connection_mode: Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
-        :param pulumi.Input['OutboundConnectionConnectionPropertiesArgs'] connection_properties: Configuration block for the outbound connection.
-        :param pulumi.Input[_builtins.str] connection_status: Status of the connection request.
-        :param pulumi.Input['OutboundConnectionLocalDomainInfoArgs'] local_domain_info: Configuration block for the local Opensearch domain.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['OutboundConnectionRemoteDomainInfoArgs'] remote_domain_info: Configuration block for the remote Opensearch domain.
         """
         if accept_connection is not None:
             pulumi.set(__self__, "accept_connection", accept_connection)
@@ -177,9 +141,6 @@ class _OutboundConnectionState:
     @_builtins.property
     @pulumi.getter(name="acceptConnection")
     def accept_connection(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Accepts the connection.
-        """
         return pulumi.get(self, "accept_connection")
 
     @accept_connection.setter
@@ -189,9 +150,6 @@ class _OutboundConnectionState:
     @_builtins.property
     @pulumi.getter(name="connectionAlias")
     def connection_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the connection alias that will be used by the customer for this connection.
-        """
         return pulumi.get(self, "connection_alias")
 
     @connection_alias.setter
@@ -201,9 +159,6 @@ class _OutboundConnectionState:
     @_builtins.property
     @pulumi.getter(name="connectionMode")
     def connection_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
-        """
         return pulumi.get(self, "connection_mode")
 
     @connection_mode.setter
@@ -213,9 +168,6 @@ class _OutboundConnectionState:
     @_builtins.property
     @pulumi.getter(name="connectionProperties")
     def connection_properties(self) -> Optional[pulumi.Input['OutboundConnectionConnectionPropertiesArgs']]:
-        """
-        Configuration block for the outbound connection.
-        """
         return pulumi.get(self, "connection_properties")
 
     @connection_properties.setter
@@ -225,9 +177,6 @@ class _OutboundConnectionState:
     @_builtins.property
     @pulumi.getter(name="connectionStatus")
     def connection_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the connection request.
-        """
         return pulumi.get(self, "connection_status")
 
     @connection_status.setter
@@ -237,9 +186,6 @@ class _OutboundConnectionState:
     @_builtins.property
     @pulumi.getter(name="localDomainInfo")
     def local_domain_info(self) -> Optional[pulumi.Input['OutboundConnectionLocalDomainInfoArgs']]:
-        """
-        Configuration block for the local Opensearch domain.
-        """
         return pulumi.get(self, "local_domain_info")
 
     @local_domain_info.setter
@@ -249,9 +195,6 @@ class _OutboundConnectionState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -261,9 +204,6 @@ class _OutboundConnectionState:
     @_builtins.property
     @pulumi.getter(name="remoteDomainInfo")
     def remote_domain_info(self) -> Optional[pulumi.Input['OutboundConnectionRemoteDomainInfoArgs']]:
-        """
-        Configuration block for the remote Opensearch domain.
-        """
         return pulumi.get(self, "remote_domain_info")
 
     @remote_domain_info.setter
@@ -286,50 +226,9 @@ class OutboundConnection(pulumi.CustomResource):
                  remote_domain_info: Optional[pulumi.Input[Union['OutboundConnectionRemoteDomainInfoArgs', 'OutboundConnectionRemoteDomainInfoArgsDict']]] = None,
                  __props__=None):
         """
-        Manages an AWS Opensearch Outbound Connection.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_region = aws.get_region()
-        foo = aws.opensearch.OutboundConnection("foo",
-            connection_alias="outbound_connection",
-            connection_mode="DIRECT",
-            local_domain_info={
-                "owner_id": current.account_id,
-                "region": current_get_region.region,
-                "domain_name": local_domain["domainName"],
-            },
-            remote_domain_info={
-                "owner_id": current.account_id,
-                "region": current_get_region.region,
-                "domain_name": remote_domain["domainName"],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AWS Opensearch Outbound Connections using the Outbound Connection ID. For example:
-
-        ```sh
-        $ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
-        ```
-
+        Create a OutboundConnection resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] accept_connection: Accepts the connection.
-        :param pulumi.Input[_builtins.str] connection_alias: Specifies the connection alias that will be used by the customer for this connection.
-        :param pulumi.Input[_builtins.str] connection_mode: Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
-        :param pulumi.Input[Union['OutboundConnectionConnectionPropertiesArgs', 'OutboundConnectionConnectionPropertiesArgsDict']] connection_properties: Configuration block for the outbound connection.
-        :param pulumi.Input[Union['OutboundConnectionLocalDomainInfoArgs', 'OutboundConnectionLocalDomainInfoArgsDict']] local_domain_info: Configuration block for the local Opensearch domain.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['OutboundConnectionRemoteDomainInfoArgs', 'OutboundConnectionRemoteDomainInfoArgsDict']] remote_domain_info: Configuration block for the remote Opensearch domain.
         """
         ...
     @overload
@@ -338,41 +237,7 @@ class OutboundConnection(pulumi.CustomResource):
                  args: OutboundConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS Opensearch Outbound Connection.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_region = aws.get_region()
-        foo = aws.opensearch.OutboundConnection("foo",
-            connection_alias="outbound_connection",
-            connection_mode="DIRECT",
-            local_domain_info={
-                "owner_id": current.account_id,
-                "region": current_get_region.region,
-                "domain_name": local_domain["domainName"],
-            },
-            remote_domain_info={
-                "owner_id": current.account_id,
-                "region": current_get_region.region,
-                "domain_name": remote_domain["domainName"],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AWS Opensearch Outbound Connections using the Outbound Connection ID. For example:
-
-        ```sh
-        $ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
-        ```
-
+        Create a OutboundConnection resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param OutboundConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -443,14 +308,6 @@ class OutboundConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] accept_connection: Accepts the connection.
-        :param pulumi.Input[_builtins.str] connection_alias: Specifies the connection alias that will be used by the customer for this connection.
-        :param pulumi.Input[_builtins.str] connection_mode: Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
-        :param pulumi.Input[Union['OutboundConnectionConnectionPropertiesArgs', 'OutboundConnectionConnectionPropertiesArgsDict']] connection_properties: Configuration block for the outbound connection.
-        :param pulumi.Input[_builtins.str] connection_status: Status of the connection request.
-        :param pulumi.Input[Union['OutboundConnectionLocalDomainInfoArgs', 'OutboundConnectionLocalDomainInfoArgsDict']] local_domain_info: Configuration block for the local Opensearch domain.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['OutboundConnectionRemoteDomainInfoArgs', 'OutboundConnectionRemoteDomainInfoArgsDict']] remote_domain_info: Configuration block for the remote Opensearch domain.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -469,64 +326,40 @@ class OutboundConnection(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="acceptConnection")
     def accept_connection(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Accepts the connection.
-        """
         return pulumi.get(self, "accept_connection")
 
     @_builtins.property
     @pulumi.getter(name="connectionAlias")
     def connection_alias(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies the connection alias that will be used by the customer for this connection.
-        """
         return pulumi.get(self, "connection_alias")
 
     @_builtins.property
     @pulumi.getter(name="connectionMode")
     def connection_mode(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
-        """
         return pulumi.get(self, "connection_mode")
 
     @_builtins.property
     @pulumi.getter(name="connectionProperties")
     def connection_properties(self) -> pulumi.Output['outputs.OutboundConnectionConnectionProperties']:
-        """
-        Configuration block for the outbound connection.
-        """
         return pulumi.get(self, "connection_properties")
 
     @_builtins.property
     @pulumi.getter(name="connectionStatus")
     def connection_status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status of the connection request.
-        """
         return pulumi.get(self, "connection_status")
 
     @_builtins.property
     @pulumi.getter(name="localDomainInfo")
     def local_domain_info(self) -> pulumi.Output['outputs.OutboundConnectionLocalDomainInfo']:
-        """
-        Configuration block for the local Opensearch domain.
-        """
         return pulumi.get(self, "local_domain_info")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="remoteDomainInfo")
     def remote_domain_info(self) -> pulumi.Output['outputs.OutboundConnectionRemoteDomainInfo']:
-        """
-        Configuration block for the remote Opensearch domain.
-        """
         return pulumi.get(self, "remote_domain_info")
 

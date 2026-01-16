@@ -14,10 +14,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOrderableDbInstanceResult {
-    /**
-     * @return Availability zones where the instance is available.
-     * 
-     */
     private List<String> availabilityZones;
     private @Nullable String engine;
     private String engineVersion;
@@ -33,10 +29,6 @@ public final class GetOrderableDbInstanceResult {
     private Boolean vpc;
 
     private GetOrderableDbInstanceResult() {}
-    /**
-     * @return Availability zones where the instance is available.
-     * 
-     */
     public List<String> availabilityZones() {
         return this.availabilityZones;
     }

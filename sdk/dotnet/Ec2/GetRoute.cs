@@ -11,126 +11,12 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetRoute
     {
-        /// <summary>
-        /// `aws.ec2.Route` provides details about a specific Route.
-        /// 
-        /// This resource can prove useful when finding the resource associated with a CIDR. For example, finding the peering connection associated with a CIDR value.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
-        ///     var selected = Aws.Ec2.GetRouteTable.Invoke(new()
-        ///     {
-        ///         SubnetId = subnetId,
-        ///     });
-        /// 
-        ///     var route = Aws.Ec2.GetRoute.Invoke(new()
-        ///     {
-        ///         RouteTableId = selectedAwsRouteTable.Id,
-        ///         DestinationCidrBlock = "10.0.1.0/24",
-        ///     });
-        /// 
-        ///     var @interface = Aws.Ec2.GetNetworkInterface.Invoke(new()
-        ///     {
-        ///         Id = route.Apply(getRouteResult =&gt; getRouteResult.NetworkInterfaceId),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("aws:ec2/getRoute:getRoute", args ?? new GetRouteArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.ec2.Route` provides details about a specific Route.
-        /// 
-        /// This resource can prove useful when finding the resource associated with a CIDR. For example, finding the peering connection associated with a CIDR value.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
-        ///     var selected = Aws.Ec2.GetRouteTable.Invoke(new()
-        ///     {
-        ///         SubnetId = subnetId,
-        ///     });
-        /// 
-        ///     var route = Aws.Ec2.GetRoute.Invoke(new()
-        ///     {
-        ///         RouteTableId = selectedAwsRouteTable.Id,
-        ///         DestinationCidrBlock = "10.0.1.0/24",
-        ///     });
-        /// 
-        ///     var @interface = Aws.Ec2.GetNetworkInterface.Invoke(new()
-        ///     {
-        ///         Id = route.Apply(getRouteResult =&gt; getRouteResult.NetworkInterfaceId),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("aws:ec2/getRoute:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.ec2.Route` provides details about a specific Route.
-        /// 
-        /// This resource can prove useful when finding the resource associated with a CIDR. For example, finding the peering connection associated with a CIDR value.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
-        ///     var selected = Aws.Ec2.GetRouteTable.Invoke(new()
-        ///     {
-        ///         SubnetId = subnetId,
-        ///     });
-        /// 
-        ///     var route = Aws.Ec2.GetRoute.Invoke(new()
-        ///     {
-        ///         RouteTableId = selectedAwsRouteTable.Id,
-        ///         DestinationCidrBlock = "10.0.1.0/24",
-        ///     });
-        /// 
-        ///     var @interface = Aws.Ec2.GetNetworkInterface.Invoke(new()
-        ///     {
-        ///         Id = route.Apply(getRouteResult =&gt; getRouteResult.NetworkInterfaceId),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("aws:ec2/getRoute:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
     }
@@ -138,95 +24,48 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class GetRouteArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// EC2 Carrier Gateway ID of the Route belonging to the Route Table.
-        /// </summary>
         [Input("carrierGatewayId")]
         public string? CarrierGatewayId { get; set; }
 
-        /// <summary>
-        /// Core network ARN of the Route belonging to the Route Table.
-        /// </summary>
         [Input("coreNetworkArn")]
         public string? CoreNetworkArn { get; set; }
 
-        /// <summary>
-        /// CIDR block of the Route belonging to the Route Table.
-        /// </summary>
         [Input("destinationCidrBlock")]
         public string? DestinationCidrBlock { get; set; }
 
-        /// <summary>
-        /// IPv6 CIDR block of the Route belonging to the Route Table.
-        /// </summary>
         [Input("destinationIpv6CidrBlock")]
         public string? DestinationIpv6CidrBlock { get; set; }
 
-        /// <summary>
-        /// ID of a managed prefix list destination of the Route belonging to the Route Table.
-        /// </summary>
         [Input("destinationPrefixListId")]
         public string? DestinationPrefixListId { get; set; }
 
-        /// <summary>
-        /// Egress Only Gateway ID of the Route belonging to the Route Table.
-        /// </summary>
         [Input("egressOnlyGatewayId")]
         public string? EgressOnlyGatewayId { get; set; }
 
-        /// <summary>
-        /// Gateway ID of the Route belonging to the Route Table.
-        /// </summary>
         [Input("gatewayId")]
         public string? GatewayId { get; set; }
 
-        /// <summary>
-        /// Instance ID of the Route belonging to the Route Table.
-        /// </summary>
         [Input("instanceId")]
         public string? InstanceId { get; set; }
 
-        /// <summary>
-        /// Local Gateway ID of the Route belonging to the Route Table.
-        /// </summary>
         [Input("localGatewayId")]
         public string? LocalGatewayId { get; set; }
 
-        /// <summary>
-        /// NAT Gateway ID of the Route belonging to the Route Table.
-        /// </summary>
         [Input("natGatewayId")]
         public string? NatGatewayId { get; set; }
 
-        /// <summary>
-        /// Network Interface ID of the Route belonging to the Route Table.
-        /// </summary>
         [Input("networkInterfaceId")]
         public string? NetworkInterfaceId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// ID of the specific Route Table containing the Route entry.
-        /// </summary>
         [Input("routeTableId", required: true)]
         public string RouteTableId { get; set; } = null!;
 
-        /// <summary>
-        /// EC2 Transit Gateway ID of the Route belonging to the Route Table.
-        /// </summary>
         [Input("transitGatewayId")]
         public string? TransitGatewayId { get; set; }
 
-        /// <summary>
-        /// VPC Peering Connection ID of the Route belonging to the Route Table.
-        /// 
-        /// The arguments of this data source act as filters for querying the available Route in the current region. The given filters must match exactly oneRoute whose data will be exported as attributes.
-        /// </summary>
         [Input("vpcPeeringConnectionId")]
         public string? VpcPeeringConnectionId { get; set; }
 
@@ -238,95 +77,48 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class GetRouteInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// EC2 Carrier Gateway ID of the Route belonging to the Route Table.
-        /// </summary>
         [Input("carrierGatewayId")]
         public Input<string>? CarrierGatewayId { get; set; }
 
-        /// <summary>
-        /// Core network ARN of the Route belonging to the Route Table.
-        /// </summary>
         [Input("coreNetworkArn")]
         public Input<string>? CoreNetworkArn { get; set; }
 
-        /// <summary>
-        /// CIDR block of the Route belonging to the Route Table.
-        /// </summary>
         [Input("destinationCidrBlock")]
         public Input<string>? DestinationCidrBlock { get; set; }
 
-        /// <summary>
-        /// IPv6 CIDR block of the Route belonging to the Route Table.
-        /// </summary>
         [Input("destinationIpv6CidrBlock")]
         public Input<string>? DestinationIpv6CidrBlock { get; set; }
 
-        /// <summary>
-        /// ID of a managed prefix list destination of the Route belonging to the Route Table.
-        /// </summary>
         [Input("destinationPrefixListId")]
         public Input<string>? DestinationPrefixListId { get; set; }
 
-        /// <summary>
-        /// Egress Only Gateway ID of the Route belonging to the Route Table.
-        /// </summary>
         [Input("egressOnlyGatewayId")]
         public Input<string>? EgressOnlyGatewayId { get; set; }
 
-        /// <summary>
-        /// Gateway ID of the Route belonging to the Route Table.
-        /// </summary>
         [Input("gatewayId")]
         public Input<string>? GatewayId { get; set; }
 
-        /// <summary>
-        /// Instance ID of the Route belonging to the Route Table.
-        /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 
-        /// <summary>
-        /// Local Gateway ID of the Route belonging to the Route Table.
-        /// </summary>
         [Input("localGatewayId")]
         public Input<string>? LocalGatewayId { get; set; }
 
-        /// <summary>
-        /// NAT Gateway ID of the Route belonging to the Route Table.
-        /// </summary>
         [Input("natGatewayId")]
         public Input<string>? NatGatewayId { get; set; }
 
-        /// <summary>
-        /// Network Interface ID of the Route belonging to the Route Table.
-        /// </summary>
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the specific Route Table containing the Route entry.
-        /// </summary>
         [Input("routeTableId", required: true)]
         public Input<string> RouteTableId { get; set; } = null!;
 
-        /// <summary>
-        /// EC2 Transit Gateway ID of the Route belonging to the Route Table.
-        /// </summary>
         [Input("transitGatewayId")]
         public Input<string>? TransitGatewayId { get; set; }
 
-        /// <summary>
-        /// VPC Peering Connection ID of the Route belonging to the Route Table.
-        /// 
-        /// The arguments of this data source act as filters for querying the available Route in the current region. The given filters must match exactly oneRoute whose data will be exported as attributes.
-        /// </summary>
         [Input("vpcPeeringConnectionId")]
         public Input<string>? VpcPeeringConnectionId { get; set; }
 

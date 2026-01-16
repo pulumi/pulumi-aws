@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
     {
         [Input("managedWordListsConfigs")]
         private InputList<Inputs.GuardrailWordPolicyConfigManagedWordListsConfigGetArgs>? _managedWordListsConfigs;
-
-        /// <summary>
-        /// A config for the list of managed words. See Managed Word Lists Config for more information.
-        /// </summary>
         public InputList<Inputs.GuardrailWordPolicyConfigManagedWordListsConfigGetArgs> ManagedWordListsConfigs
         {
             get => _managedWordListsConfigs ?? (_managedWordListsConfigs = new InputList<Inputs.GuardrailWordPolicyConfigManagedWordListsConfigGetArgs>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         [Input("wordsConfigs")]
         private InputList<Inputs.GuardrailWordPolicyConfigWordsConfigGetArgs>? _wordsConfigs;
-
-        /// <summary>
-        /// List of custom word configs. See Words Config for more information.
-        /// </summary>
         public InputList<Inputs.GuardrailWordPolicyConfigWordsConfigGetArgs> WordsConfigs
         {
             get => _wordsConfigs ?? (_wordsConfigs = new InputList<Inputs.GuardrailWordPolicyConfigWordsConfigGetArgs>());

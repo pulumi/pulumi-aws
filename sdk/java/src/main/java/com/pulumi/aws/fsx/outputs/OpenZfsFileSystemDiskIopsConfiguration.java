@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OpenZfsFileSystemDiskIopsConfiguration {
-    /**
-     * @return The total number of SSD IOPS provisioned for the file system.
-     * 
-     */
     private @Nullable Integer iops;
-    /**
-     * @return Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
-     * 
-     */
     private @Nullable String mode;
 
     private OpenZfsFileSystemDiskIopsConfiguration() {}
-    /**
-     * @return The total number of SSD IOPS provisioned for the file system.
-     * 
-     */
     public Optional<Integer> iops() {
         return Optional.ofNullable(this.iops);
     }
-    /**
-     * @return Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
-     * 
-     */
     public Optional<String> mode() {
         return Optional.ofNullable(this.mode);
     }

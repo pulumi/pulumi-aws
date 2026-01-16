@@ -15,53 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VirtualGatewaySpecListener {
-    /**
-     * @return Connection pool information for the listener.
-     * 
-     */
     private @Nullable VirtualGatewaySpecListenerConnectionPool connectionPool;
-    /**
-     * @return Health check information for the listener.
-     * 
-     */
     private @Nullable VirtualGatewaySpecListenerHealthCheck healthCheck;
-    /**
-     * @return Port mapping information for the listener.
-     * 
-     */
     private VirtualGatewaySpecListenerPortMapping portMapping;
-    /**
-     * @return Transport Layer Security (TLS) properties for the listener
-     * 
-     */
     private @Nullable VirtualGatewaySpecListenerTls tls;
 
     private VirtualGatewaySpecListener() {}
-    /**
-     * @return Connection pool information for the listener.
-     * 
-     */
     public Optional<VirtualGatewaySpecListenerConnectionPool> connectionPool() {
         return Optional.ofNullable(this.connectionPool);
     }
-    /**
-     * @return Health check information for the listener.
-     * 
-     */
     public Optional<VirtualGatewaySpecListenerHealthCheck> healthCheck() {
         return Optional.ofNullable(this.healthCheck);
     }
-    /**
-     * @return Port mapping information for the listener.
-     * 
-     */
     public VirtualGatewaySpecListenerPortMapping portMapping() {
         return this.portMapping;
     }
-    /**
-     * @return Transport Layer Security (TLS) properties for the listener
-     * 
-     */
     public Optional<VirtualGatewaySpecListenerTls> tls() {
         return Optional.ofNullable(this.tls);
     }

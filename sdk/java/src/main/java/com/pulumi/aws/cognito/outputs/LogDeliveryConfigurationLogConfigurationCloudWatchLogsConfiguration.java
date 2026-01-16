@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration {
-    /**
-     * @return The ARN of the CloudWatch Logs log group to which the logs should be delivered.
-     * 
-     */
     private @Nullable String logGroupArn;
 
     private LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfiguration() {}
-    /**
-     * @return The ARN of the CloudWatch Logs log group to which the logs should be delivered.
-     * 
-     */
     public Optional<String> logGroupArn() {
         return Optional.ofNullable(this.logGroupArn);
     }

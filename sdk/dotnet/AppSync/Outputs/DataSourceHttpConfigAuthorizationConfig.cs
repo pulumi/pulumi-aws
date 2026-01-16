@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppSync.Outputs
     [OutputType]
     public sealed class DataSourceHttpConfigAuthorizationConfig
     {
-        /// <summary>
-        /// Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
-        /// </summary>
         public readonly string? AuthorizationType;
-        /// <summary>
-        /// Identity and Access Management (IAM) settings. See `AwsIamConfig` Block for details.
-        /// </summary>
         public readonly Outputs.DataSourceHttpConfigAuthorizationConfigAwsIamConfig? AwsIamConfig;
 
         [OutputConstructor]

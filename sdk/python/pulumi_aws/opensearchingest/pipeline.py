@@ -35,19 +35,6 @@ class PipelineArgs:
                  vpc_options: Optional[pulumi.Input['PipelineVpcOptionsArgs']] = None):
         """
         The set of arguments for constructing a Pipeline resource.
-        :param pulumi.Input[_builtins.int] max_units: The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
-        :param pulumi.Input[_builtins.int] min_units: The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
-        :param pulumi.Input[_builtins.str] pipeline_configuration_body: The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \\n.
-        :param pulumi.Input[_builtins.str] pipeline_name: The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
-               
-               The following arguments are optional:
-        :param pulumi.Input['PipelineBufferOptionsArgs'] buffer_options: Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
-        :param pulumi.Input['PipelineEncryptionAtRestOptionsArgs'] encryption_at_rest_options: Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
-        :param pulumi.Input['PipelineLogPublishingOptionsArgs'] log_publishing_options: Key-value pairs to configure log publishing. See `log_publishing_options` below.
-        :param pulumi.Input[_builtins.str] pipeline_role_arn: ARN of the IAM role that grants the pipeline permission to access AWS resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['PipelineVpcOptionsArgs'] vpc_options: Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
         """
         pulumi.set(__self__, "max_units", max_units)
         pulumi.set(__self__, "min_units", min_units)
@@ -73,9 +60,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter(name="maxUnits")
     def max_units(self) -> pulumi.Input[_builtins.int]:
-        """
-        The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
-        """
         return pulumi.get(self, "max_units")
 
     @max_units.setter
@@ -85,9 +69,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter(name="minUnits")
     def min_units(self) -> pulumi.Input[_builtins.int]:
-        """
-        The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
-        """
         return pulumi.get(self, "min_units")
 
     @min_units.setter
@@ -97,9 +78,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter(name="pipelineConfigurationBody")
     def pipeline_configuration_body(self) -> pulumi.Input[_builtins.str]:
-        """
-        The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \\n.
-        """
         return pulumi.get(self, "pipeline_configuration_body")
 
     @pipeline_configuration_body.setter
@@ -109,11 +87,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter(name="pipelineName")
     def pipeline_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "pipeline_name")
 
     @pipeline_name.setter
@@ -123,9 +96,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter(name="bufferOptions")
     def buffer_options(self) -> Optional[pulumi.Input['PipelineBufferOptionsArgs']]:
-        """
-        Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
-        """
         return pulumi.get(self, "buffer_options")
 
     @buffer_options.setter
@@ -135,9 +105,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionAtRestOptions")
     def encryption_at_rest_options(self) -> Optional[pulumi.Input['PipelineEncryptionAtRestOptionsArgs']]:
-        """
-        Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
-        """
         return pulumi.get(self, "encryption_at_rest_options")
 
     @encryption_at_rest_options.setter
@@ -147,9 +114,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter(name="logPublishingOptions")
     def log_publishing_options(self) -> Optional[pulumi.Input['PipelineLogPublishingOptionsArgs']]:
-        """
-        Key-value pairs to configure log publishing. See `log_publishing_options` below.
-        """
         return pulumi.get(self, "log_publishing_options")
 
     @log_publishing_options.setter
@@ -159,9 +123,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter(name="pipelineRoleArn")
     def pipeline_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role that grants the pipeline permission to access AWS resources.
-        """
         return pulumi.get(self, "pipeline_role_arn")
 
     @pipeline_role_arn.setter
@@ -171,9 +132,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -183,9 +141,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -204,9 +159,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter(name="vpcOptions")
     def vpc_options(self) -> Optional[pulumi.Input['PipelineVpcOptionsArgs']]:
-        """
-        Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
-        """
         return pulumi.get(self, "vpc_options")
 
     @vpc_options.setter
@@ -234,21 +186,6 @@ class _PipelineState:
                  vpc_options: Optional[pulumi.Input['PipelineVpcOptionsArgs']] = None):
         """
         Input properties used for looking up and filtering Pipeline resources.
-        :param pulumi.Input['PipelineBufferOptionsArgs'] buffer_options: Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
-        :param pulumi.Input['PipelineEncryptionAtRestOptionsArgs'] encryption_at_rest_options: Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ingest_endpoint_urls: The list of ingestion endpoints for the pipeline, which you can send data to.
-        :param pulumi.Input['PipelineLogPublishingOptionsArgs'] log_publishing_options: Key-value pairs to configure log publishing. See `log_publishing_options` below.
-        :param pulumi.Input[_builtins.int] max_units: The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
-        :param pulumi.Input[_builtins.int] min_units: The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
-        :param pulumi.Input[_builtins.str] pipeline_arn: Amazon Resource Name (ARN) of the pipeline.
-        :param pulumi.Input[_builtins.str] pipeline_configuration_body: The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \\n.
-        :param pulumi.Input[_builtins.str] pipeline_name: The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] pipeline_role_arn: ARN of the IAM role that grants the pipeline permission to access AWS resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['PipelineVpcOptionsArgs'] vpc_options: Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
         """
         if buffer_options is not None:
             pulumi.set(__self__, "buffer_options", buffer_options)
@@ -284,9 +221,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter(name="bufferOptions")
     def buffer_options(self) -> Optional[pulumi.Input['PipelineBufferOptionsArgs']]:
-        """
-        Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
-        """
         return pulumi.get(self, "buffer_options")
 
     @buffer_options.setter
@@ -296,9 +230,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter(name="encryptionAtRestOptions")
     def encryption_at_rest_options(self) -> Optional[pulumi.Input['PipelineEncryptionAtRestOptionsArgs']]:
-        """
-        Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
-        """
         return pulumi.get(self, "encryption_at_rest_options")
 
     @encryption_at_rest_options.setter
@@ -308,9 +239,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter(name="ingestEndpointUrls")
     def ingest_endpoint_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The list of ingestion endpoints for the pipeline, which you can send data to.
-        """
         return pulumi.get(self, "ingest_endpoint_urls")
 
     @ingest_endpoint_urls.setter
@@ -320,9 +248,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter(name="logPublishingOptions")
     def log_publishing_options(self) -> Optional[pulumi.Input['PipelineLogPublishingOptionsArgs']]:
-        """
-        Key-value pairs to configure log publishing. See `log_publishing_options` below.
-        """
         return pulumi.get(self, "log_publishing_options")
 
     @log_publishing_options.setter
@@ -332,9 +257,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter(name="maxUnits")
     def max_units(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
-        """
         return pulumi.get(self, "max_units")
 
     @max_units.setter
@@ -344,9 +266,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter(name="minUnits")
     def min_units(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
-        """
         return pulumi.get(self, "min_units")
 
     @min_units.setter
@@ -356,9 +275,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter(name="pipelineArn")
     def pipeline_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the pipeline.
-        """
         return pulumi.get(self, "pipeline_arn")
 
     @pipeline_arn.setter
@@ -368,9 +284,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter(name="pipelineConfigurationBody")
     def pipeline_configuration_body(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \\n.
-        """
         return pulumi.get(self, "pipeline_configuration_body")
 
     @pipeline_configuration_body.setter
@@ -380,11 +293,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter(name="pipelineName")
     def pipeline_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "pipeline_name")
 
     @pipeline_name.setter
@@ -394,9 +302,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter(name="pipelineRoleArn")
     def pipeline_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role that grants the pipeline permission to access AWS resources.
-        """
         return pulumi.get(self, "pipeline_role_arn")
 
     @pipeline_role_arn.setter
@@ -406,9 +311,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -418,9 +320,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -448,9 +347,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter(name="vpcOptions")
     def vpc_options(self) -> Optional[pulumi.Input['PipelineVpcOptionsArgs']]:
-        """
-        Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
-        """
         return pulumi.get(self, "vpc_options")
 
     @vpc_options.setter
@@ -478,88 +374,9 @@ class Pipeline(pulumi.CustomResource):
                  vpc_options: Optional[pulumi.Input[Union['PipelineVpcOptionsArgs', 'PipelineVpcOptionsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS OpenSearch Ingestion Pipeline.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example = aws.iam.Role("example", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "osis-pipelines.amazonaws.com",
-                },
-            }],
-        }))
-        example_pipeline = aws.opensearchingest.Pipeline("example",
-            pipeline_name="example",
-            pipeline_configuration_body=example.arn.apply(lambda arn: f\"\"\"version: \\"2\\"
-        example-pipeline:
-          source:
-            http:
-              path: \\"/example\\"
-          sink:
-            - s3:
-                aws:
-                  sts_role_arn: \\"{arn}\\"
-                  region: \\"{current.region}\\"
-                bucket: \\"example\\"
-                threshold:
-                  event_collect_timeout: \\"60s\\"
-                codec:
-                  ndjson:
-        \"\"\"),
-            max_units=1,
-            min_units=1)
-        ```
-
-        ### Using file function
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.opensearchingest.Pipeline("example",
-            pipeline_name="example",
-            pipeline_configuration_body=std.file(input="example.yaml").result,
-            max_units=1,
-            min_units=1)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import OpenSearch Ingestion Pipeline using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:opensearchingest/pipeline:Pipeline example example
-        ```
-
+        Create a Pipeline resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['PipelineBufferOptionsArgs', 'PipelineBufferOptionsArgsDict']] buffer_options: Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
-        :param pulumi.Input[Union['PipelineEncryptionAtRestOptionsArgs', 'PipelineEncryptionAtRestOptionsArgsDict']] encryption_at_rest_options: Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
-        :param pulumi.Input[Union['PipelineLogPublishingOptionsArgs', 'PipelineLogPublishingOptionsArgsDict']] log_publishing_options: Key-value pairs to configure log publishing. See `log_publishing_options` below.
-        :param pulumi.Input[_builtins.int] max_units: The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
-        :param pulumi.Input[_builtins.int] min_units: The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
-        :param pulumi.Input[_builtins.str] pipeline_configuration_body: The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \\n.
-        :param pulumi.Input[_builtins.str] pipeline_name: The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] pipeline_role_arn: ARN of the IAM role that grants the pipeline permission to access AWS resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['PipelineVpcOptionsArgs', 'PipelineVpcOptionsArgsDict']] vpc_options: Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
         """
         ...
     @overload
@@ -568,73 +385,7 @@ class Pipeline(pulumi.CustomResource):
                  args: PipelineArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS OpenSearch Ingestion Pipeline.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example = aws.iam.Role("example", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "osis-pipelines.amazonaws.com",
-                },
-            }],
-        }))
-        example_pipeline = aws.opensearchingest.Pipeline("example",
-            pipeline_name="example",
-            pipeline_configuration_body=example.arn.apply(lambda arn: f\"\"\"version: \\"2\\"
-        example-pipeline:
-          source:
-            http:
-              path: \\"/example\\"
-          sink:
-            - s3:
-                aws:
-                  sts_role_arn: \\"{arn}\\"
-                  region: \\"{current.region}\\"
-                bucket: \\"example\\"
-                threshold:
-                  event_collect_timeout: \\"60s\\"
-                codec:
-                  ndjson:
-        \"\"\"),
-            max_units=1,
-            min_units=1)
-        ```
-
-        ### Using file function
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.opensearchingest.Pipeline("example",
-            pipeline_name="example",
-            pipeline_configuration_body=std.file(input="example.yaml").result,
-            max_units=1,
-            min_units=1)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import OpenSearch Ingestion Pipeline using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:opensearchingest/pipeline:Pipeline example example
-        ```
-
+        Create a Pipeline resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PipelineArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -726,21 +477,6 @@ class Pipeline(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['PipelineBufferOptionsArgs', 'PipelineBufferOptionsArgsDict']] buffer_options: Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
-        :param pulumi.Input[Union['PipelineEncryptionAtRestOptionsArgs', 'PipelineEncryptionAtRestOptionsArgsDict']] encryption_at_rest_options: Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ingest_endpoint_urls: The list of ingestion endpoints for the pipeline, which you can send data to.
-        :param pulumi.Input[Union['PipelineLogPublishingOptionsArgs', 'PipelineLogPublishingOptionsArgsDict']] log_publishing_options: Key-value pairs to configure log publishing. See `log_publishing_options` below.
-        :param pulumi.Input[_builtins.int] max_units: The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
-        :param pulumi.Input[_builtins.int] min_units: The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
-        :param pulumi.Input[_builtins.str] pipeline_arn: Amazon Resource Name (ARN) of the pipeline.
-        :param pulumi.Input[_builtins.str] pipeline_configuration_body: The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \\n.
-        :param pulumi.Input[_builtins.str] pipeline_name: The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] pipeline_role_arn: ARN of the IAM role that grants the pipeline permission to access AWS resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['PipelineVpcOptionsArgs', 'PipelineVpcOptionsArgsDict']] vpc_options: Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -766,99 +502,61 @@ class Pipeline(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="bufferOptions")
     def buffer_options(self) -> pulumi.Output[Optional['outputs.PipelineBufferOptions']]:
-        """
-        Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
-        """
         return pulumi.get(self, "buffer_options")
 
     @_builtins.property
     @pulumi.getter(name="encryptionAtRestOptions")
     def encryption_at_rest_options(self) -> pulumi.Output[Optional['outputs.PipelineEncryptionAtRestOptions']]:
-        """
-        Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
-        """
         return pulumi.get(self, "encryption_at_rest_options")
 
     @_builtins.property
     @pulumi.getter(name="ingestEndpointUrls")
     def ingest_endpoint_urls(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        The list of ingestion endpoints for the pipeline, which you can send data to.
-        """
         return pulumi.get(self, "ingest_endpoint_urls")
 
     @_builtins.property
     @pulumi.getter(name="logPublishingOptions")
     def log_publishing_options(self) -> pulumi.Output[Optional['outputs.PipelineLogPublishingOptions']]:
-        """
-        Key-value pairs to configure log publishing. See `log_publishing_options` below.
-        """
         return pulumi.get(self, "log_publishing_options")
 
     @_builtins.property
     @pulumi.getter(name="maxUnits")
     def max_units(self) -> pulumi.Output[_builtins.int]:
-        """
-        The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
-        """
         return pulumi.get(self, "max_units")
 
     @_builtins.property
     @pulumi.getter(name="minUnits")
     def min_units(self) -> pulumi.Output[_builtins.int]:
-        """
-        The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
-        """
         return pulumi.get(self, "min_units")
 
     @_builtins.property
     @pulumi.getter(name="pipelineArn")
     def pipeline_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the pipeline.
-        """
         return pulumi.get(self, "pipeline_arn")
 
     @_builtins.property
     @pulumi.getter(name="pipelineConfigurationBody")
     def pipeline_configuration_body(self) -> pulumi.Output[_builtins.str]:
-        """
-        The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \\n.
-        """
         return pulumi.get(self, "pipeline_configuration_body")
 
     @_builtins.property
     @pulumi.getter(name="pipelineName")
     def pipeline_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "pipeline_name")
 
     @_builtins.property
     @pulumi.getter(name="pipelineRoleArn")
     def pipeline_role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the IAM role that grants the pipeline permission to access AWS resources.
-        """
         return pulumi.get(self, "pipeline_role_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -874,8 +572,5 @@ class Pipeline(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="vpcOptions")
     def vpc_options(self) -> pulumi.Output[Optional['outputs.PipelineVpcOptions']]:
-        """
-        Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
-        """
         return pulumi.get(self, "vpc_options")
 

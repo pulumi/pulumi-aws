@@ -12,66 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS WorkSpaces Web User Access Logging Settings Association.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := workspacesweb.NewPortal(ctx, "example", &workspacesweb.PortalArgs{
-//				DisplayName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleStream, err := kinesis.NewStream(ctx, "example", &kinesis.StreamArgs{
-//				Name:       pulumi.String("amazon-workspaces-web-example"),
-//				ShardCount: pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUserAccessLoggingSettings, err := workspacesweb.NewUserAccessLoggingSettings(ctx, "example", &workspacesweb.UserAccessLoggingSettingsArgs{
-//				KinesisStreamArn: exampleStream.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = workspacesweb.NewUserAccessLoggingSettingsAssociation(ctx, "example", &workspacesweb.UserAccessLoggingSettingsAssociationArgs{
-//				UserAccessLoggingSettingsArn: exampleUserAccessLoggingSettings.UserAccessLoggingSettingsArn,
-//				PortalArn:                    example.PortalArn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type UserAccessLoggingSettingsAssociation struct {
 	pulumi.CustomResourceState
 
-	// ARN of the portal to associate with the user access logging settings. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn pulumi.StringOutput `pulumi:"portalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ARN of the user access logging settings to associate with the portal. Forces replacement if changed.
+	PortalArn                    pulumi.StringOutput `pulumi:"portalArn"`
+	Region                       pulumi.StringOutput `pulumi:"region"`
 	UserAccessLoggingSettingsArn pulumi.StringOutput `pulumi:"userAccessLoggingSettingsArn"`
 }
 
@@ -111,24 +56,14 @@ func GetUserAccessLoggingSettingsAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserAccessLoggingSettingsAssociation resources.
 type userAccessLoggingSettingsAssociationState struct {
-	// ARN of the portal to associate with the user access logging settings. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn *string `pulumi:"portalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the user access logging settings to associate with the portal. Forces replacement if changed.
+	PortalArn                    *string `pulumi:"portalArn"`
+	Region                       *string `pulumi:"region"`
 	UserAccessLoggingSettingsArn *string `pulumi:"userAccessLoggingSettingsArn"`
 }
 
 type UserAccessLoggingSettingsAssociationState struct {
-	// ARN of the portal to associate with the user access logging settings. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the user access logging settings to associate with the portal. Forces replacement if changed.
+	PortalArn                    pulumi.StringPtrInput
+	Region                       pulumi.StringPtrInput
 	UserAccessLoggingSettingsArn pulumi.StringPtrInput
 }
 
@@ -137,25 +72,15 @@ func (UserAccessLoggingSettingsAssociationState) ElementType() reflect.Type {
 }
 
 type userAccessLoggingSettingsAssociationArgs struct {
-	// ARN of the portal to associate with the user access logging settings. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn string `pulumi:"portalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the user access logging settings to associate with the portal. Forces replacement if changed.
-	UserAccessLoggingSettingsArn string `pulumi:"userAccessLoggingSettingsArn"`
+	PortalArn                    string  `pulumi:"portalArn"`
+	Region                       *string `pulumi:"region"`
+	UserAccessLoggingSettingsArn string  `pulumi:"userAccessLoggingSettingsArn"`
 }
 
 // The set of arguments for constructing a UserAccessLoggingSettingsAssociation resource.
 type UserAccessLoggingSettingsAssociationArgs struct {
-	// ARN of the portal to associate with the user access logging settings. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the user access logging settings to associate with the portal. Forces replacement if changed.
+	PortalArn                    pulumi.StringInput
+	Region                       pulumi.StringPtrInput
 	UserAccessLoggingSettingsArn pulumi.StringInput
 }
 
@@ -246,19 +171,14 @@ func (o UserAccessLoggingSettingsAssociationOutput) ToUserAccessLoggingSettingsA
 	return o
 }
 
-// ARN of the portal to associate with the user access logging settings. Forces replacement if changed.
-//
-// The following arguments are optional:
 func (o UserAccessLoggingSettingsAssociationOutput) PortalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserAccessLoggingSettingsAssociation) pulumi.StringOutput { return v.PortalArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UserAccessLoggingSettingsAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserAccessLoggingSettingsAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ARN of the user access logging settings to associate with the portal. Forces replacement if changed.
 func (o UserAccessLoggingSettingsAssociationOutput) UserAccessLoggingSettingsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserAccessLoggingSettingsAssociation) pulumi.StringOutput {
 		return v.UserAccessLoggingSettingsArn

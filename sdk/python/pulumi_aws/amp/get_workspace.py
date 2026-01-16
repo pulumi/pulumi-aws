@@ -61,25 +61,16 @@ class GetWorkspaceResult:
     @_builtins.property
     @pulumi.getter
     def alias(self) -> _builtins.str:
-        """
-        Prometheus workspace alias.
-        """
         return pulumi.get(self, "alias")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Prometheus workspace.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> _builtins.str:
-        """
-        Creation date of the Prometheus workspace.
-        """
         return pulumi.get(self, "created_date")
 
     @_builtins.property
@@ -93,17 +84,11 @@ class GetWorkspaceResult:
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> _builtins.str:
-        """
-        ARN of the KMS key used to encrypt data in the Prometheus workspace.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @_builtins.property
     @pulumi.getter(name="prometheusEndpoint")
     def prometheus_endpoint(self) -> _builtins.str:
-        """
-        Endpoint of the Prometheus workspace.
-        """
         return pulumi.get(self, "prometheus_endpoint")
 
     @_builtins.property
@@ -114,17 +99,11 @@ class GetWorkspaceResult:
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the Prometheus workspace.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Tags assigned to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -156,23 +135,7 @@ def get_workspace(region: Optional[_builtins.str] = None,
                   workspace_id: Optional[_builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
-    Provides an Amazon Managed Prometheus workspace data source.
-
-    ## Example Usage
-
-    ### Basic configuration
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.amp.get_workspace(workspace_id="ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tags assigned to the resource.
-    :param _builtins.str workspace_id: Prometheus workspace ID.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -197,23 +160,7 @@ def get_workspace_output(region: Optional[pulumi.Input[Optional[_builtins.str]]]
                          workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
-    Provides an Amazon Managed Prometheus workspace data source.
-
-    ## Example Usage
-
-    ### Basic configuration
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.amp.get_workspace(workspace_id="ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tags assigned to the resource.
-    :param _builtins.str workspace_id: Prometheus workspace ID.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleAction {
-    /**
-     * @return Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
-     * 
-     */
     private String type;
 
     private WebAclRuleAction() {}
-    /**
-     * @return Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
-     * 
-     */
     public String type() {
         return this.type;
     }

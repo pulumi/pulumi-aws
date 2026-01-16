@@ -14,97 +14,23 @@ import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.detective.Graph;
- * import com.pulumi.aws.detective.GraphArgs;
- * import com.pulumi.aws.detective.OrganizationConfiguration;
- * import com.pulumi.aws.detective.OrganizationConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Graph("example", GraphArgs.builder()
- *             .enable(true)
- *             .build());
- * 
- *         var exampleOrganizationConfiguration = new OrganizationConfiguration("exampleOrganizationConfiguration", OrganizationConfigurationArgs.builder()
- *             .autoEnable(true)
- *             .graphArn(example.graphArn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_detective_organization_admin_account` using the behavior graph ARN. For example:
- * 
- * ```sh
- * $ pulumi import aws:detective/organizationConfiguration:OrganizationConfiguration example arn:aws:detective:us-east-1:123456789012:graph:00b00fd5aecc0ab60a708659477e9617
- * ```
- * 
- */
 @ResourceType(type="aws:detective/organizationConfiguration:OrganizationConfiguration")
 public class OrganizationConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s Detective delegated administrator and Detective is enabled in that AWS Region.
-     * 
-     */
     @Export(name="autoEnable", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> autoEnable;
 
-    /**
-     * @return When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s Detective delegated administrator and Detective is enabled in that AWS Region.
-     * 
-     */
     public Output<Boolean> autoEnable() {
         return this.autoEnable;
     }
-    /**
-     * ARN of the behavior graph.
-     * 
-     */
     @Export(name="graphArn", refs={String.class}, tree="[0]")
     private Output<String> graphArn;
 
-    /**
-     * @return ARN of the behavior graph.
-     * 
-     */
     public Output<String> graphArn() {
         return this.graphArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

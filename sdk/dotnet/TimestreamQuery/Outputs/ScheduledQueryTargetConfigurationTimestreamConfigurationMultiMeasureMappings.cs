@@ -13,13 +13,7 @@ namespace Pulumi.Aws.TimestreamQuery.Outputs
     [OutputType]
     public sealed class ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappings
     {
-        /// <summary>
-        /// Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes. See above.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMapping> MultiMeasureAttributeMappings;
-        /// <summary>
-        /// Name of the target multi-measure name in the derived table. This input is required when `MeasureNameColumn` is not provided. If `MeasureNameColumn` is provided, then the value from that column will be used as the multi-measure name.
-        /// </summary>
         public readonly string? TargetMultiMeasureName;
 
         [OutputConstructor]

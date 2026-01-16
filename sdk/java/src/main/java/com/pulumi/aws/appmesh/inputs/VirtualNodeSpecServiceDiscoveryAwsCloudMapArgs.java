@@ -17,49 +17,23 @@ public final class VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs extends com.pu
 
     public static final VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs Empty = new VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs();
 
-    /**
-     * String map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
-     * 
-     */
     @Import(name="attributes")
     private @Nullable Output<Map<String,String>> attributes;
 
-    /**
-     * @return String map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
-     * 
-     */
     public Optional<Output<Map<String,String>>> attributes() {
         return Optional.ofNullable(this.attributes);
     }
 
-    /**
-     * Name of the AWS Cloud Map namespace to use.
-     * Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
-     * 
-     */
     @Import(name="namespaceName", required=true)
     private Output<String> namespaceName;
 
-    /**
-     * @return Name of the AWS Cloud Map namespace to use.
-     * Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
-     * 
-     */
     public Output<String> namespaceName() {
         return this.namespaceName;
     }
 
-    /**
-     * Name of the AWS Cloud Map service to use. Use the `aws.servicediscovery.Service` resource to configure a Cloud Map service. Must be between 1 and 1024 characters in length.
-     * 
-     */
     @Import(name="serviceName", required=true)
     private Output<String> serviceName;
 
-    /**
-     * @return Name of the AWS Cloud Map service to use. Use the `aws.servicediscovery.Service` resource to configure a Cloud Map service. Must be between 1 and 1024 characters in length.
-     * 
-     */
     public Output<String> serviceName() {
         return this.serviceName;
     }
@@ -90,67 +64,29 @@ public final class VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs extends com.pu
             $ = new VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attributes String map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributes(@Nullable Output<Map<String,String>> attributes) {
             $.attributes = attributes;
             return this;
         }
 
-        /**
-         * @param attributes String map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributes(Map<String,String> attributes) {
             return attributes(Output.of(attributes));
         }
 
-        /**
-         * @param namespaceName Name of the AWS Cloud Map namespace to use.
-         * Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespaceName(Output<String> namespaceName) {
             $.namespaceName = namespaceName;
             return this;
         }
 
-        /**
-         * @param namespaceName Name of the AWS Cloud Map namespace to use.
-         * Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespaceName(String namespaceName) {
             return namespaceName(Output.of(namespaceName));
         }
 
-        /**
-         * @param serviceName Name of the AWS Cloud Map service to use. Use the `aws.servicediscovery.Service` resource to configure a Cloud Map service. Must be between 1 and 1024 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(Output<String> serviceName) {
             $.serviceName = serviceName;
             return this;
         }
 
-        /**
-         * @param serviceName Name of the AWS Cloud Map service to use. Use the `aws.servicediscovery.Service` resource to configure a Cloud Map service. Must be between 1 and 1024 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(String serviceName) {
             return serviceName(Output.of(serviceName));
         }

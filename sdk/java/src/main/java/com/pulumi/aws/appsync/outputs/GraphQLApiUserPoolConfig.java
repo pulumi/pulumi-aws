@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GraphQLApiUserPoolConfig {
-    /**
-     * @return Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
-     * 
-     */
     private @Nullable String appIdClientRegex;
-    /**
-     * @return AWS region in which the user pool was created.
-     * 
-     */
     private @Nullable String awsRegion;
-    /**
-     * @return Action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn&#39;t match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
-     * 
-     */
     private String defaultAction;
-    /**
-     * @return User pool ID.
-     * 
-     */
     private String userPoolId;
 
     private GraphQLApiUserPoolConfig() {}
-    /**
-     * @return Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
-     * 
-     */
     public Optional<String> appIdClientRegex() {
         return Optional.ofNullable(this.appIdClientRegex);
     }
-    /**
-     * @return AWS region in which the user pool was created.
-     * 
-     */
     public Optional<String> awsRegion() {
         return Optional.ofNullable(this.awsRegion);
     }
-    /**
-     * @return Action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn&#39;t match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
-     * 
-     */
     public String defaultAction() {
         return this.defaultAction;
     }
-    /**
-     * @return User pool ID.
-     * 
-     */
     public String userPoolId() {
         return this.userPoolId;
     }

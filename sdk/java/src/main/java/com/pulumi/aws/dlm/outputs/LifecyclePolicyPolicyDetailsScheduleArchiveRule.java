@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class LifecyclePolicyPolicyDetailsScheduleArchiveRule {
-    /**
-     * @return Information about the retention period for the snapshot archiving rule. See the `archiveRetainRule` block.
-     * 
-     */
     private LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRule archiveRetainRule;
 
     private LifecyclePolicyPolicyDetailsScheduleArchiveRule() {}
-    /**
-     * @return Information about the retention period for the snapshot archiving rule. See the `archiveRetainRule` block.
-     * 
-     */
     public LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRule archiveRetainRule() {
         return this.archiveRetainRule;
     }

@@ -12,101 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage a GuardDuty ThreatIntelSet.
-//
-// > **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage ThreatIntelSets. ThreatIntelSets that are uploaded by the primary account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-threat-intel-set.html)
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/guardduty"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			primary, err := guardduty.NewDetector(ctx, "primary", &guardduty.DetectorArgs{
-//				Enable: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			bucket, err := s3.NewBucket(ctx, "bucket", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAcl(ctx, "bucket_acl", &s3.BucketAclArgs{
-//				Bucket: bucket.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			myThreatIntelSet, err := s3.NewBucketObjectv2(ctx, "MyThreatIntelSet", &s3.BucketObjectv2Args{
-//				Acl:     pulumi.String("public-read"),
-//				Content: pulumi.String("10.0.0.0/8\n"),
-//				Bucket:  bucket.ID(),
-//				Key:     pulumi.String("MyThreatIntelSet"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = guardduty.NewThreatIntelSet(ctx, "MyThreatIntelSet", &guardduty.ThreatIntelSetArgs{
-//				Activate:   pulumi.Bool(true),
-//				DetectorId: primary.ID(),
-//				Format:     pulumi.String("TXT"),
-//				Location: pulumi.All(myThreatIntelSet.Bucket, myThreatIntelSet.Key).ApplyT(func(_args []interface{}) (string, error) {
-//					bucket := _args[0].(string)
-//					key := _args[1].(string)
-//					return fmt.Sprintf("https://s3.amazonaws.com/%v/%v", bucket, key), nil
-//				}).(pulumi.StringOutput),
-//				Name: pulumi.String("MyThreatIntelSet"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import GuardDuty ThreatIntelSet using the primary GuardDuty detector ID and ThreatIntelSetID. For example:
-//
-// ```sh
-// $ pulumi import aws:guardduty/threatIntelSet:ThreatIntelSet MyThreatIntelSet 00b00fd5aecc0ab60a708659477e9617:123456789012
-// ```
 type ThreatIntelSet struct {
 	pulumi.CustomResourceState
 
-	// Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
-	Activate pulumi.BoolOutput `pulumi:"activate"`
-	// Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The detector ID of the GuardDuty.
-	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
-	// The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-	Format pulumi.StringOutput `pulumi:"format"`
-	// The URI of the file that contains the ThreatIntelSet.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The friendly name to identify the ThreatIntelSet.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Activate   pulumi.BoolOutput      `pulumi:"activate"`
+	Arn        pulumi.StringOutput    `pulumi:"arn"`
+	DetectorId pulumi.StringOutput    `pulumi:"detectorId"`
+	Format     pulumi.StringOutput    `pulumi:"format"`
+	Location   pulumi.StringOutput    `pulumi:"location"`
+	Name       pulumi.StringOutput    `pulumi:"name"`
+	Region     pulumi.StringOutput    `pulumi:"region"`
+	Tags       pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll    pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewThreatIntelSet registers a new resource with the given unique name, arguments, and options.
@@ -151,45 +68,27 @@ func GetThreatIntelSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ThreatIntelSet resources.
 type threatIntelSetState struct {
-	// Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
-	Activate *bool `pulumi:"activate"`
-	// Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
-	Arn *string `pulumi:"arn"`
-	// The detector ID of the GuardDuty.
-	DetectorId *string `pulumi:"detectorId"`
-	// The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-	Format *string `pulumi:"format"`
-	// The URI of the file that contains the ThreatIntelSet.
-	Location *string `pulumi:"location"`
-	// The friendly name to identify the ThreatIntelSet.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Activate   *bool             `pulumi:"activate"`
+	Arn        *string           `pulumi:"arn"`
+	DetectorId *string           `pulumi:"detectorId"`
+	Format     *string           `pulumi:"format"`
+	Location   *string           `pulumi:"location"`
+	Name       *string           `pulumi:"name"`
+	Region     *string           `pulumi:"region"`
+	Tags       map[string]string `pulumi:"tags"`
+	TagsAll    map[string]string `pulumi:"tagsAll"`
 }
 
 type ThreatIntelSetState struct {
-	// Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
-	Activate pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
-	Arn pulumi.StringPtrInput
-	// The detector ID of the GuardDuty.
+	Activate   pulumi.BoolPtrInput
+	Arn        pulumi.StringPtrInput
 	DetectorId pulumi.StringPtrInput
-	// The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-	Format pulumi.StringPtrInput
-	// The URI of the file that contains the ThreatIntelSet.
-	Location pulumi.StringPtrInput
-	// The friendly name to identify the ThreatIntelSet.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Format     pulumi.StringPtrInput
+	Location   pulumi.StringPtrInput
+	Name       pulumi.StringPtrInput
+	Region     pulumi.StringPtrInput
+	Tags       pulumi.StringMapInput
+	TagsAll    pulumi.StringMapInput
 }
 
 func (ThreatIntelSetState) ElementType() reflect.Type {
@@ -197,38 +96,24 @@ func (ThreatIntelSetState) ElementType() reflect.Type {
 }
 
 type threatIntelSetArgs struct {
-	// Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
-	Activate bool `pulumi:"activate"`
-	// The detector ID of the GuardDuty.
-	DetectorId string `pulumi:"detectorId"`
-	// The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-	Format string `pulumi:"format"`
-	// The URI of the file that contains the ThreatIntelSet.
-	Location string `pulumi:"location"`
-	// The friendly name to identify the ThreatIntelSet.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Activate   bool              `pulumi:"activate"`
+	DetectorId string            `pulumi:"detectorId"`
+	Format     string            `pulumi:"format"`
+	Location   string            `pulumi:"location"`
+	Name       *string           `pulumi:"name"`
+	Region     *string           `pulumi:"region"`
+	Tags       map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ThreatIntelSet resource.
 type ThreatIntelSetArgs struct {
-	// Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
-	Activate pulumi.BoolInput
-	// The detector ID of the GuardDuty.
+	Activate   pulumi.BoolInput
 	DetectorId pulumi.StringInput
-	// The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-	Format pulumi.StringInput
-	// The URI of the file that contains the ThreatIntelSet.
-	Location pulumi.StringInput
-	// The friendly name to identify the ThreatIntelSet.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Format     pulumi.StringInput
+	Location   pulumi.StringInput
+	Name       pulumi.StringPtrInput
+	Region     pulumi.StringPtrInput
+	Tags       pulumi.StringMapInput
 }
 
 func (ThreatIntelSetArgs) ElementType() reflect.Type {
@@ -318,47 +203,38 @@ func (o ThreatIntelSetOutput) ToThreatIntelSetOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
 func (o ThreatIntelSetOutput) Activate() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ThreatIntelSet) pulumi.BoolOutput { return v.Activate }).(pulumi.BoolOutput)
 }
 
-// Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
 func (o ThreatIntelSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The detector ID of the GuardDuty.
 func (o ThreatIntelSetOutput) DetectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
 }
 
-// The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
 func (o ThreatIntelSetOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringOutput { return v.Format }).(pulumi.StringOutput)
 }
 
-// The URI of the file that contains the ThreatIntelSet.
 func (o ThreatIntelSetOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The friendly name to identify the ThreatIntelSet.
 func (o ThreatIntelSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ThreatIntelSetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ThreatIntelSetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ThreatIntelSetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

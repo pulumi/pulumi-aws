@@ -16,32 +16,16 @@ public final class AgentcoreAgentRuntimeAgentRuntimeArtifactArgs extends com.pul
 
     public static final AgentcoreAgentRuntimeAgentRuntimeArtifactArgs Empty = new AgentcoreAgentRuntimeAgentRuntimeArtifactArgs();
 
-    /**
-     * Code configuration block for the agent runtime artifact, including the source code location and execution settings. Exactly one of `codeConfiguration` or `containerConfiguration` must be specified. See `codeConfiguration` below.
-     * 
-     */
     @Import(name="codeConfiguration")
     private @Nullable Output<AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs> codeConfiguration;
 
-    /**
-     * @return Code configuration block for the agent runtime artifact, including the source code location and execution settings. Exactly one of `codeConfiguration` or `containerConfiguration` must be specified. See `codeConfiguration` below.
-     * 
-     */
     public Optional<Output<AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs>> codeConfiguration() {
         return Optional.ofNullable(this.codeConfiguration);
     }
 
-    /**
-     * Container configuration block for the agent artifact. Exactly one of `codeConfiguration` or `containerConfiguration` must be specified. See `containerConfiguration` below.
-     * 
-     */
     @Import(name="containerConfiguration")
     private @Nullable Output<AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs> containerConfiguration;
 
-    /**
-     * @return Container configuration block for the agent artifact. Exactly one of `codeConfiguration` or `containerConfiguration` must be specified. See `containerConfiguration` below.
-     * 
-     */
     public Optional<Output<AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs>> containerConfiguration() {
         return Optional.ofNullable(this.containerConfiguration);
     }
@@ -71,44 +55,20 @@ public final class AgentcoreAgentRuntimeAgentRuntimeArtifactArgs extends com.pul
             $ = new AgentcoreAgentRuntimeAgentRuntimeArtifactArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param codeConfiguration Code configuration block for the agent runtime artifact, including the source code location and execution settings. Exactly one of `codeConfiguration` or `containerConfiguration` must be specified. See `codeConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder codeConfiguration(@Nullable Output<AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs> codeConfiguration) {
             $.codeConfiguration = codeConfiguration;
             return this;
         }
 
-        /**
-         * @param codeConfiguration Code configuration block for the agent runtime artifact, including the source code location and execution settings. Exactly one of `codeConfiguration` or `containerConfiguration` must be specified. See `codeConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder codeConfiguration(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs codeConfiguration) {
             return codeConfiguration(Output.of(codeConfiguration));
         }
 
-        /**
-         * @param containerConfiguration Container configuration block for the agent artifact. Exactly one of `codeConfiguration` or `containerConfiguration` must be specified. See `containerConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerConfiguration(@Nullable Output<AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs> containerConfiguration) {
             $.containerConfiguration = containerConfiguration;
             return this;
         }
 
-        /**
-         * @param containerConfiguration Container configuration block for the agent artifact. Exactly one of `codeConfiguration` or `containerConfiguration` must be specified. See `containerConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerConfiguration(AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs containerConfiguration) {
             return containerConfiguration(Output.of(containerConfiguration));
         }

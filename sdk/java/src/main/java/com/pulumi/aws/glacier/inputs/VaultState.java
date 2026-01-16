@@ -17,124 +17,58 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
 
     public static final VaultState Empty = new VaultState();
 
-    /**
-     * The policy document. This is a JSON formatted string.
-     * The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
-     * 
-     */
     @Import(name="accessPolicy")
     private @Nullable Output<String> accessPolicy;
 
-    /**
-     * @return The policy document. This is a JSON formatted string.
-     * The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
-     * 
-     */
     public Optional<Output<String>> accessPolicy() {
         return Optional.ofNullable(this.accessPolicy);
     }
 
-    /**
-     * The ARN of the vault.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The ARN of the vault.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The URI of the vault that was created.
-     * 
-     */
     @Import(name="location")
     private @Nullable Output<String> location;
 
-    /**
-     * @return The URI of the vault that was created.
-     * 
-     */
     public Optional<Output<String>> location() {
         return Optional.ofNullable(this.location);
     }
 
-    /**
-     * The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, &#39;_&#39; (underscore), &#39;-&#39; (hyphen), and &#39;.&#39; (period).
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, &#39;_&#39; (underscore), &#39;-&#39; (hyphen), and &#39;.&#39; (period).
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The notifications for the Vault. Fields documented below.
-     * 
-     */
     @Import(name="notification")
     private @Nullable Output<VaultNotificationArgs> notification;
 
-    /**
-     * @return The notifications for the Vault. Fields documented below.
-     * 
-     */
     public Optional<Output<VaultNotificationArgs>> notification() {
         return Optional.ofNullable(this.notification);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -170,172 +104,74 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
             $ = new VaultState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessPolicy The policy document. This is a JSON formatted string.
-         * The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessPolicy(@Nullable Output<String> accessPolicy) {
             $.accessPolicy = accessPolicy;
             return this;
         }
 
-        /**
-         * @param accessPolicy The policy document. This is a JSON formatted string.
-         * The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessPolicy(String accessPolicy) {
             return accessPolicy(Output.of(accessPolicy));
         }
 
-        /**
-         * @param arn The ARN of the vault.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The ARN of the vault.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param location The URI of the vault that was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder location(@Nullable Output<String> location) {
             $.location = location;
             return this;
         }
 
-        /**
-         * @param location The URI of the vault that was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder location(String location) {
             return location(Output.of(location));
         }
 
-        /**
-         * @param name The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, &#39;_&#39; (underscore), &#39;-&#39; (hyphen), and &#39;.&#39; (period).
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, &#39;_&#39; (underscore), &#39;-&#39; (hyphen), and &#39;.&#39; (period).
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param notification The notifications for the Vault. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notification(@Nullable Output<VaultNotificationArgs> notification) {
             $.notification = notification;
             return this;
         }
 
-        /**
-         * @param notification The notifications for the Vault. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notification(VaultNotificationArgs notification) {
             return notification(Output.of(notification));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

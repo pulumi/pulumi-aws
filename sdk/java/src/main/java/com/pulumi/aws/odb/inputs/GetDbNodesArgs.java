@@ -16,36 +16,16 @@ public final class GetDbNodesArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetDbNodesArgs Empty = new GetDbNodesArgs();
 
-    /**
-     * The unique identifier of the cloud vm cluster.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="cloudVmClusterId", required=true)
     private Output<String> cloudVmClusterId;
 
-    /**
-     * @return The unique identifier of the cloud vm cluster.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> cloudVmClusterId() {
         return this.cloudVmClusterId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -75,48 +55,20 @@ public final class GetDbNodesArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetDbNodesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudVmClusterId The unique identifier of the cloud vm cluster.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudVmClusterId(Output<String> cloudVmClusterId) {
             $.cloudVmClusterId = cloudVmClusterId;
             return this;
         }
 
-        /**
-         * @param cloudVmClusterId The unique identifier of the cloud vm cluster.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudVmClusterId(String cloudVmClusterId) {
             return cloudVmClusterId(Output.of(cloudVmClusterId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

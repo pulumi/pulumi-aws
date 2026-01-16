@@ -16,92 +16,44 @@ public final class CatalogTableOptimizerState extends com.pulumi.resources.Resou
 
     public static final CatalogTableOptimizerState Empty = new CatalogTableOptimizerState();
 
-    /**
-     * The Catalog ID of the table.
-     * 
-     */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
-    /**
-     * @return The Catalog ID of the table.
-     * 
-     */
     public Optional<Output<String>> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
 
-    /**
-     * A configuration block that defines the table optimizer settings. See Configuration for additional details.
-     * 
-     */
     @Import(name="configuration")
     private @Nullable Output<CatalogTableOptimizerConfigurationArgs> configuration;
 
-    /**
-     * @return A configuration block that defines the table optimizer settings. See Configuration for additional details.
-     * 
-     */
     public Optional<Output<CatalogTableOptimizerConfigurationArgs>> configuration() {
         return Optional.ofNullable(this.configuration);
     }
 
-    /**
-     * The name of the database in the catalog in which the table resides.
-     * 
-     */
     @Import(name="databaseName")
     private @Nullable Output<String> databaseName;
 
-    /**
-     * @return The name of the database in the catalog in which the table resides.
-     * 
-     */
     public Optional<Output<String>> databaseName() {
         return Optional.ofNullable(this.databaseName);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The name of the table.
-     * 
-     */
     @Import(name="tableName")
     private @Nullable Output<String> tableName;
 
-    /**
-     * @return The name of the table.
-     * 
-     */
     public Optional<Output<String>> tableName() {
         return Optional.ofNullable(this.tableName);
     }
 
-    /**
-     * The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -135,128 +87,56 @@ public final class CatalogTableOptimizerState extends com.pulumi.resources.Resou
             $ = new CatalogTableOptimizerState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param catalogId The Catalog ID of the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(@Nullable Output<String> catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
-        /**
-         * @param catalogId The Catalog ID of the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(String catalogId) {
             return catalogId(Output.of(catalogId));
         }
 
-        /**
-         * @param configuration A configuration block that defines the table optimizer settings. See Configuration for additional details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configuration(@Nullable Output<CatalogTableOptimizerConfigurationArgs> configuration) {
             $.configuration = configuration;
             return this;
         }
 
-        /**
-         * @param configuration A configuration block that defines the table optimizer settings. See Configuration for additional details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configuration(CatalogTableOptimizerConfigurationArgs configuration) {
             return configuration(Output.of(configuration));
         }
 
-        /**
-         * @param databaseName The name of the database in the catalog in which the table resides.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(@Nullable Output<String> databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
-        /**
-         * @param databaseName The name of the database in the catalog in which the table resides.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tableName The name of the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(@Nullable Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
-        /**
-         * @param tableName The name of the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }
 
-        /**
-         * @param type The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

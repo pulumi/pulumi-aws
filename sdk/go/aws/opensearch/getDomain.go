@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get information about an OpenSearch Domain
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opensearch.LookupDomain(ctx, &opensearch.LookupDomainArgs{
-//				DomainName: "my-domain-name",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.InvokeOption) (*LookupDomainResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDomainResult
@@ -50,76 +23,45 @@ func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getDomain.
 type LookupDomainArgs struct {
-	// Name of the domain.
-	DomainName string `pulumi:"domainName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tags assigned to the domain.
-	Tags map[string]string `pulumi:"tags"`
+	DomainName string            `pulumi:"domainName"`
+	Region     *string           `pulumi:"region"`
+	Tags       map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getDomain.
 type LookupDomainResult struct {
-	// Policy document attached to the domain.
-	AccessPolicies string `pulumi:"accessPolicies"`
-	// Key-value string pairs to specify advanced configuration options.
-	AdvancedOptions map[string]string `pulumi:"advancedOptions"`
-	// Status of the OpenSearch domain's advanced security options. The block consists of the following attributes:
-	AdvancedSecurityOptions []GetDomainAdvancedSecurityOption `pulumi:"advancedSecurityOptions"`
-	// ARN of the domain.
-	Arn string `pulumi:"arn"`
-	// Configuration of the Auto-Tune options of the domain.
-	AutoTuneOptions []GetDomainAutoTuneOption `pulumi:"autoTuneOptions"`
-	// Cluster configuration of the domain.
-	ClusterConfigs []GetDomainClusterConfig `pulumi:"clusterConfigs"`
-	// Domain Amazon Cognito Authentication options for Dashboard.
-	CognitoOptions []GetDomainCognitoOption `pulumi:"cognitoOptions"`
-	// Status of the creation of the domain.
-	Created bool `pulumi:"created"`
-	// Domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html).
-	DashboardEndpoint string `pulumi:"dashboardEndpoint"`
-	// V2 domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html)
-	DashboardEndpointV2 string `pulumi:"dashboardEndpointV2"`
-	// Status of the deletion of the domain.
-	Deleted bool `pulumi:"deleted"`
-	// Dual stack hosted zone ID for the domain.
-	DomainEndpointV2HostedZoneId string `pulumi:"domainEndpointV2HostedZoneId"`
-	// Unique identifier for the domain.
-	DomainId   string `pulumi:"domainId"`
-	DomainName string `pulumi:"domainName"`
-	// EBS Options for the instances in the domain.
-	EbsOptions []GetDomainEbsOption `pulumi:"ebsOptions"`
-	// Domain encryption at rest related options.
-	EncryptionAtRests []GetDomainEncryptionAtRest `pulumi:"encryptionAtRests"`
-	// Domain-specific endpoint used to submit index, search, and data upload requests.
-	Endpoint string `pulumi:"endpoint"`
-	// V2 domain-specific endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
-	EndpointV2 string `pulumi:"endpointV2"`
-	// OpenSearch version for the domain.
-	EngineVersion string `pulumi:"engineVersion"`
+	AccessPolicies               string                            `pulumi:"accessPolicies"`
+	AdvancedOptions              map[string]string                 `pulumi:"advancedOptions"`
+	AdvancedSecurityOptions      []GetDomainAdvancedSecurityOption `pulumi:"advancedSecurityOptions"`
+	Arn                          string                            `pulumi:"arn"`
+	AutoTuneOptions              []GetDomainAutoTuneOption         `pulumi:"autoTuneOptions"`
+	ClusterConfigs               []GetDomainClusterConfig          `pulumi:"clusterConfigs"`
+	CognitoOptions               []GetDomainCognitoOption          `pulumi:"cognitoOptions"`
+	Created                      bool                              `pulumi:"created"`
+	DashboardEndpoint            string                            `pulumi:"dashboardEndpoint"`
+	DashboardEndpointV2          string                            `pulumi:"dashboardEndpointV2"`
+	Deleted                      bool                              `pulumi:"deleted"`
+	DomainEndpointV2HostedZoneId string                            `pulumi:"domainEndpointV2HostedZoneId"`
+	DomainId                     string                            `pulumi:"domainId"`
+	DomainName                   string                            `pulumi:"domainName"`
+	EbsOptions                   []GetDomainEbsOption              `pulumi:"ebsOptions"`
+	EncryptionAtRests            []GetDomainEncryptionAtRest       `pulumi:"encryptionAtRests"`
+	Endpoint                     string                            `pulumi:"endpoint"`
+	EndpointV2                   string                            `pulumi:"endpointV2"`
+	EngineVersion                string                            `pulumi:"engineVersion"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Configuration for enabling and managing IAM Identity Center integration within a domain.
+	Id                    string                          `pulumi:"id"`
 	IdentityCenterOptions []GetDomainIdentityCenterOption `pulumi:"identityCenterOptions"`
-	// Type of IP addresses supported by the endpoint for the domain.
-	IpAddressType string `pulumi:"ipAddressType"`
-	// Domain log publishing related options.
-	LogPublishingOptions []GetDomainLogPublishingOption `pulumi:"logPublishingOptions"`
-	// Domain in transit encryption related options.
+	IpAddressType         string                          `pulumi:"ipAddressType"`
+	LogPublishingOptions  []GetDomainLogPublishingOption  `pulumi:"logPublishingOptions"`
 	NodeToNodeEncryptions []GetDomainNodeToNodeEncryption `pulumi:"nodeToNodeEncryptions"`
-	// Off Peak update options
-	OffPeakWindowOptions GetDomainOffPeakWindowOptions `pulumi:"offPeakWindowOptions"`
-	// Status of a configuration change in the domain.
-	Processing bool   `pulumi:"processing"`
-	Region     string `pulumi:"region"`
-	// Domain snapshot related options.
-	SnapshotOptions []GetDomainSnapshotOption `pulumi:"snapshotOptions"`
-	// Software update options for the domain
+	OffPeakWindowOptions  GetDomainOffPeakWindowOptions   `pulumi:"offPeakWindowOptions"`
+	Processing            bool                            `pulumi:"processing"`
+	Region                string                          `pulumi:"region"`
+	SnapshotOptions       []GetDomainSnapshotOption       `pulumi:"snapshotOptions"`
 	SoftwareUpdateOptions []GetDomainSoftwareUpdateOption `pulumi:"softwareUpdateOptions"`
-	// Tags assigned to the domain.
-	Tags map[string]string `pulumi:"tags"`
-	// VPC Options for private OpenSearch domains.
-	VpcOptions []GetDomainVpcOption `pulumi:"vpcOptions"`
+	Tags                  map[string]string               `pulumi:"tags"`
+	VpcOptions            []GetDomainVpcOption            `pulumi:"vpcOptions"`
 }
 
 func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts ...pulumi.InvokeOption) LookupDomainResultOutput {
@@ -133,12 +75,9 @@ func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts .
 
 // A collection of arguments for invoking getDomain.
 type LookupDomainOutputArgs struct {
-	// Name of the domain.
-	DomainName pulumi.StringInput `pulumi:"domainName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Tags assigned to the domain.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	DomainName pulumi.StringInput    `pulumi:"domainName"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
+	Tags       pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupDomainOutputArgs) ElementType() reflect.Type {
@@ -160,67 +99,54 @@ func (o LookupDomainResultOutput) ToLookupDomainResultOutputWithContext(ctx cont
 	return o
 }
 
-// Policy document attached to the domain.
 func (o LookupDomainResultOutput) AccessPolicies() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.AccessPolicies }).(pulumi.StringOutput)
 }
 
-// Key-value string pairs to specify advanced configuration options.
 func (o LookupDomainResultOutput) AdvancedOptions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDomainResult) map[string]string { return v.AdvancedOptions }).(pulumi.StringMapOutput)
 }
 
-// Status of the OpenSearch domain's advanced security options. The block consists of the following attributes:
 func (o LookupDomainResultOutput) AdvancedSecurityOptions() GetDomainAdvancedSecurityOptionArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []GetDomainAdvancedSecurityOption { return v.AdvancedSecurityOptions }).(GetDomainAdvancedSecurityOptionArrayOutput)
 }
 
-// ARN of the domain.
 func (o LookupDomainResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Configuration of the Auto-Tune options of the domain.
 func (o LookupDomainResultOutput) AutoTuneOptions() GetDomainAutoTuneOptionArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []GetDomainAutoTuneOption { return v.AutoTuneOptions }).(GetDomainAutoTuneOptionArrayOutput)
 }
 
-// Cluster configuration of the domain.
 func (o LookupDomainResultOutput) ClusterConfigs() GetDomainClusterConfigArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []GetDomainClusterConfig { return v.ClusterConfigs }).(GetDomainClusterConfigArrayOutput)
 }
 
-// Domain Amazon Cognito Authentication options for Dashboard.
 func (o LookupDomainResultOutput) CognitoOptions() GetDomainCognitoOptionArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []GetDomainCognitoOption { return v.CognitoOptions }).(GetDomainCognitoOptionArrayOutput)
 }
 
-// Status of the creation of the domain.
 func (o LookupDomainResultOutput) Created() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupDomainResult) bool { return v.Created }).(pulumi.BoolOutput)
 }
 
-// Domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html).
 func (o LookupDomainResultOutput) DashboardEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.DashboardEndpoint }).(pulumi.StringOutput)
 }
 
-// V2 domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html)
 func (o LookupDomainResultOutput) DashboardEndpointV2() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.DashboardEndpointV2 }).(pulumi.StringOutput)
 }
 
-// Status of the deletion of the domain.
 func (o LookupDomainResultOutput) Deleted() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupDomainResult) bool { return v.Deleted }).(pulumi.BoolOutput)
 }
 
-// Dual stack hosted zone ID for the domain.
 func (o LookupDomainResultOutput) DomainEndpointV2HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.DomainEndpointV2HostedZoneId }).(pulumi.StringOutput)
 }
 
-// Unique identifier for the domain.
 func (o LookupDomainResultOutput) DomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.DomainId }).(pulumi.StringOutput)
 }
@@ -229,27 +155,22 @@ func (o LookupDomainResultOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// EBS Options for the instances in the domain.
 func (o LookupDomainResultOutput) EbsOptions() GetDomainEbsOptionArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []GetDomainEbsOption { return v.EbsOptions }).(GetDomainEbsOptionArrayOutput)
 }
 
-// Domain encryption at rest related options.
 func (o LookupDomainResultOutput) EncryptionAtRests() GetDomainEncryptionAtRestArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []GetDomainEncryptionAtRest { return v.EncryptionAtRests }).(GetDomainEncryptionAtRestArrayOutput)
 }
 
-// Domain-specific endpoint used to submit index, search, and data upload requests.
 func (o LookupDomainResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// V2 domain-specific endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
 func (o LookupDomainResultOutput) EndpointV2() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.EndpointV2 }).(pulumi.StringOutput)
 }
 
-// OpenSearch version for the domain.
 func (o LookupDomainResultOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.EngineVersion }).(pulumi.StringOutput)
 }
@@ -259,32 +180,26 @@ func (o LookupDomainResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Configuration for enabling and managing IAM Identity Center integration within a domain.
 func (o LookupDomainResultOutput) IdentityCenterOptions() GetDomainIdentityCenterOptionArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []GetDomainIdentityCenterOption { return v.IdentityCenterOptions }).(GetDomainIdentityCenterOptionArrayOutput)
 }
 
-// Type of IP addresses supported by the endpoint for the domain.
 func (o LookupDomainResultOutput) IpAddressType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.IpAddressType }).(pulumi.StringOutput)
 }
 
-// Domain log publishing related options.
 func (o LookupDomainResultOutput) LogPublishingOptions() GetDomainLogPublishingOptionArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []GetDomainLogPublishingOption { return v.LogPublishingOptions }).(GetDomainLogPublishingOptionArrayOutput)
 }
 
-// Domain in transit encryption related options.
 func (o LookupDomainResultOutput) NodeToNodeEncryptions() GetDomainNodeToNodeEncryptionArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []GetDomainNodeToNodeEncryption { return v.NodeToNodeEncryptions }).(GetDomainNodeToNodeEncryptionArrayOutput)
 }
 
-// Off Peak update options
 func (o LookupDomainResultOutput) OffPeakWindowOptions() GetDomainOffPeakWindowOptionsOutput {
 	return o.ApplyT(func(v LookupDomainResult) GetDomainOffPeakWindowOptions { return v.OffPeakWindowOptions }).(GetDomainOffPeakWindowOptionsOutput)
 }
 
-// Status of a configuration change in the domain.
 func (o LookupDomainResultOutput) Processing() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupDomainResult) bool { return v.Processing }).(pulumi.BoolOutput)
 }
@@ -293,22 +208,18 @@ func (o LookupDomainResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Domain snapshot related options.
 func (o LookupDomainResultOutput) SnapshotOptions() GetDomainSnapshotOptionArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []GetDomainSnapshotOption { return v.SnapshotOptions }).(GetDomainSnapshotOptionArrayOutput)
 }
 
-// Software update options for the domain
 func (o LookupDomainResultOutput) SoftwareUpdateOptions() GetDomainSoftwareUpdateOptionArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []GetDomainSoftwareUpdateOption { return v.SoftwareUpdateOptions }).(GetDomainSoftwareUpdateOptionArrayOutput)
 }
 
-// Tags assigned to the domain.
 func (o LookupDomainResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDomainResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// VPC Options for private OpenSearch domains.
 func (o LookupDomainResultOutput) VpcOptions() GetDomainVpcOptionArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []GetDomainVpcOption { return v.VpcOptions }).(GetDomainVpcOptionArrayOutput)
 }

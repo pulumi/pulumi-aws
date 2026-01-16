@@ -12,115 +12,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Image Builder Container Recipe.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/imagebuilder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.NewContainerRecipe(ctx, "example", &imagebuilder.ContainerRecipeArgs{
-//				Name:          pulumi.String("example"),
-//				Version:       pulumi.String("1.0.0"),
-//				ContainerType: pulumi.String("DOCKER"),
-//				ParentImage:   pulumi.String("arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x"),
-//				TargetRepository: &imagebuilder.ContainerRecipeTargetRepositoryArgs{
-//					RepositoryName: pulumi.Any(exampleAwsEcrRepository.Name),
-//					Service:        pulumi.String("ECR"),
-//				},
-//				Components: imagebuilder.ContainerRecipeComponentArray{
-//					&imagebuilder.ContainerRecipeComponentArgs{
-//						ComponentArn: pulumi.Any(exampleAwsImagebuilderComponent.Arn),
-//						Parameters: imagebuilder.ContainerRecipeComponentParameterArray{
-//							&imagebuilder.ContainerRecipeComponentParameterArgs{
-//								Name:  pulumi.String("Parameter1"),
-//								Value: pulumi.String("Value1"),
-//							},
-//							&imagebuilder.ContainerRecipeComponentParameterArgs{
-//								Name:  pulumi.String("Parameter2"),
-//								Value: pulumi.String("Value2"),
-//							},
-//						},
-//					},
-//				},
-//				DockerfileTemplateData: pulumi.String("FROM {{{ imagebuilder:parentImage }}}\n{{{ imagebuilder:environments }}}\n{{{ imagebuilder:components }}}\n"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the Image Builder container recipe.
-//
-// Using `pulumi import`, import `aws_imagebuilder_container_recipe` resources using the Amazon Resource Name (ARN). For example:
-//
-// % pulumi import aws_imagebuilder_container_recipe.example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
 type ContainerRecipe struct {
 	pulumi.CustomResourceState
 
-	// (Required) Amazon Resource Name (ARN) of the container recipe.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Ordered configuration block(s) with components for the container recipe. Detailed below.
-	Components ContainerRecipeComponentArrayOutput `pulumi:"components"`
-	// The type of the container to create. Valid values: `DOCKER`.
-	ContainerType pulumi.StringOutput `pulumi:"containerType"`
-	// Date the container recipe was created.
-	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
-	// The description of the container recipe.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The Dockerfile template used to build the image as an inline data blob.
-	DockerfileTemplateData pulumi.StringOutput `pulumi:"dockerfileTemplateData"`
-	// The Amazon S3 URI for the Dockerfile that will be used to build the container image.
-	DockerfileTemplateUri pulumi.StringPtrOutput `pulumi:"dockerfileTemplateUri"`
-	// A flag that indicates if the target container is encrypted.
-	Encrypted pulumi.BoolOutput `pulumi:"encrypted"`
-	// Configuration block used to configure an instance for building and testing container images. Detailed below.
-	InstanceConfiguration ContainerRecipeInstanceConfigurationPtrOutput `pulumi:"instanceConfiguration"`
-	// The KMS key used to encrypt the container image.
-	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// The name of the container recipe.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Owner of the container recipe.
-	Owner pulumi.StringOutput `pulumi:"owner"`
-	// The base image for the container recipe.
-	ParentImage pulumi.StringOutput `pulumi:"parentImage"`
-	// Platform of the container recipe.
-	Platform pulumi.StringOutput `pulumi:"platform"`
-	// Specifies the operating system platform when you use a custom base image.
-	PlatformOverride pulumi.StringPtrOutput `pulumi:"platformOverride"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The destination repository for the container image. Detailed below.
-	TargetRepository ContainerRecipeTargetRepositoryOutput `pulumi:"targetRepository"`
-	// Version of the container recipe.
-	//
-	// The following arguments are optional:
-	Version pulumi.StringOutput `pulumi:"version"`
-	// The working directory to be used during build and test workflows.
-	WorkingDirectory pulumi.StringPtrOutput `pulumi:"workingDirectory"`
+	Arn                    pulumi.StringOutput                           `pulumi:"arn"`
+	Components             ContainerRecipeComponentArrayOutput           `pulumi:"components"`
+	ContainerType          pulumi.StringOutput                           `pulumi:"containerType"`
+	DateCreated            pulumi.StringOutput                           `pulumi:"dateCreated"`
+	Description            pulumi.StringPtrOutput                        `pulumi:"description"`
+	DockerfileTemplateData pulumi.StringOutput                           `pulumi:"dockerfileTemplateData"`
+	DockerfileTemplateUri  pulumi.StringPtrOutput                        `pulumi:"dockerfileTemplateUri"`
+	Encrypted              pulumi.BoolOutput                             `pulumi:"encrypted"`
+	InstanceConfiguration  ContainerRecipeInstanceConfigurationPtrOutput `pulumi:"instanceConfiguration"`
+	KmsKeyId               pulumi.StringPtrOutput                        `pulumi:"kmsKeyId"`
+	Name                   pulumi.StringOutput                           `pulumi:"name"`
+	Owner                  pulumi.StringOutput                           `pulumi:"owner"`
+	ParentImage            pulumi.StringOutput                           `pulumi:"parentImage"`
+	Platform               pulumi.StringOutput                           `pulumi:"platform"`
+	PlatformOverride       pulumi.StringPtrOutput                        `pulumi:"platformOverride"`
+	Region                 pulumi.StringOutput                           `pulumi:"region"`
+	Tags                   pulumi.StringMapOutput                        `pulumi:"tags"`
+	TagsAll                pulumi.StringMapOutput                        `pulumi:"tagsAll"`
+	TargetRepository       ContainerRecipeTargetRepositoryOutput         `pulumi:"targetRepository"`
+	Version                pulumi.StringOutput                           `pulumi:"version"`
+	WorkingDirectory       pulumi.StringPtrOutput                        `pulumi:"workingDirectory"`
 }
 
 // NewContainerRecipe registers a new resource with the given unique name, arguments, and options.
@@ -168,97 +83,51 @@ func GetContainerRecipe(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContainerRecipe resources.
 type containerRecipeState struct {
-	// (Required) Amazon Resource Name (ARN) of the container recipe.
-	Arn *string `pulumi:"arn"`
-	// Ordered configuration block(s) with components for the container recipe. Detailed below.
-	Components []ContainerRecipeComponent `pulumi:"components"`
-	// The type of the container to create. Valid values: `DOCKER`.
-	ContainerType *string `pulumi:"containerType"`
-	// Date the container recipe was created.
-	DateCreated *string `pulumi:"dateCreated"`
-	// The description of the container recipe.
-	Description *string `pulumi:"description"`
-	// The Dockerfile template used to build the image as an inline data blob.
-	DockerfileTemplateData *string `pulumi:"dockerfileTemplateData"`
-	// The Amazon S3 URI for the Dockerfile that will be used to build the container image.
-	DockerfileTemplateUri *string `pulumi:"dockerfileTemplateUri"`
-	// A flag that indicates if the target container is encrypted.
-	Encrypted *bool `pulumi:"encrypted"`
-	// Configuration block used to configure an instance for building and testing container images. Detailed below.
-	InstanceConfiguration *ContainerRecipeInstanceConfiguration `pulumi:"instanceConfiguration"`
-	// The KMS key used to encrypt the container image.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The name of the container recipe.
-	Name *string `pulumi:"name"`
-	// Owner of the container recipe.
-	Owner *string `pulumi:"owner"`
-	// The base image for the container recipe.
-	ParentImage *string `pulumi:"parentImage"`
-	// Platform of the container recipe.
-	Platform *string `pulumi:"platform"`
-	// Specifies the operating system platform when you use a custom base image.
-	PlatformOverride *string `pulumi:"platformOverride"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The destination repository for the container image. Detailed below.
-	TargetRepository *ContainerRecipeTargetRepository `pulumi:"targetRepository"`
-	// Version of the container recipe.
-	//
-	// The following arguments are optional:
-	Version *string `pulumi:"version"`
-	// The working directory to be used during build and test workflows.
-	WorkingDirectory *string `pulumi:"workingDirectory"`
+	Arn                    *string                               `pulumi:"arn"`
+	Components             []ContainerRecipeComponent            `pulumi:"components"`
+	ContainerType          *string                               `pulumi:"containerType"`
+	DateCreated            *string                               `pulumi:"dateCreated"`
+	Description            *string                               `pulumi:"description"`
+	DockerfileTemplateData *string                               `pulumi:"dockerfileTemplateData"`
+	DockerfileTemplateUri  *string                               `pulumi:"dockerfileTemplateUri"`
+	Encrypted              *bool                                 `pulumi:"encrypted"`
+	InstanceConfiguration  *ContainerRecipeInstanceConfiguration `pulumi:"instanceConfiguration"`
+	KmsKeyId               *string                               `pulumi:"kmsKeyId"`
+	Name                   *string                               `pulumi:"name"`
+	Owner                  *string                               `pulumi:"owner"`
+	ParentImage            *string                               `pulumi:"parentImage"`
+	Platform               *string                               `pulumi:"platform"`
+	PlatformOverride       *string                               `pulumi:"platformOverride"`
+	Region                 *string                               `pulumi:"region"`
+	Tags                   map[string]string                     `pulumi:"tags"`
+	TagsAll                map[string]string                     `pulumi:"tagsAll"`
+	TargetRepository       *ContainerRecipeTargetRepository      `pulumi:"targetRepository"`
+	Version                *string                               `pulumi:"version"`
+	WorkingDirectory       *string                               `pulumi:"workingDirectory"`
 }
 
 type ContainerRecipeState struct {
-	// (Required) Amazon Resource Name (ARN) of the container recipe.
-	Arn pulumi.StringPtrInput
-	// Ordered configuration block(s) with components for the container recipe. Detailed below.
-	Components ContainerRecipeComponentArrayInput
-	// The type of the container to create. Valid values: `DOCKER`.
-	ContainerType pulumi.StringPtrInput
-	// Date the container recipe was created.
-	DateCreated pulumi.StringPtrInput
-	// The description of the container recipe.
-	Description pulumi.StringPtrInput
-	// The Dockerfile template used to build the image as an inline data blob.
+	Arn                    pulumi.StringPtrInput
+	Components             ContainerRecipeComponentArrayInput
+	ContainerType          pulumi.StringPtrInput
+	DateCreated            pulumi.StringPtrInput
+	Description            pulumi.StringPtrInput
 	DockerfileTemplateData pulumi.StringPtrInput
-	// The Amazon S3 URI for the Dockerfile that will be used to build the container image.
-	DockerfileTemplateUri pulumi.StringPtrInput
-	// A flag that indicates if the target container is encrypted.
-	Encrypted pulumi.BoolPtrInput
-	// Configuration block used to configure an instance for building and testing container images. Detailed below.
-	InstanceConfiguration ContainerRecipeInstanceConfigurationPtrInput
-	// The KMS key used to encrypt the container image.
-	KmsKeyId pulumi.StringPtrInput
-	// The name of the container recipe.
-	Name pulumi.StringPtrInput
-	// Owner of the container recipe.
-	Owner pulumi.StringPtrInput
-	// The base image for the container recipe.
-	ParentImage pulumi.StringPtrInput
-	// Platform of the container recipe.
-	Platform pulumi.StringPtrInput
-	// Specifies the operating system platform when you use a custom base image.
-	PlatformOverride pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The destination repository for the container image. Detailed below.
-	TargetRepository ContainerRecipeTargetRepositoryPtrInput
-	// Version of the container recipe.
-	//
-	// The following arguments are optional:
-	Version pulumi.StringPtrInput
-	// The working directory to be used during build and test workflows.
-	WorkingDirectory pulumi.StringPtrInput
+	DockerfileTemplateUri  pulumi.StringPtrInput
+	Encrypted              pulumi.BoolPtrInput
+	InstanceConfiguration  ContainerRecipeInstanceConfigurationPtrInput
+	KmsKeyId               pulumi.StringPtrInput
+	Name                   pulumi.StringPtrInput
+	Owner                  pulumi.StringPtrInput
+	ParentImage            pulumi.StringPtrInput
+	Platform               pulumi.StringPtrInput
+	PlatformOverride       pulumi.StringPtrInput
+	Region                 pulumi.StringPtrInput
+	Tags                   pulumi.StringMapInput
+	TagsAll                pulumi.StringMapInput
+	TargetRepository       ContainerRecipeTargetRepositoryPtrInput
+	Version                pulumi.StringPtrInput
+	WorkingDirectory       pulumi.StringPtrInput
 }
 
 func (ContainerRecipeState) ElementType() reflect.Type {
@@ -266,74 +135,40 @@ func (ContainerRecipeState) ElementType() reflect.Type {
 }
 
 type containerRecipeArgs struct {
-	// Ordered configuration block(s) with components for the container recipe. Detailed below.
-	Components []ContainerRecipeComponent `pulumi:"components"`
-	// The type of the container to create. Valid values: `DOCKER`.
-	ContainerType string `pulumi:"containerType"`
-	// The description of the container recipe.
-	Description *string `pulumi:"description"`
-	// The Dockerfile template used to build the image as an inline data blob.
-	DockerfileTemplateData *string `pulumi:"dockerfileTemplateData"`
-	// The Amazon S3 URI for the Dockerfile that will be used to build the container image.
-	DockerfileTemplateUri *string `pulumi:"dockerfileTemplateUri"`
-	// Configuration block used to configure an instance for building and testing container images. Detailed below.
-	InstanceConfiguration *ContainerRecipeInstanceConfiguration `pulumi:"instanceConfiguration"`
-	// The KMS key used to encrypt the container image.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The name of the container recipe.
-	Name *string `pulumi:"name"`
-	// The base image for the container recipe.
-	ParentImage string `pulumi:"parentImage"`
-	// Specifies the operating system platform when you use a custom base image.
-	PlatformOverride *string `pulumi:"platformOverride"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The destination repository for the container image. Detailed below.
-	TargetRepository ContainerRecipeTargetRepository `pulumi:"targetRepository"`
-	// Version of the container recipe.
-	//
-	// The following arguments are optional:
-	Version string `pulumi:"version"`
-	// The working directory to be used during build and test workflows.
-	WorkingDirectory *string `pulumi:"workingDirectory"`
+	Components             []ContainerRecipeComponent            `pulumi:"components"`
+	ContainerType          string                                `pulumi:"containerType"`
+	Description            *string                               `pulumi:"description"`
+	DockerfileTemplateData *string                               `pulumi:"dockerfileTemplateData"`
+	DockerfileTemplateUri  *string                               `pulumi:"dockerfileTemplateUri"`
+	InstanceConfiguration  *ContainerRecipeInstanceConfiguration `pulumi:"instanceConfiguration"`
+	KmsKeyId               *string                               `pulumi:"kmsKeyId"`
+	Name                   *string                               `pulumi:"name"`
+	ParentImage            string                                `pulumi:"parentImage"`
+	PlatformOverride       *string                               `pulumi:"platformOverride"`
+	Region                 *string                               `pulumi:"region"`
+	Tags                   map[string]string                     `pulumi:"tags"`
+	TargetRepository       ContainerRecipeTargetRepository       `pulumi:"targetRepository"`
+	Version                string                                `pulumi:"version"`
+	WorkingDirectory       *string                               `pulumi:"workingDirectory"`
 }
 
 // The set of arguments for constructing a ContainerRecipe resource.
 type ContainerRecipeArgs struct {
-	// Ordered configuration block(s) with components for the container recipe. Detailed below.
-	Components ContainerRecipeComponentArrayInput
-	// The type of the container to create. Valid values: `DOCKER`.
-	ContainerType pulumi.StringInput
-	// The description of the container recipe.
-	Description pulumi.StringPtrInput
-	// The Dockerfile template used to build the image as an inline data blob.
+	Components             ContainerRecipeComponentArrayInput
+	ContainerType          pulumi.StringInput
+	Description            pulumi.StringPtrInput
 	DockerfileTemplateData pulumi.StringPtrInput
-	// The Amazon S3 URI for the Dockerfile that will be used to build the container image.
-	DockerfileTemplateUri pulumi.StringPtrInput
-	// Configuration block used to configure an instance for building and testing container images. Detailed below.
-	InstanceConfiguration ContainerRecipeInstanceConfigurationPtrInput
-	// The KMS key used to encrypt the container image.
-	KmsKeyId pulumi.StringPtrInput
-	// The name of the container recipe.
-	Name pulumi.StringPtrInput
-	// The base image for the container recipe.
-	ParentImage pulumi.StringInput
-	// Specifies the operating system platform when you use a custom base image.
-	PlatformOverride pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The destination repository for the container image. Detailed below.
-	TargetRepository ContainerRecipeTargetRepositoryInput
-	// Version of the container recipe.
-	//
-	// The following arguments are optional:
-	Version pulumi.StringInput
-	// The working directory to be used during build and test workflows.
-	WorkingDirectory pulumi.StringPtrInput
+	DockerfileTemplateUri  pulumi.StringPtrInput
+	InstanceConfiguration  ContainerRecipeInstanceConfigurationPtrInput
+	KmsKeyId               pulumi.StringPtrInput
+	Name                   pulumi.StringPtrInput
+	ParentImage            pulumi.StringInput
+	PlatformOverride       pulumi.StringPtrInput
+	Region                 pulumi.StringPtrInput
+	Tags                   pulumi.StringMapInput
+	TargetRepository       ContainerRecipeTargetRepositoryInput
+	Version                pulumi.StringInput
+	WorkingDirectory       pulumi.StringPtrInput
 }
 
 func (ContainerRecipeArgs) ElementType() reflect.Type {
@@ -423,109 +258,86 @@ func (o ContainerRecipeOutput) ToContainerRecipeOutputWithContext(ctx context.Co
 	return o
 }
 
-// (Required) Amazon Resource Name (ARN) of the container recipe.
 func (o ContainerRecipeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Ordered configuration block(s) with components for the container recipe. Detailed below.
 func (o ContainerRecipeOutput) Components() ContainerRecipeComponentArrayOutput {
 	return o.ApplyT(func(v *ContainerRecipe) ContainerRecipeComponentArrayOutput { return v.Components }).(ContainerRecipeComponentArrayOutput)
 }
 
-// The type of the container to create. Valid values: `DOCKER`.
 func (o ContainerRecipeOutput) ContainerType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringOutput { return v.ContainerType }).(pulumi.StringOutput)
 }
 
-// Date the container recipe was created.
 func (o ContainerRecipeOutput) DateCreated() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringOutput { return v.DateCreated }).(pulumi.StringOutput)
 }
 
-// The description of the container recipe.
 func (o ContainerRecipeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The Dockerfile template used to build the image as an inline data blob.
 func (o ContainerRecipeOutput) DockerfileTemplateData() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringOutput { return v.DockerfileTemplateData }).(pulumi.StringOutput)
 }
 
-// The Amazon S3 URI for the Dockerfile that will be used to build the container image.
 func (o ContainerRecipeOutput) DockerfileTemplateUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringPtrOutput { return v.DockerfileTemplateUri }).(pulumi.StringPtrOutput)
 }
 
-// A flag that indicates if the target container is encrypted.
 func (o ContainerRecipeOutput) Encrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.BoolOutput { return v.Encrypted }).(pulumi.BoolOutput)
 }
 
-// Configuration block used to configure an instance for building and testing container images. Detailed below.
 func (o ContainerRecipeOutput) InstanceConfiguration() ContainerRecipeInstanceConfigurationPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipe) ContainerRecipeInstanceConfigurationPtrOutput { return v.InstanceConfiguration }).(ContainerRecipeInstanceConfigurationPtrOutput)
 }
 
-// The KMS key used to encrypt the container image.
 func (o ContainerRecipeOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The name of the container recipe.
 func (o ContainerRecipeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Owner of the container recipe.
 func (o ContainerRecipeOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
 }
 
-// The base image for the container recipe.
 func (o ContainerRecipeOutput) ParentImage() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringOutput { return v.ParentImage }).(pulumi.StringOutput)
 }
 
-// Platform of the container recipe.
 func (o ContainerRecipeOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
 }
 
-// Specifies the operating system platform when you use a custom base image.
 func (o ContainerRecipeOutput) PlatformOverride() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringPtrOutput { return v.PlatformOverride }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ContainerRecipeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ContainerRecipeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ContainerRecipeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The destination repository for the container image. Detailed below.
 func (o ContainerRecipeOutput) TargetRepository() ContainerRecipeTargetRepositoryOutput {
 	return o.ApplyT(func(v *ContainerRecipe) ContainerRecipeTargetRepositoryOutput { return v.TargetRepository }).(ContainerRecipeTargetRepositoryOutput)
 }
 
-// Version of the container recipe.
-//
-// The following arguments are optional:
 func (o ContainerRecipeOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }
 
-// The working directory to be used during build and test workflows.
 func (o ContainerRecipeOutput) WorkingDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringPtrOutput { return v.WorkingDirectory }).(pulumi.StringPtrOutput)
 }

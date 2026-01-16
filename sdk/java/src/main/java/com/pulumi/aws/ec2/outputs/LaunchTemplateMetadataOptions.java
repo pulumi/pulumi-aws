@@ -12,69 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LaunchTemplateMetadataOptions {
-    /**
-     * @return Whether the metadata service is available. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`. (Default: `&#34;enabled&#34;`).
-     * 
-     */
     private @Nullable String httpEndpoint;
-    /**
-     * @return Enables or disables the IPv6 endpoint for the instance metadata service. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`.
-     * 
-     */
     private @Nullable String httpProtocolIpv6;
-    /**
-     * @return The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
-     * 
-     */
     private @Nullable Integer httpPutResponseHopLimit;
-    /**
-     * @return Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `&#34;optional&#34;` or `&#34;required&#34;`. (Default: `&#34;optional&#34;`).
-     * 
-     */
     private @Nullable String httpTokens;
-    /**
-     * @return Enables or disables access to instance tags from the instance metadata service. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`.
-     * 
-     * For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
-     * 
-     */
     private @Nullable String instanceMetadataTags;
 
     private LaunchTemplateMetadataOptions() {}
-    /**
-     * @return Whether the metadata service is available. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`. (Default: `&#34;enabled&#34;`).
-     * 
-     */
     public Optional<String> httpEndpoint() {
         return Optional.ofNullable(this.httpEndpoint);
     }
-    /**
-     * @return Enables or disables the IPv6 endpoint for the instance metadata service. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`.
-     * 
-     */
     public Optional<String> httpProtocolIpv6() {
         return Optional.ofNullable(this.httpProtocolIpv6);
     }
-    /**
-     * @return The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
-     * 
-     */
     public Optional<Integer> httpPutResponseHopLimit() {
         return Optional.ofNullable(this.httpPutResponseHopLimit);
     }
-    /**
-     * @return Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `&#34;optional&#34;` or `&#34;required&#34;`. (Default: `&#34;optional&#34;`).
-     * 
-     */
     public Optional<String> httpTokens() {
         return Optional.ofNullable(this.httpTokens);
     }
-    /**
-     * @return Enables or disables access to instance tags from the instance metadata service. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`.
-     * 
-     * For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
-     * 
-     */
     public Optional<String> instanceMetadataTags() {
         return Optional.ofNullable(this.instanceMetadataTags);
     }

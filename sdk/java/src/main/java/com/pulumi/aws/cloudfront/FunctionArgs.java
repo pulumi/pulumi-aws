@@ -18,96 +18,44 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final FunctionArgs Empty = new FunctionArgs();
 
-    /**
-     * Source code of the function
-     * 
-     */
     @Import(name="code", required=true)
     private Output<String> code;
 
-    /**
-     * @return Source code of the function
-     * 
-     */
     public Output<String> code() {
         return this.code;
     }
 
-    /**
-     * Comment.
-     * 
-     */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
-    /**
-     * @return Comment.
-     * 
-     */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
     }
 
-    /**
-     * List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
-     * 
-     */
     @Import(name="keyValueStoreAssociations")
     private @Nullable Output<List<String>> keyValueStoreAssociations;
 
-    /**
-     * @return List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
-     * 
-     */
     public Optional<Output<List<String>>> keyValueStoreAssociations() {
         return Optional.ofNullable(this.keyValueStoreAssociations);
     }
 
-    /**
-     * Unique name for your CloudFront Function.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Unique name for your CloudFront Function.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-     * 
-     */
     @Import(name="publish")
     private @Nullable Output<Boolean> publish;
 
-    /**
-     * @return Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> publish() {
         return Optional.ofNullable(this.publish);
     }
 
-    /**
-     * Identifier of the function&#39;s runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="runtime", required=true)
     private Output<String> runtime;
 
-    /**
-     * @return Identifier of the function&#39;s runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> runtime() {
         return this.runtime;
     }
@@ -141,142 +89,60 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
             $ = new FunctionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param code Source code of the function
-         * 
-         * @return builder
-         * 
-         */
         public Builder code(Output<String> code) {
             $.code = code;
             return this;
         }
 
-        /**
-         * @param code Source code of the function
-         * 
-         * @return builder
-         * 
-         */
         public Builder code(String code) {
             return code(Output.of(code));
         }
 
-        /**
-         * @param comment Comment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
             return this;
         }
 
-        /**
-         * @param comment Comment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
         }
 
-        /**
-         * @param keyValueStoreAssociations List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyValueStoreAssociations(@Nullable Output<List<String>> keyValueStoreAssociations) {
             $.keyValueStoreAssociations = keyValueStoreAssociations;
             return this;
         }
 
-        /**
-         * @param keyValueStoreAssociations List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyValueStoreAssociations(List<String> keyValueStoreAssociations) {
             return keyValueStoreAssociations(Output.of(keyValueStoreAssociations));
         }
 
-        /**
-         * @param keyValueStoreAssociations List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyValueStoreAssociations(String... keyValueStoreAssociations) {
             return keyValueStoreAssociations(List.of(keyValueStoreAssociations));
         }
 
-        /**
-         * @param name Unique name for your CloudFront Function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Unique name for your CloudFront Function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param publish Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publish(@Nullable Output<Boolean> publish) {
             $.publish = publish;
             return this;
         }
 
-        /**
-         * @param publish Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publish(Boolean publish) {
             return publish(Output.of(publish));
         }
 
-        /**
-         * @param runtime Identifier of the function&#39;s runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder runtime(Output<String> runtime) {
             $.runtime = runtime;
             return this;
         }
 
-        /**
-         * @param runtime Identifier of the function&#39;s runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder runtime(String runtime) {
             return runtime(Output.of(runtime));
         }

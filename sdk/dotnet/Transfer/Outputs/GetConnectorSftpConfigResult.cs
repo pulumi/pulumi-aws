@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Transfer.Outputs
     [OutputType]
     public sealed class GetConnectorSftpConfigResult
     {
-        /// <summary>
-        /// List of the public portions of the host keys that are used to identify the servers the connector is connected to.
-        /// </summary>
         public readonly ImmutableArray<string> TrustedHostKeys;
-        /// <summary>
-        /// Identifier for the secret in AWS Secrets Manager that contains the SFTP user's private key, and/or password.
-        /// </summary>
         public readonly string UserSecretId;
 
         [OutputConstructor]

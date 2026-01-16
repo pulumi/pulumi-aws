@@ -13,29 +13,11 @@ namespace Pulumi.Aws.Backup.Outputs
     [OutputType]
     public sealed class GetReportPlanReportSettingResult
     {
-        /// <summary>
-        /// (Optional) Specifies the list of accounts a report covers.
-        /// </summary>
         public readonly ImmutableArray<string> Accounts;
-        /// <summary>
-        /// ARNs of the frameworks a report covers.
-        /// </summary>
         public readonly ImmutableArray<string> FrameworkArns;
-        /// <summary>
-        /// Specifies the number of frameworks a report covers.
-        /// </summary>
         public readonly int NumberOfFrameworks;
-        /// <summary>
-        /// (Optional) Specifies the list of Organizational Units a report covers.
-        /// </summary>
         public readonly ImmutableArray<string> OrganizationUnits;
-        /// <summary>
-        /// (Optional) Specifies the list of regions a report covers.
-        /// </summary>
         public readonly ImmutableArray<string> Regions;
-        /// <summary>
-        /// Identifies the report template for the report. Reports are built using a report template.
-        /// </summary>
         public readonly string ReportTemplate;
 
         [OutputConstructor]

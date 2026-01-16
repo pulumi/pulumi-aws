@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.wafregional.getWebAcl({
- *     name: "tfWAFRegionalWebACL",
- * });
- * ```
- */
 export function getWebAcl(args: GetWebAclArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAclResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:wafregional/getWebAcl:getWebAcl", {
@@ -30,13 +16,7 @@ export function getWebAcl(args: GetWebAclArgs, opts?: pulumi.InvokeOptions): Pro
  * A collection of arguments for invoking getWebAcl.
  */
 export interface GetWebAclArgs {
-    /**
-     * Name of the WAF Regional Web ACL.
-     */
     name: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -51,20 +31,6 @@ export interface GetWebAclResult {
     readonly name: string;
     readonly region: string;
 }
-/**
- * `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.wafregional.getWebAcl({
- *     name: "tfWAFRegionalWebACL",
- * });
- * ```
- */
 export function getWebAclOutput(args: GetWebAclOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAclResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:wafregional/getWebAcl:getWebAcl", {
@@ -77,12 +43,6 @@ export function getWebAclOutput(args: GetWebAclOutputArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getWebAcl.
  */
 export interface GetWebAclOutputArgs {
-    /**
-     * Name of the WAF Regional Web ACL.
-     */
     name: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

@@ -14,104 +14,36 @@ import java.util.Objects;
 
 @CustomType
 public final class GetStreamResult {
-    /**
-     * @return ARN of the Kinesis Stream (same as `id`).
-     * 
-     */
     private String arn;
-    /**
-     * @return List of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
-     * 
-     */
     private List<String> closedShards;
-    /**
-     * @return Approximate UNIX timestamp that the stream was created.
-     * 
-     */
     private Integer creationTimestamp;
-    /**
-     * @return Encryption type used.
-     * 
-     */
     private String encryptionType;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return GUID for the customer-managed AWS KMS key to use for encryption.
-     * 
-     */
     private String kmsKeyId;
-    /**
-     * @return The maximum size for a single data record in KiB.
-     * 
-     */
     private Integer maxRecordSizeInKib;
-    /**
-     * @return Name of the Kinesis Stream.
-     * 
-     */
     private String name;
-    /**
-     * @return List of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
-     * 
-     */
     private List<String> openShards;
     private String region;
-    /**
-     * @return Length of time (in hours) data records are accessible after they are added to the stream.
-     * 
-     */
     private Integer retentionPeriod;
-    /**
-     * @return List of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
-     * 
-     */
     private List<String> shardLevelMetrics;
-    /**
-     * @return Current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
-     * 
-     */
     private String status;
-    /**
-     * @return [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
-     * 
-     */
     private List<GetStreamStreamModeDetail> streamModeDetails;
-    /**
-     * @return Map of tags to assigned to the stream.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetStreamResult() {}
-    /**
-     * @return ARN of the Kinesis Stream (same as `id`).
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return List of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
-     * 
-     */
     public List<String> closedShards() {
         return this.closedShards;
     }
-    /**
-     * @return Approximate UNIX timestamp that the stream was created.
-     * 
-     */
     public Integer creationTimestamp() {
         return this.creationTimestamp;
     }
-    /**
-     * @return Encryption type used.
-     * 
-     */
     public String encryptionType() {
         return this.encryptionType;
     }
@@ -122,69 +54,33 @@ public final class GetStreamResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return GUID for the customer-managed AWS KMS key to use for encryption.
-     * 
-     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
-    /**
-     * @return The maximum size for a single data record in KiB.
-     * 
-     */
     public Integer maxRecordSizeInKib() {
         return this.maxRecordSizeInKib;
     }
-    /**
-     * @return Name of the Kinesis Stream.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return List of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
-     * 
-     */
     public List<String> openShards() {
         return this.openShards;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Length of time (in hours) data records are accessible after they are added to the stream.
-     * 
-     */
     public Integer retentionPeriod() {
         return this.retentionPeriod;
     }
-    /**
-     * @return List of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
-     * 
-     */
     public List<String> shardLevelMetrics() {
         return this.shardLevelMetrics;
     }
-    /**
-     * @return Current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
-     * 
-     */
     public List<GetStreamStreamModeDetail> streamModeDetails() {
         return this.streamModeDetails;
     }
-    /**
-     * @return Map of tags to assigned to the stream.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

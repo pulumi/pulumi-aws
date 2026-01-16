@@ -17,32 +17,16 @@ public final class PipelineTriggerAllArgs extends com.pulumi.resources.ResourceA
 
     public static final PipelineTriggerAllArgs Empty = new PipelineTriggerAllArgs();
 
-    /**
-     * Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
-     * 
-     */
     @Import(name="gitConfigurations")
     private @Nullable Output<List<PipelineTriggerAllGitConfigurationArgs>> gitConfigurations;
 
-    /**
-     * @return Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
-     * 
-     */
     public Optional<Output<List<PipelineTriggerAllGitConfigurationArgs>>> gitConfigurations() {
         return Optional.ofNullable(this.gitConfigurations);
     }
 
-    /**
-     * The source provider for the event. Possible value is `CodeStarSourceConnection`.
-     * 
-     */
     @Import(name="providerType")
     private @Nullable Output<String> providerType;
 
-    /**
-     * @return The source provider for the event. Possible value is `CodeStarSourceConnection`.
-     * 
-     */
     public Optional<Output<String>> providerType() {
         return Optional.ofNullable(this.providerType);
     }
@@ -72,54 +56,24 @@ public final class PipelineTriggerAllArgs extends com.pulumi.resources.ResourceA
             $ = new PipelineTriggerAllArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param gitConfigurations Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gitConfigurations(@Nullable Output<List<PipelineTriggerAllGitConfigurationArgs>> gitConfigurations) {
             $.gitConfigurations = gitConfigurations;
             return this;
         }
 
-        /**
-         * @param gitConfigurations Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gitConfigurations(List<PipelineTriggerAllGitConfigurationArgs> gitConfigurations) {
             return gitConfigurations(Output.of(gitConfigurations));
         }
 
-        /**
-         * @param gitConfigurations Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gitConfigurations(PipelineTriggerAllGitConfigurationArgs... gitConfigurations) {
             return gitConfigurations(List.of(gitConfigurations));
         }
 
-        /**
-         * @param providerType The source provider for the event. Possible value is `CodeStarSourceConnection`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerType(@Nullable Output<String> providerType) {
             $.providerType = providerType;
             return this;
         }
 
-        /**
-         * @param providerType The source provider for the event. Possible value is `CodeStarSourceConnection`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerType(String providerType) {
             return providerType(Output.of(providerType));
         }

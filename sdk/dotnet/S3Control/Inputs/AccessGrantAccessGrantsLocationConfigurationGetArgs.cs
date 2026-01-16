@@ -12,9 +12,6 @@ namespace Pulumi.Aws.S3Control.Inputs
 
     public sealed class AccessGrantAccessGrantsLocationConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Sub-prefix.
-        /// </summary>
         [Input("s3SubPrefix")]
         public Input<string>? S3SubPrefix { get; set; }
 

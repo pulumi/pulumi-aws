@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreGatewayInterceptorConfigurationInterceptor
     {
-        /// <summary>
-        /// Lambda function configuration for the interceptor. See `Lambda` below.
-        /// </summary>
         public readonly Outputs.AgentcoreGatewayInterceptorConfigurationInterceptorLambda? Lambda;
 
         [OutputConstructor]

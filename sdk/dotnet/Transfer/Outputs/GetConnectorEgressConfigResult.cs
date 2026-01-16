@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Transfer.Outputs
     [OutputType]
     public sealed class GetConnectorEgressConfigResult
     {
-        /// <summary>
-        /// VPC Lattice configuration. Contains the following attributes:
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetConnectorEgressConfigVpcLatticeResult> VpcLattices;
 
         [OutputConstructor]

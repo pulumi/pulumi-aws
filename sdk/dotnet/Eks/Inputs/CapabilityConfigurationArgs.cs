@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Eks.Inputs
 
     public sealed class CapabilityConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ArgoCD configuration. See `ArgoCd` below.
-        /// </summary>
         [Input("argoCd")]
         public Input<Inputs.CapabilityConfigurationArgoCdArgs>? ArgoCd { get; set; }
 

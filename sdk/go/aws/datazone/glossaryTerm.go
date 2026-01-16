@@ -12,169 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS DataZone Glossary Term.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datazone"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
-//							"sts:AssumeRole",
-//							"sts:TagSession",
-//						},
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "datazone.amazonaws.com",
-//						},
-//					},
-//					map[string]interface{}{
-//						"Action": []string{
-//							"sts:AssumeRole",
-//							"sts:TagSession",
-//						},
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "cloudformation.amazonaws.com",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			tmpJSON1, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
-//							"datazone:*",
-//							"ram:*",
-//							"sso:*",
-//							"kms:*",
-//						},
-//						"Effect":   "Allow",
-//						"Resource": "*",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json1 := string(tmpJSON1)
-//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				Name:             pulumi.String("example"),
-//				AssumeRolePolicy: pulumi.String(json0),
-//				InlinePolicies: iam.RoleInlinePolicyArray{
-//					&iam.RoleInlinePolicyArgs{
-//						Name:   pulumi.String("example"),
-//						Policy: pulumi.String(json1),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDomain, err := datazone.NewDomain(ctx, "example", &datazone.DomainArgs{
-//				Name:                pulumi.String("example_name"),
-//				DomainExecutionRole: example.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
-//				Name: pulumi.String("example_name"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleProject, err := datazone.NewProject(ctx, "example", &datazone.ProjectArgs{
-//				DomainIdentifier: exampleDomain.ID(),
-//				GlossaryTerms: pulumi.StringArray{
-//					pulumi.String("2N8w6XJCwZf"),
-//				},
-//				Name:              pulumi.String("example"),
-//				SkipDeletionCheck: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleGlossary, err := datazone.NewGlossary(ctx, "example", &datazone.GlossaryArgs{
-//				Description:             pulumi.String("description"),
-//				Name:                    pulumi.String("example"),
-//				OwningProjectIdentifier: exampleProject.ID(),
-//				Status:                  pulumi.String("ENABLED"),
-//				DomainIdentifier:        exampleProject.DomainIdentifier,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datazone.NewGlossaryTerm(ctx, "example", &datazone.GlossaryTermArgs{
-//				DomainIdentifier:   exampleDomain.ID(),
-//				GlossaryIdentifier: exampleGlossary.ID(),
-//				Name:               pulumi.String("example"),
-//				Status:             pulumi.String("ENABLED"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import DataZone Glossary Term using a comma-delimited string combining the `domain_identifier`, `id`, and the `glossary_identifier`. For example:
-//
-// ```sh
-// $ pulumi import aws:datazone/glossaryTerm:GlossaryTerm example domain-id,glossary-term-id,glossary-id
-// ```
 type GlossaryTerm struct {
 	pulumi.CustomResourceState
 
-	// Time of glossary term creation.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Creator of glossary term.
-	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
-	// Identifier of domain.
-	DomainIdentifier pulumi.StringPtrOutput `pulumi:"domainIdentifier"`
-	// Identifier of glossary.
-	GlossaryIdentifier pulumi.StringOutput `pulumi:"glossaryIdentifier"`
-	// Long description of entry.
-	LongDescription pulumi.StringPtrOutput `pulumi:"longDescription"`
-	// Name of glossary term.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Short description of entry.
-	ShortDescription pulumi.StringPtrOutput `pulumi:"shortDescription"`
-	// If glossary term is ENABLED or DISABLED.
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Object classifying the term relations through the following attributes:
-	TermRelations GlossaryTermTermRelationsPtrOutput `pulumi:"termRelations"`
-	Timeouts      GlossaryTermTimeoutsPtrOutput      `pulumi:"timeouts"`
+	CreatedAt          pulumi.StringOutput                `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringOutput                `pulumi:"createdBy"`
+	DomainIdentifier   pulumi.StringPtrOutput             `pulumi:"domainIdentifier"`
+	GlossaryIdentifier pulumi.StringOutput                `pulumi:"glossaryIdentifier"`
+	LongDescription    pulumi.StringPtrOutput             `pulumi:"longDescription"`
+	Name               pulumi.StringOutput                `pulumi:"name"`
+	Region             pulumi.StringOutput                `pulumi:"region"`
+	ShortDescription   pulumi.StringPtrOutput             `pulumi:"shortDescription"`
+	Status             pulumi.StringPtrOutput             `pulumi:"status"`
+	TermRelations      GlossaryTermTermRelationsPtrOutput `pulumi:"termRelations"`
+	Timeouts           GlossaryTermTimeoutsPtrOutput      `pulumi:"timeouts"`
 }
 
 // NewGlossaryTerm registers a new resource with the given unique name, arguments, and options.
@@ -210,55 +61,31 @@ func GetGlossaryTerm(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GlossaryTerm resources.
 type glossaryTermState struct {
-	// Time of glossary term creation.
-	CreatedAt *string `pulumi:"createdAt"`
-	// Creator of glossary term.
-	CreatedBy *string `pulumi:"createdBy"`
-	// Identifier of domain.
-	DomainIdentifier *string `pulumi:"domainIdentifier"`
-	// Identifier of glossary.
-	GlossaryIdentifier *string `pulumi:"glossaryIdentifier"`
-	// Long description of entry.
-	LongDescription *string `pulumi:"longDescription"`
-	// Name of glossary term.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Short description of entry.
-	ShortDescription *string `pulumi:"shortDescription"`
-	// If glossary term is ENABLED or DISABLED.
-	Status *string `pulumi:"status"`
-	// Object classifying the term relations through the following attributes:
-	TermRelations *GlossaryTermTermRelations `pulumi:"termRelations"`
-	Timeouts      *GlossaryTermTimeouts      `pulumi:"timeouts"`
+	CreatedAt          *string                    `pulumi:"createdAt"`
+	CreatedBy          *string                    `pulumi:"createdBy"`
+	DomainIdentifier   *string                    `pulumi:"domainIdentifier"`
+	GlossaryIdentifier *string                    `pulumi:"glossaryIdentifier"`
+	LongDescription    *string                    `pulumi:"longDescription"`
+	Name               *string                    `pulumi:"name"`
+	Region             *string                    `pulumi:"region"`
+	ShortDescription   *string                    `pulumi:"shortDescription"`
+	Status             *string                    `pulumi:"status"`
+	TermRelations      *GlossaryTermTermRelations `pulumi:"termRelations"`
+	Timeouts           *GlossaryTermTimeouts      `pulumi:"timeouts"`
 }
 
 type GlossaryTermState struct {
-	// Time of glossary term creation.
-	CreatedAt pulumi.StringPtrInput
-	// Creator of glossary term.
-	CreatedBy pulumi.StringPtrInput
-	// Identifier of domain.
-	DomainIdentifier pulumi.StringPtrInput
-	// Identifier of glossary.
+	CreatedAt          pulumi.StringPtrInput
+	CreatedBy          pulumi.StringPtrInput
+	DomainIdentifier   pulumi.StringPtrInput
 	GlossaryIdentifier pulumi.StringPtrInput
-	// Long description of entry.
-	LongDescription pulumi.StringPtrInput
-	// Name of glossary term.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Short description of entry.
-	ShortDescription pulumi.StringPtrInput
-	// If glossary term is ENABLED or DISABLED.
-	Status pulumi.StringPtrInput
-	// Object classifying the term relations through the following attributes:
-	TermRelations GlossaryTermTermRelationsPtrInput
-	Timeouts      GlossaryTermTimeoutsPtrInput
+	LongDescription    pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
+	Region             pulumi.StringPtrInput
+	ShortDescription   pulumi.StringPtrInput
+	Status             pulumi.StringPtrInput
+	TermRelations      GlossaryTermTermRelationsPtrInput
+	Timeouts           GlossaryTermTimeoutsPtrInput
 }
 
 func (GlossaryTermState) ElementType() reflect.Type {
@@ -266,48 +93,28 @@ func (GlossaryTermState) ElementType() reflect.Type {
 }
 
 type glossaryTermArgs struct {
-	// Identifier of domain.
-	DomainIdentifier *string `pulumi:"domainIdentifier"`
-	// Identifier of glossary.
-	GlossaryIdentifier string `pulumi:"glossaryIdentifier"`
-	// Long description of entry.
-	LongDescription *string `pulumi:"longDescription"`
-	// Name of glossary term.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Short description of entry.
-	ShortDescription *string `pulumi:"shortDescription"`
-	// If glossary term is ENABLED or DISABLED.
-	Status *string `pulumi:"status"`
-	// Object classifying the term relations through the following attributes:
-	TermRelations *GlossaryTermTermRelations `pulumi:"termRelations"`
-	Timeouts      *GlossaryTermTimeouts      `pulumi:"timeouts"`
+	DomainIdentifier   *string                    `pulumi:"domainIdentifier"`
+	GlossaryIdentifier string                     `pulumi:"glossaryIdentifier"`
+	LongDescription    *string                    `pulumi:"longDescription"`
+	Name               *string                    `pulumi:"name"`
+	Region             *string                    `pulumi:"region"`
+	ShortDescription   *string                    `pulumi:"shortDescription"`
+	Status             *string                    `pulumi:"status"`
+	TermRelations      *GlossaryTermTermRelations `pulumi:"termRelations"`
+	Timeouts           *GlossaryTermTimeouts      `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a GlossaryTerm resource.
 type GlossaryTermArgs struct {
-	// Identifier of domain.
-	DomainIdentifier pulumi.StringPtrInput
-	// Identifier of glossary.
+	DomainIdentifier   pulumi.StringPtrInput
 	GlossaryIdentifier pulumi.StringInput
-	// Long description of entry.
-	LongDescription pulumi.StringPtrInput
-	// Name of glossary term.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Short description of entry.
-	ShortDescription pulumi.StringPtrInput
-	// If glossary term is ENABLED or DISABLED.
-	Status pulumi.StringPtrInput
-	// Object classifying the term relations through the following attributes:
-	TermRelations GlossaryTermTermRelationsPtrInput
-	Timeouts      GlossaryTermTimeoutsPtrInput
+	LongDescription    pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
+	Region             pulumi.StringPtrInput
+	ShortDescription   pulumi.StringPtrInput
+	Status             pulumi.StringPtrInput
+	TermRelations      GlossaryTermTermRelationsPtrInput
+	Timeouts           GlossaryTermTimeoutsPtrInput
 }
 
 func (GlossaryTermArgs) ElementType() reflect.Type {
@@ -397,54 +204,42 @@ func (o GlossaryTermOutput) ToGlossaryTermOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Time of glossary term creation.
 func (o GlossaryTermOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlossaryTerm) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Creator of glossary term.
 func (o GlossaryTermOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlossaryTerm) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
-// Identifier of domain.
 func (o GlossaryTermOutput) DomainIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlossaryTerm) pulumi.StringPtrOutput { return v.DomainIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// Identifier of glossary.
 func (o GlossaryTermOutput) GlossaryIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlossaryTerm) pulumi.StringOutput { return v.GlossaryIdentifier }).(pulumi.StringOutput)
 }
 
-// Long description of entry.
 func (o GlossaryTermOutput) LongDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlossaryTerm) pulumi.StringPtrOutput { return v.LongDescription }).(pulumi.StringPtrOutput)
 }
 
-// Name of glossary term.
-//
-// The following arguments are optional:
 func (o GlossaryTermOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlossaryTerm) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GlossaryTermOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlossaryTerm) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Short description of entry.
 func (o GlossaryTermOutput) ShortDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlossaryTerm) pulumi.StringPtrOutput { return v.ShortDescription }).(pulumi.StringPtrOutput)
 }
 
-// If glossary term is ENABLED or DISABLED.
 func (o GlossaryTermOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlossaryTerm) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Object classifying the term relations through the following attributes:
 func (o GlossaryTermOutput) TermRelations() GlossaryTermTermRelationsPtrOutput {
 	return o.ApplyT(func(v *GlossaryTerm) GlossaryTermTermRelationsPtrOutput { return v.TermRelations }).(GlossaryTermTermRelationsPtrOutput)
 }

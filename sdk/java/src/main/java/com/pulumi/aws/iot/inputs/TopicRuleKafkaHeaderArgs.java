@@ -14,32 +14,16 @@ public final class TopicRuleKafkaHeaderArgs extends com.pulumi.resources.Resourc
 
     public static final TopicRuleKafkaHeaderArgs Empty = new TopicRuleKafkaHeaderArgs();
 
-    /**
-     * The key of the Kafka header.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return The key of the Kafka header.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * The value of the Kafka header.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return The value of the Kafka header.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -69,44 +53,20 @@ public final class TopicRuleKafkaHeaderArgs extends com.pulumi.resources.Resourc
             $ = new TopicRuleKafkaHeaderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key The key of the Kafka header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key The key of the Kafka header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param value The value of the Kafka header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The value of the Kafka header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

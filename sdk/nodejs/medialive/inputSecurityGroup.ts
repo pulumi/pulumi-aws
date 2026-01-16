@@ -7,35 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS MediaLive InputSecurityGroup.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.medialive.InputSecurityGroup("example", {
- *     whitelistRules: [{
- *         cidr: "10.0.0.8/32",
- *     }],
- *     tags: {
- *         ENVIRONMENT: "prod",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import MediaLive InputSecurityGroup using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
- * ```
- */
 export class InputSecurityGroup extends pulumi.CustomResource {
     /**
      * Get an existing InputSecurityGroup resource's state with the given name, ID, and optional extra
@@ -64,28 +35,11 @@ export class InputSecurityGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === InputSecurityGroup.__pulumiType;
     }
 
-    /**
-     * ARN of the InputSecurityGroup.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The list of inputs currently using this InputSecurityGroup.
-     */
     declare public /*out*/ readonly inputs: pulumi.Output<string[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Whitelist rules. See Whitelist Rules for more details.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly whitelistRules: pulumi.Output<outputs.medialive.InputSecurityGroupWhitelistRule[]>;
 
     /**
@@ -128,28 +82,11 @@ export class InputSecurityGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering InputSecurityGroup resources.
  */
 export interface InputSecurityGroupState {
-    /**
-     * ARN of the InputSecurityGroup.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The list of inputs currently using this InputSecurityGroup.
-     */
     inputs?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Whitelist rules. See Whitelist Rules for more details.
-     *
-     * The following arguments are optional:
-     */
     whitelistRules?: pulumi.Input<pulumi.Input<inputs.medialive.InputSecurityGroupWhitelistRule>[]>;
 }
 
@@ -157,18 +94,7 @@ export interface InputSecurityGroupState {
  * The set of arguments for constructing a InputSecurityGroup resource.
  */
 export interface InputSecurityGroupArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Whitelist rules. See Whitelist Rules for more details.
-     *
-     * The following arguments are optional:
-     */
     whitelistRules: pulumi.Input<pulumi.Input<inputs.medialive.InputSecurityGroupWhitelistRule>[]>;
 }

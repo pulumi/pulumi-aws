@@ -7,38 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Lake Formation LF Tag Expression.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lakeformation.LfTag("example", {
- *     key: "example",
- *     values: ["value"],
- * });
- * const exampleLfTagExpression = new aws.lakeformation.LfTagExpression("example", {
- *     name: "example",
- *     expressions: [{
- *         tagKey: example.key,
- *         tagValues: example.values,
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Lake Formation LF Tag Expression using the `name,catalog_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:lakeformation/lfTagExpression:LfTagExpression example example-tag-expression,123456789012
- * ```
- */
 export class LfTagExpression extends pulumi.CustomResource {
     /**
      * Get an existing LfTagExpression resource's state with the given name, ID, and optional extra
@@ -68,26 +36,18 @@ export class LfTagExpression extends pulumi.CustomResource {
     }
 
     /**
-     * ID of the Data Catalog. Defaults to the account ID if not specified.
+     * The ID of the Data Catalog.
      */
     declare public readonly catalogId: pulumi.Output<string>;
     /**
-     * Description of the LF-Tag Expression.
+     * A description of the LF-Tag Expression.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * A list of LF-Tag conditions (key-value pairs). See expression for more details.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly expressions: pulumi.Output<outputs.lakeformation.LfTagExpressionExpression[] | undefined>;
     /**
-     * Name of the LF-Tag Expression.
+     * The name of the LF-Tag Expression.
      */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -126,26 +86,18 @@ export class LfTagExpression extends pulumi.CustomResource {
  */
 export interface LfTagExpressionState {
     /**
-     * ID of the Data Catalog. Defaults to the account ID if not specified.
+     * The ID of the Data Catalog.
      */
     catalogId?: pulumi.Input<string>;
     /**
-     * Description of the LF-Tag Expression.
+     * A description of the LF-Tag Expression.
      */
     description?: pulumi.Input<string>;
-    /**
-     * A list of LF-Tag conditions (key-value pairs). See expression for more details.
-     *
-     * The following arguments are optional:
-     */
     expressions?: pulumi.Input<pulumi.Input<inputs.lakeformation.LfTagExpressionExpression>[]>;
     /**
-     * Name of the LF-Tag Expression.
+     * The name of the LF-Tag Expression.
      */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -154,25 +106,17 @@ export interface LfTagExpressionState {
  */
 export interface LfTagExpressionArgs {
     /**
-     * ID of the Data Catalog. Defaults to the account ID if not specified.
+     * The ID of the Data Catalog.
      */
     catalogId?: pulumi.Input<string>;
     /**
-     * Description of the LF-Tag Expression.
+     * A description of the LF-Tag Expression.
      */
     description?: pulumi.Input<string>;
-    /**
-     * A list of LF-Tag conditions (key-value pairs). See expression for more details.
-     *
-     * The following arguments are optional:
-     */
     expressions?: pulumi.Input<pulumi.Input<inputs.lakeformation.LfTagExpressionExpression>[]>;
     /**
-     * Name of the LF-Tag Expression.
+     * The name of the LF-Tag Expression.
      */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

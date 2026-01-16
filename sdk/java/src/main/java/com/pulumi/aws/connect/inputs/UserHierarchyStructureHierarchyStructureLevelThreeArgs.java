@@ -16,47 +16,23 @@ public final class UserHierarchyStructureHierarchyStructureLevelThreeArgs extend
 
     public static final UserHierarchyStructureHierarchyStructureLevelThreeArgs Empty = new UserHierarchyStructureHierarchyStructureLevelThreeArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the hierarchy level.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the hierarchy level.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The identifier of the hierarchy level.
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return The identifier of the hierarchy level.
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * The name of the user hierarchy level. Must not be more than 50 characters.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the user hierarchy level. Must not be more than 50 characters.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -87,65 +63,29 @@ public final class UserHierarchyStructureHierarchyStructureLevelThreeArgs extend
             $ = new UserHierarchyStructureHierarchyStructureLevelThreeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the hierarchy level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the hierarchy level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param id The identifier of the hierarchy level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id The identifier of the hierarchy level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param name The name of the user hierarchy level. Must not be more than 50 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the user hierarchy level. Must not be more than 50 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

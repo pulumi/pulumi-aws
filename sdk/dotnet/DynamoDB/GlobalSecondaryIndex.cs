@@ -9,96 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DynamoDB
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// * `index_name` (String) Name of the index.
-    /// 
-    /// * `table_name` (String) Name of the table this index belongs to.
-    /// 
-    /// #### Optional
-    /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
-    /// 
-    /// * `region` (String) Region where this resource is managed.
-    /// 
-    /// Using `pulumi import`, import DynamoDB tables using the `table_name` and `index_name`, separated by a comma. For example:
-    /// 
-    /// % pulumi import aws_dynamodb_global_secondary_index.example 'example-table,example-index'
-    /// </summary>
     [AwsResourceType("aws:dynamodb/globalSecondaryIndex:GlobalSecondaryIndex")]
     public partial class GlobalSecondaryIndex : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the GSI.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the index.
-        /// </summary>
         [Output("indexName")]
         public Output<string> IndexName { get; private set; } = null!;
 
-        /// <summary>
-        /// Set of nested attribute definitions.
-        /// At least 1 element defining a `HASH` is required.
-        /// All elements with the `KeyType` of `HASH` must precede elements with `KeyType` of `RANGE`.
-        /// Changing any values in `KeySchema` will re-create the resource.
-        /// See `KeySchema` below.
-        /// </summary>
         [Output("keySchemas")]
         public Output<ImmutableArray<Outputs.GlobalSecondaryIndexKeySchema>> KeySchemas { get; private set; } = null!;
 
-        /// <summary>
-        /// Sets the maximum number of read and write units for the index.
-        /// See `OnDemandThroughput` below.
-        /// Only valid if the table's `BillingMode` is `PAY_PER_REQUEST`.
-        /// </summary>
         [Output("onDemandThroughput")]
         public Output<Outputs.GlobalSecondaryIndexOnDemandThroughput?> OnDemandThroughput { get; private set; } = null!;
 
-        /// <summary>
-        /// Describes which attributes from the table are represented in the index.
-        /// See `Projection` below.
-        /// </summary>
         [Output("projection")]
         public Output<Outputs.GlobalSecondaryIndexProjection?> Projection { get; private set; } = null!;
 
-        /// <summary>
-        /// Provisioned throughput for the index.
-        /// See `ProvisionedThroughput` below.
-        /// Required if the table's `BillingMode` is `PROVISIONED`.
-        /// </summary>
         [Output("provisionedThroughput")]
         public Output<Outputs.GlobalSecondaryIndexProvisionedThroughput?> ProvisionedThroughput { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the table this index belongs to.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("tableName")]
         public Output<string> TableName { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.GlobalSecondaryIndexTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// Sets the number of warm read and write units for this index.
-        /// See `WarmThroughput` below.
-        /// </summary>
         [Output("warmThroughput")]
         public Output<Outputs.GlobalSecondaryIndexWarmThroughput> WarmThroughput { get; private set; } = null!;
 
@@ -148,72 +88,35 @@ namespace Pulumi.Aws.DynamoDB
 
     public sealed class GlobalSecondaryIndexArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the index.
-        /// </summary>
         [Input("indexName", required: true)]
         public Input<string> IndexName { get; set; } = null!;
 
         [Input("keySchemas")]
         private InputList<Inputs.GlobalSecondaryIndexKeySchemaArgs>? _keySchemas;
-
-        /// <summary>
-        /// Set of nested attribute definitions.
-        /// At least 1 element defining a `HASH` is required.
-        /// All elements with the `KeyType` of `HASH` must precede elements with `KeyType` of `RANGE`.
-        /// Changing any values in `KeySchema` will re-create the resource.
-        /// See `KeySchema` below.
-        /// </summary>
         public InputList<Inputs.GlobalSecondaryIndexKeySchemaArgs> KeySchemas
         {
             get => _keySchemas ?? (_keySchemas = new InputList<Inputs.GlobalSecondaryIndexKeySchemaArgs>());
             set => _keySchemas = value;
         }
 
-        /// <summary>
-        /// Sets the maximum number of read and write units for the index.
-        /// See `OnDemandThroughput` below.
-        /// Only valid if the table's `BillingMode` is `PAY_PER_REQUEST`.
-        /// </summary>
         [Input("onDemandThroughput")]
         public Input<Inputs.GlobalSecondaryIndexOnDemandThroughputArgs>? OnDemandThroughput { get; set; }
 
-        /// <summary>
-        /// Describes which attributes from the table are represented in the index.
-        /// See `Projection` below.
-        /// </summary>
         [Input("projection")]
         public Input<Inputs.GlobalSecondaryIndexProjectionArgs>? Projection { get; set; }
 
-        /// <summary>
-        /// Provisioned throughput for the index.
-        /// See `ProvisionedThroughput` below.
-        /// Required if the table's `BillingMode` is `PROVISIONED`.
-        /// </summary>
         [Input("provisionedThroughput")]
         public Input<Inputs.GlobalSecondaryIndexProvisionedThroughputArgs>? ProvisionedThroughput { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Name of the table this index belongs to.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 
         [Input("timeouts")]
         public Input<Inputs.GlobalSecondaryIndexTimeoutsArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// Sets the number of warm read and write units for this index.
-        /// See `WarmThroughput` below.
-        /// </summary>
         [Input("warmThroughput")]
         public Input<Inputs.GlobalSecondaryIndexWarmThroughputArgs>? WarmThroughput { get; set; }
 
@@ -225,78 +128,38 @@ namespace Pulumi.Aws.DynamoDB
 
     public sealed class GlobalSecondaryIndexState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the GSI.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Name of the index.
-        /// </summary>
         [Input("indexName")]
         public Input<string>? IndexName { get; set; }
 
         [Input("keySchemas")]
         private InputList<Inputs.GlobalSecondaryIndexKeySchemaGetArgs>? _keySchemas;
-
-        /// <summary>
-        /// Set of nested attribute definitions.
-        /// At least 1 element defining a `HASH` is required.
-        /// All elements with the `KeyType` of `HASH` must precede elements with `KeyType` of `RANGE`.
-        /// Changing any values in `KeySchema` will re-create the resource.
-        /// See `KeySchema` below.
-        /// </summary>
         public InputList<Inputs.GlobalSecondaryIndexKeySchemaGetArgs> KeySchemas
         {
             get => _keySchemas ?? (_keySchemas = new InputList<Inputs.GlobalSecondaryIndexKeySchemaGetArgs>());
             set => _keySchemas = value;
         }
 
-        /// <summary>
-        /// Sets the maximum number of read and write units for the index.
-        /// See `OnDemandThroughput` below.
-        /// Only valid if the table's `BillingMode` is `PAY_PER_REQUEST`.
-        /// </summary>
         [Input("onDemandThroughput")]
         public Input<Inputs.GlobalSecondaryIndexOnDemandThroughputGetArgs>? OnDemandThroughput { get; set; }
 
-        /// <summary>
-        /// Describes which attributes from the table are represented in the index.
-        /// See `Projection` below.
-        /// </summary>
         [Input("projection")]
         public Input<Inputs.GlobalSecondaryIndexProjectionGetArgs>? Projection { get; set; }
 
-        /// <summary>
-        /// Provisioned throughput for the index.
-        /// See `ProvisionedThroughput` below.
-        /// Required if the table's `BillingMode` is `PROVISIONED`.
-        /// </summary>
         [Input("provisionedThroughput")]
         public Input<Inputs.GlobalSecondaryIndexProvisionedThroughputGetArgs>? ProvisionedThroughput { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Name of the table this index belongs to.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("tableName")]
         public Input<string>? TableName { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.GlobalSecondaryIndexTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// Sets the number of warm read and write units for this index.
-        /// See `WarmThroughput` below.
-        /// </summary>
         [Input("warmThroughput")]
         public Input<Inputs.GlobalSecondaryIndexWarmThroughputGetArgs>? WarmThroughput { get; set; }
 

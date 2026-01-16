@@ -632,9 +632,7 @@ func (o PolicyStatementArrayOutput) Index(i pulumi.IntInput) PolicyStatementOutp
 }
 
 type RoleInlinePolicy struct {
-	// Name of the role policy.
-	Name *string `pulumi:"name"`
-	// Policy document as a JSON formatted string.
+	Name   *string `pulumi:"name"`
 	Policy *string `pulumi:"policy"`
 }
 
@@ -650,9 +648,7 @@ type RoleInlinePolicyInput interface {
 }
 
 type RoleInlinePolicyArgs struct {
-	// Name of the role policy.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Policy document as a JSON formatted string.
+	Name   pulumi.StringPtrInput `pulumi:"name"`
 	Policy pulumi.StringPtrInput `pulumi:"policy"`
 }
 
@@ -707,12 +703,10 @@ func (o RoleInlinePolicyOutput) ToRoleInlinePolicyOutputWithContext(ctx context.
 	return o
 }
 
-// Name of the role policy.
 func (o RoleInlinePolicyOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoleInlinePolicy) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Policy document as a JSON formatted string.
 func (o RoleInlinePolicyOutput) Policy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoleInlinePolicy) *string { return v.Policy }).(pulumi.StringPtrOutput)
 }
@@ -878,12 +872,9 @@ func (o ServicePrincipalPtrOutput) Service() pulumi.AnyOutput {
 }
 
 type GetAccessKeysAccessKey struct {
-	// Access key ID.
 	AccessKeyId string `pulumi:"accessKeyId"`
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
-	CreateDate string `pulumi:"createDate"`
-	// Access key status. Possible values are `Active` and `Inactive`.
-	Status string `pulumi:"status"`
+	CreateDate  string `pulumi:"createDate"`
+	Status      string `pulumi:"status"`
 }
 
 // GetAccessKeysAccessKeyInput is an input type that accepts GetAccessKeysAccessKeyArgs and GetAccessKeysAccessKeyOutput values.
@@ -898,12 +889,9 @@ type GetAccessKeysAccessKeyInput interface {
 }
 
 type GetAccessKeysAccessKeyArgs struct {
-	// Access key ID.
 	AccessKeyId pulumi.StringInput `pulumi:"accessKeyId"`
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
-	CreateDate pulumi.StringInput `pulumi:"createDate"`
-	// Access key status. Possible values are `Active` and `Inactive`.
-	Status pulumi.StringInput `pulumi:"status"`
+	CreateDate  pulumi.StringInput `pulumi:"createDate"`
+	Status      pulumi.StringInput `pulumi:"status"`
 }
 
 func (GetAccessKeysAccessKeyArgs) ElementType() reflect.Type {
@@ -957,17 +945,14 @@ func (o GetAccessKeysAccessKeyOutput) ToGetAccessKeysAccessKeyOutputWithContext(
 	return o
 }
 
-// Access key ID.
 func (o GetAccessKeysAccessKeyOutput) AccessKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccessKeysAccessKey) string { return v.AccessKeyId }).(pulumi.StringOutput)
 }
 
-// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
 func (o GetAccessKeysAccessKeyOutput) CreateDate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccessKeysAccessKey) string { return v.CreateDate }).(pulumi.StringOutput)
 }
 
-// Access key status. Possible values are `Active` and `Inactive`.
 func (o GetAccessKeysAccessKeyOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccessKeysAccessKey) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -993,13 +978,9 @@ func (o GetAccessKeysAccessKeyArrayOutput) Index(i pulumi.IntInput) GetAccessKey
 }
 
 type GetGroupUser struct {
-	// User ARN.
-	Arn string `pulumi:"arn"`
-	// Path to the IAM user.
-	Path string `pulumi:"path"`
-	// Stable and unique string identifying the IAM user.
-	UserId string `pulumi:"userId"`
-	// Name of the IAM user.
+	Arn      string `pulumi:"arn"`
+	Path     string `pulumi:"path"`
+	UserId   string `pulumi:"userId"`
 	UserName string `pulumi:"userName"`
 }
 
@@ -1015,13 +996,9 @@ type GetGroupUserInput interface {
 }
 
 type GetGroupUserArgs struct {
-	// User ARN.
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// Path to the IAM user.
-	Path pulumi.StringInput `pulumi:"path"`
-	// Stable and unique string identifying the IAM user.
-	UserId pulumi.StringInput `pulumi:"userId"`
-	// Name of the IAM user.
+	Arn      pulumi.StringInput `pulumi:"arn"`
+	Path     pulumi.StringInput `pulumi:"path"`
+	UserId   pulumi.StringInput `pulumi:"userId"`
 	UserName pulumi.StringInput `pulumi:"userName"`
 }
 
@@ -1076,22 +1053,18 @@ func (o GetGroupUserOutput) ToGetGroupUserOutputWithContext(ctx context.Context)
 	return o
 }
 
-// User ARN.
 func (o GetGroupUserOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupUser) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Path to the IAM user.
 func (o GetGroupUserOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupUser) string { return v.Path }).(pulumi.StringOutput)
 }
 
-// Stable and unique string identifying the IAM user.
 func (o GetGroupUserOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupUser) string { return v.UserId }).(pulumi.StringOutput)
 }
 
-// Name of the IAM user.
 func (o GetGroupUserOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupUser) string { return v.UserName }).(pulumi.StringOutput)
 }
@@ -1117,24 +1090,15 @@ func (o GetGroupUserArrayOutput) Index(i pulumi.IntInput) GetGroupUserOutput {
 }
 
 type GetPolicyDocumentStatement struct {
-	// List of actions that this statement either allows or denies. For example, `["ec2:RunInstances", "s3:*"]`.
-	Actions []string `pulumi:"actions"`
-	// Configuration block for a condition. Detailed below.
-	Conditions []GetPolicyDocumentStatementCondition `pulumi:"conditions"`
-	// Whether this statement allows or denies the given actions. Valid values are `Allow` and `Deny`. Defaults to `Allow`.
-	Effect *string `pulumi:"effect"`
-	// List of actions that this statement does *not* apply to. Use to apply a policy statement to all actions *except* those listed.
-	NotActions []string `pulumi:"notActions"`
-	// Like `principals` except these are principals that the statement does *not* apply to.
+	Actions       []string                                 `pulumi:"actions"`
+	Conditions    []GetPolicyDocumentStatementCondition    `pulumi:"conditions"`
+	Effect        *string                                  `pulumi:"effect"`
+	NotActions    []string                                 `pulumi:"notActions"`
 	NotPrincipals []GetPolicyDocumentStatementNotPrincipal `pulumi:"notPrincipals"`
-	// List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
-	NotResources []string `pulumi:"notResources"`
-	// Configuration block for principals. Detailed below.
-	Principals []GetPolicyDocumentStatementPrincipal `pulumi:"principals"`
-	// List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
-	Resources []string `pulumi:"resources"`
-	// Sid (statement ID) is an identifier for a policy statement.
-	Sid *string `pulumi:"sid"`
+	NotResources  []string                                 `pulumi:"notResources"`
+	Principals    []GetPolicyDocumentStatementPrincipal    `pulumi:"principals"`
+	Resources     []string                                 `pulumi:"resources"`
+	Sid           *string                                  `pulumi:"sid"`
 }
 
 // GetPolicyDocumentStatementInput is an input type that accepts GetPolicyDocumentStatementArgs and GetPolicyDocumentStatementOutput values.
@@ -1149,24 +1113,15 @@ type GetPolicyDocumentStatementInput interface {
 }
 
 type GetPolicyDocumentStatementArgs struct {
-	// List of actions that this statement either allows or denies. For example, `["ec2:RunInstances", "s3:*"]`.
-	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	// Configuration block for a condition. Detailed below.
-	Conditions GetPolicyDocumentStatementConditionArrayInput `pulumi:"conditions"`
-	// Whether this statement allows or denies the given actions. Valid values are `Allow` and `Deny`. Defaults to `Allow`.
-	Effect pulumi.StringPtrInput `pulumi:"effect"`
-	// List of actions that this statement does *not* apply to. Use to apply a policy statement to all actions *except* those listed.
-	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
-	// Like `principals` except these are principals that the statement does *not* apply to.
+	Actions       pulumi.StringArrayInput                          `pulumi:"actions"`
+	Conditions    GetPolicyDocumentStatementConditionArrayInput    `pulumi:"conditions"`
+	Effect        pulumi.StringPtrInput                            `pulumi:"effect"`
+	NotActions    pulumi.StringArrayInput                          `pulumi:"notActions"`
 	NotPrincipals GetPolicyDocumentStatementNotPrincipalArrayInput `pulumi:"notPrincipals"`
-	// List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
-	NotResources pulumi.StringArrayInput `pulumi:"notResources"`
-	// Configuration block for principals. Detailed below.
-	Principals GetPolicyDocumentStatementPrincipalArrayInput `pulumi:"principals"`
-	// List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
-	Resources pulumi.StringArrayInput `pulumi:"resources"`
-	// Sid (statement ID) is an identifier for a policy statement.
-	Sid pulumi.StringPtrInput `pulumi:"sid"`
+	NotResources  pulumi.StringArrayInput                          `pulumi:"notResources"`
+	Principals    GetPolicyDocumentStatementPrincipalArrayInput    `pulumi:"principals"`
+	Resources     pulumi.StringArrayInput                          `pulumi:"resources"`
+	Sid           pulumi.StringPtrInput                            `pulumi:"sid"`
 }
 
 func (GetPolicyDocumentStatementArgs) ElementType() reflect.Type {
@@ -1220,47 +1175,38 @@ func (o GetPolicyDocumentStatementOutput) ToGetPolicyDocumentStatementOutputWith
 	return o
 }
 
-// List of actions that this statement either allows or denies. For example, `["ec2:RunInstances", "s3:*"]`.
 func (o GetPolicyDocumentStatementOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatement) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
-// Configuration block for a condition. Detailed below.
 func (o GetPolicyDocumentStatementOutput) Conditions() GetPolicyDocumentStatementConditionArrayOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatement) []GetPolicyDocumentStatementCondition { return v.Conditions }).(GetPolicyDocumentStatementConditionArrayOutput)
 }
 
-// Whether this statement allows or denies the given actions. Valid values are `Allow` and `Deny`. Defaults to `Allow`.
 func (o GetPolicyDocumentStatementOutput) Effect() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatement) *string { return v.Effect }).(pulumi.StringPtrOutput)
 }
 
-// List of actions that this statement does *not* apply to. Use to apply a policy statement to all actions *except* those listed.
 func (o GetPolicyDocumentStatementOutput) NotActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatement) []string { return v.NotActions }).(pulumi.StringArrayOutput)
 }
 
-// Like `principals` except these are principals that the statement does *not* apply to.
 func (o GetPolicyDocumentStatementOutput) NotPrincipals() GetPolicyDocumentStatementNotPrincipalArrayOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatement) []GetPolicyDocumentStatementNotPrincipal { return v.NotPrincipals }).(GetPolicyDocumentStatementNotPrincipalArrayOutput)
 }
 
-// List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
 func (o GetPolicyDocumentStatementOutput) NotResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatement) []string { return v.NotResources }).(pulumi.StringArrayOutput)
 }
 
-// Configuration block for principals. Detailed below.
 func (o GetPolicyDocumentStatementOutput) Principals() GetPolicyDocumentStatementPrincipalArrayOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatement) []GetPolicyDocumentStatementPrincipal { return v.Principals }).(GetPolicyDocumentStatementPrincipalArrayOutput)
 }
 
-// List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
 func (o GetPolicyDocumentStatementOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatement) []string { return v.Resources }).(pulumi.StringArrayOutput)
 }
 
-// Sid (statement ID) is an identifier for a policy statement.
 func (o GetPolicyDocumentStatementOutput) Sid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatement) *string { return v.Sid }).(pulumi.StringPtrOutput)
 }
@@ -1286,12 +1232,9 @@ func (o GetPolicyDocumentStatementArrayOutput) Index(i pulumi.IntInput) GetPolic
 }
 
 type GetPolicyDocumentStatementCondition struct {
-	// Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate.
-	Test string `pulumi:"test"`
-	// Values to evaluate the condition against. If multiple values are provided, the condition matches if at least one of them applies. That is, AWS evaluates multiple values as though using an "OR" boolean operation.
-	Values []string `pulumi:"values"`
-	// Name of a [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) to apply the condition to. Context variables may either be standard AWS variables starting with `aws:` or service-specific variables prefixed with the service name.
-	Variable string `pulumi:"variable"`
+	Test     string   `pulumi:"test"`
+	Values   []string `pulumi:"values"`
+	Variable string   `pulumi:"variable"`
 }
 
 // GetPolicyDocumentStatementConditionInput is an input type that accepts GetPolicyDocumentStatementConditionArgs and GetPolicyDocumentStatementConditionOutput values.
@@ -1306,12 +1249,9 @@ type GetPolicyDocumentStatementConditionInput interface {
 }
 
 type GetPolicyDocumentStatementConditionArgs struct {
-	// Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate.
-	Test pulumi.StringInput `pulumi:"test"`
-	// Values to evaluate the condition against. If multiple values are provided, the condition matches if at least one of them applies. That is, AWS evaluates multiple values as though using an "OR" boolean operation.
-	Values pulumi.StringArrayInput `pulumi:"values"`
-	// Name of a [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) to apply the condition to. Context variables may either be standard AWS variables starting with `aws:` or service-specific variables prefixed with the service name.
-	Variable pulumi.StringInput `pulumi:"variable"`
+	Test     pulumi.StringInput      `pulumi:"test"`
+	Values   pulumi.StringArrayInput `pulumi:"values"`
+	Variable pulumi.StringInput      `pulumi:"variable"`
 }
 
 func (GetPolicyDocumentStatementConditionArgs) ElementType() reflect.Type {
@@ -1365,17 +1305,14 @@ func (o GetPolicyDocumentStatementConditionOutput) ToGetPolicyDocumentStatementC
 	return o
 }
 
-// Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate.
 func (o GetPolicyDocumentStatementConditionOutput) Test() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatementCondition) string { return v.Test }).(pulumi.StringOutput)
 }
 
-// Values to evaluate the condition against. If multiple values are provided, the condition matches if at least one of them applies. That is, AWS evaluates multiple values as though using an "OR" boolean operation.
 func (o GetPolicyDocumentStatementConditionOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatementCondition) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// Name of a [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) to apply the condition to. Context variables may either be standard AWS variables starting with `aws:` or service-specific variables prefixed with the service name.
 func (o GetPolicyDocumentStatementConditionOutput) Variable() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatementCondition) string { return v.Variable }).(pulumi.StringOutput)
 }
@@ -1401,10 +1338,8 @@ func (o GetPolicyDocumentStatementConditionArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetPolicyDocumentStatementNotPrincipal struct {
-	// List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
 	Identifiers []string `pulumi:"identifiers"`
-	// Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
-	Type string `pulumi:"type"`
+	Type        string   `pulumi:"type"`
 }
 
 // GetPolicyDocumentStatementNotPrincipalInput is an input type that accepts GetPolicyDocumentStatementNotPrincipalArgs and GetPolicyDocumentStatementNotPrincipalOutput values.
@@ -1419,10 +1354,8 @@ type GetPolicyDocumentStatementNotPrincipalInput interface {
 }
 
 type GetPolicyDocumentStatementNotPrincipalArgs struct {
-	// List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
 	Identifiers pulumi.StringArrayInput `pulumi:"identifiers"`
-	// Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type        pulumi.StringInput      `pulumi:"type"`
 }
 
 func (GetPolicyDocumentStatementNotPrincipalArgs) ElementType() reflect.Type {
@@ -1476,12 +1409,10 @@ func (o GetPolicyDocumentStatementNotPrincipalOutput) ToGetPolicyDocumentStateme
 	return o
 }
 
-// List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
 func (o GetPolicyDocumentStatementNotPrincipalOutput) Identifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatementNotPrincipal) []string { return v.Identifiers }).(pulumi.StringArrayOutput)
 }
 
-// Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
 func (o GetPolicyDocumentStatementNotPrincipalOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatementNotPrincipal) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1507,10 +1438,8 @@ func (o GetPolicyDocumentStatementNotPrincipalArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetPolicyDocumentStatementPrincipal struct {
-	// List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
 	Identifiers []string `pulumi:"identifiers"`
-	// Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
-	Type string `pulumi:"type"`
+	Type        string   `pulumi:"type"`
 }
 
 // GetPolicyDocumentStatementPrincipalInput is an input type that accepts GetPolicyDocumentStatementPrincipalArgs and GetPolicyDocumentStatementPrincipalOutput values.
@@ -1525,10 +1454,8 @@ type GetPolicyDocumentStatementPrincipalInput interface {
 }
 
 type GetPolicyDocumentStatementPrincipalArgs struct {
-	// List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
 	Identifiers pulumi.StringArrayInput `pulumi:"identifiers"`
-	// Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type        pulumi.StringInput      `pulumi:"type"`
 }
 
 func (GetPolicyDocumentStatementPrincipalArgs) ElementType() reflect.Type {
@@ -1582,12 +1509,10 @@ func (o GetPolicyDocumentStatementPrincipalOutput) ToGetPolicyDocumentStatementP
 	return o
 }
 
-// List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
 func (o GetPolicyDocumentStatementPrincipalOutput) Identifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatementPrincipal) []string { return v.Identifiers }).(pulumi.StringArrayOutput)
 }
 
-// Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
 func (o GetPolicyDocumentStatementPrincipalOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatementPrincipal) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1613,15 +1538,11 @@ func (o GetPolicyDocumentStatementPrincipalArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetPrincipalPolicySimulationContext struct {
-	// The context _condition key_ to set.
-	//
-	// If you have policies containing `Condition` elements or using dynamic interpolations then you will need to provide suitable values for each condition key your policies use. See [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) to find the various condition keys that are normally provided for real requests to each action of each AWS service.
+	// The key name of the context entry, such as "aws:CurrentTime".
 	Key string `pulumi:"key"`
-	// An IAM value type that determines how the policy simulator will interpret the strings given in `values`.
-	//
-	// For more information, see the `ContextKeyType` field of [`iam.ContextEntry`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextEntry.html) in the underlying API.
+	// The type that the simulator should use to interpret the strings given in argument "values".
 	Type string `pulumi:"type"`
-	// A set of one or more values for this context entry.
+	// One or more values to assign to the context key, given as a string in a syntax appropriate for the selected value type.
 	Values []string `pulumi:"values"`
 }
 
@@ -1637,15 +1558,11 @@ type GetPrincipalPolicySimulationContextInput interface {
 }
 
 type GetPrincipalPolicySimulationContextArgs struct {
-	// The context _condition key_ to set.
-	//
-	// If you have policies containing `Condition` elements or using dynamic interpolations then you will need to provide suitable values for each condition key your policies use. See [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) to find the various condition keys that are normally provided for real requests to each action of each AWS service.
+	// The key name of the context entry, such as "aws:CurrentTime".
 	Key pulumi.StringInput `pulumi:"key"`
-	// An IAM value type that determines how the policy simulator will interpret the strings given in `values`.
-	//
-	// For more information, see the `ContextKeyType` field of [`iam.ContextEntry`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextEntry.html) in the underlying API.
+	// The type that the simulator should use to interpret the strings given in argument "values".
 	Type pulumi.StringInput `pulumi:"type"`
-	// A set of one or more values for this context entry.
+	// One or more values to assign to the context key, given as a string in a syntax appropriate for the selected value type.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1700,21 +1617,17 @@ func (o GetPrincipalPolicySimulationContextOutput) ToGetPrincipalPolicySimulatio
 	return o
 }
 
-// The context _condition key_ to set.
-//
-// If you have policies containing `Condition` elements or using dynamic interpolations then you will need to provide suitable values for each condition key your policies use. See [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) to find the various condition keys that are normally provided for real requests to each action of each AWS service.
+// The key name of the context entry, such as "aws:CurrentTime".
 func (o GetPrincipalPolicySimulationContextOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrincipalPolicySimulationContext) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// An IAM value type that determines how the policy simulator will interpret the strings given in `values`.
-//
-// For more information, see the `ContextKeyType` field of [`iam.ContextEntry`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextEntry.html) in the underlying API.
+// The type that the simulator should use to interpret the strings given in argument "values".
 func (o GetPrincipalPolicySimulationContextOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrincipalPolicySimulationContext) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// A set of one or more values for this context entry.
+// One or more values to assign to the context key, given as a string in a syntax appropriate for the selected value type.
 func (o GetPrincipalPolicySimulationContextOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPrincipalPolicySimulationContext) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -1740,19 +1653,19 @@ func (o GetPrincipalPolicySimulationContextArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetPrincipalPolicySimulationResult struct {
-	// The name of the single IAM action used for this particular request.
+	// The name of the action whose simulation this result is describing.
 	ActionName string `pulumi:"actionName"`
-	// `true` if `decision` is "allowed", and `false` otherwise.
+	// A summary of attribute "decision" which is true only if the decision is "allowed".
 	Allowed bool `pulumi:"allowed"`
-	// The raw decision determined from all of the policies in scope; either "allowed", "explicitDeny", or "implicitDeny".
+	// The exact decision keyword returned by the policy simulator: "allowed", "explicitDeny", or "implicitDeny".
 	Decision string `pulumi:"decision"`
-	// A map of arbitrary metadata entries returned by the policy simulator for this request.
+	// A mapping of various additional details that are relevant to the decision, exactly as returned by the policy simulator.
 	DecisionDetails map[string]string `pulumi:"decisionDetails"`
-	// A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `sourcePolicyId` and `sourcePolicyType` to identify one of the policies.
+	// Detail about which specific policies contributed to this result.
 	MatchedStatements []GetPrincipalPolicySimulationResultMatchedStatement `pulumi:"matchedStatements"`
-	// A set of context keys (or condition keys) that were needed by some of the policies contributing to this result but not specified using a `context` block in the configuration. Missing or incorrect context keys will typically cause a simulated request to be disallowed.
+	// Set of context entry keys that were needed for one or more of the relevant policies but not included in the request. You must specify suitable values for all context keys used in all of the relevant policies in order to obtain a correct simulation result.
 	MissingContextKeys []string `pulumi:"missingContextKeys"`
-	// ARN of the resource that was used for this particular request. When you specify multiple actions and multiple resource ARNs, that causes a separate policy request for each combination of unique action and resource.
+	// ARN of the resource that the action was tested against.
 	ResourceArn string `pulumi:"resourceArn"`
 }
 
@@ -1768,19 +1681,19 @@ type GetPrincipalPolicySimulationResultInput interface {
 }
 
 type GetPrincipalPolicySimulationResultArgs struct {
-	// The name of the single IAM action used for this particular request.
+	// The name of the action whose simulation this result is describing.
 	ActionName pulumi.StringInput `pulumi:"actionName"`
-	// `true` if `decision` is "allowed", and `false` otherwise.
+	// A summary of attribute "decision" which is true only if the decision is "allowed".
 	Allowed pulumi.BoolInput `pulumi:"allowed"`
-	// The raw decision determined from all of the policies in scope; either "allowed", "explicitDeny", or "implicitDeny".
+	// The exact decision keyword returned by the policy simulator: "allowed", "explicitDeny", or "implicitDeny".
 	Decision pulumi.StringInput `pulumi:"decision"`
-	// A map of arbitrary metadata entries returned by the policy simulator for this request.
+	// A mapping of various additional details that are relevant to the decision, exactly as returned by the policy simulator.
 	DecisionDetails pulumi.StringMapInput `pulumi:"decisionDetails"`
-	// A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `sourcePolicyId` and `sourcePolicyType` to identify one of the policies.
+	// Detail about which specific policies contributed to this result.
 	MatchedStatements GetPrincipalPolicySimulationResultMatchedStatementArrayInput `pulumi:"matchedStatements"`
-	// A set of context keys (or condition keys) that were needed by some of the policies contributing to this result but not specified using a `context` block in the configuration. Missing or incorrect context keys will typically cause a simulated request to be disallowed.
+	// Set of context entry keys that were needed for one or more of the relevant policies but not included in the request. You must specify suitable values for all context keys used in all of the relevant policies in order to obtain a correct simulation result.
 	MissingContextKeys pulumi.StringArrayInput `pulumi:"missingContextKeys"`
-	// ARN of the resource that was used for this particular request. When you specify multiple actions and multiple resource ARNs, that causes a separate policy request for each combination of unique action and resource.
+	// ARN of the resource that the action was tested against.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
 
@@ -1835,39 +1748,39 @@ func (o GetPrincipalPolicySimulationResultOutput) ToGetPrincipalPolicySimulation
 	return o
 }
 
-// The name of the single IAM action used for this particular request.
+// The name of the action whose simulation this result is describing.
 func (o GetPrincipalPolicySimulationResultOutput) ActionName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrincipalPolicySimulationResult) string { return v.ActionName }).(pulumi.StringOutput)
 }
 
-// `true` if `decision` is "allowed", and `false` otherwise.
+// A summary of attribute "decision" which is true only if the decision is "allowed".
 func (o GetPrincipalPolicySimulationResultOutput) Allowed() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetPrincipalPolicySimulationResult) bool { return v.Allowed }).(pulumi.BoolOutput)
 }
 
-// The raw decision determined from all of the policies in scope; either "allowed", "explicitDeny", or "implicitDeny".
+// The exact decision keyword returned by the policy simulator: "allowed", "explicitDeny", or "implicitDeny".
 func (o GetPrincipalPolicySimulationResultOutput) Decision() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrincipalPolicySimulationResult) string { return v.Decision }).(pulumi.StringOutput)
 }
 
-// A map of arbitrary metadata entries returned by the policy simulator for this request.
+// A mapping of various additional details that are relevant to the decision, exactly as returned by the policy simulator.
 func (o GetPrincipalPolicySimulationResultOutput) DecisionDetails() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetPrincipalPolicySimulationResult) map[string]string { return v.DecisionDetails }).(pulumi.StringMapOutput)
 }
 
-// A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `sourcePolicyId` and `sourcePolicyType` to identify one of the policies.
+// Detail about which specific policies contributed to this result.
 func (o GetPrincipalPolicySimulationResultOutput) MatchedStatements() GetPrincipalPolicySimulationResultMatchedStatementArrayOutput {
 	return o.ApplyT(func(v GetPrincipalPolicySimulationResult) []GetPrincipalPolicySimulationResultMatchedStatement {
 		return v.MatchedStatements
 	}).(GetPrincipalPolicySimulationResultMatchedStatementArrayOutput)
 }
 
-// A set of context keys (or condition keys) that were needed by some of the policies contributing to this result but not specified using a `context` block in the configuration. Missing or incorrect context keys will typically cause a simulated request to be disallowed.
+// Set of context entry keys that were needed for one or more of the relevant policies but not included in the request. You must specify suitable values for all context keys used in all of the relevant policies in order to obtain a correct simulation result.
 func (o GetPrincipalPolicySimulationResultOutput) MissingContextKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPrincipalPolicySimulationResult) []string { return v.MissingContextKeys }).(pulumi.StringArrayOutput)
 }
 
-// ARN of the resource that was used for this particular request. When you specify multiple actions and multiple resource ARNs, that causes a separate policy request for each combination of unique action and resource.
+// ARN of the resource that the action was tested against.
 func (o GetPrincipalPolicySimulationResultOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrincipalPolicySimulationResult) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
@@ -1999,10 +1912,8 @@ func (o GetPrincipalPolicySimulationResultMatchedStatementArrayOutput) Index(i p
 }
 
 type GetRoleRoleLastUsed struct {
-	// The date and time, in RFC 3339 format, that the role was last used.
 	LastUsedDate string `pulumi:"lastUsedDate"`
-	// The name of the AWS Region in which the role was last used.
-	Region string `pulumi:"region"`
+	Region       string `pulumi:"region"`
 }
 
 // GetRoleRoleLastUsedInput is an input type that accepts GetRoleRoleLastUsedArgs and GetRoleRoleLastUsedOutput values.
@@ -2017,10 +1928,8 @@ type GetRoleRoleLastUsedInput interface {
 }
 
 type GetRoleRoleLastUsedArgs struct {
-	// The date and time, in RFC 3339 format, that the role was last used.
 	LastUsedDate pulumi.StringInput `pulumi:"lastUsedDate"`
-	// The name of the AWS Region in which the role was last used.
-	Region pulumi.StringInput `pulumi:"region"`
+	Region       pulumi.StringInput `pulumi:"region"`
 }
 
 func (GetRoleRoleLastUsedArgs) ElementType() reflect.Type {
@@ -2074,12 +1983,10 @@ func (o GetRoleRoleLastUsedOutput) ToGetRoleRoleLastUsedOutputWithContext(ctx co
 	return o
 }
 
-// The date and time, in RFC 3339 format, that the role was last used.
 func (o GetRoleRoleLastUsedOutput) LastUsedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRoleRoleLastUsed) string { return v.LastUsedDate }).(pulumi.StringOutput)
 }
 
-// The name of the AWS Region in which the role was last used.
 func (o GetRoleRoleLastUsedOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRoleRoleLastUsed) string { return v.Region }).(pulumi.StringOutput)
 }

@@ -17,32 +17,16 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs();
 
-    /**
-     * The OAuth 2.0 properties required for OAuth 2.0 authentication.
-     * 
-     */
     @Import(name="oauth2Properties")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs> oauth2Properties;
 
-    /**
-     * @return The OAuth 2.0 properties required for OAuth 2.0 authentication.
-     * 
-     */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs>> oauth2Properties() {
         return Optional.ofNullable(this.oauth2Properties);
     }
 
-    /**
-     * A map of properties that are required to create a profile for the custom connector.
-     * 
-     */
     @Import(name="profileProperties")
     private @Nullable Output<Map<String,String>> profileProperties;
 
-    /**
-     * @return A map of properties that are required to create a profile for the custom connector.
-     * 
-     */
     public Optional<Output<Map<String,String>>> profileProperties() {
         return Optional.ofNullable(this.profileProperties);
     }
@@ -72,44 +56,20 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param oauth2Properties The OAuth 2.0 properties required for OAuth 2.0 authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauth2Properties(@Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs> oauth2Properties) {
             $.oauth2Properties = oauth2Properties;
             return this;
         }
 
-        /**
-         * @param oauth2Properties The OAuth 2.0 properties required for OAuth 2.0 authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauth2Properties(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs oauth2Properties) {
             return oauth2Properties(Output.of(oauth2Properties));
         }
 
-        /**
-         * @param profileProperties A map of properties that are required to create a profile for the custom connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder profileProperties(@Nullable Output<Map<String,String>> profileProperties) {
             $.profileProperties = profileProperties;
             return this;
         }
 
-        /**
-         * @param profileProperties A map of properties that are required to create a profile for the custom connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder profileProperties(Map<String,String> profileProperties) {
             return profileProperties(Output.of(profileProperties));
         }

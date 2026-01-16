@@ -12,51 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Associates a CodeCommit Approval Rule Template with a Repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codecommit"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codecommit.NewApprovalRuleTemplateAssociation(ctx, "example", &codecommit.ApprovalRuleTemplateAssociationArgs{
-//				ApprovalRuleTemplateName: pulumi.Any(exampleAwsCodecommitApprovalRuleTemplate.Name),
-//				RepositoryName:           pulumi.Any(exampleAwsCodecommitRepository.RepositoryName),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CodeCommit approval rule template associations using the `approval_rule_template_name` and `repository_name` separated by a comma (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation example approver-rule-for-example,MyExampleRepo
-// ```
 type ApprovalRuleTemplateAssociation struct {
 	pulumi.CustomResourceState
 
-	// The name for the approval rule template.
 	ApprovalRuleTemplateName pulumi.StringOutput `pulumi:"approvalRuleTemplateName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The name of the repository that you want to associate with the template.
-	RepositoryName pulumi.StringOutput `pulumi:"repositoryName"`
+	Region                   pulumi.StringOutput `pulumi:"region"`
+	RepositoryName           pulumi.StringOutput `pulumi:"repositoryName"`
 }
 
 // NewApprovalRuleTemplateAssociation registers a new resource with the given unique name, arguments, and options.
@@ -95,21 +56,15 @@ func GetApprovalRuleTemplateAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApprovalRuleTemplateAssociation resources.
 type approvalRuleTemplateAssociationState struct {
-	// The name for the approval rule template.
 	ApprovalRuleTemplateName *string `pulumi:"approvalRuleTemplateName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name of the repository that you want to associate with the template.
-	RepositoryName *string `pulumi:"repositoryName"`
+	Region                   *string `pulumi:"region"`
+	RepositoryName           *string `pulumi:"repositoryName"`
 }
 
 type ApprovalRuleTemplateAssociationState struct {
-	// The name for the approval rule template.
 	ApprovalRuleTemplateName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name of the repository that you want to associate with the template.
-	RepositoryName pulumi.StringPtrInput
+	Region                   pulumi.StringPtrInput
+	RepositoryName           pulumi.StringPtrInput
 }
 
 func (ApprovalRuleTemplateAssociationState) ElementType() reflect.Type {
@@ -117,22 +72,16 @@ func (ApprovalRuleTemplateAssociationState) ElementType() reflect.Type {
 }
 
 type approvalRuleTemplateAssociationArgs struct {
-	// The name for the approval rule template.
-	ApprovalRuleTemplateName string `pulumi:"approvalRuleTemplateName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name of the repository that you want to associate with the template.
-	RepositoryName string `pulumi:"repositoryName"`
+	ApprovalRuleTemplateName string  `pulumi:"approvalRuleTemplateName"`
+	Region                   *string `pulumi:"region"`
+	RepositoryName           string  `pulumi:"repositoryName"`
 }
 
 // The set of arguments for constructing a ApprovalRuleTemplateAssociation resource.
 type ApprovalRuleTemplateAssociationArgs struct {
-	// The name for the approval rule template.
 	ApprovalRuleTemplateName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name of the repository that you want to associate with the template.
-	RepositoryName pulumi.StringInput
+	Region                   pulumi.StringPtrInput
+	RepositoryName           pulumi.StringInput
 }
 
 func (ApprovalRuleTemplateAssociationArgs) ElementType() reflect.Type {
@@ -222,17 +171,14 @@ func (o ApprovalRuleTemplateAssociationOutput) ToApprovalRuleTemplateAssociation
 	return o
 }
 
-// The name for the approval rule template.
 func (o ApprovalRuleTemplateAssociationOutput) ApprovalRuleTemplateName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApprovalRuleTemplateAssociation) pulumi.StringOutput { return v.ApprovalRuleTemplateName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ApprovalRuleTemplateAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApprovalRuleTemplateAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The name of the repository that you want to associate with the template.
 func (o ApprovalRuleTemplateAssociationOutput) RepositoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApprovalRuleTemplateAssociation) pulumi.StringOutput { return v.RepositoryName }).(pulumi.StringOutput)
 }

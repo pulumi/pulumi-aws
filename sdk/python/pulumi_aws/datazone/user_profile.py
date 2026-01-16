@@ -29,13 +29,6 @@ class UserProfileArgs:
                  user_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserProfile resource.
-        :param pulumi.Input[_builtins.str] domain_identifier: The domain identifier.
-        :param pulumi.Input[_builtins.str] user_identifier: The user identifier.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: The user profile status.
-        :param pulumi.Input[_builtins.str] user_type: The user type.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
         pulumi.set(__self__, "user_identifier", user_identifier)
@@ -51,9 +44,6 @@ class UserProfileArgs:
     @_builtins.property
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The domain identifier.
-        """
         return pulumi.get(self, "domain_identifier")
 
     @domain_identifier.setter
@@ -63,11 +53,6 @@ class UserProfileArgs:
     @_builtins.property
     @pulumi.getter(name="userIdentifier")
     def user_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The user identifier.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "user_identifier")
 
     @user_identifier.setter
@@ -77,9 +62,6 @@ class UserProfileArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -89,9 +71,6 @@ class UserProfileArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The user profile status.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -110,9 +89,6 @@ class UserProfileArgs:
     @_builtins.property
     @pulumi.getter(name="userType")
     def user_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The user type.
-        """
         return pulumi.get(self, "user_type")
 
     @user_type.setter
@@ -133,15 +109,6 @@ class _UserProfileState:
                  user_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserProfile resources.
-        :param pulumi.Input[Sequence[pulumi.Input['UserProfileDetailArgs']]] details: Details about the user profile.
-        :param pulumi.Input[_builtins.str] domain_identifier: The domain identifier.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: The user profile status.
-        :param pulumi.Input[_builtins.str] type: The user profile type.
-        :param pulumi.Input[_builtins.str] user_identifier: The user identifier.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] user_type: The user type.
         """
         if details is not None:
             pulumi.set(__self__, "details", details)
@@ -163,9 +130,6 @@ class _UserProfileState:
     @_builtins.property
     @pulumi.getter
     def details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileDetailArgs']]]]:
-        """
-        Details about the user profile.
-        """
         return pulumi.get(self, "details")
 
     @details.setter
@@ -175,9 +139,6 @@ class _UserProfileState:
     @_builtins.property
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The domain identifier.
-        """
         return pulumi.get(self, "domain_identifier")
 
     @domain_identifier.setter
@@ -187,9 +148,6 @@ class _UserProfileState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -199,9 +157,6 @@ class _UserProfileState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The user profile status.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -220,9 +175,6 @@ class _UserProfileState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The user profile type.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -232,11 +184,6 @@ class _UserProfileState:
     @_builtins.property
     @pulumi.getter(name="userIdentifier")
     def user_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The user identifier.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "user_identifier")
 
     @user_identifier.setter
@@ -246,9 +193,6 @@ class _UserProfileState:
     @_builtins.property
     @pulumi.getter(name="userType")
     def user_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The user type.
-        """
         return pulumi.get(self, "user_type")
 
     @user_type.setter
@@ -270,39 +214,9 @@ class UserProfile(pulumi.CustomResource):
                  user_type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS DataZone User Profile.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.datazone.UserProfile("example",
-            user_identifier=example_aws_iam_user["arn"],
-            domain_identifier=example_aws_datazone_domain["id"],
-            user_type="IAM_USER")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DataZone User Profile using the `user_identifier,domain_identifier,type`. For example:
-
-        ```sh
-        $ pulumi import aws:datazone/userProfile:UserProfile example arn:aws:iam::123456789012:user/example,dzd_54nakfrg9k6suo,IAM
-        ```
-
+        Create a UserProfile resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] domain_identifier: The domain identifier.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: The user profile status.
-        :param pulumi.Input[_builtins.str] user_identifier: The user identifier.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] user_type: The user type.
         """
         ...
     @overload
@@ -311,30 +225,7 @@ class UserProfile(pulumi.CustomResource):
                  args: UserProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS DataZone User Profile.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.datazone.UserProfile("example",
-            user_identifier=example_aws_iam_user["arn"],
-            domain_identifier=example_aws_datazone_domain["id"],
-            user_type="IAM_USER")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DataZone User Profile using the `user_identifier,domain_identifier,type`. For example:
-
-        ```sh
-        $ pulumi import aws:datazone/userProfile:UserProfile example arn:aws:iam::123456789012:user/example,dzd_54nakfrg9k6suo,IAM
-        ```
-
+        Create a UserProfile resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -402,15 +293,6 @@ class UserProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['UserProfileDetailArgs', 'UserProfileDetailArgsDict']]]] details: Details about the user profile.
-        :param pulumi.Input[_builtins.str] domain_identifier: The domain identifier.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: The user profile status.
-        :param pulumi.Input[_builtins.str] type: The user profile type.
-        :param pulumi.Input[_builtins.str] user_identifier: The user identifier.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] user_type: The user type.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -429,33 +311,21 @@ class UserProfile(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def details(self) -> pulumi.Output[Sequence['outputs.UserProfileDetail']]:
-        """
-        Details about the user profile.
-        """
         return pulumi.get(self, "details")
 
     @_builtins.property
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The domain identifier.
-        """
         return pulumi.get(self, "domain_identifier")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The user profile status.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
@@ -466,26 +336,15 @@ class UserProfile(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The user profile type.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="userIdentifier")
     def user_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The user identifier.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "user_identifier")
 
     @_builtins.property
     @pulumi.getter(name="userType")
     def user_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The user type.
-        """
         return pulumi.get(self, "user_type")
 

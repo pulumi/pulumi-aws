@@ -12,62 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS SSO Admin Application Assignment Configuration.
-//
-// By default, applications will require users to have an explicit assignment in order to access an application.
-// This resource can be used to adjust this default behavior if necessary.
-//
-// > Deleting this resource will return the assignment configuration for the application to the default AWS behavior (ie. `assignmentRequired = true`).
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssoadmin.NewApplicationAssignmentConfiguration(ctx, "example", &ssoadmin.ApplicationAssignmentConfigurationArgs{
-//				ApplicationArn:     pulumi.Any(exampleAwsSsoadminApplication.Arn),
-//				AssignmentRequired: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the SSO application.
-//
-// Using `pulumi import`, import SSO Admin Application Assignment Configuration using the `id`. For example:
-//
-// % pulumi import aws_ssoadmin_application_assignment_configuration.example arn:aws:sso::123456789012:application/id-12345678
 type ApplicationAssignmentConfiguration struct {
 	pulumi.CustomResourceState
 
-	// ARN of the application.
-	ApplicationArn pulumi.StringOutput `pulumi:"applicationArn"`
-	// Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
-	AssignmentRequired pulumi.BoolOutput `pulumi:"assignmentRequired"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	ApplicationArn     pulumi.StringOutput `pulumi:"applicationArn"`
+	AssignmentRequired pulumi.BoolOutput   `pulumi:"assignmentRequired"`
+	Region             pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewApplicationAssignmentConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -106,21 +56,15 @@ func GetApplicationAssignmentConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApplicationAssignmentConfiguration resources.
 type applicationAssignmentConfigurationState struct {
-	// ARN of the application.
-	ApplicationArn *string `pulumi:"applicationArn"`
-	// Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
-	AssignmentRequired *bool `pulumi:"assignmentRequired"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	ApplicationArn     *string `pulumi:"applicationArn"`
+	AssignmentRequired *bool   `pulumi:"assignmentRequired"`
+	Region             *string `pulumi:"region"`
 }
 
 type ApplicationAssignmentConfigurationState struct {
-	// ARN of the application.
-	ApplicationArn pulumi.StringPtrInput
-	// Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
+	ApplicationArn     pulumi.StringPtrInput
 	AssignmentRequired pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region             pulumi.StringPtrInput
 }
 
 func (ApplicationAssignmentConfigurationState) ElementType() reflect.Type {
@@ -128,22 +72,16 @@ func (ApplicationAssignmentConfigurationState) ElementType() reflect.Type {
 }
 
 type applicationAssignmentConfigurationArgs struct {
-	// ARN of the application.
-	ApplicationArn string `pulumi:"applicationArn"`
-	// Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
-	AssignmentRequired bool `pulumi:"assignmentRequired"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	ApplicationArn     string  `pulumi:"applicationArn"`
+	AssignmentRequired bool    `pulumi:"assignmentRequired"`
+	Region             *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ApplicationAssignmentConfiguration resource.
 type ApplicationAssignmentConfigurationArgs struct {
-	// ARN of the application.
-	ApplicationArn pulumi.StringInput
-	// Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
+	ApplicationArn     pulumi.StringInput
 	AssignmentRequired pulumi.BoolInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region             pulumi.StringPtrInput
 }
 
 func (ApplicationAssignmentConfigurationArgs) ElementType() reflect.Type {
@@ -233,17 +171,14 @@ func (o ApplicationAssignmentConfigurationOutput) ToApplicationAssignmentConfigu
 	return o
 }
 
-// ARN of the application.
 func (o ApplicationAssignmentConfigurationOutput) ApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationAssignmentConfiguration) pulumi.StringOutput { return v.ApplicationArn }).(pulumi.StringOutput)
 }
 
-// Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
 func (o ApplicationAssignmentConfigurationOutput) AssignmentRequired() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ApplicationAssignmentConfiguration) pulumi.BoolOutput { return v.AssignmentRequired }).(pulumi.BoolOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ApplicationAssignmentConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationAssignmentConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.NetworkManager.Inputs
     {
         [Input("associateRoutingPolicies", required: true)]
         private List<string>? _associateRoutingPolicies;
-
-        /// <summary>
-        /// Set of routing policy names to associate when the conditions match.
-        /// </summary>
         public List<string> AssociateRoutingPolicies
         {
             get => _associateRoutingPolicies ?? (_associateRoutingPolicies = new List<string>());

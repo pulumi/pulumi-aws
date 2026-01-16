@@ -14,32 +14,16 @@ public final class MultitenantDistributionOriginCustomHeaderArgs extends com.pul
 
     public static final MultitenantDistributionOriginCustomHeaderArgs Empty = new MultitenantDistributionOriginCustomHeaderArgs();
 
-    /**
-     * Name of the header.
-     * 
-     */
     @Import(name="headerName", required=true)
     private Output<String> headerName;
 
-    /**
-     * @return Name of the header.
-     * 
-     */
     public Output<String> headerName() {
         return this.headerName;
     }
 
-    /**
-     * Value for the header.
-     * 
-     */
     @Import(name="headerValue", required=true)
     private Output<String> headerValue;
 
-    /**
-     * @return Value for the header.
-     * 
-     */
     public Output<String> headerValue() {
         return this.headerValue;
     }
@@ -69,44 +53,20 @@ public final class MultitenantDistributionOriginCustomHeaderArgs extends com.pul
             $ = new MultitenantDistributionOriginCustomHeaderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param headerName Name of the header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headerName(Output<String> headerName) {
             $.headerName = headerName;
             return this;
         }
 
-        /**
-         * @param headerName Name of the header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headerName(String headerName) {
             return headerName(Output.of(headerName));
         }
 
-        /**
-         * @param headerValue Value for the header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headerValue(Output<String> headerValue) {
             $.headerValue = headerValue;
             return this;
         }
 
-        /**
-         * @param headerValue Value for the header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headerValue(String headerValue) {
             return headerValue(Output.of(headerValue));
         }

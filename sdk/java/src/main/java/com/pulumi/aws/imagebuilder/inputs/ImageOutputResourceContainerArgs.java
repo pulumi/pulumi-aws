@@ -16,32 +16,16 @@ public final class ImageOutputResourceContainerArgs extends com.pulumi.resources
 
     public static final ImageOutputResourceContainerArgs Empty = new ImageOutputResourceContainerArgs();
 
-    /**
-     * Set of URIs for created containers.
-     * 
-     */
     @Import(name="imageUris")
     private @Nullable Output<List<String>> imageUris;
 
-    /**
-     * @return Set of URIs for created containers.
-     * 
-     */
     public Optional<Output<List<String>>> imageUris() {
         return Optional.ofNullable(this.imageUris);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -71,54 +55,24 @@ public final class ImageOutputResourceContainerArgs extends com.pulumi.resources
             $ = new ImageOutputResourceContainerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param imageUris Set of URIs for created containers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageUris(@Nullable Output<List<String>> imageUris) {
             $.imageUris = imageUris;
             return this;
         }
 
-        /**
-         * @param imageUris Set of URIs for created containers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageUris(List<String> imageUris) {
             return imageUris(Output.of(imageUris));
         }
 
-        /**
-         * @param imageUris Set of URIs for created containers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageUris(String... imageUris) {
             return imageUris(List.of(imageUris));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

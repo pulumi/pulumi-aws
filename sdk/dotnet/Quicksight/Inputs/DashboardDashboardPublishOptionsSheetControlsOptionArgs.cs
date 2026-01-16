@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DashboardDashboardPublishOptionsSheetControlsOptionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Visibility state. Possibles values: EXPANDED, COLLAPSED.
-        /// </summary>
         [Input("visibilityState")]
         public Input<string>? VisibilityState { get; set; }
 

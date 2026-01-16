@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable
     {
-        /// <summary>
-        /// Information about a column in the table. See `Column` block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn> Columns;
-        /// <summary>
-        /// Description of the table that helps the query engine understand the contents of the table.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// Whether to include or exclude the table during query generation. Valid values `INCLUDE`, `EXCLUDE`.
-        /// </summary>
         public readonly string? Inclusion;
-        /// <summary>
-        /// Name of the table for which the other fields in this object apply.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

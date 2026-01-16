@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DirectorySamlProperties {
-    /**
-     * @return The relay state parameter name supported by the SAML 2.0 identity provider (IdP). Default `RelayState`.
-     * 
-     */
     private @Nullable String relayStateParameterName;
-    /**
-     * @return Status of SAML 2.0 authentication. Default `DISABLED`.
-     * 
-     */
     private @Nullable String status;
-    /**
-     * @return The SAML 2.0 identity provider (IdP) user access URL.
-     * 
-     */
     private @Nullable String userAccessUrl;
 
     private DirectorySamlProperties() {}
-    /**
-     * @return The relay state parameter name supported by the SAML 2.0 identity provider (IdP). Default `RelayState`.
-     * 
-     */
     public Optional<String> relayStateParameterName() {
         return Optional.ofNullable(this.relayStateParameterName);
     }
-    /**
-     * @return Status of SAML 2.0 authentication. Default `DISABLED`.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }
-    /**
-     * @return The SAML 2.0 identity provider (IdP) user access URL.
-     * 
-     */
     public Optional<String> userAccessUrl() {
         return Optional.ofNullable(this.userAccessUrl);
     }

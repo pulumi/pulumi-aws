@@ -10,24 +10,12 @@ import java.util.Objects;
 
 @CustomType
 public final class VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachment {
-    /**
-     * @return The identifier of the VPC endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
-     * 
-     */
     private String endpointId;
     private String status;
     private String statusMessage;
-    /**
-     * @return The unique identifier of the subnet that you&#39;ve specified to be used for a VPC Endpoint Association endpoint.
-     * 
-     */
     private String subnetId;
 
     private VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachment() {}
-    /**
-     * @return The identifier of the VPC endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
-     * 
-     */
     public String endpointId() {
         return this.endpointId;
     }
@@ -37,10 +25,6 @@ public final class VpcEndpointAssociationVpcEndpointAssociationStatusAssociation
     public String statusMessage() {
         return this.statusMessage;
     }
-    /**
-     * @return The unique identifier of the subnet that you&#39;ve specified to be used for a VPC Endpoint Association endpoint.
-     * 
-     */
     public String subnetId() {
         return this.subnetId;
     }

@@ -15,149 +15,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Lightsail domain entry (DNS record). Use this resource to define how DNS queries for your domain are handled.
- * 
- * &gt; **NOTE on `id`:** In an effort to simplify imports, this resource `id` field has been updated to the standard resource id separator, a comma (`,`). For backward compatibility, the previous separator (underscore `_`) can still be used to read and import existing resources. When state is refreshed, the `id` will be updated to use the new standard separator. The previous separator will be deprecated in a future major release.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lightsail.Domain;
- * import com.pulumi.aws.lightsail.DomainArgs;
- * import com.pulumi.aws.lightsail.DomainEntry;
- * import com.pulumi.aws.lightsail.DomainEntryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Domain("example", DomainArgs.builder()
- *             .domainName("example.com")
- *             .build());
- * 
- *         var exampleDomainEntry = new DomainEntry("exampleDomainEntry", DomainEntryArgs.builder()
- *             .domainName(example.domainName())
- *             .name("www")
- *             .type("A")
- *             .target("127.0.0.1")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Lightsail Domain Entry using the id attribute. For example:
- * 
- * ```sh
- * $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,example.com,A,127.0.0.1
- * ```
- * 
- */
 @ResourceType(type="aws:lightsail/domainEntry:DomainEntry")
 public class DomainEntry extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of the Lightsail domain in which to create the entry.
-     * 
-     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
-    /**
-     * @return Name of the Lightsail domain in which to create the entry.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
-    /**
-     * Whether the entry should be an alias. Default: `false`.
-     * 
-     */
     @Export(name="isAlias", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isAlias;
 
-    /**
-     * @return Whether the entry should be an alias. Default: `false`.
-     * 
-     */
     public Output<Optional<Boolean>> isAlias() {
         return Codegen.optional(this.isAlias);
     }
-    /**
-     * Name of the entry record.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the entry record.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Target of the domain entry.
-     * 
-     */
     @Export(name="target", refs={String.class}, tree="[0]")
     private Output<String> target;
 
-    /**
-     * @return Target of the domain entry.
-     * 
-     */
     public Output<String> target() {
         return this.target;
     }
-    /**
-     * Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }

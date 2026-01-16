@@ -9,70 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Dax
 {
-    /// <summary>
-    /// Provides a DAX Subnet Group resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Dax.SubnetGroup("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         SubnetIds = new[]
-    ///         {
-    ///             example1.Id,
-    ///             example2.Id,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import DAX Subnet Group using the `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:dax/subnetGroup:SubnetGroup")]
     public partial class SubnetGroup : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A description of the subnet group.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the subnet group.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of VPC subnet IDs for the subnet group.
-        /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
-        /// <summary>
-        /// VPC ID of the subnet group.
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -122,30 +73,17 @@ namespace Pulumi.Aws.Dax
 
     public sealed class SubnetGroupArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A description of the subnet group.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of the subnet group.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// A list of VPC subnet IDs for the subnet group.
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -160,39 +98,23 @@ namespace Pulumi.Aws.Dax
 
     public sealed class SubnetGroupState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A description of the subnet group.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of the subnet group.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// A list of VPC subnet IDs for the subnet group.
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
             set => _subnetIds = value;
         }
 
-        /// <summary>
-        /// VPC ID of the subnet group.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

@@ -17,32 +17,16 @@ public final class AccountSuppressionAttributesArgs extends com.pulumi.resources
 
     public static final AccountSuppressionAttributesArgs Empty = new AccountSuppressionAttributesArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
-     * 
-     */
     @Import(name="suppressedReasons", required=true)
     private Output<List<String>> suppressedReasons;
 
-    /**
-     * @return A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
-     * 
-     */
     public Output<List<String>> suppressedReasons() {
         return this.suppressedReasons;
     }
@@ -72,54 +56,24 @@ public final class AccountSuppressionAttributesArgs extends com.pulumi.resources
             $ = new AccountSuppressionAttributesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param suppressedReasons A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder suppressedReasons(Output<List<String>> suppressedReasons) {
             $.suppressedReasons = suppressedReasons;
             return this;
         }
 
-        /**
-         * @param suppressedReasons A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder suppressedReasons(List<String> suppressedReasons) {
             return suppressedReasons(Output.of(suppressedReasons));
         }
 
-        /**
-         * @param suppressedReasons A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder suppressedReasons(String... suppressedReasons) {
             return suppressedReasons(List.of(suppressedReasons));
         }

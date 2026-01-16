@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class DataQualityJobDefinitionNetworkConfigVpcConfig {
-    /**
-     * @return The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the `subnets` field.
-     * 
-     */
     private List<String> securityGroupIds;
-    /**
-     * @return The ID of the subnets in the VPC to which you want to connect your training job or model.
-     * 
-     */
     private List<String> subnets;
 
     private DataQualityJobDefinitionNetworkConfigVpcConfig() {}
-    /**
-     * @return The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the `subnets` field.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * @return The ID of the subnets in the VPC to which you want to connect your training job or model.
-     * 
-     */
     public List<String> subnets() {
         return this.subnets;
     }

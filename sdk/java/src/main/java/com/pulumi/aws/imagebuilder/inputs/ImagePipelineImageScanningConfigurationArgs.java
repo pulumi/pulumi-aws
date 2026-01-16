@@ -16,32 +16,16 @@ public final class ImagePipelineImageScanningConfigurationArgs extends com.pulum
 
     public static final ImagePipelineImageScanningConfigurationArgs Empty = new ImagePipelineImageScanningConfigurationArgs();
 
-    /**
-     * Configuration block with ECR configuration for image scanning. Detailed below.
-     * 
-     */
     @Import(name="ecrConfiguration")
     private @Nullable Output<ImagePipelineImageScanningConfigurationEcrConfigurationArgs> ecrConfiguration;
 
-    /**
-     * @return Configuration block with ECR configuration for image scanning. Detailed below.
-     * 
-     */
     public Optional<Output<ImagePipelineImageScanningConfigurationEcrConfigurationArgs>> ecrConfiguration() {
         return Optional.ofNullable(this.ecrConfiguration);
     }
 
-    /**
-     * Whether image scans are enabled. Defaults to `false`.
-     * 
-     */
     @Import(name="imageScanningEnabled")
     private @Nullable Output<Boolean> imageScanningEnabled;
 
-    /**
-     * @return Whether image scans are enabled. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> imageScanningEnabled() {
         return Optional.ofNullable(this.imageScanningEnabled);
     }
@@ -71,44 +55,20 @@ public final class ImagePipelineImageScanningConfigurationArgs extends com.pulum
             $ = new ImagePipelineImageScanningConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ecrConfiguration Configuration block with ECR configuration for image scanning. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ecrConfiguration(@Nullable Output<ImagePipelineImageScanningConfigurationEcrConfigurationArgs> ecrConfiguration) {
             $.ecrConfiguration = ecrConfiguration;
             return this;
         }
 
-        /**
-         * @param ecrConfiguration Configuration block with ECR configuration for image scanning. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ecrConfiguration(ImagePipelineImageScanningConfigurationEcrConfigurationArgs ecrConfiguration) {
             return ecrConfiguration(Output.of(ecrConfiguration));
         }
 
-        /**
-         * @param imageScanningEnabled Whether image scans are enabled. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageScanningEnabled(@Nullable Output<Boolean> imageScanningEnabled) {
             $.imageScanningEnabled = imageScanningEnabled;
             return this;
         }
 
-        /**
-         * @param imageScanningEnabled Whether image scans are enabled. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageScanningEnabled(Boolean imageScanningEnabled) {
             return imageScanningEnabled(Output.of(imageScanningEnabled));
         }

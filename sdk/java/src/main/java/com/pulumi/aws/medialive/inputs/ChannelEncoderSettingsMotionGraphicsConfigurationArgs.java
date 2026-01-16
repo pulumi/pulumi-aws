@@ -17,32 +17,16 @@ public final class ChannelEncoderSettingsMotionGraphicsConfigurationArgs extends
 
     public static final ChannelEncoderSettingsMotionGraphicsConfigurationArgs Empty = new ChannelEncoderSettingsMotionGraphicsConfigurationArgs();
 
-    /**
-     * Motion Graphics Insertion.
-     * 
-     */
     @Import(name="motionGraphicsInsertion")
     private @Nullable Output<String> motionGraphicsInsertion;
 
-    /**
-     * @return Motion Graphics Insertion.
-     * 
-     */
     public Optional<Output<String>> motionGraphicsInsertion() {
         return Optional.ofNullable(this.motionGraphicsInsertion);
     }
 
-    /**
-     * Motion Graphics Settings. See Motion Graphics Settings for more details.
-     * 
-     */
     @Import(name="motionGraphicsSettings", required=true)
     private Output<ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs> motionGraphicsSettings;
 
-    /**
-     * @return Motion Graphics Settings. See Motion Graphics Settings for more details.
-     * 
-     */
     public Output<ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs> motionGraphicsSettings() {
         return this.motionGraphicsSettings;
     }
@@ -72,44 +56,20 @@ public final class ChannelEncoderSettingsMotionGraphicsConfigurationArgs extends
             $ = new ChannelEncoderSettingsMotionGraphicsConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param motionGraphicsInsertion Motion Graphics Insertion.
-         * 
-         * @return builder
-         * 
-         */
         public Builder motionGraphicsInsertion(@Nullable Output<String> motionGraphicsInsertion) {
             $.motionGraphicsInsertion = motionGraphicsInsertion;
             return this;
         }
 
-        /**
-         * @param motionGraphicsInsertion Motion Graphics Insertion.
-         * 
-         * @return builder
-         * 
-         */
         public Builder motionGraphicsInsertion(String motionGraphicsInsertion) {
             return motionGraphicsInsertion(Output.of(motionGraphicsInsertion));
         }
 
-        /**
-         * @param motionGraphicsSettings Motion Graphics Settings. See Motion Graphics Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder motionGraphicsSettings(Output<ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs> motionGraphicsSettings) {
             $.motionGraphicsSettings = motionGraphicsSettings;
             return this;
         }
 
-        /**
-         * @param motionGraphicsSettings Motion Graphics Settings. See Motion Graphics Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder motionGraphicsSettings(ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs motionGraphicsSettings) {
             return motionGraphicsSettings(Output.of(motionGraphicsSettings));
         }

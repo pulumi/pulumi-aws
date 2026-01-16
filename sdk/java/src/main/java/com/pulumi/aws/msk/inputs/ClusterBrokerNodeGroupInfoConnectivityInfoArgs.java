@@ -16,32 +16,16 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoArgs extends com.pu
 
     public static final ClusterBrokerNodeGroupInfoConnectivityInfoArgs Empty = new ClusterBrokerNodeGroupInfoConnectivityInfoArgs();
 
-    /**
-     * Access control settings for brokers. See connectivityInfo public_access Argument Reference below.
-     * 
-     */
     @Import(name="publicAccess")
     private @Nullable Output<ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs> publicAccess;
 
-    /**
-     * @return Access control settings for brokers. See connectivityInfo public_access Argument Reference below.
-     * 
-     */
     public Optional<Output<ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs>> publicAccess() {
         return Optional.ofNullable(this.publicAccess);
     }
 
-    /**
-     * VPC connectivity access control for brokers. See connectivityInfo vpc_connectivity Argument Reference below.
-     * 
-     */
     @Import(name="vpcConnectivity")
     private @Nullable Output<ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs> vpcConnectivity;
 
-    /**
-     * @return VPC connectivity access control for brokers. See connectivityInfo vpc_connectivity Argument Reference below.
-     * 
-     */
     public Optional<Output<ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs>> vpcConnectivity() {
         return Optional.ofNullable(this.vpcConnectivity);
     }
@@ -71,44 +55,20 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoArgs extends com.pu
             $ = new ClusterBrokerNodeGroupInfoConnectivityInfoArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param publicAccess Access control settings for brokers. See connectivityInfo public_access Argument Reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicAccess(@Nullable Output<ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs> publicAccess) {
             $.publicAccess = publicAccess;
             return this;
         }
 
-        /**
-         * @param publicAccess Access control settings for brokers. See connectivityInfo public_access Argument Reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicAccess(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs publicAccess) {
             return publicAccess(Output.of(publicAccess));
         }
 
-        /**
-         * @param vpcConnectivity VPC connectivity access control for brokers. See connectivityInfo vpc_connectivity Argument Reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConnectivity(@Nullable Output<ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs> vpcConnectivity) {
             $.vpcConnectivity = vpcConnectivity;
             return this;
         }
 
-        /**
-         * @param vpcConnectivity VPC connectivity access control for brokers. See connectivityInfo vpc_connectivity Argument Reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConnectivity(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs vpcConnectivity) {
             return vpcConnectivity(Output.of(vpcConnectivity));
         }

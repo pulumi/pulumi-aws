@@ -17,93 +17,37 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final CertificateArgs Empty = new CertificateArgs();
 
-    /**
-     * Boolean flag to indicate if the certificate should be active
-     * 
-     */
     @Import(name="active", required=true)
     private Output<Boolean> active;
 
-    /**
-     * @return Boolean flag to indicate if the certificate should be active
-     * 
-     */
     public Output<Boolean> active() {
         return this.active;
     }
 
-    /**
-     * The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
-     * 
-     */
     @Import(name="caPem")
     private @Nullable Output<String> caPem;
 
-    /**
-     * @return The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
-     * 
-     */
     public Optional<Output<String>> caPem() {
         return Optional.ofNullable(this.caPem);
     }
 
-    /**
-     * The certificate to be registered. If `caPem` is unspecified, review
-     * [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
-     * If `caPem` is specified, review
-     * [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
-     * for more information on registering a certificate.
-     * 
-     */
     @Import(name="certificatePem")
     private @Nullable Output<String> certificatePem;
 
-    /**
-     * @return The certificate to be registered. If `caPem` is unspecified, review
-     * [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
-     * If `caPem` is specified, review
-     * [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
-     * for more information on registering a certificate.
-     * 
-     */
     public Optional<Output<String>> certificatePem() {
         return Optional.ofNullable(this.certificatePem);
     }
 
-    /**
-     * The certificate signing request. Review
-     * [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
-     * for more information on generating a certificate from a certificate signing request (CSR).
-     * If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
-     * for more information on generating keys and a certificate.
-     * 
-     */
     @Import(name="csr")
     private @Nullable Output<String> csr;
 
-    /**
-     * @return The certificate signing request. Review
-     * [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
-     * for more information on generating a certificate from a certificate signing request (CSR).
-     * If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
-     * for more information on generating keys and a certificate.
-     * 
-     */
     public Optional<Output<String>> csr() {
         return Optional.ofNullable(this.csr);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -136,123 +80,47 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
             $ = new CertificateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param active Boolean flag to indicate if the certificate should be active
-         * 
-         * @return builder
-         * 
-         */
         public Builder active(Output<Boolean> active) {
             $.active = active;
             return this;
         }
 
-        /**
-         * @param active Boolean flag to indicate if the certificate should be active
-         * 
-         * @return builder
-         * 
-         */
         public Builder active(Boolean active) {
             return active(Output.of(active));
         }
 
-        /**
-         * @param caPem The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
-         * 
-         * @return builder
-         * 
-         */
         public Builder caPem(@Nullable Output<String> caPem) {
             $.caPem = caPem;
             return this;
         }
 
-        /**
-         * @param caPem The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
-         * 
-         * @return builder
-         * 
-         */
         public Builder caPem(String caPem) {
             return caPem(Output.of(caPem));
         }
 
-        /**
-         * @param certificatePem The certificate to be registered. If `caPem` is unspecified, review
-         * [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
-         * If `caPem` is specified, review
-         * [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
-         * for more information on registering a certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificatePem(@Nullable Output<String> certificatePem) {
             $.certificatePem = certificatePem;
             return this;
         }
 
-        /**
-         * @param certificatePem The certificate to be registered. If `caPem` is unspecified, review
-         * [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
-         * If `caPem` is specified, review
-         * [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
-         * for more information on registering a certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificatePem(String certificatePem) {
             return certificatePem(Output.of(certificatePem));
         }
 
-        /**
-         * @param csr The certificate signing request. Review
-         * [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
-         * for more information on generating a certificate from a certificate signing request (CSR).
-         * If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
-         * for more information on generating keys and a certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder csr(@Nullable Output<String> csr) {
             $.csr = csr;
             return this;
         }
 
-        /**
-         * @param csr The certificate signing request. Review
-         * [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
-         * for more information on generating a certificate from a certificate signing request (CSR).
-         * If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
-         * for more information on generating keys and a certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder csr(String csr) {
             return csr(Output.of(csr));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -12,27 +12,15 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// If set to `False`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `False`.
-        /// </summary>
         [Input("cleanExpiredFiles")]
         public Input<bool>? CleanExpiredFiles { get; set; }
 
-        /// <summary>
-        /// The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
-        /// </summary>
         [Input("numberOfSnapshotsToRetain")]
         public Input<int>? NumberOfSnapshotsToRetain { get; set; }
 
-        /// <summary>
-        /// Interval in hours between retention job runs. Defaults to `24`.
-        /// </summary>
         [Input("runRateInHours")]
         public Input<int>? RunRateInHours { get; set; }
 
-        /// <summary>
-        /// The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
-        /// </summary>
         [Input("snapshotRetentionPeriodInDays")]
         public Input<int>? SnapshotRetentionPeriodInDays { get; set; }
 

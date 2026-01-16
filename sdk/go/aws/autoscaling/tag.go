@@ -12,30 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an individual Autoscaling Group (ASG) tag. This resource should only be used in cases where ASGs are created outside the provider (e.g., ASGs implicitly created by EKS Node Groups).
-//
-// > **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `autoscaling.Group` and `autoscaling.Tag` to manage tags of the same ASG will cause a perpetual difference where the `autoscaling.Group` resource will try to remove the tag being added by the `autoscaling.Tag` resource.
-//
-// > **NOTE:** This tagging resource does not use the provider `ignoreTags` configuration.
-//
-// ## Example Usage
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_autoscaling_group_tag` using the ASG name and key, separated by a comma (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:autoscaling/tag:Tag example asg-example,k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType
-// ```
 type Tag struct {
 	pulumi.CustomResourceState
 
-	// Name of the Autoscaling Group to apply the tag to.
 	AutoscalingGroupName pulumi.StringOutput `pulumi:"autoscalingGroupName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Tag to create. The `tag` block is documented below.
-	Tag TagTagOutput `pulumi:"tag"`
+	Region               pulumi.StringOutput `pulumi:"region"`
+	Tag                  TagTagOutput        `pulumi:"tag"`
 }
 
 // NewTag registers a new resource with the given unique name, arguments, and options.
@@ -74,21 +56,15 @@ func GetTag(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Tag resources.
 type tagState struct {
-	// Name of the Autoscaling Group to apply the tag to.
 	AutoscalingGroupName *string `pulumi:"autoscalingGroupName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tag to create. The `tag` block is documented below.
-	Tag *TagTag `pulumi:"tag"`
+	Region               *string `pulumi:"region"`
+	Tag                  *TagTag `pulumi:"tag"`
 }
 
 type TagState struct {
-	// Name of the Autoscaling Group to apply the tag to.
 	AutoscalingGroupName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Tag to create. The `tag` block is documented below.
-	Tag TagTagPtrInput
+	Region               pulumi.StringPtrInput
+	Tag                  TagTagPtrInput
 }
 
 func (TagState) ElementType() reflect.Type {
@@ -96,22 +72,16 @@ func (TagState) ElementType() reflect.Type {
 }
 
 type tagArgs struct {
-	// Name of the Autoscaling Group to apply the tag to.
-	AutoscalingGroupName string `pulumi:"autoscalingGroupName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tag to create. The `tag` block is documented below.
-	Tag TagTag `pulumi:"tag"`
+	AutoscalingGroupName string  `pulumi:"autoscalingGroupName"`
+	Region               *string `pulumi:"region"`
+	Tag                  TagTag  `pulumi:"tag"`
 }
 
 // The set of arguments for constructing a Tag resource.
 type TagArgs struct {
-	// Name of the Autoscaling Group to apply the tag to.
 	AutoscalingGroupName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Tag to create. The `tag` block is documented below.
-	Tag TagTagInput
+	Region               pulumi.StringPtrInput
+	Tag                  TagTagInput
 }
 
 func (TagArgs) ElementType() reflect.Type {
@@ -201,17 +171,14 @@ func (o TagOutput) ToTagOutputWithContext(ctx context.Context) TagOutput {
 	return o
 }
 
-// Name of the Autoscaling Group to apply the tag to.
 func (o TagOutput) AutoscalingGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.AutoscalingGroupName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TagOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Tag to create. The `tag` block is documented below.
 func (o TagOutput) Tag() TagTagOutput {
 	return o.ApplyT(func(v *Tag) TagTagOutput { return v.Tag }).(TagTagOutput)
 }

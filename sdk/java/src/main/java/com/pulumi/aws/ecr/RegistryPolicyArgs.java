@@ -18,32 +18,16 @@ public final class RegistryPolicyArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final RegistryPolicyArgs Empty = new RegistryPolicyArgs();
 
-    /**
-     * The policy document. This is a JSON formatted string.
-     * 
-     */
     @Import(name="policy", required=true)
     private Output<Either<String,PolicyDocumentArgs>> policy;
 
-    /**
-     * @return The policy document. This is a JSON formatted string.
-     * 
-     */
     public Output<Either<String,PolicyDocumentArgs>> policy() {
         return this.policy;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -73,64 +57,28 @@ public final class RegistryPolicyArgs extends com.pulumi.resources.ResourceArgs 
             $ = new RegistryPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policy The policy document. This is a JSON formatted string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(Output<Either<String,PolicyDocumentArgs>> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy The policy document. This is a JSON formatted string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(Either<String,PolicyDocumentArgs> policy) {
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param policy The policy document. This is a JSON formatted string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Either.ofLeft(policy));
         }
 
-        /**
-         * @param policy The policy document. This is a JSON formatted string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(PolicyDocumentArgs policy) {
             return policy(Either.ofRight(policy));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

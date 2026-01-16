@@ -27,32 +27,16 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
 
     public static final AgentFlowDefinitionNodeConfigurationArgs Empty = new AgentFlowDefinitionNodeConfigurationArgs();
 
-    /**
-     * Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
-     * 
-     */
     @Import(name="agent")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationAgentArgs> agent;
 
-    /**
-     * @return Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
-     * 
-     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationAgentArgs>> agent() {
         return Optional.ofNullable(this.agent);
     }
 
-    /**
-     * Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
-     * 
-     */
     @Import(name="collector")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationCollectorArgs> collector;
 
-    /**
-     * @return Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
-     * 
-     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationCollectorArgs>> collector() {
         return Optional.ofNullable(this.collector);
     }
@@ -64,17 +48,9 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         return Optional.ofNullable(this.condition);
     }
 
-    /**
-     * Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
-     * 
-     */
     @Import(name="inlineCode")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationInlineCodeArgs> inlineCode;
 
-    /**
-     * @return Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
-     * 
-     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationInlineCodeArgs>> inlineCode() {
         return Optional.ofNullable(this.inlineCode);
     }
@@ -86,62 +62,30 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         return Optional.ofNullable(this.input);
     }
 
-    /**
-     * Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
-     * 
-     */
     @Import(name="iterator")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationIteratorArgs> iterator;
 
-    /**
-     * @return Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
-     * 
-     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationIteratorArgs>> iterator() {
         return Optional.ofNullable(this.iterator);
     }
 
-    /**
-     * Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
-     * 
-     */
     @Import(name="knowledgeBase")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs> knowledgeBase;
 
-    /**
-     * @return Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
-     * 
-     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs>> knowledgeBase() {
         return Optional.ofNullable(this.knowledgeBase);
     }
 
-    /**
-     * Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
-     * 
-     */
     @Import(name="lambdaFunction")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs> lambdaFunction;
 
-    /**
-     * @return Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
-     * 
-     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs>> lambdaFunction() {
         return Optional.ofNullable(this.lambdaFunction);
     }
 
-    /**
-     * Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
-     * 
-     */
     @Import(name="lex")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationLexArgs> lex;
 
-    /**
-     * @return Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
-     * 
-     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationLexArgs>> lex() {
         return Optional.ofNullable(this.lex);
     }
@@ -153,47 +97,23 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         return Optional.ofNullable(this.output);
     }
 
-    /**
-     * Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
-     * 
-     */
     @Import(name="prompt")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptArgs> prompt;
 
-    /**
-     * @return Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
-     * 
-     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptArgs>> prompt() {
         return Optional.ofNullable(this.prompt);
     }
 
-    /**
-     * Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
-     * 
-     */
     @Import(name="retrieval")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationRetrievalArgs> retrieval;
 
-    /**
-     * @return Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
-     * 
-     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationRetrievalArgs>> retrieval() {
         return Optional.ofNullable(this.retrieval);
     }
 
-    /**
-     * Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
-     * 
-     */
     @Import(name="storage")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationStorageArgs> storage;
 
-    /**
-     * @return Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
-     * 
-     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationStorageArgs>> storage() {
         return Optional.ofNullable(this.storage);
     }
@@ -234,44 +154,20 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
             $ = new AgentFlowDefinitionNodeConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param agent Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agent(@Nullable Output<AgentFlowDefinitionNodeConfigurationAgentArgs> agent) {
             $.agent = agent;
             return this;
         }
 
-        /**
-         * @param agent Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agent(AgentFlowDefinitionNodeConfigurationAgentArgs agent) {
             return agent(Output.of(agent));
         }
 
-        /**
-         * @param collector Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
-         * 
-         * @return builder
-         * 
-         */
         public Builder collector(@Nullable Output<AgentFlowDefinitionNodeConfigurationCollectorArgs> collector) {
             $.collector = collector;
             return this;
         }
 
-        /**
-         * @param collector Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
-         * 
-         * @return builder
-         * 
-         */
         public Builder collector(AgentFlowDefinitionNodeConfigurationCollectorArgs collector) {
             return collector(Output.of(collector));
         }
@@ -285,23 +181,11 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
             return condition(Output.of(condition));
         }
 
-        /**
-         * @param inlineCode Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inlineCode(@Nullable Output<AgentFlowDefinitionNodeConfigurationInlineCodeArgs> inlineCode) {
             $.inlineCode = inlineCode;
             return this;
         }
 
-        /**
-         * @param inlineCode Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inlineCode(AgentFlowDefinitionNodeConfigurationInlineCodeArgs inlineCode) {
             return inlineCode(Output.of(inlineCode));
         }
@@ -315,86 +199,38 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
             return input(Output.of(input));
         }
 
-        /**
-         * @param iterator Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iterator(@Nullable Output<AgentFlowDefinitionNodeConfigurationIteratorArgs> iterator) {
             $.iterator = iterator;
             return this;
         }
 
-        /**
-         * @param iterator Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iterator(AgentFlowDefinitionNodeConfigurationIteratorArgs iterator) {
             return iterator(Output.of(iterator));
         }
 
-        /**
-         * @param knowledgeBase Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder knowledgeBase(@Nullable Output<AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs> knowledgeBase) {
             $.knowledgeBase = knowledgeBase;
             return this;
         }
 
-        /**
-         * @param knowledgeBase Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder knowledgeBase(AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs knowledgeBase) {
             return knowledgeBase(Output.of(knowledgeBase));
         }
 
-        /**
-         * @param lambdaFunction Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaFunction(@Nullable Output<AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs> lambdaFunction) {
             $.lambdaFunction = lambdaFunction;
             return this;
         }
 
-        /**
-         * @param lambdaFunction Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaFunction(AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs lambdaFunction) {
             return lambdaFunction(Output.of(lambdaFunction));
         }
 
-        /**
-         * @param lex Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lex(@Nullable Output<AgentFlowDefinitionNodeConfigurationLexArgs> lex) {
             $.lex = lex;
             return this;
         }
 
-        /**
-         * @param lex Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lex(AgentFlowDefinitionNodeConfigurationLexArgs lex) {
             return lex(Output.of(lex));
         }
@@ -408,65 +244,29 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
             return output(Output.of(output));
         }
 
-        /**
-         * @param prompt Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prompt(@Nullable Output<AgentFlowDefinitionNodeConfigurationPromptArgs> prompt) {
             $.prompt = prompt;
             return this;
         }
 
-        /**
-         * @param prompt Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prompt(AgentFlowDefinitionNodeConfigurationPromptArgs prompt) {
             return prompt(Output.of(prompt));
         }
 
-        /**
-         * @param retrieval Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retrieval(@Nullable Output<AgentFlowDefinitionNodeConfigurationRetrievalArgs> retrieval) {
             $.retrieval = retrieval;
             return this;
         }
 
-        /**
-         * @param retrieval Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retrieval(AgentFlowDefinitionNodeConfigurationRetrievalArgs retrieval) {
             return retrieval(Output.of(retrieval));
         }
 
-        /**
-         * @param storage Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storage(@Nullable Output<AgentFlowDefinitionNodeConfigurationStorageArgs> storage) {
             $.storage = storage;
             return this;
         }
 
-        /**
-         * @param storage Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storage(AgentFlowDefinitionNodeConfigurationStorageArgs storage) {
             return storage(Output.of(storage));
         }

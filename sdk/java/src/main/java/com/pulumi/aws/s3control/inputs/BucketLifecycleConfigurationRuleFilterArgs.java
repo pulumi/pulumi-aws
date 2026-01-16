@@ -16,32 +16,16 @@ public final class BucketLifecycleConfigurationRuleFilterArgs extends com.pulumi
 
     public static final BucketLifecycleConfigurationRuleFilterArgs Empty = new BucketLifecycleConfigurationRuleFilterArgs();
 
-    /**
-     * Object prefix for rule filtering.
-     * 
-     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
-    /**
-     * @return Object prefix for rule filtering.
-     * 
-     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
 
-    /**
-     * Key-value map of object tags for rule filtering.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of object tags for rule filtering.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -71,44 +55,20 @@ public final class BucketLifecycleConfigurationRuleFilterArgs extends com.pulumi
             $ = new BucketLifecycleConfigurationRuleFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param prefix Object prefix for rule filtering.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix Object prefix for rule filtering.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }
 
-        /**
-         * @param tags Key-value map of object tags for rule filtering.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of object tags for rule filtering.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

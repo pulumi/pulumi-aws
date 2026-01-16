@@ -19,77 +19,37 @@ public final class VpcEndpointAssociationArgs extends com.pulumi.resources.Resou
 
     public static final VpcEndpointAssociationArgs Empty = new VpcEndpointAssociationArgs();
 
-    /**
-     * A description of the VPC endpoint association.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A description of the VPC endpoint association.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) that identifies the firewall.
-     * 
-     */
     @Import(name="firewallArn", required=true)
     private Output<String> firewallArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) that identifies the firewall.
-     * 
-     */
     public Output<String> firewallArn() {
         return this.firewallArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID for a subnet that&#39;s used in an association with a firewall. See Subnet Mapping below for details.
-     * 
-     */
     @Import(name="subnetMapping")
     private @Nullable Output<VpcEndpointAssociationSubnetMappingArgs> subnetMapping;
 
-    /**
-     * @return The ID for a subnet that&#39;s used in an association with a firewall. See Subnet Mapping below for details.
-     * 
-     */
     public Optional<Output<VpcEndpointAssociationSubnetMappingArgs>> subnetMapping() {
         return Optional.ofNullable(this.subnetMapping);
     }
 
-    /**
-     * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -101,17 +61,9 @@ public final class VpcEndpointAssociationArgs extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * The unique identifier of the VPC for the endpoint association.
-     * 
-     */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
-    /**
-     * @return The unique identifier of the VPC for the endpoint association.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }
@@ -146,107 +98,47 @@ public final class VpcEndpointAssociationArgs extends com.pulumi.resources.Resou
             $ = new VpcEndpointAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description A description of the VPC endpoint association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A description of the VPC endpoint association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param firewallArn The Amazon Resource Name (ARN) that identifies the firewall.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firewallArn(Output<String> firewallArn) {
             $.firewallArn = firewallArn;
             return this;
         }
 
-        /**
-         * @param firewallArn The Amazon Resource Name (ARN) that identifies the firewall.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firewallArn(String firewallArn) {
             return firewallArn(Output.of(firewallArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param subnetMapping The ID for a subnet that&#39;s used in an association with a firewall. See Subnet Mapping below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetMapping(@Nullable Output<VpcEndpointAssociationSubnetMappingArgs> subnetMapping) {
             $.subnetMapping = subnetMapping;
             return this;
         }
 
-        /**
-         * @param subnetMapping The ID for a subnet that&#39;s used in an association with a firewall. See Subnet Mapping below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetMapping(VpcEndpointAssociationSubnetMappingArgs subnetMapping) {
             return subnetMapping(Output.of(subnetMapping));
         }
 
-        /**
-         * @param tags Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
@@ -260,23 +152,11 @@ public final class VpcEndpointAssociationArgs extends com.pulumi.resources.Resou
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param vpcId The unique identifier of the VPC for the endpoint association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The unique identifier of the VPC for the endpoint association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

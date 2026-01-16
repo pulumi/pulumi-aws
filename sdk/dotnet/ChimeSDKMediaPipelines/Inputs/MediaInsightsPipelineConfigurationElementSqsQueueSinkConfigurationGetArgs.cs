@@ -12,9 +12,6 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Inputs
 
     public sealed class MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// SQS queue to deliver results.
-        /// </summary>
         [Input("insightsTarget", required: true)]
         public Input<string> InsightsTarget { get; set; } = null!;
 

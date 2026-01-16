@@ -17,32 +17,16 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
 
     public static final AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs Empty = new AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs();
 
-    /**
-     * When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
-     * 
-     */
     @Import(name="stepToApply", required=true)
     private Output<String> stepToApply;
 
-    /**
-     * @return When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
-     * 
-     */
     public Output<String> stepToApply() {
         return this.stepToApply;
     }
 
-    /**
-     * The lambda function that processes documents.
-     * 
-     */
     @Import(name="transformationFunction")
     private @Nullable Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs> transformationFunction;
 
-    /**
-     * @return The lambda function that processes documents.
-     * 
-     */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs>> transformationFunction() {
         return Optional.ofNullable(this.transformationFunction);
     }
@@ -72,44 +56,20 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
             $ = new AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param stepToApply When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stepToApply(Output<String> stepToApply) {
             $.stepToApply = stepToApply;
             return this;
         }
 
-        /**
-         * @param stepToApply When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stepToApply(String stepToApply) {
             return stepToApply(Output.of(stepToApply));
         }
 
-        /**
-         * @param transformationFunction The lambda function that processes documents.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transformationFunction(@Nullable Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs> transformationFunction) {
             $.transformationFunction = transformationFunction;
             return this;
         }
 
-        /**
-         * @param transformationFunction The lambda function that processes documents.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transformationFunction(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs transformationFunction) {
             return transformationFunction(Output.of(transformationFunction));
         }

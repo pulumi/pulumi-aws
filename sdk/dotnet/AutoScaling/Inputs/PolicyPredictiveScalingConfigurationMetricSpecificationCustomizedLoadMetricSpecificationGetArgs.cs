@@ -14,10 +14,6 @@ namespace Pulumi.Aws.AutoScaling.Inputs
     {
         [Input("metricDataQueries", required: true)]
         private InputList<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryGetArgs>? _metricDataQueries;
-
-        /// <summary>
-        /// List of up to 10 structures that defines custom load metric in predictive scaling policy
-        /// </summary>
         public InputList<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryGetArgs> MetricDataQueries
         {
             get => _metricDataQueries ?? (_metricDataQueries = new InputList<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryGetArgs>());

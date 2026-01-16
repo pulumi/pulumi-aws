@@ -15,92 +15,17 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an Amazon Security Lake AWS Log Source.
- * 
- * &gt; **NOTE:** A single `aws.securitylake.AwsLogSource` should be used to configure a log source across all regions and accounts.
- * 
- * &gt; **NOTE:** The underlying `aws.securitylake.DataLake` must be configured before creating the `aws.securitylake.AwsLogSource`. Use a `dependsOn` statement.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.securitylake.AwsLogSource;
- * import com.pulumi.aws.securitylake.AwsLogSourceArgs;
- * import com.pulumi.aws.securitylake.inputs.AwsLogSourceSourceArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AwsLogSource("example", AwsLogSourceArgs.builder()
- *             .source(AwsLogSourceSourceArgs.builder()
- *                 .accounts("123456789012")
- *                 .regions("eu-west-1")
- *                 .sourceName("ROUTE53")
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAwsSecuritylakeDataLake)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import AWS log sources using the source name. For example:
- * 
- * ```sh
- * $ pulumi import aws:securitylake/awsLogSource:AwsLogSource example ROUTE53
- * ```
- * 
- */
 @ResourceType(type="aws:securitylake/awsLogSource:AwsLogSource")
 public class AwsLogSource extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Specify the natively-supported AWS service to add as a source in Security Lake.
-     * 
-     */
     @Export(name="source", refs={AwsLogSourceSource.class}, tree="[0]")
     private Output</* @Nullable */ AwsLogSourceSource> source;
 
-    /**
-     * @return Specify the natively-supported AWS service to add as a source in Security Lake.
-     * 
-     */
     public Output<Optional<AwsLogSourceSource>> source() {
         return Codegen.optional(this.source);
     }

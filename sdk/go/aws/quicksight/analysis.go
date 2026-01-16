@@ -12,172 +12,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing a QuickSight Analysis.
-//
-// ## Example Usage
-//
-// ### From Source Template
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewAnalysis(ctx, "example", &quicksight.AnalysisArgs{
-//				AnalysisId: pulumi.String("example-id"),
-//				Name:       pulumi.String("example-name"),
-//				SourceEntity: &quicksight.AnalysisSourceEntityArgs{
-//					SourceTemplate: &quicksight.AnalysisSourceEntitySourceTemplateArgs{
-//						Arn: pulumi.Any(source.Arn),
-//						DataSetReferences: quicksight.AnalysisSourceEntitySourceTemplateDataSetReferenceArray{
-//							&quicksight.AnalysisSourceEntitySourceTemplateDataSetReferenceArgs{
-//								DataSetArn:         pulumi.Any(dataset.Arn),
-//								DataSetPlaceholder: pulumi.String("1"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Definition
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewAnalysis(ctx, "example", &quicksight.AnalysisArgs{
-//				AnalysisId: pulumi.String("example-id"),
-//				Name:       pulumi.String("example-name"),
-//				Definition: map[string]interface{}{
-//					"dataSetIdentifiersDeclarations": []map[string]interface{}{
-//						map[string]interface{}{
-//							"dataSetArn": dataset.Arn,
-//							"identifier": "1",
-//						},
-//					},
-//					"sheets": []map[string]interface{}{
-//						map[string]interface{}{
-//							"title":   "Example",
-//							"sheetId": "Example1",
-//							"visuals": []map[string]interface{}{
-//								map[string]interface{}{
-//									"lineChartVisual": map[string]interface{}{
-//										"visualId": "LineChart",
-//										"title": map[string]interface{}{
-//											"formatText": map[string]interface{}{
-//												"plainText": "Line Chart Example",
-//											},
-//										},
-//										"chartConfiguration": map[string]interface{}{
-//											"fieldWells": map[string]interface{}{
-//												"lineChartAggregatedFieldWells": map[string]interface{}{
-//													"categories": []map[string]interface{}{
-//														map[string]interface{}{
-//															"categoricalDimensionField": map[string]interface{}{
-//																"fieldId": "1",
-//																"column": map[string]interface{}{
-//																	"dataSetIdentifier": "1",
-//																	"columnName":        "Column1",
-//																},
-//															},
-//														},
-//													},
-//													"values": []map[string]interface{}{
-//														map[string]interface{}{
-//															"categoricalMeasureField": map[string]interface{}{
-//																"fieldId": "2",
-//																"column": map[string]interface{}{
-//																	"dataSetIdentifier": "1",
-//																	"columnName":        "Column1",
-//																},
-//																"aggregationFunction": "COUNT",
-//															},
-//														},
-//													},
-//												},
-//											},
-//										},
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import a QuickSight Analysis using the AWS account ID and analysis ID separated by a comma (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:quicksight/analysis:Analysis example 123456789012,example-id
-// ```
 type Analysis struct {
 	pulumi.CustomResourceState
 
-	// Identifier for the analysis.
-	AnalysisId pulumi.StringOutput `pulumi:"analysisId"`
-	// ARN of the analysis.
-	Arn          pulumi.StringOutput `pulumi:"arn"`
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// The time that the analysis was created.
-	CreatedTime       pulumi.StringOutput `pulumi:"createdTime"`
-	LastPublishedTime pulumi.StringOutput `pulumi:"lastPublishedTime"`
-	// The time that the analysis was last updated.
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
-	// Display name for the analysis.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-	Parameters AnalysisParametersOutput `pulumi:"parameters"`
-	// A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
-	Permissions AnalysisPermissionArrayOutput `pulumi:"permissions"`
-	// A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
-	RecoveryWindowInDays pulumi.IntPtrOutput `pulumi:"recoveryWindowInDays"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
-	SourceEntity AnalysisSourceEntityPtrOutput `pulumi:"sourceEntity"`
-	// The analysis creation status.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
-	ThemeArn pulumi.StringPtrOutput `pulumi:"themeArn"`
+	AnalysisId           pulumi.StringOutput           `pulumi:"analysisId"`
+	Arn                  pulumi.StringOutput           `pulumi:"arn"`
+	AwsAccountId         pulumi.StringOutput           `pulumi:"awsAccountId"`
+	CreatedTime          pulumi.StringOutput           `pulumi:"createdTime"`
+	LastPublishedTime    pulumi.StringOutput           `pulumi:"lastPublishedTime"`
+	LastUpdatedTime      pulumi.StringOutput           `pulumi:"lastUpdatedTime"`
+	Name                 pulumi.StringOutput           `pulumi:"name"`
+	Parameters           AnalysisParametersOutput      `pulumi:"parameters"`
+	Permissions          AnalysisPermissionArrayOutput `pulumi:"permissions"`
+	RecoveryWindowInDays pulumi.IntPtrOutput           `pulumi:"recoveryWindowInDays"`
+	Region               pulumi.StringOutput           `pulumi:"region"`
+	SourceEntity         AnalysisSourceEntityPtrOutput `pulumi:"sourceEntity"`
+	Status               pulumi.StringOutput           `pulumi:"status"`
+	Tags                 pulumi.StringMapOutput        `pulumi:"tags"`
+	TagsAll              pulumi.StringMapOutput        `pulumi:"tagsAll"`
+	ThemeArn             pulumi.StringPtrOutput        `pulumi:"themeArn"`
 }
 
 // NewAnalysis registers a new resource with the given unique name, arguments, and options.
@@ -213,73 +66,41 @@ func GetAnalysis(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Analysis resources.
 type analysisState struct {
-	// Identifier for the analysis.
-	AnalysisId *string `pulumi:"analysisId"`
-	// ARN of the analysis.
-	Arn          *string `pulumi:"arn"`
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The time that the analysis was created.
-	CreatedTime       *string `pulumi:"createdTime"`
-	LastPublishedTime *string `pulumi:"lastPublishedTime"`
-	// The time that the analysis was last updated.
-	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// Display name for the analysis.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-	Parameters *AnalysisParameters `pulumi:"parameters"`
-	// A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
-	Permissions []AnalysisPermission `pulumi:"permissions"`
-	// A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
-	RecoveryWindowInDays *int `pulumi:"recoveryWindowInDays"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
-	SourceEntity *AnalysisSourceEntity `pulumi:"sourceEntity"`
-	// The analysis creation status.
-	Status *string `pulumi:"status"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
-	ThemeArn *string `pulumi:"themeArn"`
+	AnalysisId           *string               `pulumi:"analysisId"`
+	Arn                  *string               `pulumi:"arn"`
+	AwsAccountId         *string               `pulumi:"awsAccountId"`
+	CreatedTime          *string               `pulumi:"createdTime"`
+	LastPublishedTime    *string               `pulumi:"lastPublishedTime"`
+	LastUpdatedTime      *string               `pulumi:"lastUpdatedTime"`
+	Name                 *string               `pulumi:"name"`
+	Parameters           *AnalysisParameters   `pulumi:"parameters"`
+	Permissions          []AnalysisPermission  `pulumi:"permissions"`
+	RecoveryWindowInDays *int                  `pulumi:"recoveryWindowInDays"`
+	Region               *string               `pulumi:"region"`
+	SourceEntity         *AnalysisSourceEntity `pulumi:"sourceEntity"`
+	Status               *string               `pulumi:"status"`
+	Tags                 map[string]string     `pulumi:"tags"`
+	TagsAll              map[string]string     `pulumi:"tagsAll"`
+	ThemeArn             *string               `pulumi:"themeArn"`
 }
 
 type AnalysisState struct {
-	// Identifier for the analysis.
-	AnalysisId pulumi.StringPtrInput
-	// ARN of the analysis.
-	Arn          pulumi.StringPtrInput
-	AwsAccountId pulumi.StringPtrInput
-	// The time that the analysis was created.
-	CreatedTime       pulumi.StringPtrInput
-	LastPublishedTime pulumi.StringPtrInput
-	// The time that the analysis was last updated.
-	LastUpdatedTime pulumi.StringPtrInput
-	// Display name for the analysis.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-	Parameters AnalysisParametersPtrInput
-	// A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
-	Permissions AnalysisPermissionArrayInput
-	// A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
+	AnalysisId           pulumi.StringPtrInput
+	Arn                  pulumi.StringPtrInput
+	AwsAccountId         pulumi.StringPtrInput
+	CreatedTime          pulumi.StringPtrInput
+	LastPublishedTime    pulumi.StringPtrInput
+	LastUpdatedTime      pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
+	Parameters           AnalysisParametersPtrInput
+	Permissions          AnalysisPermissionArrayInput
 	RecoveryWindowInDays pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
-	SourceEntity AnalysisSourceEntityPtrInput
-	// The analysis creation status.
-	Status pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
-	ThemeArn pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
+	SourceEntity         AnalysisSourceEntityPtrInput
+	Status               pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
+	TagsAll              pulumi.StringMapInput
+	ThemeArn             pulumi.StringPtrInput
 }
 
 func (AnalysisState) ElementType() reflect.Type {
@@ -287,52 +108,30 @@ func (AnalysisState) ElementType() reflect.Type {
 }
 
 type analysisArgs struct {
-	// Identifier for the analysis.
-	AnalysisId   string  `pulumi:"analysisId"`
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Display name for the analysis.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-	Parameters *AnalysisParameters `pulumi:"parameters"`
-	// A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
-	Permissions []AnalysisPermission `pulumi:"permissions"`
-	// A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
-	RecoveryWindowInDays *int `pulumi:"recoveryWindowInDays"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
-	SourceEntity *AnalysisSourceEntity `pulumi:"sourceEntity"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
-	ThemeArn *string `pulumi:"themeArn"`
+	AnalysisId           string                `pulumi:"analysisId"`
+	AwsAccountId         *string               `pulumi:"awsAccountId"`
+	Name                 *string               `pulumi:"name"`
+	Parameters           *AnalysisParameters   `pulumi:"parameters"`
+	Permissions          []AnalysisPermission  `pulumi:"permissions"`
+	RecoveryWindowInDays *int                  `pulumi:"recoveryWindowInDays"`
+	Region               *string               `pulumi:"region"`
+	SourceEntity         *AnalysisSourceEntity `pulumi:"sourceEntity"`
+	Tags                 map[string]string     `pulumi:"tags"`
+	ThemeArn             *string               `pulumi:"themeArn"`
 }
 
 // The set of arguments for constructing a Analysis resource.
 type AnalysisArgs struct {
-	// Identifier for the analysis.
-	AnalysisId   pulumi.StringInput
-	AwsAccountId pulumi.StringPtrInput
-	// Display name for the analysis.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-	Parameters AnalysisParametersPtrInput
-	// A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
-	Permissions AnalysisPermissionArrayInput
-	// A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
+	AnalysisId           pulumi.StringInput
+	AwsAccountId         pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
+	Parameters           AnalysisParametersPtrInput
+	Permissions          AnalysisPermissionArrayInput
 	RecoveryWindowInDays pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
-	SourceEntity AnalysisSourceEntityPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
-	ThemeArn pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
+	SourceEntity         AnalysisSourceEntityPtrInput
+	Tags                 pulumi.StringMapInput
+	ThemeArn             pulumi.StringPtrInput
 }
 
 func (AnalysisArgs) ElementType() reflect.Type {
@@ -422,12 +221,10 @@ func (o AnalysisOutput) ToAnalysisOutputWithContext(ctx context.Context) Analysi
 	return o
 }
 
-// Identifier for the analysis.
 func (o AnalysisOutput) AnalysisId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.AnalysisId }).(pulumi.StringOutput)
 }
 
-// ARN of the analysis.
 func (o AnalysisOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -436,7 +233,6 @@ func (o AnalysisOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// The time that the analysis was created.
 func (o AnalysisOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
@@ -445,59 +241,46 @@ func (o AnalysisOutput) LastPublishedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.LastPublishedTime }).(pulumi.StringOutput)
 }
 
-// The time that the analysis was last updated.
 func (o AnalysisOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
 
-// Display name for the analysis.
-//
-// The following arguments are optional:
 func (o AnalysisOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
 func (o AnalysisOutput) Parameters() AnalysisParametersOutput {
 	return o.ApplyT(func(v *Analysis) AnalysisParametersOutput { return v.Parameters }).(AnalysisParametersOutput)
 }
 
-// A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
 func (o AnalysisOutput) Permissions() AnalysisPermissionArrayOutput {
 	return o.ApplyT(func(v *Analysis) AnalysisPermissionArrayOutput { return v.Permissions }).(AnalysisPermissionArrayOutput)
 }
 
-// A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
 func (o AnalysisOutput) RecoveryWindowInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.IntPtrOutput { return v.RecoveryWindowInDays }).(pulumi.IntPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AnalysisOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 func (o AnalysisOutput) SourceEntity() AnalysisSourceEntityPtrOutput {
 	return o.ApplyT(func(v *Analysis) AnalysisSourceEntityPtrOutput { return v.SourceEntity }).(AnalysisSourceEntityPtrOutput)
 }
 
-// The analysis creation status.
 func (o AnalysisOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AnalysisOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AnalysisOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
 func (o AnalysisOutput) ThemeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringPtrOutput { return v.ThemeArn }).(pulumi.StringPtrOutput)
 }

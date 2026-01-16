@@ -27,10 +27,6 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOa
      * 
      */
     private @Nullable String clientSecretWo;
-    /**
-     * @return OAuth discovery configuration. See `oauthDiscovery` below.
-     * 
-     */
     private @Nullable List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery> oauthDiscoveries;
 
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig() {}
@@ -57,10 +53,6 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOa
     public Optional<String> clientSecretWo() {
         return Optional.ofNullable(this.clientSecretWo);
     }
-    /**
-     * @return OAuth discovery configuration. See `oauthDiscovery` below.
-     * 
-     */
     public List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery> oauthDiscoveries() {
         return this.oauthDiscoveries == null ? List.of() : this.oauthDiscoveries;
     }

@@ -14,56 +14,30 @@ namespace Pulumi.Aws.LB.Inputs
     {
         [Input("authenticationRequestExtraParams", required: true)]
         private InputMap<string>? _authenticationRequestExtraParams;
-
-        /// <summary>
-        /// Set of additional parameters for the request.
-        /// Detailed below.
-        /// </summary>
         public InputMap<string> AuthenticationRequestExtraParams
         {
             get => _authenticationRequestExtraParams ?? (_authenticationRequestExtraParams = new InputMap<string>());
             set => _authenticationRequestExtraParams = value;
         }
 
-        /// <summary>
-        /// Behavior when the client is not authenticated.
-        /// </summary>
         [Input("onUnauthenticatedRequest", required: true)]
         public Input<string> OnUnauthenticatedRequest { get; set; } = null!;
 
-        /// <summary>
-        /// Set of user claims requested.
-        /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the cookie used to maintain session information.
-        /// </summary>
         [Input("sessionCookieName", required: true)]
         public Input<string> SessionCookieName { get; set; } = null!;
 
-        /// <summary>
-        /// Maximum duration of the authentication session in seconds.
-        /// </summary>
         [Input("sessionTimeout", required: true)]
         public Input<int> SessionTimeout { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the Cognito user pool.
-        /// </summary>
         [Input("userPoolArn", required: true)]
         public Input<string> UserPoolArn { get; set; } = null!;
 
-        /// <summary>
-        /// ID of the Cognito user pool client.
-        /// </summary>
         [Input("userPoolClientId", required: true)]
         public Input<string> UserPoolClientId { get; set; } = null!;
 
-        /// <summary>
-        /// Domain prefix or fully-qualified domain name of the Cognito user pool.
-        /// </summary>
         [Input("userPoolDomain", required: true)]
         public Input<string> UserPoolDomain { get; set; } = null!;
 

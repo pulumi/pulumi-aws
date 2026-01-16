@@ -98,18 +98,12 @@ class AliasRoutingConfig(dict):
 
     def __init__(__self__, *,
                  additional_version_weights: Optional[Mapping[str, _builtins.float]] = None):
-        """
-        :param Mapping[str, _builtins.float] additional_version_weights: Map that defines the proportion of events that should be sent to different versions of a Lambda function.
-        """
         if additional_version_weights is not None:
             pulumi.set(__self__, "additional_version_weights", additional_version_weights)
 
     @_builtins.property
     @pulumi.getter(name="additionalVersionWeights")
     def additional_version_weights(self) -> Optional[Mapping[str, _builtins.float]]:
-        """
-        Map that defines the proportion of events that should be sent to different versions of a Lambda function.
-        """
         return pulumi.get(self, "additional_version_weights")
 
 
@@ -140,10 +134,6 @@ class CapacityProviderCapacityProviderScalingConfig(dict):
                  max_vcpu_count: _builtins.int,
                  scaling_mode: _builtins.str,
                  scaling_policies: Sequence['outputs.CapacityProviderCapacityProviderScalingConfigScalingPolicy']):
-        """
-        :param _builtins.str scaling_mode: The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
-        :param Sequence['CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs'] scaling_policies: List of scaling policies. See Scaling Policies below.
-        """
         pulumi.set(__self__, "max_vcpu_count", max_vcpu_count)
         pulumi.set(__self__, "scaling_mode", scaling_mode)
         pulumi.set(__self__, "scaling_policies", scaling_policies)
@@ -156,17 +146,11 @@ class CapacityProviderCapacityProviderScalingConfig(dict):
     @_builtins.property
     @pulumi.getter(name="scalingMode")
     def scaling_mode(self) -> _builtins.str:
-        """
-        The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
-        """
         return pulumi.get(self, "scaling_mode")
 
     @_builtins.property
     @pulumi.getter(name="scalingPolicies")
     def scaling_policies(self) -> Sequence['outputs.CapacityProviderCapacityProviderScalingConfigScalingPolicy']:
-        """
-        List of scaling policies. See Scaling Policies below.
-        """
         return pulumi.get(self, "scaling_policies")
 
 
@@ -194,27 +178,17 @@ class CapacityProviderCapacityProviderScalingConfigScalingPolicy(dict):
     def __init__(__self__, *,
                  predefined_metric_type: _builtins.str,
                  target_value: _builtins.float):
-        """
-        :param _builtins.str predefined_metric_type: The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
-        :param _builtins.float target_value: The target value for the scaling policy.
-        """
         pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
         pulumi.set(__self__, "target_value", target_value)
 
     @_builtins.property
     @pulumi.getter(name="predefinedMetricType")
     def predefined_metric_type(self) -> _builtins.str:
-        """
-        The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
-        """
         return pulumi.get(self, "predefined_metric_type")
 
     @_builtins.property
     @pulumi.getter(name="targetValue")
     def target_value(self) -> _builtins.float:
-        """
-        The target value for the scaling policy.
-        """
         return pulumi.get(self, "target_value")
 
 
@@ -243,11 +217,6 @@ class CapacityProviderInstanceRequirement(dict):
                  allowed_instance_types: Sequence[_builtins.str],
                  architectures: Sequence[_builtins.str],
                  excluded_instance_types: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] allowed_instance_types: List of allowed instance types.
-        :param Sequence[_builtins.str] architectures: List of CPU architectures. Valid values are `X86_64` and `ARM64`.
-        :param Sequence[_builtins.str] excluded_instance_types: List of excluded instance types.
-        """
         pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
         pulumi.set(__self__, "architectures", architectures)
         pulumi.set(__self__, "excluded_instance_types", excluded_instance_types)
@@ -255,25 +224,16 @@ class CapacityProviderInstanceRequirement(dict):
     @_builtins.property
     @pulumi.getter(name="allowedInstanceTypes")
     def allowed_instance_types(self) -> Sequence[_builtins.str]:
-        """
-        List of allowed instance types.
-        """
         return pulumi.get(self, "allowed_instance_types")
 
     @_builtins.property
     @pulumi.getter
     def architectures(self) -> Sequence[_builtins.str]:
-        """
-        List of CPU architectures. Valid values are `X86_64` and `ARM64`.
-        """
         return pulumi.get(self, "architectures")
 
     @_builtins.property
     @pulumi.getter(name="excludedInstanceTypes")
     def excluded_instance_types(self) -> Sequence[_builtins.str]:
-        """
-        List of excluded instance types.
-        """
         return pulumi.get(self, "excluded_instance_types")
 
 
@@ -298,17 +258,11 @@ class CapacityProviderPermissionsConfig(dict):
 
     def __init__(__self__, *,
                  capacity_provider_operator_role_arn: _builtins.str):
-        """
-        :param _builtins.str capacity_provider_operator_role_arn: The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
-        """
         pulumi.set(__self__, "capacity_provider_operator_role_arn", capacity_provider_operator_role_arn)
 
     @_builtins.property
     @pulumi.getter(name="capacityProviderOperatorRoleArn")
     def capacity_provider_operator_role_arn(self) -> _builtins.str:
-        """
-        The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
-        """
         return pulumi.get(self, "capacity_provider_operator_role_arn")
 
 
@@ -379,27 +333,17 @@ class CapacityProviderVpcConfig(dict):
     def __init__(__self__, *,
                  security_group_ids: Sequence[_builtins.str],
                  subnet_ids: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] security_group_ids: List of security group IDs for the VPC.
-        :param Sequence[_builtins.str] subnet_ids: List of subnet IDs for the VPC.
-        """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[_builtins.str]:
-        """
-        List of security group IDs for the VPC.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[_builtins.str]:
-        """
-        List of subnet IDs for the VPC.
-        """
         return pulumi.get(self, "subnet_ids")
 
 
@@ -424,17 +368,11 @@ class CodeSigningConfigAllowedPublishers(dict):
 
     def __init__(__self__, *,
                  signing_profile_version_arns: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] signing_profile_version_arns: Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package. Maximum of 20 signing profiles.
-        """
         pulumi.set(__self__, "signing_profile_version_arns", signing_profile_version_arns)
 
     @_builtins.property
     @pulumi.getter(name="signingProfileVersionArns")
     def signing_profile_version_arns(self) -> Sequence[_builtins.str]:
-        """
-        Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package. Maximum of 20 signing profiles.
-        """
         return pulumi.get(self, "signing_profile_version_arns")
 
 
@@ -459,17 +397,11 @@ class CodeSigningConfigPolicies(dict):
 
     def __init__(__self__, *,
                  untrusted_artifact_on_deployment: _builtins.str):
-        """
-        :param _builtins.str untrusted_artifact_on_deployment: Code signing configuration policy for deployment validation failure. If you set the policy to `Enforce`, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to `Warn`, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
-        """
         pulumi.set(__self__, "untrusted_artifact_on_deployment", untrusted_artifact_on_deployment)
 
     @_builtins.property
     @pulumi.getter(name="untrustedArtifactOnDeployment")
     def untrusted_artifact_on_deployment(self) -> _builtins.str:
-        """
-        Code signing configuration policy for deployment validation failure. If you set the policy to `Enforce`, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to `Warn`, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
-        """
         return pulumi.get(self, "untrusted_artifact_on_deployment")
 
 
@@ -497,10 +429,6 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfig(dict):
     def __init__(__self__, *,
                  consumer_group_id: Optional[_builtins.str] = None,
                  schema_registry_config: Optional['outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig'] = None):
-        """
-        :param _builtins.str consumer_group_id: Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
-        :param 'EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs' schema_registry_config: Block for a Kafka schema registry setting. See below.
-        """
         if consumer_group_id is not None:
             pulumi.set(__self__, "consumer_group_id", consumer_group_id)
         if schema_registry_config is not None:
@@ -509,17 +437,11 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfig(dict):
     @_builtins.property
     @pulumi.getter(name="consumerGroupId")
     def consumer_group_id(self) -> Optional[_builtins.str]:
-        """
-        Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
-        """
         return pulumi.get(self, "consumer_group_id")
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryConfig")
     def schema_registry_config(self) -> Optional['outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig']:
-        """
-        Block for a Kafka schema registry setting. See below.
-        """
         return pulumi.get(self, "schema_registry_config")
 
 
@@ -553,12 +475,6 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig(
                  event_record_format: Optional[_builtins.str] = None,
                  schema_registry_uri: Optional[_builtins.str] = None,
                  schema_validation_configs: Optional[Sequence['outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig']] = None):
-        """
-        :param Sequence['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs'] access_configs: Configuration block for authentication Lambda uses to access the schema registry.
-        :param _builtins.str event_record_format: Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
-        :param _builtins.str schema_registry_uri: URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
-        :param Sequence['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs'] schema_validation_configs: Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
-        """
         if access_configs is not None:
             pulumi.set(__self__, "access_configs", access_configs)
         if event_record_format is not None:
@@ -571,33 +487,21 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig(
     @_builtins.property
     @pulumi.getter(name="accessConfigs")
     def access_configs(self) -> Optional[Sequence['outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig']]:
-        """
-        Configuration block for authentication Lambda uses to access the schema registry.
-        """
         return pulumi.get(self, "access_configs")
 
     @_builtins.property
     @pulumi.getter(name="eventRecordFormat")
     def event_record_format(self) -> Optional[_builtins.str]:
-        """
-        Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
-        """
         return pulumi.get(self, "event_record_format")
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryUri")
     def schema_registry_uri(self) -> Optional[_builtins.str]:
-        """
-        URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
-        """
         return pulumi.get(self, "schema_registry_uri")
 
     @_builtins.property
     @pulumi.getter(name="schemaValidationConfigs")
     def schema_validation_configs(self) -> Optional[Sequence['outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig']]:
-        """
-        Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
-        """
         return pulumi.get(self, "schema_validation_configs")
 
 
@@ -606,10 +510,6 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigA
     def __init__(__self__, *,
                  type: Optional[_builtins.str] = None,
                  uri: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str type: Authentication type Lambda uses to access the schema registry.
-        :param _builtins.str uri: URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-        """
         if type is not None:
             pulumi.set(__self__, "type", type)
         if uri is not None:
@@ -618,17 +518,11 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigA
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
-        """
-        Authentication type Lambda uses to access the schema registry.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def uri(self) -> Optional[_builtins.str]:
-        """
-        URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-        """
         return pulumi.get(self, "uri")
 
 
@@ -636,18 +530,12 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigA
 class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig(dict):
     def __init__(__self__, *,
                  attribute: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str attribute: Message attribute to validate. Valid values: `KEY`, `VALUE`.
-        """
         if attribute is not None:
             pulumi.set(__self__, "attribute", attribute)
 
     @_builtins.property
     @pulumi.getter
     def attribute(self) -> Optional[_builtins.str]:
-        """
-        Message attribute to validate. Valid values: `KEY`, `VALUE`.
-        """
         return pulumi.get(self, "attribute")
 
 
@@ -672,18 +560,12 @@ class EventSourceMappingDestinationConfig(dict):
 
     def __init__(__self__, *,
                  on_failure: Optional['outputs.EventSourceMappingDestinationConfigOnFailure'] = None):
-        """
-        :param 'EventSourceMappingDestinationConfigOnFailureArgs' on_failure: Destination configuration for failed invocations. See below.
-        """
         if on_failure is not None:
             pulumi.set(__self__, "on_failure", on_failure)
 
     @_builtins.property
     @pulumi.getter(name="onFailure")
     def on_failure(self) -> Optional['outputs.EventSourceMappingDestinationConfigOnFailure']:
-        """
-        Destination configuration for failed invocations. See below.
-        """
         return pulumi.get(self, "on_failure")
 
 
@@ -708,17 +590,11 @@ class EventSourceMappingDestinationConfigOnFailure(dict):
 
     def __init__(__self__, *,
                  destination_arn: _builtins.str):
-        """
-        :param _builtins.str destination_arn: ARN of the destination resource, or `kafka://your-topic-name` for Amazon MSK and self-managed Apache Kafka destinations.
-        """
         pulumi.set(__self__, "destination_arn", destination_arn)
 
     @_builtins.property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> _builtins.str:
-        """
-        ARN of the destination resource, or `kafka://your-topic-name` for Amazon MSK and self-managed Apache Kafka destinations.
-        """
         return pulumi.get(self, "destination_arn")
 
 
@@ -749,11 +625,6 @@ class EventSourceMappingDocumentDbEventSourceConfig(dict):
                  database_name: _builtins.str,
                  collection_name: Optional[_builtins.str] = None,
                  full_document: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str database_name: Name of the database to consume within the DocumentDB cluster.
-        :param _builtins.str collection_name: Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
-        :param _builtins.str full_document: Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
-        """
         pulumi.set(__self__, "database_name", database_name)
         if collection_name is not None:
             pulumi.set(__self__, "collection_name", collection_name)
@@ -763,25 +634,16 @@ class EventSourceMappingDocumentDbEventSourceConfig(dict):
     @_builtins.property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> _builtins.str:
-        """
-        Name of the database to consume within the DocumentDB cluster.
-        """
         return pulumi.get(self, "database_name")
 
     @_builtins.property
     @pulumi.getter(name="collectionName")
     def collection_name(self) -> Optional[_builtins.str]:
-        """
-        Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
-        """
         return pulumi.get(self, "collection_name")
 
     @_builtins.property
     @pulumi.getter(name="fullDocument")
     def full_document(self) -> Optional[_builtins.str]:
-        """
-        Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
-        """
         return pulumi.get(self, "full_document")
 
 
@@ -789,18 +651,12 @@ class EventSourceMappingDocumentDbEventSourceConfig(dict):
 class EventSourceMappingFilterCriteria(dict):
     def __init__(__self__, *,
                  filters: Optional[Sequence['outputs.EventSourceMappingFilterCriteriaFilter']] = None):
-        """
-        :param Sequence['EventSourceMappingFilterCriteriaFilterArgs'] filters: Set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. See below.
-        """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
 
     @_builtins.property
     @pulumi.getter
     def filters(self) -> Optional[Sequence['outputs.EventSourceMappingFilterCriteriaFilter']]:
-        """
-        Set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. See below.
-        """
         return pulumi.get(self, "filters")
 
 
@@ -808,18 +664,12 @@ class EventSourceMappingFilterCriteria(dict):
 class EventSourceMappingFilterCriteriaFilter(dict):
     def __init__(__self__, *,
                  pattern: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str pattern: Filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
-        """
         if pattern is not None:
             pulumi.set(__self__, "pattern", pattern)
 
     @_builtins.property
     @pulumi.getter
     def pattern(self) -> Optional[_builtins.str]:
-        """
-        Filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
-        """
         return pulumi.get(self, "pattern")
 
 
@@ -827,17 +677,11 @@ class EventSourceMappingFilterCriteriaFilter(dict):
 class EventSourceMappingMetricsConfig(dict):
     def __init__(__self__, *,
                  metrics: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] metrics: List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
-        """
         pulumi.set(__self__, "metrics", metrics)
 
     @_builtins.property
     @pulumi.getter
     def metrics(self) -> Sequence[_builtins.str]:
-        """
-        List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
-        """
         return pulumi.get(self, "metrics")
 
 
@@ -868,11 +712,6 @@ class EventSourceMappingProvisionedPollerConfig(dict):
                  maximum_pollers: Optional[_builtins.int] = None,
                  minimum_pollers: Optional[_builtins.int] = None,
                  poller_group_name: Optional[_builtins.str] = None):
-        """
-        :param _builtins.int maximum_pollers: Maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
-        :param _builtins.int minimum_pollers: Minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
-        :param _builtins.str poller_group_name: The name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
-        """
         if maximum_pollers is not None:
             pulumi.set(__self__, "maximum_pollers", maximum_pollers)
         if minimum_pollers is not None:
@@ -883,25 +722,16 @@ class EventSourceMappingProvisionedPollerConfig(dict):
     @_builtins.property
     @pulumi.getter(name="maximumPollers")
     def maximum_pollers(self) -> Optional[_builtins.int]:
-        """
-        Maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
-        """
         return pulumi.get(self, "maximum_pollers")
 
     @_builtins.property
     @pulumi.getter(name="minimumPollers")
     def minimum_pollers(self) -> Optional[_builtins.int]:
-        """
-        Minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
-        """
         return pulumi.get(self, "minimum_pollers")
 
     @_builtins.property
     @pulumi.getter(name="pollerGroupName")
     def poller_group_name(self) -> Optional[_builtins.str]:
-        """
-        The name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
-        """
         return pulumi.get(self, "poller_group_name")
 
 
@@ -926,18 +756,12 @@ class EventSourceMappingScalingConfig(dict):
 
     def __init__(__self__, *,
                  maximum_concurrency: Optional[_builtins.int] = None):
-        """
-        :param _builtins.int maximum_concurrency: Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be greater than or equal to 2. See [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency). You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase the concurrency beyond 1000.
-        """
         if maximum_concurrency is not None:
             pulumi.set(__self__, "maximum_concurrency", maximum_concurrency)
 
     @_builtins.property
     @pulumi.getter(name="maximumConcurrency")
     def maximum_concurrency(self) -> Optional[_builtins.int]:
-        """
-        Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be greater than or equal to 2. See [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency). You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase the concurrency beyond 1000.
-        """
         return pulumi.get(self, "maximum_concurrency")
 
 
@@ -945,17 +769,11 @@ class EventSourceMappingScalingConfig(dict):
 class EventSourceMappingSelfManagedEventSource(dict):
     def __init__(__self__, *,
                  endpoints: Mapping[str, _builtins.str]):
-        """
-        :param Mapping[str, _builtins.str] endpoints: Map of endpoints for the self managed source. For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
-        """
         pulumi.set(__self__, "endpoints", endpoints)
 
     @_builtins.property
     @pulumi.getter
     def endpoints(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of endpoints for the self managed source. For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
-        """
         return pulumi.get(self, "endpoints")
 
 
@@ -983,10 +801,6 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfig(dict):
     def __init__(__self__, *,
                  consumer_group_id: Optional[_builtins.str] = None,
                  schema_registry_config: Optional['outputs.EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig'] = None):
-        """
-        :param _builtins.str consumer_group_id: Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
-        :param 'EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs' schema_registry_config: Block for a Kafka schema registry setting. See below.
-        """
         if consumer_group_id is not None:
             pulumi.set(__self__, "consumer_group_id", consumer_group_id)
         if schema_registry_config is not None:
@@ -995,17 +809,11 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfig(dict):
     @_builtins.property
     @pulumi.getter(name="consumerGroupId")
     def consumer_group_id(self) -> Optional[_builtins.str]:
-        """
-        Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
-        """
         return pulumi.get(self, "consumer_group_id")
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryConfig")
     def schema_registry_config(self) -> Optional['outputs.EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig']:
-        """
-        Block for a Kafka schema registry setting. See below.
-        """
         return pulumi.get(self, "schema_registry_config")
 
 
@@ -1039,12 +847,6 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig(di
                  event_record_format: Optional[_builtins.str] = None,
                  schema_registry_uri: Optional[_builtins.str] = None,
                  schema_validation_configs: Optional[Sequence['outputs.EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig']] = None):
-        """
-        :param Sequence['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs'] access_configs: Configuration block for authentication Lambda uses to access the schema registry.
-        :param _builtins.str event_record_format: Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
-        :param _builtins.str schema_registry_uri: URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
-        :param Sequence['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs'] schema_validation_configs: Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
-        """
         if access_configs is not None:
             pulumi.set(__self__, "access_configs", access_configs)
         if event_record_format is not None:
@@ -1057,33 +859,21 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig(di
     @_builtins.property
     @pulumi.getter(name="accessConfigs")
     def access_configs(self) -> Optional[Sequence['outputs.EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig']]:
-        """
-        Configuration block for authentication Lambda uses to access the schema registry.
-        """
         return pulumi.get(self, "access_configs")
 
     @_builtins.property
     @pulumi.getter(name="eventRecordFormat")
     def event_record_format(self) -> Optional[_builtins.str]:
-        """
-        Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
-        """
         return pulumi.get(self, "event_record_format")
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryUri")
     def schema_registry_uri(self) -> Optional[_builtins.str]:
-        """
-        URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
-        """
         return pulumi.get(self, "schema_registry_uri")
 
     @_builtins.property
     @pulumi.getter(name="schemaValidationConfigs")
     def schema_validation_configs(self) -> Optional[Sequence['outputs.EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig']]:
-        """
-        Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
-        """
         return pulumi.get(self, "schema_validation_configs")
 
 
@@ -1092,10 +882,6 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAcc
     def __init__(__self__, *,
                  type: Optional[_builtins.str] = None,
                  uri: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str type: Authentication type Lambda uses to access the schema registry.
-        :param _builtins.str uri: URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-        """
         if type is not None:
             pulumi.set(__self__, "type", type)
         if uri is not None:
@@ -1104,17 +890,11 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAcc
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
-        """
-        Authentication type Lambda uses to access the schema registry.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def uri(self) -> Optional[_builtins.str]:
-        """
-        URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-        """
         return pulumi.get(self, "uri")
 
 
@@ -1122,18 +902,12 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAcc
 class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig(dict):
     def __init__(__self__, *,
                  attribute: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str attribute: Message attribute to validate. Valid values: `KEY`, `VALUE`.
-        """
         if attribute is not None:
             pulumi.set(__self__, "attribute", attribute)
 
     @_builtins.property
     @pulumi.getter
     def attribute(self) -> Optional[_builtins.str]:
-        """
-        Message attribute to validate. Valid values: `KEY`, `VALUE`.
-        """
         return pulumi.get(self, "attribute")
 
 
@@ -1142,27 +916,17 @@ class EventSourceMappingSourceAccessConfiguration(dict):
     def __init__(__self__, *,
                  type: _builtins.str,
                  uri: _builtins.str):
-        """
-        :param _builtins.str type: Type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
-        :param _builtins.str uri: URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnet_id` is the value you would find in an ec2.Subnet resource's id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `security_group_id` is the value you would find in an ec2.SecurityGroup resource's id attribute.
-        """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "uri", uri)
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def uri(self) -> _builtins.str:
-        """
-        URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnet_id` is the value you would find in an ec2.Subnet resource's id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `security_group_id` is the value you would find in an ec2.SecurityGroup resource's id attribute.
-        """
         return pulumi.get(self, "uri")
 
 
@@ -1187,17 +951,11 @@ class FunctionCapacityProviderConfig(dict):
 
     def __init__(__self__, *,
                  lambda_managed_instances_capacity_provider_config: 'outputs.FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig'):
-        """
-        :param 'FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs' lambda_managed_instances_capacity_provider_config: Configuration block for Lambda Managed Instances Capacity Provider. See below.
-        """
         pulumi.set(__self__, "lambda_managed_instances_capacity_provider_config", lambda_managed_instances_capacity_provider_config)
 
     @_builtins.property
     @pulumi.getter(name="lambdaManagedInstancesCapacityProviderConfig")
     def lambda_managed_instances_capacity_provider_config(self) -> 'outputs.FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig':
-        """
-        Configuration block for Lambda Managed Instances Capacity Provider. See below.
-        """
         return pulumi.get(self, "lambda_managed_instances_capacity_provider_config")
 
 
@@ -1228,11 +986,6 @@ class FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig
                  capacity_provider_arn: _builtins.str,
                  execution_environment_memory_gib_per_vcpu: Optional[_builtins.float] = None,
                  per_execution_environment_max_concurrency: Optional[_builtins.int] = None):
-        """
-        :param _builtins.str capacity_provider_arn: ARN of the Capacity Provider.
-        :param _builtins.float execution_environment_memory_gib_per_vcpu: Memory GiB per vCPU for the execution environment.
-        :param _builtins.int per_execution_environment_max_concurrency: Maximum concurrency per execution environment.
-        """
         pulumi.set(__self__, "capacity_provider_arn", capacity_provider_arn)
         if execution_environment_memory_gib_per_vcpu is not None:
             pulumi.set(__self__, "execution_environment_memory_gib_per_vcpu", execution_environment_memory_gib_per_vcpu)
@@ -1242,25 +995,16 @@ class FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig
     @_builtins.property
     @pulumi.getter(name="capacityProviderArn")
     def capacity_provider_arn(self) -> _builtins.str:
-        """
-        ARN of the Capacity Provider.
-        """
         return pulumi.get(self, "capacity_provider_arn")
 
     @_builtins.property
     @pulumi.getter(name="executionEnvironmentMemoryGibPerVcpu")
     def execution_environment_memory_gib_per_vcpu(self) -> Optional[_builtins.float]:
-        """
-        Memory GiB per vCPU for the execution environment.
-        """
         return pulumi.get(self, "execution_environment_memory_gib_per_vcpu")
 
     @_builtins.property
     @pulumi.getter(name="perExecutionEnvironmentMaxConcurrency")
     def per_execution_environment_max_concurrency(self) -> Optional[_builtins.int]:
-        """
-        Maximum concurrency per execution environment.
-        """
         return pulumi.get(self, "per_execution_environment_max_concurrency")
 
 
@@ -1285,17 +1029,11 @@ class FunctionDeadLetterConfig(dict):
 
     def __init__(__self__, *,
                  target_arn: _builtins.str):
-        """
-        :param _builtins.str target_arn: ARN of an SNS topic or SQS queue to notify when an invocation fails.
-        """
         pulumi.set(__self__, "target_arn", target_arn)
 
     @_builtins.property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> _builtins.str:
-        """
-        ARN of an SNS topic or SQS queue to notify when an invocation fails.
-        """
         return pulumi.get(self, "target_arn")
 
 
@@ -1323,10 +1061,6 @@ class FunctionDurableConfig(dict):
     def __init__(__self__, *,
                  execution_timeout: _builtins.int,
                  retention_period: Optional[_builtins.int] = None):
-        """
-        :param _builtins.int execution_timeout: Maximum execution time in seconds for the durable function. Valid value between 1 and 31622400 (366 days).
-        :param _builtins.int retention_period: Number of days to retain the function's execution state. Valid value between 1 and 90. If not specified, the function's execution state is not retained. Defaults to 14.
-        """
         pulumi.set(__self__, "execution_timeout", execution_timeout)
         if retention_period is not None:
             pulumi.set(__self__, "retention_period", retention_period)
@@ -1334,17 +1068,11 @@ class FunctionDurableConfig(dict):
     @_builtins.property
     @pulumi.getter(name="executionTimeout")
     def execution_timeout(self) -> _builtins.int:
-        """
-        Maximum execution time in seconds for the durable function. Valid value between 1 and 31622400 (366 days).
-        """
         return pulumi.get(self, "execution_timeout")
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional[_builtins.int]:
-        """
-        Number of days to retain the function's execution state. Valid value between 1 and 90. If not specified, the function's execution state is not retained. Defaults to 14.
-        """
         return pulumi.get(self, "retention_period")
 
 
@@ -1352,18 +1080,12 @@ class FunctionDurableConfig(dict):
 class FunctionEnvironment(dict):
     def __init__(__self__, *,
                  variables: Optional[Mapping[str, _builtins.str]] = None):
-        """
-        :param Mapping[str, _builtins.str] variables: Map of environment variables available to your Lambda function during execution.
-        """
         if variables is not None:
             pulumi.set(__self__, "variables", variables)
 
     @_builtins.property
     @pulumi.getter
     def variables(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        Map of environment variables available to your Lambda function during execution.
-        """
         return pulumi.get(self, "variables")
 
 
@@ -1371,18 +1093,12 @@ class FunctionEnvironment(dict):
 class FunctionEphemeralStorage(dict):
     def __init__(__self__, *,
                  size: Optional[_builtins.int] = None):
-        """
-        :param _builtins.int size: Amount of ephemeral storage (`/tmp`) in MB. Valid between 512 MB and 10,240 MB (10 GB).
-        """
         if size is not None:
             pulumi.set(__self__, "size", size)
 
     @_builtins.property
     @pulumi.getter
     def size(self) -> Optional[_builtins.int]:
-        """
-        Amount of ephemeral storage (`/tmp`) in MB. Valid between 512 MB and 10,240 MB (10 GB).
-        """
         return pulumi.get(self, "size")
 
 
@@ -1410,10 +1126,6 @@ class FunctionEventInvokeConfigDestinationConfig(dict):
     def __init__(__self__, *,
                  on_failure: Optional['outputs.FunctionEventInvokeConfigDestinationConfigOnFailure'] = None,
                  on_success: Optional['outputs.FunctionEventInvokeConfigDestinationConfigOnSuccess'] = None):
-        """
-        :param 'FunctionEventInvokeConfigDestinationConfigOnFailureArgs' on_failure: Configuration block with destination configuration for failed asynchronous invocations. See below.
-        :param 'FunctionEventInvokeConfigDestinationConfigOnSuccessArgs' on_success: Configuration block with destination configuration for successful asynchronous invocations. See below.
-        """
         if on_failure is not None:
             pulumi.set(__self__, "on_failure", on_failure)
         if on_success is not None:
@@ -1422,17 +1134,11 @@ class FunctionEventInvokeConfigDestinationConfig(dict):
     @_builtins.property
     @pulumi.getter(name="onFailure")
     def on_failure(self) -> Optional['outputs.FunctionEventInvokeConfigDestinationConfigOnFailure']:
-        """
-        Configuration block with destination configuration for failed asynchronous invocations. See below.
-        """
         return pulumi.get(self, "on_failure")
 
     @_builtins.property
     @pulumi.getter(name="onSuccess")
     def on_success(self) -> Optional['outputs.FunctionEventInvokeConfigDestinationConfigOnSuccess']:
-        """
-        Configuration block with destination configuration for successful asynchronous invocations. See below.
-        """
         return pulumi.get(self, "on_success")
 
 
@@ -1440,17 +1146,11 @@ class FunctionEventInvokeConfigDestinationConfig(dict):
 class FunctionEventInvokeConfigDestinationConfigOnFailure(dict):
     def __init__(__self__, *,
                  destination: _builtins.str):
-        """
-        :param _builtins.str destination: ARN of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-        """
         pulumi.set(__self__, "destination", destination)
 
     @_builtins.property
     @pulumi.getter
     def destination(self) -> _builtins.str:
-        """
-        ARN of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-        """
         return pulumi.get(self, "destination")
 
 
@@ -1458,17 +1158,11 @@ class FunctionEventInvokeConfigDestinationConfigOnFailure(dict):
 class FunctionEventInvokeConfigDestinationConfigOnSuccess(dict):
     def __init__(__self__, *,
                  destination: _builtins.str):
-        """
-        :param _builtins.str destination: ARN of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-        """
         pulumi.set(__self__, "destination", destination)
 
     @_builtins.property
     @pulumi.getter
     def destination(self) -> _builtins.str:
-        """
-        ARN of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-        """
         return pulumi.get(self, "destination")
 
 
@@ -1494,27 +1188,17 @@ class FunctionFileSystemConfig(dict):
     def __init__(__self__, *,
                  arn: _builtins.str,
                  local_mount_path: _builtins.str):
-        """
-        :param _builtins.str arn: ARN of the Amazon EFS Access Point.
-        :param _builtins.str local_mount_path: Path where the function can access the file system. Must start with `/mnt/`.
-        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "local_mount_path", local_mount_path)
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Amazon EFS Access Point.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="localMountPath")
     def local_mount_path(self) -> _builtins.str:
-        """
-        Path where the function can access the file system. Must start with `/mnt/`.
-        """
         return pulumi.get(self, "local_mount_path")
 
 
@@ -1543,11 +1227,6 @@ class FunctionImageConfig(dict):
                  commands: Optional[Sequence[_builtins.str]] = None,
                  entry_points: Optional[Sequence[_builtins.str]] = None,
                  working_directory: Optional[_builtins.str] = None):
-        """
-        :param Sequence[_builtins.str] commands: Parameters to pass to the container image.
-        :param Sequence[_builtins.str] entry_points: Entry point to your application.
-        :param _builtins.str working_directory: Working directory for the container image.
-        """
         if commands is not None:
             pulumi.set(__self__, "commands", commands)
         if entry_points is not None:
@@ -1558,25 +1237,16 @@ class FunctionImageConfig(dict):
     @_builtins.property
     @pulumi.getter
     def commands(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Parameters to pass to the container image.
-        """
         return pulumi.get(self, "commands")
 
     @_builtins.property
     @pulumi.getter(name="entryPoints")
     def entry_points(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Entry point to your application.
-        """
         return pulumi.get(self, "entry_points")
 
     @_builtins.property
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> Optional[_builtins.str]:
-        """
-        Working directory for the container image.
-        """
         return pulumi.get(self, "working_directory")
 
 
@@ -1610,12 +1280,6 @@ class FunctionLoggingConfig(dict):
                  application_log_level: Optional[_builtins.str] = None,
                  log_group: Optional[_builtins.str] = None,
                  system_log_level: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str log_format: Log format. Valid values: `Text`, `JSON`.
-        :param _builtins.str application_log_level: Detail level of application logs. Valid values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`.
-        :param _builtins.str log_group: CloudWatch log group where logs are sent.
-        :param _builtins.str system_log_level: Detail level of Lambda platform logs. Valid values: `DEBUG`, `INFO`, `WARN`.
-        """
         pulumi.set(__self__, "log_format", log_format)
         if application_log_level is not None:
             pulumi.set(__self__, "application_log_level", application_log_level)
@@ -1627,33 +1291,21 @@ class FunctionLoggingConfig(dict):
     @_builtins.property
     @pulumi.getter(name="logFormat")
     def log_format(self) -> _builtins.str:
-        """
-        Log format. Valid values: `Text`, `JSON`.
-        """
         return pulumi.get(self, "log_format")
 
     @_builtins.property
     @pulumi.getter(name="applicationLogLevel")
     def application_log_level(self) -> Optional[_builtins.str]:
-        """
-        Detail level of application logs. Valid values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`.
-        """
         return pulumi.get(self, "application_log_level")
 
     @_builtins.property
     @pulumi.getter(name="logGroup")
     def log_group(self) -> Optional[_builtins.str]:
-        """
-        CloudWatch log group where logs are sent.
-        """
         return pulumi.get(self, "log_group")
 
     @_builtins.property
     @pulumi.getter(name="systemLogLevel")
     def system_log_level(self) -> Optional[_builtins.str]:
-        """
-        Detail level of Lambda platform logs. Valid values: `DEBUG`, `INFO`, `WARN`.
-        """
         return pulumi.get(self, "system_log_level")
 
 
@@ -1681,10 +1333,6 @@ class FunctionSnapStart(dict):
     def __init__(__self__, *,
                  apply_on: _builtins.str,
                  optimization_status: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str apply_on: When to apply snap start optimization. Valid value: `PublishedVersions`.
-        :param _builtins.str optimization_status: Optimization status of the snap start configuration. Valid values are `On` and `Off`.
-        """
         pulumi.set(__self__, "apply_on", apply_on)
         if optimization_status is not None:
             pulumi.set(__self__, "optimization_status", optimization_status)
@@ -1692,17 +1340,11 @@ class FunctionSnapStart(dict):
     @_builtins.property
     @pulumi.getter(name="applyOn")
     def apply_on(self) -> _builtins.str:
-        """
-        When to apply snap start optimization. Valid value: `PublishedVersions`.
-        """
         return pulumi.get(self, "apply_on")
 
     @_builtins.property
     @pulumi.getter(name="optimizationStatus")
     def optimization_status(self) -> Optional[_builtins.str]:
-        """
-        Optimization status of the snap start configuration. Valid values are `On` and `Off`.
-        """
         return pulumi.get(self, "optimization_status")
 
 
@@ -1727,17 +1369,11 @@ class FunctionTenancyConfig(dict):
 
     def __init__(__self__, *,
                  tenant_isolation_mode: _builtins.str):
-        """
-        :param _builtins.str tenant_isolation_mode: Tenant Isolation Mode. Valid values: `PER_TENANT`.
-        """
         pulumi.set(__self__, "tenant_isolation_mode", tenant_isolation_mode)
 
     @_builtins.property
     @pulumi.getter(name="tenantIsolationMode")
     def tenant_isolation_mode(self) -> _builtins.str:
-        """
-        Tenant Isolation Mode. Valid values: `PER_TENANT`.
-        """
         return pulumi.get(self, "tenant_isolation_mode")
 
 
@@ -1745,17 +1381,11 @@ class FunctionTenancyConfig(dict):
 class FunctionTracingConfig(dict):
     def __init__(__self__, *,
                  mode: _builtins.str):
-        """
-        :param _builtins.str mode: X-Ray tracing mode. Valid values: `Active`, `PassThrough`.
-        """
         pulumi.set(__self__, "mode", mode)
 
     @_builtins.property
     @pulumi.getter
     def mode(self) -> _builtins.str:
-        """
-        X-Ray tracing mode. Valid values: `Active`, `PassThrough`.
-        """
         return pulumi.get(self, "mode")
 
 
@@ -1795,14 +1425,6 @@ class FunctionUrlCors(dict):
                  allow_origins: Optional[Sequence[_builtins.str]] = None,
                  expose_headers: Optional[Sequence[_builtins.str]] = None,
                  max_age: Optional[_builtins.int] = None):
-        """
-        :param _builtins.bool allow_credentials: Whether to allow cookies or other credentials in requests to the function URL.
-        :param Sequence[_builtins.str] allow_headers: HTTP headers that origins can include in requests to the function URL.
-        :param Sequence[_builtins.str] allow_methods: HTTP methods that are allowed when calling the function URL.
-        :param Sequence[_builtins.str] allow_origins: Origins that can access the function URL.
-        :param Sequence[_builtins.str] expose_headers: HTTP headers in your function response that you want to expose to origins that call the function URL.
-        :param _builtins.int max_age: Maximum amount of time, in seconds, that web browsers can cache results of a preflight request. Maximum value is `86400`.
-        """
         if allow_credentials is not None:
             pulumi.set(__self__, "allow_credentials", allow_credentials)
         if allow_headers is not None:
@@ -1819,49 +1441,31 @@ class FunctionUrlCors(dict):
     @_builtins.property
     @pulumi.getter(name="allowCredentials")
     def allow_credentials(self) -> Optional[_builtins.bool]:
-        """
-        Whether to allow cookies or other credentials in requests to the function URL.
-        """
         return pulumi.get(self, "allow_credentials")
 
     @_builtins.property
     @pulumi.getter(name="allowHeaders")
     def allow_headers(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        HTTP headers that origins can include in requests to the function URL.
-        """
         return pulumi.get(self, "allow_headers")
 
     @_builtins.property
     @pulumi.getter(name="allowMethods")
     def allow_methods(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        HTTP methods that are allowed when calling the function URL.
-        """
         return pulumi.get(self, "allow_methods")
 
     @_builtins.property
     @pulumi.getter(name="allowOrigins")
     def allow_origins(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Origins that can access the function URL.
-        """
         return pulumi.get(self, "allow_origins")
 
     @_builtins.property
     @pulumi.getter(name="exposeHeaders")
     def expose_headers(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        HTTP headers in your function response that you want to expose to origins that call the function URL.
-        """
         return pulumi.get(self, "expose_headers")
 
     @_builtins.property
     @pulumi.getter(name="maxAge")
     def max_age(self) -> Optional[_builtins.int]:
-        """
-        Maximum amount of time, in seconds, that web browsers can cache results of a preflight request. Maximum value is `86400`.
-        """
         return pulumi.get(self, "max_age")
 
 
@@ -1895,12 +1499,6 @@ class FunctionVpcConfig(dict):
                  subnet_ids: Sequence[_builtins.str],
                  ipv6_allowed_for_dual_stack: Optional[_builtins.bool] = None,
                  vpc_id: Optional[_builtins.str] = None):
-        """
-        :param Sequence[_builtins.str] security_group_ids: List of security group IDs associated with the Lambda function.
-        :param Sequence[_builtins.str] subnet_ids: List of subnet IDs associated with the Lambda function.
-        :param _builtins.bool ipv6_allowed_for_dual_stack: Whether to allow outbound IPv6 traffic on VPC functions connected to dual-stack subnets. Default: `false`.
-        :param _builtins.str vpc_id: ID of the VPC.
-        """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if ipv6_allowed_for_dual_stack is not None:
@@ -1911,33 +1509,21 @@ class FunctionVpcConfig(dict):
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[_builtins.str]:
-        """
-        List of security group IDs associated with the Lambda function.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[_builtins.str]:
-        """
-        List of subnet IDs associated with the Lambda function.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter(name="ipv6AllowedForDualStack")
     def ipv6_allowed_for_dual_stack(self) -> Optional[_builtins.bool]:
-        """
-        Whether to allow outbound IPv6 traffic on VPC functions connected to dual-stack subnets. Default: `false`.
-        """
         return pulumi.get(self, "ipv6_allowed_for_dual_stack")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[_builtins.str]:
-        """
-        ID of the VPC.
-        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -1945,17 +1531,11 @@ class FunctionVpcConfig(dict):
 class GetCodeSigningConfigAllowedPublisherResult(dict):
     def __init__(__self__, *,
                  signing_profile_version_arns: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] signing_profile_version_arns: Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
-        """
         pulumi.set(__self__, "signing_profile_version_arns", signing_profile_version_arns)
 
     @_builtins.property
     @pulumi.getter(name="signingProfileVersionArns")
     def signing_profile_version_arns(self) -> Sequence[_builtins.str]:
-        """
-        Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
-        """
         return pulumi.get(self, "signing_profile_version_arns")
 
 
@@ -1963,17 +1543,11 @@ class GetCodeSigningConfigAllowedPublisherResult(dict):
 class GetCodeSigningConfigPolicyResult(dict):
     def __init__(__self__, *,
                  untrusted_artifact_on_deployment: _builtins.str):
-        """
-        :param _builtins.str untrusted_artifact_on_deployment: Code signing configuration policy for deployment validation failure. Valid values: `Warn`, `Enforce`.
-        """
         pulumi.set(__self__, "untrusted_artifact_on_deployment", untrusted_artifact_on_deployment)
 
     @_builtins.property
     @pulumi.getter(name="untrustedArtifactOnDeployment")
     def untrusted_artifact_on_deployment(self) -> _builtins.str:
-        """
-        Code signing configuration policy for deployment validation failure. Valid values: `Warn`, `Enforce`.
-        """
         return pulumi.get(self, "untrusted_artifact_on_deployment")
 
 
@@ -1981,17 +1555,11 @@ class GetCodeSigningConfigPolicyResult(dict):
 class GetFunctionCapacityProviderConfigResult(dict):
     def __init__(__self__, *,
                  lambda_managed_instances_capacity_provider_configs: Sequence['outputs.GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigResult']):
-        """
-        :param Sequence['GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs'] lambda_managed_instances_capacity_provider_configs: Configuration block for Lambda Managed Instances Capacity Provider.
-        """
         pulumi.set(__self__, "lambda_managed_instances_capacity_provider_configs", lambda_managed_instances_capacity_provider_configs)
 
     @_builtins.property
     @pulumi.getter(name="lambdaManagedInstancesCapacityProviderConfigs")
     def lambda_managed_instances_capacity_provider_configs(self) -> Sequence['outputs.GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigResult']:
-        """
-        Configuration block for Lambda Managed Instances Capacity Provider.
-        """
         return pulumi.get(self, "lambda_managed_instances_capacity_provider_configs")
 
 
@@ -2001,11 +1569,6 @@ class GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderCon
                  capacity_provider_arn: _builtins.str,
                  execution_environment_memory_gib_per_vcpu: _builtins.float,
                  per_execution_environment_max_concurrency: _builtins.int):
-        """
-        :param _builtins.str capacity_provider_arn: ARN of the Capacity Provider.
-        :param _builtins.float execution_environment_memory_gib_per_vcpu: Memory GiB per vCPU for the execution environment.
-        :param _builtins.int per_execution_environment_max_concurrency: Maximum concurrency per execution environment.
-        """
         pulumi.set(__self__, "capacity_provider_arn", capacity_provider_arn)
         pulumi.set(__self__, "execution_environment_memory_gib_per_vcpu", execution_environment_memory_gib_per_vcpu)
         pulumi.set(__self__, "per_execution_environment_max_concurrency", per_execution_environment_max_concurrency)
@@ -2013,25 +1576,16 @@ class GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderCon
     @_builtins.property
     @pulumi.getter(name="capacityProviderArn")
     def capacity_provider_arn(self) -> _builtins.str:
-        """
-        ARN of the Capacity Provider.
-        """
         return pulumi.get(self, "capacity_provider_arn")
 
     @_builtins.property
     @pulumi.getter(name="executionEnvironmentMemoryGibPerVcpu")
     def execution_environment_memory_gib_per_vcpu(self) -> _builtins.float:
-        """
-        Memory GiB per vCPU for the execution environment.
-        """
         return pulumi.get(self, "execution_environment_memory_gib_per_vcpu")
 
     @_builtins.property
     @pulumi.getter(name="perExecutionEnvironmentMaxConcurrency")
     def per_execution_environment_max_concurrency(self) -> _builtins.int:
-        """
-        Maximum concurrency per execution environment.
-        """
         return pulumi.get(self, "per_execution_environment_max_concurrency")
 
 
@@ -2039,17 +1593,11 @@ class GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderCon
 class GetFunctionDeadLetterConfigResult(dict):
     def __init__(__self__, *,
                  target_arn: _builtins.str):
-        """
-        :param _builtins.str target_arn: ARN of an SNS topic or SQS queue to notify when an invocation fails.
-        """
         pulumi.set(__self__, "target_arn", target_arn)
 
     @_builtins.property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> _builtins.str:
-        """
-        ARN of an SNS topic or SQS queue to notify when an invocation fails.
-        """
         return pulumi.get(self, "target_arn")
 
 
@@ -2058,27 +1606,17 @@ class GetFunctionDurableConfigResult(dict):
     def __init__(__self__, *,
                  execution_timeout: _builtins.int,
                  retention_period: _builtins.int):
-        """
-        :param _builtins.int execution_timeout: Maximum execution time in seconds for the durable function.
-        :param _builtins.int retention_period: Number of days to retain the function's execution state.
-        """
         pulumi.set(__self__, "execution_timeout", execution_timeout)
         pulumi.set(__self__, "retention_period", retention_period)
 
     @_builtins.property
     @pulumi.getter(name="executionTimeout")
     def execution_timeout(self) -> _builtins.int:
-        """
-        Maximum execution time in seconds for the durable function.
-        """
         return pulumi.get(self, "execution_timeout")
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> _builtins.int:
-        """
-        Number of days to retain the function's execution state.
-        """
         return pulumi.get(self, "retention_period")
 
 
@@ -2086,17 +1624,11 @@ class GetFunctionDurableConfigResult(dict):
 class GetFunctionEnvironmentResult(dict):
     def __init__(__self__, *,
                  variables: Mapping[str, _builtins.str]):
-        """
-        :param Mapping[str, _builtins.str] variables: Map of environment variables that are accessible from the function code during execution.
-        """
         pulumi.set(__self__, "variables", variables)
 
     @_builtins.property
     @pulumi.getter
     def variables(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of environment variables that are accessible from the function code during execution.
-        """
         return pulumi.get(self, "variables")
 
 
@@ -2104,17 +1636,11 @@ class GetFunctionEnvironmentResult(dict):
 class GetFunctionEphemeralStorageResult(dict):
     def __init__(__self__, *,
                  size: _builtins.int):
-        """
-        :param _builtins.int size: Size of the Lambda function ephemeral storage (`/tmp`) in MB.
-        """
         pulumi.set(__self__, "size", size)
 
     @_builtins.property
     @pulumi.getter
     def size(self) -> _builtins.int:
-        """
-        Size of the Lambda function ephemeral storage (`/tmp`) in MB.
-        """
         return pulumi.get(self, "size")
 
 
@@ -2123,27 +1649,17 @@ class GetFunctionFileSystemConfigResult(dict):
     def __init__(__self__, *,
                  arn: _builtins.str,
                  local_mount_path: _builtins.str):
-        """
-        :param _builtins.str arn: ARN of the Amazon EFS Access Point that provides access to the file system.
-        :param _builtins.str local_mount_path: Path where the function can access the file system, starting with `/mnt/`.
-        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "local_mount_path", local_mount_path)
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Amazon EFS Access Point that provides access to the file system.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="localMountPath")
     def local_mount_path(self) -> _builtins.str:
-        """
-        Path where the function can access the file system, starting with `/mnt/`.
-        """
         return pulumi.get(self, "local_mount_path")
 
 
@@ -2154,12 +1670,6 @@ class GetFunctionLoggingConfigResult(dict):
                  log_format: _builtins.str,
                  log_group: _builtins.str,
                  system_log_level: _builtins.str):
-        """
-        :param _builtins.str application_log_level: Detail level of the logs your application sends to CloudWatch when using supported logging libraries.
-        :param _builtins.str log_format: Format for your function's logs. Valid values: `Text`, `JSON`.
-        :param _builtins.str log_group: CloudWatch log group your function sends logs to.
-        :param _builtins.str system_log_level: Detail level of the Lambda platform event logs sent to CloudWatch.
-        """
         pulumi.set(__self__, "application_log_level", application_log_level)
         pulumi.set(__self__, "log_format", log_format)
         pulumi.set(__self__, "log_group", log_group)
@@ -2168,33 +1678,21 @@ class GetFunctionLoggingConfigResult(dict):
     @_builtins.property
     @pulumi.getter(name="applicationLogLevel")
     def application_log_level(self) -> _builtins.str:
-        """
-        Detail level of the logs your application sends to CloudWatch when using supported logging libraries.
-        """
         return pulumi.get(self, "application_log_level")
 
     @_builtins.property
     @pulumi.getter(name="logFormat")
     def log_format(self) -> _builtins.str:
-        """
-        Format for your function's logs. Valid values: `Text`, `JSON`.
-        """
         return pulumi.get(self, "log_format")
 
     @_builtins.property
     @pulumi.getter(name="logGroup")
     def log_group(self) -> _builtins.str:
-        """
-        CloudWatch log group your function sends logs to.
-        """
         return pulumi.get(self, "log_group")
 
     @_builtins.property
     @pulumi.getter(name="systemLogLevel")
     def system_log_level(self) -> _builtins.str:
-        """
-        Detail level of the Lambda platform event logs sent to CloudWatch.
-        """
         return pulumi.get(self, "system_log_level")
 
 
@@ -2202,17 +1700,11 @@ class GetFunctionLoggingConfigResult(dict):
 class GetFunctionTenancyConfigResult(dict):
     def __init__(__self__, *,
                  tenant_isolation_mode: _builtins.str):
-        """
-        :param _builtins.str tenant_isolation_mode: (Required) Tenant Isolation Mode. Valid values: `PER_TENANT`.
-        """
         pulumi.set(__self__, "tenant_isolation_mode", tenant_isolation_mode)
 
     @_builtins.property
     @pulumi.getter(name="tenantIsolationMode")
     def tenant_isolation_mode(self) -> _builtins.str:
-        """
-        (Required) Tenant Isolation Mode. Valid values: `PER_TENANT`.
-        """
         return pulumi.get(self, "tenant_isolation_mode")
 
 
@@ -2220,17 +1712,11 @@ class GetFunctionTenancyConfigResult(dict):
 class GetFunctionTracingConfigResult(dict):
     def __init__(__self__, *,
                  mode: _builtins.str):
-        """
-        :param _builtins.str mode: Tracing mode. Valid values: `Active`, `PassThrough`.
-        """
         pulumi.set(__self__, "mode", mode)
 
     @_builtins.property
     @pulumi.getter
     def mode(self) -> _builtins.str:
-        """
-        Tracing mode. Valid values: `Active`, `PassThrough`.
-        """
         return pulumi.get(self, "mode")
 
 
@@ -2243,14 +1729,6 @@ class GetFunctionUrlCorResult(dict):
                  allow_origins: Sequence[_builtins.str],
                  expose_headers: Sequence[_builtins.str],
                  max_age: _builtins.int):
-        """
-        :param _builtins.bool allow_credentials: Whether credentials are included in the CORS request.
-        :param Sequence[_builtins.str] allow_headers: List of headers that are specified in the Access-Control-Request-Headers header.
-        :param Sequence[_builtins.str] allow_methods: List of HTTP methods that are allowed when calling the function URL.
-        :param Sequence[_builtins.str] allow_origins: List of origins that are allowed to make requests to the function URL.
-        :param Sequence[_builtins.str] expose_headers: List of headers in the response that you want to expose to the origin that called the function URL.
-        :param _builtins.int max_age: Maximum amount of time, in seconds, that web browsers can cache results of a preflight request.
-        """
         pulumi.set(__self__, "allow_credentials", allow_credentials)
         pulumi.set(__self__, "allow_headers", allow_headers)
         pulumi.set(__self__, "allow_methods", allow_methods)
@@ -2261,49 +1739,31 @@ class GetFunctionUrlCorResult(dict):
     @_builtins.property
     @pulumi.getter(name="allowCredentials")
     def allow_credentials(self) -> _builtins.bool:
-        """
-        Whether credentials are included in the CORS request.
-        """
         return pulumi.get(self, "allow_credentials")
 
     @_builtins.property
     @pulumi.getter(name="allowHeaders")
     def allow_headers(self) -> Sequence[_builtins.str]:
-        """
-        List of headers that are specified in the Access-Control-Request-Headers header.
-        """
         return pulumi.get(self, "allow_headers")
 
     @_builtins.property
     @pulumi.getter(name="allowMethods")
     def allow_methods(self) -> Sequence[_builtins.str]:
-        """
-        List of HTTP methods that are allowed when calling the function URL.
-        """
         return pulumi.get(self, "allow_methods")
 
     @_builtins.property
     @pulumi.getter(name="allowOrigins")
     def allow_origins(self) -> Sequence[_builtins.str]:
-        """
-        List of origins that are allowed to make requests to the function URL.
-        """
         return pulumi.get(self, "allow_origins")
 
     @_builtins.property
     @pulumi.getter(name="exposeHeaders")
     def expose_headers(self) -> Sequence[_builtins.str]:
-        """
-        List of headers in the response that you want to expose to the origin that called the function URL.
-        """
         return pulumi.get(self, "expose_headers")
 
     @_builtins.property
     @pulumi.getter(name="maxAge")
     def max_age(self) -> _builtins.int:
-        """
-        Maximum amount of time, in seconds, that web browsers can cache results of a preflight request.
-        """
         return pulumi.get(self, "max_age")
 
 
@@ -2314,11 +1774,6 @@ class GetFunctionVpcConfigResult(dict):
                  security_group_ids: Sequence[_builtins.str],
                  subnet_ids: Sequence[_builtins.str],
                  vpc_id: _builtins.str):
-        """
-        :param Sequence[_builtins.str] security_group_ids: List of security group IDs associated with the Lambda function.
-        :param Sequence[_builtins.str] subnet_ids: List of subnet IDs associated with the Lambda function.
-        :param _builtins.str vpc_id: ID of the VPC.
-        """
         pulumi.set(__self__, "ipv6_allowed_for_dual_stack", ipv6_allowed_for_dual_stack)
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -2332,25 +1787,16 @@ class GetFunctionVpcConfigResult(dict):
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[_builtins.str]:
-        """
-        List of security group IDs associated with the Lambda function.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[_builtins.str]:
-        """
-        List of subnet IDs associated with the Lambda function.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> _builtins.str:
-        """
-        ID of the VPC.
-        """
         return pulumi.get(self, "vpc_id")
 
 

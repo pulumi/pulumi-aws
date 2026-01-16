@@ -13,58 +13,26 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualServiceResult {
-    /**
-     * @return ARN of the virtual service.
-     * 
-     */
     private String arn;
-    /**
-     * @return Creation date of the virtual service.
-     * 
-     */
     private String createdDate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Last update date of the virtual service.
-     * 
-     */
     private String lastUpdatedDate;
     private String meshName;
     private String meshOwner;
     private String name;
     private String region;
-    /**
-     * @return Resource owner&#39;s AWS account ID.
-     * 
-     */
     private String resourceOwner;
-    /**
-     * @return Virtual service specification. See the `aws.appmesh.VirtualService` resource for details.
-     * 
-     */
     private List<GetVirtualServiceSpec> specs;
-    /**
-     * @return Map of tags.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetVirtualServiceResult() {}
-    /**
-     * @return ARN of the virtual service.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Creation date of the virtual service.
-     * 
-     */
     public String createdDate() {
         return this.createdDate;
     }
@@ -75,10 +43,6 @@ public final class GetVirtualServiceResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Last update date of the virtual service.
-     * 
-     */
     public String lastUpdatedDate() {
         return this.lastUpdatedDate;
     }
@@ -94,24 +58,12 @@ public final class GetVirtualServiceResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Resource owner&#39;s AWS account ID.
-     * 
-     */
     public String resourceOwner() {
         return this.resourceOwner;
     }
-    /**
-     * @return Virtual service specification. See the `aws.appmesh.VirtualService` resource for details.
-     * 
-     */
     public List<GetVirtualServiceSpec> specs() {
         return this.specs;
     }
-    /**
-     * @return Map of tags.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

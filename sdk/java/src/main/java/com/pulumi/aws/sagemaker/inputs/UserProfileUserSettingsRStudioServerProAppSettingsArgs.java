@@ -15,32 +15,16 @@ public final class UserProfileUserSettingsRStudioServerProAppSettingsArgs extend
 
     public static final UserProfileUserSettingsRStudioServerProAppSettingsArgs Empty = new UserProfileUserSettingsRStudioServerProAppSettingsArgs();
 
-    /**
-     * Indicates whether the current user has access to the RStudioServerPro app. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     @Import(name="accessStatus")
     private @Nullable Output<String> accessStatus;
 
-    /**
-     * @return Indicates whether the current user has access to the RStudioServerPro app. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> accessStatus() {
         return Optional.ofNullable(this.accessStatus);
     }
 
-    /**
-     * The level of permissions that the user has within the RStudioServerPro app. This value defaults to `R_STUDIO_USER`. The `R_STUDIO_ADMIN` value allows the user access to the RStudio Administrative Dashboard. Valid values are `R_STUDIO_USER` and `R_STUDIO_ADMIN`.
-     * 
-     */
     @Import(name="userGroup")
     private @Nullable Output<String> userGroup;
 
-    /**
-     * @return The level of permissions that the user has within the RStudioServerPro app. This value defaults to `R_STUDIO_USER`. The `R_STUDIO_ADMIN` value allows the user access to the RStudio Administrative Dashboard. Valid values are `R_STUDIO_USER` and `R_STUDIO_ADMIN`.
-     * 
-     */
     public Optional<Output<String>> userGroup() {
         return Optional.ofNullable(this.userGroup);
     }
@@ -70,44 +54,20 @@ public final class UserProfileUserSettingsRStudioServerProAppSettingsArgs extend
             $ = new UserProfileUserSettingsRStudioServerProAppSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessStatus Indicates whether the current user has access to the RStudioServerPro app. Valid values are `ENABLED` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessStatus(@Nullable Output<String> accessStatus) {
             $.accessStatus = accessStatus;
             return this;
         }
 
-        /**
-         * @param accessStatus Indicates whether the current user has access to the RStudioServerPro app. Valid values are `ENABLED` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessStatus(String accessStatus) {
             return accessStatus(Output.of(accessStatus));
         }
 
-        /**
-         * @param userGroup The level of permissions that the user has within the RStudioServerPro app. This value defaults to `R_STUDIO_USER`. The `R_STUDIO_ADMIN` value allows the user access to the RStudio Administrative Dashboard. Valid values are `R_STUDIO_USER` and `R_STUDIO_ADMIN`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userGroup(@Nullable Output<String> userGroup) {
             $.userGroup = userGroup;
             return this;
         }
 
-        /**
-         * @param userGroup The level of permissions that the user has within the RStudioServerPro app. This value defaults to `R_STUDIO_USER`. The `R_STUDIO_ADMIN` value allows the user access to the RStudio Administrative Dashboard. Valid values are `R_STUDIO_USER` and `R_STUDIO_ADMIN`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userGroup(String userGroup) {
             return userGroup(Output.of(userGroup));
         }

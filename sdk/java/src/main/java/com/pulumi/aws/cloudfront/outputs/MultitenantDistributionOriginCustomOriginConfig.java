@@ -14,89 +14,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MultitenantDistributionOriginCustomOriginConfig {
-    /**
-     * @return HTTP port the custom origin listens on.
-     * 
-     */
     private Integer httpPort;
-    /**
-     * @return HTTPS port the custom origin listens on.
-     * 
-     */
     private Integer httpsPort;
-    /**
-     * @return Type of IP addresses used by your origins. Valid values are `ipv4` and `dualstack`.
-     * 
-     */
     private @Nullable String ipAddressType;
-    /**
-     * @return Custom keep-alive timeout, in seconds. Default: 5.
-     * 
-     */
     private @Nullable Integer originKeepaliveTimeout;
-    /**
-     * @return Origin protocol policy to apply to your origin. Valid values are `http-only`, `https-only`, and `match-viewer`.
-     * 
-     */
     private String originProtocolPolicy;
-    /**
-     * @return Custom read timeout, in seconds. Default: 30.
-     * 
-     */
     private @Nullable Integer originReadTimeout;
-    /**
-     * @return List of SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS.
-     * 
-     */
     private List<String> originSslProtocols;
 
     private MultitenantDistributionOriginCustomOriginConfig() {}
-    /**
-     * @return HTTP port the custom origin listens on.
-     * 
-     */
     public Integer httpPort() {
         return this.httpPort;
     }
-    /**
-     * @return HTTPS port the custom origin listens on.
-     * 
-     */
     public Integer httpsPort() {
         return this.httpsPort;
     }
-    /**
-     * @return Type of IP addresses used by your origins. Valid values are `ipv4` and `dualstack`.
-     * 
-     */
     public Optional<String> ipAddressType() {
         return Optional.ofNullable(this.ipAddressType);
     }
-    /**
-     * @return Custom keep-alive timeout, in seconds. Default: 5.
-     * 
-     */
     public Optional<Integer> originKeepaliveTimeout() {
         return Optional.ofNullable(this.originKeepaliveTimeout);
     }
-    /**
-     * @return Origin protocol policy to apply to your origin. Valid values are `http-only`, `https-only`, and `match-viewer`.
-     * 
-     */
     public String originProtocolPolicy() {
         return this.originProtocolPolicy;
     }
-    /**
-     * @return Custom read timeout, in seconds. Default: 30.
-     * 
-     */
     public Optional<Integer> originReadTimeout() {
         return Optional.ofNullable(this.originReadTimeout);
     }
-    /**
-     * @return List of SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS.
-     * 
-     */
     public List<String> originSslProtocols() {
         return this.originSslProtocols;
     }

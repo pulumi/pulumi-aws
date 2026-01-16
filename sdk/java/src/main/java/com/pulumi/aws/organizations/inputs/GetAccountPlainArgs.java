@@ -16,32 +16,16 @@ public final class GetAccountPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetAccountPlainArgs Empty = new GetAccountPlainArgs();
 
-    /**
-     * Account ID number of a delegated administrator account in the organization.
-     * 
-     */
     @Import(name="accountId", required=true)
     private String accountId;
 
-    /**
-     * @return Account ID number of a delegated administrator account in the organization.
-     * 
-     */
     public String accountId() {
         return this.accountId;
     }
 
-    /**
-     * Map of tags for the resource.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -71,23 +55,11 @@ public final class GetAccountPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetAccountPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId Account ID number of a delegated administrator account in the organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param tags Map of tags for the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

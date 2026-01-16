@@ -17,316 +17,41 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS CloudWatch Observability Admin Centralization Rule For Organization.
- * 
- * Centralization rules enable you to centralize log data from multiple AWS accounts and regions within your organization to a single destination account and region. This helps with log management, compliance, and cost optimization by consolidating logs in a central location.
- * 
- * This requires an AWS account within an organization with at least [delegated administrator permissions](https://docs.aws.amazon.com/organizations/latest/APIReference/API_RegisterDelegatedAdministrator.html).
- * 
- * ## Example Usage
- * 
- * ### Basic Centralization Rule
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.organizations.OrganizationsFunctions;
- * import com.pulumi.aws.observabilityadmin.CentralizationRuleForOrganization;
- * import com.pulumi.aws.observabilityadmin.CentralizationRuleForOrganizationArgs;
- * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleArgs;
- * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleDestinationArgs;
- * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleSourceArgs;
- * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         final var currentGetOrganization = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
- * 
- *         var example = new CentralizationRuleForOrganization("example", CentralizationRuleForOrganizationArgs.builder()
- *             .ruleName("example-centralization-rule")
- *             .rule(CentralizationRuleForOrganizationRuleArgs.builder()
- *                 .destination(CentralizationRuleForOrganizationRuleDestinationArgs.builder()
- *                     .region("eu-west-1")
- *                     .account(current.accountId())
- *                     .build())
- *                 .source(CentralizationRuleForOrganizationRuleSourceArgs.builder()
- *                     .regions("ap-southeast-1")
- *                     .scope(String.format("OrganizationId = '%s'", currentGetOrganization.id()))
- *                     .sourceLogsConfiguration(CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs.builder()
- *                         .encryptedLogGroupStrategy("SKIP")
- *                         .logGroupSelectionCriteria("*")
- *                         .build())
- *                     .build())
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry("Name", "example-centralization-rule"),
- *                 Map.entry("Environment", "production")
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Advanced Configuration with Encryption and Backup
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.organizations.OrganizationsFunctions;
- * import com.pulumi.aws.observabilityadmin.CentralizationRuleForOrganization;
- * import com.pulumi.aws.observabilityadmin.CentralizationRuleForOrganizationArgs;
- * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleArgs;
- * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleDestinationArgs;
- * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs;
- * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs;
- * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs;
- * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleSourceArgs;
- * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         final var currentGetOrganization = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
- * 
- *         var advanced = new CentralizationRuleForOrganization("advanced", CentralizationRuleForOrganizationArgs.builder()
- *             .ruleName("advanced-centralization-rule")
- *             .rule(CentralizationRuleForOrganizationRuleArgs.builder()
- *                 .destination(CentralizationRuleForOrganizationRuleDestinationArgs.builder()
- *                     .region("eu-west-1")
- *                     .account(current.accountId())
- *                     .destinationLogsConfiguration(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs.builder()
- *                         .logsEncryptionConfiguration(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs.builder()
- *                             .encryptionStrategy("AWS_OWNED")
- *                             .build())
- *                         .backupConfiguration(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs.builder()
- *                             .region("us-west-1")
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .source(CentralizationRuleForOrganizationRuleSourceArgs.builder()
- *                     .regions(                    
- *                         "ap-southeast-1",
- *                         "us-east-1")
- *                     .scope(String.format("OrganizationId = '%s'", currentGetOrganization.id()))
- *                     .sourceLogsConfiguration(CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs.builder()
- *                         .encryptedLogGroupStrategy("ALLOW")
- *                         .logGroupSelectionCriteria("*")
- *                         .build())
- *                     .build())
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry("Name", "advanced-centralization-rule"),
- *                 Map.entry("Environment", "production"),
- *                 Map.entry("Team", "observability")
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Selective Log Group Filtering
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.organizations.OrganizationsFunctions;
- * import com.pulumi.aws.observabilityadmin.CentralizationRuleForOrganization;
- * import com.pulumi.aws.observabilityadmin.CentralizationRuleForOrganizationArgs;
- * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleArgs;
- * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleDestinationArgs;
- * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleSourceArgs;
- * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         final var currentGetOrganization = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
- * 
- *         var filtered = new CentralizationRuleForOrganization("filtered", CentralizationRuleForOrganizationArgs.builder()
- *             .ruleName("filtered-centralization-rule")
- *             .rule(CentralizationRuleForOrganizationRuleArgs.builder()
- *                 .destination(CentralizationRuleForOrganizationRuleDestinationArgs.builder()
- *                     .region("eu-west-1")
- *                     .account(current.accountId())
- *                     .build())
- *                 .source(CentralizationRuleForOrganizationRuleSourceArgs.builder()
- *                     .regions(                    
- *                         "ap-southeast-1",
- *                         "us-east-1")
- *                     .scope(String.format("OrganizationId = '%s'", currentGetOrganization.id()))
- *                     .sourceLogsConfiguration(CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs.builder()
- *                         .encryptedLogGroupStrategy("ALLOW")
- *                         .logGroupSelectionCriteria("LogGroupName LIKE '/aws/lambda%'")
- *                         .build())
- *                     .build())
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry("Name", "filtered-centralization-rule"),
- *                 Map.entry("Filter", "lambda-logs")
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CloudWatch Observability Admin Centralization Rule For Organization using the `rule_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:observabilityadmin/centralizationRuleForOrganization:CentralizationRuleForOrganization example example-centralization-rule
- * ```
- * 
- */
 @ResourceType(type="aws:observabilityadmin/centralizationRuleForOrganization:CentralizationRuleForOrganization")
 public class CentralizationRuleForOrganization extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Configuration block for the centralization rule. See `rule` below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="rule", refs={CentralizationRuleForOrganizationRule.class}, tree="[0]")
     private Output</* @Nullable */ CentralizationRuleForOrganizationRule> rule;
 
-    /**
-     * @return Configuration block for the centralization rule. See `rule` below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<CentralizationRuleForOrganizationRule>> rule() {
         return Codegen.optional(this.rule);
     }
-    /**
-     * ARN of the centralization rule.
-     * 
-     */
     @Export(name="ruleArn", refs={String.class}, tree="[0]")
     private Output<String> ruleArn;
 
-    /**
-     * @return ARN of the centralization rule.
-     * 
-     */
     public Output<String> ruleArn() {
         return this.ruleArn;
     }
-    /**
-     * Name of the centralization rule. Must be unique within the organization.
-     * 
-     */
     @Export(name="ruleName", refs={String.class}, tree="[0]")
     private Output<String> ruleName;
 
-    /**
-     * @return Name of the centralization rule. Must be unique within the organization.
-     * 
-     */
     public Output<String> ruleName() {
         return this.ruleName;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

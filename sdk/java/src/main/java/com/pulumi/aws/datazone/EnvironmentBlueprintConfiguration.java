@@ -16,172 +16,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS DataZone Environment Blueprint Configuration.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.datazone.Domain;
- * import com.pulumi.aws.datazone.DomainArgs;
- * import com.pulumi.aws.datazone.DatazoneFunctions;
- * import com.pulumi.aws.datazone.inputs.GetEnvironmentBlueprintArgs;
- * import com.pulumi.aws.datazone.EnvironmentBlueprintConfiguration;
- * import com.pulumi.aws.datazone.EnvironmentBlueprintConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Domain("example", DomainArgs.builder()
- *             .name("example_domain")
- *             .domainExecutionRole(domainExecutionRole.arn())
- *             .build());
- * 
- *         final var defaultDataLake = DatazoneFunctions.getEnvironmentBlueprint(GetEnvironmentBlueprintArgs.builder()
- *             .domainId(example.id())
- *             .name("DefaultDataLake")
- *             .managed(true)
- *             .build());
- * 
- *         var exampleEnvironmentBlueprintConfiguration = new EnvironmentBlueprintConfiguration("exampleEnvironmentBlueprintConfiguration", EnvironmentBlueprintConfigurationArgs.builder()
- *             .domainId(example.id())
- *             .environmentBlueprintId(defaultDataLake.applyValue(_defaultDataLake -> _defaultDataLake.id()))
- *             .enabledRegions("us-east-1")
- *             .regionalParameters(Map.of("us-east-1", Map.of("s3Location", "s3://my-amazon-datazone-bucket")))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import DataZone Environment Blueprint Configuration using the `domain_id` and `environment_blueprint_id`, separated by a `/`. For example:
- * 
- * ```sh
- * $ pulumi import aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration example domain-id-12345/environment-blueprint-id-54321
- * ```
- * 
- */
 @ResourceType(type="aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration")
 public class EnvironmentBlueprintConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * ID of the Domain.
-     * 
-     */
     @Export(name="domainId", refs={String.class}, tree="[0]")
     private Output<String> domainId;
 
-    /**
-     * @return ID of the Domain.
-     * 
-     */
     public Output<String> domainId() {
         return this.domainId;
     }
-    /**
-     * Regions in which the blueprint is enabled
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="enabledRegions", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> enabledRegions;
 
-    /**
-     * @return Regions in which the blueprint is enabled
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<List<String>> enabledRegions() {
         return this.enabledRegions;
     }
-    /**
-     * ID of the Environment Blueprint
-     * 
-     */
     @Export(name="environmentBlueprintId", refs={String.class}, tree="[0]")
     private Output<String> environmentBlueprintId;
 
-    /**
-     * @return ID of the Environment Blueprint
-     * 
-     */
     public Output<String> environmentBlueprintId() {
         return this.environmentBlueprintId;
     }
-    /**
-     * ARN of the manage access role with which this blueprint is created.
-     * 
-     */
     @Export(name="manageAccessRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> manageAccessRoleArn;
 
-    /**
-     * @return ARN of the manage access role with which this blueprint is created.
-     * 
-     */
     public Output<Optional<String>> manageAccessRoleArn() {
         return Codegen.optional(this.manageAccessRoleArn);
     }
-    /**
-     * ARN of the provisioning role with which this blueprint is created.
-     * 
-     */
     @Export(name="provisioningRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> provisioningRoleArn;
 
-    /**
-     * @return ARN of the provisioning role with which this blueprint is created.
-     * 
-     */
     public Output<Optional<String>> provisioningRoleArn() {
         return Codegen.optional(this.provisioningRoleArn);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Parameters for each region in which the blueprint is enabled
-     * 
-     */
     @Export(name="regionalParameters", refs={Map.class,String.class}, tree="[0,1,[0,1,1]]")
     private Output</* @Nullable */ Map<String,Map<String,String>>> regionalParameters;
 
-    /**
-     * @return Parameters for each region in which the blueprint is enabled
-     * 
-     */
     public Output<Optional<Map<String,Map<String,String>>>> regionalParameters() {
         return Codegen.optional(this.regionalParameters);
     }

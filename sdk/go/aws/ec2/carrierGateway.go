@@ -12,59 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an EC2 Carrier Gateway. See the AWS [documentation](https://docs.aws.amazon.com/vpc/latest/userguide/Carrier_Gateway.html) for more information.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewCarrierGateway(ctx, "example", &ec2.CarrierGatewayArgs{
-//				VpcId: pulumi.Any(exampleAwsVpc.Id),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example-carrier-gateway"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_ec2_carrier_gateway` using the carrier gateway's ID. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/carrierGateway:CarrierGateway example cgw-12345
-// ```
 type CarrierGateway struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the carrier gateway.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The AWS account ID of the owner of the carrier gateway.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	Arn     pulumi.StringOutput    `pulumi:"arn"`
+	OwnerId pulumi.StringOutput    `pulumi:"ownerId"`
+	Region  pulumi.StringOutput    `pulumi:"region"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The ID of the VPC to associate with the carrier gateway.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId   pulumi.StringOutput    `pulumi:"vpcId"`
 }
 
 // NewCarrierGateway registers a new resource with the given unique name, arguments, and options.
@@ -100,33 +56,21 @@ func GetCarrierGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CarrierGateway resources.
 type carrierGatewayState struct {
-	// The ARN of the carrier gateway.
-	Arn *string `pulumi:"arn"`
-	// The AWS account ID of the owner of the carrier gateway.
-	OwnerId *string `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	Arn     *string           `pulumi:"arn"`
+	OwnerId *string           `pulumi:"ownerId"`
+	Region  *string           `pulumi:"region"`
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The ID of the VPC to associate with the carrier gateway.
-	VpcId *string `pulumi:"vpcId"`
+	VpcId   *string           `pulumi:"vpcId"`
 }
 
 type CarrierGatewayState struct {
-	// The ARN of the carrier gateway.
-	Arn pulumi.StringPtrInput
-	// The AWS account ID of the owner of the carrier gateway.
+	Arn     pulumi.StringPtrInput
 	OwnerId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	Region  pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
-	// The ID of the VPC to associate with the carrier gateway.
-	VpcId pulumi.StringPtrInput
+	VpcId   pulumi.StringPtrInput
 }
 
 func (CarrierGatewayState) ElementType() reflect.Type {
@@ -134,22 +78,16 @@ func (CarrierGatewayState) ElementType() reflect.Type {
 }
 
 type carrierGatewayArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The ID of the VPC to associate with the carrier gateway.
-	VpcId string `pulumi:"vpcId"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
+	VpcId  string            `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a CarrierGateway resource.
 type CarrierGatewayArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The ID of the VPC to associate with the carrier gateway.
-	VpcId pulumi.StringInput
+	Tags   pulumi.StringMapInput
+	VpcId  pulumi.StringInput
 }
 
 func (CarrierGatewayArgs) ElementType() reflect.Type {
@@ -239,32 +177,26 @@ func (o CarrierGatewayOutput) ToCarrierGatewayOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The ARN of the carrier gateway.
 func (o CarrierGatewayOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CarrierGateway) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AWS account ID of the owner of the carrier gateway.
 func (o CarrierGatewayOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CarrierGateway) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CarrierGatewayOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CarrierGateway) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CarrierGatewayOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CarrierGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CarrierGatewayOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CarrierGateway) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The ID of the VPC to associate with the carrier gateway.
 func (o CarrierGatewayOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CarrierGateway) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

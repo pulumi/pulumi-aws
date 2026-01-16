@@ -4,39 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing AWS Cost Optimization Hub Enrollment Status.
- *
- * > **TIP:** The Cost Optimization Hub only has a `us-east-1` endpoint. However, you can access the service globally with the AWS Provider from other regions. Other tools, such as the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cost-optimization-hub/index.html), may require you to specify the `us-east-1` region when using the service.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.costoptimizationhub.EnrollmentStatus("example", {});
- * ```
- *
- * ### Usage with all the arguments
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.costoptimizationhub.EnrollmentStatus("example", {includeMemberAccounts: true});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Cost Optimization Hub Enrollment Status using your AWS account ID. For example:
- *
- * ```sh
- * $ pulumi import aws:costoptimizationhub/enrollmentStatus:EnrollmentStatus example 111222333444
- * ```
- */
 export class EnrollmentStatus extends pulumi.CustomResource {
     /**
      * Get an existing EnrollmentStatus resource's state with the given name, ID, and optional extra
@@ -65,9 +32,6 @@ export class EnrollmentStatus extends pulumi.CustomResource {
         return obj['__pulumiType'] === EnrollmentStatus.__pulumiType;
     }
 
-    /**
-     * Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
-     */
     declare public readonly includeMemberAccounts: pulumi.Output<boolean>;
     declare public /*out*/ readonly status: pulumi.Output<string>;
 
@@ -100,9 +64,6 @@ export class EnrollmentStatus extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EnrollmentStatus resources.
  */
 export interface EnrollmentStatusState {
-    /**
-     * Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
-     */
     includeMemberAccounts?: pulumi.Input<boolean>;
     status?: pulumi.Input<string>;
 }
@@ -111,8 +72,5 @@ export interface EnrollmentStatusState {
  * The set of arguments for constructing a EnrollmentStatus resource.
  */
 export interface EnrollmentStatusArgs {
-    /**
-     * Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
-     */
     includeMemberAccounts?: pulumi.Input<boolean>;
 }

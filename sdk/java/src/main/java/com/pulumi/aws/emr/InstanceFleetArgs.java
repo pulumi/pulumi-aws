@@ -20,107 +20,51 @@ public final class InstanceFleetArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final InstanceFleetArgs Empty = new InstanceFleetArgs();
 
-    /**
-     * ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-     * 
-     */
     @Import(name="clusterId", required=true)
     private Output<String> clusterId;
 
-    /**
-     * @return ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<String> clusterId() {
         return this.clusterId;
     }
 
-    /**
-     * Configuration block for instance fleet
-     * 
-     */
     @Import(name="instanceTypeConfigs")
     private @Nullable Output<List<InstanceFleetInstanceTypeConfigArgs>> instanceTypeConfigs;
 
-    /**
-     * @return Configuration block for instance fleet
-     * 
-     */
     public Optional<Output<List<InstanceFleetInstanceTypeConfigArgs>>> instanceTypeConfigs() {
         return Optional.ofNullable(this.instanceTypeConfigs);
     }
 
-    /**
-     * Configuration block for launch specification
-     * 
-     */
     @Import(name="launchSpecifications")
     private @Nullable Output<InstanceFleetLaunchSpecificationsArgs> launchSpecifications;
 
-    /**
-     * @return Configuration block for launch specification
-     * 
-     */
     public Optional<Output<InstanceFleetLaunchSpecificationsArgs>> launchSpecifications() {
         return Optional.ofNullable(this.launchSpecifications);
     }
 
-    /**
-     * Friendly name given to the instance fleet.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Friendly name given to the instance fleet.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-     * 
-     */
     @Import(name="targetOnDemandCapacity")
     private @Nullable Output<Integer> targetOnDemandCapacity;
 
-    /**
-     * @return The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-     * 
-     */
     public Optional<Output<Integer>> targetOnDemandCapacity() {
         return Optional.ofNullable(this.targetOnDemandCapacity);
     }
 
-    /**
-     * The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-     * 
-     */
     @Import(name="targetSpotCapacity")
     private @Nullable Output<Integer> targetSpotCapacity;
 
-    /**
-     * @return The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-     * 
-     */
     public Optional<Output<Integer>> targetSpotCapacity() {
         return Optional.ofNullable(this.targetSpotCapacity);
     }
@@ -155,159 +99,69 @@ public final class InstanceFleetArgs extends com.pulumi.resources.ResourceArgs {
             $ = new InstanceFleetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusterId ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterId(Output<String> clusterId) {
             $.clusterId = clusterId;
             return this;
         }
 
-        /**
-         * @param clusterId ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterId(String clusterId) {
             return clusterId(Output.of(clusterId));
         }
 
-        /**
-         * @param instanceTypeConfigs Configuration block for instance fleet
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceTypeConfigs(@Nullable Output<List<InstanceFleetInstanceTypeConfigArgs>> instanceTypeConfigs) {
             $.instanceTypeConfigs = instanceTypeConfigs;
             return this;
         }
 
-        /**
-         * @param instanceTypeConfigs Configuration block for instance fleet
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceTypeConfigs(List<InstanceFleetInstanceTypeConfigArgs> instanceTypeConfigs) {
             return instanceTypeConfigs(Output.of(instanceTypeConfigs));
         }
 
-        /**
-         * @param instanceTypeConfigs Configuration block for instance fleet
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceTypeConfigs(InstanceFleetInstanceTypeConfigArgs... instanceTypeConfigs) {
             return instanceTypeConfigs(List.of(instanceTypeConfigs));
         }
 
-        /**
-         * @param launchSpecifications Configuration block for launch specification
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchSpecifications(@Nullable Output<InstanceFleetLaunchSpecificationsArgs> launchSpecifications) {
             $.launchSpecifications = launchSpecifications;
             return this;
         }
 
-        /**
-         * @param launchSpecifications Configuration block for launch specification
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchSpecifications(InstanceFleetLaunchSpecificationsArgs launchSpecifications) {
             return launchSpecifications(Output.of(launchSpecifications));
         }
 
-        /**
-         * @param name Friendly name given to the instance fleet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Friendly name given to the instance fleet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param targetOnDemandCapacity The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetOnDemandCapacity(@Nullable Output<Integer> targetOnDemandCapacity) {
             $.targetOnDemandCapacity = targetOnDemandCapacity;
             return this;
         }
 
-        /**
-         * @param targetOnDemandCapacity The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetOnDemandCapacity(Integer targetOnDemandCapacity) {
             return targetOnDemandCapacity(Output.of(targetOnDemandCapacity));
         }
 
-        /**
-         * @param targetSpotCapacity The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetSpotCapacity(@Nullable Output<Integer> targetSpotCapacity) {
             $.targetSpotCapacity = targetSpotCapacity;
             return this;
         }
 
-        /**
-         * @param targetSpotCapacity The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetSpotCapacity(Integer targetSpotCapacity) {
             return targetSpotCapacity(Output.of(targetSpotCapacity));
         }

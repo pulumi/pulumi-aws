@@ -14,28 +14,17 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     {
         [Input("customImages")]
         private InputList<Inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageGetArgs>? _customImages;
-
-        /// <summary>
-        /// A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see `CustomImage` Block below.
-        /// </summary>
         public InputList<Inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageGetArgs> CustomImages
         {
             get => _customImages ?? (_customImages = new InputList<Inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageGetArgs>());
             set => _customImages = value;
         }
 
-        /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `DefaultResourceSpec` Block below.
-        /// </summary>
         [Input("defaultResourceSpec")]
         public Input<Inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecGetArgs>? DefaultResourceSpec { get; set; }
 
         [Input("lifecycleConfigArns")]
         private InputList<string>? _lifecycleConfigArns;
-
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-        /// </summary>
         public InputList<string> LifecycleConfigArns
         {
             get => _lifecycleConfigArns ?? (_lifecycleConfigArns = new InputList<string>());

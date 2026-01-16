@@ -13,21 +13,9 @@ namespace Pulumi.Aws.WorkSpacesWeb.Outputs
     [OutputType]
     public sealed class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern
     {
-        /// <summary>
-        /// The keyword regex for the customer pattern.
-        /// </summary>
         public readonly string? KeywordRegex;
-        /// <summary>
-        /// The pattern description for the customer pattern.
-        /// </summary>
         public readonly string? PatternDescription;
-        /// <summary>
-        /// The pattern name for the custom pattern.
-        /// </summary>
         public readonly string PatternName;
-        /// <summary>
-        /// The pattern regex for the customer pattern. The format must follow JavaScript regex format.
-        /// </summary>
         public readonly string PatternRegex;
 
         [OutputConstructor]

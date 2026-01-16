@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FilterFilterCriteriaEcrImagePushedAt {
-    /**
-     * @return (Required) The end of the port range, inclusive.
-     * 
-     */
     private @Nullable String endInclusive;
-    /**
-     * @return (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
-     * 
-     */
     private @Nullable String startInclusive;
 
     private FilterFilterCriteriaEcrImagePushedAt() {}
-    /**
-     * @return (Required) The end of the port range, inclusive.
-     * 
-     */
     public Optional<String> endInclusive() {
         return Optional.ofNullable(this.endInclusive);
     }
-    /**
-     * @return (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
-     * 
-     */
     public Optional<String> startInclusive() {
         return Optional.ofNullable(this.startInclusive);
     }

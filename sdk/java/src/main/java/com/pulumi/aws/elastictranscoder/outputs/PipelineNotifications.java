@@ -11,73 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipelineNotifications {
-    /**
-     * @return The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
-     * 
-     */
     private @Nullable String completed;
-    /**
-     * @return The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
-     * 
-     */
     private @Nullable String error;
-    /**
-     * @return The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
-     * 
-     */
     private @Nullable String progressing;
-    /**
-     * @return The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
-     * 
-     * The `thumbnailConfig` object specifies information about the Amazon S3 bucket in
-     * which you want Elastic Transcoder to save thumbnail files: which bucket to use,
-     * which users you want to have access to the files, the type of access you want
-     * users to have, and the storage class that you want to assign to the files. If
-     * you specify values for `contentConfig`, you must also specify values for
-     * `thumbnailConfig` even if you don&#39;t want to create thumbnails. (You control
-     * whether to create thumbnails when you create a job. For more information, see
-     * ThumbnailPattern in the topic Create Job.) If you specify values for
-     * `contentConfig` and `thumbnailConfig`, omit the OutputBucket object.
-     * 
-     */
     private @Nullable String warning;
 
     private PipelineNotifications() {}
-    /**
-     * @return The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
-     * 
-     */
     public Optional<String> completed() {
         return Optional.ofNullable(this.completed);
     }
-    /**
-     * @return The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
-     * 
-     */
     public Optional<String> error() {
         return Optional.ofNullable(this.error);
     }
-    /**
-     * @return The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
-     * 
-     */
     public Optional<String> progressing() {
         return Optional.ofNullable(this.progressing);
     }
-    /**
-     * @return The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
-     * 
-     * The `thumbnailConfig` object specifies information about the Amazon S3 bucket in
-     * which you want Elastic Transcoder to save thumbnail files: which bucket to use,
-     * which users you want to have access to the files, the type of access you want
-     * users to have, and the storage class that you want to assign to the files. If
-     * you specify values for `contentConfig`, you must also specify values for
-     * `thumbnailConfig` even if you don&#39;t want to create thumbnails. (You control
-     * whether to create thumbnails when you create a job. For more information, see
-     * ThumbnailPattern in the topic Create Job.) If you specify values for
-     * `contentConfig` and `thumbnailConfig`, omit the OutputBucket object.
-     * 
-     */
     public Optional<String> warning() {
         return Optional.ofNullable(this.warning);
     }

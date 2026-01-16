@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GraphQLApiLogConfig {
-    /**
-     * @return Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
-     * 
-     */
     private String cloudwatchLogsRoleArn;
-    /**
-     * @return Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging  level. Valid values: `true`, `false`. Default value: `false`
-     * 
-     */
     private @Nullable Boolean excludeVerboseContent;
-    /**
-     * @return Field logging level. Valid values: `ALL`, `ERROR`, `NONE`.
-     * 
-     */
     private String fieldLogLevel;
 
     private GraphQLApiLogConfig() {}
-    /**
-     * @return Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
-     * 
-     */
     public String cloudwatchLogsRoleArn() {
         return this.cloudwatchLogsRoleArn;
     }
-    /**
-     * @return Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging  level. Valid values: `true`, `false`. Default value: `false`
-     * 
-     */
     public Optional<Boolean> excludeVerboseContent() {
         return Optional.ofNullable(this.excludeVerboseContent);
     }
-    /**
-     * @return Field logging level. Valid values: `ALL`, `ERROR`, `NONE`.
-     * 
-     */
     public String fieldLogLevel() {
         return this.fieldLogLevel;
     }

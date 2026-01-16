@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Retrieve information about a AWS Elemental MediaConvert Queue.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.mediaconvert.getQueue({
- *     id: "tf-example-queue",
- * });
- * ```
- */
 export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:mediaconvert/getQueue:getQueue", {
@@ -31,17 +17,8 @@ export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getQueue.
  */
 export interface GetQueueArgs {
-    /**
-     * Unique identifier of the queue. The same as `name`.
-     */
     id: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -49,39 +26,13 @@ export interface GetQueueArgs {
  * A collection of values returned by getQueue.
  */
 export interface GetQueueResult {
-    /**
-     * The Arn of the queue.
-     */
     readonly arn: string;
     readonly id: string;
-    /**
-     * The same as `id`.
-     */
     readonly name: string;
     readonly region: string;
-    /**
-     * The status of the queue.
-     */
     readonly status: string;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     readonly tags: {[key: string]: string};
 }
-/**
- * Retrieve information about a AWS Elemental MediaConvert Queue.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.mediaconvert.getQueue({
- *     id: "tf-example-queue",
- * });
- * ```
- */
 export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQueueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:mediaconvert/getQueue:getQueue", {
@@ -95,16 +46,7 @@ export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOut
  * A collection of arguments for invoking getQueue.
  */
 export interface GetQueueOutputArgs {
-    /**
-     * Unique identifier of the queue. The same as `name`.
-     */
     id: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

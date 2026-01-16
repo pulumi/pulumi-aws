@@ -12,30 +12,17 @@ namespace Pulumi.Aws.Organizations.Inputs
 
     public sealed class OrganizationRootGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the root.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Identifier of the root.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// Name of the policy type.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("policyTypes")]
         private InputList<Inputs.OrganizationRootPolicyTypeGetArgs>? _policyTypes;
-
-        /// <summary>
-        /// List of policy types enabled for this root. All elements have these attributes:
-        /// </summary>
         public InputList<Inputs.OrganizationRootPolicyTypeGetArgs> PolicyTypes
         {
             get => _policyTypes ?? (_policyTypes = new InputList<Inputs.OrganizationRootPolicyTypeGetArgs>());

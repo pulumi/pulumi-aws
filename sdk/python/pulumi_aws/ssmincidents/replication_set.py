@@ -26,21 +26,6 @@ class ReplicationSetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReplicationSet resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]] region: The replication set's Regions. Use `regions` instead.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]] regions: The replication set's Regions.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
-               
-               > **NOTE:** The Region specified by a provider must always be one of the Regions specified for the replication set. This is especially important when you perform complex update operations.
-               
-               > **NOTE:** After a replication set is created, you can add or delete only one Region at a time.
-               
-               > **NOTE:** Incident Manager does not support updating the customer managed key associated with a replication set. Instead, for a replication set with multiple Regions, you must first delete a Region from the replication set, then re-add it with a different customer managed key in separate deploy operations. For a replication set with only one Region, the entire replication set must be deleted and recreated. To do this, comment out the replication set and all response plans, and then run the deploy command to recreate the replication set with the new customer managed key.
-               
-               > **NOTE:** You must either use AWS-owned keys on all regions of a replication set, or customer managed keys. To change between an AWS owned key and a customer managed key, a replication set and it associated data must be deleted and recreated.
-               
-               > **NOTE:** If possible, create all the customer managed keys you need (using the deploy command) before you create the replication set, or create the keys and replication set in the same deploy command. Otherwise, to delete a replication set, you must run one deploy command to delete the replication set and another to delete the AWS KMS keys used by the replication set. Deleting the AWS KMS keys before deleting the replication set results in an error. In that case, you must manually reenable the deleted key using the AWS Management Console before you can delete the replication set.
         """
         if region is not None:
             warnings.warn("""region is deprecated. Use regions instead.""", DeprecationWarning)
@@ -56,9 +41,6 @@ class ReplicationSetArgs:
     @pulumi.getter
     @_utilities.deprecated("""region is deprecated. Use regions instead.""")
     def region(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]:
-        """
-        The replication set's Regions. Use `regions` instead.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -68,9 +50,6 @@ class ReplicationSetArgs:
     @_builtins.property
     @pulumi.getter
     def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]:
-        """
-        The replication set's Regions.
-        """
         return pulumi.get(self, "regions")
 
     @regions.setter
@@ -80,21 +59,6 @@ class ReplicationSetArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
-
-        > **NOTE:** The Region specified by a provider must always be one of the Regions specified for the replication set. This is especially important when you perform complex update operations.
-
-        > **NOTE:** After a replication set is created, you can add or delete only one Region at a time.
-
-        > **NOTE:** Incident Manager does not support updating the customer managed key associated with a replication set. Instead, for a replication set with multiple Regions, you must first delete a Region from the replication set, then re-add it with a different customer managed key in separate deploy operations. For a replication set with only one Region, the entire replication set must be deleted and recreated. To do this, comment out the replication set and all response plans, and then run the deploy command to recreate the replication set with the new customer managed key.
-
-        > **NOTE:** You must either use AWS-owned keys on all regions of a replication set, or customer managed keys. To change between an AWS owned key and a customer managed key, a replication set and it associated data must be deleted and recreated.
-
-        > **NOTE:** If possible, create all the customer managed keys you need (using the deploy command) before you create the replication set, or create the keys and replication set in the same deploy command. Otherwise, to delete a replication set, you must run one deploy command to delete the replication set and another to delete the AWS KMS keys used by the replication set. Deleting the AWS KMS keys before deleting the replication set results in an error. In that case, you must manually reenable the deleted key using the AWS Management Console before you can delete the replication set.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -116,28 +80,6 @@ class _ReplicationSetState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ReplicationSet resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the replication set.
-        :param pulumi.Input[_builtins.str] created_by: The ARN of the user who created the replication set.
-        :param pulumi.Input[_builtins.bool] deletion_protected: If `true`, the last region in a replication set cannot be deleted.
-        :param pulumi.Input[_builtins.str] last_modified_by: A timestamp showing when the replication set was last modified.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]] region: The replication set's Regions. Use `regions` instead.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]] regions: The replication set's Regions.
-        :param pulumi.Input[_builtins.str] status: The current status of the Region.
-               * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
-               
-               > **NOTE:** The Region specified by a provider must always be one of the Regions specified for the replication set. This is especially important when you perform complex update operations.
-               
-               > **NOTE:** After a replication set is created, you can add or delete only one Region at a time.
-               
-               > **NOTE:** Incident Manager does not support updating the customer managed key associated with a replication set. Instead, for a replication set with multiple Regions, you must first delete a Region from the replication set, then re-add it with a different customer managed key in separate deploy operations. For a replication set with only one Region, the entire replication set must be deleted and recreated. To do this, comment out the replication set and all response plans, and then run the deploy command to recreate the replication set with the new customer managed key.
-               
-               > **NOTE:** You must either use AWS-owned keys on all regions of a replication set, or customer managed keys. To change between an AWS owned key and a customer managed key, a replication set and it associated data must be deleted and recreated.
-               
-               > **NOTE:** If possible, create all the customer managed keys you need (using the deploy command) before you create the replication set, or create the keys and replication set in the same deploy command. Otherwise, to delete a replication set, you must run one deploy command to delete the replication set and another to delete the AWS KMS keys used by the replication set. Deleting the AWS KMS keys before deleting the replication set results in an error. In that case, you must manually reenable the deleted key using the AWS Management Console before you can delete the replication set.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -164,9 +106,6 @@ class _ReplicationSetState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the replication set.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -176,9 +115,6 @@ class _ReplicationSetState:
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the user who created the replication set.
-        """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
@@ -188,9 +124,6 @@ class _ReplicationSetState:
     @_builtins.property
     @pulumi.getter(name="deletionProtected")
     def deletion_protected(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If `true`, the last region in a replication set cannot be deleted.
-        """
         return pulumi.get(self, "deletion_protected")
 
     @deletion_protected.setter
@@ -200,9 +133,6 @@ class _ReplicationSetState:
     @_builtins.property
     @pulumi.getter(name="lastModifiedBy")
     def last_modified_by(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A timestamp showing when the replication set was last modified.
-        """
         return pulumi.get(self, "last_modified_by")
 
     @last_modified_by.setter
@@ -213,9 +143,6 @@ class _ReplicationSetState:
     @pulumi.getter
     @_utilities.deprecated("""region is deprecated. Use regions instead.""")
     def region(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]:
-        """
-        The replication set's Regions. Use `regions` instead.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -225,9 +152,6 @@ class _ReplicationSetState:
     @_builtins.property
     @pulumi.getter
     def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]:
-        """
-        The replication set's Regions.
-        """
         return pulumi.get(self, "regions")
 
     @regions.setter
@@ -237,10 +161,6 @@ class _ReplicationSetState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The current status of the Region.
-        * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -250,21 +170,6 @@ class _ReplicationSetState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
-
-        > **NOTE:** The Region specified by a provider must always be one of the Regions specified for the replication set. This is especially important when you perform complex update operations.
-
-        > **NOTE:** After a replication set is created, you can add or delete only one Region at a time.
-
-        > **NOTE:** Incident Manager does not support updating the customer managed key associated with a replication set. Instead, for a replication set with multiple Regions, you must first delete a Region from the replication set, then re-add it with a different customer managed key in separate deploy operations. For a replication set with only one Region, the entire replication set must be deleted and recreated. To do this, comment out the replication set and all response plans, and then run the deploy command to recreate the replication set with the new customer managed key.
-
-        > **NOTE:** You must either use AWS-owned keys on all regions of a replication set, or customer managed keys. To change between an AWS owned key and a customer managed key, a replication set and it associated data must be deleted and recreated.
-
-        > **NOTE:** If possible, create all the customer managed keys you need (using the deploy command) before you create the replication set, or create the keys and replication set in the same deploy command. Otherwise, to delete a replication set, you must run one deploy command to delete the replication set and another to delete the AWS KMS keys used by the replication set. Deleting the AWS KMS keys before deleting the replication set results in an error. In that case, you must manually reenable the deleted key using the AWS Management Console before you can delete the replication set.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -274,9 +179,6 @@ class _ReplicationSetState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -295,100 +197,9 @@ class ReplicationSet(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a resource for managing a replication set in AWS Systems Manager Incident Manager.
-
-        > **NOTE:** Deleting a replication set also deletes all Incident Manager related data including response plans, incident records, contacts and escalation plans.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        Create a replication set.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName",
-            regions=[{
-                "name": "us-west-2",
-            }],
-            tags={
-                "exampleTag": "exampleValue",
-            })
-        ```
-
-        Add a Region to a replication set. (You can add only one Region at a time.)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName", regions=[
-            {
-                "name": "us-west-2",
-            },
-            {
-                "name": "ap-southeast-2",
-            },
-        ])
-        ```
-
-        Delete a Region from a replication set. (You can delete only one Region at a time.)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName", regions=[{
-            "name": "us-west-2",
-        }])
-        ```
-
-        ## Basic Usage with an AWS Customer Managed Key
-
-        Create a replication set with an AWS Key Management Service (AWS KMS) customer manager key:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_key = aws.kms.Key("example_key")
-        replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName",
-            regions=[{
-                "name": "us-west-2",
-                "kms_key_arn": example_key.arn,
-            }],
-            tags={
-                "exampleTag": "exampleValue",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import an Incident Manager replication. For example:
-
-        ```sh
-        $ pulumi import aws:ssmincidents/replicationSet:ReplicationSet replicationSetName import
-        ```
-
+        Create a ReplicationSet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]] region: The replication set's Regions. Use `regions` instead.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]] regions: The replication set's Regions.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
-               
-               > **NOTE:** The Region specified by a provider must always be one of the Regions specified for the replication set. This is especially important when you perform complex update operations.
-               
-               > **NOTE:** After a replication set is created, you can add or delete only one Region at a time.
-               
-               > **NOTE:** Incident Manager does not support updating the customer managed key associated with a replication set. Instead, for a replication set with multiple Regions, you must first delete a Region from the replication set, then re-add it with a different customer managed key in separate deploy operations. For a replication set with only one Region, the entire replication set must be deleted and recreated. To do this, comment out the replication set and all response plans, and then run the deploy command to recreate the replication set with the new customer managed key.
-               
-               > **NOTE:** You must either use AWS-owned keys on all regions of a replication set, or customer managed keys. To change between an AWS owned key and a customer managed key, a replication set and it associated data must be deleted and recreated.
-               
-               > **NOTE:** If possible, create all the customer managed keys you need (using the deploy command) before you create the replication set, or create the keys and replication set in the same deploy command. Otherwise, to delete a replication set, you must run one deploy command to delete the replication set and another to delete the AWS KMS keys used by the replication set. Deleting the AWS KMS keys before deleting the replication set results in an error. In that case, you must manually reenable the deleted key using the AWS Management Console before you can delete the replication set.
         """
         ...
     @overload
@@ -397,83 +208,7 @@ class ReplicationSet(pulumi.CustomResource):
                  args: Optional[ReplicationSetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource for managing a replication set in AWS Systems Manager Incident Manager.
-
-        > **NOTE:** Deleting a replication set also deletes all Incident Manager related data including response plans, incident records, contacts and escalation plans.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        Create a replication set.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName",
-            regions=[{
-                "name": "us-west-2",
-            }],
-            tags={
-                "exampleTag": "exampleValue",
-            })
-        ```
-
-        Add a Region to a replication set. (You can add only one Region at a time.)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName", regions=[
-            {
-                "name": "us-west-2",
-            },
-            {
-                "name": "ap-southeast-2",
-            },
-        ])
-        ```
-
-        Delete a Region from a replication set. (You can delete only one Region at a time.)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName", regions=[{
-            "name": "us-west-2",
-        }])
-        ```
-
-        ## Basic Usage with an AWS Customer Managed Key
-
-        Create a replication set with an AWS Key Management Service (AWS KMS) customer manager key:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_key = aws.kms.Key("example_key")
-        replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName",
-            regions=[{
-                "name": "us-west-2",
-                "kms_key_arn": example_key.arn,
-            }],
-            tags={
-                "exampleTag": "exampleValue",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import an Incident Manager replication. For example:
-
-        ```sh
-        $ pulumi import aws:ssmincidents/replicationSet:ReplicationSet replicationSetName import
-        ```
-
+        Create a ReplicationSet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ReplicationSetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -536,28 +271,6 @@ class ReplicationSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the replication set.
-        :param pulumi.Input[_builtins.str] created_by: The ARN of the user who created the replication set.
-        :param pulumi.Input[_builtins.bool] deletion_protected: If `true`, the last region in a replication set cannot be deleted.
-        :param pulumi.Input[_builtins.str] last_modified_by: A timestamp showing when the replication set was last modified.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]] region: The replication set's Regions. Use `regions` instead.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]] regions: The replication set's Regions.
-        :param pulumi.Input[_builtins.str] status: The current status of the Region.
-               * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
-               
-               > **NOTE:** The Region specified by a provider must always be one of the Regions specified for the replication set. This is especially important when you perform complex update operations.
-               
-               > **NOTE:** After a replication set is created, you can add or delete only one Region at a time.
-               
-               > **NOTE:** Incident Manager does not support updating the customer managed key associated with a replication set. Instead, for a replication set with multiple Regions, you must first delete a Region from the replication set, then re-add it with a different customer managed key in separate deploy operations. For a replication set with only one Region, the entire replication set must be deleted and recreated. To do this, comment out the replication set and all response plans, and then run the deploy command to recreate the replication set with the new customer managed key.
-               
-               > **NOTE:** You must either use AWS-owned keys on all regions of a replication set, or customer managed keys. To change between an AWS owned key and a customer managed key, a replication set and it associated data must be deleted and recreated.
-               
-               > **NOTE:** If possible, create all the customer managed keys you need (using the deploy command) before you create the replication set, or create the keys and replication set in the same deploy command. Otherwise, to delete a replication set, you must run one deploy command to delete the replication set and another to delete the AWS KMS keys used by the replication set. Deleting the AWS KMS keys before deleting the replication set results in an error. In that case, you must manually reenable the deleted key using the AWS Management Console before you can delete the replication set.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -577,86 +290,46 @@ class ReplicationSet(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the replication set.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the user who created the replication set.
-        """
         return pulumi.get(self, "created_by")
 
     @_builtins.property
     @pulumi.getter(name="deletionProtected")
     def deletion_protected(self) -> pulumi.Output[_builtins.bool]:
-        """
-        If `true`, the last region in a replication set cannot be deleted.
-        """
         return pulumi.get(self, "deletion_protected")
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedBy")
     def last_modified_by(self) -> pulumi.Output[_builtins.str]:
-        """
-        A timestamp showing when the replication set was last modified.
-        """
         return pulumi.get(self, "last_modified_by")
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""region is deprecated. Use regions instead.""")
     def region(self) -> pulumi.Output[Sequence['outputs.ReplicationSetRegion']]:
-        """
-        The replication set's Regions. Use `regions` instead.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def regions(self) -> pulumi.Output[Sequence['outputs.ReplicationSetRegion']]:
-        """
-        The replication set's Regions.
-        """
         return pulumi.get(self, "regions")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The current status of the Region.
-        * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
-
-        > **NOTE:** The Region specified by a provider must always be one of the Regions specified for the replication set. This is especially important when you perform complex update operations.
-
-        > **NOTE:** After a replication set is created, you can add or delete only one Region at a time.
-
-        > **NOTE:** Incident Manager does not support updating the customer managed key associated with a replication set. Instead, for a replication set with multiple Regions, you must first delete a Region from the replication set, then re-add it with a different customer managed key in separate deploy operations. For a replication set with only one Region, the entire replication set must be deleted and recreated. To do this, comment out the replication set and all response plans, and then run the deploy command to recreate the replication set with the new customer managed key.
-
-        > **NOTE:** You must either use AWS-owned keys on all regions of a replication set, or customer managed keys. To change between an AWS owned key and a customer managed key, a replication set and it associated data must be deleted and recreated.
-
-        > **NOTE:** If possible, create all the customer managed keys you need (using the deploy command) before you create the replication set, or create the keys and replication set in the same deploy command. Otherwise, to delete a replication set, you must run one deploy command to delete the replication set and another to delete the AWS KMS keys used by the replication set. Deleting the AWS KMS keys before deleting the replication set results in an error. In that case, you must manually reenable the deleted key using the AWS Management Console before you can delete the replication set.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

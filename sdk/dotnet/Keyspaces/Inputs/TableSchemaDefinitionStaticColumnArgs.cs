@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Keyspaces.Inputs
 
     public sealed class TableSchemaDefinitionStaticColumnArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the static column.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

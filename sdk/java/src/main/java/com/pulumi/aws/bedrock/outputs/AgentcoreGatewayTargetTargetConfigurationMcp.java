@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationMcp {
-    /**
-     * @return Lambda function target configuration. See `lambda` below.
-     * 
-     */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpLambda lambda;
-    /**
-     * @return MCP server target configuration. See `mcpServer` below.
-     * 
-     */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpMcpServer mcpServer;
-    /**
-     * @return OpenAPI schema-based target configuration. See `apiSchemaConfiguration` below.
-     * 
-     */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema openApiSchema;
-    /**
-     * @return Smithy model-based target configuration. See `apiSchemaConfiguration` below.
-     * 
-     */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel smithyModel;
 
     private AgentcoreGatewayTargetTargetConfigurationMcp() {}
-    /**
-     * @return Lambda function target configuration. See `lambda` below.
-     * 
-     */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcpLambda> lambda() {
         return Optional.ofNullable(this.lambda);
     }
-    /**
-     * @return MCP server target configuration. See `mcpServer` below.
-     * 
-     */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcpMcpServer> mcpServer() {
         return Optional.ofNullable(this.mcpServer);
     }
-    /**
-     * @return OpenAPI schema-based target configuration. See `apiSchemaConfiguration` below.
-     * 
-     */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema> openApiSchema() {
         return Optional.ofNullable(this.openApiSchema);
     }
-    /**
-     * @return Smithy model-based target configuration. See `apiSchemaConfiguration` below.
-     * 
-     */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel> smithyModel() {
         return Optional.ofNullable(this.smithyModel);
     }

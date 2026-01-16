@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StreamProcessorSettingsConnectedHome {
     /**
-     * @return Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+     * @return Specifies what you want to detect in the video, such as people, packages, or pets.
      * 
      */
     private @Nullable List<String> labels;
     /**
-     * @return Minimum confidence required to label an object in the video.
+     * @return The minimum confidence required to label an object in the video.
      * 
      */
     private @Nullable Double minConfidence;
 
     private StreamProcessorSettingsConnectedHome() {}
     /**
-     * @return Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+     * @return Specifies what you want to detect in the video, such as people, packages, or pets.
      * 
      */
     public List<String> labels() {
         return this.labels == null ? List.of() : this.labels;
     }
     /**
-     * @return Minimum confidence required to label an object in the video.
+     * @return The minimum confidence required to label an object in the video.
      * 
      */
     public Optional<Double> minConfidence() {

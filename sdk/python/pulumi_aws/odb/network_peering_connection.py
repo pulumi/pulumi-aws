@@ -31,8 +31,6 @@ class NetworkPeeringConnectionArgs:
         """
         The set of arguments for constructing a NetworkPeeringConnection resource.
         :param pulumi.Input[_builtins.str] odb_network_arn: ARN of the odb network peering connection.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "peer_network_id", peer_network_id)
@@ -89,9 +87,6 @@ class NetworkPeeringConnectionArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -101,9 +96,6 @@ class NetworkPeeringConnectionArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -140,16 +132,13 @@ class _NetworkPeeringConnectionState:
                  timeouts: Optional[pulumi.Input['NetworkPeeringConnectionTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering NetworkPeeringConnection resources.
-        :param pulumi.Input[_builtins.str] created_at: Created time of the ODB network peering connection.
+        :param pulumi.Input[_builtins.str] created_at: Created time of the odb network peering connection.
         :param pulumi.Input[_builtins.str] odb_network_arn: ARN of the odb network peering connection.
-        :param pulumi.Input[_builtins.str] odb_peering_connection_type: Type of the ODB peering connection.
+        :param pulumi.Input[_builtins.str] odb_peering_connection_type: Type of the odb peering connection.
         :param pulumi.Input[_builtins.str] peer_network_arn: ARN of the peer network peering connection.
-        :param pulumi.Input[_builtins.float] percent_progress: Progress of the ODB network peering connection.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: Status of the ODB network peering connection.
-        :param pulumi.Input[_builtins.str] status_reason: The reason for the current status of the ODB peering connection.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including inherited tags.
+        :param pulumi.Input[_builtins.float] percent_progress: Progress of the odb network peering connection.
+        :param pulumi.Input[_builtins.str] status: Status of the odb network peering connection.
+        :param pulumi.Input[_builtins.str] status_reason: The reason for the current status of the ODB peering connection..
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -195,7 +184,7 @@ class _NetworkPeeringConnectionState:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Created time of the ODB network peering connection.
+        Created time of the odb network peering connection.
         """
         return pulumi.get(self, "created_at")
 
@@ -237,7 +226,7 @@ class _NetworkPeeringConnectionState:
     @pulumi.getter(name="odbPeeringConnectionType")
     def odb_peering_connection_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Type of the ODB peering connection.
+        Type of the odb peering connection.
         """
         return pulumi.get(self, "odb_peering_connection_type")
 
@@ -270,7 +259,7 @@ class _NetworkPeeringConnectionState:
     @pulumi.getter(name="percentProgress")
     def percent_progress(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
-        Progress of the ODB network peering connection.
+        Progress of the odb network peering connection.
         """
         return pulumi.get(self, "percent_progress")
 
@@ -281,9 +270,6 @@ class _NetworkPeeringConnectionState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -294,7 +280,7 @@ class _NetworkPeeringConnectionState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Status of the ODB network peering connection.
+        Status of the odb network peering connection.
         """
         return pulumi.get(self, "status")
 
@@ -306,7 +292,7 @@ class _NetworkPeeringConnectionState:
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The reason for the current status of the ODB peering connection.
+        The reason for the current status of the ODB peering connection..
         """
         return pulumi.get(self, "status_reason")
 
@@ -317,9 +303,6 @@ class _NetworkPeeringConnectionState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -329,9 +312,6 @@ class _NetworkPeeringConnectionState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including inherited tags.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -363,36 +343,10 @@ class NetworkPeeringConnection(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['NetworkPeeringConnectionTimeoutsArgs', 'NetworkPeeringConnectionTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.odb.NetworkPeeringConnection("example",
-            display_name="example",
-            odb_network_id="my-odb-network-id",
-            peer_network_id="my-vpc-id",
-            tags={
-                "env": "dev",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import odb network peering using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:odb/networkPeeringConnection:NetworkPeeringConnection example example
-        ```
-
+        Create a NetworkPeeringConnection resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] odb_network_arn: ARN of the odb network peering connection.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -401,31 +355,7 @@ class NetworkPeeringConnection(pulumi.CustomResource):
                  args: NetworkPeeringConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.odb.NetworkPeeringConnection("example",
-            display_name="example",
-            odb_network_id="my-odb-network-id",
-            peer_network_id="my-vpc-id",
-            tags={
-                "env": "dev",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import odb network peering using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:odb/networkPeeringConnection:NetworkPeeringConnection example example
-        ```
-
+        Create a NetworkPeeringConnection resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param NetworkPeeringConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -508,16 +438,13 @@ class NetworkPeeringConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] created_at: Created time of the ODB network peering connection.
+        :param pulumi.Input[_builtins.str] created_at: Created time of the odb network peering connection.
         :param pulumi.Input[_builtins.str] odb_network_arn: ARN of the odb network peering connection.
-        :param pulumi.Input[_builtins.str] odb_peering_connection_type: Type of the ODB peering connection.
+        :param pulumi.Input[_builtins.str] odb_peering_connection_type: Type of the odb peering connection.
         :param pulumi.Input[_builtins.str] peer_network_arn: ARN of the peer network peering connection.
-        :param pulumi.Input[_builtins.float] percent_progress: Progress of the ODB network peering connection.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: Status of the ODB network peering connection.
-        :param pulumi.Input[_builtins.str] status_reason: The reason for the current status of the ODB peering connection.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including inherited tags.
+        :param pulumi.Input[_builtins.float] percent_progress: Progress of the odb network peering connection.
+        :param pulumi.Input[_builtins.str] status: Status of the odb network peering connection.
+        :param pulumi.Input[_builtins.str] status_reason: The reason for the current status of the ODB peering connection..
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -549,7 +476,7 @@ class NetworkPeeringConnection(pulumi.CustomResource):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
         """
-        Created time of the ODB network peering connection.
+        Created time of the odb network peering connection.
         """
         return pulumi.get(self, "created_at")
 
@@ -575,7 +502,7 @@ class NetworkPeeringConnection(pulumi.CustomResource):
     @pulumi.getter(name="odbPeeringConnectionType")
     def odb_peering_connection_type(self) -> pulumi.Output[_builtins.str]:
         """
-        Type of the ODB peering connection.
+        Type of the odb peering connection.
         """
         return pulumi.get(self, "odb_peering_connection_type")
 
@@ -596,23 +523,20 @@ class NetworkPeeringConnection(pulumi.CustomResource):
     @pulumi.getter(name="percentProgress")
     def percent_progress(self) -> pulumi.Output[_builtins.float]:
         """
-        Progress of the ODB network peering connection.
+        Progress of the odb network peering connection.
         """
         return pulumi.get(self, "percent_progress")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
         """
-        Status of the ODB network peering connection.
+        Status of the odb network peering connection.
         """
         return pulumi.get(self, "status")
 
@@ -620,24 +544,18 @@ class NetworkPeeringConnection(pulumi.CustomResource):
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> pulumi.Output[_builtins.str]:
         """
-        The reason for the current status of the ODB peering connection.
+        The reason for the current status of the ODB peering connection..
         """
         return pulumi.get(self, "status_reason")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including inherited tags.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

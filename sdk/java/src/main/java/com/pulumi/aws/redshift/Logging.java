@@ -15,180 +15,41 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Redshift Logging configuration.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.redshift.Logging;
- * import com.pulumi.aws.redshift.LoggingArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Logging("example", LoggingArgs.builder()
- *             .clusterIdentifier(exampleAwsRedshiftCluster.id())
- *             .logDestinationType("cloudwatch")
- *             .logExports(            
- *                 "connectionlog",
- *                 "userlog")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### S3 Destination Type
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.redshift.Logging;
- * import com.pulumi.aws.redshift.LoggingArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Logging("example", LoggingArgs.builder()
- *             .clusterIdentifier(exampleAwsRedshiftCluster.id())
- *             .logDestinationType("s3")
- *             .bucketName(exampleAwsS3Bucket.id())
- *             .s3KeyPrefix("example-prefix/")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Redshift Logging using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:redshift/logging:Logging example cluster-id-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:redshift/logging:Logging")
 public class Logging extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of an existing S3 bucket where the log files are to be stored. Required when `logDestinationType` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-     * 
-     */
     @Export(name="bucketName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bucketName;
 
-    /**
-     * @return Name of an existing S3 bucket where the log files are to be stored. Required when `logDestinationType` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-     * 
-     */
     public Output<Optional<String>> bucketName() {
         return Codegen.optional(this.bucketName);
     }
-    /**
-     * Identifier of the source cluster.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> clusterIdentifier;
 
-    /**
-     * @return Identifier of the source cluster.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> clusterIdentifier() {
         return this.clusterIdentifier;
     }
-    /**
-     * Log destination type. Valid values are `s3` and `cloudwatch`.
-     * 
-     */
     @Export(name="logDestinationType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logDestinationType;
 
-    /**
-     * @return Log destination type. Valid values are `s3` and `cloudwatch`.
-     * 
-     */
     public Output<Optional<String>> logDestinationType() {
         return Codegen.optional(this.logDestinationType);
     }
-    /**
-     * Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
-     * 
-     */
     @Export(name="logExports", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> logExports;
 
-    /**
-     * @return Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
-     * 
-     */
     public Output<Optional<List<String>>> logExports() {
         return Codegen.optional(this.logExports);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Prefix applied to the log file names.
-     * 
-     */
     @Export(name="s3KeyPrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> s3KeyPrefix;
 
-    /**
-     * @return Prefix applied to the log file names.
-     * 
-     */
     public Output<Optional<String>> s3KeyPrefix() {
         return Codegen.optional(this.s3KeyPrefix);
     }

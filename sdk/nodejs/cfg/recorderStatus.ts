@@ -4,75 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages status (recording / stopped) of an AWS Config Configuration Recorder.
- *
- * > **Note:** Starting Configuration Recorder requires a Delivery Channel to be present. Use of `dependsOn` (as shown below) is recommended to avoid race conditions.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const b = new aws.s3.Bucket("b", {bucket: "awsconfig-example"});
- * const fooDeliveryChannel = new aws.cfg.DeliveryChannel("foo", {
- *     name: "example",
- *     s3BucketName: b.bucket,
- * });
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["config.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const r = new aws.iam.Role("r", {
- *     name: "example-awsconfig",
- *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
- * });
- * const fooRecorder = new aws.cfg.Recorder("foo", {
- *     name: "example",
- *     roleArn: r.arn,
- * });
- * const foo = new aws.cfg.RecorderStatus("foo", {
- *     name: fooRecorder.name,
- *     isEnabled: true,
- * }, {
- *     dependsOn: [fooDeliveryChannel],
- * });
- * const a = new aws.iam.RolePolicyAttachment("a", {
- *     role: r.name,
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWS_ConfigRole",
- * });
- * const p = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         effect: "Allow",
- *         actions: ["s3:*"],
- *         resources: [
- *             b.arn,
- *             pulumi.interpolate`${b.arn}/*`,
- *         ],
- *     }],
- * });
- * const pRolePolicy = new aws.iam.RolePolicy("p", {
- *     name: "awsconfig-example",
- *     role: r.id,
- *     policy: p.apply(p => p.json),
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Configuration Recorder Status using the name of the Configuration Recorder. For example:
- *
- * ```sh
- * $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
- * ```
- */
 export class RecorderStatus extends pulumi.CustomResource {
     /**
      * Get an existing RecorderStatus resource's state with the given name, ID, and optional extra
@@ -101,17 +32,8 @@ export class RecorderStatus extends pulumi.CustomResource {
         return obj['__pulumiType'] === RecorderStatus.__pulumiType;
     }
 
-    /**
-     * Whether the configuration recorder should be enabled or disabled.
-     */
     declare public readonly isEnabled: pulumi.Output<boolean>;
-    /**
-     * The name of the recorder
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -148,17 +70,8 @@ export class RecorderStatus extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RecorderStatus resources.
  */
 export interface RecorderStatusState {
-    /**
-     * Whether the configuration recorder should be enabled or disabled.
-     */
     isEnabled?: pulumi.Input<boolean>;
-    /**
-     * The name of the recorder
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -166,16 +79,7 @@ export interface RecorderStatusState {
  * The set of arguments for constructing a RecorderStatus resource.
  */
 export interface RecorderStatusArgs {
-    /**
-     * Whether the configuration recorder should be enabled or disabled.
-     */
     isEnabled: pulumi.Input<boolean>;
-    /**
-     * The name of the recorder
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

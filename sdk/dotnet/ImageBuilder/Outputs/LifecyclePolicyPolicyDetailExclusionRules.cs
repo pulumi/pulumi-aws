@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class LifecyclePolicyPolicyDetailExclusionRules
     {
-        /// <summary>
-        /// Lists configuration values that apply to AMIs that Image Builder should exclude from the lifecycle action. Detailed below.
-        /// </summary>
         public readonly Outputs.LifecyclePolicyPolicyDetailExclusionRulesAmis? Amis;
-        /// <summary>
-        /// Contains a list of tags that Image Builder uses to skip lifecycle actions for Image Builder image resources that have them.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? TagMap;
 
         [OutputConstructor]

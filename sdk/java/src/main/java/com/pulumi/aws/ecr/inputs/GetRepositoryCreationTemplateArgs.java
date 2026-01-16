@@ -17,47 +17,23 @@ public final class GetRepositoryCreationTemplateArgs extends com.pulumi.resource
 
     public static final GetRepositoryCreationTemplateArgs Empty = new GetRepositoryCreationTemplateArgs();
 
-    /**
-     * The repository name prefix that the template matches against.
-     * 
-     */
     @Import(name="prefix", required=true)
     private Output<String> prefix;
 
-    /**
-     * @return The repository name prefix that the template matches against.
-     * 
-     */
     public Output<String> prefix() {
         return this.prefix;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to any created repositories.
-     * 
-     */
     @Import(name="resourceTags")
     private @Nullable Output<Map<String,String>> resourceTags;
 
-    /**
-     * @return A map of tags to assign to any created repositories.
-     * 
-     */
     public Optional<Output<Map<String,String>>> resourceTags() {
         return Optional.ofNullable(this.resourceTags);
     }
@@ -88,65 +64,29 @@ public final class GetRepositoryCreationTemplateArgs extends com.pulumi.resource
             $ = new GetRepositoryCreationTemplateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param prefix The repository name prefix that the template matches against.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix The repository name prefix that the template matches against.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceTags A map of tags to assign to any created repositories.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTags(@Nullable Output<Map<String,String>> resourceTags) {
             $.resourceTags = resourceTags;
             return this;
         }
 
-        /**
-         * @param resourceTags A map of tags to assign to any created repositories.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTags(Map<String,String> resourceTags) {
             return resourceTags(Output.of(resourceTags));
         }

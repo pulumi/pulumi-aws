@@ -14,17 +14,9 @@ public final class ScheduledQueryErrorReportConfigurationArgs extends com.pulumi
 
     public static final ScheduledQueryErrorReportConfigurationArgs Empty = new ScheduledQueryErrorReportConfigurationArgs();
 
-    /**
-     * Configuration block for the S3 configuration for the error reports. See below.
-     * 
-     */
     @Import(name="s3Configuration", required=true)
     private Output<ScheduledQueryErrorReportConfigurationS3ConfigurationArgs> s3Configuration;
 
-    /**
-     * @return Configuration block for the S3 configuration for the error reports. See below.
-     * 
-     */
     public Output<ScheduledQueryErrorReportConfigurationS3ConfigurationArgs> s3Configuration() {
         return this.s3Configuration;
     }
@@ -53,23 +45,11 @@ public final class ScheduledQueryErrorReportConfigurationArgs extends com.pulumi
             $ = new ScheduledQueryErrorReportConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3Configuration Configuration block for the S3 configuration for the error reports. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Configuration(Output<ScheduledQueryErrorReportConfigurationS3ConfigurationArgs> s3Configuration) {
             $.s3Configuration = s3Configuration;
             return this;
         }
 
-        /**
-         * @param s3Configuration Configuration block for the S3 configuration for the error reports. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Configuration(ScheduledQueryErrorReportConfigurationS3ConfigurationArgs s3Configuration) {
             return s3Configuration(Output.of(s3Configuration));
         }

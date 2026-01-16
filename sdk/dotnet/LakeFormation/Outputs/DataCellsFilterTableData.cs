@@ -13,37 +13,13 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     [OutputType]
     public sealed class DataCellsFilterTableData
     {
-        /// <summary>
-        /// A list of column names and/or nested column attributes.
-        /// </summary>
         public readonly ImmutableArray<string> ColumnNames;
-        /// <summary>
-        /// A wildcard with exclusions. See Column Wildcard below for details.
-        /// </summary>
         public readonly Outputs.DataCellsFilterTableDataColumnWildcard? ColumnWildcard;
-        /// <summary>
-        /// The name of the database.
-        /// </summary>
         public readonly string DatabaseName;
-        /// <summary>
-        /// The name of the data cells filter.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// A PartiQL predicate. See Row Filter below for details.
-        /// </summary>
         public readonly Outputs.DataCellsFilterTableDataRowFilter? RowFilter;
-        /// <summary>
-        /// The ID of the Data Catalog.
-        /// </summary>
         public readonly string TableCatalogId;
-        /// <summary>
-        /// The name of the table.
-        /// </summary>
         public readonly string TableName;
-        /// <summary>
-        /// ID of the data cells filter version.
-        /// </summary>
         public readonly string? VersionId;
 
         [OutputConstructor]

@@ -14,11 +14,6 @@ namespace Pulumi.Aws.SecurityLake.Inputs
     {
         [Input("accounts")]
         private InputList<string>? _accounts;
-
-        /// <summary>
-        /// Specify the AWS account information where you want to enable Security Lake.
-        /// If not specified, uses all accounts included in the Security Lake.
-        /// </summary>
         public InputList<string> Accounts
         {
             get => _accounts ?? (_accounts = new InputList<string>());
@@ -27,27 +22,15 @@ namespace Pulumi.Aws.SecurityLake.Inputs
 
         [Input("regions", required: true)]
         private InputList<string>? _regions;
-
-        /// <summary>
-        /// Specify the Regions where you want to enable Security Lake.
-        /// </summary>
         public InputList<string> Regions
         {
             get => _regions ?? (_regions = new InputList<string>());
             set => _regions = value;
         }
 
-        /// <summary>
-        /// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT`, `WAF`.
-        /// </summary>
         [Input("sourceName", required: true)]
         public Input<string> SourceName { get; set; } = null!;
 
-        /// <summary>
-        /// The version for a AWS source.
-        /// If not specified, the version will be the default.
-        /// This must be a Regionally unique value.
-        /// </summary>
         [Input("sourceVersion")]
         public Input<string>? SourceVersion { get; set; }
 

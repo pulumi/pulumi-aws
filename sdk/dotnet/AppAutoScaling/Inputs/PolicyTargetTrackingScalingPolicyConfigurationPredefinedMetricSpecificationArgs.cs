@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
 
     public sealed class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Metric type.
-        /// </summary>
         [Input("predefinedMetricType", required: true)]
         public Input<string> PredefinedMetricType { get; set; } = null!;
 
-        /// <summary>
-        /// Reserved for future use if the `PredefinedMetricType` is not `ALBRequestCountPerTarget`. If the `PredefinedMetricType` is `ALBRequestCountPerTarget`, you must specify this argument. Documentation can be found at: [AWS Predefined Scaling Metric Specification](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html). Must be less than or equal to 1023 characters in length.
-        /// </summary>
         [Input("resourceLabel")]
         public Input<string>? ResourceLabel { get; set; }
 

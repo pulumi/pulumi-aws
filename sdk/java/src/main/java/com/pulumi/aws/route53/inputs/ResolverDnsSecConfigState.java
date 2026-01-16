@@ -15,77 +15,37 @@ public final class ResolverDnsSecConfigState extends com.pulumi.resources.Resour
 
     public static final ResolverDnsSecConfigState Empty = new ResolverDnsSecConfigState();
 
-    /**
-     * The ARN for a configuration for DNSSEC validation.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The ARN for a configuration for DNSSEC validation.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
-     * 
-     */
     @Import(name="ownerId")
     private @Nullable Output<String> ownerId;
 
-    /**
-     * @return The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
-     * 
-     */
     public Optional<Output<String>> ownerId() {
         return Optional.ofNullable(this.ownerId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID of the virtual private cloud (VPC) that you&#39;re updating the DNSSEC validation status for.
-     * 
-     */
     @Import(name="resourceId")
     private @Nullable Output<String> resourceId;
 
-    /**
-     * @return The ID of the virtual private cloud (VPC) that you&#39;re updating the DNSSEC validation status for.
-     * 
-     */
     public Optional<Output<String>> resourceId() {
         return Optional.ofNullable(this.resourceId);
     }
 
-    /**
-     * The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
-     * 
-     */
     @Import(name="validationStatus")
     private @Nullable Output<String> validationStatus;
 
-    /**
-     * @return The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> validationStatus() {
         return Optional.ofNullable(this.validationStatus);
     }
@@ -118,107 +78,47 @@ public final class ResolverDnsSecConfigState extends com.pulumi.resources.Resour
             $ = new ResolverDnsSecConfigState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The ARN for a configuration for DNSSEC validation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The ARN for a configuration for DNSSEC validation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param ownerId The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerId(@Nullable Output<String> ownerId) {
             $.ownerId = ownerId;
             return this;
         }
 
-        /**
-         * @param ownerId The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerId(String ownerId) {
             return ownerId(Output.of(ownerId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceId The ID of the virtual private cloud (VPC) that you&#39;re updating the DNSSEC validation status for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(@Nullable Output<String> resourceId) {
             $.resourceId = resourceId;
             return this;
         }
 
-        /**
-         * @param resourceId The ID of the virtual private cloud (VPC) that you&#39;re updating the DNSSEC validation status for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(String resourceId) {
             return resourceId(Output.of(resourceId));
         }
 
-        /**
-         * @param validationStatus The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder validationStatus(@Nullable Output<String> validationStatus) {
             $.validationStatus = validationStatus;
             return this;
         }
 
-        /**
-         * @param validationStatus The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder validationStatus(String validationStatus) {
             return validationStatus(Output.of(validationStatus));
         }

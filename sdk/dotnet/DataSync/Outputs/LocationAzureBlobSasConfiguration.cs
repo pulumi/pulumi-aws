@@ -13,9 +13,6 @@ namespace Pulumi.Aws.DataSync.Outputs
     [OutputType]
     public sealed class LocationAzureBlobSasConfiguration
     {
-        /// <summary>
-        /// A SAS token that provides permissions to access your Azure Blob Storage.
-        /// </summary>
         public readonly string Token;
 
         [OutputConstructor]

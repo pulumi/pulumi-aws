@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GatewayRouteSpecHttp2RouteMatchHostname
     {
-        /// <summary>
-        /// Exact host name to match on.
-        /// </summary>
         public readonly string? Exact;
-        /// <summary>
-        /// Specified ending characters of the host name to match on.
-        /// </summary>
         public readonly string? Suffix;
 
         [OutputConstructor]

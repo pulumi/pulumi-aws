@@ -11,158 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CodeDeploy deployment config for an application
-//
-// ## Example Usage
-//
-// ### Server Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codedeploy"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foo, err := codedeploy.NewDeploymentConfig(ctx, "foo", &codedeploy.DeploymentConfigArgs{
-//				DeploymentConfigName: pulumi.String("test-deployment-config"),
-//				MinimumHealthyHosts: &codedeploy.DeploymentConfigMinimumHealthyHostsArgs{
-//					Type:  pulumi.String("HOST_COUNT"),
-//					Value: pulumi.Int(2),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = codedeploy.NewDeploymentGroup(ctx, "foo", &codedeploy.DeploymentGroupArgs{
-//				AppName:              pulumi.Any(fooApp.Name),
-//				DeploymentGroupName:  pulumi.String("bar"),
-//				ServiceRoleArn:       pulumi.Any(fooRole.Arn),
-//				DeploymentConfigName: foo.ID(),
-//				Ec2TagFilters: codedeploy.DeploymentGroupEc2TagFilterArray{
-//					&codedeploy.DeploymentGroupEc2TagFilterArgs{
-//						Key:   pulumi.String("filterkey"),
-//						Type:  pulumi.String("KEY_AND_VALUE"),
-//						Value: pulumi.String("filtervalue"),
-//					},
-//				},
-//				TriggerConfigurations: codedeploy.DeploymentGroupTriggerConfigurationArray{
-//					&codedeploy.DeploymentGroupTriggerConfigurationArgs{
-//						TriggerEvents: pulumi.StringArray{
-//							pulumi.String("DeploymentFailure"),
-//						},
-//						TriggerName:      pulumi.String("foo-trigger"),
-//						TriggerTargetArn: pulumi.String("foo-topic-arn"),
-//					},
-//				},
-//				AutoRollbackConfiguration: &codedeploy.DeploymentGroupAutoRollbackConfigurationArgs{
-//					Enabled: pulumi.Bool(true),
-//					Events: pulumi.StringArray{
-//						pulumi.String("DEPLOYMENT_FAILURE"),
-//					},
-//				},
-//				AlarmConfiguration: &codedeploy.DeploymentGroupAlarmConfigurationArgs{
-//					Alarms: pulumi.StringArray{
-//						pulumi.String("my-alarm-name"),
-//					},
-//					Enabled: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Lambda Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codedeploy"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foo, err := codedeploy.NewDeploymentConfig(ctx, "foo", &codedeploy.DeploymentConfigArgs{
-//				DeploymentConfigName: pulumi.String("test-deployment-config"),
-//				ComputePlatform:      pulumi.String("Lambda"),
-//				TrafficRoutingConfig: &codedeploy.DeploymentConfigTrafficRoutingConfigArgs{
-//					Type: pulumi.String("TimeBasedLinear"),
-//					TimeBasedLinear: &codedeploy.DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs{
-//						Interval:   pulumi.Int(10),
-//						Percentage: pulumi.Int(10),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = codedeploy.NewDeploymentGroup(ctx, "foo", &codedeploy.DeploymentGroupArgs{
-//				AppName:              pulumi.Any(fooApp.Name),
-//				DeploymentGroupName:  pulumi.String("bar"),
-//				ServiceRoleArn:       pulumi.Any(fooRole.Arn),
-//				DeploymentConfigName: foo.ID(),
-//				AutoRollbackConfiguration: &codedeploy.DeploymentGroupAutoRollbackConfigurationArgs{
-//					Enabled: pulumi.Bool(true),
-//					Events: pulumi.StringArray{
-//						pulumi.String("DEPLOYMENT_STOP_ON_ALARM"),
-//					},
-//				},
-//				AlarmConfiguration: &codedeploy.DeploymentGroupAlarmConfigurationArgs{
-//					Alarms: pulumi.StringArray{
-//						pulumi.String("my-alarm-name"),
-//					},
-//					Enabled: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CodeDeploy Deployment Configurations using the `deployment_config_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
-// ```
 type DeploymentConfig struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the deployment config.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
-	ComputePlatform pulumi.StringPtrOutput `pulumi:"computePlatform"`
-	// The AWS Assigned deployment config id
-	DeploymentConfigId pulumi.StringOutput `pulumi:"deploymentConfigId"`
-	// The name of the deployment config.
-	DeploymentConfigName pulumi.StringOutput `pulumi:"deploymentConfigName"`
-	// A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-	MinimumHealthyHosts DeploymentConfigMinimumHealthyHostsPtrOutput `pulumi:"minimumHealthyHosts"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A trafficRoutingConfig block. Traffic Routing Config is documented below.
+	Arn                  pulumi.StringOutput                           `pulumi:"arn"`
+	ComputePlatform      pulumi.StringPtrOutput                        `pulumi:"computePlatform"`
+	DeploymentConfigId   pulumi.StringOutput                           `pulumi:"deploymentConfigId"`
+	DeploymentConfigName pulumi.StringOutput                           `pulumi:"deploymentConfigName"`
+	MinimumHealthyHosts  DeploymentConfigMinimumHealthyHostsPtrOutput  `pulumi:"minimumHealthyHosts"`
+	Region               pulumi.StringOutput                           `pulumi:"region"`
 	TrafficRoutingConfig DeploymentConfigTrafficRoutingConfigPtrOutput `pulumi:"trafficRoutingConfig"`
-	// A zonalConfig block. Zonal Config is documented below.
-	ZonalConfig DeploymentConfigZonalConfigPtrOutput `pulumi:"zonalConfig"`
+	ZonalConfig          DeploymentConfigZonalConfigPtrOutput          `pulumi:"zonalConfig"`
 }
 
 // NewDeploymentConfig registers a new resource with the given unique name, arguments, and options.
@@ -195,41 +54,25 @@ func GetDeploymentConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DeploymentConfig resources.
 type deploymentConfigState struct {
-	// The ARN of the deployment config.
-	Arn *string `pulumi:"arn"`
-	// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
-	ComputePlatform *string `pulumi:"computePlatform"`
-	// The AWS Assigned deployment config id
-	DeploymentConfigId *string `pulumi:"deploymentConfigId"`
-	// The name of the deployment config.
-	DeploymentConfigName *string `pulumi:"deploymentConfigName"`
-	// A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-	MinimumHealthyHosts *DeploymentConfigMinimumHealthyHosts `pulumi:"minimumHealthyHosts"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A trafficRoutingConfig block. Traffic Routing Config is documented below.
+	Arn                  *string                               `pulumi:"arn"`
+	ComputePlatform      *string                               `pulumi:"computePlatform"`
+	DeploymentConfigId   *string                               `pulumi:"deploymentConfigId"`
+	DeploymentConfigName *string                               `pulumi:"deploymentConfigName"`
+	MinimumHealthyHosts  *DeploymentConfigMinimumHealthyHosts  `pulumi:"minimumHealthyHosts"`
+	Region               *string                               `pulumi:"region"`
 	TrafficRoutingConfig *DeploymentConfigTrafficRoutingConfig `pulumi:"trafficRoutingConfig"`
-	// A zonalConfig block. Zonal Config is documented below.
-	ZonalConfig *DeploymentConfigZonalConfig `pulumi:"zonalConfig"`
+	ZonalConfig          *DeploymentConfigZonalConfig          `pulumi:"zonalConfig"`
 }
 
 type DeploymentConfigState struct {
-	// The ARN of the deployment config.
-	Arn pulumi.StringPtrInput
-	// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
-	ComputePlatform pulumi.StringPtrInput
-	// The AWS Assigned deployment config id
-	DeploymentConfigId pulumi.StringPtrInput
-	// The name of the deployment config.
+	Arn                  pulumi.StringPtrInput
+	ComputePlatform      pulumi.StringPtrInput
+	DeploymentConfigId   pulumi.StringPtrInput
 	DeploymentConfigName pulumi.StringPtrInput
-	// A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-	MinimumHealthyHosts DeploymentConfigMinimumHealthyHostsPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A trafficRoutingConfig block. Traffic Routing Config is documented below.
+	MinimumHealthyHosts  DeploymentConfigMinimumHealthyHostsPtrInput
+	Region               pulumi.StringPtrInput
 	TrafficRoutingConfig DeploymentConfigTrafficRoutingConfigPtrInput
-	// A zonalConfig block. Zonal Config is documented below.
-	ZonalConfig DeploymentConfigZonalConfigPtrInput
+	ZonalConfig          DeploymentConfigZonalConfigPtrInput
 }
 
 func (DeploymentConfigState) ElementType() reflect.Type {
@@ -237,34 +80,22 @@ func (DeploymentConfigState) ElementType() reflect.Type {
 }
 
 type deploymentConfigArgs struct {
-	// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
-	ComputePlatform *string `pulumi:"computePlatform"`
-	// The name of the deployment config.
-	DeploymentConfigName *string `pulumi:"deploymentConfigName"`
-	// A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-	MinimumHealthyHosts *DeploymentConfigMinimumHealthyHosts `pulumi:"minimumHealthyHosts"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A trafficRoutingConfig block. Traffic Routing Config is documented below.
+	ComputePlatform      *string                               `pulumi:"computePlatform"`
+	DeploymentConfigName *string                               `pulumi:"deploymentConfigName"`
+	MinimumHealthyHosts  *DeploymentConfigMinimumHealthyHosts  `pulumi:"minimumHealthyHosts"`
+	Region               *string                               `pulumi:"region"`
 	TrafficRoutingConfig *DeploymentConfigTrafficRoutingConfig `pulumi:"trafficRoutingConfig"`
-	// A zonalConfig block. Zonal Config is documented below.
-	ZonalConfig *DeploymentConfigZonalConfig `pulumi:"zonalConfig"`
+	ZonalConfig          *DeploymentConfigZonalConfig          `pulumi:"zonalConfig"`
 }
 
 // The set of arguments for constructing a DeploymentConfig resource.
 type DeploymentConfigArgs struct {
-	// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
-	ComputePlatform pulumi.StringPtrInput
-	// The name of the deployment config.
+	ComputePlatform      pulumi.StringPtrInput
 	DeploymentConfigName pulumi.StringPtrInput
-	// A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-	MinimumHealthyHosts DeploymentConfigMinimumHealthyHostsPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A trafficRoutingConfig block. Traffic Routing Config is documented below.
+	MinimumHealthyHosts  DeploymentConfigMinimumHealthyHostsPtrInput
+	Region               pulumi.StringPtrInput
 	TrafficRoutingConfig DeploymentConfigTrafficRoutingConfigPtrInput
-	// A zonalConfig block. Zonal Config is documented below.
-	ZonalConfig DeploymentConfigZonalConfigPtrInput
+	ZonalConfig          DeploymentConfigZonalConfigPtrInput
 }
 
 func (DeploymentConfigArgs) ElementType() reflect.Type {
@@ -354,42 +185,34 @@ func (o DeploymentConfigOutput) ToDeploymentConfigOutputWithContext(ctx context.
 	return o
 }
 
-// The ARN of the deployment config.
 func (o DeploymentConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeploymentConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
 func (o DeploymentConfigOutput) ComputePlatform() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfig) pulumi.StringPtrOutput { return v.ComputePlatform }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Assigned deployment config id
 func (o DeploymentConfigOutput) DeploymentConfigId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeploymentConfig) pulumi.StringOutput { return v.DeploymentConfigId }).(pulumi.StringOutput)
 }
 
-// The name of the deployment config.
 func (o DeploymentConfigOutput) DeploymentConfigName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeploymentConfig) pulumi.StringOutput { return v.DeploymentConfigName }).(pulumi.StringOutput)
 }
 
-// A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
 func (o DeploymentConfigOutput) MinimumHealthyHosts() DeploymentConfigMinimumHealthyHostsPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfig) DeploymentConfigMinimumHealthyHostsPtrOutput { return v.MinimumHealthyHosts }).(DeploymentConfigMinimumHealthyHostsPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DeploymentConfigOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeploymentConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A trafficRoutingConfig block. Traffic Routing Config is documented below.
 func (o DeploymentConfigOutput) TrafficRoutingConfig() DeploymentConfigTrafficRoutingConfigPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfig) DeploymentConfigTrafficRoutingConfigPtrOutput { return v.TrafficRoutingConfig }).(DeploymentConfigTrafficRoutingConfigPtrOutput)
 }
 
-// A zonalConfig block. Zonal Config is documented below.
 func (o DeploymentConfigOutput) ZonalConfig() DeploymentConfigZonalConfigPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfig) DeploymentConfigZonalConfigPtrOutput { return v.ZonalConfig }).(DeploymentConfigZonalConfigPtrOutput)
 }

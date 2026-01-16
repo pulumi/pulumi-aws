@@ -14,32 +14,16 @@ public final class GetListenerRuleConditionHostHeader extends com.pulumi.resourc
 
     public static final GetListenerRuleConditionHostHeader Empty = new GetListenerRuleConditionHostHeader();
 
-    /**
-     * Set of regular expressions to compare against the request URL.
-     * 
-     */
     @Import(name="regexValues", required=true)
     private List<String> regexValues;
 
-    /**
-     * @return Set of regular expressions to compare against the request URL.
-     * 
-     */
     public List<String> regexValues() {
         return this.regexValues;
     }
 
-    /**
-     * Set of `key`-`value` pairs indicating the query string parameters to match.
-     * 
-     */
     @Import(name="values", required=true)
     private List<String> values;
 
-    /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }
@@ -69,44 +53,20 @@ public final class GetListenerRuleConditionHostHeader extends com.pulumi.resourc
             $ = new GetListenerRuleConditionHostHeader(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param regexValues Set of regular expressions to compare against the request URL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexValues(List<String> regexValues) {
             $.regexValues = regexValues;
             return this;
         }
 
-        /**
-         * @param regexValues Set of regular expressions to compare against the request URL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexValues(String... regexValues) {
             return regexValues(List.of(regexValues));
         }
 
-        /**
-         * @param values Set of `key`-`value` pairs indicating the query string parameters to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values Set of `key`-`value` pairs indicating the query string parameters to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

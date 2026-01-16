@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class RepositoryAssociationRepositoryBitbucket {
-    /**
-     * @return The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-     * 
-     */
     private String connectionArn;
-    /**
-     * @return The name of the third party source repository.
-     * 
-     */
     private String name;
-    /**
-     * @return The username for the account that owns the repository.
-     * 
-     */
     private String owner;
 
     private RepositoryAssociationRepositoryBitbucket() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-     * 
-     */
     public String connectionArn() {
         return this.connectionArn;
     }
-    /**
-     * @return The name of the third party source repository.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The username for the account that owns the repository.
-     * 
-     */
     public String owner() {
         return this.owner;
     }

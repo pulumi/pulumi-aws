@@ -11,76 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Resource Group.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/resourcegroups"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := resourcegroups.NewGroup(ctx, "test", &resourcegroups.GroupArgs{
-//				Name: pulumi.String("test-group"),
-//				ResourceQuery: &resourcegroups.GroupResourceQueryArgs{
-//					Query: pulumi.String(`{
-//	  \"ResourceTypeFilters\": [
-//	    \"AWS::EC2::Instance\"
-//	  ],
-//	  \"TagFilters\": [
-//	    {
-//	      \"Key\": \"Stage\",
-//	      \"Values\": [\"Test\"]
-//	    }
-//	  ]
-//	}
-//
-// `),
-//
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import resource groups using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
-// ```
 type Group struct {
 	pulumi.CustomResourceState
 
-	// The ARN assigned by AWS for this resource group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+	Arn            pulumi.StringOutput           `pulumi:"arn"`
 	Configurations GroupConfigurationArrayOutput `pulumi:"configurations"`
-	// A description of the resource group.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A `resourceQuery` block. Resource queries are documented below.
-	ResourceQuery GroupResourceQueryPtrOutput `pulumi:"resourceQuery"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Description    pulumi.StringPtrOutput        `pulumi:"description"`
+	Name           pulumi.StringOutput           `pulumi:"name"`
+	Region         pulumi.StringOutput           `pulumi:"region"`
+	ResourceQuery  GroupResourceQueryPtrOutput   `pulumi:"resourceQuery"`
+	Tags           pulumi.StringMapOutput        `pulumi:"tags"`
+	TagsAll        pulumi.StringMapOutput        `pulumi:"tagsAll"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -113,41 +54,25 @@ func GetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Group resources.
 type groupState struct {
-	// The ARN assigned by AWS for this resource group.
-	Arn *string `pulumi:"arn"`
-	// A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+	Arn            *string              `pulumi:"arn"`
 	Configurations []GroupConfiguration `pulumi:"configurations"`
-	// A description of the resource group.
-	Description *string `pulumi:"description"`
-	// The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A `resourceQuery` block. Resource queries are documented below.
-	ResourceQuery *GroupResourceQuery `pulumi:"resourceQuery"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Description    *string              `pulumi:"description"`
+	Name           *string              `pulumi:"name"`
+	Region         *string              `pulumi:"region"`
+	ResourceQuery  *GroupResourceQuery  `pulumi:"resourceQuery"`
+	Tags           map[string]string    `pulumi:"tags"`
+	TagsAll        map[string]string    `pulumi:"tagsAll"`
 }
 
 type GroupState struct {
-	// The ARN assigned by AWS for this resource group.
-	Arn pulumi.StringPtrInput
-	// A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+	Arn            pulumi.StringPtrInput
 	Configurations GroupConfigurationArrayInput
-	// A description of the resource group.
-	Description pulumi.StringPtrInput
-	// The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A `resourceQuery` block. Resource queries are documented below.
-	ResourceQuery GroupResourceQueryPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Description    pulumi.StringPtrInput
+	Name           pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
+	ResourceQuery  GroupResourceQueryPtrInput
+	Tags           pulumi.StringMapInput
+	TagsAll        pulumi.StringMapInput
 }
 
 func (GroupState) ElementType() reflect.Type {
@@ -155,34 +80,22 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
-	// A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
 	Configurations []GroupConfiguration `pulumi:"configurations"`
-	// A description of the resource group.
-	Description *string `pulumi:"description"`
-	// The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A `resourceQuery` block. Resource queries are documented below.
-	ResourceQuery *GroupResourceQuery `pulumi:"resourceQuery"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Description    *string              `pulumi:"description"`
+	Name           *string              `pulumi:"name"`
+	Region         *string              `pulumi:"region"`
+	ResourceQuery  *GroupResourceQuery  `pulumi:"resourceQuery"`
+	Tags           map[string]string    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
-	// A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
 	Configurations GroupConfigurationArrayInput
-	// A description of the resource group.
-	Description pulumi.StringPtrInput
-	// The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A `resourceQuery` block. Resource queries are documented below.
-	ResourceQuery GroupResourceQueryPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Description    pulumi.StringPtrInput
+	Name           pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
+	ResourceQuery  GroupResourceQueryPtrInput
+	Tags           pulumi.StringMapInput
 }
 
 func (GroupArgs) ElementType() reflect.Type {
@@ -272,42 +185,34 @@ func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return o
 }
 
-// The ARN assigned by AWS for this resource group.
 func (o GroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
 func (o GroupOutput) Configurations() GroupConfigurationArrayOutput {
 	return o.ApplyT(func(v *Group) GroupConfigurationArrayOutput { return v.Configurations }).(GroupConfigurationArrayOutput)
 }
 
-// A description of the resource group.
 func (o GroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
 func (o GroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A `resourceQuery` block. Resource queries are documented below.
 func (o GroupOutput) ResourceQuery() GroupResourceQueryPtrOutput {
 	return o.ApplyT(func(v *Group) GroupResourceQueryPtrOutput { return v.ResourceQuery }).(GroupResourceQueryPtrOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o GroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o GroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

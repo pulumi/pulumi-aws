@@ -17,77 +17,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceServiceConnectConfigurationService {
-    /**
-     * @return List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. For each service block where enabled is true, exactly one `clientAlias` with one `port` should be specified. See below.
-     * 
-     */
     private @Nullable List<ServiceServiceConnectConfigurationServiceClientAlias> clientAlias;
-    /**
-     * @return Name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
-     * 
-     */
     private @Nullable String discoveryName;
-    /**
-     * @return Port number for the Service Connect proxy to listen on.
-     * 
-     */
     private @Nullable Integer ingressPortOverride;
-    /**
-     * @return Name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
-     * 
-     */
     private String portName;
-    /**
-     * @return Configuration timeouts for Service Connect
-     * 
-     */
     private @Nullable ServiceServiceConnectConfigurationServiceTimeout timeout;
-    /**
-     * @return Configuration for enabling Transport Layer Security (TLS)
-     * 
-     */
     private @Nullable ServiceServiceConnectConfigurationServiceTls tls;
 
     private ServiceServiceConnectConfigurationService() {}
-    /**
-     * @return List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. For each service block where enabled is true, exactly one `clientAlias` with one `port` should be specified. See below.
-     * 
-     */
     public List<ServiceServiceConnectConfigurationServiceClientAlias> clientAlias() {
         return this.clientAlias == null ? List.of() : this.clientAlias;
     }
-    /**
-     * @return Name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
-     * 
-     */
     public Optional<String> discoveryName() {
         return Optional.ofNullable(this.discoveryName);
     }
-    /**
-     * @return Port number for the Service Connect proxy to listen on.
-     * 
-     */
     public Optional<Integer> ingressPortOverride() {
         return Optional.ofNullable(this.ingressPortOverride);
     }
-    /**
-     * @return Name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
-     * 
-     */
     public String portName() {
         return this.portName;
     }
-    /**
-     * @return Configuration timeouts for Service Connect
-     * 
-     */
     public Optional<ServiceServiceConnectConfigurationServiceTimeout> timeout() {
         return Optional.ofNullable(this.timeout);
     }
-    /**
-     * @return Configuration for enabling Transport Layer Security (TLS)
-     * 
-     */
     public Optional<ServiceServiceConnectConfigurationServiceTls> tls() {
         return Optional.ofNullable(this.tls);
     }

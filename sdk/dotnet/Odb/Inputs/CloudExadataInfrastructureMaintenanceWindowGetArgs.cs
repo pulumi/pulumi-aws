@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Odb.Inputs
 
     public sealed class CloudExadataInfrastructureMaintenanceWindowGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The custom action timeout in minutes for the maintenance window.
-        /// </summary>
         [Input("customActionTimeoutInMins", required: true)]
         public Input<int> CustomActionTimeoutInMins { get; set; } = null!;
 
         [Input("daysOfWeeks")]
         private InputList<Inputs.CloudExadataInfrastructureMaintenanceWindowDaysOfWeekGetArgs>? _daysOfWeeks;
-
-        /// <summary>
-        /// The days of the week when maintenance can be performed.
-        /// </summary>
         public InputList<Inputs.CloudExadataInfrastructureMaintenanceWindowDaysOfWeekGetArgs> DaysOfWeeks
         {
             get => _daysOfWeeks ?? (_daysOfWeeks = new InputList<Inputs.CloudExadataInfrastructureMaintenanceWindowDaysOfWeekGetArgs>());
@@ -32,58 +25,34 @@ namespace Pulumi.Aws.Odb.Inputs
 
         [Input("hoursOfDays")]
         private InputList<int>? _hoursOfDays;
-
-        /// <summary>
-        /// The hours of the day when maintenance can be performed.
-        /// </summary>
         public InputList<int> HoursOfDays
         {
             get => _hoursOfDays ?? (_hoursOfDays = new InputList<int>());
             set => _hoursOfDays = value;
         }
 
-        /// <summary>
-        /// ndicates whether custom action timeout is enabled for the maintenance window.
-        /// </summary>
         [Input("isCustomActionTimeoutEnabled", required: true)]
         public Input<bool> IsCustomActionTimeoutEnabled { get; set; } = null!;
 
-        /// <summary>
-        /// The lead time in weeks before the maintenance window.
-        /// </summary>
         [Input("leadTimeInWeeks")]
         public Input<int>? LeadTimeInWeeks { get; set; }
 
         [Input("months")]
         private InputList<Inputs.CloudExadataInfrastructureMaintenanceWindowMonthGetArgs>? _months;
-
-        /// <summary>
-        /// The months when maintenance can be performed.
-        /// </summary>
         public InputList<Inputs.CloudExadataInfrastructureMaintenanceWindowMonthGetArgs> Months
         {
             get => _months ?? (_months = new InputList<Inputs.CloudExadataInfrastructureMaintenanceWindowMonthGetArgs>());
             set => _months = value;
         }
 
-        /// <summary>
-        /// The patching mode for the maintenance window.
-        /// </summary>
         [Input("patchingMode", required: true)]
         public Input<string> PatchingMode { get; set; } = null!;
 
-        /// <summary>
-        /// The preference for the maintenance window scheduling.
-        /// </summary>
         [Input("preference", required: true)]
         public Input<string> Preference { get; set; } = null!;
 
         [Input("weeksOfMonths")]
         private InputList<int>? _weeksOfMonths;
-
-        /// <summary>
-        /// The weeks of the month when maintenance can be performed.
-        /// </summary>
         public InputList<int> WeeksOfMonths
         {
             get => _weeksOfMonths ?? (_weeksOfMonths = new InputList<int>());

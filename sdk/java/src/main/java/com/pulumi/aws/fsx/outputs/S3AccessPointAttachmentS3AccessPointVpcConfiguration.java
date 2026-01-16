@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class S3AccessPointAttachmentS3AccessPointVpcConfiguration {
-    /**
-     * @return VPC ID.
-     * 
-     */
     private @Nullable String vpcId;
 
     private S3AccessPointAttachmentS3AccessPointVpcConfiguration() {}
-    /**
-     * @return VPC ID.
-     * 
-     */
     public Optional<String> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Athena.Inputs
 
     public sealed class WorkgroupConfigurationManagedQueryResultsConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// If set to `True`, allows you to store query results in Athena owned storage. If set to `False`, workgroup member stores query results in the location specified under `result_configuration.output_location`. The default is `False`. A workgroup cannot have the `result_configuration.output_location` set when this is `True`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Configuration block for the encryption configuration. See Managed Query Results Encryption Configuration below.
-        /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 

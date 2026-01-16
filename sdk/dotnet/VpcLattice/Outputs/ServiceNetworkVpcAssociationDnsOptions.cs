@@ -13,13 +13,7 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     [OutputType]
     public sealed class ServiceNetworkVpcAssociationDnsOptions
     {
-        /// <summary>
-        /// Preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when `PrivateDnsEnabled` is `True`. Valid Values are `VERIFIED_DOMAINS_ONLY`, `ALL_DOMAINS`, `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` and `SPECIFIED_DOMAINS_ONLY`.
-        /// </summary>
         public readonly string? PrivateDnsPreference;
-        /// <summary>
-        /// Private domains to create private hosted zones for and associate with the specified VPC. Only supported when `PrivateDnsEnabled` is `True` and `PrivateDnsPreference` is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`.
-        /// </summary>
         public readonly ImmutableArray<string> PrivateDnsSpecifiedDomains;
 
         [OutputConstructor]

@@ -15,47 +15,23 @@ public final class LogDataProtectionPolicyState extends com.pulumi.resources.Res
 
     public static final LogDataProtectionPolicyState Empty = new LogDataProtectionPolicyState();
 
-    /**
-     * The name of the log group under which the log stream is to be created.
-     * 
-     */
     @Import(name="logGroupName")
     private @Nullable Output<String> logGroupName;
 
-    /**
-     * @return The name of the log group under which the log stream is to be created.
-     * 
-     */
     public Optional<Output<String>> logGroupName() {
         return Optional.ofNullable(this.logGroupName);
     }
 
-    /**
-     * Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
-     * 
-     */
     @Import(name="policyDocument")
     private @Nullable Output<String> policyDocument;
 
-    /**
-     * @return Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
-     * 
-     */
     public Optional<Output<String>> policyDocument() {
         return Optional.ofNullable(this.policyDocument);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -86,65 +62,29 @@ public final class LogDataProtectionPolicyState extends com.pulumi.resources.Res
             $ = new LogDataProtectionPolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param logGroupName The name of the log group under which the log stream is to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupName(@Nullable Output<String> logGroupName) {
             $.logGroupName = logGroupName;
             return this;
         }
 
-        /**
-         * @param logGroupName The name of the log group under which the log stream is to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupName(String logGroupName) {
             return logGroupName(Output.of(logGroupName));
         }
 
-        /**
-         * @param policyDocument Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyDocument(@Nullable Output<String> policyDocument) {
             $.policyDocument = policyDocument;
             return this;
         }
 
-        /**
-         * @param policyDocument Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyDocument(String policyDocument) {
             return policyDocument(Output.of(policyDocument));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

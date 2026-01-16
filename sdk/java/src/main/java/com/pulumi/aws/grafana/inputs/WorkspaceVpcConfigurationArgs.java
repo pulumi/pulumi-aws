@@ -15,32 +15,16 @@ public final class WorkspaceVpcConfigurationArgs extends com.pulumi.resources.Re
 
     public static final WorkspaceVpcConfigurationArgs Empty = new WorkspaceVpcConfigurationArgs();
 
-    /**
-     * The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
-     * 
-     */
     @Import(name="securityGroupIds", required=true)
     private Output<List<String>> securityGroupIds;
 
-    /**
-     * @return The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
-     * 
-     */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
     }
 
-    /**
-     * The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
-     * 
-     */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
-    /**
-     * @return The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
-     * 
-     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
@@ -70,64 +54,28 @@ public final class WorkspaceVpcConfigurationArgs extends com.pulumi.resources.Re
             $ = new WorkspaceVpcConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param securityGroupIds The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
-        /**
-         * @param securityGroupIds The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
-        /**
-         * @param securityGroupIds The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
 
-        /**
-         * @param subnetIds The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
-        /**
-         * @param subnetIds The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
-        /**
-         * @param subnetIds The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }

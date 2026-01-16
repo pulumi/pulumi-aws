@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class FlowDefinitionOutputConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Key Management Service (KMS) key ARN for server-side encryption.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        /// <summary>
-        /// The Amazon S3 path where the object containing human output will be made available.
-        /// </summary>
         [Input("s3OutputPath", required: true)]
         public Input<string> S3OutputPath { get; set; } = null!;
 

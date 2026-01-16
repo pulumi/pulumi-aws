@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields {
-    /**
-     * @return The names of the address fields.
-     * 
-     */
     private List<String> identifiers;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields() {}
-    /**
-     * @return The names of the address fields.
-     * 
-     */
     public List<String> identifiers() {
         return this.identifiers;
     }

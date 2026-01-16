@@ -14,77 +14,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter {
-    /**
-     * @return Any of the host devices to expose to the container.
-     * 
-     */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice> devices;
-    /**
-     * @return If true, run an init process inside the container that forwards signals and reaps processes.
-     * 
-     */
     private Boolean initProcessEnabled;
-    /**
-     * @return The total amount of swap memory (in MiB) a container can use.
-     * 
-     */
     private Integer maxSwap;
-    /**
-     * @return The value for the size (in MiB) of the `/dev/shm` volume.
-     * 
-     */
     private Integer sharedMemorySize;
-    /**
-     * @return You can use this parameter to tune a container&#39;s memory swappiness behavior.
-     * 
-     */
     private Integer swappiness;
-    /**
-     * @return The container path, mount options, and size (in MiB) of the tmpfs mount.
-     * 
-     */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf> tmpfs;
 
     private GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter() {}
-    /**
-     * @return Any of the host devices to expose to the container.
-     * 
-     */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice> devices() {
         return this.devices;
     }
-    /**
-     * @return If true, run an init process inside the container that forwards signals and reaps processes.
-     * 
-     */
     public Boolean initProcessEnabled() {
         return this.initProcessEnabled;
     }
-    /**
-     * @return The total amount of swap memory (in MiB) a container can use.
-     * 
-     */
     public Integer maxSwap() {
         return this.maxSwap;
     }
-    /**
-     * @return The value for the size (in MiB) of the `/dev/shm` volume.
-     * 
-     */
     public Integer sharedMemorySize() {
         return this.sharedMemorySize;
     }
-    /**
-     * @return You can use this parameter to tune a container&#39;s memory swappiness behavior.
-     * 
-     */
     public Integer swappiness() {
         return this.swappiness;
     }
-    /**
-     * @return The container path, mount options, and size (in MiB) of the tmpfs mount.
-     * 
-     */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf> tmpfs() {
         return this.tmpfs;
     }

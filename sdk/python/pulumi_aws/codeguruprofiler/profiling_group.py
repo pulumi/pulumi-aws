@@ -28,13 +28,6 @@ class ProfilingGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ProfilingGroup resource.
-        :param pulumi.Input['ProfilingGroupAgentOrchestrationConfigArgs'] agent_orchestration_config: Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
-        :param pulumi.Input[_builtins.str] compute_platform: Compute platform of the profiling group.
-        :param pulumi.Input[_builtins.str] name: Name of the profiling group.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if agent_orchestration_config is not None:
             pulumi.set(__self__, "agent_orchestration_config", agent_orchestration_config)
@@ -50,9 +43,6 @@ class ProfilingGroupArgs:
     @_builtins.property
     @pulumi.getter(name="agentOrchestrationConfig")
     def agent_orchestration_config(self) -> Optional[pulumi.Input['ProfilingGroupAgentOrchestrationConfigArgs']]:
-        """
-        Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
-        """
         return pulumi.get(self, "agent_orchestration_config")
 
     @agent_orchestration_config.setter
@@ -62,9 +52,6 @@ class ProfilingGroupArgs:
     @_builtins.property
     @pulumi.getter(name="computePlatform")
     def compute_platform(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Compute platform of the profiling group.
-        """
         return pulumi.get(self, "compute_platform")
 
     @compute_platform.setter
@@ -74,11 +61,6 @@ class ProfilingGroupArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the profiling group.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -88,9 +70,6 @@ class ProfilingGroupArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -100,9 +79,6 @@ class ProfilingGroupArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -122,15 +98,6 @@ class _ProfilingGroupState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ProfilingGroup resources.
-        :param pulumi.Input['ProfilingGroupAgentOrchestrationConfigArgs'] agent_orchestration_config: Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
-        :param pulumi.Input[_builtins.str] arn: ARN of the profiling group.
-        :param pulumi.Input[_builtins.str] compute_platform: Compute platform of the profiling group.
-        :param pulumi.Input[_builtins.str] name: Name of the profiling group.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if agent_orchestration_config is not None:
             pulumi.set(__self__, "agent_orchestration_config", agent_orchestration_config)
@@ -150,9 +117,6 @@ class _ProfilingGroupState:
     @_builtins.property
     @pulumi.getter(name="agentOrchestrationConfig")
     def agent_orchestration_config(self) -> Optional[pulumi.Input['ProfilingGroupAgentOrchestrationConfigArgs']]:
-        """
-        Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
-        """
         return pulumi.get(self, "agent_orchestration_config")
 
     @agent_orchestration_config.setter
@@ -162,9 +126,6 @@ class _ProfilingGroupState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the profiling group.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -174,9 +135,6 @@ class _ProfilingGroupState:
     @_builtins.property
     @pulumi.getter(name="computePlatform")
     def compute_platform(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Compute platform of the profiling group.
-        """
         return pulumi.get(self, "compute_platform")
 
     @compute_platform.setter
@@ -186,11 +144,6 @@ class _ProfilingGroupState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the profiling group.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -200,9 +153,6 @@ class _ProfilingGroupState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -212,9 +162,6 @@ class _ProfilingGroupState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -224,9 +171,6 @@ class _ProfilingGroupState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -247,41 +191,9 @@ class ProfilingGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS CodeGuru Profiler Profiling Group.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codeguruprofiler.ProfilingGroup("example",
-            name="example",
-            compute_platform="Default",
-            agent_orchestration_config={
-                "profiling_enabled": True,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:codeguruprofiler/profilingGroup:ProfilingGroup example profiling_group-name-12345678
-        ```
-
+        Create a ProfilingGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ProfilingGroupAgentOrchestrationConfigArgs', 'ProfilingGroupAgentOrchestrationConfigArgsDict']] agent_orchestration_config: Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
-        :param pulumi.Input[_builtins.str] compute_platform: Compute platform of the profiling group.
-        :param pulumi.Input[_builtins.str] name: Name of the profiling group.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -290,32 +202,7 @@ class ProfilingGroup(pulumi.CustomResource):
                  args: Optional[ProfilingGroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS CodeGuru Profiler Profiling Group.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codeguruprofiler.ProfilingGroup("example",
-            name="example",
-            compute_platform="Default",
-            agent_orchestration_config={
-                "profiling_enabled": True,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:codeguruprofiler/profilingGroup:ProfilingGroup example profiling_group-name-12345678
-        ```
-
+        Create a ProfilingGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ProfilingGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -376,15 +263,6 @@ class ProfilingGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ProfilingGroupAgentOrchestrationConfigArgs', 'ProfilingGroupAgentOrchestrationConfigArgsDict']] agent_orchestration_config: Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
-        :param pulumi.Input[_builtins.str] arn: ARN of the profiling group.
-        :param pulumi.Input[_builtins.str] compute_platform: Compute platform of the profiling group.
-        :param pulumi.Input[_builtins.str] name: Name of the profiling group.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -402,58 +280,35 @@ class ProfilingGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="agentOrchestrationConfig")
     def agent_orchestration_config(self) -> pulumi.Output[Optional['outputs.ProfilingGroupAgentOrchestrationConfig']]:
-        """
-        Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
-        """
         return pulumi.get(self, "agent_orchestration_config")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the profiling group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="computePlatform")
     def compute_platform(self) -> pulumi.Output[_builtins.str]:
-        """
-        Compute platform of the profiling group.
-        """
         return pulumi.get(self, "compute_platform")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the profiling group.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

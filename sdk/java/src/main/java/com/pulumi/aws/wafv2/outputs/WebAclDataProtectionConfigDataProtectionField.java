@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclDataProtectionConfigDataProtectionField {
-    /**
-     * @return Array of strings to specify the keys to protect for the specified field type. If you don&#39;t specify any key, then all keys for the field type are protected.
-     * 
-     */
     private @Nullable List<String> fieldKeys;
-    /**
-     * @return Specifies the web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
-     * 
-     */
     private String fieldType;
 
     private WebAclDataProtectionConfigDataProtectionField() {}
-    /**
-     * @return Array of strings to specify the keys to protect for the specified field type. If you don&#39;t specify any key, then all keys for the field type are protected.
-     * 
-     */
     public List<String> fieldKeys() {
         return this.fieldKeys == null ? List.of() : this.fieldKeys;
     }
-    /**
-     * @return Specifies the web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
-     * 
-     */
     public String fieldType() {
         return this.fieldType;
     }

@@ -14,17 +14,9 @@ public final class PipelineLogPublishingOptionsCloudwatchLogDestinationArgs exte
 
     public static final PipelineLogPublishingOptionsCloudwatchLogDestinationArgs Empty = new PipelineLogPublishingOptionsCloudwatchLogDestinationArgs();
 
-    /**
-     * The name of the CloudWatch Logs group to send pipeline logs to. You can specify an existing log group or create a new one. For example, /aws/OpenSearchService/IngestionService/my-pipeline.
-     * 
-     */
     @Import(name="logGroup", required=true)
     private Output<String> logGroup;
 
-    /**
-     * @return The name of the CloudWatch Logs group to send pipeline logs to. You can specify an existing log group or create a new one. For example, /aws/OpenSearchService/IngestionService/my-pipeline.
-     * 
-     */
     public Output<String> logGroup() {
         return this.logGroup;
     }
@@ -53,23 +45,11 @@ public final class PipelineLogPublishingOptionsCloudwatchLogDestinationArgs exte
             $ = new PipelineLogPublishingOptionsCloudwatchLogDestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param logGroup The name of the CloudWatch Logs group to send pipeline logs to. You can specify an existing log group or create a new one. For example, /aws/OpenSearchService/IngestionService/my-pipeline.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroup(Output<String> logGroup) {
             $.logGroup = logGroup;
             return this;
         }
 
-        /**
-         * @param logGroup The name of the CloudWatch Logs group to send pipeline logs to. You can specify an existing log group or create a new one. For example, /aws/OpenSearchService/IngestionService/my-pipeline.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroup(String logGroup) {
             return logGroup(Output.of(logGroup));
         }

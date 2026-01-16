@@ -9,54 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CodeCommit
 {
-    /// <summary>
-    /// Associates a CodeCommit Approval Rule Template with a Repository.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CodeCommit.ApprovalRuleTemplateAssociation("example", new()
-    ///     {
-    ///         ApprovalRuleTemplateName = exampleAwsCodecommitApprovalRuleTemplate.Name,
-    ///         RepositoryName = exampleAwsCodecommitRepository.RepositoryName,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CodeCommit approval rule template associations using the `approval_rule_template_name` and `repository_name` separated by a comma (`,`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation example approver-rule-for-example,MyExampleRepo
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation")]
     public partial class ApprovalRuleTemplateAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The name for the approval rule template.
-        /// </summary>
         [Output("approvalRuleTemplateName")]
         public Output<string> ApprovalRuleTemplateName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the repository that you want to associate with the template.
-        /// </summary>
         [Output("repositoryName")]
         public Output<string> RepositoryName { get; private set; } = null!;
 
@@ -106,21 +67,12 @@ namespace Pulumi.Aws.CodeCommit
 
     public sealed class ApprovalRuleTemplateAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name for the approval rule template.
-        /// </summary>
         [Input("approvalRuleTemplateName", required: true)]
         public Input<string> ApprovalRuleTemplateName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the repository that you want to associate with the template.
-        /// </summary>
         [Input("repositoryName", required: true)]
         public Input<string> RepositoryName { get; set; } = null!;
 
@@ -132,21 +84,12 @@ namespace Pulumi.Aws.CodeCommit
 
     public sealed class ApprovalRuleTemplateAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name for the approval rule template.
-        /// </summary>
         [Input("approvalRuleTemplateName")]
         public Input<string>? ApprovalRuleTemplateName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the repository that you want to associate with the template.
-        /// </summary>
         [Input("repositoryName")]
         public Input<string>? RepositoryName { get; set; }
 

@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetNotificationChannelFilter {
-    /**
-     * @return Events to receive notifications for.
-     * 
-     */
     private List<String> messageTypes;
-    /**
-     * @return Severity levels to receive notifications for.
-     * 
-     */
     private List<String> severities;
 
     private GetNotificationChannelFilter() {}
-    /**
-     * @return Events to receive notifications for.
-     * 
-     */
     public List<String> messageTypes() {
         return this.messageTypes;
     }
-    /**
-     * @return Severity levels to receive notifications for.
-     * 
-     */
     public List<String> severities() {
         return this.severities;
     }

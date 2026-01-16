@@ -21,61 +21,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEndpointResult {
-    /**
-     * @return The ARN of the Client VPN endpoint.
-     * 
-     */
     private String arn;
-    /**
-     * @return Information about the authentication method used by the Client VPN endpoint.
-     * 
-     */
     private List<GetEndpointAuthenticationOption> authenticationOptions;
-    /**
-     * @return IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
-     * 
-     */
     private String clientCidrBlock;
-    /**
-     * @return The options for managing connection authorization for new client connections.
-     * 
-     */
     private List<GetEndpointClientConnectOption> clientConnectOptions;
-    /**
-     * @return Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
-     * 
-     */
     private List<GetEndpointClientLoginBannerOption> clientLoginBannerOptions;
-    /**
-     * @return Options for enforce administrator defined routes on devices connected through the VPN.
-     * 
-     */
     private List<GetEndpointClientRouteEnforcementOption> clientRouteEnforcementOptions;
     private String clientVpnEndpointId;
-    /**
-     * @return Information about the client connection logging options for the Client VPN endpoint.
-     * 
-     */
     private List<GetEndpointConnectionLogOption> connectionLogOptions;
-    /**
-     * @return Brief description of the endpoint.
-     * 
-     */
     private String description;
-    /**
-     * @return DNS name to be used by clients when connecting to the Client VPN endpoint.
-     * 
-     */
     private String dnsName;
-    /**
-     * @return Information about the DNS servers to be used for DNS resolution.
-     * 
-     */
     private List<String> dnsServers;
-    /**
-     * @return IP address type for the Client VPN endpoint.
-     * 
-     */
     private String endpointIpAddressType;
     private @Nullable List<GetEndpointFilter> filters;
     /**
@@ -84,136 +40,52 @@ public final class GetEndpointResult {
      */
     private String id;
     private String region;
-    /**
-     * @return IDs of the security groups for the target network associated with the Client VPN endpoint.
-     * 
-     */
     private List<String> securityGroupIds;
-    /**
-     * @return Whether the self-service portal for the Client VPN endpoint is enabled.
-     * 
-     */
     private String selfServicePortal;
-    /**
-     * @return The URL of the self-service portal.
-     * 
-     */
     private String selfServicePortalUrl;
-    /**
-     * @return The ARN of the server certificate.
-     * 
-     */
     private String serverCertificateArn;
-    /**
-     * @return The maximum VPN session duration time in hours.
-     * 
-     */
     private Integer sessionTimeoutHours;
-    /**
-     * @return Whether split-tunnel is enabled in the AWS Client VPN endpoint.
-     * 
-     */
     private Boolean splitTunnel;
     private Map<String,String> tags;
-    /**
-     * @return IP address type for traffic within the Client VPN tunnel.
-     * 
-     */
     private String trafficIpAddressType;
-    /**
-     * @return Transport protocol used by the Client VPN endpoint.
-     * 
-     */
     private String transportProtocol;
-    /**
-     * @return ID of the VPC associated with the Client VPN endpoint.
-     * 
-     */
     private String vpcId;
-    /**
-     * @return Port number for the Client VPN endpoint.
-     * 
-     */
     private Integer vpnPort;
 
     private GetEndpointResult() {}
-    /**
-     * @return The ARN of the Client VPN endpoint.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Information about the authentication method used by the Client VPN endpoint.
-     * 
-     */
     public List<GetEndpointAuthenticationOption> authenticationOptions() {
         return this.authenticationOptions;
     }
-    /**
-     * @return IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
-     * 
-     */
     public String clientCidrBlock() {
         return this.clientCidrBlock;
     }
-    /**
-     * @return The options for managing connection authorization for new client connections.
-     * 
-     */
     public List<GetEndpointClientConnectOption> clientConnectOptions() {
         return this.clientConnectOptions;
     }
-    /**
-     * @return Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
-     * 
-     */
     public List<GetEndpointClientLoginBannerOption> clientLoginBannerOptions() {
         return this.clientLoginBannerOptions;
     }
-    /**
-     * @return Options for enforce administrator defined routes on devices connected through the VPN.
-     * 
-     */
     public List<GetEndpointClientRouteEnforcementOption> clientRouteEnforcementOptions() {
         return this.clientRouteEnforcementOptions;
     }
     public String clientVpnEndpointId() {
         return this.clientVpnEndpointId;
     }
-    /**
-     * @return Information about the client connection logging options for the Client VPN endpoint.
-     * 
-     */
     public List<GetEndpointConnectionLogOption> connectionLogOptions() {
         return this.connectionLogOptions;
     }
-    /**
-     * @return Brief description of the endpoint.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return DNS name to be used by clients when connecting to the Client VPN endpoint.
-     * 
-     */
     public String dnsName() {
         return this.dnsName;
     }
-    /**
-     * @return Information about the DNS servers to be used for DNS resolution.
-     * 
-     */
     public List<String> dnsServers() {
         return this.dnsServers;
     }
-    /**
-     * @return IP address type for the Client VPN endpoint.
-     * 
-     */
     public String endpointIpAddressType() {
         return this.endpointIpAddressType;
     }
@@ -230,76 +102,36 @@ public final class GetEndpointResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return IDs of the security groups for the target network associated with the Client VPN endpoint.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * @return Whether the self-service portal for the Client VPN endpoint is enabled.
-     * 
-     */
     public String selfServicePortal() {
         return this.selfServicePortal;
     }
-    /**
-     * @return The URL of the self-service portal.
-     * 
-     */
     public String selfServicePortalUrl() {
         return this.selfServicePortalUrl;
     }
-    /**
-     * @return The ARN of the server certificate.
-     * 
-     */
     public String serverCertificateArn() {
         return this.serverCertificateArn;
     }
-    /**
-     * @return The maximum VPN session duration time in hours.
-     * 
-     */
     public Integer sessionTimeoutHours() {
         return this.sessionTimeoutHours;
     }
-    /**
-     * @return Whether split-tunnel is enabled in the AWS Client VPN endpoint.
-     * 
-     */
     public Boolean splitTunnel() {
         return this.splitTunnel;
     }
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return IP address type for traffic within the Client VPN tunnel.
-     * 
-     */
     public String trafficIpAddressType() {
         return this.trafficIpAddressType;
     }
-    /**
-     * @return Transport protocol used by the Client VPN endpoint.
-     * 
-     */
     public String transportProtocol() {
         return this.transportProtocol;
     }
-    /**
-     * @return ID of the VPC associated with the Client VPN endpoint.
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }
-    /**
-     * @return Port number for the Client VPN endpoint.
-     * 
-     */
     public Integer vpnPort() {
         return this.vpnPort;
     }

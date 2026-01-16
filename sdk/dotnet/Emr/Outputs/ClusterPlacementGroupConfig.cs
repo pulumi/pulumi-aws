@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Emr.Outputs
     [OutputType]
     public sealed class ClusterPlacementGroupConfig
     {
-        /// <summary>
-        /// Role of the instance in the cluster. Valid Values: `MASTER`, `CORE`, `TASK`.
-        /// </summary>
         public readonly string InstanceRole;
-        /// <summary>
-        /// EC2 Placement Group strategy associated with instance role. Valid Values: `SPREAD`, `PARTITION`, `CLUSTER`, `NONE`.
-        /// </summary>
         public readonly string? PlacementStrategy;
 
         [OutputConstructor]

@@ -16,62 +16,30 @@ public final class GetDomainNamePlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetDomainNamePlainArgs Empty = new GetDomainNamePlainArgs();
 
-    /**
-     * Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
-     * 
-     */
     @Import(name="domainName", required=true)
     private String domainName;
 
-    /**
-     * @return Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
-     * 
-     */
     public String domainName() {
         return this.domainName;
     }
 
-    /**
-     * The identifier for the domain name resource. Supported only for private custom domain names.
-     * 
-     */
     @Import(name="domainNameId")
     private @Nullable String domainNameId;
 
-    /**
-     * @return The identifier for the domain name resource. Supported only for private custom domain names.
-     * 
-     */
     public Optional<String> domainNameId() {
         return Optional.ofNullable(this.domainNameId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of tags for the resource.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Key-value map of tags for the resource.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -103,45 +71,21 @@ public final class GetDomainNamePlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetDomainNamePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domainName Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainNameId The identifier for the domain name resource. Supported only for private custom domain names.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainNameId(@Nullable String domainNameId) {
             $.domainNameId = domainNameId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of tags for the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

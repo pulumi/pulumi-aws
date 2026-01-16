@@ -17,62 +17,30 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
 
     public static final ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs Empty = new ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs();
 
-    /**
-     * Sets the attenuation control.
-     * 
-     */
     @Import(name="attenuationControl")
     private @Nullable Output<String> attenuationControl;
 
-    /**
-     * @return Sets the attenuation control.
-     * 
-     */
     public Optional<Output<String>> attenuationControl() {
         return Optional.ofNullable(this.attenuationControl);
     }
 
-    /**
-     * Average bitrate in bits/second.
-     * 
-     */
     @Import(name="bitrate")
     private @Nullable Output<Double> bitrate;
 
-    /**
-     * @return Average bitrate in bits/second.
-     * 
-     */
     public Optional<Output<Double>> bitrate() {
         return Optional.ofNullable(this.bitrate);
     }
 
-    /**
-     * Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
-     * 
-     */
     @Import(name="bitstreamMode")
     private @Nullable Output<String> bitstreamMode;
 
-    /**
-     * @return Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
-     * 
-     */
     public Optional<Output<String>> bitstreamMode() {
         return Optional.ofNullable(this.bitstreamMode);
     }
 
-    /**
-     * Dolby Digital Plus coding mode.
-     * 
-     */
     @Import(name="codingMode")
     private @Nullable Output<String> codingMode;
 
-    /**
-     * @return Dolby Digital Plus coding mode.
-     * 
-     */
     public Optional<Output<String>> codingMode() {
         return Optional.ofNullable(this.codingMode);
     }
@@ -91,32 +59,16 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
         return Optional.ofNullable(this.dialnorm);
     }
 
-    /**
-     * Sets the Dolby dynamic range compression profile.
-     * 
-     */
     @Import(name="drcLine")
     private @Nullable Output<String> drcLine;
 
-    /**
-     * @return Sets the Dolby dynamic range compression profile.
-     * 
-     */
     public Optional<Output<String>> drcLine() {
         return Optional.ofNullable(this.drcLine);
     }
 
-    /**
-     * Sets the profile for heavy Dolby dynamic range compression.
-     * 
-     */
     @Import(name="drcRf")
     private @Nullable Output<String> drcRf;
 
-    /**
-     * @return Sets the profile for heavy Dolby dynamic range compression.
-     * 
-     */
     public Optional<Output<String>> drcRf() {
         return Optional.ofNullable(this.drcRf);
     }
@@ -128,17 +80,9 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
         return Optional.ofNullable(this.lfeControl);
     }
 
-    /**
-     * When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
-     * 
-     */
     @Import(name="lfeFilter")
     private @Nullable Output<String> lfeFilter;
 
-    /**
-     * @return When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
-     * 
-     */
     public Optional<Output<String>> lfeFilter() {
         return Optional.ofNullable(this.lfeFilter);
     }
@@ -171,17 +115,9 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
         return Optional.ofNullable(this.ltRtSurroundMixLevel);
     }
 
-    /**
-     * Metadata control.
-     * 
-     */
     @Import(name="metadataControl")
     private @Nullable Output<String> metadataControl;
 
-    /**
-     * @return Metadata control.
-     * 
-     */
     public Optional<Output<String>> metadataControl() {
         return Optional.ofNullable(this.metadataControl);
     }
@@ -264,86 +200,38 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
             $ = new ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attenuationControl Sets the attenuation control.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attenuationControl(@Nullable Output<String> attenuationControl) {
             $.attenuationControl = attenuationControl;
             return this;
         }
 
-        /**
-         * @param attenuationControl Sets the attenuation control.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attenuationControl(String attenuationControl) {
             return attenuationControl(Output.of(attenuationControl));
         }
 
-        /**
-         * @param bitrate Average bitrate in bits/second.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bitrate(@Nullable Output<Double> bitrate) {
             $.bitrate = bitrate;
             return this;
         }
 
-        /**
-         * @param bitrate Average bitrate in bits/second.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bitrate(Double bitrate) {
             return bitrate(Output.of(bitrate));
         }
 
-        /**
-         * @param bitstreamMode Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bitstreamMode(@Nullable Output<String> bitstreamMode) {
             $.bitstreamMode = bitstreamMode;
             return this;
         }
 
-        /**
-         * @param bitstreamMode Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bitstreamMode(String bitstreamMode) {
             return bitstreamMode(Output.of(bitstreamMode));
         }
 
-        /**
-         * @param codingMode Dolby Digital Plus coding mode.
-         * 
-         * @return builder
-         * 
-         */
         public Builder codingMode(@Nullable Output<String> codingMode) {
             $.codingMode = codingMode;
             return this;
         }
 
-        /**
-         * @param codingMode Dolby Digital Plus coding mode.
-         * 
-         * @return builder
-         * 
-         */
         public Builder codingMode(String codingMode) {
             return codingMode(Output.of(codingMode));
         }
@@ -366,44 +254,20 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
             return dialnorm(Output.of(dialnorm));
         }
 
-        /**
-         * @param drcLine Sets the Dolby dynamic range compression profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder drcLine(@Nullable Output<String> drcLine) {
             $.drcLine = drcLine;
             return this;
         }
 
-        /**
-         * @param drcLine Sets the Dolby dynamic range compression profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder drcLine(String drcLine) {
             return drcLine(Output.of(drcLine));
         }
 
-        /**
-         * @param drcRf Sets the profile for heavy Dolby dynamic range compression.
-         * 
-         * @return builder
-         * 
-         */
         public Builder drcRf(@Nullable Output<String> drcRf) {
             $.drcRf = drcRf;
             return this;
         }
 
-        /**
-         * @param drcRf Sets the profile for heavy Dolby dynamic range compression.
-         * 
-         * @return builder
-         * 
-         */
         public Builder drcRf(String drcRf) {
             return drcRf(Output.of(drcRf));
         }
@@ -417,23 +281,11 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
             return lfeControl(Output.of(lfeControl));
         }
 
-        /**
-         * @param lfeFilter When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lfeFilter(@Nullable Output<String> lfeFilter) {
             $.lfeFilter = lfeFilter;
             return this;
         }
 
-        /**
-         * @param lfeFilter When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lfeFilter(String lfeFilter) {
             return lfeFilter(Output.of(lfeFilter));
         }
@@ -474,23 +326,11 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
             return ltRtSurroundMixLevel(Output.of(ltRtSurroundMixLevel));
         }
 
-        /**
-         * @param metadataControl Metadata control.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metadataControl(@Nullable Output<String> metadataControl) {
             $.metadataControl = metadataControl;
             return this;
         }
 
-        /**
-         * @param metadataControl Metadata control.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metadataControl(String metadataControl) {
             return metadataControl(Output.of(metadataControl));
         }

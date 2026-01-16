@@ -10,70 +10,26 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRouterConfigurationRouter {
-    /**
-     * @return Router platform
-     * 
-     */
     private String platform;
-    /**
-     * @return ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
-     * 
-     * There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
-     * 
-     */
     private String routerTypeIdentifier;
-    /**
-     * @return Router operating system
-     * 
-     */
     private String software;
-    /**
-     * @return Router vendor
-     * 
-     */
     private String vendor;
-    /**
-     * @return Router XSLT Template Name
-     * 
-     */
     private String xsltTemplateName;
     private String xsltTemplateNameForMacSec;
 
     private GetRouterConfigurationRouter() {}
-    /**
-     * @return Router platform
-     * 
-     */
     public String platform() {
         return this.platform;
     }
-    /**
-     * @return ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
-     * 
-     * There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
-     * 
-     */
     public String routerTypeIdentifier() {
         return this.routerTypeIdentifier;
     }
-    /**
-     * @return Router operating system
-     * 
-     */
     public String software() {
         return this.software;
     }
-    /**
-     * @return Router vendor
-     * 
-     */
     public String vendor() {
         return this.vendor;
     }
-    /**
-     * @return Router XSLT Template Name
-     * 
-     */
     public String xsltTemplateName() {
         return this.xsltTemplateName;
     }

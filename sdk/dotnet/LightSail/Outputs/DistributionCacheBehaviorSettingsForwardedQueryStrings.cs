@@ -14,11 +14,11 @@ namespace Pulumi.Aws.LightSail.Outputs
     public sealed class DistributionCacheBehaviorSettingsForwardedQueryStrings
     {
         /// <summary>
-        /// Whether the distribution forwards and caches based on query strings.
+        /// Indicates whether the distribution forwards and caches based on query strings.
         /// </summary>
         public readonly bool? Option;
         /// <summary>
-        /// Specific query strings that the distribution forwards to the origin.
+        /// The specific query strings that the distribution forwards to the origin.
         /// </summary>
         public readonly ImmutableArray<string> QueryStringsAllowedLists;
 

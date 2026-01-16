@@ -32,10 +32,6 @@ class FaqArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Faq resource.
-        :param pulumi.Input[_builtins.str] index_id: The identifier of the index for a FAQ.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-        :param pulumi.Input['FaqS3PathArgs'] s3_path: The S3 location of the FAQ input data. Detailed below.
-        :param pulumi.Input[_builtins.str] name: The name that should be associated with the FAQ.
         """
         pulumi.set(__self__, "index_id", index_id)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -56,9 +52,6 @@ class FaqArgs:
     @_builtins.property
     @pulumi.getter(name="indexId")
     def index_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The identifier of the index for a FAQ.
-        """
         return pulumi.get(self, "index_id")
 
     @index_id.setter
@@ -68,9 +61,6 @@ class FaqArgs:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -80,9 +70,6 @@ class FaqArgs:
     @_builtins.property
     @pulumi.getter(name="s3Path")
     def s3_path(self) -> pulumi.Input['FaqS3PathArgs']:
-        """
-        The S3 location of the FAQ input data. Detailed below.
-        """
         return pulumi.get(self, "s3_path")
 
     @s3_path.setter
@@ -119,9 +106,6 @@ class FaqArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name that should be associated with the FAQ.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -168,17 +152,6 @@ class _FaqState:
                  updated_at: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Faq resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the FAQ.
-        :param pulumi.Input[_builtins.str] created_at: The Unix datetime that the FAQ was created.
-        :param pulumi.Input[_builtins.str] error_message: When the Status field value is `FAILED`, this contains a message that explains why.
-        :param pulumi.Input[_builtins.str] faq_id: The identifier of the FAQ.
-        :param pulumi.Input[_builtins.str] index_id: The identifier of the index for a FAQ.
-        :param pulumi.Input[_builtins.str] name: The name that should be associated with the FAQ.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-        :param pulumi.Input['FaqS3PathArgs'] s3_path: The S3 location of the FAQ input data. Detailed below.
-        :param pulumi.Input[_builtins.str] status: The status of the FAQ. It is ready to use when the status is ACTIVE.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] updated_at: The date and time that the FAQ was last updated.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -216,9 +189,6 @@ class _FaqState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the FAQ.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -228,9 +198,6 @@ class _FaqState:
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Unix datetime that the FAQ was created.
-        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -249,9 +216,6 @@ class _FaqState:
     @_builtins.property
     @pulumi.getter(name="errorMessage")
     def error_message(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        When the Status field value is `FAILED`, this contains a message that explains why.
-        """
         return pulumi.get(self, "error_message")
 
     @error_message.setter
@@ -261,9 +225,6 @@ class _FaqState:
     @_builtins.property
     @pulumi.getter(name="faqId")
     def faq_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier of the FAQ.
-        """
         return pulumi.get(self, "faq_id")
 
     @faq_id.setter
@@ -282,9 +243,6 @@ class _FaqState:
     @_builtins.property
     @pulumi.getter(name="indexId")
     def index_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier of the index for a FAQ.
-        """
         return pulumi.get(self, "index_id")
 
     @index_id.setter
@@ -303,9 +261,6 @@ class _FaqState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name that should be associated with the FAQ.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -324,9 +279,6 @@ class _FaqState:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -336,9 +288,6 @@ class _FaqState:
     @_builtins.property
     @pulumi.getter(name="s3Path")
     def s3_path(self) -> Optional[pulumi.Input['FaqS3PathArgs']]:
-        """
-        The S3 location of the FAQ input data. Detailed below.
-        """
         return pulumi.get(self, "s3_path")
 
     @s3_path.setter
@@ -348,9 +297,6 @@ class _FaqState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status of the FAQ. It is ready to use when the status is ACTIVE.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -369,9 +315,6 @@ class _FaqState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -381,9 +324,6 @@ class _FaqState:
     @_builtins.property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date and time that the FAQ was last updated.
-        """
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
@@ -408,77 +348,9 @@ class Faq(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Kendra FAQ.
-
-        ## Example Usage
-
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kendra.Faq("example",
-            index_id=example_aws_kendra_index["id"],
-            name="Example",
-            role_arn=example_aws_iam_role["arn"],
-            s3_path={
-                "bucket": example_aws_s3_bucket["id"],
-                "key": example_aws_s3_object["key"],
-            },
-            tags={
-                "Name": "Example Kendra Faq",
-            })
-        ```
-
-        ### With File Format
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kendra.Faq("example",
-            index_id=example_aws_kendra_index["id"],
-            name="Example",
-            file_format="CSV",
-            role_arn=example_aws_iam_role["arn"],
-            s3_path={
-                "bucket": example_aws_s3_bucket["id"],
-                "key": example_aws_s3_object["key"],
-            })
-        ```
-
-        ### With Language Code
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kendra.Faq("example",
-            index_id=example_aws_kendra_index["id"],
-            name="Example",
-            language_code="en",
-            role_arn=example_aws_iam_role["arn"],
-            s3_path={
-                "bucket": example_aws_s3_bucket["id"],
-                "key": example_aws_s3_object["key"],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_kendra_faq` using the unique identifiers of the FAQ and index separated by a slash (`/`). For example:
-
-        ```sh
-        $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
-        ```
-
+        Create a Faq resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] index_id: The identifier of the index for a FAQ.
-        :param pulumi.Input[_builtins.str] name: The name that should be associated with the FAQ.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-        :param pulumi.Input[Union['FaqS3PathArgs', 'FaqS3PathArgsDict']] s3_path: The S3 location of the FAQ input data. Detailed below.
         """
         ...
     @overload
@@ -487,71 +359,7 @@ class Faq(pulumi.CustomResource):
                  args: FaqArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Kendra FAQ.
-
-        ## Example Usage
-
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kendra.Faq("example",
-            index_id=example_aws_kendra_index["id"],
-            name="Example",
-            role_arn=example_aws_iam_role["arn"],
-            s3_path={
-                "bucket": example_aws_s3_bucket["id"],
-                "key": example_aws_s3_object["key"],
-            },
-            tags={
-                "Name": "Example Kendra Faq",
-            })
-        ```
-
-        ### With File Format
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kendra.Faq("example",
-            index_id=example_aws_kendra_index["id"],
-            name="Example",
-            file_format="CSV",
-            role_arn=example_aws_iam_role["arn"],
-            s3_path={
-                "bucket": example_aws_s3_bucket["id"],
-                "key": example_aws_s3_object["key"],
-            })
-        ```
-
-        ### With Language Code
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kendra.Faq("example",
-            index_id=example_aws_kendra_index["id"],
-            name="Example",
-            language_code="en",
-            role_arn=example_aws_iam_role["arn"],
-            s3_path={
-                "bucket": example_aws_s3_bucket["id"],
-                "key": example_aws_s3_object["key"],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_kendra_faq` using the unique identifiers of the FAQ and index separated by a slash (`/`). For example:
-
-        ```sh
-        $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
-        ```
-
+        Create a Faq resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param FaqArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -640,17 +448,6 @@ class Faq(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the FAQ.
-        :param pulumi.Input[_builtins.str] created_at: The Unix datetime that the FAQ was created.
-        :param pulumi.Input[_builtins.str] error_message: When the Status field value is `FAILED`, this contains a message that explains why.
-        :param pulumi.Input[_builtins.str] faq_id: The identifier of the FAQ.
-        :param pulumi.Input[_builtins.str] index_id: The identifier of the index for a FAQ.
-        :param pulumi.Input[_builtins.str] name: The name that should be associated with the FAQ.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-        :param pulumi.Input[Union['FaqS3PathArgs', 'FaqS3PathArgsDict']] s3_path: The S3 location of the FAQ input data. Detailed below.
-        :param pulumi.Input[_builtins.str] status: The status of the FAQ. It is ready to use when the status is ACTIVE.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] updated_at: The date and time that the FAQ was last updated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -677,17 +474,11 @@ class Faq(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the FAQ.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Unix datetime that the FAQ was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
@@ -698,17 +489,11 @@ class Faq(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="errorMessage")
     def error_message(self) -> pulumi.Output[_builtins.str]:
-        """
-        When the Status field value is `FAILED`, this contains a message that explains why.
-        """
         return pulumi.get(self, "error_message")
 
     @_builtins.property
     @pulumi.getter(name="faqId")
     def faq_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier of the FAQ.
-        """
         return pulumi.get(self, "faq_id")
 
     @_builtins.property
@@ -719,9 +504,6 @@ class Faq(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="indexId")
     def index_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier of the index for a FAQ.
-        """
         return pulumi.get(self, "index_id")
 
     @_builtins.property
@@ -732,9 +514,6 @@ class Faq(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name that should be associated with the FAQ.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -745,25 +524,16 @@ class Faq(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter(name="s3Path")
     def s3_path(self) -> pulumi.Output['outputs.FaqS3Path']:
-        """
-        The S3 location of the FAQ input data. Detailed below.
-        """
         return pulumi.get(self, "s3_path")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The status of the FAQ. It is ready to use when the status is ACTIVE.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
@@ -774,16 +544,10 @@ class Faq(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date and time that the FAQ was last updated.
-        """
         return pulumi.get(self, "updated_at")
 

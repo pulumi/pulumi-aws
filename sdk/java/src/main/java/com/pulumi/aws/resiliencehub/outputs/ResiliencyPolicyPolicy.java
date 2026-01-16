@@ -15,54 +15,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ResiliencyPolicyPolicy {
     /**
-     * @return Specifies Availability Zone failure policy. See `policy.az`
+     * @return The RTO and RPO target to measure resiliency for potential availability zone disruptions.
      * 
      */
     private @Nullable ResiliencyPolicyPolicyAz az;
     /**
-     * @return Specifies Infrastructure failure policy. See `policy.hardware`
+     * @return The RTO and RPO target to measure resiliency for potential infrastructure disruptions.
      * 
      */
     private @Nullable ResiliencyPolicyPolicyHardware hardware;
     /**
-     * @return Specifies Region failure policy. `policy.region`
+     * @return The RTO and RPO target to measure resiliency for potential region disruptions.
      * 
      */
     private @Nullable ResiliencyPolicyPolicyRegion region;
     /**
-     * @return Specifies Application failure policy. See `policy.software`
-     * 
-     * The following arguments are optional:
+     * @return The RTO and RPO target to measure resiliency for potential application disruptions.
      * 
      */
     private @Nullable ResiliencyPolicyPolicySoftware software;
 
     private ResiliencyPolicyPolicy() {}
     /**
-     * @return Specifies Availability Zone failure policy. See `policy.az`
+     * @return The RTO and RPO target to measure resiliency for potential availability zone disruptions.
      * 
      */
     public Optional<ResiliencyPolicyPolicyAz> az() {
         return Optional.ofNullable(this.az);
     }
     /**
-     * @return Specifies Infrastructure failure policy. See `policy.hardware`
+     * @return The RTO and RPO target to measure resiliency for potential infrastructure disruptions.
      * 
      */
     public Optional<ResiliencyPolicyPolicyHardware> hardware() {
         return Optional.ofNullable(this.hardware);
     }
     /**
-     * @return Specifies Region failure policy. `policy.region`
+     * @return The RTO and RPO target to measure resiliency for potential region disruptions.
      * 
      */
     public Optional<ResiliencyPolicyPolicyRegion> region() {
         return Optional.ofNullable(this.region);
     }
     /**
-     * @return Specifies Application failure policy. See `policy.software`
-     * 
-     * The following arguments are optional:
+     * @return The RTO and RPO target to measure resiliency for potential application disruptions.
      * 
      */
     public Optional<ResiliencyPolicyPolicySoftware> software() {

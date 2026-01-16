@@ -12,21 +12,12 @@ namespace Pulumi.Aws.DynamoDB.Inputs
 
     public sealed class TableImportTableS3BucketSourceGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The S3 bucket that is being imported from.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// The account number of the S3 bucket that is being imported from.
-        /// </summary>
         [Input("bucketOwner")]
         public Input<string>? BucketOwner { get; set; }
 
-        /// <summary>
-        /// The key prefix shared by all S3 Objects that are being imported.
-        /// </summary>
         [Input("keyPrefix")]
         public Input<string>? KeyPrefix { get; set; }
 

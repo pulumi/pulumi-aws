@@ -12,65 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ResourceDataSyncS3Destination {
-    /**
-     * @return Name of S3 bucket where the aggregated data is stored.
-     * 
-     */
     private String bucketName;
-    /**
-     * @return ARN of an encryption key for a destination in Amazon S3.
-     * 
-     */
     private @Nullable String kmsKeyArn;
-    /**
-     * @return Prefix for the bucket.
-     * 
-     */
     private @Nullable String prefix;
-    /**
-     * @return Region with the bucket targeted by the Resource Data Sync.
-     * 
-     */
     private String region;
-    /**
-     * @return A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
-     * 
-     */
     private @Nullable String syncFormat;
 
     private ResourceDataSyncS3Destination() {}
-    /**
-     * @return Name of S3 bucket where the aggregated data is stored.
-     * 
-     */
     public String bucketName() {
         return this.bucketName;
     }
-    /**
-     * @return ARN of an encryption key for a destination in Amazon S3.
-     * 
-     */
     public Optional<String> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
-    /**
-     * @return Prefix for the bucket.
-     * 
-     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
-    /**
-     * @return Region with the bucket targeted by the Resource Data Sync.
-     * 
-     */
     public String region() {
         return this.region;
     }
-    /**
-     * @return A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
-     * 
-     */
     public Optional<String> syncFormat() {
         return Optional.ofNullable(this.syncFormat);
     }

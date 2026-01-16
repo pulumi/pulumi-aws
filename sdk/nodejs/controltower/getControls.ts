@@ -4,24 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * List of Control Tower controls applied to an OU.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _this = aws.organizations.getOrganization({});
- * const thisGetOrganizationalUnits = _this.then(_this => aws.organizations.getOrganizationalUnits({
- *     parentId: _this.roots?.[0]?.id,
- * }));
- * const thisGetControls = thisGetOrganizationalUnits.then(thisGetOrganizationalUnits => aws.controltower.getControls({
- *     targetIdentifier: .filter(x => x.name == "Security").map(x => (x.arn))[0],
- * }));
- * ```
- */
 export function getControls(args: GetControlsArgs, opts?: pulumi.InvokeOptions): Promise<GetControlsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:controltower/getControls:getControls", {
@@ -34,13 +16,7 @@ export function getControls(args: GetControlsArgs, opts?: pulumi.InvokeOptions):
  * A collection of arguments for invoking getControls.
  */
 export interface GetControlsArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * The ARN of the organizational unit.
-     */
     targetIdentifier: string;
 }
 
@@ -48,9 +24,6 @@ export interface GetControlsArgs {
  * A collection of values returned by getControls.
  */
 export interface GetControlsResult {
-    /**
-     * List of all the ARNs for the controls applied to the `targetIdentifier`.
-     */
     readonly enabledControls: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -59,24 +32,6 @@ export interface GetControlsResult {
     readonly region: string;
     readonly targetIdentifier: string;
 }
-/**
- * List of Control Tower controls applied to an OU.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _this = aws.organizations.getOrganization({});
- * const thisGetOrganizationalUnits = _this.then(_this => aws.organizations.getOrganizationalUnits({
- *     parentId: _this.roots?.[0]?.id,
- * }));
- * const thisGetControls = thisGetOrganizationalUnits.then(thisGetOrganizationalUnits => aws.controltower.getControls({
- *     targetIdentifier: .filter(x => x.name == "Security").map(x => (x.arn))[0],
- * }));
- * ```
- */
 export function getControlsOutput(args: GetControlsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetControlsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:controltower/getControls:getControls", {
@@ -89,12 +44,6 @@ export function getControlsOutput(args: GetControlsOutputArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getControls.
  */
 export interface GetControlsOutputArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ARN of the organizational unit.
-     */
     targetIdentifier: pulumi.Input<string>;
 }

@@ -9,97 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DataSync
 {
-    /// <summary>
-    /// Manages an NFS Location within AWS DataSync.
-    /// 
-    /// &gt; **NOTE:** The DataSync Agents must be available before creating this resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DataSync.NfsLocation("example", new()
-    ///     {
-    ///         ServerHostname = "nfs.example.com",
-    ///         Subdirectory = "/exported/path",
-    ///         OnPremConfig = new Aws.DataSync.Inputs.NfsLocationOnPremConfigArgs
-    ///         {
-    ///             AgentArns = new[]
-    ///             {
-    ///                 exampleAwsDatasyncAgent.Arn,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the DataSync NFS location.
-    /// 
-    /// Using `pulumi import`, import `aws_datasync_location_nfs` using the DataSync Task Amazon Resource Name (ARN). For example:
-    /// 
-    /// % pulumi import aws_datasync_location_nfs.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-    /// </summary>
     [AwsResourceType("aws:datasync/nfsLocation:NfsLocation")]
     public partial class NfsLocation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the DataSync Location.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block containing mount options used by DataSync to access the NFS Server.
-        /// </summary>
         [Output("mountOptions")]
         public Output<Outputs.NfsLocationMountOptions?> MountOptions { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block containing information for connecting to the NFS File System.
-        /// </summary>
         [Output("onPremConfig")]
         public Output<Outputs.NfsLocationOnPremConfig> OnPremConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
-        /// </summary>
         [Output("serverHostname")]
         public Output<string> ServerHostname { get; private set; } = null!;
 
-        /// <summary>
-        /// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
-        /// </summary>
         [Output("subdirectory")]
         public Output<string> Subdirectory { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -152,42 +85,23 @@ namespace Pulumi.Aws.DataSync
 
     public sealed class NfsLocationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block containing mount options used by DataSync to access the NFS Server.
-        /// </summary>
         [Input("mountOptions")]
         public Input<Inputs.NfsLocationMountOptionsArgs>? MountOptions { get; set; }
 
-        /// <summary>
-        /// Configuration block containing information for connecting to the NFS File System.
-        /// </summary>
         [Input("onPremConfig", required: true)]
         public Input<Inputs.NfsLocationOnPremConfigArgs> OnPremConfig { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
-        /// </summary>
         [Input("serverHostname", required: true)]
         public Input<string> ServerHostname { get; set; } = null!;
 
-        /// <summary>
-        /// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
-        /// </summary>
         [Input("subdirectory", required: true)]
         public Input<string> Subdirectory { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -202,48 +116,26 @@ namespace Pulumi.Aws.DataSync
 
     public sealed class NfsLocationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the DataSync Location.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Configuration block containing mount options used by DataSync to access the NFS Server.
-        /// </summary>
         [Input("mountOptions")]
         public Input<Inputs.NfsLocationMountOptionsGetArgs>? MountOptions { get; set; }
 
-        /// <summary>
-        /// Configuration block containing information for connecting to the NFS File System.
-        /// </summary>
         [Input("onPremConfig")]
         public Input<Inputs.NfsLocationOnPremConfigGetArgs>? OnPremConfig { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
-        /// </summary>
         [Input("serverHostname")]
         public Input<string>? ServerHostname { get; set; }
 
-        /// <summary>
-        /// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
-        /// </summary>
         [Input("subdirectory")]
         public Input<string>? Subdirectory { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -252,10 +144,6 @@ namespace Pulumi.Aws.DataSync
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

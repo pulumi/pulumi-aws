@@ -15,148 +15,52 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServerlessCacheResult {
-    /**
-     * @return The Amazon Resource Name (ARN) of the serverless cache.
-     * 
-     */
     private String arn;
-    /**
-     * @return The cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
-     * 
-     */
     private GetServerlessCacheCacheUsageLimits cacheUsageLimits;
-    /**
-     * @return Timestamp of when the serverless cache was created.
-     * 
-     */
     private String createTime;
-    /**
-     * @return The daily time that snapshots will be created from the new serverless cache. Only available for engine types `&#34;redis&#34;` and `&#34;valkey&#34;`.
-     * 
-     */
     private String dailySnapshotTime;
-    /**
-     * @return Description of the serverless cache.
-     * 
-     */
     private String description;
-    /**
-     * @return Represents the information required for client programs to connect to the cache. See `endpoint` Block for details.
-     * 
-     */
     private GetServerlessCacheEndpoint endpoint;
-    /**
-     * @return Name of the cache engine.
-     * 
-     */
     private String engine;
-    /**
-     * @return The name and version number of the engine the serverless cache is compatible with.
-     * 
-     */
     private String fullEngineVersion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return ARN of the customer managed key for encrypting the data at rest.
-     * 
-     */
     private String kmsKeyId;
-    /**
-     * @return The version number of the engine the serverless cache is compatible with.
-     * 
-     */
     private String majorEngineVersion;
     private String name;
-    /**
-     * @return Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
-     * 
-     */
     private GetServerlessCacheReaderEndpoint readerEndpoint;
     private String region;
-    /**
-     * @return A list of the one or more VPC security groups associated with the serverless cache.
-     * 
-     */
     private List<String> securityGroupIds;
-    /**
-     * @return The number of snapshots that will be retained for the serverless cache. Available for Redis only.
-     * 
-     */
     private Integer snapshotRetentionLimit;
-    /**
-     * @return The current status of the serverless cache.
-     * 
-     */
     private String status;
-    /**
-     * @return A list of the identifiers of the subnets where the VPC endpoint for the serverless cache are deployed.
-     * 
-     */
     private List<String> subnetIds;
-    /**
-     * @return The identifier of the UserGroup associated with the serverless cache. Available for Redis only.
-     * 
-     */
     private String userGroupId;
 
     private GetServerlessCacheResult() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the serverless cache.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
-     * 
-     */
     public GetServerlessCacheCacheUsageLimits cacheUsageLimits() {
         return this.cacheUsageLimits;
     }
-    /**
-     * @return Timestamp of when the serverless cache was created.
-     * 
-     */
     public String createTime() {
         return this.createTime;
     }
-    /**
-     * @return The daily time that snapshots will be created from the new serverless cache. Only available for engine types `&#34;redis&#34;` and `&#34;valkey&#34;`.
-     * 
-     */
     public String dailySnapshotTime() {
         return this.dailySnapshotTime;
     }
-    /**
-     * @return Description of the serverless cache.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Represents the information required for client programs to connect to the cache. See `endpoint` Block for details.
-     * 
-     */
     public GetServerlessCacheEndpoint endpoint() {
         return this.endpoint;
     }
-    /**
-     * @return Name of the cache engine.
-     * 
-     */
     public String engine() {
         return this.engine;
     }
-    /**
-     * @return The name and version number of the engine the serverless cache is compatible with.
-     * 
-     */
     public String fullEngineVersion() {
         return this.fullEngineVersion;
     }
@@ -167,65 +71,33 @@ public final class GetServerlessCacheResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return ARN of the customer managed key for encrypting the data at rest.
-     * 
-     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
-    /**
-     * @return The version number of the engine the serverless cache is compatible with.
-     * 
-     */
     public String majorEngineVersion() {
         return this.majorEngineVersion;
     }
     public String name() {
         return this.name;
     }
-    /**
-     * @return Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
-     * 
-     */
     public GetServerlessCacheReaderEndpoint readerEndpoint() {
         return this.readerEndpoint;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return A list of the one or more VPC security groups associated with the serverless cache.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * @return The number of snapshots that will be retained for the serverless cache. Available for Redis only.
-     * 
-     */
     public Integer snapshotRetentionLimit() {
         return this.snapshotRetentionLimit;
     }
-    /**
-     * @return The current status of the serverless cache.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return A list of the identifiers of the subnets where the VPC endpoint for the serverless cache are deployed.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
-    /**
-     * @return The identifier of the UserGroup associated with the serverless cache. Available for Redis only.
-     * 
-     */
     public String userGroupId() {
         return this.userGroupId;
     }

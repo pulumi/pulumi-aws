@@ -13,9 +13,6 @@ namespace Pulumi.Aws.SsoAdmin.Outputs
     [OutputType]
     public sealed class TrustedTokenIssuerTrustedTokenIssuerConfiguration
     {
-        /// <summary>
-        /// A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
-        /// </summary>
         public readonly Outputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration? OidcJwtConfiguration;
 
         [OutputConstructor]

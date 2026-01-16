@@ -46,17 +46,11 @@ class GetSiteResult:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> _builtins.str:
-        """
-        AWS Account identifier.
-        """
         return pulumi.get(self, "account_id")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -93,21 +87,7 @@ def get_site(id: Optional[_builtins.str] = None,
              region: Optional[_builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSiteResult:
     """
-    Provides details about an Outposts Site.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.outposts.get_site(name="example")
-    ```
-
-
-    :param _builtins.str id: Identifier of the Site.
-    :param _builtins.str name: Name of the Site.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -127,21 +107,7 @@ def get_site_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                     region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSiteResult]:
     """
-    Provides details about an Outposts Site.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.outposts.get_site(name="example")
-    ```
-
-
-    :param _builtins.str id: Identifier of the Site.
-    :param _builtins.str name: Name of the Site.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

@@ -15,10 +15,6 @@ import java.util.Objects;
 @CustomType
 public final class GetTableGlobalSecondaryIndex {
     private String hashKey;
-    /**
-     * @return Name of the DynamoDB table.
-     * 
-     */
     private String name;
     private List<String> nonKeyAttributes;
     private List<GetTableGlobalSecondaryIndexOnDemandThroughput> onDemandThroughputs;
@@ -32,10 +28,6 @@ public final class GetTableGlobalSecondaryIndex {
     public String hashKey() {
         return this.hashKey;
     }
-    /**
-     * @return Name of the DynamoDB table.
-     * 
-     */
     public String name() {
         return this.name;
     }

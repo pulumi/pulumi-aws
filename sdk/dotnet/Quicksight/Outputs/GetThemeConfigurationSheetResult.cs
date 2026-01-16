@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class GetThemeConfigurationSheetResult
     {
-        /// <summary>
-        /// The layout options for tiles. See tile_layout.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetThemeConfigurationSheetTileLayoutResult> TileLayouts;
-        /// <summary>
-        /// The display options for tiles. See tile.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetThemeConfigurationSheetTileResult> Tiles;
 
         [OutputConstructor]

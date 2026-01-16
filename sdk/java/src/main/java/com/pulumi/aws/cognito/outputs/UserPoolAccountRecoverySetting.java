@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserPoolAccountRecoverySetting {
-    /**
-     * @return List of Account Recovery Options of the following structure:
-     * 
-     */
     private @Nullable List<UserPoolAccountRecoverySettingRecoveryMechanism> recoveryMechanisms;
 
     private UserPoolAccountRecoverySetting() {}
-    /**
-     * @return List of Account Recovery Options of the following structure:
-     * 
-     */
     public List<UserPoolAccountRecoverySettingRecoveryMechanism> recoveryMechanisms() {
         return this.recoveryMechanisms == null ? List.of() : this.recoveryMechanisms;
     }

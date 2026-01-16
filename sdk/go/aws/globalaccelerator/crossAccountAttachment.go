@@ -11,103 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Global Accelerator Cross Account Attachment.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/globalaccelerator"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := globalaccelerator.NewCrossAccountAttachment(ctx, "example", &globalaccelerator.CrossAccountAttachmentArgs{
-//				Name: pulumi.String("example-cross-account-attachment"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Usage with Optional Arguments
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/globalaccelerator"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := globalaccelerator.NewCrossAccountAttachment(ctx, "example", &globalaccelerator.CrossAccountAttachmentArgs{
-//				Name: pulumi.String("example-cross-account-attachment"),
-//				Principals: pulumi.StringArray{
-//					pulumi.String("123456789012"),
-//				},
-//				Resources: globalaccelerator.CrossAccountAttachmentResourceArray{
-//					&globalaccelerator.CrossAccountAttachmentResourceArgs{
-//						EndpointId: pulumi.String("arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"),
-//						Region:     pulumi.String("us-west-2"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator cross-account attachment.
-//
-// Using `pulumi import`, import Global Accelerator Cross Account Attachment using the `arn`. For example:
-//
-// % pulumi import aws_globalaccelerator_cross_account_attachment.example arn:aws:globalaccelerator::012345678910:attachment/01234567-abcd-8910-efgh-123456789012
 type CrossAccountAttachment struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Cross Account Attachment.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Creation Time when the Cross Account Attachment.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// Last modified time of the Cross Account Attachment.
-	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
-	// Name of the Cross Account Attachment.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of AWS account IDs that are allowed to associate resources with the accelerator.
-	Principals pulumi.StringArrayOutput `pulumi:"principals"`
-	// List of resources to be associated with the accelerator.
-	Resources CrossAccountAttachmentResourceArrayOutput `pulumi:"resources"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn              pulumi.StringOutput                       `pulumi:"arn"`
+	CreatedTime      pulumi.StringOutput                       `pulumi:"createdTime"`
+	LastModifiedTime pulumi.StringOutput                       `pulumi:"lastModifiedTime"`
+	Name             pulumi.StringOutput                       `pulumi:"name"`
+	Principals       pulumi.StringArrayOutput                  `pulumi:"principals"`
+	Resources        CrossAccountAttachmentResourceArrayOutput `pulumi:"resources"`
+	Tags             pulumi.StringMapOutput                    `pulumi:"tags"`
+	TagsAll          pulumi.StringMapOutput                    `pulumi:"tagsAll"`
 }
 
 // NewCrossAccountAttachment registers a new resource with the given unique name, arguments, and options.
@@ -140,45 +54,25 @@ func GetCrossAccountAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CrossAccountAttachment resources.
 type crossAccountAttachmentState struct {
-	// ARN of the Cross Account Attachment.
-	Arn *string `pulumi:"arn"`
-	// Creation Time when the Cross Account Attachment.
-	CreatedTime *string `pulumi:"createdTime"`
-	// Last modified time of the Cross Account Attachment.
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// Name of the Cross Account Attachment.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// List of AWS account IDs that are allowed to associate resources with the accelerator.
-	Principals []string `pulumi:"principals"`
-	// List of resources to be associated with the accelerator.
-	Resources []CrossAccountAttachmentResource `pulumi:"resources"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn              *string                          `pulumi:"arn"`
+	CreatedTime      *string                          `pulumi:"createdTime"`
+	LastModifiedTime *string                          `pulumi:"lastModifiedTime"`
+	Name             *string                          `pulumi:"name"`
+	Principals       []string                         `pulumi:"principals"`
+	Resources        []CrossAccountAttachmentResource `pulumi:"resources"`
+	Tags             map[string]string                `pulumi:"tags"`
+	TagsAll          map[string]string                `pulumi:"tagsAll"`
 }
 
 type CrossAccountAttachmentState struct {
-	// ARN of the Cross Account Attachment.
-	Arn pulumi.StringPtrInput
-	// Creation Time when the Cross Account Attachment.
-	CreatedTime pulumi.StringPtrInput
-	// Last modified time of the Cross Account Attachment.
+	Arn              pulumi.StringPtrInput
+	CreatedTime      pulumi.StringPtrInput
 	LastModifiedTime pulumi.StringPtrInput
-	// Name of the Cross Account Attachment.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// List of AWS account IDs that are allowed to associate resources with the accelerator.
-	Principals pulumi.StringArrayInput
-	// List of resources to be associated with the accelerator.
-	Resources CrossAccountAttachmentResourceArrayInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Name             pulumi.StringPtrInput
+	Principals       pulumi.StringArrayInput
+	Resources        CrossAccountAttachmentResourceArrayInput
+	Tags             pulumi.StringMapInput
+	TagsAll          pulumi.StringMapInput
 }
 
 func (CrossAccountAttachmentState) ElementType() reflect.Type {
@@ -186,30 +80,18 @@ func (CrossAccountAttachmentState) ElementType() reflect.Type {
 }
 
 type crossAccountAttachmentArgs struct {
-	// Name of the Cross Account Attachment.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// List of AWS account IDs that are allowed to associate resources with the accelerator.
-	Principals []string `pulumi:"principals"`
-	// List of resources to be associated with the accelerator.
-	Resources []CrossAccountAttachmentResource `pulumi:"resources"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Name       *string                          `pulumi:"name"`
+	Principals []string                         `pulumi:"principals"`
+	Resources  []CrossAccountAttachmentResource `pulumi:"resources"`
+	Tags       map[string]string                `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CrossAccountAttachment resource.
 type CrossAccountAttachmentArgs struct {
-	// Name of the Cross Account Attachment.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// List of AWS account IDs that are allowed to associate resources with the accelerator.
+	Name       pulumi.StringPtrInput
 	Principals pulumi.StringArrayInput
-	// List of resources to be associated with the accelerator.
-	Resources CrossAccountAttachmentResourceArrayInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Resources  CrossAccountAttachmentResourceArrayInput
+	Tags       pulumi.StringMapInput
 }
 
 func (CrossAccountAttachmentArgs) ElementType() reflect.Type {
@@ -299,44 +181,34 @@ func (o CrossAccountAttachmentOutput) ToCrossAccountAttachmentOutputWithContext(
 	return o
 }
 
-// ARN of the Cross Account Attachment.
 func (o CrossAccountAttachmentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CrossAccountAttachment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Creation Time when the Cross Account Attachment.
 func (o CrossAccountAttachmentOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *CrossAccountAttachment) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Last modified time of the Cross Account Attachment.
 func (o CrossAccountAttachmentOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *CrossAccountAttachment) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
 
-// Name of the Cross Account Attachment.
-//
-// The following arguments are optional:
 func (o CrossAccountAttachmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CrossAccountAttachment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// List of AWS account IDs that are allowed to associate resources with the accelerator.
 func (o CrossAccountAttachmentOutput) Principals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CrossAccountAttachment) pulumi.StringArrayOutput { return v.Principals }).(pulumi.StringArrayOutput)
 }
 
-// List of resources to be associated with the accelerator.
 func (o CrossAccountAttachmentOutput) Resources() CrossAccountAttachmentResourceArrayOutput {
 	return o.ApplyT(func(v *CrossAccountAttachment) CrossAccountAttachmentResourceArrayOutput { return v.Resources }).(CrossAccountAttachmentResourceArrayOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CrossAccountAttachmentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CrossAccountAttachment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CrossAccountAttachmentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CrossAccountAttachment) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

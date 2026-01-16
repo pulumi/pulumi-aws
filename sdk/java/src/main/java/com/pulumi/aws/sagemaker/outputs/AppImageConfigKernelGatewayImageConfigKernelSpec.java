@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AppImageConfigKernelGatewayImageConfigKernelSpec {
-    /**
-     * @return The display name of the kernel.
-     * 
-     */
     private @Nullable String displayName;
-    /**
-     * @return The name of the kernel.
-     * 
-     */
     private String name;
 
     private AppImageConfigKernelGatewayImageConfigKernelSpec() {}
-    /**
-     * @return The display name of the kernel.
-     * 
-     */
     public Optional<String> displayName() {
         return Optional.ofNullable(this.displayName);
     }
-    /**
-     * @return The name of the kernel.
-     * 
-     */
     public String name() {
         return this.name;
     }

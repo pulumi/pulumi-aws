@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class InfrastructureConfigurationInstanceMetadataOptions
     {
-        /// <summary>
-        /// The number of hops that an instance can traverse to reach its destonation.
-        /// </summary>
         public readonly int? HttpPutResponseHopLimit;
-        /// <summary>
-        /// Whether a signed token is required for instance metadata retrieval requests. Valid values: `Required`, `Optional`.
-        /// </summary>
         public readonly string? HttpTokens;
 
         [OutputConstructor]

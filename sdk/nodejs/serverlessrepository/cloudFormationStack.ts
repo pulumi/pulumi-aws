@@ -4,39 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Deploys an Application CloudFormation Stack from the Serverless Application Repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getPartition({});
- * const currentGetRegion = aws.getRegion({});
- * const postgres_rotator = new aws.serverlessrepository.CloudFormationStack("postgres-rotator", {
- *     name: "postgres-rotator",
- *     applicationId: "arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser",
- *     capabilities: [
- *         "CAPABILITY_IAM",
- *         "CAPABILITY_RESOURCE_POLICY",
- *     ],
- *     parameters: {
- *         functionName: "func-postgres-rotator",
- *         endpoint: Promise.all([currentGetRegion, current]).then(([currentGetRegion, current]) => `secretsmanager.${currentGetRegion.region}.${current.dnsSuffix}`),
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Serverless Application Repository Stack using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID. For example:
- *
- * ```sh
- * $ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator
- * ```
- */
 export class CloudFormationStack extends pulumi.CustomResource {
     /**
      * Get an existing CloudFormationStack resource's state with the given name, ID, and optional extra
@@ -65,41 +32,14 @@ export class CloudFormationStack extends pulumi.CustomResource {
         return obj['__pulumiType'] === CloudFormationStack.__pulumiType;
     }
 
-    /**
-     * The ARN of the application from the Serverless Application Repository.
-     */
     declare public readonly applicationId: pulumi.Output<string>;
-    /**
-     * A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
-     */
     declare public readonly capabilities: pulumi.Output<string[]>;
-    /**
-     * The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * A map of outputs from the stack.
-     */
     declare public /*out*/ readonly outputs: pulumi.Output<{[key: string]: string}>;
-    /**
-     * A map of Parameter structures that specify input parameters for the stack.
-     */
     declare public readonly parameters: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The version of the application to deploy. If not supplied, deploys the latest version.
-     */
     declare public readonly semanticVersion: pulumi.Output<string>;
-    /**
-     * A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -151,41 +91,14 @@ export class CloudFormationStack extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CloudFormationStack resources.
  */
 export interface CloudFormationStackState {
-    /**
-     * The ARN of the application from the Serverless Application Repository.
-     */
     applicationId?: pulumi.Input<string>;
-    /**
-     * A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
-     */
     capabilities?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A map of outputs from the stack.
-     */
     outputs?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of Parameter structures that specify input parameters for the stack.
-     */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The version of the application to deploy. If not supplied, deploys the latest version.
-     */
     semanticVersion?: pulumi.Input<string>;
-    /**
-     * A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -193,32 +106,11 @@ export interface CloudFormationStackState {
  * The set of arguments for constructing a CloudFormationStack resource.
  */
 export interface CloudFormationStackArgs {
-    /**
-     * The ARN of the application from the Serverless Application Repository.
-     */
     applicationId: pulumi.Input<string>;
-    /**
-     * A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
-     */
     capabilities: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A map of Parameter structures that specify input parameters for the stack.
-     */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The version of the application to deploy. If not supplied, deploys the latest version.
-     */
     semanticVersion?: pulumi.Input<string>;
-    /**
-     * A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

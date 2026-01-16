@@ -7,89 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a WAF Web ACL Resource
- *
- * ## Example Usage
- *
- * This example blocks requests coming from `192.0.7.0/24` and allows everything else.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ipset = new aws.waf.IpSet("ipset", {
- *     name: "tfIPSet",
- *     ipSetDescriptors: [{
- *         type: "IPV4",
- *         value: "192.0.7.0/24",
- *     }],
- * });
- * const wafrule = new aws.waf.Rule("wafrule", {
- *     name: "tfWAFRule",
- *     metricName: "tfWAFRule",
- *     predicates: [{
- *         dataId: ipset.id,
- *         negated: false,
- *         type: "IPMatch",
- *     }],
- * }, {
- *     dependsOn: [ipset],
- * });
- * const wafAcl = new aws.waf.WebAcl("waf_acl", {
- *     name: "tfWebACL",
- *     metricName: "tfWebACL",
- *     defaultAction: {
- *         type: "ALLOW",
- *     },
- *     rules: [{
- *         action: {
- *             type: "BLOCK",
- *         },
- *         priority: 1,
- *         ruleId: wafrule.id,
- *         type: "REGULAR",
- *     }],
- * }, {
- *     dependsOn: [
- *         ipset,
- *         wafrule,
- *     ],
- * });
- * ```
- *
- * ### Logging
- *
- * > *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-` and be located in `us-east-1` region. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.waf.WebAcl("example", {loggingConfiguration: {
- *     logDestination: exampleAwsKinesisFirehoseDeliveryStream.arn,
- *     redactedFields: {
- *         fieldToMatches: [
- *             {
- *                 type: "URI",
- *             },
- *             {
- *                 data: "referer",
- *                 type: "HEADER",
- *             },
- *         ],
- *     },
- * }});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import WAF Web ACL using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:waf/webAcl:WebAcl main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
- * ```
- */
 export class WebAcl extends pulumi.CustomResource {
     /**
      * Get an existing WebAcl resource's state with the given name, ID, and optional extra
@@ -118,37 +35,13 @@ export class WebAcl extends pulumi.CustomResource {
         return obj['__pulumiType'] === WebAcl.__pulumiType;
     }
 
-    /**
-     * The ARN of the WAF WebACL.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
-     */
     declare public readonly defaultAction: pulumi.Output<outputs.waf.WebAclDefaultAction>;
-    /**
-     * Configuration block to enable WAF logging. Detailed below.
-     */
     declare public readonly loggingConfiguration: pulumi.Output<outputs.waf.WebAclLoggingConfiguration | undefined>;
-    /**
-     * The name or description for the Amazon CloudWatch metric of this web ACL.
-     */
     declare public readonly metricName: pulumi.Output<string>;
-    /**
-     * The name or description of the web ACL.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
-     */
     declare public readonly rules: pulumi.Output<outputs.waf.WebAclRule[] | undefined>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -198,37 +91,13 @@ export class WebAcl extends pulumi.CustomResource {
  * Input properties used for looking up and filtering WebAcl resources.
  */
 export interface WebAclState {
-    /**
-     * The ARN of the WAF WebACL.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
-     */
     defaultAction?: pulumi.Input<inputs.waf.WebAclDefaultAction>;
-    /**
-     * Configuration block to enable WAF logging. Detailed below.
-     */
     loggingConfiguration?: pulumi.Input<inputs.waf.WebAclLoggingConfiguration>;
-    /**
-     * The name or description for the Amazon CloudWatch metric of this web ACL.
-     */
     metricName?: pulumi.Input<string>;
-    /**
-     * The name or description of the web ACL.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
-     */
     rules?: pulumi.Input<pulumi.Input<inputs.waf.WebAclRule>[]>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -236,28 +105,10 @@ export interface WebAclState {
  * The set of arguments for constructing a WebAcl resource.
  */
 export interface WebAclArgs {
-    /**
-     * Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
-     */
     defaultAction: pulumi.Input<inputs.waf.WebAclDefaultAction>;
-    /**
-     * Configuration block to enable WAF logging. Detailed below.
-     */
     loggingConfiguration?: pulumi.Input<inputs.waf.WebAclLoggingConfiguration>;
-    /**
-     * The name or description for the Amazon CloudWatch metric of this web ACL.
-     */
     metricName: pulumi.Input<string>;
-    /**
-     * The name or description of the web ACL.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
-     */
     rules?: pulumi.Input<pulumi.Input<inputs.waf.WebAclRule>[]>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -12,27 +12,15 @@ namespace Pulumi.Aws.Batch.Inputs
 
     public sealed class JobQueueJobStateTimeLimitActionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
-        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
-        /// <summary>
-        /// The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` &amp; `86400`
-        /// </summary>
         [Input("maxTimeSeconds", required: true)]
         public Input<int> MaxTimeSeconds { get; set; } = null!;
 
-        /// <summary>
-        /// The reason to log for the action being taken.
-        /// </summary>
         [Input("reason", required: true)]
         public Input<string> Reason { get; set; } = null!;
 
-        /// <summary>
-        /// The state of the job needed to trigger the action. Valid values include `"RUNNABLE"`.
-        /// </summary>
         [Input("state", required: true)]
         public Input<string> State { get; set; } = null!;
 

@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a DAX Subnet Group resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.dax.SubnetGroup("example", {
- *     name: "example",
- *     subnetIds: [
- *         example1.id,
- *         example2.id,
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import DAX Subnet Group using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
- * ```
- */
 export class SubnetGroup extends pulumi.CustomResource {
     /**
      * Get an existing SubnetGroup resource's state with the given name, ID, and optional extra
@@ -58,25 +32,10 @@ export class SubnetGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === SubnetGroup.__pulumiType;
     }
 
-    /**
-     * A description of the subnet group.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The name of the subnet group.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A list of VPC subnet IDs for the subnet group.
-     */
     declare public readonly subnetIds: pulumi.Output<string[]>;
-    /**
-     * VPC ID of the subnet group.
-     */
     declare public /*out*/ readonly vpcId: pulumi.Output<string>;
 
     /**
@@ -117,25 +76,10 @@ export class SubnetGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SubnetGroup resources.
  */
 export interface SubnetGroupState {
-    /**
-     * A description of the subnet group.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name of the subnet group.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A list of VPC subnet IDs for the subnet group.
-     */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * VPC ID of the subnet group.
-     */
     vpcId?: pulumi.Input<string>;
 }
 
@@ -143,20 +87,8 @@ export interface SubnetGroupState {
  * The set of arguments for constructing a SubnetGroup resource.
  */
 export interface SubnetGroupArgs {
-    /**
-     * A description of the subnet group.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name of the subnet group.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A list of VPC subnet IDs for the subnet group.
-     */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
 }

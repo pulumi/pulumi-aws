@@ -12,131 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage a CloudWatch log resource policy.
-//
-// ## Example Usage
-//
-// ### Elasticsearch Log Publishing
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			elasticsearch_log_publishing_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Actions: []string{
-//							"logs:CreateLogStream",
-//							"logs:PutLogEvents",
-//							"logs:PutLogEventsBatch",
-//						},
-//						Resources: []string{
-//							"arn:aws:logs:*",
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Identifiers: []string{
-//									"es.amazonaws.com",
-//								},
-//								Type: "Service",
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewLogResourcePolicy(ctx, "elasticsearch-log-publishing-policy", &cloudwatch.LogResourcePolicyArgs{
-//				PolicyDocument: pulumi.String(elasticsearch_log_publishing_policy.Json),
-//				PolicyName:     pulumi.String("elasticsearch-log-publishing-policy"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Route53 Query Logging
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			route53_query_logging_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Actions: []string{
-//							"logs:CreateLogStream",
-//							"logs:PutLogEvents",
-//						},
-//						Resources: []string{
-//							"arn:aws:logs:*:*:log-group:/aws/route53/*",
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Identifiers: []string{
-//									"route53.amazonaws.com",
-//								},
-//								Type: "Service",
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewLogResourcePolicy(ctx, "route53-query-logging-policy", &cloudwatch.LogResourcePolicyArgs{
-//				PolicyDocument: pulumi.String(route53_query_logging_policy.Json),
-//				PolicyName:     pulumi.String("route53-query-logging-policy"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudWatch log resource policies using the policy name. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
-// ```
 type LogResourcePolicy struct {
 	pulumi.CustomResourceState
 
-	// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
 	PolicyDocument pulumi.StringOutput `pulumi:"policyDocument"`
-	// Name of the resource policy.
-	PolicyName pulumi.StringOutput `pulumi:"policyName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	PolicyName     pulumi.StringOutput `pulumi:"policyName"`
+	Region         pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLogResourcePolicy registers a new resource with the given unique name, arguments, and options.
@@ -175,21 +56,15 @@ func GetLogResourcePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogResourcePolicy resources.
 type logResourcePolicyState struct {
-	// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
-	// Name of the resource policy.
-	PolicyName *string `pulumi:"policyName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	PolicyName     *string     `pulumi:"policyName"`
+	Region         *string     `pulumi:"region"`
 }
 
 type LogResourcePolicyState struct {
-	// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
 	PolicyDocument pulumi.Input
-	// Name of the resource policy.
-	PolicyName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	PolicyName     pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
 }
 
 func (LogResourcePolicyState) ElementType() reflect.Type {
@@ -197,22 +72,16 @@ func (LogResourcePolicyState) ElementType() reflect.Type {
 }
 
 type logResourcePolicyArgs struct {
-	// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
-	// Name of the resource policy.
-	PolicyName string `pulumi:"policyName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	PolicyName     string      `pulumi:"policyName"`
+	Region         *string     `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LogResourcePolicy resource.
 type LogResourcePolicyArgs struct {
-	// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
 	PolicyDocument pulumi.Input
-	// Name of the resource policy.
-	PolicyName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	PolicyName     pulumi.StringInput
+	Region         pulumi.StringPtrInput
 }
 
 func (LogResourcePolicyArgs) ElementType() reflect.Type {
@@ -302,17 +171,14 @@ func (o LogResourcePolicyOutput) ToLogResourcePolicyOutputWithContext(ctx contex
 	return o
 }
 
-// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
 func (o LogResourcePolicyOutput) PolicyDocument() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogResourcePolicy) pulumi.StringOutput { return v.PolicyDocument }).(pulumi.StringOutput)
 }
 
-// Name of the resource policy.
 func (o LogResourcePolicyOutput) PolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogResourcePolicy) pulumi.StringOutput { return v.PolicyName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LogResourcePolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogResourcePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

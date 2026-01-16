@@ -13,13 +13,7 @@ namespace Pulumi.Aws.TimestreamQuery.Outputs
     [OutputType]
     public sealed class ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMapping
     {
-        /// <summary>
-        /// Type for the dimension. Valid value: `VARCHAR`.
-        /// </summary>
         public readonly string DimensionValueType;
-        /// <summary>
-        /// Column name from query result.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

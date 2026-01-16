@@ -48,9 +48,6 @@ class GetConfigurationProfilesResult:
     @_builtins.property
     @pulumi.getter(name="configurationProfileIds")
     def configuration_profile_ids(self) -> Sequence[_builtins.str]:
-        """
-        Set of Configuration Profile IDs associated with the AppConfig Application.
-        """
         return pulumi.get(self, "configuration_profile_ids")
 
     @_builtins.property
@@ -83,25 +80,7 @@ def get_configuration_profiles(application_id: Optional[_builtins.str] = None,
                                region: Optional[_builtins.str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationProfilesResult:
     """
-    Provides access to all Configuration Properties for an AppConfig Application. This will allow you to pass Configuration
-    Profile IDs to another resource.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.appconfig.get_configuration_profiles(application_id="a1d3rpe")
-    example_get_configuration_profile = {__key: aws.appconfig.get_configuration_profile(configuration_profile_id=__value,
-        application_id=example_aws_appconfig_application["id"]) for __key, __value in example.configuration_profile_ids}
-    ```
-
-
-    :param _builtins.str application_id: ID of the AppConfig Application.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
@@ -118,25 +97,7 @@ def get_configuration_profiles_output(application_id: Optional[pulumi.Input[_bui
                                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationProfilesResult]:
     """
-    Provides access to all Configuration Properties for an AppConfig Application. This will allow you to pass Configuration
-    Profile IDs to another resource.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.appconfig.get_configuration_profiles(application_id="a1d3rpe")
-    example_get_configuration_profile = {__key: aws.appconfig.get_configuration_profile(configuration_profile_id=__value,
-        application_id=example_aws_appconfig_application["id"]) for __key, __value in example.configuration_profile_ids}
-    ```
-
-
-    :param _builtins.str application_id: ID of the AppConfig Application.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id

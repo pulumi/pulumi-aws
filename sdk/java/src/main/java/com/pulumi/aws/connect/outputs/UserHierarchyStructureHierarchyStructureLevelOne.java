@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserHierarchyStructureHierarchyStructureLevelOne {
-    /**
-     * @return The Amazon Resource Name (ARN) of the hierarchy level.
-     * 
-     */
     private @Nullable String arn;
-    /**
-     * @return The identifier of the hierarchy level.
-     * 
-     */
     private @Nullable String id;
-    /**
-     * @return The name of the user hierarchy level. Must not be more than 50 characters.
-     * 
-     */
     private String name;
 
     private UserHierarchyStructureHierarchyStructureLevelOne() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the hierarchy level.
-     * 
-     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
-    /**
-     * @return The identifier of the hierarchy level.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return The name of the user hierarchy level. Must not be more than 50 characters.
-     * 
-     */
     public String name() {
         return this.name;
     }

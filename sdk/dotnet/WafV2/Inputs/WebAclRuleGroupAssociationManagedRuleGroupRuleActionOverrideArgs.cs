@@ -13,13 +13,13 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Action to use instead of the rule's original action. See below.
+        /// Action to use in place of the rule action.
         /// </summary>
         [Input("actionToUse")]
         public Input<Inputs.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseArgs>? ActionToUse { get; set; }
 
         /// <summary>
-        /// Name of the rule to override within the rule group. Verify the name carefully. With managed rule groups, WAF silently ignores any override that uses an invalid rule name. With customer-owned rule groups, invalid rule names in your overrides will cause web ACL updates to fail. An invalid rule name is any name that doesn't exactly match the case-sensitive name of an existing rule in the rule group.
+        /// Name of the rule to override.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

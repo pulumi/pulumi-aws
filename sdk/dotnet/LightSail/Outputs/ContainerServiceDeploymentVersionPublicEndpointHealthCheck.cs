@@ -13,29 +13,11 @@ namespace Pulumi.Aws.LightSail.Outputs
     [OutputType]
     public sealed class ContainerServiceDeploymentVersionPublicEndpointHealthCheck
     {
-        /// <summary>
-        /// Number of consecutive health check successes required before moving the container to the Healthy state. Defaults to 2.
-        /// </summary>
         public readonly int? HealthyThreshold;
-        /// <summary>
-        /// Approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
-        /// </summary>
         public readonly int? IntervalSeconds;
-        /// <summary>
-        /// Path on the container on which to perform the health check. Defaults to "/".
-        /// </summary>
         public readonly string? Path;
-        /// <summary>
-        /// HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to "200-499".
-        /// </summary>
         public readonly string? SuccessCodes;
-        /// <summary>
-        /// Amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
-        /// </summary>
         public readonly int? TimeoutSeconds;
-        /// <summary>
-        /// Number of consecutive health check failures required before moving the container to the Unhealthy state. Defaults to 2.
-        /// </summary>
         public readonly int? UnhealthyThreshold;
 
         [OutputConstructor]

@@ -30,14 +30,6 @@ class ClusterArgs:
                  timeouts: Optional[pulumi.Input['ClusterTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Cluster resource.
-        :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Whether deletion protection is enabled in this cluster.
-               Default value is `false`.
-        :param pulumi.Input[_builtins.bool] force_destroy: Destroys cluster even if `deletion_protection_enabled` is set to `true`.
-               Default value is `false`.
-        :param pulumi.Input[_builtins.str] kms_encryption_key: The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
-        :param pulumi.Input['ClusterMultiRegionPropertiesArgs'] multi_region_properties: Multi-region properties of the DSQL Cluster.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Set of tags to be associated with the AWS DSQL Cluster resource.
         """
         if deletion_protection_enabled is not None:
             pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
@@ -57,10 +49,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="deletionProtectionEnabled")
     def deletion_protection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether deletion protection is enabled in this cluster.
-        Default value is `false`.
-        """
         return pulumi.get(self, "deletion_protection_enabled")
 
     @deletion_protection_enabled.setter
@@ -70,10 +58,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Destroys cluster even if `deletion_protection_enabled` is set to `true`.
-        Default value is `false`.
-        """
         return pulumi.get(self, "force_destroy")
 
     @force_destroy.setter
@@ -83,9 +67,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="kmsEncryptionKey")
     def kms_encryption_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
-        """
         return pulumi.get(self, "kms_encryption_key")
 
     @kms_encryption_key.setter
@@ -95,9 +76,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="multiRegionProperties")
     def multi_region_properties(self) -> Optional[pulumi.Input['ClusterMultiRegionPropertiesArgs']]:
-        """
-        Multi-region properties of the DSQL Cluster.
-        """
         return pulumi.get(self, "multi_region_properties")
 
     @multi_region_properties.setter
@@ -107,9 +85,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -119,9 +94,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Set of tags to be associated with the AWS DSQL Cluster resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -155,19 +127,6 @@ class _ClusterState:
                  vpc_endpoint_service_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Cluster.
-        :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Whether deletion protection is enabled in this cluster.
-               Default value is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionDetailArgs']]] encryption_details: Encryption configuration details for the DSQL Cluster.
-        :param pulumi.Input[_builtins.bool] force_destroy: Destroys cluster even if `deletion_protection_enabled` is set to `true`.
-               Default value is `false`.
-        :param pulumi.Input[_builtins.str] identifier: Cluster Identifier.
-        :param pulumi.Input[_builtins.str] kms_encryption_key: The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
-        :param pulumi.Input['ClusterMultiRegionPropertiesArgs'] multi_region_properties: Multi-region properties of the DSQL Cluster.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Set of tags to be associated with the AWS DSQL Cluster resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_endpoint_service_name: The DSQL Cluster's VPC endpoint service name.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -197,9 +156,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Cluster.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -209,10 +165,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="deletionProtectionEnabled")
     def deletion_protection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether deletion protection is enabled in this cluster.
-        Default value is `false`.
-        """
         return pulumi.get(self, "deletion_protection_enabled")
 
     @deletion_protection_enabled.setter
@@ -222,9 +174,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="encryptionDetails")
     def encryption_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionDetailArgs']]]]:
-        """
-        Encryption configuration details for the DSQL Cluster.
-        """
         return pulumi.get(self, "encryption_details")
 
     @encryption_details.setter
@@ -234,10 +183,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Destroys cluster even if `deletion_protection_enabled` is set to `true`.
-        Default value is `false`.
-        """
         return pulumi.get(self, "force_destroy")
 
     @force_destroy.setter
@@ -247,9 +192,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Cluster Identifier.
-        """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
@@ -259,9 +201,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="kmsEncryptionKey")
     def kms_encryption_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
-        """
         return pulumi.get(self, "kms_encryption_key")
 
     @kms_encryption_key.setter
@@ -271,9 +210,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="multiRegionProperties")
     def multi_region_properties(self) -> Optional[pulumi.Input['ClusterMultiRegionPropertiesArgs']]:
-        """
-        Multi-region properties of the DSQL Cluster.
-        """
         return pulumi.get(self, "multi_region_properties")
 
     @multi_region_properties.setter
@@ -283,9 +219,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -295,9 +228,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Set of tags to be associated with the AWS DSQL Cluster resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -307,9 +237,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -328,9 +255,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="vpcEndpointServiceName")
     def vpc_endpoint_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The DSQL Cluster's VPC endpoint service name.
-        """
         return pulumi.get(self, "vpc_endpoint_service_name")
 
     @vpc_endpoint_service_name.setter
@@ -353,41 +277,9 @@ class Cluster(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['ClusterTimeoutsArgs', 'ClusterTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an Amazon Aurora DSQL Cluster.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.dsql.Cluster("example",
-            deletion_protection_enabled=True,
-            tags={
-                "Name": "TestCluster",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DSQL Cluster using the `identifier`. For example:
-
-        ```sh
-        $ pulumi import aws:dsql/cluster:Cluster example abcde1f234ghijklmnop5qr6st
-        ```
-
+        Create a Cluster resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Whether deletion protection is enabled in this cluster.
-               Default value is `false`.
-        :param pulumi.Input[_builtins.bool] force_destroy: Destroys cluster even if `deletion_protection_enabled` is set to `true`.
-               Default value is `false`.
-        :param pulumi.Input[_builtins.str] kms_encryption_key: The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
-        :param pulumi.Input[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict']] multi_region_properties: Multi-region properties of the DSQL Cluster.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Set of tags to be associated with the AWS DSQL Cluster resource.
         """
         ...
     @overload
@@ -396,31 +288,7 @@ class Cluster(pulumi.CustomResource):
                  args: Optional[ClusterArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an Amazon Aurora DSQL Cluster.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.dsql.Cluster("example",
-            deletion_protection_enabled=True,
-            tags={
-                "Name": "TestCluster",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DSQL Cluster using the `identifier`. For example:
-
-        ```sh
-        $ pulumi import aws:dsql/cluster:Cluster example abcde1f234ghijklmnop5qr6st
-        ```
-
+        Create a Cluster resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -493,19 +361,6 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Cluster.
-        :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Whether deletion protection is enabled in this cluster.
-               Default value is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterEncryptionDetailArgs', 'ClusterEncryptionDetailArgsDict']]]] encryption_details: Encryption configuration details for the DSQL Cluster.
-        :param pulumi.Input[_builtins.bool] force_destroy: Destroys cluster even if `deletion_protection_enabled` is set to `true`.
-               Default value is `false`.
-        :param pulumi.Input[_builtins.str] identifier: Cluster Identifier.
-        :param pulumi.Input[_builtins.str] kms_encryption_key: The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
-        :param pulumi.Input[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict']] multi_region_properties: Multi-region properties of the DSQL Cluster.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Set of tags to be associated with the AWS DSQL Cluster resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_endpoint_service_name: The DSQL Cluster's VPC endpoint service name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -528,83 +383,51 @@ class Cluster(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Cluster.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="deletionProtectionEnabled")
     def deletion_protection_enabled(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether deletion protection is enabled in this cluster.
-        Default value is `false`.
-        """
         return pulumi.get(self, "deletion_protection_enabled")
 
     @_builtins.property
     @pulumi.getter(name="encryptionDetails")
     def encryption_details(self) -> pulumi.Output[Sequence['outputs.ClusterEncryptionDetail']]:
-        """
-        Encryption configuration details for the DSQL Cluster.
-        """
         return pulumi.get(self, "encryption_details")
 
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Destroys cluster even if `deletion_protection_enabled` is set to `true`.
-        Default value is `false`.
-        """
         return pulumi.get(self, "force_destroy")
 
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        Cluster Identifier.
-        """
         return pulumi.get(self, "identifier")
 
     @_builtins.property
     @pulumi.getter(name="kmsEncryptionKey")
     def kms_encryption_key(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
-        """
         return pulumi.get(self, "kms_encryption_key")
 
     @_builtins.property
     @pulumi.getter(name="multiRegionProperties")
     def multi_region_properties(self) -> pulumi.Output[Optional['outputs.ClusterMultiRegionProperties']]:
-        """
-        Multi-region properties of the DSQL Cluster.
-        """
         return pulumi.get(self, "multi_region_properties")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Set of tags to be associated with the AWS DSQL Cluster resource.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
@@ -615,8 +438,5 @@ class Cluster(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="vpcEndpointServiceName")
     def vpc_endpoint_service_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The DSQL Cluster's VPC endpoint service name.
-        """
         return pulumi.get(self, "vpc_endpoint_service_name")
 

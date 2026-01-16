@@ -17,49 +17,23 @@ public final class GetVpcLinkArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetVpcLinkArgs Empty = new GetVpcLinkArgs();
 
-    /**
-     * Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
-     * If multiple API Gateway VPC Links are found with this name, an error will be returned.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
-     * If multiple API Gateway VPC Links are found with this name, an error will be returned.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -90,67 +64,29 @@ public final class GetVpcLinkArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetVpcLinkArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
-         * If multiple API Gateway VPC Links are found with this name, an error will be returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
-         * If multiple API Gateway VPC Links are found with this name, an error will be returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value map of resource tags
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

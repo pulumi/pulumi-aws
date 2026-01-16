@@ -16,32 +16,16 @@ public final class DomainDomainSettingsDockerSettingsArgs extends com.pulumi.res
 
     public static final DomainDomainSettingsDockerSettingsArgs Empty = new DomainDomainSettingsDockerSettingsArgs();
 
-    /**
-     * Indicates whether the domain can access Docker. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     @Import(name="enableDockerAccess")
     private @Nullable Output<String> enableDockerAccess;
 
-    /**
-     * @return Indicates whether the domain can access Docker. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> enableDockerAccess() {
         return Optional.ofNullable(this.enableDockerAccess);
     }
 
-    /**
-     * The list of Amazon Web Services accounts that are trusted when the domain is created in VPC-only mode.
-     * 
-     */
     @Import(name="vpcOnlyTrustedAccounts")
     private @Nullable Output<List<String>> vpcOnlyTrustedAccounts;
 
-    /**
-     * @return The list of Amazon Web Services accounts that are trusted when the domain is created in VPC-only mode.
-     * 
-     */
     public Optional<Output<List<String>>> vpcOnlyTrustedAccounts() {
         return Optional.ofNullable(this.vpcOnlyTrustedAccounts);
     }
@@ -71,54 +55,24 @@ public final class DomainDomainSettingsDockerSettingsArgs extends com.pulumi.res
             $ = new DomainDomainSettingsDockerSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enableDockerAccess Indicates whether the domain can access Docker. Valid values are `ENABLED` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableDockerAccess(@Nullable Output<String> enableDockerAccess) {
             $.enableDockerAccess = enableDockerAccess;
             return this;
         }
 
-        /**
-         * @param enableDockerAccess Indicates whether the domain can access Docker. Valid values are `ENABLED` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableDockerAccess(String enableDockerAccess) {
             return enableDockerAccess(Output.of(enableDockerAccess));
         }
 
-        /**
-         * @param vpcOnlyTrustedAccounts The list of Amazon Web Services accounts that are trusted when the domain is created in VPC-only mode.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcOnlyTrustedAccounts(@Nullable Output<List<String>> vpcOnlyTrustedAccounts) {
             $.vpcOnlyTrustedAccounts = vpcOnlyTrustedAccounts;
             return this;
         }
 
-        /**
-         * @param vpcOnlyTrustedAccounts The list of Amazon Web Services accounts that are trusted when the domain is created in VPC-only mode.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcOnlyTrustedAccounts(List<String> vpcOnlyTrustedAccounts) {
             return vpcOnlyTrustedAccounts(Output.of(vpcOnlyTrustedAccounts));
         }
 
-        /**
-         * @param vpcOnlyTrustedAccounts The list of Amazon Web Services accounts that are trusted when the domain is created in VPC-only mode.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcOnlyTrustedAccounts(String... vpcOnlyTrustedAccounts) {
             return vpcOnlyTrustedAccounts(List.of(vpcOnlyTrustedAccounts));
         }

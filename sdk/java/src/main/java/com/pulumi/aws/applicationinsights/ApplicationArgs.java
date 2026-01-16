@@ -18,141 +18,65 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ApplicationArgs Empty = new ApplicationArgs();
 
-    /**
-     * Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
-     * 
-     */
     @Import(name="autoConfigEnabled")
     private @Nullable Output<Boolean> autoConfigEnabled;
 
-    /**
-     * @return Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
-     * 
-     */
     public Optional<Output<Boolean>> autoConfigEnabled() {
         return Optional.ofNullable(this.autoConfigEnabled);
     }
 
-    /**
-     * Configures all of the resources in the resource group by applying the recommended configurations.
-     * 
-     */
     @Import(name="autoCreate")
     private @Nullable Output<Boolean> autoCreate;
 
-    /**
-     * @return Configures all of the resources in the resource group by applying the recommended configurations.
-     * 
-     */
     public Optional<Output<Boolean>> autoCreate() {
         return Optional.ofNullable(this.autoCreate);
     }
 
-    /**
-     * Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
-     * 
-     */
     @Import(name="cweMonitorEnabled")
     private @Nullable Output<Boolean> cweMonitorEnabled;
 
-    /**
-     * @return Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
-     * 
-     */
     public Optional<Output<Boolean>> cweMonitorEnabled() {
         return Optional.ofNullable(this.cweMonitorEnabled);
     }
 
-    /**
-     * Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
-     * 
-     */
     @Import(name="groupingType")
     private @Nullable Output<String> groupingType;
 
-    /**
-     * @return Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
-     * 
-     */
     public Optional<Output<String>> groupingType() {
         return Optional.ofNullable(this.groupingType);
     }
 
-    /**
-     * When set to `true`, creates opsItems for any problems detected on an application.
-     * 
-     */
     @Import(name="opsCenterEnabled")
     private @Nullable Output<Boolean> opsCenterEnabled;
 
-    /**
-     * @return When set to `true`, creates opsItems for any problems detected on an application.
-     * 
-     */
     public Optional<Output<Boolean>> opsCenterEnabled() {
         return Optional.ofNullable(this.opsCenterEnabled);
     }
 
-    /**
-     * SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
-     * 
-     */
     @Import(name="opsItemSnsTopicArn")
     private @Nullable Output<String> opsItemSnsTopicArn;
 
-    /**
-     * @return SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
-     * 
-     */
     public Optional<Output<String>> opsItemSnsTopicArn() {
         return Optional.ofNullable(this.opsItemSnsTopicArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Name of the resource group.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
-    /**
-     * @return Name of the resource group.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
 
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -189,195 +113,83 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ApplicationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoConfigEnabled Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoConfigEnabled(@Nullable Output<Boolean> autoConfigEnabled) {
             $.autoConfigEnabled = autoConfigEnabled;
             return this;
         }
 
-        /**
-         * @param autoConfigEnabled Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoConfigEnabled(Boolean autoConfigEnabled) {
             return autoConfigEnabled(Output.of(autoConfigEnabled));
         }
 
-        /**
-         * @param autoCreate Configures all of the resources in the resource group by applying the recommended configurations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoCreate(@Nullable Output<Boolean> autoCreate) {
             $.autoCreate = autoCreate;
             return this;
         }
 
-        /**
-         * @param autoCreate Configures all of the resources in the resource group by applying the recommended configurations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoCreate(Boolean autoCreate) {
             return autoCreate(Output.of(autoCreate));
         }
 
-        /**
-         * @param cweMonitorEnabled Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cweMonitorEnabled(@Nullable Output<Boolean> cweMonitorEnabled) {
             $.cweMonitorEnabled = cweMonitorEnabled;
             return this;
         }
 
-        /**
-         * @param cweMonitorEnabled Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cweMonitorEnabled(Boolean cweMonitorEnabled) {
             return cweMonitorEnabled(Output.of(cweMonitorEnabled));
         }
 
-        /**
-         * @param groupingType Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupingType(@Nullable Output<String> groupingType) {
             $.groupingType = groupingType;
             return this;
         }
 
-        /**
-         * @param groupingType Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupingType(String groupingType) {
             return groupingType(Output.of(groupingType));
         }
 
-        /**
-         * @param opsCenterEnabled When set to `true`, creates opsItems for any problems detected on an application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder opsCenterEnabled(@Nullable Output<Boolean> opsCenterEnabled) {
             $.opsCenterEnabled = opsCenterEnabled;
             return this;
         }
 
-        /**
-         * @param opsCenterEnabled When set to `true`, creates opsItems for any problems detected on an application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder opsCenterEnabled(Boolean opsCenterEnabled) {
             return opsCenterEnabled(Output.of(opsCenterEnabled));
         }
 
-        /**
-         * @param opsItemSnsTopicArn SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
-         * 
-         * @return builder
-         * 
-         */
         public Builder opsItemSnsTopicArn(@Nullable Output<String> opsItemSnsTopicArn) {
             $.opsItemSnsTopicArn = opsItemSnsTopicArn;
             return this;
         }
 
-        /**
-         * @param opsItemSnsTopicArn SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
-         * 
-         * @return builder
-         * 
-         */
         public Builder opsItemSnsTopicArn(String opsItemSnsTopicArn) {
             return opsItemSnsTopicArn(Output.of(opsItemSnsTopicArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceGroupName Name of the resource group.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceGroupName(Output<String> resourceGroupName) {
             $.resourceGroupName = resourceGroupName;
             return this;
         }
 
-        /**
-         * @param resourceGroupName Name of the resource group.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

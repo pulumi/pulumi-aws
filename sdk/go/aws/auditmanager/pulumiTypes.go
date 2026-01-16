@@ -14,9 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AssessmentAssessmentReportsDestination struct {
-	// Destination of the assessment report. This value be in the form `s3://{bucket_name}`.
-	Destination string `pulumi:"destination"`
-	// Destination type. Currently, `S3` is the only valid value.
+	Destination     string `pulumi:"destination"`
 	DestinationType string `pulumi:"destinationType"`
 }
 
@@ -32,9 +30,7 @@ type AssessmentAssessmentReportsDestinationInput interface {
 }
 
 type AssessmentAssessmentReportsDestinationArgs struct {
-	// Destination of the assessment report. This value be in the form `s3://{bucket_name}`.
-	Destination pulumi.StringInput `pulumi:"destination"`
-	// Destination type. Currently, `S3` is the only valid value.
+	Destination     pulumi.StringInput `pulumi:"destination"`
 	DestinationType pulumi.StringInput `pulumi:"destinationType"`
 }
 
@@ -115,12 +111,10 @@ func (o AssessmentAssessmentReportsDestinationOutput) ToAssessmentAssessmentRepo
 	}).(AssessmentAssessmentReportsDestinationPtrOutput)
 }
 
-// Destination of the assessment report. This value be in the form `s3://{bucket_name}`.
 func (o AssessmentAssessmentReportsDestinationOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentAssessmentReportsDestination) string { return v.Destination }).(pulumi.StringOutput)
 }
 
-// Destination type. Currently, `S3` is the only valid value.
 func (o AssessmentAssessmentReportsDestinationOutput) DestinationType() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentAssessmentReportsDestination) string { return v.DestinationType }).(pulumi.StringOutput)
 }
@@ -149,7 +143,6 @@ func (o AssessmentAssessmentReportsDestinationPtrOutput) Elem() AssessmentAssess
 	}).(AssessmentAssessmentReportsDestinationOutput)
 }
 
-// Destination of the assessment report. This value be in the form `s3://{bucket_name}`.
 func (o AssessmentAssessmentReportsDestinationPtrOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentAssessmentReportsDestination) *string {
 		if v == nil {
@@ -159,7 +152,6 @@ func (o AssessmentAssessmentReportsDestinationPtrOutput) Destination() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Destination type. Currently, `S3` is the only valid value.
 func (o AssessmentAssessmentReportsDestinationPtrOutput) DestinationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentAssessmentReportsDestination) *string {
 		if v == nil {
@@ -170,9 +162,7 @@ func (o AssessmentAssessmentReportsDestinationPtrOutput) DestinationType() pulum
 }
 
 type AssessmentRole struct {
-	// Amazon Resource Name (ARN) of the IAM role.
-	RoleArn string `pulumi:"roleArn"`
-	// Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
+	RoleArn  string `pulumi:"roleArn"`
 	RoleType string `pulumi:"roleType"`
 }
 
@@ -188,9 +178,7 @@ type AssessmentRoleInput interface {
 }
 
 type AssessmentRoleArgs struct {
-	// Amazon Resource Name (ARN) of the IAM role.
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
+	RoleArn  pulumi.StringInput `pulumi:"roleArn"`
 	RoleType pulumi.StringInput `pulumi:"roleType"`
 }
 
@@ -245,12 +233,10 @@ func (o AssessmentRoleOutput) ToAssessmentRoleOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Amazon Resource Name (ARN) of the IAM role.
 func (o AssessmentRoleOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentRole) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
 func (o AssessmentRoleOutput) RoleType() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentRole) string { return v.RoleType }).(pulumi.StringOutput)
 }
@@ -276,9 +262,7 @@ func (o AssessmentRoleArrayOutput) Index(i pulumi.IntInput) AssessmentRoleOutput
 }
 
 type AssessmentRolesAll struct {
-	// Amazon Resource Name (ARN) of the IAM role.
-	RoleArn string `pulumi:"roleArn"`
-	// Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
+	RoleArn  string `pulumi:"roleArn"`
 	RoleType string `pulumi:"roleType"`
 }
 
@@ -294,9 +278,7 @@ type AssessmentRolesAllInput interface {
 }
 
 type AssessmentRolesAllArgs struct {
-	// Amazon Resource Name (ARN) of the IAM role.
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
+	RoleArn  pulumi.StringInput `pulumi:"roleArn"`
 	RoleType pulumi.StringInput `pulumi:"roleType"`
 }
 
@@ -351,12 +333,10 @@ func (o AssessmentRolesAllOutput) ToAssessmentRolesAllOutputWithContext(ctx cont
 	return o
 }
 
-// Amazon Resource Name (ARN) of the IAM role.
 func (o AssessmentRolesAllOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentRolesAll) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
 func (o AssessmentRolesAllOutput) RoleType() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentRolesAll) string { return v.RoleType }).(pulumi.StringOutput)
 }
@@ -382,9 +362,7 @@ func (o AssessmentRolesAllArrayOutput) Index(i pulumi.IntInput) AssessmentRolesA
 }
 
 type AssessmentScope struct {
-	// Amazon Web Services accounts that are in scope for the assessment. See `awsAccounts` below.
 	AwsAccounts []AssessmentScopeAwsAccount `pulumi:"awsAccounts"`
-	// Amazon Web Services services that are included in the scope of the assessment. See `awsServices` below.
 	AwsServices []AssessmentScopeAwsService `pulumi:"awsServices"`
 }
 
@@ -400,9 +378,7 @@ type AssessmentScopeInput interface {
 }
 
 type AssessmentScopeArgs struct {
-	// Amazon Web Services accounts that are in scope for the assessment. See `awsAccounts` below.
 	AwsAccounts AssessmentScopeAwsAccountArrayInput `pulumi:"awsAccounts"`
-	// Amazon Web Services services that are included in the scope of the assessment. See `awsServices` below.
 	AwsServices AssessmentScopeAwsServiceArrayInput `pulumi:"awsServices"`
 }
 
@@ -483,12 +459,10 @@ func (o AssessmentScopeOutput) ToAssessmentScopePtrOutputWithContext(ctx context
 	}).(AssessmentScopePtrOutput)
 }
 
-// Amazon Web Services accounts that are in scope for the assessment. See `awsAccounts` below.
 func (o AssessmentScopeOutput) AwsAccounts() AssessmentScopeAwsAccountArrayOutput {
 	return o.ApplyT(func(v AssessmentScope) []AssessmentScopeAwsAccount { return v.AwsAccounts }).(AssessmentScopeAwsAccountArrayOutput)
 }
 
-// Amazon Web Services services that are included in the scope of the assessment. See `awsServices` below.
 func (o AssessmentScopeOutput) AwsServices() AssessmentScopeAwsServiceArrayOutput {
 	return o.ApplyT(func(v AssessmentScope) []AssessmentScopeAwsService { return v.AwsServices }).(AssessmentScopeAwsServiceArrayOutput)
 }
@@ -517,7 +491,6 @@ func (o AssessmentScopePtrOutput) Elem() AssessmentScopeOutput {
 	}).(AssessmentScopeOutput)
 }
 
-// Amazon Web Services accounts that are in scope for the assessment. See `awsAccounts` below.
 func (o AssessmentScopePtrOutput) AwsAccounts() AssessmentScopeAwsAccountArrayOutput {
 	return o.ApplyT(func(v *AssessmentScope) []AssessmentScopeAwsAccount {
 		if v == nil {
@@ -527,7 +500,6 @@ func (o AssessmentScopePtrOutput) AwsAccounts() AssessmentScopeAwsAccountArrayOu
 	}).(AssessmentScopeAwsAccountArrayOutput)
 }
 
-// Amazon Web Services services that are included in the scope of the assessment. See `awsServices` below.
 func (o AssessmentScopePtrOutput) AwsServices() AssessmentScopeAwsServiceArrayOutput {
 	return o.ApplyT(func(v *AssessmentScope) []AssessmentScopeAwsService {
 		if v == nil {
@@ -538,7 +510,6 @@ func (o AssessmentScopePtrOutput) AwsServices() AssessmentScopeAwsServiceArrayOu
 }
 
 type AssessmentScopeAwsAccount struct {
-	// Identifier for the Amazon Web Services account.
 	Id string `pulumi:"id"`
 }
 
@@ -554,7 +525,6 @@ type AssessmentScopeAwsAccountInput interface {
 }
 
 type AssessmentScopeAwsAccountArgs struct {
-	// Identifier for the Amazon Web Services account.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -609,7 +579,6 @@ func (o AssessmentScopeAwsAccountOutput) ToAssessmentScopeAwsAccountOutputWithCo
 	return o
 }
 
-// Identifier for the Amazon Web Services account.
 func (o AssessmentScopeAwsAccountOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentScopeAwsAccount) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -635,7 +604,6 @@ func (o AssessmentScopeAwsAccountArrayOutput) Index(i pulumi.IntInput) Assessmen
 }
 
 type AssessmentScopeAwsService struct {
-	// Name of the Amazon Web Service.
 	ServiceName string `pulumi:"serviceName"`
 }
 
@@ -651,7 +619,6 @@ type AssessmentScopeAwsServiceInput interface {
 }
 
 type AssessmentScopeAwsServiceArgs struct {
-	// Name of the Amazon Web Service.
 	ServiceName pulumi.StringInput `pulumi:"serviceName"`
 }
 
@@ -706,7 +673,6 @@ func (o AssessmentScopeAwsServiceOutput) ToAssessmentScopeAwsServiceOutputWithCo
 	return o
 }
 
-// Name of the Amazon Web Service.
 func (o AssessmentScopeAwsServiceOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentScopeAwsService) string { return v.ServiceName }).(pulumi.StringOutput)
 }
@@ -732,23 +698,14 @@ func (o AssessmentScopeAwsServiceArrayOutput) Index(i pulumi.IntInput) Assessmen
 }
 
 type ControlControlMappingSource struct {
-	// Description of the source.
-	SourceDescription *string `pulumi:"sourceDescription"`
-	// Frequency of evidence collection. Valid values are `DAILY`, `WEEKLY`, or `MONTHLY`.
-	SourceFrequency *string `pulumi:"sourceFrequency"`
-	SourceId        *string `pulumi:"sourceId"`
-	// The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
-	SourceKeyword *ControlControlMappingSourceSourceKeyword `pulumi:"sourceKeyword"`
-	// Name of the source.
-	SourceName string `pulumi:"sourceName"`
-	// The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
-	SourceSetUpOption string `pulumi:"sourceSetUpOption"`
-	// Type of data source for evidence collection. If `sourceSetUpOption` is manual, the only valid value is `MANUAL`. If `sourceSetUpOption` is automated, valid values are `AWS_Cloudtrail`, `AWS_Config`, `AWS_Security_Hub`, or `AWS_API_Call`.
-	//
-	// The following arguments are optional:
-	SourceType string `pulumi:"sourceType"`
-	// Instructions for troubleshooting the control.
-	TroubleshootingText *string `pulumi:"troubleshootingText"`
+	SourceDescription   *string                                   `pulumi:"sourceDescription"`
+	SourceFrequency     *string                                   `pulumi:"sourceFrequency"`
+	SourceId            *string                                   `pulumi:"sourceId"`
+	SourceKeyword       *ControlControlMappingSourceSourceKeyword `pulumi:"sourceKeyword"`
+	SourceName          string                                    `pulumi:"sourceName"`
+	SourceSetUpOption   string                                    `pulumi:"sourceSetUpOption"`
+	SourceType          string                                    `pulumi:"sourceType"`
+	TroubleshootingText *string                                   `pulumi:"troubleshootingText"`
 }
 
 // ControlControlMappingSourceInput is an input type that accepts ControlControlMappingSourceArgs and ControlControlMappingSourceOutput values.
@@ -763,23 +720,14 @@ type ControlControlMappingSourceInput interface {
 }
 
 type ControlControlMappingSourceArgs struct {
-	// Description of the source.
-	SourceDescription pulumi.StringPtrInput `pulumi:"sourceDescription"`
-	// Frequency of evidence collection. Valid values are `DAILY`, `WEEKLY`, or `MONTHLY`.
-	SourceFrequency pulumi.StringPtrInput `pulumi:"sourceFrequency"`
-	SourceId        pulumi.StringPtrInput `pulumi:"sourceId"`
-	// The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
-	SourceKeyword ControlControlMappingSourceSourceKeywordPtrInput `pulumi:"sourceKeyword"`
-	// Name of the source.
-	SourceName pulumi.StringInput `pulumi:"sourceName"`
-	// The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
-	SourceSetUpOption pulumi.StringInput `pulumi:"sourceSetUpOption"`
-	// Type of data source for evidence collection. If `sourceSetUpOption` is manual, the only valid value is `MANUAL`. If `sourceSetUpOption` is automated, valid values are `AWS_Cloudtrail`, `AWS_Config`, `AWS_Security_Hub`, or `AWS_API_Call`.
-	//
-	// The following arguments are optional:
-	SourceType pulumi.StringInput `pulumi:"sourceType"`
-	// Instructions for troubleshooting the control.
-	TroubleshootingText pulumi.StringPtrInput `pulumi:"troubleshootingText"`
+	SourceDescription   pulumi.StringPtrInput                            `pulumi:"sourceDescription"`
+	SourceFrequency     pulumi.StringPtrInput                            `pulumi:"sourceFrequency"`
+	SourceId            pulumi.StringPtrInput                            `pulumi:"sourceId"`
+	SourceKeyword       ControlControlMappingSourceSourceKeywordPtrInput `pulumi:"sourceKeyword"`
+	SourceName          pulumi.StringInput                               `pulumi:"sourceName"`
+	SourceSetUpOption   pulumi.StringInput                               `pulumi:"sourceSetUpOption"`
+	SourceType          pulumi.StringInput                               `pulumi:"sourceType"`
+	TroubleshootingText pulumi.StringPtrInput                            `pulumi:"troubleshootingText"`
 }
 
 func (ControlControlMappingSourceArgs) ElementType() reflect.Type {
@@ -833,12 +781,10 @@ func (o ControlControlMappingSourceOutput) ToControlControlMappingSourceOutputWi
 	return o
 }
 
-// Description of the source.
 func (o ControlControlMappingSourceOutput) SourceDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ControlControlMappingSource) *string { return v.SourceDescription }).(pulumi.StringPtrOutput)
 }
 
-// Frequency of evidence collection. Valid values are `DAILY`, `WEEKLY`, or `MONTHLY`.
 func (o ControlControlMappingSourceOutput) SourceFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ControlControlMappingSource) *string { return v.SourceFrequency }).(pulumi.StringPtrOutput)
 }
@@ -847,29 +793,22 @@ func (o ControlControlMappingSourceOutput) SourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ControlControlMappingSource) *string { return v.SourceId }).(pulumi.StringPtrOutput)
 }
 
-// The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
 func (o ControlControlMappingSourceOutput) SourceKeyword() ControlControlMappingSourceSourceKeywordPtrOutput {
 	return o.ApplyT(func(v ControlControlMappingSource) *ControlControlMappingSourceSourceKeyword { return v.SourceKeyword }).(ControlControlMappingSourceSourceKeywordPtrOutput)
 }
 
-// Name of the source.
 func (o ControlControlMappingSourceOutput) SourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v ControlControlMappingSource) string { return v.SourceName }).(pulumi.StringOutput)
 }
 
-// The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
 func (o ControlControlMappingSourceOutput) SourceSetUpOption() pulumi.StringOutput {
 	return o.ApplyT(func(v ControlControlMappingSource) string { return v.SourceSetUpOption }).(pulumi.StringOutput)
 }
 
-// Type of data source for evidence collection. If `sourceSetUpOption` is manual, the only valid value is `MANUAL`. If `sourceSetUpOption` is automated, valid values are `AWS_Cloudtrail`, `AWS_Config`, `AWS_Security_Hub`, or `AWS_API_Call`.
-//
-// The following arguments are optional:
 func (o ControlControlMappingSourceOutput) SourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ControlControlMappingSource) string { return v.SourceType }).(pulumi.StringOutput)
 }
 
-// Instructions for troubleshooting the control.
 func (o ControlControlMappingSourceOutput) TroubleshootingText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ControlControlMappingSource) *string { return v.TroubleshootingText }).(pulumi.StringPtrOutput)
 }
@@ -895,10 +834,8 @@ func (o ControlControlMappingSourceArrayOutput) Index(i pulumi.IntInput) Control
 }
 
 type ControlControlMappingSourceSourceKeyword struct {
-	// Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
 	KeywordInputType string `pulumi:"keywordInputType"`
-	// The value of the keyword that's used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
-	KeywordValue string `pulumi:"keywordValue"`
+	KeywordValue     string `pulumi:"keywordValue"`
 }
 
 // ControlControlMappingSourceSourceKeywordInput is an input type that accepts ControlControlMappingSourceSourceKeywordArgs and ControlControlMappingSourceSourceKeywordOutput values.
@@ -913,10 +850,8 @@ type ControlControlMappingSourceSourceKeywordInput interface {
 }
 
 type ControlControlMappingSourceSourceKeywordArgs struct {
-	// Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
 	KeywordInputType pulumi.StringInput `pulumi:"keywordInputType"`
-	// The value of the keyword that's used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
-	KeywordValue pulumi.StringInput `pulumi:"keywordValue"`
+	KeywordValue     pulumi.StringInput `pulumi:"keywordValue"`
 }
 
 func (ControlControlMappingSourceSourceKeywordArgs) ElementType() reflect.Type {
@@ -996,12 +931,10 @@ func (o ControlControlMappingSourceSourceKeywordOutput) ToControlControlMappingS
 	}).(ControlControlMappingSourceSourceKeywordPtrOutput)
 }
 
-// Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
 func (o ControlControlMappingSourceSourceKeywordOutput) KeywordInputType() pulumi.StringOutput {
 	return o.ApplyT(func(v ControlControlMappingSourceSourceKeyword) string { return v.KeywordInputType }).(pulumi.StringOutput)
 }
 
-// The value of the keyword that's used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
 func (o ControlControlMappingSourceSourceKeywordOutput) KeywordValue() pulumi.StringOutput {
 	return o.ApplyT(func(v ControlControlMappingSourceSourceKeyword) string { return v.KeywordValue }).(pulumi.StringOutput)
 }
@@ -1030,7 +963,6 @@ func (o ControlControlMappingSourceSourceKeywordPtrOutput) Elem() ControlControl
 	}).(ControlControlMappingSourceSourceKeywordOutput)
 }
 
-// Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
 func (o ControlControlMappingSourceSourceKeywordPtrOutput) KeywordInputType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ControlControlMappingSourceSourceKeyword) *string {
 		if v == nil {
@@ -1040,7 +972,6 @@ func (o ControlControlMappingSourceSourceKeywordPtrOutput) KeywordInputType() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value of the keyword that's used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
 func (o ControlControlMappingSourceSourceKeywordPtrOutput) KeywordValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ControlControlMappingSourceSourceKeyword) *string {
 		if v == nil {
@@ -1051,12 +982,9 @@ func (o ControlControlMappingSourceSourceKeywordPtrOutput) KeywordValue() pulumi
 }
 
 type FrameworkControlSet struct {
-	// Configuration block(s) for the controls within the control set. See `controls` Block below for details.
 	Controls []FrameworkControlSetControl `pulumi:"controls"`
-	// Unique identifier for the framework.
-	Id *string `pulumi:"id"`
-	// Name of the control set.
-	Name string `pulumi:"name"`
+	Id       *string                      `pulumi:"id"`
+	Name     string                       `pulumi:"name"`
 }
 
 // FrameworkControlSetInput is an input type that accepts FrameworkControlSetArgs and FrameworkControlSetOutput values.
@@ -1071,12 +999,9 @@ type FrameworkControlSetInput interface {
 }
 
 type FrameworkControlSetArgs struct {
-	// Configuration block(s) for the controls within the control set. See `controls` Block below for details.
 	Controls FrameworkControlSetControlArrayInput `pulumi:"controls"`
-	// Unique identifier for the framework.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Name of the control set.
-	Name pulumi.StringInput `pulumi:"name"`
+	Id       pulumi.StringPtrInput                `pulumi:"id"`
+	Name     pulumi.StringInput                   `pulumi:"name"`
 }
 
 func (FrameworkControlSetArgs) ElementType() reflect.Type {
@@ -1130,17 +1055,14 @@ func (o FrameworkControlSetOutput) ToFrameworkControlSetOutputWithContext(ctx co
 	return o
 }
 
-// Configuration block(s) for the controls within the control set. See `controls` Block below for details.
 func (o FrameworkControlSetOutput) Controls() FrameworkControlSetControlArrayOutput {
 	return o.ApplyT(func(v FrameworkControlSet) []FrameworkControlSetControl { return v.Controls }).(FrameworkControlSetControlArrayOutput)
 }
 
-// Unique identifier for the framework.
 func (o FrameworkControlSetOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrameworkControlSet) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Name of the control set.
 func (o FrameworkControlSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FrameworkControlSet) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1166,7 +1088,6 @@ func (o FrameworkControlSetArrayOutput) Index(i pulumi.IntInput) FrameworkContro
 }
 
 type FrameworkControlSetControl struct {
-	// Unique identifier of the control.
 	Id string `pulumi:"id"`
 }
 
@@ -1182,7 +1103,6 @@ type FrameworkControlSetControlInput interface {
 }
 
 type FrameworkControlSetControlArgs struct {
-	// Unique identifier of the control.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -1237,7 +1157,6 @@ func (o FrameworkControlSetControlOutput) ToFrameworkControlSetControlOutputWith
 	return o
 }
 
-// Unique identifier of the control.
 func (o FrameworkControlSetControlOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v FrameworkControlSetControl) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -1503,8 +1422,7 @@ func (o GetControlControlMappingSourceSourceKeywordArrayOutput) Index(i pulumi.I
 type GetFrameworkControlSet struct {
 	Controls []GetFrameworkControlSetControl `pulumi:"controls"`
 	Id       string                          `pulumi:"id"`
-	// Name of the framework.
-	Name string `pulumi:"name"`
+	Name     string                          `pulumi:"name"`
 }
 
 // GetFrameworkControlSetInput is an input type that accepts GetFrameworkControlSetArgs and GetFrameworkControlSetOutput values.
@@ -1521,8 +1439,7 @@ type GetFrameworkControlSetInput interface {
 type GetFrameworkControlSetArgs struct {
 	Controls GetFrameworkControlSetControlArrayInput `pulumi:"controls"`
 	Id       pulumi.StringInput                      `pulumi:"id"`
-	// Name of the framework.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name     pulumi.StringInput                      `pulumi:"name"`
 }
 
 func (GetFrameworkControlSetArgs) ElementType() reflect.Type {
@@ -1584,7 +1501,6 @@ func (o GetFrameworkControlSetOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFrameworkControlSet) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Name of the framework.
 func (o GetFrameworkControlSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFrameworkControlSet) string { return v.Name }).(pulumi.StringOutput)
 }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.DynamoDB.Inputs
 
     public sealed class TableGlobalSecondaryIndexOnDemandThroughputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
-        /// </summary>
         [Input("maxReadRequestUnits")]
         public Input<int>? MaxReadRequestUnits { get; set; }
 
-        /// <summary>
-        /// Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
-        /// </summary>
         [Input("maxWriteRequestUnits")]
         public Input<int>? MaxWriteRequestUnits { get; set; }
 

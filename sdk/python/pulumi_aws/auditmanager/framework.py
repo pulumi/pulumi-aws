@@ -29,14 +29,6 @@ class FrameworkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Framework resource.
-        :param pulumi.Input[_builtins.str] compliance_type: Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
-        :param pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetArgs']]] control_sets: Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: Description of the framework.
-        :param pulumi.Input[_builtins.str] name: Name of the framework.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if compliance_type is not None:
             pulumi.set(__self__, "compliance_type", compliance_type)
@@ -54,9 +46,6 @@ class FrameworkArgs:
     @_builtins.property
     @pulumi.getter(name="complianceType")
     def compliance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
-        """
         return pulumi.get(self, "compliance_type")
 
     @compliance_type.setter
@@ -66,11 +55,6 @@ class FrameworkArgs:
     @_builtins.property
     @pulumi.getter(name="controlSets")
     def control_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetArgs']]]]:
-        """
-        Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "control_sets")
 
     @control_sets.setter
@@ -80,9 +64,6 @@ class FrameworkArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the framework.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -92,9 +73,6 @@ class FrameworkArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the framework.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -104,9 +82,6 @@ class FrameworkArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -116,9 +91,6 @@ class FrameworkArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -140,17 +112,6 @@ class _FrameworkState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Framework resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the framework.
-               * `control_sets[*].id` - Unique identifier for the framework control set.
-        :param pulumi.Input[_builtins.str] compliance_type: Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
-        :param pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetArgs']]] control_sets: Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: Description of the framework.
-        :param pulumi.Input[_builtins.str] framework_type: Framework type, such as a custom framework or a standard framework.
-        :param pulumi.Input[_builtins.str] name: Name of the framework.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -174,10 +135,6 @@ class _FrameworkState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the framework.
-        * `control_sets[*].id` - Unique identifier for the framework control set.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -187,9 +144,6 @@ class _FrameworkState:
     @_builtins.property
     @pulumi.getter(name="complianceType")
     def compliance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
-        """
         return pulumi.get(self, "compliance_type")
 
     @compliance_type.setter
@@ -199,11 +153,6 @@ class _FrameworkState:
     @_builtins.property
     @pulumi.getter(name="controlSets")
     def control_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetArgs']]]]:
-        """
-        Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "control_sets")
 
     @control_sets.setter
@@ -213,9 +162,6 @@ class _FrameworkState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the framework.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -225,9 +171,6 @@ class _FrameworkState:
     @_builtins.property
     @pulumi.getter(name="frameworkType")
     def framework_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Framework type, such as a custom framework or a standard framework.
-        """
         return pulumi.get(self, "framework_type")
 
     @framework_type.setter
@@ -237,9 +180,6 @@ class _FrameworkState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the framework.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -249,9 +189,6 @@ class _FrameworkState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -261,9 +198,6 @@ class _FrameworkState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -294,49 +228,9 @@ class Framework(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Audit Manager Framework.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.auditmanager.Framework("test",
-            name="example",
-            control_sets=[{
-                "name": "example",
-                "controls": [
-                    {
-                        "id": test1["id"],
-                    },
-                    {
-                        "id": test2["id"],
-                    },
-                ],
-            }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Audit Manager Framework using the framework `id`. For example:
-
-        ```sh
-        $ pulumi import aws:auditmanager/framework:Framework example abc123-de45
-        ```
-
+        Create a Framework resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] compliance_type: Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlSetArgs', 'FrameworkControlSetArgsDict']]]] control_sets: Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: Description of the framework.
-        :param pulumi.Input[_builtins.str] name: Name of the framework.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -345,39 +239,7 @@ class Framework(pulumi.CustomResource):
                  args: Optional[FrameworkArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Audit Manager Framework.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.auditmanager.Framework("test",
-            name="example",
-            control_sets=[{
-                "name": "example",
-                "controls": [
-                    {
-                        "id": test1["id"],
-                    },
-                    {
-                        "id": test2["id"],
-                    },
-                ],
-            }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Audit Manager Framework using the framework `id`. For example:
-
-        ```sh
-        $ pulumi import aws:auditmanager/framework:Framework example abc123-de45
-        ```
-
+        Create a Framework resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param FrameworkArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -443,17 +305,6 @@ class Framework(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the framework.
-               * `control_sets[*].id` - Unique identifier for the framework control set.
-        :param pulumi.Input[_builtins.str] compliance_type: Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlSetArgs', 'FrameworkControlSetArgsDict']]]] control_sets: Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: Description of the framework.
-        :param pulumi.Input[_builtins.str] framework_type: Framework type, such as a custom framework or a standard framework.
-        :param pulumi.Input[_builtins.str] name: Name of the framework.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -473,68 +324,41 @@ class Framework(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the framework.
-        * `control_sets[*].id` - Unique identifier for the framework control set.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="complianceType")
     def compliance_type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
-        """
         return pulumi.get(self, "compliance_type")
 
     @_builtins.property
     @pulumi.getter(name="controlSets")
     def control_sets(self) -> pulumi.Output[Optional[Sequence['outputs.FrameworkControlSet']]]:
-        """
-        Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "control_sets")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the framework.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="frameworkType")
     def framework_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Framework type, such as a custom framework or a standard framework.
-        """
         return pulumi.get(self, "framework_type")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the framework.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property

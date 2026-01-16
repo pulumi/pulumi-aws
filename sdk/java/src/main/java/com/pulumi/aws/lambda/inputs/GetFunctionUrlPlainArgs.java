@@ -15,51 +15,23 @@ public final class GetFunctionUrlPlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetFunctionUrlPlainArgs Empty = new GetFunctionUrlPlainArgs();
 
-    /**
-     * Name or ARN of the Lambda function.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="functionName", required=true)
     private String functionName;
 
-    /**
-     * @return Name or ARN of the Lambda function.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String functionName() {
         return this.functionName;
     }
 
-    /**
-     * Alias name or `$LATEST`.
-     * 
-     */
     @Import(name="qualifier")
     private @Nullable String qualifier;
 
-    /**
-     * @return Alias name or `$LATEST`.
-     * 
-     */
     public Optional<String> qualifier() {
         return Optional.ofNullable(this.qualifier);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -90,36 +62,16 @@ public final class GetFunctionUrlPlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetFunctionUrlPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param functionName Name or ARN of the Lambda function.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionName(String functionName) {
             $.functionName = functionName;
             return this;
         }
 
-        /**
-         * @param qualifier Alias name or `$LATEST`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder qualifier(@Nullable String qualifier) {
             $.qualifier = qualifier;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

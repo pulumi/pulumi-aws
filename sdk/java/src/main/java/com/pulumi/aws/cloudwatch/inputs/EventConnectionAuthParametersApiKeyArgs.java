@@ -14,32 +14,16 @@ public final class EventConnectionAuthParametersApiKeyArgs extends com.pulumi.re
 
     public static final EventConnectionAuthParametersApiKeyArgs Empty = new EventConnectionAuthParametersApiKeyArgs();
 
-    /**
-     * Header Name.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return Header Name.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * Header Value. Created and stored in AWS Secrets Manager.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return Header Value. Created and stored in AWS Secrets Manager.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -69,44 +53,20 @@ public final class EventConnectionAuthParametersApiKeyArgs extends com.pulumi.re
             $ = new EventConnectionAuthParametersApiKeyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key Header Name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Header Name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param value Header Value. Created and stored in AWS Secrets Manager.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Header Value. Created and stored in AWS Secrets Manager.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

@@ -13,145 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Elastic Container Registry Public Repository Policy.
- * 
- * Note that currently only one policy may be applied to a repository.
- * 
- * &gt; **NOTE:** This resource can only be used in the `us-east-1` region.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ecrpublic.Repository;
- * import com.pulumi.aws.ecrpublic.RepositoryArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.ecrpublic.RepositoryPolicy;
- * import com.pulumi.aws.ecrpublic.RepositoryPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleRepository = new Repository("exampleRepository", RepositoryArgs.builder()
- *             .repositoryName("example")
- *             .build());
- * 
- *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("new policy")
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("AWS")
- *                     .identifiers("123456789012")
- *                     .build())
- *                 .actions(                
- *                     "ecr:GetDownloadUrlForLayer",
- *                     "ecr:BatchGetImage",
- *                     "ecr:BatchCheckLayerAvailability",
- *                     "ecr:PutImage",
- *                     "ecr:InitiateLayerUpload",
- *                     "ecr:UploadLayerPart",
- *                     "ecr:CompleteLayerUpload",
- *                     "ecr:DescribeRepositories",
- *                     "ecr:GetRepositoryPolicy",
- *                     "ecr:ListImages",
- *                     "ecr:DeleteRepository",
- *                     "ecr:BatchDeleteImage",
- *                     "ecr:SetRepositoryPolicy",
- *                     "ecr:DeleteRepositoryPolicy")
- *                 .build())
- *             .build());
- * 
- *         var exampleRepositoryPolicy = new RepositoryPolicy("exampleRepositoryPolicy", RepositoryPolicyArgs.builder()
- *             .repositoryName(exampleRepository.repositoryName())
- *             .policy(example.json())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import ECR Public Repository Policy using the repository name. For example:
- * 
- * ```sh
- * $ pulumi import aws:ecrpublic/repositoryPolicy:RepositoryPolicy example example
- * ```
- * 
- */
 @ResourceType(type="aws:ecrpublic/repositoryPolicy:RepositoryPolicy")
 public class RepositoryPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The policy document. This is a JSON formatted string.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return The policy document. This is a JSON formatted string.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The registry ID where the repository was created.
-     * 
-     */
     @Export(name="registryId", refs={String.class}, tree="[0]")
     private Output<String> registryId;
 
-    /**
-     * @return The registry ID where the repository was created.
-     * 
-     */
     public Output<String> registryId() {
         return this.registryId;
     }
-    /**
-     * Name of the repository to apply the policy.
-     * 
-     */
     @Export(name="repositoryName", refs={String.class}, tree="[0]")
     private Output<String> repositoryName;
 
-    /**
-     * @return Name of the repository to apply the policy.
-     * 
-     */
     public Output<String> repositoryName() {
         return this.repositoryName;
     }

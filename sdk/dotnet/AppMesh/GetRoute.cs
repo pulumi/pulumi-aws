@@ -11,81 +11,12 @@ namespace Pulumi.Aws.AppMesh
 {
     public static class GetRoute
     {
-        /// <summary>
-        /// The App Mesh Route data source allows details of an App Mesh Route to be retrieved by its name, mesh_name, virtual_router_name, and optionally the mesh_owner.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.AppMesh.GetRoute.Invoke(new()
-        ///     {
-        ///         Name = "test-route",
-        ///         MeshName = "test-mesh",
-        ///         VirtualRouterName = "test-router",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("aws:appmesh/getRoute:getRoute", args ?? new GetRouteArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The App Mesh Route data source allows details of an App Mesh Route to be retrieved by its name, mesh_name, virtual_router_name, and optionally the mesh_owner.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.AppMesh.GetRoute.Invoke(new()
-        ///     {
-        ///         Name = "test-route",
-        ///         MeshName = "test-mesh",
-        ///         VirtualRouterName = "test-router",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("aws:appmesh/getRoute:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The App Mesh Route data source allows details of an App Mesh Route to be retrieved by its name, mesh_name, virtual_router_name, and optionally the mesh_owner.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.AppMesh.GetRoute.Invoke(new()
-        ///     {
-        ///         Name = "test-route",
-        ///         MeshName = "test-mesh",
-        ///         VirtualRouterName = "test-router",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("aws:appmesh/getRoute:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
     }
@@ -93,45 +24,26 @@ namespace Pulumi.Aws.AppMesh
 
     public sealed class GetRouteArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the service mesh in which the virtual router exists.
-        /// </summary>
         [Input("meshName", required: true)]
         public string MeshName { get; set; } = null!;
 
-        /// <summary>
-        /// AWS account ID of the service mesh's owner.
-        /// </summary>
         [Input("meshOwner")]
         public string? MeshOwner { get; set; }
 
-        /// <summary>
-        /// Name of the route.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Name of the virtual router in which the route exists.
-        /// </summary>
         [Input("virtualRouterName", required: true)]
         public string VirtualRouterName { get; set; } = null!;
 
@@ -143,45 +55,26 @@ namespace Pulumi.Aws.AppMesh
 
     public sealed class GetRouteInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the service mesh in which the virtual router exists.
-        /// </summary>
         [Input("meshName", required: true)]
         public Input<string> MeshName { get; set; } = null!;
 
-        /// <summary>
-        /// AWS account ID of the service mesh's owner.
-        /// </summary>
         [Input("meshOwner")]
         public Input<string>? MeshOwner { get; set; }
 
-        /// <summary>
-        /// Name of the route.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Name of the virtual router in which the route exists.
-        /// </summary>
         [Input("virtualRouterName", required: true)]
         public Input<string> VirtualRouterName { get; set; } = null!;
 
@@ -195,37 +88,19 @@ namespace Pulumi.Aws.AppMesh
     [OutputType]
     public sealed class GetRouteResult
     {
-        /// <summary>
-        /// ARN of the route.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Creation date of the route.
-        /// </summary>
         public readonly string CreatedDate;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Last update date of the route.
-        /// </summary>
         public readonly string LastUpdatedDate;
         public readonly string MeshName;
         public readonly string MeshOwner;
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// Resource owner's AWS account ID.
-        /// </summary>
         public readonly string ResourceOwner;
-        /// <summary>
-        /// Route specification. See the `aws.appmesh.Route` resource for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetRouteSpecResult> Specs;
-        /// <summary>
-        /// Map of tags.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string VirtualRouterName;
 

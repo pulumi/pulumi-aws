@@ -15,77 +15,37 @@ public final class OrganizationDelegatedAdminAccountState extends com.pulumi.res
 
     public static final OrganizationDelegatedAdminAccountState Empty = new OrganizationDelegatedAdminAccountState();
 
-    /**
-     * An organization member account ID that you want to designate as a delegated administrator.
-     * 
-     */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
-    /**
-     * @return An organization member account ID that you want to designate as a delegated administrator.
-     * 
-     */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The email address that is associated with the delegated administrator&#39;s AWS account.
-     * 
-     */
     @Import(name="email")
     private @Nullable Output<String> email;
 
-    /**
-     * @return The email address that is associated with the delegated administrator&#39;s AWS account.
-     * 
-     */
     public Optional<Output<String>> email() {
         return Optional.ofNullable(this.email);
     }
 
-    /**
-     * The friendly name of the delegated administrator&#39;s account.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The friendly name of the delegated administrator&#39;s account.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The AWS CloudTrail service principal name.
-     * 
-     */
     @Import(name="servicePrincipal")
     private @Nullable Output<String> servicePrincipal;
 
-    /**
-     * @return The AWS CloudTrail service principal name.
-     * 
-     */
     public Optional<Output<String>> servicePrincipal() {
         return Optional.ofNullable(this.servicePrincipal);
     }
@@ -118,107 +78,47 @@ public final class OrganizationDelegatedAdminAccountState extends com.pulumi.res
             $ = new OrganizationDelegatedAdminAccountState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId An organization member account ID that you want to designate as a delegated administrator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId An organization member account ID that you want to designate as a delegated administrator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param email The email address that is associated with the delegated administrator&#39;s AWS account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder email(@Nullable Output<String> email) {
             $.email = email;
             return this;
         }
 
-        /**
-         * @param email The email address that is associated with the delegated administrator&#39;s AWS account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder email(String email) {
             return email(Output.of(email));
         }
 
-        /**
-         * @param name The friendly name of the delegated administrator&#39;s account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The friendly name of the delegated administrator&#39;s account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param servicePrincipal The AWS CloudTrail service principal name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder servicePrincipal(@Nullable Output<String> servicePrincipal) {
             $.servicePrincipal = servicePrincipal;
             return this;
         }
 
-        /**
-         * @param servicePrincipal The AWS CloudTrail service principal name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder servicePrincipal(String servicePrincipal) {
             return servicePrincipal(Output.of(servicePrincipal));
         }

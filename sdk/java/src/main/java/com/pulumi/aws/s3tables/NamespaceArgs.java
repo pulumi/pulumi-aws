@@ -16,51 +16,23 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final NamespaceArgs Empty = new NamespaceArgs();
 
-    /**
-     * Name of the namespace.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-     * 
-     */
     @Import(name="namespace", required=true)
     private Output<String> namespace;
 
-    /**
-     * @return Name of the namespace.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-     * 
-     */
     public Output<String> namespace() {
         return this.namespace;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN referencing the Table Bucket that contains this Namespace.
-     * 
-     */
     @Import(name="tableBucketArn", required=true)
     private Output<String> tableBucketArn;
 
-    /**
-     * @return ARN referencing the Table Bucket that contains this Namespace.
-     * 
-     */
     public Output<String> tableBucketArn() {
         return this.tableBucketArn;
     }
@@ -91,69 +63,29 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
             $ = new NamespaceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param namespace Name of the namespace.
-         * Must be between 1 and 255 characters in length.
-         * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
 
-        /**
-         * @param namespace Name of the namespace.
-         * Must be between 1 and 255 characters in length.
-         * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tableBucketArn ARN referencing the Table Bucket that contains this Namespace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableBucketArn(Output<String> tableBucketArn) {
             $.tableBucketArn = tableBucketArn;
             return this;
         }
 
-        /**
-         * @param tableBucketArn ARN referencing the Table Bucket that contains this Namespace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableBucketArn(String tableBucketArn) {
             return tableBucketArn(Output.of(tableBucketArn));
         }

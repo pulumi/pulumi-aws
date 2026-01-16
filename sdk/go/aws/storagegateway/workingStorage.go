@@ -12,53 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Storage Gateway working storage.
-//
-// > **NOTE:** The Storage Gateway API provides no method to remove a working storage disk. Destroying this resource does not perform any Storage Gateway actions.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/storagegateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := storagegateway.NewWorkingStorage(ctx, "example", &storagegateway.WorkingStorageArgs{
-//				DiskId:     pulumi.Any(exampleAwsStoragegatewayLocalDisk.Id),
-//				GatewayArn: pulumi.Any(exampleAwsStoragegatewayGateway.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_storagegateway_working_storage` using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`). For example:
-//
-// ```sh
-// $ pulumi import aws:storagegateway/workingStorage:WorkingStorage example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
-// ```
 type WorkingStorage struct {
 	pulumi.CustomResourceState
 
-	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-	DiskId pulumi.StringOutput `pulumi:"diskId"`
-	// The Amazon Resource Name (ARN) of the gateway.
+	DiskId     pulumi.StringOutput `pulumi:"diskId"`
 	GatewayArn pulumi.StringOutput `pulumi:"gatewayArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region     pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewWorkingStorage registers a new resource with the given unique name, arguments, and options.
@@ -97,21 +56,15 @@ func GetWorkingStorage(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkingStorage resources.
 type workingStorageState struct {
-	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-	DiskId *string `pulumi:"diskId"`
-	// The Amazon Resource Name (ARN) of the gateway.
+	DiskId     *string `pulumi:"diskId"`
 	GatewayArn *string `pulumi:"gatewayArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region     *string `pulumi:"region"`
 }
 
 type WorkingStorageState struct {
-	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-	DiskId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the gateway.
+	DiskId     pulumi.StringPtrInput
 	GatewayArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region     pulumi.StringPtrInput
 }
 
 func (WorkingStorageState) ElementType() reflect.Type {
@@ -119,22 +72,16 @@ func (WorkingStorageState) ElementType() reflect.Type {
 }
 
 type workingStorageArgs struct {
-	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-	DiskId string `pulumi:"diskId"`
-	// The Amazon Resource Name (ARN) of the gateway.
-	GatewayArn string `pulumi:"gatewayArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	DiskId     string  `pulumi:"diskId"`
+	GatewayArn string  `pulumi:"gatewayArn"`
+	Region     *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a WorkingStorage resource.
 type WorkingStorageArgs struct {
-	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-	DiskId pulumi.StringInput
-	// The Amazon Resource Name (ARN) of the gateway.
+	DiskId     pulumi.StringInput
 	GatewayArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region     pulumi.StringPtrInput
 }
 
 func (WorkingStorageArgs) ElementType() reflect.Type {
@@ -224,17 +171,14 @@ func (o WorkingStorageOutput) ToWorkingStorageOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
 func (o WorkingStorageOutput) DiskId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkingStorage) pulumi.StringOutput { return v.DiskId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the gateway.
 func (o WorkingStorageOutput) GatewayArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkingStorage) pulumi.StringOutput { return v.GatewayArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WorkingStorageOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkingStorage) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     [OutputType]
     public sealed class ProjectVpcConfig
     {
-        /// <summary>
-        /// Security group IDs to assign to running builds.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// Subnet IDs within which to run builds.
-        /// </summary>
         public readonly ImmutableArray<string> Subnets;
-        /// <summary>
-        /// ID of the VPC within which to run builds.
-        /// </summary>
         public readonly string VpcId;
 
         [OutputConstructor]

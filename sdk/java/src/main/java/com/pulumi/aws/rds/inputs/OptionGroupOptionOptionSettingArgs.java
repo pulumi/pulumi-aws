@@ -14,32 +14,16 @@ public final class OptionGroupOptionOptionSettingArgs extends com.pulumi.resourc
 
     public static final OptionGroupOptionOptionSettingArgs Empty = new OptionGroupOptionOptionSettingArgs();
 
-    /**
-     * Name of the setting.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the setting.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Value of the setting.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return Value of the setting.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -69,44 +53,20 @@ public final class OptionGroupOptionOptionSettingArgs extends com.pulumi.resourc
             $ = new OptionGroupOptionOptionSettingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the setting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the setting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param value Value of the setting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Value of the setting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

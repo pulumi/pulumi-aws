@@ -35,22 +35,6 @@ class PlatformApplicationArgs:
                  success_feedback_sample_rate: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PlatformApplication resource.
-        :param pulumi.Input[_builtins.str] platform: The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
-        :param pulumi.Input[_builtins.str] platform_credential: Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        :param pulumi.Input[_builtins.str] apple_platform_bundle_id: The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
-        :param pulumi.Input[_builtins.str] apple_platform_team_id: The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
-        :param pulumi.Input[_builtins.str] event_delivery_failure_topic_arn: The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
-        :param pulumi.Input[_builtins.str] event_endpoint_created_topic_arn: The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
-        :param pulumi.Input[_builtins.str] event_endpoint_deleted_topic_arn: The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
-        :param pulumi.Input[_builtins.str] event_endpoint_updated_topic_arn: The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
-        :param pulumi.Input[_builtins.str] failure_feedback_role_arn: The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
-        :param pulumi.Input[_builtins.str] name: The friendly name for the SNS platform application
-        :param pulumi.Input[_builtins.str] platform_principal: Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] success_feedback_role_arn: The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
-        :param pulumi.Input[_builtins.str] success_feedback_sample_rate: The sample rate percentage (0-100) of successfully delivered messages.
-               
-               The following attributes are needed only when using APNS token credentials:
         """
         pulumi.set(__self__, "platform", platform)
         pulumi.set(__self__, "platform_credential", platform_credential)
@@ -82,9 +66,6 @@ class PlatformApplicationArgs:
     @_builtins.property
     @pulumi.getter
     def platform(self) -> pulumi.Input[_builtins.str]:
-        """
-        The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
-        """
         return pulumi.get(self, "platform")
 
     @platform.setter
@@ -94,9 +75,6 @@ class PlatformApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="platformCredential")
     def platform_credential(self) -> pulumi.Input[_builtins.str]:
-        """
-        Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        """
         return pulumi.get(self, "platform_credential")
 
     @platform_credential.setter
@@ -106,9 +84,6 @@ class PlatformApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="applePlatformBundleId")
     def apple_platform_bundle_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
-        """
         return pulumi.get(self, "apple_platform_bundle_id")
 
     @apple_platform_bundle_id.setter
@@ -118,9 +93,6 @@ class PlatformApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="applePlatformTeamId")
     def apple_platform_team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
-        """
         return pulumi.get(self, "apple_platform_team_id")
 
     @apple_platform_team_id.setter
@@ -130,9 +102,6 @@ class PlatformApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="eventDeliveryFailureTopicArn")
     def event_delivery_failure_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
-        """
         return pulumi.get(self, "event_delivery_failure_topic_arn")
 
     @event_delivery_failure_topic_arn.setter
@@ -142,9 +111,6 @@ class PlatformApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="eventEndpointCreatedTopicArn")
     def event_endpoint_created_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
-        """
         return pulumi.get(self, "event_endpoint_created_topic_arn")
 
     @event_endpoint_created_topic_arn.setter
@@ -154,9 +120,6 @@ class PlatformApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="eventEndpointDeletedTopicArn")
     def event_endpoint_deleted_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
-        """
         return pulumi.get(self, "event_endpoint_deleted_topic_arn")
 
     @event_endpoint_deleted_topic_arn.setter
@@ -166,9 +129,6 @@ class PlatformApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="eventEndpointUpdatedTopicArn")
     def event_endpoint_updated_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
-        """
         return pulumi.get(self, "event_endpoint_updated_topic_arn")
 
     @event_endpoint_updated_topic_arn.setter
@@ -178,9 +138,6 @@ class PlatformApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="failureFeedbackRoleArn")
     def failure_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
-        """
         return pulumi.get(self, "failure_feedback_role_arn")
 
     @failure_feedback_role_arn.setter
@@ -190,9 +147,6 @@ class PlatformApplicationArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The friendly name for the SNS platform application
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -202,9 +156,6 @@ class PlatformApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="platformPrincipal")
     def platform_principal(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        """
         return pulumi.get(self, "platform_principal")
 
     @platform_principal.setter
@@ -214,9 +165,6 @@ class PlatformApplicationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -226,9 +174,6 @@ class PlatformApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="successFeedbackRoleArn")
     def success_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
-        """
         return pulumi.get(self, "success_feedback_role_arn")
 
     @success_feedback_role_arn.setter
@@ -238,11 +183,6 @@ class PlatformApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="successFeedbackSampleRate")
     def success_feedback_sample_rate(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The sample rate percentage (0-100) of successfully delivered messages.
-
-        The following attributes are needed only when using APNS token credentials:
-        """
         return pulumi.get(self, "success_feedback_sample_rate")
 
     @success_feedback_sample_rate.setter
@@ -270,23 +210,6 @@ class _PlatformApplicationState:
                  success_feedback_sample_rate: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PlatformApplication resources.
-        :param pulumi.Input[_builtins.str] apple_platform_bundle_id: The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
-        :param pulumi.Input[_builtins.str] apple_platform_team_id: The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the SNS platform application
-        :param pulumi.Input[_builtins.str] event_delivery_failure_topic_arn: The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
-        :param pulumi.Input[_builtins.str] event_endpoint_created_topic_arn: The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
-        :param pulumi.Input[_builtins.str] event_endpoint_deleted_topic_arn: The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
-        :param pulumi.Input[_builtins.str] event_endpoint_updated_topic_arn: The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
-        :param pulumi.Input[_builtins.str] failure_feedback_role_arn: The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
-        :param pulumi.Input[_builtins.str] name: The friendly name for the SNS platform application
-        :param pulumi.Input[_builtins.str] platform: The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
-        :param pulumi.Input[_builtins.str] platform_credential: Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        :param pulumi.Input[_builtins.str] platform_principal: Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] success_feedback_role_arn: The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
-        :param pulumi.Input[_builtins.str] success_feedback_sample_rate: The sample rate percentage (0-100) of successfully delivered messages.
-               
-               The following attributes are needed only when using APNS token credentials:
         """
         if apple_platform_bundle_id is not None:
             pulumi.set(__self__, "apple_platform_bundle_id", apple_platform_bundle_id)
@@ -322,9 +245,6 @@ class _PlatformApplicationState:
     @_builtins.property
     @pulumi.getter(name="applePlatformBundleId")
     def apple_platform_bundle_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
-        """
         return pulumi.get(self, "apple_platform_bundle_id")
 
     @apple_platform_bundle_id.setter
@@ -334,9 +254,6 @@ class _PlatformApplicationState:
     @_builtins.property
     @pulumi.getter(name="applePlatformTeamId")
     def apple_platform_team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
-        """
         return pulumi.get(self, "apple_platform_team_id")
 
     @apple_platform_team_id.setter
@@ -346,9 +263,6 @@ class _PlatformApplicationState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the SNS platform application
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -358,9 +272,6 @@ class _PlatformApplicationState:
     @_builtins.property
     @pulumi.getter(name="eventDeliveryFailureTopicArn")
     def event_delivery_failure_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
-        """
         return pulumi.get(self, "event_delivery_failure_topic_arn")
 
     @event_delivery_failure_topic_arn.setter
@@ -370,9 +281,6 @@ class _PlatformApplicationState:
     @_builtins.property
     @pulumi.getter(name="eventEndpointCreatedTopicArn")
     def event_endpoint_created_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
-        """
         return pulumi.get(self, "event_endpoint_created_topic_arn")
 
     @event_endpoint_created_topic_arn.setter
@@ -382,9 +290,6 @@ class _PlatformApplicationState:
     @_builtins.property
     @pulumi.getter(name="eventEndpointDeletedTopicArn")
     def event_endpoint_deleted_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
-        """
         return pulumi.get(self, "event_endpoint_deleted_topic_arn")
 
     @event_endpoint_deleted_topic_arn.setter
@@ -394,9 +299,6 @@ class _PlatformApplicationState:
     @_builtins.property
     @pulumi.getter(name="eventEndpointUpdatedTopicArn")
     def event_endpoint_updated_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
-        """
         return pulumi.get(self, "event_endpoint_updated_topic_arn")
 
     @event_endpoint_updated_topic_arn.setter
@@ -406,9 +308,6 @@ class _PlatformApplicationState:
     @_builtins.property
     @pulumi.getter(name="failureFeedbackRoleArn")
     def failure_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
-        """
         return pulumi.get(self, "failure_feedback_role_arn")
 
     @failure_feedback_role_arn.setter
@@ -418,9 +317,6 @@ class _PlatformApplicationState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The friendly name for the SNS platform application
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -430,9 +326,6 @@ class _PlatformApplicationState:
     @_builtins.property
     @pulumi.getter
     def platform(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
-        """
         return pulumi.get(self, "platform")
 
     @platform.setter
@@ -442,9 +335,6 @@ class _PlatformApplicationState:
     @_builtins.property
     @pulumi.getter(name="platformCredential")
     def platform_credential(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        """
         return pulumi.get(self, "platform_credential")
 
     @platform_credential.setter
@@ -454,9 +344,6 @@ class _PlatformApplicationState:
     @_builtins.property
     @pulumi.getter(name="platformPrincipal")
     def platform_principal(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        """
         return pulumi.get(self, "platform_principal")
 
     @platform_principal.setter
@@ -466,9 +353,6 @@ class _PlatformApplicationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -478,9 +362,6 @@ class _PlatformApplicationState:
     @_builtins.property
     @pulumi.getter(name="successFeedbackRoleArn")
     def success_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
-        """
         return pulumi.get(self, "success_feedback_role_arn")
 
     @success_feedback_role_arn.setter
@@ -490,11 +371,6 @@ class _PlatformApplicationState:
     @_builtins.property
     @pulumi.getter(name="successFeedbackSampleRate")
     def success_feedback_sample_rate(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The sample rate percentage (0-100) of successfully delivered messages.
-
-        The following attributes are needed only when using APNS token credentials:
-        """
         return pulumi.get(self, "success_feedback_sample_rate")
 
     @success_feedback_sample_rate.setter
@@ -524,76 +400,9 @@ class PlatformApplication(pulumi.CustomResource):
                  success_feedback_sample_rate: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an SNS platform application resource
-
-        ## Example Usage
-
-        ### Apple Push Notification Service (APNS) using certificate-based authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        apns_application = aws.sns.PlatformApplication("apns_application",
-            name="apns_application",
-            platform="APNS",
-            platform_credential="<APNS PRIVATE KEY>",
-            platform_principal="<APNS CERTIFICATE>")
-        ```
-
-        ### Apple Push Notification Service (APNS) using token-based authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        apns_application = aws.sns.PlatformApplication("apns_application",
-            name="apns_application",
-            platform="APNS",
-            platform_credential="<APNS SIGNING KEY>",
-            platform_principal="<APNS SIGNING KEY ID>",
-            apple_platform_team_id="<APPLE TEAM ID>",
-            apple_platform_bundle_id="<APPLE BUNDLE ID>")
-        ```
-
-        ### Google Cloud Messaging (GCM)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        gcm_application = aws.sns.PlatformApplication("gcm_application",
-            name="gcm_application",
-            platform="GCM",
-            platform_credential="<GCM API KEY>")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SNS platform applications using the ARN. For example:
-
-        ```sh
-        $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:123456789012:app/GCM/gcm_application
-        ```
-
+        Create a PlatformApplication resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] apple_platform_bundle_id: The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
-        :param pulumi.Input[_builtins.str] apple_platform_team_id: The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
-        :param pulumi.Input[_builtins.str] event_delivery_failure_topic_arn: The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
-        :param pulumi.Input[_builtins.str] event_endpoint_created_topic_arn: The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
-        :param pulumi.Input[_builtins.str] event_endpoint_deleted_topic_arn: The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
-        :param pulumi.Input[_builtins.str] event_endpoint_updated_topic_arn: The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
-        :param pulumi.Input[_builtins.str] failure_feedback_role_arn: The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
-        :param pulumi.Input[_builtins.str] name: The friendly name for the SNS platform application
-        :param pulumi.Input[_builtins.str] platform: The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
-        :param pulumi.Input[_builtins.str] platform_credential: Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        :param pulumi.Input[_builtins.str] platform_principal: Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] success_feedback_role_arn: The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
-        :param pulumi.Input[_builtins.str] success_feedback_sample_rate: The sample rate percentage (0-100) of successfully delivered messages.
-               
-               The following attributes are needed only when using APNS token credentials:
         """
         ...
     @overload
@@ -602,58 +411,7 @@ class PlatformApplication(pulumi.CustomResource):
                  args: PlatformApplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an SNS platform application resource
-
-        ## Example Usage
-
-        ### Apple Push Notification Service (APNS) using certificate-based authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        apns_application = aws.sns.PlatformApplication("apns_application",
-            name="apns_application",
-            platform="APNS",
-            platform_credential="<APNS PRIVATE KEY>",
-            platform_principal="<APNS CERTIFICATE>")
-        ```
-
-        ### Apple Push Notification Service (APNS) using token-based authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        apns_application = aws.sns.PlatformApplication("apns_application",
-            name="apns_application",
-            platform="APNS",
-            platform_credential="<APNS SIGNING KEY>",
-            platform_principal="<APNS SIGNING KEY ID>",
-            apple_platform_team_id="<APPLE TEAM ID>",
-            apple_platform_bundle_id="<APPLE BUNDLE ID>")
-        ```
-
-        ### Google Cloud Messaging (GCM)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        gcm_application = aws.sns.PlatformApplication("gcm_application",
-            name="gcm_application",
-            platform="GCM",
-            platform_credential="<GCM API KEY>")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SNS platform applications using the ARN. For example:
-
-        ```sh
-        $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:123456789012:app/GCM/gcm_application
-        ```
-
+        Create a PlatformApplication resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PlatformApplicationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -745,23 +503,6 @@ class PlatformApplication(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] apple_platform_bundle_id: The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
-        :param pulumi.Input[_builtins.str] apple_platform_team_id: The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the SNS platform application
-        :param pulumi.Input[_builtins.str] event_delivery_failure_topic_arn: The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
-        :param pulumi.Input[_builtins.str] event_endpoint_created_topic_arn: The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
-        :param pulumi.Input[_builtins.str] event_endpoint_deleted_topic_arn: The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
-        :param pulumi.Input[_builtins.str] event_endpoint_updated_topic_arn: The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
-        :param pulumi.Input[_builtins.str] failure_feedback_role_arn: The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
-        :param pulumi.Input[_builtins.str] name: The friendly name for the SNS platform application
-        :param pulumi.Input[_builtins.str] platform: The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
-        :param pulumi.Input[_builtins.str] platform_credential: Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        :param pulumi.Input[_builtins.str] platform_principal: Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] success_feedback_role_arn: The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
-        :param pulumi.Input[_builtins.str] success_feedback_sample_rate: The sample rate percentage (0-100) of successfully delivered messages.
-               
-               The following attributes are needed only when using APNS token credentials:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -787,122 +528,75 @@ class PlatformApplication(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="applePlatformBundleId")
     def apple_platform_bundle_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
-        """
         return pulumi.get(self, "apple_platform_bundle_id")
 
     @_builtins.property
     @pulumi.getter(name="applePlatformTeamId")
     def apple_platform_team_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
-        """
         return pulumi.get(self, "apple_platform_team_id")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the SNS platform application
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="eventDeliveryFailureTopicArn")
     def event_delivery_failure_topic_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
-        """
         return pulumi.get(self, "event_delivery_failure_topic_arn")
 
     @_builtins.property
     @pulumi.getter(name="eventEndpointCreatedTopicArn")
     def event_endpoint_created_topic_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
-        """
         return pulumi.get(self, "event_endpoint_created_topic_arn")
 
     @_builtins.property
     @pulumi.getter(name="eventEndpointDeletedTopicArn")
     def event_endpoint_deleted_topic_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
-        """
         return pulumi.get(self, "event_endpoint_deleted_topic_arn")
 
     @_builtins.property
     @pulumi.getter(name="eventEndpointUpdatedTopicArn")
     def event_endpoint_updated_topic_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
-        """
         return pulumi.get(self, "event_endpoint_updated_topic_arn")
 
     @_builtins.property
     @pulumi.getter(name="failureFeedbackRoleArn")
     def failure_feedback_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
-        """
         return pulumi.get(self, "failure_feedback_role_arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The friendly name for the SNS platform application
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def platform(self) -> pulumi.Output[_builtins.str]:
-        """
-        The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
-        """
         return pulumi.get(self, "platform")
 
     @_builtins.property
     @pulumi.getter(name="platformCredential")
     def platform_credential(self) -> pulumi.Output[_builtins.str]:
-        """
-        Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        """
         return pulumi.get(self, "platform_credential")
 
     @_builtins.property
     @pulumi.getter(name="platformPrincipal")
     def platform_principal(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        """
         return pulumi.get(self, "platform_principal")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="successFeedbackRoleArn")
     def success_feedback_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
-        """
         return pulumi.get(self, "success_feedback_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="successFeedbackSampleRate")
     def success_feedback_sample_rate(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The sample rate percentage (0-100) of successfully delivered messages.
-
-        The following attributes are needed only when using APNS token credentials:
-        """
         return pulumi.get(self, "success_feedback_sample_rate")
 

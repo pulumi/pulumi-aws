@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetServiceEventResult
     {
-        /// <summary>
-        /// Time when task set was created (RFC3339 format)
-        /// </summary>
         public readonly string CreatedAt;
-        /// <summary>
-        /// Task set ID
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Event message
-        /// </summary>
         public readonly string Message;
 
         [OutputConstructor]

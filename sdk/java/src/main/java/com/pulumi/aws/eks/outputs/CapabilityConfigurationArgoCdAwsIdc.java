@@ -12,33 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CapabilityConfigurationArgoCdAwsIdc {
-    /**
-     * @return ARN of the IAM Identity Center instance.
-     * 
-     */
     private String idcInstanceArn;
     private @Nullable String idcManagedApplicationArn;
-    /**
-     * @return Region of the IAM Identity Center instance.
-     * 
-     */
     private @Nullable String idcRegion;
 
     private CapabilityConfigurationArgoCdAwsIdc() {}
-    /**
-     * @return ARN of the IAM Identity Center instance.
-     * 
-     */
     public String idcInstanceArn() {
         return this.idcInstanceArn;
     }
     public Optional<String> idcManagedApplicationArn() {
         return Optional.ofNullable(this.idcManagedApplicationArn);
     }
-    /**
-     * @return Region of the IAM Identity Center instance.
-     * 
-     */
     public Optional<String> idcRegion() {
         return Optional.ofNullable(this.idcRegion);
     }

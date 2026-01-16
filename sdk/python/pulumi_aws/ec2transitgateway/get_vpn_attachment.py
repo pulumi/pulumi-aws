@@ -69,9 +69,6 @@ class GetVpnAttachmentResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value tags for the EC2 Transit Gateway VPN Attachment
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -106,40 +103,7 @@ def get_vpn_attachment(filters: Optional[Sequence[Union['GetVpnAttachmentFilterA
                        vpn_connection_id: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnAttachmentResult:
     """
-    Get information on an EC2 Transit Gateway VPN Attachment.
-
-    > EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `ec2.VpnConnection` resource includes a `transit_gateway_attachment_id` attribute which can replace some usage of this data source. For tagging the attachment, see the `ec2.Tag` resource.
-
-    ## Example Usage
-
-    ### By Transit Gateway and VPN Connection Identifiers
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_vpn_attachment(transit_gateway_id=example_aws_ec2_transit_gateway["id"],
-        vpn_connection_id=example_aws_vpn_connection["id"])
-    ```
-
-    ### Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2transitgateway.get_vpn_attachment(filters=[{
-        "name": "resource-id",
-        "values": ["some-resource"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetVpnAttachmentFilterArgs', 'GetVpnAttachmentFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
-    :param _builtins.str transit_gateway_id: Identifier of the EC2 Transit Gateway.
-    :param _builtins.str vpn_connection_id: Identifier of the EC2 VPN Connection.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -164,40 +128,7 @@ def get_vpn_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[U
                               vpn_connection_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnAttachmentResult]:
     """
-    Get information on an EC2 Transit Gateway VPN Attachment.
-
-    > EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `ec2.VpnConnection` resource includes a `transit_gateway_attachment_id` attribute which can replace some usage of this data source. For tagging the attachment, see the `ec2.Tag` resource.
-
-    ## Example Usage
-
-    ### By Transit Gateway and VPN Connection Identifiers
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_vpn_attachment(transit_gateway_id=example_aws_ec2_transit_gateway["id"],
-        vpn_connection_id=example_aws_vpn_connection["id"])
-    ```
-
-    ### Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2transitgateway.get_vpn_attachment(filters=[{
-        "name": "resource-id",
-        "values": ["some-resource"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetVpnAttachmentFilterArgs', 'GetVpnAttachmentFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
-    :param _builtins.str transit_gateway_id: Identifier of the EC2 Transit Gateway.
-    :param _builtins.str vpn_connection_id: Identifier of the EC2 VPN Connection.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

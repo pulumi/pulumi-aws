@@ -27,10 +27,6 @@ class VpcIpamResourceDiscoveryArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpcIpamResourceDiscovery resource.
-        :param pulumi.Input[Sequence[pulumi.Input['VpcIpamResourceDiscoveryOperatingRegionArgs']]] operating_regions: Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. **You must set your provider block region as an operating_region.**
-        :param pulumi.Input[_builtins.str] description: A description for the IPAM Resource Discovery.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "operating_regions", operating_regions)
         if description is not None:
@@ -43,9 +39,6 @@ class VpcIpamResourceDiscoveryArgs:
     @_builtins.property
     @pulumi.getter(name="operatingRegions")
     def operating_regions(self) -> pulumi.Input[Sequence[pulumi.Input['VpcIpamResourceDiscoveryOperatingRegionArgs']]]:
-        """
-        Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. **You must set your provider block region as an operating_region.**
-        """
         return pulumi.get(self, "operating_regions")
 
     @operating_regions.setter
@@ -55,9 +48,6 @@ class VpcIpamResourceDiscoveryArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description for the IPAM Resource Discovery.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -67,9 +57,6 @@ class VpcIpamResourceDiscoveryArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -79,9 +66,6 @@ class VpcIpamResourceDiscoveryArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -103,15 +87,6 @@ class _VpcIpamResourceDiscoveryState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering VpcIpamResourceDiscovery resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of IPAM Resource Discovery
-        :param pulumi.Input[_builtins.str] description: A description for the IPAM Resource Discovery.
-        :param pulumi.Input[_builtins.str] ipam_resource_discovery_region: The home region of the Resource Discovery
-        :param pulumi.Input[_builtins.bool] is_default: A boolean to identify if the Resource Discovery is the accounts default resource discovery
-        :param pulumi.Input[Sequence[pulumi.Input['VpcIpamResourceDiscoveryOperatingRegionArgs']]] operating_regions: Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. **You must set your provider block region as an operating_region.**
-        :param pulumi.Input[_builtins.str] owner_id: The account ID for the account that manages the Resource Discovery
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -135,9 +110,6 @@ class _VpcIpamResourceDiscoveryState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of IPAM Resource Discovery
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -147,9 +119,6 @@ class _VpcIpamResourceDiscoveryState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description for the IPAM Resource Discovery.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -159,9 +128,6 @@ class _VpcIpamResourceDiscoveryState:
     @_builtins.property
     @pulumi.getter(name="ipamResourceDiscoveryRegion")
     def ipam_resource_discovery_region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The home region of the Resource Discovery
-        """
         return pulumi.get(self, "ipam_resource_discovery_region")
 
     @ipam_resource_discovery_region.setter
@@ -171,9 +137,6 @@ class _VpcIpamResourceDiscoveryState:
     @_builtins.property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A boolean to identify if the Resource Discovery is the accounts default resource discovery
-        """
         return pulumi.get(self, "is_default")
 
     @is_default.setter
@@ -183,9 +146,6 @@ class _VpcIpamResourceDiscoveryState:
     @_builtins.property
     @pulumi.getter(name="operatingRegions")
     def operating_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpcIpamResourceDiscoveryOperatingRegionArgs']]]]:
-        """
-        Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. **You must set your provider block region as an operating_region.**
-        """
         return pulumi.get(self, "operating_regions")
 
     @operating_regions.setter
@@ -195,9 +155,6 @@ class _VpcIpamResourceDiscoveryState:
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The account ID for the account that manages the Resource Discovery
-        """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
@@ -207,9 +164,6 @@ class _VpcIpamResourceDiscoveryState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -219,9 +173,6 @@ class _VpcIpamResourceDiscoveryState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -231,9 +182,6 @@ class _VpcIpamResourceDiscoveryState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -253,41 +201,9 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides an IPAM Resource Discovery resource. IPAM Resource Discoveries are resources meant for multi-organization customers. If you wish to use a single IPAM across multiple orgs, a resource discovery can be created and shared from a subordinate organization to the management organizations IPAM delegated admin account. For a full deployment example, see `ec2.VpcIpamResourceDiscoveryAssociation` resource.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        main = aws.ec2.VpcIpamResourceDiscovery("main",
-            description="My IPAM Resource Discovery",
-            operating_regions=[{
-                "region_name": current.region,
-            }],
-            tags={
-                "Test": "Main",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import IPAMs using the IPAM resource discovery `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery example ipam-res-disco-0178368ad2146a492
-        ```
-
+        Create a VpcIpamResourceDiscovery resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: A description for the IPAM Resource Discovery.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VpcIpamResourceDiscoveryOperatingRegionArgs', 'VpcIpamResourceDiscoveryOperatingRegionArgsDict']]]] operating_regions: Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. **You must set your provider block region as an operating_region.**
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -296,35 +212,7 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
                  args: VpcIpamResourceDiscoveryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an IPAM Resource Discovery resource. IPAM Resource Discoveries are resources meant for multi-organization customers. If you wish to use a single IPAM across multiple orgs, a resource discovery can be created and shared from a subordinate organization to the management organizations IPAM delegated admin account. For a full deployment example, see `ec2.VpcIpamResourceDiscoveryAssociation` resource.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        main = aws.ec2.VpcIpamResourceDiscovery("main",
-            description="My IPAM Resource Discovery",
-            operating_regions=[{
-                "region_name": current.region,
-            }],
-            tags={
-                "Test": "Main",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import IPAMs using the IPAM resource discovery `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery example ipam-res-disco-0178368ad2146a492
-        ```
-
+        Create a VpcIpamResourceDiscovery resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VpcIpamResourceDiscoveryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -390,15 +278,6 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of IPAM Resource Discovery
-        :param pulumi.Input[_builtins.str] description: A description for the IPAM Resource Discovery.
-        :param pulumi.Input[_builtins.str] ipam_resource_discovery_region: The home region of the Resource Discovery
-        :param pulumi.Input[_builtins.bool] is_default: A boolean to identify if the Resource Discovery is the accounts default resource discovery
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VpcIpamResourceDiscoveryOperatingRegionArgs', 'VpcIpamResourceDiscoveryOperatingRegionArgsDict']]]] operating_regions: Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. **You must set your provider block region as an operating_region.**
-        :param pulumi.Input[_builtins.str] owner_id: The account ID for the account that manages the Resource Discovery
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -418,72 +297,45 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of IPAM Resource Discovery
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A description for the IPAM Resource Discovery.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="ipamResourceDiscoveryRegion")
     def ipam_resource_discovery_region(self) -> pulumi.Output[_builtins.str]:
-        """
-        The home region of the Resource Discovery
-        """
         return pulumi.get(self, "ipam_resource_discovery_region")
 
     @_builtins.property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> pulumi.Output[_builtins.bool]:
-        """
-        A boolean to identify if the Resource Discovery is the accounts default resource discovery
-        """
         return pulumi.get(self, "is_default")
 
     @_builtins.property
     @pulumi.getter(name="operatingRegions")
     def operating_regions(self) -> pulumi.Output[Sequence['outputs.VpcIpamResourceDiscoveryOperatingRegion']]:
-        """
-        Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. **You must set your provider block region as an operating_region.**
-        """
         return pulumi.get(self, "operating_regions")
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The account ID for the account that manages the Resource Discovery
-        """
         return pulumi.get(self, "owner_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

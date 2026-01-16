@@ -17,62 +17,30 @@ public final class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecu
 
     public static final ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs Empty = new ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs();
 
-    /**
-     * A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
-     * 
-     */
     @Import(name="accessControlMaxAgeSec", required=true)
     private Output<Integer> accessControlMaxAgeSec;
 
-    /**
-     * @return A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
-     * 
-     */
     public Output<Integer> accessControlMaxAgeSec() {
         return this.accessControlMaxAgeSec;
     }
 
-    /**
-     * Whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
-     * 
-     */
     @Import(name="includeSubdomains")
     private @Nullable Output<Boolean> includeSubdomains;
 
-    /**
-     * @return Whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
-     * 
-     */
     public Optional<Output<Boolean>> includeSubdomains() {
         return Optional.ofNullable(this.includeSubdomains);
     }
 
-    /**
-     * Whether CloudFront overrides the `Strict-Transport-Security` HTTP response header received from the origin with the one specified in this response headers policy.
-     * 
-     */
     @Import(name="override", required=true)
     private Output<Boolean> override;
 
-    /**
-     * @return Whether CloudFront overrides the `Strict-Transport-Security` HTTP response header received from the origin with the one specified in this response headers policy.
-     * 
-     */
     public Output<Boolean> override() {
         return this.override;
     }
 
-    /**
-     * Whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
-     * 
-     */
     @Import(name="preload")
     private @Nullable Output<Boolean> preload;
 
-    /**
-     * @return Whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
-     * 
-     */
     public Optional<Output<Boolean>> preload() {
         return Optional.ofNullable(this.preload);
     }
@@ -104,86 +72,38 @@ public final class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecu
             $ = new ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessControlMaxAgeSec A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessControlMaxAgeSec(Output<Integer> accessControlMaxAgeSec) {
             $.accessControlMaxAgeSec = accessControlMaxAgeSec;
             return this;
         }
 
-        /**
-         * @param accessControlMaxAgeSec A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessControlMaxAgeSec(Integer accessControlMaxAgeSec) {
             return accessControlMaxAgeSec(Output.of(accessControlMaxAgeSec));
         }
 
-        /**
-         * @param includeSubdomains Whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeSubdomains(@Nullable Output<Boolean> includeSubdomains) {
             $.includeSubdomains = includeSubdomains;
             return this;
         }
 
-        /**
-         * @param includeSubdomains Whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeSubdomains(Boolean includeSubdomains) {
             return includeSubdomains(Output.of(includeSubdomains));
         }
 
-        /**
-         * @param override Whether CloudFront overrides the `Strict-Transport-Security` HTTP response header received from the origin with the one specified in this response headers policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder override(Output<Boolean> override) {
             $.override = override;
             return this;
         }
 
-        /**
-         * @param override Whether CloudFront overrides the `Strict-Transport-Security` HTTP response header received from the origin with the one specified in this response headers policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder override(Boolean override) {
             return override(Output.of(override));
         }
 
-        /**
-         * @param preload Whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preload(@Nullable Output<Boolean> preload) {
             $.preload = preload;
             return this;
         }
 
-        /**
-         * @param preload Whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preload(Boolean preload) {
             return preload(Output.of(preload));
         }

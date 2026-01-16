@@ -13,17 +13,8 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class DomainLogPublishingOption
     {
-        /// <summary>
-        /// ARN of the Cloudwatch log group to which log needs to be published.
-        /// </summary>
         public readonly string CloudwatchLogGroupArn;
-        /// <summary>
-        /// Whether given log publishing option is enabled or not.
-        /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// Type of OpenSearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
-        /// </summary>
         public readonly string LogType;
 
         [OutputConstructor]

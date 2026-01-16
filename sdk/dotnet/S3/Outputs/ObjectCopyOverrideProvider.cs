@@ -13,9 +13,6 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class ObjectCopyOverrideProvider
     {
-        /// <summary>
-        /// Override the provider `DefaultTags` configuration block.
-        /// </summary>
         public readonly Outputs.ObjectCopyOverrideProviderDefaultTags? DefaultTags;
 
         [OutputConstructor]

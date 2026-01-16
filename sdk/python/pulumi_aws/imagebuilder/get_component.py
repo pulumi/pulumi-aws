@@ -84,41 +84,26 @@ class GetComponentResult:
     @_builtins.property
     @pulumi.getter(name="changeDescription")
     def change_description(self) -> _builtins.str:
-        """
-        Change description of the component.
-        """
         return pulumi.get(self, "change_description")
 
     @_builtins.property
     @pulumi.getter
     def data(self) -> _builtins.str:
-        """
-        Data of the component.
-        """
         return pulumi.get(self, "data")
 
     @_builtins.property
     @pulumi.getter(name="dateCreated")
     def date_created(self) -> _builtins.str:
-        """
-        Date the component was created.
-        """
         return pulumi.get(self, "date_created")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the component.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def encrypted(self) -> _builtins.bool:
-        """
-        Encryption status of the component.
-        """
         return pulumi.get(self, "encrypted")
 
     @_builtins.property
@@ -132,33 +117,21 @@ class GetComponentResult:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
-        """
-        ARN of the Key Management Service (KMS) Key used to encrypt the component.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the component.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def owner(self) -> _builtins.str:
-        """
-        Owner of the component.
-        """
         return pulumi.get(self, "owner")
 
     @_builtins.property
     @pulumi.getter
     def platform(self) -> _builtins.str:
-        """
-        Platform of the component.
-        """
         return pulumi.get(self, "platform")
 
     @_builtins.property
@@ -169,33 +142,21 @@ class GetComponentResult:
     @_builtins.property
     @pulumi.getter(name="supportedOsVersions")
     def supported_os_versions(self) -> Sequence[_builtins.str]:
-        """
-        Operating Systems (OSes) supported by the component.
-        """
         return pulumi.get(self, "supported_os_versions")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value map of resource tags for the component.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of the component.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> _builtins.str:
-        """
-        Version of the component.
-        """
         return pulumi.get(self, "version")
 
 
@@ -228,21 +189,7 @@ def get_component(arn: Optional[_builtins.str] = None,
                   tags: Optional[Mapping[str, _builtins.str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetComponentResult:
     """
-    Provides details about an Image Builder Component.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_component(arn="arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0")
-    ```
-
-
-    :param _builtins.str arn: ARN of the component.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags for the component.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -273,21 +220,7 @@ def get_component_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComponentResult]:
     """
-    Provides details about an Image Builder Component.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_component(arn="arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0")
-    ```
-
-
-    :param _builtins.str arn: ARN of the component.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags for the component.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

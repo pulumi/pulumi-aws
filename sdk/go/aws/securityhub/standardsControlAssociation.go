@@ -12,107 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ### Basic usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := securityhub.NewAccount(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			cisAwsFoundationsBenchmark, err := securityhub.NewStandardsSubscription(ctx, "cis_aws_foundations_benchmark", &securityhub.StandardsSubscriptionArgs{
-//				StandardsArn: pulumi.String("arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewStandardsControlAssociation(ctx, "cis_aws_foundations_benchmark_disable_iam_1", &securityhub.StandardsControlAssociationArgs{
-//				StandardsArn:      cisAwsFoundationsBenchmark.StandardsArn,
-//				SecurityControlId: pulumi.String("IAM.1"),
-//				AssociationStatus: pulumi.String("DISABLED"),
-//				UpdatedReason:     pulumi.String("Not needed"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Disabling security control in all standards
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := securityhub.NewAccount(ctx, "example", nil)
-// if err != nil {
-// return err
-// }
-// iam1, err := securityhub.GetStandardsControlAssociations(ctx, &securityhub.GetStandardsControlAssociationsArgs{
-// SecurityControlId: "IAM.1",
-// }, nil);
-// if err != nil {
-// return err
-// }
-// var iam1StandardsControlAssociation []*securityhub.StandardsControlAssociation
-// for key0, _ := range interface{}(std.Toset(ctx, &std.TosetArgs{
-// Input: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:11,15-64),
-// }, nil).Result) {
-// __res, err := securityhub.NewStandardsControlAssociation(ctx, fmt.Sprintf("iam_1-%v", key0), &securityhub.StandardsControlAssociationArgs{
-// StandardsArn: pulumi.Float64(key0),
-// SecurityControlId: pulumi.String(iam1.SecurityControlId),
-// AssociationStatus: pulumi.String("DISABLED"),
-// UpdatedReason: pulumi.String("Not needed"),
-// })
-// if err != nil {
-// return err
-// }
-// iam1StandardsControlAssociation = append(iam1StandardsControlAssociation, __res)
-// }
-// return nil
-// })
-// }
-// ```
 type StandardsControlAssociation struct {
 	pulumi.CustomResourceState
 
-	// The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
-	AssociationStatus pulumi.StringOutput `pulumi:"associationStatus"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The unique identifier for the security control whose enablement status you want to update.
-	SecurityControlId pulumi.StringOutput `pulumi:"securityControlId"`
-	// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
-	//
-	// The following arguments are optional:
-	StandardsArn pulumi.StringOutput `pulumi:"standardsArn"`
-	// The reason for updating the control's enablement status in the standard. Required when `associationStatus` is `DISABLED`.
-	UpdatedReason pulumi.StringPtrOutput `pulumi:"updatedReason"`
+	AssociationStatus pulumi.StringOutput    `pulumi:"associationStatus"`
+	Region            pulumi.StringOutput    `pulumi:"region"`
+	SecurityControlId pulumi.StringOutput    `pulumi:"securityControlId"`
+	StandardsArn      pulumi.StringOutput    `pulumi:"standardsArn"`
+	UpdatedReason     pulumi.StringPtrOutput `pulumi:"updatedReason"`
 }
 
 // NewStandardsControlAssociation registers a new resource with the given unique name, arguments, and options.
@@ -154,33 +61,19 @@ func GetStandardsControlAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StandardsControlAssociation resources.
 type standardsControlAssociationState struct {
-	// The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
 	AssociationStatus *string `pulumi:"associationStatus"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The unique identifier for the security control whose enablement status you want to update.
+	Region            *string `pulumi:"region"`
 	SecurityControlId *string `pulumi:"securityControlId"`
-	// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
-	//
-	// The following arguments are optional:
-	StandardsArn *string `pulumi:"standardsArn"`
-	// The reason for updating the control's enablement status in the standard. Required when `associationStatus` is `DISABLED`.
-	UpdatedReason *string `pulumi:"updatedReason"`
+	StandardsArn      *string `pulumi:"standardsArn"`
+	UpdatedReason     *string `pulumi:"updatedReason"`
 }
 
 type StandardsControlAssociationState struct {
-	// The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
 	AssociationStatus pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The unique identifier for the security control whose enablement status you want to update.
+	Region            pulumi.StringPtrInput
 	SecurityControlId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
-	//
-	// The following arguments are optional:
-	StandardsArn pulumi.StringPtrInput
-	// The reason for updating the control's enablement status in the standard. Required when `associationStatus` is `DISABLED`.
-	UpdatedReason pulumi.StringPtrInput
+	StandardsArn      pulumi.StringPtrInput
+	UpdatedReason     pulumi.StringPtrInput
 }
 
 func (StandardsControlAssociationState) ElementType() reflect.Type {
@@ -188,34 +81,20 @@ func (StandardsControlAssociationState) ElementType() reflect.Type {
 }
 
 type standardsControlAssociationArgs struct {
-	// The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
-	AssociationStatus string `pulumi:"associationStatus"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The unique identifier for the security control whose enablement status you want to update.
-	SecurityControlId string `pulumi:"securityControlId"`
-	// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
-	//
-	// The following arguments are optional:
-	StandardsArn string `pulumi:"standardsArn"`
-	// The reason for updating the control's enablement status in the standard. Required when `associationStatus` is `DISABLED`.
-	UpdatedReason *string `pulumi:"updatedReason"`
+	AssociationStatus string  `pulumi:"associationStatus"`
+	Region            *string `pulumi:"region"`
+	SecurityControlId string  `pulumi:"securityControlId"`
+	StandardsArn      string  `pulumi:"standardsArn"`
+	UpdatedReason     *string `pulumi:"updatedReason"`
 }
 
 // The set of arguments for constructing a StandardsControlAssociation resource.
 type StandardsControlAssociationArgs struct {
-	// The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
 	AssociationStatus pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The unique identifier for the security control whose enablement status you want to update.
+	Region            pulumi.StringPtrInput
 	SecurityControlId pulumi.StringInput
-	// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
-	//
-	// The following arguments are optional:
-	StandardsArn pulumi.StringInput
-	// The reason for updating the control's enablement status in the standard. Required when `associationStatus` is `DISABLED`.
-	UpdatedReason pulumi.StringPtrInput
+	StandardsArn      pulumi.StringInput
+	UpdatedReason     pulumi.StringPtrInput
 }
 
 func (StandardsControlAssociationArgs) ElementType() reflect.Type {
@@ -305,29 +184,22 @@ func (o StandardsControlAssociationOutput) ToStandardsControlAssociationOutputWi
 	return o
 }
 
-// The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
 func (o StandardsControlAssociationOutput) AssociationStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *StandardsControlAssociation) pulumi.StringOutput { return v.AssociationStatus }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o StandardsControlAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *StandardsControlAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The unique identifier for the security control whose enablement status you want to update.
 func (o StandardsControlAssociationOutput) SecurityControlId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StandardsControlAssociation) pulumi.StringOutput { return v.SecurityControlId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
-//
-// The following arguments are optional:
 func (o StandardsControlAssociationOutput) StandardsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StandardsControlAssociation) pulumi.StringOutput { return v.StandardsArn }).(pulumi.StringOutput)
 }
 
-// The reason for updating the control's enablement status in the standard. Required when `associationStatus` is `DISABLED`.
 func (o StandardsControlAssociationOutput) UpdatedReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StandardsControlAssociation) pulumi.StringPtrOutput { return v.UpdatedReason }).(pulumi.StringPtrOutput)
 }

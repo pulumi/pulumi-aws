@@ -61,17 +61,11 @@ class GetSecretVersionResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the secret.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> _builtins.str:
-        """
-        Created date of the secret in UTC.
-        """
         return pulumi.get(self, "created_date")
 
     @_builtins.property
@@ -90,9 +84,6 @@ class GetSecretVersionResult:
     @_builtins.property
     @pulumi.getter(name="secretBinary")
     def secret_binary(self) -> _builtins.str:
-        """
-        Decrypted part of the protected secret information that was originally provided as a binary.
-        """
         return pulumi.get(self, "secret_binary")
 
     @_builtins.property
@@ -103,17 +94,11 @@ class GetSecretVersionResult:
     @_builtins.property
     @pulumi.getter(name="secretString")
     def secret_string(self) -> _builtins.str:
-        """
-        Decrypted part of the protected secret information that was originally provided as a string.
-        """
         return pulumi.get(self, "secret_string")
 
     @_builtins.property
     @pulumi.getter(name="versionId")
     def version_id(self) -> _builtins.str:
-        """
-        Unique identifier of this version of the secret.
-        """
         return pulumi.get(self, "version_id")
 
     @_builtins.property
@@ -151,47 +136,7 @@ def get_secret_version(region: Optional[_builtins.str] = None,
                        version_stage: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretVersionResult:
     """
-    Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `secretsmanager.Secret` data source.
-
-    ## Example Usage
-
-    ### Retrieve Current Secret Version
-
-    By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    secret_version = aws.secretsmanager.get_secret_version(secret_id=example["id"])
-    ```
-
-    ### Retrieve Specific Secret Version
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_version_stage = aws.secretsmanager.get_secret_version(secret_id=example["id"],
-        version_stage="example")
-    ```
-
-    ### Handling Key-Value Secret Strings in JSON
-
-    Reading key-value pairs from JSON back into a native map
-
-    ```python
-    import pulumi
-    import pulumi_std as std
-
-    pulumi.export("example", std.jsondecode(input=example_aws_secretsmanager_secret_version["secretString"]).result["key1"])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
-    :param _builtins.str version_id: Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `version_stage`.
-    :param _builtins.str version_stage: Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -218,47 +163,7 @@ def get_secret_version_output(region: Optional[pulumi.Input[Optional[_builtins.s
                               version_stage: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretVersionResult]:
     """
-    Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `secretsmanager.Secret` data source.
-
-    ## Example Usage
-
-    ### Retrieve Current Secret Version
-
-    By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    secret_version = aws.secretsmanager.get_secret_version(secret_id=example["id"])
-    ```
-
-    ### Retrieve Specific Secret Version
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_version_stage = aws.secretsmanager.get_secret_version(secret_id=example["id"],
-        version_stage="example")
-    ```
-
-    ### Handling Key-Value Secret Strings in JSON
-
-    Reading key-value pairs from JSON back into a native map
-
-    ```python
-    import pulumi
-    import pulumi_std as std
-
-    pulumi.export("example", std.jsondecode(input=example_aws_secretsmanager_secret_version["secretString"]).result["key1"])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
-    :param _builtins.str version_id: Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `version_stage`.
-    :param _builtins.str version_stage: Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

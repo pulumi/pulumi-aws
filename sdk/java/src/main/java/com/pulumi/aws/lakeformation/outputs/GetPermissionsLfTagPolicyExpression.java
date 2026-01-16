@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPermissionsLfTagPolicyExpression {
-    /**
-     * @return Key-name of an LF-Tag.
-     * 
-     */
     private String key;
-    /**
-     * @return List of possible values of an LF-Tag.
-     * 
-     */
     private List<String> values;
 
     private GetPermissionsLfTagPolicyExpression() {}
-    /**
-     * @return Key-name of an LF-Tag.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return List of possible values of an LF-Tag.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

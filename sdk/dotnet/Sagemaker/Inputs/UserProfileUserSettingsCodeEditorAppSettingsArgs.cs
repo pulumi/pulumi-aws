@@ -12,42 +12,25 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class UserProfileUserSettingsCodeEditorAppSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates whether idle shutdown is activated for JupyterLab applications. see `AppLifecycleManagement` Block below.
-        /// </summary>
         [Input("appLifecycleManagement")]
         public Input<Inputs.UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs>? AppLifecycleManagement { get; set; }
 
-        /// <summary>
-        /// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
-        /// </summary>
         [Input("builtInLifecycleConfigArn")]
         public Input<string>? BuiltInLifecycleConfigArn { get; set; }
 
         [Input("customImages")]
         private InputList<Inputs.UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs>? _customImages;
-
-        /// <summary>
-        /// A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see Custom Image below.
-        /// </summary>
         public InputList<Inputs.UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs> CustomImages
         {
             get => _customImages ?? (_customImages = new InputList<Inputs.UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs>());
             set => _customImages = value;
         }
 
-        /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
-        /// </summary>
         [Input("defaultResourceSpec")]
         public Input<Inputs.UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs>? DefaultResourceSpec { get; set; }
 
         [Input("lifecycleConfigArns")]
         private InputList<string>? _lifecycleConfigArns;
-
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-        /// </summary>
         public InputList<string> LifecycleConfigArns
         {
             get => _lifecycleConfigArns ?? (_lifecycleConfigArns = new InputList<string>());

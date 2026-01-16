@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides details about an AWS AppConfig Application.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.appconfig.getApplication({
- *     name: "my-appconfig-application",
- * });
- * ```
- */
 export function getApplication(args?: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -34,17 +18,8 @@ export function getApplication(args?: GetApplicationArgs, opts?: pulumi.InvokeOp
  * A collection of arguments for invoking getApplication.
  */
 export interface GetApplicationArgs {
-    /**
-     * ID of the Application. Either `id` or `name` must be specified.
-     */
     id?: string;
-    /**
-     * AWS AppConfig Application name. Either `name` or `id` must be specified.
-     */
     name?: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -52,34 +27,12 @@ export interface GetApplicationArgs {
  * A collection of values returned by getApplication.
  */
 export interface GetApplicationResult {
-    /**
-     * ARN of the Application.
-     */
     readonly arn: string;
-    /**
-     * Description of the Application.
-     */
     readonly description: string;
     readonly id: string;
     readonly name: string;
     readonly region: string;
 }
-/**
- * Provides details about an AWS AppConfig Application.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.appconfig.getApplication({
- *     name: "my-appconfig-application",
- * });
- * ```
- */
 export function getApplicationOutput(args?: GetApplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -94,16 +47,7 @@ export function getApplicationOutput(args?: GetApplicationOutputArgs, opts?: pul
  * A collection of arguments for invoking getApplication.
  */
 export interface GetApplicationOutputArgs {
-    /**
-     * ID of the Application. Either `id` or `name` must be specified.
-     */
     id?: pulumi.Input<string>;
-    /**
-     * AWS AppConfig Application name. Either `name` or `id` must be specified.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

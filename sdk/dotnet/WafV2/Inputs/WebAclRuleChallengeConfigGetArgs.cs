@@ -12,9 +12,6 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleChallengeConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Defines custom immunity time. See `ImmunityTimeProperty` below for details.
-        /// </summary>
         [Input("immunityTimeProperty")]
         public Input<Inputs.WebAclRuleChallengeConfigImmunityTimePropertyGetArgs>? ImmunityTimeProperty { get; set; }
 

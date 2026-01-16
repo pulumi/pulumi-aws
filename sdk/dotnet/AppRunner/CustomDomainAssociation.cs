@@ -9,80 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AppRunner
 {
-    /// <summary>
-    /// Manages an App Runner Custom Domain association.
-    /// 
-    /// &gt; **NOTE:** After creation, you must use the information in the `CertificateValidationRecords` attribute to add CNAME records to your Domain Name System (DNS). For each mapped domain name, add a mapping to the target App Runner subdomain (found in the `DnsTarget` attribute) and one or more certificate validation records. App Runner then performs DNS validation to verify that you own or control the domain name you associated. App Runner tracks domain validity in a certificate stored in AWS Certificate Manager (ACM).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppRunner.CustomDomainAssociation("example", new()
-    ///     {
-    ///         DomainName = "example.com",
-    ///         ServiceArn = exampleAwsApprunnerService.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import App Runner Custom Domain Associations using the `domain_name` and `service_arn` separated by a comma (`,`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:apprunner/customDomainAssociation:CustomDomainAssociation example example.com,arn:aws:apprunner:us-east-1:123456789012:service/example-app/8fe1e10304f84fd2b0df550fe98a71fa
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:apprunner/customDomainAssociation:CustomDomainAssociation")]
     public partial class CustomDomainAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
-        /// </summary>
         [Output("certificateValidationRecords")]
         public Output<ImmutableArray<Outputs.CustomDomainAssociationCertificateValidationRecord>> CertificateValidationRecords { get; private set; } = null!;
 
-        /// <summary>
-        /// App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
-        /// </summary>
         [Output("dnsTarget")]
         public Output<string> DnsTarget { get; private set; } = null!;
 
-        /// <summary>
-        /// Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
-        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `True`.
-        /// </summary>
         [Output("enableWwwSubdomain")]
         public Output<bool?> EnableWwwSubdomain { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the App Runner service.
-        /// </summary>
         [Output("serviceArn")]
         public Output<string> ServiceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -132,27 +79,15 @@ namespace Pulumi.Aws.AppRunner
 
     public sealed class CustomDomainAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
-        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
-        /// <summary>
-        /// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `True`.
-        /// </summary>
         [Input("enableWwwSubdomain")]
         public Input<bool>? EnableWwwSubdomain { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the App Runner service.
-        /// </summary>
         [Input("serviceArn", required: true)]
         public Input<string> ServiceArn { get; set; } = null!;
 
@@ -166,49 +101,27 @@ namespace Pulumi.Aws.AppRunner
     {
         [Input("certificateValidationRecords")]
         private InputList<Inputs.CustomDomainAssociationCertificateValidationRecordGetArgs>? _certificateValidationRecords;
-
-        /// <summary>
-        /// A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
-        /// </summary>
         public InputList<Inputs.CustomDomainAssociationCertificateValidationRecordGetArgs> CertificateValidationRecords
         {
             get => _certificateValidationRecords ?? (_certificateValidationRecords = new InputList<Inputs.CustomDomainAssociationCertificateValidationRecordGetArgs>());
             set => _certificateValidationRecords = value;
         }
 
-        /// <summary>
-        /// App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
-        /// </summary>
         [Input("dnsTarget")]
         public Input<string>? DnsTarget { get; set; }
 
-        /// <summary>
-        /// Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
-        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
-        /// <summary>
-        /// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `True`.
-        /// </summary>
         [Input("enableWwwSubdomain")]
         public Input<bool>? EnableWwwSubdomain { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the App Runner service.
-        /// </summary>
         [Input("serviceArn")]
         public Input<string>? ServiceArn { get; set; }
 
-        /// <summary>
-        /// Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

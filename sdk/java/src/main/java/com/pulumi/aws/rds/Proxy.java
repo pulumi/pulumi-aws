@@ -19,253 +19,107 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * Using `pulumi import`, import DB proxies using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:rds/proxy:Proxy example example
- * ```
- * 
- */
 @ResourceType(type="aws:rds/proxy:Proxy")
 public class Proxy extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) for the proxy.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) for the proxy.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. Described below.
-     * 
-     */
     @Export(name="auths", refs={List.class,ProxyAuth.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ProxyAuth>> auths;
 
-    /**
-     * @return Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. Described below.
-     * 
-     */
     public Output<Optional<List<ProxyAuth>>> auths() {
         return Codegen.optional(this.auths);
     }
-    /**
-     * Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
-     * 
-     */
     @Export(name="debugLogging", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> debugLogging;
 
-    /**
-     * @return Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
-     * 
-     */
     public Output<Optional<Boolean>> debugLogging() {
         return Codegen.optional(this.debugLogging);
     }
-    /**
-     * Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are `NONE` and `IAM_AUTH`. Defaults to `NONE`.
-     * 
-     */
     @Export(name="defaultAuthScheme", refs={String.class}, tree="[0]")
     private Output<String> defaultAuthScheme;
 
-    /**
-     * @return Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are `NONE` and `IAM_AUTH`. Defaults to `NONE`.
-     * 
-     */
     public Output<String> defaultAuthScheme() {
         return this.defaultAuthScheme;
     }
-    /**
-     * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
-     * 
-     */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
-    /**
-     * @return The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
-     * 
-     */
     public Output<String> endpoint() {
         return this.endpoint;
     }
-    /**
-     * Network type of the DB proxy endpoint. Valid values are `IPV4`, `IPV6` and `DUAL`. Defaults to `IPV4`. If `IPV6` is specified, the subnets associated with the proxy must be IPv6-only, and `targetConnectionNetworkType` must be `IPV6`.
-     * 
-     */
     @Export(name="endpointNetworkType", refs={String.class}, tree="[0]")
     private Output<String> endpointNetworkType;
 
-    /**
-     * @return Network type of the DB proxy endpoint. Valid values are `IPV4`, `IPV6` and `DUAL`. Defaults to `IPV4`. If `IPV6` is specified, the subnets associated with the proxy must be IPv6-only, and `targetConnectionNetworkType` must be `IPV6`.
-     * 
-     */
     public Output<String> endpointNetworkType() {
         return this.endpointNetworkType;
     }
-    /**
-     * The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
-     * 
-     */
     @Export(name="engineFamily", refs={String.class}, tree="[0]")
     private Output<String> engineFamily;
 
-    /**
-     * @return The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
-     * 
-     */
     public Output<String> engineFamily() {
         return this.engineFamily;
     }
-    /**
-     * The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
-     * 
-     */
     @Export(name="idleClientTimeout", refs={Integer.class}, tree="[0]")
     private Output<Integer> idleClientTimeout;
 
-    /**
-     * @return The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
-     * 
-     */
     public Output<Integer> idleClientTimeout() {
         return this.idleClientTimeout;
     }
-    /**
-     * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
-     * 
-     */
     @Export(name="requireTls", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> requireTls;
 
-    /**
-     * @return A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
-     * 
-     */
     public Output<Optional<Boolean>> requireTls() {
         return Codegen.optional(this.requireTls);
     }
-    /**
-     * The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
-    /**
-     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Network type that the proxy uses to connect to the target database. Valid values are `IPV4` and `IPV6`. Defaults to `IPV4`.
-     * 
-     */
     @Export(name="targetConnectionNetworkType", refs={String.class}, tree="[0]")
     private Output<String> targetConnectionNetworkType;
 
-    /**
-     * @return Network type that the proxy uses to connect to the target database. Valid values are `IPV4` and `IPV6`. Defaults to `IPV4`.
-     * 
-     */
     public Output<String> targetConnectionNetworkType() {
         return this.targetConnectionNetworkType;
     }
-    /**
-     * One or more VPC security group IDs to associate with the new proxy.
-     * 
-     */
     @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> vpcSecurityGroupIds;
 
-    /**
-     * @return One or more VPC security group IDs to associate with the new proxy.
-     * 
-     */
     public Output<List<String>> vpcSecurityGroupIds() {
         return this.vpcSecurityGroupIds;
     }
-    /**
-     * One or more VPC subnet IDs to associate with the new proxy.
-     * 
-     */
     @Export(name="vpcSubnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> vpcSubnetIds;
 
-    /**
-     * @return One or more VPC subnet IDs to associate with the new proxy.
-     * 
-     */
     public Output<List<String>> vpcSubnetIds() {
         return this.vpcSubnetIds;
     }

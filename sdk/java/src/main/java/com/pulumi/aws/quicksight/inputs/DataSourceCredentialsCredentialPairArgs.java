@@ -14,32 +14,16 @@ public final class DataSourceCredentialsCredentialPairArgs extends com.pulumi.re
 
     public static final DataSourceCredentialsCredentialPairArgs Empty = new DataSourceCredentialsCredentialPairArgs();
 
-    /**
-     * Password, maximum length of 1024 characters.
-     * 
-     */
     @Import(name="password", required=true)
     private Output<String> password;
 
-    /**
-     * @return Password, maximum length of 1024 characters.
-     * 
-     */
     public Output<String> password() {
         return this.password;
     }
 
-    /**
-     * User name, maximum length of 64 characters.
-     * 
-     */
     @Import(name="username", required=true)
     private Output<String> username;
 
-    /**
-     * @return User name, maximum length of 64 characters.
-     * 
-     */
     public Output<String> username() {
         return this.username;
     }
@@ -69,44 +53,20 @@ public final class DataSourceCredentialsCredentialPairArgs extends com.pulumi.re
             $ = new DataSourceCredentialsCredentialPairArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param password Password, maximum length of 1024 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder password(Output<String> password) {
             $.password = password;
             return this;
         }
 
-        /**
-         * @param password Password, maximum length of 1024 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder password(String password) {
             return password(Output.of(password));
         }
 
-        /**
-         * @param username User name, maximum length of 64 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(Output<String> username) {
             $.username = username;
             return this;
         }
 
-        /**
-         * @param username User name, maximum length of 64 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(String username) {
             return username(Output.of(username));
         }

@@ -11,53 +11,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSecretVersionsVersion {
-    /**
-     * @return Date and time this version of the secret was created.
-     * 
-     */
     private String createdTime;
-    /**
-     * @return Date that this version of the secret was last accessed.
-     * 
-     */
     private String lastAccessedDate;
-    /**
-     * @return Unique version identifier of this version of the secret.
-     * 
-     */
     private String versionId;
-    /**
-     * @return List of staging labels attached to the version.
-     * 
-     */
     private List<String> versionStages;
 
     private GetSecretVersionsVersion() {}
-    /**
-     * @return Date and time this version of the secret was created.
-     * 
-     */
     public String createdTime() {
         return this.createdTime;
     }
-    /**
-     * @return Date that this version of the secret was last accessed.
-     * 
-     */
     public String lastAccessedDate() {
         return this.lastAccessedDate;
     }
-    /**
-     * @return Unique version identifier of this version of the secret.
-     * 
-     */
     public String versionId() {
         return this.versionId;
     }
-    /**
-     * @return List of staging labels attached to the version.
-     * 
-     */
     public List<String> versionStages() {
         return this.versionStages;
     }

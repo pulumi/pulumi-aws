@@ -12,295 +12,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Associates a WAFv2 Rule Group (custom or managed) with a Web ACL by adding a rule that references the Rule Group. Use this resource to apply the rules defined in a Rule Group to a Web ACL without duplicating rule definitions.
-//
-// This resource supports both:
-//
-// - **Custom Rule Groups**: User-created rule groups that you manage within your AWS account
-// - **Managed Rule Groups**: Pre-configured rule groups provided by AWS or third-party vendors
-//
-// !> **Warning:** Verify the rule names in your `ruleActionOverride`s carefully. With managed rule groups, WAF silently ignores any override that uses an invalid rule name. With customer-owned rule groups, invalid rule names in your overrides will cause web ACL updates to fail. An invalid rule name is any name that doesn't exactly match the case-sensitive name of an existing rule in the rule group.
-//
-// !> **Warning:** Using this resource will cause the associated Web ACL resource to show configuration drift in the `rule` argument unless you add `lifecycle { ignoreChanges = [rule] }` to the Web ACL resource configuration. This is because this resource modifies the Web ACL's rules outside of the Web ACL resource's direct management.
-//
-// > **Note:** This resource creates a rule within the Web ACL that references the entire Rule Group. The rule group's individual rules are evaluated as a unit when requests are processed by the Web ACL.
-// ## Example Usage
-//
-// ### Custom Rule Group - Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := wafv2.NewRuleGroup(ctx, "example", &wafv2.RuleGroupArgs{
-//				Name:     pulumi.String("example-rule-group"),
-//				Scope:    pulumi.String("REGIONAL"),
-//				Capacity: pulumi.Int(10),
-//				Rules: wafv2.RuleGroupRuleArray{
-//					&wafv2.RuleGroupRuleArgs{
-//						Name:     pulumi.String("block-suspicious-requests"),
-//						Priority: pulumi.Int(1),
-//						Action: &wafv2.RuleGroupRuleActionArgs{
-//							Block: &wafv2.RuleGroupRuleActionBlockArgs{},
-//						},
-//						Statement: &wafv2.RuleGroupRuleStatementArgs{
-//							GeoMatchStatement: &wafv2.RuleGroupRuleStatementGeoMatchStatementArgs{
-//								CountryCodes: pulumi.StringArray{
-//									pulumi.String("CN"),
-//									pulumi.String("RU"),
-//								},
-//							},
-//						},
-//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
-//							CloudwatchMetricsEnabled: pulumi.Bool(true),
-//							MetricName:               pulumi.String("block-suspicious-requests"),
-//							SampledRequestsEnabled:   pulumi.Bool(true),
-//						},
-//					},
-//				},
-//				VisibilityConfig: &wafv2.RuleGroupVisibilityConfigArgs{
-//					CloudwatchMetricsEnabled: pulumi.Bool(true),
-//					MetricName:               pulumi.String("example-rule-group"),
-//					SampledRequestsEnabled:   pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleWebAcl, err := wafv2.NewWebAcl(ctx, "example", &wafv2.WebAclArgs{
-//				Name:  pulumi.String("example-web-acl"),
-//				Scope: pulumi.String("REGIONAL"),
-//				DefaultAction: &wafv2.WebAclDefaultActionArgs{
-//					Allow: &wafv2.WebAclDefaultActionAllowArgs{},
-//				},
-//				VisibilityConfig: &wafv2.WebAclVisibilityConfigArgs{
-//					CloudwatchMetricsEnabled: pulumi.Bool(true),
-//					MetricName:               pulumi.String("example-web-acl"),
-//					SampledRequestsEnabled:   pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = wafv2.NewWebAclRuleGroupAssociation(ctx, "example", &wafv2.WebAclRuleGroupAssociationArgs{
-//				RuleName:  pulumi.String("example-rule-group-rule"),
-//				Priority:  pulumi.Int(100),
-//				WebAclArn: exampleWebAcl.Arn,
-//				RuleGroupReference: &wafv2.WebAclRuleGroupAssociationRuleGroupReferenceArgs{
-//					Arn: example.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Managed Rule Group - Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := wafv2.NewWebAcl(ctx, "example", &wafv2.WebAclArgs{
-//				Name:  pulumi.String("example-web-acl"),
-//				Scope: pulumi.String("REGIONAL"),
-//				DefaultAction: &wafv2.WebAclDefaultActionArgs{
-//					Allow: &wafv2.WebAclDefaultActionAllowArgs{},
-//				},
-//				VisibilityConfig: &wafv2.WebAclVisibilityConfigArgs{
-//					CloudwatchMetricsEnabled: pulumi.Bool(true),
-//					MetricName:               pulumi.String("example-web-acl"),
-//					SampledRequestsEnabled:   pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = wafv2.NewWebAclRuleGroupAssociation(ctx, "managed_example", &wafv2.WebAclRuleGroupAssociationArgs{
-//				RuleName:  pulumi.String("aws-common-rule-set"),
-//				Priority:  pulumi.Int(50),
-//				WebAclArn: example.Arn,
-//				ManagedRuleGroup: &wafv2.WebAclRuleGroupAssociationManagedRuleGroupArgs{
-//					Name:       pulumi.String("AWSManagedRulesCommonRuleSet"),
-//					VendorName: pulumi.String("AWS"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Managed Rule Group - With Version
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafv2.NewWebAclRuleGroupAssociation(ctx, "managed_versioned", &wafv2.WebAclRuleGroupAssociationArgs{
-//				RuleName:  pulumi.String("aws-common-rule-set-versioned"),
-//				Priority:  pulumi.Int(60),
-//				WebAclArn: pulumi.Any(example.Arn),
-//				ManagedRuleGroup: &wafv2.WebAclRuleGroupAssociationManagedRuleGroupArgs{
-//					Name:       pulumi.String("AWSManagedRulesCommonRuleSet"),
-//					VendorName: pulumi.String("AWS"),
-//					Version:    pulumi.String("Version_1.0"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Managed Rule Group - With Rule Action Overrides
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafv2.NewWebAclRuleGroupAssociation(ctx, "managed_with_overrides", &wafv2.WebAclRuleGroupAssociationArgs{
-//				RuleName:  pulumi.String("aws-common-rule-set-with-overrides"),
-//				Priority:  pulumi.Int(70),
-//				WebAclArn: pulumi.Any(example.Arn),
-//				ManagedRuleGroup: &wafv2.WebAclRuleGroupAssociationManagedRuleGroupArgs{
-//					Name:       pulumi.String("AWSManagedRulesCommonRuleSet"),
-//					VendorName: pulumi.String("AWS"),
-//					RuleActionOverrides: wafv2.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideArray{
-//						&wafv2.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideArgs{
-//							Name: pulumi.String("GenericRFI_BODY"),
-//							ActionToUse: &wafv2.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseArgs{
-//								Count: &wafv2.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountArgs{
-//									CustomRequestHandling: &wafv2.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingArgs{
-//										InsertHeaders: wafv2.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArray{
-//											&wafv2.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgs{
-//												Name:  pulumi.String("X-RFI-Override"),
-//												Value: pulumi.String("counted"),
-//											},
-//										},
-//									},
-//								},
-//							},
-//						},
-//						&wafv2.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideArgs{
-//							Name: pulumi.String("SizeRestrictions_BODY"),
-//							ActionToUse: &wafv2.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseArgs{
-//								Captcha: &wafv2.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaArgs{},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Custom Rule Group - With Override Action
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafv2.NewWebAclRuleGroupAssociation(ctx, "example", &wafv2.WebAclRuleGroupAssociationArgs{
-//				RuleName:       pulumi.String("example-rule-group-rule"),
-//				Priority:       pulumi.Int(100),
-//				WebAclArn:      pulumi.Any(exampleAwsWafv2WebAcl.Arn),
-//				OverrideAction: pulumi.String("count"),
-//				RuleGroupReference: &wafv2.WebAclRuleGroupAssociationRuleGroupReferenceArgs{
-//					Arn: pulumi.Any(exampleAwsWafv2RuleGroup.Arn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import WAFv2 web ACL custom rule group associations using `WebACLARN,RuleGroupARN,RuleName`. For example:
-//
-// ```sh
-// $ pulumi import aws:wafv2/webAclRuleGroupAssociation:WebAclRuleGroupAssociation example "arn:aws:wafv2:us-east-1:123456789012:regional/webacl/example-web-acl/12345678-1234-1234-1234-123456789012,arn:aws:wafv2:us-east-1:123456789012:regional/rulegroup/example-rule-group/87654321-4321-4321-4321-210987654321,example-rule-group-rule"
-// ```
-// Using `pulumi import`, import WAFv2 web ACL managed rule group associations using `WebACLARN,VendorName:RuleGroupName[:Version],RuleName`. For example:
-//
-// ```sh
-// $ pulumi import aws:wafv2/webAclRuleGroupAssociation:WebAclRuleGroupAssociation managed_example "arn:aws:wafv2:us-east-1:123456789012:regional/webacl/example-web-acl/12345678-1234-1234-1234-123456789012,AWS:AWSManagedRulesCommonRuleSet,aws-common-rule-set"
-// ```
 type WebAclRuleGroupAssociation struct {
 	pulumi.CustomResourceState
 
-	// Managed Rule Group configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `ruleGroupReference`. See below.
+	// Managed rule group configuration.
 	ManagedRuleGroup WebAclRuleGroupAssociationManagedRuleGroupPtrOutput `pulumi:"managedRuleGroup"`
-	// Override action for the rule group. Valid values are `none` and `count`. Defaults to `none`. When set to `count`, the actions defined in the rule group rules are overridden to count matches instead of blocking or allowing requests.
+	// Override action for the rule group. Valid values are 'none' and 'count'. Defaults to 'none'.
 	OverrideAction pulumi.StringOutput `pulumi:"overrideAction"`
-	// Priority of the rule within the Web ACL. Rules are evaluated in order of priority, with lower numbers evaluated first.
-	Priority pulumi.IntOutput `pulumi:"priority"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Custom Rule Group reference configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `managedRuleGroup`. See below.
+	// Priority of the rule within the Web ACL.
+	Priority pulumi.IntOutput    `pulumi:"priority"`
+	Region   pulumi.StringOutput `pulumi:"region"`
+	// Rule Group reference configuration.
 	RuleGroupReference WebAclRuleGroupAssociationRuleGroupReferencePtrOutput `pulumi:"ruleGroupReference"`
-	// Name of the rule to create in the Web ACL that references the rule group. Must be between 1 and 128 characters.
+	// Name of the rule to create in the Web ACL that references the rule group.
 	RuleName pulumi.StringOutput                         `pulumi:"ruleName"`
 	Timeouts WebAclRuleGroupAssociationTimeoutsPtrOutput `pulumi:"timeouts"`
 	// ARN of the Web ACL to associate the Rule Group with.
-	//
-	// The following arguments are optional:
 	WebAclArn pulumi.StringOutput `pulumi:"webAclArn"`
 }
 
@@ -343,42 +70,36 @@ func GetWebAclRuleGroupAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAclRuleGroupAssociation resources.
 type webAclRuleGroupAssociationState struct {
-	// Managed Rule Group configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `ruleGroupReference`. See below.
+	// Managed rule group configuration.
 	ManagedRuleGroup *WebAclRuleGroupAssociationManagedRuleGroup `pulumi:"managedRuleGroup"`
-	// Override action for the rule group. Valid values are `none` and `count`. Defaults to `none`. When set to `count`, the actions defined in the rule group rules are overridden to count matches instead of blocking or allowing requests.
+	// Override action for the rule group. Valid values are 'none' and 'count'. Defaults to 'none'.
 	OverrideAction *string `pulumi:"overrideAction"`
-	// Priority of the rule within the Web ACL. Rules are evaluated in order of priority, with lower numbers evaluated first.
-	Priority *int `pulumi:"priority"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Custom Rule Group reference configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `managedRuleGroup`. See below.
+	// Priority of the rule within the Web ACL.
+	Priority *int    `pulumi:"priority"`
+	Region   *string `pulumi:"region"`
+	// Rule Group reference configuration.
 	RuleGroupReference *WebAclRuleGroupAssociationRuleGroupReference `pulumi:"ruleGroupReference"`
-	// Name of the rule to create in the Web ACL that references the rule group. Must be between 1 and 128 characters.
+	// Name of the rule to create in the Web ACL that references the rule group.
 	RuleName *string                             `pulumi:"ruleName"`
 	Timeouts *WebAclRuleGroupAssociationTimeouts `pulumi:"timeouts"`
 	// ARN of the Web ACL to associate the Rule Group with.
-	//
-	// The following arguments are optional:
 	WebAclArn *string `pulumi:"webAclArn"`
 }
 
 type WebAclRuleGroupAssociationState struct {
-	// Managed Rule Group configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `ruleGroupReference`. See below.
+	// Managed rule group configuration.
 	ManagedRuleGroup WebAclRuleGroupAssociationManagedRuleGroupPtrInput
-	// Override action for the rule group. Valid values are `none` and `count`. Defaults to `none`. When set to `count`, the actions defined in the rule group rules are overridden to count matches instead of blocking or allowing requests.
+	// Override action for the rule group. Valid values are 'none' and 'count'. Defaults to 'none'.
 	OverrideAction pulumi.StringPtrInput
-	// Priority of the rule within the Web ACL. Rules are evaluated in order of priority, with lower numbers evaluated first.
+	// Priority of the rule within the Web ACL.
 	Priority pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Custom Rule Group reference configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `managedRuleGroup`. See below.
+	Region   pulumi.StringPtrInput
+	// Rule Group reference configuration.
 	RuleGroupReference WebAclRuleGroupAssociationRuleGroupReferencePtrInput
-	// Name of the rule to create in the Web ACL that references the rule group. Must be between 1 and 128 characters.
+	// Name of the rule to create in the Web ACL that references the rule group.
 	RuleName pulumi.StringPtrInput
 	Timeouts WebAclRuleGroupAssociationTimeoutsPtrInput
 	// ARN of the Web ACL to associate the Rule Group with.
-	//
-	// The following arguments are optional:
 	WebAclArn pulumi.StringPtrInput
 }
 
@@ -387,43 +108,37 @@ func (WebAclRuleGroupAssociationState) ElementType() reflect.Type {
 }
 
 type webAclRuleGroupAssociationArgs struct {
-	// Managed Rule Group configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `ruleGroupReference`. See below.
+	// Managed rule group configuration.
 	ManagedRuleGroup *WebAclRuleGroupAssociationManagedRuleGroup `pulumi:"managedRuleGroup"`
-	// Override action for the rule group. Valid values are `none` and `count`. Defaults to `none`. When set to `count`, the actions defined in the rule group rules are overridden to count matches instead of blocking or allowing requests.
+	// Override action for the rule group. Valid values are 'none' and 'count'. Defaults to 'none'.
 	OverrideAction *string `pulumi:"overrideAction"`
-	// Priority of the rule within the Web ACL. Rules are evaluated in order of priority, with lower numbers evaluated first.
-	Priority int `pulumi:"priority"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Custom Rule Group reference configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `managedRuleGroup`. See below.
+	// Priority of the rule within the Web ACL.
+	Priority int     `pulumi:"priority"`
+	Region   *string `pulumi:"region"`
+	// Rule Group reference configuration.
 	RuleGroupReference *WebAclRuleGroupAssociationRuleGroupReference `pulumi:"ruleGroupReference"`
-	// Name of the rule to create in the Web ACL that references the rule group. Must be between 1 and 128 characters.
+	// Name of the rule to create in the Web ACL that references the rule group.
 	RuleName string                              `pulumi:"ruleName"`
 	Timeouts *WebAclRuleGroupAssociationTimeouts `pulumi:"timeouts"`
 	// ARN of the Web ACL to associate the Rule Group with.
-	//
-	// The following arguments are optional:
 	WebAclArn string `pulumi:"webAclArn"`
 }
 
 // The set of arguments for constructing a WebAclRuleGroupAssociation resource.
 type WebAclRuleGroupAssociationArgs struct {
-	// Managed Rule Group configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `ruleGroupReference`. See below.
+	// Managed rule group configuration.
 	ManagedRuleGroup WebAclRuleGroupAssociationManagedRuleGroupPtrInput
-	// Override action for the rule group. Valid values are `none` and `count`. Defaults to `none`. When set to `count`, the actions defined in the rule group rules are overridden to count matches instead of blocking or allowing requests.
+	// Override action for the rule group. Valid values are 'none' and 'count'. Defaults to 'none'.
 	OverrideAction pulumi.StringPtrInput
-	// Priority of the rule within the Web ACL. Rules are evaluated in order of priority, with lower numbers evaluated first.
+	// Priority of the rule within the Web ACL.
 	Priority pulumi.IntInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Custom Rule Group reference configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `managedRuleGroup`. See below.
+	Region   pulumi.StringPtrInput
+	// Rule Group reference configuration.
 	RuleGroupReference WebAclRuleGroupAssociationRuleGroupReferencePtrInput
-	// Name of the rule to create in the Web ACL that references the rule group. Must be between 1 and 128 characters.
+	// Name of the rule to create in the Web ACL that references the rule group.
 	RuleName pulumi.StringInput
 	Timeouts WebAclRuleGroupAssociationTimeoutsPtrInput
 	// ARN of the Web ACL to associate the Rule Group with.
-	//
-	// The following arguments are optional:
 	WebAclArn pulumi.StringInput
 }
 
@@ -514,36 +229,35 @@ func (o WebAclRuleGroupAssociationOutput) ToWebAclRuleGroupAssociationOutputWith
 	return o
 }
 
-// Managed Rule Group configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `ruleGroupReference`. See below.
+// Managed rule group configuration.
 func (o WebAclRuleGroupAssociationOutput) ManagedRuleGroup() WebAclRuleGroupAssociationManagedRuleGroupPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleGroupAssociation) WebAclRuleGroupAssociationManagedRuleGroupPtrOutput {
 		return v.ManagedRuleGroup
 	}).(WebAclRuleGroupAssociationManagedRuleGroupPtrOutput)
 }
 
-// Override action for the rule group. Valid values are `none` and `count`. Defaults to `none`. When set to `count`, the actions defined in the rule group rules are overridden to count matches instead of blocking or allowing requests.
+// Override action for the rule group. Valid values are 'none' and 'count'. Defaults to 'none'.
 func (o WebAclRuleGroupAssociationOutput) OverrideAction() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAclRuleGroupAssociation) pulumi.StringOutput { return v.OverrideAction }).(pulumi.StringOutput)
 }
 
-// Priority of the rule within the Web ACL. Rules are evaluated in order of priority, with lower numbers evaluated first.
+// Priority of the rule within the Web ACL.
 func (o WebAclRuleGroupAssociationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v *WebAclRuleGroupAssociation) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WebAclRuleGroupAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAclRuleGroupAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Custom Rule Group reference configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `managedRuleGroup`. See below.
+// Rule Group reference configuration.
 func (o WebAclRuleGroupAssociationOutput) RuleGroupReference() WebAclRuleGroupAssociationRuleGroupReferencePtrOutput {
 	return o.ApplyT(func(v *WebAclRuleGroupAssociation) WebAclRuleGroupAssociationRuleGroupReferencePtrOutput {
 		return v.RuleGroupReference
 	}).(WebAclRuleGroupAssociationRuleGroupReferencePtrOutput)
 }
 
-// Name of the rule to create in the Web ACL that references the rule group. Must be between 1 and 128 characters.
+// Name of the rule to create in the Web ACL that references the rule group.
 func (o WebAclRuleGroupAssociationOutput) RuleName() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAclRuleGroupAssociation) pulumi.StringOutput { return v.RuleName }).(pulumi.StringOutput)
 }
@@ -553,8 +267,6 @@ func (o WebAclRuleGroupAssociationOutput) Timeouts() WebAclRuleGroupAssociationT
 }
 
 // ARN of the Web ACL to associate the Rule Group with.
-//
-// The following arguments are optional:
 func (o WebAclRuleGroupAssociationOutput) WebAclArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAclRuleGroupAssociation) pulumi.StringOutput { return v.WebAclArn }).(pulumi.StringOutput)
 }

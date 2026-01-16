@@ -16,103 +16,23 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a WAF Regional Byte Match Set Resource for use with Application Load Balancer.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.wafregional.ByteMatchSet;
- * import com.pulumi.aws.wafregional.ByteMatchSetArgs;
- * import com.pulumi.aws.wafregional.inputs.ByteMatchSetByteMatchTupleArgs;
- * import com.pulumi.aws.wafregional.inputs.ByteMatchSetByteMatchTupleFieldToMatchArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var byteSet = new ByteMatchSet("byteSet", ByteMatchSetArgs.builder()
- *             .name("my_waf_byte_match_set")
- *             .byteMatchTuples(ByteMatchSetByteMatchTupleArgs.builder()
- *                 .textTransformation("NONE")
- *                 .targetString("badrefer1")
- *                 .positionalConstraint("CONTAINS")
- *                 .fieldToMatch(ByteMatchSetByteMatchTupleFieldToMatchArgs.builder()
- *                     .type("HEADER")
- *                     .data("referer")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import WAF Regional Byte Match Set using the id. For example:
- * 
- * ```sh
- * $ pulumi import aws:wafregional/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
- * ```
- * 
- */
 @ResourceType(type="aws:wafregional/byteMatchSet:ByteMatchSet")
 public class ByteMatchSet extends com.pulumi.resources.CustomResource {
-    /**
-     * Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
-     * 
-     */
     @Export(name="byteMatchTuples", refs={List.class,ByteMatchSetByteMatchTuple.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ByteMatchSetByteMatchTuple>> byteMatchTuples;
 
-    /**
-     * @return Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
-     * 
-     */
     public Output<Optional<List<ByteMatchSetByteMatchTuple>>> byteMatchTuples() {
         return Codegen.optional(this.byteMatchTuples);
     }
-    /**
-     * The name or description of the ByteMatchSet.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name or description of the ByteMatchSet.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

@@ -12,21 +12,12 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class FlowMetadataCatalogConfigGlueDataCatalogArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
-        /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
-        /// <summary>
-        /// The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
-        /// <summary>
-        /// A naming prefix for each Data Catalog table that Amazon AppFlow creates
-        /// </summary>
         [Input("tablePrefix", required: true)]
         public Input<string> TablePrefix { get; set; } = null!;
 

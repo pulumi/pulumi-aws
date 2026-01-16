@@ -9,73 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3
 {
-    /// <summary>
-    /// Resource for managing an Amazon S3 Vectors Vector Bucket policy.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3.VectorsVectorBucketPolicy("example", new()
-    ///     {
-    ///         VectorBucketArn = exampleAwsS3vectorsVectorBucket.Arn,
-    ///         Policy = @"{
-    ///   \""Version\"": \""2012-10-17\"",
-    ///   \""Id\"": \""writePolicy\"",
-    ///   \""Statement\"": [{
-    ///     \""Sid\"": \""writeStatement\"",
-    ///     \""Effect\"": \""Allow\"",
-    ///     \""Principal\"": {
-    ///       \""AWS\"": \""123456789012\""
-    ///     },
-    ///     \""Action\"": [
-    ///       \""s3vectors:PutVectors\""
-    ///     ],
-    ///     \""Resource\"": \""*\""
-    ///   }]
-    /// }
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import S3 Vectors Vector Bucket policy using the `vector_bucket_arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:s3/vectorsVectorBucketPolicy:VectorsVectorBucketPolicy example arn:aws:s3vectors:us-west-2:123456789012:bucket/example-bucket
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3/vectorsVectorBucketPolicy:VectorsVectorBucketPolicy")]
     public partial class VectorsVectorBucketPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The policy document.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the vector bucket.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("vectorBucketArn")]
         public Output<string> VectorBucketArn { get; private set; } = null!;
 
@@ -125,23 +67,12 @@ namespace Pulumi.Aws.S3
 
     public sealed class VectorsVectorBucketPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The policy document.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the vector bucket.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("vectorBucketArn", required: true)]
         public Input<string> VectorBucketArn { get; set; } = null!;
 
@@ -153,23 +84,12 @@ namespace Pulumi.Aws.S3
 
     public sealed class VectorsVectorBucketPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The policy document.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the vector bucket.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("vectorBucketArn")]
         public Input<string>? VectorBucketArn { get; set; }
 

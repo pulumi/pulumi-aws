@@ -11,9 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// List of Control Tower controls applied to an OU.
-//
-// ## Example Usage
 func GetControls(ctx *pulumi.Context, args *GetControlsArgs, opts ...pulumi.InvokeOption) (*GetControlsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetControlsResult
@@ -26,15 +23,12 @@ func GetControls(ctx *pulumi.Context, args *GetControlsArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getControls.
 type GetControlsArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ARN of the organizational unit.
-	TargetIdentifier string `pulumi:"targetIdentifier"`
+	Region           *string `pulumi:"region"`
+	TargetIdentifier string  `pulumi:"targetIdentifier"`
 }
 
 // A collection of values returned by getControls.
 type GetControlsResult struct {
-	// List of all the ARNs for the controls applied to the `targetIdentifier`.
 	EnabledControls []string `pulumi:"enabledControls"`
 	// The provider-assigned unique ID for this managed resource.
 	Id               string `pulumi:"id"`
@@ -53,10 +47,8 @@ func GetControlsOutput(ctx *pulumi.Context, args GetControlsOutputArgs, opts ...
 
 // A collection of arguments for invoking getControls.
 type GetControlsOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The ARN of the organizational unit.
-	TargetIdentifier pulumi.StringInput `pulumi:"targetIdentifier"`
+	Region           pulumi.StringPtrInput `pulumi:"region"`
+	TargetIdentifier pulumi.StringInput    `pulumi:"targetIdentifier"`
 }
 
 func (GetControlsOutputArgs) ElementType() reflect.Type {
@@ -78,7 +70,6 @@ func (o GetControlsResultOutput) ToGetControlsResultOutputWithContext(ctx contex
 	return o
 }
 
-// List of all the ARNs for the controls applied to the `targetIdentifier`.
 func (o GetControlsResultOutput) EnabledControls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetControlsResult) []string { return v.EnabledControls }).(pulumi.StringArrayOutput)
 }

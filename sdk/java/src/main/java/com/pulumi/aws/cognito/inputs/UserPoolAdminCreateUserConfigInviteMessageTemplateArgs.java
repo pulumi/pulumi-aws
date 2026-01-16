@@ -15,47 +15,23 @@ public final class UserPoolAdminCreateUserConfigInviteMessageTemplateArgs extend
 
     public static final UserPoolAdminCreateUserConfigInviteMessageTemplateArgs Empty = new UserPoolAdminCreateUserConfigInviteMessageTemplateArgs();
 
-    /**
-     * Message template for email messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
-     * 
-     */
     @Import(name="emailMessage")
     private @Nullable Output<String> emailMessage;
 
-    /**
-     * @return Message template for email messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
-     * 
-     */
     public Optional<Output<String>> emailMessage() {
         return Optional.ofNullable(this.emailMessage);
     }
 
-    /**
-     * Subject line for email messages.
-     * 
-     */
     @Import(name="emailSubject")
     private @Nullable Output<String> emailSubject;
 
-    /**
-     * @return Subject line for email messages.
-     * 
-     */
     public Optional<Output<String>> emailSubject() {
         return Optional.ofNullable(this.emailSubject);
     }
 
-    /**
-     * Message template for SMS messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
-     * 
-     */
     @Import(name="smsMessage")
     private @Nullable Output<String> smsMessage;
 
-    /**
-     * @return Message template for SMS messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
-     * 
-     */
     public Optional<Output<String>> smsMessage() {
         return Optional.ofNullable(this.smsMessage);
     }
@@ -86,65 +62,29 @@ public final class UserPoolAdminCreateUserConfigInviteMessageTemplateArgs extend
             $ = new UserPoolAdminCreateUserConfigInviteMessageTemplateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param emailMessage Message template for email messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailMessage(@Nullable Output<String> emailMessage) {
             $.emailMessage = emailMessage;
             return this;
         }
 
-        /**
-         * @param emailMessage Message template for email messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailMessage(String emailMessage) {
             return emailMessage(Output.of(emailMessage));
         }
 
-        /**
-         * @param emailSubject Subject line for email messages.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailSubject(@Nullable Output<String> emailSubject) {
             $.emailSubject = emailSubject;
             return this;
         }
 
-        /**
-         * @param emailSubject Subject line for email messages.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailSubject(String emailSubject) {
             return emailSubject(Output.of(emailSubject));
         }
 
-        /**
-         * @param smsMessage Message template for SMS messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
-         * 
-         * @return builder
-         * 
-         */
         public Builder smsMessage(@Nullable Output<String> smsMessage) {
             $.smsMessage = smsMessage;
             return this;
         }
 
-        /**
-         * @param smsMessage Message template for SMS messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
-         * 
-         * @return builder
-         * 
-         */
         public Builder smsMessage(String smsMessage) {
             return smsMessage(Output.of(smsMessage));
         }

@@ -11,129 +11,12 @@ namespace Pulumi.Aws.Amp
 {
     public static class GetWorkspaces
     {
-        /// <summary>
-        /// Provides the aliases, ARNs, and workspace IDs of Amazon Prometheus workspaces.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example returns all of the workspaces in a region:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Amp.GetWorkspaces.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// The following example filters the workspaces by alias. Only the workspaces with
-        /// aliases that begin with the value of `AliasPrefix` will be returned:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Amp.GetWorkspaces.Invoke(new()
-        ///     {
-        ///         AliasPrefix = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetWorkspacesResult> InvokeAsync(GetWorkspacesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspacesResult>("aws:amp/getWorkspaces:getWorkspaces", args ?? new GetWorkspacesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides the aliases, ARNs, and workspace IDs of Amazon Prometheus workspaces.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example returns all of the workspaces in a region:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Amp.GetWorkspaces.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// The following example filters the workspaces by alias. Only the workspaces with
-        /// aliases that begin with the value of `AliasPrefix` will be returned:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Amp.GetWorkspaces.Invoke(new()
-        ///     {
-        ///         AliasPrefix = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetWorkspacesResult> Invoke(GetWorkspacesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspacesResult>("aws:amp/getWorkspaces:getWorkspaces", args ?? new GetWorkspacesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides the aliases, ARNs, and workspace IDs of Amazon Prometheus workspaces.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example returns all of the workspaces in a region:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Amp.GetWorkspaces.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// The following example filters the workspaces by alias. Only the workspaces with
-        /// aliases that begin with the value of `AliasPrefix` will be returned:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Amp.GetWorkspaces.Invoke(new()
-        ///     {
-        ///         AliasPrefix = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetWorkspacesResult> Invoke(GetWorkspacesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspacesResult>("aws:amp/getWorkspaces:getWorkspaces", args ?? new GetWorkspacesInvokeArgs(), options.WithDefaults());
     }
@@ -141,15 +24,9 @@ namespace Pulumi.Aws.Amp
 
     public sealed class GetWorkspacesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Limits results to workspaces with aliases that begin with this value.
-        /// </summary>
         [Input("aliasPrefix")]
         public string? AliasPrefix { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -161,15 +38,9 @@ namespace Pulumi.Aws.Amp
 
     public sealed class GetWorkspacesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Limits results to workspaces with aliases that begin with this value.
-        /// </summary>
         [Input("aliasPrefix")]
         public Input<string>? AliasPrefix { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -184,22 +55,13 @@ namespace Pulumi.Aws.Amp
     public sealed class GetWorkspacesResult
     {
         public readonly string? AliasPrefix;
-        /// <summary>
-        /// List of aliases of the matched Prometheus workspaces.
-        /// </summary>
         public readonly ImmutableArray<string> Aliases;
-        /// <summary>
-        /// List of ARNs of the matched Prometheus workspaces.
-        /// </summary>
         public readonly ImmutableArray<string> Arns;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string Region;
-        /// <summary>
-        /// List of workspace IDs of the matched Prometheus workspaces.
-        /// </summary>
         public readonly ImmutableArray<string> WorkspaceIds;
 
         [OutputConstructor]

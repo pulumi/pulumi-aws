@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration {
-    /**
-     * @return Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
-     * 
-     */
     private @Nullable Boolean autoScalingEnabled;
-    /**
-     * @return Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `autoScalingEnabled`, `parallelism`, or `parallelismPerKpu` attribute values to be effective.
-     * 
-     */
     private String configurationType;
-    /**
-     * @return Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
-     * 
-     */
     private @Nullable Integer parallelism;
-    /**
-     * @return Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application.
-     * 
-     */
     private @Nullable Integer parallelismPerKpu;
 
     private ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration() {}
-    /**
-     * @return Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
-     * 
-     */
     public Optional<Boolean> autoScalingEnabled() {
         return Optional.ofNullable(this.autoScalingEnabled);
     }
-    /**
-     * @return Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `autoScalingEnabled`, `parallelism`, or `parallelismPerKpu` attribute values to be effective.
-     * 
-     */
     public String configurationType() {
         return this.configurationType;
     }
-    /**
-     * @return Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
-     * 
-     */
     public Optional<Integer> parallelism() {
         return Optional.ofNullable(this.parallelism);
     }
-    /**
-     * @return Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application.
-     * 
-     */
     public Optional<Integer> parallelismPerKpu() {
         return Optional.ofNullable(this.parallelismPerKpu);
     }

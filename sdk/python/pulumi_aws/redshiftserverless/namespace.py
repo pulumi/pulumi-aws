@@ -35,24 +35,7 @@ class NamespaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Namespace resource.
-        :param pulumi.Input[_builtins.str] namespace_name: The name of the namespace.
-        :param pulumi.Input[_builtins.str] admin_password_secret_kms_key_id: ID of the KMS key used to encrypt the namespace's admin credentials secret.
-        :param pulumi.Input[_builtins.str] admin_user_password: The password of the administrator for the first database created in the namespace.
-               Conflicts with `manage_admin_password` and `admin_user_password_wo`.
         :param pulumi.Input[_builtins.str] admin_user_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               The password of the administrator for the first database created in the namespace.
-               Conflicts with `manage_admin_password` and `admin_user_password`.
-        :param pulumi.Input[_builtins.int] admin_user_password_wo_version: Used together with `admin_user_password_wo` to trigger an update. Increment this value when an update to the `admin_user_password_wo` is required
-        :param pulumi.Input[_builtins.str] admin_username: The username of the administrator for the first database created in the namespace.
-        :param pulumi.Input[_builtins.str] db_name: The name of the first database created in the namespace.
-        :param pulumi.Input[_builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iam_roles: A list of IAM roles to associate with the namespace.
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_exports: The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
-        :param pulumi.Input[_builtins.bool] manage_admin_password: Whether to use AWS SecretManager to manage namespace's admin credentials.
-               Conflicts with `admin_user_password` and `admin_user_password_wo`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
         if admin_password_secret_kms_key_id is not None:
@@ -85,9 +68,6 @@ class NamespaceArgs:
     @_builtins.property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the namespace.
-        """
         return pulumi.get(self, "namespace_name")
 
     @namespace_name.setter
@@ -97,9 +77,6 @@ class NamespaceArgs:
     @_builtins.property
     @pulumi.getter(name="adminPasswordSecretKmsKeyId")
     def admin_password_secret_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the KMS key used to encrypt the namespace's admin credentials secret.
-        """
         return pulumi.get(self, "admin_password_secret_kms_key_id")
 
     @admin_password_secret_kms_key_id.setter
@@ -109,10 +86,6 @@ class NamespaceArgs:
     @_builtins.property
     @pulumi.getter(name="adminUserPassword")
     def admin_user_password(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The password of the administrator for the first database created in the namespace.
-        Conflicts with `manage_admin_password` and `admin_user_password_wo`.
-        """
         return pulumi.get(self, "admin_user_password")
 
     @admin_user_password.setter
@@ -124,8 +97,6 @@ class NamespaceArgs:
     def admin_user_password_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        The password of the administrator for the first database created in the namespace.
-        Conflicts with `manage_admin_password` and `admin_user_password`.
         """
         return pulumi.get(self, "admin_user_password_wo")
 
@@ -136,9 +107,6 @@ class NamespaceArgs:
     @_builtins.property
     @pulumi.getter(name="adminUserPasswordWoVersion")
     def admin_user_password_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Used together with `admin_user_password_wo` to trigger an update. Increment this value when an update to the `admin_user_password_wo` is required
-        """
         return pulumi.get(self, "admin_user_password_wo_version")
 
     @admin_user_password_wo_version.setter
@@ -148,9 +116,6 @@ class NamespaceArgs:
     @_builtins.property
     @pulumi.getter(name="adminUsername")
     def admin_username(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The username of the administrator for the first database created in the namespace.
-        """
         return pulumi.get(self, "admin_username")
 
     @admin_username.setter
@@ -160,9 +125,6 @@ class NamespaceArgs:
     @_builtins.property
     @pulumi.getter(name="dbName")
     def db_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the first database created in the namespace.
-        """
         return pulumi.get(self, "db_name")
 
     @db_name.setter
@@ -172,9 +134,6 @@ class NamespaceArgs:
     @_builtins.property
     @pulumi.getter(name="defaultIamRoleArn")
     def default_iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
-        """
         return pulumi.get(self, "default_iam_role_arn")
 
     @default_iam_role_arn.setter
@@ -184,9 +143,6 @@ class NamespaceArgs:
     @_builtins.property
     @pulumi.getter(name="iamRoles")
     def iam_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of IAM roles to associate with the namespace.
-        """
         return pulumi.get(self, "iam_roles")
 
     @iam_roles.setter
@@ -196,9 +152,6 @@ class NamespaceArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -208,9 +161,6 @@ class NamespaceArgs:
     @_builtins.property
     @pulumi.getter(name="logExports")
     def log_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
-        """
         return pulumi.get(self, "log_exports")
 
     @log_exports.setter
@@ -220,10 +170,6 @@ class NamespaceArgs:
     @_builtins.property
     @pulumi.getter(name="manageAdminPassword")
     def manage_admin_password(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to use AWS SecretManager to manage namespace's admin credentials.
-        Conflicts with `admin_user_password` and `admin_user_password_wo`.
-        """
         return pulumi.get(self, "manage_admin_password")
 
     @manage_admin_password.setter
@@ -233,9 +179,6 @@ class NamespaceArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -245,9 +188,6 @@ class NamespaceArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -278,28 +218,7 @@ class _NamespaceState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Namespace resources.
-        :param pulumi.Input[_builtins.str] admin_password_secret_arn: Amazon Resource Name (ARN) of namespace's admin user credentials secret.
-        :param pulumi.Input[_builtins.str] admin_password_secret_kms_key_id: ID of the KMS key used to encrypt the namespace's admin credentials secret.
-        :param pulumi.Input[_builtins.str] admin_user_password: The password of the administrator for the first database created in the namespace.
-               Conflicts with `manage_admin_password` and `admin_user_password_wo`.
         :param pulumi.Input[_builtins.str] admin_user_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               The password of the administrator for the first database created in the namespace.
-               Conflicts with `manage_admin_password` and `admin_user_password`.
-        :param pulumi.Input[_builtins.int] admin_user_password_wo_version: Used together with `admin_user_password_wo` to trigger an update. Increment this value when an update to the `admin_user_password_wo` is required
-        :param pulumi.Input[_builtins.str] admin_username: The username of the administrator for the first database created in the namespace.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
-        :param pulumi.Input[_builtins.str] db_name: The name of the first database created in the namespace.
-        :param pulumi.Input[_builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iam_roles: A list of IAM roles to associate with the namespace.
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_exports: The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
-        :param pulumi.Input[_builtins.bool] manage_admin_password: Whether to use AWS SecretManager to manage namespace's admin credentials.
-               Conflicts with `admin_user_password` and `admin_user_password_wo`.
-        :param pulumi.Input[_builtins.str] namespace_id: The Redshift Namespace ID.
-        :param pulumi.Input[_builtins.str] namespace_name: The name of the namespace.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if admin_password_secret_arn is not None:
             pulumi.set(__self__, "admin_password_secret_arn", admin_password_secret_arn)
@@ -341,9 +260,6 @@ class _NamespaceState:
     @_builtins.property
     @pulumi.getter(name="adminPasswordSecretArn")
     def admin_password_secret_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of namespace's admin user credentials secret.
-        """
         return pulumi.get(self, "admin_password_secret_arn")
 
     @admin_password_secret_arn.setter
@@ -353,9 +269,6 @@ class _NamespaceState:
     @_builtins.property
     @pulumi.getter(name="adminPasswordSecretKmsKeyId")
     def admin_password_secret_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the KMS key used to encrypt the namespace's admin credentials secret.
-        """
         return pulumi.get(self, "admin_password_secret_kms_key_id")
 
     @admin_password_secret_kms_key_id.setter
@@ -365,10 +278,6 @@ class _NamespaceState:
     @_builtins.property
     @pulumi.getter(name="adminUserPassword")
     def admin_user_password(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The password of the administrator for the first database created in the namespace.
-        Conflicts with `manage_admin_password` and `admin_user_password_wo`.
-        """
         return pulumi.get(self, "admin_user_password")
 
     @admin_user_password.setter
@@ -380,8 +289,6 @@ class _NamespaceState:
     def admin_user_password_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        The password of the administrator for the first database created in the namespace.
-        Conflicts with `manage_admin_password` and `admin_user_password`.
         """
         return pulumi.get(self, "admin_user_password_wo")
 
@@ -392,9 +299,6 @@ class _NamespaceState:
     @_builtins.property
     @pulumi.getter(name="adminUserPasswordWoVersion")
     def admin_user_password_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Used together with `admin_user_password_wo` to trigger an update. Increment this value when an update to the `admin_user_password_wo` is required
-        """
         return pulumi.get(self, "admin_user_password_wo_version")
 
     @admin_user_password_wo_version.setter
@@ -404,9 +308,6 @@ class _NamespaceState:
     @_builtins.property
     @pulumi.getter(name="adminUsername")
     def admin_username(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The username of the administrator for the first database created in the namespace.
-        """
         return pulumi.get(self, "admin_username")
 
     @admin_username.setter
@@ -416,9 +317,6 @@ class _NamespaceState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -428,9 +326,6 @@ class _NamespaceState:
     @_builtins.property
     @pulumi.getter(name="dbName")
     def db_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the first database created in the namespace.
-        """
         return pulumi.get(self, "db_name")
 
     @db_name.setter
@@ -440,9 +335,6 @@ class _NamespaceState:
     @_builtins.property
     @pulumi.getter(name="defaultIamRoleArn")
     def default_iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
-        """
         return pulumi.get(self, "default_iam_role_arn")
 
     @default_iam_role_arn.setter
@@ -452,9 +344,6 @@ class _NamespaceState:
     @_builtins.property
     @pulumi.getter(name="iamRoles")
     def iam_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of IAM roles to associate with the namespace.
-        """
         return pulumi.get(self, "iam_roles")
 
     @iam_roles.setter
@@ -464,9 +353,6 @@ class _NamespaceState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -476,9 +362,6 @@ class _NamespaceState:
     @_builtins.property
     @pulumi.getter(name="logExports")
     def log_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
-        """
         return pulumi.get(self, "log_exports")
 
     @log_exports.setter
@@ -488,10 +371,6 @@ class _NamespaceState:
     @_builtins.property
     @pulumi.getter(name="manageAdminPassword")
     def manage_admin_password(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to use AWS SecretManager to manage namespace's admin credentials.
-        Conflicts with `admin_user_password` and `admin_user_password_wo`.
-        """
         return pulumi.get(self, "manage_admin_password")
 
     @manage_admin_password.setter
@@ -501,9 +380,6 @@ class _NamespaceState:
     @_builtins.property
     @pulumi.getter(name="namespaceId")
     def namespace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Redshift Namespace ID.
-        """
         return pulumi.get(self, "namespace_id")
 
     @namespace_id.setter
@@ -513,9 +389,6 @@ class _NamespaceState:
     @_builtins.property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the namespace.
-        """
         return pulumi.get(self, "namespace_name")
 
     @namespace_name.setter
@@ -525,9 +398,6 @@ class _NamespaceState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -537,9 +407,6 @@ class _NamespaceState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -549,9 +416,6 @@ class _NamespaceState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -581,43 +445,10 @@ class Namespace(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshiftserverless.Namespace("example", namespace_name="concurrency-scaling")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift Serverless Namespaces using the `namespace_name`. For example:
-
-        ```sh
-        $ pulumi import aws:redshiftserverless/namespace:Namespace example example
-        ```
-
+        Create a Namespace resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] admin_password_secret_kms_key_id: ID of the KMS key used to encrypt the namespace's admin credentials secret.
-        :param pulumi.Input[_builtins.str] admin_user_password: The password of the administrator for the first database created in the namespace.
-               Conflicts with `manage_admin_password` and `admin_user_password_wo`.
         :param pulumi.Input[_builtins.str] admin_user_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               The password of the administrator for the first database created in the namespace.
-               Conflicts with `manage_admin_password` and `admin_user_password`.
-        :param pulumi.Input[_builtins.int] admin_user_password_wo_version: Used together with `admin_user_password_wo` to trigger an update. Increment this value when an update to the `admin_user_password_wo` is required
-        :param pulumi.Input[_builtins.str] admin_username: The username of the administrator for the first database created in the namespace.
-        :param pulumi.Input[_builtins.str] db_name: The name of the first database created in the namespace.
-        :param pulumi.Input[_builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iam_roles: A list of IAM roles to associate with the namespace.
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_exports: The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
-        :param pulumi.Input[_builtins.bool] manage_admin_password: Whether to use AWS SecretManager to manage namespace's admin credentials.
-               Conflicts with `admin_user_password` and `admin_user_password_wo`.
-        :param pulumi.Input[_builtins.str] namespace_name: The name of the namespace.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -626,23 +457,7 @@ class Namespace(pulumi.CustomResource):
                  args: NamespaceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshiftserverless.Namespace("example", namespace_name="concurrency-scaling")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift Serverless Namespaces using the `namespace_name`. For example:
-
-        ```sh
-        $ pulumi import aws:redshiftserverless/namespace:Namespace example example
-        ```
-
+        Create a Namespace resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param NamespaceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -738,28 +553,7 @@ class Namespace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] admin_password_secret_arn: Amazon Resource Name (ARN) of namespace's admin user credentials secret.
-        :param pulumi.Input[_builtins.str] admin_password_secret_kms_key_id: ID of the KMS key used to encrypt the namespace's admin credentials secret.
-        :param pulumi.Input[_builtins.str] admin_user_password: The password of the administrator for the first database created in the namespace.
-               Conflicts with `manage_admin_password` and `admin_user_password_wo`.
         :param pulumi.Input[_builtins.str] admin_user_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               The password of the administrator for the first database created in the namespace.
-               Conflicts with `manage_admin_password` and `admin_user_password`.
-        :param pulumi.Input[_builtins.int] admin_user_password_wo_version: Used together with `admin_user_password_wo` to trigger an update. Increment this value when an update to the `admin_user_password_wo` is required
-        :param pulumi.Input[_builtins.str] admin_username: The username of the administrator for the first database created in the namespace.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
-        :param pulumi.Input[_builtins.str] db_name: The name of the first database created in the namespace.
-        :param pulumi.Input[_builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iam_roles: A list of IAM roles to associate with the namespace.
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_exports: The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
-        :param pulumi.Input[_builtins.bool] manage_admin_password: Whether to use AWS SecretManager to manage namespace's admin credentials.
-               Conflicts with `admin_user_password` and `admin_user_password_wo`.
-        :param pulumi.Input[_builtins.str] namespace_id: The Redshift Namespace ID.
-        :param pulumi.Input[_builtins.str] namespace_name: The name of the namespace.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -788,26 +582,16 @@ class Namespace(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="adminPasswordSecretArn")
     def admin_password_secret_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of namespace's admin user credentials secret.
-        """
         return pulumi.get(self, "admin_password_secret_arn")
 
     @_builtins.property
     @pulumi.getter(name="adminPasswordSecretKmsKeyId")
     def admin_password_secret_kms_key_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the KMS key used to encrypt the namespace's admin credentials secret.
-        """
         return pulumi.get(self, "admin_password_secret_kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="adminUserPassword")
     def admin_user_password(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The password of the administrator for the first database created in the namespace.
-        Conflicts with `manage_admin_password` and `admin_user_password_wo`.
-        """
         return pulumi.get(self, "admin_user_password")
 
     @_builtins.property
@@ -815,121 +599,76 @@ class Namespace(pulumi.CustomResource):
     def admin_user_password_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        The password of the administrator for the first database created in the namespace.
-        Conflicts with `manage_admin_password` and `admin_user_password`.
         """
         return pulumi.get(self, "admin_user_password_wo")
 
     @_builtins.property
     @pulumi.getter(name="adminUserPasswordWoVersion")
     def admin_user_password_wo_version(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Used together with `admin_user_password_wo` to trigger an update. Increment this value when an update to the `admin_user_password_wo` is required
-        """
         return pulumi.get(self, "admin_user_password_wo_version")
 
     @_builtins.property
     @pulumi.getter(name="adminUsername")
     def admin_username(self) -> pulumi.Output[_builtins.str]:
-        """
-        The username of the administrator for the first database created in the namespace.
-        """
         return pulumi.get(self, "admin_username")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="dbName")
     def db_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the first database created in the namespace.
-        """
         return pulumi.get(self, "db_name")
 
     @_builtins.property
     @pulumi.getter(name="defaultIamRoleArn")
     def default_iam_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
-        """
         return pulumi.get(self, "default_iam_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="iamRoles")
     def iam_roles(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        A list of IAM roles to associate with the namespace.
-        """
         return pulumi.get(self, "iam_roles")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="logExports")
     def log_exports(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
-        """
         return pulumi.get(self, "log_exports")
 
     @_builtins.property
     @pulumi.getter(name="manageAdminPassword")
     def manage_admin_password(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to use AWS SecretManager to manage namespace's admin credentials.
-        Conflicts with `admin_user_password` and `admin_user_password_wo`.
-        """
         return pulumi.get(self, "manage_admin_password")
 
     @_builtins.property
     @pulumi.getter(name="namespaceId")
     def namespace_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Redshift Namespace ID.
-        """
         return pulumi.get(self, "namespace_id")
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the namespace.
-        """
         return pulumi.get(self, "namespace_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

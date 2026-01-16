@@ -9,96 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.RedshiftServerless
 {
-    /// <summary>
-    /// Creates a new Amazon Redshift Serverless Endpoint Access.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.RedshiftServerless.EndpointAccess("example", new()
-    ///     {
-    ///         EndpointName = "example",
-    ///         WorkgroupName = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Redshift Serverless Endpoint Access using the `endpoint_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:redshiftserverless/endpointAccess:EndpointAccess")]
     public partial class EndpointAccess : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The DNS address of the VPC endpoint.
-        /// </summary>
         [Output("address")]
         public Output<string> Address { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the endpoint.
-        /// </summary>
         [Output("endpointName")]
         public Output<string> EndpointName { get; private set; } = null!;
 
-        /// <summary>
-        /// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
-        /// </summary>
         [Output("ownerAccount")]
         public Output<string?> OwnerAccount { get; private set; } = null!;
 
-        /// <summary>
-        /// The port that Amazon Redshift Serverless listens on.
-        /// </summary>
         [Output("port")]
         public Output<int> Port { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// An array of VPC subnet IDs to associate with the endpoint.
-        /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
-        /// <summary>
-        /// The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
-        /// </summary>
         [Output("vpcEndpoints")]
         public Output<ImmutableArray<Outputs.EndpointAccessVpcEndpoint>> VpcEndpoints { get; private set; } = null!;
 
-        /// <summary>
-        /// An array of security group IDs to associate with the workgroup.
-        /// </summary>
         [Output("vpcSecurityGroupIds")]
         public Output<ImmutableArray<string>> VpcSecurityGroupIds { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the workgroup.
-        /// </summary>
         [Output("workgroupName")]
         public Output<string> WorkgroupName { get; private set; } = null!;
 
@@ -148,30 +88,17 @@ namespace Pulumi.Aws.RedshiftServerless
 
     public sealed class EndpointAccessArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the endpoint.
-        /// </summary>
         [Input("endpointName", required: true)]
         public Input<string> EndpointName { get; set; } = null!;
 
-        /// <summary>
-        /// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
-        /// </summary>
         [Input("ownerAccount")]
         public Input<string>? OwnerAccount { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// An array of VPC subnet IDs to associate with the endpoint.
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -180,19 +107,12 @@ namespace Pulumi.Aws.RedshiftServerless
 
         [Input("vpcSecurityGroupIds")]
         private InputList<string>? _vpcSecurityGroupIds;
-
-        /// <summary>
-        /// An array of security group IDs to associate with the workgroup.
-        /// </summary>
         public InputList<string> VpcSecurityGroupIds
         {
             get => _vpcSecurityGroupIds ?? (_vpcSecurityGroupIds = new InputList<string>());
             set => _vpcSecurityGroupIds = value;
         }
 
-        /// <summary>
-        /// The name of the workgroup.
-        /// </summary>
         [Input("workgroupName", required: true)]
         public Input<string> WorkgroupName { get; set; } = null!;
 
@@ -204,48 +124,26 @@ namespace Pulumi.Aws.RedshiftServerless
 
     public sealed class EndpointAccessState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The DNS address of the VPC endpoint.
-        /// </summary>
         [Input("address")]
         public Input<string>? Address { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The name of the endpoint.
-        /// </summary>
         [Input("endpointName")]
         public Input<string>? EndpointName { get; set; }
 
-        /// <summary>
-        /// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
-        /// </summary>
         [Input("ownerAccount")]
         public Input<string>? OwnerAccount { get; set; }
 
-        /// <summary>
-        /// The port that Amazon Redshift Serverless listens on.
-        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// An array of VPC subnet IDs to associate with the endpoint.
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -254,10 +152,6 @@ namespace Pulumi.Aws.RedshiftServerless
 
         [Input("vpcEndpoints")]
         private InputList<Inputs.EndpointAccessVpcEndpointGetArgs>? _vpcEndpoints;
-
-        /// <summary>
-        /// The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
-        /// </summary>
         public InputList<Inputs.EndpointAccessVpcEndpointGetArgs> VpcEndpoints
         {
             get => _vpcEndpoints ?? (_vpcEndpoints = new InputList<Inputs.EndpointAccessVpcEndpointGetArgs>());
@@ -266,19 +160,12 @@ namespace Pulumi.Aws.RedshiftServerless
 
         [Input("vpcSecurityGroupIds")]
         private InputList<string>? _vpcSecurityGroupIds;
-
-        /// <summary>
-        /// An array of security group IDs to associate with the workgroup.
-        /// </summary>
         public InputList<string> VpcSecurityGroupIds
         {
             get => _vpcSecurityGroupIds ?? (_vpcSecurityGroupIds = new InputList<string>());
             set => _vpcSecurityGroupIds = value;
         }
 
-        /// <summary>
-        /// The name of the workgroup.
-        /// </summary>
         [Input("workgroupName")]
         public Input<string>? WorkgroupName { get; set; }
 

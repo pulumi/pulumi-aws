@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGroupAlternateIdentifierUniqueAttribute {
-    /**
-     * @return Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
-     * 
-     */
     private String attributePath;
-    /**
-     * @return Value for an attribute.
-     * 
-     */
     private String attributeValue;
 
     private GetGroupAlternateIdentifierUniqueAttribute() {}
-    /**
-     * @return Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
-     * 
-     */
     public String attributePath() {
         return this.attributePath;
     }
-    /**
-     * @return Value for an attribute.
-     * 
-     */
     public String attributeValue() {
         return this.attributeValue;
     }

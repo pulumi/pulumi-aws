@@ -25,10 +25,6 @@ class CertificateAuthorityCertificateArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CertificateAuthorityCertificate resource.
-        :param pulumi.Input[_builtins.str] certificate: PEM-encoded certificate for the Certificate Authority.
-        :param pulumi.Input[_builtins.str] certificate_authority_arn: ARN of the Certificate Authority.
-        :param pulumi.Input[_builtins.str] certificate_chain: PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "certificate", certificate)
         pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
@@ -40,9 +36,6 @@ class CertificateAuthorityCertificateArgs:
     @_builtins.property
     @pulumi.getter
     def certificate(self) -> pulumi.Input[_builtins.str]:
-        """
-        PEM-encoded certificate for the Certificate Authority.
-        """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
@@ -52,9 +45,6 @@ class CertificateAuthorityCertificateArgs:
     @_builtins.property
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the Certificate Authority.
-        """
         return pulumi.get(self, "certificate_authority_arn")
 
     @certificate_authority_arn.setter
@@ -64,9 +54,6 @@ class CertificateAuthorityCertificateArgs:
     @_builtins.property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
-        """
         return pulumi.get(self, "certificate_chain")
 
     @certificate_chain.setter
@@ -76,9 +63,6 @@ class CertificateAuthorityCertificateArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -95,10 +79,6 @@ class _CertificateAuthorityCertificateState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CertificateAuthorityCertificate resources.
-        :param pulumi.Input[_builtins.str] certificate: PEM-encoded certificate for the Certificate Authority.
-        :param pulumi.Input[_builtins.str] certificate_authority_arn: ARN of the Certificate Authority.
-        :param pulumi.Input[_builtins.str] certificate_chain: PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
@@ -112,9 +92,6 @@ class _CertificateAuthorityCertificateState:
     @_builtins.property
     @pulumi.getter
     def certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        PEM-encoded certificate for the Certificate Authority.
-        """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
@@ -124,9 +101,6 @@ class _CertificateAuthorityCertificateState:
     @_builtins.property
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Certificate Authority.
-        """
         return pulumi.get(self, "certificate_authority_arn")
 
     @certificate_authority_arn.setter
@@ -136,9 +110,6 @@ class _CertificateAuthorityCertificateState:
     @_builtins.property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
-        """
         return pulumi.get(self, "certificate_chain")
 
     @certificate_chain.setter
@@ -148,9 +119,6 @@ class _CertificateAuthorityCertificateState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -170,83 +138,9 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Associates a certificate with an AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority). An ACM PCA Certificate Authority is unable to issue certificates until it has a certificate associated with it. A root level ACM PCA Certificate Authority is able to self-sign its own root certificate.
-
-        ## Example Usage
-
-        ### Self-Signed Root Certificate Authority Certificate
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_certificate_authority = aws.acmpca.CertificateAuthority("example",
-            type="ROOT",
-            certificate_authority_configuration={
-                "key_algorithm": "RSA_4096",
-                "signing_algorithm": "SHA512WITHRSA",
-                "subject": {
-                    "common_name": "example.com",
-                },
-            })
-        current = aws.get_partition()
-        example_certificate = aws.acmpca.Certificate("example",
-            certificate_authority_arn=example_certificate_authority.arn,
-            certificate_signing_request=example_certificate_authority.certificate_signing_request,
-            signing_algorithm="SHA512WITHRSA",
-            template_arn=f"arn:{current.partition}:acm-pca:::template/RootCACertificate/V1",
-            validity={
-                "type": "YEARS",
-                "value": "1",
-            })
-        example = aws.acmpca.CertificateAuthorityCertificate("example",
-            certificate_authority_arn=example_certificate_authority.arn,
-            certificate=example_certificate.certificate,
-            certificate_chain=example_certificate.certificate_chain)
-        ```
-
-        ### Certificate for Subordinate Certificate Authority
-
-        Note that the certificate for the subordinate certificate authority must be issued by the root certificate authority using a signing request from the subordinate certificate authority.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        subordinate_certificate_authority = aws.acmpca.CertificateAuthority("subordinate",
-            type="SUBORDINATE",
-            certificate_authority_configuration={
-                "key_algorithm": "RSA_2048",
-                "signing_algorithm": "SHA512WITHRSA",
-                "subject": {
-                    "common_name": "sub.example.com",
-                },
-            })
-        root = aws.acmpca.CertificateAuthority("root")
-        current = aws.get_partition()
-        subordinate_certificate = aws.acmpca.Certificate("subordinate",
-            certificate_authority_arn=root.arn,
-            certificate_signing_request=subordinate_certificate_authority.certificate_signing_request,
-            signing_algorithm="SHA512WITHRSA",
-            template_arn=f"arn:{current.partition}:acm-pca:::template/SubordinateCACertificate_PathLen0/V1",
-            validity={
-                "type": "YEARS",
-                "value": "1",
-            })
-        subordinate = aws.acmpca.CertificateAuthorityCertificate("subordinate",
-            certificate_authority_arn=subordinate_certificate_authority.arn,
-            certificate=subordinate_certificate.certificate,
-            certificate_chain=subordinate_certificate.certificate_chain)
-        root_certificate_authority_certificate = aws.acmpca.CertificateAuthorityCertificate("root")
-        root_certificate = aws.acmpca.Certificate("root")
-        ```
-
+        Create a CertificateAuthorityCertificate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] certificate: PEM-encoded certificate for the Certificate Authority.
-        :param pulumi.Input[_builtins.str] certificate_authority_arn: ARN of the Certificate Authority.
-        :param pulumi.Input[_builtins.str] certificate_chain: PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -255,77 +149,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
                  args: CertificateAuthorityCertificateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Associates a certificate with an AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority). An ACM PCA Certificate Authority is unable to issue certificates until it has a certificate associated with it. A root level ACM PCA Certificate Authority is able to self-sign its own root certificate.
-
-        ## Example Usage
-
-        ### Self-Signed Root Certificate Authority Certificate
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_certificate_authority = aws.acmpca.CertificateAuthority("example",
-            type="ROOT",
-            certificate_authority_configuration={
-                "key_algorithm": "RSA_4096",
-                "signing_algorithm": "SHA512WITHRSA",
-                "subject": {
-                    "common_name": "example.com",
-                },
-            })
-        current = aws.get_partition()
-        example_certificate = aws.acmpca.Certificate("example",
-            certificate_authority_arn=example_certificate_authority.arn,
-            certificate_signing_request=example_certificate_authority.certificate_signing_request,
-            signing_algorithm="SHA512WITHRSA",
-            template_arn=f"arn:{current.partition}:acm-pca:::template/RootCACertificate/V1",
-            validity={
-                "type": "YEARS",
-                "value": "1",
-            })
-        example = aws.acmpca.CertificateAuthorityCertificate("example",
-            certificate_authority_arn=example_certificate_authority.arn,
-            certificate=example_certificate.certificate,
-            certificate_chain=example_certificate.certificate_chain)
-        ```
-
-        ### Certificate for Subordinate Certificate Authority
-
-        Note that the certificate for the subordinate certificate authority must be issued by the root certificate authority using a signing request from the subordinate certificate authority.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        subordinate_certificate_authority = aws.acmpca.CertificateAuthority("subordinate",
-            type="SUBORDINATE",
-            certificate_authority_configuration={
-                "key_algorithm": "RSA_2048",
-                "signing_algorithm": "SHA512WITHRSA",
-                "subject": {
-                    "common_name": "sub.example.com",
-                },
-            })
-        root = aws.acmpca.CertificateAuthority("root")
-        current = aws.get_partition()
-        subordinate_certificate = aws.acmpca.Certificate("subordinate",
-            certificate_authority_arn=root.arn,
-            certificate_signing_request=subordinate_certificate_authority.certificate_signing_request,
-            signing_algorithm="SHA512WITHRSA",
-            template_arn=f"arn:{current.partition}:acm-pca:::template/SubordinateCACertificate_PathLen0/V1",
-            validity={
-                "type": "YEARS",
-                "value": "1",
-            })
-        subordinate = aws.acmpca.CertificateAuthorityCertificate("subordinate",
-            certificate_authority_arn=subordinate_certificate_authority.arn,
-            certificate=subordinate_certificate.certificate,
-            certificate_chain=subordinate_certificate.certificate_chain)
-        root_certificate_authority_certificate = aws.acmpca.CertificateAuthorityCertificate("root")
-        root_certificate = aws.acmpca.Certificate("root")
-        ```
-
+        Create a CertificateAuthorityCertificate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CertificateAuthorityCertificateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -383,10 +207,6 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] certificate: PEM-encoded certificate for the Certificate Authority.
-        :param pulumi.Input[_builtins.str] certificate_authority_arn: ARN of the Certificate Authority.
-        :param pulumi.Input[_builtins.str] certificate_chain: PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -401,32 +221,20 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def certificate(self) -> pulumi.Output[_builtins.str]:
-        """
-        PEM-encoded certificate for the Certificate Authority.
-        """
         return pulumi.get(self, "certificate")
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Certificate Authority.
-        """
         return pulumi.get(self, "certificate_authority_arn")
 
     @_builtins.property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
-        """
         return pulumi.get(self, "certificate_chain")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

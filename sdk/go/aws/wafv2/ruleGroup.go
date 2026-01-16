@@ -12,435 +12,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a WAFv2 Rule Group resource.
-//
-// ## Example Usage
-//
-// ### Simple
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafv2.NewRuleGroup(ctx, "example", &wafv2.RuleGroupArgs{
-//				Name:     pulumi.String("example-rule"),
-//				Scope:    pulumi.String("REGIONAL"),
-//				Capacity: pulumi.Int(2),
-//				Rules: wafv2.RuleGroupRuleArray{
-//					&wafv2.RuleGroupRuleArgs{
-//						Name:     pulumi.String("rule-1"),
-//						Priority: pulumi.Int(1),
-//						Action: &wafv2.RuleGroupRuleActionArgs{
-//							Allow: &wafv2.RuleGroupRuleActionAllowArgs{},
-//						},
-//						Statement: &wafv2.RuleGroupRuleStatementArgs{
-//							GeoMatchStatement: &wafv2.RuleGroupRuleStatementGeoMatchStatementArgs{
-//								CountryCodes: pulumi.StringArray{
-//									pulumi.String("US"),
-//									pulumi.String("NL"),
-//								},
-//							},
-//						},
-//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
-//							CloudwatchMetricsEnabled: pulumi.Bool(false),
-//							MetricName:               pulumi.String("friendly-rule-metric-name"),
-//							SampledRequestsEnabled:   pulumi.Bool(false),
-//						},
-//					},
-//				},
-//				VisibilityConfig: &wafv2.RuleGroupVisibilityConfigArgs{
-//					CloudwatchMetricsEnabled: pulumi.Bool(false),
-//					MetricName:               pulumi.String("friendly-metric-name"),
-//					SampledRequestsEnabled:   pulumi.Bool(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Complex
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := wafv2.NewIpSet(ctx, "test", &wafv2.IpSetArgs{
-//				Name:             pulumi.String("test"),
-//				Scope:            pulumi.String("REGIONAL"),
-//				IpAddressVersion: pulumi.String("IPV4"),
-//				Addresses: pulumi.StringArray{
-//					pulumi.String("1.1.1.1/32"),
-//					pulumi.String("2.2.2.2/32"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testRegexPatternSet, err := wafv2.NewRegexPatternSet(ctx, "test", &wafv2.RegexPatternSetArgs{
-//				Name:  pulumi.String("test"),
-//				Scope: pulumi.String("REGIONAL"),
-//				RegularExpressions: wafv2.RegexPatternSetRegularExpressionArray{
-//					&wafv2.RegexPatternSetRegularExpressionArgs{
-//						RegexString: pulumi.String("one"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = wafv2.NewRuleGroup(ctx, "example", &wafv2.RuleGroupArgs{
-//				Name:        pulumi.String("complex-example"),
-//				Description: pulumi.String("An rule group containing all statements"),
-//				Scope:       pulumi.String("REGIONAL"),
-//				Capacity:    pulumi.Int(500),
-//				Rules: wafv2.RuleGroupRuleArray{
-//					&wafv2.RuleGroupRuleArgs{
-//						Name:     pulumi.String("rule-1"),
-//						Priority: pulumi.Int(1),
-//						Action: &wafv2.RuleGroupRuleActionArgs{
-//							Block: &wafv2.RuleGroupRuleActionBlockArgs{},
-//						},
-//						Statement: &wafv2.RuleGroupRuleStatementArgs{
-//							NotStatement: &wafv2.RuleGroupRuleStatementNotStatementArgs{
-//								Statements: wafv2.RuleGroupRuleStatementArray{
-//									&wafv2.RuleGroupRuleStatementArgs{
-//										AndStatement: &wafv2.RuleGroupRuleStatementAndStatementArgs{
-//											Statements: wafv2.RuleGroupRuleStatementArray{
-//												&wafv2.RuleGroupRuleStatementArgs{
-//													GeoMatchStatement: &wafv2.RuleGroupRuleStatementGeoMatchStatementArgs{
-//														CountryCodes: pulumi.StringArray{
-//															pulumi.String("US"),
-//														},
-//													},
-//												},
-//												&wafv2.RuleGroupRuleStatementArgs{
-//													ByteMatchStatement: &wafv2.RuleGroupRuleStatementByteMatchStatementArgs{
-//														PositionalConstraint: pulumi.String("CONTAINS"),
-//														SearchString:         pulumi.String("word"),
-//														FieldToMatch: &wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchArgs{
-//															AllQueryArguments: &wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs{},
-//														},
-//														TextTransformations: wafv2.RuleGroupRuleStatementByteMatchStatementTextTransformationArray{
-//															&wafv2.RuleGroupRuleStatementByteMatchStatementTextTransformationArgs{
-//																Priority: pulumi.Int(5),
-//																Type:     pulumi.String("CMD_LINE"),
-//															},
-//															&wafv2.RuleGroupRuleStatementByteMatchStatementTextTransformationArgs{
-//																Priority: pulumi.Int(2),
-//																Type:     pulumi.String("LOWERCASE"),
-//															},
-//														},
-//													},
-//												},
-//											},
-//										},
-//									},
-//								},
-//							},
-//						},
-//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
-//							CloudwatchMetricsEnabled: pulumi.Bool(false),
-//							MetricName:               pulumi.String("rule-1"),
-//							SampledRequestsEnabled:   pulumi.Bool(false),
-//						},
-//					},
-//					&wafv2.RuleGroupRuleArgs{
-//						Name:     pulumi.String("rule-2"),
-//						Priority: pulumi.Int(2),
-//						Action: &wafv2.RuleGroupRuleActionArgs{
-//							Count: &wafv2.RuleGroupRuleActionCountArgs{},
-//						},
-//						Statement: &wafv2.RuleGroupRuleStatementArgs{
-//							OrStatement: &wafv2.RuleGroupRuleStatementOrStatementArgs{
-//								Statements: wafv2.RuleGroupRuleStatementArray{
-//									&wafv2.RuleGroupRuleStatementArgs{
-//										RegexMatchStatement: &wafv2.RuleGroupRuleStatementRegexMatchStatementArgs{
-//											RegexString: pulumi.String("a-z?"),
-//											FieldToMatch: &wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs{
-//												SingleHeader: &wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderArgs{
-//													Name: pulumi.String("user-agent"),
-//												},
-//											},
-//											TextTransformations: wafv2.RuleGroupRuleStatementRegexMatchStatementTextTransformationArray{
-//												&wafv2.RuleGroupRuleStatementRegexMatchStatementTextTransformationArgs{
-//													Priority: pulumi.Int(6),
-//													Type:     pulumi.String("NONE"),
-//												},
-//											},
-//										},
-//									},
-//									&wafv2.RuleGroupRuleStatementArgs{
-//										SqliMatchStatement: &wafv2.RuleGroupRuleStatementSqliMatchStatementArgs{
-//											FieldToMatch: &wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs{
-//												Body: &wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchBodyArgs{},
-//											},
-//											TextTransformations: wafv2.RuleGroupRuleStatementSqliMatchStatementTextTransformationArray{
-//												&wafv2.RuleGroupRuleStatementSqliMatchStatementTextTransformationArgs{
-//													Priority: pulumi.Int(5),
-//													Type:     pulumi.String("URL_DECODE"),
-//												},
-//												&wafv2.RuleGroupRuleStatementSqliMatchStatementTextTransformationArgs{
-//													Priority: pulumi.Int(4),
-//													Type:     pulumi.String("HTML_ENTITY_DECODE"),
-//												},
-//												&wafv2.RuleGroupRuleStatementSqliMatchStatementTextTransformationArgs{
-//													Priority: pulumi.Int(3),
-//													Type:     pulumi.String("COMPRESS_WHITE_SPACE"),
-//												},
-//											},
-//										},
-//									},
-//									&wafv2.RuleGroupRuleStatementArgs{
-//										XssMatchStatement: &wafv2.RuleGroupRuleStatementXssMatchStatementArgs{
-//											FieldToMatch: &wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchArgs{
-//												Method: &wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchMethodArgs{},
-//											},
-//											TextTransformations: wafv2.RuleGroupRuleStatementXssMatchStatementTextTransformationArray{
-//												&wafv2.RuleGroupRuleStatementXssMatchStatementTextTransformationArgs{
-//													Priority: pulumi.Int(2),
-//													Type:     pulumi.String("NONE"),
-//												},
-//											},
-//										},
-//									},
-//								},
-//							},
-//						},
-//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
-//							CloudwatchMetricsEnabled: pulumi.Bool(false),
-//							MetricName:               pulumi.String("rule-2"),
-//							SampledRequestsEnabled:   pulumi.Bool(false),
-//						},
-//						CaptchaConfig: &wafv2.RuleGroupRuleCaptchaConfigArgs{
-//							ImmunityTimeProperty: &wafv2.RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs{
-//								ImmunityTime: pulumi.Int(240),
-//							},
-//						},
-//					},
-//					&wafv2.RuleGroupRuleArgs{
-//						Name:     pulumi.String("rule-3"),
-//						Priority: pulumi.Int(3),
-//						Action: &wafv2.RuleGroupRuleActionArgs{
-//							Block: &wafv2.RuleGroupRuleActionBlockArgs{},
-//						},
-//						Statement: &wafv2.RuleGroupRuleStatementArgs{
-//							SizeConstraintStatement: &wafv2.RuleGroupRuleStatementSizeConstraintStatementArgs{
-//								ComparisonOperator: pulumi.String("GT"),
-//								Size:               pulumi.Int(100),
-//								FieldToMatch: &wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs{
-//									SingleQueryArgument: &wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs{
-//										Name: pulumi.String("username"),
-//									},
-//								},
-//								TextTransformations: wafv2.RuleGroupRuleStatementSizeConstraintStatementTextTransformationArray{
-//									&wafv2.RuleGroupRuleStatementSizeConstraintStatementTextTransformationArgs{
-//										Priority: pulumi.Int(5),
-//										Type:     pulumi.String("NONE"),
-//									},
-//								},
-//							},
-//						},
-//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
-//							CloudwatchMetricsEnabled: pulumi.Bool(false),
-//							MetricName:               pulumi.String("rule-3"),
-//							SampledRequestsEnabled:   pulumi.Bool(false),
-//						},
-//					},
-//					&wafv2.RuleGroupRuleArgs{
-//						Name:     pulumi.String("rule-4"),
-//						Priority: pulumi.Int(4),
-//						Action: &wafv2.RuleGroupRuleActionArgs{
-//							Block: &wafv2.RuleGroupRuleActionBlockArgs{},
-//						},
-//						Statement: &wafv2.RuleGroupRuleStatementArgs{
-//							OrStatement: &wafv2.RuleGroupRuleStatementOrStatementArgs{
-//								Statements: wafv2.RuleGroupRuleStatementArray{
-//									&wafv2.RuleGroupRuleStatementArgs{
-//										IpSetReferenceStatement: &wafv2.RuleGroupRuleStatementIpSetReferenceStatementArgs{
-//											Arn: test.Arn,
-//										},
-//									},
-//									&wafv2.RuleGroupRuleStatementArgs{
-//										RegexPatternSetReferenceStatement: &wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs{
-//											Arn: testRegexPatternSet.Arn,
-//											FieldToMatch: &wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs{
-//												SingleHeader: &wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs{
-//													Name: pulumi.String("referer"),
-//												},
-//											},
-//											TextTransformations: wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationArray{
-//												&wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs{
-//													Priority: pulumi.Int(2),
-//													Type:     pulumi.String("NONE"),
-//												},
-//											},
-//										},
-//									},
-//								},
-//							},
-//						},
-//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
-//							CloudwatchMetricsEnabled: pulumi.Bool(false),
-//							MetricName:               pulumi.String("rule-4"),
-//							SampledRequestsEnabled:   pulumi.Bool(false),
-//						},
-//					},
-//				},
-//				VisibilityConfig: &wafv2.RuleGroupVisibilityConfigArgs{
-//					CloudwatchMetricsEnabled: pulumi.Bool(false),
-//					MetricName:               pulumi.String("friendly-metric-name"),
-//					SampledRequestsEnabled:   pulumi.Bool(false),
-//				},
-//				CaptchaConfig: []map[string]interface{}{
-//					map[string]interface{}{
-//						"immunityTimeProperty": []map[string]interface{}{
-//							map[string]interface{}{
-//								"immunityTime": 120,
-//							},
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example-and-statement"),
-//					"Code": pulumi.String("123456"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Using rulesJson
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal([]map[string]interface{}{
-//				map[string]interface{}{
-//					"Name":     "rule-1",
-//					"Priority": 1,
-//					"Action": map[string]interface{}{
-//						"Count": map[string]interface{}{},
-//					},
-//					"Statement": map[string]interface{}{
-//						"ByteMatchStatement": map[string]interface{}{
-//							"SearchString": "badbot",
-//							"FieldToMatch": map[string]interface{}{
-//								"UriPath": map[string]interface{}{},
-//							},
-//							"TextTransformations": []map[string]interface{}{
-//								map[string]interface{}{
-//									"Priority": 1,
-//									"Type":     "NONE",
-//								},
-//							},
-//							"PositionalConstraint": "CONTAINS",
-//						},
-//					},
-//					"VisibilityConfig": map[string]interface{}{
-//						"CloudwatchMetricsEnabled": false,
-//						"MetricName":               "friendly-rule-metric-name",
-//						"SampledRequestsEnabled":   false,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = wafv2.NewRuleGroup(ctx, "example", &wafv2.RuleGroupArgs{
-//				Name:      pulumi.String("example-rule-group"),
-//				Scope:     pulumi.String("REGIONAL"),
-//				Capacity:  pulumi.Int(100),
-//				RulesJson: pulumi.String(json0),
-//				VisibilityConfig: &wafv2.RuleGroupVisibilityConfigArgs{
-//					CloudwatchMetricsEnabled: pulumi.Bool(false),
-//					MetricName:               pulumi.String("friendly-metric-name"),
-//					SampledRequestsEnabled:   pulumi.Bool(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import WAFv2 Rule Group using `ID/name/scope`. For example:
-//
-// ```sh
-// $ pulumi import aws:wafv2/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
-// ```
 type RuleGroup struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the WAF rule group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
-	Capacity pulumi.IntOutput `pulumi:"capacity"`
-	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+	Arn                  pulumi.StringOutput                    `pulumi:"arn"`
+	Capacity             pulumi.IntOutput                       `pulumi:"capacity"`
 	CustomResponseBodies RuleGroupCustomResponseBodyArrayOutput `pulumi:"customResponseBodies"`
-	// A friendly description of the rule group.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	LockToken   pulumi.StringOutput    `pulumi:"lockToken"`
-	// A friendly name of the rule group.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
-	Rules RuleGroupRuleArrayOutput `pulumi:"rules"`
-	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rulesJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
-	RulesJson pulumi.StringPtrOutput `pulumi:"rulesJson"`
-	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-	Scope pulumi.StringOutput `pulumi:"scope"`
-	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-	VisibilityConfig RuleGroupVisibilityConfigOutput `pulumi:"visibilityConfig"`
+	Description          pulumi.StringPtrOutput                 `pulumi:"description"`
+	LockToken            pulumi.StringOutput                    `pulumi:"lockToken"`
+	Name                 pulumi.StringOutput                    `pulumi:"name"`
+	NamePrefix           pulumi.StringOutput                    `pulumi:"namePrefix"`
+	Region               pulumi.StringOutput                    `pulumi:"region"`
+	Rules                RuleGroupRuleArrayOutput               `pulumi:"rules"`
+	RulesJson            pulumi.StringPtrOutput                 `pulumi:"rulesJson"`
+	Scope                pulumi.StringOutput                    `pulumi:"scope"`
+	Tags                 pulumi.StringMapOutput                 `pulumi:"tags"`
+	TagsAll              pulumi.StringMapOutput                 `pulumi:"tagsAll"`
+	VisibilityConfig     RuleGroupVisibilityConfigOutput        `pulumi:"visibilityConfig"`
 }
 
 // NewRuleGroup registers a new resource with the given unique name, arguments, and options.
@@ -482,63 +70,37 @@ func GetRuleGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RuleGroup resources.
 type ruleGroupState struct {
-	// The ARN of the WAF rule group.
-	Arn *string `pulumi:"arn"`
-	// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
-	Capacity *int `pulumi:"capacity"`
-	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+	Arn                  *string                       `pulumi:"arn"`
+	Capacity             *int                          `pulumi:"capacity"`
 	CustomResponseBodies []RuleGroupCustomResponseBody `pulumi:"customResponseBodies"`
-	// A friendly description of the rule group.
-	Description *string `pulumi:"description"`
-	LockToken   *string `pulumi:"lockToken"`
-	// A friendly name of the rule group.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
-	Rules []RuleGroupRule `pulumi:"rules"`
-	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rulesJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
-	RulesJson *string `pulumi:"rulesJson"`
-	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-	Scope *string `pulumi:"scope"`
-	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-	VisibilityConfig *RuleGroupVisibilityConfig `pulumi:"visibilityConfig"`
+	Description          *string                       `pulumi:"description"`
+	LockToken            *string                       `pulumi:"lockToken"`
+	Name                 *string                       `pulumi:"name"`
+	NamePrefix           *string                       `pulumi:"namePrefix"`
+	Region               *string                       `pulumi:"region"`
+	Rules                []RuleGroupRule               `pulumi:"rules"`
+	RulesJson            *string                       `pulumi:"rulesJson"`
+	Scope                *string                       `pulumi:"scope"`
+	Tags                 map[string]string             `pulumi:"tags"`
+	TagsAll              map[string]string             `pulumi:"tagsAll"`
+	VisibilityConfig     *RuleGroupVisibilityConfig    `pulumi:"visibilityConfig"`
 }
 
 type RuleGroupState struct {
-	// The ARN of the WAF rule group.
-	Arn pulumi.StringPtrInput
-	// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
-	Capacity pulumi.IntPtrInput
-	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+	Arn                  pulumi.StringPtrInput
+	Capacity             pulumi.IntPtrInput
 	CustomResponseBodies RuleGroupCustomResponseBodyArrayInput
-	// A friendly description of the rule group.
-	Description pulumi.StringPtrInput
-	LockToken   pulumi.StringPtrInput
-	// A friendly name of the rule group.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
-	Rules RuleGroupRuleArrayInput
-	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rulesJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
-	RulesJson pulumi.StringPtrInput
-	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-	Scope pulumi.StringPtrInput
-	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-	VisibilityConfig RuleGroupVisibilityConfigPtrInput
+	Description          pulumi.StringPtrInput
+	LockToken            pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
+	NamePrefix           pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
+	Rules                RuleGroupRuleArrayInput
+	RulesJson            pulumi.StringPtrInput
+	Scope                pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
+	TagsAll              pulumi.StringMapInput
+	VisibilityConfig     RuleGroupVisibilityConfigPtrInput
 }
 
 func (RuleGroupState) ElementType() reflect.Type {
@@ -546,54 +108,32 @@ func (RuleGroupState) ElementType() reflect.Type {
 }
 
 type ruleGroupArgs struct {
-	// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
-	Capacity int `pulumi:"capacity"`
-	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+	Capacity             int                           `pulumi:"capacity"`
 	CustomResponseBodies []RuleGroupCustomResponseBody `pulumi:"customResponseBodies"`
-	// A friendly description of the rule group.
-	Description *string `pulumi:"description"`
-	// A friendly name of the rule group.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
-	Rules []RuleGroupRule `pulumi:"rules"`
-	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rulesJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
-	RulesJson *string `pulumi:"rulesJson"`
-	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-	Scope string `pulumi:"scope"`
-	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-	VisibilityConfig RuleGroupVisibilityConfig `pulumi:"visibilityConfig"`
+	Description          *string                       `pulumi:"description"`
+	Name                 *string                       `pulumi:"name"`
+	NamePrefix           *string                       `pulumi:"namePrefix"`
+	Region               *string                       `pulumi:"region"`
+	Rules                []RuleGroupRule               `pulumi:"rules"`
+	RulesJson            *string                       `pulumi:"rulesJson"`
+	Scope                string                        `pulumi:"scope"`
+	Tags                 map[string]string             `pulumi:"tags"`
+	VisibilityConfig     RuleGroupVisibilityConfig     `pulumi:"visibilityConfig"`
 }
 
 // The set of arguments for constructing a RuleGroup resource.
 type RuleGroupArgs struct {
-	// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
-	Capacity pulumi.IntInput
-	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+	Capacity             pulumi.IntInput
 	CustomResponseBodies RuleGroupCustomResponseBodyArrayInput
-	// A friendly description of the rule group.
-	Description pulumi.StringPtrInput
-	// A friendly name of the rule group.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
-	Rules RuleGroupRuleArrayInput
-	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rulesJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
-	RulesJson pulumi.StringPtrInput
-	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-	Scope pulumi.StringInput
-	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-	VisibilityConfig RuleGroupVisibilityConfigInput
+	Description          pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
+	NamePrefix           pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
+	Rules                RuleGroupRuleArrayInput
+	RulesJson            pulumi.StringPtrInput
+	Scope                pulumi.StringInput
+	Tags                 pulumi.StringMapInput
+	VisibilityConfig     RuleGroupVisibilityConfigInput
 }
 
 func (RuleGroupArgs) ElementType() reflect.Type {
@@ -683,22 +223,18 @@ func (o RuleGroupOutput) ToRuleGroupOutputWithContext(ctx context.Context) RuleG
 	return o
 }
 
-// The ARN of the WAF rule group.
 func (o RuleGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
 func (o RuleGroupOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.IntOutput { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
 func (o RuleGroupOutput) CustomResponseBodies() RuleGroupCustomResponseBodyArrayOutput {
 	return o.ApplyT(func(v *RuleGroup) RuleGroupCustomResponseBodyArrayOutput { return v.CustomResponseBodies }).(RuleGroupCustomResponseBodyArrayOutput)
 }
 
-// A friendly description of the rule group.
 func (o RuleGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -707,47 +243,38 @@ func (o RuleGroupOutput) LockToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.LockToken }).(pulumi.StringOutput)
 }
 
-// A friendly name of the rule group.
 func (o RuleGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 func (o RuleGroupOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RuleGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 func (o RuleGroupOutput) Rules() RuleGroupRuleArrayOutput {
 	return o.ApplyT(func(v *RuleGroup) RuleGroupRuleArrayOutput { return v.Rules }).(RuleGroupRuleArrayOutput)
 }
 
-// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rulesJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
 func (o RuleGroupOutput) RulesJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringPtrOutput { return v.RulesJson }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 func (o RuleGroupOutput) Scope() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Scope }).(pulumi.StringOutput)
 }
 
-// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RuleGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RuleGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
 func (o RuleGroupOutput) VisibilityConfig() RuleGroupVisibilityConfigOutput {
 	return o.ApplyT(func(v *RuleGroup) RuleGroupVisibilityConfigOutput { return v.VisibilityConfig }).(RuleGroupVisibilityConfigOutput)
 }

@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetReceivedLicenseReceivedMetadata {
-    /**
-     * @return A list of allowed operations.
-     * 
-     */
     private List<String> allowedOperations;
-    /**
-     * @return Received status.
-     * 
-     */
     private String receivedStatus;
-    /**
-     * @return Received status reason.
-     * 
-     */
     private String receivedStatusReason;
 
     private GetReceivedLicenseReceivedMetadata() {}
-    /**
-     * @return A list of allowed operations.
-     * 
-     */
     public List<String> allowedOperations() {
         return this.allowedOperations;
     }
-    /**
-     * @return Received status.
-     * 
-     */
     public String receivedStatus() {
         return this.receivedStatus;
     }
-    /**
-     * @return Received status reason.
-     * 
-     */
     public String receivedStatusReason() {
         return this.receivedStatusReason;
     }

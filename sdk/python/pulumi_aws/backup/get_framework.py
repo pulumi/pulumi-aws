@@ -62,41 +62,26 @@ class GetFrameworkResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the backup framework.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def controls(self) -> Sequence['outputs.GetFrameworkControlResult']:
-        """
-        One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
-        """
         return pulumi.get(self, "controls")
 
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> _builtins.str:
-        """
-        Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
-        """
         return pulumi.get(self, "creation_time")
 
     @_builtins.property
     @pulumi.getter(name="deploymentStatus")
     def deployment_status(self) -> _builtins.str:
-        """
-        Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`| `FAILED`.
-        """
         return pulumi.get(self, "deployment_status")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the framework.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -110,9 +95,6 @@ class GetFrameworkResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of a parameter, for example, BackupPlanFrequency.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -123,17 +105,11 @@ class GetFrameworkResult:
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are: `ACTIVE`, `PARTIALLY_ACTIVE`, `INACTIVE`, `UNAVAILABLE`. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -160,21 +136,7 @@ def get_framework(name: Optional[_builtins.str] = None,
                   tags: Optional[Mapping[str, _builtins.str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFrameworkResult:
     """
-    Use this data source to get information on an existing backup framework.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.backup.get_framework(name="my_example_backup_framework_name")
-    ```
-
-
-    :param _builtins.str name: Backup framework name.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -199,21 +161,7 @@ def get_framework_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFrameworkResult]:
     """
-    Use this data source to get information on an existing backup framework.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.backup.get_framework(name="my_example_backup_framework_name")
-    ```
-
-
-    :param _builtins.str name: Backup framework name.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

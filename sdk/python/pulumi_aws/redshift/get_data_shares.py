@@ -41,17 +41,11 @@ class GetDataSharesResult:
     @_builtins.property
     @pulumi.getter(name="dataShares")
     def data_shares(self) -> Sequence['outputs.GetDataSharesDataShareResult']:
-        """
-        An array of all data shares in the current region. See `data_shares` below.
-        """
         return pulumi.get(self, "data_shares")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        AWS region.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
@@ -74,21 +68,7 @@ class AwaitableGetDataSharesResult(GetDataSharesResult):
 def get_data_shares(region: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataSharesResult:
     """
-    Data source for managing AWS Redshift Data Shares.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.redshift.get_data_shares()
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -102,21 +82,7 @@ def get_data_shares(region: Optional[_builtins.str] = None,
 def get_data_shares_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataSharesResult]:
     """
-    Data source for managing AWS Redshift Data Shares.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.redshift.get_data_shares()
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

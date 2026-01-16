@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Eks.Inputs
 
     public sealed class ClusterRemoteNetworkConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
-        /// </summary>
         [Input("remoteNodeNetworks", required: true)]
         public Input<Inputs.ClusterRemoteNetworkConfigRemoteNodeNetworksArgs> RemoteNodeNetworks { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
-        /// </summary>
         [Input("remotePodNetworks")]
         public Input<Inputs.ClusterRemoteNetworkConfigRemotePodNetworksArgs>? RemotePodNetworks { get; set; }
 

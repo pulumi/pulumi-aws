@@ -59,9 +59,6 @@ class GetSolutionStackResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the solution stack.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -93,29 +90,7 @@ def get_solution_stack(most_recent: Optional[_builtins.bool] = None,
                        region: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSolutionStackResult:
     """
-    Use this data source to get the name of a elastic beanstalk solution stack.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    multi_docker = aws.elasticbeanstalk.get_solution_stack(most_recent=True,
-        name_regex="^64bit Amazon Linux (.*) Multi-container Docker (.*)$")
-    ```
-
-
-    :param _builtins.bool most_recent: If more than one result is returned, use the most
-           recent solution stack.
-    :param _builtins.str name_regex: Regex string to apply to the solution stack list returned
-           by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
-           AWS documentation for reference solution stack names.
-           
-           > **NOTE:** If more or less than a single match is returned by the search,
-           this call will fail. Ensure that your search is specific enough to return
-           a single solution stack, or use `most_recent` to choose the most recent one.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['mostRecent'] = most_recent
@@ -135,29 +110,7 @@ def get_solution_stack_output(most_recent: Optional[pulumi.Input[Optional[_built
                               region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSolutionStackResult]:
     """
-    Use this data source to get the name of a elastic beanstalk solution stack.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    multi_docker = aws.elasticbeanstalk.get_solution_stack(most_recent=True,
-        name_regex="^64bit Amazon Linux (.*) Multi-container Docker (.*)$")
-    ```
-
-
-    :param _builtins.bool most_recent: If more than one result is returned, use the most
-           recent solution stack.
-    :param _builtins.str name_regex: Regex string to apply to the solution stack list returned
-           by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
-           AWS documentation for reference solution stack names.
-           
-           > **NOTE:** If more or less than a single match is returned by the search,
-           this call will fail. Ensure that your search is specific enough to return
-           a single solution stack, or use `most_recent` to choose the most recent one.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['mostRecent'] = most_recent

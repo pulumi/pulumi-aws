@@ -13,13 +13,7 @@ namespace Pulumi.Aws.FinSpace.Outputs
     [OutputType]
     public sealed class KxVolumeNas1Configuration
     {
-        /// <summary>
-        /// The size of the network attached storage.
-        /// </summary>
         public readonly int Size;
-        /// <summary>
-        /// The type of the network attached storage.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

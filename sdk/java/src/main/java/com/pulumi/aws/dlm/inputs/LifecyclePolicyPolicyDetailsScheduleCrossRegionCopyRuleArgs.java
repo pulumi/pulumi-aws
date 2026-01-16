@@ -61,17 +61,9 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs e
         return Optional.ofNullable(this.target);
     }
 
-    /**
-     * Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
-     * 
-     */
     @Import(name="targetRegion")
     private @Nullable Output<String> targetRegion;
 
-    /**
-     * @return Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
-     * 
-     */
     public Optional<Output<String>> targetRegion() {
         return Optional.ofNullable(this.targetRegion);
     }
@@ -160,23 +152,11 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs e
             return target(Output.of(target));
         }
 
-        /**
-         * @param targetRegion Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetRegion(@Nullable Output<String> targetRegion) {
             $.targetRegion = targetRegion;
             return this;
         }
 
-        /**
-         * @param targetRegion Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetRegion(String targetRegion) {
             return targetRegion(Output.of(targetRegion));
         }

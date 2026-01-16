@@ -11,96 +11,12 @@ namespace Pulumi.Aws.ApiGateway
 {
     public static class GetSdk
     {
-        /// <summary>
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ApiGateway.GetSdk.Invoke(new()
-        ///     {
-        ///         RestApiId = exampleAwsApiGatewayStage.RestApiId,
-        ///         StageName = exampleAwsApiGatewayStage.StageName,
-        ///         SdkType = "android",
-        ///         Parameters = 
-        ///         {
-        ///             { "groupId", "example" },
-        ///             { "artifactId", "example" },
-        ///             { "artifactVersion", "example" },
-        ///             { "invokerPackage", "example" },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetSdkResult> InvokeAsync(GetSdkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSdkResult>("aws:apigateway/getSdk:getSdk", args ?? new GetSdkArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ApiGateway.GetSdk.Invoke(new()
-        ///     {
-        ///         RestApiId = exampleAwsApiGatewayStage.RestApiId,
-        ///         StageName = exampleAwsApiGatewayStage.StageName,
-        ///         SdkType = "android",
-        ///         Parameters = 
-        ///         {
-        ///             { "groupId", "example" },
-        ///             { "artifactId", "example" },
-        ///             { "artifactVersion", "example" },
-        ///             { "invokerPackage", "example" },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetSdkResult> Invoke(GetSdkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSdkResult>("aws:apigateway/getSdk:getSdk", args ?? new GetSdkInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ApiGateway.GetSdk.Invoke(new()
-        ///     {
-        ///         RestApiId = exampleAwsApiGatewayStage.RestApiId,
-        ///         StageName = exampleAwsApiGatewayStage.StageName,
-        ///         SdkType = "android",
-        ///         Parameters = 
-        ///         {
-        ///             { "groupId", "example" },
-        ///             { "artifactId", "example" },
-        ///             { "artifactVersion", "example" },
-        ///             { "invokerPackage", "example" },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetSdkResult> Invoke(GetSdkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSdkResult>("aws:apigateway/getSdk:getSdk", args ?? new GetSdkInvokeArgs(), options.WithDefaults());
     }
@@ -110,37 +26,21 @@ namespace Pulumi.Aws.ApiGateway
     {
         [Input("parameters")]
         private Dictionary<string, string>? _parameters;
-
-        /// <summary>
-        /// Key-value map of query string parameters `SdkType` properties of the SDK. For SDK Type of `Objectivec` or `Swift`, a parameter named `classPrefix` is required. For SDK Type of `Android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `Java`, parameters named `serviceName` and `javaPackageName` are required.
-        /// </summary>
         public Dictionary<string, string> Parameters
         {
             get => _parameters ?? (_parameters = new Dictionary<string, string>());
             set => _parameters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// Identifier of the associated REST API.
-        /// </summary>
         [Input("restApiId", required: true)]
         public string RestApiId { get; set; } = null!;
 
-        /// <summary>
-        /// Language for the generated SDK. Currently `Java`, `Javascript`, `Android`, `Objectivec` (for iOS), `Swift` (for iOS), and `Ruby` are supported.
-        /// </summary>
         [Input("sdkType", required: true)]
         public string SdkType { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the Stage that will be exported.
-        /// </summary>
         [Input("stageName", required: true)]
         public string StageName { get; set; } = null!;
 
@@ -154,37 +54,21 @@ namespace Pulumi.Aws.ApiGateway
     {
         [Input("parameters")]
         private InputMap<string>? _parameters;
-
-        /// <summary>
-        /// Key-value map of query string parameters `SdkType` properties of the SDK. For SDK Type of `Objectivec` or `Swift`, a parameter named `classPrefix` is required. For SDK Type of `Android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `Java`, parameters named `serviceName` and `javaPackageName` are required.
-        /// </summary>
         public InputMap<string> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Identifier of the associated REST API.
-        /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
 
-        /// <summary>
-        /// Language for the generated SDK. Currently `Java`, `Javascript`, `Android`, `Objectivec` (for iOS), `Swift` (for iOS), and `Ruby` are supported.
-        /// </summary>
         [Input("sdkType", required: true)]
         public Input<string> SdkType { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the Stage that will be exported.
-        /// </summary>
         [Input("stageName", required: true)]
         public Input<string> StageName { get; set; } = null!;
 
@@ -198,17 +82,8 @@ namespace Pulumi.Aws.ApiGateway
     [OutputType]
     public sealed class GetSdkResult
     {
-        /// <summary>
-        /// SDK as a string.
-        /// </summary>
         public readonly string Body;
-        /// <summary>
-        /// Content-disposition header value in the HTTP response.
-        /// </summary>
         public readonly string ContentDisposition;
-        /// <summary>
-        /// Content-type header value in the HTTP response.
-        /// </summary>
         public readonly string ContentType;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

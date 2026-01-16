@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetListenerRuleTransformUrlRewriteConfig {
-    /**
-     * @return Block for URL rewrite configuration. Detailed below.
-     * 
-     */
     private @Nullable List<GetListenerRuleTransformUrlRewriteConfigRewrite> rewrites;
 
     private GetListenerRuleTransformUrlRewriteConfig() {}
-    /**
-     * @return Block for URL rewrite configuration. Detailed below.
-     * 
-     */
     public List<GetListenerRuleTransformUrlRewriteConfigRewrite> rewrites() {
         return this.rewrites == null ? List.of() : this.rewrites;
     }

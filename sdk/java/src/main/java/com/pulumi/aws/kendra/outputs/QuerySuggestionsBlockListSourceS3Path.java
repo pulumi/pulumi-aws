@@ -10,33 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class QuerySuggestionsBlockListSourceS3Path {
-    /**
-     * @return Name of the S3 bucket that contains the file.
-     * 
-     */
     private String bucket;
-    /**
-     * @return Name of the file.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String key;
 
     private QuerySuggestionsBlockListSourceS3Path() {}
-    /**
-     * @return Name of the S3 bucket that contains the file.
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }
-    /**
-     * @return Name of the file.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String key() {
         return this.key;
     }

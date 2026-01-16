@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ec2TransitGateway.Outputs
     [OutputType]
     public sealed class GetAttachmentsFilterResult
     {
-        /// <summary>
-        /// Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html)
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// List of one or more values for the filter.
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

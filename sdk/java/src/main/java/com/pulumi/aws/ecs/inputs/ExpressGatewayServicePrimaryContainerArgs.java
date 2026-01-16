@@ -29,32 +29,16 @@ public final class ExpressGatewayServicePrimaryContainerArgs extends com.pulumi.
         return Optional.ofNullable(this.awsLogsConfigurations);
     }
 
-    /**
-     * Command to run in the container. Overrides the default command from the Docker image.
-     * 
-     */
     @Import(name="commands")
     private @Nullable Output<List<String>> commands;
 
-    /**
-     * @return Command to run in the container. Overrides the default command from the Docker image.
-     * 
-     */
     public Optional<Output<List<String>>> commands() {
         return Optional.ofNullable(this.commands);
     }
 
-    /**
-     * Port on which the container listens for connections.
-     * 
-     */
     @Import(name="containerPort")
     private @Nullable Output<Integer> containerPort;
 
-    /**
-     * @return Port on which the container listens for connections.
-     * 
-     */
     public Optional<Output<Integer>> containerPort() {
         return Optional.ofNullable(this.containerPort);
     }
@@ -66,17 +50,9 @@ public final class ExpressGatewayServicePrimaryContainerArgs extends com.pulumi.
         return Optional.ofNullable(this.environments);
     }
 
-    /**
-     * Docker image to use for the container.
-     * 
-     */
     @Import(name="image", required=true)
     private Output<String> image;
 
-    /**
-     * @return Docker image to use for the container.
-     * 
-     */
     public Output<String> image() {
         return this.image;
     }
@@ -138,54 +114,24 @@ public final class ExpressGatewayServicePrimaryContainerArgs extends com.pulumi.
             return awsLogsConfigurations(List.of(awsLogsConfigurations));
         }
 
-        /**
-         * @param commands Command to run in the container. Overrides the default command from the Docker image.
-         * 
-         * @return builder
-         * 
-         */
         public Builder commands(@Nullable Output<List<String>> commands) {
             $.commands = commands;
             return this;
         }
 
-        /**
-         * @param commands Command to run in the container. Overrides the default command from the Docker image.
-         * 
-         * @return builder
-         * 
-         */
         public Builder commands(List<String> commands) {
             return commands(Output.of(commands));
         }
 
-        /**
-         * @param commands Command to run in the container. Overrides the default command from the Docker image.
-         * 
-         * @return builder
-         * 
-         */
         public Builder commands(String... commands) {
             return commands(List.of(commands));
         }
 
-        /**
-         * @param containerPort Port on which the container listens for connections.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerPort(@Nullable Output<Integer> containerPort) {
             $.containerPort = containerPort;
             return this;
         }
 
-        /**
-         * @param containerPort Port on which the container listens for connections.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerPort(Integer containerPort) {
             return containerPort(Output.of(containerPort));
         }
@@ -203,23 +149,11 @@ public final class ExpressGatewayServicePrimaryContainerArgs extends com.pulumi.
             return environments(List.of(environments));
         }
 
-        /**
-         * @param image Docker image to use for the container.
-         * 
-         * @return builder
-         * 
-         */
         public Builder image(Output<String> image) {
             $.image = image;
             return this;
         }
 
-        /**
-         * @param image Docker image to use for the container.
-         * 
-         * @return builder
-         * 
-         */
         public Builder image(String image) {
             return image(Output.of(image));
         }

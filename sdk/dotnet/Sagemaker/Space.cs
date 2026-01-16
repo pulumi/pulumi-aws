@@ -9,110 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sagemaker
 {
-    /// <summary>
-    /// Provides a SageMaker AI Space resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sagemaker.Space("example", new()
-    ///     {
-    ///         DomainId = test.Id,
-    ///         SpaceName = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SageMaker AI Spaces using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sagemaker/space:Space")]
     public partial class Space : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The space's Amazon Resource Name (ARN).
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the associated Domain.
-        /// </summary>
         [Output("domainId")]
         public Output<string> DomainId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the space's profile in the Amazon Elastic File System volume.
-        /// </summary>
         [Output("homeEfsFileSystemUid")]
         public Output<string> HomeEfsFileSystemUid { get; private set; } = null!;
 
-        /// <summary>
-        /// A collection of ownership settings. Required if `SpaceSharingSettings` is set. See `OwnershipSettings` Block below.
-        /// </summary>
         [Output("ownershipSettings")]
         public Output<Outputs.SpaceOwnershipSettings?> OwnershipSettings { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the space that appears in the SageMaker AI Studio UI.
-        /// </summary>
         [Output("spaceDisplayName")]
         public Output<string?> SpaceDisplayName { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the space.
-        /// </summary>
         [Output("spaceName")]
         public Output<string> SpaceName { get; private set; } = null!;
 
-        /// <summary>
-        /// A collection of space settings. See `SpaceSettings` Block below.
-        /// </summary>
         [Output("spaceSettings")]
         public Output<Outputs.SpaceSpaceSettings?> SpaceSettings { get; private set; } = null!;
 
-        /// <summary>
-        /// A collection of space sharing settings. Required if `OwnershipSettings` is set. See `SpaceSharingSettings` Block below.
-        /// </summary>
         [Output("spaceSharingSettings")]
         public Output<Outputs.SpaceSpaceSharingSettings?> SpaceSharingSettings { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
-        /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
 
@@ -162,54 +94,29 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class SpaceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the associated Domain.
-        /// </summary>
         [Input("domainId", required: true)]
         public Input<string> DomainId { get; set; } = null!;
 
-        /// <summary>
-        /// A collection of ownership settings. Required if `SpaceSharingSettings` is set. See `OwnershipSettings` Block below.
-        /// </summary>
         [Input("ownershipSettings")]
         public Input<Inputs.SpaceOwnershipSettingsArgs>? OwnershipSettings { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the space that appears in the SageMaker AI Studio UI.
-        /// </summary>
         [Input("spaceDisplayName")]
         public Input<string>? SpaceDisplayName { get; set; }
 
-        /// <summary>
-        /// The name of the space.
-        /// </summary>
         [Input("spaceName", required: true)]
         public Input<string> SpaceName { get; set; } = null!;
 
-        /// <summary>
-        /// A collection of space settings. See `SpaceSettings` Block below.
-        /// </summary>
         [Input("spaceSettings")]
         public Input<Inputs.SpaceSpaceSettingsArgs>? SpaceSettings { get; set; }
 
-        /// <summary>
-        /// A collection of space sharing settings. Required if `OwnershipSettings` is set. See `SpaceSharingSettings` Block below.
-        /// </summary>
         [Input("spaceSharingSettings")]
         public Input<Inputs.SpaceSpaceSharingSettingsArgs>? SpaceSharingSettings { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -224,66 +131,35 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class SpaceState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The space's Amazon Resource Name (ARN).
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The ID of the associated Domain.
-        /// </summary>
         [Input("domainId")]
         public Input<string>? DomainId { get; set; }
 
-        /// <summary>
-        /// The ID of the space's profile in the Amazon Elastic File System volume.
-        /// </summary>
         [Input("homeEfsFileSystemUid")]
         public Input<string>? HomeEfsFileSystemUid { get; set; }
 
-        /// <summary>
-        /// A collection of ownership settings. Required if `SpaceSharingSettings` is set. See `OwnershipSettings` Block below.
-        /// </summary>
         [Input("ownershipSettings")]
         public Input<Inputs.SpaceOwnershipSettingsGetArgs>? OwnershipSettings { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the space that appears in the SageMaker AI Studio UI.
-        /// </summary>
         [Input("spaceDisplayName")]
         public Input<string>? SpaceDisplayName { get; set; }
 
-        /// <summary>
-        /// The name of the space.
-        /// </summary>
         [Input("spaceName")]
         public Input<string>? SpaceName { get; set; }
 
-        /// <summary>
-        /// A collection of space settings. See `SpaceSettings` Block below.
-        /// </summary>
         [Input("spaceSettings")]
         public Input<Inputs.SpaceSpaceSettingsGetArgs>? SpaceSettings { get; set; }
 
-        /// <summary>
-        /// A collection of space sharing settings. Required if `OwnershipSettings` is set. See `SpaceSharingSettings` Block below.
-        /// </summary>
         [Input("spaceSharingSettings")]
         public Input<Inputs.SpaceSpaceSharingSettingsGetArgs>? SpaceSharingSettings { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -292,19 +168,12 @@ namespace Pulumi.Aws.Sagemaker
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
-        /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 

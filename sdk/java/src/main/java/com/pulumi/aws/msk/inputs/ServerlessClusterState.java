@@ -19,137 +19,65 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
 
     public static final ServerlessClusterState Empty = new ServerlessClusterState();
 
-    /**
-     * The ARN of the serverless cluster.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The ARN of the serverless cluster.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
-     * 
-     */
     @Import(name="bootstrapBrokersSaslIam")
     private @Nullable Output<String> bootstrapBrokersSaslIam;
 
-    /**
-     * @return One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
-     * 
-     */
     public Optional<Output<String>> bootstrapBrokersSaslIam() {
         return Optional.ofNullable(this.bootstrapBrokersSaslIam);
     }
 
-    /**
-     * Specifies client authentication information for the serverless cluster. See below.
-     * 
-     */
     @Import(name="clientAuthentication")
     private @Nullable Output<ServerlessClusterClientAuthenticationArgs> clientAuthentication;
 
-    /**
-     * @return Specifies client authentication information for the serverless cluster. See below.
-     * 
-     */
     public Optional<Output<ServerlessClusterClientAuthenticationArgs>> clientAuthentication() {
         return Optional.ofNullable(this.clientAuthentication);
     }
 
-    /**
-     * The name of the serverless cluster.
-     * 
-     */
     @Import(name="clusterName")
     private @Nullable Output<String> clusterName;
 
-    /**
-     * @return The name of the serverless cluster.
-     * 
-     */
     public Optional<Output<String>> clusterName() {
         return Optional.ofNullable(this.clusterName);
     }
 
-    /**
-     * UUID of the serverless cluster, for use in IAM policies.
-     * 
-     */
     @Import(name="clusterUuid")
     private @Nullable Output<String> clusterUuid;
 
-    /**
-     * @return UUID of the serverless cluster, for use in IAM policies.
-     * 
-     */
     public Optional<Output<String>> clusterUuid() {
         return Optional.ofNullable(this.clusterUuid);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * VPC configuration information. See below.
-     * 
-     */
     @Import(name="vpcConfigs")
     private @Nullable Output<List<ServerlessClusterVpcConfigArgs>> vpcConfigs;
 
-    /**
-     * @return VPC configuration information. See below.
-     * 
-     */
     public Optional<Output<List<ServerlessClusterVpcConfigArgs>>> vpcConfigs() {
         return Optional.ofNullable(this.vpcConfigs);
     }
@@ -186,201 +114,87 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
             $ = new ServerlessClusterState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The ARN of the serverless cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The ARN of the serverless cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param bootstrapBrokersSaslIam One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bootstrapBrokersSaslIam(@Nullable Output<String> bootstrapBrokersSaslIam) {
             $.bootstrapBrokersSaslIam = bootstrapBrokersSaslIam;
             return this;
         }
 
-        /**
-         * @param bootstrapBrokersSaslIam One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bootstrapBrokersSaslIam(String bootstrapBrokersSaslIam) {
             return bootstrapBrokersSaslIam(Output.of(bootstrapBrokersSaslIam));
         }
 
-        /**
-         * @param clientAuthentication Specifies client authentication information for the serverless cluster. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientAuthentication(@Nullable Output<ServerlessClusterClientAuthenticationArgs> clientAuthentication) {
             $.clientAuthentication = clientAuthentication;
             return this;
         }
 
-        /**
-         * @param clientAuthentication Specifies client authentication information for the serverless cluster. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientAuthentication(ServerlessClusterClientAuthenticationArgs clientAuthentication) {
             return clientAuthentication(Output.of(clientAuthentication));
         }
 
-        /**
-         * @param clusterName The name of the serverless cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterName(@Nullable Output<String> clusterName) {
             $.clusterName = clusterName;
             return this;
         }
 
-        /**
-         * @param clusterName The name of the serverless cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterName(String clusterName) {
             return clusterName(Output.of(clusterName));
         }
 
-        /**
-         * @param clusterUuid UUID of the serverless cluster, for use in IAM policies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterUuid(@Nullable Output<String> clusterUuid) {
             $.clusterUuid = clusterUuid;
             return this;
         }
 
-        /**
-         * @param clusterUuid UUID of the serverless cluster, for use in IAM policies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterUuid(String clusterUuid) {
             return clusterUuid(Output.of(clusterUuid));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param vpcConfigs VPC configuration information. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConfigs(@Nullable Output<List<ServerlessClusterVpcConfigArgs>> vpcConfigs) {
             $.vpcConfigs = vpcConfigs;
             return this;
         }
 
-        /**
-         * @param vpcConfigs VPC configuration information. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConfigs(List<ServerlessClusterVpcConfigArgs> vpcConfigs) {
             return vpcConfigs(Output.of(vpcConfigs));
         }
 
-        /**
-         * @param vpcConfigs VPC configuration information. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConfigs(ServerlessClusterVpcConfigArgs... vpcConfigs) {
             return vpcConfigs(List.of(vpcConfigs));
         }

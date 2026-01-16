@@ -16,51 +16,23 @@ public final class LbCertificateAttachmentArgs extends com.pulumi.resources.Reso
 
     public static final LbCertificateAttachmentArgs Empty = new LbCertificateAttachmentArgs();
 
-    /**
-     * Name of your SSL/TLS certificate.
-     * 
-     */
     @Import(name="certificateName", required=true)
     private Output<String> certificateName;
 
-    /**
-     * @return Name of your SSL/TLS certificate.
-     * 
-     */
     public Output<String> certificateName() {
         return this.certificateName;
     }
 
-    /**
-     * Name of the load balancer to which you want to associate the SSL/TLS certificate.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="lbName", required=true)
     private Output<String> lbName;
 
-    /**
-     * @return Name of the load balancer to which you want to associate the SSL/TLS certificate.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> lbName() {
         return this.lbName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -91,69 +63,29 @@ public final class LbCertificateAttachmentArgs extends com.pulumi.resources.Reso
             $ = new LbCertificateAttachmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificateName Name of your SSL/TLS certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateName(Output<String> certificateName) {
             $.certificateName = certificateName;
             return this;
         }
 
-        /**
-         * @param certificateName Name of your SSL/TLS certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateName(String certificateName) {
             return certificateName(Output.of(certificateName));
         }
 
-        /**
-         * @param lbName Name of the load balancer to which you want to associate the SSL/TLS certificate.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbName(Output<String> lbName) {
             $.lbName = lbName;
             return this;
         }
 
-        /**
-         * @param lbName Name of the load balancer to which you want to associate the SSL/TLS certificate.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbName(String lbName) {
             return lbName(Output.of(lbName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

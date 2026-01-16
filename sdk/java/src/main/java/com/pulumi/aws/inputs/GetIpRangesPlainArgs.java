@@ -23,65 +23,23 @@ public final class GetIpRangesPlainArgs extends com.pulumi.resources.InvokeArgs 
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Filter IP ranges by regions (or include all regions, if
-     * omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
-     * (e.g., `eu-central-1`)
-     * 
-     */
     @Import(name="regions")
     private @Nullable List<String> regions;
 
-    /**
-     * @return Filter IP ranges by regions (or include all regions, if
-     * omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
-     * (e.g., `eu-central-1`)
-     * 
-     */
     public Optional<List<String>> regions() {
         return Optional.ofNullable(this.regions);
     }
 
-    /**
-     * Filter IP ranges by services. Valid items are `amazon`
-     * (for amazon.com), `amazonConnect`, `apiGateway`, `cloud9`, `cloudfront`,
-     * `codebuild`, `dynamodb`, `ec2`, `ec2InstanceConnect`, `globalaccelerator`,
-     * `route53`, `route53Healthchecks`, `s3` and `workspacesGateways`. See the
-     * [`service` attribute][2] documentation for other possible values.
-     * 
-     * &gt; **NOTE:** If the specified combination of regions and services does not yield any
-     * CIDR blocks, this call will fail.
-     * 
-     */
     @Import(name="services", required=true)
     private List<String> services;
 
-    /**
-     * @return Filter IP ranges by services. Valid items are `amazon`
-     * (for amazon.com), `amazonConnect`, `apiGateway`, `cloud9`, `cloudfront`,
-     * `codebuild`, `dynamodb`, `ec2`, `ec2InstanceConnect`, `globalaccelerator`,
-     * `route53`, `route53Healthchecks`, `s3` and `workspacesGateways`. See the
-     * [`service` attribute][2] documentation for other possible values.
-     * 
-     * &gt; **NOTE:** If the specified combination of regions and services does not yield any
-     * CIDR blocks, this call will fail.
-     * 
-     */
     public List<String> services() {
         return this.services;
     }
 
-    /**
-     * Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
-     * 
-     */
     @Import(name="url")
     private @Nullable String url;
 
-    /**
-     * @return Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
-     * 
-     */
     public Optional<String> url() {
         return Optional.ofNullable(this.url);
     }
@@ -118,72 +76,24 @@ public final class GetIpRangesPlainArgs extends com.pulumi.resources.InvokeArgs 
             return this;
         }
 
-        /**
-         * @param regions Filter IP ranges by regions (or include all regions, if
-         * omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
-         * (e.g., `eu-central-1`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(@Nullable List<String> regions) {
             $.regions = regions;
             return this;
         }
 
-        /**
-         * @param regions Filter IP ranges by regions (or include all regions, if
-         * omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
-         * (e.g., `eu-central-1`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(String... regions) {
             return regions(List.of(regions));
         }
 
-        /**
-         * @param services Filter IP ranges by services. Valid items are `amazon`
-         * (for amazon.com), `amazonConnect`, `apiGateway`, `cloud9`, `cloudfront`,
-         * `codebuild`, `dynamodb`, `ec2`, `ec2InstanceConnect`, `globalaccelerator`,
-         * `route53`, `route53Healthchecks`, `s3` and `workspacesGateways`. See the
-         * [`service` attribute][2] documentation for other possible values.
-         * 
-         * &gt; **NOTE:** If the specified combination of regions and services does not yield any
-         * CIDR blocks, this call will fail.
-         * 
-         * @return builder
-         * 
-         */
         public Builder services(List<String> services) {
             $.services = services;
             return this;
         }
 
-        /**
-         * @param services Filter IP ranges by services. Valid items are `amazon`
-         * (for amazon.com), `amazonConnect`, `apiGateway`, `cloud9`, `cloudfront`,
-         * `codebuild`, `dynamodb`, `ec2`, `ec2InstanceConnect`, `globalaccelerator`,
-         * `route53`, `route53Healthchecks`, `s3` and `workspacesGateways`. See the
-         * [`service` attribute][2] documentation for other possible values.
-         * 
-         * &gt; **NOTE:** If the specified combination of regions and services does not yield any
-         * CIDR blocks, this call will fail.
-         * 
-         * @return builder
-         * 
-         */
         public Builder services(String... services) {
             return services(List.of(services));
         }
 
-        /**
-         * @param url Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder url(@Nullable String url) {
             $.url = url;
             return this;

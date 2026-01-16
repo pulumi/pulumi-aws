@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Macie2.Outputs
     [OutputType]
     public sealed class ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm
     {
-        /// <summary>
-        /// The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
-        /// </summary>
         public readonly string? Comparator;
-        /// <summary>
-        /// The object property to use in the condition.
-        /// </summary>
         public readonly string? Key;
-        /// <summary>
-        /// An array that lists the values to use in the condition.
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

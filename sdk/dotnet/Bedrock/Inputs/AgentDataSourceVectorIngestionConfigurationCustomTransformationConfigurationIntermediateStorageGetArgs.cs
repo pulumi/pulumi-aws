@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for intermedia S3 storage.
-        /// </summary>
         [Input("s3Location")]
         public Input<Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationGetArgs>? S3Location { get; set; }
 

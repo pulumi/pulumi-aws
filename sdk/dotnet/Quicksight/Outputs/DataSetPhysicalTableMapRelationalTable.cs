@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSetPhysicalTableMapRelationalTable
     {
-        /// <summary>
-        /// Catalog associated with the table.
-        /// </summary>
         public readonly string? Catalog;
-        /// <summary>
-        /// ARN of the data source.
-        /// </summary>
         public readonly string DataSourceArn;
-        /// <summary>
-        /// Column schema of the table. See input_columns.
-        /// </summary>
         public readonly ImmutableArray<Outputs.DataSetPhysicalTableMapRelationalTableInputColumn> InputColumns;
-        /// <summary>
-        /// Name of the relational table.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Schema name. This name applies to certain relational database engines.
-        /// </summary>
         public readonly string? Schema;
 
         [OutputConstructor]

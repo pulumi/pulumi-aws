@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CodeGuruReviewer.Outputs
     [OutputType]
     public sealed class RepositoryAssociationKmsKeyDetails
     {
-        /// <summary>
-        /// The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
-        /// </summary>
         public readonly string? EncryptionOption;
-        /// <summary>
-        /// The ID of the AWS KMS key that is associated with a repository association.
-        /// </summary>
         public readonly string? KmsKeyId;
 
         [OutputConstructor]

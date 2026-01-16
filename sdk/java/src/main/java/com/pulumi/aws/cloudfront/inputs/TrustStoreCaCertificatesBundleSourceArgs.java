@@ -15,17 +15,9 @@ public final class TrustStoreCaCertificatesBundleSourceArgs extends com.pulumi.r
 
     public static final TrustStoreCaCertificatesBundleSourceArgs Empty = new TrustStoreCaCertificatesBundleSourceArgs();
 
-    /**
-     * Configuration block for the S3 location of the CA certificates bundle. See `caCertificatesBundleS3Location` below.
-     * 
-     */
     @Import(name="caCertificatesBundleS3Location")
     private @Nullable Output<TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs> caCertificatesBundleS3Location;
 
-    /**
-     * @return Configuration block for the S3 location of the CA certificates bundle. See `caCertificatesBundleS3Location` below.
-     * 
-     */
     public Optional<Output<TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs>> caCertificatesBundleS3Location() {
         return Optional.ofNullable(this.caCertificatesBundleS3Location);
     }
@@ -54,23 +46,11 @@ public final class TrustStoreCaCertificatesBundleSourceArgs extends com.pulumi.r
             $ = new TrustStoreCaCertificatesBundleSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param caCertificatesBundleS3Location Configuration block for the S3 location of the CA certificates bundle. See `caCertificatesBundleS3Location` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder caCertificatesBundleS3Location(@Nullable Output<TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs> caCertificatesBundleS3Location) {
             $.caCertificatesBundleS3Location = caCertificatesBundleS3Location;
             return this;
         }
 
-        /**
-         * @param caCertificatesBundleS3Location Configuration block for the S3 location of the CA certificates bundle. See `caCertificatesBundleS3Location` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder caCertificatesBundleS3Location(TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs caCertificatesBundleS3Location) {
             return caCertificatesBundleS3Location(Output.of(caCertificatesBundleS3Location));
         }

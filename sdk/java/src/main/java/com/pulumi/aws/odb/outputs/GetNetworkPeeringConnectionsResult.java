@@ -18,10 +18,6 @@ public final class GetNetworkPeeringConnectionsResult {
      * 
      */
     private String id;
-    /**
-     * @return The list of ODB peering connections. A summary of an ODB peering connection.
-     * 
-     */
     private @Nullable List<GetNetworkPeeringConnectionsOdbPeeringConnection> odbPeeringConnections;
     private String region;
 
@@ -33,10 +29,6 @@ public final class GetNetworkPeeringConnectionsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The list of ODB peering connections. A summary of an ODB peering connection.
-     * 
-     */
     public List<GetNetworkPeeringConnectionsOdbPeeringConnection> odbPeeringConnections() {
         return this.odbPeeringConnections == null ? List.of() : this.odbPeeringConnections;
     }

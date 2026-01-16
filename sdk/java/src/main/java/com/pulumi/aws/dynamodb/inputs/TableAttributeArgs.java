@@ -14,32 +14,16 @@ public final class TableAttributeArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final TableAttributeArgs Empty = new TableAttributeArgs();
 
-    /**
-     * Name of the attribute
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the attribute
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -69,44 +53,20 @@ public final class TableAttributeArgs extends com.pulumi.resources.ResourceArgs 
             $ = new TableAttributeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the attribute
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the attribute
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param type Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

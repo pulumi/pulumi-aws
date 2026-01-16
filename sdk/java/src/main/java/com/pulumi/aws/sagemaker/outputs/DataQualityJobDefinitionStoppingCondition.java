@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataQualityJobDefinitionStoppingCondition {
-    /**
-     * @return The maximum runtime allowed in seconds.
-     * 
-     */
     private @Nullable Integer maxRuntimeInSeconds;
 
     private DataQualityJobDefinitionStoppingCondition() {}
-    /**
-     * @return The maximum runtime allowed in seconds.
-     * 
-     */
     public Optional<Integer> maxRuntimeInSeconds() {
         return Optional.ofNullable(this.maxRuntimeInSeconds);
     }

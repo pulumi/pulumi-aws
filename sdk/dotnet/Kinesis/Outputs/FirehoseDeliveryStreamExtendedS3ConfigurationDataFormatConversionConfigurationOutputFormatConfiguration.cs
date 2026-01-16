@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration
     {
-        /// <summary>
-        /// Specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. See `Serializer` block below for details.
-        /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer Serializer;
 
         [OutputConstructor]

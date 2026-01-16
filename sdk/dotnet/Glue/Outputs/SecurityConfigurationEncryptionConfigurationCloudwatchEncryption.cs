@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class SecurityConfigurationEncryptionConfigurationCloudwatchEncryption
     {
-        /// <summary>
-        /// Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
-        /// </summary>
         public readonly string? CloudwatchEncryptionMode;
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-        /// </summary>
         public readonly string? KmsKeyArn;
 
         [OutputConstructor]

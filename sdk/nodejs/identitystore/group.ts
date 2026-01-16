@@ -7,32 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS IdentityStore Group.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _this = new aws.identitystore.Group("this", {
- *     displayName: "Example group",
- *     description: "Example description",
- *     identityStoreId: example.identityStoreIds[0],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import an Identity Store Group using the combination `identity_store_id/group_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
- * ```
- */
 export class Group extends pulumi.CustomResource {
     /**
      * Get an existing Group resource's state with the given name, ID, and optional extra
@@ -61,35 +35,12 @@ export class Group extends pulumi.CustomResource {
         return obj['__pulumiType'] === Group.__pulumiType;
     }
 
-    /**
-     * ARN of the Group.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * A string containing the description of the group.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * A string containing the name of the group. This value is commonly displayed when the group is referenced.
-     */
     declare public readonly displayName: pulumi.Output<string>;
-    /**
-     * A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
-     */
     declare public /*out*/ readonly externalIds: pulumi.Output<outputs.identitystore.GroupExternalId[]>;
-    /**
-     * The identifier of the newly created group in the identity store.
-     */
     declare public /*out*/ readonly groupId: pulumi.Output<string>;
-    /**
-     * The globally unique identifier for the identity store.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly identityStoreId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -137,35 +88,12 @@ export class Group extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Group resources.
  */
 export interface GroupState {
-    /**
-     * ARN of the Group.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A string containing the description of the group.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A string containing the name of the group. This value is commonly displayed when the group is referenced.
-     */
     displayName?: pulumi.Input<string>;
-    /**
-     * A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
-     */
     externalIds?: pulumi.Input<pulumi.Input<inputs.identitystore.GroupExternalId>[]>;
-    /**
-     * The identifier of the newly created group in the identity store.
-     */
     groupId?: pulumi.Input<string>;
-    /**
-     * The globally unique identifier for the identity store.
-     *
-     * The following arguments are optional:
-     */
     identityStoreId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -173,22 +101,8 @@ export interface GroupState {
  * The set of arguments for constructing a Group resource.
  */
 export interface GroupArgs {
-    /**
-     * A string containing the description of the group.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A string containing the name of the group. This value is commonly displayed when the group is referenced.
-     */
     displayName: pulumi.Input<string>;
-    /**
-     * The globally unique identifier for the identity store.
-     *
-     * The following arguments are optional:
-     */
     identityStoreId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

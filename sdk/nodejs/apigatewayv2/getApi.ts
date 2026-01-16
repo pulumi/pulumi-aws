@@ -7,20 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides details about a specific Amazon API Gateway Version 2 API.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.apigatewayv2.getApi({
- *     apiId: "aabbccddee",
- * });
- * ```
- */
 export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigatewayv2/getApi:getApi", {
@@ -34,17 +20,8 @@ export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<G
  * A collection of arguments for invoking getApi.
  */
 export interface GetApiArgs {
-    /**
-     * API identifier.
-     */
     apiId: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Map of resource tags.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -52,80 +29,26 @@ export interface GetApiArgs {
  * A collection of values returned by getApi.
  */
 export interface GetApiResult {
-    /**
-     * URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
-     */
     readonly apiEndpoint: string;
     readonly apiId: string;
-    /**
-     * An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
-     * Applicable for WebSocket APIs.
-     */
     readonly apiKeySelectionExpression: string;
-    /**
-     * ARN of the API.
-     */
     readonly arn: string;
-    /**
-     * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
-     * Applicable for HTTP APIs.
-     */
     readonly corsConfigurations: outputs.apigatewayv2.GetApiCorsConfiguration[];
-    /**
-     * Description of the API.
-     */
     readonly description: string;
-    /**
-     * Whether clients can invoke the API by using the default `execute-api` endpoint.
-     */
     readonly disableExecuteApiEndpoint: boolean;
-    /**
-     * ARN prefix to be used in an `aws.lambda.Permission`'s `sourceArn` attribute
-     * or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
-     * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
-     */
     readonly executionArn: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly ipAddressType: string;
-    /**
-     * Name of the API.
-     */
     readonly name: string;
-    /**
-     * API protocol.
-     */
     readonly protocolType: string;
     readonly region: string;
-    /**
-     * The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
-     */
     readonly routeSelectionExpression: string;
-    /**
-     * Map of resource tags.
-     */
     readonly tags: {[key: string]: string};
-    /**
-     * Version identifier for the API.
-     */
     readonly version: string;
 }
-/**
- * Provides details about a specific Amazon API Gateway Version 2 API.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.apigatewayv2.getApi({
- *     apiId: "aabbccddee",
- * });
- * ```
- */
 export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:apigatewayv2/getApi:getApi", {
@@ -139,16 +62,7 @@ export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOutputO
  * A collection of arguments for invoking getApi.
  */
 export interface GetApiOutputArgs {
-    /**
-     * API identifier.
-     */
     apiId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of resource tags.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

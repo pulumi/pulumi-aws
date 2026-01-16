@@ -12,62 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker AI monitoring schedule resource.
-//
-// ## Example Usage
-//
-// Basic usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewMonitoringSchedule(ctx, "test", &sagemaker.MonitoringScheduleArgs{
-//				Name: pulumi.String("my-monitoring-schedule"),
-//				MonitoringScheduleConfig: &sagemaker.MonitoringScheduleMonitoringScheduleConfigArgs{
-//					MonitoringJobDefinitionName: pulumi.Any(testAwsSagemakerDataQualityJobDefinition.Name),
-//					MonitoringType:              pulumi.String("DataQuality"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import monitoring schedules using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:sagemaker/monitoringSchedule:MonitoringSchedule test_monitoring_schedule monitoring-schedule-foo
-// ```
 type MonitoringSchedule struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
+	Arn                      pulumi.StringOutput                              `pulumi:"arn"`
 	MonitoringScheduleConfig MonitoringScheduleMonitoringScheduleConfigOutput `pulumi:"monitoringScheduleConfig"`
-	// The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Name                     pulumi.StringOutput                              `pulumi:"name"`
+	Region                   pulumi.StringOutput                              `pulumi:"region"`
+	Tags                     pulumi.StringMapOutput                           `pulumi:"tags"`
+	TagsAll                  pulumi.StringMapOutput                           `pulumi:"tagsAll"`
 }
 
 // NewMonitoringSchedule registers a new resource with the given unique name, arguments, and options.
@@ -103,33 +56,21 @@ func GetMonitoringSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MonitoringSchedule resources.
 type monitoringScheduleState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
-	Arn *string `pulumi:"arn"`
-	// The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
+	Arn                      *string                                     `pulumi:"arn"`
 	MonitoringScheduleConfig *MonitoringScheduleMonitoringScheduleConfig `pulumi:"monitoringScheduleConfig"`
-	// The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Name                     *string                                     `pulumi:"name"`
+	Region                   *string                                     `pulumi:"region"`
+	Tags                     map[string]string                           `pulumi:"tags"`
+	TagsAll                  map[string]string                           `pulumi:"tagsAll"`
 }
 
 type MonitoringScheduleState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
-	Arn pulumi.StringPtrInput
-	// The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
+	Arn                      pulumi.StringPtrInput
 	MonitoringScheduleConfig MonitoringScheduleMonitoringScheduleConfigPtrInput
-	// The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Name                     pulumi.StringPtrInput
+	Region                   pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
+	TagsAll                  pulumi.StringMapInput
 }
 
 func (MonitoringScheduleState) ElementType() reflect.Type {
@@ -137,26 +78,18 @@ func (MonitoringScheduleState) ElementType() reflect.Type {
 }
 
 type monitoringScheduleArgs struct {
-	// The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
 	MonitoringScheduleConfig MonitoringScheduleMonitoringScheduleConfig `pulumi:"monitoringScheduleConfig"`
-	// The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Name                     *string                                    `pulumi:"name"`
+	Region                   *string                                    `pulumi:"region"`
+	Tags                     map[string]string                          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MonitoringSchedule resource.
 type MonitoringScheduleArgs struct {
-	// The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
 	MonitoringScheduleConfig MonitoringScheduleMonitoringScheduleConfigInput
-	// The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name                     pulumi.StringPtrInput
+	Region                   pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
 }
 
 func (MonitoringScheduleArgs) ElementType() reflect.Type {
@@ -246,34 +179,28 @@ func (o MonitoringScheduleOutput) ToMonitoringScheduleOutputWithContext(ctx cont
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
 func (o MonitoringScheduleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MonitoringSchedule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
 func (o MonitoringScheduleOutput) MonitoringScheduleConfig() MonitoringScheduleMonitoringScheduleConfigOutput {
 	return o.ApplyT(func(v *MonitoringSchedule) MonitoringScheduleMonitoringScheduleConfigOutput {
 		return v.MonitoringScheduleConfig
 	}).(MonitoringScheduleMonitoringScheduleConfigOutput)
 }
 
-// The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name.
 func (o MonitoringScheduleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MonitoringSchedule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MonitoringScheduleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MonitoringSchedule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o MonitoringScheduleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MonitoringSchedule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o MonitoringScheduleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MonitoringSchedule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

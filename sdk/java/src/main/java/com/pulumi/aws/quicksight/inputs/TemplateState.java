@@ -20,17 +20,9 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
 
     public static final TemplateState Empty = new TemplateState();
 
-    /**
-     * ARN of the template.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the template.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
@@ -42,201 +34,93 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.awsAccountId);
     }
 
-    /**
-     * The time that the template was created.
-     * 
-     */
     @Import(name="createdTime")
     private @Nullable Output<String> createdTime;
 
-    /**
-     * @return The time that the template was created.
-     * 
-     */
     public Optional<Output<String>> createdTime() {
         return Optional.ofNullable(this.createdTime);
     }
 
-    /**
-     * The time that the template was last updated.
-     * 
-     */
     @Import(name="lastUpdatedTime")
     private @Nullable Output<String> lastUpdatedTime;
 
-    /**
-     * @return The time that the template was last updated.
-     * 
-     */
     public Optional<Output<String>> lastUpdatedTime() {
         return Optional.ofNullable(this.lastUpdatedTime);
     }
 
-    /**
-     * Display name for the template.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Display name for the template.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * A set of resource permissions on the template. Maximum of 64 items. See permissions.
-     * 
-     */
     @Import(name="permissions")
     private @Nullable Output<List<TemplatePermissionArgs>> permissions;
 
-    /**
-     * @return A set of resource permissions on the template. Maximum of 64 items. See permissions.
-     * 
-     */
     public Optional<Output<List<TemplatePermissionArgs>>> permissions() {
         return Optional.ofNullable(this.permissions);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
-     * 
-     */
     @Import(name="sourceEntity")
     private @Nullable Output<TemplateSourceEntityArgs> sourceEntity;
 
-    /**
-     * @return The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
-     * 
-     */
     public Optional<Output<TemplateSourceEntityArgs>> sourceEntity() {
         return Optional.ofNullable(this.sourceEntity);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
-     * 
-     */
     @Import(name="sourceEntityArn")
     private @Nullable Output<String> sourceEntityArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
-     * 
-     */
     public Optional<Output<String>> sourceEntityArn() {
         return Optional.ofNullable(this.sourceEntityArn);
     }
 
-    /**
-     * The template creation status.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The template creation status.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * Identifier for the template.
-     * 
-     */
     @Import(name="templateId")
     private @Nullable Output<String> templateId;
 
-    /**
-     * @return Identifier for the template.
-     * 
-     */
     public Optional<Output<String>> templateId() {
         return Optional.ofNullable(this.templateId);
     }
 
-    /**
-     * A description of the current template version being created/updated.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="versionDescription")
     private @Nullable Output<String> versionDescription;
 
-    /**
-     * @return A description of the current template version being created/updated.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> versionDescription() {
         return Optional.ofNullable(this.versionDescription);
     }
 
-    /**
-     * The version number of the template version.
-     * 
-     */
     @Import(name="versionNumber")
     private @Nullable Output<Integer> versionNumber;
 
-    /**
-     * @return The version number of the template version.
-     * 
-     */
     public Optional<Output<Integer>> versionNumber() {
         return Optional.ofNullable(this.versionNumber);
     }
@@ -279,23 +163,11 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
             $ = new TemplateState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
@@ -309,289 +181,123 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
             return awsAccountId(Output.of(awsAccountId));
         }
 
-        /**
-         * @param createdTime The time that the template was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdTime(@Nullable Output<String> createdTime) {
             $.createdTime = createdTime;
             return this;
         }
 
-        /**
-         * @param createdTime The time that the template was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdTime(String createdTime) {
             return createdTime(Output.of(createdTime));
         }
 
-        /**
-         * @param lastUpdatedTime The time that the template was last updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastUpdatedTime(@Nullable Output<String> lastUpdatedTime) {
             $.lastUpdatedTime = lastUpdatedTime;
             return this;
         }
 
-        /**
-         * @param lastUpdatedTime The time that the template was last updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastUpdatedTime(String lastUpdatedTime) {
             return lastUpdatedTime(Output.of(lastUpdatedTime));
         }
 
-        /**
-         * @param name Display name for the template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Display name for the template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param permissions A set of resource permissions on the template. Maximum of 64 items. See permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissions(@Nullable Output<List<TemplatePermissionArgs>> permissions) {
             $.permissions = permissions;
             return this;
         }
 
-        /**
-         * @param permissions A set of resource permissions on the template. Maximum of 64 items. See permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissions(List<TemplatePermissionArgs> permissions) {
             return permissions(Output.of(permissions));
         }
 
-        /**
-         * @param permissions A set of resource permissions on the template. Maximum of 64 items. See permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissions(TemplatePermissionArgs... permissions) {
             return permissions(List.of(permissions));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param sourceEntity The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceEntity(@Nullable Output<TemplateSourceEntityArgs> sourceEntity) {
             $.sourceEntity = sourceEntity;
             return this;
         }
 
-        /**
-         * @param sourceEntity The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceEntity(TemplateSourceEntityArgs sourceEntity) {
             return sourceEntity(Output.of(sourceEntity));
         }
 
-        /**
-         * @param sourceEntityArn Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceEntityArn(@Nullable Output<String> sourceEntityArn) {
             $.sourceEntityArn = sourceEntityArn;
             return this;
         }
 
-        /**
-         * @param sourceEntityArn Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceEntityArn(String sourceEntityArn) {
             return sourceEntityArn(Output.of(sourceEntityArn));
         }
 
-        /**
-         * @param status The template creation status.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The template creation status.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param templateId Identifier for the template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder templateId(@Nullable Output<String> templateId) {
             $.templateId = templateId;
             return this;
         }
 
-        /**
-         * @param templateId Identifier for the template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder templateId(String templateId) {
             return templateId(Output.of(templateId));
         }
 
-        /**
-         * @param versionDescription A description of the current template version being created/updated.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder versionDescription(@Nullable Output<String> versionDescription) {
             $.versionDescription = versionDescription;
             return this;
         }
 
-        /**
-         * @param versionDescription A description of the current template version being created/updated.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder versionDescription(String versionDescription) {
             return versionDescription(Output.of(versionDescription));
         }
 
-        /**
-         * @param versionNumber The version number of the template version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder versionNumber(@Nullable Output<Integer> versionNumber) {
             $.versionNumber = versionNumber;
             return this;
         }
 
-        /**
-         * @param versionNumber The version number of the template version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder versionNumber(Integer versionNumber) {
             return versionNumber(Output.of(versionNumber));
         }

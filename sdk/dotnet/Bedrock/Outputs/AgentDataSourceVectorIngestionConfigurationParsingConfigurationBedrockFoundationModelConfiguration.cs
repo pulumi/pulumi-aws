@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration
     {
-        /// <summary>
-        /// The ARN of the model used to parse documents
-        /// </summary>
         public readonly string ModelArn;
-        /// <summary>
-        /// Instructions for interpreting the contents of the document. See `ParsingPrompt` block for details.
-        /// </summary>
         public readonly Outputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt? ParsingPrompt;
 
         [OutputConstructor]

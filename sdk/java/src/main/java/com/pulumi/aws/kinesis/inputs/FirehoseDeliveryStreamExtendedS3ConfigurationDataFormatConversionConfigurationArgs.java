@@ -19,62 +19,30 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
 
     public static final FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs Empty = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs();
 
-    /**
-     * Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. See `inputFormatConfiguration` block below for details.
-     * 
-     */
     @Import(name="inputFormatConfiguration", required=true)
     private Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationArgs> inputFormatConfiguration;
 
-    /**
-     * @return Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. See `inputFormatConfiguration` block below for details.
-     * 
-     */
     public Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationArgs> inputFormatConfiguration() {
         return this.inputFormatConfiguration;
     }
 
-    /**
-     * Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. See `outputFormatConfiguration` block below for details.
-     * 
-     */
     @Import(name="outputFormatConfiguration", required=true)
     private Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationArgs> outputFormatConfiguration;
 
-    /**
-     * @return Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. See `outputFormatConfiguration` block below for details.
-     * 
-     */
     public Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationArgs> outputFormatConfiguration() {
         return this.outputFormatConfiguration;
     }
 
-    /**
-     * Specifies the AWS Glue Data Catalog table that contains the column information. See `schemaConfiguration` block below for details.
-     * 
-     */
     @Import(name="schemaConfiguration", required=true)
     private Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs> schemaConfiguration;
 
-    /**
-     * @return Specifies the AWS Glue Data Catalog table that contains the column information. See `schemaConfiguration` block below for details.
-     * 
-     */
     public Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs> schemaConfiguration() {
         return this.schemaConfiguration;
     }
@@ -106,86 +74,38 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
             $ = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param inputFormatConfiguration Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. See `inputFormatConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputFormatConfiguration(Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationArgs> inputFormatConfiguration) {
             $.inputFormatConfiguration = inputFormatConfiguration;
             return this;
         }
 
-        /**
-         * @param inputFormatConfiguration Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. See `inputFormatConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputFormatConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationArgs inputFormatConfiguration) {
             return inputFormatConfiguration(Output.of(inputFormatConfiguration));
         }
 
-        /**
-         * @param outputFormatConfiguration Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. See `outputFormatConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputFormatConfiguration(Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationArgs> outputFormatConfiguration) {
             $.outputFormatConfiguration = outputFormatConfiguration;
             return this;
         }
 
-        /**
-         * @param outputFormatConfiguration Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. See `outputFormatConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputFormatConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationArgs outputFormatConfiguration) {
             return outputFormatConfiguration(Output.of(outputFormatConfiguration));
         }
 
-        /**
-         * @param schemaConfiguration Specifies the AWS Glue Data Catalog table that contains the column information. See `schemaConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schemaConfiguration(Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs> schemaConfiguration) {
             $.schemaConfiguration = schemaConfiguration;
             return this;
         }
 
-        /**
-         * @param schemaConfiguration Specifies the AWS Glue Data Catalog table that contains the column information. See `schemaConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schemaConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs schemaConfiguration) {
             return schemaConfiguration(Output.of(schemaConfiguration));
         }

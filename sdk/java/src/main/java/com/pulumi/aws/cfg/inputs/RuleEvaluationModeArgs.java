@@ -15,17 +15,9 @@ public final class RuleEvaluationModeArgs extends com.pulumi.resources.ResourceA
 
     public static final RuleEvaluationModeArgs Empty = new RuleEvaluationModeArgs();
 
-    /**
-     * The mode of an evaluation.
-     * 
-     */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
-    /**
-     * @return The mode of an evaluation.
-     * 
-     */
     public Optional<Output<String>> mode() {
         return Optional.ofNullable(this.mode);
     }
@@ -54,23 +46,11 @@ public final class RuleEvaluationModeArgs extends com.pulumi.resources.ResourceA
             $ = new RuleEvaluationModeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param mode The mode of an evaluation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mode(@Nullable Output<String> mode) {
             $.mode = mode;
             return this;
         }
 
-        /**
-         * @param mode The mode of an evaluation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mode(String mode) {
             return mode(Output.of(mode));
         }

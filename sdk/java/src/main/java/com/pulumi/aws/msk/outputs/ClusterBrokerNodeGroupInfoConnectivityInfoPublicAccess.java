@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess {
-    /**
-     * @return Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
-     * 
-     */
     private @Nullable String type;
 
     private ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess() {}
-    /**
-     * @return Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

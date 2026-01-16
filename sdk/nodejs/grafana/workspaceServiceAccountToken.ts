@@ -4,28 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.grafana.WorkspaceServiceAccount("example", {
- *     name: "example-admin",
- *     grafanaRole: "ADMIN",
- *     workspaceId: exampleAwsGrafanaWorkspace.id,
- * });
- * const exampleWorkspaceServiceAccountToken = new aws.grafana.WorkspaceServiceAccountToken("example", {
- *     name: "example-key",
- *     serviceAccountId: example.serviceAccountId,
- *     secondsToLive: 3600,
- *     workspaceId: exampleAwsGrafanaWorkspace.id,
- * });
- * ```
- */
 export class WorkspaceServiceAccountToken extends pulumi.CustomResource {
     /**
      * Get an existing WorkspaceServiceAccountToken resource's state with the given name, ID, and optional extra
@@ -54,41 +32,14 @@ export class WorkspaceServiceAccountToken extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkspaceServiceAccountToken.__pulumiType;
     }
 
-    /**
-     * Specifies when the service account token was created.
-     */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
-    /**
-     * Specifies when the service account token will expire.
-     */
     declare public /*out*/ readonly expiresAt: pulumi.Output<string>;
-    /**
-     * The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
-     */
     declare public /*out*/ readonly key: pulumi.Output<string>;
-    /**
-     * A name for the token to create. The name must be unique within the workspace.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
-     */
     declare public readonly secondsToLive: pulumi.Output<number>;
-    /**
-     * The ID of the service account for which to create a token.
-     */
     declare public readonly serviceAccountId: pulumi.Output<string>;
-    /**
-     * Identifier of the service account token in the given Grafana workspace.
-     */
     declare public /*out*/ readonly serviceAccountTokenId: pulumi.Output<string>;
-    /**
-     * The Grafana workspace with which the service account token is associated.
-     */
     declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
@@ -145,41 +96,14 @@ export class WorkspaceServiceAccountToken extends pulumi.CustomResource {
  * Input properties used for looking up and filtering WorkspaceServiceAccountToken resources.
  */
 export interface WorkspaceServiceAccountTokenState {
-    /**
-     * Specifies when the service account token was created.
-     */
     createdAt?: pulumi.Input<string>;
-    /**
-     * Specifies when the service account token will expire.
-     */
     expiresAt?: pulumi.Input<string>;
-    /**
-     * The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
-     */
     key?: pulumi.Input<string>;
-    /**
-     * A name for the token to create. The name must be unique within the workspace.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
-     */
     secondsToLive?: pulumi.Input<number>;
-    /**
-     * The ID of the service account for which to create a token.
-     */
     serviceAccountId?: pulumi.Input<string>;
-    /**
-     * Identifier of the service account token in the given Grafana workspace.
-     */
     serviceAccountTokenId?: pulumi.Input<string>;
-    /**
-     * The Grafana workspace with which the service account token is associated.
-     */
     workspaceId?: pulumi.Input<string>;
 }
 
@@ -187,24 +111,9 @@ export interface WorkspaceServiceAccountTokenState {
  * The set of arguments for constructing a WorkspaceServiceAccountToken resource.
  */
 export interface WorkspaceServiceAccountTokenArgs {
-    /**
-     * A name for the token to create. The name must be unique within the workspace.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
-     */
     secondsToLive: pulumi.Input<number>;
-    /**
-     * The ID of the service account for which to create a token.
-     */
     serviceAccountId: pulumi.Input<string>;
-    /**
-     * The Grafana workspace with which the service account token is associated.
-     */
     workspaceId: pulumi.Input<string>;
 }

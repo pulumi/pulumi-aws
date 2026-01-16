@@ -10,33 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDistributionTenantDomain {
-    /**
-     * @return An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
-     * 
-     */
     private String domain;
-    /**
-     * @return Current status of the distribution tenant. `Deployed` if the
-     * distribution tenant&#39;s information is fully propagated throughout the Amazon
-     * CloudFront system.
-     * 
-     */
     private String status;
 
     private GetDistributionTenantDomain() {}
-    /**
-     * @return An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
-     * 
-     */
     public String domain() {
         return this.domain;
     }
-    /**
-     * @return Current status of the distribution tenant. `Deployed` if the
-     * distribution tenant&#39;s information is fully propagated throughout the Amazon
-     * CloudFront system.
-     * 
-     */
     public String status() {
         return this.status;
     }

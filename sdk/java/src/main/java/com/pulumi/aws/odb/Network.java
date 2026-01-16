@@ -21,33 +21,11 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing odb Network resource in AWS for Oracle Database{@literal @}AWS.
- * 
- * ## Example Usage
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Odb Network using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:odb/network:Network example example
- * ```
- * 
- */
 @ResourceType(type="aws:odb/network:Network")
 public class Network extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the odb network resource.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the odb network resource.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -130,28 +108,28 @@ public class Network extends com.pulumi.resources.CustomResource {
         return this.displayName;
     }
     /**
-     * The name of the OCI resource anchor for the Exadata infrastructure.
+     * The managed services configuration for the ODB network.
      * 
      */
     @Export(name="managedServices", refs={List.class,NetworkManagedService.class}, tree="[0,1]")
     private Output<List<NetworkManagedService>> managedServices;
 
     /**
-     * @return The name of the OCI resource anchor for the Exadata infrastructure.
+     * @return The managed services configuration for the ODB network.
      * 
      */
     public Output<List<NetworkManagedService>> managedServices() {
         return this.managedServices;
     }
     /**
-     * The number of storage servers requested for the Exadata infrastructure.
+     * The DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
      * 
      */
     @Export(name="ociDnsForwardingConfigs", refs={List.class,NetworkOciDnsForwardingConfig.class}, tree="[0,1]")
     private Output<List<NetworkOciDnsForwardingConfig>> ociDnsForwardingConfigs;
 
     /**
-     * @return The number of storage servers requested for the Exadata infrastructure.
+     * @return The DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
      * 
      */
     public Output<List<NetworkOciDnsForwardingConfig>> ociDnsForwardingConfigs() {
@@ -255,17 +233,9 @@ public class Network extends com.pulumi.resources.CustomResource {
     public Output<Double> percentProgress() {
         return this.percentProgress;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
@@ -325,17 +295,9 @@ public class Network extends com.pulumi.resources.CustomResource {
     public Output<String> statusReason() {
         return this.statusReason;
     }
-    /**
-     * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -354,16 +316,12 @@ public class Network extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the configuration for Zero-ETL access from the ODB network.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="zeroEtlAccess", refs={String.class}, tree="[0]")
     private Output<String> zeroEtlAccess;
 
     /**
      * @return Specifies the configuration for Zero-ETL access from the ODB network.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> zeroEtlAccess() {

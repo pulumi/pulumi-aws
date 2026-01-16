@@ -15,32 +15,16 @@ public final class VirtualNodeSpecListenerTimeoutTcpIdleArgs extends com.pulumi.
 
     public static final VirtualNodeSpecListenerTimeoutTcpIdleArgs Empty = new VirtualNodeSpecListenerTimeoutTcpIdleArgs();
 
-    /**
-     * Unit of time. Valid values: `ms`, `s`.
-     * 
-     */
     @Import(name="unit", required=true)
     private Output<String> unit;
 
-    /**
-     * @return Unit of time. Valid values: `ms`, `s`.
-     * 
-     */
     public Output<String> unit() {
         return this.unit;
     }
 
-    /**
-     * Number of time units. Minimum value of `0`.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<Integer> value;
 
-    /**
-     * @return Number of time units. Minimum value of `0`.
-     * 
-     */
     public Output<Integer> value() {
         return this.value;
     }
@@ -70,44 +54,20 @@ public final class VirtualNodeSpecListenerTimeoutTcpIdleArgs extends com.pulumi.
             $ = new VirtualNodeSpecListenerTimeoutTcpIdleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param unit Unit of time. Valid values: `ms`, `s`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(Output<String> unit) {
             $.unit = unit;
             return this;
         }
 
-        /**
-         * @param unit Unit of time. Valid values: `ms`, `s`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(String unit) {
             return unit(Output.of(unit));
         }
 
-        /**
-         * @param value Number of time units. Minimum value of `0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<Integer> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Number of time units. Minimum value of `0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Integer value) {
             return value(Output.of(value));
         }

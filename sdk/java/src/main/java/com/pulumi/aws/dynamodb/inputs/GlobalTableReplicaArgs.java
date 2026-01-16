@@ -14,17 +14,9 @@ public final class GlobalTableReplicaArgs extends com.pulumi.resources.ResourceA
 
     public static final GlobalTableReplicaArgs Empty = new GlobalTableReplicaArgs();
 
-    /**
-     * AWS region name of replica DynamoDB TableE.g., `us-east-1`
-     * 
-     */
     @Import(name="regionName", required=true)
     private Output<String> regionName;
 
-    /**
-     * @return AWS region name of replica DynamoDB TableE.g., `us-east-1`
-     * 
-     */
     public Output<String> regionName() {
         return this.regionName;
     }
@@ -53,23 +45,11 @@ public final class GlobalTableReplicaArgs extends com.pulumi.resources.ResourceA
             $ = new GlobalTableReplicaArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param regionName AWS region name of replica DynamoDB TableE.g., `us-east-1`
-         * 
-         * @return builder
-         * 
-         */
         public Builder regionName(Output<String> regionName) {
             $.regionName = regionName;
             return this;
         }
 
-        /**
-         * @param regionName AWS region name of replica DynamoDB TableE.g., `us-east-1`
-         * 
-         * @return builder
-         * 
-         */
         public Builder regionName(String regionName) {
             return regionName(Output.of(regionName));
         }

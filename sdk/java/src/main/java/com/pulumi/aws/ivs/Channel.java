@@ -16,210 +16,71 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS IVS (Interactive Video) Channel.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ivs.Channel;
- * import com.pulumi.aws.ivs.ChannelArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Channel("example", ChannelArgs.builder()
- *             .name("channel-1")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the IVS channel.
- * 
- * Using `pulumi import`, import IVS (Interactive Video) Channel using the ARN. For example:
- * 
- * % pulumi import aws_ivs_channel.example arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5
- * 
- */
 @ResourceType(type="aws:ivs/channel:Channel")
 public class Channel extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Channel.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Channel.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * If `true`, channel is private (enabled for playback authorization).
-     * 
-     */
     @Export(name="authorized", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> authorized;
 
-    /**
-     * @return If `true`, channel is private (enabled for playback authorization).
-     * 
-     */
     public Output<Boolean> authorized() {
         return this.authorized;
     }
-    /**
-     * Channel ingest endpoint, part of the definition of an ingest server, used when setting up streaming software.
-     * 
-     */
     @Export(name="ingestEndpoint", refs={String.class}, tree="[0]")
     private Output<String> ingestEndpoint;
 
-    /**
-     * @return Channel ingest endpoint, part of the definition of an ingest server, used when setting up streaming software.
-     * 
-     */
     public Output<String> ingestEndpoint() {
         return this.ingestEndpoint;
     }
-    /**
-     * Channel latency mode. Valid values: `NORMAL`, `LOW`.
-     * 
-     */
     @Export(name="latencyMode", refs={String.class}, tree="[0]")
     private Output<String> latencyMode;
 
-    /**
-     * @return Channel latency mode. Valid values: `NORMAL`, `LOW`.
-     * 
-     */
     public Output<String> latencyMode() {
         return this.latencyMode;
     }
-    /**
-     * Channel name.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Channel name.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Channel playback URL.
-     * 
-     */
     @Export(name="playbackUrl", refs={String.class}, tree="[0]")
     private Output<String> playbackUrl;
 
-    /**
-     * @return Channel playback URL.
-     * 
-     */
     public Output<String> playbackUrl() {
         return this.playbackUrl;
     }
-    /**
-     * Recording configuration ARN.
-     * 
-     */
     @Export(name="recordingConfigurationArn", refs={String.class}, tree="[0]")
     private Output<String> recordingConfigurationArn;
 
-    /**
-     * @return Recording configuration ARN.
-     * 
-     */
     public Output<String> recordingConfigurationArn() {
         return this.recordingConfigurationArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }

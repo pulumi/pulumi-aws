@@ -9,82 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    /// <summary>
-    /// &gt; **NOTE:**: To reliably detect drift between customer managed inline policies listed in this resource and actual policies attached to the role in the cloud, you currently need to run Pulumi with `pulumi up --refresh`. See [#4766](https://github.com/pulumi/pulumi-aws/issues/4766) for tracking making this work with regular `pulumi up` invocations.
-    /// 
-    /// Resource for maintaining exclusive management of inline policies assigned to an AWS IAM (Identity &amp; Access Management) role.
-    /// 
-    /// !&gt; This resource takes exclusive ownership over inline policies assigned to a role. This includes removal of inline policies which are not explicitly configured. To prevent persistent drift, ensure any `aws.iam.RolePolicy` resources managed alongside this resource are included in the `PolicyNames` argument.
-    /// 
-    /// &gt; Destruction of this resource means Pulumi will no longer manage reconciliation of the configured inline policy assignments. It __will not__ delete the configured policies from the role.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Iam.RolePoliciesExclusive("example", new()
-    ///     {
-    ///         RoleName = exampleAwsIamRole.Name,
-    ///         PolicyNames = new[]
-    ///         {
-    ///             exampleAwsIamRolePolicy.Name,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Disallow Inline Policies
-    /// 
-    /// To automatically remove any configured inline policies, set the `PolicyNames` argument to an empty list.
-    /// 
-    /// &gt; This will not __prevent__ inline policies from being assigned to a role via Pulumi (or any other interface). This resource enables bringing inline policy assignments into a configured state, however, this reconciliation happens only when `Apply` is proactively run.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Iam.RolePoliciesExclusive("example", new()
-    ///     {
-    ///         RoleName = exampleAwsIamRole.Name,
-    ///         PolicyNames = new[] {},
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import exclusive management of inline policy assignments using the `role_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:iam/rolePoliciesExclusive:RolePoliciesExclusive example MyRole
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iam/rolePoliciesExclusive:RolePoliciesExclusive")]
     public partial class RolePoliciesExclusive : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A list of inline policy names to be assigned to the role. Policies attached to this role but not configured in this argument will be removed.
-        /// </summary>
         [Output("policyNames")]
         public Output<ImmutableArray<string>> PolicyNames { get; private set; } = null!;
 
-        /// <summary>
-        /// IAM role name.
-        /// </summary>
         [Output("roleName")]
         public Output<string> RoleName { get; private set; } = null!;
 
@@ -136,19 +66,12 @@ namespace Pulumi.Aws.Iam
     {
         [Input("policyNames", required: true)]
         private InputList<string>? _policyNames;
-
-        /// <summary>
-        /// A list of inline policy names to be assigned to the role. Policies attached to this role but not configured in this argument will be removed.
-        /// </summary>
         public InputList<string> PolicyNames
         {
             get => _policyNames ?? (_policyNames = new InputList<string>());
             set => _policyNames = value;
         }
 
-        /// <summary>
-        /// IAM role name.
-        /// </summary>
         [Input("roleName", required: true)]
         public Input<string> RoleName { get; set; } = null!;
 
@@ -162,19 +85,12 @@ namespace Pulumi.Aws.Iam
     {
         [Input("policyNames")]
         private InputList<string>? _policyNames;
-
-        /// <summary>
-        /// A list of inline policy names to be assigned to the role. Policies attached to this role but not configured in this argument will be removed.
-        /// </summary>
         public InputList<string> PolicyNames
         {
             get => _policyNames ?? (_policyNames = new InputList<string>());
             set => _policyNames = value;
         }
 
-        /// <summary>
-        /// IAM role name.
-        /// </summary>
         [Input("roleName")]
         public Input<string>? RoleName { get; set; }
 

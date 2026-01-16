@@ -12,52 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a DynamoDB contributor insights resource
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dynamodb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dynamodb.NewContributorInsights(ctx, "test", &dynamodb.ContributorInsightsArgs{
-//				TableName: pulumi.String("ExampleTableName"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_dynamodb_contributor_insights` using the format `name:table_name/index:index_name`, followed by the account number. For example:
-//
-// ```sh
-// $ pulumi import aws:dynamodb/contributorInsights:ContributorInsights test name:ExampleTableName/index:ExampleIndexName/123456789012
-// ```
 type ContributorInsights struct {
 	pulumi.CustomResourceState
 
-	// The global secondary index name
 	IndexName pulumi.StringPtrOutput `pulumi:"indexName"`
-	// argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
-	Mode pulumi.StringOutput `pulumi:"mode"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The name of the table to enable contributor insights
-	TableName pulumi.StringOutput `pulumi:"tableName"`
+	Mode      pulumi.StringOutput    `pulumi:"mode"`
+	Region    pulumi.StringOutput    `pulumi:"region"`
+	TableName pulumi.StringOutput    `pulumi:"tableName"`
 }
 
 // NewContributorInsights registers a new resource with the given unique name, arguments, and options.
@@ -93,24 +54,16 @@ func GetContributorInsights(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContributorInsights resources.
 type contributorInsightsState struct {
-	// The global secondary index name
 	IndexName *string `pulumi:"indexName"`
-	// argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
-	Mode *string `pulumi:"mode"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name of the table to enable contributor insights
+	Mode      *string `pulumi:"mode"`
+	Region    *string `pulumi:"region"`
 	TableName *string `pulumi:"tableName"`
 }
 
 type ContributorInsightsState struct {
-	// The global secondary index name
 	IndexName pulumi.StringPtrInput
-	// argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
-	Mode pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name of the table to enable contributor insights
+	Mode      pulumi.StringPtrInput
+	Region    pulumi.StringPtrInput
 	TableName pulumi.StringPtrInput
 }
 
@@ -119,25 +72,17 @@ func (ContributorInsightsState) ElementType() reflect.Type {
 }
 
 type contributorInsightsArgs struct {
-	// The global secondary index name
 	IndexName *string `pulumi:"indexName"`
-	// argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
-	Mode *string `pulumi:"mode"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name of the table to enable contributor insights
-	TableName string `pulumi:"tableName"`
+	Mode      *string `pulumi:"mode"`
+	Region    *string `pulumi:"region"`
+	TableName string  `pulumi:"tableName"`
 }
 
 // The set of arguments for constructing a ContributorInsights resource.
 type ContributorInsightsArgs struct {
-	// The global secondary index name
 	IndexName pulumi.StringPtrInput
-	// argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
-	Mode pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name of the table to enable contributor insights
+	Mode      pulumi.StringPtrInput
+	Region    pulumi.StringPtrInput
 	TableName pulumi.StringInput
 }
 
@@ -228,22 +173,18 @@ func (o ContributorInsightsOutput) ToContributorInsightsOutputWithContext(ctx co
 	return o
 }
 
-// The global secondary index name
 func (o ContributorInsightsOutput) IndexName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContributorInsights) pulumi.StringPtrOutput { return v.IndexName }).(pulumi.StringPtrOutput)
 }
 
-// argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
 func (o ContributorInsightsOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContributorInsights) pulumi.StringOutput { return v.Mode }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ContributorInsightsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContributorInsights) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The name of the table to enable contributor insights
 func (o ContributorInsightsOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContributorInsights) pulumi.StringOutput { return v.TableName }).(pulumi.StringOutput)
 }

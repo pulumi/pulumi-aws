@@ -15,77 +15,37 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
 
     public static final EndpointRedshiftSettingsArgs Empty = new EndpointRedshiftSettingsArgs();
 
-    /**
-     * Custom S3 Bucket Object prefix for intermediate storage.
-     * 
-     */
     @Import(name="bucketFolder")
     private @Nullable Output<String> bucketFolder;
 
-    /**
-     * @return Custom S3 Bucket Object prefix for intermediate storage.
-     * 
-     */
     public Optional<Output<String>> bucketFolder() {
         return Optional.ofNullable(this.bucketFolder);
     }
 
-    /**
-     * Custom S3 Bucket name for intermediate storage.
-     * 
-     */
     @Import(name="bucketName")
     private @Nullable Output<String> bucketName;
 
-    /**
-     * @return Custom S3 Bucket name for intermediate storage.
-     * 
-     */
     public Optional<Output<String>> bucketName() {
         return Optional.ofNullable(this.bucketName);
     }
 
-    /**
-     * The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
-     * 
-     */
     @Import(name="encryptionMode")
     private @Nullable Output<String> encryptionMode;
 
-    /**
-     * @return The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
-     * 
-     */
     public Optional<Output<String>> encryptionMode() {
         return Optional.ofNullable(this.encryptionMode);
     }
 
-    /**
-     * ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
-     * 
-     */
     @Import(name="serverSideEncryptionKmsKeyId")
     private @Nullable Output<String> serverSideEncryptionKmsKeyId;
 
-    /**
-     * @return ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
-     * 
-     */
     public Optional<Output<String>> serverSideEncryptionKmsKeyId() {
         return Optional.ofNullable(this.serverSideEncryptionKmsKeyId);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
-     * 
-     */
     @Import(name="serviceAccessRoleArn")
     private @Nullable Output<String> serviceAccessRoleArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
-     * 
-     */
     public Optional<Output<String>> serviceAccessRoleArn() {
         return Optional.ofNullable(this.serviceAccessRoleArn);
     }
@@ -118,107 +78,47 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
             $ = new EndpointRedshiftSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketFolder Custom S3 Bucket Object prefix for intermediate storage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketFolder(@Nullable Output<String> bucketFolder) {
             $.bucketFolder = bucketFolder;
             return this;
         }
 
-        /**
-         * @param bucketFolder Custom S3 Bucket Object prefix for intermediate storage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketFolder(String bucketFolder) {
             return bucketFolder(Output.of(bucketFolder));
         }
 
-        /**
-         * @param bucketName Custom S3 Bucket name for intermediate storage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(@Nullable Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
-        /**
-         * @param bucketName Custom S3 Bucket name for intermediate storage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }
 
-        /**
-         * @param encryptionMode The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionMode(@Nullable Output<String> encryptionMode) {
             $.encryptionMode = encryptionMode;
             return this;
         }
 
-        /**
-         * @param encryptionMode The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionMode(String encryptionMode) {
             return encryptionMode(Output.of(encryptionMode));
         }
 
-        /**
-         * @param serverSideEncryptionKmsKeyId ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverSideEncryptionKmsKeyId(@Nullable Output<String> serverSideEncryptionKmsKeyId) {
             $.serverSideEncryptionKmsKeyId = serverSideEncryptionKmsKeyId;
             return this;
         }
 
-        /**
-         * @param serverSideEncryptionKmsKeyId ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverSideEncryptionKmsKeyId(String serverSideEncryptionKmsKeyId) {
             return serverSideEncryptionKmsKeyId(Output.of(serverSideEncryptionKmsKeyId));
         }
 
-        /**
-         * @param serviceAccessRoleArn Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceAccessRoleArn(@Nullable Output<String> serviceAccessRoleArn) {
             $.serviceAccessRoleArn = serviceAccessRoleArn;
             return this;
         }
 
-        /**
-         * @param serviceAccessRoleArn Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceAccessRoleArn(String serviceAccessRoleArn) {
             return serviceAccessRoleArn(Output.of(serviceAccessRoleArn));
         }

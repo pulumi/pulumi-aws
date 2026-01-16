@@ -15,17 +15,9 @@ public final class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphi
 
     public static final ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs Empty = new ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs();
 
-    /**
-     * Html Motion Graphics Settings.
-     * 
-     */
     @Import(name="htmlMotionGraphicsSettings")
     private @Nullable Output<ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs> htmlMotionGraphicsSettings;
 
-    /**
-     * @return Html Motion Graphics Settings.
-     * 
-     */
     public Optional<Output<ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs>> htmlMotionGraphicsSettings() {
         return Optional.ofNullable(this.htmlMotionGraphicsSettings);
     }
@@ -54,23 +46,11 @@ public final class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphi
             $ = new ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param htmlMotionGraphicsSettings Html Motion Graphics Settings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder htmlMotionGraphicsSettings(@Nullable Output<ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs> htmlMotionGraphicsSettings) {
             $.htmlMotionGraphicsSettings = htmlMotionGraphicsSettings;
             return this;
         }
 
-        /**
-         * @param htmlMotionGraphicsSettings Html Motion Graphics Settings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder htmlMotionGraphicsSettings(ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs htmlMotionGraphicsSettings) {
             return htmlMotionGraphicsSettings(Output.of(htmlMotionGraphicsSettings));
         }

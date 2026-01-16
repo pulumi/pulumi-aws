@@ -30,9 +30,6 @@ namespace Pulumi.Aws.Dlm.Inputs
         [Input("target")]
         public Input<string>? Target { get; set; }
 
-        /// <summary>
-        /// Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
-        /// </summary>
         [Input("targetRegion")]
         public Input<string>? TargetRegion { get; set; }
 

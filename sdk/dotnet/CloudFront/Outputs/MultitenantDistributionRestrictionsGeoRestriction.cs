@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class MultitenantDistributionRestrictionsGeoRestriction
     {
-        /// <summary>
-        /// List of ISO 3166-1-alpha-2 country codes for which you want CloudFront either to distribute your content (`Whitelist`) or not distribute your content (`Blacklist`). Required when `RestrictionType` is `Whitelist` or `Blacklist`.
-        /// </summary>
         public readonly ImmutableArray<string> Items;
-        /// <summary>
-        /// Method to restrict distribution of your content by country. Valid values are `None`, `Whitelist`, and `Blacklist`.
-        /// </summary>
         public readonly string RestrictionType;
 
         [OutputConstructor]

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Kendra.Outputs
     [OutputType]
     public sealed class DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration
     {
-        /// <summary>
-        /// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
-        /// </summary>
         public readonly Outputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition? Condition;
-        /// <summary>
-        /// `TRUE` to delete content if the condition used for the target attribute is met.
-        /// </summary>
         public readonly bool? DocumentContentDeletion;
-        /// <summary>
-        /// Configuration of the target document attribute or metadata field when ingesting documents into Amazon Kendra. You can also include a value. Detailed below.
-        /// </summary>
         public readonly Outputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget? Target;
 
         [OutputConstructor]

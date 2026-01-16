@@ -12,74 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Transcribe VocabularyFilter.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/transcribe"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transcribe.NewVocabularyFilter(ctx, "example", &transcribe.VocabularyFilterArgs{
-//				VocabularyFilterName: pulumi.String("example"),
-//				LanguageCode:         pulumi.String("en-US"),
-//				Words: pulumi.StringArray{
-//					pulumi.String("cars"),
-//					pulumi.String("bucket"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"tag1": pulumi.String("value1"),
-//					"tag2": pulumi.String("value3"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Transcribe VocabularyFilter using the `vocabulary_filter_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
-// ```
 type VocabularyFilter struct {
 	pulumi.CustomResourceState
 
-	// ARN of the VocabularyFilter.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Generated download URI.
-	DownloadUri pulumi.StringOutput `pulumi:"downloadUri"`
-	// The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
-	VocabularyFilterFileUri pulumi.StringPtrOutput `pulumi:"vocabularyFilterFileUri"`
-	// The name of the VocabularyFilter.
-	//
-	// The following arguments are optional:
-	VocabularyFilterName pulumi.StringOutput `pulumi:"vocabularyFilterName"`
-	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
-	Words pulumi.StringArrayOutput `pulumi:"words"`
+	Arn                     pulumi.StringOutput      `pulumi:"arn"`
+	DownloadUri             pulumi.StringOutput      `pulumi:"downloadUri"`
+	LanguageCode            pulumi.StringOutput      `pulumi:"languageCode"`
+	Region                  pulumi.StringOutput      `pulumi:"region"`
+	Tags                    pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll                 pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	VocabularyFilterFileUri pulumi.StringPtrOutput   `pulumi:"vocabularyFilterFileUri"`
+	VocabularyFilterName    pulumi.StringOutput      `pulumi:"vocabularyFilterName"`
+	Words                   pulumi.StringArrayOutput `pulumi:"words"`
 }
 
 // NewVocabularyFilter registers a new resource with the given unique name, arguments, and options.
@@ -118,47 +62,27 @@ func GetVocabularyFilter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VocabularyFilter resources.
 type vocabularyFilterState struct {
-	// ARN of the VocabularyFilter.
-	Arn *string `pulumi:"arn"`
-	// Generated download URI.
-	DownloadUri *string `pulumi:"downloadUri"`
-	// The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-	LanguageCode *string `pulumi:"languageCode"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
-	VocabularyFilterFileUri *string `pulumi:"vocabularyFilterFileUri"`
-	// The name of the VocabularyFilter.
-	//
-	// The following arguments are optional:
-	VocabularyFilterName *string `pulumi:"vocabularyFilterName"`
-	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
-	Words []string `pulumi:"words"`
+	Arn                     *string           `pulumi:"arn"`
+	DownloadUri             *string           `pulumi:"downloadUri"`
+	LanguageCode            *string           `pulumi:"languageCode"`
+	Region                  *string           `pulumi:"region"`
+	Tags                    map[string]string `pulumi:"tags"`
+	TagsAll                 map[string]string `pulumi:"tagsAll"`
+	VocabularyFilterFileUri *string           `pulumi:"vocabularyFilterFileUri"`
+	VocabularyFilterName    *string           `pulumi:"vocabularyFilterName"`
+	Words                   []string          `pulumi:"words"`
 }
 
 type VocabularyFilterState struct {
-	// ARN of the VocabularyFilter.
-	Arn pulumi.StringPtrInput
-	// Generated download URI.
-	DownloadUri pulumi.StringPtrInput
-	// The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-	LanguageCode pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
-	// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
+	Arn                     pulumi.StringPtrInput
+	DownloadUri             pulumi.StringPtrInput
+	LanguageCode            pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
+	TagsAll                 pulumi.StringMapInput
 	VocabularyFilterFileUri pulumi.StringPtrInput
-	// The name of the VocabularyFilter.
-	//
-	// The following arguments are optional:
-	VocabularyFilterName pulumi.StringPtrInput
-	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
-	Words pulumi.StringArrayInput
+	VocabularyFilterName    pulumi.StringPtrInput
+	Words                   pulumi.StringArrayInput
 }
 
 func (VocabularyFilterState) ElementType() reflect.Type {
@@ -166,38 +90,22 @@ func (VocabularyFilterState) ElementType() reflect.Type {
 }
 
 type vocabularyFilterArgs struct {
-	// The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-	LanguageCode string `pulumi:"languageCode"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
-	VocabularyFilterFileUri *string `pulumi:"vocabularyFilterFileUri"`
-	// The name of the VocabularyFilter.
-	//
-	// The following arguments are optional:
-	VocabularyFilterName string `pulumi:"vocabularyFilterName"`
-	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
-	Words []string `pulumi:"words"`
+	LanguageCode            string            `pulumi:"languageCode"`
+	Region                  *string           `pulumi:"region"`
+	Tags                    map[string]string `pulumi:"tags"`
+	VocabularyFilterFileUri *string           `pulumi:"vocabularyFilterFileUri"`
+	VocabularyFilterName    string            `pulumi:"vocabularyFilterName"`
+	Words                   []string          `pulumi:"words"`
 }
 
 // The set of arguments for constructing a VocabularyFilter resource.
 type VocabularyFilterArgs struct {
-	// The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-	LanguageCode pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
+	LanguageCode            pulumi.StringInput
+	Region                  pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
 	VocabularyFilterFileUri pulumi.StringPtrInput
-	// The name of the VocabularyFilter.
-	//
-	// The following arguments are optional:
-	VocabularyFilterName pulumi.StringInput
-	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
-	Words pulumi.StringArrayInput
+	VocabularyFilterName    pulumi.StringInput
+	Words                   pulumi.StringArrayInput
 }
 
 func (VocabularyFilterArgs) ElementType() reflect.Type {
@@ -287,27 +195,22 @@ func (o VocabularyFilterOutput) ToVocabularyFilterOutputWithContext(ctx context.
 	return o
 }
 
-// ARN of the VocabularyFilter.
 func (o VocabularyFilterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VocabularyFilter) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Generated download URI.
 func (o VocabularyFilterOutput) DownloadUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *VocabularyFilter) pulumi.StringOutput { return v.DownloadUri }).(pulumi.StringOutput)
 }
 
-// The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
 func (o VocabularyFilterOutput) LanguageCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *VocabularyFilter) pulumi.StringOutput { return v.LanguageCode }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VocabularyFilterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VocabularyFilter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VocabularyFilterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VocabularyFilter) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -316,19 +219,14 @@ func (o VocabularyFilterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VocabularyFilter) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
 func (o VocabularyFilterOutput) VocabularyFilterFileUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VocabularyFilter) pulumi.StringPtrOutput { return v.VocabularyFilterFileUri }).(pulumi.StringPtrOutput)
 }
 
-// The name of the VocabularyFilter.
-//
-// The following arguments are optional:
 func (o VocabularyFilterOutput) VocabularyFilterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VocabularyFilter) pulumi.StringOutput { return v.VocabularyFilterName }).(pulumi.StringOutput)
 }
 
-// A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
 func (o VocabularyFilterOutput) Words() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VocabularyFilter) pulumi.StringArrayOutput { return v.Words }).(pulumi.StringArrayOutput)
 }

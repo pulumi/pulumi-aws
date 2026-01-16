@@ -13,15 +13,7 @@ namespace Pulumi.Aws.S3Tables.Outputs
     [OutputType]
     public sealed class TableMaintenanceConfigurationIcebergSnapshotManagement
     {
-        /// <summary>
-        /// Settings object for snapshot management.
-        /// See `iceberg_snapshot_management.settings` below.
-        /// </summary>
         public readonly Outputs.TableMaintenanceConfigurationIcebergSnapshotManagementSettings Settings;
-        /// <summary>
-        /// Whether the configuration is enabled.
-        /// Valid values are `Enabled` and `Disabled`.
-        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

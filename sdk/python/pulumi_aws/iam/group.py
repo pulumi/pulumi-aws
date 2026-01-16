@@ -23,8 +23,6 @@ class GroupArgs:
                  path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Group resource.
-        :param pulumi.Input[_builtins.str] name: The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
-        :param pulumi.Input[_builtins.str] path: Path in which to create the group.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -34,9 +32,6 @@ class GroupArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -46,9 +41,6 @@ class GroupArgs:
     @_builtins.property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Path in which to create the group.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -65,10 +57,6 @@ class _GroupState:
                  unique_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Group resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN assigned by AWS for this group.
-        :param pulumi.Input[_builtins.str] name: The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
-        :param pulumi.Input[_builtins.str] path: Path in which to create the group.
-        :param pulumi.Input[_builtins.str] unique_id: The [unique ID][1] assigned by AWS.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -82,9 +70,6 @@ class _GroupState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN assigned by AWS for this group.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -94,9 +79,6 @@ class _GroupState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -106,9 +88,6 @@ class _GroupState:
     @_builtins.property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Path in which to create the group.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -118,9 +97,6 @@ class _GroupState:
     @_builtins.property
     @pulumi.getter(name="uniqueId")
     def unique_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The [unique ID][1] assigned by AWS.
-        """
         return pulumi.get(self, "unique_id")
 
     @unique_id.setter
@@ -138,33 +114,9 @@ class Group(pulumi.CustomResource):
                  path: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an IAM group.
-
-        > **NOTE on user management:** Using `iam.GroupMembership` or `iam.UserGroupMembership` resources in addition to manually managing user/group membership using the console may lead to configuration drift or conflicts. For this reason, it's recommended to either manage membership entirely with the provider or entirely within the AWS console.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        developers = aws.iam.Group("developers",
-            name="developers",
-            path="/users/")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import IAM Groups using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:iam/group:Group developers developers
-        ```
-
+        Create a Group resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
-        :param pulumi.Input[_builtins.str] path: Path in which to create the group.
         """
         ...
     @overload
@@ -173,29 +125,7 @@ class Group(pulumi.CustomResource):
                  args: Optional[GroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an IAM group.
-
-        > **NOTE on user management:** Using `iam.GroupMembership` or `iam.UserGroupMembership` resources in addition to manually managing user/group membership using the console may lead to configuration drift or conflicts. For this reason, it's recommended to either manage membership entirely with the provider or entirely within the AWS console.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        developers = aws.iam.Group("developers",
-            name="developers",
-            path="/users/")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import IAM Groups using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:iam/group:Group developers developers
-        ```
-
+        Create a Group resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -247,10 +177,6 @@ class Group(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN assigned by AWS for this group.
-        :param pulumi.Input[_builtins.str] name: The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
-        :param pulumi.Input[_builtins.str] path: Path in which to create the group.
-        :param pulumi.Input[_builtins.str] unique_id: The [unique ID][1] assigned by AWS.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -265,32 +191,20 @@ class Group(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN assigned by AWS for this group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def path(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Path in which to create the group.
-        """
         return pulumi.get(self, "path")
 
     @_builtins.property
     @pulumi.getter(name="uniqueId")
     def unique_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The [unique ID][1] assigned by AWS.
-        """
         return pulumi.get(self, "unique_id")
 

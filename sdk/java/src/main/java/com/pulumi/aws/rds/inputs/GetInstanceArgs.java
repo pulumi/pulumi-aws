@@ -16,47 +16,23 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetInstanceArgs Empty = new GetInstanceArgs();
 
-    /**
-     * Name of the RDS instance.
-     * 
-     */
     @Import(name="dbInstanceIdentifier")
     private @Nullable Output<String> dbInstanceIdentifier;
 
-    /**
-     * @return Name of the RDS instance.
-     * 
-     */
     public Optional<Output<String>> dbInstanceIdentifier() {
         return Optional.ofNullable(this.dbInstanceIdentifier);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags, each pair of which must exactly match a pair on the desired instance.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags, each pair of which must exactly match a pair on the desired instance.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -87,65 +63,29 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetInstanceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dbInstanceIdentifier Name of the RDS instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbInstanceIdentifier(@Nullable Output<String> dbInstanceIdentifier) {
             $.dbInstanceIdentifier = dbInstanceIdentifier;
             return this;
         }
 
-        /**
-         * @param dbInstanceIdentifier Name of the RDS instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbInstanceIdentifier(String dbInstanceIdentifier) {
             return dbInstanceIdentifier(Output.of(dbInstanceIdentifier));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Map of tags, each pair of which must exactly match a pair on the desired instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags, each pair of which must exactly match a pair on the desired instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

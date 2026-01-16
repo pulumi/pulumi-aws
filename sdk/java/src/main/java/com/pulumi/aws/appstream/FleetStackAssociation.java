@@ -13,111 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AppStream Fleet Stack association.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appstream.Fleet;
- * import com.pulumi.aws.appstream.FleetArgs;
- * import com.pulumi.aws.appstream.inputs.FleetComputeCapacityArgs;
- * import com.pulumi.aws.appstream.Stack;
- * import com.pulumi.aws.appstream.StackArgs;
- * import com.pulumi.aws.appstream.FleetStackAssociation;
- * import com.pulumi.aws.appstream.FleetStackAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Fleet("example", FleetArgs.builder()
- *             .name("NAME")
- *             .imageName("Amazon-AppStream2-Sample-Image-03-11-2023")
- *             .instanceType("stream.standard.small")
- *             .computeCapacity(FleetComputeCapacityArgs.builder()
- *                 .desiredInstances(1)
- *                 .build())
- *             .build());
- * 
- *         var exampleStack = new Stack("exampleStack", StackArgs.builder()
- *             .name("STACK NAME")
- *             .build());
- * 
- *         var exampleFleetStackAssociation = new FleetStackAssociation("exampleFleetStackAssociation", FleetStackAssociationArgs.builder()
- *             .fleetName(example.name())
- *             .stackName(exampleStack.name())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import AppStream Stack Fleet Association using the `fleet_name` and `stack_name` separated by a slash (`/`). For example:
- * 
- * ```sh
- * $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
- * ```
- * 
- */
 @ResourceType(type="aws:appstream/fleetStackAssociation:FleetStackAssociation")
 public class FleetStackAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of the fleet.
-     * 
-     */
     @Export(name="fleetName", refs={String.class}, tree="[0]")
     private Output<String> fleetName;
 
-    /**
-     * @return Name of the fleet.
-     * 
-     */
     public Output<String> fleetName() {
         return this.fleetName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Name of the stack.
-     * 
-     */
     @Export(name="stackName", refs={String.class}, tree="[0]")
     private Output<String> stackName;
 
-    /**
-     * @return Name of the stack.
-     * 
-     */
     public Output<String> stackName() {
         return this.stackName;
     }

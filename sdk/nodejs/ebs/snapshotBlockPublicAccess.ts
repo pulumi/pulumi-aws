@@ -4,24 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ebs.SnapshotBlockPublicAccess("example", {state: "block-all-sharing"});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import the state. For example:
- *
- * ```sh
- * $ pulumi import aws:ebs/snapshotBlockPublicAccess:SnapshotBlockPublicAccess example default
- * ```
- */
 export class SnapshotBlockPublicAccess extends pulumi.CustomResource {
     /**
      * Get an existing SnapshotBlockPublicAccess resource's state with the given name, ID, and optional extra
@@ -50,13 +32,7 @@ export class SnapshotBlockPublicAccess extends pulumi.CustomResource {
         return obj['__pulumiType'] === SnapshotBlockPublicAccess.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
-     */
     declare public readonly state: pulumi.Output<string>;
 
     /**
@@ -91,13 +67,7 @@ export class SnapshotBlockPublicAccess extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SnapshotBlockPublicAccess resources.
  */
 export interface SnapshotBlockPublicAccessState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
-     */
     state?: pulumi.Input<string>;
 }
 
@@ -105,12 +75,6 @@ export interface SnapshotBlockPublicAccessState {
  * The set of arguments for constructing a SnapshotBlockPublicAccess resource.
  */
 export interface SnapshotBlockPublicAccessArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
-     */
     state: pulumi.Input<string>;
 }

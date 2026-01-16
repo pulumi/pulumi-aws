@@ -4,30 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Associates a flow with a phone number claimed to an Amazon Connect instance.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.connect.PhoneNumberContactFlowAssociation("example", {
- *     phoneNumberId: exampleAwsConnectPhoneNumber.id,
- *     instanceId: exampleAwsConnectInstance.id,
- *     contactFlowId: exampleAwsConnectContactFlow.contactFlowId,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_connect_phone_number_contact_flow_association` using the `phone_number_id`, `instance_id` and `contact_flow_id` separated by a comma (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:connect/phoneNumberContactFlowAssociation:PhoneNumberContactFlowAssociation example 36727a4c-4683-4e49-880c-3347c61110a4,fa6c1691-e2eb-4487-bdb9-1aaed6268ebd,c4acdc79-395e-4280-a294-9062f56b07bb
- * ```
- */
 export class PhoneNumberContactFlowAssociation extends pulumi.CustomResource {
     /**
      * Get an existing PhoneNumberContactFlowAssociation resource's state with the given name, ID, and optional extra
@@ -56,21 +32,9 @@ export class PhoneNumberContactFlowAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === PhoneNumberContactFlowAssociation.__pulumiType;
     }
 
-    /**
-     * Contact flow ID.
-     */
     declare public readonly contactFlowId: pulumi.Output<string>;
-    /**
-     * Amazon Connect instance ID.
-     */
     declare public readonly instanceId: pulumi.Output<string>;
-    /**
-     * Phone number ID.
-     */
     declare public readonly phoneNumberId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -115,21 +79,9 @@ export class PhoneNumberContactFlowAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PhoneNumberContactFlowAssociation resources.
  */
 export interface PhoneNumberContactFlowAssociationState {
-    /**
-     * Contact flow ID.
-     */
     contactFlowId?: pulumi.Input<string>;
-    /**
-     * Amazon Connect instance ID.
-     */
     instanceId?: pulumi.Input<string>;
-    /**
-     * Phone number ID.
-     */
     phoneNumberId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -137,20 +89,8 @@ export interface PhoneNumberContactFlowAssociationState {
  * The set of arguments for constructing a PhoneNumberContactFlowAssociation resource.
  */
 export interface PhoneNumberContactFlowAssociationArgs {
-    /**
-     * Contact flow ID.
-     */
     contactFlowId: pulumi.Input<string>;
-    /**
-     * Amazon Connect instance ID.
-     */
     instanceId: pulumi.Input<string>;
-    /**
-     * Phone number ID.
-     */
     phoneNumberId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

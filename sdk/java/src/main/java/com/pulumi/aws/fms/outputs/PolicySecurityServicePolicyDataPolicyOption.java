@@ -13,30 +13,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicySecurityServicePolicyDataPolicyOption {
-    /**
-     * @return Defines NACL rules across accounts in their AWS Organization. See the `networkAclCommonPolicy` block.
-     * 
-     */
     private @Nullable PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy networkAclCommonPolicy;
-    /**
-     * @return Defines the deployment model to use for the firewall policy.  See the `networkFirewallPolicy` block.
-     * 
-     */
     private @Nullable PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy networkFirewallPolicy;
     private @Nullable PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy thirdPartyFirewallPolicy;
 
     private PolicySecurityServicePolicyDataPolicyOption() {}
-    /**
-     * @return Defines NACL rules across accounts in their AWS Organization. See the `networkAclCommonPolicy` block.
-     * 
-     */
     public Optional<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy> networkAclCommonPolicy() {
         return Optional.ofNullable(this.networkAclCommonPolicy);
     }
-    /**
-     * @return Defines the deployment model to use for the firewall policy.  See the `networkFirewallPolicy` block.
-     * 
-     */
     public Optional<PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy> networkFirewallPolicy() {
         return Optional.ofNullable(this.networkFirewallPolicy);
     }

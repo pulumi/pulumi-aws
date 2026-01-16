@@ -11,36 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS SFN (Step Functions) State Machine Alias.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sfn"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sfn.LookupAlias(ctx, &sfn.LookupAliasArgs{
-//				Name:            "my_sfn_alias",
-//				StatemachineArn: sfnTest.Arn,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupAlias(ctx *pulumi.Context, args *LookupAliasArgs, opts ...pulumi.InvokeOption) (*LookupAliasResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAliasResult
@@ -53,29 +23,21 @@ func LookupAlias(ctx *pulumi.Context, args *LookupAliasArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getAlias.
 type LookupAliasArgs struct {
-	// Description of state machine alias.
-	Description *string `pulumi:"description"`
-	// Name of the State Machine alias.
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the State Machine.
-	StatemachineArn string `pulumi:"statemachineArn"`
+	Description     *string `pulumi:"description"`
+	Name            string  `pulumi:"name"`
+	Region          *string `pulumi:"region"`
+	StatemachineArn string  `pulumi:"statemachineArn"`
 }
 
 // A collection of values returned by getAlias.
 type LookupAliasResult struct {
-	// ARN identifying the State Machine alias.
-	Arn string `pulumi:"arn"`
-	// Date the state machine Alias was created.
-	CreationDate string `pulumi:"creationDate"`
-	// Description of state machine alias.
-	Description *string `pulumi:"description"`
+	Arn          string  `pulumi:"arn"`
+	CreationDate string  `pulumi:"creationDate"`
+	Description  *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Name   string `pulumi:"name"`
-	Region string `pulumi:"region"`
-	// Routing Configuration of state machine alias
+	Id                    string                         `pulumi:"id"`
+	Name                  string                         `pulumi:"name"`
+	Region                string                         `pulumi:"region"`
 	RoutingConfigurations []GetAliasRoutingConfiguration `pulumi:"routingConfigurations"`
 	StatemachineArn       string                         `pulumi:"statemachineArn"`
 }
@@ -91,14 +53,10 @@ func LookupAliasOutput(ctx *pulumi.Context, args LookupAliasOutputArgs, opts ...
 
 // A collection of arguments for invoking getAlias.
 type LookupAliasOutputArgs struct {
-	// Description of state machine alias.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Name of the State Machine alias.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// ARN of the State Machine.
-	StatemachineArn pulumi.StringInput `pulumi:"statemachineArn"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Name            pulumi.StringInput    `pulumi:"name"`
+	Region          pulumi.StringPtrInput `pulumi:"region"`
+	StatemachineArn pulumi.StringInput    `pulumi:"statemachineArn"`
 }
 
 func (LookupAliasOutputArgs) ElementType() reflect.Type {
@@ -120,17 +78,14 @@ func (o LookupAliasResultOutput) ToLookupAliasResultOutputWithContext(ctx contex
 	return o
 }
 
-// ARN identifying the State Machine alias.
 func (o LookupAliasResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAliasResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Date the state machine Alias was created.
 func (o LookupAliasResultOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAliasResult) string { return v.CreationDate }).(pulumi.StringOutput)
 }
 
-// Description of state machine alias.
 func (o LookupAliasResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAliasResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -148,7 +103,6 @@ func (o LookupAliasResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAliasResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Routing Configuration of state machine alias
 func (o LookupAliasResultOutput) RoutingConfigurations() GetAliasRoutingConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupAliasResult) []GetAliasRoutingConfiguration { return v.RoutingConfigurations }).(GetAliasRoutingConfigurationArrayOutput)
 }

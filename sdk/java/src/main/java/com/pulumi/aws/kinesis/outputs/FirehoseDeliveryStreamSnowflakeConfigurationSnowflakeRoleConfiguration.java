@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration {
-    /**
-     * @return Whether the Snowflake role is enabled.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return The Snowflake role.
-     * 
-     */
     private @Nullable String snowflakeRole;
 
     private FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration() {}
-    /**
-     * @return Whether the Snowflake role is enabled.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return The Snowflake role.
-     * 
-     */
     public Optional<String> snowflakeRole() {
         return Optional.ofNullable(this.snowflakeRole);
     }

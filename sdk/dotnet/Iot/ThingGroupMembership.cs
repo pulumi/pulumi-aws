@@ -9,61 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iot
 {
-    /// <summary>
-    /// Adds an IoT Thing to an IoT Thing Group.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Iot.ThingGroupMembership("example", new()
-    ///     {
-    ///         ThingName = "example-thing",
-    ///         ThingGroupName = "example-group",
-    ///         OverrideDynamicGroup = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import IoT Thing Group Membership using the thing group name and thing name. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:iot/thingGroupMembership:ThingGroupMembership example thing_group_name/thing_name
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iot/thingGroupMembership:ThingGroupMembership")]
     public partial class ThingGroupMembership : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
-        /// </summary>
         [Output("overrideDynamicGroup")]
         public Output<bool?> OverrideDynamicGroup { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the group to which you are adding a thing.
-        /// </summary>
         [Output("thingGroupName")]
         public Output<string> ThingGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the thing to add to a group.
-        /// </summary>
         [Output("thingName")]
         public Output<string> ThingName { get; private set; } = null!;
 
@@ -113,27 +70,15 @@ namespace Pulumi.Aws.Iot
 
     public sealed class ThingGroupMembershipArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
-        /// </summary>
         [Input("overrideDynamicGroup")]
         public Input<bool>? OverrideDynamicGroup { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the group to which you are adding a thing.
-        /// </summary>
         [Input("thingGroupName", required: true)]
         public Input<string> ThingGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the thing to add to a group.
-        /// </summary>
         [Input("thingName", required: true)]
         public Input<string> ThingName { get; set; } = null!;
 
@@ -145,27 +90,15 @@ namespace Pulumi.Aws.Iot
 
     public sealed class ThingGroupMembershipState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
-        /// </summary>
         [Input("overrideDynamicGroup")]
         public Input<bool>? OverrideDynamicGroup { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the group to which you are adding a thing.
-        /// </summary>
         [Input("thingGroupName")]
         public Input<string>? ThingGroupName { get; set; }
 
-        /// <summary>
-        /// The name of the thing to add to a group.
-        /// </summary>
         [Input("thingName")]
         public Input<string>? ThingName { get; set; }
 

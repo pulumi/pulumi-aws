@@ -15,62 +15,30 @@ public final class AppLimitsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AppLimitsArgs Empty = new AppLimitsArgs();
 
-    /**
-     * The maximum number of messages that the campaign can send daily.
-     * 
-     */
     @Import(name="daily")
     private @Nullable Output<Integer> daily;
 
-    /**
-     * @return The maximum number of messages that the campaign can send daily.
-     * 
-     */
     public Optional<Output<Integer>> daily() {
         return Optional.ofNullable(this.daily);
     }
 
-    /**
-     * The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
-     * 
-     */
     @Import(name="maximumDuration")
     private @Nullable Output<Integer> maximumDuration;
 
-    /**
-     * @return The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
-     * 
-     */
     public Optional<Output<Integer>> maximumDuration() {
         return Optional.ofNullable(this.maximumDuration);
     }
 
-    /**
-     * The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
-     * 
-     */
     @Import(name="messagesPerSecond")
     private @Nullable Output<Integer> messagesPerSecond;
 
-    /**
-     * @return The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
-     * 
-     */
     public Optional<Output<Integer>> messagesPerSecond() {
         return Optional.ofNullable(this.messagesPerSecond);
     }
 
-    /**
-     * The maximum total number of messages that the campaign can send.
-     * 
-     */
     @Import(name="total")
     private @Nullable Output<Integer> total;
 
-    /**
-     * @return The maximum total number of messages that the campaign can send.
-     * 
-     */
     public Optional<Output<Integer>> total() {
         return Optional.ofNullable(this.total);
     }
@@ -102,86 +70,38 @@ public final class AppLimitsArgs extends com.pulumi.resources.ResourceArgs {
             $ = new AppLimitsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param daily The maximum number of messages that the campaign can send daily.
-         * 
-         * @return builder
-         * 
-         */
         public Builder daily(@Nullable Output<Integer> daily) {
             $.daily = daily;
             return this;
         }
 
-        /**
-         * @param daily The maximum number of messages that the campaign can send daily.
-         * 
-         * @return builder
-         * 
-         */
         public Builder daily(Integer daily) {
             return daily(Output.of(daily));
         }
 
-        /**
-         * @param maximumDuration The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumDuration(@Nullable Output<Integer> maximumDuration) {
             $.maximumDuration = maximumDuration;
             return this;
         }
 
-        /**
-         * @param maximumDuration The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumDuration(Integer maximumDuration) {
             return maximumDuration(Output.of(maximumDuration));
         }
 
-        /**
-         * @param messagesPerSecond The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messagesPerSecond(@Nullable Output<Integer> messagesPerSecond) {
             $.messagesPerSecond = messagesPerSecond;
             return this;
         }
 
-        /**
-         * @param messagesPerSecond The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messagesPerSecond(Integer messagesPerSecond) {
             return messagesPerSecond(Output.of(messagesPerSecond));
         }
 
-        /**
-         * @param total The maximum total number of messages that the campaign can send.
-         * 
-         * @return builder
-         * 
-         */
         public Builder total(@Nullable Output<Integer> total) {
             $.total = total;
             return this;
         }
 
-        /**
-         * @param total The maximum total number of messages that the campaign can send.
-         * 
-         * @return builder
-         * 
-         */
         public Builder total(Integer total) {
             return total(Output.of(total));
         }

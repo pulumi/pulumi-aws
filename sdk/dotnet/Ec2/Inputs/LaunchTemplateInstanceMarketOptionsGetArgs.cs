@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class LaunchTemplateInstanceMarketOptionsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The market type. Can be `Spot`.
-        /// </summary>
         [Input("marketType")]
         public Input<string>? MarketType { get; set; }
 
-        /// <summary>
-        /// The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
-        /// </summary>
         [Input("spotOptions")]
         public Input<Inputs.LaunchTemplateInstanceMarketOptionsSpotOptionsGetArgs>? SpotOptions { get; set; }
 

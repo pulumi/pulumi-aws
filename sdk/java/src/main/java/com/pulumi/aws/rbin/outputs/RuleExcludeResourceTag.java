@@ -12,33 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleExcludeResourceTag {
-    /**
-     * @return Tag key.
-     * 
-     * The following argument is optional:
-     * 
-     */
     private String resourceTagKey;
-    /**
-     * @return Tag value.
-     * 
-     */
     private @Nullable String resourceTagValue;
 
     private RuleExcludeResourceTag() {}
-    /**
-     * @return Tag key.
-     * 
-     * The following argument is optional:
-     * 
-     */
     public String resourceTagKey() {
         return this.resourceTagKey;
     }
-    /**
-     * @return Tag value.
-     * 
-     */
     public Optional<String> resourceTagValue() {
         return Optional.ofNullable(this.resourceTagValue);
     }

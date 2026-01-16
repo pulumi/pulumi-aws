@@ -11,42 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource can be useful for getting back a list of VPC Ids for a region.
-//
-// The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
-//
-// ## Example Usage
-//
-// The following shows outputting all VPC Ids.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foo, err := ec2.GetVpcs(ctx, &ec2.GetVpcsArgs{
-//				Tags: map[string]interface{}{
-//					"service": "production",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("foo", foo.Ids)
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// An example use case would be interpolate the `ec2.getVpcs` output into `count` of an ec2.FlowLog resource.
 func GetVpcs(ctx *pulumi.Context, args *GetVpcsArgs, opts ...pulumi.InvokeOption) (*GetVpcsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpcsResult
@@ -59,21 +23,16 @@ func GetVpcs(ctx *pulumi.Context, args *GetVpcsArgs, opts ...pulumi.InvokeOption
 
 // A collection of arguments for invoking getVpcs.
 type GetVpcsArgs struct {
-	// Custom filter block as described below.
-	Filters []GetVpcsFilter `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired vpcs.
-	Tags map[string]string `pulumi:"tags"`
+	Filters []GetVpcsFilter   `pulumi:"filters"`
+	Region  *string           `pulumi:"region"`
+	Tags    map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVpcs.
 type GetVpcsResult struct {
 	Filters []GetVpcsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// List of all the VPC Ids found.
+	Id     string            `pulumi:"id"`
 	Ids    []string          `pulumi:"ids"`
 	Region string            `pulumi:"region"`
 	Tags   map[string]string `pulumi:"tags"`
@@ -90,13 +49,9 @@ func GetVpcsOutput(ctx *pulumi.Context, args GetVpcsOutputArgs, opts ...pulumi.I
 
 // A collection of arguments for invoking getVpcs.
 type GetVpcsOutputArgs struct {
-	// Custom filter block as described below.
 	Filters GetVpcsFilterArrayInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired vpcs.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Region  pulumi.StringPtrInput   `pulumi:"region"`
+	Tags    pulumi.StringMapInput   `pulumi:"tags"`
 }
 
 func (GetVpcsOutputArgs) ElementType() reflect.Type {
@@ -127,7 +82,6 @@ func (o GetVpcsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of all the VPC Ids found.
 func (o GetVpcsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

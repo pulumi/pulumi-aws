@@ -15,47 +15,23 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAr
 
     public static final TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs Empty = new TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs();
 
-    /**
-     * Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
-     * 
-     */
     @Import(name="authorizationConfig", required=true)
     private Output<TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs> authorizationConfig;
 
-    /**
-     * @return Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
-     * 
-     */
     public Output<TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs> authorizationConfig() {
         return this.authorizationConfig;
     }
 
-    /**
-     * The Amazon FSx for Windows File Server file system ID to use.
-     * 
-     */
     @Import(name="fileSystemId", required=true)
     private Output<String> fileSystemId;
 
-    /**
-     * @return The Amazon FSx for Windows File Server file system ID to use.
-     * 
-     */
     public Output<String> fileSystemId() {
         return this.fileSystemId;
     }
 
-    /**
-     * The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
-     * 
-     */
     @Import(name="rootDirectory", required=true)
     private Output<String> rootDirectory;
 
-    /**
-     * @return The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
-     * 
-     */
     public Output<String> rootDirectory() {
         return this.rootDirectory;
     }
@@ -86,65 +62,29 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAr
             $ = new TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authorizationConfig Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationConfig(Output<TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs> authorizationConfig) {
             $.authorizationConfig = authorizationConfig;
             return this;
         }
 
-        /**
-         * @param authorizationConfig Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationConfig(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs authorizationConfig) {
             return authorizationConfig(Output.of(authorizationConfig));
         }
 
-        /**
-         * @param fileSystemId The Amazon FSx for Windows File Server file system ID to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileSystemId(Output<String> fileSystemId) {
             $.fileSystemId = fileSystemId;
             return this;
         }
 
-        /**
-         * @param fileSystemId The Amazon FSx for Windows File Server file system ID to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileSystemId(String fileSystemId) {
             return fileSystemId(Output.of(fileSystemId));
         }
 
-        /**
-         * @param rootDirectory The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rootDirectory(Output<String> rootDirectory) {
             $.rootDirectory = rootDirectory;
             return this;
         }
 
-        /**
-         * @param rootDirectory The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rootDirectory(String rootDirectory) {
             return rootDirectory(Output.of(rootDirectory));
         }

@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Rds
 {
     public static class GetProxy
     {
-        /// <summary>
-        /// Use this data source to get information about a DB Proxy.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var proxy = Aws.Rds.GetProxy.Invoke(new()
-        ///     {
-        ///         Name = "my-test-db-proxy",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetProxyResult> InvokeAsync(GetProxyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProxyResult>("aws:rds/getProxy:getProxy", args ?? new GetProxyArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about a DB Proxy.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var proxy = Aws.Rds.GetProxy.Invoke(new()
-        ///     {
-        ///         Name = "my-test-db-proxy",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetProxyResult> Invoke(GetProxyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProxyResult>("aws:rds/getProxy:getProxy", args ?? new GetProxyInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about a DB Proxy.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var proxy = Aws.Rds.GetProxy.Invoke(new()
-        ///     {
-        ///         Name = "my-test-db-proxy",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetProxyResult> Invoke(GetProxyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProxyResult>("aws:rds/getProxy:getProxy", args ?? new GetProxyInvokeArgs(), options.WithDefaults());
     }
@@ -87,15 +24,9 @@ namespace Pulumi.Aws.Rds
 
     public sealed class GetProxyArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the DB proxy.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -107,15 +38,9 @@ namespace Pulumi.Aws.Rds
 
     public sealed class GetProxyInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the DB proxy.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -129,67 +54,25 @@ namespace Pulumi.Aws.Rds
     [OutputType]
     public sealed class GetProxyResult
     {
-        /// <summary>
-        /// ARN of the DB Proxy.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetProxyAuthResult> Auths;
-        /// <summary>
-        /// Whether the proxy includes detailed information about SQL statements in its logs.
-        /// </summary>
         public readonly bool DebugLogging;
-        /// <summary>
-        /// Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
-        /// </summary>
         public readonly string DefaultAuthScheme;
-        /// <summary>
-        /// Endpoint that you can use to connect to the DB proxy.
-        /// </summary>
         public readonly string Endpoint;
-        /// <summary>
-        /// Network type of the DB proxy endpoint.
-        /// </summary>
         public readonly string EndpointNetworkType;
-        /// <summary>
-        /// Kinds of databases that the proxy can connect to.
-        /// </summary>
         public readonly string EngineFamily;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
-        /// </summary>
         public readonly int IdleClientTimeout;
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
-        /// </summary>
         public readonly bool RequireTls;
-        /// <summary>
-        /// ARN for the IAM role that the proxy uses to access Amazon Secrets Manager.
-        /// </summary>
         public readonly string RoleArn;
-        /// <summary>
-        /// Network type that the proxy uses to connect to the target database.
-        /// </summary>
         public readonly string TargetConnectionNetworkType;
-        /// <summary>
-        /// Provides the VPC ID of the DB proxy.
-        /// </summary>
         public readonly string VpcId;
-        /// <summary>
-        /// Provides a list of VPC security groups that the proxy belongs to.
-        /// </summary>
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
-        /// <summary>
-        /// EC2 subnet IDs for the proxy.
-        /// </summary>
         public readonly ImmutableArray<string> VpcSubnetIds;
 
         [OutputConstructor]

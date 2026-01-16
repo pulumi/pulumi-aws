@@ -17,145 +17,41 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AppStream Directory Config.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appstream.DirectoryConfig;
- * import com.pulumi.aws.appstream.DirectoryConfigArgs;
- * import com.pulumi.aws.appstream.inputs.DirectoryConfigServiceAccountCredentialsArgs;
- * import com.pulumi.aws.appstream.inputs.DirectoryConfigCertificateBasedAuthPropertiesArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DirectoryConfig("example", DirectoryConfigArgs.builder()
- *             .directoryName("NAME OF DIRECTORY")
- *             .organizationalUnitDistinguishedNames("DISTINGUISHED NAME")
- *             .serviceAccountCredentials(DirectoryConfigServiceAccountCredentialsArgs.builder()
- *                 .accountName("NAME OF ACCOUNT")
- *                 .accountPassword("PASSWORD OF ACCOUNT")
- *                 .build())
- *             .certificateBasedAuthProperties(DirectoryConfigCertificateBasedAuthPropertiesArgs.builder()
- *                 .certificateAuthorityArn("ARN OF CERTIFICATE AUTHORITY")
- *                 .status("STATUS OF CERTIFICATE BASED AUTHENTICATION")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_appstream_directory_config` using the id. For example:
- * 
- * ```sh
- * $ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample
- * ```
- * 
- */
 @ResourceType(type="aws:appstream/directoryConfig:DirectoryConfig")
 public class DirectoryConfig extends com.pulumi.resources.CustomResource {
-    /**
-     * Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
-     * 
-     */
     @Export(name="certificateBasedAuthProperties", refs={DirectoryConfigCertificateBasedAuthProperties.class}, tree="[0]")
     private Output</* @Nullable */ DirectoryConfigCertificateBasedAuthProperties> certificateBasedAuthProperties;
 
-    /**
-     * @return Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
-     * 
-     */
     public Output<Optional<DirectoryConfigCertificateBasedAuthProperties>> certificateBasedAuthProperties() {
         return Codegen.optional(this.certificateBasedAuthProperties);
     }
-    /**
-     * Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
-     * 
-     */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
-    /**
-     * @return Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
-     * 
-     */
     public Output<String> createdTime() {
         return this.createdTime;
     }
-    /**
-     * Fully qualified name of the directory.
-     * 
-     */
     @Export(name="directoryName", refs={String.class}, tree="[0]")
     private Output<String> directoryName;
 
-    /**
-     * @return Fully qualified name of the directory.
-     * 
-     */
     public Output<String> directoryName() {
         return this.directoryName;
     }
-    /**
-     * Distinguished names of the organizational units for computer accounts.
-     * 
-     */
     @Export(name="organizationalUnitDistinguishedNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> organizationalUnitDistinguishedNames;
 
-    /**
-     * @return Distinguished names of the organizational units for computer accounts.
-     * 
-     */
     public Output<List<String>> organizationalUnitDistinguishedNames() {
         return this.organizationalUnitDistinguishedNames;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
-     * 
-     */
     @Export(name="serviceAccountCredentials", refs={DirectoryConfigServiceAccountCredentials.class}, tree="[0]")
     private Output<DirectoryConfigServiceAccountCredentials> serviceAccountCredentials;
 
-    /**
-     * @return Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
-     * 
-     */
     public Output<DirectoryConfigServiceAccountCredentials> serviceAccountCredentials() {
         return this.serviceAccountCredentials;
     }

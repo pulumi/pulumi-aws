@@ -26,11 +26,6 @@ class BackendEnvironmentArgs:
                  stack_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BackendEnvironment resource.
-        :param pulumi.Input[_builtins.str] app_id: Unique ID for an Amplify app.
-        :param pulumi.Input[_builtins.str] environment_name: Name for the backend environment.
-        :param pulumi.Input[_builtins.str] deployment_artifacts: Name of deployment artifacts.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] stack_name: AWS CloudFormation stack name of a backend environment.
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "environment_name", environment_name)
@@ -44,9 +39,6 @@ class BackendEnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Unique ID for an Amplify app.
-        """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
@@ -56,9 +48,6 @@ class BackendEnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="environmentName")
     def environment_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name for the backend environment.
-        """
         return pulumi.get(self, "environment_name")
 
     @environment_name.setter
@@ -68,9 +57,6 @@ class BackendEnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="deploymentArtifacts")
     def deployment_artifacts(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of deployment artifacts.
-        """
         return pulumi.get(self, "deployment_artifacts")
 
     @deployment_artifacts.setter
@@ -80,9 +66,6 @@ class BackendEnvironmentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -92,9 +75,6 @@ class BackendEnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="stackName")
     def stack_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS CloudFormation stack name of a backend environment.
-        """
         return pulumi.get(self, "stack_name")
 
     @stack_name.setter
@@ -113,12 +93,6 @@ class _BackendEnvironmentState:
                  stack_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BackendEnvironment resources.
-        :param pulumi.Input[_builtins.str] app_id: Unique ID for an Amplify app.
-        :param pulumi.Input[_builtins.str] arn: ARN for a backend environment that is part of an Amplify app.
-        :param pulumi.Input[_builtins.str] deployment_artifacts: Name of deployment artifacts.
-        :param pulumi.Input[_builtins.str] environment_name: Name for the backend environment.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] stack_name: AWS CloudFormation stack name of a backend environment.
         """
         if app_id is not None:
             pulumi.set(__self__, "app_id", app_id)
@@ -136,9 +110,6 @@ class _BackendEnvironmentState:
     @_builtins.property
     @pulumi.getter(name="appId")
     def app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique ID for an Amplify app.
-        """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
@@ -148,9 +119,6 @@ class _BackendEnvironmentState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN for a backend environment that is part of an Amplify app.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -160,9 +128,6 @@ class _BackendEnvironmentState:
     @_builtins.property
     @pulumi.getter(name="deploymentArtifacts")
     def deployment_artifacts(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of deployment artifacts.
-        """
         return pulumi.get(self, "deployment_artifacts")
 
     @deployment_artifacts.setter
@@ -172,9 +137,6 @@ class _BackendEnvironmentState:
     @_builtins.property
     @pulumi.getter(name="environmentName")
     def environment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name for the backend environment.
-        """
         return pulumi.get(self, "environment_name")
 
     @environment_name.setter
@@ -184,9 +146,6 @@ class _BackendEnvironmentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -196,9 +155,6 @@ class _BackendEnvironmentState:
     @_builtins.property
     @pulumi.getter(name="stackName")
     def stack_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS CloudFormation stack name of a backend environment.
-        """
         return pulumi.get(self, "stack_name")
 
     @stack_name.setter
@@ -219,37 +175,9 @@ class BackendEnvironment(pulumi.CustomResource):
                  stack_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an Amplify Backend Environment resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.amplify.App("example", name="example")
-        example_backend_environment = aws.amplify.BackendEnvironment("example",
-            app_id=example.id,
-            environment_name="example",
-            deployment_artifacts="app-example-deployment",
-            stack_name="amplify-app-example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Amplify backend environment using `app_id` and `environment_name`. For example:
-
-        ```sh
-        $ pulumi import aws:amplify/backendEnvironment:BackendEnvironment example d2ypk4k47z8u6/example
-        ```
-
+        Create a BackendEnvironment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] app_id: Unique ID for an Amplify app.
-        :param pulumi.Input[_builtins.str] deployment_artifacts: Name of deployment artifacts.
-        :param pulumi.Input[_builtins.str] environment_name: Name for the backend environment.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] stack_name: AWS CloudFormation stack name of a backend environment.
         """
         ...
     @overload
@@ -258,30 +186,7 @@ class BackendEnvironment(pulumi.CustomResource):
                  args: BackendEnvironmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Amplify Backend Environment resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.amplify.App("example", name="example")
-        example_backend_environment = aws.amplify.BackendEnvironment("example",
-            app_id=example.id,
-            environment_name="example",
-            deployment_artifacts="app-example-deployment",
-            stack_name="amplify-app-example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Amplify backend environment using `app_id` and `environment_name`. For example:
-
-        ```sh
-        $ pulumi import aws:amplify/backendEnvironment:BackendEnvironment example d2ypk4k47z8u6/example
-        ```
-
+        Create a BackendEnvironment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BackendEnvironmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -344,12 +249,6 @@ class BackendEnvironment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] app_id: Unique ID for an Amplify app.
-        :param pulumi.Input[_builtins.str] arn: ARN for a backend environment that is part of an Amplify app.
-        :param pulumi.Input[_builtins.str] deployment_artifacts: Name of deployment artifacts.
-        :param pulumi.Input[_builtins.str] environment_name: Name for the backend environment.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] stack_name: AWS CloudFormation stack name of a backend environment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -366,48 +265,30 @@ class BackendEnvironment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique ID for an Amplify app.
-        """
         return pulumi.get(self, "app_id")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN for a backend environment that is part of an Amplify app.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="deploymentArtifacts")
     def deployment_artifacts(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of deployment artifacts.
-        """
         return pulumi.get(self, "deployment_artifacts")
 
     @_builtins.property
     @pulumi.getter(name="environmentName")
     def environment_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name for the backend environment.
-        """
         return pulumi.get(self, "environment_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="stackName")
     def stack_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        AWS CloudFormation stack name of a backend environment.
-        """
         return pulumi.get(self, "stack_name")
 

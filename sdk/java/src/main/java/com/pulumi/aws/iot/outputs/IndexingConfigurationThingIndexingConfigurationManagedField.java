@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IndexingConfigurationThingIndexingConfigurationManagedField {
-    /**
-     * @return The name of the field.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return The data type of the field. Valid values: `Number`, `String`, `Boolean`.
-     * 
-     */
     private @Nullable String type;
 
     private IndexingConfigurationThingIndexingConfigurationManagedField() {}
-    /**
-     * @return The name of the field.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return The data type of the field. Valid values: `Number`, `String`, `Boolean`.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

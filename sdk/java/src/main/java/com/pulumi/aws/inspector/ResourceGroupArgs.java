@@ -17,32 +17,16 @@ public final class ResourceGroupArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ResourceGroupArgs Empty = new ResourceGroupArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
-     * 
-     */
     @Import(name="tags", required=true)
     private Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
-     * 
-     */
     public Output<Map<String,String>> tags() {
         return this.tags;
     }
@@ -72,44 +56,20 @@ public final class ResourceGroupArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ResourceGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

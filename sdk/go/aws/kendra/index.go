@@ -12,735 +12,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Amazon Kendra Index resource.
-//
-// ## Example Usage
-//
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
-//				Name:        pulumi.String("example"),
-//				Description: pulumi.String("example"),
-//				Edition:     pulumi.String("DEVELOPER_EDITION"),
-//				RoleArn:     pulumi.Any(this.Arn),
-//				Tags: pulumi.StringMap{
-//					"Key1": pulumi.String("Value1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With capacity units
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
-//				Name:    pulumi.String("example"),
-//				Edition: pulumi.String("DEVELOPER_EDITION"),
-//				RoleArn: pulumi.Any(this.Arn),
-//				CapacityUnits: &kendra.IndexCapacityUnitsArgs{
-//					QueryCapacityUnits:   pulumi.Int(2),
-//					StorageCapacityUnits: pulumi.Int(2),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With server side encryption configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
-//				Name:    pulumi.String("example"),
-//				RoleArn: pulumi.Any(thisAwsIamRole.Arn),
-//				ServerSideEncryptionConfiguration: &kendra.IndexServerSideEncryptionConfigurationArgs{
-//					KmsKeyId: pulumi.Any(this.Arn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With user group resolution configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
-//				Name:    pulumi.String("example"),
-//				RoleArn: pulumi.Any(this.Arn),
-//				UserGroupResolutionConfiguration: &kendra.IndexUserGroupResolutionConfigurationArgs{
-//					UserGroupResolutionMode: pulumi.String("AWS_SSO"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Document Metadata Configuration Updates
-//
-// ### Specifying the predefined elements
-//
-// Refer to [Amazon Kendra documentation on built-in document fields](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html#index-reserved-fields) for more information.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
-//				Name:    pulumi.String("example"),
-//				RoleArn: pulumi.Any(this.Arn),
-//				DocumentMetadataConfigurationUpdates: kendra.IndexDocumentMetadataConfigurationUpdateArray{
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_authors"),
-//						Type: pulumi.String("STRING_LIST_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(false),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance: pulumi.Int(1),
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_category"),
-//						Type: pulumi.String("STRING_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: pulumi.IntMap{},
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_created_at"),
-//						Type: pulumi.String("DATE_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Freshness:  pulumi.Bool(false),
-//							Importance: pulumi.Int(1),
-//							Duration:   pulumi.String("25920000s"),
-//							RankOrder:  pulumi.String("ASCENDING"),
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_data_source_id"),
-//						Type: pulumi.String("STRING_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: pulumi.IntMap{},
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_document_title"),
-//						Type: pulumi.String("STRING_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(true),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(true),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance:          pulumi.Int(2),
-//							ValuesImportanceMap: pulumi.IntMap{},
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_excerpt_page_number"),
-//						Type: pulumi.String("LONG_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(false),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance: pulumi.Int(2),
-//							RankOrder:  pulumi.String("ASCENDING"),
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_faq_id"),
-//						Type: pulumi.String("STRING_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: pulumi.IntMap{},
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_file_type"),
-//						Type: pulumi.String("STRING_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: pulumi.IntMap{},
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_language_code"),
-//						Type: pulumi.String("STRING_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: pulumi.IntMap{},
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_last_updated_at"),
-//						Type: pulumi.String("DATE_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Freshness:  pulumi.Bool(false),
-//							Importance: pulumi.Int(1),
-//							Duration:   pulumi.String("25920000s"),
-//							RankOrder:  pulumi.String("ASCENDING"),
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_source_uri"),
-//						Type: pulumi.String("STRING_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(true),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(false),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: pulumi.IntMap{},
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_tenant_id"),
-//						Type: pulumi.String("STRING_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: pulumi.IntMap{},
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_version"),
-//						Type: pulumi.String("STRING_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: pulumi.IntMap{},
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_view_count"),
-//						Type: pulumi.String("LONG_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance: pulumi.Int(1),
-//							RankOrder:  pulumi.String("ASCENDING"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Appending additional elements
-//
-// The example below shows additional elements with names, `example-string-value`, `example-long-value`, `example-string-list-value`, `example-date-value` representing the 4 types of `STRING_VALUE`, `LONG_VALUE`, `STRING_LIST_VALUE`, `DATE_VALUE` respectively.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
-//				Name:    pulumi.String("example"),
-//				RoleArn: pulumi.Any(this.Arn),
-//				DocumentMetadataConfigurationUpdates: kendra.IndexDocumentMetadataConfigurationUpdateArray{
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_authors"),
-//						Type: pulumi.String("STRING_LIST_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(false),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance: pulumi.Int(1),
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_category"),
-//						Type: pulumi.String("STRING_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: pulumi.IntMap{},
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_created_at"),
-//						Type: pulumi.String("DATE_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Freshness:  pulumi.Bool(false),
-//							Importance: pulumi.Int(1),
-//							Duration:   pulumi.String("25920000s"),
-//							RankOrder:  pulumi.String("ASCENDING"),
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_data_source_id"),
-//						Type: pulumi.String("STRING_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: pulumi.IntMap{},
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_document_title"),
-//						Type: pulumi.String("STRING_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(true),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(true),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance:          pulumi.Int(2),
-//							ValuesImportanceMap: pulumi.IntMap{},
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_excerpt_page_number"),
-//						Type: pulumi.String("LONG_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(false),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance: pulumi.Int(2),
-//							RankOrder:  pulumi.String("ASCENDING"),
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_faq_id"),
-//						Type: pulumi.String("STRING_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: pulumi.IntMap{},
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_file_type"),
-//						Type: pulumi.String("STRING_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: pulumi.IntMap{},
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_language_code"),
-//						Type: pulumi.String("STRING_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: pulumi.IntMap{},
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_last_updated_at"),
-//						Type: pulumi.String("DATE_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Freshness:  pulumi.Bool(false),
-//							Importance: pulumi.Int(1),
-//							Duration:   pulumi.String("25920000s"),
-//							RankOrder:  pulumi.String("ASCENDING"),
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_source_uri"),
-//						Type: pulumi.String("STRING_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(true),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(false),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: pulumi.IntMap{},
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_tenant_id"),
-//						Type: pulumi.String("STRING_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: pulumi.IntMap{},
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_version"),
-//						Type: pulumi.String("STRING_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: pulumi.IntMap{},
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_view_count"),
-//						Type: pulumi.String("LONG_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance: pulumi.Int(1),
-//							RankOrder:  pulumi.String("ASCENDING"),
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("example-string-value"),
-//						Type: pulumi.String("STRING_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(true),
-//							Facetable:   pulumi.Bool(true),
-//							Searchable:  pulumi.Bool(true),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: pulumi.IntMap{},
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("example-long-value"),
-//						Type: pulumi.String("LONG_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(true),
-//							Facetable:   pulumi.Bool(true),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance: pulumi.Int(1),
-//							RankOrder:  pulumi.String("ASCENDING"),
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("example-string-list-value"),
-//						Type: pulumi.String("STRING_LIST_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(true),
-//							Facetable:   pulumi.Bool(true),
-//							Searchable:  pulumi.Bool(true),
-//							Sortable:    pulumi.Bool(false),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance: pulumi.Int(1),
-//						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("example-date-value"),
-//						Type: pulumi.String("DATE_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(true),
-//							Facetable:   pulumi.Bool(true),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(false),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Freshness:  pulumi.Bool(false),
-//							Importance: pulumi.Int(1),
-//							Duration:   pulumi.String("25920000s"),
-//							RankOrder:  pulumi.String("ASCENDING"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With JSON token type configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
-//				Name:    pulumi.String("example"),
-//				RoleArn: pulumi.Any(this.Arn),
-//				UserTokenConfigurations: &kendra.IndexUserTokenConfigurationsArgs{
-//					JsonTokenTypeConfiguration: &kendra.IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs{
-//						GroupAttributeField:    pulumi.String("groups"),
-//						UserNameAttributeField: pulumi.String("username"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Amazon Kendra Indexes using its `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:kendra/index:Index example 12345678-1234-5678-9123-123456789123
-// ```
 type Index struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the Index.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
-	CapacityUnits IndexCapacityUnitsOutput `pulumi:"capacityUnits"`
-	// The Unix datetime that the index was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// The description of the Index.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
+	Arn                                  pulumi.StringOutput                                 `pulumi:"arn"`
+	CapacityUnits                        IndexCapacityUnitsOutput                            `pulumi:"capacityUnits"`
+	CreatedAt                            pulumi.StringOutput                                 `pulumi:"createdAt"`
+	Description                          pulumi.StringPtrOutput                              `pulumi:"description"`
 	DocumentMetadataConfigurationUpdates IndexDocumentMetadataConfigurationUpdateArrayOutput `pulumi:"documentMetadataConfigurationUpdates"`
-	// The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
-	Edition pulumi.StringPtrOutput `pulumi:"edition"`
-	// When the Status field value is `FAILED`, this contains a message that explains why.
-	ErrorMessage pulumi.StringOutput `pulumi:"errorMessage"`
-	// A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
-	IndexStatistics IndexIndexStatisticArrayOutput `pulumi:"indexStatistics"`
-	// Specifies the name of the Index.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
-	ServerSideEncryptionConfiguration IndexServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
-	// The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Tags to apply to the Index. If configured with a provider
-	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The Unix datetime that the index was last updated.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
-	// The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
-	UserContextPolicy pulumi.StringPtrOutput `pulumi:"userContextPolicy"`
-	// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
-	UserGroupResolutionConfiguration IndexUserGroupResolutionConfigurationPtrOutput `pulumi:"userGroupResolutionConfiguration"`
-	// A block that specifies the user token configuration. Detailed below.
-	UserTokenConfigurations IndexUserTokenConfigurationsPtrOutput `pulumi:"userTokenConfigurations"`
+	Edition                              pulumi.StringPtrOutput                              `pulumi:"edition"`
+	ErrorMessage                         pulumi.StringOutput                                 `pulumi:"errorMessage"`
+	IndexStatistics                      IndexIndexStatisticArrayOutput                      `pulumi:"indexStatistics"`
+	Name                                 pulumi.StringOutput                                 `pulumi:"name"`
+	Region                               pulumi.StringOutput                                 `pulumi:"region"`
+	RoleArn                              pulumi.StringOutput                                 `pulumi:"roleArn"`
+	ServerSideEncryptionConfiguration    IndexServerSideEncryptionConfigurationPtrOutput     `pulumi:"serverSideEncryptionConfiguration"`
+	Status                               pulumi.StringOutput                                 `pulumi:"status"`
+	Tags                                 pulumi.StringMapOutput                              `pulumi:"tags"`
+	TagsAll                              pulumi.StringMapOutput                              `pulumi:"tagsAll"`
+	UpdatedAt                            pulumi.StringOutput                                 `pulumi:"updatedAt"`
+	UserContextPolicy                    pulumi.StringPtrOutput                              `pulumi:"userContextPolicy"`
+	UserGroupResolutionConfiguration     IndexUserGroupResolutionConfigurationPtrOutput      `pulumi:"userGroupResolutionConfiguration"`
+	UserTokenConfigurations              IndexUserTokenConfigurationsPtrOutput               `pulumi:"userTokenConfigurations"`
 }
 
 // NewIndex registers a new resource with the given unique name, arguments, and options.
@@ -776,87 +69,47 @@ func GetIndex(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Index resources.
 type indexState struct {
-	// The Amazon Resource Name (ARN) of the Index.
-	Arn *string `pulumi:"arn"`
-	// A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
-	CapacityUnits *IndexCapacityUnits `pulumi:"capacityUnits"`
-	// The Unix datetime that the index was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// The description of the Index.
-	Description *string `pulumi:"description"`
-	// One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
+	Arn                                  *string                                    `pulumi:"arn"`
+	CapacityUnits                        *IndexCapacityUnits                        `pulumi:"capacityUnits"`
+	CreatedAt                            *string                                    `pulumi:"createdAt"`
+	Description                          *string                                    `pulumi:"description"`
 	DocumentMetadataConfigurationUpdates []IndexDocumentMetadataConfigurationUpdate `pulumi:"documentMetadataConfigurationUpdates"`
-	// The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
-	Edition *string `pulumi:"edition"`
-	// When the Status field value is `FAILED`, this contains a message that explains why.
-	ErrorMessage *string `pulumi:"errorMessage"`
-	// A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
-	IndexStatistics []IndexIndexStatistic `pulumi:"indexStatistics"`
-	// Specifies the name of the Index.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
-	RoleArn *string `pulumi:"roleArn"`
-	// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
-	ServerSideEncryptionConfiguration *IndexServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
-	// The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
-	Status *string `pulumi:"status"`
-	// Tags to apply to the Index. If configured with a provider
-	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The Unix datetime that the index was last updated.
-	UpdatedAt *string `pulumi:"updatedAt"`
-	// The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
-	UserContextPolicy *string `pulumi:"userContextPolicy"`
-	// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
-	UserGroupResolutionConfiguration *IndexUserGroupResolutionConfiguration `pulumi:"userGroupResolutionConfiguration"`
-	// A block that specifies the user token configuration. Detailed below.
-	UserTokenConfigurations *IndexUserTokenConfigurations `pulumi:"userTokenConfigurations"`
+	Edition                              *string                                    `pulumi:"edition"`
+	ErrorMessage                         *string                                    `pulumi:"errorMessage"`
+	IndexStatistics                      []IndexIndexStatistic                      `pulumi:"indexStatistics"`
+	Name                                 *string                                    `pulumi:"name"`
+	Region                               *string                                    `pulumi:"region"`
+	RoleArn                              *string                                    `pulumi:"roleArn"`
+	ServerSideEncryptionConfiguration    *IndexServerSideEncryptionConfiguration    `pulumi:"serverSideEncryptionConfiguration"`
+	Status                               *string                                    `pulumi:"status"`
+	Tags                                 map[string]string                          `pulumi:"tags"`
+	TagsAll                              map[string]string                          `pulumi:"tagsAll"`
+	UpdatedAt                            *string                                    `pulumi:"updatedAt"`
+	UserContextPolicy                    *string                                    `pulumi:"userContextPolicy"`
+	UserGroupResolutionConfiguration     *IndexUserGroupResolutionConfiguration     `pulumi:"userGroupResolutionConfiguration"`
+	UserTokenConfigurations              *IndexUserTokenConfigurations              `pulumi:"userTokenConfigurations"`
 }
 
 type IndexState struct {
-	// The Amazon Resource Name (ARN) of the Index.
-	Arn pulumi.StringPtrInput
-	// A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
-	CapacityUnits IndexCapacityUnitsPtrInput
-	// The Unix datetime that the index was created.
-	CreatedAt pulumi.StringPtrInput
-	// The description of the Index.
-	Description pulumi.StringPtrInput
-	// One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
+	Arn                                  pulumi.StringPtrInput
+	CapacityUnits                        IndexCapacityUnitsPtrInput
+	CreatedAt                            pulumi.StringPtrInput
+	Description                          pulumi.StringPtrInput
 	DocumentMetadataConfigurationUpdates IndexDocumentMetadataConfigurationUpdateArrayInput
-	// The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
-	Edition pulumi.StringPtrInput
-	// When the Status field value is `FAILED`, this contains a message that explains why.
-	ErrorMessage pulumi.StringPtrInput
-	// A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
-	IndexStatistics IndexIndexStatisticArrayInput
-	// Specifies the name of the Index.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
-	RoleArn pulumi.StringPtrInput
-	// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
-	ServerSideEncryptionConfiguration IndexServerSideEncryptionConfigurationPtrInput
-	// The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
-	Status pulumi.StringPtrInput
-	// Tags to apply to the Index. If configured with a provider
-	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The Unix datetime that the index was last updated.
-	UpdatedAt pulumi.StringPtrInput
-	// The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
-	UserContextPolicy pulumi.StringPtrInput
-	// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
-	UserGroupResolutionConfiguration IndexUserGroupResolutionConfigurationPtrInput
-	// A block that specifies the user token configuration. Detailed below.
-	UserTokenConfigurations IndexUserTokenConfigurationsPtrInput
+	Edition                              pulumi.StringPtrInput
+	ErrorMessage                         pulumi.StringPtrInput
+	IndexStatistics                      IndexIndexStatisticArrayInput
+	Name                                 pulumi.StringPtrInput
+	Region                               pulumi.StringPtrInput
+	RoleArn                              pulumi.StringPtrInput
+	ServerSideEncryptionConfiguration    IndexServerSideEncryptionConfigurationPtrInput
+	Status                               pulumi.StringPtrInput
+	Tags                                 pulumi.StringMapInput
+	TagsAll                              pulumi.StringMapInput
+	UpdatedAt                            pulumi.StringPtrInput
+	UserContextPolicy                    pulumi.StringPtrInput
+	UserGroupResolutionConfiguration     IndexUserGroupResolutionConfigurationPtrInput
+	UserTokenConfigurations              IndexUserTokenConfigurationsPtrInput
 }
 
 func (IndexState) ElementType() reflect.Type {
@@ -864,60 +117,34 @@ func (IndexState) ElementType() reflect.Type {
 }
 
 type indexArgs struct {
-	// A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
-	CapacityUnits *IndexCapacityUnits `pulumi:"capacityUnits"`
-	// The description of the Index.
-	Description *string `pulumi:"description"`
-	// One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
+	CapacityUnits                        *IndexCapacityUnits                        `pulumi:"capacityUnits"`
+	Description                          *string                                    `pulumi:"description"`
 	DocumentMetadataConfigurationUpdates []IndexDocumentMetadataConfigurationUpdate `pulumi:"documentMetadataConfigurationUpdates"`
-	// The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
-	Edition *string `pulumi:"edition"`
-	// Specifies the name of the Index.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
-	RoleArn string `pulumi:"roleArn"`
-	// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
-	ServerSideEncryptionConfiguration *IndexServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
-	// Tags to apply to the Index. If configured with a provider
-	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
-	UserContextPolicy *string `pulumi:"userContextPolicy"`
-	// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
-	UserGroupResolutionConfiguration *IndexUserGroupResolutionConfiguration `pulumi:"userGroupResolutionConfiguration"`
-	// A block that specifies the user token configuration. Detailed below.
-	UserTokenConfigurations *IndexUserTokenConfigurations `pulumi:"userTokenConfigurations"`
+	Edition                              *string                                    `pulumi:"edition"`
+	Name                                 *string                                    `pulumi:"name"`
+	Region                               *string                                    `pulumi:"region"`
+	RoleArn                              string                                     `pulumi:"roleArn"`
+	ServerSideEncryptionConfiguration    *IndexServerSideEncryptionConfiguration    `pulumi:"serverSideEncryptionConfiguration"`
+	Tags                                 map[string]string                          `pulumi:"tags"`
+	UserContextPolicy                    *string                                    `pulumi:"userContextPolicy"`
+	UserGroupResolutionConfiguration     *IndexUserGroupResolutionConfiguration     `pulumi:"userGroupResolutionConfiguration"`
+	UserTokenConfigurations              *IndexUserTokenConfigurations              `pulumi:"userTokenConfigurations"`
 }
 
 // The set of arguments for constructing a Index resource.
 type IndexArgs struct {
-	// A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
-	CapacityUnits IndexCapacityUnitsPtrInput
-	// The description of the Index.
-	Description pulumi.StringPtrInput
-	// One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
+	CapacityUnits                        IndexCapacityUnitsPtrInput
+	Description                          pulumi.StringPtrInput
 	DocumentMetadataConfigurationUpdates IndexDocumentMetadataConfigurationUpdateArrayInput
-	// The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
-	Edition pulumi.StringPtrInput
-	// Specifies the name of the Index.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
-	RoleArn pulumi.StringInput
-	// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
-	ServerSideEncryptionConfiguration IndexServerSideEncryptionConfigurationPtrInput
-	// Tags to apply to the Index. If configured with a provider
-	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
-	UserContextPolicy pulumi.StringPtrInput
-	// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
-	UserGroupResolutionConfiguration IndexUserGroupResolutionConfigurationPtrInput
-	// A block that specifies the user token configuration. Detailed below.
-	UserTokenConfigurations IndexUserTokenConfigurationsPtrInput
+	Edition                              pulumi.StringPtrInput
+	Name                                 pulumi.StringPtrInput
+	Region                               pulumi.StringPtrInput
+	RoleArn                              pulumi.StringInput
+	ServerSideEncryptionConfiguration    IndexServerSideEncryptionConfigurationPtrInput
+	Tags                                 pulumi.StringMapInput
+	UserContextPolicy                    pulumi.StringPtrInput
+	UserGroupResolutionConfiguration     IndexUserGroupResolutionConfigurationPtrInput
+	UserTokenConfigurations              IndexUserTokenConfigurationsPtrInput
 }
 
 func (IndexArgs) ElementType() reflect.Type {
@@ -1007,104 +234,84 @@ func (o IndexOutput) ToIndexOutputWithContext(ctx context.Context) IndexOutput {
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Index.
 func (o IndexOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
 func (o IndexOutput) CapacityUnits() IndexCapacityUnitsOutput {
 	return o.ApplyT(func(v *Index) IndexCapacityUnitsOutput { return v.CapacityUnits }).(IndexCapacityUnitsOutput)
 }
 
-// The Unix datetime that the index was created.
 func (o IndexOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The description of the Index.
 func (o IndexOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
 func (o IndexOutput) DocumentMetadataConfigurationUpdates() IndexDocumentMetadataConfigurationUpdateArrayOutput {
 	return o.ApplyT(func(v *Index) IndexDocumentMetadataConfigurationUpdateArrayOutput {
 		return v.DocumentMetadataConfigurationUpdates
 	}).(IndexDocumentMetadataConfigurationUpdateArrayOutput)
 }
 
-// The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
 func (o IndexOutput) Edition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringPtrOutput { return v.Edition }).(pulumi.StringPtrOutput)
 }
 
-// When the Status field value is `FAILED`, this contains a message that explains why.
 func (o IndexOutput) ErrorMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.ErrorMessage }).(pulumi.StringOutput)
 }
 
-// A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
 func (o IndexOutput) IndexStatistics() IndexIndexStatisticArrayOutput {
 	return o.ApplyT(func(v *Index) IndexIndexStatisticArrayOutput { return v.IndexStatistics }).(IndexIndexStatisticArrayOutput)
 }
 
-// Specifies the name of the Index.
 func (o IndexOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o IndexOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
 func (o IndexOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
 func (o IndexOutput) ServerSideEncryptionConfiguration() IndexServerSideEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *Index) IndexServerSideEncryptionConfigurationPtrOutput {
 		return v.ServerSideEncryptionConfiguration
 	}).(IndexServerSideEncryptionConfigurationPtrOutput)
 }
 
-// The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
 func (o IndexOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Tags to apply to the Index. If configured with a provider
-// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o IndexOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o IndexOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The Unix datetime that the index was last updated.
 func (o IndexOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
-// The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
 func (o IndexOutput) UserContextPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringPtrOutput { return v.UserContextPolicy }).(pulumi.StringPtrOutput)
 }
 
-// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
 func (o IndexOutput) UserGroupResolutionConfiguration() IndexUserGroupResolutionConfigurationPtrOutput {
 	return o.ApplyT(func(v *Index) IndexUserGroupResolutionConfigurationPtrOutput {
 		return v.UserGroupResolutionConfiguration
 	}).(IndexUserGroupResolutionConfigurationPtrOutput)
 }
 
-// A block that specifies the user token configuration. Detailed below.
 func (o IndexOutput) UserTokenConfigurations() IndexUserTokenConfigurationsPtrOutput {
 	return o.ApplyT(func(v *Index) IndexUserTokenConfigurationsPtrOutput { return v.UserTokenConfigurations }).(IndexUserTokenConfigurationsPtrOutput)
 }

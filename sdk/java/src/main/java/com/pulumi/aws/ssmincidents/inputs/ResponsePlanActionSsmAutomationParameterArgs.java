@@ -15,32 +15,16 @@ public final class ResponsePlanActionSsmAutomationParameterArgs extends com.pulu
 
     public static final ResponsePlanActionSsmAutomationParameterArgs Empty = new ResponsePlanActionSsmAutomationParameterArgs();
 
-    /**
-     * The name of parameter.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of parameter.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * The values for the associated parameter name.
-     * 
-     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
-    /**
-     * @return The values for the associated parameter name.
-     * 
-     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -70,54 +54,24 @@ public final class ResponsePlanActionSsmAutomationParameterArgs extends com.pulu
             $ = new ResponsePlanActionSsmAutomationParameterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param values The values for the associated parameter name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values The values for the associated parameter name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values The values for the associated parameter name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

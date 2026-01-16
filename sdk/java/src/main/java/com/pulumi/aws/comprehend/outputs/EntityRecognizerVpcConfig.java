@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class EntityRecognizerVpcConfig {
-    /**
-     * @return List of security group IDs.
-     * 
-     */
     private List<String> securityGroupIds;
-    /**
-     * @return List of VPC subnets.
-     * 
-     */
     private List<String> subnets;
 
     private EntityRecognizerVpcConfig() {}
-    /**
-     * @return List of security group IDs.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * @return List of VPC subnets.
-     * 
-     */
     public List<String> subnets() {
         return this.subnets;
     }

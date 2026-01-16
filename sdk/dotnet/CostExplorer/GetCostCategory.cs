@@ -11,75 +11,12 @@ namespace Pulumi.Aws.CostExplorer
 {
     public static class GetCostCategory
     {
-        /// <summary>
-        /// Provides details about a specific CostExplorer Cost Category.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CostExplorer.GetCostCategory.Invoke(new()
-        ///     {
-        ///         CostCategoryArn = "costCategoryARN",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetCostCategoryResult> InvokeAsync(GetCostCategoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCostCategoryResult>("aws:costexplorer/getCostCategory:getCostCategory", args ?? new GetCostCategoryArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a specific CostExplorer Cost Category.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CostExplorer.GetCostCategory.Invoke(new()
-        ///     {
-        ///         CostCategoryArn = "costCategoryARN",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetCostCategoryResult> Invoke(GetCostCategoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCostCategoryResult>("aws:costexplorer/getCostCategory:getCostCategory", args ?? new GetCostCategoryInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a specific CostExplorer Cost Category.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CostExplorer.GetCostCategory.Invoke(new()
-        ///     {
-        ///         CostCategoryArn = "costCategoryARN",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetCostCategoryResult> Invoke(GetCostCategoryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCostCategoryResult>("aws:costexplorer/getCostCategory:getCostCategory", args ?? new GetCostCategoryInvokeArgs(), options.WithDefaults());
     }
@@ -87,18 +24,11 @@ namespace Pulumi.Aws.CostExplorer
 
     public sealed class GetCostCategoryArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Unique name for the Cost Category.
-        /// </summary>
         [Input("costCategoryArn", required: true)]
         public string CostCategoryArn { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Configuration block for the specific `Tag` to use for `Expression`. See below.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -113,18 +43,11 @@ namespace Pulumi.Aws.CostExplorer
 
     public sealed class GetCostCategoryInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Unique name for the Cost Category.
-        /// </summary>
         [Input("costCategoryArn", required: true)]
         public Input<string> CostCategoryArn { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Configuration block for the specific `Tag` to use for `Expression`. See below.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -142,38 +65,17 @@ namespace Pulumi.Aws.CostExplorer
     public sealed class GetCostCategoryResult
     {
         public readonly string CostCategoryArn;
-        /// <summary>
-        /// Default value for the cost category.
-        /// </summary>
         public readonly string DefaultValue;
-        /// <summary>
-        /// Effective end data of your Cost Category.
-        /// </summary>
         public readonly string EffectiveEnd;
-        /// <summary>
-        /// Effective state data of your Cost Category.
-        /// </summary>
         public readonly string EffectiveStart;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string Name;
-        /// <summary>
-        /// Rule schema version in this particular Cost Category.
-        /// </summary>
         public readonly string RuleVersion;
-        /// <summary>
-        /// Configuration block for the `Expression` object used to categorize costs. See below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCostCategoryRuleResult> Rules;
-        /// <summary>
-        /// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCostCategorySplitChargeRuleResult> SplitChargeRules;
-        /// <summary>
-        /// Configuration block for the specific `Tag` to use for `Expression`. See below.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

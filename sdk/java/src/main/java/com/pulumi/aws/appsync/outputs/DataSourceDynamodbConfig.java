@@ -14,65 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSourceDynamodbConfig {
-    /**
-     * @return The DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
-     * 
-     */
     private @Nullable DataSourceDynamodbConfigDeltaSyncConfig deltaSyncConfig;
-    /**
-     * @return AWS region of the DynamoDB table. Defaults to current region.
-     * 
-     */
     private @Nullable String region;
-    /**
-     * @return Name of the DynamoDB table.
-     * 
-     */
     private String tableName;
-    /**
-     * @return Set to `true` to use Amazon Cognito credentials with this data source.
-     * 
-     */
     private @Nullable Boolean useCallerCredentials;
-    /**
-     * @return Detects Conflict Detection and Resolution with this data source.
-     * 
-     */
     private @Nullable Boolean versioned;
 
     private DataSourceDynamodbConfig() {}
-    /**
-     * @return The DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
-     * 
-     */
     public Optional<DataSourceDynamodbConfigDeltaSyncConfig> deltaSyncConfig() {
         return Optional.ofNullable(this.deltaSyncConfig);
     }
-    /**
-     * @return AWS region of the DynamoDB table. Defaults to current region.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
-    /**
-     * @return Name of the DynamoDB table.
-     * 
-     */
     public String tableName() {
         return this.tableName;
     }
-    /**
-     * @return Set to `true` to use Amazon Cognito credentials with this data source.
-     * 
-     */
     public Optional<Boolean> useCallerCredentials() {
         return Optional.ofNullable(this.useCallerCredentials);
     }
-    /**
-     * @return Detects Conflict Detection and Resolution with this data source.
-     * 
-     */
     public Optional<Boolean> versioned() {
         return Optional.ofNullable(this.versioned);
     }

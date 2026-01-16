@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TableOnDemandThroughput {
-    /**
-     * @return Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
-     * 
-     */
     private @Nullable Integer maxReadRequestUnits;
-    /**
-     * @return Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
-     * 
-     */
     private @Nullable Integer maxWriteRequestUnits;
 
     private TableOnDemandThroughput() {}
-    /**
-     * @return Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
-     * 
-     */
     public Optional<Integer> maxReadRequestUnits() {
         return Optional.ofNullable(this.maxReadRequestUnits);
     }
-    /**
-     * @return Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
-     * 
-     */
     public Optional<Integer> maxWriteRequestUnits() {
         return Optional.ofNullable(this.maxWriteRequestUnits);
     }

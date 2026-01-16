@@ -118,17 +118,11 @@ class GetPermissionsResult:
     @_builtins.property
     @pulumi.getter
     def permissions(self) -> Sequence[_builtins.str]:
-        """
-        List of permissions granted to the principal. For details on permissions, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
-        """
         return pulumi.get(self, "permissions")
 
     @_builtins.property
     @pulumi.getter(name="permissionsWithGrantOptions")
     def permissions_with_grant_options(self) -> Sequence[_builtins.str]:
-        """
-        Subset of `permissions` which the principal can pass.
-        """
         return pulumi.get(self, "permissions_with_grant_options")
 
     @_builtins.property
@@ -187,78 +181,7 @@ def get_permissions(catalog_id: Optional[_builtins.str] = None,
                     table_with_columns: Optional[Union['GetPermissionsTableWithColumnsArgs', 'GetPermissionsTableWithColumnsArgsDict']] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPermissionsResult:
     """
-    Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, tables, LF-tags, and LF-tag policies. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
-
-    > **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
-
-    ## Example Usage
-
-    ### Permissions For A Lake Formation S3 Resource
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.lakeformation.get_permissions(principal=workflow_role["arn"],
-        data_location={
-            "arn": test_aws_lakeformation_resource["arn"],
-        })
-    ```
-
-    ### Permissions For A Glue Catalog Database
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.lakeformation.get_permissions(principal=workflow_role["arn"],
-        database={
-            "name": test_aws_glue_catalog_database["name"],
-            "catalog_id": "110376042874",
-        })
-    ```
-
-    ### Permissions For Tag-Based Access Control
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.lakeformation.get_permissions(principal=workflow_role["arn"],
-        lf_tag_policy={
-            "resource_type": "DATABASE",
-            "expressions": [
-                {
-                    "key": "Team",
-                    "values": ["Sales"],
-                },
-                {
-                    "key": "Environment",
-                    "values": [
-                        "Dev",
-                        "Production",
-                    ],
-                },
-            ],
-        })
-    ```
-
-
-    :param _builtins.str catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-    :param _builtins.bool catalog_resource: Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
-    :param Union['GetPermissionsDataCellsFilterArgs', 'GetPermissionsDataCellsFilterArgsDict'] data_cells_filter: Configuration block for a data cells filter resource. Detailed below.
-    :param Union['GetPermissionsDataLocationArgs', 'GetPermissionsDataLocationArgsDict'] data_location: Configuration block for a data location resource. Detailed below.
-    :param Union['GetPermissionsDatabaseArgs', 'GetPermissionsDatabaseArgsDict'] database: Configuration block for a database resource. Detailed below.
-    :param Union['GetPermissionsLfTagArgs', 'GetPermissionsLfTagArgsDict'] lf_tag: Configuration block for an LF-tag resource. Detailed below.
-    :param Union['GetPermissionsLfTagPolicyArgs', 'GetPermissionsLfTagPolicyArgsDict'] lf_tag_policy: Configuration block for an LF-tag policy resource. Detailed below.
-    :param _builtins.str principal: Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
-           
-           One of the following is required:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Union['GetPermissionsTableArgs', 'GetPermissionsTableArgsDict'] table: Configuration block for a table resource. Detailed below.
-    :param Union['GetPermissionsTableWithColumnsArgs', 'GetPermissionsTableWithColumnsArgsDict'] table_with_columns: Configuration block for a table with columns resource. Detailed below.
-           
-           The following arguments are optional:
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['catalogId'] = catalog_id
@@ -303,78 +226,7 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[_builtins.
                            table_with_columns: Optional[pulumi.Input[Optional[Union['GetPermissionsTableWithColumnsArgs', 'GetPermissionsTableWithColumnsArgsDict']]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPermissionsResult]:
     """
-    Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, tables, LF-tags, and LF-tag policies. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
-
-    > **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
-
-    ## Example Usage
-
-    ### Permissions For A Lake Formation S3 Resource
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.lakeformation.get_permissions(principal=workflow_role["arn"],
-        data_location={
-            "arn": test_aws_lakeformation_resource["arn"],
-        })
-    ```
-
-    ### Permissions For A Glue Catalog Database
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.lakeformation.get_permissions(principal=workflow_role["arn"],
-        database={
-            "name": test_aws_glue_catalog_database["name"],
-            "catalog_id": "110376042874",
-        })
-    ```
-
-    ### Permissions For Tag-Based Access Control
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.lakeformation.get_permissions(principal=workflow_role["arn"],
-        lf_tag_policy={
-            "resource_type": "DATABASE",
-            "expressions": [
-                {
-                    "key": "Team",
-                    "values": ["Sales"],
-                },
-                {
-                    "key": "Environment",
-                    "values": [
-                        "Dev",
-                        "Production",
-                    ],
-                },
-            ],
-        })
-    ```
-
-
-    :param _builtins.str catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-    :param _builtins.bool catalog_resource: Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
-    :param Union['GetPermissionsDataCellsFilterArgs', 'GetPermissionsDataCellsFilterArgsDict'] data_cells_filter: Configuration block for a data cells filter resource. Detailed below.
-    :param Union['GetPermissionsDataLocationArgs', 'GetPermissionsDataLocationArgsDict'] data_location: Configuration block for a data location resource. Detailed below.
-    :param Union['GetPermissionsDatabaseArgs', 'GetPermissionsDatabaseArgsDict'] database: Configuration block for a database resource. Detailed below.
-    :param Union['GetPermissionsLfTagArgs', 'GetPermissionsLfTagArgsDict'] lf_tag: Configuration block for an LF-tag resource. Detailed below.
-    :param Union['GetPermissionsLfTagPolicyArgs', 'GetPermissionsLfTagPolicyArgsDict'] lf_tag_policy: Configuration block for an LF-tag policy resource. Detailed below.
-    :param _builtins.str principal: Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
-           
-           One of the following is required:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Union['GetPermissionsTableArgs', 'GetPermissionsTableArgsDict'] table: Configuration block for a table resource. Detailed below.
-    :param Union['GetPermissionsTableWithColumnsArgs', 'GetPermissionsTableWithColumnsArgsDict'] table_with_columns: Configuration block for a table with columns resource. Detailed below.
-           
-           The following arguments are optional:
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['catalogId'] = catalog_id

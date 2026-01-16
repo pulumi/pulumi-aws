@@ -17,47 +17,23 @@ public final class DistributionConfigurationDistributionLaunchTemplateConfigurat
 
     public static final DistributionConfigurationDistributionLaunchTemplateConfigurationArgs Empty = new DistributionConfigurationDistributionLaunchTemplateConfigurationArgs();
 
-    /**
-     * The account ID that this configuration applies to.
-     * 
-     */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
-    /**
-     * @return The account ID that this configuration applies to.
-     * 
-     */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
-    /**
-     * Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
-     * 
-     */
     @Import(name="default")
     private @Nullable Output<Boolean> default_;
 
-    /**
-     * @return Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> default_() {
         return Optional.ofNullable(this.default_);
     }
 
-    /**
-     * The ID of the Amazon EC2 launch template to use.
-     * 
-     */
     @Import(name="launchTemplateId", required=true)
     private Output<String> launchTemplateId;
 
-    /**
-     * @return The ID of the Amazon EC2 launch template to use.
-     * 
-     */
     public Output<String> launchTemplateId() {
         return this.launchTemplateId;
     }
@@ -88,65 +64,29 @@ public final class DistributionConfigurationDistributionLaunchTemplateConfigurat
             $ = new DistributionConfigurationDistributionLaunchTemplateConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId The account ID that this configuration applies to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId The account ID that this configuration applies to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param default_ Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder default_(@Nullable Output<Boolean> default_) {
             $.default_ = default_;
             return this;
         }
 
-        /**
-         * @param default_ Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder default_(Boolean default_) {
             return default_(Output.of(default_));
         }
 
-        /**
-         * @param launchTemplateId The ID of the Amazon EC2 launch template to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchTemplateId(Output<String> launchTemplateId) {
             $.launchTemplateId = launchTemplateId;
             return this;
         }
 
-        /**
-         * @param launchTemplateId The ID of the Amazon EC2 launch template to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchTemplateId(String launchTemplateId) {
             return launchTemplateId(Output.of(launchTemplateId));
         }

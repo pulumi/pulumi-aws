@@ -15,32 +15,16 @@ public final class GetPullThroughCacheRulePlainArgs extends com.pulumi.resources
 
     public static final GetPullThroughCacheRulePlainArgs Empty = new GetPullThroughCacheRulePlainArgs();
 
-    /**
-     * The repository name prefix to use when caching images from the source registry.
-     * 
-     */
     @Import(name="ecrRepositoryPrefix", required=true)
     private String ecrRepositoryPrefix;
 
-    /**
-     * @return The repository name prefix to use when caching images from the source registry.
-     * 
-     */
     public String ecrRepositoryPrefix() {
         return this.ecrRepositoryPrefix;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,23 +54,11 @@ public final class GetPullThroughCacheRulePlainArgs extends com.pulumi.resources
             $ = new GetPullThroughCacheRulePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ecrRepositoryPrefix The repository name prefix to use when caching images from the source registry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ecrRepositoryPrefix(String ecrRepositoryPrefix) {
             $.ecrRepositoryPrefix = ecrRepositoryPrefix;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

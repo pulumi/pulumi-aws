@@ -17,62 +17,30 @@ public final class GetNodeGroupArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetNodeGroupArgs Empty = new GetNodeGroupArgs();
 
-    /**
-     * Name of the cluster.
-     * 
-     */
     @Import(name="clusterName", required=true)
     private Output<String> clusterName;
 
-    /**
-     * @return Name of the cluster.
-     * 
-     */
     public Output<String> clusterName() {
         return this.clusterName;
     }
 
-    /**
-     * Name of the node group.
-     * 
-     */
     @Import(name="nodeGroupName", required=true)
     private Output<String> nodeGroupName;
 
-    /**
-     * @return Name of the node group.
-     * 
-     */
     public Output<String> nodeGroupName() {
         return this.nodeGroupName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -104,86 +72,38 @@ public final class GetNodeGroupArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetNodeGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusterName Name of the cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterName(Output<String> clusterName) {
             $.clusterName = clusterName;
             return this;
         }
 
-        /**
-         * @param clusterName Name of the cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterName(String clusterName) {
             return clusterName(Output.of(clusterName));
         }
 
-        /**
-         * @param nodeGroupName Name of the node group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeGroupName(Output<String> nodeGroupName) {
             $.nodeGroupName = nodeGroupName;
             return this;
         }
 
-        /**
-         * @param nodeGroupName Name of the node group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeGroupName(String nodeGroupName) {
             return nodeGroupName(Output.of(nodeGroupName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value map of resource tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

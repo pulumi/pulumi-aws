@@ -18,31 +18,23 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
     public static final OrganizationConfigurationArgs Empty = new OrganizationConfigurationArgs();
 
     /**
-     * Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
+     * Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations
      * 
      */
     @Import(name="autoEnable", required=true)
     private Output<Boolean> autoEnable;
 
     /**
-     * @return Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
+     * @return Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations
      * 
      */
     public Output<Boolean> autoEnable() {
         return this.autoEnable;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -73,7 +65,7 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param autoEnable Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
+         * @param autoEnable Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations
          * 
          * @return builder
          * 
@@ -84,7 +76,7 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param autoEnable Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
+         * @param autoEnable Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations
          * 
          * @return builder
          * 
@@ -93,23 +85,11 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
             return autoEnable(Output.of(autoEnable));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

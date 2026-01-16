@@ -12,59 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Shield DRT Access Log Bucket Association.
-// Up to 10 log buckets can be associated for DRT Access sharing with the Shield Response Team (SRT).
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/shield"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := shield.NewDrtAccessRoleArnAssociation(ctx, "test", &shield.DrtAccessRoleArnAssociationArgs{
-//				RoleArn: pulumi.Sprintf("arn:aws:iam:%v:%v:%v", current.Region, currentAwsCallerIdentity.AccountId, shieldDrtAccessRoleName),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = shield.NewDrtAccessLogBucketAssociation(ctx, "test", &shield.DrtAccessLogBucketAssociationArgs{
-//				LogBucket:            pulumi.Any(shieldDrtAccessLogBucket),
-//				RoleArnAssociationId: test.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Shield DRT access log bucket associations using the `log_bucket`. For example:
-//
-// ```sh
-// $ pulumi import aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation example example-bucket
-// ```
 type DrtAccessLogBucketAssociation struct {
 	pulumi.CustomResourceState
 
-	// The Amazon S3 bucket that contains the logs that you want to share.
 	LogBucket pulumi.StringOutput `pulumi:"logBucket"`
-	// The ID of the Role Arn association used for allowing Shield DRT Access.
+	// Unused
 	RoleArnAssociationId pulumi.StringOutput                            `pulumi:"roleArnAssociationId"`
 	Timeouts             DrtAccessLogBucketAssociationTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -105,17 +57,15 @@ func GetDrtAccessLogBucketAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DrtAccessLogBucketAssociation resources.
 type drtAccessLogBucketAssociationState struct {
-	// The Amazon S3 bucket that contains the logs that you want to share.
 	LogBucket *string `pulumi:"logBucket"`
-	// The ID of the Role Arn association used for allowing Shield DRT Access.
+	// Unused
 	RoleArnAssociationId *string                                `pulumi:"roleArnAssociationId"`
 	Timeouts             *DrtAccessLogBucketAssociationTimeouts `pulumi:"timeouts"`
 }
 
 type DrtAccessLogBucketAssociationState struct {
-	// The Amazon S3 bucket that contains the logs that you want to share.
 	LogBucket pulumi.StringPtrInput
-	// The ID of the Role Arn association used for allowing Shield DRT Access.
+	// Unused
 	RoleArnAssociationId pulumi.StringPtrInput
 	Timeouts             DrtAccessLogBucketAssociationTimeoutsPtrInput
 }
@@ -125,18 +75,16 @@ func (DrtAccessLogBucketAssociationState) ElementType() reflect.Type {
 }
 
 type drtAccessLogBucketAssociationArgs struct {
-	// The Amazon S3 bucket that contains the logs that you want to share.
 	LogBucket string `pulumi:"logBucket"`
-	// The ID of the Role Arn association used for allowing Shield DRT Access.
+	// Unused
 	RoleArnAssociationId string                                 `pulumi:"roleArnAssociationId"`
 	Timeouts             *DrtAccessLogBucketAssociationTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a DrtAccessLogBucketAssociation resource.
 type DrtAccessLogBucketAssociationArgs struct {
-	// The Amazon S3 bucket that contains the logs that you want to share.
 	LogBucket pulumi.StringInput
-	// The ID of the Role Arn association used for allowing Shield DRT Access.
+	// Unused
 	RoleArnAssociationId pulumi.StringInput
 	Timeouts             DrtAccessLogBucketAssociationTimeoutsPtrInput
 }
@@ -228,12 +176,11 @@ func (o DrtAccessLogBucketAssociationOutput) ToDrtAccessLogBucketAssociationOutp
 	return o
 }
 
-// The Amazon S3 bucket that contains the logs that you want to share.
 func (o DrtAccessLogBucketAssociationOutput) LogBucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *DrtAccessLogBucketAssociation) pulumi.StringOutput { return v.LogBucket }).(pulumi.StringOutput)
 }
 
-// The ID of the Role Arn association used for allowing Shield DRT Access.
+// Unused
 func (o DrtAccessLogBucketAssociationOutput) RoleArnAssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DrtAccessLogBucketAssociation) pulumi.StringOutput { return v.RoleArnAssociationId }).(pulumi.StringOutput)
 }

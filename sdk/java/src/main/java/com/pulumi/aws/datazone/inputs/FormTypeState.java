@@ -19,62 +19,30 @@ public final class FormTypeState extends com.pulumi.resources.ResourceArgs {
 
     public static final FormTypeState Empty = new FormTypeState();
 
-    /**
-     * Creation time of the Form Type.
-     * 
-     */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
-    /**
-     * @return Creation time of the Form Type.
-     * 
-     */
     public Optional<Output<String>> createdAt() {
         return Optional.ofNullable(this.createdAt);
     }
 
-    /**
-     * Creator of the Form Type.
-     * 
-     */
     @Import(name="createdBy")
     private @Nullable Output<String> createdBy;
 
-    /**
-     * @return Creator of the Form Type.
-     * 
-     */
     public Optional<Output<String>> createdBy() {
         return Optional.ofNullable(this.createdBy);
     }
 
-    /**
-     * Description of form type. Must have a length of between 1 and 2048 characters.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of form type. Must have a length of between 1 and 2048 characters.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Identifier of the domain.
-     * 
-     */
     @Import(name="domainIdentifier")
     private @Nullable Output<String> domainIdentifier;
 
-    /**
-     * @return Identifier of the domain.
-     * 
-     */
     public Optional<Output<String>> domainIdentifier() {
         return Optional.ofNullable(this.domainIdentifier);
     }
@@ -86,107 +54,51 @@ public final class FormTypeState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.imports);
     }
 
-    /**
-     * Object of the model of the form type that contains the following attributes.
-     * 
-     */
     @Import(name="model")
     private @Nullable Output<FormTypeModelArgs> model;
 
-    /**
-     * @return Object of the model of the form type that contains the following attributes.
-     * 
-     */
     public Optional<Output<FormTypeModelArgs>> model() {
         return Optional.ofNullable(this.model);
     }
 
-    /**
-     * Name of the form type. Must be the name of the structure in smithy document.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the form type. Must be the name of the structure in smithy document.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Origin domain id of the Form Type.
-     * 
-     */
     @Import(name="originDomainId")
     private @Nullable Output<String> originDomainId;
 
-    /**
-     * @return Origin domain id of the Form Type.
-     * 
-     */
     public Optional<Output<String>> originDomainId() {
         return Optional.ofNullable(this.originDomainId);
     }
 
-    /**
-     * Origin project id of the Form Type.
-     * 
-     */
     @Import(name="originProjectId")
     private @Nullable Output<String> originProjectId;
 
-    /**
-     * @return Origin project id of the Form Type.
-     * 
-     */
     public Optional<Output<String>> originProjectId() {
         return Optional.ofNullable(this.originProjectId);
     }
 
-    /**
-     * Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
-     * 
-     */
     @Import(name="owningProjectIdentifier")
     private @Nullable Output<String> owningProjectIdentifier;
 
-    /**
-     * @return Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
-     * 
-     */
     public Optional<Output<String>> owningProjectIdentifier() {
         return Optional.ofNullable(this.owningProjectIdentifier);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Revision of the Form Type.
-     * 
-     */
     @Import(name="revision")
     private @Nullable Output<String> revision;
 
-    /**
-     * @return Revision of the Form Type.
-     * 
-     */
     public Optional<Output<String>> revision() {
         return Optional.ofNullable(this.revision);
     }
@@ -242,86 +154,38 @@ public final class FormTypeState extends com.pulumi.resources.ResourceArgs {
             $ = new FormTypeState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param createdAt Creation time of the Form Type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(@Nullable Output<String> createdAt) {
             $.createdAt = createdAt;
             return this;
         }
 
-        /**
-         * @param createdAt Creation time of the Form Type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(String createdAt) {
             return createdAt(Output.of(createdAt));
         }
 
-        /**
-         * @param createdBy Creator of the Form Type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdBy(@Nullable Output<String> createdBy) {
             $.createdBy = createdBy;
             return this;
         }
 
-        /**
-         * @param createdBy Creator of the Form Type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdBy(String createdBy) {
             return createdBy(Output.of(createdBy));
         }
 
-        /**
-         * @param description Description of form type. Must have a length of between 1 and 2048 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of form type. Must have a length of between 1 and 2048 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param domainIdentifier Identifier of the domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainIdentifier(@Nullable Output<String> domainIdentifier) {
             $.domainIdentifier = domainIdentifier;
             return this;
         }
 
-        /**
-         * @param domainIdentifier Identifier of the domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainIdentifier(String domainIdentifier) {
             return domainIdentifier(Output.of(domainIdentifier));
         }
@@ -339,149 +203,65 @@ public final class FormTypeState extends com.pulumi.resources.ResourceArgs {
             return imports(List.of(imports));
         }
 
-        /**
-         * @param model Object of the model of the form type that contains the following attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder model(@Nullable Output<FormTypeModelArgs> model) {
             $.model = model;
             return this;
         }
 
-        /**
-         * @param model Object of the model of the form type that contains the following attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder model(FormTypeModelArgs model) {
             return model(Output.of(model));
         }
 
-        /**
-         * @param name Name of the form type. Must be the name of the structure in smithy document.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the form type. Must be the name of the structure in smithy document.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param originDomainId Origin domain id of the Form Type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originDomainId(@Nullable Output<String> originDomainId) {
             $.originDomainId = originDomainId;
             return this;
         }
 
-        /**
-         * @param originDomainId Origin domain id of the Form Type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originDomainId(String originDomainId) {
             return originDomainId(Output.of(originDomainId));
         }
 
-        /**
-         * @param originProjectId Origin project id of the Form Type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originProjectId(@Nullable Output<String> originProjectId) {
             $.originProjectId = originProjectId;
             return this;
         }
 
-        /**
-         * @param originProjectId Origin project id of the Form Type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originProjectId(String originProjectId) {
             return originProjectId(Output.of(originProjectId));
         }
 
-        /**
-         * @param owningProjectIdentifier Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owningProjectIdentifier(@Nullable Output<String> owningProjectIdentifier) {
             $.owningProjectIdentifier = owningProjectIdentifier;
             return this;
         }
 
-        /**
-         * @param owningProjectIdentifier Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owningProjectIdentifier(String owningProjectIdentifier) {
             return owningProjectIdentifier(Output.of(owningProjectIdentifier));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param revision Revision of the Form Type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder revision(@Nullable Output<String> revision) {
             $.revision = revision;
             return this;
         }
 
-        /**
-         * @param revision Revision of the Form Type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder revision(String revision) {
             return revision(Output.of(revision));
         }

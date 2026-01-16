@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides information about a MemoryDB Subnet Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.memorydb.getSubnetGroup({
- *     name: "my-subnet-group",
- * });
- * ```
- */
 export function getSubnetGroup(args: GetSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:memorydb/getSubnetGroup:getSubnetGroup", {
@@ -31,17 +17,8 @@ export function getSubnetGroup(args: GetSubnetGroupArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getSubnetGroup.
  */
 export interface GetSubnetGroupArgs {
-    /**
-     * Name of the subnet group.
-     */
     name: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Map of tags assigned to the subnet group.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -49,13 +26,7 @@ export interface GetSubnetGroupArgs {
  * A collection of values returned by getSubnetGroup.
  */
 export interface GetSubnetGroupResult {
-    /**
-     * ARN of the subnet group.
-     */
     readonly arn: string;
-    /**
-     * Description of the subnet group.
-     */
     readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -63,33 +34,10 @@ export interface GetSubnetGroupResult {
     readonly id: string;
     readonly name: string;
     readonly region: string;
-    /**
-     * Set of VPC Subnet ID-s of the subnet group.
-     */
     readonly subnetIds: string[];
-    /**
-     * Map of tags assigned to the subnet group.
-     */
     readonly tags: {[key: string]: string};
-    /**
-     * VPC in which the subnet group exists.
-     */
     readonly vpcId: string;
 }
-/**
- * Provides information about a MemoryDB Subnet Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.memorydb.getSubnetGroup({
- *     name: "my-subnet-group",
- * });
- * ```
- */
 export function getSubnetGroupOutput(args: GetSubnetGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubnetGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:memorydb/getSubnetGroup:getSubnetGroup", {
@@ -103,16 +51,7 @@ export function getSubnetGroupOutput(args: GetSubnetGroupOutputArgs, opts?: pulu
  * A collection of arguments for invoking getSubnetGroup.
  */
 export interface GetSubnetGroupOutputArgs {
-    /**
-     * Name of the subnet group.
-     */
     name: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags assigned to the subnet group.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -15,17 +15,9 @@ public final class EventSourceMappingMetricsConfigArgs extends com.pulumi.resour
 
     public static final EventSourceMappingMetricsConfigArgs Empty = new EventSourceMappingMetricsConfigArgs();
 
-    /**
-     * List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
-     * 
-     */
     @Import(name="metrics", required=true)
     private Output<List<String>> metrics;
 
-    /**
-     * @return List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
-     * 
-     */
     public Output<List<String>> metrics() {
         return this.metrics;
     }
@@ -54,33 +46,15 @@ public final class EventSourceMappingMetricsConfigArgs extends com.pulumi.resour
             $ = new EventSourceMappingMetricsConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param metrics List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metrics(Output<List<String>> metrics) {
             $.metrics = metrics;
             return this;
         }
 
-        /**
-         * @param metrics List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metrics(List<String> metrics) {
             return metrics(Output.of(metrics));
         }
 
-        /**
-         * @param metrics List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metrics(String... metrics) {
             return metrics(List.of(metrics));
         }

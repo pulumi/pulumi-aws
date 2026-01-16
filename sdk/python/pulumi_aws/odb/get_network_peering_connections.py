@@ -50,9 +50,6 @@ class GetNetworkPeeringConnectionsResult:
     @_builtins.property
     @pulumi.getter(name="odbPeeringConnections")
     def odb_peering_connections(self) -> Optional[Sequence['outputs.GetNetworkPeeringConnectionsOdbPeeringConnectionResult']]:
-        """
-        The list of ODB peering connections. A summary of an ODB peering connection.
-        """
         return pulumi.get(self, "odb_peering_connections")
 
     @_builtins.property
@@ -76,24 +73,7 @@ def get_network_peering_connections(odb_peering_connections: Optional[Sequence[U
                                     region: Optional[_builtins.str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkPeeringConnectionsResult:
     """
-    Data source for retrieving all oracle database network peering resource in Oracle Database@AWS.
-
-    You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.odb.get_network_peering_connections()
-    ```
-
-
-    :param Sequence[Union['GetNetworkPeeringConnectionsOdbPeeringConnectionArgs', 'GetNetworkPeeringConnectionsOdbPeeringConnectionArgsDict']] odb_peering_connections: The list of ODB peering connections. A summary of an ODB peering connection.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['odbPeeringConnections'] = odb_peering_connections
@@ -109,24 +89,7 @@ def get_network_peering_connections_output(odb_peering_connections: Optional[pul
                                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkPeeringConnectionsResult]:
     """
-    Data source for retrieving all oracle database network peering resource in Oracle Database@AWS.
-
-    You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.odb.get_network_peering_connections()
-    ```
-
-
-    :param Sequence[Union['GetNetworkPeeringConnectionsOdbPeeringConnectionArgs', 'GetNetworkPeeringConnectionsOdbPeeringConnectionArgsDict']] odb_peering_connections: The list of ODB peering connections. A summary of an ODB peering connection.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['odbPeeringConnections'] = odb_peering_connections

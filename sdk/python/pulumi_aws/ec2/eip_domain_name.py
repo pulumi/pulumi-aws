@@ -27,9 +27,6 @@ class EipDomainNameArgs:
                  timeouts: Optional[pulumi.Input['EipDomainNameTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a EipDomainName resource.
-        :param pulumi.Input[_builtins.str] allocation_id: The allocation ID.
-        :param pulumi.Input[_builtins.str] domain_name: The domain name to modify for the IP address.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "allocation_id", allocation_id)
         pulumi.set(__self__, "domain_name", domain_name)
@@ -41,9 +38,6 @@ class EipDomainNameArgs:
     @_builtins.property
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The allocation ID.
-        """
         return pulumi.get(self, "allocation_id")
 
     @allocation_id.setter
@@ -53,9 +47,6 @@ class EipDomainNameArgs:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The domain name to modify for the IP address.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -65,9 +56,6 @@ class EipDomainNameArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -94,10 +82,6 @@ class _EipDomainNameState:
                  timeouts: Optional[pulumi.Input['EipDomainNameTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering EipDomainName resources.
-        :param pulumi.Input[_builtins.str] allocation_id: The allocation ID.
-        :param pulumi.Input[_builtins.str] domain_name: The domain name to modify for the IP address.
-        :param pulumi.Input[_builtins.str] ptr_record: The DNS pointer (PTR) record for the IP address.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if allocation_id is not None:
             pulumi.set(__self__, "allocation_id", allocation_id)
@@ -113,9 +97,6 @@ class _EipDomainNameState:
     @_builtins.property
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The allocation ID.
-        """
         return pulumi.get(self, "allocation_id")
 
     @allocation_id.setter
@@ -125,9 +106,6 @@ class _EipDomainNameState:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The domain name to modify for the IP address.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -137,9 +115,6 @@ class _EipDomainNameState:
     @_builtins.property
     @pulumi.getter(name="ptrRecord")
     def ptr_record(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The DNS pointer (PTR) record for the IP address.
-        """
         return pulumi.get(self, "ptr_record")
 
     @ptr_record.setter
@@ -149,9 +124,6 @@ class _EipDomainNameState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -180,30 +152,9 @@ class EipDomainName(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['EipDomainNameTimeoutsArgs', 'EipDomainNameTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Assigns a static reverse DNS record to an Elastic IP addresses. See [Using reverse DNS for email applications](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.Eip("example", domain="vpc")
-        example_record = aws.route53.Record("example",
-            zone_id=main["zoneId"],
-            name="reverse",
-            type=aws.route53.RecordType.A,
-            records=[example.public_ip])
-        example_eip_domain_name = aws.ec2.EipDomainName("example",
-            allocation_id=example.allocation_id,
-            domain_name=example_record.fqdn)
-        ```
-
+        Create a EipDomainName resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] allocation_id: The allocation ID.
-        :param pulumi.Input[_builtins.str] domain_name: The domain name to modify for the IP address.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -212,25 +163,7 @@ class EipDomainName(pulumi.CustomResource):
                  args: EipDomainNameArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Assigns a static reverse DNS record to an Elastic IP addresses. See [Using reverse DNS for email applications](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.Eip("example", domain="vpc")
-        example_record = aws.route53.Record("example",
-            zone_id=main["zoneId"],
-            name="reverse",
-            type=aws.route53.RecordType.A,
-            records=[example.public_ip])
-        example_eip_domain_name = aws.ec2.EipDomainName("example",
-            allocation_id=example.allocation_id,
-            domain_name=example_record.fqdn)
-        ```
-
+        Create a EipDomainName resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EipDomainNameArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -290,10 +223,6 @@ class EipDomainName(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] allocation_id: The allocation ID.
-        :param pulumi.Input[_builtins.str] domain_name: The domain name to modify for the IP address.
-        :param pulumi.Input[_builtins.str] ptr_record: The DNS pointer (PTR) record for the IP address.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -309,33 +238,21 @@ class EipDomainName(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The allocation ID.
-        """
         return pulumi.get(self, "allocation_id")
 
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The domain name to modify for the IP address.
-        """
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
     @pulumi.getter(name="ptrRecord")
     def ptr_record(self) -> pulumi.Output[_builtins.str]:
-        """
-        The DNS pointer (PTR) record for the IP address.
-        """
         return pulumi.get(self, "ptr_record")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property

@@ -12,48 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Lightsail domain for DNS management. Use this resource to manage DNS records for a domain that you have already registered with a domain registrar.
-//
-// > **Note:** You cannot register a new domain name using Lightsail. Register your domain using Amazon Route 53 or another domain name registrar before using this resource.
-//
-// > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewDomain(ctx, "example", &lightsail.DomainArgs{
-//				DomainName: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type Domain struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Lightsail domain.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of the Lightsail domain to manage.
-	//
-	// The following arguments are optional:
+	Arn        pulumi.StringOutput `pulumi:"arn"`
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region     pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -89,25 +53,15 @@ func GetDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Domain resources.
 type domainState struct {
-	// ARN of the Lightsail domain.
-	Arn *string `pulumi:"arn"`
-	// Name of the Lightsail domain to manage.
-	//
-	// The following arguments are optional:
+	Arn        *string `pulumi:"arn"`
 	DomainName *string `pulumi:"domainName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region     *string `pulumi:"region"`
 }
 
 type DomainState struct {
-	// ARN of the Lightsail domain.
-	Arn pulumi.StringPtrInput
-	// Name of the Lightsail domain to manage.
-	//
-	// The following arguments are optional:
+	Arn        pulumi.StringPtrInput
 	DomainName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region     pulumi.StringPtrInput
 }
 
 func (DomainState) ElementType() reflect.Type {
@@ -115,22 +69,14 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
-	// Name of the Lightsail domain to manage.
-	//
-	// The following arguments are optional:
-	DomainName string `pulumi:"domainName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	DomainName string  `pulumi:"domainName"`
+	Region     *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
-	// Name of the Lightsail domain to manage.
-	//
-	// The following arguments are optional:
 	DomainName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region     pulumi.StringPtrInput
 }
 
 func (DomainArgs) ElementType() reflect.Type {
@@ -220,19 +166,14 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 	return o
 }
 
-// ARN of the Lightsail domain.
 func (o DomainOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the Lightsail domain to manage.
-//
-// The following arguments are optional:
 func (o DomainOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DomainOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

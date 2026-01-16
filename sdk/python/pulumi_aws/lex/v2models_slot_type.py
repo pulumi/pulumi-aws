@@ -35,27 +35,6 @@ class V2modelsSlotTypeArgs:
                  value_selection_setting: Optional[pulumi.Input['V2modelsSlotTypeValueSelectionSettingArgs']] = None):
         """
         The set of arguments for constructing a V2modelsSlotType resource.
-        :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot associated with this slot type.
-        :param pulumi.Input[_builtins.str] bot_version: Version of the bot associated with this slot type.
-        :param pulumi.Input[_builtins.str] locale_id: Identifier of the language and locale where this slot type is used.
-               All of the bots, slot types, and slots used by the intent must have the same locale.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeCompositeSlotTypeSettingArgs']]] composite_slot_type_settings: Specifications for a composite slot type.
-               See `composite_slot_type_setting` argument reference below.
-        :param pulumi.Input[_builtins.str] description: Description of the slot type.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeExternalSourceSettingArgs']]] external_source_settings: Type of external information used to create the slot type.
-               See `external_source_setting` argument reference below.
-        :param pulumi.Input[_builtins.str] name: Name of the slot type.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] parent_slot_type_signature: Built-in slot type used as a parent of this slot type.
-               When you define a parent slot type, the new slot type has the configuration of the parent slot type.
-               Only `AMAZON.AlphaNumeric` is supported.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValueArgs']]] slot_type_values: List of SlotTypeValue objects that defines the values that the slot type can take.
-               Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
-               See `slot_type_values` argument reference below.
-        :param pulumi.Input['V2modelsSlotTypeValueSelectionSettingArgs'] value_selection_setting: Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
-               See `value_selection_setting` argument reference below.
         """
         pulumi.set(__self__, "bot_id", bot_id)
         pulumi.set(__self__, "bot_version", bot_version)
@@ -82,9 +61,6 @@ class V2modelsSlotTypeArgs:
     @_builtins.property
     @pulumi.getter(name="botId")
     def bot_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of the bot associated with this slot type.
-        """
         return pulumi.get(self, "bot_id")
 
     @bot_id.setter
@@ -94,9 +70,6 @@ class V2modelsSlotTypeArgs:
     @_builtins.property
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> pulumi.Input[_builtins.str]:
-        """
-        Version of the bot associated with this slot type.
-        """
         return pulumi.get(self, "bot_version")
 
     @bot_version.setter
@@ -106,10 +79,6 @@ class V2modelsSlotTypeArgs:
     @_builtins.property
     @pulumi.getter(name="localeId")
     def locale_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of the language and locale where this slot type is used.
-        All of the bots, slot types, and slots used by the intent must have the same locale.
-        """
         return pulumi.get(self, "locale_id")
 
     @locale_id.setter
@@ -119,10 +88,6 @@ class V2modelsSlotTypeArgs:
     @_builtins.property
     @pulumi.getter(name="compositeSlotTypeSettings")
     def composite_slot_type_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeCompositeSlotTypeSettingArgs']]]]:
-        """
-        Specifications for a composite slot type.
-        See `composite_slot_type_setting` argument reference below.
-        """
         return pulumi.get(self, "composite_slot_type_settings")
 
     @composite_slot_type_settings.setter
@@ -132,9 +97,6 @@ class V2modelsSlotTypeArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the slot type.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -144,10 +106,6 @@ class V2modelsSlotTypeArgs:
     @_builtins.property
     @pulumi.getter(name="externalSourceSettings")
     def external_source_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeExternalSourceSettingArgs']]]]:
-        """
-        Type of external information used to create the slot type.
-        See `external_source_setting` argument reference below.
-        """
         return pulumi.get(self, "external_source_settings")
 
     @external_source_settings.setter
@@ -157,11 +115,6 @@ class V2modelsSlotTypeArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the slot type.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -171,11 +124,6 @@ class V2modelsSlotTypeArgs:
     @_builtins.property
     @pulumi.getter(name="parentSlotTypeSignature")
     def parent_slot_type_signature(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Built-in slot type used as a parent of this slot type.
-        When you define a parent slot type, the new slot type has the configuration of the parent slot type.
-        Only `AMAZON.AlphaNumeric` is supported.
-        """
         return pulumi.get(self, "parent_slot_type_signature")
 
     @parent_slot_type_signature.setter
@@ -185,9 +133,6 @@ class V2modelsSlotTypeArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -197,11 +142,6 @@ class V2modelsSlotTypeArgs:
     @_builtins.property
     @pulumi.getter(name="slotTypeValues")
     def slot_type_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValueArgs']]]]:
-        """
-        List of SlotTypeValue objects that defines the values that the slot type can take.
-        Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
-        See `slot_type_values` argument reference below.
-        """
         return pulumi.get(self, "slot_type_values")
 
     @slot_type_values.setter
@@ -220,10 +160,6 @@ class V2modelsSlotTypeArgs:
     @_builtins.property
     @pulumi.getter(name="valueSelectionSetting")
     def value_selection_setting(self) -> Optional[pulumi.Input['V2modelsSlotTypeValueSelectionSettingArgs']]:
-        """
-        Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
-        See `value_selection_setting` argument reference below.
-        """
         return pulumi.get(self, "value_selection_setting")
 
     @value_selection_setting.setter
@@ -249,28 +185,6 @@ class _V2modelsSlotTypeState:
                  value_selection_setting: Optional[pulumi.Input['V2modelsSlotTypeValueSelectionSettingArgs']] = None):
         """
         Input properties used for looking up and filtering V2modelsSlotType resources.
-        :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot associated with this slot type.
-        :param pulumi.Input[_builtins.str] bot_version: Version of the bot associated with this slot type.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeCompositeSlotTypeSettingArgs']]] composite_slot_type_settings: Specifications for a composite slot type.
-               See `composite_slot_type_setting` argument reference below.
-        :param pulumi.Input[_builtins.str] description: Description of the slot type.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeExternalSourceSettingArgs']]] external_source_settings: Type of external information used to create the slot type.
-               See `external_source_setting` argument reference below.
-        :param pulumi.Input[_builtins.str] locale_id: Identifier of the language and locale where this slot type is used.
-               All of the bots, slot types, and slots used by the intent must have the same locale.
-        :param pulumi.Input[_builtins.str] name: Name of the slot type.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] parent_slot_type_signature: Built-in slot type used as a parent of this slot type.
-               When you define a parent slot type, the new slot type has the configuration of the parent slot type.
-               Only `AMAZON.AlphaNumeric` is supported.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] slot_type_id: Unique identifier for the slot type.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValueArgs']]] slot_type_values: List of SlotTypeValue objects that defines the values that the slot type can take.
-               Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
-               See `slot_type_values` argument reference below.
-        :param pulumi.Input['V2modelsSlotTypeValueSelectionSettingArgs'] value_selection_setting: Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
-               See `value_selection_setting` argument reference below.
         """
         if bot_id is not None:
             pulumi.set(__self__, "bot_id", bot_id)
@@ -302,9 +216,6 @@ class _V2modelsSlotTypeState:
     @_builtins.property
     @pulumi.getter(name="botId")
     def bot_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the bot associated with this slot type.
-        """
         return pulumi.get(self, "bot_id")
 
     @bot_id.setter
@@ -314,9 +225,6 @@ class _V2modelsSlotTypeState:
     @_builtins.property
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version of the bot associated with this slot type.
-        """
         return pulumi.get(self, "bot_version")
 
     @bot_version.setter
@@ -326,10 +234,6 @@ class _V2modelsSlotTypeState:
     @_builtins.property
     @pulumi.getter(name="compositeSlotTypeSettings")
     def composite_slot_type_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeCompositeSlotTypeSettingArgs']]]]:
-        """
-        Specifications for a composite slot type.
-        See `composite_slot_type_setting` argument reference below.
-        """
         return pulumi.get(self, "composite_slot_type_settings")
 
     @composite_slot_type_settings.setter
@@ -339,9 +243,6 @@ class _V2modelsSlotTypeState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the slot type.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -351,10 +252,6 @@ class _V2modelsSlotTypeState:
     @_builtins.property
     @pulumi.getter(name="externalSourceSettings")
     def external_source_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeExternalSourceSettingArgs']]]]:
-        """
-        Type of external information used to create the slot type.
-        See `external_source_setting` argument reference below.
-        """
         return pulumi.get(self, "external_source_settings")
 
     @external_source_settings.setter
@@ -364,10 +261,6 @@ class _V2modelsSlotTypeState:
     @_builtins.property
     @pulumi.getter(name="localeId")
     def locale_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the language and locale where this slot type is used.
-        All of the bots, slot types, and slots used by the intent must have the same locale.
-        """
         return pulumi.get(self, "locale_id")
 
     @locale_id.setter
@@ -377,11 +270,6 @@ class _V2modelsSlotTypeState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the slot type.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -391,11 +279,6 @@ class _V2modelsSlotTypeState:
     @_builtins.property
     @pulumi.getter(name="parentSlotTypeSignature")
     def parent_slot_type_signature(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Built-in slot type used as a parent of this slot type.
-        When you define a parent slot type, the new slot type has the configuration of the parent slot type.
-        Only `AMAZON.AlphaNumeric` is supported.
-        """
         return pulumi.get(self, "parent_slot_type_signature")
 
     @parent_slot_type_signature.setter
@@ -405,9 +288,6 @@ class _V2modelsSlotTypeState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -417,9 +297,6 @@ class _V2modelsSlotTypeState:
     @_builtins.property
     @pulumi.getter(name="slotTypeId")
     def slot_type_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier for the slot type.
-        """
         return pulumi.get(self, "slot_type_id")
 
     @slot_type_id.setter
@@ -429,11 +306,6 @@ class _V2modelsSlotTypeState:
     @_builtins.property
     @pulumi.getter(name="slotTypeValues")
     def slot_type_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValueArgs']]]]:
-        """
-        List of SlotTypeValue objects that defines the values that the slot type can take.
-        Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
-        See `slot_type_values` argument reference below.
-        """
         return pulumi.get(self, "slot_type_values")
 
     @slot_type_values.setter
@@ -452,10 +324,6 @@ class _V2modelsSlotTypeState:
     @_builtins.property
     @pulumi.getter(name="valueSelectionSetting")
     def value_selection_setting(self) -> Optional[pulumi.Input['V2modelsSlotTypeValueSelectionSettingArgs']]:
-        """
-        Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
-        See `value_selection_setting` argument reference below.
-        """
         return pulumi.get(self, "value_selection_setting")
 
     @value_selection_setting.setter
@@ -483,97 +351,9 @@ class V2modelsSlotType(pulumi.CustomResource):
                  value_selection_setting: Optional[pulumi.Input[Union['V2modelsSlotTypeValueSelectionSettingArgs', 'V2modelsSlotTypeValueSelectionSettingArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Lex V2 Models Slot Type.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lex.V2modelsBot("example",
-            name="example",
-            idle_session_ttl_in_seconds=60,
-            role_arn=example_aws_iam_role["arn"],
-            data_privacies=[{
-                "child_directed": True,
-            }])
-        example_v2models_bot_locale = aws.lex.V2modelsBotLocale("example",
-            locale_id="en_US",
-            bot_id=example.id,
-            bot_version="DRAFT",
-            n_lu_intent_confidence_threshold=0.7)
-        example_v2models_bot_version = aws.lex.V2modelsBotVersion("example",
-            bot_id=example.id,
-            locale_specification=example_v2models_bot_locale.locale_id.apply(lambda locale_id: {
-                locale_id: {
-                    "sourceBotVersion": "DRAFT",
-                },
-            }))
-        example_v2models_slot_type = aws.lex.V2modelsSlotType("example",
-            bot_id=example.id,
-            bot_version=example_v2models_bot_locale.bot_version,
-            name="example",
-            locale_id=example_v2models_bot_locale.locale_id)
-        ```
-
-        ### value_selection_setting Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lex.V2modelsSlotType("example",
-            bot_id=example_aws_lexv2models_bot["id"],
-            bot_version=example_aws_lexv2models_bot_locale["botVersion"],
-            name="example",
-            locale_id=example_aws_lexv2models_bot_locale["localeId"],
-            value_selection_setting={
-                "resolution_strategy": "OriginalValue",
-                "advanced_recognition_settings": [{
-                    "audio_recognition_strategy": "UseSlotValuesAsCustomVocabulary",
-                }],
-            },
-            slot_type_values=[{
-                "sample_values": [{
-                    "value": "exampleValue",
-                }],
-            }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Lex V2 Models Slot Type using using a comma-delimited string concatenating `bot_id`, `bot_version`, `locale_id`, and `slot_type_id`. For example:
-
-        ```sh
-        $ pulumi import aws:lex/v2modelsSlotType:V2modelsSlotType example bot-1234,DRAFT,en_US,slot_type-id-12345678
-        ```
-
+        Create a V2modelsSlotType resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot associated with this slot type.
-        :param pulumi.Input[_builtins.str] bot_version: Version of the bot associated with this slot type.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotTypeCompositeSlotTypeSettingArgs', 'V2modelsSlotTypeCompositeSlotTypeSettingArgsDict']]]] composite_slot_type_settings: Specifications for a composite slot type.
-               See `composite_slot_type_setting` argument reference below.
-        :param pulumi.Input[_builtins.str] description: Description of the slot type.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotTypeExternalSourceSettingArgs', 'V2modelsSlotTypeExternalSourceSettingArgsDict']]]] external_source_settings: Type of external information used to create the slot type.
-               See `external_source_setting` argument reference below.
-        :param pulumi.Input[_builtins.str] locale_id: Identifier of the language and locale where this slot type is used.
-               All of the bots, slot types, and slots used by the intent must have the same locale.
-        :param pulumi.Input[_builtins.str] name: Name of the slot type.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] parent_slot_type_signature: Built-in slot type used as a parent of this slot type.
-               When you define a parent slot type, the new slot type has the configuration of the parent slot type.
-               Only `AMAZON.AlphaNumeric` is supported.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotTypeSlotTypeValueArgs', 'V2modelsSlotTypeSlotTypeValueArgsDict']]]] slot_type_values: List of SlotTypeValue objects that defines the values that the slot type can take.
-               Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
-               See `slot_type_values` argument reference below.
-        :param pulumi.Input[Union['V2modelsSlotTypeValueSelectionSettingArgs', 'V2modelsSlotTypeValueSelectionSettingArgsDict']] value_selection_setting: Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
-               See `value_selection_setting` argument reference below.
         """
         ...
     @overload
@@ -582,74 +362,7 @@ class V2modelsSlotType(pulumi.CustomResource):
                  args: V2modelsSlotTypeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Lex V2 Models Slot Type.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lex.V2modelsBot("example",
-            name="example",
-            idle_session_ttl_in_seconds=60,
-            role_arn=example_aws_iam_role["arn"],
-            data_privacies=[{
-                "child_directed": True,
-            }])
-        example_v2models_bot_locale = aws.lex.V2modelsBotLocale("example",
-            locale_id="en_US",
-            bot_id=example.id,
-            bot_version="DRAFT",
-            n_lu_intent_confidence_threshold=0.7)
-        example_v2models_bot_version = aws.lex.V2modelsBotVersion("example",
-            bot_id=example.id,
-            locale_specification=example_v2models_bot_locale.locale_id.apply(lambda locale_id: {
-                locale_id: {
-                    "sourceBotVersion": "DRAFT",
-                },
-            }))
-        example_v2models_slot_type = aws.lex.V2modelsSlotType("example",
-            bot_id=example.id,
-            bot_version=example_v2models_bot_locale.bot_version,
-            name="example",
-            locale_id=example_v2models_bot_locale.locale_id)
-        ```
-
-        ### value_selection_setting Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lex.V2modelsSlotType("example",
-            bot_id=example_aws_lexv2models_bot["id"],
-            bot_version=example_aws_lexv2models_bot_locale["botVersion"],
-            name="example",
-            locale_id=example_aws_lexv2models_bot_locale["localeId"],
-            value_selection_setting={
-                "resolution_strategy": "OriginalValue",
-                "advanced_recognition_settings": [{
-                    "audio_recognition_strategy": "UseSlotValuesAsCustomVocabulary",
-                }],
-            },
-            slot_type_values=[{
-                "sample_values": [{
-                    "value": "exampleValue",
-                }],
-            }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Lex V2 Models Slot Type using using a comma-delimited string concatenating `bot_id`, `bot_version`, `locale_id`, and `slot_type_id`. For example:
-
-        ```sh
-        $ pulumi import aws:lex/v2modelsSlotType:V2modelsSlotType example bot-1234,DRAFT,en_US,slot_type-id-12345678
-        ```
-
+        Create a V2modelsSlotType resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param V2modelsSlotTypeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -735,28 +448,6 @@ class V2modelsSlotType(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot associated with this slot type.
-        :param pulumi.Input[_builtins.str] bot_version: Version of the bot associated with this slot type.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotTypeCompositeSlotTypeSettingArgs', 'V2modelsSlotTypeCompositeSlotTypeSettingArgsDict']]]] composite_slot_type_settings: Specifications for a composite slot type.
-               See `composite_slot_type_setting` argument reference below.
-        :param pulumi.Input[_builtins.str] description: Description of the slot type.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotTypeExternalSourceSettingArgs', 'V2modelsSlotTypeExternalSourceSettingArgsDict']]]] external_source_settings: Type of external information used to create the slot type.
-               See `external_source_setting` argument reference below.
-        :param pulumi.Input[_builtins.str] locale_id: Identifier of the language and locale where this slot type is used.
-               All of the bots, slot types, and slots used by the intent must have the same locale.
-        :param pulumi.Input[_builtins.str] name: Name of the slot type.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] parent_slot_type_signature: Built-in slot type used as a parent of this slot type.
-               When you define a parent slot type, the new slot type has the configuration of the parent slot type.
-               Only `AMAZON.AlphaNumeric` is supported.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] slot_type_id: Unique identifier for the slot type.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotTypeSlotTypeValueArgs', 'V2modelsSlotTypeSlotTypeValueArgsDict']]]] slot_type_values: List of SlotTypeValue objects that defines the values that the slot type can take.
-               Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
-               See `slot_type_values` argument reference below.
-        :param pulumi.Input[Union['V2modelsSlotTypeValueSelectionSettingArgs', 'V2modelsSlotTypeValueSelectionSettingArgsDict']] value_selection_setting: Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
-               See `value_selection_setting` argument reference below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -780,98 +471,56 @@ class V2modelsSlotType(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="botId")
     def bot_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of the bot associated with this slot type.
-        """
         return pulumi.get(self, "bot_id")
 
     @_builtins.property
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        Version of the bot associated with this slot type.
-        """
         return pulumi.get(self, "bot_version")
 
     @_builtins.property
     @pulumi.getter(name="compositeSlotTypeSettings")
     def composite_slot_type_settings(self) -> pulumi.Output[Optional[Sequence['outputs.V2modelsSlotTypeCompositeSlotTypeSetting']]]:
-        """
-        Specifications for a composite slot type.
-        See `composite_slot_type_setting` argument reference below.
-        """
         return pulumi.get(self, "composite_slot_type_settings")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the slot type.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="externalSourceSettings")
     def external_source_settings(self) -> pulumi.Output[Optional[Sequence['outputs.V2modelsSlotTypeExternalSourceSetting']]]:
-        """
-        Type of external information used to create the slot type.
-        See `external_source_setting` argument reference below.
-        """
         return pulumi.get(self, "external_source_settings")
 
     @_builtins.property
     @pulumi.getter(name="localeId")
     def locale_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of the language and locale where this slot type is used.
-        All of the bots, slot types, and slots used by the intent must have the same locale.
-        """
         return pulumi.get(self, "locale_id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the slot type.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="parentSlotTypeSignature")
     def parent_slot_type_signature(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Built-in slot type used as a parent of this slot type.
-        When you define a parent slot type, the new slot type has the configuration of the parent slot type.
-        Only `AMAZON.AlphaNumeric` is supported.
-        """
         return pulumi.get(self, "parent_slot_type_signature")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="slotTypeId")
     def slot_type_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique identifier for the slot type.
-        """
         return pulumi.get(self, "slot_type_id")
 
     @_builtins.property
     @pulumi.getter(name="slotTypeValues")
     def slot_type_values(self) -> pulumi.Output[Optional[Sequence['outputs.V2modelsSlotTypeSlotTypeValue']]]:
-        """
-        List of SlotTypeValue objects that defines the values that the slot type can take.
-        Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
-        See `slot_type_values` argument reference below.
-        """
         return pulumi.get(self, "slot_type_values")
 
     @_builtins.property
@@ -882,9 +531,5 @@ class V2modelsSlotType(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="valueSelectionSetting")
     def value_selection_setting(self) -> pulumi.Output[Optional['outputs.V2modelsSlotTypeValueSelectionSetting']]:
-        """
-        Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
-        See `value_selection_setting` argument reference below.
-        """
         return pulumi.get(self, "value_selection_setting")
 

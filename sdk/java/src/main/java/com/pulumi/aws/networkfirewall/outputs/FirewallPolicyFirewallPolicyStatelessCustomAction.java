@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class FirewallPolicyFirewallPolicyStatelessCustomAction {
-    /**
-     * @return A configuration block describing the custom action associated with the `actionName`. See Action Definition below for details.
-     * 
-     */
     private FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition actionDefinition;
-    /**
-     * @return A friendly name of the custom action.
-     * 
-     */
     private String actionName;
 
     private FirewallPolicyFirewallPolicyStatelessCustomAction() {}
-    /**
-     * @return A configuration block describing the custom action associated with the `actionName`. See Action Definition below for details.
-     * 
-     */
     public FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition actionDefinition() {
         return this.actionDefinition;
     }
-    /**
-     * @return A friendly name of the custom action.
-     * 
-     */
     public String actionName() {
         return this.actionName;
     }

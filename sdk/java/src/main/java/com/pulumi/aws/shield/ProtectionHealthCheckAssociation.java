@@ -13,123 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Creates an association between a Route53 Health Check and a Shield Advanced protected resource.
- * This association uses the health of your applications to improve responsiveness and accuracy in attack detection and mitigation.
- * 
- * Blog post: [AWS Shield Advanced now supports Health Based Detection](https://aws.amazon.com/about-aws/whats-new/2020/02/aws-shield-advanced-now-supports-health-based-detection/)
- * 
- * ## Example Usage
- * 
- * ### Create an association between a protected EIP and a Route53 Health Check
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.inputs.GetPartitionArgs;
- * import com.pulumi.aws.ec2.Eip;
- * import com.pulumi.aws.ec2.EipArgs;
- * import com.pulumi.aws.shield.Protection;
- * import com.pulumi.aws.shield.ProtectionArgs;
- * import com.pulumi.aws.route53.HealthCheck;
- * import com.pulumi.aws.route53.HealthCheckArgs;
- * import com.pulumi.aws.shield.ProtectionHealthCheckAssociation;
- * import com.pulumi.aws.shield.ProtectionHealthCheckAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
- *             .build());
- * 
- *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
- *             .build());
- * 
- *         var example = new Eip("example", EipArgs.builder()
- *             .domain("vpc")
- *             .tags(Map.of("Name", "example"))
- *             .build());
- * 
- *         var exampleProtection = new Protection("exampleProtection", ProtectionArgs.builder()
- *             .name("example-protection")
- *             .resourceArn(example.id().applyValue(_id -> String.format("arn:%s:ec2:%s:%s:eip-allocation/%s", currentGetPartition.partition(),current.region(),currentGetCallerIdentity.accountId(),_id)))
- *             .build());
- * 
- *         var exampleHealthCheck = new HealthCheck("exampleHealthCheck", HealthCheckArgs.builder()
- *             .ipAddress(example.publicIp())
- *             .port(80)
- *             .type("HTTP")
- *             .resourcePath("/ready")
- *             .failureThreshold(3)
- *             .requestInterval(30)
- *             .tags(Map.of("Name", "tf-example-health-check"))
- *             .build());
- * 
- *         var exampleProtectionHealthCheckAssociation = new ProtectionHealthCheckAssociation("exampleProtectionHealthCheckAssociation", ProtectionHealthCheckAssociationArgs.builder()
- *             .healthCheckArn(exampleHealthCheck.arn())
- *             .shieldProtectionId(exampleProtection.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Shield protection health check association resources using the `shield_protection_id` and `health_check_arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation example ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b
- * ```
- * 
- */
 @ResourceType(type="aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation")
 public class ProtectionHealthCheckAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
-     * 
-     */
     @Export(name="healthCheckArn", refs={String.class}, tree="[0]")
     private Output<String> healthCheckArn;
 
-    /**
-     * @return The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
-     * 
-     */
     public Output<String> healthCheckArn() {
         return this.healthCheckArn;
     }
-    /**
-     * The ID of the protected resource.
-     * 
-     */
     @Export(name="shieldProtectionId", refs={String.class}, tree="[0]")
     private Output<String> shieldProtectionId;
 
-    /**
-     * @return The ID of the protected resource.
-     * 
-     */
     public Output<String> shieldProtectionId() {
         return this.shieldProtectionId;
     }

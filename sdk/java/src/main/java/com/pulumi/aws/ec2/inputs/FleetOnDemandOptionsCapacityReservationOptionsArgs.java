@@ -15,17 +15,9 @@ public final class FleetOnDemandOptionsCapacityReservationOptionsArgs extends co
 
     public static final FleetOnDemandOptionsCapacityReservationOptionsArgs Empty = new FleetOnDemandOptionsCapacityReservationOptionsArgs();
 
-    /**
-     * Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity. Valid values: `use-capacity-reservations-first`.
-     * 
-     */
     @Import(name="usageStrategy")
     private @Nullable Output<String> usageStrategy;
 
-    /**
-     * @return Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity. Valid values: `use-capacity-reservations-first`.
-     * 
-     */
     public Optional<Output<String>> usageStrategy() {
         return Optional.ofNullable(this.usageStrategy);
     }
@@ -54,23 +46,11 @@ public final class FleetOnDemandOptionsCapacityReservationOptionsArgs extends co
             $ = new FleetOnDemandOptionsCapacityReservationOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param usageStrategy Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity. Valid values: `use-capacity-reservations-first`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usageStrategy(@Nullable Output<String> usageStrategy) {
             $.usageStrategy = usageStrategy;
             return this;
         }
 
-        /**
-         * @param usageStrategy Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity. Valid values: `use-capacity-reservations-first`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usageStrategy(String usageStrategy) {
             return usageStrategy(Output.of(usageStrategy));
         }

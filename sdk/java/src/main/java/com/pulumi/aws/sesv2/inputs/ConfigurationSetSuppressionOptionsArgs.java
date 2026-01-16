@@ -16,17 +16,9 @@ public final class ConfigurationSetSuppressionOptionsArgs extends com.pulumi.res
 
     public static final ConfigurationSetSuppressionOptionsArgs Empty = new ConfigurationSetSuppressionOptionsArgs();
 
-    /**
-     * A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
-     * 
-     */
     @Import(name="suppressedReasons")
     private @Nullable Output<List<String>> suppressedReasons;
 
-    /**
-     * @return A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
-     * 
-     */
     public Optional<Output<List<String>>> suppressedReasons() {
         return Optional.ofNullable(this.suppressedReasons);
     }
@@ -55,33 +47,15 @@ public final class ConfigurationSetSuppressionOptionsArgs extends com.pulumi.res
             $ = new ConfigurationSetSuppressionOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param suppressedReasons A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder suppressedReasons(@Nullable Output<List<String>> suppressedReasons) {
             $.suppressedReasons = suppressedReasons;
             return this;
         }
 
-        /**
-         * @param suppressedReasons A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder suppressedReasons(List<String> suppressedReasons) {
             return suppressedReasons(Output.of(suppressedReasons));
         }
 
-        /**
-         * @param suppressedReasons A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder suppressedReasons(String... suppressedReasons) {
             return suppressedReasons(List.of(suppressedReasons));
         }

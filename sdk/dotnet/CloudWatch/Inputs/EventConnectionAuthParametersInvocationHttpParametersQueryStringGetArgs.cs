@@ -12,24 +12,14 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class EventConnectionAuthParametersInvocationHttpParametersQueryStringGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specified whether the value is secret.
-        /// </summary>
         [Input("isValueSecret")]
         public Input<bool>? IsValueSecret { get; set; }
 
-        /// <summary>
-        /// The key for the parameter.
-        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         [Input("value")]
         private Input<string>? _value;
-
-        /// <summary>
-        /// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
-        /// </summary>
         public Input<string>? Value
         {
             get => _value;

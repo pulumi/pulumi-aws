@@ -7,31 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource for managing propagation between VPC (Virtual Private Cloud) route server and a route table.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.vpc.RouteServerPropagation("example", {
- *     routeServerId: exampleAwsVpcRouteServer.routeServerId,
- *     routeTableId: exampleAwsRouteTable.id,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, to  to import VPC (Virtual Private Cloud) Route Server Propagation using the associated resource ID and route table ID separated by a comma (,). For example:
- *
- * ```sh
- * $ pulumi import aws:vpc/routeServerPropagation:RouteServerPropagation example rs-12345678,rtb-656c65616e6f72
- * ```
- */
 export class RouteServerPropagation extends pulumi.CustomResource {
     /**
      * Get an existing RouteServerPropagation resource's state with the given name, ID, and optional extra
@@ -60,19 +35,8 @@ export class RouteServerPropagation extends pulumi.CustomResource {
         return obj['__pulumiType'] === RouteServerPropagation.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The unique identifier for the route server to be associated.
-     */
     declare public readonly routeServerId: pulumi.Output<string>;
-    /**
-     * The ID of the route table to which route server will propagate routes.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly routeTableId: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.vpc.RouteServerPropagationTimeouts | undefined>;
 
@@ -115,19 +79,8 @@ export class RouteServerPropagation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RouteServerPropagation resources.
  */
 export interface RouteServerPropagationState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The unique identifier for the route server to be associated.
-     */
     routeServerId?: pulumi.Input<string>;
-    /**
-     * The ID of the route table to which route server will propagate routes.
-     *
-     * The following arguments are optional:
-     */
     routeTableId?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.vpc.RouteServerPropagationTimeouts>;
 }
@@ -136,19 +89,8 @@ export interface RouteServerPropagationState {
  * The set of arguments for constructing a RouteServerPropagation resource.
  */
 export interface RouteServerPropagationArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The unique identifier for the route server to be associated.
-     */
     routeServerId: pulumi.Input<string>;
-    /**
-     * The ID of the route table to which route server will propagate routes.
-     *
-     * The following arguments are optional:
-     */
     routeTableId: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.vpc.RouteServerPropagationTimeouts>;
 }

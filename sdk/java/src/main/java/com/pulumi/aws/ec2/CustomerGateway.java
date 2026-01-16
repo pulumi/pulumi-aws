@@ -15,195 +15,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a customer gateway inside a VPC. These objects can be connected to VPN gateways via VPN connections, and allow you to establish tunnels between your network and the VPC.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.CustomerGateway;
- * import com.pulumi.aws.ec2.CustomerGatewayArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var main = new CustomerGateway("main", CustomerGatewayArgs.builder()
- *             .bgpAsn("65000")
- *             .ipAddress("172.83.124.10")
- *             .type("ipsec.1")
- *             .tags(Map.of("Name", "main-customer-gateway"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Customer Gateways using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/customerGateway:CustomerGateway")
 public class CustomerGateway extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the customer gateway.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the customer gateway.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgpAsnExtended`.
-     * 
-     */
     @Export(name="bgpAsn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bgpAsn;
 
-    /**
-     * @return The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgpAsnExtended`.
-     * 
-     */
     public Output<Optional<String>> bgpAsn() {
         return Codegen.optional(this.bgpAsn);
     }
-    /**
-     * The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgpAsn`.
-     * 
-     */
     @Export(name="bgpAsnExtended", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bgpAsnExtended;
 
-    /**
-     * @return The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgpAsn`.
-     * 
-     */
     public Output<Optional<String>> bgpAsnExtended() {
         return Codegen.optional(this.bgpAsnExtended);
     }
-    /**
-     * The Amazon Resource Name (ARN) for the customer gateway certificate.
-     * 
-     */
     @Export(name="certificateArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificateArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) for the customer gateway certificate.
-     * 
-     */
     public Output<Optional<String>> certificateArn() {
         return Codegen.optional(this.certificateArn);
     }
-    /**
-     * A name for the customer gateway device.
-     * 
-     */
     @Export(name="deviceName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deviceName;
 
-    /**
-     * @return A name for the customer gateway device.
-     * 
-     */
     public Output<Optional<String>> deviceName() {
         return Codegen.optional(this.deviceName);
     }
-    /**
-     * The IPv4 address for the customer gateway device&#39;s outside interface.
-     * 
-     */
     @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipAddress;
 
-    /**
-     * @return The IPv4 address for the customer gateway device&#39;s outside interface.
-     * 
-     */
     public Output<Optional<String>> ipAddress() {
         return Codegen.optional(this.ipAddress);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Tags to apply to the gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Tags to apply to the gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The type of customer gateway. The only type AWS
-     * supports at this time is &#34;ipsec.1&#34;.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return The type of customer gateway. The only type AWS
-     * supports at this time is &#34;ipsec.1&#34;.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }

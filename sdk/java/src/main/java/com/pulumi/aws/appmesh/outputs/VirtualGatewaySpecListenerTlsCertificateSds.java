@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class VirtualGatewaySpecListenerTlsCertificateSds {
-    /**
-     * @return Name of the secret for a virtual gateway&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
-     * 
-     */
     private String secretName;
 
     private VirtualGatewaySpecListenerTlsCertificateSds() {}
-    /**
-     * @return Name of the secret for a virtual gateway&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
-     * 
-     */
     public String secretName() {
         return this.secretName;
     }

@@ -7,43 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an Amazon S3 Vectors Vector Bucket.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3.VectorsVectorBucket("example", {vectorBucketName: "example-bucket"});
- * ```
- *
- * ### Encryption
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3.VectorsVectorBucket("example", {
- *     vectorBucketName: "example-bucket",
- *     encryptionConfigurations: [{
- *         sseType: "aws:kms",
- *         kmsKeyArn: exampleAwsKmsKey.arn,
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import S3 Vectors Vector Bucket using the `vector_bucket_arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:s3/vectorsVectorBucket:VectorsVectorBucket example arn:aws:s3vectors:us-west-2:123456789012:bucket/example-bucket
- * ```
- */
 export class VectorsVectorBucket extends pulumi.CustomResource {
     /**
      * Get an existing VectorsVectorBucket resource's state with the given name, ID, and optional extra
@@ -72,39 +35,13 @@ export class VectorsVectorBucket extends pulumi.CustomResource {
         return obj['__pulumiType'] === VectorsVectorBucket.__pulumiType;
     }
 
-    /**
-     * Date and time when the vector bucket was created.
-     */
     declare public /*out*/ readonly creationTime: pulumi.Output<string>;
-    /**
-     * Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
-     */
     declare public readonly encryptionConfigurations: pulumi.Output<outputs.s3.VectorsVectorBucketEncryptionConfiguration[]>;
-    /**
-     * Boolean that indicates all indexes and vectors should be deleted from the vector bucket *when the vector bucket is destroyed* so that the vector bucket can be destroyed without error. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the vector bucket or destroying the vector bucket, this flag will not work.
-     */
     declare public readonly forceDestroy: pulumi.Output<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * ARN of the vector bucket.
-     */
     declare public /*out*/ readonly vectorBucketArn: pulumi.Output<string>;
-    /**
-     * Name of the vector bucket.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly vectorBucketName: pulumi.Output<string>;
 
     /**
@@ -151,39 +88,13 @@ export class VectorsVectorBucket extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VectorsVectorBucket resources.
  */
 export interface VectorsVectorBucketState {
-    /**
-     * Date and time when the vector bucket was created.
-     */
     creationTime?: pulumi.Input<string>;
-    /**
-     * Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
-     */
     encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.VectorsVectorBucketEncryptionConfiguration>[]>;
-    /**
-     * Boolean that indicates all indexes and vectors should be deleted from the vector bucket *when the vector bucket is destroyed* so that the vector bucket can be destroyed without error. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the vector bucket or destroying the vector bucket, this flag will not work.
-     */
     forceDestroy?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * ARN of the vector bucket.
-     */
     vectorBucketArn?: pulumi.Input<string>;
-    /**
-     * Name of the vector bucket.
-     *
-     * The following arguments are optional:
-     */
     vectorBucketName?: pulumi.Input<string>;
 }
 
@@ -191,26 +102,9 @@ export interface VectorsVectorBucketState {
  * The set of arguments for constructing a VectorsVectorBucket resource.
  */
 export interface VectorsVectorBucketArgs {
-    /**
-     * Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
-     */
     encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.VectorsVectorBucketEncryptionConfiguration>[]>;
-    /**
-     * Boolean that indicates all indexes and vectors should be deleted from the vector bucket *when the vector bucket is destroyed* so that the vector bucket can be destroyed without error. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the vector bucket or destroying the vector bucket, this flag will not work.
-     */
     forceDestroy?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Name of the vector bucket.
-     *
-     * The following arguments are optional:
-     */
     vectorBucketName: pulumi.Input<string>;
 }

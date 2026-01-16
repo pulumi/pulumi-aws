@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceDeploymentConfigurationDeploymentCircuitBreaker {
-    /**
-     * @return Whether circuit breaker is enabled
-     * 
-     */
     private Boolean enable;
-    /**
-     * @return Whether to rollback on failure
-     * 
-     */
     private Boolean rollback;
 
     private GetServiceDeploymentConfigurationDeploymentCircuitBreaker() {}
-    /**
-     * @return Whether circuit breaker is enabled
-     * 
-     */
     public Boolean enable() {
         return this.enable;
     }
-    /**
-     * @return Whether to rollback on failure
-     * 
-     */
     public Boolean rollback() {
         return this.rollback;
     }

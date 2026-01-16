@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Athena.Outputs
     [OutputType]
     public sealed class WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfiguration
     {
-        /// <summary>
-        /// Boolean whether managed log persistence is enabled for the workgroup.
-        /// </summary>
         public readonly bool Enabled;
         public readonly string? KmsKey;
 

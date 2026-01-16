@@ -13,81 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DocumentClassifierInputDataConfigAugmentedManifest {
-    /**
-     * @return Location of annotation files.
-     * 
-     */
     private @Nullable String annotationDataS3Uri;
-    /**
-     * @return The JSON attribute that contains the annotations for the training documents.
-     * 
-     */
     private List<String> attributeNames;
-    /**
-     * @return Type of augmented manifest.
-     * One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
-     * 
-     */
     private @Nullable String documentType;
-    /**
-     * @return Location of augmented manifest file.
-     * 
-     */
     private String s3Uri;
-    /**
-     * @return Location of source PDF files.
-     * 
-     */
     private @Nullable String sourceDocumentsS3Uri;
-    /**
-     * @return Purpose of data in augmented manifest.
-     * One of `TRAIN` or `TEST`.
-     * 
-     */
     private @Nullable String split;
 
     private DocumentClassifierInputDataConfigAugmentedManifest() {}
-    /**
-     * @return Location of annotation files.
-     * 
-     */
     public Optional<String> annotationDataS3Uri() {
         return Optional.ofNullable(this.annotationDataS3Uri);
     }
-    /**
-     * @return The JSON attribute that contains the annotations for the training documents.
-     * 
-     */
     public List<String> attributeNames() {
         return this.attributeNames;
     }
-    /**
-     * @return Type of augmented manifest.
-     * One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
-     * 
-     */
     public Optional<String> documentType() {
         return Optional.ofNullable(this.documentType);
     }
-    /**
-     * @return Location of augmented manifest file.
-     * 
-     */
     public String s3Uri() {
         return this.s3Uri;
     }
-    /**
-     * @return Location of source PDF files.
-     * 
-     */
     public Optional<String> sourceDocumentsS3Uri() {
         return Optional.ofNullable(this.sourceDocumentsS3Uri);
     }
-    /**
-     * @return Purpose of data in augmented manifest.
-     * One of `TRAIN` or `TEST`.
-     * 
-     */
     public Optional<String> split() {
         return Optional.ofNullable(this.split);
     }

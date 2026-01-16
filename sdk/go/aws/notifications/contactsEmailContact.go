@@ -12,67 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing AWS User Notifications Contacts Email Contact.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/notifications"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := notifications.NewContactsEmailContact(ctx, "example", &notifications.ContactsEmailContactArgs{
-//				Name:         pulumi.String("example-contact"),
-//				EmailAddress: pulumi.String("example@example.com"),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("Production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import User Notifications Contacts Email Contact using the `arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:notifications/contactsEmailContact:ContactsEmailContact example arn:aws:notificationscontacts:us-west-2:123456789012:emailcontact:example-contact
-// ```
 type ContactsEmailContact struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Email Contact.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Email address for the contact. Must be between 6 and 254 characters and match an email
-	// pattern.
-	EmailAddress pulumi.StringOutput `pulumi:"emailAddress"`
-	// Name of the email contact. Must be between 1 and 64 characters and can contain alphanumeric
-	// characters, underscores, tildes, periods, and hyphens.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Map of tags to assign to the resource. If configured with a provider
-	// `defaultTags` configuration block
-	// present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider
-	// `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn          pulumi.StringOutput    `pulumi:"arn"`
+	EmailAddress pulumi.StringOutput    `pulumi:"emailAddress"`
+	Name         pulumi.StringOutput    `pulumi:"name"`
+	Tags         pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll      pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewContactsEmailContact registers a new resource with the given unique name, arguments, and options.
@@ -108,43 +55,19 @@ func GetContactsEmailContact(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContactsEmailContact resources.
 type contactsEmailContactState struct {
-	// ARN of the Email Contact.
-	Arn *string `pulumi:"arn"`
-	// Email address for the contact. Must be between 6 and 254 characters and match an email
-	// pattern.
-	EmailAddress *string `pulumi:"emailAddress"`
-	// Name of the email contact. Must be between 1 and 64 characters and can contain alphanumeric
-	// characters, underscores, tildes, periods, and hyphens.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Map of tags to assign to the resource. If configured with a provider
-	// `defaultTags` configuration block
-	// present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider
-	// `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn          *string           `pulumi:"arn"`
+	EmailAddress *string           `pulumi:"emailAddress"`
+	Name         *string           `pulumi:"name"`
+	Tags         map[string]string `pulumi:"tags"`
+	TagsAll      map[string]string `pulumi:"tagsAll"`
 }
 
 type ContactsEmailContactState struct {
-	// ARN of the Email Contact.
-	Arn pulumi.StringPtrInput
-	// Email address for the contact. Must be between 6 and 254 characters and match an email
-	// pattern.
+	Arn          pulumi.StringPtrInput
 	EmailAddress pulumi.StringPtrInput
-	// Name of the email contact. Must be between 1 and 64 characters and can contain alphanumeric
-	// characters, underscores, tildes, periods, and hyphens.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider
-	// `defaultTags` configuration block
-	// present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider
-	// `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Name         pulumi.StringPtrInput
+	Tags         pulumi.StringMapInput
+	TagsAll      pulumi.StringMapInput
 }
 
 func (ContactsEmailContactState) ElementType() reflect.Type {
@@ -152,34 +75,16 @@ func (ContactsEmailContactState) ElementType() reflect.Type {
 }
 
 type contactsEmailContactArgs struct {
-	// Email address for the contact. Must be between 6 and 254 characters and match an email
-	// pattern.
-	EmailAddress string `pulumi:"emailAddress"`
-	// Name of the email contact. Must be between 1 and 64 characters and can contain alphanumeric
-	// characters, underscores, tildes, periods, and hyphens.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Map of tags to assign to the resource. If configured with a provider
-	// `defaultTags` configuration block
-	// present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	EmailAddress string            `pulumi:"emailAddress"`
+	Name         *string           `pulumi:"name"`
+	Tags         map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ContactsEmailContact resource.
 type ContactsEmailContactArgs struct {
-	// Email address for the contact. Must be between 6 and 254 characters and match an email
-	// pattern.
 	EmailAddress pulumi.StringInput
-	// Name of the email contact. Must be between 1 and 64 characters and can contain alphanumeric
-	// characters, underscores, tildes, periods, and hyphens.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider
-	// `defaultTags` configuration block
-	// present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name         pulumi.StringPtrInput
+	Tags         pulumi.StringMapInput
 }
 
 func (ContactsEmailContactArgs) ElementType() reflect.Type {
@@ -269,34 +174,22 @@ func (o ContactsEmailContactOutput) ToContactsEmailContactOutputWithContext(ctx 
 	return o
 }
 
-// ARN of the Email Contact.
 func (o ContactsEmailContactOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactsEmailContact) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Email address for the contact. Must be between 6 and 254 characters and match an email
-// pattern.
 func (o ContactsEmailContactOutput) EmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactsEmailContact) pulumi.StringOutput { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// Name of the email contact. Must be between 1 and 64 characters and can contain alphanumeric
-// characters, underscores, tildes, periods, and hyphens.
-//
-// The following arguments are optional:
 func (o ContactsEmailContactOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactsEmailContact) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider
-// `defaultTags` configuration block
-// present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ContactsEmailContactOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContactsEmailContact) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider
-// `defaultTags` configuration block.
 func (o ContactsEmailContactOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContactsEmailContact) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

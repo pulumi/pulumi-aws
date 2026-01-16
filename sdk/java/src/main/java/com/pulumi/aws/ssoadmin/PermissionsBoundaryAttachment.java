@@ -14,186 +14,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Attaches a permissions boundary policy to a Single Sign-On (SSO) Permission Set resource.
- * 
- * &gt; **NOTE:** A permission set can have at most one permissions boundary attached; using more than one `aws.ssoadmin.PermissionsBoundaryAttachment` references the same permission set will show a permanent difference.
- * 
- * ## Example Usage
- * 
- * ### Attaching a customer-managed policy
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
- * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
- * import com.pulumi.aws.ssoadmin.PermissionSet;
- * import com.pulumi.aws.ssoadmin.PermissionSetArgs;
- * import com.pulumi.aws.iam.Policy;
- * import com.pulumi.aws.iam.PolicyArgs;
- * import com.pulumi.aws.ssoadmin.PermissionsBoundaryAttachment;
- * import com.pulumi.aws.ssoadmin.PermissionsBoundaryAttachmentArgs;
- * import com.pulumi.aws.ssoadmin.inputs.PermissionsBoundaryAttachmentPermissionsBoundaryArgs;
- * import com.pulumi.aws.ssoadmin.inputs.PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
- *             .build());
- * 
- *         var examplePermissionSet = new PermissionSet("examplePermissionSet", PermissionSetArgs.builder()
- *             .name("Example")
- *             .instanceArn(example.arns()[0])
- *             .build());
- * 
- *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
- *             .name("TestPolicy")
- *             .description("My test policy")
- *             .policy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Version", "2012-10-17"),
- *                     jsonProperty("Statement", jsonArray(jsonObject(
- *                         jsonProperty("Action", jsonArray("ec2:Describe*")),
- *                         jsonProperty("Effect", "Allow"),
- *                         jsonProperty("Resource", "*")
- *                     )))
- *                 )))
- *             .build());
- * 
- *         var examplePermissionsBoundaryAttachment = new PermissionsBoundaryAttachment("examplePermissionsBoundaryAttachment", PermissionsBoundaryAttachmentArgs.builder()
- *             .instanceArn(examplePermissionSet.instanceArn())
- *             .permissionSetArn(examplePermissionSet.arn())
- *             .permissionsBoundary(PermissionsBoundaryAttachmentPermissionsBoundaryArgs.builder()
- *                 .customerManagedPolicyReference(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs.builder()
- *                     .name(examplePolicy.name())
- *                     .path("/")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Attaching an AWS-managed policy
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssoadmin.PermissionsBoundaryAttachment;
- * import com.pulumi.aws.ssoadmin.PermissionsBoundaryAttachmentArgs;
- * import com.pulumi.aws.ssoadmin.inputs.PermissionsBoundaryAttachmentPermissionsBoundaryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new PermissionsBoundaryAttachment("example", PermissionsBoundaryAttachmentArgs.builder()
- *             .instanceArn(exampleAwsSsoadminPermissionSet.instanceArn())
- *             .permissionSetArn(exampleAwsSsoadminPermissionSet.arn())
- *             .permissionsBoundary(PermissionsBoundaryAttachmentPermissionsBoundaryArgs.builder()
- *                 .managedPolicyArn("arn:aws:iam::aws:policy/ReadOnlyAccess")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SSO Admin Permissions Boundary Attachments using the `permission_set_arn` and `instance_arn`, separated by a comma (`,`). For example:
- * 
- * ```sh
- * $ pulumi import aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
- * ```
- * 
- */
 @ResourceType(type="aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment")
 public class PermissionsBoundaryAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     * 
-     */
     @Export(name="instanceArn", refs={String.class}, tree="[0]")
     private Output<String> instanceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     * 
-     */
     public Output<String> instanceArn() {
         return this.instanceArn;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
-     * 
-     */
     @Export(name="permissionSetArn", refs={String.class}, tree="[0]")
     private Output<String> permissionSetArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Permission Set.
-     * 
-     */
     public Output<String> permissionSetArn() {
         return this.permissionSetArn;
     }
-    /**
-     * The permissions boundary policy. See below.
-     * 
-     */
     @Export(name="permissionsBoundary", refs={PermissionsBoundaryAttachmentPermissionsBoundary.class}, tree="[0]")
     private Output<PermissionsBoundaryAttachmentPermissionsBoundary> permissionsBoundary;
 
-    /**
-     * @return The permissions boundary policy. See below.
-     * 
-     */
     public Output<PermissionsBoundaryAttachmentPermissionsBoundary> permissionsBoundary() {
         return this.permissionsBoundary;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

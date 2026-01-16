@@ -19,47 +19,23 @@ public final class ResourceSetState extends com.pulumi.resources.ResourceArgs {
 
     public static final ResourceSetState Empty = new ResourceSetState();
 
-    /**
-     * ARN of the Resource Set.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the Resource Set.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
-     * 
-     */
     @Import(name="resourceSets")
     private @Nullable Output<List<ResourceSetResourceSetArgs>> resourceSets;
 
-    /**
-     * @return Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
-     * 
-     */
     public Optional<Output<List<ResourceSetResourceSetArgs>>> resourceSets() {
         return Optional.ofNullable(this.resourceSets);
     }
@@ -114,75 +90,33 @@ public final class ResourceSetState extends com.pulumi.resources.ResourceArgs {
             $ = new ResourceSetState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the Resource Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the Resource Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceSets Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceSets(@Nullable Output<List<ResourceSetResourceSetArgs>> resourceSets) {
             $.resourceSets = resourceSets;
             return this;
         }
 
-        /**
-         * @param resourceSets Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceSets(List<ResourceSetResourceSetArgs> resourceSets) {
             return resourceSets(Output.of(resourceSets));
         }
 
-        /**
-         * @param resourceSets Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceSets(ResourceSetResourceSetArgs... resourceSets) {
             return resourceSets(List.of(resourceSets));
         }

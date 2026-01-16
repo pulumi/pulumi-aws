@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSourceHttpConfig {
-    /**
-     * @return Authorization configuration in case the HTTP endpoint requires authorization. See `authorizationConfig` Block for details.
-     * 
-     */
     private @Nullable DataSourceHttpConfigAuthorizationConfig authorizationConfig;
-    /**
-     * @return HTTP URL.
-     * 
-     */
     private String endpoint;
 
     private DataSourceHttpConfig() {}
-    /**
-     * @return Authorization configuration in case the HTTP endpoint requires authorization. See `authorizationConfig` Block for details.
-     * 
-     */
     public Optional<DataSourceHttpConfigAuthorizationConfig> authorizationConfig() {
         return Optional.ofNullable(this.authorizationConfig);
     }
-    /**
-     * @return HTTP URL.
-     * 
-     */
     public String endpoint() {
         return this.endpoint;
     }

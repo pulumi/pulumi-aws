@@ -24,11 +24,6 @@ class LbAttachmentArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LbAttachment resource.
-        :param pulumi.Input[_builtins.str] instance_name: Name of the instance to attach to the load balancer.
-        :param pulumi.Input[_builtins.str] lb_name: Name of the Lightsail load balancer.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "instance_name", instance_name)
         pulumi.set(__self__, "lb_name", lb_name)
@@ -38,9 +33,6 @@ class LbAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="instanceName")
     def instance_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the instance to attach to the load balancer.
-        """
         return pulumi.get(self, "instance_name")
 
     @instance_name.setter
@@ -50,11 +42,6 @@ class LbAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="lbName")
     def lb_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Lightsail load balancer.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "lb_name")
 
     @lb_name.setter
@@ -64,9 +51,6 @@ class LbAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -82,11 +66,6 @@ class _LbAttachmentState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LbAttachment resources.
-        :param pulumi.Input[_builtins.str] instance_name: Name of the instance to attach to the load balancer.
-        :param pulumi.Input[_builtins.str] lb_name: Name of the Lightsail load balancer.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if instance_name is not None:
             pulumi.set(__self__, "instance_name", instance_name)
@@ -98,9 +77,6 @@ class _LbAttachmentState:
     @_builtins.property
     @pulumi.getter(name="instanceName")
     def instance_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the instance to attach to the load balancer.
-        """
         return pulumi.get(self, "instance_name")
 
     @instance_name.setter
@@ -110,11 +86,6 @@ class _LbAttachmentState:
     @_builtins.property
     @pulumi.getter(name="lbName")
     def lb_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Lightsail load balancer.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "lb_name")
 
     @lb_name.setter
@@ -124,9 +95,6 @@ class _LbAttachmentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -145,51 +113,9 @@ class LbAttachment(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a Lightsail Load Balancer Attachment. Use this resource to attach Lightsail instances to a load balancer for distributing traffic across multiple instances.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available",
-            filters=[{
-                "name": "opt-in-status",
-                "values": ["opt-in-not-required"],
-            }])
-        example = aws.lightsail.Lb("example",
-            name="example-load-balancer",
-            health_check_path="/",
-            instance_port=80,
-            tags={
-                "foo": "bar",
-            })
-        example_instance = aws.lightsail.Instance("example",
-            name="example-instance",
-            availability_zone=available.names[0],
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_3_0")
-        example_lb_attachment = aws.lightsail.LbAttachment("example",
-            lb_name=example.name,
-            instance_name=example_instance.name)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
-
-        ```sh
-        $ pulumi import aws:lightsail/lbAttachment:LbAttachment example example-load-balancer,example-instance
-        ```
-
+        Create a LbAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] instance_name: Name of the instance to attach to the load balancer.
-        :param pulumi.Input[_builtins.str] lb_name: Name of the Lightsail load balancer.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -198,44 +124,7 @@ class LbAttachment(pulumi.CustomResource):
                  args: LbAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Lightsail Load Balancer Attachment. Use this resource to attach Lightsail instances to a load balancer for distributing traffic across multiple instances.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available",
-            filters=[{
-                "name": "opt-in-status",
-                "values": ["opt-in-not-required"],
-            }])
-        example = aws.lightsail.Lb("example",
-            name="example-load-balancer",
-            health_check_path="/",
-            instance_port=80,
-            tags={
-                "foo": "bar",
-            })
-        example_instance = aws.lightsail.Instance("example",
-            name="example-instance",
-            availability_zone=available.names[0],
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_3_0")
-        example_lb_attachment = aws.lightsail.LbAttachment("example",
-            lb_name=example.name,
-            instance_name=example_instance.name)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
-
-        ```sh
-        $ pulumi import aws:lightsail/lbAttachment:LbAttachment example example-load-balancer,example-instance
-        ```
-
+        Create a LbAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LbAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -290,11 +179,6 @@ class LbAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] instance_name: Name of the instance to attach to the load balancer.
-        :param pulumi.Input[_builtins.str] lb_name: Name of the Lightsail load balancer.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -308,26 +192,15 @@ class LbAttachment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="instanceName")
     def instance_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the instance to attach to the load balancer.
-        """
         return pulumi.get(self, "instance_name")
 
     @_builtins.property
     @pulumi.getter(name="lbName")
     def lb_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Lightsail load balancer.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "lb_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

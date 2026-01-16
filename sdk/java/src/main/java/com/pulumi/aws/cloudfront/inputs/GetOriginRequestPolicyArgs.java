@@ -15,32 +15,16 @@ public final class GetOriginRequestPolicyArgs extends com.pulumi.resources.Invok
 
     public static final GetOriginRequestPolicyArgs Empty = new GetOriginRequestPolicyArgs();
 
-    /**
-     * Identifier for the origin request policy.
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return Identifier for the origin request policy.
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Unique name to identify the origin request policy.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Unique name to identify the origin request policy.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -70,44 +54,20 @@ public final class GetOriginRequestPolicyArgs extends com.pulumi.resources.Invok
             $ = new GetOriginRequestPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id Identifier for the origin request policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Identifier for the origin request policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param name Unique name to identify the origin request policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Unique name to identify the origin request policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

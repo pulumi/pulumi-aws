@@ -15,205 +15,93 @@ public final class RouteTableRouteArgs extends com.pulumi.resources.ResourceArgs
 
     public static final RouteTableRouteArgs Empty = new RouteTableRouteArgs();
 
-    /**
-     * Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
-     * 
-     */
     @Import(name="carrierGatewayId")
     private @Nullable Output<String> carrierGatewayId;
 
-    /**
-     * @return Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
-     * 
-     */
     public Optional<Output<String>> carrierGatewayId() {
         return Optional.ofNullable(this.carrierGatewayId);
     }
 
-    /**
-     * The CIDR block of the route.
-     * 
-     */
     @Import(name="cidrBlock")
     private @Nullable Output<String> cidrBlock;
 
-    /**
-     * @return The CIDR block of the route.
-     * 
-     */
     public Optional<Output<String>> cidrBlock() {
         return Optional.ofNullable(this.cidrBlock);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of a core network.
-     * 
-     */
     @Import(name="coreNetworkArn")
     private @Nullable Output<String> coreNetworkArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of a core network.
-     * 
-     */
     public Optional<Output<String>> coreNetworkArn() {
         return Optional.ofNullable(this.coreNetworkArn);
     }
 
-    /**
-     * The ID of a managed prefix list destination of the route.
-     * 
-     * One of the following target arguments must be supplied:
-     * 
-     */
     @Import(name="destinationPrefixListId")
     private @Nullable Output<String> destinationPrefixListId;
 
-    /**
-     * @return The ID of a managed prefix list destination of the route.
-     * 
-     * One of the following target arguments must be supplied:
-     * 
-     */
     public Optional<Output<String>> destinationPrefixListId() {
         return Optional.ofNullable(this.destinationPrefixListId);
     }
 
-    /**
-     * Identifier of a VPC Egress Only Internet Gateway.
-     * 
-     */
     @Import(name="egressOnlyGatewayId")
     private @Nullable Output<String> egressOnlyGatewayId;
 
-    /**
-     * @return Identifier of a VPC Egress Only Internet Gateway.
-     * 
-     */
     public Optional<Output<String>> egressOnlyGatewayId() {
         return Optional.ofNullable(this.egressOnlyGatewayId);
     }
 
-    /**
-     * Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
-     * 
-     */
     @Import(name="gatewayId")
     private @Nullable Output<String> gatewayId;
 
-    /**
-     * @return Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
-     * 
-     */
     public Optional<Output<String>> gatewayId() {
         return Optional.ofNullable(this.gatewayId);
     }
 
-    /**
-     * The Ipv6 CIDR block of the route.
-     * 
-     */
     @Import(name="ipv6CidrBlock")
     private @Nullable Output<String> ipv6CidrBlock;
 
-    /**
-     * @return The Ipv6 CIDR block of the route.
-     * 
-     */
     public Optional<Output<String>> ipv6CidrBlock() {
         return Optional.ofNullable(this.ipv6CidrBlock);
     }
 
-    /**
-     * Identifier of a Outpost local gateway.
-     * 
-     */
     @Import(name="localGatewayId")
     private @Nullable Output<String> localGatewayId;
 
-    /**
-     * @return Identifier of a Outpost local gateway.
-     * 
-     */
     public Optional<Output<String>> localGatewayId() {
         return Optional.ofNullable(this.localGatewayId);
     }
 
-    /**
-     * Identifier of a VPC NAT gateway.
-     * 
-     */
     @Import(name="natGatewayId")
     private @Nullable Output<String> natGatewayId;
 
-    /**
-     * @return Identifier of a VPC NAT gateway.
-     * 
-     */
     public Optional<Output<String>> natGatewayId() {
         return Optional.ofNullable(this.natGatewayId);
     }
 
-    /**
-     * Identifier of an EC2 network interface.
-     * 
-     */
     @Import(name="networkInterfaceId")
     private @Nullable Output<String> networkInterfaceId;
 
-    /**
-     * @return Identifier of an EC2 network interface.
-     * 
-     */
     public Optional<Output<String>> networkInterfaceId() {
         return Optional.ofNullable(this.networkInterfaceId);
     }
 
-    /**
-     * Identifier of an EC2 Transit Gateway.
-     * 
-     */
     @Import(name="transitGatewayId")
     private @Nullable Output<String> transitGatewayId;
 
-    /**
-     * @return Identifier of an EC2 Transit Gateway.
-     * 
-     */
     public Optional<Output<String>> transitGatewayId() {
         return Optional.ofNullable(this.transitGatewayId);
     }
 
-    /**
-     * Identifier of a VPC Endpoint.
-     * 
-     */
     @Import(name="vpcEndpointId")
     private @Nullable Output<String> vpcEndpointId;
 
-    /**
-     * @return Identifier of a VPC Endpoint.
-     * 
-     */
     public Optional<Output<String>> vpcEndpointId() {
         return Optional.ofNullable(this.vpcEndpointId);
     }
 
-    /**
-     * Identifier of a VPC peering connection.
-     * 
-     * Note that the default route, mapping the VPC&#39;s CIDR block to &#34;local&#34;, is created implicitly and cannot be specified.
-     * 
-     */
     @Import(name="vpcPeeringConnectionId")
     private @Nullable Output<String> vpcPeeringConnectionId;
 
-    /**
-     * @return Identifier of a VPC peering connection.
-     * 
-     * Note that the default route, mapping the VPC&#39;s CIDR block to &#34;local&#34;, is created implicitly and cannot be specified.
-     * 
-     */
     public Optional<Output<String>> vpcPeeringConnectionId() {
         return Optional.ofNullable(this.vpcPeeringConnectionId);
     }
@@ -254,283 +142,119 @@ public final class RouteTableRouteArgs extends com.pulumi.resources.ResourceArgs
             $ = new RouteTableRouteArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param carrierGatewayId Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder carrierGatewayId(@Nullable Output<String> carrierGatewayId) {
             $.carrierGatewayId = carrierGatewayId;
             return this;
         }
 
-        /**
-         * @param carrierGatewayId Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder carrierGatewayId(String carrierGatewayId) {
             return carrierGatewayId(Output.of(carrierGatewayId));
         }
 
-        /**
-         * @param cidrBlock The CIDR block of the route.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrBlock(@Nullable Output<String> cidrBlock) {
             $.cidrBlock = cidrBlock;
             return this;
         }
 
-        /**
-         * @param cidrBlock The CIDR block of the route.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrBlock(String cidrBlock) {
             return cidrBlock(Output.of(cidrBlock));
         }
 
-        /**
-         * @param coreNetworkArn The Amazon Resource Name (ARN) of a core network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkArn(@Nullable Output<String> coreNetworkArn) {
             $.coreNetworkArn = coreNetworkArn;
             return this;
         }
 
-        /**
-         * @param coreNetworkArn The Amazon Resource Name (ARN) of a core network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkArn(String coreNetworkArn) {
             return coreNetworkArn(Output.of(coreNetworkArn));
         }
 
-        /**
-         * @param destinationPrefixListId The ID of a managed prefix list destination of the route.
-         * 
-         * One of the following target arguments must be supplied:
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationPrefixListId(@Nullable Output<String> destinationPrefixListId) {
             $.destinationPrefixListId = destinationPrefixListId;
             return this;
         }
 
-        /**
-         * @param destinationPrefixListId The ID of a managed prefix list destination of the route.
-         * 
-         * One of the following target arguments must be supplied:
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationPrefixListId(String destinationPrefixListId) {
             return destinationPrefixListId(Output.of(destinationPrefixListId));
         }
 
-        /**
-         * @param egressOnlyGatewayId Identifier of a VPC Egress Only Internet Gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder egressOnlyGatewayId(@Nullable Output<String> egressOnlyGatewayId) {
             $.egressOnlyGatewayId = egressOnlyGatewayId;
             return this;
         }
 
-        /**
-         * @param egressOnlyGatewayId Identifier of a VPC Egress Only Internet Gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder egressOnlyGatewayId(String egressOnlyGatewayId) {
             return egressOnlyGatewayId(Output.of(egressOnlyGatewayId));
         }
 
-        /**
-         * @param gatewayId Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gatewayId(@Nullable Output<String> gatewayId) {
             $.gatewayId = gatewayId;
             return this;
         }
 
-        /**
-         * @param gatewayId Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gatewayId(String gatewayId) {
             return gatewayId(Output.of(gatewayId));
         }
 
-        /**
-         * @param ipv6CidrBlock The Ipv6 CIDR block of the route.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipv6CidrBlock(@Nullable Output<String> ipv6CidrBlock) {
             $.ipv6CidrBlock = ipv6CidrBlock;
             return this;
         }
 
-        /**
-         * @param ipv6CidrBlock The Ipv6 CIDR block of the route.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipv6CidrBlock(String ipv6CidrBlock) {
             return ipv6CidrBlock(Output.of(ipv6CidrBlock));
         }
 
-        /**
-         * @param localGatewayId Identifier of a Outpost local gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder localGatewayId(@Nullable Output<String> localGatewayId) {
             $.localGatewayId = localGatewayId;
             return this;
         }
 
-        /**
-         * @param localGatewayId Identifier of a Outpost local gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder localGatewayId(String localGatewayId) {
             return localGatewayId(Output.of(localGatewayId));
         }
 
-        /**
-         * @param natGatewayId Identifier of a VPC NAT gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder natGatewayId(@Nullable Output<String> natGatewayId) {
             $.natGatewayId = natGatewayId;
             return this;
         }
 
-        /**
-         * @param natGatewayId Identifier of a VPC NAT gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder natGatewayId(String natGatewayId) {
             return natGatewayId(Output.of(natGatewayId));
         }
 
-        /**
-         * @param networkInterfaceId Identifier of an EC2 network interface.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfaceId(@Nullable Output<String> networkInterfaceId) {
             $.networkInterfaceId = networkInterfaceId;
             return this;
         }
 
-        /**
-         * @param networkInterfaceId Identifier of an EC2 network interface.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfaceId(String networkInterfaceId) {
             return networkInterfaceId(Output.of(networkInterfaceId));
         }
 
-        /**
-         * @param transitGatewayId Identifier of an EC2 Transit Gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayId(@Nullable Output<String> transitGatewayId) {
             $.transitGatewayId = transitGatewayId;
             return this;
         }
 
-        /**
-         * @param transitGatewayId Identifier of an EC2 Transit Gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayId(String transitGatewayId) {
             return transitGatewayId(Output.of(transitGatewayId));
         }
 
-        /**
-         * @param vpcEndpointId Identifier of a VPC Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointId(@Nullable Output<String> vpcEndpointId) {
             $.vpcEndpointId = vpcEndpointId;
             return this;
         }
 
-        /**
-         * @param vpcEndpointId Identifier of a VPC Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointId(String vpcEndpointId) {
             return vpcEndpointId(Output.of(vpcEndpointId));
         }
 
-        /**
-         * @param vpcPeeringConnectionId Identifier of a VPC peering connection.
-         * 
-         * Note that the default route, mapping the VPC&#39;s CIDR block to &#34;local&#34;, is created implicitly and cannot be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcPeeringConnectionId(@Nullable Output<String> vpcPeeringConnectionId) {
             $.vpcPeeringConnectionId = vpcPeeringConnectionId;
             return this;
         }
 
-        /**
-         * @param vpcPeeringConnectionId Identifier of a VPC peering connection.
-         * 
-         * Note that the default route, mapping the VPC&#39;s CIDR block to &#34;local&#34;, is created implicitly and cannot be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcPeeringConnectionId(String vpcPeeringConnectionId) {
             return vpcPeeringConnectionId(Output.of(vpcPeeringConnectionId));
         }

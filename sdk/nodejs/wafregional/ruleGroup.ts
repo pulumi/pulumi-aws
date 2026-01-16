@@ -7,40 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a WAF Regional Rule Group Resource
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.wafregional.Rule("example", {
- *     name: "example",
- *     metricName: "example",
- * });
- * const exampleRuleGroup = new aws.wafregional.RuleGroup("example", {
- *     name: "example",
- *     metricName: "example",
- *     activatedRules: [{
- *         action: {
- *             type: "COUNT",
- *         },
- *         priority: 50,
- *         ruleId: example.id,
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import WAF Regional Rule Group using the id. For example:
- *
- * ```sh
- * $ pulumi import aws:wafregional/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
- * ```
- */
 export class RuleGroup extends pulumi.CustomResource {
     /**
      * Get an existing RuleGroup resource's state with the given name, ID, and optional extra
@@ -69,33 +35,12 @@ export class RuleGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === RuleGroup.__pulumiType;
     }
 
-    /**
-     * A list of activated rules, see below
-     */
     declare public readonly activatedRules: pulumi.Output<outputs.wafregional.RuleGroupActivatedRule[] | undefined>;
-    /**
-     * The ARN of the WAF Regional Rule Group.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * A friendly name for the metrics from the rule group
-     */
     declare public readonly metricName: pulumi.Output<string>;
-    /**
-     * A friendly name of the rule group
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -140,33 +85,12 @@ export class RuleGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RuleGroup resources.
  */
 export interface RuleGroupState {
-    /**
-     * A list of activated rules, see below
-     */
     activatedRules?: pulumi.Input<pulumi.Input<inputs.wafregional.RuleGroupActivatedRule>[]>;
-    /**
-     * The ARN of the WAF Regional Rule Group.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A friendly name for the metrics from the rule group
-     */
     metricName?: pulumi.Input<string>;
-    /**
-     * A friendly name of the rule group
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -174,24 +98,9 @@ export interface RuleGroupState {
  * The set of arguments for constructing a RuleGroup resource.
  */
 export interface RuleGroupArgs {
-    /**
-     * A list of activated rules, see below
-     */
     activatedRules?: pulumi.Input<pulumi.Input<inputs.wafregional.RuleGroupActivatedRule>[]>;
-    /**
-     * A friendly name for the metrics from the rule group
-     */
     metricName: pulumi.Input<string>;
-    /**
-     * A friendly name of the rule group
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

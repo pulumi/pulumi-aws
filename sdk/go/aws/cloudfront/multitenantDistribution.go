@@ -12,100 +12,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates an Amazon CloudFront multi-tenant distribution.
-//
-// Multi-tenant distributions are a specialized type of CloudFront distribution designed for multi-tenant applications. They have specific limitations and requirements compared to standard CloudFront distributions.
-//
-// For information about CloudFront multi-tenant distributions, see the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/).
-//
-// > **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retainOnDelete` flag.
-//
-// ## Multi-tenant Distribution Limitations
-//
-// Multi-tenant distributions have the following limitations compared to standard CloudFront distributions:
-//
-// - **Connection Mode**: Automatically set to `tenant-only` and cannot be modified
-// - **Cache Policies**: Must use cache policies instead of legacy TTL settings
-// - **Trusted Key Groups**: Must use trusted key groups instead of trusted signers
-// - **WAF Integration**: Only supports WAF v2 web ACLs
-// - **Certificate Management**: Must use ACM certificates (IAM certificates not supported)
-//
-// ### Unsupported Attributes
-//
-// The following attributes that are available in standard CloudFront distributions are **not supported** for multi-tenant distributions:
-//
-// - `activeTrustedSigners` - Use `activeTrustedKeyGroups` instead
-// - `aliasIcpRecordals` - Managed by connection groups
-// - `aliases` - Managed by connection groups
-// - `anycastIpListId` - Use connection groups instead
-// - `continuousDeploymentPolicyId`
-// - `forwardedValues` in cache behaviors - Deprecated, use cache policies instead
-// - `isIpv6Enabled` - Managed by connection groups
-// - `priceClass` - Managed by connection groups
-// - `smoothStreaming` in cache behaviors
-// - `staging` mode
-// - `trustedSigners` in cache behaviors - Use `trustedKeyGroups` instead
-// - Cache behavior TTL settings (`defaultTtl`, `maxTtl`, `minTtl`) - Use cache policies instead
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudFront Multi-tenant Distributions using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudfront/multitenantDistribution:MultitenantDistribution distribution E74FTE3AEXAMPLE
-// ```
 type MultitenantDistribution struct {
 	pulumi.CustomResourceState
 
-	// List of key groups that CloudFront can use to validate signed URLs or signed cookies. See Active Trusted Key Groups below.
-	ActiveTrustedKeyGroups MultitenantDistributionActiveTrustedKeyGroupArrayOutput `pulumi:"activeTrustedKeyGroups"`
-	// ARN for the distribution.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Ordered list of cache behaviors resource for this distribution. See Cache Behavior below.
-	CacheBehaviors MultitenantDistributionCacheBehaviorArrayOutput `pulumi:"cacheBehaviors"`
-	// Internal value used by CloudFront to allow future updates to the distribution configuration.
-	CallerReference pulumi.StringOutput `pulumi:"callerReference"`
-	// Any comments you want to include about the distribution.
-	Comment pulumi.StringOutput `pulumi:"comment"`
-	// Connection mode for the distribution. Always set to `tenant-only` for multi-tenant distributions.
-	ConnectionMode pulumi.StringOutput `pulumi:"connectionMode"`
-	// One or more custom error response elements. See Custom Error Response below.
-	CustomErrorResponses MultitenantDistributionCustomErrorResponseArrayOutput `pulumi:"customErrorResponses"`
-	// Default cache behavior for this distribution. See Default Cache Behavior below.
-	DefaultCacheBehavior MultitenantDistributionDefaultCacheBehaviorPtrOutput `pulumi:"defaultCacheBehavior"`
-	// Object that you want CloudFront to return when an end user requests the root URL.
-	DefaultRootObject pulumi.StringPtrOutput `pulumi:"defaultRootObject"`
-	// Domain name corresponding to the distribution.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// Whether the distribution is enabled to accept end user requests for content.
-	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// Current version of the distribution's information.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3`, and `http3`. Default: `http2`.
-	HttpVersion pulumi.StringOutput `pulumi:"httpVersion"`
-	// Number of invalidation batches currently in progress.
-	InProgressInvalidationBatches pulumi.IntOutput `pulumi:"inProgressInvalidationBatches"`
-	// Date and time the distribution was last modified.
-	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
-	// One or more originGroup for this distribution (multiples allowed). See Origin Group below.
-	OriginGroups MultitenantDistributionOriginGroupArrayOutput `pulumi:"originGroups"`
-	// One or more origins for this distribution (multiples allowed). See Origin below.
-	Origins MultitenantDistributionOriginArrayOutput `pulumi:"origins"`
-	// Restriction configuration for this distribution. See Restrictions below.
-	Restrictions MultitenantDistributionRestrictionsPtrOutput `pulumi:"restrictions"`
-	// Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
-	TenantConfig MultitenantDistributionTenantConfigPtrOutput `pulumi:"tenantConfig"`
-	Timeouts     MultitenantDistributionTimeoutsPtrOutput     `pulumi:"timeouts"`
-	// SSL configuration for this distribution. See Viewer Certificate below.
-	ViewerCertificate MultitenantDistributionViewerCertificatePtrOutput `pulumi:"viewerCertificate"`
-	// Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.
-	WebAclId pulumi.StringPtrOutput `pulumi:"webAclId"`
+	ActiveTrustedKeyGroups        MultitenantDistributionActiveTrustedKeyGroupArrayOutput `pulumi:"activeTrustedKeyGroups"`
+	Arn                           pulumi.StringOutput                                     `pulumi:"arn"`
+	CacheBehaviors                MultitenantDistributionCacheBehaviorArrayOutput         `pulumi:"cacheBehaviors"`
+	CallerReference               pulumi.StringOutput                                     `pulumi:"callerReference"`
+	Comment                       pulumi.StringOutput                                     `pulumi:"comment"`
+	ConnectionMode                pulumi.StringOutput                                     `pulumi:"connectionMode"`
+	CustomErrorResponses          MultitenantDistributionCustomErrorResponseArrayOutput   `pulumi:"customErrorResponses"`
+	DefaultCacheBehavior          MultitenantDistributionDefaultCacheBehaviorPtrOutput    `pulumi:"defaultCacheBehavior"`
+	DefaultRootObject             pulumi.StringPtrOutput                                  `pulumi:"defaultRootObject"`
+	DomainName                    pulumi.StringOutput                                     `pulumi:"domainName"`
+	Enabled                       pulumi.BoolOutput                                       `pulumi:"enabled"`
+	Etag                          pulumi.StringOutput                                     `pulumi:"etag"`
+	HttpVersion                   pulumi.StringOutput                                     `pulumi:"httpVersion"`
+	InProgressInvalidationBatches pulumi.IntOutput                                        `pulumi:"inProgressInvalidationBatches"`
+	LastModifiedTime              pulumi.StringOutput                                     `pulumi:"lastModifiedTime"`
+	OriginGroups                  MultitenantDistributionOriginGroupArrayOutput           `pulumi:"originGroups"`
+	Origins                       MultitenantDistributionOriginArrayOutput                `pulumi:"origins"`
+	Restrictions                  MultitenantDistributionRestrictionsPtrOutput            `pulumi:"restrictions"`
+	Status                        pulumi.StringOutput                                     `pulumi:"status"`
+	Tags                          pulumi.StringMapOutput                                  `pulumi:"tags"`
+	TagsAll                       pulumi.StringMapOutput                                  `pulumi:"tagsAll"`
+	TenantConfig                  MultitenantDistributionTenantConfigPtrOutput            `pulumi:"tenantConfig"`
+	Timeouts                      MultitenantDistributionTimeoutsPtrOutput                `pulumi:"timeouts"`
+	ViewerCertificate             MultitenantDistributionViewerCertificatePtrOutput       `pulumi:"viewerCertificate"`
+	WebAclId                      pulumi.StringPtrOutput                                  `pulumi:"webAclId"`
 }
 
 // NewMultitenantDistribution registers a new resource with the given unique name, arguments, and options.
@@ -144,107 +78,59 @@ func GetMultitenantDistribution(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MultitenantDistribution resources.
 type multitenantDistributionState struct {
-	// List of key groups that CloudFront can use to validate signed URLs or signed cookies. See Active Trusted Key Groups below.
-	ActiveTrustedKeyGroups []MultitenantDistributionActiveTrustedKeyGroup `pulumi:"activeTrustedKeyGroups"`
-	// ARN for the distribution.
-	Arn *string `pulumi:"arn"`
-	// Ordered list of cache behaviors resource for this distribution. See Cache Behavior below.
-	CacheBehaviors []MultitenantDistributionCacheBehavior `pulumi:"cacheBehaviors"`
-	// Internal value used by CloudFront to allow future updates to the distribution configuration.
-	CallerReference *string `pulumi:"callerReference"`
-	// Any comments you want to include about the distribution.
-	Comment *string `pulumi:"comment"`
-	// Connection mode for the distribution. Always set to `tenant-only` for multi-tenant distributions.
-	ConnectionMode *string `pulumi:"connectionMode"`
-	// One or more custom error response elements. See Custom Error Response below.
-	CustomErrorResponses []MultitenantDistributionCustomErrorResponse `pulumi:"customErrorResponses"`
-	// Default cache behavior for this distribution. See Default Cache Behavior below.
-	DefaultCacheBehavior *MultitenantDistributionDefaultCacheBehavior `pulumi:"defaultCacheBehavior"`
-	// Object that you want CloudFront to return when an end user requests the root URL.
-	DefaultRootObject *string `pulumi:"defaultRootObject"`
-	// Domain name corresponding to the distribution.
-	DomainName *string `pulumi:"domainName"`
-	// Whether the distribution is enabled to accept end user requests for content.
-	Enabled *bool `pulumi:"enabled"`
-	// Current version of the distribution's information.
-	Etag *string `pulumi:"etag"`
-	// Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3`, and `http3`. Default: `http2`.
-	HttpVersion *string `pulumi:"httpVersion"`
-	// Number of invalidation batches currently in progress.
-	InProgressInvalidationBatches *int `pulumi:"inProgressInvalidationBatches"`
-	// Date and time the distribution was last modified.
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// One or more originGroup for this distribution (multiples allowed). See Origin Group below.
-	OriginGroups []MultitenantDistributionOriginGroup `pulumi:"originGroups"`
-	// One or more origins for this distribution (multiples allowed). See Origin below.
-	Origins []MultitenantDistributionOrigin `pulumi:"origins"`
-	// Restriction configuration for this distribution. See Restrictions below.
-	Restrictions *MultitenantDistributionRestrictions `pulumi:"restrictions"`
-	// Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
-	Status *string `pulumi:"status"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
-	TenantConfig *MultitenantDistributionTenantConfig `pulumi:"tenantConfig"`
-	Timeouts     *MultitenantDistributionTimeouts     `pulumi:"timeouts"`
-	// SSL configuration for this distribution. See Viewer Certificate below.
-	ViewerCertificate *MultitenantDistributionViewerCertificate `pulumi:"viewerCertificate"`
-	// Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.
-	WebAclId *string `pulumi:"webAclId"`
+	ActiveTrustedKeyGroups        []MultitenantDistributionActiveTrustedKeyGroup `pulumi:"activeTrustedKeyGroups"`
+	Arn                           *string                                        `pulumi:"arn"`
+	CacheBehaviors                []MultitenantDistributionCacheBehavior         `pulumi:"cacheBehaviors"`
+	CallerReference               *string                                        `pulumi:"callerReference"`
+	Comment                       *string                                        `pulumi:"comment"`
+	ConnectionMode                *string                                        `pulumi:"connectionMode"`
+	CustomErrorResponses          []MultitenantDistributionCustomErrorResponse   `pulumi:"customErrorResponses"`
+	DefaultCacheBehavior          *MultitenantDistributionDefaultCacheBehavior   `pulumi:"defaultCacheBehavior"`
+	DefaultRootObject             *string                                        `pulumi:"defaultRootObject"`
+	DomainName                    *string                                        `pulumi:"domainName"`
+	Enabled                       *bool                                          `pulumi:"enabled"`
+	Etag                          *string                                        `pulumi:"etag"`
+	HttpVersion                   *string                                        `pulumi:"httpVersion"`
+	InProgressInvalidationBatches *int                                           `pulumi:"inProgressInvalidationBatches"`
+	LastModifiedTime              *string                                        `pulumi:"lastModifiedTime"`
+	OriginGroups                  []MultitenantDistributionOriginGroup           `pulumi:"originGroups"`
+	Origins                       []MultitenantDistributionOrigin                `pulumi:"origins"`
+	Restrictions                  *MultitenantDistributionRestrictions           `pulumi:"restrictions"`
+	Status                        *string                                        `pulumi:"status"`
+	Tags                          map[string]string                              `pulumi:"tags"`
+	TagsAll                       map[string]string                              `pulumi:"tagsAll"`
+	TenantConfig                  *MultitenantDistributionTenantConfig           `pulumi:"tenantConfig"`
+	Timeouts                      *MultitenantDistributionTimeouts               `pulumi:"timeouts"`
+	ViewerCertificate             *MultitenantDistributionViewerCertificate      `pulumi:"viewerCertificate"`
+	WebAclId                      *string                                        `pulumi:"webAclId"`
 }
 
 type MultitenantDistributionState struct {
-	// List of key groups that CloudFront can use to validate signed URLs or signed cookies. See Active Trusted Key Groups below.
-	ActiveTrustedKeyGroups MultitenantDistributionActiveTrustedKeyGroupArrayInput
-	// ARN for the distribution.
-	Arn pulumi.StringPtrInput
-	// Ordered list of cache behaviors resource for this distribution. See Cache Behavior below.
-	CacheBehaviors MultitenantDistributionCacheBehaviorArrayInput
-	// Internal value used by CloudFront to allow future updates to the distribution configuration.
-	CallerReference pulumi.StringPtrInput
-	// Any comments you want to include about the distribution.
-	Comment pulumi.StringPtrInput
-	// Connection mode for the distribution. Always set to `tenant-only` for multi-tenant distributions.
-	ConnectionMode pulumi.StringPtrInput
-	// One or more custom error response elements. See Custom Error Response below.
-	CustomErrorResponses MultitenantDistributionCustomErrorResponseArrayInput
-	// Default cache behavior for this distribution. See Default Cache Behavior below.
-	DefaultCacheBehavior MultitenantDistributionDefaultCacheBehaviorPtrInput
-	// Object that you want CloudFront to return when an end user requests the root URL.
-	DefaultRootObject pulumi.StringPtrInput
-	// Domain name corresponding to the distribution.
-	DomainName pulumi.StringPtrInput
-	// Whether the distribution is enabled to accept end user requests for content.
-	Enabled pulumi.BoolPtrInput
-	// Current version of the distribution's information.
-	Etag pulumi.StringPtrInput
-	// Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3`, and `http3`. Default: `http2`.
-	HttpVersion pulumi.StringPtrInput
-	// Number of invalidation batches currently in progress.
+	ActiveTrustedKeyGroups        MultitenantDistributionActiveTrustedKeyGroupArrayInput
+	Arn                           pulumi.StringPtrInput
+	CacheBehaviors                MultitenantDistributionCacheBehaviorArrayInput
+	CallerReference               pulumi.StringPtrInput
+	Comment                       pulumi.StringPtrInput
+	ConnectionMode                pulumi.StringPtrInput
+	CustomErrorResponses          MultitenantDistributionCustomErrorResponseArrayInput
+	DefaultCacheBehavior          MultitenantDistributionDefaultCacheBehaviorPtrInput
+	DefaultRootObject             pulumi.StringPtrInput
+	DomainName                    pulumi.StringPtrInput
+	Enabled                       pulumi.BoolPtrInput
+	Etag                          pulumi.StringPtrInput
+	HttpVersion                   pulumi.StringPtrInput
 	InProgressInvalidationBatches pulumi.IntPtrInput
-	// Date and time the distribution was last modified.
-	LastModifiedTime pulumi.StringPtrInput
-	// One or more originGroup for this distribution (multiples allowed). See Origin Group below.
-	OriginGroups MultitenantDistributionOriginGroupArrayInput
-	// One or more origins for this distribution (multiples allowed). See Origin below.
-	Origins MultitenantDistributionOriginArrayInput
-	// Restriction configuration for this distribution. See Restrictions below.
-	Restrictions MultitenantDistributionRestrictionsPtrInput
-	// Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
-	Status pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
-	TenantConfig MultitenantDistributionTenantConfigPtrInput
-	Timeouts     MultitenantDistributionTimeoutsPtrInput
-	// SSL configuration for this distribution. See Viewer Certificate below.
-	ViewerCertificate MultitenantDistributionViewerCertificatePtrInput
-	// Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.
-	WebAclId pulumi.StringPtrInput
+	LastModifiedTime              pulumi.StringPtrInput
+	OriginGroups                  MultitenantDistributionOriginGroupArrayInput
+	Origins                       MultitenantDistributionOriginArrayInput
+	Restrictions                  MultitenantDistributionRestrictionsPtrInput
+	Status                        pulumi.StringPtrInput
+	Tags                          pulumi.StringMapInput
+	TagsAll                       pulumi.StringMapInput
+	TenantConfig                  MultitenantDistributionTenantConfigPtrInput
+	Timeouts                      MultitenantDistributionTimeoutsPtrInput
+	ViewerCertificate             MultitenantDistributionViewerCertificatePtrInput
+	WebAclId                      pulumi.StringPtrInput
 }
 
 func (MultitenantDistributionState) ElementType() reflect.Type {
@@ -252,72 +138,42 @@ func (MultitenantDistributionState) ElementType() reflect.Type {
 }
 
 type multitenantDistributionArgs struct {
-	// List of key groups that CloudFront can use to validate signed URLs or signed cookies. See Active Trusted Key Groups below.
 	ActiveTrustedKeyGroups []MultitenantDistributionActiveTrustedKeyGroup `pulumi:"activeTrustedKeyGroups"`
-	// Ordered list of cache behaviors resource for this distribution. See Cache Behavior below.
-	CacheBehaviors []MultitenantDistributionCacheBehavior `pulumi:"cacheBehaviors"`
-	// Any comments you want to include about the distribution.
-	Comment string `pulumi:"comment"`
-	// One or more custom error response elements. See Custom Error Response below.
-	CustomErrorResponses []MultitenantDistributionCustomErrorResponse `pulumi:"customErrorResponses"`
-	// Default cache behavior for this distribution. See Default Cache Behavior below.
-	DefaultCacheBehavior *MultitenantDistributionDefaultCacheBehavior `pulumi:"defaultCacheBehavior"`
-	// Object that you want CloudFront to return when an end user requests the root URL.
-	DefaultRootObject *string `pulumi:"defaultRootObject"`
-	// Whether the distribution is enabled to accept end user requests for content.
-	Enabled bool `pulumi:"enabled"`
-	// Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3`, and `http3`. Default: `http2`.
-	HttpVersion *string `pulumi:"httpVersion"`
-	// One or more originGroup for this distribution (multiples allowed). See Origin Group below.
-	OriginGroups []MultitenantDistributionOriginGroup `pulumi:"originGroups"`
-	// One or more origins for this distribution (multiples allowed). See Origin below.
-	Origins []MultitenantDistributionOrigin `pulumi:"origins"`
-	// Restriction configuration for this distribution. See Restrictions below.
-	Restrictions *MultitenantDistributionRestrictions `pulumi:"restrictions"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
-	TenantConfig *MultitenantDistributionTenantConfig `pulumi:"tenantConfig"`
-	Timeouts     *MultitenantDistributionTimeouts     `pulumi:"timeouts"`
-	// SSL configuration for this distribution. See Viewer Certificate below.
-	ViewerCertificate *MultitenantDistributionViewerCertificate `pulumi:"viewerCertificate"`
-	// Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.
-	WebAclId *string `pulumi:"webAclId"`
+	CacheBehaviors         []MultitenantDistributionCacheBehavior         `pulumi:"cacheBehaviors"`
+	Comment                string                                         `pulumi:"comment"`
+	CustomErrorResponses   []MultitenantDistributionCustomErrorResponse   `pulumi:"customErrorResponses"`
+	DefaultCacheBehavior   *MultitenantDistributionDefaultCacheBehavior   `pulumi:"defaultCacheBehavior"`
+	DefaultRootObject      *string                                        `pulumi:"defaultRootObject"`
+	Enabled                bool                                           `pulumi:"enabled"`
+	HttpVersion            *string                                        `pulumi:"httpVersion"`
+	OriginGroups           []MultitenantDistributionOriginGroup           `pulumi:"originGroups"`
+	Origins                []MultitenantDistributionOrigin                `pulumi:"origins"`
+	Restrictions           *MultitenantDistributionRestrictions           `pulumi:"restrictions"`
+	Tags                   map[string]string                              `pulumi:"tags"`
+	TenantConfig           *MultitenantDistributionTenantConfig           `pulumi:"tenantConfig"`
+	Timeouts               *MultitenantDistributionTimeouts               `pulumi:"timeouts"`
+	ViewerCertificate      *MultitenantDistributionViewerCertificate      `pulumi:"viewerCertificate"`
+	WebAclId               *string                                        `pulumi:"webAclId"`
 }
 
 // The set of arguments for constructing a MultitenantDistribution resource.
 type MultitenantDistributionArgs struct {
-	// List of key groups that CloudFront can use to validate signed URLs or signed cookies. See Active Trusted Key Groups below.
 	ActiveTrustedKeyGroups MultitenantDistributionActiveTrustedKeyGroupArrayInput
-	// Ordered list of cache behaviors resource for this distribution. See Cache Behavior below.
-	CacheBehaviors MultitenantDistributionCacheBehaviorArrayInput
-	// Any comments you want to include about the distribution.
-	Comment pulumi.StringInput
-	// One or more custom error response elements. See Custom Error Response below.
-	CustomErrorResponses MultitenantDistributionCustomErrorResponseArrayInput
-	// Default cache behavior for this distribution. See Default Cache Behavior below.
-	DefaultCacheBehavior MultitenantDistributionDefaultCacheBehaviorPtrInput
-	// Object that you want CloudFront to return when an end user requests the root URL.
-	DefaultRootObject pulumi.StringPtrInput
-	// Whether the distribution is enabled to accept end user requests for content.
-	Enabled pulumi.BoolInput
-	// Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3`, and `http3`. Default: `http2`.
-	HttpVersion pulumi.StringPtrInput
-	// One or more originGroup for this distribution (multiples allowed). See Origin Group below.
-	OriginGroups MultitenantDistributionOriginGroupArrayInput
-	// One or more origins for this distribution (multiples allowed). See Origin below.
-	Origins MultitenantDistributionOriginArrayInput
-	// Restriction configuration for this distribution. See Restrictions below.
-	Restrictions MultitenantDistributionRestrictionsPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
-	TenantConfig MultitenantDistributionTenantConfigPtrInput
-	Timeouts     MultitenantDistributionTimeoutsPtrInput
-	// SSL configuration for this distribution. See Viewer Certificate below.
-	ViewerCertificate MultitenantDistributionViewerCertificatePtrInput
-	// Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.
-	WebAclId pulumi.StringPtrInput
+	CacheBehaviors         MultitenantDistributionCacheBehaviorArrayInput
+	Comment                pulumi.StringInput
+	CustomErrorResponses   MultitenantDistributionCustomErrorResponseArrayInput
+	DefaultCacheBehavior   MultitenantDistributionDefaultCacheBehaviorPtrInput
+	DefaultRootObject      pulumi.StringPtrInput
+	Enabled                pulumi.BoolInput
+	HttpVersion            pulumi.StringPtrInput
+	OriginGroups           MultitenantDistributionOriginGroupArrayInput
+	Origins                MultitenantDistributionOriginArrayInput
+	Restrictions           MultitenantDistributionRestrictionsPtrInput
+	Tags                   pulumi.StringMapInput
+	TenantConfig           MultitenantDistributionTenantConfigPtrInput
+	Timeouts               MultitenantDistributionTimeoutsPtrInput
+	ViewerCertificate      MultitenantDistributionViewerCertificatePtrInput
+	WebAclId               pulumi.StringPtrInput
 }
 
 func (MultitenantDistributionArgs) ElementType() reflect.Type {
@@ -407,120 +263,98 @@ func (o MultitenantDistributionOutput) ToMultitenantDistributionOutputWithContex
 	return o
 }
 
-// List of key groups that CloudFront can use to validate signed URLs or signed cookies. See Active Trusted Key Groups below.
 func (o MultitenantDistributionOutput) ActiveTrustedKeyGroups() MultitenantDistributionActiveTrustedKeyGroupArrayOutput {
 	return o.ApplyT(func(v *MultitenantDistribution) MultitenantDistributionActiveTrustedKeyGroupArrayOutput {
 		return v.ActiveTrustedKeyGroups
 	}).(MultitenantDistributionActiveTrustedKeyGroupArrayOutput)
 }
 
-// ARN for the distribution.
 func (o MultitenantDistributionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultitenantDistribution) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Ordered list of cache behaviors resource for this distribution. See Cache Behavior below.
 func (o MultitenantDistributionOutput) CacheBehaviors() MultitenantDistributionCacheBehaviorArrayOutput {
 	return o.ApplyT(func(v *MultitenantDistribution) MultitenantDistributionCacheBehaviorArrayOutput {
 		return v.CacheBehaviors
 	}).(MultitenantDistributionCacheBehaviorArrayOutput)
 }
 
-// Internal value used by CloudFront to allow future updates to the distribution configuration.
 func (o MultitenantDistributionOutput) CallerReference() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultitenantDistribution) pulumi.StringOutput { return v.CallerReference }).(pulumi.StringOutput)
 }
 
-// Any comments you want to include about the distribution.
 func (o MultitenantDistributionOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultitenantDistribution) pulumi.StringOutput { return v.Comment }).(pulumi.StringOutput)
 }
 
-// Connection mode for the distribution. Always set to `tenant-only` for multi-tenant distributions.
 func (o MultitenantDistributionOutput) ConnectionMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultitenantDistribution) pulumi.StringOutput { return v.ConnectionMode }).(pulumi.StringOutput)
 }
 
-// One or more custom error response elements. See Custom Error Response below.
 func (o MultitenantDistributionOutput) CustomErrorResponses() MultitenantDistributionCustomErrorResponseArrayOutput {
 	return o.ApplyT(func(v *MultitenantDistribution) MultitenantDistributionCustomErrorResponseArrayOutput {
 		return v.CustomErrorResponses
 	}).(MultitenantDistributionCustomErrorResponseArrayOutput)
 }
 
-// Default cache behavior for this distribution. See Default Cache Behavior below.
 func (o MultitenantDistributionOutput) DefaultCacheBehavior() MultitenantDistributionDefaultCacheBehaviorPtrOutput {
 	return o.ApplyT(func(v *MultitenantDistribution) MultitenantDistributionDefaultCacheBehaviorPtrOutput {
 		return v.DefaultCacheBehavior
 	}).(MultitenantDistributionDefaultCacheBehaviorPtrOutput)
 }
 
-// Object that you want CloudFront to return when an end user requests the root URL.
 func (o MultitenantDistributionOutput) DefaultRootObject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MultitenantDistribution) pulumi.StringPtrOutput { return v.DefaultRootObject }).(pulumi.StringPtrOutput)
 }
 
-// Domain name corresponding to the distribution.
 func (o MultitenantDistributionOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultitenantDistribution) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// Whether the distribution is enabled to accept end user requests for content.
 func (o MultitenantDistributionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *MultitenantDistribution) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Current version of the distribution's information.
 func (o MultitenantDistributionOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultitenantDistribution) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3`, and `http3`. Default: `http2`.
 func (o MultitenantDistributionOutput) HttpVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultitenantDistribution) pulumi.StringOutput { return v.HttpVersion }).(pulumi.StringOutput)
 }
 
-// Number of invalidation batches currently in progress.
 func (o MultitenantDistributionOutput) InProgressInvalidationBatches() pulumi.IntOutput {
 	return o.ApplyT(func(v *MultitenantDistribution) pulumi.IntOutput { return v.InProgressInvalidationBatches }).(pulumi.IntOutput)
 }
 
-// Date and time the distribution was last modified.
 func (o MultitenantDistributionOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultitenantDistribution) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
 
-// One or more originGroup for this distribution (multiples allowed). See Origin Group below.
 func (o MultitenantDistributionOutput) OriginGroups() MultitenantDistributionOriginGroupArrayOutput {
 	return o.ApplyT(func(v *MultitenantDistribution) MultitenantDistributionOriginGroupArrayOutput { return v.OriginGroups }).(MultitenantDistributionOriginGroupArrayOutput)
 }
 
-// One or more origins for this distribution (multiples allowed). See Origin below.
 func (o MultitenantDistributionOutput) Origins() MultitenantDistributionOriginArrayOutput {
 	return o.ApplyT(func(v *MultitenantDistribution) MultitenantDistributionOriginArrayOutput { return v.Origins }).(MultitenantDistributionOriginArrayOutput)
 }
 
-// Restriction configuration for this distribution. See Restrictions below.
 func (o MultitenantDistributionOutput) Restrictions() MultitenantDistributionRestrictionsPtrOutput {
 	return o.ApplyT(func(v *MultitenantDistribution) MultitenantDistributionRestrictionsPtrOutput { return v.Restrictions }).(MultitenantDistributionRestrictionsPtrOutput)
 }
 
-// Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
 func (o MultitenantDistributionOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultitenantDistribution) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o MultitenantDistributionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MultitenantDistribution) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o MultitenantDistributionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MultitenantDistribution) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
 func (o MultitenantDistributionOutput) TenantConfig() MultitenantDistributionTenantConfigPtrOutput {
 	return o.ApplyT(func(v *MultitenantDistribution) MultitenantDistributionTenantConfigPtrOutput { return v.TenantConfig }).(MultitenantDistributionTenantConfigPtrOutput)
 }
@@ -529,14 +363,12 @@ func (o MultitenantDistributionOutput) Timeouts() MultitenantDistributionTimeout
 	return o.ApplyT(func(v *MultitenantDistribution) MultitenantDistributionTimeoutsPtrOutput { return v.Timeouts }).(MultitenantDistributionTimeoutsPtrOutput)
 }
 
-// SSL configuration for this distribution. See Viewer Certificate below.
 func (o MultitenantDistributionOutput) ViewerCertificate() MultitenantDistributionViewerCertificatePtrOutput {
 	return o.ApplyT(func(v *MultitenantDistribution) MultitenantDistributionViewerCertificatePtrOutput {
 		return v.ViewerCertificate
 	}).(MultitenantDistributionViewerCertificatePtrOutput)
 }
 
-// Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.
 func (o MultitenantDistributionOutput) WebAclId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MultitenantDistribution) pulumi.StringPtrOutput { return v.WebAclId }).(pulumi.StringPtrOutput)
 }

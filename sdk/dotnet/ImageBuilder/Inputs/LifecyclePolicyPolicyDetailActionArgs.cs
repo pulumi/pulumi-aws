@@ -12,17 +12,9 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
     public sealed class LifecyclePolicyPolicyDetailActionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the resources that the lifecycle policy applies to. Detailed below.
-        /// </summary>
         [Input("includeResources")]
         public Input<Inputs.LifecyclePolicyPolicyDetailActionIncludeResourcesArgs>? IncludeResources { get; set; }
 
-        /// <summary>
-        /// Specifies the lifecycle action to take. Valid values: `DELETE`, `DEPRECATE` or `DISABLE`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

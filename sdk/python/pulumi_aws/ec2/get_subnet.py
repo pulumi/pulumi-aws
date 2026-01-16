@@ -111,17 +111,11 @@ class GetSubnetResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the subnet.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="assignIpv6AddressOnCreation")
     def assign_ipv6_address_on_creation(self) -> _builtins.bool:
-        """
-        Whether an IPv6 address is assigned on creation.
-        """
         return pulumi.get(self, "assign_ipv6_address_on_creation")
 
     @_builtins.property
@@ -137,9 +131,6 @@ class GetSubnetResult:
     @_builtins.property
     @pulumi.getter(name="availableIpAddressCount")
     def available_ip_address_count(self) -> _builtins.int:
-        """
-        Available IP addresses of the subnet.
-        """
         return pulumi.get(self, "available_ip_address_count")
 
     @_builtins.property
@@ -150,9 +141,6 @@ class GetSubnetResult:
     @_builtins.property
     @pulumi.getter(name="customerOwnedIpv4Pool")
     def customer_owned_ipv4_pool(self) -> _builtins.str:
-        """
-        Identifier of customer owned IPv4 address pool.
-        """
         return pulumi.get(self, "customer_owned_ipv4_pool")
 
     @_builtins.property
@@ -163,33 +151,21 @@ class GetSubnetResult:
     @_builtins.property
     @pulumi.getter(name="enableDns64")
     def enable_dns64(self) -> _builtins.bool:
-        """
-        Whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
-        """
         return pulumi.get(self, "enable_dns64")
 
     @_builtins.property
     @pulumi.getter(name="enableLniAtDeviceIndex")
     def enable_lni_at_device_index(self) -> _builtins.int:
-        """
-        Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
-        """
         return pulumi.get(self, "enable_lni_at_device_index")
 
     @_builtins.property
     @pulumi.getter(name="enableResourceNameDnsARecordOnLaunch")
     def enable_resource_name_dns_a_record_on_launch(self) -> _builtins.bool:
-        """
-        Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
-        """
         return pulumi.get(self, "enable_resource_name_dns_a_record_on_launch")
 
     @_builtins.property
     @pulumi.getter(name="enableResourceNameDnsAaaaRecordOnLaunch")
     def enable_resource_name_dns_aaaa_record_on_launch(self) -> _builtins.bool:
-        """
-        Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
-        """
         return pulumi.get(self, "enable_resource_name_dns_aaaa_record_on_launch")
 
     @_builtins.property
@@ -210,57 +186,36 @@ class GetSubnetResult:
     @_builtins.property
     @pulumi.getter(name="ipv6CidrBlockAssociationId")
     def ipv6_cidr_block_association_id(self) -> _builtins.str:
-        """
-        Association ID of the IPv6 CIDR block.
-        """
         return pulumi.get(self, "ipv6_cidr_block_association_id")
 
     @_builtins.property
     @pulumi.getter(name="ipv6Native")
     def ipv6_native(self) -> _builtins.bool:
-        """
-        Whether this is an IPv6-only subnet.
-        """
         return pulumi.get(self, "ipv6_native")
 
     @_builtins.property
     @pulumi.getter(name="mapCustomerOwnedIpOnLaunch")
     def map_customer_owned_ip_on_launch(self) -> _builtins.bool:
-        """
-        Whether customer owned IP addresses are assigned on network interface creation.
-        """
         return pulumi.get(self, "map_customer_owned_ip_on_launch")
 
     @_builtins.property
     @pulumi.getter(name="mapPublicIpOnLaunch")
     def map_public_ip_on_launch(self) -> _builtins.bool:
-        """
-        Whether public IP addresses are assigned on instance launch.
-        """
         return pulumi.get(self, "map_public_ip_on_launch")
 
     @_builtins.property
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> _builtins.str:
-        """
-        ARN of the Outpost.
-        """
         return pulumi.get(self, "outpost_arn")
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> _builtins.str:
-        """
-        ID of the AWS account that owns the subnet.
-        """
         return pulumi.get(self, "owner_id")
 
     @_builtins.property
     @pulumi.getter(name="privateDnsHostnameTypeOnLaunch")
     def private_dns_hostname_type_on_launch(self) -> _builtins.str:
-        """
-        The type of hostnames assigned to instances in the subnet at launch.
-        """
         return pulumi.get(self, "private_dns_hostname_type_on_launch")
 
     @_builtins.property
@@ -331,57 +286,7 @@ def get_subnet(availability_zone: Optional[_builtins.str] = None,
                vpc_id: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetResult:
     """
-    `ec2.Subnet` provides details about a specific VPC subnet.
-
-    This resource can prove useful when a module accepts a subnet ID as an input variable and needs to, for example, determine the ID of the VPC that the subnet belongs to.
-
-    ## Example Usage
-
-    The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    subnet_id = config.require_object("subnetId")
-    selected = aws.ec2.get_subnet(id=subnet_id)
-    subnet_security_group = aws.ec2.SecurityGroup("subnet_security_group",
-        vpc_id=selected.vpc_id,
-        ingress=[{
-            "cidr_blocks": [selected.cidr_block],
-            "from_port": 80,
-            "to_port": 80,
-            "protocol": "tcp",
-        }])
-    ```
-
-    ### Filter Example
-
-    If you want to match against tag `Name`, use:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.ec2.get_subnet(filters=[{
-        "name": "tag:Name",
-        "values": ["yakdriver"],
-    }])
-    ```
-
-
-    :param _builtins.str availability_zone: Availability zone where the subnet must reside.
-    :param _builtins.str availability_zone_id: ID of the Availability Zone for the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
-    :param _builtins.str cidr_block: CIDR block of the desired subnet.
-    :param _builtins.bool default_for_az: Whether the desired subnet must be the default subnet for its associated availability zone.
-    :param Sequence[Union['GetSubnetFilterArgs', 'GetSubnetFilterArgsDict']] filters: Configuration block. Detailed below.
-    :param _builtins.str id: ID of the specific subnet to retrieve.
-    :param _builtins.str ipv6_cidr_block: IPv6 CIDR block of the desired subnet.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str state: State that the desired subnet must have.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired subnet.
-    :param _builtins.str vpc_id: ID of the VPC that the desired subnet belongs to.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['availabilityZone'] = availability_zone
@@ -438,57 +343,7 @@ def get_subnet_output(availability_zone: Optional[pulumi.Input[Optional[_builtin
                       vpc_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubnetResult]:
     """
-    `ec2.Subnet` provides details about a specific VPC subnet.
-
-    This resource can prove useful when a module accepts a subnet ID as an input variable and needs to, for example, determine the ID of the VPC that the subnet belongs to.
-
-    ## Example Usage
-
-    The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    subnet_id = config.require_object("subnetId")
-    selected = aws.ec2.get_subnet(id=subnet_id)
-    subnet_security_group = aws.ec2.SecurityGroup("subnet_security_group",
-        vpc_id=selected.vpc_id,
-        ingress=[{
-            "cidr_blocks": [selected.cidr_block],
-            "from_port": 80,
-            "to_port": 80,
-            "protocol": "tcp",
-        }])
-    ```
-
-    ### Filter Example
-
-    If you want to match against tag `Name`, use:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.ec2.get_subnet(filters=[{
-        "name": "tag:Name",
-        "values": ["yakdriver"],
-    }])
-    ```
-
-
-    :param _builtins.str availability_zone: Availability zone where the subnet must reside.
-    :param _builtins.str availability_zone_id: ID of the Availability Zone for the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
-    :param _builtins.str cidr_block: CIDR block of the desired subnet.
-    :param _builtins.bool default_for_az: Whether the desired subnet must be the default subnet for its associated availability zone.
-    :param Sequence[Union['GetSubnetFilterArgs', 'GetSubnetFilterArgsDict']] filters: Configuration block. Detailed below.
-    :param _builtins.str id: ID of the specific subnet to retrieve.
-    :param _builtins.str ipv6_cidr_block: IPv6 CIDR block of the desired subnet.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str state: State that the desired subnet must have.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired subnet.
-    :param _builtins.str vpc_id: ID of the VPC that the desired subnet belongs to.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['availabilityZone'] = availability_zone

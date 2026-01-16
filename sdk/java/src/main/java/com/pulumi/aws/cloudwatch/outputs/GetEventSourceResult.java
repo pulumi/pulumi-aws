@@ -12,46 +12,22 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEventSourceResult {
-    /**
-     * @return ARN of the partner event source
-     * 
-     */
     private String arn;
-    /**
-     * @return Name of the SaaS partner that created the event source
-     * 
-     */
     private String createdBy;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Name of the event source
-     * 
-     */
     private String name;
     private @Nullable String namePrefix;
     private String region;
-    /**
-     * @return State of the event source (`ACTIVE` or `PENDING`)
-     * 
-     */
     private String state;
 
     private GetEventSourceResult() {}
-    /**
-     * @return ARN of the partner event source
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Name of the SaaS partner that created the event source
-     * 
-     */
     public String createdBy() {
         return this.createdBy;
     }
@@ -62,10 +38,6 @@ public final class GetEventSourceResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the event source
-     * 
-     */
     public String name() {
         return this.name;
     }
@@ -75,10 +47,6 @@ public final class GetEventSourceResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return State of the event source (`ACTIVE` or `PENDING`)
-     * 
-     */
     public String state() {
         return this.state;
     }

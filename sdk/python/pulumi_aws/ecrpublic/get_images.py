@@ -64,9 +64,6 @@ class GetImagesResult:
     @_builtins.property
     @pulumi.getter
     def images(self) -> Sequence['outputs.GetImagesImageResult']:
-        """
-        List of images returned. Each image contains:
-        """
         return pulumi.get(self, "images")
 
     @_builtins.property
@@ -77,17 +74,11 @@ class GetImagesResult:
     @_builtins.property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> Optional[_builtins.str]:
-        """
-        AWS account ID associated with the public registry.
-        """
         return pulumi.get(self, "registry_id")
 
     @_builtins.property
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> _builtins.str:
-        """
-        Name of the repository.
-        """
         return pulumi.get(self, "repository_name")
 
 
@@ -111,25 +102,7 @@ def get_images(image_ids: Optional[Sequence[Union['GetImagesImageIdArgs', 'GetIm
                repository_name: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImagesResult:
     """
-    The ECR Public Images data source allows the list of images in a specified public repository to be retrieved.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-    import pulumi_std as std
-
-    example = aws.ecrpublic.get_images(repository_name="my-public-repository")
-    pulumi.export("imageDigests", [img.digest for img in example.images if img.digest != None])
-    pulumi.export("imageTags", std.distinct(input=std.flatten(input=[img.tags for img in example.images]).result).result)
-    ```
-
-
-    :param Sequence[Union['GetImagesImageIdArgs', 'GetImagesImageIdArgsDict']] image_ids: One or more image ID filters. Each image ID can use either a tag or digest (or both). Each object has the following attributes:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str registry_id: AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
-    :param _builtins.str repository_name: Name of the public repository.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['imageIds'] = image_ids
@@ -152,25 +125,7 @@ def get_images_output(image_ids: Optional[pulumi.Input[Optional[Sequence[Union['
                       repository_name: Optional[pulumi.Input[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImagesResult]:
     """
-    The ECR Public Images data source allows the list of images in a specified public repository to be retrieved.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-    import pulumi_std as std
-
-    example = aws.ecrpublic.get_images(repository_name="my-public-repository")
-    pulumi.export("imageDigests", [img.digest for img in example.images if img.digest != None])
-    pulumi.export("imageTags", std.distinct(input=std.flatten(input=[img.tags for img in example.images]).result).result)
-    ```
-
-
-    :param Sequence[Union['GetImagesImageIdArgs', 'GetImagesImageIdArgsDict']] image_ids: One or more image ID filters. Each image ID can use either a tag or digest (or both). Each object has the following attributes:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str registry_id: AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
-    :param _builtins.str repository_name: Name of the public repository.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['imageIds'] = image_ids

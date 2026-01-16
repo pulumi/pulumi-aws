@@ -22,17 +22,9 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAc
         return this.eventAction;
     }
 
-    /**
-     * Whether to send a notification.
-     * 
-     */
     @Import(name="notify", required=true)
     private Output<Boolean> notify;
 
-    /**
-     * @return Whether to send a notification.
-     * 
-     */
     public Output<Boolean> notify_() {
         return this.notify;
     }
@@ -71,23 +63,11 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAc
             return eventAction(Output.of(eventAction));
         }
 
-        /**
-         * @param notify Whether to send a notification.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notify_(Output<Boolean> notify) {
             $.notify = notify;
             return this;
         }
 
-        /**
-         * @param notify Whether to send a notification.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notify_(Boolean notify) {
             return notify_(Output.of(notify));
         }

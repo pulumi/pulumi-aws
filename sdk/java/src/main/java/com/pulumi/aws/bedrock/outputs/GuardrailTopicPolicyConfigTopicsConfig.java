@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GuardrailTopicPolicyConfigTopicsConfig {
-    /**
-     * @return Definition of topic in topic policy.
-     * 
-     */
     private String definition;
-    /**
-     * @return List of text examples.
-     * 
-     */
     private @Nullable List<String> examples;
-    /**
-     * @return Name of topic in topic policy.
-     * 
-     */
     private String name;
-    /**
-     * @return Type of topic in a policy.
-     * 
-     */
     private String type;
 
     private GuardrailTopicPolicyConfigTopicsConfig() {}
-    /**
-     * @return Definition of topic in topic policy.
-     * 
-     */
     public String definition() {
         return this.definition;
     }
-    /**
-     * @return List of text examples.
-     * 
-     */
     public List<String> examples() {
         return this.examples == null ? List.of() : this.examples;
     }
-    /**
-     * @return Name of topic in topic policy.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Type of topic in a policy.
-     * 
-     */
     public String type() {
         return this.type;
     }

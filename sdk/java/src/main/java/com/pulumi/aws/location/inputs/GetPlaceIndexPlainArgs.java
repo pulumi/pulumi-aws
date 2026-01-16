@@ -16,47 +16,23 @@ public final class GetPlaceIndexPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetPlaceIndexPlainArgs Empty = new GetPlaceIndexPlainArgs();
 
-    /**
-     * Name of the place index resource.
-     * 
-     */
     @Import(name="indexName", required=true)
     private String indexName;
 
-    /**
-     * @return Name of the place index resource.
-     * 
-     */
     public String indexName() {
         return this.indexName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags for the place index.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Key-value map of resource tags for the place index.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -87,34 +63,16 @@ public final class GetPlaceIndexPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetPlaceIndexPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param indexName Name of the place index resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexName(String indexName) {
             $.indexName = indexName;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags for the place index.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

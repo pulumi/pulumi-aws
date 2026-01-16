@@ -11,37 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `route53.ResolverFirewallConfig` provides details about a specific a Route 53 Resolver DNS Firewall config.
-//
-// This data source allows to find a details about a specific a Route 53 Resolver DNS Firewall config.
-//
-// ## Example Usage
-//
-// The following example shows how to get a firewall config using the VPC ID.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.LookupResolverFirewallConfig(ctx, &route53.LookupResolverFirewallConfigArgs{
-//				ResourceId: "vpc-exampleid",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupResolverFirewallConfig(ctx *pulumi.Context, args *LookupResolverFirewallConfigArgs, opts ...pulumi.InvokeOption) (*LookupResolverFirewallConfigResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverFirewallConfigResult
@@ -54,19 +23,15 @@ func LookupResolverFirewallConfig(ctx *pulumi.Context, args *LookupResolverFirew
 
 // A collection of arguments for invoking getResolverFirewallConfig.
 type LookupResolverFirewallConfigArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the VPC from Amazon VPC that the configuration is for.
-	ResourceId string `pulumi:"resourceId"`
+	Region     *string `pulumi:"region"`
+	ResourceId string  `pulumi:"resourceId"`
 }
 
 // A collection of values returned by getResolverFirewallConfig.
 type LookupResolverFirewallConfigResult struct {
-	// Determines how DNS Firewall operates during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply.
 	FirewallFailOpen string `pulumi:"firewallFailOpen"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The Amazon Web Services account ID of the owner of the VPC that this firewall configuration applies to.
+	Id         string `pulumi:"id"`
 	OwnerId    string `pulumi:"ownerId"`
 	Region     string `pulumi:"region"`
 	ResourceId string `pulumi:"resourceId"`
@@ -83,10 +48,8 @@ func LookupResolverFirewallConfigOutput(ctx *pulumi.Context, args LookupResolver
 
 // A collection of arguments for invoking getResolverFirewallConfig.
 type LookupResolverFirewallConfigOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The ID of the VPC from Amazon VPC that the configuration is for.
-	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
+	ResourceId pulumi.StringInput    `pulumi:"resourceId"`
 }
 
 func (LookupResolverFirewallConfigOutputArgs) ElementType() reflect.Type {
@@ -108,7 +71,6 @@ func (o LookupResolverFirewallConfigResultOutput) ToLookupResolverFirewallConfig
 	return o
 }
 
-// Determines how DNS Firewall operates during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply.
 func (o LookupResolverFirewallConfigResultOutput) FirewallFailOpen() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallConfigResult) string { return v.FirewallFailOpen }).(pulumi.StringOutput)
 }
@@ -118,7 +80,6 @@ func (o LookupResolverFirewallConfigResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallConfigResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The Amazon Web Services account ID of the owner of the VPC that this firewall configuration applies to.
 func (o LookupResolverFirewallConfigResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallConfigResult) string { return v.OwnerId }).(pulumi.StringOutput)
 }

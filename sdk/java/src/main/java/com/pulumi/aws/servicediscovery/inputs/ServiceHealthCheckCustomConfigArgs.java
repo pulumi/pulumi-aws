@@ -16,8 +16,6 @@ public final class ServiceHealthCheckCustomConfigArgs extends com.pulumi.resourc
     public static final ServiceHealthCheckCustomConfigArgs Empty = new ServiceHealthCheckCustomConfigArgs();
 
     /**
-     * The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Value is always set to 1.
-     * 
      * @deprecated
      * failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.
      * 
@@ -27,8 +25,6 @@ public final class ServiceHealthCheckCustomConfigArgs extends com.pulumi.resourc
     private @Nullable Output<Integer> failureThreshold;
 
     /**
-     * @return The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Value is always set to 1.
-     * 
      * @deprecated
      * failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.
      * 
@@ -63,8 +59,6 @@ public final class ServiceHealthCheckCustomConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param failureThreshold The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Value is always set to 1.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -78,8 +72,6 @@ public final class ServiceHealthCheckCustomConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param failureThreshold The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Value is always set to 1.
-         * 
          * @return builder
          * 
          * @deprecated

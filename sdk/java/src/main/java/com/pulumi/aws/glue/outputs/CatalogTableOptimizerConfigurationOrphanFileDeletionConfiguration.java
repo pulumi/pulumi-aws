@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration {
-    /**
-     * @return The configuration for an Iceberg orphan file deletion optimizer.
-     * 
-     */
     private @Nullable CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration icebergConfiguration;
 
     private CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration() {}
-    /**
-     * @return The configuration for an Iceberg orphan file deletion optimizer.
-     * 
-     */
     public Optional<CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration> icebergConfiguration() {
         return Optional.ofNullable(this.icebergConfiguration);
     }

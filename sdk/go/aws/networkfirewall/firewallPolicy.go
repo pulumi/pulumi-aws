@@ -12,308 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AWS Network Firewall Firewall Policy Resource
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentGetCallerIdentity, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = networkfirewall.NewFirewallPolicy(ctx, "example", &networkfirewall.FirewallPolicyArgs{
-//				Name: pulumi.String("example"),
-//				FirewallPolicy: &networkfirewall.FirewallPolicyFirewallPolicyArgs{
-//					StatelessDefaultActions: pulumi.StringArray{
-//						pulumi.String("aws:pass"),
-//					},
-//					StatelessFragmentDefaultActions: pulumi.StringArray{
-//						pulumi.String("aws:drop"),
-//					},
-//					StatelessRuleGroupReferences: networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray{
-//						&networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs{
-//							Priority:    pulumi.Int(1),
-//							ResourceArn: pulumi.Any(exampleAwsNetworkfirewallRuleGroup.Arn),
-//						},
-//					},
-//					TlsInspectionConfigurationArn: pulumi.Sprintf("arn:%v:network-firewall:%v:%v:tls-configuration/example", currentGetPartition.Partition, current.Region, currentGetCallerIdentity.AccountId),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Tag1": pulumi.String("Value1"),
-//					"Tag2": pulumi.String("Value2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Policy with a HOME_NET Override
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.NewFirewallPolicy(ctx, "example", &networkfirewall.FirewallPolicyArgs{
-//				Name: pulumi.String("example"),
-//				FirewallPolicy: &networkfirewall.FirewallPolicyFirewallPolicyArgs{
-//					PolicyVariables: &networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesArgs{
-//						RuleVariables: networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArray{
-//							&networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs{
-//								Key: pulumi.String("HOME_NET"),
-//								IpSet: &networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs{
-//									Definitions: pulumi.StringArray{
-//										pulumi.String("10.0.0.0/16"),
-//										pulumi.String("10.1.0.0/24"),
-//									},
-//								},
-//							},
-//						},
-//					},
-//					StatelessDefaultActions: pulumi.StringArray{
-//						pulumi.String("aws:pass"),
-//					},
-//					StatelessFragmentDefaultActions: pulumi.StringArray{
-//						pulumi.String("aws:drop"),
-//					},
-//					StatelessRuleGroupReferences: networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray{
-//						&networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs{
-//							Priority:    pulumi.Int(1),
-//							ResourceArn: pulumi.Any(exampleAwsNetworkfirewallRuleGroup.Arn),
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Tag1": pulumi.String("Value1"),
-//					"Tag2": pulumi.String("Value2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Policy with a Custom Action for Stateless Inspection
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.NewFirewallPolicy(ctx, "example", &networkfirewall.FirewallPolicyArgs{
-//				Name: pulumi.String("example"),
-//				FirewallPolicy: &networkfirewall.FirewallPolicyFirewallPolicyArgs{
-//					StatelessDefaultActions: pulumi.StringArray{
-//						pulumi.String("aws:pass"),
-//						pulumi.String("ExampleCustomAction"),
-//					},
-//					StatelessFragmentDefaultActions: pulumi.StringArray{
-//						pulumi.String("aws:drop"),
-//					},
-//					StatelessCustomActions: networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionArray{
-//						&networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionArgs{
-//							ActionDefinition: &networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs{
-//								PublishMetricAction: &networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs{
-//									Dimensions: networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArray{
-//										&networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs{
-//											Value: pulumi.String("1"),
-//										},
-//									},
-//								},
-//							},
-//							ActionName: pulumi.String("ExampleCustomAction"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Policy with Active Threat Defense in Action Order
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = networkfirewall.NewFirewallPolicy(ctx, "example", &networkfirewall.FirewallPolicyArgs{
-//				Name: pulumi.String("example"),
-//				FirewallPolicy: &networkfirewall.FirewallPolicyFirewallPolicyArgs{
-//					StatelessFragmentDefaultActions: pulumi.StringArray{
-//						pulumi.String("aws:drop"),
-//					},
-//					StatelessDefaultActions: pulumi.StringArray{
-//						pulumi.String("aws:pass"),
-//					},
-//					StatefulRuleGroupReferences: networkfirewall.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArray{
-//						&networkfirewall.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs{
-//							DeepThreatInspection: pulumi.String("true"),
-//							ResourceArn:          pulumi.Sprintf("arn:%v:network-firewall:%v:aws-managed:stateful-rulegroup/AttackInfrastructureActionOrder", currentGetPartition.Partition, current.Region),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Policy with Active Threat Defense in Strict Order
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = networkfirewall.NewFirewallPolicy(ctx, "example", &networkfirewall.FirewallPolicyArgs{
-//				Name: pulumi.String("example"),
-//				FirewallPolicy: &networkfirewall.FirewallPolicyFirewallPolicyArgs{
-//					StatelessFragmentDefaultActions: pulumi.StringArray{
-//						pulumi.String("aws:drop"),
-//					},
-//					StatelessDefaultActions: pulumi.StringArray{
-//						pulumi.String("aws:pass"),
-//					},
-//					StatefulEngineOptions: &networkfirewall.FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs{
-//						RuleOrder: pulumi.String("STRICT_ORDER"),
-//					},
-//					StatefulRuleGroupReferences: networkfirewall.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArray{
-//						&networkfirewall.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs{
-//							DeepThreatInspection: pulumi.String("false"),
-//							Priority:             pulumi.Int(1),
-//							ResourceArn:          pulumi.Sprintf("arn:%v:network-firewall:%v:aws-managed:stateful-rulegroup/AttackInfrastructureStrictOrder", currentGetPartition.Partition, current.Region),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Network Firewall Policies using their `arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
-// ```
 type FirewallPolicy struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) that identifies the firewall policy.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A friendly description of the firewall policy.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// KMS encryption configuration settings. See Encryption Configuration below for details.
+	Arn                     pulumi.StringOutput                            `pulumi:"arn"`
+	Description             pulumi.StringPtrOutput                         `pulumi:"description"`
 	EncryptionConfiguration FirewallPolicyEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
-	// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
-	FirewallPolicy FirewallPolicyFirewallPolicyOutput `pulumi:"firewallPolicy"`
-	// A friendly name of the firewall policy.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// A string token used when updating a firewall policy.
-	UpdateToken pulumi.StringOutput `pulumi:"updateToken"`
+	FirewallPolicy          FirewallPolicyFirewallPolicyOutput             `pulumi:"firewallPolicy"`
+	Name                    pulumi.StringOutput                            `pulumi:"name"`
+	Region                  pulumi.StringOutput                            `pulumi:"region"`
+	Tags                    pulumi.StringMapOutput                         `pulumi:"tags"`
+	TagsAll                 pulumi.StringMapOutput                         `pulumi:"tagsAll"`
+	UpdateToken             pulumi.StringOutput                            `pulumi:"updateToken"`
 }
 
 // NewFirewallPolicy registers a new resource with the given unique name, arguments, and options.
@@ -349,45 +59,27 @@ func GetFirewallPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FirewallPolicy resources.
 type firewallPolicyState struct {
-	// The Amazon Resource Name (ARN) that identifies the firewall policy.
-	Arn *string `pulumi:"arn"`
-	// A friendly description of the firewall policy.
-	Description *string `pulumi:"description"`
-	// KMS encryption configuration settings. See Encryption Configuration below for details.
+	Arn                     *string                                `pulumi:"arn"`
+	Description             *string                                `pulumi:"description"`
 	EncryptionConfiguration *FirewallPolicyEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
-	FirewallPolicy *FirewallPolicyFirewallPolicy `pulumi:"firewallPolicy"`
-	// A friendly name of the firewall policy.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// A string token used when updating a firewall policy.
-	UpdateToken *string `pulumi:"updateToken"`
+	FirewallPolicy          *FirewallPolicyFirewallPolicy          `pulumi:"firewallPolicy"`
+	Name                    *string                                `pulumi:"name"`
+	Region                  *string                                `pulumi:"region"`
+	Tags                    map[string]string                      `pulumi:"tags"`
+	TagsAll                 map[string]string                      `pulumi:"tagsAll"`
+	UpdateToken             *string                                `pulumi:"updateToken"`
 }
 
 type FirewallPolicyState struct {
-	// The Amazon Resource Name (ARN) that identifies the firewall policy.
-	Arn pulumi.StringPtrInput
-	// A friendly description of the firewall policy.
-	Description pulumi.StringPtrInput
-	// KMS encryption configuration settings. See Encryption Configuration below for details.
+	Arn                     pulumi.StringPtrInput
+	Description             pulumi.StringPtrInput
 	EncryptionConfiguration FirewallPolicyEncryptionConfigurationPtrInput
-	// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
-	FirewallPolicy FirewallPolicyFirewallPolicyPtrInput
-	// A friendly name of the firewall policy.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// A string token used when updating a firewall policy.
-	UpdateToken pulumi.StringPtrInput
+	FirewallPolicy          FirewallPolicyFirewallPolicyPtrInput
+	Name                    pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
+	TagsAll                 pulumi.StringMapInput
+	UpdateToken             pulumi.StringPtrInput
 }
 
 func (FirewallPolicyState) ElementType() reflect.Type {
@@ -395,34 +87,22 @@ func (FirewallPolicyState) ElementType() reflect.Type {
 }
 
 type firewallPolicyArgs struct {
-	// A friendly description of the firewall policy.
-	Description *string `pulumi:"description"`
-	// KMS encryption configuration settings. See Encryption Configuration below for details.
+	Description             *string                                `pulumi:"description"`
 	EncryptionConfiguration *FirewallPolicyEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
-	FirewallPolicy FirewallPolicyFirewallPolicy `pulumi:"firewallPolicy"`
-	// A friendly name of the firewall policy.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	FirewallPolicy          FirewallPolicyFirewallPolicy           `pulumi:"firewallPolicy"`
+	Name                    *string                                `pulumi:"name"`
+	Region                  *string                                `pulumi:"region"`
+	Tags                    map[string]string                      `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FirewallPolicy resource.
 type FirewallPolicyArgs struct {
-	// A friendly description of the firewall policy.
-	Description pulumi.StringPtrInput
-	// KMS encryption configuration settings. See Encryption Configuration below for details.
+	Description             pulumi.StringPtrInput
 	EncryptionConfiguration FirewallPolicyEncryptionConfigurationPtrInput
-	// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
-	FirewallPolicy FirewallPolicyFirewallPolicyInput
-	// A friendly name of the firewall policy.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	FirewallPolicy          FirewallPolicyFirewallPolicyInput
+	Name                    pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
 }
 
 func (FirewallPolicyArgs) ElementType() reflect.Type {
@@ -512,49 +192,40 @@ func (o FirewallPolicyOutput) ToFirewallPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The Amazon Resource Name (ARN) that identifies the firewall policy.
 func (o FirewallPolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A friendly description of the firewall policy.
 func (o FirewallPolicyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// KMS encryption configuration settings. See Encryption Configuration below for details.
 func (o FirewallPolicyOutput) EncryptionConfiguration() FirewallPolicyEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirewallPolicy) FirewallPolicyEncryptionConfigurationPtrOutput {
 		return v.EncryptionConfiguration
 	}).(FirewallPolicyEncryptionConfigurationPtrOutput)
 }
 
-// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
 func (o FirewallPolicyOutput) FirewallPolicy() FirewallPolicyFirewallPolicyOutput {
 	return o.ApplyT(func(v *FirewallPolicy) FirewallPolicyFirewallPolicyOutput { return v.FirewallPolicy }).(FirewallPolicyFirewallPolicyOutput)
 }
 
-// A friendly name of the firewall policy.
 func (o FirewallPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FirewallPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o FirewallPolicyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o FirewallPolicyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// A string token used when updating a firewall policy.
 func (o FirewallPolicyOutput) UpdateToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.UpdateToken }).(pulumi.StringOutput)
 }

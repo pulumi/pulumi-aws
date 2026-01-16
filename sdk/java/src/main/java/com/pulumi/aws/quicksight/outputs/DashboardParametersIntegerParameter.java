@@ -12,18 +12,10 @@ import java.util.Objects;
 
 @CustomType
 public final class DashboardParametersIntegerParameter {
-    /**
-     * @return Display name for the dashboard.
-     * 
-     */
     private String name;
     private List<Integer> values;
 
     private DashboardParametersIntegerParameter() {}
-    /**
-     * @return Display name for the dashboard.
-     * 
-     */
     public String name() {
         return this.name;
     }

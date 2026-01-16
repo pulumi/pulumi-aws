@@ -15,32 +15,16 @@ public final class SecurityConfigurationEncryptionConfigurationCloudwatchEncrypt
 
     public static final SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs Empty = new SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs();
 
-    /**
-     * Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
-     * 
-     */
     @Import(name="cloudwatchEncryptionMode")
     private @Nullable Output<String> cloudwatchEncryptionMode;
 
-    /**
-     * @return Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> cloudwatchEncryptionMode() {
         return Optional.ofNullable(this.cloudwatchEncryptionMode);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-     * 
-     */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-     * 
-     */
     public Optional<Output<String>> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
@@ -70,44 +54,20 @@ public final class SecurityConfigurationEncryptionConfigurationCloudwatchEncrypt
             $ = new SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudwatchEncryptionMode Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchEncryptionMode(@Nullable Output<String> cloudwatchEncryptionMode) {
             $.cloudwatchEncryptionMode = cloudwatchEncryptionMode;
             return this;
         }
 
-        /**
-         * @param cloudwatchEncryptionMode Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchEncryptionMode(String cloudwatchEncryptionMode) {
             return cloudwatchEncryptionMode(Output.of(cloudwatchEncryptionMode));
         }
 
-        /**
-         * @param kmsKeyArn Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
-        /**
-         * @param kmsKeyArn Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }

@@ -14,10 +14,8 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type CentralizationRuleForOrganizationRule struct {
-	// Configuration block for the destination where logs will be centralized. See `destination` below.
 	Destination *CentralizationRuleForOrganizationRuleDestination `pulumi:"destination"`
-	// Configuration block for the source of logs to be centralized. See `source` below.
-	Source *CentralizationRuleForOrganizationRuleSource `pulumi:"source"`
+	Source      *CentralizationRuleForOrganizationRuleSource      `pulumi:"source"`
 }
 
 // CentralizationRuleForOrganizationRuleInput is an input type that accepts CentralizationRuleForOrganizationRuleArgs and CentralizationRuleForOrganizationRuleOutput values.
@@ -32,10 +30,8 @@ type CentralizationRuleForOrganizationRuleInput interface {
 }
 
 type CentralizationRuleForOrganizationRuleArgs struct {
-	// Configuration block for the destination where logs will be centralized. See `destination` below.
 	Destination CentralizationRuleForOrganizationRuleDestinationPtrInput `pulumi:"destination"`
-	// Configuration block for the source of logs to be centralized. See `source` below.
-	Source CentralizationRuleForOrganizationRuleSourcePtrInput `pulumi:"source"`
+	Source      CentralizationRuleForOrganizationRuleSourcePtrInput      `pulumi:"source"`
 }
 
 func (CentralizationRuleForOrganizationRuleArgs) ElementType() reflect.Type {
@@ -115,14 +111,12 @@ func (o CentralizationRuleForOrganizationRuleOutput) ToCentralizationRuleForOrga
 	}).(CentralizationRuleForOrganizationRulePtrOutput)
 }
 
-// Configuration block for the destination where logs will be centralized. See `destination` below.
 func (o CentralizationRuleForOrganizationRuleOutput) Destination() CentralizationRuleForOrganizationRuleDestinationPtrOutput {
 	return o.ApplyT(func(v CentralizationRuleForOrganizationRule) *CentralizationRuleForOrganizationRuleDestination {
 		return v.Destination
 	}).(CentralizationRuleForOrganizationRuleDestinationPtrOutput)
 }
 
-// Configuration block for the source of logs to be centralized. See `source` below.
 func (o CentralizationRuleForOrganizationRuleOutput) Source() CentralizationRuleForOrganizationRuleSourcePtrOutput {
 	return o.ApplyT(func(v CentralizationRuleForOrganizationRule) *CentralizationRuleForOrganizationRuleSource {
 		return v.Source
@@ -153,7 +147,6 @@ func (o CentralizationRuleForOrganizationRulePtrOutput) Elem() CentralizationRul
 	}).(CentralizationRuleForOrganizationRuleOutput)
 }
 
-// Configuration block for the destination where logs will be centralized. See `destination` below.
 func (o CentralizationRuleForOrganizationRulePtrOutput) Destination() CentralizationRuleForOrganizationRuleDestinationPtrOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganizationRule) *CentralizationRuleForOrganizationRuleDestination {
 		if v == nil {
@@ -163,7 +156,6 @@ func (o CentralizationRuleForOrganizationRulePtrOutput) Destination() Centraliza
 	}).(CentralizationRuleForOrganizationRuleDestinationPtrOutput)
 }
 
-// Configuration block for the source of logs to be centralized. See `source` below.
 func (o CentralizationRuleForOrganizationRulePtrOutput) Source() CentralizationRuleForOrganizationRuleSourcePtrOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganizationRule) *CentralizationRuleForOrganizationRuleSource {
 		if v == nil {
@@ -174,12 +166,9 @@ func (o CentralizationRuleForOrganizationRulePtrOutput) Source() CentralizationR
 }
 
 type CentralizationRuleForOrganizationRuleDestination struct {
-	// AWS account ID where logs will be centralized.
-	Account string `pulumi:"account"`
-	// Configuration block for destination logs settings. See `destinationLogsConfiguration` below.
+	Account                      string                                                                        `pulumi:"account"`
 	DestinationLogsConfiguration *CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration `pulumi:"destinationLogsConfiguration"`
-	// AWS region where logs will be centralized.
-	Region string `pulumi:"region"`
+	Region                       string                                                                        `pulumi:"region"`
 }
 
 // CentralizationRuleForOrganizationRuleDestinationInput is an input type that accepts CentralizationRuleForOrganizationRuleDestinationArgs and CentralizationRuleForOrganizationRuleDestinationOutput values.
@@ -194,12 +183,9 @@ type CentralizationRuleForOrganizationRuleDestinationInput interface {
 }
 
 type CentralizationRuleForOrganizationRuleDestinationArgs struct {
-	// AWS account ID where logs will be centralized.
-	Account pulumi.StringInput `pulumi:"account"`
-	// Configuration block for destination logs settings. See `destinationLogsConfiguration` below.
+	Account                      pulumi.StringInput                                                                   `pulumi:"account"`
 	DestinationLogsConfiguration CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationPtrInput `pulumi:"destinationLogsConfiguration"`
-	// AWS region where logs will be centralized.
-	Region pulumi.StringInput `pulumi:"region"`
+	Region                       pulumi.StringInput                                                                   `pulumi:"region"`
 }
 
 func (CentralizationRuleForOrganizationRuleDestinationArgs) ElementType() reflect.Type {
@@ -279,19 +265,16 @@ func (o CentralizationRuleForOrganizationRuleDestinationOutput) ToCentralization
 	}).(CentralizationRuleForOrganizationRuleDestinationPtrOutput)
 }
 
-// AWS account ID where logs will be centralized.
 func (o CentralizationRuleForOrganizationRuleDestinationOutput) Account() pulumi.StringOutput {
 	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleDestination) string { return v.Account }).(pulumi.StringOutput)
 }
 
-// Configuration block for destination logs settings. See `destinationLogsConfiguration` below.
 func (o CentralizationRuleForOrganizationRuleDestinationOutput) DestinationLogsConfiguration() CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationPtrOutput {
 	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleDestination) *CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration {
 		return v.DestinationLogsConfiguration
 	}).(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationPtrOutput)
 }
 
-// AWS region where logs will be centralized.
 func (o CentralizationRuleForOrganizationRuleDestinationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleDestination) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -320,7 +303,6 @@ func (o CentralizationRuleForOrganizationRuleDestinationPtrOutput) Elem() Centra
 	}).(CentralizationRuleForOrganizationRuleDestinationOutput)
 }
 
-// AWS account ID where logs will be centralized.
 func (o CentralizationRuleForOrganizationRuleDestinationPtrOutput) Account() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleDestination) *string {
 		if v == nil {
@@ -330,7 +312,6 @@ func (o CentralizationRuleForOrganizationRuleDestinationPtrOutput) Account() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration block for destination logs settings. See `destinationLogsConfiguration` below.
 func (o CentralizationRuleForOrganizationRuleDestinationPtrOutput) DestinationLogsConfiguration() CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationPtrOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleDestination) *CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration {
 		if v == nil {
@@ -340,7 +321,6 @@ func (o CentralizationRuleForOrganizationRuleDestinationPtrOutput) DestinationLo
 	}).(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationPtrOutput)
 }
 
-// AWS region where logs will be centralized.
 func (o CentralizationRuleForOrganizationRuleDestinationPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleDestination) *string {
 		if v == nil {
@@ -351,9 +331,7 @@ func (o CentralizationRuleForOrganizationRuleDestinationPtrOutput) Region() pulu
 }
 
 type CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration struct {
-	// Configuration block for backup settings. See `backupConfiguration` below.
-	BackupConfiguration *CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration `pulumi:"backupConfiguration"`
-	// Configuration block for logs encryption settings. See `logsEncryptionConfiguration` below.
+	BackupConfiguration         *CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration         `pulumi:"backupConfiguration"`
 	LogsEncryptionConfiguration *CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration `pulumi:"logsEncryptionConfiguration"`
 }
 
@@ -369,9 +347,7 @@ type CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguratio
 }
 
 type CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs struct {
-	// Configuration block for backup settings. See `backupConfiguration` below.
-	BackupConfiguration CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationPtrInput `pulumi:"backupConfiguration"`
-	// Configuration block for logs encryption settings. See `logsEncryptionConfiguration` below.
+	BackupConfiguration         CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationPtrInput         `pulumi:"backupConfiguration"`
 	LogsEncryptionConfiguration CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationPtrInput `pulumi:"logsEncryptionConfiguration"`
 }
 
@@ -452,14 +428,12 @@ func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigura
 	}).(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationPtrOutput)
 }
 
-// Configuration block for backup settings. See `backupConfiguration` below.
 func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationOutput) BackupConfiguration() CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationPtrOutput {
 	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration) *CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration {
 		return v.BackupConfiguration
 	}).(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationPtrOutput)
 }
 
-// Configuration block for logs encryption settings. See `logsEncryptionConfiguration` below.
 func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationOutput) LogsEncryptionConfiguration() CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration) *CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration {
 		return v.LogsEncryptionConfiguration
@@ -490,7 +464,6 @@ func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigura
 	}).(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationOutput)
 }
 
-// Configuration block for backup settings. See `backupConfiguration` below.
 func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationPtrOutput) BackupConfiguration() CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationPtrOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration) *CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration {
 		if v == nil {
@@ -500,7 +473,6 @@ func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigura
 	}).(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationPtrOutput)
 }
 
-// Configuration block for logs encryption settings. See `logsEncryptionConfiguration` below.
 func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationPtrOutput) LogsEncryptionConfiguration() CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration) *CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration {
 		if v == nil {
@@ -511,10 +483,8 @@ func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigura
 }
 
 type CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration struct {
-	// ARN of the KMS key to use for backup encryption.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// AWS region for backup storage.
-	Region *string `pulumi:"region"`
+	Region    *string `pulumi:"region"`
 }
 
 // CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationInput is an input type that accepts CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs and CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationOutput values.
@@ -529,10 +499,8 @@ type CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguratio
 }
 
 type CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs struct {
-	// ARN of the KMS key to use for backup encryption.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
-	// AWS region for backup storage.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Region    pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs) ElementType() reflect.Type {
@@ -612,14 +580,12 @@ func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigura
 	}).(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationPtrOutput)
 }
 
-// ARN of the KMS key to use for backup encryption.
 func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration) *string {
 		return v.KmsKeyArn
 	}).(pulumi.StringPtrOutput)
 }
 
-// AWS region for backup storage.
 func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration) *string {
 		return v.Region
@@ -650,7 +616,6 @@ func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigura
 	}).(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationOutput)
 }
 
-// ARN of the KMS key to use for backup encryption.
 func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration) *string {
 		if v == nil {
@@ -660,7 +625,6 @@ func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigura
 	}).(pulumi.StringPtrOutput)
 }
 
-// AWS region for backup storage.
 func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration) *string {
 		if v == nil {
@@ -671,12 +635,9 @@ func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigura
 }
 
 type CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration struct {
-	// Strategy for resolving encryption conflicts. Valid values: `ALLOW`, `SKIP`.
 	EncryptionConflictResolutionStrategy *string `pulumi:"encryptionConflictResolutionStrategy"`
-	// Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
-	EncryptionStrategy string `pulumi:"encryptionStrategy"`
-	// ARN of the KMS key to use for encryption when `encryptionStrategy` is `CUSTOMER_MANAGED`.
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	EncryptionStrategy                   string  `pulumi:"encryptionStrategy"`
+	KmsKeyArn                            *string `pulumi:"kmsKeyArn"`
 }
 
 // CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationInput is an input type that accepts CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs and CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationOutput values.
@@ -691,12 +652,9 @@ type CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguratio
 }
 
 type CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs struct {
-	// Strategy for resolving encryption conflicts. Valid values: `ALLOW`, `SKIP`.
 	EncryptionConflictResolutionStrategy pulumi.StringPtrInput `pulumi:"encryptionConflictResolutionStrategy"`
-	// Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
-	EncryptionStrategy pulumi.StringInput `pulumi:"encryptionStrategy"`
-	// ARN of the KMS key to use for encryption when `encryptionStrategy` is `CUSTOMER_MANAGED`.
-	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	EncryptionStrategy                   pulumi.StringInput    `pulumi:"encryptionStrategy"`
+	KmsKeyArn                            pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 }
 
 func (CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -776,21 +734,18 @@ func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigura
 	}).(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationPtrOutput)
 }
 
-// Strategy for resolving encryption conflicts. Valid values: `ALLOW`, `SKIP`.
 func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationOutput) EncryptionConflictResolutionStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration) *string {
 		return v.EncryptionConflictResolutionStrategy
 	}).(pulumi.StringPtrOutput)
 }
 
-// Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
 func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationOutput) EncryptionStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration) string {
 		return v.EncryptionStrategy
 	}).(pulumi.StringOutput)
 }
 
-// ARN of the KMS key to use for encryption when `encryptionStrategy` is `CUSTOMER_MANAGED`.
 func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration) *string {
 		return v.KmsKeyArn
@@ -821,7 +776,6 @@ func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigura
 	}).(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationOutput)
 }
 
-// Strategy for resolving encryption conflicts. Valid values: `ALLOW`, `SKIP`.
 func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationPtrOutput) EncryptionConflictResolutionStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration) *string {
 		if v == nil {
@@ -831,7 +785,6 @@ func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigura
 	}).(pulumi.StringPtrOutput)
 }
 
-// Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
 func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationPtrOutput) EncryptionStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration) *string {
 		if v == nil {
@@ -841,7 +794,6 @@ func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigura
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN of the KMS key to use for encryption when `encryptionStrategy` is `CUSTOMER_MANAGED`.
 func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration) *string {
 		if v == nil {
@@ -852,11 +804,8 @@ func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigura
 }
 
 type CentralizationRuleForOrganizationRuleSource struct {
-	// Set of AWS regions from which to centralize logs. Must contain at least one region.
-	Regions []string `pulumi:"regions"`
-	// Scope defining which resources to include. Use organization ID format: `OrganizationId = 'o-example123456'`.
-	Scope string `pulumi:"scope"`
-	// Configuration block for source logs settings. See `sourceLogsConfiguration` below.
+	Regions                 []string                                                            `pulumi:"regions"`
+	Scope                   string                                                              `pulumi:"scope"`
 	SourceLogsConfiguration *CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration `pulumi:"sourceLogsConfiguration"`
 }
 
@@ -872,11 +821,8 @@ type CentralizationRuleForOrganizationRuleSourceInput interface {
 }
 
 type CentralizationRuleForOrganizationRuleSourceArgs struct {
-	// Set of AWS regions from which to centralize logs. Must contain at least one region.
-	Regions pulumi.StringArrayInput `pulumi:"regions"`
-	// Scope defining which resources to include. Use organization ID format: `OrganizationId = 'o-example123456'`.
-	Scope pulumi.StringInput `pulumi:"scope"`
-	// Configuration block for source logs settings. See `sourceLogsConfiguration` below.
+	Regions                 pulumi.StringArrayInput                                                    `pulumi:"regions"`
+	Scope                   pulumi.StringInput                                                         `pulumi:"scope"`
 	SourceLogsConfiguration CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrInput `pulumi:"sourceLogsConfiguration"`
 }
 
@@ -957,17 +903,14 @@ func (o CentralizationRuleForOrganizationRuleSourceOutput) ToCentralizationRuleF
 	}).(CentralizationRuleForOrganizationRuleSourcePtrOutput)
 }
 
-// Set of AWS regions from which to centralize logs. Must contain at least one region.
 func (o CentralizationRuleForOrganizationRuleSourceOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleSource) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
 
-// Scope defining which resources to include. Use organization ID format: `OrganizationId = 'o-example123456'`.
 func (o CentralizationRuleForOrganizationRuleSourceOutput) Scope() pulumi.StringOutput {
 	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleSource) string { return v.Scope }).(pulumi.StringOutput)
 }
 
-// Configuration block for source logs settings. See `sourceLogsConfiguration` below.
 func (o CentralizationRuleForOrganizationRuleSourceOutput) SourceLogsConfiguration() CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrOutput {
 	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleSource) *CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration {
 		return v.SourceLogsConfiguration
@@ -998,7 +941,6 @@ func (o CentralizationRuleForOrganizationRuleSourcePtrOutput) Elem() Centralizat
 	}).(CentralizationRuleForOrganizationRuleSourceOutput)
 }
 
-// Set of AWS regions from which to centralize logs. Must contain at least one region.
 func (o CentralizationRuleForOrganizationRuleSourcePtrOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleSource) []string {
 		if v == nil {
@@ -1008,7 +950,6 @@ func (o CentralizationRuleForOrganizationRuleSourcePtrOutput) Regions() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// Scope defining which resources to include. Use organization ID format: `OrganizationId = 'o-example123456'`.
 func (o CentralizationRuleForOrganizationRuleSourcePtrOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleSource) *string {
 		if v == nil {
@@ -1018,7 +959,6 @@ func (o CentralizationRuleForOrganizationRuleSourcePtrOutput) Scope() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration block for source logs settings. See `sourceLogsConfiguration` below.
 func (o CentralizationRuleForOrganizationRuleSourcePtrOutput) SourceLogsConfiguration() CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleSource) *CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration {
 		if v == nil {
@@ -1029,9 +969,7 @@ func (o CentralizationRuleForOrganizationRuleSourcePtrOutput) SourceLogsConfigur
 }
 
 type CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration struct {
-	// Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
 	EncryptedLogGroupStrategy string `pulumi:"encryptedLogGroupStrategy"`
-	// Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE '/aws/lambda%'`. Must be between 1 and 2000 characters.
 	LogGroupSelectionCriteria string `pulumi:"logGroupSelectionCriteria"`
 }
 
@@ -1047,9 +985,7 @@ type CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationInput int
 }
 
 type CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs struct {
-	// Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
 	EncryptedLogGroupStrategy pulumi.StringInput `pulumi:"encryptedLogGroupStrategy"`
-	// Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE '/aws/lambda%'`. Must be between 1 and 2000 characters.
 	LogGroupSelectionCriteria pulumi.StringInput `pulumi:"logGroupSelectionCriteria"`
 }
 
@@ -1130,14 +1066,12 @@ func (o CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationOutput
 	}).(CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrOutput)
 }
 
-// Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
 func (o CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationOutput) EncryptedLogGroupStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration) string {
 		return v.EncryptedLogGroupStrategy
 	}).(pulumi.StringOutput)
 }
 
-// Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE '/aws/lambda%'`. Must be between 1 and 2000 characters.
 func (o CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationOutput) LogGroupSelectionCriteria() pulumi.StringOutput {
 	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration) string {
 		return v.LogGroupSelectionCriteria
@@ -1168,7 +1102,6 @@ func (o CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrOut
 	}).(CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationOutput)
 }
 
-// Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
 func (o CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrOutput) EncryptedLogGroupStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration) *string {
 		if v == nil {
@@ -1178,7 +1111,6 @@ func (o CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE '/aws/lambda%'`. Must be between 1 and 2000 characters.
 func (o CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrOutput) LogGroupSelectionCriteria() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration) *string {
 		if v == nil {

@@ -11,11 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get information on EC2 Transit Gateway VPC Attachments.
-//
-// ## Example Usage
-//
-// ### By Filter
 func GetVpcAttachments(ctx *pulumi.Context, args *GetVpcAttachmentsArgs, opts ...pulumi.InvokeOption) (*GetVpcAttachmentsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpcAttachmentsResult
@@ -28,18 +23,15 @@ func GetVpcAttachments(ctx *pulumi.Context, args *GetVpcAttachmentsArgs, opts ..
 
 // A collection of arguments for invoking getVpcAttachments.
 type GetVpcAttachmentsArgs struct {
-	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetVpcAttachmentsFilter `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region  *string                   `pulumi:"region"`
 }
 
 // A collection of values returned by getVpcAttachments.
 type GetVpcAttachmentsResult struct {
 	Filters []GetVpcAttachmentsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [ec2transitgateway.VpcAttachment][2] data source, searching by identifier.
+	Id     string   `pulumi:"id"`
 	Ids    []string `pulumi:"ids"`
 	Region string   `pulumi:"region"`
 }
@@ -55,10 +47,8 @@ func GetVpcAttachmentsOutput(ctx *pulumi.Context, args GetVpcAttachmentsOutputAr
 
 // A collection of arguments for invoking getVpcAttachments.
 type GetVpcAttachmentsOutputArgs struct {
-	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters GetVpcAttachmentsFilterArrayInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Region  pulumi.StringPtrInput             `pulumi:"region"`
 }
 
 func (GetVpcAttachmentsOutputArgs) ElementType() reflect.Type {
@@ -89,7 +79,6 @@ func (o GetVpcAttachmentsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcAttachmentsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [ec2transitgateway.VpcAttachment][2] data source, searching by identifier.
 func (o GetVpcAttachmentsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcAttachmentsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

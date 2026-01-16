@@ -14,10 +14,6 @@ namespace Pulumi.Aws.DevOpsGuru.Inputs
     {
         [Input("messageTypes")]
         private InputList<string>? _messageTypes;
-
-        /// <summary>
-        /// Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
-        /// </summary>
         public InputList<string> MessageTypes
         {
             get => _messageTypes ?? (_messageTypes = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.DevOpsGuru.Inputs
 
         [Input("severities")]
         private InputList<string>? _severities;
-
-        /// <summary>
-        /// Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
-        /// </summary>
         public InputList<string> Severities
         {
             get => _severities ?? (_severities = new InputList<string>());

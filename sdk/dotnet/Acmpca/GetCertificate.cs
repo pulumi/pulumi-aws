@@ -11,78 +11,12 @@ namespace Pulumi.Aws.Acmpca
 {
     public static class GetCertificate
     {
-        /// <summary>
-        /// Get information on a Certificate issued by a AWS Certificate Manager Private Certificate Authority.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Acmpca.GetCertificate.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012/certificate/1234b4a0d73e2056789bdbe77d5b1a23",
-        ///         CertificateAuthorityArn = "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("aws:acmpca/getCertificate:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get information on a Certificate issued by a AWS Certificate Manager Private Certificate Authority.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Acmpca.GetCertificate.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012/certificate/1234b4a0d73e2056789bdbe77d5b1a23",
-        ///         CertificateAuthorityArn = "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("aws:acmpca/getCertificate:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get information on a Certificate issued by a AWS Certificate Manager Private Certificate Authority.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Acmpca.GetCertificate.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012/certificate/1234b4a0d73e2056789bdbe77d5b1a23",
-        ///         CertificateAuthorityArn = "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("aws:acmpca/getCertificate:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
     }
@@ -90,21 +24,12 @@ namespace Pulumi.Aws.Acmpca
 
     public sealed class GetCertificateArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the certificate issued by the private certificate authority.
-        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the certificate authority.
-        /// </summary>
         [Input("certificateAuthorityArn", required: true)]
         public string CertificateAuthorityArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -116,21 +41,12 @@ namespace Pulumi.Aws.Acmpca
 
     public sealed class GetCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the certificate issued by the private certificate authority.
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the certificate authority.
-        /// </summary>
         [Input("certificateAuthorityArn", required: true)]
         public Input<string> CertificateAuthorityArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -145,14 +61,8 @@ namespace Pulumi.Aws.Acmpca
     public sealed class GetCertificateResult
     {
         public readonly string Arn;
-        /// <summary>
-        /// PEM-encoded certificate value.
-        /// </summary>
         public readonly string Certificate;
         public readonly string CertificateAuthorityArn;
-        /// <summary>
-        /// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
-        /// </summary>
         public readonly string CertificateChain;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

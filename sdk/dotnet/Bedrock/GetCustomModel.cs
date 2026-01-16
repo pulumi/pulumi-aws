@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Bedrock
 {
     public static class GetCustomModel
     {
-        /// <summary>
-        /// Returns properties of a specific Amazon Bedrock custom model.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Bedrock.GetCustomModel.Invoke(new()
-        ///     {
-        ///         ModelId = "arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 ",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetCustomModelResult> InvokeAsync(GetCustomModelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomModelResult>("aws:bedrock/getCustomModel:getCustomModel", args ?? new GetCustomModelArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Returns properties of a specific Amazon Bedrock custom model.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Bedrock.GetCustomModel.Invoke(new()
-        ///     {
-        ///         ModelId = "arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 ",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetCustomModelResult> Invoke(GetCustomModelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomModelResult>("aws:bedrock/getCustomModel:getCustomModel", args ?? new GetCustomModelInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Returns properties of a specific Amazon Bedrock custom model.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Bedrock.GetCustomModel.Invoke(new()
-        ///     {
-        ///         ModelId = "arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 ",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetCustomModelResult> Invoke(GetCustomModelInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomModelResult>("aws:bedrock/getCustomModel:getCustomModel", args ?? new GetCustomModelInvokeArgs(), options.WithDefaults());
     }
@@ -87,15 +24,9 @@ namespace Pulumi.Aws.Bedrock
 
     public sealed class GetCustomModelArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name or ARN of the custom model.
-        /// </summary>
         [Input("modelId", required: true)]
         public string ModelId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -107,15 +38,9 @@ namespace Pulumi.Aws.Bedrock
 
     public sealed class GetCustomModelInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name or ARN of the custom model.
-        /// </summary>
         [Input("modelId", required: true)]
         public Input<string> ModelId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -129,68 +54,23 @@ namespace Pulumi.Aws.Bedrock
     [OutputType]
     public sealed class GetCustomModelResult
     {
-        /// <summary>
-        /// ARN of the base model.
-        /// </summary>
         public readonly string BaseModelArn;
-        /// <summary>
-        /// Creation time of the model.
-        /// </summary>
         public readonly string CreationTime;
-        /// <summary>
-        /// Hyperparameter values associated with this model.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Hyperparameters;
         public readonly string Id;
-        /// <summary>
-        /// Job ARN associated with this model.
-        /// </summary>
         public readonly string JobArn;
-        /// <summary>
-        /// Job name associated with this model.
-        /// </summary>
         public readonly string JobName;
-        /// <summary>
-        /// Key-value mapping of tags for the fine-tuning job.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> JobTags;
-        /// <summary>
-        /// ARN associated with this model.
-        /// </summary>
         public readonly string ModelArn;
         public readonly string ModelId;
-        /// <summary>
-        /// The custom model is encrypted at rest using this key.
-        /// </summary>
         public readonly string ModelKmsKeyArn;
-        /// <summary>
-        /// Model name associated with this model.
-        /// </summary>
         public readonly string ModelName;
-        /// <summary>
-        /// Key-value mapping of tags for the model.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> ModelTags;
-        /// <summary>
-        /// Output data configuration associated with this custom model.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCustomModelOutputDataConfigResult> OutputDataConfigs;
         public readonly string Region;
-        /// <summary>
-        /// Information about the training dataset.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCustomModelTrainingDataConfigResult> TrainingDataConfigs;
-        /// <summary>
-        /// Metrics associated with the customization job.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCustomModelTrainingMetricResult> TrainingMetrics;
-        /// <summary>
-        /// Information about the validation dataset.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCustomModelValidationDataConfigResult> ValidationDataConfigs;
-        /// <summary>
-        /// The loss metric for each validator that you provided.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCustomModelValidationMetricResult> ValidationMetrics;
 
         [OutputConstructor]

@@ -17,47 +17,23 @@ public final class GetRouteCalculatorArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetRouteCalculatorArgs Empty = new GetRouteCalculatorArgs();
 
-    /**
-     * Name of the route calculator resource.
-     * 
-     */
     @Import(name="calculatorName", required=true)
     private Output<String> calculatorName;
 
-    /**
-     * @return Name of the route calculator resource.
-     * 
-     */
     public Output<String> calculatorName() {
         return this.calculatorName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags for the route calculator.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags for the route calculator.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -88,65 +64,29 @@ public final class GetRouteCalculatorArgs extends com.pulumi.resources.InvokeArg
             $ = new GetRouteCalculatorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param calculatorName Name of the route calculator resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder calculatorName(Output<String> calculatorName) {
             $.calculatorName = calculatorName;
             return this;
         }
 
-        /**
-         * @param calculatorName Name of the route calculator resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder calculatorName(String calculatorName) {
             return calculatorName(Output.of(calculatorName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value map of resource tags for the route calculator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags for the route calculator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

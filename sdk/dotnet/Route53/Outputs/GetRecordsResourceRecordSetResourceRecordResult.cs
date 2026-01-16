@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Route53.Outputs
     [OutputType]
     public sealed class GetRecordsResourceRecordSetResourceRecordResult
     {
-        /// <summary>
-        /// The DNS record value.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

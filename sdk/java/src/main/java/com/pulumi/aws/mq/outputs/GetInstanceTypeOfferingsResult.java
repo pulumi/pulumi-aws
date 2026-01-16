@@ -14,20 +14,8 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInstanceTypeOfferingsResult {
-    /**
-     * @return List of broker instance options. See Broker Instance Options below.
-     * 
-     */
     private List<GetInstanceTypeOfferingsBrokerInstanceOption> brokerInstanceOptions;
-    /**
-     * @return Broker&#39;s engine type.
-     * 
-     */
     private @Nullable String engineType;
-    /**
-     * @return Broker&#39;s instance type.
-     * 
-     */
     private @Nullable String hostInstanceType;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -35,31 +23,15 @@ public final class GetInstanceTypeOfferingsResult {
      */
     private String id;
     private String region;
-    /**
-     * @return Broker&#39;s storage type.
-     * 
-     */
     private @Nullable String storageType;
 
     private GetInstanceTypeOfferingsResult() {}
-    /**
-     * @return List of broker instance options. See Broker Instance Options below.
-     * 
-     */
     public List<GetInstanceTypeOfferingsBrokerInstanceOption> brokerInstanceOptions() {
         return this.brokerInstanceOptions;
     }
-    /**
-     * @return Broker&#39;s engine type.
-     * 
-     */
     public Optional<String> engineType() {
         return Optional.ofNullable(this.engineType);
     }
-    /**
-     * @return Broker&#39;s instance type.
-     * 
-     */
     public Optional<String> hostInstanceType() {
         return Optional.ofNullable(this.hostInstanceType);
     }
@@ -73,10 +45,6 @@ public final class GetInstanceTypeOfferingsResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Broker&#39;s storage type.
-     * 
-     */
     public Optional<String> storageType() {
         return Optional.ofNullable(this.storageType);
     }

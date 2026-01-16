@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CodeGuruProfiler.Inputs
 
     public sealed class ProfilingGroupAgentOrchestrationConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// (Required) Boolean that specifies whether the profiling agent collects profiling data or
-        /// </summary>
         [Input("profilingEnabled", required: true)]
         public Input<bool> ProfilingEnabled { get; set; } = null!;
 

@@ -7,22 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing an AWS DevOps Guru Notification Channel.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.devopsguru.getNotificationChannel({
- *     id: "channel-1234",
- * });
- * ```
- */
 export function getNotificationChannel(args: GetNotificationChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationChannelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:devopsguru/getNotificationChannel:getNotificationChannel", {
@@ -37,21 +21,9 @@ export function getNotificationChannel(args: GetNotificationChannelArgs, opts?: 
  * A collection of arguments for invoking getNotificationChannel.
  */
 export interface GetNotificationChannelArgs {
-    /**
-     * Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
-     */
     filters?: inputs.devopsguru.GetNotificationChannelFilter[];
-    /**
-     * Unique identifier for the notification channel.
-     */
     id: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * SNS noficiation channel configurations. See the `sns` attribute reference below.
-     */
     sns?: inputs.devopsguru.GetNotificationChannelSn[];
 }
 
@@ -59,33 +31,11 @@ export interface GetNotificationChannelArgs {
  * A collection of values returned by getNotificationChannel.
  */
 export interface GetNotificationChannelResult {
-    /**
-     * Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
-     */
     readonly filters?: outputs.devopsguru.GetNotificationChannelFilter[];
     readonly id: string;
     readonly region: string;
-    /**
-     * SNS noficiation channel configurations. See the `sns` attribute reference below.
-     */
     readonly sns?: outputs.devopsguru.GetNotificationChannelSn[];
 }
-/**
- * Data source for managing an AWS DevOps Guru Notification Channel.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.devopsguru.getNotificationChannel({
- *     id: "channel-1234",
- * });
- * ```
- */
 export function getNotificationChannelOutput(args: GetNotificationChannelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNotificationChannelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:devopsguru/getNotificationChannel:getNotificationChannel", {
@@ -100,20 +50,8 @@ export function getNotificationChannelOutput(args: GetNotificationChannelOutputA
  * A collection of arguments for invoking getNotificationChannel.
  */
 export interface GetNotificationChannelOutputArgs {
-    /**
-     * Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.devopsguru.GetNotificationChannelFilterArgs>[]>;
-    /**
-     * Unique identifier for the notification channel.
-     */
     id: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * SNS noficiation channel configurations. See the `sns` attribute reference below.
-     */
     sns?: pulumi.Input<pulumi.Input<inputs.devopsguru.GetNotificationChannelSnArgs>[]>;
 }

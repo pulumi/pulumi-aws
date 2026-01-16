@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configurations for a knowledge base connected to an Amazon Redshift database. See `RedshiftConfiguration` block for details.
-        /// </summary>
         [Input("redshiftConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs>? RedshiftConfiguration { get; set; }
 
-        /// <summary>
-        /// Type of SQL database to connect to the knowledge base. Valid values: `REDSHIFT`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

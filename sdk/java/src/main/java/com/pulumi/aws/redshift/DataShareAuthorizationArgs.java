@@ -17,66 +17,30 @@ public final class DataShareAuthorizationArgs extends com.pulumi.resources.Resou
 
     public static final DataShareAuthorizationArgs Empty = new DataShareAuthorizationArgs();
 
-    /**
-     * Whether to allow write operations for a datashare.
-     * 
-     */
     @Import(name="allowWrites")
     private @Nullable Output<Boolean> allowWrites;
 
-    /**
-     * @return Whether to allow write operations for a datashare.
-     * 
-     */
     public Optional<Output<Boolean>> allowWrites() {
         return Optional.ofNullable(this.allowWrites);
     }
 
-    /**
-     * Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
-     * 
-     */
     @Import(name="consumerIdentifier", required=true)
     private Output<String> consumerIdentifier;
 
-    /**
-     * @return Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
-     * 
-     */
     public Output<String> consumerIdentifier() {
         return this.consumerIdentifier;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="dataShareArn", required=true)
     private Output<String> dataShareArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> dataShareArn() {
         return this.dataShareArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -108,90 +72,38 @@ public final class DataShareAuthorizationArgs extends com.pulumi.resources.Resou
             $ = new DataShareAuthorizationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allowWrites Whether to allow write operations for a datashare.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowWrites(@Nullable Output<Boolean> allowWrites) {
             $.allowWrites = allowWrites;
             return this;
         }
 
-        /**
-         * @param allowWrites Whether to allow write operations for a datashare.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowWrites(Boolean allowWrites) {
             return allowWrites(Output.of(allowWrites));
         }
 
-        /**
-         * @param consumerIdentifier Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consumerIdentifier(Output<String> consumerIdentifier) {
             $.consumerIdentifier = consumerIdentifier;
             return this;
         }
 
-        /**
-         * @param consumerIdentifier Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consumerIdentifier(String consumerIdentifier) {
             return consumerIdentifier(Output.of(consumerIdentifier));
         }
 
-        /**
-         * @param dataShareArn Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataShareArn(Output<String> dataShareArn) {
             $.dataShareArn = dataShareArn;
             return this;
         }
 
-        /**
-         * @param dataShareArn Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataShareArn(String dataShareArn) {
             return dataShareArn(Output.of(dataShareArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

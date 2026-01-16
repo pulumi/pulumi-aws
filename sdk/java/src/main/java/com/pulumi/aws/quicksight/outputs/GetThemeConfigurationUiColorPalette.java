@@ -10,197 +10,69 @@ import java.util.Objects;
 
 @CustomType
 public final class GetThemeConfigurationUiColorPalette {
-    /**
-     * @return Color (hexadecimal) that applies to selected states and buttons.
-     * 
-     */
     private String accent;
-    /**
-     * @return Color (hexadecimal) that applies to any text or other elements that appear over the accent color.
-     * 
-     */
     private String accentForeground;
-    /**
-     * @return Color (hexadecimal) that applies to error messages.
-     * 
-     */
     private String danger;
-    /**
-     * @return Color (hexadecimal) that applies to any text or other elements that appear over the error color.
-     * 
-     */
     private String dangerForeground;
-    /**
-     * @return Color (hexadecimal) that applies to the names of fields that are identified as dimensions.
-     * 
-     */
     private String dimension;
-    /**
-     * @return Color (hexadecimal) that applies to any text or other elements that appear over the dimension color.
-     * 
-     */
     private String dimensionForeground;
-    /**
-     * @return Color (hexadecimal) that applies to the names of fields that are identified as measures.
-     * 
-     */
     private String measure;
-    /**
-     * @return Color (hexadecimal) that applies to any text or other elements that appear over the measure color.
-     * 
-     */
     private String measureForeground;
-    /**
-     * @return Color (hexadecimal) that applies to visuals and other high emphasis UI.
-     * 
-     */
     private String primaryBackground;
-    /**
-     * @return Color (hexadecimal) of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
-     * 
-     */
     private String primaryForeground;
-    /**
-     * @return Color (hexadecimal) that applies to the sheet background and sheet controls.
-     * 
-     */
     private String secondaryBackground;
-    /**
-     * @return Color (hexadecimal) that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
-     * 
-     */
     private String secondaryForeground;
-    /**
-     * @return Color (hexadecimal) that applies to success messages, for example the check mark for a successful download.
-     * 
-     */
     private String success;
-    /**
-     * @return Color (hexadecimal) that applies to any text or other elements that appear over the success color.
-     * 
-     */
     private String successForeground;
-    /**
-     * @return Color (hexadecimal) that applies to warning and informational messages.
-     * 
-     */
     private String warning;
-    /**
-     * @return Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
-     * 
-     */
     private String warningForeground;
 
     private GetThemeConfigurationUiColorPalette() {}
-    /**
-     * @return Color (hexadecimal) that applies to selected states and buttons.
-     * 
-     */
     public String accent() {
         return this.accent;
     }
-    /**
-     * @return Color (hexadecimal) that applies to any text or other elements that appear over the accent color.
-     * 
-     */
     public String accentForeground() {
         return this.accentForeground;
     }
-    /**
-     * @return Color (hexadecimal) that applies to error messages.
-     * 
-     */
     public String danger() {
         return this.danger;
     }
-    /**
-     * @return Color (hexadecimal) that applies to any text or other elements that appear over the error color.
-     * 
-     */
     public String dangerForeground() {
         return this.dangerForeground;
     }
-    /**
-     * @return Color (hexadecimal) that applies to the names of fields that are identified as dimensions.
-     * 
-     */
     public String dimension() {
         return this.dimension;
     }
-    /**
-     * @return Color (hexadecimal) that applies to any text or other elements that appear over the dimension color.
-     * 
-     */
     public String dimensionForeground() {
         return this.dimensionForeground;
     }
-    /**
-     * @return Color (hexadecimal) that applies to the names of fields that are identified as measures.
-     * 
-     */
     public String measure() {
         return this.measure;
     }
-    /**
-     * @return Color (hexadecimal) that applies to any text or other elements that appear over the measure color.
-     * 
-     */
     public String measureForeground() {
         return this.measureForeground;
     }
-    /**
-     * @return Color (hexadecimal) that applies to visuals and other high emphasis UI.
-     * 
-     */
     public String primaryBackground() {
         return this.primaryBackground;
     }
-    /**
-     * @return Color (hexadecimal) of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
-     * 
-     */
     public String primaryForeground() {
         return this.primaryForeground;
     }
-    /**
-     * @return Color (hexadecimal) that applies to the sheet background and sheet controls.
-     * 
-     */
     public String secondaryBackground() {
         return this.secondaryBackground;
     }
-    /**
-     * @return Color (hexadecimal) that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
-     * 
-     */
     public String secondaryForeground() {
         return this.secondaryForeground;
     }
-    /**
-     * @return Color (hexadecimal) that applies to success messages, for example the check mark for a successful download.
-     * 
-     */
     public String success() {
         return this.success;
     }
-    /**
-     * @return Color (hexadecimal) that applies to any text or other elements that appear over the success color.
-     * 
-     */
     public String successForeground() {
         return this.successForeground;
     }
-    /**
-     * @return Color (hexadecimal) that applies to warning and informational messages.
-     * 
-     */
     public String warning() {
         return this.warning;
     }
-    /**
-     * @return Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
-     * 
-     */
     public String warningForeground() {
         return this.warningForeground;
     }

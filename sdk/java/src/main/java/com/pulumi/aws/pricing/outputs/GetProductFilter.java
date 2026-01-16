@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetProductFilter {
-    /**
-     * @return Product attribute name that you want to filter on.
-     * 
-     */
     private String field;
-    /**
-     * @return Product attribute value that you want to filter on.
-     * 
-     */
     private String value;
 
     private GetProductFilter() {}
-    /**
-     * @return Product attribute name that you want to filter on.
-     * 
-     */
     public String field() {
         return this.field;
     }
-    /**
-     * @return Product attribute value that you want to filter on.
-     * 
-     */
     public String value() {
         return this.value;
     }

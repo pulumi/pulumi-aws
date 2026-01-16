@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GuardrailContextualGroundingPolicyConfigFiltersConfig {
-    /**
-     * @return The threshold for this filter.
-     * 
-     */
     private Double threshold;
-    /**
-     * @return Type of contextual grounding filter.
-     * 
-     */
     private String type;
 
     private GuardrailContextualGroundingPolicyConfigFiltersConfig() {}
-    /**
-     * @return The threshold for this filter.
-     * 
-     */
     public Double threshold() {
         return this.threshold;
     }
-    /**
-     * @return Type of contextual grounding filter.
-     * 
-     */
     public String type() {
         return this.type;
     }

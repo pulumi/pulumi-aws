@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class GetImagePipelineImageScanningConfigurationResult
     {
-        /// <summary>
-        /// List if an object with ecr configuration for image scanning
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetImagePipelineImageScanningConfigurationEcrConfigurationResult> EcrConfigurations;
-        /// <summary>
-        /// Whether image scanning is enabled.
-        /// </summary>
         public readonly bool ImageScanningEnabled;
 
         [OutputConstructor]

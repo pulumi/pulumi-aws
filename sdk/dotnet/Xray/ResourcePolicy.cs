@@ -9,77 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Xray
 {
-    /// <summary>
-    /// Resource for managing an AWS X-Ray Resource Policy.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Xray.ResourcePolicy("test", new()
-    ///     {
-    ///         PolicyName = "test",
-    ///         PolicyDocument = "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"AllowXRayAccess\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Action\":[\"xray:*\",\"xray:PutResourcePolicy\"],\"Resource\":\"*\"}]}",
-    ///         BypassPolicyLockoutCheck = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import X-Ray Resource Policy using the `policy_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:xray/resourcePolicy:ResourcePolicy example resource_policy-name
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:xray/resourcePolicy:ResourcePolicy")]
     public partial class ResourcePolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `False`.
-        /// </summary>
         [Output("bypassPolicyLockoutCheck")]
         public Output<bool?> BypassPolicyLockoutCheck { get; private set; } = null!;
 
-        /// <summary>
-        /// When the policy was last updated, in Unix time seconds.
-        /// </summary>
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// JSON string of the resource policy or resource policy document, which can be up to 5kb in size.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("policyDocument")]
         public Output<string> PolicyDocument { get; private set; } = null!;
 
-        /// <summary>
-        /// name of the resource policy. Must be unique within a specific Amazon Web Services account.
-        /// </summary>
         [Output("policyName")]
         public Output<string> PolicyName { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
-        /// </summary>
         [Output("policyRevisionId")]
         public Output<string> PolicyRevisionId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -129,35 +76,18 @@ namespace Pulumi.Aws.Xray
 
     public sealed class ResourcePolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `False`.
-        /// </summary>
         [Input("bypassPolicyLockoutCheck")]
         public Input<bool>? BypassPolicyLockoutCheck { get; set; }
 
-        /// <summary>
-        /// JSON string of the resource policy or resource policy document, which can be up to 5kb in size.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("policyDocument", required: true)]
         public Input<string> PolicyDocument { get; set; } = null!;
 
-        /// <summary>
-        /// name of the resource policy. Must be unique within a specific Amazon Web Services account.
-        /// </summary>
         [Input("policyName", required: true)]
         public Input<string> PolicyName { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
-        /// </summary>
         [Input("policyRevisionId")]
         public Input<string>? PolicyRevisionId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -169,41 +99,21 @@ namespace Pulumi.Aws.Xray
 
     public sealed class ResourcePolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `False`.
-        /// </summary>
         [Input("bypassPolicyLockoutCheck")]
         public Input<bool>? BypassPolicyLockoutCheck { get; set; }
 
-        /// <summary>
-        /// When the policy was last updated, in Unix time seconds.
-        /// </summary>
         [Input("lastUpdatedTime")]
         public Input<string>? LastUpdatedTime { get; set; }
 
-        /// <summary>
-        /// JSON string of the resource policy or resource policy document, which can be up to 5kb in size.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("policyDocument")]
         public Input<string>? PolicyDocument { get; set; }
 
-        /// <summary>
-        /// name of the resource policy. Must be unique within a specific Amazon Web Services account.
-        /// </summary>
         [Input("policyName")]
         public Input<string>? PolicyName { get; set; }
 
-        /// <summary>
-        /// Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
-        /// </summary>
         [Input("policyRevisionId")]
         public Input<string>? PolicyRevisionId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

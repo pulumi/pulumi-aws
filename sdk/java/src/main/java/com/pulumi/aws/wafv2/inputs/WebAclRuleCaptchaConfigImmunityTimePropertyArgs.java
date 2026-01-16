@@ -15,17 +15,9 @@ public final class WebAclRuleCaptchaConfigImmunityTimePropertyArgs extends com.p
 
     public static final WebAclRuleCaptchaConfigImmunityTimePropertyArgs Empty = new WebAclRuleCaptchaConfigImmunityTimePropertyArgs();
 
-    /**
-     * The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
-     * 
-     */
     @Import(name="immunityTime")
     private @Nullable Output<Integer> immunityTime;
 
-    /**
-     * @return The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
-     * 
-     */
     public Optional<Output<Integer>> immunityTime() {
         return Optional.ofNullable(this.immunityTime);
     }
@@ -54,23 +46,11 @@ public final class WebAclRuleCaptchaConfigImmunityTimePropertyArgs extends com.p
             $ = new WebAclRuleCaptchaConfigImmunityTimePropertyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param immunityTime The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
-         * 
-         * @return builder
-         * 
-         */
         public Builder immunityTime(@Nullable Output<Integer> immunityTime) {
             $.immunityTime = immunityTime;
             return this;
         }
 
-        /**
-         * @param immunityTime The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
-         * 
-         * @return builder
-         * 
-         */
         public Builder immunityTime(Integer immunityTime) {
             return immunityTime(Output.of(immunityTime));
         }

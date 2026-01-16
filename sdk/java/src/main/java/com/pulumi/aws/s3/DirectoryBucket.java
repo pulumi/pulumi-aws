@@ -17,220 +17,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Amazon S3 Express directory bucket resource.
- * 
- * ## Example Usage
- * 
- * ### Availability Zone
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.DirectoryBucket;
- * import com.pulumi.aws.s3.DirectoryBucketArgs;
- * import com.pulumi.aws.s3.inputs.DirectoryBucketLocationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DirectoryBucket("example", DirectoryBucketArgs.builder()
- *             .bucket("example--usw2-az1--x-s3")
- *             .location(DirectoryBucketLocationArgs.builder()
- *                 .name("usw2-az1")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Dedicated Local Zone
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.DirectoryBucket;
- * import com.pulumi.aws.s3.DirectoryBucketArgs;
- * import com.pulumi.aws.s3.inputs.DirectoryBucketLocationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleLocalZone = new DirectoryBucket("exampleLocalZone", DirectoryBucketArgs.builder()
- *             .bucket("example--usw2-xxx-lz1--x-s3")
- *             .location(DirectoryBucketLocationArgs.builder()
- *                 .name("usw2-xxx-lz1")
- *                 .type("LocalZone")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import S3 bucket using `bucket`. For example:
- * 
- * ```sh
- * $ pulumi import aws:s3/directoryBucket:DirectoryBucket example example--usw2-az1--x-s3
- * ```
- * 
- */
 @ResourceType(type="aws:s3/directoryBucket:DirectoryBucket")
 public class DirectoryBucket extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the bucket.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the bucket.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `aws.s3.Bucket` resource to manage general purpose buckets.
-     * 
-     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
-    /**
-     * @return Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `aws.s3.Bucket` resource to manage general purpose buckets.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
-    /**
-     * Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
-     * 
-     */
     @Export(name="dataRedundancy", refs={String.class}, tree="[0]")
     private Output<String> dataRedundancy;
 
-    /**
-     * @return Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
-     * 
-     */
     public Output<String> dataRedundancy() {
         return this.dataRedundancy;
     }
-    /**
-     * Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-     * 
-     */
     @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> forceDestroy;
 
-    /**
-     * @return Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-     * 
-     */
     public Output<Boolean> forceDestroy() {
         return this.forceDestroy;
     }
-    /**
-     * Bucket location. See Location below for more details.
-     * 
-     */
     @Export(name="location", refs={DirectoryBucketLocation.class}, tree="[0]")
     private Output</* @Nullable */ DirectoryBucketLocation> location;
 
-    /**
-     * @return Bucket location. See Location below for more details.
-     * 
-     */
     public Output<Optional<DirectoryBucketLocation>> location() {
         return Codegen.optional(this.location);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Bucket type. Valid values: `Directory`.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return Bucket type. Valid values: `Directory`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }

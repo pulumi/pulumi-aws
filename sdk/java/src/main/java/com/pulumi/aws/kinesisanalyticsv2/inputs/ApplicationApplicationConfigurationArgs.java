@@ -23,122 +23,58 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
 
     public static final ApplicationApplicationConfigurationArgs Empty = new ApplicationApplicationConfigurationArgs();
 
-    /**
-     * The code location and type parameters for the application.
-     * 
-     */
     @Import(name="applicationCodeConfiguration", required=true)
     private Output<ApplicationApplicationConfigurationApplicationCodeConfigurationArgs> applicationCodeConfiguration;
 
-    /**
-     * @return The code location and type parameters for the application.
-     * 
-     */
     public Output<ApplicationApplicationConfigurationApplicationCodeConfigurationArgs> applicationCodeConfiguration() {
         return this.applicationCodeConfiguration;
     }
 
-    /**
-     * The encryption configuration for the application. This can be used to encrypt data at rest in the application.
-     * 
-     */
     @Import(name="applicationEncryptionConfiguration")
     private @Nullable Output<ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs> applicationEncryptionConfiguration;
 
-    /**
-     * @return The encryption configuration for the application. This can be used to encrypt data at rest in the application.
-     * 
-     */
     public Optional<Output<ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs>> applicationEncryptionConfiguration() {
         return Optional.ofNullable(this.applicationEncryptionConfiguration);
     }
 
-    /**
-     * Describes whether snapshots are enabled for a Flink-based application.
-     * 
-     */
     @Import(name="applicationSnapshotConfiguration")
     private @Nullable Output<ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs> applicationSnapshotConfiguration;
 
-    /**
-     * @return Describes whether snapshots are enabled for a Flink-based application.
-     * 
-     */
     public Optional<Output<ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs>> applicationSnapshotConfiguration() {
         return Optional.ofNullable(this.applicationSnapshotConfiguration);
     }
 
-    /**
-     * Describes execution properties for a Flink-based application.
-     * 
-     */
     @Import(name="environmentProperties")
     private @Nullable Output<ApplicationApplicationConfigurationEnvironmentPropertiesArgs> environmentProperties;
 
-    /**
-     * @return Describes execution properties for a Flink-based application.
-     * 
-     */
     public Optional<Output<ApplicationApplicationConfigurationEnvironmentPropertiesArgs>> environmentProperties() {
         return Optional.ofNullable(this.environmentProperties);
     }
 
-    /**
-     * The configuration of a Flink-based application.
-     * 
-     */
     @Import(name="flinkApplicationConfiguration")
     private @Nullable Output<ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs> flinkApplicationConfiguration;
 
-    /**
-     * @return The configuration of a Flink-based application.
-     * 
-     */
     public Optional<Output<ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs>> flinkApplicationConfiguration() {
         return Optional.ofNullable(this.flinkApplicationConfiguration);
     }
 
-    /**
-     * Describes the starting properties for a Flink-based application.
-     * 
-     */
     @Import(name="runConfiguration")
     private @Nullable Output<ApplicationApplicationConfigurationRunConfigurationArgs> runConfiguration;
 
-    /**
-     * @return Describes the starting properties for a Flink-based application.
-     * 
-     */
     public Optional<Output<ApplicationApplicationConfigurationRunConfigurationArgs>> runConfiguration() {
         return Optional.ofNullable(this.runConfiguration);
     }
 
-    /**
-     * The configuration of a SQL-based application.
-     * 
-     */
     @Import(name="sqlApplicationConfiguration")
     private @Nullable Output<ApplicationApplicationConfigurationSqlApplicationConfigurationArgs> sqlApplicationConfiguration;
 
-    /**
-     * @return The configuration of a SQL-based application.
-     * 
-     */
     public Optional<Output<ApplicationApplicationConfigurationSqlApplicationConfigurationArgs>> sqlApplicationConfiguration() {
         return Optional.ofNullable(this.sqlApplicationConfiguration);
     }
 
-    /**
-     * The VPC configuration of a Flink-based application.
-     * 
-     */
     @Import(name="vpcConfiguration")
     private @Nullable Output<ApplicationApplicationConfigurationVpcConfigurationArgs> vpcConfiguration;
 
-    /**
-     * @return The VPC configuration of a Flink-based application.
-     * 
-     */
     public Optional<Output<ApplicationApplicationConfigurationVpcConfigurationArgs>> vpcConfiguration() {
         return Optional.ofNullable(this.vpcConfiguration);
     }
@@ -174,170 +110,74 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
             $ = new ApplicationApplicationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationCodeConfiguration The code location and type parameters for the application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationCodeConfiguration(Output<ApplicationApplicationConfigurationApplicationCodeConfigurationArgs> applicationCodeConfiguration) {
             $.applicationCodeConfiguration = applicationCodeConfiguration;
             return this;
         }
 
-        /**
-         * @param applicationCodeConfiguration The code location and type parameters for the application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationCodeConfiguration(ApplicationApplicationConfigurationApplicationCodeConfigurationArgs applicationCodeConfiguration) {
             return applicationCodeConfiguration(Output.of(applicationCodeConfiguration));
         }
 
-        /**
-         * @param applicationEncryptionConfiguration The encryption configuration for the application. This can be used to encrypt data at rest in the application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationEncryptionConfiguration(@Nullable Output<ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs> applicationEncryptionConfiguration) {
             $.applicationEncryptionConfiguration = applicationEncryptionConfiguration;
             return this;
         }
 
-        /**
-         * @param applicationEncryptionConfiguration The encryption configuration for the application. This can be used to encrypt data at rest in the application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationEncryptionConfiguration(ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs applicationEncryptionConfiguration) {
             return applicationEncryptionConfiguration(Output.of(applicationEncryptionConfiguration));
         }
 
-        /**
-         * @param applicationSnapshotConfiguration Describes whether snapshots are enabled for a Flink-based application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationSnapshotConfiguration(@Nullable Output<ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs> applicationSnapshotConfiguration) {
             $.applicationSnapshotConfiguration = applicationSnapshotConfiguration;
             return this;
         }
 
-        /**
-         * @param applicationSnapshotConfiguration Describes whether snapshots are enabled for a Flink-based application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationSnapshotConfiguration(ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs applicationSnapshotConfiguration) {
             return applicationSnapshotConfiguration(Output.of(applicationSnapshotConfiguration));
         }
 
-        /**
-         * @param environmentProperties Describes execution properties for a Flink-based application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder environmentProperties(@Nullable Output<ApplicationApplicationConfigurationEnvironmentPropertiesArgs> environmentProperties) {
             $.environmentProperties = environmentProperties;
             return this;
         }
 
-        /**
-         * @param environmentProperties Describes execution properties for a Flink-based application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder environmentProperties(ApplicationApplicationConfigurationEnvironmentPropertiesArgs environmentProperties) {
             return environmentProperties(Output.of(environmentProperties));
         }
 
-        /**
-         * @param flinkApplicationConfiguration The configuration of a Flink-based application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder flinkApplicationConfiguration(@Nullable Output<ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs> flinkApplicationConfiguration) {
             $.flinkApplicationConfiguration = flinkApplicationConfiguration;
             return this;
         }
 
-        /**
-         * @param flinkApplicationConfiguration The configuration of a Flink-based application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder flinkApplicationConfiguration(ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs flinkApplicationConfiguration) {
             return flinkApplicationConfiguration(Output.of(flinkApplicationConfiguration));
         }
 
-        /**
-         * @param runConfiguration Describes the starting properties for a Flink-based application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runConfiguration(@Nullable Output<ApplicationApplicationConfigurationRunConfigurationArgs> runConfiguration) {
             $.runConfiguration = runConfiguration;
             return this;
         }
 
-        /**
-         * @param runConfiguration Describes the starting properties for a Flink-based application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runConfiguration(ApplicationApplicationConfigurationRunConfigurationArgs runConfiguration) {
             return runConfiguration(Output.of(runConfiguration));
         }
 
-        /**
-         * @param sqlApplicationConfiguration The configuration of a SQL-based application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqlApplicationConfiguration(@Nullable Output<ApplicationApplicationConfigurationSqlApplicationConfigurationArgs> sqlApplicationConfiguration) {
             $.sqlApplicationConfiguration = sqlApplicationConfiguration;
             return this;
         }
 
-        /**
-         * @param sqlApplicationConfiguration The configuration of a SQL-based application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqlApplicationConfiguration(ApplicationApplicationConfigurationSqlApplicationConfigurationArgs sqlApplicationConfiguration) {
             return sqlApplicationConfiguration(Output.of(sqlApplicationConfiguration));
         }
 
-        /**
-         * @param vpcConfiguration The VPC configuration of a Flink-based application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConfiguration(@Nullable Output<ApplicationApplicationConfigurationVpcConfigurationArgs> vpcConfiguration) {
             $.vpcConfiguration = vpcConfiguration;
             return this;
         }
 
-        /**
-         * @param vpcConfiguration The VPC configuration of a Flink-based application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConfiguration(ApplicationApplicationConfigurationVpcConfigurationArgs vpcConfiguration) {
             return vpcConfiguration(Output.of(vpcConfiguration));
         }

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.RedShift.Inputs
 
     public sealed class IdcApplicationServiceIntegrationRedshiftConnectGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Determines whether the connect integration is enabled or disabled.
-        /// </summary>
         [Input("authorization", required: true)]
         public Input<string> Authorization { get; set; } = null!;
 

@@ -9,109 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Oam
 {
-    /// <summary>
-    /// Resource for managing an AWS CloudWatch Observability Access Manager Sink Policy.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Oam.Sink("example", new()
-    ///     {
-    ///         Name = "ExampleSink",
-    ///     });
-    /// 
-    ///     var exampleSinkPolicy = new Aws.Oam.SinkPolicy("example", new()
-    ///     {
-    ///         SinkIdentifier = example.Arn,
-    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "oam:CreateLink",
-    ///                         "oam:UpdateLink",
-    ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = "*",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["AWS"] = new[]
-    ///                         {
-    ///                             "1111111111111",
-    ///                             "222222222222",
-    ///                         },
-    ///                     },
-    ///                     ["Condition"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["ForAllValues:StringEquals"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["oam:ResourceTypes"] = new[]
-    ///                             {
-    ///                                 "AWS::CloudWatch::Metric",
-    ///                                 "AWS::Logs::LogGroup",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CloudWatch Observability Access Manager Sink Policy using the `sink_identifier`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:oam/sinkPolicy:SinkPolicy example arn:aws:oam:us-west-2:123456789012:sink/sink-id
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:oam/sinkPolicy:SinkPolicy")]
     public partial class SinkPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Sink.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ID string that AWS generated as part of the sink ARN.
-        /// </summary>
         [Output("sinkId")]
         public Output<string> SinkId { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the sink to attach this policy to.
-        /// </summary>
         [Output("sinkIdentifier")]
         public Output<string> SinkIdentifier { get; private set; } = null!;
 
@@ -161,21 +73,12 @@ namespace Pulumi.Aws.Oam
 
     public sealed class SinkPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the sink to attach this policy to.
-        /// </summary>
         [Input("sinkIdentifier", required: true)]
         public Input<string> SinkIdentifier { get; set; } = null!;
 
@@ -187,33 +90,18 @@ namespace Pulumi.Aws.Oam
 
     public sealed class SinkPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Sink.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID string that AWS generated as part of the sink ARN.
-        /// </summary>
         [Input("sinkId")]
         public Input<string>? SinkId { get; set; }
 
-        /// <summary>
-        /// ARN of the sink to attach this policy to.
-        /// </summary>
         [Input("sinkIdentifier")]
         public Input<string>? SinkIdentifier { get; set; }
 

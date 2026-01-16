@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class ServiceServiceConnectConfigurationServiceTimeoutArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
-        /// </summary>
         [Input("idleTimeoutSeconds")]
         public Input<int>? IdleTimeoutSeconds { get; set; }
 
-        /// <summary>
-        /// Amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn't TCP.
-        /// </summary>
         [Input("perRequestTimeoutSeconds")]
         public Input<int>? PerRequestTimeoutSeconds { get; set; }
 

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class FleetOnDemandOptionsCapacityReservationOptionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity. Valid values: `use-capacity-reservations-first`.
-        /// </summary>
         [Input("usageStrategy")]
         public Input<string>? UsageStrategy { get; set; }
 

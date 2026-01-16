@@ -17,62 +17,30 @@ public final class MLTransformParametersFindMatchesParametersArgs extends com.pu
 
     public static final MLTransformParametersFindMatchesParametersArgs Empty = new MLTransformParametersFindMatchesParametersArgs();
 
-    /**
-     * The value that is selected when tuning your transform for a balance between accuracy and cost.
-     * 
-     */
     @Import(name="accuracyCostTradeOff")
     private @Nullable Output<Double> accuracyCostTradeOff;
 
-    /**
-     * @return The value that is selected when tuning your transform for a balance between accuracy and cost.
-     * 
-     */
     public Optional<Output<Double>> accuracyCostTradeOff() {
         return Optional.ofNullable(this.accuracyCostTradeOff);
     }
 
-    /**
-     * The value to switch on or off to force the output to match the provided labels from users.
-     * 
-     */
     @Import(name="enforceProvidedLabels")
     private @Nullable Output<Boolean> enforceProvidedLabels;
 
-    /**
-     * @return The value to switch on or off to force the output to match the provided labels from users.
-     * 
-     */
     public Optional<Output<Boolean>> enforceProvidedLabels() {
         return Optional.ofNullable(this.enforceProvidedLabels);
     }
 
-    /**
-     * The value selected when tuning your transform for a balance between precision and recall.
-     * 
-     */
     @Import(name="precisionRecallTradeOff")
     private @Nullable Output<Double> precisionRecallTradeOff;
 
-    /**
-     * @return The value selected when tuning your transform for a balance between precision and recall.
-     * 
-     */
     public Optional<Output<Double>> precisionRecallTradeOff() {
         return Optional.ofNullable(this.precisionRecallTradeOff);
     }
 
-    /**
-     * The name of a column that uniquely identifies rows in the source table.
-     * 
-     */
     @Import(name="primaryKeyColumnName")
     private @Nullable Output<String> primaryKeyColumnName;
 
-    /**
-     * @return The name of a column that uniquely identifies rows in the source table.
-     * 
-     */
     public Optional<Output<String>> primaryKeyColumnName() {
         return Optional.ofNullable(this.primaryKeyColumnName);
     }
@@ -104,86 +72,38 @@ public final class MLTransformParametersFindMatchesParametersArgs extends com.pu
             $ = new MLTransformParametersFindMatchesParametersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accuracyCostTradeOff The value that is selected when tuning your transform for a balance between accuracy and cost.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accuracyCostTradeOff(@Nullable Output<Double> accuracyCostTradeOff) {
             $.accuracyCostTradeOff = accuracyCostTradeOff;
             return this;
         }
 
-        /**
-         * @param accuracyCostTradeOff The value that is selected when tuning your transform for a balance between accuracy and cost.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accuracyCostTradeOff(Double accuracyCostTradeOff) {
             return accuracyCostTradeOff(Output.of(accuracyCostTradeOff));
         }
 
-        /**
-         * @param enforceProvidedLabels The value to switch on or off to force the output to match the provided labels from users.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enforceProvidedLabels(@Nullable Output<Boolean> enforceProvidedLabels) {
             $.enforceProvidedLabels = enforceProvidedLabels;
             return this;
         }
 
-        /**
-         * @param enforceProvidedLabels The value to switch on or off to force the output to match the provided labels from users.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enforceProvidedLabels(Boolean enforceProvidedLabels) {
             return enforceProvidedLabels(Output.of(enforceProvidedLabels));
         }
 
-        /**
-         * @param precisionRecallTradeOff The value selected when tuning your transform for a balance between precision and recall.
-         * 
-         * @return builder
-         * 
-         */
         public Builder precisionRecallTradeOff(@Nullable Output<Double> precisionRecallTradeOff) {
             $.precisionRecallTradeOff = precisionRecallTradeOff;
             return this;
         }
 
-        /**
-         * @param precisionRecallTradeOff The value selected when tuning your transform for a balance between precision and recall.
-         * 
-         * @return builder
-         * 
-         */
         public Builder precisionRecallTradeOff(Double precisionRecallTradeOff) {
             return precisionRecallTradeOff(Output.of(precisionRecallTradeOff));
         }
 
-        /**
-         * @param primaryKeyColumnName The name of a column that uniquely identifies rows in the source table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder primaryKeyColumnName(@Nullable Output<String> primaryKeyColumnName) {
             $.primaryKeyColumnName = primaryKeyColumnName;
             return this;
         }
 
-        /**
-         * @param primaryKeyColumnName The name of a column that uniquely identifies rows in the source table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder primaryKeyColumnName(String primaryKeyColumnName) {
             return primaryKeyColumnName(Output.of(primaryKeyColumnName));
         }

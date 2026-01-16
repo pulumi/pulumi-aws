@@ -15,17 +15,9 @@ public final class UserProfileUserSettingsTensorBoardAppSettingsArgs extends com
 
     public static final UserProfileUserSettingsTensorBoardAppSettingsArgs Empty = new UserProfileUserSettingsTensorBoardAppSettingsArgs();
 
-    /**
-     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
-     * 
-     */
     @Import(name="defaultResourceSpec")
     private @Nullable Output<UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
-    /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
-     * 
-     */
     public Optional<Output<UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs>> defaultResourceSpec() {
         return Optional.ofNullable(this.defaultResourceSpec);
     }
@@ -54,23 +46,11 @@ public final class UserProfileUserSettingsTensorBoardAppSettingsArgs extends com
             $ = new UserProfileUserSettingsTensorBoardAppSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultResourceSpec(@Nullable Output<UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs> defaultResourceSpec) {
             $.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
 
-        /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultResourceSpec(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs defaultResourceSpec) {
             return defaultResourceSpec(Output.of(defaultResourceSpec));
         }

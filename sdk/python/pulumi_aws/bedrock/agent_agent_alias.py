@@ -30,14 +30,6 @@ class AgentAgentAliasArgs:
                  timeouts: Optional[pulumi.Input['AgentAgentAliasTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentAgentAlias resource.
-        :param pulumi.Input[_builtins.str] agent_alias_name: Name of the alias.
-        :param pulumi.Input[_builtins.str] agent_id: Identifier of the agent to create an alias for.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: Description of the alias.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentAliasRoutingConfigurationArgs']]] routing_configurations: Details about the routing configuration of the alias. See `routing_configuration` Block for details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "agent_alias_name", agent_alias_name)
         pulumi.set(__self__, "agent_id", agent_id)
@@ -55,9 +47,6 @@ class AgentAgentAliasArgs:
     @_builtins.property
     @pulumi.getter(name="agentAliasName")
     def agent_alias_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the alias.
-        """
         return pulumi.get(self, "agent_alias_name")
 
     @agent_alias_name.setter
@@ -67,11 +56,6 @@ class AgentAgentAliasArgs:
     @_builtins.property
     @pulumi.getter(name="agentId")
     def agent_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of the agent to create an alias for.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "agent_id")
 
     @agent_id.setter
@@ -81,9 +65,6 @@ class AgentAgentAliasArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the alias.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -93,9 +74,6 @@ class AgentAgentAliasArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -105,9 +83,6 @@ class AgentAgentAliasArgs:
     @_builtins.property
     @pulumi.getter(name="routingConfigurations")
     def routing_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentAliasRoutingConfigurationArgs']]]]:
-        """
-        Details about the routing configuration of the alias. See `routing_configuration` Block for details.
-        """
         return pulumi.get(self, "routing_configurations")
 
     @routing_configurations.setter
@@ -117,9 +92,6 @@ class AgentAgentAliasArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -151,17 +123,6 @@ class _AgentAgentAliasState:
                  timeouts: Optional[pulumi.Input['AgentAgentAliasTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AgentAgentAlias resources.
-        :param pulumi.Input[_builtins.str] agent_alias_arn: ARN of the alias.
-        :param pulumi.Input[_builtins.str] agent_alias_id: Unique identifier of the alias.
-        :param pulumi.Input[_builtins.str] agent_alias_name: Name of the alias.
-        :param pulumi.Input[_builtins.str] agent_id: Identifier of the agent to create an alias for.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: Description of the alias.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentAliasRoutingConfigurationArgs']]] routing_configurations: Details about the routing configuration of the alias. See `routing_configuration` Block for details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if agent_alias_arn is not None:
             pulumi.set(__self__, "agent_alias_arn", agent_alias_arn)
@@ -187,9 +148,6 @@ class _AgentAgentAliasState:
     @_builtins.property
     @pulumi.getter(name="agentAliasArn")
     def agent_alias_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the alias.
-        """
         return pulumi.get(self, "agent_alias_arn")
 
     @agent_alias_arn.setter
@@ -199,9 +157,6 @@ class _AgentAgentAliasState:
     @_builtins.property
     @pulumi.getter(name="agentAliasId")
     def agent_alias_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier of the alias.
-        """
         return pulumi.get(self, "agent_alias_id")
 
     @agent_alias_id.setter
@@ -211,9 +166,6 @@ class _AgentAgentAliasState:
     @_builtins.property
     @pulumi.getter(name="agentAliasName")
     def agent_alias_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the alias.
-        """
         return pulumi.get(self, "agent_alias_name")
 
     @agent_alias_name.setter
@@ -223,11 +175,6 @@ class _AgentAgentAliasState:
     @_builtins.property
     @pulumi.getter(name="agentId")
     def agent_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the agent to create an alias for.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "agent_id")
 
     @agent_id.setter
@@ -237,9 +184,6 @@ class _AgentAgentAliasState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the alias.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -249,9 +193,6 @@ class _AgentAgentAliasState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -261,9 +202,6 @@ class _AgentAgentAliasState:
     @_builtins.property
     @pulumi.getter(name="routingConfigurations")
     def routing_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentAliasRoutingConfigurationArgs']]]]:
-        """
-        Details about the routing configuration of the alias. See `routing_configuration` Block for details.
-        """
         return pulumi.get(self, "routing_configurations")
 
     @routing_configurations.setter
@@ -273,9 +211,6 @@ class _AgentAgentAliasState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -285,9 +220,6 @@ class _AgentAgentAliasState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -319,77 +251,9 @@ class AgentAgentAlias(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['AgentAgentAliasTimeoutsArgs', 'AgentAgentAliasTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Agents for Amazon Bedrock Agent Alias.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_partition = aws.get_partition()
-        current_get_region = aws.get_region()
-        example_agent_trust = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "identifiers": ["bedrock.amazonaws.com"],
-                "type": "Service",
-            }],
-            "conditions": [
-                {
-                    "test": "StringEquals",
-                    "values": [current.account_id],
-                    "variable": "aws:SourceAccount",
-                },
-                {
-                    "test": "ArnLike",
-                    "values": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}:{current.account_id}:agent/*"],
-                    "variable": "AWS:SourceArn",
-                },
-            ],
-        }])
-        example_agent_permissions = aws.iam.get_policy_document(statements=[{
-            "actions": ["bedrock:InvokeModel"],
-            "resources": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}::foundation-model/anthropic.claude-v2"],
-        }])
-        example = aws.iam.Role("example",
-            assume_role_policy=example_agent_trust.json,
-            name_prefix="AmazonBedrockExecutionRoleForAgents_")
-        example_role_policy = aws.iam.RolePolicy("example",
-            policy=example_agent_permissions.json,
-            role=example.id)
-        example_agent_agent = aws.bedrock.AgentAgent("example",
-            agent_name="my-agent-name",
-            agent_resource_role_arn=example.arn,
-            idle_ttl=500,
-            foundation_model="anthropic.claude-v2")
-        example_agent_agent_alias = aws.bedrock.AgentAgentAlias("example",
-            agent_alias_name="my-agent-alias",
-            agent_id=example_agent_agent.agent_id,
-            description="Test Alias")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Agents for Amazon Bedrock Agent Alias using the alias ID and the agent ID separated by `,`. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/agentAgentAlias:AgentAgentAlias example 66IVY0GUTF,GGRRAED6JP
-        ```
-
+        Create a AgentAgentAlias resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] agent_alias_name: Name of the alias.
-        :param pulumi.Input[_builtins.str] agent_id: Identifier of the agent to create an alias for.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: Description of the alias.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict']]]] routing_configurations: Details about the routing configuration of the alias. See `routing_configuration` Block for details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -398,67 +262,7 @@ class AgentAgentAlias(pulumi.CustomResource):
                  args: AgentAgentAliasArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Agents for Amazon Bedrock Agent Alias.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_partition = aws.get_partition()
-        current_get_region = aws.get_region()
-        example_agent_trust = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "identifiers": ["bedrock.amazonaws.com"],
-                "type": "Service",
-            }],
-            "conditions": [
-                {
-                    "test": "StringEquals",
-                    "values": [current.account_id],
-                    "variable": "aws:SourceAccount",
-                },
-                {
-                    "test": "ArnLike",
-                    "values": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}:{current.account_id}:agent/*"],
-                    "variable": "AWS:SourceArn",
-                },
-            ],
-        }])
-        example_agent_permissions = aws.iam.get_policy_document(statements=[{
-            "actions": ["bedrock:InvokeModel"],
-            "resources": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}::foundation-model/anthropic.claude-v2"],
-        }])
-        example = aws.iam.Role("example",
-            assume_role_policy=example_agent_trust.json,
-            name_prefix="AmazonBedrockExecutionRoleForAgents_")
-        example_role_policy = aws.iam.RolePolicy("example",
-            policy=example_agent_permissions.json,
-            role=example.id)
-        example_agent_agent = aws.bedrock.AgentAgent("example",
-            agent_name="my-agent-name",
-            agent_resource_role_arn=example.arn,
-            idle_ttl=500,
-            foundation_model="anthropic.claude-v2")
-        example_agent_agent_alias = aws.bedrock.AgentAgentAlias("example",
-            agent_alias_name="my-agent-alias",
-            agent_id=example_agent_agent.agent_id,
-            description="Test Alias")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Agents for Amazon Bedrock Agent Alias using the alias ID and the agent ID separated by `,`. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/agentAgentAlias:AgentAgentAlias example 66IVY0GUTF,GGRRAED6JP
-        ```
-
+        Create a AgentAgentAlias resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AgentAgentAliasArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -531,17 +335,6 @@ class AgentAgentAlias(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] agent_alias_arn: ARN of the alias.
-        :param pulumi.Input[_builtins.str] agent_alias_id: Unique identifier of the alias.
-        :param pulumi.Input[_builtins.str] agent_alias_name: Name of the alias.
-        :param pulumi.Input[_builtins.str] agent_id: Identifier of the agent to create an alias for.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: Description of the alias.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict']]]] routing_configurations: Details about the routing configuration of the alias. See `routing_configuration` Block for details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -562,75 +355,46 @@ class AgentAgentAlias(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="agentAliasArn")
     def agent_alias_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the alias.
-        """
         return pulumi.get(self, "agent_alias_arn")
 
     @_builtins.property
     @pulumi.getter(name="agentAliasId")
     def agent_alias_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique identifier of the alias.
-        """
         return pulumi.get(self, "agent_alias_id")
 
     @_builtins.property
     @pulumi.getter(name="agentAliasName")
     def agent_alias_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the alias.
-        """
         return pulumi.get(self, "agent_alias_name")
 
     @_builtins.property
     @pulumi.getter(name="agentId")
     def agent_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of the agent to create an alias for.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "agent_id")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the alias.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="routingConfigurations")
     def routing_configurations(self) -> pulumi.Output[Sequence['outputs.AgentAgentAliasRoutingConfiguration']]:
-        """
-        Details about the routing configuration of the alias. See `routing_configuration` Block for details.
-        """
         return pulumi.get(self, "routing_configurations")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

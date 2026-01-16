@@ -86,41 +86,26 @@ class GetPatchBaselineResult:
     @_builtins.property
     @pulumi.getter(name="approvalRules")
     def approval_rules(self) -> Sequence['outputs.GetPatchBaselineApprovalRuleResult']:
-        """
-        List of rules used to include patches in the baseline.
-        """
         return pulumi.get(self, "approval_rules")
 
     @_builtins.property
     @pulumi.getter(name="approvedPatches")
     def approved_patches(self) -> Sequence[_builtins.str]:
-        """
-        List of explicitly approved patches for the baseline.
-        """
         return pulumi.get(self, "approved_patches")
 
     @_builtins.property
     @pulumi.getter(name="approvedPatchesComplianceLevel")
     def approved_patches_compliance_level(self) -> _builtins.str:
-        """
-        Compliance level for approved patches.
-        """
         return pulumi.get(self, "approved_patches_compliance_level")
 
     @_builtins.property
     @pulumi.getter(name="approvedPatchesEnableNonSecurity")
     def approved_patches_enable_non_security(self) -> _builtins.bool:
-        """
-        Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
-        """
         return pulumi.get(self, "approved_patches_enable_non_security")
 
     @_builtins.property
     @pulumi.getter(name="availableSecurityUpdatesComplianceStatus")
     def available_security_updates_compliance_status(self) -> _builtins.str:
-        """
-        Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only.
-        """
         return pulumi.get(self, "available_security_updates_compliance_status")
 
     @_builtins.property
@@ -131,17 +116,11 @@ class GetPatchBaselineResult:
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the baseline.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="globalFilters")
     def global_filters(self) -> Sequence['outputs.GetPatchBaselineGlobalFilterResult']:
-        """
-        Set of global filters used to exclude patches from the baseline.
-        """
         return pulumi.get(self, "global_filters")
 
     @_builtins.property
@@ -155,17 +134,11 @@ class GetPatchBaselineResult:
     @_builtins.property
     @pulumi.getter
     def json(self) -> _builtins.str:
-        """
-        JSON representation of the baseline.
-        """
         return pulumi.get(self, "json")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name specified to identify the patch source.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -191,25 +164,16 @@ class GetPatchBaselineResult:
     @_builtins.property
     @pulumi.getter(name="rejectedPatches")
     def rejected_patches(self) -> Sequence[_builtins.str]:
-        """
-        List of rejected patches.
-        """
         return pulumi.get(self, "rejected_patches")
 
     @_builtins.property
     @pulumi.getter(name="rejectedPatchesAction")
     def rejected_patches_action(self) -> _builtins.str:
-        """
-        Action specified to take on patches included in the `rejected_patches` list.
-        """
         return pulumi.get(self, "rejected_patches_action")
 
     @_builtins.property
     @pulumi.getter
     def sources(self) -> Sequence['outputs.GetPatchBaselineSourceResult']:
-        """
-        Information about the patches to use to update the managed nodes, including target operating systems and source repositories.
-        """
         return pulumi.get(self, "sources")
 
 
@@ -246,41 +210,7 @@ def get_patch_baseline(default_baseline: Optional[_builtins.bool] = None,
                        region: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPatchBaselineResult:
     """
-    Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
-
-    ## Example Usage
-
-    To retrieve a baseline provided by AWS:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    centos = aws.ssm.get_patch_baseline(owner="AWS",
-        name_prefix="AWS-",
-        operating_system="CENTOS")
-    ```
-
-    To retrieve a baseline on your account:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    default_custom = aws.ssm.get_patch_baseline(owner="Self",
-        name_prefix="MyCustomBaseline",
-        default_baseline=True,
-        operating_system="WINDOWS")
-    ```
-
-
-    :param _builtins.bool default_baseline: Filters the results against the baselines default_baseline field.
-    :param _builtins.str name_prefix: Filter results by the baseline name prefix.
-    :param _builtins.str operating_system: Specified OS for the baseline. Valid values: `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`.
-    :param _builtins.str owner: Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['defaultBaseline'] = default_baseline
@@ -317,41 +247,7 @@ def get_patch_baseline_output(default_baseline: Optional[pulumi.Input[Optional[_
                               region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPatchBaselineResult]:
     """
-    Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
-
-    ## Example Usage
-
-    To retrieve a baseline provided by AWS:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    centos = aws.ssm.get_patch_baseline(owner="AWS",
-        name_prefix="AWS-",
-        operating_system="CENTOS")
-    ```
-
-    To retrieve a baseline on your account:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    default_custom = aws.ssm.get_patch_baseline(owner="Self",
-        name_prefix="MyCustomBaseline",
-        default_baseline=True,
-        operating_system="WINDOWS")
-    ```
-
-
-    :param _builtins.bool default_baseline: Filters the results against the baselines default_baseline field.
-    :param _builtins.str name_prefix: Filter results by the baseline name prefix.
-    :param _builtins.str operating_system: Specified OS for the baseline. Valid values: `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`.
-    :param _builtins.str owner: Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['defaultBaseline'] = default_baseline

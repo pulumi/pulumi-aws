@@ -13,45 +13,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGroupWarmPool {
-    /**
-     * @return List of instance reuse policy objects.
-     * 
-     */
     private List<GetGroupWarmPoolInstanceReusePolicy> instanceReusePolicies;
     private Integer maxGroupPreparedCapacity;
-    /**
-     * @return Minimum number of instances to maintain in the warm pool.
-     * 
-     */
     private Integer minSize;
-    /**
-     * @return Instance state to transition to after the lifecycle actions are complete.
-     * 
-     */
     private String poolState;
 
     private GetGroupWarmPool() {}
-    /**
-     * @return List of instance reuse policy objects.
-     * 
-     */
     public List<GetGroupWarmPoolInstanceReusePolicy> instanceReusePolicies() {
         return this.instanceReusePolicies;
     }
     public Integer maxGroupPreparedCapacity() {
         return this.maxGroupPreparedCapacity;
     }
-    /**
-     * @return Minimum number of instances to maintain in the warm pool.
-     * 
-     */
     public Integer minSize() {
         return this.minSize;
     }
-    /**
-     * @return Instance state to transition to after the lifecycle actions are complete.
-     * 
-     */
     public String poolState() {
         return this.poolState;
     }

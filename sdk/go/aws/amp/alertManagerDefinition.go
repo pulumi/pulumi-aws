@@ -12,61 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Amazon Managed Service for Prometheus (AMP) Alert Manager Definition
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amp"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			demo, err := amp.NewWorkspace(ctx, "demo", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = amp.NewAlertManagerDefinition(ctx, "demo", &amp.AlertManagerDefinitionArgs{
-//				WorkspaceId: demo.ID(),
-//				Definition: pulumi.String(`alertmanager_config: |
-//	  route:
-//	    receiver: 'default'
-//	  receivers:
-//	    - name: 'default'
-//
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import the prometheus alert manager definition using the workspace identifier. For example:
-//
-// ```sh
-// $ pulumi import aws:amp/alertManagerDefinition:AlertManagerDefinition demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
-// ```
 type AlertManagerDefinition struct {
 	pulumi.CustomResourceState
 
-	// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
-	Definition pulumi.StringOutput `pulumi:"definition"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ID of the prometheus workspace the alert manager definition should be linked to
+	Definition  pulumi.StringOutput `pulumi:"definition"`
+	Region      pulumi.StringOutput `pulumi:"region"`
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
 
@@ -106,20 +56,14 @@ func GetAlertManagerDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlertManagerDefinition resources.
 type alertManagerDefinitionState struct {
-	// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
-	Definition *string `pulumi:"definition"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the prometheus workspace the alert manager definition should be linked to
+	Definition  *string `pulumi:"definition"`
+	Region      *string `pulumi:"region"`
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type AlertManagerDefinitionState struct {
-	// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
-	Definition pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the prometheus workspace the alert manager definition should be linked to
+	Definition  pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
 	WorkspaceId pulumi.StringPtrInput
 }
 
@@ -128,21 +72,15 @@ func (AlertManagerDefinitionState) ElementType() reflect.Type {
 }
 
 type alertManagerDefinitionArgs struct {
-	// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
-	Definition string `pulumi:"definition"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the prometheus workspace the alert manager definition should be linked to
-	WorkspaceId string `pulumi:"workspaceId"`
+	Definition  string  `pulumi:"definition"`
+	Region      *string `pulumi:"region"`
+	WorkspaceId string  `pulumi:"workspaceId"`
 }
 
 // The set of arguments for constructing a AlertManagerDefinition resource.
 type AlertManagerDefinitionArgs struct {
-	// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
-	Definition pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the prometheus workspace the alert manager definition should be linked to
+	Definition  pulumi.StringInput
+	Region      pulumi.StringPtrInput
 	WorkspaceId pulumi.StringInput
 }
 
@@ -233,17 +171,14 @@ func (o AlertManagerDefinitionOutput) ToAlertManagerDefinitionOutputWithContext(
 	return o
 }
 
-// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
 func (o AlertManagerDefinitionOutput) Definition() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertManagerDefinition) pulumi.StringOutput { return v.Definition }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AlertManagerDefinitionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertManagerDefinition) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ID of the prometheus workspace the alert manager definition should be linked to
 func (o AlertManagerDefinitionOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertManagerDefinition) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterStorageConfigBlockStorage {
-    /**
-     * @return Whether zonal shift is enabled.
-     * 
-     */
     private Boolean enabled;
 
     private GetClusterStorageConfigBlockStorage() {}
-    /**
-     * @return Whether zonal shift is enabled.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }

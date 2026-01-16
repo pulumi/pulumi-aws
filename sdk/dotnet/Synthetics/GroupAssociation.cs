@@ -9,65 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Synthetics
 {
-    /// <summary>
-    /// Provides a Synthetics Group Association resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Synthetics.GroupAssociation("example", new()
-    ///     {
-    ///         GroupName = exampleAwsSyntheticsGroup.Name,
-    ///         CanaryArn = exampleAwsSyntheticsCanary.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CloudWatch Synthetics Group Association using the `canary_arn,group_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:synthetics/groupAssociation:GroupAssociation example arn:aws:synthetics:us-west-2:123456789012:canary:tf-acc-test-abcd1234,examplename
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:synthetics/groupAssociation:GroupAssociation")]
     public partial class GroupAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the canary.
-        /// </summary>
         [Output("canaryArn")]
         public Output<string> CanaryArn { get; private set; } = null!;
 
         [Output("groupArn")]
         public Output<string> GroupArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the Group.
-        /// </summary>
         [Output("groupId")]
         public Output<string> GroupId { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the group that the canary will be associated with.
-        /// </summary>
         [Output("groupName")]
         public Output<string> GroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -117,21 +73,12 @@ namespace Pulumi.Aws.Synthetics
 
     public sealed class GroupAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the canary.
-        /// </summary>
         [Input("canaryArn", required: true)]
         public Input<string> CanaryArn { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the group that the canary will be associated with.
-        /// </summary>
         [Input("groupName", required: true)]
         public Input<string> GroupName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -143,30 +90,18 @@ namespace Pulumi.Aws.Synthetics
 
     public sealed class GroupAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the canary.
-        /// </summary>
         [Input("canaryArn")]
         public Input<string>? CanaryArn { get; set; }
 
         [Input("groupArn")]
         public Input<string>? GroupArn { get; set; }
 
-        /// <summary>
-        /// ID of the Group.
-        /// </summary>
         [Input("groupId")]
         public Input<string>? GroupId { get; set; }
 
-        /// <summary>
-        /// Name of the group that the canary will be associated with.
-        /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

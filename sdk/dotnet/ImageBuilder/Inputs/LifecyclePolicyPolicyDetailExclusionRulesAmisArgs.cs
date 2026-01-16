@@ -12,24 +12,14 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
     public sealed class LifecyclePolicyPolicyDetailExclusionRulesAmisArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configures whether public AMIs are excluded from the lifecycle action.
-        /// </summary>
         [Input("isPublic")]
         public Input<bool>? IsPublic { get; set; }
 
-        /// <summary>
-        /// Specifies configuration details for Image Builder to exclude the most recent resources from lifecycle actions. Detailed below.
-        /// </summary>
         [Input("lastLaunched")]
         public Input<Inputs.LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs>? LastLaunched { get; set; }
 
         [Input("regions")]
         private InputList<string>? _regions;
-
-        /// <summary>
-        /// Configures AWS Regions that are excluded from the lifecycle action.
-        /// </summary>
         public InputList<string> Regions
         {
             get => _regions ?? (_regions = new InputList<string>());
@@ -38,10 +28,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
         [Input("sharedAccounts")]
         private InputList<string>? _sharedAccounts;
-
-        /// <summary>
-        /// Specifies AWS accounts whose resources are excluded from the lifecycle action.
-        /// </summary>
         public InputList<string> SharedAccounts
         {
             get => _sharedAccounts ?? (_sharedAccounts = new InputList<string>());
@@ -50,10 +36,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
         [Input("tagMap")]
         private InputMap<string>? _tagMap;
-
-        /// <summary>
-        /// Lists tags that should be excluded from lifecycle actions for the AMIs that have them.
-        /// </summary>
         public InputMap<string> TagMap
         {
             get => _tagMap ?? (_tagMap = new InputMap<string>());

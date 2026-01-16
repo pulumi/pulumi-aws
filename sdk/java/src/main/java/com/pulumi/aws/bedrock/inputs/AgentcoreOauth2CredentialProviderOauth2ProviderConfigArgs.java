@@ -20,92 +20,44 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
 
     public static final AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs Empty = new AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs();
 
-    /**
-     * Custom OAuth2 provider configuration. See `custom` below.
-     * 
-     */
     @Import(name="customOauth2ProviderConfig")
     private @Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs> customOauth2ProviderConfig;
 
-    /**
-     * @return Custom OAuth2 provider configuration. See `custom` below.
-     * 
-     */
     public Optional<Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs>> customOauth2ProviderConfig() {
         return Optional.ofNullable(this.customOauth2ProviderConfig);
     }
 
-    /**
-     * GitHub OAuth provider configuration. See `github` below.
-     * 
-     */
     @Import(name="githubOauth2ProviderConfig")
     private @Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs> githubOauth2ProviderConfig;
 
-    /**
-     * @return GitHub OAuth provider configuration. See `github` below.
-     * 
-     */
     public Optional<Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs>> githubOauth2ProviderConfig() {
         return Optional.ofNullable(this.githubOauth2ProviderConfig);
     }
 
-    /**
-     * Google OAuth provider configuration. See `google` below.
-     * 
-     */
     @Import(name="googleOauth2ProviderConfig")
     private @Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs> googleOauth2ProviderConfig;
 
-    /**
-     * @return Google OAuth provider configuration. See `google` below.
-     * 
-     */
     public Optional<Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs>> googleOauth2ProviderConfig() {
         return Optional.ofNullable(this.googleOauth2ProviderConfig);
     }
 
-    /**
-     * Microsoft OAuth provider configuration. See `microsoft` below.
-     * 
-     */
     @Import(name="microsoftOauth2ProviderConfig")
     private @Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs> microsoftOauth2ProviderConfig;
 
-    /**
-     * @return Microsoft OAuth provider configuration. See `microsoft` below.
-     * 
-     */
     public Optional<Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs>> microsoftOauth2ProviderConfig() {
         return Optional.ofNullable(this.microsoftOauth2ProviderConfig);
     }
 
-    /**
-     * Salesforce OAuth provider configuration. See `salesforce` below.
-     * 
-     */
     @Import(name="salesforceOauth2ProviderConfig")
     private @Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs> salesforceOauth2ProviderConfig;
 
-    /**
-     * @return Salesforce OAuth provider configuration. See `salesforce` below.
-     * 
-     */
     public Optional<Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs>> salesforceOauth2ProviderConfig() {
         return Optional.ofNullable(this.salesforceOauth2ProviderConfig);
     }
 
-    /**
-     * Slack OAuth provider configuration. See `slack` below.
-     * 
-     */
     @Import(name="slackOauth2ProviderConfig")
     private @Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs> slackOauth2ProviderConfig;
 
-    /**
-     * @return Slack OAuth provider configuration. See `slack` below.
-     * 
-     */
     public Optional<Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs>> slackOauth2ProviderConfig() {
         return Optional.ofNullable(this.slackOauth2ProviderConfig);
     }
@@ -139,128 +91,56 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
             $ = new AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customOauth2ProviderConfig Custom OAuth2 provider configuration. See `custom` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customOauth2ProviderConfig(@Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs> customOauth2ProviderConfig) {
             $.customOauth2ProviderConfig = customOauth2ProviderConfig;
             return this;
         }
 
-        /**
-         * @param customOauth2ProviderConfig Custom OAuth2 provider configuration. See `custom` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customOauth2ProviderConfig(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs customOauth2ProviderConfig) {
             return customOauth2ProviderConfig(Output.of(customOauth2ProviderConfig));
         }
 
-        /**
-         * @param githubOauth2ProviderConfig GitHub OAuth provider configuration. See `github` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder githubOauth2ProviderConfig(@Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs> githubOauth2ProviderConfig) {
             $.githubOauth2ProviderConfig = githubOauth2ProviderConfig;
             return this;
         }
 
-        /**
-         * @param githubOauth2ProviderConfig GitHub OAuth provider configuration. See `github` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder githubOauth2ProviderConfig(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs githubOauth2ProviderConfig) {
             return githubOauth2ProviderConfig(Output.of(githubOauth2ProviderConfig));
         }
 
-        /**
-         * @param googleOauth2ProviderConfig Google OAuth provider configuration. See `google` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder googleOauth2ProviderConfig(@Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs> googleOauth2ProviderConfig) {
             $.googleOauth2ProviderConfig = googleOauth2ProviderConfig;
             return this;
         }
 
-        /**
-         * @param googleOauth2ProviderConfig Google OAuth provider configuration. See `google` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder googleOauth2ProviderConfig(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs googleOauth2ProviderConfig) {
             return googleOauth2ProviderConfig(Output.of(googleOauth2ProviderConfig));
         }
 
-        /**
-         * @param microsoftOauth2ProviderConfig Microsoft OAuth provider configuration. See `microsoft` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder microsoftOauth2ProviderConfig(@Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs> microsoftOauth2ProviderConfig) {
             $.microsoftOauth2ProviderConfig = microsoftOauth2ProviderConfig;
             return this;
         }
 
-        /**
-         * @param microsoftOauth2ProviderConfig Microsoft OAuth provider configuration. See `microsoft` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder microsoftOauth2ProviderConfig(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs microsoftOauth2ProviderConfig) {
             return microsoftOauth2ProviderConfig(Output.of(microsoftOauth2ProviderConfig));
         }
 
-        /**
-         * @param salesforceOauth2ProviderConfig Salesforce OAuth provider configuration. See `salesforce` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder salesforceOauth2ProviderConfig(@Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs> salesforceOauth2ProviderConfig) {
             $.salesforceOauth2ProviderConfig = salesforceOauth2ProviderConfig;
             return this;
         }
 
-        /**
-         * @param salesforceOauth2ProviderConfig Salesforce OAuth provider configuration. See `salesforce` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder salesforceOauth2ProviderConfig(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs salesforceOauth2ProviderConfig) {
             return salesforceOauth2ProviderConfig(Output.of(salesforceOauth2ProviderConfig));
         }
 
-        /**
-         * @param slackOauth2ProviderConfig Slack OAuth provider configuration. See `slack` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slackOauth2ProviderConfig(@Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs> slackOauth2ProviderConfig) {
             $.slackOauth2ProviderConfig = slackOauth2ProviderConfig;
             return this;
         }
 
-        /**
-         * @param slackOauth2ProviderConfig Slack OAuth provider configuration. See `slack` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slackOauth2ProviderConfig(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs slackOauth2ProviderConfig) {
             return slackOauth2ProviderConfig(Output.of(slackOauth2ProviderConfig));
         }

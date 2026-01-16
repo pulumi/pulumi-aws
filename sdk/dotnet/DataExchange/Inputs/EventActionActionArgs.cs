@@ -12,10 +12,6 @@ namespace Pulumi.Aws.DataExchange.Inputs
 
     public sealed class EventActionActionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration for an Export Revision to S3 action.
-        /// Described in `ExportRevisionToS3` Configuration Block
-        /// </summary>
         [Input("exportRevisionToS3")]
         public Input<Inputs.EventActionActionExportRevisionToS3Args>? ExportRevisionToS3 { get; set; }
 

@@ -15,17 +15,9 @@ public final class GetLogDeliveryCanonicalUserIdArgs extends com.pulumi.resource
 
     public static final GetLogDeliveryCanonicalUserIdArgs Empty = new GetLogDeliveryCanonicalUserIdArgs();
 
-    /**
-     * Name of the Region whose canonical user ID is desired. Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Name of the Region whose canonical user ID is desired. Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -54,23 +46,11 @@ public final class GetLogDeliveryCanonicalUserIdArgs extends com.pulumi.resource
             $ = new GetLogDeliveryCanonicalUserIdArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Name of the Region whose canonical user ID is desired. Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Name of the Region whose canonical user ID is desired. Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

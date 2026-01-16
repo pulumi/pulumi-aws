@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetInstancePrivateDnsNameOptionResult
     {
-        /// <summary>
-        /// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
-        /// </summary>
         public readonly bool EnableResourceNameDnsARecord;
-        /// <summary>
-        /// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
-        /// </summary>
         public readonly bool EnableResourceNameDnsAaaaRecord;
-        /// <summary>
-        /// Type of hostname for EC2 instances.
-        /// </summary>
         public readonly string HostnameType;
 
         [OutputConstructor]

@@ -15,32 +15,16 @@ public final class GetUserGroupsPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetUserGroupsPlainArgs Empty = new GetUserGroupsPlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * User pool the client belongs to.
-     * 
-     */
     @Import(name="userPoolId", required=true)
     private String userPoolId;
 
-    /**
-     * @return User pool the client belongs to.
-     * 
-     */
     public String userPoolId() {
         return this.userPoolId;
     }
@@ -70,23 +54,11 @@ public final class GetUserGroupsPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetUserGroupsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param userPoolId User pool the client belongs to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolId(String userPoolId) {
             $.userPoolId = userPoolId;
             return this;

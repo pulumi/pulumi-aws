@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGroupMembershipsGroupMembershipMemberId {
-    /**
-     * @return User identifier of the group member.
-     * 
-     */
     private String userId;
 
     private GetGroupMembershipsGroupMembershipMemberId() {}
-    /**
-     * @return User identifier of the group member.
-     * 
-     */
     public String userId() {
         return this.userId;
     }

@@ -14,17 +14,9 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTt
 
     public static final ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs Empty = new ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs();
 
-    /**
-     * This field is not currently supported and will not affect the output styling. Leave the default value.
-     * 
-     */
     @Import(name="styleControl", required=true)
     private Output<String> styleControl;
 
-    /**
-     * @return This field is not currently supported and will not affect the output styling. Leave the default value.
-     * 
-     */
     public Output<String> styleControl() {
         return this.styleControl;
     }
@@ -53,23 +45,11 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTt
             $ = new ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param styleControl This field is not currently supported and will not affect the output styling. Leave the default value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder styleControl(Output<String> styleControl) {
             $.styleControl = styleControl;
             return this;
         }
 
-        /**
-         * @param styleControl This field is not currently supported and will not affect the output styling. Leave the default value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder styleControl(String styleControl) {
             return styleControl(Output.of(styleControl));
         }

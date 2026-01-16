@@ -11,68 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage AWS Device Farm Instance Profiles.
-// ∂
-// > **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/devicefarm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := devicefarm.NewInstanceProfile(ctx, "example", &devicefarm.InstanceProfileArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the Device Farm instance profile.
-//
-// Using `pulumi import`, import DeviceFarm Instance Profiles using their ARN. For example:
-//
-// % pulumi import aws_devicefarm_instance_profile.example arn:aws:devicefarm:us-west-2:123456789012:instanceprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
 type InstanceProfile struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name of this instance profile.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The description of the instance profile.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
+	Arn                            pulumi.StringOutput      `pulumi:"arn"`
+	Description                    pulumi.StringPtrOutput   `pulumi:"description"`
 	ExcludeAppPackagesFromCleanups pulumi.StringArrayOutput `pulumi:"excludeAppPackagesFromCleanups"`
-	// The name for the instance profile.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// When set to `true`, Device Farm removes app packages after a test run. The default value is `false` for private devices.
-	PackageCleanup pulumi.BoolPtrOutput `pulumi:"packageCleanup"`
-	// When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
-	RebootAfterUse pulumi.BoolPtrOutput `pulumi:"rebootAfterUse"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Name                           pulumi.StringOutput      `pulumi:"name"`
+	PackageCleanup                 pulumi.BoolPtrOutput     `pulumi:"packageCleanup"`
+	RebootAfterUse                 pulumi.BoolPtrOutput     `pulumi:"rebootAfterUse"`
+	Region                         pulumi.StringOutput      `pulumi:"region"`
+	Tags                           pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll                        pulumi.StringMapOutput   `pulumi:"tagsAll"`
 }
 
 // NewInstanceProfile registers a new resource with the given unique name, arguments, and options.
@@ -105,45 +55,27 @@ func GetInstanceProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InstanceProfile resources.
 type instanceProfileState struct {
-	// The Amazon Resource Name of this instance profile.
-	Arn *string `pulumi:"arn"`
-	// The description of the instance profile.
-	Description *string `pulumi:"description"`
-	// An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
-	ExcludeAppPackagesFromCleanups []string `pulumi:"excludeAppPackagesFromCleanups"`
-	// The name for the instance profile.
-	Name *string `pulumi:"name"`
-	// When set to `true`, Device Farm removes app packages after a test run. The default value is `false` for private devices.
-	PackageCleanup *bool `pulumi:"packageCleanup"`
-	// When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
-	RebootAfterUse *bool `pulumi:"rebootAfterUse"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                            *string           `pulumi:"arn"`
+	Description                    *string           `pulumi:"description"`
+	ExcludeAppPackagesFromCleanups []string          `pulumi:"excludeAppPackagesFromCleanups"`
+	Name                           *string           `pulumi:"name"`
+	PackageCleanup                 *bool             `pulumi:"packageCleanup"`
+	RebootAfterUse                 *bool             `pulumi:"rebootAfterUse"`
+	Region                         *string           `pulumi:"region"`
+	Tags                           map[string]string `pulumi:"tags"`
+	TagsAll                        map[string]string `pulumi:"tagsAll"`
 }
 
 type InstanceProfileState struct {
-	// The Amazon Resource Name of this instance profile.
-	Arn pulumi.StringPtrInput
-	// The description of the instance profile.
-	Description pulumi.StringPtrInput
-	// An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
+	Arn                            pulumi.StringPtrInput
+	Description                    pulumi.StringPtrInput
 	ExcludeAppPackagesFromCleanups pulumi.StringArrayInput
-	// The name for the instance profile.
-	Name pulumi.StringPtrInput
-	// When set to `true`, Device Farm removes app packages after a test run. The default value is `false` for private devices.
-	PackageCleanup pulumi.BoolPtrInput
-	// When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
-	RebootAfterUse pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Name                           pulumi.StringPtrInput
+	PackageCleanup                 pulumi.BoolPtrInput
+	RebootAfterUse                 pulumi.BoolPtrInput
+	Region                         pulumi.StringPtrInput
+	Tags                           pulumi.StringMapInput
+	TagsAll                        pulumi.StringMapInput
 }
 
 func (InstanceProfileState) ElementType() reflect.Type {
@@ -151,38 +83,24 @@ func (InstanceProfileState) ElementType() reflect.Type {
 }
 
 type instanceProfileArgs struct {
-	// The description of the instance profile.
-	Description *string `pulumi:"description"`
-	// An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
-	ExcludeAppPackagesFromCleanups []string `pulumi:"excludeAppPackagesFromCleanups"`
-	// The name for the instance profile.
-	Name *string `pulumi:"name"`
-	// When set to `true`, Device Farm removes app packages after a test run. The default value is `false` for private devices.
-	PackageCleanup *bool `pulumi:"packageCleanup"`
-	// When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
-	RebootAfterUse *bool `pulumi:"rebootAfterUse"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Description                    *string           `pulumi:"description"`
+	ExcludeAppPackagesFromCleanups []string          `pulumi:"excludeAppPackagesFromCleanups"`
+	Name                           *string           `pulumi:"name"`
+	PackageCleanup                 *bool             `pulumi:"packageCleanup"`
+	RebootAfterUse                 *bool             `pulumi:"rebootAfterUse"`
+	Region                         *string           `pulumi:"region"`
+	Tags                           map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a InstanceProfile resource.
 type InstanceProfileArgs struct {
-	// The description of the instance profile.
-	Description pulumi.StringPtrInput
-	// An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
+	Description                    pulumi.StringPtrInput
 	ExcludeAppPackagesFromCleanups pulumi.StringArrayInput
-	// The name for the instance profile.
-	Name pulumi.StringPtrInput
-	// When set to `true`, Device Farm removes app packages after a test run. The default value is `false` for private devices.
-	PackageCleanup pulumi.BoolPtrInput
-	// When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
-	RebootAfterUse pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name                           pulumi.StringPtrInput
+	PackageCleanup                 pulumi.BoolPtrInput
+	RebootAfterUse                 pulumi.BoolPtrInput
+	Region                         pulumi.StringPtrInput
+	Tags                           pulumi.StringMapInput
 }
 
 func (InstanceProfileArgs) ElementType() reflect.Type {
@@ -272,47 +190,38 @@ func (o InstanceProfileOutput) ToInstanceProfileOutputWithContext(ctx context.Co
 	return o
 }
 
-// The Amazon Resource Name of this instance profile.
 func (o InstanceProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The description of the instance profile.
 func (o InstanceProfileOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
 func (o InstanceProfileOutput) ExcludeAppPackagesFromCleanups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringArrayOutput { return v.ExcludeAppPackagesFromCleanups }).(pulumi.StringArrayOutput)
 }
 
-// The name for the instance profile.
 func (o InstanceProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// When set to `true`, Device Farm removes app packages after a test run. The default value is `false` for private devices.
 func (o InstanceProfileOutput) PackageCleanup() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.BoolPtrOutput { return v.PackageCleanup }).(pulumi.BoolPtrOutput)
 }
 
-// When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
 func (o InstanceProfileOutput) RebootAfterUse() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.BoolPtrOutput { return v.RebootAfterUse }).(pulumi.BoolPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InstanceProfileOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o InstanceProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o InstanceProfileOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

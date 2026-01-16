@@ -144,11 +144,6 @@ class CompositeAlarmActionsSuppressor(dict):
                  alarm: _builtins.str,
                  extension_period: _builtins.int,
                  wait_period: _builtins.int):
-        """
-        :param _builtins.str alarm: Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
-        :param _builtins.int extension_period: The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
-        :param _builtins.int wait_period: The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
-        """
         pulumi.set(__self__, "alarm", alarm)
         pulumi.set(__self__, "extension_period", extension_period)
         pulumi.set(__self__, "wait_period", wait_period)
@@ -156,25 +151,16 @@ class CompositeAlarmActionsSuppressor(dict):
     @_builtins.property
     @pulumi.getter
     def alarm(self) -> _builtins.str:
-        """
-        Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
-        """
         return pulumi.get(self, "alarm")
 
     @_builtins.property
     @pulumi.getter(name="extensionPeriod")
     def extension_period(self) -> _builtins.int:
-        """
-        The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
-        """
         return pulumi.get(self, "extension_period")
 
     @_builtins.property
     @pulumi.getter(name="waitPeriod")
     def wait_period(self) -> _builtins.int:
-        """
-        The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
-        """
         return pulumi.get(self, "wait_period")
 
 
@@ -182,18 +168,12 @@ class CompositeAlarmActionsSuppressor(dict):
 class EventBusDeadLetterConfig(dict):
     def __init__(__self__, *,
                  arn: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str arn: The ARN of the SQS queue specified as the target for the dead-letter queue.
-        """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
-        """
-        The ARN of the SQS queue specified as the target for the dead-letter queue.
-        """
         return pulumi.get(self, "arn")
 
 
@@ -219,10 +199,6 @@ class EventBusLogConfig(dict):
     def __init__(__self__, *,
                  include_detail: Optional[_builtins.str] = None,
                  level: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str include_detail: Whether EventBridge include detailed event information in the records it generates. Valid values are `NONE` and `FULL`.
-        :param _builtins.str level: Level of logging detail to include. Valid values are `OFF`, `ERROR`, `INFO`, and `TRACE`.
-        """
         if include_detail is not None:
             pulumi.set(__self__, "include_detail", include_detail)
         if level is not None:
@@ -231,17 +207,11 @@ class EventBusLogConfig(dict):
     @_builtins.property
     @pulumi.getter(name="includeDetail")
     def include_detail(self) -> Optional[_builtins.str]:
-        """
-        Whether EventBridge include detailed event information in the records it generates. Valid values are `NONE` and `FULL`.
-        """
         return pulumi.get(self, "include_detail")
 
     @_builtins.property
     @pulumi.getter
     def level(self) -> Optional[_builtins.str]:
-        """
-        Level of logging detail to include. Valid values are `OFF`, `ERROR`, `INFO`, and `TRACE`.
-        """
         return pulumi.get(self, "level")
 
 
@@ -271,12 +241,6 @@ class EventConnectionAuthParameters(dict):
                  basic: Optional['outputs.EventConnectionAuthParametersBasic'] = None,
                  invocation_http_parameters: Optional['outputs.EventConnectionAuthParametersInvocationHttpParameters'] = None,
                  oauth: Optional['outputs.EventConnectionAuthParametersOauth'] = None):
-        """
-        :param 'EventConnectionAuthParametersApiKeyArgs' api_key: Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
-        :param 'EventConnectionAuthParametersBasicArgs' basic: Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `api_key` and `oauth`. Documented below.
-        :param 'EventConnectionAuthParametersInvocationHttpParametersArgs' invocation_http_parameters: Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
-        :param 'EventConnectionAuthParametersOauthArgs' oauth: Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `api_key`. Documented below.
-        """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
         if basic is not None:
@@ -289,33 +253,21 @@ class EventConnectionAuthParameters(dict):
     @_builtins.property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> Optional['outputs.EventConnectionAuthParametersApiKey']:
-        """
-        Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
-        """
         return pulumi.get(self, "api_key")
 
     @_builtins.property
     @pulumi.getter
     def basic(self) -> Optional['outputs.EventConnectionAuthParametersBasic']:
-        """
-        Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `api_key` and `oauth`. Documented below.
-        """
         return pulumi.get(self, "basic")
 
     @_builtins.property
     @pulumi.getter(name="invocationHttpParameters")
     def invocation_http_parameters(self) -> Optional['outputs.EventConnectionAuthParametersInvocationHttpParameters']:
-        """
-        Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
-        """
         return pulumi.get(self, "invocation_http_parameters")
 
     @_builtins.property
     @pulumi.getter
     def oauth(self) -> Optional['outputs.EventConnectionAuthParametersOauth']:
-        """
-        Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `api_key`. Documented below.
-        """
         return pulumi.get(self, "oauth")
 
 
@@ -324,27 +276,17 @@ class EventConnectionAuthParametersApiKey(dict):
     def __init__(__self__, *,
                  key: _builtins.str,
                  value: _builtins.str):
-        """
-        :param _builtins.str key: Header Name.
-        :param _builtins.str value: Header Value. Created and stored in AWS Secrets Manager.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
-        """
-        Header Name.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        Header Value. Created and stored in AWS Secrets Manager.
-        """
         return pulumi.get(self, "value")
 
 
@@ -353,27 +295,17 @@ class EventConnectionAuthParametersBasic(dict):
     def __init__(__self__, *,
                  password: _builtins.str,
                  username: _builtins.str):
-        """
-        :param _builtins.str password: A password for the authorization. Created and stored in AWS Secrets Manager.
-        :param _builtins.str username: A username for the authorization.
-        """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
 
     @_builtins.property
     @pulumi.getter
     def password(self) -> _builtins.str:
-        """
-        A password for the authorization. Created and stored in AWS Secrets Manager.
-        """
         return pulumi.get(self, "password")
 
     @_builtins.property
     @pulumi.getter
     def username(self) -> _builtins.str:
-        """
-        A username for the authorization.
-        """
         return pulumi.get(self, "username")
 
 
@@ -400,11 +332,6 @@ class EventConnectionAuthParametersInvocationHttpParameters(dict):
                  bodies: Optional[Sequence['outputs.EventConnectionAuthParametersInvocationHttpParametersBody']] = None,
                  headers: Optional[Sequence['outputs.EventConnectionAuthParametersInvocationHttpParametersHeader']] = None,
                  query_strings: Optional[Sequence['outputs.EventConnectionAuthParametersInvocationHttpParametersQueryString']] = None):
-        """
-        :param Sequence['EventConnectionAuthParametersInvocationHttpParametersBodyArgs'] bodies: Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        :param Sequence['EventConnectionAuthParametersInvocationHttpParametersHeaderArgs'] headers: Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        :param Sequence['EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs'] query_strings: Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
         if bodies is not None:
             pulumi.set(__self__, "bodies", bodies)
         if headers is not None:
@@ -415,25 +342,16 @@ class EventConnectionAuthParametersInvocationHttpParameters(dict):
     @_builtins.property
     @pulumi.getter
     def bodies(self) -> Optional[Sequence['outputs.EventConnectionAuthParametersInvocationHttpParametersBody']]:
-        """
-        Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
         return pulumi.get(self, "bodies")
 
     @_builtins.property
     @pulumi.getter
     def headers(self) -> Optional[Sequence['outputs.EventConnectionAuthParametersInvocationHttpParametersHeader']]:
-        """
-        Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
         return pulumi.get(self, "headers")
 
     @_builtins.property
     @pulumi.getter(name="queryStrings")
     def query_strings(self) -> Optional[Sequence['outputs.EventConnectionAuthParametersInvocationHttpParametersQueryString']]:
-        """
-        Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
         return pulumi.get(self, "query_strings")
 
 
@@ -460,11 +378,6 @@ class EventConnectionAuthParametersInvocationHttpParametersBody(dict):
                  is_value_secret: Optional[_builtins.bool] = None,
                  key: Optional[_builtins.str] = None,
                  value: Optional[_builtins.str] = None):
-        """
-        :param _builtins.bool is_value_secret: Specified whether the value is secret.
-        :param _builtins.str key: The key for the parameter.
-        :param _builtins.str value: The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
-        """
         if is_value_secret is not None:
             pulumi.set(__self__, "is_value_secret", is_value_secret)
         if key is not None:
@@ -475,25 +388,16 @@ class EventConnectionAuthParametersInvocationHttpParametersBody(dict):
     @_builtins.property
     @pulumi.getter(name="isValueSecret")
     def is_value_secret(self) -> Optional[_builtins.bool]:
-        """
-        Specified whether the value is secret.
-        """
         return pulumi.get(self, "is_value_secret")
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
-        """
-        The key for the parameter.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
-        """
-        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
-        """
         return pulumi.get(self, "value")
 
 
@@ -520,11 +424,6 @@ class EventConnectionAuthParametersInvocationHttpParametersHeader(dict):
                  is_value_secret: Optional[_builtins.bool] = None,
                  key: Optional[_builtins.str] = None,
                  value: Optional[_builtins.str] = None):
-        """
-        :param _builtins.bool is_value_secret: Specified whether the value is secret.
-        :param _builtins.str key: The key for the parameter.
-        :param _builtins.str value: The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
-        """
         if is_value_secret is not None:
             pulumi.set(__self__, "is_value_secret", is_value_secret)
         if key is not None:
@@ -535,25 +434,16 @@ class EventConnectionAuthParametersInvocationHttpParametersHeader(dict):
     @_builtins.property
     @pulumi.getter(name="isValueSecret")
     def is_value_secret(self) -> Optional[_builtins.bool]:
-        """
-        Specified whether the value is secret.
-        """
         return pulumi.get(self, "is_value_secret")
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
-        """
-        The key for the parameter.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
-        """
-        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
-        """
         return pulumi.get(self, "value")
 
 
@@ -580,11 +470,6 @@ class EventConnectionAuthParametersInvocationHttpParametersQueryString(dict):
                  is_value_secret: Optional[_builtins.bool] = None,
                  key: Optional[_builtins.str] = None,
                  value: Optional[_builtins.str] = None):
-        """
-        :param _builtins.bool is_value_secret: Specified whether the value is secret.
-        :param _builtins.str key: The key for the parameter.
-        :param _builtins.str value: The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
-        """
         if is_value_secret is not None:
             pulumi.set(__self__, "is_value_secret", is_value_secret)
         if key is not None:
@@ -595,25 +480,16 @@ class EventConnectionAuthParametersInvocationHttpParametersQueryString(dict):
     @_builtins.property
     @pulumi.getter(name="isValueSecret")
     def is_value_secret(self) -> Optional[_builtins.bool]:
-        """
-        Specified whether the value is secret.
-        """
         return pulumi.get(self, "is_value_secret")
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
-        """
-        The key for the parameter.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
-        """
-        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
-        """
         return pulumi.get(self, "value")
 
 
@@ -647,12 +523,6 @@ class EventConnectionAuthParametersOauth(dict):
                  http_method: _builtins.str,
                  oauth_http_parameters: 'outputs.EventConnectionAuthParametersOauthOauthHttpParameters',
                  client_parameters: Optional['outputs.EventConnectionAuthParametersOauthClientParameters'] = None):
-        """
-        :param _builtins.str authorization_endpoint: The URL to the authorization endpoint.
-        :param _builtins.str http_method: A password for the authorization. Created and stored in AWS Secrets Manager.
-        :param 'EventConnectionAuthParametersOauthOauthHttpParametersArgs' oauth_http_parameters: OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
-        :param 'EventConnectionAuthParametersOauthClientParametersArgs' client_parameters: Contains the client parameters for OAuth authorization. Contains the following two parameters.
-        """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "http_method", http_method)
         pulumi.set(__self__, "oauth_http_parameters", oauth_http_parameters)
@@ -662,33 +532,21 @@ class EventConnectionAuthParametersOauth(dict):
     @_builtins.property
     @pulumi.getter(name="authorizationEndpoint")
     def authorization_endpoint(self) -> _builtins.str:
-        """
-        The URL to the authorization endpoint.
-        """
         return pulumi.get(self, "authorization_endpoint")
 
     @_builtins.property
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> _builtins.str:
-        """
-        A password for the authorization. Created and stored in AWS Secrets Manager.
-        """
         return pulumi.get(self, "http_method")
 
     @_builtins.property
     @pulumi.getter(name="oauthHttpParameters")
     def oauth_http_parameters(self) -> 'outputs.EventConnectionAuthParametersOauthOauthHttpParameters':
-        """
-        OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
-        """
         return pulumi.get(self, "oauth_http_parameters")
 
     @_builtins.property
     @pulumi.getter(name="clientParameters")
     def client_parameters(self) -> Optional['outputs.EventConnectionAuthParametersOauthClientParameters']:
-        """
-        Contains the client parameters for OAuth authorization. Contains the following two parameters.
-        """
         return pulumi.get(self, "client_parameters")
 
 
@@ -716,27 +574,17 @@ class EventConnectionAuthParametersOauthClientParameters(dict):
     def __init__(__self__, *,
                  client_id: _builtins.str,
                  client_secret: _builtins.str):
-        """
-        :param _builtins.str client_id: The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
-        :param _builtins.str client_secret: The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
-        """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
     def client_id(self) -> _builtins.str:
-        """
-        The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
-        """
         return pulumi.get(self, "client_id")
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> _builtins.str:
-        """
-        The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
-        """
         return pulumi.get(self, "client_secret")
 
 
@@ -763,11 +611,6 @@ class EventConnectionAuthParametersOauthOauthHttpParameters(dict):
                  bodies: Optional[Sequence['outputs.EventConnectionAuthParametersOauthOauthHttpParametersBody']] = None,
                  headers: Optional[Sequence['outputs.EventConnectionAuthParametersOauthOauthHttpParametersHeader']] = None,
                  query_strings: Optional[Sequence['outputs.EventConnectionAuthParametersOauthOauthHttpParametersQueryString']] = None):
-        """
-        :param Sequence['EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs'] bodies: Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        :param Sequence['EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs'] headers: Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        :param Sequence['EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs'] query_strings: Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
         if bodies is not None:
             pulumi.set(__self__, "bodies", bodies)
         if headers is not None:
@@ -778,25 +621,16 @@ class EventConnectionAuthParametersOauthOauthHttpParameters(dict):
     @_builtins.property
     @pulumi.getter
     def bodies(self) -> Optional[Sequence['outputs.EventConnectionAuthParametersOauthOauthHttpParametersBody']]:
-        """
-        Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
         return pulumi.get(self, "bodies")
 
     @_builtins.property
     @pulumi.getter
     def headers(self) -> Optional[Sequence['outputs.EventConnectionAuthParametersOauthOauthHttpParametersHeader']]:
-        """
-        Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
         return pulumi.get(self, "headers")
 
     @_builtins.property
     @pulumi.getter(name="queryStrings")
     def query_strings(self) -> Optional[Sequence['outputs.EventConnectionAuthParametersOauthOauthHttpParametersQueryString']]:
-        """
-        Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
         return pulumi.get(self, "query_strings")
 
 
@@ -823,11 +657,6 @@ class EventConnectionAuthParametersOauthOauthHttpParametersBody(dict):
                  is_value_secret: Optional[_builtins.bool] = None,
                  key: Optional[_builtins.str] = None,
                  value: Optional[_builtins.str] = None):
-        """
-        :param _builtins.bool is_value_secret: Specified whether the value is secret.
-        :param _builtins.str key: The key for the parameter.
-        :param _builtins.str value: The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
-        """
         if is_value_secret is not None:
             pulumi.set(__self__, "is_value_secret", is_value_secret)
         if key is not None:
@@ -838,25 +667,16 @@ class EventConnectionAuthParametersOauthOauthHttpParametersBody(dict):
     @_builtins.property
     @pulumi.getter(name="isValueSecret")
     def is_value_secret(self) -> Optional[_builtins.bool]:
-        """
-        Specified whether the value is secret.
-        """
         return pulumi.get(self, "is_value_secret")
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
-        """
-        The key for the parameter.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
-        """
-        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
-        """
         return pulumi.get(self, "value")
 
 
@@ -883,11 +703,6 @@ class EventConnectionAuthParametersOauthOauthHttpParametersHeader(dict):
                  is_value_secret: Optional[_builtins.bool] = None,
                  key: Optional[_builtins.str] = None,
                  value: Optional[_builtins.str] = None):
-        """
-        :param _builtins.bool is_value_secret: Specified whether the value is secret.
-        :param _builtins.str key: The key for the parameter.
-        :param _builtins.str value: The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
-        """
         if is_value_secret is not None:
             pulumi.set(__self__, "is_value_secret", is_value_secret)
         if key is not None:
@@ -898,25 +713,16 @@ class EventConnectionAuthParametersOauthOauthHttpParametersHeader(dict):
     @_builtins.property
     @pulumi.getter(name="isValueSecret")
     def is_value_secret(self) -> Optional[_builtins.bool]:
-        """
-        Specified whether the value is secret.
-        """
         return pulumi.get(self, "is_value_secret")
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
-        """
-        The key for the parameter.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
-        """
-        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
-        """
         return pulumi.get(self, "value")
 
 
@@ -943,11 +749,6 @@ class EventConnectionAuthParametersOauthOauthHttpParametersQueryString(dict):
                  is_value_secret: Optional[_builtins.bool] = None,
                  key: Optional[_builtins.str] = None,
                  value: Optional[_builtins.str] = None):
-        """
-        :param _builtins.bool is_value_secret: Specified whether the value is secret.
-        :param _builtins.str key: The key for the parameter.
-        :param _builtins.str value: The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
-        """
         if is_value_secret is not None:
             pulumi.set(__self__, "is_value_secret", is_value_secret)
         if key is not None:
@@ -958,25 +759,16 @@ class EventConnectionAuthParametersOauthOauthHttpParametersQueryString(dict):
     @_builtins.property
     @pulumi.getter(name="isValueSecret")
     def is_value_secret(self) -> Optional[_builtins.bool]:
-        """
-        Specified whether the value is secret.
-        """
         return pulumi.get(self, "is_value_secret")
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
-        """
-        The key for the parameter.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
-        """
-        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
-        """
         return pulumi.get(self, "value")
 
 
@@ -1001,17 +793,11 @@ class EventConnectionInvocationConnectivityParameters(dict):
 
     def __init__(__self__, *,
                  resource_parameters: 'outputs.EventConnectionInvocationConnectivityParametersResourceParameters'):
-        """
-        :param 'EventConnectionInvocationConnectivityParametersResourceParametersArgs' resource_parameters: The parameters for EventBridge to use when invoking the resource endpoint. Documented below.
-        """
         pulumi.set(__self__, "resource_parameters", resource_parameters)
 
     @_builtins.property
     @pulumi.getter(name="resourceParameters")
     def resource_parameters(self) -> 'outputs.EventConnectionInvocationConnectivityParametersResourceParameters':
-        """
-        The parameters for EventBridge to use when invoking the resource endpoint. Documented below.
-        """
         return pulumi.get(self, "resource_parameters")
 
 
@@ -1039,9 +825,6 @@ class EventConnectionInvocationConnectivityParametersResourceParameters(dict):
     def __init__(__self__, *,
                  resource_configuration_arn: _builtins.str,
                  resource_association_arn: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str resource_configuration_arn: ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
-        """
         pulumi.set(__self__, "resource_configuration_arn", resource_configuration_arn)
         if resource_association_arn is not None:
             pulumi.set(__self__, "resource_association_arn", resource_association_arn)
@@ -1049,9 +832,6 @@ class EventConnectionInvocationConnectivityParametersResourceParameters(dict):
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationArn")
     def resource_configuration_arn(self) -> _builtins.str:
-        """
-        ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
-        """
         return pulumi.get(self, "resource_configuration_arn")
 
     @_builtins.property
@@ -1081,17 +861,11 @@ class EventEndpointEventBus(dict):
 
     def __init__(__self__, *,
                  event_bus_arn: _builtins.str):
-        """
-        :param _builtins.str event_bus_arn: The ARN of the event bus the endpoint is associated with.
-        """
         pulumi.set(__self__, "event_bus_arn", event_bus_arn)
 
     @_builtins.property
     @pulumi.getter(name="eventBusArn")
     def event_bus_arn(self) -> _builtins.str:
-        """
-        The ARN of the event bus the endpoint is associated with.
-        """
         return pulumi.get(self, "event_bus_arn")
 
 
@@ -1099,18 +873,12 @@ class EventEndpointEventBus(dict):
 class EventEndpointReplicationConfig(dict):
     def __init__(__self__, *,
                  state: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str state: The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `role_arn`. If you don't have a `role_arn` or you don't want event replication enabled, set `state` to `DISABLED`.
-        """
         if state is not None:
             pulumi.set(__self__, "state", state)
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[_builtins.str]:
-        """
-        The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `role_arn`. If you don't have a `role_arn` or you don't want event replication enabled, set `state` to `DISABLED`.
-        """
         return pulumi.get(self, "state")
 
 
@@ -1135,17 +903,11 @@ class EventEndpointRoutingConfig(dict):
 
     def __init__(__self__, *,
                  failover_config: 'outputs.EventEndpointRoutingConfigFailoverConfig'):
-        """
-        :param 'EventEndpointRoutingConfigFailoverConfigArgs' failover_config: Parameters used for failover. This includes what triggers failover and what happens when it's triggered. Documented below.
-        """
         pulumi.set(__self__, "failover_config", failover_config)
 
     @_builtins.property
     @pulumi.getter(name="failoverConfig")
     def failover_config(self) -> 'outputs.EventEndpointRoutingConfigFailoverConfig':
-        """
-        Parameters used for failover. This includes what triggers failover and what happens when it's triggered. Documented below.
-        """
         return pulumi.get(self, "failover_config")
 
 
@@ -1154,27 +916,17 @@ class EventEndpointRoutingConfigFailoverConfig(dict):
     def __init__(__self__, *,
                  primary: 'outputs.EventEndpointRoutingConfigFailoverConfigPrimary',
                  secondary: 'outputs.EventEndpointRoutingConfigFailoverConfigSecondary'):
-        """
-        :param 'EventEndpointRoutingConfigFailoverConfigPrimaryArgs' primary: Parameters used for the primary Region. Documented below.
-        :param 'EventEndpointRoutingConfigFailoverConfigSecondaryArgs' secondary: Parameters used for the secondary Region, the Region that events are routed to when failover is triggered or event replication is enabled. Documented below.
-        """
         pulumi.set(__self__, "primary", primary)
         pulumi.set(__self__, "secondary", secondary)
 
     @_builtins.property
     @pulumi.getter
     def primary(self) -> 'outputs.EventEndpointRoutingConfigFailoverConfigPrimary':
-        """
-        Parameters used for the primary Region. Documented below.
-        """
         return pulumi.get(self, "primary")
 
     @_builtins.property
     @pulumi.getter
     def secondary(self) -> 'outputs.EventEndpointRoutingConfigFailoverConfigSecondary':
-        """
-        Parameters used for the secondary Region, the Region that events are routed to when failover is triggered or event replication is enabled. Documented below.
-        """
         return pulumi.get(self, "secondary")
 
 
@@ -1199,18 +951,12 @@ class EventEndpointRoutingConfigFailoverConfigPrimary(dict):
 
     def __init__(__self__, *,
                  health_check: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str health_check: The ARN of the health check used by the endpoint to determine whether failover is triggered.
-        """
         if health_check is not None:
             pulumi.set(__self__, "health_check", health_check)
 
     @_builtins.property
     @pulumi.getter(name="healthCheck")
     def health_check(self) -> Optional[_builtins.str]:
-        """
-        The ARN of the health check used by the endpoint to determine whether failover is triggered.
-        """
         return pulumi.get(self, "health_check")
 
 
@@ -1218,18 +964,12 @@ class EventEndpointRoutingConfigFailoverConfigPrimary(dict):
 class EventEndpointRoutingConfigFailoverConfigSecondary(dict):
     def __init__(__self__, *,
                  route: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str route: The name of the secondary Region.
-        """
         if route is not None:
             pulumi.set(__self__, "route", route)
 
     @_builtins.property
     @pulumi.getter
     def route(self) -> Optional[_builtins.str]:
-        """
-        The name of the secondary Region.
-        """
         return pulumi.get(self, "route")
 
 
@@ -1239,11 +979,6 @@ class EventPermissionCondition(dict):
                  key: _builtins.str,
                  type: _builtins.str,
                  value: _builtins.str):
-        """
-        :param _builtins.str key: Key for the condition. Valid values: `aws:PrincipalOrgID`.
-        :param _builtins.str type: Type of condition. Value values: `StringEquals`.
-        :param _builtins.str value: Value for the key.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -1251,25 +986,16 @@ class EventPermissionCondition(dict):
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
-        """
-        Key for the condition. Valid values: `aws:PrincipalOrgID`.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of condition. Value values: `StringEquals`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        Value for the key.
-        """
         return pulumi.get(self, "value")
 
 
@@ -1294,18 +1020,12 @@ class EventTargetAppsyncTarget(dict):
 
     def __init__(__self__, *,
                  graphql_operation: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str graphql_operation: Contains the GraphQL mutation to be parsed and executed.
-        """
         if graphql_operation is not None:
             pulumi.set(__self__, "graphql_operation", graphql_operation)
 
     @_builtins.property
     @pulumi.getter(name="graphqlOperation")
     def graphql_operation(self) -> Optional[_builtins.str]:
-        """
-        Contains the GraphQL mutation to be parsed and executed.
-        """
         return pulumi.get(self, "graphql_operation")
 
 
@@ -1339,12 +1059,6 @@ class EventTargetBatchTarget(dict):
                  job_name: _builtins.str,
                  array_size: Optional[_builtins.int] = None,
                  job_attempts: Optional[_builtins.int] = None):
-        """
-        :param _builtins.str job_definition: The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
-        :param _builtins.str job_name: The name to use for this execution of the job, if the target is an AWS Batch job.
-        :param _builtins.int array_size: The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
-        :param _builtins.int job_attempts: The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
-        """
         pulumi.set(__self__, "job_definition", job_definition)
         pulumi.set(__self__, "job_name", job_name)
         if array_size is not None:
@@ -1355,33 +1069,21 @@ class EventTargetBatchTarget(dict):
     @_builtins.property
     @pulumi.getter(name="jobDefinition")
     def job_definition(self) -> _builtins.str:
-        """
-        The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
-        """
         return pulumi.get(self, "job_definition")
 
     @_builtins.property
     @pulumi.getter(name="jobName")
     def job_name(self) -> _builtins.str:
-        """
-        The name to use for this execution of the job, if the target is an AWS Batch job.
-        """
         return pulumi.get(self, "job_name")
 
     @_builtins.property
     @pulumi.getter(name="arraySize")
     def array_size(self) -> Optional[_builtins.int]:
-        """
-        The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
-        """
         return pulumi.get(self, "array_size")
 
     @_builtins.property
     @pulumi.getter(name="jobAttempts")
     def job_attempts(self) -> Optional[_builtins.int]:
-        """
-        The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
-        """
         return pulumi.get(self, "job_attempts")
 
 
@@ -1389,18 +1091,12 @@ class EventTargetBatchTarget(dict):
 class EventTargetDeadLetterConfig(dict):
     def __init__(__self__, *,
                  arn: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str arn: ARN of the SQS queue specified as the target for the dead-letter queue.
-        """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of the SQS queue specified as the target for the dead-letter queue.
-        """
         return pulumi.get(self, "arn")
 
 
@@ -1457,21 +1153,6 @@ class EventTargetEcsTarget(dict):
                  propagate_tags: Optional[_builtins.str] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None,
                  task_count: Optional[_builtins.int] = None):
-        """
-        :param _builtins.str task_definition_arn: The ARN of the task definition to use if the event target is an Amazon ECS cluster.
-        :param Sequence['EventTargetEcsTargetCapacityProviderStrategyArgs'] capacity_provider_strategies: The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
-        :param _builtins.bool enable_ecs_managed_tags: Specifies whether to enable Amazon ECS managed tags for the task.
-        :param _builtins.bool enable_execute_command: Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
-        :param _builtins.str group: Specifies an ECS task group for the task. The maximum length is 255 characters.
-        :param _builtins.str launch_type: Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: `EC2`, `EXTERNAL`, or `FARGATE`.
-        :param 'EventTargetEcsTargetNetworkConfigurationArgs' network_configuration: Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launch_type` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
-        :param Sequence['EventTargetEcsTargetOrderedPlacementStrategyArgs'] ordered_placement_strategies: An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
-        :param Sequence['EventTargetEcsTargetPlacementConstraintArgs'] placement_constraints: An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
-        :param _builtins.str platform_version: Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-        :param _builtins.str propagate_tags: Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. The only valid value is: `TASK_DEFINITION`.
-        :param Mapping[str, _builtins.str] tags: A map of tags to assign to ecs resources.
-        :param _builtins.int task_count: The number of tasks to create based on the TaskDefinition. Defaults to `1`.
-        """
         pulumi.set(__self__, "task_definition_arn", task_definition_arn)
         if capacity_provider_strategies is not None:
             pulumi.set(__self__, "capacity_provider_strategies", capacity_provider_strategies)
@@ -1501,105 +1182,66 @@ class EventTargetEcsTarget(dict):
     @_builtins.property
     @pulumi.getter(name="taskDefinitionArn")
     def task_definition_arn(self) -> _builtins.str:
-        """
-        The ARN of the task definition to use if the event target is an Amazon ECS cluster.
-        """
         return pulumi.get(self, "task_definition_arn")
 
     @_builtins.property
     @pulumi.getter(name="capacityProviderStrategies")
     def capacity_provider_strategies(self) -> Optional[Sequence['outputs.EventTargetEcsTargetCapacityProviderStrategy']]:
-        """
-        The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
-        """
         return pulumi.get(self, "capacity_provider_strategies")
 
     @_builtins.property
     @pulumi.getter(name="enableEcsManagedTags")
     def enable_ecs_managed_tags(self) -> Optional[_builtins.bool]:
-        """
-        Specifies whether to enable Amazon ECS managed tags for the task.
-        """
         return pulumi.get(self, "enable_ecs_managed_tags")
 
     @_builtins.property
     @pulumi.getter(name="enableExecuteCommand")
     def enable_execute_command(self) -> Optional[_builtins.bool]:
-        """
-        Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
-        """
         return pulumi.get(self, "enable_execute_command")
 
     @_builtins.property
     @pulumi.getter
     def group(self) -> Optional[_builtins.str]:
-        """
-        Specifies an ECS task group for the task. The maximum length is 255 characters.
-        """
         return pulumi.get(self, "group")
 
     @_builtins.property
     @pulumi.getter(name="launchType")
     def launch_type(self) -> Optional[_builtins.str]:
-        """
-        Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: `EC2`, `EXTERNAL`, or `FARGATE`.
-        """
         return pulumi.get(self, "launch_type")
 
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional['outputs.EventTargetEcsTargetNetworkConfiguration']:
-        """
-        Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launch_type` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
-        """
         return pulumi.get(self, "network_configuration")
 
     @_builtins.property
     @pulumi.getter(name="orderedPlacementStrategies")
     def ordered_placement_strategies(self) -> Optional[Sequence['outputs.EventTargetEcsTargetOrderedPlacementStrategy']]:
-        """
-        An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
-        """
         return pulumi.get(self, "ordered_placement_strategies")
 
     @_builtins.property
     @pulumi.getter(name="placementConstraints")
     def placement_constraints(self) -> Optional[Sequence['outputs.EventTargetEcsTargetPlacementConstraint']]:
-        """
-        An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
-        """
         return pulumi.get(self, "placement_constraints")
 
     @_builtins.property
     @pulumi.getter(name="platformVersion")
     def platform_version(self) -> Optional[_builtins.str]:
-        """
-        Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-        """
         return pulumi.get(self, "platform_version")
 
     @_builtins.property
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> Optional[_builtins.str]:
-        """
-        Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. The only valid value is: `TASK_DEFINITION`.
-        """
         return pulumi.get(self, "propagate_tags")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        A map of tags to assign to ecs resources.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="taskCount")
     def task_count(self) -> Optional[_builtins.int]:
-        """
-        The number of tasks to create based on the TaskDefinition. Defaults to `1`.
-        """
         return pulumi.get(self, "task_count")
 
 
@@ -1626,11 +1268,6 @@ class EventTargetEcsTargetCapacityProviderStrategy(dict):
                  capacity_provider: _builtins.str,
                  base: Optional[_builtins.int] = None,
                  weight: Optional[_builtins.int] = None):
-        """
-        :param _builtins.str capacity_provider: Short name of the capacity provider.
-        :param _builtins.int base: The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
-        :param _builtins.int weight: The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
-        """
         pulumi.set(__self__, "capacity_provider", capacity_provider)
         if base is not None:
             pulumi.set(__self__, "base", base)
@@ -1640,25 +1277,16 @@ class EventTargetEcsTargetCapacityProviderStrategy(dict):
     @_builtins.property
     @pulumi.getter(name="capacityProvider")
     def capacity_provider(self) -> _builtins.str:
-        """
-        Short name of the capacity provider.
-        """
         return pulumi.get(self, "capacity_provider")
 
     @_builtins.property
     @pulumi.getter
     def base(self) -> Optional[_builtins.int]:
-        """
-        The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
-        """
         return pulumi.get(self, "base")
 
     @_builtins.property
     @pulumi.getter
     def weight(self) -> Optional[_builtins.int]:
-        """
-        The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
-        """
         return pulumi.get(self, "weight")
 
 
@@ -1687,13 +1315,6 @@ class EventTargetEcsTargetNetworkConfiguration(dict):
                  subnets: Sequence[_builtins.str],
                  assign_public_ip: Optional[_builtins.bool] = None,
                  security_groups: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param Sequence[_builtins.str] subnets: The subnets associated with the task or service.
-        :param _builtins.bool assign_public_ip: Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
-               
-               For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
-        :param Sequence[_builtins.str] security_groups: The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
-        """
         pulumi.set(__self__, "subnets", subnets)
         if assign_public_ip is not None:
             pulumi.set(__self__, "assign_public_ip", assign_public_ip)
@@ -1703,27 +1324,16 @@ class EventTargetEcsTargetNetworkConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def subnets(self) -> Sequence[_builtins.str]:
-        """
-        The subnets associated with the task or service.
-        """
         return pulumi.get(self, "subnets")
 
     @_builtins.property
     @pulumi.getter(name="assignPublicIp")
     def assign_public_ip(self) -> Optional[_builtins.bool]:
-        """
-        Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
-
-        For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
-        """
         return pulumi.get(self, "assign_public_ip")
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
-        """
         return pulumi.get(self, "security_groups")
 
 
@@ -1732,10 +1342,6 @@ class EventTargetEcsTargetOrderedPlacementStrategy(dict):
     def __init__(__self__, *,
                  type: _builtins.str,
                  field: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str type: Type of placement strategy. The only valid values at this time are `binpack`, `random` and `spread`.
-        :param _builtins.str field: The field to apply the placement strategy against. For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as `attribute:ecs.availability-zone`. For the `binpack` placement strategy, valid values are `cpu` and `memory`. For the `random` placement strategy, this field is not used. For more information, see [Amazon ECS task placement strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
-        """
         pulumi.set(__self__, "type", type)
         if field is not None:
             pulumi.set(__self__, "field", field)
@@ -1743,17 +1349,11 @@ class EventTargetEcsTargetOrderedPlacementStrategy(dict):
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of placement strategy. The only valid values at this time are `binpack`, `random` and `spread`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def field(self) -> Optional[_builtins.str]:
-        """
-        The field to apply the placement strategy against. For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as `attribute:ecs.availability-zone`. For the `binpack` placement strategy, valid values are `cpu` and `memory`. For the `random` placement strategy, this field is not used. For more information, see [Amazon ECS task placement strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
-        """
         return pulumi.get(self, "field")
 
 
@@ -1762,10 +1362,6 @@ class EventTargetEcsTargetPlacementConstraint(dict):
     def __init__(__self__, *,
                  type: _builtins.str,
                  expression: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str type: Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
-        :param _builtins.str expression: Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
-        """
         pulumi.set(__self__, "type", type)
         if expression is not None:
             pulumi.set(__self__, "expression", expression)
@@ -1773,17 +1369,11 @@ class EventTargetEcsTargetPlacementConstraint(dict):
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def expression(self) -> Optional[_builtins.str]:
-        """
-        Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
-        """
         return pulumi.get(self, "expression")
 
 
@@ -1814,11 +1404,6 @@ class EventTargetHttpTarget(dict):
                  header_parameters: Optional[Mapping[str, _builtins.str]] = None,
                  path_parameter_values: Optional[Sequence[_builtins.str]] = None,
                  query_string_parameters: Optional[Mapping[str, _builtins.str]] = None):
-        """
-        :param Mapping[str, _builtins.str] header_parameters: Enables you to specify HTTP headers to add to the request.
-        :param Sequence[_builtins.str] path_parameter_values: The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*/POST/pets/*`).
-        :param Mapping[str, _builtins.str] query_string_parameters: Represents keys/values of query string parameters that are appended to the invoked endpoint.
-        """
         if header_parameters is not None:
             pulumi.set(__self__, "header_parameters", header_parameters)
         if path_parameter_values is not None:
@@ -1829,25 +1414,16 @@ class EventTargetHttpTarget(dict):
     @_builtins.property
     @pulumi.getter(name="headerParameters")
     def header_parameters(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        Enables you to specify HTTP headers to add to the request.
-        """
         return pulumi.get(self, "header_parameters")
 
     @_builtins.property
     @pulumi.getter(name="pathParameterValues")
     def path_parameter_values(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*/POST/pets/*`).
-        """
         return pulumi.get(self, "path_parameter_values")
 
     @_builtins.property
     @pulumi.getter(name="queryStringParameters")
     def query_string_parameters(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        Represents keys/values of query string parameters that are appended to the invoked endpoint.
-        """
         return pulumi.get(self, "query_string_parameters")
 
 
@@ -1875,13 +1451,6 @@ class EventTargetInputTransformer(dict):
     def __init__(__self__, *,
                  input_template: _builtins.str,
                  input_paths: Optional[Mapping[str, _builtins.str]] = None):
-        """
-        :param _builtins.str input_template: Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes.
-        :param Mapping[str, _builtins.str] input_paths: Key value pairs specified in the form of JSONPath (for example, time = $.time)
-               * You can have as many as 100 key-value pairs.
-               * You must use JSON dot notation, not bracket notation.
-               * The keys can't start with "AWS".
-        """
         pulumi.set(__self__, "input_template", input_template)
         if input_paths is not None:
             pulumi.set(__self__, "input_paths", input_paths)
@@ -1889,20 +1458,11 @@ class EventTargetInputTransformer(dict):
     @_builtins.property
     @pulumi.getter(name="inputTemplate")
     def input_template(self) -> _builtins.str:
-        """
-        Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes.
-        """
         return pulumi.get(self, "input_template")
 
     @_builtins.property
     @pulumi.getter(name="inputPaths")
     def input_paths(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        Key value pairs specified in the form of JSONPath (for example, time = $.time)
-        * You can have as many as 100 key-value pairs.
-        * You must use JSON dot notation, not bracket notation.
-        * The keys can't start with "AWS".
-        """
         return pulumi.get(self, "input_paths")
 
 
@@ -1927,18 +1487,12 @@ class EventTargetKinesisTarget(dict):
 
     def __init__(__self__, *,
                  partition_key_path: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str partition_key_path: The JSON path to be extracted from the event and used as the partition key.
-        """
         if partition_key_path is not None:
             pulumi.set(__self__, "partition_key_path", partition_key_path)
 
     @_builtins.property
     @pulumi.getter(name="partitionKeyPath")
     def partition_key_path(self) -> Optional[_builtins.str]:
-        """
-        The JSON path to be extracted from the event and used as the partition key.
-        """
         return pulumi.get(self, "partition_key_path")
 
 
@@ -1974,14 +1528,6 @@ class EventTargetRedshiftTarget(dict):
                  sql: Optional[_builtins.str] = None,
                  statement_name: Optional[_builtins.str] = None,
                  with_event: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str database: The name of the database.
-        :param _builtins.str db_user: The database user name.
-        :param _builtins.str secrets_manager_arn: The name or ARN of the secret that enables access to the database.
-        :param _builtins.str sql: The SQL statement text to run.
-        :param _builtins.str statement_name: The name of the SQL statement.
-        :param _builtins.bool with_event: Indicates whether to send an event back to EventBridge after the SQL statement runs.
-        """
         pulumi.set(__self__, "database", database)
         if db_user is not None:
             pulumi.set(__self__, "db_user", db_user)
@@ -1997,49 +1543,31 @@ class EventTargetRedshiftTarget(dict):
     @_builtins.property
     @pulumi.getter
     def database(self) -> _builtins.str:
-        """
-        The name of the database.
-        """
         return pulumi.get(self, "database")
 
     @_builtins.property
     @pulumi.getter(name="dbUser")
     def db_user(self) -> Optional[_builtins.str]:
-        """
-        The database user name.
-        """
         return pulumi.get(self, "db_user")
 
     @_builtins.property
     @pulumi.getter(name="secretsManagerArn")
     def secrets_manager_arn(self) -> Optional[_builtins.str]:
-        """
-        The name or ARN of the secret that enables access to the database.
-        """
         return pulumi.get(self, "secrets_manager_arn")
 
     @_builtins.property
     @pulumi.getter
     def sql(self) -> Optional[_builtins.str]:
-        """
-        The SQL statement text to run.
-        """
         return pulumi.get(self, "sql")
 
     @_builtins.property
     @pulumi.getter(name="statementName")
     def statement_name(self) -> Optional[_builtins.str]:
-        """
-        The name of the SQL statement.
-        """
         return pulumi.get(self, "statement_name")
 
     @_builtins.property
     @pulumi.getter(name="withEvent")
     def with_event(self) -> Optional[_builtins.bool]:
-        """
-        Indicates whether to send an event back to EventBridge after the SQL statement runs.
-        """
         return pulumi.get(self, "with_event")
 
 
@@ -2067,10 +1595,6 @@ class EventTargetRetryPolicy(dict):
     def __init__(__self__, *,
                  maximum_event_age_in_seconds: Optional[_builtins.int] = None,
                  maximum_retry_attempts: Optional[_builtins.int] = None):
-        """
-        :param _builtins.int maximum_event_age_in_seconds: The age in seconds to continue to make retry attempts.
-        :param _builtins.int maximum_retry_attempts: maximum number of retry attempts to make before the request fails
-        """
         if maximum_event_age_in_seconds is not None:
             pulumi.set(__self__, "maximum_event_age_in_seconds", maximum_event_age_in_seconds)
         if maximum_retry_attempts is not None:
@@ -2079,17 +1603,11 @@ class EventTargetRetryPolicy(dict):
     @_builtins.property
     @pulumi.getter(name="maximumEventAgeInSeconds")
     def maximum_event_age_in_seconds(self) -> Optional[_builtins.int]:
-        """
-        The age in seconds to continue to make retry attempts.
-        """
         return pulumi.get(self, "maximum_event_age_in_seconds")
 
     @_builtins.property
     @pulumi.getter(name="maximumRetryAttempts")
     def maximum_retry_attempts(self) -> Optional[_builtins.int]:
-        """
-        maximum number of retry attempts to make before the request fails
-        """
         return pulumi.get(self, "maximum_retry_attempts")
 
 
@@ -2098,27 +1616,17 @@ class EventTargetRunCommandTarget(dict):
     def __init__(__self__, *,
                  key: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str key: Can be either `tag:tag-key` or `InstanceIds`.
-        :param Sequence[_builtins.str] values: If Key is `tag:tag-key`, Values is a list of tag values. If Key is `InstanceIds`, Values is a list of Amazon EC2 instance IDs.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
-        """
-        Can be either `tag:tag-key` or `InstanceIds`.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        If Key is `tag:tag-key`, Values is a list of tag values. If Key is `InstanceIds`, Values is a list of Amazon EC2 instance IDs.
-        """
         return pulumi.get(self, "values")
 
 
@@ -2143,18 +1651,12 @@ class EventTargetSagemakerPipelineTarget(dict):
 
     def __init__(__self__, *,
                  pipeline_parameter_lists: Optional[Sequence['outputs.EventTargetSagemakerPipelineTargetPipelineParameterList']] = None):
-        """
-        :param Sequence['EventTargetSagemakerPipelineTargetPipelineParameterListArgs'] pipeline_parameter_lists: List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
-        """
         if pipeline_parameter_lists is not None:
             pulumi.set(__self__, "pipeline_parameter_lists", pipeline_parameter_lists)
 
     @_builtins.property
     @pulumi.getter(name="pipelineParameterLists")
     def pipeline_parameter_lists(self) -> Optional[Sequence['outputs.EventTargetSagemakerPipelineTargetPipelineParameterList']]:
-        """
-        List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
-        """
         return pulumi.get(self, "pipeline_parameter_lists")
 
 
@@ -2163,27 +1665,17 @@ class EventTargetSagemakerPipelineTargetPipelineParameterList(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  value: _builtins.str):
-        """
-        :param _builtins.str name: Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
-        :param _builtins.str value: Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
-        """
         return pulumi.get(self, "value")
 
 
@@ -2208,18 +1700,12 @@ class EventTargetSqsTarget(dict):
 
     def __init__(__self__, *,
                  message_group_id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str message_group_id: The FIFO message group ID to use as the target.
-        """
         if message_group_id is not None:
             pulumi.set(__self__, "message_group_id", message_group_id)
 
     @_builtins.property
     @pulumi.getter(name="messageGroupId")
     def message_group_id(self) -> Optional[_builtins.str]:
-        """
-        The FIFO message group ID to use as the target.
-        """
         return pulumi.get(self, "message_group_id")
 
 
@@ -2247,10 +1733,6 @@ class InternetMonitorHealthEventsConfig(dict):
     def __init__(__self__, *,
                  availability_score_threshold: Optional[_builtins.float] = None,
                  performance_score_threshold: Optional[_builtins.float] = None):
-        """
-        :param _builtins.float availability_score_threshold: The health event threshold percentage set for availability scores.
-        :param _builtins.float performance_score_threshold: The health event threshold percentage set for performance scores.
-        """
         if availability_score_threshold is not None:
             pulumi.set(__self__, "availability_score_threshold", availability_score_threshold)
         if performance_score_threshold is not None:
@@ -2259,17 +1741,11 @@ class InternetMonitorHealthEventsConfig(dict):
     @_builtins.property
     @pulumi.getter(name="availabilityScoreThreshold")
     def availability_score_threshold(self) -> Optional[_builtins.float]:
-        """
-        The health event threshold percentage set for availability scores.
-        """
         return pulumi.get(self, "availability_score_threshold")
 
     @_builtins.property
     @pulumi.getter(name="performanceScoreThreshold")
     def performance_score_threshold(self) -> Optional[_builtins.float]:
-        """
-        The health event threshold percentage set for performance scores.
-        """
         return pulumi.get(self, "performance_score_threshold")
 
 
@@ -2373,18 +1849,12 @@ class LogDeliveryDestinationDeliveryDestinationConfiguration(dict):
 
     def __init__(__self__, *,
                  destination_resource_arn: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str destination_resource_arn: The ARN of the AWS destination that this delivery destination represents. Required when `delivery_destination_configuration` is specified.
-        """
         if destination_resource_arn is not None:
             pulumi.set(__self__, "destination_resource_arn", destination_resource_arn)
 
     @_builtins.property
     @pulumi.getter(name="destinationResourceArn")
     def destination_resource_arn(self) -> Optional[_builtins.str]:
-        """
-        The ARN of the AWS destination that this delivery destination represents. Required when `delivery_destination_configuration` is specified.
-        """
         return pulumi.get(self, "destination_resource_arn")
 
 
@@ -2412,27 +1882,17 @@ class LogDeliveryS3DeliveryConfiguration(dict):
     def __init__(__self__, *,
                  enable_hive_compatible_path: _builtins.bool,
                  suffix_path: _builtins.str):
-        """
-        :param _builtins.bool enable_hive_compatible_path: This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
-        :param _builtins.str suffix_path: This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
-        """
         pulumi.set(__self__, "enable_hive_compatible_path", enable_hive_compatible_path)
         pulumi.set(__self__, "suffix_path", suffix_path)
 
     @_builtins.property
     @pulumi.getter(name="enableHiveCompatiblePath")
     def enable_hive_compatible_path(self) -> _builtins.bool:
-        """
-        This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
-        """
         return pulumi.get(self, "enable_hive_compatible_path")
 
     @_builtins.property
     @pulumi.getter(name="suffixPath")
     def suffix_path(self) -> _builtins.str:
-        """
-        This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
-        """
         return pulumi.get(self, "suffix_path")
 
 
@@ -2462,14 +1922,6 @@ class LogMetricFilterMetricTransformation(dict):
                  default_value: Optional[_builtins.str] = None,
                  dimensions: Optional[Mapping[str, _builtins.str]] = None,
                  unit: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: The name of the CloudWatch metric to which the monitored log information should be published (e.g., `ErrorCount`)
-        :param _builtins.str namespace: The destination namespace of the CloudWatch metric.
-        :param _builtins.str value: What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
-        :param _builtins.str default_value: The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
-        :param Mapping[str, _builtins.str] dimensions: Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `default_value`.
-        :param _builtins.str unit: The unit to assign to the metric. If you omit this, the unit is set as `None`.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "namespace", namespace)
         pulumi.set(__self__, "value", value)
@@ -2483,49 +1935,31 @@ class LogMetricFilterMetricTransformation(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the CloudWatch metric to which the monitored log information should be published (e.g., `ErrorCount`)
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> _builtins.str:
-        """
-        The destination namespace of the CloudWatch metric.
-        """
         return pulumi.get(self, "namespace")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
-        """
         return pulumi.get(self, "value")
 
     @_builtins.property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[_builtins.str]:
-        """
-        The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
-        """
         return pulumi.get(self, "default_value")
 
     @_builtins.property
     @pulumi.getter
     def dimensions(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `default_value`.
-        """
         return pulumi.get(self, "dimensions")
 
     @_builtins.property
     @pulumi.getter
     def unit(self) -> Optional[_builtins.str]:
-        """
-        The unit to assign to the metric. If you omit this, the unit is set as `None`.
-        """
         return pulumi.get(self, "unit")
 
 
@@ -2612,31 +2046,6 @@ class LogTransformerTransformerConfig(dict):
                  trim_strings: Optional[Sequence['outputs.LogTransformerTransformerConfigTrimString']] = None,
                  type_converters: Optional[Sequence['outputs.LogTransformerTransformerConfigTypeConverter']] = None,
                  upper_case_strings: Optional[Sequence['outputs.LogTransformerTransformerConfigUpperCaseString']] = None):
-        """
-        :param 'LogTransformerTransformerConfigAddKeysArgs' add_keys: Adds new key-value pairs to the log event. See `add_keys` below for details.
-        :param 'LogTransformerTransformerConfigCopyValueArgs' copy_value: Copies values within a log event. See `copy_value` below for details.
-        :param Sequence['LogTransformerTransformerConfigCsvArgs'] csvs: Parses comma-separated values (CSV) from the log events into columns. See `csv` below for details.
-        :param Sequence['LogTransformerTransformerConfigDateTimeConverterArgs'] date_time_converters: Converts a datetime string into a format that you specify. See `date_time_converter` below for details.
-        :param Sequence['LogTransformerTransformerConfigDeleteKeyArgs'] delete_keys: Deletes entry from a log event. See `delete_keys` below for details.
-        :param 'LogTransformerTransformerConfigGrokArgs' grok: Parses and structures unstructured data by using pattern matching. See `grok` below for details.
-        :param Sequence['LogTransformerTransformerConfigListToMapArgs'] list_to_maps: Converts list of objects that contain key fields into a map of target keys. See `list_to_map` below for details.
-        :param Sequence['LogTransformerTransformerConfigLowerCaseStringArgs'] lower_case_strings: Converts a string to lowercase. See `lower_case_string` below for details.
-        :param Sequence['LogTransformerTransformerConfigMoveKeyArgs'] move_keys: Moves a key from one field to another. See `move_keys` below for details.
-        :param 'LogTransformerTransformerConfigParseCloudfrontArgs' parse_cloudfront: Parses CloudFront vended logs, extracts fields, and converts them into JSON format. See `parse_cloudfront` below for details.
-        :param Sequence['LogTransformerTransformerConfigParseJsonArgs'] parse_jsons: Parses log events that are in JSON format. See `parse_json` below for details.
-        :param Sequence['LogTransformerTransformerConfigParseKeyValueArgs'] parse_key_values: Parses a specified field in the original log event into key-value pairs. See `parse_key_value` below for details.
-        :param 'LogTransformerTransformerConfigParsePostgresArgs' parse_postgres: Parses RDS for PostgreSQL vended logs, extracts fields, and and convert them into a JSON format. See `parse_postgres` below for details.
-        :param 'LogTransformerTransformerConfigParseRoute53Args' parse_route53: Parses Route 53 vended logs, extracts fields, and converts them into JSON format. See `parse_route53` below for details.
-        :param 'LogTransformerTransformerConfigParseToOcsfArgs' parse_to_ocsf: Parses logs events and converts them into Open Cybersecurity Schema Framework (OCSF) events. See `parse_to_ocsf` below for details.
-        :param 'LogTransformerTransformerConfigParseVpcArgs' parse_vpc: Parses Amazon VPC vended logs, extracts fields, and converts them into JSON format. See `parse_vpc` below for details.
-        :param 'LogTransformerTransformerConfigParseWafArgs' parse_waf: Parses AWS WAF vended logs, extracts fields, and converts them into JSON format. See `parse_waf` below for details.
-        :param Sequence['LogTransformerTransformerConfigRenameKeyArgs'] rename_keys: Renames keys in a log event. See `rename_keys` below for details.
-        :param Sequence['LogTransformerTransformerConfigSplitStringArgs'] split_strings: Splits a field into an array of strings using a delimiting character. See `split_string` below for details.
-        :param Sequence['LogTransformerTransformerConfigSubstituteStringArgs'] substitute_strings: Matches a key’s value against a regular expression and replaces all matches with a replacement string. See `substitute_string` below for details.
-        :param Sequence['LogTransformerTransformerConfigTrimStringArgs'] trim_strings: Removes leading and trailing whitespace from a string. See `trim_string` below for details.
-        :param Sequence['LogTransformerTransformerConfigTypeConverterArgs'] type_converters: Converts a value type associated with the specified key to the specified type. See `type_converter` below for details.
-        :param Sequence['LogTransformerTransformerConfigUpperCaseStringArgs'] upper_case_strings: Converts a string to uppercase. See `upper_case_string` below for details.
-        """
         if add_keys is not None:
             pulumi.set(__self__, "add_keys", add_keys)
         if copy_value is not None:
@@ -2687,185 +2096,116 @@ class LogTransformerTransformerConfig(dict):
     @_builtins.property
     @pulumi.getter(name="addKeys")
     def add_keys(self) -> Optional['outputs.LogTransformerTransformerConfigAddKeys']:
-        """
-        Adds new key-value pairs to the log event. See `add_keys` below for details.
-        """
         return pulumi.get(self, "add_keys")
 
     @_builtins.property
     @pulumi.getter(name="copyValue")
     def copy_value(self) -> Optional['outputs.LogTransformerTransformerConfigCopyValue']:
-        """
-        Copies values within a log event. See `copy_value` below for details.
-        """
         return pulumi.get(self, "copy_value")
 
     @_builtins.property
     @pulumi.getter
     def csvs(self) -> Optional[Sequence['outputs.LogTransformerTransformerConfigCsv']]:
-        """
-        Parses comma-separated values (CSV) from the log events into columns. See `csv` below for details.
-        """
         return pulumi.get(self, "csvs")
 
     @_builtins.property
     @pulumi.getter(name="dateTimeConverters")
     def date_time_converters(self) -> Optional[Sequence['outputs.LogTransformerTransformerConfigDateTimeConverter']]:
-        """
-        Converts a datetime string into a format that you specify. See `date_time_converter` below for details.
-        """
         return pulumi.get(self, "date_time_converters")
 
     @_builtins.property
     @pulumi.getter(name="deleteKeys")
     def delete_keys(self) -> Optional[Sequence['outputs.LogTransformerTransformerConfigDeleteKey']]:
-        """
-        Deletes entry from a log event. See `delete_keys` below for details.
-        """
         return pulumi.get(self, "delete_keys")
 
     @_builtins.property
     @pulumi.getter
     def grok(self) -> Optional['outputs.LogTransformerTransformerConfigGrok']:
-        """
-        Parses and structures unstructured data by using pattern matching. See `grok` below for details.
-        """
         return pulumi.get(self, "grok")
 
     @_builtins.property
     @pulumi.getter(name="listToMaps")
     def list_to_maps(self) -> Optional[Sequence['outputs.LogTransformerTransformerConfigListToMap']]:
-        """
-        Converts list of objects that contain key fields into a map of target keys. See `list_to_map` below for details.
-        """
         return pulumi.get(self, "list_to_maps")
 
     @_builtins.property
     @pulumi.getter(name="lowerCaseStrings")
     def lower_case_strings(self) -> Optional[Sequence['outputs.LogTransformerTransformerConfigLowerCaseString']]:
-        """
-        Converts a string to lowercase. See `lower_case_string` below for details.
-        """
         return pulumi.get(self, "lower_case_strings")
 
     @_builtins.property
     @pulumi.getter(name="moveKeys")
     def move_keys(self) -> Optional[Sequence['outputs.LogTransformerTransformerConfigMoveKey']]:
-        """
-        Moves a key from one field to another. See `move_keys` below for details.
-        """
         return pulumi.get(self, "move_keys")
 
     @_builtins.property
     @pulumi.getter(name="parseCloudfront")
     def parse_cloudfront(self) -> Optional['outputs.LogTransformerTransformerConfigParseCloudfront']:
-        """
-        Parses CloudFront vended logs, extracts fields, and converts them into JSON format. See `parse_cloudfront` below for details.
-        """
         return pulumi.get(self, "parse_cloudfront")
 
     @_builtins.property
     @pulumi.getter(name="parseJsons")
     def parse_jsons(self) -> Optional[Sequence['outputs.LogTransformerTransformerConfigParseJson']]:
-        """
-        Parses log events that are in JSON format. See `parse_json` below for details.
-        """
         return pulumi.get(self, "parse_jsons")
 
     @_builtins.property
     @pulumi.getter(name="parseKeyValues")
     def parse_key_values(self) -> Optional[Sequence['outputs.LogTransformerTransformerConfigParseKeyValue']]:
-        """
-        Parses a specified field in the original log event into key-value pairs. See `parse_key_value` below for details.
-        """
         return pulumi.get(self, "parse_key_values")
 
     @_builtins.property
     @pulumi.getter(name="parsePostgres")
     def parse_postgres(self) -> Optional['outputs.LogTransformerTransformerConfigParsePostgres']:
-        """
-        Parses RDS for PostgreSQL vended logs, extracts fields, and and convert them into a JSON format. See `parse_postgres` below for details.
-        """
         return pulumi.get(self, "parse_postgres")
 
     @_builtins.property
     @pulumi.getter(name="parseRoute53")
     def parse_route53(self) -> Optional['outputs.LogTransformerTransformerConfigParseRoute53']:
-        """
-        Parses Route 53 vended logs, extracts fields, and converts them into JSON format. See `parse_route53` below for details.
-        """
         return pulumi.get(self, "parse_route53")
 
     @_builtins.property
     @pulumi.getter(name="parseToOcsf")
     def parse_to_ocsf(self) -> Optional['outputs.LogTransformerTransformerConfigParseToOcsf']:
-        """
-        Parses logs events and converts them into Open Cybersecurity Schema Framework (OCSF) events. See `parse_to_ocsf` below for details.
-        """
         return pulumi.get(self, "parse_to_ocsf")
 
     @_builtins.property
     @pulumi.getter(name="parseVpc")
     def parse_vpc(self) -> Optional['outputs.LogTransformerTransformerConfigParseVpc']:
-        """
-        Parses Amazon VPC vended logs, extracts fields, and converts them into JSON format. See `parse_vpc` below for details.
-        """
         return pulumi.get(self, "parse_vpc")
 
     @_builtins.property
     @pulumi.getter(name="parseWaf")
     def parse_waf(self) -> Optional['outputs.LogTransformerTransformerConfigParseWaf']:
-        """
-        Parses AWS WAF vended logs, extracts fields, and converts them into JSON format. See `parse_waf` below for details.
-        """
         return pulumi.get(self, "parse_waf")
 
     @_builtins.property
     @pulumi.getter(name="renameKeys")
     def rename_keys(self) -> Optional[Sequence['outputs.LogTransformerTransformerConfigRenameKey']]:
-        """
-        Renames keys in a log event. See `rename_keys` below for details.
-        """
         return pulumi.get(self, "rename_keys")
 
     @_builtins.property
     @pulumi.getter(name="splitStrings")
     def split_strings(self) -> Optional[Sequence['outputs.LogTransformerTransformerConfigSplitString']]:
-        """
-        Splits a field into an array of strings using a delimiting character. See `split_string` below for details.
-        """
         return pulumi.get(self, "split_strings")
 
     @_builtins.property
     @pulumi.getter(name="substituteStrings")
     def substitute_strings(self) -> Optional[Sequence['outputs.LogTransformerTransformerConfigSubstituteString']]:
-        """
-        Matches a key’s value against a regular expression and replaces all matches with a replacement string. See `substitute_string` below for details.
-        """
         return pulumi.get(self, "substitute_strings")
 
     @_builtins.property
     @pulumi.getter(name="trimStrings")
     def trim_strings(self) -> Optional[Sequence['outputs.LogTransformerTransformerConfigTrimString']]:
-        """
-        Removes leading and trailing whitespace from a string. See `trim_string` below for details.
-        """
         return pulumi.get(self, "trim_strings")
 
     @_builtins.property
     @pulumi.getter(name="typeConverters")
     def type_converters(self) -> Optional[Sequence['outputs.LogTransformerTransformerConfigTypeConverter']]:
-        """
-        Converts a value type associated with the specified key to the specified type. See `type_converter` below for details.
-        """
         return pulumi.get(self, "type_converters")
 
     @_builtins.property
     @pulumi.getter(name="upperCaseStrings")
     def upper_case_strings(self) -> Optional[Sequence['outputs.LogTransformerTransformerConfigUpperCaseString']]:
-        """
-        Converts a string to uppercase. See `upper_case_string` below for details.
-        """
         return pulumi.get(self, "upper_case_strings")
 
 
@@ -2873,17 +2213,11 @@ class LogTransformerTransformerConfig(dict):
 class LogTransformerTransformerConfigAddKeys(dict):
     def __init__(__self__, *,
                  entries: Sequence['outputs.LogTransformerTransformerConfigAddKeysEntry']):
-        """
-        :param Sequence['LogTransformerTransformerConfigAddKeysEntryArgs'] entries: Objects containing the information about the keys to add to the log event. You must include at least one entry, and five at most. See `add_keys` `entry` below for details.
-        """
         pulumi.set(__self__, "entries", entries)
 
     @_builtins.property
     @pulumi.getter
     def entries(self) -> Sequence['outputs.LogTransformerTransformerConfigAddKeysEntry']:
-        """
-        Objects containing the information about the keys to add to the log event. You must include at least one entry, and five at most. See `add_keys` `entry` below for details.
-        """
         return pulumi.get(self, "entries")
 
 
@@ -2910,12 +2244,6 @@ class LogTransformerTransformerConfigAddKeysEntry(dict):
                  key: _builtins.str,
                  value: _builtins.str,
                  overwrite_if_exists: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str key: Specifies the key with the value that will be converted to a different type.
-        :param _builtins.str value: Specifies the value of the new entry to be added to the log event.
-        :param _builtins.bool overwrite_if_exists: Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-               * `renameTo` - (Required) Specifies the new name of the key.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if overwrite_if_exists is not None:
@@ -2924,26 +2252,16 @@ class LogTransformerTransformerConfigAddKeysEntry(dict):
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
-        """
-        Specifies the key with the value that will be converted to a different type.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        Specifies the value of the new entry to be added to the log event.
-        """
         return pulumi.get(self, "value")
 
     @_builtins.property
     @pulumi.getter(name="overwriteIfExists")
     def overwrite_if_exists(self) -> Optional[_builtins.bool]:
-        """
-        Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-        * `renameTo` - (Required) Specifies the new name of the key.
-        """
         return pulumi.get(self, "overwrite_if_exists")
 
 
@@ -2951,17 +2269,11 @@ class LogTransformerTransformerConfigAddKeysEntry(dict):
 class LogTransformerTransformerConfigCopyValue(dict):
     def __init__(__self__, *,
                  entries: Sequence['outputs.LogTransformerTransformerConfigCopyValueEntry']):
-        """
-        :param Sequence['LogTransformerTransformerConfigCopyValueEntryArgs'] entries: Objects containing the information about the values to copy to the log event. You must include at least one entry, and five at most. See `copy_value` `entry` below for details.
-        """
         pulumi.set(__self__, "entries", entries)
 
     @_builtins.property
     @pulumi.getter
     def entries(self) -> Sequence['outputs.LogTransformerTransformerConfigCopyValueEntry']:
-        """
-        Objects containing the information about the values to copy to the log event. You must include at least one entry, and five at most. See `copy_value` `entry` below for details.
-        """
         return pulumi.get(self, "entries")
 
 
@@ -2988,12 +2300,6 @@ class LogTransformerTransformerConfigCopyValueEntry(dict):
                  source: _builtins.str,
                  target: _builtins.str,
                  overwrite_if_exists: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str source: Specifies the key to modify.
-        :param _builtins.str target: Specifies the key to move to.
-        :param _builtins.bool overwrite_if_exists: Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-               * `renameTo` - (Required) Specifies the new name of the key.
-        """
         pulumi.set(__self__, "source", source)
         pulumi.set(__self__, "target", target)
         if overwrite_if_exists is not None:
@@ -3002,26 +2308,16 @@ class LogTransformerTransformerConfigCopyValueEntry(dict):
     @_builtins.property
     @pulumi.getter
     def source(self) -> _builtins.str:
-        """
-        Specifies the key to modify.
-        """
         return pulumi.get(self, "source")
 
     @_builtins.property
     @pulumi.getter
     def target(self) -> _builtins.str:
-        """
-        Specifies the key to move to.
-        """
         return pulumi.get(self, "target")
 
     @_builtins.property
     @pulumi.getter(name="overwriteIfExists")
     def overwrite_if_exists(self) -> Optional[_builtins.bool]:
-        """
-        Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-        * `renameTo` - (Required) Specifies the new name of the key.
-        """
         return pulumi.get(self, "overwrite_if_exists")
 
 
@@ -3049,12 +2345,6 @@ class LogTransformerTransformerConfigCsv(dict):
                  delimiter: Optional[_builtins.str] = None,
                  quote_character: Optional[_builtins.str] = None,
                  source: Optional[_builtins.str] = None):
-        """
-        :param Sequence[_builtins.str] columns: Specifies the names to use for the columns in the transformed log event. If not specified, default column names (`[column_1, column_2 ...]`) are used.
-        :param _builtins.str delimiter: Specifies the character used to separate each column in the original comma-separated value log event. Defaults to the comma `,` character.
-        :param _builtins.str quote_character: Specifies the character used as a text qualifier for a single column of data. Defaults to the double quotation mark `"` character.
-        :param _builtins.str source: Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
-        """
         if columns is not None:
             pulumi.set(__self__, "columns", columns)
         if delimiter is not None:
@@ -3067,33 +2357,21 @@ class LogTransformerTransformerConfigCsv(dict):
     @_builtins.property
     @pulumi.getter
     def columns(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Specifies the names to use for the columns in the transformed log event. If not specified, default column names (`[column_1, column_2 ...]`) are used.
-        """
         return pulumi.get(self, "columns")
 
     @_builtins.property
     @pulumi.getter
     def delimiter(self) -> Optional[_builtins.str]:
-        """
-        Specifies the character used to separate each column in the original comma-separated value log event. Defaults to the comma `,` character.
-        """
         return pulumi.get(self, "delimiter")
 
     @_builtins.property
     @pulumi.getter(name="quoteCharacter")
     def quote_character(self) -> Optional[_builtins.str]:
-        """
-        Specifies the character used as a text qualifier for a single column of data. Defaults to the double quotation mark `"` character.
-        """
         return pulumi.get(self, "quote_character")
 
     @_builtins.property
     @pulumi.getter
     def source(self) -> Optional[_builtins.str]:
-        """
-        Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
-        """
         return pulumi.get(self, "source")
 
 
@@ -3130,15 +2408,6 @@ class LogTransformerTransformerConfigDateTimeConverter(dict):
                  source_timezone: Optional[_builtins.str] = None,
                  target_format: Optional[_builtins.str] = None,
                  target_timezone: Optional[_builtins.str] = None):
-        """
-        :param Sequence[_builtins.str] match_patterns: Specifies the list of patterns to match against the `source` field.
-        :param _builtins.str source: Specifies the key to apply the date conversion to.
-        :param _builtins.str target: Specifies the JSON field to store the result in.
-        :param _builtins.str locale: Specifies the locale of the source field. Defaults to `locale.ROOT`.
-        :param _builtins.str source_timezone: Specifies the time zone of the source field. Defaults to `UTC`.
-        :param _builtins.str target_format: Specifies the datetime format to use for the converted data in the target field. Defaults to `yyyy-MM-dd'T'HH:mm:ss.SSS'Z`.
-        :param _builtins.str target_timezone: Specifies the time zone of the target field. Defaults to `UTC`.
-        """
         pulumi.set(__self__, "match_patterns", match_patterns)
         pulumi.set(__self__, "source", source)
         pulumi.set(__self__, "target", target)
@@ -3154,57 +2423,36 @@ class LogTransformerTransformerConfigDateTimeConverter(dict):
     @_builtins.property
     @pulumi.getter(name="matchPatterns")
     def match_patterns(self) -> Sequence[_builtins.str]:
-        """
-        Specifies the list of patterns to match against the `source` field.
-        """
         return pulumi.get(self, "match_patterns")
 
     @_builtins.property
     @pulumi.getter
     def source(self) -> _builtins.str:
-        """
-        Specifies the key to apply the date conversion to.
-        """
         return pulumi.get(self, "source")
 
     @_builtins.property
     @pulumi.getter
     def target(self) -> _builtins.str:
-        """
-        Specifies the JSON field to store the result in.
-        """
         return pulumi.get(self, "target")
 
     @_builtins.property
     @pulumi.getter
     def locale(self) -> Optional[_builtins.str]:
-        """
-        Specifies the locale of the source field. Defaults to `locale.ROOT`.
-        """
         return pulumi.get(self, "locale")
 
     @_builtins.property
     @pulumi.getter(name="sourceTimezone")
     def source_timezone(self) -> Optional[_builtins.str]:
-        """
-        Specifies the time zone of the source field. Defaults to `UTC`.
-        """
         return pulumi.get(self, "source_timezone")
 
     @_builtins.property
     @pulumi.getter(name="targetFormat")
     def target_format(self) -> Optional[_builtins.str]:
-        """
-        Specifies the datetime format to use for the converted data in the target field. Defaults to `yyyy-MM-dd'T'HH:mm:ss.SSS'Z`.
-        """
         return pulumi.get(self, "target_format")
 
     @_builtins.property
     @pulumi.getter(name="targetTimezone")
     def target_timezone(self) -> Optional[_builtins.str]:
-        """
-        Specifies the time zone of the target field. Defaults to `UTC`.
-        """
         return pulumi.get(self, "target_timezone")
 
 
@@ -3229,17 +2477,11 @@ class LogTransformerTransformerConfigDeleteKey(dict):
 
     def __init__(__self__, *,
                  with_keys: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] with_keys: Specifies the keys to be deleted.
-        """
         pulumi.set(__self__, "with_keys", with_keys)
 
     @_builtins.property
     @pulumi.getter(name="withKeys")
     def with_keys(self) -> Sequence[_builtins.str]:
-        """
-        Specifies the keys to be deleted.
-        """
         return pulumi.get(self, "with_keys")
 
 
@@ -3248,10 +2490,6 @@ class LogTransformerTransformerConfigGrok(dict):
     def __init__(__self__, *,
                  match: _builtins.str,
                  source: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str match: Specifies the grok pattern to match against the log event.
-        :param _builtins.str source: Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
-        """
         pulumi.set(__self__, "match", match)
         if source is not None:
             pulumi.set(__self__, "source", source)
@@ -3259,17 +2497,11 @@ class LogTransformerTransformerConfigGrok(dict):
     @_builtins.property
     @pulumi.getter
     def match(self) -> _builtins.str:
-        """
-        Specifies the grok pattern to match against the log event.
-        """
         return pulumi.get(self, "match")
 
     @_builtins.property
     @pulumi.getter
     def source(self) -> Optional[_builtins.str]:
-        """
-        Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
-        """
         return pulumi.get(self, "source")
 
 
@@ -3301,14 +2533,6 @@ class LogTransformerTransformerConfigListToMap(dict):
                  flattened_element: Optional[_builtins.str] = None,
                  target: Optional[_builtins.str] = None,
                  value_key: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str key: Specifies the key of the field to be extracted as keys in the generated map.
-        :param _builtins.str source: Specifies the key in the log event that has a list of objects that will be converted to a map.
-        :param _builtins.bool flatten: Specifies whether the list will be flattened into single items. Defaults to `false`.
-        :param _builtins.str flattened_element: Required if `flatten` is set to true. Specifies the element to keep. Allowed values are `first` and `last`.
-        :param _builtins.str target: Specifies the key of the field that will hold the generated map.
-        :param _builtins.str value_key: Specifies the values that will be extracted from the source objects and put into the values of the generated map. If omitted, original objects in the source list will be put into the values of the generated map.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "source", source)
         if flatten is not None:
@@ -3323,49 +2547,31 @@ class LogTransformerTransformerConfigListToMap(dict):
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
-        """
-        Specifies the key of the field to be extracted as keys in the generated map.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def source(self) -> _builtins.str:
-        """
-        Specifies the key in the log event that has a list of objects that will be converted to a map.
-        """
         return pulumi.get(self, "source")
 
     @_builtins.property
     @pulumi.getter
     def flatten(self) -> Optional[_builtins.bool]:
-        """
-        Specifies whether the list will be flattened into single items. Defaults to `false`.
-        """
         return pulumi.get(self, "flatten")
 
     @_builtins.property
     @pulumi.getter(name="flattenedElement")
     def flattened_element(self) -> Optional[_builtins.str]:
-        """
-        Required if `flatten` is set to true. Specifies the element to keep. Allowed values are `first` and `last`.
-        """
         return pulumi.get(self, "flattened_element")
 
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[_builtins.str]:
-        """
-        Specifies the key of the field that will hold the generated map.
-        """
         return pulumi.get(self, "target")
 
     @_builtins.property
     @pulumi.getter(name="valueKey")
     def value_key(self) -> Optional[_builtins.str]:
-        """
-        Specifies the values that will be extracted from the source objects and put into the values of the generated map. If omitted, original objects in the source list will be put into the values of the generated map.
-        """
         return pulumi.get(self, "value_key")
 
 
@@ -3390,17 +2596,11 @@ class LogTransformerTransformerConfigLowerCaseString(dict):
 
     def __init__(__self__, *,
                  with_keys: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] with_keys: Specifies the keys of the fields to convert to lowercase.
-        """
         pulumi.set(__self__, "with_keys", with_keys)
 
     @_builtins.property
     @pulumi.getter(name="withKeys")
     def with_keys(self) -> Sequence[_builtins.str]:
-        """
-        Specifies the keys of the fields to convert to lowercase.
-        """
         return pulumi.get(self, "with_keys")
 
 
@@ -3408,17 +2608,11 @@ class LogTransformerTransformerConfigLowerCaseString(dict):
 class LogTransformerTransformerConfigMoveKey(dict):
     def __init__(__self__, *,
                  entries: Sequence['outputs.LogTransformerTransformerConfigMoveKeyEntry']):
-        """
-        :param Sequence['LogTransformerTransformerConfigMoveKeyEntryArgs'] entries: Objects containing the information about the keys to move to the log event. You must include at least one entry, and five at most. See `move_keys` `entry` below for details.
-        """
         pulumi.set(__self__, "entries", entries)
 
     @_builtins.property
     @pulumi.getter
     def entries(self) -> Sequence['outputs.LogTransformerTransformerConfigMoveKeyEntry']:
-        """
-        Objects containing the information about the keys to move to the log event. You must include at least one entry, and five at most. See `move_keys` `entry` below for details.
-        """
         return pulumi.get(self, "entries")
 
 
@@ -3445,12 +2639,6 @@ class LogTransformerTransformerConfigMoveKeyEntry(dict):
                  source: _builtins.str,
                  target: _builtins.str,
                  overwrite_if_exists: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str source: Specifies the key to modify.
-        :param _builtins.str target: Specifies the key to move to.
-        :param _builtins.bool overwrite_if_exists: Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-               * `renameTo` - (Required) Specifies the new name of the key.
-        """
         pulumi.set(__self__, "source", source)
         pulumi.set(__self__, "target", target)
         if overwrite_if_exists is not None:
@@ -3459,26 +2647,16 @@ class LogTransformerTransformerConfigMoveKeyEntry(dict):
     @_builtins.property
     @pulumi.getter
     def source(self) -> _builtins.str:
-        """
-        Specifies the key to modify.
-        """
         return pulumi.get(self, "source")
 
     @_builtins.property
     @pulumi.getter
     def target(self) -> _builtins.str:
-        """
-        Specifies the key to move to.
-        """
         return pulumi.get(self, "target")
 
     @_builtins.property
     @pulumi.getter(name="overwriteIfExists")
     def overwrite_if_exists(self) -> Optional[_builtins.bool]:
-        """
-        Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-        * `renameTo` - (Required) Specifies the new name of the key.
-        """
         return pulumi.get(self, "overwrite_if_exists")
 
 
@@ -3486,18 +2664,12 @@ class LogTransformerTransformerConfigMoveKeyEntry(dict):
 class LogTransformerTransformerConfigParseCloudfront(dict):
     def __init__(__self__, *,
                  source: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str source: Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
-        """
         if source is not None:
             pulumi.set(__self__, "source", source)
 
     @_builtins.property
     @pulumi.getter
     def source(self) -> Optional[_builtins.str]:
-        """
-        Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
-        """
         return pulumi.get(self, "source")
 
 
@@ -3506,10 +2678,6 @@ class LogTransformerTransformerConfigParseJson(dict):
     def __init__(__self__, *,
                  destination: Optional[_builtins.str] = None,
                  source: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str destination: Specifies the location to put the parsed key value pair into. If omitted, it will be placed under the root node.
-        :param _builtins.str source: Specifies the path to the field in the log event that will be parsed. Defaults to `@message`.
-        """
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
         if source is not None:
@@ -3518,17 +2686,11 @@ class LogTransformerTransformerConfigParseJson(dict):
     @_builtins.property
     @pulumi.getter
     def destination(self) -> Optional[_builtins.str]:
-        """
-        Specifies the location to put the parsed key value pair into. If omitted, it will be placed under the root node.
-        """
         return pulumi.get(self, "destination")
 
     @_builtins.property
     @pulumi.getter
     def source(self) -> Optional[_builtins.str]:
-        """
-        Specifies the path to the field in the log event that will be parsed. Defaults to `@message`.
-        """
         return pulumi.get(self, "source")
 
 
@@ -3567,15 +2729,6 @@ class LogTransformerTransformerConfigParseKeyValue(dict):
                  non_match_value: Optional[_builtins.str] = None,
                  overwrite_if_exists: Optional[_builtins.bool] = None,
                  source: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str destination: Specifies the destination field to put the extracted key-value pairs into.
-        :param _builtins.str field_delimiter: Specifies the field delimiter string that is used between key-value pairs in the original log events. Defaults to the ampersand `&` character.
-        :param _builtins.str key_prefix: Specifies a prefix that will be added to all transformed keys.
-        :param _builtins.str key_value_delimiter: Specifies the delimiter string to use between the key and value in each pair in the transformed log event. Defaults to the equal `=` character.
-        :param _builtins.str non_match_value: Specifies a value to insert into the value field in the result if a key-value pair is not successfully split.
-        :param _builtins.bool overwrite_if_exists: Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-        :param _builtins.str source: Specifies the path to the field in the log event that will be parsed. Defaults to `@message`.
-        """
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
         if field_delimiter is not None:
@@ -3594,57 +2747,36 @@ class LogTransformerTransformerConfigParseKeyValue(dict):
     @_builtins.property
     @pulumi.getter
     def destination(self) -> Optional[_builtins.str]:
-        """
-        Specifies the destination field to put the extracted key-value pairs into.
-        """
         return pulumi.get(self, "destination")
 
     @_builtins.property
     @pulumi.getter(name="fieldDelimiter")
     def field_delimiter(self) -> Optional[_builtins.str]:
-        """
-        Specifies the field delimiter string that is used between key-value pairs in the original log events. Defaults to the ampersand `&` character.
-        """
         return pulumi.get(self, "field_delimiter")
 
     @_builtins.property
     @pulumi.getter(name="keyPrefix")
     def key_prefix(self) -> Optional[_builtins.str]:
-        """
-        Specifies a prefix that will be added to all transformed keys.
-        """
         return pulumi.get(self, "key_prefix")
 
     @_builtins.property
     @pulumi.getter(name="keyValueDelimiter")
     def key_value_delimiter(self) -> Optional[_builtins.str]:
-        """
-        Specifies the delimiter string to use between the key and value in each pair in the transformed log event. Defaults to the equal `=` character.
-        """
         return pulumi.get(self, "key_value_delimiter")
 
     @_builtins.property
     @pulumi.getter(name="nonMatchValue")
     def non_match_value(self) -> Optional[_builtins.str]:
-        """
-        Specifies a value to insert into the value field in the result if a key-value pair is not successfully split.
-        """
         return pulumi.get(self, "non_match_value")
 
     @_builtins.property
     @pulumi.getter(name="overwriteIfExists")
     def overwrite_if_exists(self) -> Optional[_builtins.bool]:
-        """
-        Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-        """
         return pulumi.get(self, "overwrite_if_exists")
 
     @_builtins.property
     @pulumi.getter
     def source(self) -> Optional[_builtins.str]:
-        """
-        Specifies the path to the field in the log event that will be parsed. Defaults to `@message`.
-        """
         return pulumi.get(self, "source")
 
 
@@ -3652,18 +2784,12 @@ class LogTransformerTransformerConfigParseKeyValue(dict):
 class LogTransformerTransformerConfigParsePostgres(dict):
     def __init__(__self__, *,
                  source: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str source: Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
-        """
         if source is not None:
             pulumi.set(__self__, "source", source)
 
     @_builtins.property
     @pulumi.getter
     def source(self) -> Optional[_builtins.str]:
-        """
-        Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
-        """
         return pulumi.get(self, "source")
 
 
@@ -3671,18 +2797,12 @@ class LogTransformerTransformerConfigParsePostgres(dict):
 class LogTransformerTransformerConfigParseRoute53(dict):
     def __init__(__self__, *,
                  source: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str source: Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
-        """
         if source is not None:
             pulumi.set(__self__, "source", source)
 
     @_builtins.property
     @pulumi.getter
     def source(self) -> Optional[_builtins.str]:
-        """
-        Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
-        """
         return pulumi.get(self, "source")
 
 
@@ -3711,10 +2831,6 @@ class LogTransformerTransformerConfigParseToOcsf(dict):
                  event_source: _builtins.str,
                  ocsf_version: _builtins.str,
                  source: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str ocsf_version: Specifies the version of the OCSF schema to use for the transformed log events. The only allowed value is `V1.1`.
-        :param _builtins.str source: Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
-        """
         pulumi.set(__self__, "event_source", event_source)
         pulumi.set(__self__, "ocsf_version", ocsf_version)
         if source is not None:
@@ -3728,17 +2844,11 @@ class LogTransformerTransformerConfigParseToOcsf(dict):
     @_builtins.property
     @pulumi.getter(name="ocsfVersion")
     def ocsf_version(self) -> _builtins.str:
-        """
-        Specifies the version of the OCSF schema to use for the transformed log events. The only allowed value is `V1.1`.
-        """
         return pulumi.get(self, "ocsf_version")
 
     @_builtins.property
     @pulumi.getter
     def source(self) -> Optional[_builtins.str]:
-        """
-        Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
-        """
         return pulumi.get(self, "source")
 
 
@@ -3746,18 +2856,12 @@ class LogTransformerTransformerConfigParseToOcsf(dict):
 class LogTransformerTransformerConfigParseVpc(dict):
     def __init__(__self__, *,
                  source: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str source: Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
-        """
         if source is not None:
             pulumi.set(__self__, "source", source)
 
     @_builtins.property
     @pulumi.getter
     def source(self) -> Optional[_builtins.str]:
-        """
-        Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
-        """
         return pulumi.get(self, "source")
 
 
@@ -3765,18 +2869,12 @@ class LogTransformerTransformerConfigParseVpc(dict):
 class LogTransformerTransformerConfigParseWaf(dict):
     def __init__(__self__, *,
                  source: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str source: Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
-        """
         if source is not None:
             pulumi.set(__self__, "source", source)
 
     @_builtins.property
     @pulumi.getter
     def source(self) -> Optional[_builtins.str]:
-        """
-        Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
-        """
         return pulumi.get(self, "source")
 
 
@@ -3784,17 +2882,11 @@ class LogTransformerTransformerConfigParseWaf(dict):
 class LogTransformerTransformerConfigRenameKey(dict):
     def __init__(__self__, *,
                  entries: Sequence['outputs.LogTransformerTransformerConfigRenameKeyEntry']):
-        """
-        :param Sequence['LogTransformerTransformerConfigRenameKeyEntryArgs'] entries: Objects containing the information about the keys to rename. You must include at least one entry, and five at most. See `rename_keys` `entry` below for details.
-        """
         pulumi.set(__self__, "entries", entries)
 
     @_builtins.property
     @pulumi.getter
     def entries(self) -> Sequence['outputs.LogTransformerTransformerConfigRenameKeyEntry']:
-        """
-        Objects containing the information about the keys to rename. You must include at least one entry, and five at most. See `rename_keys` `entry` below for details.
-        """
         return pulumi.get(self, "entries")
 
 
@@ -3823,11 +2915,6 @@ class LogTransformerTransformerConfigRenameKeyEntry(dict):
                  key: _builtins.str,
                  rename_to: _builtins.str,
                  overwrite_if_exists: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str key: Specifies the key with the value that will be converted to a different type.
-        :param _builtins.bool overwrite_if_exists: Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-               * `renameTo` - (Required) Specifies the new name of the key.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "rename_to", rename_to)
         if overwrite_if_exists is not None:
@@ -3836,9 +2923,6 @@ class LogTransformerTransformerConfigRenameKeyEntry(dict):
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
-        """
-        Specifies the key with the value that will be converted to a different type.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
@@ -3849,10 +2933,6 @@ class LogTransformerTransformerConfigRenameKeyEntry(dict):
     @_builtins.property
     @pulumi.getter(name="overwriteIfExists")
     def overwrite_if_exists(self) -> Optional[_builtins.bool]:
-        """
-        Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-        * `renameTo` - (Required) Specifies the new name of the key.
-        """
         return pulumi.get(self, "overwrite_if_exists")
 
 
@@ -3860,17 +2940,11 @@ class LogTransformerTransformerConfigRenameKeyEntry(dict):
 class LogTransformerTransformerConfigSplitString(dict):
     def __init__(__self__, *,
                  entries: Sequence['outputs.LogTransformerTransformerConfigSplitStringEntry']):
-        """
-        :param Sequence['LogTransformerTransformerConfigSplitStringEntryArgs'] entries: Objects containing the information about the fields to split. You must include at least one entry, and ten at most. See `split_string` `entry` below for details.
-        """
         pulumi.set(__self__, "entries", entries)
 
     @_builtins.property
     @pulumi.getter
     def entries(self) -> Sequence['outputs.LogTransformerTransformerConfigSplitStringEntry']:
-        """
-        Objects containing the information about the fields to split. You must include at least one entry, and ten at most. See `split_string` `entry` below for details.
-        """
         return pulumi.get(self, "entries")
 
 
@@ -3879,27 +2953,17 @@ class LogTransformerTransformerConfigSplitStringEntry(dict):
     def __init__(__self__, *,
                  delimiter: _builtins.str,
                  source: _builtins.str):
-        """
-        :param _builtins.str delimiter: Specifies the separator characters to split the string entry on.
-        :param _builtins.str source: Specifies the key to modify.
-        """
         pulumi.set(__self__, "delimiter", delimiter)
         pulumi.set(__self__, "source", source)
 
     @_builtins.property
     @pulumi.getter
     def delimiter(self) -> _builtins.str:
-        """
-        Specifies the separator characters to split the string entry on.
-        """
         return pulumi.get(self, "delimiter")
 
     @_builtins.property
     @pulumi.getter
     def source(self) -> _builtins.str:
-        """
-        Specifies the key to modify.
-        """
         return pulumi.get(self, "source")
 
 
@@ -3907,17 +2971,11 @@ class LogTransformerTransformerConfigSplitStringEntry(dict):
 class LogTransformerTransformerConfigSubstituteString(dict):
     def __init__(__self__, *,
                  entries: Sequence['outputs.LogTransformerTransformerConfigSubstituteStringEntry']):
-        """
-        :param Sequence['LogTransformerTransformerConfigSubstituteStringEntryArgs'] entries: Objects containing the information about the fields to substitute. You must include at least one entry, and ten at most. See `substitute_string` `entry` below for details.
-        """
         pulumi.set(__self__, "entries", entries)
 
     @_builtins.property
     @pulumi.getter
     def entries(self) -> Sequence['outputs.LogTransformerTransformerConfigSubstituteStringEntry']:
-        """
-        Objects containing the information about the fields to substitute. You must include at least one entry, and ten at most. See `substitute_string` `entry` below for details.
-        """
         return pulumi.get(self, "entries")
 
 
@@ -3944,11 +3002,6 @@ class LogTransformerTransformerConfigSubstituteStringEntry(dict):
                  from_: _builtins.str,
                  source: _builtins.str,
                  to: _builtins.str):
-        """
-        :param _builtins.str from_: Specifies the regular expression string to be replaced.
-        :param _builtins.str source: Specifies the key to modify.
-        :param _builtins.str to: Specifies the string to be substituted for each match of `from`.
-        """
         pulumi.set(__self__, "from_", from_)
         pulumi.set(__self__, "source", source)
         pulumi.set(__self__, "to", to)
@@ -3956,25 +3009,16 @@ class LogTransformerTransformerConfigSubstituteStringEntry(dict):
     @_builtins.property
     @pulumi.getter(name="from")
     def from_(self) -> _builtins.str:
-        """
-        Specifies the regular expression string to be replaced.
-        """
         return pulumi.get(self, "from_")
 
     @_builtins.property
     @pulumi.getter
     def source(self) -> _builtins.str:
-        """
-        Specifies the key to modify.
-        """
         return pulumi.get(self, "source")
 
     @_builtins.property
     @pulumi.getter
     def to(self) -> _builtins.str:
-        """
-        Specifies the string to be substituted for each match of `from`.
-        """
         return pulumi.get(self, "to")
 
 
@@ -3999,17 +3043,11 @@ class LogTransformerTransformerConfigTrimString(dict):
 
     def __init__(__self__, *,
                  with_keys: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] with_keys: Specifies the keys of the fields to trim.
-        """
         pulumi.set(__self__, "with_keys", with_keys)
 
     @_builtins.property
     @pulumi.getter(name="withKeys")
     def with_keys(self) -> Sequence[_builtins.str]:
-        """
-        Specifies the keys of the fields to trim.
-        """
         return pulumi.get(self, "with_keys")
 
 
@@ -4017,17 +3055,11 @@ class LogTransformerTransformerConfigTrimString(dict):
 class LogTransformerTransformerConfigTypeConverter(dict):
     def __init__(__self__, *,
                  entries: Sequence['outputs.LogTransformerTransformerConfigTypeConverterEntry']):
-        """
-        :param Sequence['LogTransformerTransformerConfigTypeConverterEntryArgs'] entries: Objects containing the information about the fields to change the type of. You must include at least one entry, and five at most. See `type_converter` `entry` below for details.
-        """
         pulumi.set(__self__, "entries", entries)
 
     @_builtins.property
     @pulumi.getter
     def entries(self) -> Sequence['outputs.LogTransformerTransformerConfigTypeConverterEntry']:
-        """
-        Objects containing the information about the fields to change the type of. You must include at least one entry, and five at most. See `type_converter` `entry` below for details.
-        """
         return pulumi.get(self, "entries")
 
 
@@ -4036,27 +3068,17 @@ class LogTransformerTransformerConfigTypeConverterEntry(dict):
     def __init__(__self__, *,
                  key: _builtins.str,
                  type: _builtins.str):
-        """
-        :param _builtins.str key: Specifies the key with the value that will be converted to a different type.
-        :param _builtins.str type: Specifies the type to convert the field value to. Allowed values are: `integer`, `double`, `string` and `boolean`.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
-        """
-        Specifies the key with the value that will be converted to a different type.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Specifies the type to convert the field value to. Allowed values are: `integer`, `double`, `string` and `boolean`.
-        """
         return pulumi.get(self, "type")
 
 
@@ -4081,17 +3103,11 @@ class LogTransformerTransformerConfigUpperCaseString(dict):
 
     def __init__(__self__, *,
                  with_keys: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] with_keys: Specifies the keys of the fields to convert to uppercase.
-        """
         pulumi.set(__self__, "with_keys", with_keys)
 
     @_builtins.property
     @pulumi.getter(name="withKeys")
     def with_keys(self) -> Sequence[_builtins.str]:
-        """
-        Specifies the keys of the fields to convert to uppercase.
-        """
         return pulumi.get(self, "with_keys")
 
 
@@ -4124,21 +3140,6 @@ class MetricAlarmMetricQuery(dict):
                  metric: Optional['outputs.MetricAlarmMetricQueryMetric'] = None,
                  period: Optional[_builtins.int] = None,
                  return_data: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str id: A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
-        :param _builtins.str account_id: The ID of the account where the metrics are located, if this is a cross-account alarm.
-        :param _builtins.str expression: A Metrics Insights query or a metric math expression to be evaluated on the returned data.
-               For details about Metrics Insights queries, see [Metrics Insights query components and syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-metrics-insights-querylanguage) in the AWS documentation.
-               For details about metric math expressions, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the AWS documentation.
-        :param _builtins.str label: A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
-        :param 'MetricAlarmMetricQueryMetricArgs' metric: The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
-        :param _builtins.int period: Granularity in seconds of returned data points.
-               For metrics with regular resolution, valid values are any multiple of `60`.
-               For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
-        :param _builtins.bool return_data: Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
-               
-               > **NOTE:**  You must specify either `metric` or `expression`. Not both.
-        """
         pulumi.set(__self__, "id", id)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -4156,63 +3157,36 @@ class MetricAlarmMetricQuery(dict):
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[_builtins.str]:
-        """
-        The ID of the account where the metrics are located, if this is a cross-account alarm.
-        """
         return pulumi.get(self, "account_id")
 
     @_builtins.property
     @pulumi.getter
     def expression(self) -> Optional[_builtins.str]:
-        """
-        A Metrics Insights query or a metric math expression to be evaluated on the returned data.
-        For details about Metrics Insights queries, see [Metrics Insights query components and syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-metrics-insights-querylanguage) in the AWS documentation.
-        For details about metric math expressions, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the AWS documentation.
-        """
         return pulumi.get(self, "expression")
 
     @_builtins.property
     @pulumi.getter
     def label(self) -> Optional[_builtins.str]:
-        """
-        A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
-        """
         return pulumi.get(self, "label")
 
     @_builtins.property
     @pulumi.getter
     def metric(self) -> Optional['outputs.MetricAlarmMetricQueryMetric']:
-        """
-        The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
-        """
         return pulumi.get(self, "metric")
 
     @_builtins.property
     @pulumi.getter
     def period(self) -> Optional[_builtins.int]:
-        """
-        Granularity in seconds of returned data points.
-        For metrics with regular resolution, valid values are any multiple of `60`.
-        For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
-        """
         return pulumi.get(self, "period")
 
     @_builtins.property
     @pulumi.getter(name="returnData")
     def return_data(self) -> Optional[_builtins.bool]:
-        """
-        Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
-
-        > **NOTE:**  You must specify either `metric` or `expression`. Not both.
-        """
         return pulumi.get(self, "return_data")
 
 
@@ -4242,19 +3216,6 @@ class MetricAlarmMetricQueryMetric(dict):
                  dimensions: Optional[Mapping[str, _builtins.str]] = None,
                  namespace: Optional[_builtins.str] = None,
                  unit: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str metric_name: The name for this metric.
-               See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        :param _builtins.int period: Granularity in seconds of returned data points.
-               For metrics with regular resolution, valid values are any multiple of `60`.
-               For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
-        :param _builtins.str stat: The statistic to apply to this metric.
-               See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
-        :param Mapping[str, _builtins.str] dimensions: The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        :param _builtins.str namespace: The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
-               See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        :param _builtins.str unit: The unit for this metric.
-        """
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "period", period)
         pulumi.set(__self__, "stat", stat)
@@ -4268,54 +3229,31 @@ class MetricAlarmMetricQueryMetric(dict):
     @_builtins.property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> _builtins.str:
-        """
-        The name for this metric.
-        See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        """
         return pulumi.get(self, "metric_name")
 
     @_builtins.property
     @pulumi.getter
     def period(self) -> _builtins.int:
-        """
-        Granularity in seconds of returned data points.
-        For metrics with regular resolution, valid values are any multiple of `60`.
-        For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
-        """
         return pulumi.get(self, "period")
 
     @_builtins.property
     @pulumi.getter
     def stat(self) -> _builtins.str:
-        """
-        The statistic to apply to this metric.
-        See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
-        """
         return pulumi.get(self, "stat")
 
     @_builtins.property
     @pulumi.getter
     def dimensions(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        """
         return pulumi.get(self, "dimensions")
 
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> Optional[_builtins.str]:
-        """
-        The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
-        See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        """
         return pulumi.get(self, "namespace")
 
     @_builtins.property
     @pulumi.getter
     def unit(self) -> Optional[_builtins.str]:
-        """
-        The unit for this metric.
-        """
         return pulumi.get(self, "unit")
 
 
@@ -4341,10 +3279,6 @@ class MetricStreamExcludeFilter(dict):
     def __init__(__self__, *,
                  namespace: _builtins.str,
                  metric_names: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str namespace: Name of the metric namespace in the filter.
-        :param Sequence[_builtins.str] metric_names: An array that defines the metrics you want to exclude for this metric namespace
-        """
         pulumi.set(__self__, "namespace", namespace)
         if metric_names is not None:
             pulumi.set(__self__, "metric_names", metric_names)
@@ -4352,17 +3286,11 @@ class MetricStreamExcludeFilter(dict):
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> _builtins.str:
-        """
-        Name of the metric namespace in the filter.
-        """
         return pulumi.get(self, "namespace")
 
     @_builtins.property
     @pulumi.getter(name="metricNames")
     def metric_names(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        An array that defines the metrics you want to exclude for this metric namespace
-        """
         return pulumi.get(self, "metric_names")
 
 
@@ -4388,10 +3316,6 @@ class MetricStreamIncludeFilter(dict):
     def __init__(__self__, *,
                  namespace: _builtins.str,
                  metric_names: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str namespace: Name of the metric namespace in the filter.
-        :param Sequence[_builtins.str] metric_names: An array that defines the metrics you want to include for this metric namespace
-        """
         pulumi.set(__self__, "namespace", namespace)
         if metric_names is not None:
             pulumi.set(__self__, "metric_names", metric_names)
@@ -4399,17 +3323,11 @@ class MetricStreamIncludeFilter(dict):
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> _builtins.str:
-        """
-        Name of the metric namespace in the filter.
-        """
         return pulumi.get(self, "namespace")
 
     @_builtins.property
     @pulumi.getter(name="metricNames")
     def metric_names(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        An array that defines the metrics you want to include for this metric namespace
-        """
         return pulumi.get(self, "metric_names")
 
 
@@ -4437,27 +3355,17 @@ class MetricStreamStatisticsConfiguration(dict):
     def __init__(__self__, *,
                  additional_statistics: Sequence[_builtins.str],
                  include_metrics: Sequence['outputs.MetricStreamStatisticsConfigurationIncludeMetric']):
-        """
-        :param Sequence[_builtins.str] additional_statistics: The additional statistics to stream for the metrics listed in `include_metrics`.
-        :param Sequence['MetricStreamStatisticsConfigurationIncludeMetricArgs'] include_metrics: An array that defines the metrics that are to have additional statistics streamed. See details below.
-        """
         pulumi.set(__self__, "additional_statistics", additional_statistics)
         pulumi.set(__self__, "include_metrics", include_metrics)
 
     @_builtins.property
     @pulumi.getter(name="additionalStatistics")
     def additional_statistics(self) -> Sequence[_builtins.str]:
-        """
-        The additional statistics to stream for the metrics listed in `include_metrics`.
-        """
         return pulumi.get(self, "additional_statistics")
 
     @_builtins.property
     @pulumi.getter(name="includeMetrics")
     def include_metrics(self) -> Sequence['outputs.MetricStreamStatisticsConfigurationIncludeMetric']:
-        """
-        An array that defines the metrics that are to have additional statistics streamed. See details below.
-        """
         return pulumi.get(self, "include_metrics")
 
 
@@ -4483,18 +3391,12 @@ class MetricStreamStatisticsConfigurationIncludeMetric(dict):
     def __init__(__self__, *,
                  metric_name: _builtins.str,
                  namespace: _builtins.str):
-        """
-        :param _builtins.str metric_name: The name of the metric.
-        """
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "namespace", namespace)
 
     @_builtins.property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> _builtins.str:
-        """
-        The name of the metric.
-        """
         return pulumi.get(self, "metric_name")
 
     @_builtins.property
@@ -4509,11 +3411,6 @@ class GetContributorManagedInsightRulesManagedRuleResult(dict):
                  resource_arn: _builtins.str,
                  rule_states: Sequence['outputs.GetContributorManagedInsightRulesManagedRuleRuleStateResult'],
                  template_name: _builtins.str):
-        """
-        :param _builtins.str resource_arn: ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-        :param Sequence['GetContributorManagedInsightRulesManagedRuleRuleStateArgs'] rule_states: Describes the state of a managed rule. If the rule is enabled, it contains information about the Contributor Insights rule that contains information about the related Amazon Web Services resource. See `rule_state reference` below for details.
-        :param _builtins.str template_name: Template name for the managed rule. Used to enable managed rules using `PutManagedInsightRules`.
-        """
         pulumi.set(__self__, "resource_arn", resource_arn)
         pulumi.set(__self__, "rule_states", rule_states)
         pulumi.set(__self__, "template_name", template_name)
@@ -4521,25 +3418,16 @@ class GetContributorManagedInsightRulesManagedRuleResult(dict):
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> _builtins.str:
-        """
-        ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-        """
         return pulumi.get(self, "resource_arn")
 
     @_builtins.property
     @pulumi.getter(name="ruleStates")
     def rule_states(self) -> Sequence['outputs.GetContributorManagedInsightRulesManagedRuleRuleStateResult']:
-        """
-        Describes the state of a managed rule. If the rule is enabled, it contains information about the Contributor Insights rule that contains information about the related Amazon Web Services resource. See `rule_state reference` below for details.
-        """
         return pulumi.get(self, "rule_states")
 
     @_builtins.property
     @pulumi.getter(name="templateName")
     def template_name(self) -> _builtins.str:
-        """
-        Template name for the managed rule. Used to enable managed rules using `PutManagedInsightRules`.
-        """
         return pulumi.get(self, "template_name")
 
 
@@ -4548,27 +3436,17 @@ class GetContributorManagedInsightRulesManagedRuleRuleStateResult(dict):
     def __init__(__self__, *,
                  rule_name: _builtins.str,
                  state: _builtins.str):
-        """
-        :param _builtins.str rule_name: Name of the Contributor Insights rule that contains data for the specified Amazon Web Services resource.
-        :param _builtins.str state: Indicates whether the rule is enabled or disabled.
-        """
         pulumi.set(__self__, "rule_name", rule_name)
         pulumi.set(__self__, "state", state)
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> _builtins.str:
-        """
-        Name of the Contributor Insights rule that contains data for the specified Amazon Web Services resource.
-        """
         return pulumi.get(self, "rule_name")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> _builtins.str:
-        """
-        Indicates whether the rule is enabled or disabled.
-        """
         return pulumi.get(self, "state")
 
 
@@ -4576,17 +3454,11 @@ class GetContributorManagedInsightRulesManagedRuleRuleStateResult(dict):
 class GetEventBusDeadLetterConfigResult(dict):
     def __init__(__self__, *,
                  arn: _builtins.str):
-        """
-        :param _builtins.str arn: The ARN of the SQS queue specified as the target for the dead-letter queue.
-        """
         pulumi.set(__self__, "arn", arn)
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The ARN of the SQS queue specified as the target for the dead-letter queue.
-        """
         return pulumi.get(self, "arn")
 
 
@@ -4595,27 +3467,17 @@ class GetEventBusLogConfigResult(dict):
     def __init__(__self__, *,
                  include_detail: _builtins.str,
                  level: _builtins.str):
-        """
-        :param _builtins.str include_detail: Whether EventBridge include detailed event information in the records it generates.
-        :param _builtins.str level: Level of logging detail to include.
-        """
         pulumi.set(__self__, "include_detail", include_detail)
         pulumi.set(__self__, "level", level)
 
     @_builtins.property
     @pulumi.getter(name="includeDetail")
     def include_detail(self) -> _builtins.str:
-        """
-        Whether EventBridge include detailed event information in the records it generates.
-        """
         return pulumi.get(self, "include_detail")
 
     @_builtins.property
     @pulumi.getter
     def level(self) -> _builtins.str:
-        """
-        Level of logging detail to include.
-        """
         return pulumi.get(self, "level")
 
 
@@ -4628,14 +3490,6 @@ class GetEventBusesEventBusResult(dict):
                  last_modified_time: _builtins.str,
                  name: _builtins.str,
                  policy: _builtins.str):
-        """
-        :param _builtins.str arn: The ARN of the event bus.
-        :param _builtins.str creation_time: The time the event bus was created.
-        :param _builtins.str description: The event bus description.
-        :param _builtins.str last_modified_time: The time the event bus was last modified.
-        :param _builtins.str name: The name of the event bus.
-        :param _builtins.str policy: The permissions policy of the event bus, describing which other AWS accounts can write events to this event bus.
-        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "creation_time", creation_time)
         pulumi.set(__self__, "description", description)
@@ -4646,49 +3500,31 @@ class GetEventBusesEventBusResult(dict):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The ARN of the event bus.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> _builtins.str:
-        """
-        The time the event bus was created.
-        """
         return pulumi.get(self, "creation_time")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        The event bus description.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> _builtins.str:
-        """
-        The time the event bus was last modified.
-        """
         return pulumi.get(self, "last_modified_time")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the event bus.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def policy(self) -> _builtins.str:
-        """
-        The permissions policy of the event bus, describing which other AWS accounts can write events to this event bus.
-        """
         return pulumi.get(self, "policy")
 
 
@@ -4696,18 +3532,12 @@ class GetEventBusesEventBusResult(dict):
 class GetLogDataProtectionPolicyDocumentConfigurationResult(dict):
     def __init__(__self__, *,
                  custom_data_identifiers: Optional[Sequence['outputs.GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierResult']] = None):
-        """
-        :param Sequence['GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs'] custom_data_identifiers: Configures custom regular expressions to detect sensitive data. Read more in [Custom data identifiers](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL-custom-data-identifiers.html).
-        """
         if custom_data_identifiers is not None:
             pulumi.set(__self__, "custom_data_identifiers", custom_data_identifiers)
 
     @_builtins.property
     @pulumi.getter(name="customDataIdentifiers")
     def custom_data_identifiers(self) -> Optional[Sequence['outputs.GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierResult']]:
-        """
-        Configures custom regular expressions to detect sensitive data. Read more in [Custom data identifiers](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL-custom-data-identifiers.html).
-        """
         return pulumi.get(self, "custom_data_identifiers")
 
 
@@ -4716,27 +3546,17 @@ class GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierResult(
     def __init__(__self__, *,
                  name: _builtins.str,
                  regex: _builtins.str):
-        """
-        :param _builtins.str name: Name of the custom data idenfitier
-        :param _builtins.str regex: Regular expression to match sensitive data
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "regex", regex)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the custom data idenfitier
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def regex(self) -> _builtins.str:
-        """
-        Regular expression to match sensitive data
-        """
         return pulumi.get(self, "regex")
 
 
@@ -4746,11 +3566,6 @@ class GetLogDataProtectionPolicyDocumentStatementResult(dict):
                  data_identifiers: Sequence[_builtins.str],
                  operation: 'outputs.GetLogDataProtectionPolicyDocumentStatementOperationResult',
                  sid: Optional[_builtins.str] = None):
-        """
-        :param Sequence[_builtins.str] data_identifiers: Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
-        :param 'GetLogDataProtectionPolicyDocumentStatementOperationArgs' operation: Configures the data protection operation applied by this statement.
-        :param _builtins.str sid: Name of this statement.
-        """
         pulumi.set(__self__, "data_identifiers", data_identifiers)
         pulumi.set(__self__, "operation", operation)
         if sid is not None:
@@ -4759,25 +3574,16 @@ class GetLogDataProtectionPolicyDocumentStatementResult(dict):
     @_builtins.property
     @pulumi.getter(name="dataIdentifiers")
     def data_identifiers(self) -> Sequence[_builtins.str]:
-        """
-        Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
-        """
         return pulumi.get(self, "data_identifiers")
 
     @_builtins.property
     @pulumi.getter
     def operation(self) -> 'outputs.GetLogDataProtectionPolicyDocumentStatementOperationResult':
-        """
-        Configures the data protection operation applied by this statement.
-        """
         return pulumi.get(self, "operation")
 
     @_builtins.property
     @pulumi.getter
     def sid(self) -> Optional[_builtins.str]:
-        """
-        Name of this statement.
-        """
         return pulumi.get(self, "sid")
 
 
@@ -4786,12 +3592,6 @@ class GetLogDataProtectionPolicyDocumentStatementOperationResult(dict):
     def __init__(__self__, *,
                  audit: Optional['outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditResult'] = None,
                  deidentify: Optional['outputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyResult'] = None):
-        """
-        :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs' audit: Configures the detection of sensitive data.
-        :param 'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs' deidentify: Configures the masking of sensitive data.
-               
-               > Every policy statement must specify exactly one operation.
-        """
         if audit is not None:
             pulumi.set(__self__, "audit", audit)
         if deidentify is not None:
@@ -4800,19 +3600,11 @@ class GetLogDataProtectionPolicyDocumentStatementOperationResult(dict):
     @_builtins.property
     @pulumi.getter
     def audit(self) -> Optional['outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditResult']:
-        """
-        Configures the detection of sensitive data.
-        """
         return pulumi.get(self, "audit")
 
     @_builtins.property
     @pulumi.getter
     def deidentify(self) -> Optional['outputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyResult']:
-        """
-        Configures the masking of sensitive data.
-
-        > Every policy statement must specify exactly one operation.
-        """
         return pulumi.get(self, "deidentify")
 
 
@@ -4820,17 +3612,11 @@ class GetLogDataProtectionPolicyDocumentStatementOperationResult(dict):
 class GetLogDataProtectionPolicyDocumentStatementOperationAuditResult(dict):
     def __init__(__self__, *,
                  findings_destination: 'outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationResult'):
-        """
-        :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs' findings_destination: Configures destinations to send audit findings to.
-        """
         pulumi.set(__self__, "findings_destination", findings_destination)
 
     @_builtins.property
     @pulumi.getter(name="findingsDestination")
     def findings_destination(self) -> 'outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationResult':
-        """
-        Configures destinations to send audit findings to.
-        """
         return pulumi.get(self, "findings_destination")
 
 
@@ -4840,11 +3626,6 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
                  cloudwatch_logs: Optional['outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsResult'] = None,
                  firehose: Optional['outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseResult'] = None,
                  s3: Optional['outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Result'] = None):
-        """
-        :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs' cloudwatch_logs: Configures CloudWatch Logs as a findings destination.
-        :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs' firehose: Configures Kinesis Firehose as a findings destination.
-        :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args' s3: Configures S3 as a findings destination.
-        """
         if cloudwatch_logs is not None:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
         if firehose is not None:
@@ -4855,25 +3636,16 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogs")
     def cloudwatch_logs(self) -> Optional['outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsResult']:
-        """
-        Configures CloudWatch Logs as a findings destination.
-        """
         return pulumi.get(self, "cloudwatch_logs")
 
     @_builtins.property
     @pulumi.getter
     def firehose(self) -> Optional['outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseResult']:
-        """
-        Configures Kinesis Firehose as a findings destination.
-        """
         return pulumi.get(self, "firehose")
 
     @_builtins.property
     @pulumi.getter
     def s3(self) -> Optional['outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Result']:
-        """
-        Configures S3 as a findings destination.
-        """
         return pulumi.get(self, "s3")
 
 
@@ -4881,17 +3653,11 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
 class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsResult(dict):
     def __init__(__self__, *,
                  log_group: _builtins.str):
-        """
-        :param _builtins.str log_group: Name of the CloudWatch Log Group to send findings to.
-        """
         pulumi.set(__self__, "log_group", log_group)
 
     @_builtins.property
     @pulumi.getter(name="logGroup")
     def log_group(self) -> _builtins.str:
-        """
-        Name of the CloudWatch Log Group to send findings to.
-        """
         return pulumi.get(self, "log_group")
 
 
@@ -4899,17 +3665,11 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
 class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseResult(dict):
     def __init__(__self__, *,
                  delivery_stream: _builtins.str):
-        """
-        :param _builtins.str delivery_stream: Name of the Kinesis Firehose Delivery Stream to send findings to.
-        """
         pulumi.set(__self__, "delivery_stream", delivery_stream)
 
     @_builtins.property
     @pulumi.getter(name="deliveryStream")
     def delivery_stream(self) -> _builtins.str:
-        """
-        Name of the Kinesis Firehose Delivery Stream to send findings to.
-        """
         return pulumi.get(self, "delivery_stream")
 
 
@@ -4917,17 +3677,11 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
 class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Result(dict):
     def __init__(__self__, *,
                  bucket: _builtins.str):
-        """
-        :param _builtins.str bucket: Name of the S3 Bucket to send findings to.
-        """
         pulumi.set(__self__, "bucket", bucket)
 
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> _builtins.str:
-        """
-        Name of the S3 Bucket to send findings to.
-        """
         return pulumi.get(self, "bucket")
 
 
@@ -4935,17 +3689,11 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
 class GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyResult(dict):
     def __init__(__self__, *,
                  mask_config: 'outputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigResult'):
-        """
-        :param 'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs' mask_config: An empty object that configures masking.
-        """
         pulumi.set(__self__, "mask_config", mask_config)
 
     @_builtins.property
     @pulumi.getter(name="maskConfig")
     def mask_config(self) -> 'outputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigResult':
-        """
-        An empty object that configures masking.
-        """
         return pulumi.get(self, "mask_config")
 
 

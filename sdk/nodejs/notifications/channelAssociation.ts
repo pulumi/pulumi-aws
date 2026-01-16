@@ -4,39 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS User Notifications Channel Association. This resource associates a channel (such as an email contact) with a notification configuration.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.notifications.NotificationConfiguration("example", {
- *     name: "example-notification-config",
- *     description: "Example notification configuration",
- * });
- * const exampleContactsEmailContact = new aws.notifications.ContactsEmailContact("example", {
- *     name: "example-contact",
- *     emailAddress: "example@example.com",
- * });
- * const exampleChannelAssociation = new aws.notifications.ChannelAssociation("example", {
- *     arn: exampleContactsEmailContact.arn,
- *     notificationConfigurationArn: example.arn,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import User Notifications Channel Association using the `notification_configuration_arn,channel_arn` format. For example:
- *
- * ```sh
- * $ pulumi import aws:notifications/channelAssociation:ChannelAssociation example arn:aws:notifications:us-west-2:123456789012:configuration:example-notification-config,arn:aws:notificationscontacts:us-west-2:123456789012:emailcontact:example-contact
- * ```
- */
 export class ChannelAssociation extends pulumi.CustomResource {
     /**
      * Get an existing ChannelAssociation resource's state with the given name, ID, and optional extra
@@ -65,13 +32,7 @@ export class ChannelAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ChannelAssociation.__pulumiType;
     }
 
-    /**
-     * ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
-     */
     declare public readonly arn: pulumi.Output<string>;
-    /**
-     * ARN of the notification configuration to associate the channel with.
-     */
     declare public readonly notificationConfigurationArn: pulumi.Output<string>;
 
     /**
@@ -109,13 +70,7 @@ export class ChannelAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ChannelAssociation resources.
  */
 export interface ChannelAssociationState {
-    /**
-     * ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * ARN of the notification configuration to associate the channel with.
-     */
     notificationConfigurationArn?: pulumi.Input<string>;
 }
 
@@ -123,12 +78,6 @@ export interface ChannelAssociationState {
  * The set of arguments for constructing a ChannelAssociation resource.
  */
 export interface ChannelAssociationArgs {
-    /**
-     * ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
-     */
     arn: pulumi.Input<string>;
-    /**
-     * ARN of the notification configuration to associate the channel with.
-     */
     notificationConfigurationArn: pulumi.Input<string>;
 }

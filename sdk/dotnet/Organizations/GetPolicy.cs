@@ -11,27 +11,12 @@ namespace Pulumi.Aws.Organizations
 {
     public static class GetPolicy
     {
-        /// <summary>
-        /// Data source for managing an AWS Organizations Policy.
-        /// 
-        /// ## Example Usage
-        /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("aws:organizations/getPolicy:getPolicy", args ?? new GetPolicyArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Organizations Policy.
-        /// 
-        /// ## Example Usage
-        /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("aws:organizations/getPolicy:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Organizations Policy.
-        /// 
-        /// ## Example Usage
-        /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("aws:organizations/getPolicy:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
     }
@@ -39,9 +24,6 @@ namespace Pulumi.Aws.Organizations
 
     public sealed class GetPolicyArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The unique identifier (ID) of the policy that you want more details on. Policy id starts with a "p-" followed by 8-28 lowercase or uppercase letters, digits, and underscores.
-        /// </summary>
         [Input("policyId", required: true)]
         public string PolicyId { get; set; } = null!;
 
@@ -53,9 +35,6 @@ namespace Pulumi.Aws.Organizations
 
     public sealed class GetPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The unique identifier (ID) of the policy that you want more details on. Policy id starts with a "p-" followed by 8-28 lowercase or uppercase letters, digits, and underscores.
-        /// </summary>
         [Input("policyId", required: true)]
         public Input<string> PolicyId { get; set; } = null!;
 
@@ -69,34 +48,16 @@ namespace Pulumi.Aws.Organizations
     [OutputType]
     public sealed class GetPolicyResult
     {
-        /// <summary>
-        /// The Amazon Resource Name of the policy.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Indicates if a policy is an AWS managed policy.
-        /// </summary>
         public readonly bool AwsManaged;
-        /// <summary>
-        /// The text content of the policy.
-        /// </summary>
         public readonly string Content;
-        /// <summary>
-        /// The description of the policy.
-        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The friendly name of the policy.
-        /// </summary>
         public readonly string Name;
         public readonly string PolicyId;
-        /// <summary>
-        /// The type of policy values can be `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

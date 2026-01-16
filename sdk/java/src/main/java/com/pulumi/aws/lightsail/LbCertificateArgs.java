@@ -17,81 +17,37 @@ public final class LbCertificateArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final LbCertificateArgs Empty = new LbCertificateArgs();
 
-    /**
-     * Domain name (e.g., example.com) for your SSL/TLS certificate.
-     * 
-     */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
-    /**
-     * @return Domain name (e.g., example.com) for your SSL/TLS certificate.
-     * 
-     */
     public Optional<Output<String>> domainName() {
         return Optional.ofNullable(this.domainName);
     }
 
-    /**
-     * Load balancer name where you want to create the SSL/TLS certificate.
-     * 
-     */
     @Import(name="lbName", required=true)
     private Output<String> lbName;
 
-    /**
-     * @return Load balancer name where you want to create the SSL/TLS certificate.
-     * 
-     */
     public Output<String> lbName() {
         return this.lbName;
     }
 
-    /**
-     * SSL/TLS certificate name.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return SSL/TLS certificate name.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
-     * 
-     */
     @Import(name="subjectAlternativeNames")
     private @Nullable Output<List<String>> subjectAlternativeNames;
 
-    /**
-     * @return Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
-     * 
-     */
     public Optional<Output<List<String>>> subjectAlternativeNames() {
         return Optional.ofNullable(this.subjectAlternativeNames);
     }
@@ -124,121 +80,51 @@ public final class LbCertificateArgs extends com.pulumi.resources.ResourceArgs {
             $ = new LbCertificateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domainName Domain name (e.g., example.com) for your SSL/TLS certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(@Nullable Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName Domain name (e.g., example.com) for your SSL/TLS certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param lbName Load balancer name where you want to create the SSL/TLS certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbName(Output<String> lbName) {
             $.lbName = lbName;
             return this;
         }
 
-        /**
-         * @param lbName Load balancer name where you want to create the SSL/TLS certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbName(String lbName) {
             return lbName(Output.of(lbName));
         }
 
-        /**
-         * @param name SSL/TLS certificate name.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name SSL/TLS certificate name.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subjectAlternativeNames(@Nullable Output<List<String>> subjectAlternativeNames) {
             $.subjectAlternativeNames = subjectAlternativeNames;
             return this;
         }
 
-        /**
-         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subjectAlternativeNames(List<String> subjectAlternativeNames) {
             return subjectAlternativeNames(Output.of(subjectAlternativeNames));
         }
 
-        /**
-         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subjectAlternativeNames(String... subjectAlternativeNames) {
             return subjectAlternativeNames(List.of(subjectAlternativeNames));
         }

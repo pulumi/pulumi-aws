@@ -12,101 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Security Hub Automation Rule.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := securityhub.NewAutomationRule(ctx, "example", &securityhub.AutomationRuleArgs{
-//				Description: pulumi.String("Elevate finding severity to CRITICAL when specific resources such as an S3 bucket is at risk"),
-//				RuleName:    pulumi.String("Elevate severity of findings that relate to important resources"),
-//				RuleOrder:   pulumi.Int(1),
-//				Actions: securityhub.AutomationRuleActionArray{
-//					&securityhub.AutomationRuleActionArgs{
-//						FindingFieldsUpdate: &securityhub.AutomationRuleActionFindingFieldsUpdateArgs{
-//							Severity: &securityhub.AutomationRuleActionFindingFieldsUpdateSeverityArgs{
-//								Label:   pulumi.String("CRITICAL"),
-//								Product: pulumi.Float64(0),
-//							},
-//							Note: &securityhub.AutomationRuleActionFindingFieldsUpdateNoteArgs{
-//								Text:      pulumi.String("This is a critical resource. Please review ASAP."),
-//								UpdatedBy: pulumi.String("sechub-automation"),
-//							},
-//							Types: pulumi.StringArray{
-//								pulumi.String("Software and Configuration Checks/Industry and Regulatory Standards"),
-//							},
-//							UserDefinedFields: pulumi.StringMap{
-//								"key": pulumi.String("value"),
-//							},
-//						},
-//						Type: pulumi.String("FINDING_FIELDS_UPDATE"),
-//					},
-//				},
-//				Criteria: &securityhub.AutomationRuleCriteriaArgs{
-//					ResourceIds: securityhub.AutomationRuleCriteriaResourceIdArray{
-//						&securityhub.AutomationRuleCriteriaResourceIdArgs{
-//							Comparison: pulumi.String("EQUALS"),
-//							Value:      pulumi.String("arn:aws:s3:::examplebucket/*"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the Security Hub automation rule.
-//
-// Using `pulumi import`, import Security Hub automation rule using their ARN. For example:
-//
-// % pulumi import aws_securityhub_automation_rule.example arn:aws:securityhub:us-west-2:123456789012:automation-rule/473eddde-f5c4-4ae5-85c7-e922f271fffc
 type AutomationRule struct {
 	pulumi.CustomResourceState
 
-	// A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-	Actions AutomationRuleActionArrayOutput `pulumi:"actions"`
-	// The ARN of the Security Hub automation rule.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-	Criteria AutomationRuleCriteriaPtrOutput `pulumi:"criteria"`
-	// The description of the rule.
-	Description pulumi.StringOutput `pulumi:"description"`
-	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
-	IsTerminal pulumi.BoolOutput `pulumi:"isTerminal"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The name of the rule.
-	RuleName pulumi.StringOutput `pulumi:"ruleName"`
-	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-	RuleOrder pulumi.IntOutput `pulumi:"ruleOrder"`
-	// Whether the rule is active after it is created.
-	RuleStatus pulumi.StringOutput    `pulumi:"ruleStatus"`
-	Tags       pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll    pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Actions     AutomationRuleActionArrayOutput `pulumi:"actions"`
+	Arn         pulumi.StringOutput             `pulumi:"arn"`
+	Criteria    AutomationRuleCriteriaPtrOutput `pulumi:"criteria"`
+	Description pulumi.StringOutput             `pulumi:"description"`
+	IsTerminal  pulumi.BoolOutput               `pulumi:"isTerminal"`
+	Region      pulumi.StringOutput             `pulumi:"region"`
+	RuleName    pulumi.StringOutput             `pulumi:"ruleName"`
+	RuleOrder   pulumi.IntOutput                `pulumi:"ruleOrder"`
+	RuleStatus  pulumi.StringOutput             `pulumi:"ruleStatus"`
+	Tags        pulumi.StringMapOutput          `pulumi:"tags"`
+	TagsAll     pulumi.StringMapOutput          `pulumi:"tagsAll"`
 }
 
 // NewAutomationRule registers a new resource with the given unique name, arguments, and options.
@@ -148,49 +67,31 @@ func GetAutomationRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AutomationRule resources.
 type automationRuleState struct {
-	// A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-	Actions []AutomationRuleAction `pulumi:"actions"`
-	// The ARN of the Security Hub automation rule.
-	Arn *string `pulumi:"arn"`
-	// A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-	Criteria *AutomationRuleCriteria `pulumi:"criteria"`
-	// The description of the rule.
-	Description *string `pulumi:"description"`
-	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
-	IsTerminal *bool `pulumi:"isTerminal"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name of the rule.
-	RuleName *string `pulumi:"ruleName"`
-	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-	RuleOrder *int `pulumi:"ruleOrder"`
-	// Whether the rule is active after it is created.
-	RuleStatus *string           `pulumi:"ruleStatus"`
-	Tags       map[string]string `pulumi:"tags"`
-	TagsAll    map[string]string `pulumi:"tagsAll"`
+	Actions     []AutomationRuleAction  `pulumi:"actions"`
+	Arn         *string                 `pulumi:"arn"`
+	Criteria    *AutomationRuleCriteria `pulumi:"criteria"`
+	Description *string                 `pulumi:"description"`
+	IsTerminal  *bool                   `pulumi:"isTerminal"`
+	Region      *string                 `pulumi:"region"`
+	RuleName    *string                 `pulumi:"ruleName"`
+	RuleOrder   *int                    `pulumi:"ruleOrder"`
+	RuleStatus  *string                 `pulumi:"ruleStatus"`
+	Tags        map[string]string       `pulumi:"tags"`
+	TagsAll     map[string]string       `pulumi:"tagsAll"`
 }
 
 type AutomationRuleState struct {
-	// A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-	Actions AutomationRuleActionArrayInput
-	// The ARN of the Security Hub automation rule.
-	Arn pulumi.StringPtrInput
-	// A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-	Criteria AutomationRuleCriteriaPtrInput
-	// The description of the rule.
+	Actions     AutomationRuleActionArrayInput
+	Arn         pulumi.StringPtrInput
+	Criteria    AutomationRuleCriteriaPtrInput
 	Description pulumi.StringPtrInput
-	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
-	IsTerminal pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name of the rule.
-	RuleName pulumi.StringPtrInput
-	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-	RuleOrder pulumi.IntPtrInput
-	// Whether the rule is active after it is created.
-	RuleStatus pulumi.StringPtrInput
-	Tags       pulumi.StringMapInput
-	TagsAll    pulumi.StringMapInput
+	IsTerminal  pulumi.BoolPtrInput
+	Region      pulumi.StringPtrInput
+	RuleName    pulumi.StringPtrInput
+	RuleOrder   pulumi.IntPtrInput
+	RuleStatus  pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 }
 
 func (AutomationRuleState) ElementType() reflect.Type {
@@ -198,44 +99,28 @@ func (AutomationRuleState) ElementType() reflect.Type {
 }
 
 type automationRuleArgs struct {
-	// A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-	Actions []AutomationRuleAction `pulumi:"actions"`
-	// A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-	Criteria *AutomationRuleCriteria `pulumi:"criteria"`
-	// The description of the rule.
-	Description string `pulumi:"description"`
-	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
-	IsTerminal *bool `pulumi:"isTerminal"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name of the rule.
-	RuleName string `pulumi:"ruleName"`
-	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-	RuleOrder int `pulumi:"ruleOrder"`
-	// Whether the rule is active after it is created.
-	RuleStatus *string           `pulumi:"ruleStatus"`
-	Tags       map[string]string `pulumi:"tags"`
+	Actions     []AutomationRuleAction  `pulumi:"actions"`
+	Criteria    *AutomationRuleCriteria `pulumi:"criteria"`
+	Description string                  `pulumi:"description"`
+	IsTerminal  *bool                   `pulumi:"isTerminal"`
+	Region      *string                 `pulumi:"region"`
+	RuleName    string                  `pulumi:"ruleName"`
+	RuleOrder   int                     `pulumi:"ruleOrder"`
+	RuleStatus  *string                 `pulumi:"ruleStatus"`
+	Tags        map[string]string       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AutomationRule resource.
 type AutomationRuleArgs struct {
-	// A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-	Actions AutomationRuleActionArrayInput
-	// A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-	Criteria AutomationRuleCriteriaPtrInput
-	// The description of the rule.
+	Actions     AutomationRuleActionArrayInput
+	Criteria    AutomationRuleCriteriaPtrInput
 	Description pulumi.StringInput
-	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
-	IsTerminal pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name of the rule.
-	RuleName pulumi.StringInput
-	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-	RuleOrder pulumi.IntInput
-	// Whether the rule is active after it is created.
-	RuleStatus pulumi.StringPtrInput
-	Tags       pulumi.StringMapInput
+	IsTerminal  pulumi.BoolPtrInput
+	Region      pulumi.StringPtrInput
+	RuleName    pulumi.StringInput
+	RuleOrder   pulumi.IntInput
+	RuleStatus  pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
 }
 
 func (AutomationRuleArgs) ElementType() reflect.Type {
@@ -325,47 +210,38 @@ func (o AutomationRuleOutput) ToAutomationRuleOutputWithContext(ctx context.Cont
 	return o
 }
 
-// A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
 func (o AutomationRuleOutput) Actions() AutomationRuleActionArrayOutput {
 	return o.ApplyT(func(v *AutomationRule) AutomationRuleActionArrayOutput { return v.Actions }).(AutomationRuleActionArrayOutput)
 }
 
-// The ARN of the Security Hub automation rule.
 func (o AutomationRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
 func (o AutomationRuleOutput) Criteria() AutomationRuleCriteriaPtrOutput {
 	return o.ApplyT(func(v *AutomationRule) AutomationRuleCriteriaPtrOutput { return v.Criteria }).(AutomationRuleCriteriaPtrOutput)
 }
 
-// The description of the rule.
 func (o AutomationRuleOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
 func (o AutomationRuleOutput) IsTerminal() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.BoolOutput { return v.IsTerminal }).(pulumi.BoolOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AutomationRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The name of the rule.
 func (o AutomationRuleOutput) RuleName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.RuleName }).(pulumi.StringOutput)
 }
 
-// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
 func (o AutomationRuleOutput) RuleOrder() pulumi.IntOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.IntOutput { return v.RuleOrder }).(pulumi.IntOutput)
 }
 
-// Whether the rule is active after it is created.
 func (o AutomationRuleOutput) RuleStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.RuleStatus }).(pulumi.StringOutput)
 }

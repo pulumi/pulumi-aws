@@ -13,120 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an SNS data protection topic policy resource
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sns.Topic;
- * import com.pulumi.aws.sns.TopicArgs;
- * import com.pulumi.aws.sns.DataProtectionPolicy;
- * import com.pulumi.aws.sns.DataProtectionPolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Topic("example", TopicArgs.builder()
- *             .name("example")
- *             .build());
- * 
- *         var exampleDataProtectionPolicy = new DataProtectionPolicy("exampleDataProtectionPolicy", DataProtectionPolicyArgs.builder()
- *             .arn(example.arn())
- *             .policy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Description", "Example data protection policy"),
- *                     jsonProperty("Name", "__example_data_protection_policy"),
- *                     jsonProperty("Statement", jsonArray(jsonObject(
- *                         jsonProperty("DataDirection", "Inbound"),
- *                         jsonProperty("DataIdentifier", jsonArray("arn:aws:dataprotection::aws:data-identifier/EmailAddress")),
- *                         jsonProperty("Operation", jsonObject(
- *                             jsonProperty("Deny", jsonObject(
- * 
- *                             ))
- *                         )),
- *                         jsonProperty("Principal", jsonArray("*")),
- *                         jsonProperty("Sid", "__deny_statement_11ba9d96")
- *                     ))),
- *                     jsonProperty("Version", "2021-06-01")
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the SNS topic.
- * 
- * Using `pulumi import`, import SNS Data Protection Topic Policy using the topic ARN. For example:
- * 
- * % pulumi import aws_sns_topic_data_protection_policy.example arn:aws:sns:us-west-2:123456789012:example
- * 
- */
 @ResourceType(type="aws:sns/dataProtectionPolicy:DataProtectionPolicy")
 public class DataProtectionPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the SNS topic
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the SNS topic
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

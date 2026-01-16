@@ -10,29 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResolverFirewallConfigResult {
-    /**
-     * @return Determines how DNS Firewall operates during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply.
-     * 
-     */
     private String firewallFailOpen;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The Amazon Web Services account ID of the owner of the VPC that this firewall configuration applies to.
-     * 
-     */
     private String ownerId;
     private String region;
     private String resourceId;
 
     private GetResolverFirewallConfigResult() {}
-    /**
-     * @return Determines how DNS Firewall operates during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply.
-     * 
-     */
     public String firewallFailOpen() {
         return this.firewallFailOpen;
     }
@@ -43,10 +31,6 @@ public final class GetResolverFirewallConfigResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The Amazon Web Services account ID of the owner of the VPC that this firewall configuration applies to.
-     * 
-     */
     public String ownerId() {
         return this.ownerId;
     }

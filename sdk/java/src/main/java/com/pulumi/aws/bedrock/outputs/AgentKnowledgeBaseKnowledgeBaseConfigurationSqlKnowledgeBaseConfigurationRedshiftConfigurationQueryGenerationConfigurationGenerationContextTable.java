@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable {
-    /**
-     * @return Information about a column in the table. See `column` block for details.
-     * 
-     */
     private @Nullable List<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn> columns;
-    /**
-     * @return Description of the table that helps the query engine understand the contents of the table.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return Whether to include or exclude the table during query generation. Valid values `INCLUDE`, `EXCLUDE`.
-     * 
-     */
     private @Nullable String inclusion;
-    /**
-     * @return Name of the table for which the other fields in this object apply.
-     * 
-     */
     private String name;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable() {}
-    /**
-     * @return Information about a column in the table. See `column` block for details.
-     * 
-     */
     public List<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn> columns() {
         return this.columns == null ? List.of() : this.columns;
     }
-    /**
-     * @return Description of the table that helps the query engine understand the contents of the table.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return Whether to include or exclude the table during query generation. Valid values `INCLUDE`, `EXCLUDE`.
-     * 
-     */
     public Optional<String> inclusion() {
         return Optional.ofNullable(this.inclusion);
     }
-    /**
-     * @return Name of the table for which the other fields in this object apply.
-     * 
-     */
     public String name() {
         return this.name;
     }

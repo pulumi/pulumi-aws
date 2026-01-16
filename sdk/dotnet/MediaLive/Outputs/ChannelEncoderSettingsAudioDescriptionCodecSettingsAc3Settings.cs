@@ -13,33 +13,12 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings
     {
-        /// <summary>
-        /// Average bitrate in bits/second.
-        /// </summary>
         public readonly double? Bitrate;
-        /// <summary>
-        /// Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
-        /// </summary>
         public readonly string? BitstreamMode;
-        /// <summary>
-        /// Dolby Digital coding mode.
-        /// </summary>
         public readonly string? CodingMode;
-        /// <summary>
-        /// Sets the dialnorm of the output.
-        /// </summary>
         public readonly int? Dialnorm;
-        /// <summary>
-        /// If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
-        /// </summary>
         public readonly string? DrcProfile;
-        /// <summary>
-        /// When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
-        /// </summary>
         public readonly string? LfeFilter;
-        /// <summary>
-        /// Metadata control.
-        /// </summary>
         public readonly string? MetadataControl;
 
         [OutputConstructor]

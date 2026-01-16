@@ -12,27 +12,17 @@ namespace Pulumi.Aws.Billing.Inputs
 
     public sealed class ViewDataFilterExpressionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Dimension to use for `Expression`. Refer to #dimensions for more details.
-        /// </summary>
         [Input("dimensions")]
         public Input<Inputs.ViewDataFilterExpressionDimensionsGetArgs>? Dimensions { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.ViewDataFilterExpressionTagGetArgs>? _tags;
-
-        /// <summary>
-        /// List of key value map specifying tags associated to the billing view being created.
-        /// </summary>
         public InputList<Inputs.ViewDataFilterExpressionTagGetArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.ViewDataFilterExpressionTagGetArgs>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Time range to use for `Expression`. Refer to #time-range for more details.
-        /// </summary>
         [Input("timeRange")]
         public Input<Inputs.ViewDataFilterExpressionTimeRangeGetArgs>? TimeRange { get; set; }
 

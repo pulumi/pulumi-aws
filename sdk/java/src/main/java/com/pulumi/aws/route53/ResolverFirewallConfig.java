@@ -13,115 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Route 53 Resolver DNS Firewall config resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.route53.ResolverFirewallConfig;
- * import com.pulumi.aws.route53.ResolverFirewallConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Vpc("example", VpcArgs.builder()
- *             .cidrBlock("10.0.0.0/16")
- *             .enableDnsSupport(true)
- *             .enableDnsHostnames(true)
- *             .build());
- * 
- *         var exampleResolverFirewallConfig = new ResolverFirewallConfig("exampleResolverFirewallConfig", ResolverFirewallConfigArgs.builder()
- *             .resourceId(example.id())
- *             .firewallFailOpen("ENABLED")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Route 53 Resolver DNS Firewall configs using the Route 53 Resolver DNS Firewall config ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:route53/resolverFirewallConfig:ResolverFirewallConfig example rdsc-be1866ecc1683e95
- * ```
- * 
- */
 @ResourceType(type="aws:route53/resolverFirewallConfig:ResolverFirewallConfig")
 public class ResolverFirewallConfig extends com.pulumi.resources.CustomResource {
-    /**
-     * Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     @Export(name="firewallFailOpen", refs={String.class}, tree="[0]")
     private Output<String> firewallFailOpen;
 
-    /**
-     * @return Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     public Output<String> firewallFailOpen() {
         return this.firewallFailOpen;
     }
-    /**
-     * The AWS account ID of the owner of the VPC that this firewall configuration applies to.
-     * 
-     */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
-    /**
-     * @return The AWS account ID of the owner of the VPC that this firewall configuration applies to.
-     * 
-     */
     public Output<String> ownerId() {
         return this.ownerId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The ID of the VPC that the configuration is for.
-     * 
-     */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
-    /**
-     * @return The ID of the VPC that the configuration is for.
-     * 
-     */
     public Output<String> resourceId() {
         return this.resourceId;
     }

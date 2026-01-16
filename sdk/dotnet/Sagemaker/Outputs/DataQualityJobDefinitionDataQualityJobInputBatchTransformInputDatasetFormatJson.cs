@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson
     {
-        /// <summary>
-        /// Indicates if the file should be read as a json object per line.
-        /// </summary>
         public readonly bool? Line;
 
         [OutputConstructor]

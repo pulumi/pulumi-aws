@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class NodeGroupLaunchTemplate {
-    /**
-     * @return Identifier of the EC2 Launch Template. Conflicts with `name`.
-     * 
-     */
     private @Nullable String id;
-    /**
-     * @return Name of the EC2 Launch Template. Conflicts with `id`.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
-     * 
-     */
     private String version;
 
     private NodeGroupLaunchTemplate() {}
-    /**
-     * @return Identifier of the EC2 Launch Template. Conflicts with `name`.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return Name of the EC2 Launch Template. Conflicts with `id`.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
-     * 
-     */
     public String version() {
         return this.version;
     }

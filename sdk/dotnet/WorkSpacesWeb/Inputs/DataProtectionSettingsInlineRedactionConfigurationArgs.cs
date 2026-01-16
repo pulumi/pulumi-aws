@@ -12,18 +12,11 @@ namespace Pulumi.Aws.WorkSpacesWeb.Inputs
 
     public sealed class DataProtectionSettingsInlineRedactionConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
-        /// </summary>
         [Input("globalConfidenceLevel")]
         public Input<int>? GlobalConfidenceLevel { get; set; }
 
         [Input("globalEnforcedUrls")]
         private InputList<string>? _globalEnforcedUrls;
-
-        /// <summary>
-        /// The global enforced URL configuration for the inline redaction configuration.
-        /// </summary>
         public InputList<string> GlobalEnforcedUrls
         {
             get => _globalEnforcedUrls ?? (_globalEnforcedUrls = new InputList<string>());
@@ -32,10 +25,6 @@ namespace Pulumi.Aws.WorkSpacesWeb.Inputs
 
         [Input("globalExemptUrls")]
         private InputList<string>? _globalExemptUrls;
-
-        /// <summary>
-        /// The global exempt URL configuration for the inline redaction configuration.
-        /// </summary>
         public InputList<string> GlobalExemptUrls
         {
             get => _globalExemptUrls ?? (_globalExemptUrls = new InputList<string>());
@@ -44,10 +33,6 @@ namespace Pulumi.Aws.WorkSpacesWeb.Inputs
 
         [Input("inlineRedactionPatterns")]
         private InputList<Inputs.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs>? _inlineRedactionPatterns;
-
-        /// <summary>
-        /// The inline redaction patterns to be enabled for the inline redaction configuration. Detailed below.
-        /// </summary>
         public InputList<Inputs.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs> InlineRedactionPatterns
         {
             get => _inlineRedactionPatterns ?? (_inlineRedactionPatterns = new InputList<Inputs.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs>());

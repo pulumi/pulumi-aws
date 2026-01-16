@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Fsx.Outputs
     [OutputType]
     public sealed class S3AccessPointAttachmentS3AccessPointVpcConfiguration
     {
-        /// <summary>
-        /// VPC ID.
-        /// </summary>
         public readonly string? VpcId;
 
         [OutputConstructor]

@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDistributionConfigurationDistributionSsmParameterConfiguration {
-    /**
-     * @return The AWS account ID that own the parameter in the given region.
-     * 
-     */
     private String amiAccountId;
-    /**
-     * @return The data type of the SSM parameter.
-     * 
-     */
     private String dataType;
-    /**
-     * @return Name of the SSM parameter used to store the AMI ID after distribution.
-     * 
-     */
     private String parameterName;
 
     private GetDistributionConfigurationDistributionSsmParameterConfiguration() {}
-    /**
-     * @return The AWS account ID that own the parameter in the given region.
-     * 
-     */
     public String amiAccountId() {
         return this.amiAccountId;
     }
-    /**
-     * @return The data type of the SSM parameter.
-     * 
-     */
     public String dataType() {
         return this.dataType;
     }
-    /**
-     * @return Name of the SSM parameter used to store the AMI ID after distribution.
-     * 
-     */
     public String parameterName() {
         return this.parameterName;
     }

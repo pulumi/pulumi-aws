@@ -14,25 +14,15 @@ namespace Pulumi.Aws.Quicksight.Inputs
     {
         [Input("columns", required: true)]
         private InputList<string>? _columns;
-
-        /// <summary>
-        /// Columns in this hierarchy.
-        /// </summary>
         public InputList<string> Columns
         {
             get => _columns ?? (_columns = new InputList<string>());
             set => _columns = value;
         }
 
-        /// <summary>
-        /// Country code. Valid values are `US`.
-        /// </summary>
         [Input("countryCode", required: true)]
         public Input<string> CountryCode { get; set; } = null!;
 
-        /// <summary>
-        /// A display name for the hierarchy.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

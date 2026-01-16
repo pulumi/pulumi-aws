@@ -7,20 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS IVS (Interactive Video) Chat Room.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ivschat.Room("example", {name: "tf-room"});
- * ```
- */
 export class Room extends pulumi.CustomResource {
     /**
      * Get an existing Room resource's state with the given name, ID, and optional extra
@@ -49,46 +35,14 @@ export class Room extends pulumi.CustomResource {
         return obj['__pulumiType'] === Room.__pulumiType;
     }
 
-    /**
-     * ARN of the Room.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * List of Logging Configuration
-     * ARNs to attach to the room.
-     */
     declare public readonly loggingConfigurationIdentifiers: pulumi.Output<string[] | undefined>;
-    /**
-     * Maximum number of characters in a single
-     * message. Messages are expected to be UTF-8 encoded and this limit applies
-     * specifically to rune/code-point count, not number of bytes.
-     */
     declare public readonly maximumMessageLength: pulumi.Output<number>;
-    /**
-     * Maximum number of messages per
-     * second that can be sent to the room (by all clients).
-     */
     declare public readonly maximumMessageRatePerSecond: pulumi.Output<number>;
-    /**
-     * Configuration information for optional
-     * review of messages.
-     */
     declare public readonly messageReviewHandler: pulumi.Output<outputs.ivschat.RoomMessageReviewHandler | undefined>;
-    /**
-     * Room name.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -134,46 +88,14 @@ export class Room extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Room resources.
  */
 export interface RoomState {
-    /**
-     * ARN of the Room.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * List of Logging Configuration
-     * ARNs to attach to the room.
-     */
     loggingConfigurationIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Maximum number of characters in a single
-     * message. Messages are expected to be UTF-8 encoded and this limit applies
-     * specifically to rune/code-point count, not number of bytes.
-     */
     maximumMessageLength?: pulumi.Input<number>;
-    /**
-     * Maximum number of messages per
-     * second that can be sent to the room (by all clients).
-     */
     maximumMessageRatePerSecond?: pulumi.Input<number>;
-    /**
-     * Configuration information for optional
-     * review of messages.
-     */
     messageReviewHandler?: pulumi.Input<inputs.ivschat.RoomMessageReviewHandler>;
-    /**
-     * Room name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -181,37 +103,11 @@ export interface RoomState {
  * The set of arguments for constructing a Room resource.
  */
 export interface RoomArgs {
-    /**
-     * List of Logging Configuration
-     * ARNs to attach to the room.
-     */
     loggingConfigurationIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Maximum number of characters in a single
-     * message. Messages are expected to be UTF-8 encoded and this limit applies
-     * specifically to rune/code-point count, not number of bytes.
-     */
     maximumMessageLength?: pulumi.Input<number>;
-    /**
-     * Maximum number of messages per
-     * second that can be sent to the room (by all clients).
-     */
     maximumMessageRatePerSecond?: pulumi.Input<number>;
-    /**
-     * Configuration information for optional
-     * review of messages.
-     */
     messageReviewHandler?: pulumi.Input<inputs.ivschat.RoomMessageReviewHandler>;
-    /**
-     * Room name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

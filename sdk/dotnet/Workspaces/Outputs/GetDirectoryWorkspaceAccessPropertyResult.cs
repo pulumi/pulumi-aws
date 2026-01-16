@@ -13,37 +13,13 @@ namespace Pulumi.Aws.Workspaces.Outputs
     [OutputType]
     public sealed class GetDirectoryWorkspaceAccessPropertyResult
     {
-        /// <summary>
-        /// (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
-        /// </summary>
         public readonly string DeviceTypeAndroid;
-        /// <summary>
-        /// (Optional) Indicates whether users can use Chromebooks to access their WorkSpaces.
-        /// </summary>
         public readonly string DeviceTypeChromeos;
-        /// <summary>
-        /// (Optional) Indicates whether users can use iOS devices to access their WorkSpaces.
-        /// </summary>
         public readonly string DeviceTypeIos;
-        /// <summary>
-        /// (Optional) Indicates whether users can use Linux clients to access their WorkSpaces.
-        /// </summary>
         public readonly string DeviceTypeLinux;
-        /// <summary>
-        /// (Optional) Indicates whether users can use macOS clients to access their WorkSpaces.
-        /// </summary>
         public readonly string DeviceTypeOsx;
-        /// <summary>
-        /// (Optional) Indicates whether users can access their WorkSpaces through a web browser.
-        /// </summary>
         public readonly string DeviceTypeWeb;
-        /// <summary>
-        /// (Optional) Indicates whether users can use Windows clients to access their WorkSpaces.
-        /// </summary>
         public readonly string DeviceTypeWindows;
-        /// <summary>
-        /// (Optional) Indicates whether users can use zero client devices to access their WorkSpaces.
-        /// </summary>
         public readonly string DeviceTypeZeroclient;
 
         [OutputConstructor]

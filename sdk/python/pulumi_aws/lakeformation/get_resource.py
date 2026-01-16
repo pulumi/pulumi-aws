@@ -60,9 +60,6 @@ class GetResourceResult:
     @_builtins.property
     @pulumi.getter(name="hybridAccessEnabled")
     def hybrid_access_enabled(self) -> _builtins.bool:
-        """
-        Flag to enable AWS LakeFormation hybrid access permission mode.
-        """
         return pulumi.get(self, "hybrid_access_enabled")
 
     @_builtins.property
@@ -76,9 +73,6 @@ class GetResourceResult:
     @_builtins.property
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> _builtins.str:
-        """
-        Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        """
         return pulumi.get(self, "last_modified")
 
     @_builtins.property
@@ -89,25 +83,16 @@ class GetResourceResult:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
-        """
-        Role that the resource was registered with.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter(name="withFederation")
     def with_federation(self) -> _builtins.bool:
-        """
-        Whether the resource is a federated resource.
-        """
         return pulumi.get(self, "with_federation")
 
     @_builtins.property
     @pulumi.getter(name="withPrivilegedAccess")
     def with_privileged_access(self) -> _builtins.bool:
-        """
-        Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
-        """
         return pulumi.get(self, "with_privileged_access")
 
 
@@ -131,20 +116,7 @@ def get_resource(arn: Optional[_builtins.str] = None,
                  region: Optional[_builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceResult:
     """
-    Provides details about a Lake Formation resource.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.lakeformation.get_resource(arn="arn:aws:s3:::tf-acc-test-9151654063908211878")
-    ```
-
-
-    :param _builtins.str arn: ARN of the resource, an S3 path.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -165,20 +137,7 @@ def get_resource_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceResult]:
     """
-    Provides details about a Lake Formation resource.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.lakeformation.get_resource(arn="arn:aws:s3:::tf-acc-test-9151654063908211878")
-    ```
-
-
-    :param _builtins.str arn: ARN of the resource, an S3 path.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

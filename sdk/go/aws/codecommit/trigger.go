@@ -12,59 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CodeCommit Trigger Resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codecommit"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := codecommit.NewRepository(ctx, "test", &codecommit.RepositoryArgs{
-//				RepositoryName: pulumi.String("test"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = codecommit.NewTrigger(ctx, "test", &codecommit.TriggerArgs{
-//				RepositoryName: test.RepositoryName,
-//				Triggers: codecommit.TriggerTriggerArray{
-//					&codecommit.TriggerTriggerArgs{
-//						Name: pulumi.String("all"),
-//						Events: pulumi.StringArray{
-//							pulumi.String("all"),
-//						},
-//						DestinationArn: pulumi.Any(testAwsSnsTopic.Arn),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type Trigger struct {
 	pulumi.CustomResourceState
 
-	// System-generated unique identifier.
-	ConfigurationId pulumi.StringOutput `pulumi:"configurationId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The name for the repository. This needs to be less than 100 characters.
-	RepositoryName pulumi.StringOutput `pulumi:"repositoryName"`
-	// The name of the trigger.
-	Triggers TriggerTriggerArrayOutput `pulumi:"triggers"`
+	ConfigurationId pulumi.StringOutput       `pulumi:"configurationId"`
+	Region          pulumi.StringOutput       `pulumi:"region"`
+	RepositoryName  pulumi.StringOutput       `pulumi:"repositoryName"`
+	Triggers        TriggerTriggerArrayOutput `pulumi:"triggers"`
 }
 
 // NewTrigger registers a new resource with the given unique name, arguments, and options.
@@ -103,25 +57,17 @@ func GetTrigger(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Trigger resources.
 type triggerState struct {
-	// System-generated unique identifier.
-	ConfigurationId *string `pulumi:"configurationId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name for the repository. This needs to be less than 100 characters.
-	RepositoryName *string `pulumi:"repositoryName"`
-	// The name of the trigger.
-	Triggers []TriggerTrigger `pulumi:"triggers"`
+	ConfigurationId *string          `pulumi:"configurationId"`
+	Region          *string          `pulumi:"region"`
+	RepositoryName  *string          `pulumi:"repositoryName"`
+	Triggers        []TriggerTrigger `pulumi:"triggers"`
 }
 
 type TriggerState struct {
-	// System-generated unique identifier.
 	ConfigurationId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name for the repository. This needs to be less than 100 characters.
-	RepositoryName pulumi.StringPtrInput
-	// The name of the trigger.
-	Triggers TriggerTriggerArrayInput
+	Region          pulumi.StringPtrInput
+	RepositoryName  pulumi.StringPtrInput
+	Triggers        TriggerTriggerArrayInput
 }
 
 func (TriggerState) ElementType() reflect.Type {
@@ -129,22 +75,16 @@ func (TriggerState) ElementType() reflect.Type {
 }
 
 type triggerArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name for the repository. This needs to be less than 100 characters.
-	RepositoryName string `pulumi:"repositoryName"`
-	// The name of the trigger.
-	Triggers []TriggerTrigger `pulumi:"triggers"`
+	Region         *string          `pulumi:"region"`
+	RepositoryName string           `pulumi:"repositoryName"`
+	Triggers       []TriggerTrigger `pulumi:"triggers"`
 }
 
 // The set of arguments for constructing a Trigger resource.
 type TriggerArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name for the repository. This needs to be less than 100 characters.
+	Region         pulumi.StringPtrInput
 	RepositoryName pulumi.StringInput
-	// The name of the trigger.
-	Triggers TriggerTriggerArrayInput
+	Triggers       TriggerTriggerArrayInput
 }
 
 func (TriggerArgs) ElementType() reflect.Type {
@@ -234,22 +174,18 @@ func (o TriggerOutput) ToTriggerOutputWithContext(ctx context.Context) TriggerOu
 	return o
 }
 
-// System-generated unique identifier.
 func (o TriggerOutput) ConfigurationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.ConfigurationId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TriggerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The name for the repository. This needs to be less than 100 characters.
 func (o TriggerOutput) RepositoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.RepositoryName }).(pulumi.StringOutput)
 }
 
-// The name of the trigger.
 func (o TriggerOutput) Triggers() TriggerTriggerArrayOutput {
 	return o.ApplyT(func(v *Trigger) TriggerTriggerArrayOutput { return v.Triggers }).(TriggerTriggerArrayOutput)
 }

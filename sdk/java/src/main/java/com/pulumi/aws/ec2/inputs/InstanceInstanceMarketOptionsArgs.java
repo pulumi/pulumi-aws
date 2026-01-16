@@ -16,32 +16,16 @@ public final class InstanceInstanceMarketOptionsArgs extends com.pulumi.resource
 
     public static final InstanceInstanceMarketOptionsArgs Empty = new InstanceInstanceMarketOptionsArgs();
 
-    /**
-     * Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spotOptions` is specified.
-     * 
-     */
     @Import(name="marketType")
     private @Nullable Output<String> marketType;
 
-    /**
-     * @return Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spotOptions` is specified.
-     * 
-     */
     public Optional<Output<String>> marketType() {
         return Optional.ofNullable(this.marketType);
     }
 
-    /**
-     * Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
-     * 
-     */
     @Import(name="spotOptions")
     private @Nullable Output<InstanceInstanceMarketOptionsSpotOptionsArgs> spotOptions;
 
-    /**
-     * @return Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
-     * 
-     */
     public Optional<Output<InstanceInstanceMarketOptionsSpotOptionsArgs>> spotOptions() {
         return Optional.ofNullable(this.spotOptions);
     }
@@ -71,44 +55,20 @@ public final class InstanceInstanceMarketOptionsArgs extends com.pulumi.resource
             $ = new InstanceInstanceMarketOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param marketType Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spotOptions` is specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder marketType(@Nullable Output<String> marketType) {
             $.marketType = marketType;
             return this;
         }
 
-        /**
-         * @param marketType Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spotOptions` is specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder marketType(String marketType) {
             return marketType(Output.of(marketType));
         }
 
-        /**
-         * @param spotOptions Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spotOptions(@Nullable Output<InstanceInstanceMarketOptionsSpotOptionsArgs> spotOptions) {
             $.spotOptions = spotOptions;
             return this;
         }
 
-        /**
-         * @param spotOptions Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spotOptions(InstanceInstanceMarketOptionsSpotOptionsArgs spotOptions) {
             return spotOptions(Output.of(spotOptions));
         }

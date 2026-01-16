@@ -9,86 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AccessAnalyzer
 {
-    /// <summary>
-    /// Resource for managing an AWS AccessAnalyzer Archive Rule.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AccessAnalyzer.ArchiveRule("example", new()
-    ///     {
-    ///         AnalyzerName = "example-analyzer",
-    ///         RuleName = "example-rule",
-    ///         Filters = new[]
-    ///         {
-    ///             new Aws.AccessAnalyzer.Inputs.ArchiveRuleFilterArgs
-    ///             {
-    ///                 Criteria = "condition.aws:UserId",
-    ///                 Eqs = new[]
-    ///                 {
-    ///                     "userid",
-    ///                 },
-    ///             },
-    ///             new Aws.AccessAnalyzer.Inputs.ArchiveRuleFilterArgs
-    ///             {
-    ///                 Criteria = "error",
-    ///                 Exists = "true",
-    ///             },
-    ///             new Aws.AccessAnalyzer.Inputs.ArchiveRuleFilterArgs
-    ///             {
-    ///                 Criteria = "isPublic",
-    ///                 Eqs = new[]
-    ///                 {
-    ///                     "false",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import AccessAnalyzer ArchiveRule using the `analyzer_name/rule_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:accessanalyzer/archiveRule:ArchiveRule")]
     public partial class ArchiveRule : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Analyzer name.
-        /// </summary>
         [Output("analyzerName")]
         public Output<string> AnalyzerName { get; private set; } = null!;
 
-        /// <summary>
-        /// Filter criteria for the archive rule. See Filter for more details.
-        /// </summary>
         [Output("filters")]
         public Output<ImmutableArray<Outputs.ArchiveRuleFilter>> Filters { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Rule name.
-        /// </summary>
         [Output("ruleName")]
         public Output<string> RuleName { get; private set; } = null!;
 
@@ -138,33 +70,20 @@ namespace Pulumi.Aws.AccessAnalyzer
 
     public sealed class ArchiveRuleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Analyzer name.
-        /// </summary>
         [Input("analyzerName", required: true)]
         public Input<string> AnalyzerName { get; set; } = null!;
 
         [Input("filters", required: true)]
         private InputList<Inputs.ArchiveRuleFilterArgs>? _filters;
-
-        /// <summary>
-        /// Filter criteria for the archive rule. See Filter for more details.
-        /// </summary>
         public InputList<Inputs.ArchiveRuleFilterArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.ArchiveRuleFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Rule name.
-        /// </summary>
         [Input("ruleName", required: true)]
         public Input<string> RuleName { get; set; } = null!;
 
@@ -176,33 +95,20 @@ namespace Pulumi.Aws.AccessAnalyzer
 
     public sealed class ArchiveRuleState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Analyzer name.
-        /// </summary>
         [Input("analyzerName")]
         public Input<string>? AnalyzerName { get; set; }
 
         [Input("filters")]
         private InputList<Inputs.ArchiveRuleFilterGetArgs>? _filters;
-
-        /// <summary>
-        /// Filter criteria for the archive rule. See Filter for more details.
-        /// </summary>
         public InputList<Inputs.ArchiveRuleFilterGetArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.ArchiveRuleFilterGetArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Rule name.
-        /// </summary>
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
 

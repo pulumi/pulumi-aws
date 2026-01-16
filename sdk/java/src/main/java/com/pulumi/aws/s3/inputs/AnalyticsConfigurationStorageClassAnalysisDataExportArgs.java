@@ -17,32 +17,16 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportArgs exte
 
     public static final AnalyticsConfigurationStorageClassAnalysisDataExportArgs Empty = new AnalyticsConfigurationStorageClassAnalysisDataExportArgs();
 
-    /**
-     * Specifies the destination for the exported analytics data (documented below).
-     * 
-     */
     @Import(name="destination", required=true)
     private Output<AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs> destination;
 
-    /**
-     * @return Specifies the destination for the exported analytics data (documented below).
-     * 
-     */
     public Output<AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs> destination() {
         return this.destination;
     }
 
-    /**
-     * Schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
-     * 
-     */
     @Import(name="outputSchemaVersion")
     private @Nullable Output<String> outputSchemaVersion;
 
-    /**
-     * @return Schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
-     * 
-     */
     public Optional<Output<String>> outputSchemaVersion() {
         return Optional.ofNullable(this.outputSchemaVersion);
     }
@@ -72,44 +56,20 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportArgs exte
             $ = new AnalyticsConfigurationStorageClassAnalysisDataExportArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destination Specifies the destination for the exported analytics data (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(Output<AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs> destination) {
             $.destination = destination;
             return this;
         }
 
-        /**
-         * @param destination Specifies the destination for the exported analytics data (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs destination) {
             return destination(Output.of(destination));
         }
 
-        /**
-         * @param outputSchemaVersion Schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputSchemaVersion(@Nullable Output<String> outputSchemaVersion) {
             $.outputSchemaVersion = outputSchemaVersion;
             return this;
         }
 
-        /**
-         * @param outputSchemaVersion Schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputSchemaVersion(String outputSchemaVersion) {
             return outputSchemaVersion(Output.of(outputSchemaVersion));
         }

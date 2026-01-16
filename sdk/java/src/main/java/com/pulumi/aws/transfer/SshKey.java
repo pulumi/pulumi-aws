@@ -13,158 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a AWS Transfer User SSH Key resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.tls.PrivateKey;
- * import com.pulumi.tls.PrivateKeyArgs;
- * import com.pulumi.aws.transfer.Server;
- * import com.pulumi.aws.transfer.ServerArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.transfer.User;
- * import com.pulumi.aws.transfer.UserArgs;
- * import com.pulumi.aws.transfer.SshKey;
- * import com.pulumi.aws.transfer.SshKeyArgs;
- * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.TrimspaceArgs;
- * import com.pulumi.aws.iam.RolePolicy;
- * import com.pulumi.aws.iam.RolePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var examplePrivateKey = new PrivateKey("examplePrivateKey", PrivateKeyArgs.builder()
- *             .algorithm("RSA")
- *             .rsaBits(4096)
- *             .build());
- * 
- *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
- *             .identityProviderType("SERVICE_MANAGED")
- *             .tags(Map.of("NAME", "tf-acc-test-transfer-server"))
- *             .build());
- * 
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("transfer.amazonaws.com")
- *                     .build())
- *                 .actions("sts:AssumeRole")
- *                 .build())
- *             .build());
- * 
- *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
- *             .name("tf-test-transfer-user-iam-role")
- *             .assumeRolePolicy(assumeRole.json())
- *             .build());
- * 
- *         var exampleUser = new User("exampleUser", UserArgs.builder()
- *             .serverId(exampleServer.id())
- *             .userName("tftestuser")
- *             .role(exampleRole.arn())
- *             .tags(Map.of("NAME", "tftestuser"))
- *             .build());
- * 
- *         var exampleSshKey = new SshKey("exampleSshKey", SshKeyArgs.builder()
- *             .serverId(exampleServer.id())
- *             .userName(exampleUser.userName())
- *             .body(StdFunctions.trimspace(TrimspaceArgs.builder()
- *                 .input(examplePrivateKey.publicKeyOpenssh())
- *                 .build()).applyValue(_invoke -> _invoke.result()))
- *             .build());
- * 
- *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("AllowFullAccesstoS3")
- *                 .effect("Allow")
- *                 .actions("s3:*")
- *                 .resources("*")
- *                 .build())
- *             .build());
- * 
- *         var exampleRolePolicy = new RolePolicy("exampleRolePolicy", RolePolicyArgs.builder()
- *             .name("tf-test-transfer-user-iam-policy")
- *             .role(exampleRole.id())
- *             .policy(example.json())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Transfer SSH Public Key using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`. For example:
- * 
- * ```sh
- * $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
- * ```
- * 
- */
 @ResourceType(type="aws:transfer/sshKey:SshKey")
 public class SshKey extends com.pulumi.resources.CustomResource {
-    /**
-     * The public key portion of an SSH key pair.
-     * 
-     */
     @Export(name="body", refs={String.class}, tree="[0]")
     private Output<String> body;
 
-    /**
-     * @return The public key portion of an SSH key pair.
-     * 
-     */
     public Output<String> body() {
         return this.body;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The Server ID of the Transfer Server (e.g., `s-12345678`)
-     * 
-     */
     @Export(name="serverId", refs={String.class}, tree="[0]")
     private Output<String> serverId;
 
-    /**
-     * @return The Server ID of the Transfer Server (e.g., `s-12345678`)
-     * 
-     */
     public Output<String> serverId() {
         return this.serverId;
     }
@@ -174,17 +39,9 @@ public class SshKey extends com.pulumi.resources.CustomResource {
     public Output<String> sshKeyId() {
         return this.sshKeyId;
     }
-    /**
-     * The name of the user account that is assigned to one or more servers.
-     * 
-     */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
-    /**
-     * @return The name of the user account that is assigned to one or more servers.
-     * 
-     */
     public Output<String> userName() {
         return this.userName;
     }

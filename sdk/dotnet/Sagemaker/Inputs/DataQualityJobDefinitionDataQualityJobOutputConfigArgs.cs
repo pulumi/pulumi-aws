@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class DataQualityJobDefinitionDataQualityJobOutputConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        /// <summary>
-        /// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded. Fields are documented below.
-        /// </summary>
         [Input("monitoringOutputs", required: true)]
         public Input<Inputs.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs> MonitoringOutputs { get; set; } = null!;
 

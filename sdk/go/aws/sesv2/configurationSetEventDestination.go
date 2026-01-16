@@ -12,246 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set Event Destination.
-//
-// ## Example Usage
-//
-// ### CloudWatch Destination
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := sesv2.NewConfigurationSet(ctx, "example", &sesv2.ConfigurationSetArgs{
-//				ConfigurationSetName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sesv2.NewConfigurationSetEventDestination(ctx, "example", &sesv2.ConfigurationSetEventDestinationArgs{
-//				ConfigurationSetName: example.ConfigurationSetName,
-//				EventDestinationName: pulumi.String("example"),
-//				EventDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationArgs{
-//					CloudWatchDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs{
-//						DimensionConfigurations: sesv2.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArray{
-//							&sesv2.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs{
-//								DefaultDimensionValue: pulumi.String("example"),
-//								DimensionName:         pulumi.String("example"),
-//								DimensionValueSource:  pulumi.String("MESSAGE_TAG"),
-//							},
-//						},
-//					},
-//					Enabled: pulumi.Bool(true),
-//					MatchingEventTypes: pulumi.StringArray{
-//						pulumi.String("SEND"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### EventBridge Destination
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_default, err := cloudwatch.LookupEventBus(ctx, &cloudwatch.LookupEventBusArgs{
-//				Name: "default",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sesv2.NewConfigurationSetEventDestination(ctx, "example", &sesv2.ConfigurationSetEventDestinationArgs{
-//				ConfigurationSetName: pulumi.Any(exampleAwsSesv2ConfigurationSet.ConfigurationSetName),
-//				EventDestinationName: pulumi.String("example"),
-//				EventDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationArgs{
-//					EventBridgeDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs{
-//						EventBusArn: pulumi.String(_default.Arn),
-//					},
-//					Enabled: pulumi.Bool(true),
-//					MatchingEventTypes: pulumi.StringArray{
-//						pulumi.String("SEND"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Kinesis Firehose Destination
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := sesv2.NewConfigurationSet(ctx, "example", &sesv2.ConfigurationSetArgs{
-//				ConfigurationSetName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sesv2.NewConfigurationSetEventDestination(ctx, "example", &sesv2.ConfigurationSetEventDestinationArgs{
-//				ConfigurationSetName: example.ConfigurationSetName,
-//				EventDestinationName: pulumi.String("example"),
-//				EventDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationArgs{
-//					KinesisFirehoseDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs{
-//						DeliveryStreamArn: pulumi.Any(exampleAwsKinesisFirehoseDeliveryStream.Arn),
-//						IamRoleArn:        pulumi.Any(exampleAwsIamRole.Arn),
-//					},
-//					Enabled: pulumi.Bool(true),
-//					MatchingEventTypes: pulumi.StringArray{
-//						pulumi.String("SEND"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Pinpoint Destination
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := sesv2.NewConfigurationSet(ctx, "example", &sesv2.ConfigurationSetArgs{
-//				ConfigurationSetName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sesv2.NewConfigurationSetEventDestination(ctx, "example", &sesv2.ConfigurationSetEventDestinationArgs{
-//				ConfigurationSetName: example.ConfigurationSetName,
-//				EventDestinationName: pulumi.String("example"),
-//				EventDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationArgs{
-//					PinpointDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs{
-//						ApplicationArn: pulumi.Any(exampleAwsPinpointApp.Arn),
-//					},
-//					Enabled: pulumi.Bool(true),
-//					MatchingEventTypes: pulumi.StringArray{
-//						pulumi.String("SEND"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### SNS Destination
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := sesv2.NewConfigurationSet(ctx, "example", &sesv2.ConfigurationSetArgs{
-//				ConfigurationSetName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sesv2.NewConfigurationSetEventDestination(ctx, "example", &sesv2.ConfigurationSetEventDestinationArgs{
-//				ConfigurationSetName: example.ConfigurationSetName,
-//				EventDestinationName: pulumi.String("example"),
-//				EventDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationArgs{
-//					SnsDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs{
-//						TopicArn: pulumi.Any(exampleAwsSnsTopic.Arn),
-//					},
-//					Enabled: pulumi.Bool(true),
-//					MatchingEventTypes: pulumi.StringArray{
-//						pulumi.String("SEND"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SESv2 (Simple Email V2) Configuration Set Event Destination using the `id` (`configuration_set_name|event_destination_name`). For example:
-//
-// ```sh
-// $ pulumi import aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination example example_configuration_set|example_event_destination
-// ```
 type ConfigurationSetEventDestination struct {
 	pulumi.CustomResourceState
 
-	// The name of the configuration set.
-	ConfigurationSetName pulumi.StringOutput `pulumi:"configurationSetName"`
-	// A name that identifies the event destination within the configuration set.
-	EventDestination ConfigurationSetEventDestinationEventDestinationOutput `pulumi:"eventDestination"`
-	// An object that defines the event destination. See `eventDestination` Block for details.
-	EventDestinationName pulumi.StringOutput `pulumi:"eventDestinationName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	ConfigurationSetName pulumi.StringOutput                                    `pulumi:"configurationSetName"`
+	EventDestination     ConfigurationSetEventDestinationEventDestinationOutput `pulumi:"eventDestination"`
+	EventDestinationName pulumi.StringOutput                                    `pulumi:"eventDestinationName"`
+	Region               pulumi.StringOutput                                    `pulumi:"region"`
 }
 
 // NewConfigurationSetEventDestination registers a new resource with the given unique name, arguments, and options.
@@ -293,25 +60,17 @@ func GetConfigurationSetEventDestination(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConfigurationSetEventDestination resources.
 type configurationSetEventDestinationState struct {
-	// The name of the configuration set.
-	ConfigurationSetName *string `pulumi:"configurationSetName"`
-	// A name that identifies the event destination within the configuration set.
-	EventDestination *ConfigurationSetEventDestinationEventDestination `pulumi:"eventDestination"`
-	// An object that defines the event destination. See `eventDestination` Block for details.
-	EventDestinationName *string `pulumi:"eventDestinationName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	ConfigurationSetName *string                                           `pulumi:"configurationSetName"`
+	EventDestination     *ConfigurationSetEventDestinationEventDestination `pulumi:"eventDestination"`
+	EventDestinationName *string                                           `pulumi:"eventDestinationName"`
+	Region               *string                                           `pulumi:"region"`
 }
 
 type ConfigurationSetEventDestinationState struct {
-	// The name of the configuration set.
 	ConfigurationSetName pulumi.StringPtrInput
-	// A name that identifies the event destination within the configuration set.
-	EventDestination ConfigurationSetEventDestinationEventDestinationPtrInput
-	// An object that defines the event destination. See `eventDestination` Block for details.
+	EventDestination     ConfigurationSetEventDestinationEventDestinationPtrInput
 	EventDestinationName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
 }
 
 func (ConfigurationSetEventDestinationState) ElementType() reflect.Type {
@@ -319,26 +78,18 @@ func (ConfigurationSetEventDestinationState) ElementType() reflect.Type {
 }
 
 type configurationSetEventDestinationArgs struct {
-	// The name of the configuration set.
-	ConfigurationSetName string `pulumi:"configurationSetName"`
-	// A name that identifies the event destination within the configuration set.
-	EventDestination ConfigurationSetEventDestinationEventDestination `pulumi:"eventDestination"`
-	// An object that defines the event destination. See `eventDestination` Block for details.
-	EventDestinationName string `pulumi:"eventDestinationName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	ConfigurationSetName string                                           `pulumi:"configurationSetName"`
+	EventDestination     ConfigurationSetEventDestinationEventDestination `pulumi:"eventDestination"`
+	EventDestinationName string                                           `pulumi:"eventDestinationName"`
+	Region               *string                                          `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ConfigurationSetEventDestination resource.
 type ConfigurationSetEventDestinationArgs struct {
-	// The name of the configuration set.
 	ConfigurationSetName pulumi.StringInput
-	// A name that identifies the event destination within the configuration set.
-	EventDestination ConfigurationSetEventDestinationEventDestinationInput
-	// An object that defines the event destination. See `eventDestination` Block for details.
+	EventDestination     ConfigurationSetEventDestinationEventDestinationInput
 	EventDestinationName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
 }
 
 func (ConfigurationSetEventDestinationArgs) ElementType() reflect.Type {
@@ -428,24 +179,20 @@ func (o ConfigurationSetEventDestinationOutput) ToConfigurationSetEventDestinati
 	return o
 }
 
-// The name of the configuration set.
 func (o ConfigurationSetEventDestinationOutput) ConfigurationSetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestination) pulumi.StringOutput { return v.ConfigurationSetName }).(pulumi.StringOutput)
 }
 
-// A name that identifies the event destination within the configuration set.
 func (o ConfigurationSetEventDestinationOutput) EventDestination() ConfigurationSetEventDestinationEventDestinationOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestination) ConfigurationSetEventDestinationEventDestinationOutput {
 		return v.EventDestination
 	}).(ConfigurationSetEventDestinationEventDestinationOutput)
 }
 
-// An object that defines the event destination. See `eventDestination` Block for details.
 func (o ConfigurationSetEventDestinationOutput) EventDestinationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestination) pulumi.StringOutput { return v.EventDestinationName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ConfigurationSetEventDestinationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

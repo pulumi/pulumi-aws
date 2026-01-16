@@ -44,9 +44,6 @@ class GetGroupsResult:
     @_builtins.property
     @pulumi.getter
     def groups(self) -> Sequence['outputs.GetGroupsGroupResult']:
-        """
-        List of Identity Store Groups
-        """
         return pulumi.get(self, "groups")
 
     @_builtins.property
@@ -84,23 +81,7 @@ def get_groups(identity_store_id: Optional[_builtins.str] = None,
                region: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupsResult:
     """
-    Data source for managing an AWS SSO Identity Store Groups.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssoadmin.get_instances()
-    example_get_groups = aws.identitystore.get_groups(identity_store_id=example.identity_store_ids[0])
-    ```
-
-
-    :param _builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On (SSO) Instance.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['identityStoreId'] = identity_store_id
@@ -117,23 +98,7 @@ def get_groups_output(identity_store_id: Optional[pulumi.Input[_builtins.str]] =
                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupsResult]:
     """
-    Data source for managing an AWS SSO Identity Store Groups.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssoadmin.get_instances()
-    example_get_groups = aws.identitystore.get_groups(identity_store_id=example.identity_store_ids[0])
-    ```
-
-
-    :param _builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On (SSO) Instance.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['identityStoreId'] = identity_store_id

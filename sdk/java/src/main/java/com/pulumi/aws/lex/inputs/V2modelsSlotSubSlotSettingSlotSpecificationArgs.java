@@ -25,34 +25,16 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationArgs extends com.p
         return this.mapBlockKey;
     }
 
-    /**
-     * Unique identifier assigned to the slot type.
-     * 
-     */
     @Import(name="slotTypeId", required=true)
     private Output<String> slotTypeId;
 
-    /**
-     * @return Unique identifier assigned to the slot type.
-     * 
-     */
     public Output<String> slotTypeId() {
         return this.slotTypeId;
     }
 
-    /**
-     * Elicitation setting details for constituent sub slots of a composite slot.
-     * See the `valueElicitationSetting` argument reference below.
-     * 
-     */
     @Import(name="valueElicitationSettings")
     private @Nullable Output<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs>> valueElicitationSettings;
 
-    /**
-     * @return Elicitation setting details for constituent sub slots of a composite slot.
-     * See the `valueElicitationSetting` argument reference below.
-     * 
-     */
     public Optional<Output<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs>>> valueElicitationSettings() {
         return Optional.ofNullable(this.valueElicitationSettings);
     }
@@ -92,57 +74,24 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationArgs extends com.p
             return mapBlockKey(Output.of(mapBlockKey));
         }
 
-        /**
-         * @param slotTypeId Unique identifier assigned to the slot type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slotTypeId(Output<String> slotTypeId) {
             $.slotTypeId = slotTypeId;
             return this;
         }
 
-        /**
-         * @param slotTypeId Unique identifier assigned to the slot type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slotTypeId(String slotTypeId) {
             return slotTypeId(Output.of(slotTypeId));
         }
 
-        /**
-         * @param valueElicitationSettings Elicitation setting details for constituent sub slots of a composite slot.
-         * See the `valueElicitationSetting` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder valueElicitationSettings(@Nullable Output<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs>> valueElicitationSettings) {
             $.valueElicitationSettings = valueElicitationSettings;
             return this;
         }
 
-        /**
-         * @param valueElicitationSettings Elicitation setting details for constituent sub slots of a composite slot.
-         * See the `valueElicitationSetting` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder valueElicitationSettings(List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs> valueElicitationSettings) {
             return valueElicitationSettings(Output.of(valueElicitationSettings));
         }
 
-        /**
-         * @param valueElicitationSettings Elicitation setting details for constituent sub slots of a composite slot.
-         * See the `valueElicitationSetting` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder valueElicitationSettings(V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs... valueElicitationSettings) {
             return valueElicitationSettings(List.of(valueElicitationSettings));
         }

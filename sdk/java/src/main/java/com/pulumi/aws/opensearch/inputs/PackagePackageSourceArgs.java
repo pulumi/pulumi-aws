@@ -14,32 +14,16 @@ public final class PackagePackageSourceArgs extends com.pulumi.resources.Resourc
 
     public static final PackagePackageSourceArgs Empty = new PackagePackageSourceArgs();
 
-    /**
-     * The name of the Amazon S3 bucket containing the package.
-     * 
-     */
     @Import(name="s3BucketName", required=true)
     private Output<String> s3BucketName;
 
-    /**
-     * @return The name of the Amazon S3 bucket containing the package.
-     * 
-     */
     public Output<String> s3BucketName() {
         return this.s3BucketName;
     }
 
-    /**
-     * Key (file name) of the package.
-     * 
-     */
     @Import(name="s3Key", required=true)
     private Output<String> s3Key;
 
-    /**
-     * @return Key (file name) of the package.
-     * 
-     */
     public Output<String> s3Key() {
         return this.s3Key;
     }
@@ -69,44 +53,20 @@ public final class PackagePackageSourceArgs extends com.pulumi.resources.Resourc
             $ = new PackagePackageSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3BucketName The name of the Amazon S3 bucket containing the package.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3BucketName(Output<String> s3BucketName) {
             $.s3BucketName = s3BucketName;
             return this;
         }
 
-        /**
-         * @param s3BucketName The name of the Amazon S3 bucket containing the package.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3BucketName(String s3BucketName) {
             return s3BucketName(Output.of(s3BucketName));
         }
 
-        /**
-         * @param s3Key Key (file name) of the package.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Key(Output<String> s3Key) {
             $.s3Key = s3Key;
             return this;
         }
 
-        /**
-         * @param s3Key Key (file name) of the package.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Key(String s3Key) {
             return s3Key(Output.of(s3Key));
         }

@@ -12,101 +12,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserAddresses {
-    /**
-     * @return The country that this address is in.
-     * 
-     */
     private @Nullable String country;
-    /**
-     * @return The name that is typically displayed when the address is shown for display.
-     * 
-     */
     private @Nullable String formatted;
-    /**
-     * @return The address locality.
-     * 
-     */
     private @Nullable String locality;
-    /**
-     * @return The postal code of the address.
-     * 
-     */
     private @Nullable String postalCode;
-    /**
-     * @return When `true`, this is the primary address associated with the user.
-     * 
-     */
     private @Nullable Boolean primary;
-    /**
-     * @return The region of the address.
-     * 
-     */
     private @Nullable String region;
-    /**
-     * @return The street of the address.
-     * 
-     */
     private @Nullable String streetAddress;
-    /**
-     * @return The type of address.
-     * 
-     */
     private @Nullable String type;
 
     private UserAddresses() {}
-    /**
-     * @return The country that this address is in.
-     * 
-     */
     public Optional<String> country() {
         return Optional.ofNullable(this.country);
     }
-    /**
-     * @return The name that is typically displayed when the address is shown for display.
-     * 
-     */
     public Optional<String> formatted() {
         return Optional.ofNullable(this.formatted);
     }
-    /**
-     * @return The address locality.
-     * 
-     */
     public Optional<String> locality() {
         return Optional.ofNullable(this.locality);
     }
-    /**
-     * @return The postal code of the address.
-     * 
-     */
     public Optional<String> postalCode() {
         return Optional.ofNullable(this.postalCode);
     }
-    /**
-     * @return When `true`, this is the primary address associated with the user.
-     * 
-     */
     public Optional<Boolean> primary() {
         return Optional.ofNullable(this.primary);
     }
-    /**
-     * @return The region of the address.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
-    /**
-     * @return The street of the address.
-     * 
-     */
     public Optional<String> streetAddress() {
         return Optional.ofNullable(this.streetAddress);
     }
-    /**
-     * @return The type of address.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

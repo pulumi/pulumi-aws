@@ -16,47 +16,23 @@ public final class GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs 
 
     public static final GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs Empty = new GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs();
 
-    /**
-     * Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
-     * 
-     */
     @Import(name="appIdClientRegex")
     private @Nullable Output<String> appIdClientRegex;
 
-    /**
-     * @return Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
-     * 
-     */
     public Optional<Output<String>> appIdClientRegex() {
         return Optional.ofNullable(this.appIdClientRegex);
     }
 
-    /**
-     * AWS region in which the user pool was created.
-     * 
-     */
     @Import(name="awsRegion")
     private @Nullable Output<String> awsRegion;
 
-    /**
-     * @return AWS region in which the user pool was created.
-     * 
-     */
     public Optional<Output<String>> awsRegion() {
         return Optional.ofNullable(this.awsRegion);
     }
 
-    /**
-     * User pool ID.
-     * 
-     */
     @Import(name="userPoolId", required=true)
     private Output<String> userPoolId;
 
-    /**
-     * @return User pool ID.
-     * 
-     */
     public Output<String> userPoolId() {
         return this.userPoolId;
     }
@@ -87,65 +63,29 @@ public final class GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs 
             $ = new GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param appIdClientRegex Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appIdClientRegex(@Nullable Output<String> appIdClientRegex) {
             $.appIdClientRegex = appIdClientRegex;
             return this;
         }
 
-        /**
-         * @param appIdClientRegex Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appIdClientRegex(String appIdClientRegex) {
             return appIdClientRegex(Output.of(appIdClientRegex));
         }
 
-        /**
-         * @param awsRegion AWS region in which the user pool was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsRegion(@Nullable Output<String> awsRegion) {
             $.awsRegion = awsRegion;
             return this;
         }
 
-        /**
-         * @param awsRegion AWS region in which the user pool was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsRegion(String awsRegion) {
             return awsRegion(Output.of(awsRegion));
         }
 
-        /**
-         * @param userPoolId User pool ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolId(Output<String> userPoolId) {
             $.userPoolId = userPoolId;
             return this;
         }
 
-        /**
-         * @param userPoolId User pool ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolId(String userPoolId) {
             return userPoolId(Output.of(userPoolId));
         }

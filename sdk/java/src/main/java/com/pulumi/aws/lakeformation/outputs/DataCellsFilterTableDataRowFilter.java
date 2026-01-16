@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataCellsFilterTableDataRowFilter {
-    /**
-     * @return (Optional) A wildcard that matches all rows.
-     * 
-     */
     private @Nullable DataCellsFilterTableDataRowFilterAllRowsWildcard allRowsWildcard;
-    /**
-     * @return (Optional) A filter expression.
-     * 
-     */
     private @Nullable String filterExpression;
 
     private DataCellsFilterTableDataRowFilter() {}
-    /**
-     * @return (Optional) A wildcard that matches all rows.
-     * 
-     */
     public Optional<DataCellsFilterTableDataRowFilterAllRowsWildcard> allRowsWildcard() {
         return Optional.ofNullable(this.allRowsWildcard);
     }
-    /**
-     * @return (Optional) A filter expression.
-     * 
-     */
     public Optional<String> filterExpression() {
         return Optional.ofNullable(this.filterExpression);
     }

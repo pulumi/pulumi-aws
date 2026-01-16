@@ -15,114 +15,56 @@ public final class OrganizationNonMasterAccountArgs extends com.pulumi.resources
 
     public static final OrganizationNonMasterAccountArgs Empty = new OrganizationNonMasterAccountArgs();
 
-    /**
-     * ARN of the root.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the root.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Email of the account.
-     * 
-     */
     @Import(name="email")
     private @Nullable Output<String> email;
 
-    /**
-     * @return Email of the account.
-     * 
-     */
     public Optional<Output<String>> email() {
         return Optional.ofNullable(this.email);
     }
 
-    /**
-     * Identifier of the root.
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return Identifier of the root.
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Method by which the account joined the organization.
-     * 
-     */
     @Import(name="joinedMethod")
     private @Nullable Output<String> joinedMethod;
 
-    /**
-     * @return Method by which the account joined the organization.
-     * 
-     */
     public Optional<Output<String>> joinedMethod() {
         return Optional.ofNullable(this.joinedMethod);
     }
 
-    /**
-     * Date the account became a part of the organization.
-     * 
-     */
     @Import(name="joinedTimestamp")
     private @Nullable Output<String> joinedTimestamp;
 
-    /**
-     * @return Date the account became a part of the organization.
-     * 
-     */
     public Optional<Output<String>> joinedTimestamp() {
         return Optional.ofNullable(this.joinedTimestamp);
     }
 
-    /**
-     * Name of the policy type.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the policy type.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * State of the account.
-     * 
-     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
-    /**
-     * @return State of the account.
-     * 
-     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
 
     /**
-     * Status of the policy type as it relates to the associated root.
-     * 
      * @deprecated
      * status is deprecated. Use state instead.
      * 
@@ -132,8 +74,6 @@ public final class OrganizationNonMasterAccountArgs extends com.pulumi.resources
     private @Nullable Output<String> status;
 
     /**
-     * @return Status of the policy type as it relates to the associated root.
-     * 
      * @deprecated
      * status is deprecated. Use state instead.
      * 
@@ -174,156 +114,70 @@ public final class OrganizationNonMasterAccountArgs extends com.pulumi.resources
             $ = new OrganizationNonMasterAccountArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the root.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the root.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param email Email of the account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder email(@Nullable Output<String> email) {
             $.email = email;
             return this;
         }
 
-        /**
-         * @param email Email of the account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder email(String email) {
             return email(Output.of(email));
         }
 
-        /**
-         * @param id Identifier of the root.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Identifier of the root.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param joinedMethod Method by which the account joined the organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder joinedMethod(@Nullable Output<String> joinedMethod) {
             $.joinedMethod = joinedMethod;
             return this;
         }
 
-        /**
-         * @param joinedMethod Method by which the account joined the organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder joinedMethod(String joinedMethod) {
             return joinedMethod(Output.of(joinedMethod));
         }
 
-        /**
-         * @param joinedTimestamp Date the account became a part of the organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder joinedTimestamp(@Nullable Output<String> joinedTimestamp) {
             $.joinedTimestamp = joinedTimestamp;
             return this;
         }
 
-        /**
-         * @param joinedTimestamp Date the account became a part of the organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder joinedTimestamp(String joinedTimestamp) {
             return joinedTimestamp(Output.of(joinedTimestamp));
         }
 
-        /**
-         * @param name Name of the policy type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the policy type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param state State of the account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
-        /**
-         * @param state State of the account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(String state) {
             return state(Output.of(state));
         }
 
         /**
-         * @param status Status of the policy type as it relates to the associated root.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -337,8 +191,6 @@ public final class OrganizationNonMasterAccountArgs extends com.pulumi.resources
         }
 
         /**
-         * @param status Status of the policy type as it relates to the associated root.
-         * 
          * @return builder
          * 
          * @deprecated

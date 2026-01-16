@@ -17,110 +17,29 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS DataZone User Profile.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.datazone.UserProfile;
- * import com.pulumi.aws.datazone.UserProfileArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new UserProfile("example", UserProfileArgs.builder()
- *             .userIdentifier(exampleAwsIamUser.arn())
- *             .domainIdentifier(exampleAwsDatazoneDomain.id())
- *             .userType("IAM_USER")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import DataZone User Profile using the `user_identifier,domain_identifier,type`. For example:
- * 
- * ```sh
- * $ pulumi import aws:datazone/userProfile:UserProfile example arn:aws:iam::123456789012:user/example,dzd_54nakfrg9k6suo,IAM
- * ```
- * 
- */
 @ResourceType(type="aws:datazone/userProfile:UserProfile")
 public class UserProfile extends com.pulumi.resources.CustomResource {
-    /**
-     * Details about the user profile.
-     * 
-     */
     @Export(name="details", refs={List.class,UserProfileDetail.class}, tree="[0,1]")
     private Output<List<UserProfileDetail>> details;
 
-    /**
-     * @return Details about the user profile.
-     * 
-     */
     public Output<List<UserProfileDetail>> details() {
         return this.details;
     }
-    /**
-     * The domain identifier.
-     * 
-     */
     @Export(name="domainIdentifier", refs={String.class}, tree="[0]")
     private Output<String> domainIdentifier;
 
-    /**
-     * @return The domain identifier.
-     * 
-     */
     public Output<String> domainIdentifier() {
         return this.domainIdentifier;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The user profile status.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return The user profile status.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
@@ -130,49 +49,21 @@ public class UserProfile extends com.pulumi.resources.CustomResource {
     public Output<Optional<UserProfileTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * The user profile type.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return The user profile type.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
-    /**
-     * The user identifier.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="userIdentifier", refs={String.class}, tree="[0]")
     private Output<String> userIdentifier;
 
-    /**
-     * @return The user identifier.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> userIdentifier() {
         return this.userIdentifier;
     }
-    /**
-     * The user type.
-     * 
-     */
     @Export(name="userType", refs={String.class}, tree="[0]")
     private Output<String> userType;
 
-    /**
-     * @return The user type.
-     * 
-     */
     public Output<String> userType() {
         return this.userType;
     }

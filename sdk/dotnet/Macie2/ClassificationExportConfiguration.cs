@@ -9,60 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Macie2
 {
-    /// <summary>
-    /// Provides a resource to manage an [Amazon Macie Classification Export Configuration](https://docs.aws.amazon.com/macie/latest/APIReference/classification-export-configuration.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Macie2.Account("example");
-    /// 
-    ///     var exampleClassificationExportConfiguration = new Aws.Macie2.ClassificationExportConfiguration("example", new()
-    ///     {
-    ///         S3Destination = new Aws.Macie2.Inputs.ClassificationExportConfigurationS3DestinationArgs
-    ///         {
-    ///             BucketName = exampleAwsS3Bucket.Bucket,
-    ///             KeyPrefix = "exampleprefix/",
-    ///             KmsKeyArn = exampleAwsKmsKey.Arn,
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_macie2_classification_export_configuration` using the region. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example us-west-2
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration")]
     public partial class ClassificationExportConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for a S3 Destination. Defined below
-        /// </summary>
         [Output("s3Destination")]
         public Output<Outputs.ClassificationExportConfigurationS3Destination> S3Destination { get; private set; } = null!;
 
@@ -112,15 +64,9 @@ namespace Pulumi.Aws.Macie2
 
     public sealed class ClassificationExportConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Configuration block for a S3 Destination. Defined below
-        /// </summary>
         [Input("s3Destination", required: true)]
         public Input<Inputs.ClassificationExportConfigurationS3DestinationArgs> S3Destination { get; set; } = null!;
 
@@ -132,15 +78,9 @@ namespace Pulumi.Aws.Macie2
 
     public sealed class ClassificationExportConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Configuration block for a S3 Destination. Defined below
-        /// </summary>
         [Input("s3Destination")]
         public Input<Inputs.ClassificationExportConfigurationS3DestinationGetArgs>? S3Destination { get; set; }
 

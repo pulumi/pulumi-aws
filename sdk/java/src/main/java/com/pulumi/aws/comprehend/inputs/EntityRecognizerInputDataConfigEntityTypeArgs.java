@@ -14,19 +14,9 @@ public final class EntityRecognizerInputDataConfigEntityTypeArgs extends com.pul
 
     public static final EntityRecognizerInputDataConfigEntityTypeArgs Empty = new EntityRecognizerInputDataConfigEntityTypeArgs();
 
-    /**
-     * An entity type to be matched by the Entity Recognizer.
-     * Cannot contain a newline (`\n`), carriage return (`\r`), or tab (`\t`).
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return An entity type to be matched by the Entity Recognizer.
-     * Cannot contain a newline (`\n`), carriage return (`\r`), or tab (`\t`).
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -55,25 +45,11 @@ public final class EntityRecognizerInputDataConfigEntityTypeArgs extends com.pul
             $ = new EntityRecognizerInputDataConfigEntityTypeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param type An entity type to be matched by the Entity Recognizer.
-         * Cannot contain a newline (`\n`), carriage return (`\r`), or tab (`\t`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type An entity type to be matched by the Entity Recognizer.
-         * Cannot contain a newline (`\n`), carriage return (`\r`), or tab (`\t`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

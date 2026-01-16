@@ -19,7 +19,7 @@ public final class WebAclRuleGroupAssociationRuleGroupReference {
      */
     private String arn;
     /**
-     * @return Override actions for specific rules within the rule group. See below.
+     * @return Action settings to use in place of rule actions configured inside the rule group. You can specify up to 100 overrides.
      * 
      */
     private @Nullable List<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverride> ruleActionOverrides;
@@ -33,7 +33,7 @@ public final class WebAclRuleGroupAssociationRuleGroupReference {
         return this.arn;
     }
     /**
-     * @return Override actions for specific rules within the rule group. See below.
+     * @return Action settings to use in place of rule actions configured inside the rule group. You can specify up to 100 overrides.
      * 
      */
     public List<WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverride> ruleActionOverrides() {

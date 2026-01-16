@@ -14,153 +14,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to create an association between a route table and a subnet or a route table and an
- * internet gateway or virtual private gateway.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.RouteTableAssociation;
- * import com.pulumi.aws.ec2.RouteTableAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var a = new RouteTableAssociation("a", RouteTableAssociationArgs.builder()
- *             .subnetId(foo.id())
- *             .routeTableId(bar.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.RouteTableAssociation;
- * import com.pulumi.aws.ec2.RouteTableAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var b = new RouteTableAssociation("b", RouteTableAssociationArgs.builder()
- *             .gatewayId(foo.id())
- *             .routeTableId(bar.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * With EC2 Internet Gateways:
- * 
- * __Using `pulumi import` to import__ EC2 Route Table Associations using the associated resource ID and Route Table ID separated by a forward slash (`/`). For example:
- * 
- * With EC2 Subnets:
- * 
- * ```sh
- * $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
- * ```
- * With EC2 Internet Gateways:
- * 
- * ```sh
- * $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/routeTableAssociation:RouteTableAssociation")
 public class RouteTableAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * The gateway ID to create an association. Conflicts with `subnetId`.
-     * 
-     */
     @Export(name="gatewayId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> gatewayId;
 
-    /**
-     * @return The gateway ID to create an association. Conflicts with `subnetId`.
-     * 
-     */
     public Output<Optional<String>> gatewayId() {
         return Codegen.optional(this.gatewayId);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The ID of the routing table to associate with.
-     * 
-     * &gt; **NOTE:** Please note that one of either `subnetId` or `gatewayId` is required.
-     * 
-     */
     @Export(name="routeTableId", refs={String.class}, tree="[0]")
     private Output<String> routeTableId;
 
-    /**
-     * @return The ID of the routing table to associate with.
-     * 
-     * &gt; **NOTE:** Please note that one of either `subnetId` or `gatewayId` is required.
-     * 
-     */
     public Output<String> routeTableId() {
         return this.routeTableId;
     }
-    /**
-     * The subnet ID to create an association. Conflicts with `gatewayId`.
-     * 
-     */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subnetId;
 
-    /**
-     * @return The subnet ID to create an association. Conflicts with `gatewayId`.
-     * 
-     */
     public Output<Optional<String>> subnetId() {
         return Codegen.optional(this.subnetId);
     }

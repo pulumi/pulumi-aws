@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class SubscriberSubscriberIdentity {
-    /**
-     * @return The AWS Regions where Security Lake is automatically enabled.
-     * 
-     */
     private String externalId;
-    /**
-     * @return Provides encryption details of Amazon Security Lake object.
-     * 
-     */
     private String principal;
 
     private SubscriberSubscriberIdentity() {}
-    /**
-     * @return The AWS Regions where Security Lake is automatically enabled.
-     * 
-     */
     public String externalId() {
         return this.externalId;
     }
-    /**
-     * @return Provides encryption details of Amazon Security Lake object.
-     * 
-     */
     public String principal() {
         return this.principal;
     }

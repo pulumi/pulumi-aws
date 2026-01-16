@@ -9,75 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.GlobalAccelerator
 {
-    /// <summary>
-    /// Provides a Global Accelerator custom routing listener.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.GlobalAccelerator.CustomRoutingAccelerator("example", new()
-    ///     {
-    ///         Name = "Example",
-    ///         IpAddressType = "IPV4",
-    ///         Enabled = true,
-    ///         Attributes = new Aws.GlobalAccelerator.Inputs.CustomRoutingAcceleratorAttributesArgs
-    ///         {
-    ///             FlowLogsEnabled = true,
-    ///             FlowLogsS3Bucket = "example-bucket",
-    ///             FlowLogsS3Prefix = "flow-logs/",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleCustomRoutingListener = new Aws.GlobalAccelerator.CustomRoutingListener("example", new()
-    ///     {
-    ///         AcceleratorArn = example.Arn,
-    ///         PortRanges = new[]
-    ///         {
-    ///             new Aws.GlobalAccelerator.Inputs.CustomRoutingListenerPortRangeArgs
-    ///             {
-    ///                 FromPort = 80,
-    ///                 ToPort = 80,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator custom routing listener.
-    /// 
-    /// Using `pulumi import`, import Global Accelerator custom routing listeners using the `id`. For example:
-    /// 
-    /// % pulumi import aws_globalaccelerator_custom_routing_listener.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
-    /// </summary>
     [AwsResourceType("aws:globalaccelerator/customRoutingListener:CustomRoutingListener")]
     public partial class CustomRoutingListener : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of a custom routing accelerator.
-        /// </summary>
         [Output("acceleratorArn")]
         public Output<string> AcceleratorArn { get; private set; } = null!;
 
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-        /// </summary>
         [Output("portRanges")]
         public Output<ImmutableArray<Outputs.CustomRoutingListenerPortRange>> PortRanges { get; private set; } = null!;
 
@@ -127,18 +67,11 @@ namespace Pulumi.Aws.GlobalAccelerator
 
     public sealed class CustomRoutingListenerArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of a custom routing accelerator.
-        /// </summary>
         [Input("acceleratorArn", required: true)]
         public Input<string> AcceleratorArn { get; set; } = null!;
 
         [Input("portRanges", required: true)]
         private InputList<Inputs.CustomRoutingListenerPortRangeArgs>? _portRanges;
-
-        /// <summary>
-        /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-        /// </summary>
         public InputList<Inputs.CustomRoutingListenerPortRangeArgs> PortRanges
         {
             get => _portRanges ?? (_portRanges = new InputList<Inputs.CustomRoutingListenerPortRangeArgs>());
@@ -153,9 +86,6 @@ namespace Pulumi.Aws.GlobalAccelerator
 
     public sealed class CustomRoutingListenerState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of a custom routing accelerator.
-        /// </summary>
         [Input("acceleratorArn")]
         public Input<string>? AcceleratorArn { get; set; }
 
@@ -164,10 +94,6 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         [Input("portRanges")]
         private InputList<Inputs.CustomRoutingListenerPortRangeGetArgs>? _portRanges;
-
-        /// <summary>
-        /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-        /// </summary>
         public InputList<Inputs.CustomRoutingListenerPortRangeGetArgs> PortRanges
         {
             get => _portRanges ?? (_portRanges = new InputList<Inputs.CustomRoutingListenerPortRangeGetArgs>());

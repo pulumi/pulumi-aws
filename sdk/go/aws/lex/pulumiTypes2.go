@@ -1203,12 +1203,8 @@ func (o V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAn
 }
 
 type V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponse struct {
-	// Whether the user can interrupt a speech response from Amazon Lex.
-	AllowInterrupt *bool `pulumi:"allowInterrupt"`
-	// Configuration blocks for responses that Amazon Lex can send to the user.
-	// Amazon Lex chooses the actual response to send at runtime.
-	// See `messageGroup`.
-	MessageGroups []V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup `pulumi:"messageGroups"`
+	AllowInterrupt *bool                                                                                                                       `pulumi:"allowInterrupt"`
+	MessageGroups  []V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup `pulumi:"messageGroups"`
 }
 
 // V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseInput is an input type that accepts V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs and V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseOutput values.
@@ -1223,12 +1219,8 @@ type V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndCo
 }
 
 type V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs struct {
-	// Whether the user can interrupt a speech response from Amazon Lex.
-	AllowInterrupt pulumi.BoolPtrInput `pulumi:"allowInterrupt"`
-	// Configuration blocks for responses that Amazon Lex can send to the user.
-	// Amazon Lex chooses the actual response to send at runtime.
-	// See `messageGroup`.
-	MessageGroups V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArrayInput `pulumi:"messageGroups"`
+	AllowInterrupt pulumi.BoolPtrInput                                                                                                                 `pulumi:"allowInterrupt"`
+	MessageGroups  V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArrayInput `pulumi:"messageGroups"`
 }
 
 func (V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs) ElementType() reflect.Type {
@@ -1282,16 +1274,12 @@ func (o V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAn
 	return o
 }
 
-// Whether the user can interrupt a speech response from Amazon Lex.
 func (o V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseOutput) AllowInterrupt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponse) *bool {
 		return v.AllowInterrupt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Configuration blocks for responses that Amazon Lex can send to the user.
-// Amazon Lex chooses the actual response to send at runtime.
-// See `messageGroup`.
 func (o V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseOutput) MessageGroups() V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponse) []V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup {
 		return v.MessageGroups
@@ -1319,12 +1307,7 @@ func (o V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAn
 }
 
 type V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup struct {
-	// Configuration block for the primary message that Amazon Lex should send to the user.
-	// See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
-	Message V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage `pulumi:"message"`
-	// Configuration blocks for message variations to send to the user.
-	// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
-	// See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+	Message    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage     `pulumi:"message"`
 	Variations []V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation `pulumi:"variations"`
 }
 
@@ -1340,12 +1323,7 @@ type V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndCo
 }
 
 type V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs struct {
-	// Configuration block for the primary message that Amazon Lex should send to the user.
-	// See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
-	Message V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageInput `pulumi:"message"`
-	// Configuration blocks for message variations to send to the user.
-	// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
-	// See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+	Message    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageInput        `pulumi:"message"`
 	Variations V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArrayInput `pulumi:"variations"`
 }
 
@@ -1400,17 +1378,12 @@ func (o V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAn
 	return o
 }
 
-// Configuration block for the primary message that Amazon Lex should send to the user.
-// See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
 func (o V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupOutput) Message() V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput {
 	return o.ApplyT(func(v V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup) V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage {
 		return v.Message
 	}).(V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput)
 }
 
-// Configuration blocks for message variations to send to the user.
-// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
-// See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
 func (o V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupOutput) Variations() V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup) []V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation {
 		return v.Variations
@@ -3198,8 +3171,6 @@ func (o V2modelsSlotTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type V2modelsSlotTypeCompositeSlotTypeSetting struct {
-	// Sub slots in the composite slot.
-	// See `subSlots` argument reference below.
 	SubSlots []V2modelsSlotTypeCompositeSlotTypeSettingSubSlot `pulumi:"subSlots"`
 }
 
@@ -3215,8 +3186,6 @@ type V2modelsSlotTypeCompositeSlotTypeSettingInput interface {
 }
 
 type V2modelsSlotTypeCompositeSlotTypeSettingArgs struct {
-	// Sub slots in the composite slot.
-	// See `subSlots` argument reference below.
 	SubSlots V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArrayInput `pulumi:"subSlots"`
 }
 
@@ -3271,8 +3240,6 @@ func (o V2modelsSlotTypeCompositeSlotTypeSettingOutput) ToV2modelsSlotTypeCompos
 	return o
 }
 
-// Sub slots in the composite slot.
-// See `subSlots` argument reference below.
 func (o V2modelsSlotTypeCompositeSlotTypeSettingOutput) SubSlots() V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeCompositeSlotTypeSetting) []V2modelsSlotTypeCompositeSlotTypeSettingSubSlot {
 		return v.SubSlots
@@ -3300,10 +3267,7 @@ func (o V2modelsSlotTypeCompositeSlotTypeSettingArrayOutput) Index(i pulumi.IntI
 }
 
 type V2modelsSlotTypeCompositeSlotTypeSettingSubSlot struct {
-	// Name of a constituent sub slot inside a composite slot.
-	Name string `pulumi:"name"`
-	// Unique identifier assigned to a slot type.
-	// This refers to either a built-in slot type or the unique `slotTypeId` of a custom slot type.
+	Name       string `pulumi:"name"`
 	SlotTypeId string `pulumi:"slotTypeId"`
 }
 
@@ -3319,10 +3283,7 @@ type V2modelsSlotTypeCompositeSlotTypeSettingSubSlotInput interface {
 }
 
 type V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs struct {
-	// Name of a constituent sub slot inside a composite slot.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Unique identifier assigned to a slot type.
-	// This refers to either a built-in slot type or the unique `slotTypeId` of a custom slot type.
+	Name       pulumi.StringInput `pulumi:"name"`
 	SlotTypeId pulumi.StringInput `pulumi:"slotTypeId"`
 }
 
@@ -3377,13 +3338,10 @@ func (o V2modelsSlotTypeCompositeSlotTypeSettingSubSlotOutput) ToV2modelsSlotTyp
 	return o
 }
 
-// Name of a constituent sub slot inside a composite slot.
 func (o V2modelsSlotTypeCompositeSlotTypeSettingSubSlotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeCompositeSlotTypeSettingSubSlot) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Unique identifier assigned to a slot type.
-// This refers to either a built-in slot type or the unique `slotTypeId` of a custom slot type.
 func (o V2modelsSlotTypeCompositeSlotTypeSettingSubSlotOutput) SlotTypeId() pulumi.StringOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeCompositeSlotTypeSettingSubSlot) string { return v.SlotTypeId }).(pulumi.StringOutput)
 }
@@ -3409,8 +3367,6 @@ func (o V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArrayOutput) Index(i pulu
 }
 
 type V2modelsSlotTypeExternalSourceSetting struct {
-	// Settings required for a slot type based on a grammar that you provide.
-	// See `grammarSlotTypeSetting` argument reference below.
 	GrammarSlotTypeSettings []V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting `pulumi:"grammarSlotTypeSettings"`
 }
 
@@ -3426,8 +3382,6 @@ type V2modelsSlotTypeExternalSourceSettingInput interface {
 }
 
 type V2modelsSlotTypeExternalSourceSettingArgs struct {
-	// Settings required for a slot type based on a grammar that you provide.
-	// See `grammarSlotTypeSetting` argument reference below.
 	GrammarSlotTypeSettings V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArrayInput `pulumi:"grammarSlotTypeSettings"`
 }
 
@@ -3482,8 +3436,6 @@ func (o V2modelsSlotTypeExternalSourceSettingOutput) ToV2modelsSlotTypeExternalS
 	return o
 }
 
-// Settings required for a slot type based on a grammar that you provide.
-// See `grammarSlotTypeSetting` argument reference below.
 func (o V2modelsSlotTypeExternalSourceSettingOutput) GrammarSlotTypeSettings() V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeExternalSourceSetting) []V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting {
 		return v.GrammarSlotTypeSettings
@@ -3511,8 +3463,6 @@ func (o V2modelsSlotTypeExternalSourceSettingArrayOutput) Index(i pulumi.IntInpu
 }
 
 type V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting struct {
-	// Source of the grammar used to create the slot type.
-	// See `source` argument reference below.
 	Sources []V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource `pulumi:"sources"`
 }
 
@@ -3528,8 +3478,6 @@ type V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingInput interface 
 }
 
 type V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs struct {
-	// Source of the grammar used to create the slot type.
-	// See `source` argument reference below.
 	Sources V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArrayInput `pulumi:"sources"`
 }
 
@@ -3584,8 +3532,6 @@ func (o V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingOutput) ToV2m
 	return o
 }
 
-// Source of the grammar used to create the slot type.
-// See `source` argument reference below.
 func (o V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingOutput) Sources() V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting) []V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource {
 		return v.Sources
@@ -3613,12 +3559,9 @@ func (o V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArrayOutput) 
 }
 
 type V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource struct {
-	// KMS key required to decrypt the contents of the grammar, if any.
-	KmsKeyArn string `pulumi:"kmsKeyArn"`
-	// Name of the Amazon S3 bucket that contains the grammar source.
+	KmsKeyArn    string `pulumi:"kmsKeyArn"`
 	S3BucketName string `pulumi:"s3BucketName"`
-	// Path to the grammar in the Amazon S3 bucket.
-	S3ObjectKey string `pulumi:"s3ObjectKey"`
+	S3ObjectKey  string `pulumi:"s3ObjectKey"`
 }
 
 // V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceInput is an input type that accepts V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs and V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceOutput values.
@@ -3633,12 +3576,9 @@ type V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceInput inte
 }
 
 type V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs struct {
-	// KMS key required to decrypt the contents of the grammar, if any.
-	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
-	// Name of the Amazon S3 bucket that contains the grammar source.
+	KmsKeyArn    pulumi.StringInput `pulumi:"kmsKeyArn"`
 	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
-	// Path to the grammar in the Amazon S3 bucket.
-	S3ObjectKey pulumi.StringInput `pulumi:"s3ObjectKey"`
+	S3ObjectKey  pulumi.StringInput `pulumi:"s3ObjectKey"`
 }
 
 func (V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs) ElementType() reflect.Type {
@@ -3692,19 +3632,16 @@ func (o V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceOutput)
 	return o
 }
 
-// KMS key required to decrypt the contents of the grammar, if any.
 func (o V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
 
-// Name of the Amazon S3 bucket that contains the grammar source.
 func (o V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceOutput) S3BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource) string {
 		return v.S3BucketName
 	}).(pulumi.StringOutput)
 }
 
-// Path to the grammar in the Amazon S3 bucket.
 func (o V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceOutput) S3ObjectKey() pulumi.StringOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource) string { return v.S3ObjectKey }).(pulumi.StringOutput)
 }
@@ -3730,12 +3667,8 @@ func (o V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArrayOu
 }
 
 type V2modelsSlotTypeSlotTypeValue struct {
-	// Value of the slot type entry.
-	// See `sampleValue` argument reference below.
 	SampleValues []V2modelsSlotTypeSlotTypeValueSampleValue `pulumi:"sampleValues"`
-	// A list of additional values related to the slot type entry.
-	// See `synonyms` argument reference below.
-	Synonyms []V2modelsSlotTypeSlotTypeValueSynonym `pulumi:"synonyms"`
+	Synonyms     []V2modelsSlotTypeSlotTypeValueSynonym     `pulumi:"synonyms"`
 }
 
 // V2modelsSlotTypeSlotTypeValueInput is an input type that accepts V2modelsSlotTypeSlotTypeValueArgs and V2modelsSlotTypeSlotTypeValueOutput values.
@@ -3750,12 +3683,8 @@ type V2modelsSlotTypeSlotTypeValueInput interface {
 }
 
 type V2modelsSlotTypeSlotTypeValueArgs struct {
-	// Value of the slot type entry.
-	// See `sampleValue` argument reference below.
 	SampleValues V2modelsSlotTypeSlotTypeValueSampleValueArrayInput `pulumi:"sampleValues"`
-	// A list of additional values related to the slot type entry.
-	// See `synonyms` argument reference below.
-	Synonyms V2modelsSlotTypeSlotTypeValueSynonymArrayInput `pulumi:"synonyms"`
+	Synonyms     V2modelsSlotTypeSlotTypeValueSynonymArrayInput     `pulumi:"synonyms"`
 }
 
 func (V2modelsSlotTypeSlotTypeValueArgs) ElementType() reflect.Type {
@@ -3809,16 +3738,12 @@ func (o V2modelsSlotTypeSlotTypeValueOutput) ToV2modelsSlotTypeSlotTypeValueOutp
 	return o
 }
 
-// Value of the slot type entry.
-// See `sampleValue` argument reference below.
 func (o V2modelsSlotTypeSlotTypeValueOutput) SampleValues() V2modelsSlotTypeSlotTypeValueSampleValueArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeSlotTypeValue) []V2modelsSlotTypeSlotTypeValueSampleValue {
 		return v.SampleValues
 	}).(V2modelsSlotTypeSlotTypeValueSampleValueArrayOutput)
 }
 
-// A list of additional values related to the slot type entry.
-// See `synonyms` argument reference below.
 func (o V2modelsSlotTypeSlotTypeValueOutput) Synonyms() V2modelsSlotTypeSlotTypeValueSynonymArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeSlotTypeValue) []V2modelsSlotTypeSlotTypeValueSynonym { return v.Synonyms }).(V2modelsSlotTypeSlotTypeValueSynonymArrayOutput)
 }
@@ -3844,7 +3769,6 @@ func (o V2modelsSlotTypeSlotTypeValueArrayOutput) Index(i pulumi.IntInput) V2mod
 }
 
 type V2modelsSlotTypeSlotTypeValueSampleValue struct {
-	// Value that can be used for a slot type.
 	Value string `pulumi:"value"`
 }
 
@@ -3860,7 +3784,6 @@ type V2modelsSlotTypeSlotTypeValueSampleValueInput interface {
 }
 
 type V2modelsSlotTypeSlotTypeValueSampleValueArgs struct {
-	// Value that can be used for a slot type.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -3915,7 +3838,6 @@ func (o V2modelsSlotTypeSlotTypeValueSampleValueOutput) ToV2modelsSlotTypeSlotTy
 	return o
 }
 
-// Value that can be used for a slot type.
 func (o V2modelsSlotTypeSlotTypeValueSampleValueOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeSlotTypeValueSampleValue) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3941,7 +3863,6 @@ func (o V2modelsSlotTypeSlotTypeValueSampleValueArrayOutput) Index(i pulumi.IntI
 }
 
 type V2modelsSlotTypeSlotTypeValueSynonym struct {
-	// Value that can be used for a slot type.
 	Value string `pulumi:"value"`
 }
 
@@ -3957,7 +3878,6 @@ type V2modelsSlotTypeSlotTypeValueSynonymInput interface {
 }
 
 type V2modelsSlotTypeSlotTypeValueSynonymArgs struct {
-	// Value that can be used for a slot type.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -4012,7 +3932,6 @@ func (o V2modelsSlotTypeSlotTypeValueSynonymOutput) ToV2modelsSlotTypeSlotTypeVa
 	return o
 }
 
-// Value that can be used for a slot type.
 func (o V2modelsSlotTypeSlotTypeValueSynonymOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeSlotTypeValueSynonym) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -4213,16 +4132,9 @@ func (o V2modelsSlotTypeTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type V2modelsSlotTypeValueSelectionSetting struct {
-	// Provides settings that enable advanced recognition settings for slot values.
-	// You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
-	// See `advancedRecognitionSetting` argument reference below.
 	AdvancedRecognitionSettings []V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting `pulumi:"advancedRecognitionSettings"`
-	// Used to validate the value of the slot.
-	// See `regexFilter` argument reference below.
-	RegexFilters []V2modelsSlotTypeValueSelectionSettingRegexFilter `pulumi:"regexFilters"`
-	// Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
-	// Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
-	ResolutionStrategy string `pulumi:"resolutionStrategy"`
+	RegexFilters                []V2modelsSlotTypeValueSelectionSettingRegexFilter                `pulumi:"regexFilters"`
+	ResolutionStrategy          string                                                            `pulumi:"resolutionStrategy"`
 }
 
 // V2modelsSlotTypeValueSelectionSettingInput is an input type that accepts V2modelsSlotTypeValueSelectionSettingArgs and V2modelsSlotTypeValueSelectionSettingOutput values.
@@ -4237,16 +4149,9 @@ type V2modelsSlotTypeValueSelectionSettingInput interface {
 }
 
 type V2modelsSlotTypeValueSelectionSettingArgs struct {
-	// Provides settings that enable advanced recognition settings for slot values.
-	// You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
-	// See `advancedRecognitionSetting` argument reference below.
 	AdvancedRecognitionSettings V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArrayInput `pulumi:"advancedRecognitionSettings"`
-	// Used to validate the value of the slot.
-	// See `regexFilter` argument reference below.
-	RegexFilters V2modelsSlotTypeValueSelectionSettingRegexFilterArrayInput `pulumi:"regexFilters"`
-	// Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
-	// Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
-	ResolutionStrategy pulumi.StringInput `pulumi:"resolutionStrategy"`
+	RegexFilters                V2modelsSlotTypeValueSelectionSettingRegexFilterArrayInput                `pulumi:"regexFilters"`
+	ResolutionStrategy          pulumi.StringInput                                                        `pulumi:"resolutionStrategy"`
 }
 
 func (V2modelsSlotTypeValueSelectionSettingArgs) ElementType() reflect.Type {
@@ -4326,25 +4231,18 @@ func (o V2modelsSlotTypeValueSelectionSettingOutput) ToV2modelsSlotTypeValueSele
 	}).(V2modelsSlotTypeValueSelectionSettingPtrOutput)
 }
 
-// Provides settings that enable advanced recognition settings for slot values.
-// You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
-// See `advancedRecognitionSetting` argument reference below.
 func (o V2modelsSlotTypeValueSelectionSettingOutput) AdvancedRecognitionSettings() V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeValueSelectionSetting) []V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting {
 		return v.AdvancedRecognitionSettings
 	}).(V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArrayOutput)
 }
 
-// Used to validate the value of the slot.
-// See `regexFilter` argument reference below.
 func (o V2modelsSlotTypeValueSelectionSettingOutput) RegexFilters() V2modelsSlotTypeValueSelectionSettingRegexFilterArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeValueSelectionSetting) []V2modelsSlotTypeValueSelectionSettingRegexFilter {
 		return v.RegexFilters
 	}).(V2modelsSlotTypeValueSelectionSettingRegexFilterArrayOutput)
 }
 
-// Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
-// Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
 func (o V2modelsSlotTypeValueSelectionSettingOutput) ResolutionStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeValueSelectionSetting) string { return v.ResolutionStrategy }).(pulumi.StringOutput)
 }
@@ -4373,9 +4271,6 @@ func (o V2modelsSlotTypeValueSelectionSettingPtrOutput) Elem() V2modelsSlotTypeV
 	}).(V2modelsSlotTypeValueSelectionSettingOutput)
 }
 
-// Provides settings that enable advanced recognition settings for slot values.
-// You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
-// See `advancedRecognitionSetting` argument reference below.
 func (o V2modelsSlotTypeValueSelectionSettingPtrOutput) AdvancedRecognitionSettings() V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArrayOutput {
 	return o.ApplyT(func(v *V2modelsSlotTypeValueSelectionSetting) []V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting {
 		if v == nil {
@@ -4385,8 +4280,6 @@ func (o V2modelsSlotTypeValueSelectionSettingPtrOutput) AdvancedRecognitionSetti
 	}).(V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArrayOutput)
 }
 
-// Used to validate the value of the slot.
-// See `regexFilter` argument reference below.
 func (o V2modelsSlotTypeValueSelectionSettingPtrOutput) RegexFilters() V2modelsSlotTypeValueSelectionSettingRegexFilterArrayOutput {
 	return o.ApplyT(func(v *V2modelsSlotTypeValueSelectionSetting) []V2modelsSlotTypeValueSelectionSettingRegexFilter {
 		if v == nil {
@@ -4396,8 +4289,6 @@ func (o V2modelsSlotTypeValueSelectionSettingPtrOutput) RegexFilters() V2modelsS
 	}).(V2modelsSlotTypeValueSelectionSettingRegexFilterArrayOutput)
 }
 
-// Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
-// Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
 func (o V2modelsSlotTypeValueSelectionSettingPtrOutput) ResolutionStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *V2modelsSlotTypeValueSelectionSetting) *string {
 		if v == nil {
@@ -4408,8 +4299,6 @@ func (o V2modelsSlotTypeValueSelectionSettingPtrOutput) ResolutionStrategy() pul
 }
 
 type V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting struct {
-	// Enables using the slot values as a custom vocabulary for recognizing user utterances.
-	// Valid value is `UseSlotValuesAsCustomVocabulary`.
 	AudioRecognitionStrategy *string `pulumi:"audioRecognitionStrategy"`
 }
 
@@ -4425,8 +4314,6 @@ type V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingInput interf
 }
 
 type V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs struct {
-	// Enables using the slot values as a custom vocabulary for recognizing user utterances.
-	// Valid value is `UseSlotValuesAsCustomVocabulary`.
 	AudioRecognitionStrategy pulumi.StringPtrInput `pulumi:"audioRecognitionStrategy"`
 }
 
@@ -4481,8 +4368,6 @@ func (o V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingOutput) T
 	return o
 }
 
-// Enables using the slot values as a custom vocabulary for recognizing user utterances.
-// Valid value is `UseSlotValuesAsCustomVocabulary`.
 func (o V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingOutput) AudioRecognitionStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting) *string {
 		return v.AudioRecognitionStrategy
@@ -4510,7 +4395,6 @@ func (o V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArrayOutp
 }
 
 type V2modelsSlotTypeValueSelectionSettingRegexFilter struct {
-	// A regular expression used to validate the value of a slot.
 	Pattern string `pulumi:"pattern"`
 }
 
@@ -4526,7 +4410,6 @@ type V2modelsSlotTypeValueSelectionSettingRegexFilterInput interface {
 }
 
 type V2modelsSlotTypeValueSelectionSettingRegexFilterArgs struct {
-	// A regular expression used to validate the value of a slot.
 	Pattern pulumi.StringInput `pulumi:"pattern"`
 }
 
@@ -4581,7 +4464,6 @@ func (o V2modelsSlotTypeValueSelectionSettingRegexFilterOutput) ToV2modelsSlotTy
 	return o
 }
 
-// A regular expression used to validate the value of a slot.
 func (o V2modelsSlotTypeValueSelectionSettingRegexFilterOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeValueSelectionSettingRegexFilter) string { return v.Pattern }).(pulumi.StringOutput)
 }
@@ -4607,20 +4489,11 @@ func (o V2modelsSlotTypeValueSelectionSettingRegexFilterArrayOutput) Index(i pul
 }
 
 type V2modelsSlotValueElicitationSetting struct {
-	// List of default values for a slot.
-	// See the `defaultValueSpecification` argument reference below.
-	DefaultValueSpecifications []V2modelsSlotValueElicitationSettingDefaultValueSpecification `pulumi:"defaultValueSpecifications"`
-	// Prompt that Amazon Lex uses to elicit the slot value from the user.
-	// See the `lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
-	PromptSpecification V2modelsSlotValueElicitationSettingPromptSpecification `pulumi:"promptSpecification"`
-	SampleUtterances    []V2modelsSlotValueElicitationSettingSampleUtterance   `pulumi:"sampleUtterances"`
-	// Whether the slot is required or optional. Valid values are `Required` or `Optional`.
-	SlotConstraint string `pulumi:"slotConstraint"`
-	// Information about whether assisted slot resolution is turned on for the slot or not.
-	// See the `slotResolutionSetting` argument reference below.
-	SlotResolutionSettings []V2modelsSlotValueElicitationSettingSlotResolutionSetting `pulumi:"slotResolutionSettings"`
-	// Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
-	// See the `waitAndContinueSpecification` argument reference below.
+	DefaultValueSpecifications    []V2modelsSlotValueElicitationSettingDefaultValueSpecification    `pulumi:"defaultValueSpecifications"`
+	PromptSpecification           V2modelsSlotValueElicitationSettingPromptSpecification            `pulumi:"promptSpecification"`
+	SampleUtterances              []V2modelsSlotValueElicitationSettingSampleUtterance              `pulumi:"sampleUtterances"`
+	SlotConstraint                string                                                            `pulumi:"slotConstraint"`
+	SlotResolutionSettings        []V2modelsSlotValueElicitationSettingSlotResolutionSetting        `pulumi:"slotResolutionSettings"`
 	WaitAndContinueSpecifications []V2modelsSlotValueElicitationSettingWaitAndContinueSpecification `pulumi:"waitAndContinueSpecifications"`
 }
 
@@ -4636,20 +4509,11 @@ type V2modelsSlotValueElicitationSettingInput interface {
 }
 
 type V2modelsSlotValueElicitationSettingArgs struct {
-	// List of default values for a slot.
-	// See the `defaultValueSpecification` argument reference below.
-	DefaultValueSpecifications V2modelsSlotValueElicitationSettingDefaultValueSpecificationArrayInput `pulumi:"defaultValueSpecifications"`
-	// Prompt that Amazon Lex uses to elicit the slot value from the user.
-	// See the `lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
-	PromptSpecification V2modelsSlotValueElicitationSettingPromptSpecificationInput  `pulumi:"promptSpecification"`
-	SampleUtterances    V2modelsSlotValueElicitationSettingSampleUtteranceArrayInput `pulumi:"sampleUtterances"`
-	// Whether the slot is required or optional. Valid values are `Required` or `Optional`.
-	SlotConstraint pulumi.StringInput `pulumi:"slotConstraint"`
-	// Information about whether assisted slot resolution is turned on for the slot or not.
-	// See the `slotResolutionSetting` argument reference below.
-	SlotResolutionSettings V2modelsSlotValueElicitationSettingSlotResolutionSettingArrayInput `pulumi:"slotResolutionSettings"`
-	// Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
-	// See the `waitAndContinueSpecification` argument reference below.
+	DefaultValueSpecifications    V2modelsSlotValueElicitationSettingDefaultValueSpecificationArrayInput    `pulumi:"defaultValueSpecifications"`
+	PromptSpecification           V2modelsSlotValueElicitationSettingPromptSpecificationInput               `pulumi:"promptSpecification"`
+	SampleUtterances              V2modelsSlotValueElicitationSettingSampleUtteranceArrayInput              `pulumi:"sampleUtterances"`
+	SlotConstraint                pulumi.StringInput                                                        `pulumi:"slotConstraint"`
+	SlotResolutionSettings        V2modelsSlotValueElicitationSettingSlotResolutionSettingArrayInput        `pulumi:"slotResolutionSettings"`
 	WaitAndContinueSpecifications V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArrayInput `pulumi:"waitAndContinueSpecifications"`
 }
 
@@ -4730,16 +4594,12 @@ func (o V2modelsSlotValueElicitationSettingOutput) ToV2modelsSlotValueElicitatio
 	}).(V2modelsSlotValueElicitationSettingPtrOutput)
 }
 
-// List of default values for a slot.
-// See the `defaultValueSpecification` argument reference below.
 func (o V2modelsSlotValueElicitationSettingOutput) DefaultValueSpecifications() V2modelsSlotValueElicitationSettingDefaultValueSpecificationArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSetting) []V2modelsSlotValueElicitationSettingDefaultValueSpecification {
 		return v.DefaultValueSpecifications
 	}).(V2modelsSlotValueElicitationSettingDefaultValueSpecificationArrayOutput)
 }
 
-// Prompt that Amazon Lex uses to elicit the slot value from the user.
-// See the `lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
 func (o V2modelsSlotValueElicitationSettingOutput) PromptSpecification() V2modelsSlotValueElicitationSettingPromptSpecificationOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSetting) V2modelsSlotValueElicitationSettingPromptSpecification {
 		return v.PromptSpecification
@@ -4752,21 +4612,16 @@ func (o V2modelsSlotValueElicitationSettingOutput) SampleUtterances() V2modelsSl
 	}).(V2modelsSlotValueElicitationSettingSampleUtteranceArrayOutput)
 }
 
-// Whether the slot is required or optional. Valid values are `Required` or `Optional`.
 func (o V2modelsSlotValueElicitationSettingOutput) SlotConstraint() pulumi.StringOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSetting) string { return v.SlotConstraint }).(pulumi.StringOutput)
 }
 
-// Information about whether assisted slot resolution is turned on for the slot or not.
-// See the `slotResolutionSetting` argument reference below.
 func (o V2modelsSlotValueElicitationSettingOutput) SlotResolutionSettings() V2modelsSlotValueElicitationSettingSlotResolutionSettingArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSetting) []V2modelsSlotValueElicitationSettingSlotResolutionSetting {
 		return v.SlotResolutionSettings
 	}).(V2modelsSlotValueElicitationSettingSlotResolutionSettingArrayOutput)
 }
 
-// Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
-// See the `waitAndContinueSpecification` argument reference below.
 func (o V2modelsSlotValueElicitationSettingOutput) WaitAndContinueSpecifications() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSetting) []V2modelsSlotValueElicitationSettingWaitAndContinueSpecification {
 		return v.WaitAndContinueSpecifications
@@ -4797,8 +4652,6 @@ func (o V2modelsSlotValueElicitationSettingPtrOutput) Elem() V2modelsSlotValueEl
 	}).(V2modelsSlotValueElicitationSettingOutput)
 }
 
-// List of default values for a slot.
-// See the `defaultValueSpecification` argument reference below.
 func (o V2modelsSlotValueElicitationSettingPtrOutput) DefaultValueSpecifications() V2modelsSlotValueElicitationSettingDefaultValueSpecificationArrayOutput {
 	return o.ApplyT(func(v *V2modelsSlotValueElicitationSetting) []V2modelsSlotValueElicitationSettingDefaultValueSpecification {
 		if v == nil {
@@ -4808,8 +4661,6 @@ func (o V2modelsSlotValueElicitationSettingPtrOutput) DefaultValueSpecifications
 	}).(V2modelsSlotValueElicitationSettingDefaultValueSpecificationArrayOutput)
 }
 
-// Prompt that Amazon Lex uses to elicit the slot value from the user.
-// See the `lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
 func (o V2modelsSlotValueElicitationSettingPtrOutput) PromptSpecification() V2modelsSlotValueElicitationSettingPromptSpecificationPtrOutput {
 	return o.ApplyT(func(v *V2modelsSlotValueElicitationSetting) *V2modelsSlotValueElicitationSettingPromptSpecification {
 		if v == nil {
@@ -4828,7 +4679,6 @@ func (o V2modelsSlotValueElicitationSettingPtrOutput) SampleUtterances() V2model
 	}).(V2modelsSlotValueElicitationSettingSampleUtteranceArrayOutput)
 }
 
-// Whether the slot is required or optional. Valid values are `Required` or `Optional`.
 func (o V2modelsSlotValueElicitationSettingPtrOutput) SlotConstraint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *V2modelsSlotValueElicitationSetting) *string {
 		if v == nil {
@@ -4838,8 +4688,6 @@ func (o V2modelsSlotValueElicitationSettingPtrOutput) SlotConstraint() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about whether assisted slot resolution is turned on for the slot or not.
-// See the `slotResolutionSetting` argument reference below.
 func (o V2modelsSlotValueElicitationSettingPtrOutput) SlotResolutionSettings() V2modelsSlotValueElicitationSettingSlotResolutionSettingArrayOutput {
 	return o.ApplyT(func(v *V2modelsSlotValueElicitationSetting) []V2modelsSlotValueElicitationSettingSlotResolutionSetting {
 		if v == nil {
@@ -4849,8 +4697,6 @@ func (o V2modelsSlotValueElicitationSettingPtrOutput) SlotResolutionSettings() V
 	}).(V2modelsSlotValueElicitationSettingSlotResolutionSettingArrayOutput)
 }
 
-// Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
-// See the `waitAndContinueSpecification` argument reference below.
 func (o V2modelsSlotValueElicitationSettingPtrOutput) WaitAndContinueSpecifications() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArrayOutput {
 	return o.ApplyT(func(v *V2modelsSlotValueElicitationSetting) []V2modelsSlotValueElicitationSettingWaitAndContinueSpecification {
 		if v == nil {
@@ -4861,9 +4707,6 @@ func (o V2modelsSlotValueElicitationSettingPtrOutput) WaitAndContinueSpecificati
 }
 
 type V2modelsSlotValueElicitationSettingDefaultValueSpecification struct {
-	// List of default values.
-	// Amazon Lex chooses the default value to use in the order that they are presented in the list.
-	// See the `defaultValueList` argument reference below.
 	DefaultValueLists []V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList `pulumi:"defaultValueLists"`
 }
 
@@ -4879,9 +4722,6 @@ type V2modelsSlotValueElicitationSettingDefaultValueSpecificationInput interface
 }
 
 type V2modelsSlotValueElicitationSettingDefaultValueSpecificationArgs struct {
-	// List of default values.
-	// Amazon Lex chooses the default value to use in the order that they are presented in the list.
-	// See the `defaultValueList` argument reference below.
 	DefaultValueLists V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArrayInput `pulumi:"defaultValueLists"`
 }
 
@@ -4936,9 +4776,6 @@ func (o V2modelsSlotValueElicitationSettingDefaultValueSpecificationOutput) ToV2
 	return o
 }
 
-// List of default values.
-// Amazon Lex chooses the default value to use in the order that they are presented in the list.
-// See the `defaultValueList` argument reference below.
 func (o V2modelsSlotValueElicitationSettingDefaultValueSpecificationOutput) DefaultValueLists() V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingDefaultValueSpecification) []V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList {
 		return v.DefaultValueLists
@@ -4966,7 +4803,6 @@ func (o V2modelsSlotValueElicitationSettingDefaultValueSpecificationArrayOutput)
 }
 
 type V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList struct {
-	// Default value to use when a user doesn't provide a value for a slot.
 	DefaultValue string `pulumi:"defaultValue"`
 }
 
@@ -4982,7 +4818,6 @@ type V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueLis
 }
 
 type V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs struct {
-	// Default value to use when a user doesn't provide a value for a slot.
 	DefaultValue pulumi.StringInput `pulumi:"defaultValue"`
 }
 
@@ -5037,7 +4872,6 @@ func (o V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValue
 	return o
 }
 
-// Default value to use when a user doesn't provide a value for a slot.
 func (o V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListOutput) DefaultValue() pulumi.StringOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList) string {
 		return v.DefaultValue
@@ -5264,12 +5098,7 @@ func (o V2modelsSlotValueElicitationSettingPromptSpecificationPtrOutput) PromptA
 }
 
 type V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroup struct {
-	// Configuration block for the primary message that Amazon Lex should send to the user.
-	// See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
-	Message V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage `pulumi:"message"`
-	// Configuration blocks for message variations to send to the user.
-	// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
-	// See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+	Message    V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage     `pulumi:"message"`
 	Variations []V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation `pulumi:"variations"`
 }
 
@@ -5285,12 +5114,7 @@ type V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupInput int
 }
 
 type V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupArgs struct {
-	// Configuration block for the primary message that Amazon Lex should send to the user.
-	// See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
-	Message V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageInput `pulumi:"message"`
-	// Configuration blocks for message variations to send to the user.
-	// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
-	// See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+	Message    V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageInput        `pulumi:"message"`
 	Variations V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationArrayInput `pulumi:"variations"`
 }
 
@@ -5345,17 +5169,12 @@ func (o V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupOutput
 	return o
 }
 
-// Configuration block for the primary message that Amazon Lex should send to the user.
-// See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
 func (o V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupOutput) Message() V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroup) V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage {
 		return v.Message
 	}).(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageOutput)
 }
 
-// Configuration blocks for message variations to send to the user.
-// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
-// See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
 func (o V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupOutput) Variations() V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroup) []V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation {
 		return v.Variations
@@ -7797,7 +7616,6 @@ func (o V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpec
 }
 
 type V2modelsSlotValueElicitationSettingSampleUtterance struct {
-	// The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
 	Utterance string `pulumi:"utterance"`
 }
 
@@ -7813,7 +7631,6 @@ type V2modelsSlotValueElicitationSettingSampleUtteranceInput interface {
 }
 
 type V2modelsSlotValueElicitationSettingSampleUtteranceArgs struct {
-	// The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
 	Utterance pulumi.StringInput `pulumi:"utterance"`
 }
 
@@ -7868,7 +7685,6 @@ func (o V2modelsSlotValueElicitationSettingSampleUtteranceOutput) ToV2modelsSlot
 	return o
 }
 
-// The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
 func (o V2modelsSlotValueElicitationSettingSampleUtteranceOutput) Utterance() pulumi.StringOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingSampleUtterance) string { return v.Utterance }).(pulumi.StringOutput)
 }
@@ -7894,10 +7710,6 @@ func (o V2modelsSlotValueElicitationSettingSampleUtteranceArrayOutput) Index(i p
 }
 
 type V2modelsSlotValueElicitationSettingSlotResolutionSetting struct {
-	// Specifies whether assisted slot resolution is turned on for the slot or not.
-	// Valid values are `EnhancedFallback` or `Default`.
-	// If the value is `EnhancedFallback`, assisted slot resolution is activated when Amazon Lex defaults to the `AMAZON.FallbackIntent`.
-	// If the value is `Default`, assisted slot resolution is turned off.
 	SlotResolutionStrategy string `pulumi:"slotResolutionStrategy"`
 }
 
@@ -7913,10 +7725,6 @@ type V2modelsSlotValueElicitationSettingSlotResolutionSettingInput interface {
 }
 
 type V2modelsSlotValueElicitationSettingSlotResolutionSettingArgs struct {
-	// Specifies whether assisted slot resolution is turned on for the slot or not.
-	// Valid values are `EnhancedFallback` or `Default`.
-	// If the value is `EnhancedFallback`, assisted slot resolution is activated when Amazon Lex defaults to the `AMAZON.FallbackIntent`.
-	// If the value is `Default`, assisted slot resolution is turned off.
 	SlotResolutionStrategy pulumi.StringInput `pulumi:"slotResolutionStrategy"`
 }
 
@@ -7971,10 +7779,6 @@ func (o V2modelsSlotValueElicitationSettingSlotResolutionSettingOutput) ToV2mode
 	return o
 }
 
-// Specifies whether assisted slot resolution is turned on for the slot or not.
-// Valid values are `EnhancedFallback` or `Default`.
-// If the value is `EnhancedFallback`, assisted slot resolution is activated when Amazon Lex defaults to the `AMAZON.FallbackIntent`.
-// If the value is `Default`, assisted slot resolution is turned off.
 func (o V2modelsSlotValueElicitationSettingSlotResolutionSettingOutput) SlotResolutionStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingSlotResolutionSetting) string {
 		return v.SlotResolutionStrategy
@@ -8002,19 +7806,10 @@ func (o V2modelsSlotValueElicitationSettingSlotResolutionSettingArrayOutput) Ind
 }
 
 type V2modelsSlotValueElicitationSettingWaitAndContinueSpecification struct {
-	// Specifies whether the bot will wait for a user to respond.
-	// When this field is `false`, wait and continue responses for a slot aren't used.
-	// If the active field isn't specified, the default is `true`.
-	Active *bool `pulumi:"active"`
-	// Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
-	// See the `continueResponse` argument reference below.
-	ContinueResponses []V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponse `pulumi:"continueResponses"`
-	// Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
-	// See the `stillWaitingResponse` argument reference below.
+	Active                *bool                                                                                 `pulumi:"active"`
+	ContinueResponses     []V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponse     `pulumi:"continueResponses"`
 	StillWaitingResponses []V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse `pulumi:"stillWaitingResponses"`
-	// Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
-	// See the `waitingResponse` argument reference below.
-	WaitingResponses []V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponse `pulumi:"waitingResponses"`
+	WaitingResponses      []V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponse      `pulumi:"waitingResponses"`
 }
 
 // V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationInput is an input type that accepts V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs and V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationOutput values.
@@ -8029,19 +7824,10 @@ type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationInput interf
 }
 
 type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs struct {
-	// Specifies whether the bot will wait for a user to respond.
-	// When this field is `false`, wait and continue responses for a slot aren't used.
-	// If the active field isn't specified, the default is `true`.
-	Active pulumi.BoolPtrInput `pulumi:"active"`
-	// Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
-	// See the `continueResponse` argument reference below.
-	ContinueResponses V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseArrayInput `pulumi:"continueResponses"`
-	// Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
-	// See the `stillWaitingResponse` argument reference below.
+	Active                pulumi.BoolPtrInput                                                                           `pulumi:"active"`
+	ContinueResponses     V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseArrayInput     `pulumi:"continueResponses"`
 	StillWaitingResponses V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArrayInput `pulumi:"stillWaitingResponses"`
-	// Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
-	// See the `waitingResponse` argument reference below.
-	WaitingResponses V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArrayInput `pulumi:"waitingResponses"`
+	WaitingResponses      V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArrayInput      `pulumi:"waitingResponses"`
 }
 
 func (V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs) ElementType() reflect.Type {
@@ -8095,31 +7881,22 @@ func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationOutput) T
 	return o
 }
 
-// Specifies whether the bot will wait for a user to respond.
-// When this field is `false`, wait and continue responses for a slot aren't used.
-// If the active field isn't specified, the default is `true`.
 func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationOutput) Active() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingWaitAndContinueSpecification) *bool { return v.Active }).(pulumi.BoolPtrOutput)
 }
 
-// Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
-// See the `continueResponse` argument reference below.
 func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationOutput) ContinueResponses() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingWaitAndContinueSpecification) []V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponse {
 		return v.ContinueResponses
 	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseArrayOutput)
 }
 
-// Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
-// See the `stillWaitingResponse` argument reference below.
 func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationOutput) StillWaitingResponses() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingWaitAndContinueSpecification) []V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse {
 		return v.StillWaitingResponses
 	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArrayOutput)
 }
 
-// Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
-// See the `waitingResponse` argument reference below.
 func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationOutput) WaitingResponses() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingWaitAndContinueSpecification) []V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponse {
 		return v.WaitingResponses
@@ -8147,12 +7924,8 @@ func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArrayOutp
 }
 
 type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponse struct {
-	// Whether the user can interrupt a speech response from Amazon Lex.
-	AllowInterrupt *bool `pulumi:"allowInterrupt"`
-	// Configuration blocks for responses that Amazon Lex can send to the user.
-	// Amazon Lex chooses the actual response to send at runtime.
-	// See `messageGroup`.
-	MessageGroups []V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup `pulumi:"messageGroups"`
+	AllowInterrupt *bool                                                                                         `pulumi:"allowInterrupt"`
+	MessageGroups  []V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup `pulumi:"messageGroups"`
 }
 
 // V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseInput is an input type that accepts V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs and V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseOutput values.
@@ -8167,12 +7940,8 @@ type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResp
 }
 
 type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs struct {
-	// Whether the user can interrupt a speech response from Amazon Lex.
-	AllowInterrupt pulumi.BoolPtrInput `pulumi:"allowInterrupt"`
-	// Configuration blocks for responses that Amazon Lex can send to the user.
-	// Amazon Lex chooses the actual response to send at runtime.
-	// See `messageGroup`.
-	MessageGroups V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArrayInput `pulumi:"messageGroups"`
+	AllowInterrupt pulumi.BoolPtrInput                                                                                   `pulumi:"allowInterrupt"`
+	MessageGroups  V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArrayInput `pulumi:"messageGroups"`
 }
 
 func (V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs) ElementType() reflect.Type {
@@ -8226,16 +7995,12 @@ func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueR
 	return o
 }
 
-// Whether the user can interrupt a speech response from Amazon Lex.
 func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseOutput) AllowInterrupt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponse) *bool {
 		return v.AllowInterrupt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Configuration blocks for responses that Amazon Lex can send to the user.
-// Amazon Lex chooses the actual response to send at runtime.
-// See `messageGroup`.
 func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseOutput) MessageGroups() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponse) []V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup {
 		return v.MessageGroups
@@ -8263,12 +8028,7 @@ func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueR
 }
 
 type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup struct {
-	// Configuration block for the primary message that Amazon Lex should send to the user.
-	// See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
-	Message V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage `pulumi:"message"`
-	// Configuration blocks for message variations to send to the user.
-	// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
-	// See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+	Message    V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage     `pulumi:"message"`
 	Variations []V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation `pulumi:"variations"`
 }
 
@@ -8284,12 +8044,7 @@ type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResp
 }
 
 type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgs struct {
-	// Configuration block for the primary message that Amazon Lex should send to the user.
-	// See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
-	Message V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageInput `pulumi:"message"`
-	// Configuration blocks for message variations to send to the user.
-	// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
-	// See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+	Message    V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageInput        `pulumi:"message"`
 	Variations V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArrayInput `pulumi:"variations"`
 }
 
@@ -8344,17 +8099,12 @@ func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueR
 	return o
 }
 
-// Configuration block for the primary message that Amazon Lex should send to the user.
-// See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
 func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupOutput) Message() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage {
 		return v.Message
 	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageOutput)
 }
 
-// Configuration blocks for message variations to send to the user.
-// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
-// See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
 func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupOutput) Variations() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup) []V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation {
 		return v.Variations
@@ -9967,13 +9717,10 @@ func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueR
 }
 
 type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse struct {
-	// Whether the user can interrupt a speech response from Amazon Lex.
-	AllowInterrupt *bool `pulumi:"allowInterrupt"`
-	// How often a message should be sent to the user.
+	AllowInterrupt     *bool                                                                                             `pulumi:"allowInterrupt"`
 	FrequencyInSeconds int                                                                                               `pulumi:"frequencyInSeconds"`
 	MessageGroups      []V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup `pulumi:"messageGroups"`
-	// If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
-	TimeoutInSeconds int `pulumi:"timeoutInSeconds"`
+	TimeoutInSeconds   int                                                                                               `pulumi:"timeoutInSeconds"`
 }
 
 // V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseInput is an input type that accepts V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs and V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseOutput values.
@@ -9988,13 +9735,10 @@ type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaiting
 }
 
 type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs struct {
-	// Whether the user can interrupt a speech response from Amazon Lex.
-	AllowInterrupt pulumi.BoolPtrInput `pulumi:"allowInterrupt"`
-	// How often a message should be sent to the user.
+	AllowInterrupt     pulumi.BoolPtrInput                                                                                       `pulumi:"allowInterrupt"`
 	FrequencyInSeconds pulumi.IntInput                                                                                           `pulumi:"frequencyInSeconds"`
 	MessageGroups      V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArrayInput `pulumi:"messageGroups"`
-	// If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
-	TimeoutInSeconds pulumi.IntInput `pulumi:"timeoutInSeconds"`
+	TimeoutInSeconds   pulumi.IntInput                                                                                           `pulumi:"timeoutInSeconds"`
 }
 
 func (V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs) ElementType() reflect.Type {
@@ -10048,14 +9792,12 @@ func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWait
 	return o
 }
 
-// Whether the user can interrupt a speech response from Amazon Lex.
 func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseOutput) AllowInterrupt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse) *bool {
 		return v.AllowInterrupt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// How often a message should be sent to the user.
 func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseOutput) FrequencyInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse) int {
 		return v.FrequencyInSeconds
@@ -10068,7 +9810,6 @@ func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWait
 	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArrayOutput)
 }
 
-// If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
 func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseOutput) TimeoutInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse) int {
 		return v.TimeoutInSeconds
@@ -10096,12 +9837,7 @@ func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWait
 }
 
 type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup struct {
-	// Configuration block for the primary message that Amazon Lex should send to the user.
-	// See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
-	Message V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage `pulumi:"message"`
-	// Configuration blocks for message variations to send to the user.
-	// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
-	// See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+	Message    V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage     `pulumi:"message"`
 	Variations []V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation `pulumi:"variations"`
 }
 
@@ -10117,12 +9853,7 @@ type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaiting
 }
 
 type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgs struct {
-	// Configuration block for the primary message that Amazon Lex should send to the user.
-	// See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
-	Message V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageInput `pulumi:"message"`
-	// Configuration blocks for message variations to send to the user.
-	// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
-	// See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+	Message    V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageInput        `pulumi:"message"`
 	Variations V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArrayInput `pulumi:"variations"`
 }
 
@@ -10177,17 +9908,12 @@ func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWait
 	return o
 }
 
-// Configuration block for the primary message that Amazon Lex should send to the user.
-// See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
 func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupOutput) Message() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage {
 		return v.Message
 	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageOutput)
 }
 
-// Configuration blocks for message variations to send to the user.
-// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
-// See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
 func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupOutput) Variations() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup) []V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation {
 		return v.Variations
@@ -11800,12 +11526,8 @@ func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWait
 }
 
 type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponse struct {
-	// Whether the user can interrupt a speech response from Amazon Lex.
-	AllowInterrupt *bool `pulumi:"allowInterrupt"`
-	// Configuration blocks for responses that Amazon Lex can send to the user.
-	// Amazon Lex chooses the actual response to send at runtime.
-	// See `messageGroup`.
-	MessageGroups []V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup `pulumi:"messageGroups"`
+	AllowInterrupt *bool                                                                                        `pulumi:"allowInterrupt"`
+	MessageGroups  []V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup `pulumi:"messageGroups"`
 }
 
 // V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseInput is an input type that accepts V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs and V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseOutput values.
@@ -11820,12 +11542,8 @@ type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingRespo
 }
 
 type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs struct {
-	// Whether the user can interrupt a speech response from Amazon Lex.
-	AllowInterrupt pulumi.BoolPtrInput `pulumi:"allowInterrupt"`
-	// Configuration blocks for responses that Amazon Lex can send to the user.
-	// Amazon Lex chooses the actual response to send at runtime.
-	// See `messageGroup`.
-	MessageGroups V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArrayInput `pulumi:"messageGroups"`
+	AllowInterrupt pulumi.BoolPtrInput                                                                                  `pulumi:"allowInterrupt"`
+	MessageGroups  V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArrayInput `pulumi:"messageGroups"`
 }
 
 func (V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs) ElementType() reflect.Type {
@@ -11879,16 +11597,12 @@ func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingRe
 	return o
 }
 
-// Whether the user can interrupt a speech response from Amazon Lex.
 func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseOutput) AllowInterrupt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponse) *bool {
 		return v.AllowInterrupt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Configuration blocks for responses that Amazon Lex can send to the user.
-// Amazon Lex chooses the actual response to send at runtime.
-// See `messageGroup`.
 func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseOutput) MessageGroups() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponse) []V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup {
 		return v.MessageGroups
@@ -11916,12 +11630,7 @@ func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingRe
 }
 
 type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup struct {
-	// Configuration block for the primary message that Amazon Lex should send to the user.
-	// See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
-	Message V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage `pulumi:"message"`
-	// Configuration blocks for message variations to send to the user.
-	// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
-	// See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+	Message    V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage     `pulumi:"message"`
 	Variations []V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation `pulumi:"variations"`
 }
 
@@ -11937,12 +11646,7 @@ type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingRespo
 }
 
 type V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs struct {
-	// Configuration block for the primary message that Amazon Lex should send to the user.
-	// See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
-	Message V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageInput `pulumi:"message"`
-	// Configuration blocks for message variations to send to the user.
-	// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
-	// See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+	Message    V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageInput        `pulumi:"message"`
 	Variations V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArrayInput `pulumi:"variations"`
 }
 
@@ -11997,17 +11701,12 @@ func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingRe
 	return o
 }
 
-// Configuration block for the primary message that Amazon Lex should send to the user.
-// See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
 func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupOutput) Message() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup) V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage {
 		return v.Message
 	}).(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageOutput)
 }
 
-// Configuration blocks for message variations to send to the user.
-// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
-// See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
 func (o V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupOutput) Variations() V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup) []V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation {
 		return v.Variations

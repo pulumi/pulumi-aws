@@ -17,89 +17,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSetLogicalTableMapDataTransform {
-    /**
-     * @return A transform operation that casts a column to a different type. See cast_column_type_operation.
-     * 
-     */
     private @Nullable DataSetLogicalTableMapDataTransformCastColumnTypeOperation castColumnTypeOperation;
-    /**
-     * @return An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
-     * 
-     */
     private @Nullable DataSetLogicalTableMapDataTransformCreateColumnsOperation createColumnsOperation;
-    /**
-     * @return An operation that filters rows based on some condition. See filter_operation.
-     * 
-     */
     private @Nullable DataSetLogicalTableMapDataTransformFilterOperation filterOperation;
-    /**
-     * @return An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
-     * 
-     */
     private @Nullable DataSetLogicalTableMapDataTransformProjectOperation projectOperation;
-    /**
-     * @return An operation that renames a column. See rename_column_operation.
-     * 
-     */
     private @Nullable DataSetLogicalTableMapDataTransformRenameColumnOperation renameColumnOperation;
-    /**
-     * @return An operation that tags a column with additional information. See tag_column_operation.
-     * 
-     */
     private @Nullable DataSetLogicalTableMapDataTransformTagColumnOperation tagColumnOperation;
-    /**
-     * @return A transform operation that removes tags associated with a column. See untag_column_operation.
-     * 
-     */
     private @Nullable DataSetLogicalTableMapDataTransformUntagColumnOperation untagColumnOperation;
 
     private DataSetLogicalTableMapDataTransform() {}
-    /**
-     * @return A transform operation that casts a column to a different type. See cast_column_type_operation.
-     * 
-     */
     public Optional<DataSetLogicalTableMapDataTransformCastColumnTypeOperation> castColumnTypeOperation() {
         return Optional.ofNullable(this.castColumnTypeOperation);
     }
-    /**
-     * @return An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
-     * 
-     */
     public Optional<DataSetLogicalTableMapDataTransformCreateColumnsOperation> createColumnsOperation() {
         return Optional.ofNullable(this.createColumnsOperation);
     }
-    /**
-     * @return An operation that filters rows based on some condition. See filter_operation.
-     * 
-     */
     public Optional<DataSetLogicalTableMapDataTransformFilterOperation> filterOperation() {
         return Optional.ofNullable(this.filterOperation);
     }
-    /**
-     * @return An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
-     * 
-     */
     public Optional<DataSetLogicalTableMapDataTransformProjectOperation> projectOperation() {
         return Optional.ofNullable(this.projectOperation);
     }
-    /**
-     * @return An operation that renames a column. See rename_column_operation.
-     * 
-     */
     public Optional<DataSetLogicalTableMapDataTransformRenameColumnOperation> renameColumnOperation() {
         return Optional.ofNullable(this.renameColumnOperation);
     }
-    /**
-     * @return An operation that tags a column with additional information. See tag_column_operation.
-     * 
-     */
     public Optional<DataSetLogicalTableMapDataTransformTagColumnOperation> tagColumnOperation() {
         return Optional.ofNullable(this.tagColumnOperation);
     }
-    /**
-     * @return A transform operation that removes tags associated with a column. See untag_column_operation.
-     * 
-     */
     public Optional<DataSetLogicalTableMapDataTransformUntagColumnOperation> untagColumnOperation() {
         return Optional.ofNullable(this.untagColumnOperation);
     }

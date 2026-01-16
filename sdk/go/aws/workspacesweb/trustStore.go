@@ -11,118 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS WorkSpaces Web Trust Store.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "certificate.pem",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = workspacesweb.NewTrustStore(ctx, "example", &workspacesweb.TrustStoreArgs{
-//				Certificates: workspacesweb.TrustStoreCertificateArray{
-//					&workspacesweb.TrustStoreCertificateArgs{
-//						Body: pulumi.String(invokeFile.Result),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Multiple Certificates
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "certificate1.pem",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile1, err := std.File(ctx, &std.FileArgs{
-//				Input: "certificate2.pem",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = workspacesweb.NewTrustStore(ctx, "example", &workspacesweb.TrustStoreArgs{
-//				Certificates: workspacesweb.TrustStoreCertificateArray{
-//					&workspacesweb.TrustStoreCertificateArgs{
-//						Body: pulumi.String(invokeFile.Result),
-//					},
-//					&workspacesweb.TrustStoreCertificateArgs{
-//						Body: pulumi.String(invokeFile1.Result),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example-trust-store"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import WorkSpaces Web Trust Store using the `trust_store_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:workspacesweb/trustStore:TrustStore example arn:aws:workspaces-web:us-west-2:123456789012:trustStore/trust_store-id-12345678
-// ```
 type TrustStore struct {
 	pulumi.CustomResourceState
 
-	// List of ARNs of the web portals associated with the trust store.
-	AssociatedPortalArns pulumi.StringArrayOutput `pulumi:"associatedPortalArns"`
-	// Set of certificates to include in the trust store. See Certificate below.
-	Certificates TrustStoreCertificateArrayOutput `pulumi:"certificates"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// ARN of the trust store.
-	TrustStoreArn pulumi.StringOutput `pulumi:"trustStoreArn"`
+	AssociatedPortalArns pulumi.StringArrayOutput         `pulumi:"associatedPortalArns"`
+	Certificates         TrustStoreCertificateArrayOutput `pulumi:"certificates"`
+	Region               pulumi.StringOutput              `pulumi:"region"`
+	Tags                 pulumi.StringMapOutput           `pulumi:"tags"`
+	TagsAll              pulumi.StringMapOutput           `pulumi:"tagsAll"`
+	TrustStoreArn        pulumi.StringOutput              `pulumi:"trustStoreArn"`
 }
 
 // NewTrustStore registers a new resource with the given unique name, arguments, and options.
@@ -155,33 +52,21 @@ func GetTrustStore(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TrustStore resources.
 type trustStoreState struct {
-	// List of ARNs of the web portals associated with the trust store.
-	AssociatedPortalArns []string `pulumi:"associatedPortalArns"`
-	// Set of certificates to include in the trust store. See Certificate below.
-	Certificates []TrustStoreCertificate `pulumi:"certificates"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// ARN of the trust store.
-	TrustStoreArn *string `pulumi:"trustStoreArn"`
+	AssociatedPortalArns []string                `pulumi:"associatedPortalArns"`
+	Certificates         []TrustStoreCertificate `pulumi:"certificates"`
+	Region               *string                 `pulumi:"region"`
+	Tags                 map[string]string       `pulumi:"tags"`
+	TagsAll              map[string]string       `pulumi:"tagsAll"`
+	TrustStoreArn        *string                 `pulumi:"trustStoreArn"`
 }
 
 type TrustStoreState struct {
-	// List of ARNs of the web portals associated with the trust store.
 	AssociatedPortalArns pulumi.StringArrayInput
-	// Set of certificates to include in the trust store. See Certificate below.
-	Certificates TrustStoreCertificateArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// ARN of the trust store.
-	TrustStoreArn pulumi.StringPtrInput
+	Certificates         TrustStoreCertificateArrayInput
+	Region               pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
+	TagsAll              pulumi.StringMapInput
+	TrustStoreArn        pulumi.StringPtrInput
 }
 
 func (TrustStoreState) ElementType() reflect.Type {
@@ -189,22 +74,16 @@ func (TrustStoreState) ElementType() reflect.Type {
 }
 
 type trustStoreArgs struct {
-	// Set of certificates to include in the trust store. See Certificate below.
 	Certificates []TrustStoreCertificate `pulumi:"certificates"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Region       *string                 `pulumi:"region"`
+	Tags         map[string]string       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TrustStore resource.
 type TrustStoreArgs struct {
-	// Set of certificates to include in the trust store. See Certificate below.
 	Certificates TrustStoreCertificateArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Region       pulumi.StringPtrInput
+	Tags         pulumi.StringMapInput
 }
 
 func (TrustStoreArgs) ElementType() reflect.Type {
@@ -294,32 +173,26 @@ func (o TrustStoreOutput) ToTrustStoreOutputWithContext(ctx context.Context) Tru
 	return o
 }
 
-// List of ARNs of the web portals associated with the trust store.
 func (o TrustStoreOutput) AssociatedPortalArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringArrayOutput { return v.AssociatedPortalArns }).(pulumi.StringArrayOutput)
 }
 
-// Set of certificates to include in the trust store. See Certificate below.
 func (o TrustStoreOutput) Certificates() TrustStoreCertificateArrayOutput {
 	return o.ApplyT(func(v *TrustStore) TrustStoreCertificateArrayOutput { return v.Certificates }).(TrustStoreCertificateArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TrustStoreOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o TrustStoreOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TrustStoreOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// ARN of the trust store.
 func (o TrustStoreOutput) TrustStoreArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringOutput { return v.TrustStoreArn }).(pulumi.StringOutput)
 }

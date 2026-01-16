@@ -13,31 +13,12 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class GetAgentAgentVersionsAgentVersionSummaryResult
     {
-        /// <summary>
-        /// Name of agent to which the version belongs.
-        /// </summary>
         public readonly string AgentName;
-        /// <summary>
-        /// Status of the agent to which the version belongs.
-        /// </summary>
         public readonly string AgentStatus;
-        /// <summary>
-        /// Version of the agent.
-        /// </summary>
         public readonly string AgentVersion;
-        /// <summary>
-        /// Time at which the version was created.
-        /// </summary>
         public readonly string CreatedAt;
-        /// <summary>
-        /// Description of the version of the agent.
-        /// * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
-        /// </summary>
         public readonly string Description;
         public readonly ImmutableArray<Outputs.GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationResult> GuardrailConfigurations;
-        /// <summary>
-        /// Time at which the version was last updated.
-        /// </summary>
         public readonly string UpdatedAt;
 
         [OutputConstructor]

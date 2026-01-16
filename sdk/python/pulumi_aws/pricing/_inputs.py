@@ -24,13 +24,7 @@ MYPY = False
 if not MYPY:
     class GetProductFilterArgsDict(TypedDict):
         field: _builtins.str
-        """
-        Product attribute name that you want to filter on.
-        """
         value: _builtins.str
-        """
-        Product attribute value that you want to filter on.
-        """
 elif False:
     GetProductFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -39,19 +33,12 @@ class GetProductFilterArgs:
     def __init__(__self__, *,
                  field: _builtins.str,
                  value: _builtins.str):
-        """
-        :param _builtins.str field: Product attribute name that you want to filter on.
-        :param _builtins.str value: Product attribute value that you want to filter on.
-        """
         pulumi.set(__self__, "field", field)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def field(self) -> _builtins.str:
-        """
-        Product attribute name that you want to filter on.
-        """
         return pulumi.get(self, "field")
 
     @field.setter
@@ -61,9 +48,6 @@ class GetProductFilterArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        Product attribute value that you want to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter

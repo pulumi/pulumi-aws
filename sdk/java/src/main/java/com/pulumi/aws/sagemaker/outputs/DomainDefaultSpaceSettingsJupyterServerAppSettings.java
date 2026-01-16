@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainDefaultSpaceSettingsJupyterServerAppSettings {
-    /**
-     * @return A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
-     * 
-     */
     private @Nullable List<DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository> codeRepositories;
-    /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
-     * 
-     */
     private @Nullable DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec;
-    /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-     * 
-     */
     private @Nullable List<String> lifecycleConfigArns;
 
     private DomainDefaultSpaceSettingsJupyterServerAppSettings() {}
-    /**
-     * @return A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
-     * 
-     */
     public List<DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository> codeRepositories() {
         return this.codeRepositories == null ? List.of() : this.codeRepositories;
     }
-    /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
-     * 
-     */
     public Optional<DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec> defaultResourceSpec() {
         return Optional.ofNullable(this.defaultResourceSpec);
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-     * 
-     */
     public List<String> lifecycleConfigArns() {
         return this.lifecycleConfigArns == null ? List.of() : this.lifecycleConfigArns;
     }

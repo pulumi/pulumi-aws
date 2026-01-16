@@ -7,65 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an RDS DB option group resource. Documentation of the available options for various RDS engines can be found at:
- *
- * * [MariaDB Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MariaDB.Options.html)
- * * [Microsoft SQL Server Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.Options.html)
- * * [MySQL Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MySQL.Options.html)
- * * [Oracle Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.html)
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.rds.OptionGroup("example", {
- *     name: "option-group-test",
- *     optionGroupDescription: "Option Group",
- *     engineName: "sqlserver-ee",
- *     majorEngineVersion: "11.00",
- *     options: [
- *         {
- *             optionName: "Timezone",
- *             optionSettings: [{
- *                 name: "TIME_ZONE",
- *                 value: "UTC",
- *             }],
- *         },
- *         {
- *             optionName: "SQLSERVER_BACKUP_RESTORE",
- *             optionSettings: [{
- *                 name: "IAM_ROLE_ARN",
- *                 value: exampleAwsIamRole.arn,
- *             }],
- *         },
- *         {
- *             optionName: "TDE",
- *         },
- *     ],
- * });
- * ```
- *
- * > **Note:** Any modifications to the `aws.rds.OptionGroup` are set to happen immediately as we default to applying immediately.
- *
- * > **WARNING:** You can perform a destroy on a `aws.rds.OptionGroup`, as long as it is not associated with any Amazon RDS resource. An option group can be associated with a DB instance, a manual DB snapshot, or an automated DB snapshot.
- *
- * If you try to delete an option group that is associated with an Amazon RDS resource, an error similar to the following is returned:
- *
- * > An error occurred (InvalidOptionGroupStateFault) when calling the DeleteOptionGroup operation: The option group 'optionGroupName' cannot be deleted because it is in use.
- *
- * More information about this can be found [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithOptionGroups.html#USER_WorkingWithOptionGroups.Delete).
- *
- * ## Import
- *
- * Using `pulumi import`, import DB option groups using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
- * ```
- */
 export class OptionGroup extends pulumi.CustomResource {
     /**
      * Get an existing OptionGroup resource's state with the given name, ID, and optional extra
@@ -94,49 +35,16 @@ export class OptionGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === OptionGroup.__pulumiType;
     }
 
-    /**
-     * ARN of the DB option group.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Specifies the name of the engine that this option group should be associated with.
-     */
     declare public readonly engineName: pulumi.Output<string>;
-    /**
-     * Specifies the major version of the engine that this option group should be associated with.
-     */
     declare public readonly majorEngineVersion: pulumi.Output<string>;
-    /**
-     * Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
-     */
     declare public readonly namePrefix: pulumi.Output<string>;
-    /**
-     * Description of the option group. Defaults to "Managed by Pulumi".
-     */
     declare public readonly optionGroupDescription: pulumi.Output<string>;
-    /**
-     * The options to apply. See `option` Block below for more details.
-     */
     declare public readonly options: pulumi.Output<outputs.rds.OptionGroupOption[] | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
-     */
     declare public readonly skipDestroy: pulumi.Output<boolean | undefined>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -192,49 +100,16 @@ export class OptionGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OptionGroup resources.
  */
 export interface OptionGroupState {
-    /**
-     * ARN of the DB option group.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Specifies the name of the engine that this option group should be associated with.
-     */
     engineName?: pulumi.Input<string>;
-    /**
-     * Specifies the major version of the engine that this option group should be associated with.
-     */
     majorEngineVersion?: pulumi.Input<string>;
-    /**
-     * Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
-     */
     namePrefix?: pulumi.Input<string>;
-    /**
-     * Description of the option group. Defaults to "Managed by Pulumi".
-     */
     optionGroupDescription?: pulumi.Input<string>;
-    /**
-     * The options to apply. See `option` Block below for more details.
-     */
     options?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOption>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
-     */
     skipDestroy?: pulumi.Input<boolean>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -242,40 +117,13 @@ export interface OptionGroupState {
  * The set of arguments for constructing a OptionGroup resource.
  */
 export interface OptionGroupArgs {
-    /**
-     * Specifies the name of the engine that this option group should be associated with.
-     */
     engineName: pulumi.Input<string>;
-    /**
-     * Specifies the major version of the engine that this option group should be associated with.
-     */
     majorEngineVersion: pulumi.Input<string>;
-    /**
-     * Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
-     */
     namePrefix?: pulumi.Input<string>;
-    /**
-     * Description of the option group. Defaults to "Managed by Pulumi".
-     */
     optionGroupDescription?: pulumi.Input<string>;
-    /**
-     * The options to apply. See `option` Block below for more details.
-     */
     options?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOption>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
-     */
     skipDestroy?: pulumi.Input<boolean>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

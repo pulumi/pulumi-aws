@@ -16,152 +16,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a AWS Transfer AS2 Profile resource.
- * 
- * ## Example Usage
- * 
- * ### Basic
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.transfer.Profile;
- * import com.pulumi.aws.transfer.ProfileArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Profile("example", ProfileArgs.builder()
- *             .as2Id("example")
- *             .certificateIds(exampleAwsTransferCertificate.certificateId())
- *             .usage("LOCAL")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Transfer AS2 Profile using the `profile_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:transfer/profile:Profile example p-4221a88afd5f4362a
- * ```
- * 
- */
 @ResourceType(type="aws:transfer/profile:Profile")
 public class Profile extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the profile.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the profile.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
-     * 
-     */
     @Export(name="as2Id", refs={String.class}, tree="[0]")
     private Output<String> as2Id;
 
-    /**
-     * @return The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
-     * 
-     */
     public Output<String> as2Id() {
         return this.as2Id;
     }
-    /**
-     * The list of certificate Ids from the imported certificate operation.
-     * 
-     */
     @Export(name="certificateIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> certificateIds;
 
-    /**
-     * @return The list of certificate Ids from the imported certificate operation.
-     * 
-     */
     public Output<Optional<List<String>>> certificateIds() {
         return Codegen.optional(this.certificateIds);
     }
-    /**
-     * The unique identifier for the AS2 profile.
-     * 
-     */
     @Export(name="profileId", refs={String.class}, tree="[0]")
     private Output<String> profileId;
 
-    /**
-     * @return The unique identifier for the AS2 profile.
-     * 
-     */
     public Output<String> profileId() {
         return this.profileId;
     }
-    /**
-     * The profile type should be LOCAL or PARTNER.
-     * 
-     */
     @Export(name="profileType", refs={String.class}, tree="[0]")
     private Output<String> profileType;
 
-    /**
-     * @return The profile type should be LOCAL or PARTNER.
-     * 
-     */
     public Output<String> profileType() {
         return this.profileType;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

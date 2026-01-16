@@ -50,25 +50,16 @@ class GetResolverFirewallRulesResult:
     @_builtins.property
     @pulumi.getter
     def action(self) -> Optional[_builtins.str]:
-        """
-        The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule.
-        """
         return pulumi.get(self, "action")
 
     @_builtins.property
     @pulumi.getter(name="firewallRuleGroupId")
     def firewall_rule_group_id(self) -> _builtins.str:
-        """
-        The unique identifier of the firewall rule group.
-        """
         return pulumi.get(self, "firewall_rule_group_id")
 
     @_builtins.property
     @pulumi.getter(name="firewallRules")
     def firewall_rules(self) -> Sequence['outputs.GetResolverFirewallRulesFirewallRuleResult']:
-        """
-        List with information about the firewall rules. See details below.
-        """
         return pulumi.get(self, "firewall_rules")
 
     @_builtins.property
@@ -82,9 +73,6 @@ class GetResolverFirewallRulesResult:
     @_builtins.property
     @pulumi.getter
     def priority(self) -> Optional[_builtins.int]:
-        """
-        The priority of the rule in the rule group.
-        """
         return pulumi.get(self, "priority")
 
     @_builtins.property
@@ -113,24 +101,7 @@ def get_resolver_firewall_rules(action: Optional[_builtins.str] = None,
                                 region: Optional[_builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverFirewallRulesResult:
     """
-    `route53_get_resolver_firewall_rules` Provides details about rules in a specific Route53 Resolver Firewall rule group.
-
-    ## Example Usage
-
-    The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_firewall_rules(firewall_rule_group_id=example_aws_route53_resolver_firewall_rule_group["id"])
-    ```
-
-
-    :param _builtins.str action: The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
-    :param _builtins.str firewall_rule_group_id: The unique identifier of the firewall rule group that you want to retrieve the rules for.
-    :param _builtins.int priority: The setting that determines the processing order of the rules in a rule group.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['action'] = action
@@ -153,24 +124,7 @@ def get_resolver_firewall_rules_output(action: Optional[pulumi.Input[Optional[_b
                                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverFirewallRulesResult]:
     """
-    `route53_get_resolver_firewall_rules` Provides details about rules in a specific Route53 Resolver Firewall rule group.
-
-    ## Example Usage
-
-    The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_firewall_rules(firewall_rule_group_id=example_aws_route53_resolver_firewall_rule_group["id"])
-    ```
-
-
-    :param _builtins.str action: The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
-    :param _builtins.str firewall_rule_group_id: The unique identifier of the firewall rule group that you want to retrieve the rules for.
-    :param _builtins.int priority: The setting that determines the processing order of the rules in a rule group.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['action'] = action

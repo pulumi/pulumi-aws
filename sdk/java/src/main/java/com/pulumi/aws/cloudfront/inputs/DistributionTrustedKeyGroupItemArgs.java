@@ -16,32 +16,16 @@ public final class DistributionTrustedKeyGroupItemArgs extends com.pulumi.resour
 
     public static final DistributionTrustedKeyGroupItemArgs Empty = new DistributionTrustedKeyGroupItemArgs();
 
-    /**
-     * ID of the key group that contains the public keys.
-     * 
-     */
     @Import(name="keyGroupId")
     private @Nullable Output<String> keyGroupId;
 
-    /**
-     * @return ID of the key group that contains the public keys.
-     * 
-     */
     public Optional<Output<String>> keyGroupId() {
         return Optional.ofNullable(this.keyGroupId);
     }
 
-    /**
-     * Set of active CloudFront key pairs associated with the signer account
-     * 
-     */
     @Import(name="keyPairIds")
     private @Nullable Output<List<String>> keyPairIds;
 
-    /**
-     * @return Set of active CloudFront key pairs associated with the signer account
-     * 
-     */
     public Optional<Output<List<String>>> keyPairIds() {
         return Optional.ofNullable(this.keyPairIds);
     }
@@ -71,54 +55,24 @@ public final class DistributionTrustedKeyGroupItemArgs extends com.pulumi.resour
             $ = new DistributionTrustedKeyGroupItemArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param keyGroupId ID of the key group that contains the public keys.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyGroupId(@Nullable Output<String> keyGroupId) {
             $.keyGroupId = keyGroupId;
             return this;
         }
 
-        /**
-         * @param keyGroupId ID of the key group that contains the public keys.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyGroupId(String keyGroupId) {
             return keyGroupId(Output.of(keyGroupId));
         }
 
-        /**
-         * @param keyPairIds Set of active CloudFront key pairs associated with the signer account
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyPairIds(@Nullable Output<List<String>> keyPairIds) {
             $.keyPairIds = keyPairIds;
             return this;
         }
 
-        /**
-         * @param keyPairIds Set of active CloudFront key pairs associated with the signer account
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyPairIds(List<String> keyPairIds) {
             return keyPairIds(Output.of(keyPairIds));
         }
 
-        /**
-         * @param keyPairIds Set of active CloudFront key pairs associated with the signer account
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyPairIds(String... keyPairIds) {
             return keyPairIds(List.of(keyPairIds));
         }

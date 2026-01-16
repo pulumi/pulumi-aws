@@ -15,17 +15,9 @@ public final class AccountVdmAttributesDashboardAttributesArgs extends com.pulum
 
     public static final AccountVdmAttributesDashboardAttributesArgs Empty = new AccountVdmAttributesDashboardAttributesArgs();
 
-    /**
-     * Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     @Import(name="engagementMetrics")
     private @Nullable Output<String> engagementMetrics;
 
-    /**
-     * @return Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> engagementMetrics() {
         return Optional.ofNullable(this.engagementMetrics);
     }
@@ -54,23 +46,11 @@ public final class AccountVdmAttributesDashboardAttributesArgs extends com.pulum
             $ = new AccountVdmAttributesDashboardAttributesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param engagementMetrics Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder engagementMetrics(@Nullable Output<String> engagementMetrics) {
             $.engagementMetrics = engagementMetrics;
             return this;
         }
 
-        /**
-         * @param engagementMetrics Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder engagementMetrics(String engagementMetrics) {
             return engagementMetrics(Output.of(engagementMetrics));
         }

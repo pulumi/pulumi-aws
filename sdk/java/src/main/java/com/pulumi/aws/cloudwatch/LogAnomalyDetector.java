@@ -18,108 +18,23 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS CloudWatch Logs Log Anomaly Detector.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogGroup;
- * import com.pulumi.aws.cloudwatch.LogGroupArgs;
- * import com.pulumi.aws.cloudwatch.LogAnomalyDetector;
- * import com.pulumi.aws.cloudwatch.LogAnomalyDetectorArgs;
- * import com.pulumi.codegen.internal.KeyedValue;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         for (var i = 0; i < 2; i++) {
- *             new LogGroup("test-" + i, LogGroupArgs.builder()
- *                 .name(String.format("testing-%s", range.value()))
- *                 .build());
- * 
- *         
- * }
- *         var testLogAnomalyDetector = new LogAnomalyDetector("testLogAnomalyDetector", LogAnomalyDetectorArgs.builder()
- *             .detectorName("testing")
- *             .logGroupArnLists(test[0].arn())
- *             .anomalyVisibilityTime(7)
- *             .evaluationFrequency("TEN_MIN")
- *             .enabled(false)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CloudWatch Log Anomaly Detector using the `arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector example log_anomaly_detector-arn-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector")
 public class LogAnomalyDetector extends com.pulumi.resources.CustomResource {
-    /**
-     * Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomalyVisibilityTime`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
-     * 
-     */
     @Export(name="anomalyVisibilityTime", refs={Integer.class}, tree="[0]")
     private Output<Integer> anomalyVisibilityTime;
 
-    /**
-     * @return Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomalyVisibilityTime`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
-     * 
-     */
     public Output<Integer> anomalyVisibilityTime() {
         return this.anomalyVisibilityTime;
     }
-    /**
-     * ARN of the log anomaly detector that you just created.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the log anomaly detector that you just created.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Name for this anomaly detector.
-     * 
-     */
     @Export(name="detectorName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> detectorName;
 
-    /**
-     * @return Name for this anomaly detector.
-     * 
-     */
     public Output<Optional<String>> detectorName() {
         return Codegen.optional(this.detectorName);
     }
@@ -129,77 +44,33 @@ public class LogAnomalyDetector extends com.pulumi.resources.CustomResource {
     public Output<Boolean> enabled() {
         return this.enabled;
     }
-    /**
-     * Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluationFrequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
-     * 
-     */
     @Export(name="evaluationFrequency", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> evaluationFrequency;
 
-    /**
-     * @return Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluationFrequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
-     * 
-     */
     public Output<Optional<String>> evaluationFrequency() {
         return Codegen.optional(this.evaluationFrequency);
     }
-    /**
-     * You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-     * 
-     */
     @Export(name="filterPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> filterPattern;
 
-    /**
-     * @return You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-     * 
-     */
     public Output<Optional<String>> filterPattern() {
         return Codegen.optional(this.filterPattern);
     }
-    /**
-     * Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
-     * 
-     */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyId;
 
-    /**
-     * @return Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
-     * 
-     */
     public Output<Optional<String>> kmsKeyId() {
         return Codegen.optional(this.kmsKeyId);
     }
-    /**
-     * Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="logGroupArnLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> logGroupArnLists;
 
-    /**
-     * @return Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<List<String>> logGroupArnLists() {
         return this.logGroupArnLists;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

@@ -16,65 +16,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentFlowDefinitionNode {
-    /**
-     * @return Contains configurations for the node. See Node Configuration for more information.
-     * 
-     */
     private @Nullable AgentFlowDefinitionNodeConfiguration configuration;
-    /**
-     * @return A list of objects containing information about an input into the node. See Node Input for more information.
-     * 
-     */
     private @Nullable List<AgentFlowDefinitionNodeInput> inputs;
-    /**
-     * @return A name for the node.
-     * 
-     */
     private String name;
-    /**
-     * @return A list of objects containing information about an output from the node. See Node Output for more information.
-     * 
-     */
     private @Nullable List<AgentFlowDefinitionNodeOutput> outputs;
-    /**
-     * @return The type of node. This value must match the name of the key that you provide in the configuration. Valid values: `Agent`, `Collector`, `Condition`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
-     * 
-     */
     private String type;
 
     private AgentFlowDefinitionNode() {}
-    /**
-     * @return Contains configurations for the node. See Node Configuration for more information.
-     * 
-     */
     public Optional<AgentFlowDefinitionNodeConfiguration> configuration() {
         return Optional.ofNullable(this.configuration);
     }
-    /**
-     * @return A list of objects containing information about an input into the node. See Node Input for more information.
-     * 
-     */
     public List<AgentFlowDefinitionNodeInput> inputs() {
         return this.inputs == null ? List.of() : this.inputs;
     }
-    /**
-     * @return A name for the node.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return A list of objects containing information about an output from the node. See Node Output for more information.
-     * 
-     */
     public List<AgentFlowDefinitionNodeOutput> outputs() {
         return this.outputs == null ? List.of() : this.outputs;
     }
-    /**
-     * @return The type of node. This value must match the name of the key that you provide in the configuration. Valid values: `Agent`, `Collector`, `Condition`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
-     * 
-     */
     public String type() {
         return this.type;
     }

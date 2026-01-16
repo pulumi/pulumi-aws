@@ -12,162 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides the ability to register instances and containers with an Application Load Balancer (ALB) or Network Load Balancer (NLB) target group. For attaching resources with Elastic Load Balancer (ELB), see the `elb.Attachment` resource.
-//
-// > **Note:** `alb.TargetGroupAttachment` is known as `lb.TargetGroupAttachment`. The functionality is identical.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testTargetGroup, err := lb.NewTargetGroup(ctx, "test", nil)
-//			if err != nil {
-//				return err
-//			}
-//			testInstance, err := ec2.NewInstance(ctx, "test", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lb.NewTargetGroupAttachment(ctx, "test", &lb.TargetGroupAttachmentArgs{
-//				TargetGroupArn: testTargetGroup.Arn,
-//				TargetId:       testInstance.ID(),
-//				Port:           pulumi.Int(80),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Lambda Target
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := lb.NewTargetGroup(ctx, "test", &lb.TargetGroupArgs{
-//				Name:       pulumi.String("test"),
-//				TargetType: pulumi.String("lambda"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testFunction, err := lambda.NewFunction(ctx, "test", nil)
-//			if err != nil {
-//				return err
-//			}
-//			withLb, err := lambda.NewPermission(ctx, "with_lb", &lambda.PermissionArgs{
-//				StatementId: pulumi.String("AllowExecutionFromlb"),
-//				Action:      pulumi.String("lambda:InvokeFunction"),
-//				Function:    testFunction.Name,
-//				Principal:   pulumi.String("elasticloadbalancing.amazonaws.com"),
-//				SourceArn:   test.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lb.NewTargetGroupAttachment(ctx, "test", &lb.TargetGroupAttachmentArgs{
-//				TargetGroupArn: test.Arn,
-//				TargetId:       testFunction.Arn,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				withLb,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Target using QUIC
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := lb.NewTargetGroup(ctx, "test", &lb.TargetGroupArgs{
-//				Name:     pulumi.String("test"),
-//				Port:     pulumi.Int(443),
-//				Protocol: pulumi.String("QUIC"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testInstance, err := ec2.NewInstance(ctx, "test", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lb.NewTargetGroupAttachment(ctx, "test", &lb.TargetGroupAttachmentArgs{
-//				TargetGroupArn: test.Arn,
-//				TargetId:       testInstance.ID(),
-//				Port:           pulumi.Int(443),
-//				QuicServerId:   pulumi.String("0x1a2b3c4d5e6f7a8b"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// You cannot import Target Group Attachments.
 type TargetGroupAttachment struct {
 	pulumi.CustomResourceState
 
-	// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
 	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
-	// The port on which targets receive traffic.
-	Port pulumi.IntPtrOutput `pulumi:"port"`
-	// Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
-	QuicServerId pulumi.StringPtrOutput `pulumi:"quicServerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The ARN of the target group with which to register targets.
-	TargetGroupArn pulumi.StringOutput `pulumi:"targetGroupArn"`
-	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
-	//
-	// The following arguments are optional:
-	TargetId pulumi.StringOutput `pulumi:"targetId"`
+	Port             pulumi.IntPtrOutput    `pulumi:"port"`
+	QuicServerId     pulumi.StringPtrOutput `pulumi:"quicServerId"`
+	Region           pulumi.StringOutput    `pulumi:"region"`
+	TargetGroupArn   pulumi.StringOutput    `pulumi:"targetGroupArn"`
+	TargetId         pulumi.StringOutput    `pulumi:"targetId"`
 }
 
 // NewTargetGroupAttachment registers a new resource with the given unique name, arguments, and options.
@@ -212,37 +65,21 @@ func GetTargetGroupAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TargetGroupAttachment resources.
 type targetGroupAttachmentState struct {
-	// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The port on which targets receive traffic.
-	Port *int `pulumi:"port"`
-	// Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
-	QuicServerId *string `pulumi:"quicServerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ARN of the target group with which to register targets.
-	TargetGroupArn *string `pulumi:"targetGroupArn"`
-	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
-	//
-	// The following arguments are optional:
-	TargetId *string `pulumi:"targetId"`
+	Port             *int    `pulumi:"port"`
+	QuicServerId     *string `pulumi:"quicServerId"`
+	Region           *string `pulumi:"region"`
+	TargetGroupArn   *string `pulumi:"targetGroupArn"`
+	TargetId         *string `pulumi:"targetId"`
 }
 
 type TargetGroupAttachmentState struct {
-	// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
 	AvailabilityZone pulumi.StringPtrInput
-	// The port on which targets receive traffic.
-	Port pulumi.IntPtrInput
-	// Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
-	QuicServerId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ARN of the target group with which to register targets.
-	TargetGroupArn pulumi.StringPtrInput
-	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
-	//
-	// The following arguments are optional:
-	TargetId pulumi.StringPtrInput
+	Port             pulumi.IntPtrInput
+	QuicServerId     pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
+	TargetGroupArn   pulumi.StringPtrInput
+	TargetId         pulumi.StringPtrInput
 }
 
 func (TargetGroupAttachmentState) ElementType() reflect.Type {
@@ -250,38 +87,22 @@ func (TargetGroupAttachmentState) ElementType() reflect.Type {
 }
 
 type targetGroupAttachmentArgs struct {
-	// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The port on which targets receive traffic.
-	Port *int `pulumi:"port"`
-	// Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
-	QuicServerId *string `pulumi:"quicServerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ARN of the target group with which to register targets.
-	TargetGroupArn string `pulumi:"targetGroupArn"`
-	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
-	//
-	// The following arguments are optional:
-	TargetId string `pulumi:"targetId"`
+	Port             *int    `pulumi:"port"`
+	QuicServerId     *string `pulumi:"quicServerId"`
+	Region           *string `pulumi:"region"`
+	TargetGroupArn   string  `pulumi:"targetGroupArn"`
+	TargetId         string  `pulumi:"targetId"`
 }
 
 // The set of arguments for constructing a TargetGroupAttachment resource.
 type TargetGroupAttachmentArgs struct {
-	// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
 	AvailabilityZone pulumi.StringPtrInput
-	// The port on which targets receive traffic.
-	Port pulumi.IntPtrInput
-	// Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
-	QuicServerId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ARN of the target group with which to register targets.
-	TargetGroupArn pulumi.StringInput
-	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
-	//
-	// The following arguments are optional:
-	TargetId pulumi.StringInput
+	Port             pulumi.IntPtrInput
+	QuicServerId     pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
+	TargetGroupArn   pulumi.StringInput
+	TargetId         pulumi.StringInput
 }
 
 func (TargetGroupAttachmentArgs) ElementType() reflect.Type {
@@ -371,34 +192,26 @@ func (o TargetGroupAttachmentOutput) ToTargetGroupAttachmentOutputWithContext(ct
 	return o
 }
 
-// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
 func (o TargetGroupAttachmentOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupAttachment) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
-// The port on which targets receive traffic.
 func (o TargetGroupAttachmentOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TargetGroupAttachment) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
 func (o TargetGroupAttachmentOutput) QuicServerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupAttachment) pulumi.StringPtrOutput { return v.QuicServerId }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TargetGroupAttachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetGroupAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ARN of the target group with which to register targets.
 func (o TargetGroupAttachmentOutput) TargetGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetGroupAttachment) pulumi.StringOutput { return v.TargetGroupArn }).(pulumi.StringOutput)
 }
 
-// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
-//
-// The following arguments are optional:
 func (o TargetGroupAttachmentOutput) TargetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetGroupAttachment) pulumi.StringOutput { return v.TargetId }).(pulumi.StringOutput)
 }

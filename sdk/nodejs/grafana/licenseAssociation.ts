@@ -4,51 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Amazon Managed Grafana workspace license association resource.
- *
- * ## Example Usage
- *
- * ### Basic configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const assume = new aws.iam.Role("assume", {
- *     name: "grafana-assume",
- *     assumeRolePolicy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: "sts:AssumeRole",
- *             Effect: "Allow",
- *             Sid: "",
- *             Principal: {
- *                 Service: "grafana.amazonaws.com",
- *             },
- *         }],
- *     }),
- * });
- * const exampleWorkspace = new aws.grafana.Workspace("example", {
- *     accountAccessType: "CURRENT_ACCOUNT",
- *     authenticationProviders: ["SAML"],
- *     permissionType: "SERVICE_MANAGED",
- *     roleArn: assume.arn,
- * });
- * const example = new aws.grafana.LicenseAssociation("example", {
- *     licenseType: "ENTERPRISE_FREE_TRIAL",
- *     workspaceId: exampleWorkspace.id,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Grafana workspace license association using the workspace's `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
- * ```
- */
 export class LicenseAssociation extends pulumi.CustomResource {
     /**
      * Get an existing LicenseAssociation resource's state with the given name, ID, and optional extra
@@ -77,29 +32,11 @@ export class LicenseAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === LicenseAssociation.__pulumiType;
     }
 
-    /**
-     * If `licenseType` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
-     */
     declare public /*out*/ readonly freeTrialExpiration: pulumi.Output<string>;
-    /**
-     * A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
-     */
     declare public readonly grafanaToken: pulumi.Output<string | undefined>;
-    /**
-     * If `licenseType` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
-     */
     declare public /*out*/ readonly licenseExpiration: pulumi.Output<string>;
-    /**
-     * The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
-     */
     declare public readonly licenseType: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The workspace id.
-     */
     declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
@@ -145,29 +82,11 @@ export class LicenseAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LicenseAssociation resources.
  */
 export interface LicenseAssociationState {
-    /**
-     * If `licenseType` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
-     */
     freeTrialExpiration?: pulumi.Input<string>;
-    /**
-     * A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
-     */
     grafanaToken?: pulumi.Input<string>;
-    /**
-     * If `licenseType` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
-     */
     licenseExpiration?: pulumi.Input<string>;
-    /**
-     * The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
-     */
     licenseType?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The workspace id.
-     */
     workspaceId?: pulumi.Input<string>;
 }
 
@@ -175,20 +94,8 @@ export interface LicenseAssociationState {
  * The set of arguments for constructing a LicenseAssociation resource.
  */
 export interface LicenseAssociationArgs {
-    /**
-     * A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
-     */
     grafanaToken?: pulumi.Input<string>;
-    /**
-     * The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
-     */
     licenseType: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The workspace id.
-     */
     workspaceId: pulumi.Input<string>;
 }

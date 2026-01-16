@@ -12,84 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a WAF Rate Based Rule Resource
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/waf"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			ipset, err := waf.NewIpSet(ctx, "ipset", &waf.IpSetArgs{
-//				Name: pulumi.String("tfIPSet"),
-//				IpSetDescriptors: waf.IpSetIpSetDescriptorArray{
-//					&waf.IpSetIpSetDescriptorArgs{
-//						Type:  pulumi.String("IPV4"),
-//						Value: pulumi.String("192.0.7.0/24"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = waf.NewRateBasedRule(ctx, "wafrule", &waf.RateBasedRuleArgs{
-//				Name:       pulumi.String("tfWAFRule"),
-//				MetricName: pulumi.String("tfWAFRule"),
-//				RateKey:    pulumi.String("IP"),
-//				RateLimit:  pulumi.Int(100),
-//				Predicates: waf.RateBasedRulePredicateArray{
-//					&waf.RateBasedRulePredicateArgs{
-//						DataId:  ipset.ID(),
-//						Negated: pulumi.Bool(false),
-//						Type:    pulumi.String("IPMatch"),
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				ipset,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import WAF Rated Based Rule using the id. For example:
-//
-// ```sh
-// $ pulumi import aws:waf/rateBasedRule:RateBasedRule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-// ```
 type RateBasedRule struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN)
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name or description for the Amazon CloudWatch metric of this rule.
-	MetricName pulumi.StringOutput `pulumi:"metricName"`
-	// The name or description of the rule.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The objects to include in a rule (documented below).
+	Arn        pulumi.StringOutput               `pulumi:"arn"`
+	MetricName pulumi.StringOutput               `pulumi:"metricName"`
+	Name       pulumi.StringOutput               `pulumi:"name"`
 	Predicates RateBasedRulePredicateArrayOutput `pulumi:"predicates"`
-	// Valid value is IP.
-	RateKey pulumi.StringOutput `pulumi:"rateKey"`
-	// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
-	RateLimit pulumi.IntOutput `pulumi:"rateLimit"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	RateKey    pulumi.StringOutput               `pulumi:"rateKey"`
+	RateLimit  pulumi.IntOutput                  `pulumi:"rateLimit"`
+	Tags       pulumi.StringMapOutput            `pulumi:"tags"`
+	TagsAll    pulumi.StringMapOutput            `pulumi:"tagsAll"`
 }
 
 // NewRateBasedRule registers a new resource with the given unique name, arguments, and options.
@@ -131,41 +64,25 @@ func GetRateBasedRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RateBasedRule resources.
 type rateBasedRuleState struct {
-	// Amazon Resource Name (ARN)
-	Arn *string `pulumi:"arn"`
-	// The name or description for the Amazon CloudWatch metric of this rule.
-	MetricName *string `pulumi:"metricName"`
-	// The name or description of the rule.
-	Name *string `pulumi:"name"`
-	// The objects to include in a rule (documented below).
+	Arn        *string                  `pulumi:"arn"`
+	MetricName *string                  `pulumi:"metricName"`
+	Name       *string                  `pulumi:"name"`
 	Predicates []RateBasedRulePredicate `pulumi:"predicates"`
-	// Valid value is IP.
-	RateKey *string `pulumi:"rateKey"`
-	// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
-	RateLimit *int `pulumi:"rateLimit"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	RateKey    *string                  `pulumi:"rateKey"`
+	RateLimit  *int                     `pulumi:"rateLimit"`
+	Tags       map[string]string        `pulumi:"tags"`
+	TagsAll    map[string]string        `pulumi:"tagsAll"`
 }
 
 type RateBasedRuleState struct {
-	// Amazon Resource Name (ARN)
-	Arn pulumi.StringPtrInput
-	// The name or description for the Amazon CloudWatch metric of this rule.
+	Arn        pulumi.StringPtrInput
 	MetricName pulumi.StringPtrInput
-	// The name or description of the rule.
-	Name pulumi.StringPtrInput
-	// The objects to include in a rule (documented below).
+	Name       pulumi.StringPtrInput
 	Predicates RateBasedRulePredicateArrayInput
-	// Valid value is IP.
-	RateKey pulumi.StringPtrInput
-	// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
-	RateLimit pulumi.IntPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	RateKey    pulumi.StringPtrInput
+	RateLimit  pulumi.IntPtrInput
+	Tags       pulumi.StringMapInput
+	TagsAll    pulumi.StringMapInput
 }
 
 func (RateBasedRuleState) ElementType() reflect.Type {
@@ -173,34 +90,22 @@ func (RateBasedRuleState) ElementType() reflect.Type {
 }
 
 type rateBasedRuleArgs struct {
-	// The name or description for the Amazon CloudWatch metric of this rule.
-	MetricName string `pulumi:"metricName"`
-	// The name or description of the rule.
-	Name *string `pulumi:"name"`
-	// The objects to include in a rule (documented below).
+	MetricName string                   `pulumi:"metricName"`
+	Name       *string                  `pulumi:"name"`
 	Predicates []RateBasedRulePredicate `pulumi:"predicates"`
-	// Valid value is IP.
-	RateKey string `pulumi:"rateKey"`
-	// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
-	RateLimit int `pulumi:"rateLimit"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	RateKey    string                   `pulumi:"rateKey"`
+	RateLimit  int                      `pulumi:"rateLimit"`
+	Tags       map[string]string        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RateBasedRule resource.
 type RateBasedRuleArgs struct {
-	// The name or description for the Amazon CloudWatch metric of this rule.
 	MetricName pulumi.StringInput
-	// The name or description of the rule.
-	Name pulumi.StringPtrInput
-	// The objects to include in a rule (documented below).
+	Name       pulumi.StringPtrInput
 	Predicates RateBasedRulePredicateArrayInput
-	// Valid value is IP.
-	RateKey pulumi.StringInput
-	// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
-	RateLimit pulumi.IntInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	RateKey    pulumi.StringInput
+	RateLimit  pulumi.IntInput
+	Tags       pulumi.StringMapInput
 }
 
 func (RateBasedRuleArgs) ElementType() reflect.Type {
@@ -290,42 +195,34 @@ func (o RateBasedRuleOutput) ToRateBasedRuleOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Amazon Resource Name (ARN)
 func (o RateBasedRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RateBasedRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name or description for the Amazon CloudWatch metric of this rule.
 func (o RateBasedRuleOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RateBasedRule) pulumi.StringOutput { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// The name or description of the rule.
 func (o RateBasedRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RateBasedRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The objects to include in a rule (documented below).
 func (o RateBasedRuleOutput) Predicates() RateBasedRulePredicateArrayOutput {
 	return o.ApplyT(func(v *RateBasedRule) RateBasedRulePredicateArrayOutput { return v.Predicates }).(RateBasedRulePredicateArrayOutput)
 }
 
-// Valid value is IP.
 func (o RateBasedRuleOutput) RateKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *RateBasedRule) pulumi.StringOutput { return v.RateKey }).(pulumi.StringOutput)
 }
 
-// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
 func (o RateBasedRuleOutput) RateLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v *RateBasedRule) pulumi.IntOutput { return v.RateLimit }).(pulumi.IntOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RateBasedRuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RateBasedRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RateBasedRuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RateBasedRule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

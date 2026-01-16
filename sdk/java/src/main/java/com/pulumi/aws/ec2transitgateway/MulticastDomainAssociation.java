@@ -13,120 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Associates the specified subnet and transit gateway attachment with the specified transit gateway multicast domain.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2transitgateway.TransitGateway;
- * import com.pulumi.aws.ec2transitgateway.TransitGatewayArgs;
- * import com.pulumi.aws.ec2transitgateway.VpcAttachment;
- * import com.pulumi.aws.ec2transitgateway.VpcAttachmentArgs;
- * import com.pulumi.aws.ec2transitgateway.MulticastDomain;
- * import com.pulumi.aws.ec2transitgateway.MulticastDomainArgs;
- * import com.pulumi.aws.ec2transitgateway.MulticastDomainAssociation;
- * import com.pulumi.aws.ec2transitgateway.MulticastDomainAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new TransitGateway("example", TransitGatewayArgs.builder()
- *             .multicastSupport("enable")
- *             .build());
- * 
- *         var exampleVpcAttachment = new VpcAttachment("exampleVpcAttachment", VpcAttachmentArgs.builder()
- *             .subnetIds(exampleAwsSubnet.id())
- *             .transitGatewayId(example.id())
- *             .vpcId(exampleAwsVpc.id())
- *             .build());
- * 
- *         var exampleMulticastDomain = new MulticastDomain("exampleMulticastDomain", MulticastDomainArgs.builder()
- *             .transitGatewayId(example.id())
- *             .build());
- * 
- *         var exampleMulticastDomainAssociation = new MulticastDomainAssociation("exampleMulticastDomainAssociation", MulticastDomainAssociationArgs.builder()
- *             .subnetId(exampleAwsSubnet.id())
- *             .transitGatewayAttachmentId(exampleVpcAttachment.id())
- *             .transitGatewayMulticastDomainId(exampleMulticastDomain.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:ec2transitgateway/multicastDomainAssociation:MulticastDomainAssociation")
 public class MulticastDomainAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The ID of the subnet to associate with the transit gateway multicast domain.
-     * 
-     */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
-    /**
-     * @return The ID of the subnet to associate with the transit gateway multicast domain.
-     * 
-     */
     public Output<String> subnetId() {
         return this.subnetId;
     }
-    /**
-     * The ID of the transit gateway attachment.
-     * 
-     */
     @Export(name="transitGatewayAttachmentId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayAttachmentId;
 
-    /**
-     * @return The ID of the transit gateway attachment.
-     * 
-     */
     public Output<String> transitGatewayAttachmentId() {
         return this.transitGatewayAttachmentId;
     }
-    /**
-     * The ID of the transit gateway multicast domain.
-     * 
-     */
     @Export(name="transitGatewayMulticastDomainId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayMulticastDomainId;
 
-    /**
-     * @return The ID of the transit gateway multicast domain.
-     * 
-     */
     public Output<String> transitGatewayMulticastDomainId() {
         return this.transitGatewayMulticastDomainId;
     }

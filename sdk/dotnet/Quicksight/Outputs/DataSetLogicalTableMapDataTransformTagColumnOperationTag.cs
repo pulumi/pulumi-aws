@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSetLogicalTableMapDataTransformTagColumnOperationTag
     {
-        /// <summary>
-        /// A description for a column. See column_description.
-        /// </summary>
         public readonly Outputs.DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription? ColumnDescription;
-        /// <summary>
-        /// A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
-        /// </summary>
         public readonly string? ColumnGeographicRole;
 
         [OutputConstructor]

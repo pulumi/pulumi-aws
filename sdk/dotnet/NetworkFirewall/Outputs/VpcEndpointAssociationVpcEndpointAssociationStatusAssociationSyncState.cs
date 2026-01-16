@@ -13,13 +13,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncState
     {
-        /// <summary>
-        /// Nested list describing the attachment status of the firewall's VPC Endpoint Association with a single VPC subnet.
-        /// </summary>
         public readonly ImmutableArray<Outputs.VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachment> Attachments;
-        /// <summary>
-        /// The Availability Zone where the subnet is configured.
-        /// </summary>
         public readonly string AvailabilityZone;
 
         [OutputConstructor]

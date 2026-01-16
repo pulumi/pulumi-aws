@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ContinuousDeploymentPolicyTrafficConfig {
-    /**
-     * @return Determines which HTTP requests are sent to the staging distribution. See `singleHeaderConfig`.
-     * 
-     */
     private @Nullable ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig singleHeaderConfig;
-    /**
-     * @return Contains the percentage of traffic to send to the staging distribution. See `singleWeightConfig`.
-     * 
-     */
     private @Nullable ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig singleWeightConfig;
-    /**
-     * @return Type of traffic configuration. Valid values are `SingleWeight` and `SingleHeader`.
-     * 
-     */
     private String type;
 
     private ContinuousDeploymentPolicyTrafficConfig() {}
-    /**
-     * @return Determines which HTTP requests are sent to the staging distribution. See `singleHeaderConfig`.
-     * 
-     */
     public Optional<ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig> singleHeaderConfig() {
         return Optional.ofNullable(this.singleHeaderConfig);
     }
-    /**
-     * @return Contains the percentage of traffic to send to the staging distribution. See `singleWeightConfig`.
-     * 
-     */
     public Optional<ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig> singleWeightConfig() {
         return Optional.ofNullable(this.singleWeightConfig);
     }
-    /**
-     * @return Type of traffic configuration. Valid values are `SingleWeight` and `SingleHeader`.
-     * 
-     */
     public String type() {
         return this.type;
     }

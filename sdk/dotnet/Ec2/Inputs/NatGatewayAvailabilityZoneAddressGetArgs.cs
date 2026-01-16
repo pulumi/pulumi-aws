@@ -14,25 +14,15 @@ namespace Pulumi.Aws.Ec2.Inputs
     {
         [Input("allocationIds")]
         private InputList<string>? _allocationIds;
-
-        /// <summary>
-        /// List of allocation IDs of the Elastic IP addresses (EIPs) to be used for handling outbound NAT traffic in this specific Availability Zone.
-        /// </summary>
         public InputList<string> AllocationIds
         {
             get => _allocationIds ?? (_allocationIds = new InputList<string>());
             set => _allocationIds = value;
         }
 
-        /// <summary>
-        /// Availability Zone (e.g. `us-west-2a`) where this specific NAT gateway configuration will be active. Exactly one of `AvailabilityZone` or `AvailabilityZoneId` must be specified.
-        /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
-        /// <summary>
-        /// Availability Zone ID (e.g. `usw2-az2`) where this specific NAT gateway configuration will be active. Exactly one of `AvailabilityZone` or `AvailabilityZoneId` must be specified.
-        /// </summary>
         [Input("availabilityZoneId")]
         public Input<string>? AvailabilityZoneId { get; set; }
 

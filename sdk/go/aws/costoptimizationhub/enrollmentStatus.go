@@ -11,73 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing AWS Cost Optimization Hub Enrollment Status.
-//
-// > **TIP:** The Cost Optimization Hub only has a `us-east-1` endpoint. However, you can access the service globally with the AWS Provider from other regions. Other tools, such as the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cost-optimization-hub/index.html), may require you to specify the `us-east-1` region when using the service.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/costoptimizationhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := costoptimizationhub.NewEnrollmentStatus(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Usage with all the arguments
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/costoptimizationhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := costoptimizationhub.NewEnrollmentStatus(ctx, "example", &costoptimizationhub.EnrollmentStatusArgs{
-//				IncludeMemberAccounts: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Cost Optimization Hub Enrollment Status using your AWS account ID. For example:
-//
-// ```sh
-// $ pulumi import aws:costoptimizationhub/enrollmentStatus:EnrollmentStatus example 111222333444
-// ```
 type EnrollmentStatus struct {
 	pulumi.CustomResourceState
 
-	// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
 	IncludeMemberAccounts pulumi.BoolOutput   `pulumi:"includeMemberAccounts"`
 	Status                pulumi.StringOutput `pulumi:"status"`
 }
@@ -112,13 +48,11 @@ func GetEnrollmentStatus(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EnrollmentStatus resources.
 type enrollmentStatusState struct {
-	// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
 	IncludeMemberAccounts *bool   `pulumi:"includeMemberAccounts"`
 	Status                *string `pulumi:"status"`
 }
 
 type EnrollmentStatusState struct {
-	// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
 	IncludeMemberAccounts pulumi.BoolPtrInput
 	Status                pulumi.StringPtrInput
 }
@@ -128,13 +62,11 @@ func (EnrollmentStatusState) ElementType() reflect.Type {
 }
 
 type enrollmentStatusArgs struct {
-	// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
 	IncludeMemberAccounts *bool `pulumi:"includeMemberAccounts"`
 }
 
 // The set of arguments for constructing a EnrollmentStatus resource.
 type EnrollmentStatusArgs struct {
-	// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
 	IncludeMemberAccounts pulumi.BoolPtrInput
 }
 
@@ -225,7 +157,6 @@ func (o EnrollmentStatusOutput) ToEnrollmentStatusOutputWithContext(ctx context.
 	return o
 }
 
-// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
 func (o EnrollmentStatusOutput) IncludeMemberAccounts() pulumi.BoolOutput {
 	return o.ApplyT(func(v *EnrollmentStatus) pulumi.BoolOutput { return v.IncludeMemberAccounts }).(pulumi.BoolOutput)
 }

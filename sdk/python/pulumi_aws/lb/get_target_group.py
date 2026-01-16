@@ -264,38 +264,7 @@ def get_target_group(arn: Optional[_builtins.str] = None,
                      tags: Optional[Mapping[str, _builtins.str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTargetGroupResult:
     """
-    > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
-
-    Provides information about a Load Balancer Target Group.
-
-    This data source can prove useful when a module accepts an LB Target Group as an
-    input variable and needs to know its attributes. It can also be used to get the ARN of
-    an LB Target Group for use in other resources, given LB Target Group name.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    lb_tg_arn = config.get("lbTgArn")
-    if lb_tg_arn is None:
-        lb_tg_arn = ""
-    lb_tg_name = config.get("lbTgName")
-    if lb_tg_name is None:
-        lb_tg_name = ""
-    test = aws.lb.get_target_group(arn=lb_tg_arn,
-        name=lb_tg_name)
-    ```
-
-
-    :param _builtins.str arn: Full ARN of the target group.
-    :param _builtins.str name: Unique name of the target group.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired target group.
-           
-           > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -338,38 +307,7 @@ def get_target_group_output(arn: Optional[pulumi.Input[Optional[_builtins.str]]]
                             tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTargetGroupResult]:
     """
-    > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
-
-    Provides information about a Load Balancer Target Group.
-
-    This data source can prove useful when a module accepts an LB Target Group as an
-    input variable and needs to know its attributes. It can also be used to get the ARN of
-    an LB Target Group for use in other resources, given LB Target Group name.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    lb_tg_arn = config.get("lbTgArn")
-    if lb_tg_arn is None:
-        lb_tg_arn = ""
-    lb_tg_name = config.get("lbTgName")
-    if lb_tg_name is None:
-        lb_tg_name = ""
-    test = aws.lb.get_target_group(arn=lb_tg_arn,
-        name=lb_tg_name)
-    ```
-
-
-    :param _builtins.str arn: Full ARN of the target group.
-    :param _builtins.str name: Unique name of the target group.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired target group.
-           
-           > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

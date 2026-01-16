@@ -14,104 +14,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage S3 Bucket Ownership Controls. For more information, see the [S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html).
- * 
- * &gt; This resource cannot be used with S3 directory buckets.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.BucketOwnershipControls;
- * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
- * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Bucket("example", BucketArgs.builder()
- *             .bucket("example")
- *             .build());
- * 
- *         var exampleBucketOwnershipControls = new BucketOwnershipControls("exampleBucketOwnershipControls", BucketOwnershipControlsArgs.builder()
- *             .bucket(example.id())
- *             .rule(BucketOwnershipControlsRuleArgs.builder()
- *                 .objectOwnership("BucketOwnerPreferred")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import S3 Bucket Ownership Controls using S3 Bucket name. For example:
- * 
- * ```sh
- * $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
- * ```
- * 
- */
 @ResourceType(type="aws:s3/bucketOwnershipControls:BucketOwnershipControls")
 public class BucketOwnershipControls extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of the bucket that you want to associate this access point with.
-     * 
-     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
-    /**
-     * @return Name of the bucket that you want to associate this access point with.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Configuration block(s) with Ownership Controls rules. Detailed below.
-     * 
-     */
     @Export(name="rule", refs={BucketOwnershipControlsRule.class}, tree="[0]")
     private Output<BucketOwnershipControlsRule> rule;
 
-    /**
-     * @return Configuration block(s) with Ownership Controls rules. Detailed below.
-     * 
-     */
     public Output<BucketOwnershipControlsRule> rule() {
         return this.rule;
     }

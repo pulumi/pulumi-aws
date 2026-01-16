@@ -12,73 +12,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a License Manager grant. This allows for sharing licenses with other AWS accounts.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/licensemanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := licensemanager.NewLicenseGrant(ctx, "test", &licensemanager.LicenseGrantArgs{
-//				Name: pulumi.String("share-license-with-account"),
-//				AllowedOperations: pulumi.StringArray{
-//					pulumi.String("ListPurchasedLicenses"),
-//					pulumi.String("CheckoutLicense"),
-//					pulumi.String("CheckInLicense"),
-//					pulumi.String("ExtendConsumptionLicense"),
-//					pulumi.String("CreateToken"),
-//				},
-//				LicenseArn: pulumi.String("arn:aws:license-manager::111111111111:license:l-exampleARN"),
-//				Principal:  pulumi.String("arn:aws:iam::111111111112:root"),
-//				HomeRegion: "us-east-1",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_licensemanager_grant` using the grant arn. For example:
-//
-// ```sh
-// $ pulumi import aws:licensemanager/licenseGrant:LicenseGrant test arn:aws:license-manager::123456789011:grant:g-01d313393d9e443d8664cc054db1e089
-// ```
 type LicenseGrant struct {
 	pulumi.CustomResourceState
 
-	// A list of the allowed operations for the grant. This is a subset of the allowed operations on the license.
+	// Allowed operations for the grant. This is a subset of the allowed operations on the license.
 	AllowedOperations pulumi.StringArrayOutput `pulumi:"allowedOperations"`
-	// The grant ARN.
+	// Amazon Resource Name (ARN) of the grant.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The home region for the license.
+	// Home Region of the grant.
 	HomeRegion pulumi.StringOutput `pulumi:"homeRegion"`
-	// The ARN of the license to grant.
+	// License ARN.
 	LicenseArn pulumi.StringOutput `pulumi:"licenseArn"`
-	// The Name of the grant.
+	// Name of the grant.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The parent ARN.
+	// Parent ARN.
 	ParentArn pulumi.StringOutput `pulumi:"parentArn"`
-	// The target account for the grant in the form of the ARN for an account principal of the root user.
+	// The grantee principal ARN. The target account for the grant in the form of the ARN for an account principal of the root user.
 	Principal pulumi.StringOutput `pulumi:"principal"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The grant status.
+	Region    pulumi.StringOutput `pulumi:"region"`
+	// Grant status.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// The grant version.
+	// Grant version.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
 
@@ -121,48 +75,46 @@ func GetLicenseGrant(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LicenseGrant resources.
 type licenseGrantState struct {
-	// A list of the allowed operations for the grant. This is a subset of the allowed operations on the license.
+	// Allowed operations for the grant. This is a subset of the allowed operations on the license.
 	AllowedOperations []string `pulumi:"allowedOperations"`
-	// The grant ARN.
+	// Amazon Resource Name (ARN) of the grant.
 	Arn *string `pulumi:"arn"`
-	// The home region for the license.
+	// Home Region of the grant.
 	HomeRegion *string `pulumi:"homeRegion"`
-	// The ARN of the license to grant.
+	// License ARN.
 	LicenseArn *string `pulumi:"licenseArn"`
-	// The Name of the grant.
+	// Name of the grant.
 	Name *string `pulumi:"name"`
-	// The parent ARN.
+	// Parent ARN.
 	ParentArn *string `pulumi:"parentArn"`
-	// The target account for the grant in the form of the ARN for an account principal of the root user.
+	// The grantee principal ARN. The target account for the grant in the form of the ARN for an account principal of the root user.
 	Principal *string `pulumi:"principal"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The grant status.
+	Region    *string `pulumi:"region"`
+	// Grant status.
 	Status *string `pulumi:"status"`
-	// The grant version.
+	// Grant version.
 	Version *string `pulumi:"version"`
 }
 
 type LicenseGrantState struct {
-	// A list of the allowed operations for the grant. This is a subset of the allowed operations on the license.
+	// Allowed operations for the grant. This is a subset of the allowed operations on the license.
 	AllowedOperations pulumi.StringArrayInput
-	// The grant ARN.
+	// Amazon Resource Name (ARN) of the grant.
 	Arn pulumi.StringPtrInput
-	// The home region for the license.
+	// Home Region of the grant.
 	HomeRegion pulumi.StringPtrInput
-	// The ARN of the license to grant.
+	// License ARN.
 	LicenseArn pulumi.StringPtrInput
-	// The Name of the grant.
+	// Name of the grant.
 	Name pulumi.StringPtrInput
-	// The parent ARN.
+	// Parent ARN.
 	ParentArn pulumi.StringPtrInput
-	// The target account for the grant in the form of the ARN for an account principal of the root user.
+	// The grantee principal ARN. The target account for the grant in the form of the ARN for an account principal of the root user.
 	Principal pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The grant status.
+	Region    pulumi.StringPtrInput
+	// Grant status.
 	Status pulumi.StringPtrInput
-	// The grant version.
+	// Grant version.
 	Version pulumi.StringPtrInput
 }
 
@@ -171,30 +123,28 @@ func (LicenseGrantState) ElementType() reflect.Type {
 }
 
 type licenseGrantArgs struct {
-	// A list of the allowed operations for the grant. This is a subset of the allowed operations on the license.
+	// Allowed operations for the grant. This is a subset of the allowed operations on the license.
 	AllowedOperations []string `pulumi:"allowedOperations"`
-	// The ARN of the license to grant.
+	// License ARN.
 	LicenseArn string `pulumi:"licenseArn"`
-	// The Name of the grant.
+	// Name of the grant.
 	Name *string `pulumi:"name"`
-	// The target account for the grant in the form of the ARN for an account principal of the root user.
-	Principal string `pulumi:"principal"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	// The grantee principal ARN. The target account for the grant in the form of the ARN for an account principal of the root user.
+	Principal string  `pulumi:"principal"`
+	Region    *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LicenseGrant resource.
 type LicenseGrantArgs struct {
-	// A list of the allowed operations for the grant. This is a subset of the allowed operations on the license.
+	// Allowed operations for the grant. This is a subset of the allowed operations on the license.
 	AllowedOperations pulumi.StringArrayInput
-	// The ARN of the license to grant.
+	// License ARN.
 	LicenseArn pulumi.StringInput
-	// The Name of the grant.
+	// Name of the grant.
 	Name pulumi.StringPtrInput
-	// The target account for the grant in the form of the ARN for an account principal of the root user.
+	// The grantee principal ARN. The target account for the grant in the form of the ARN for an account principal of the root user.
 	Principal pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region    pulumi.StringPtrInput
 }
 
 func (LicenseGrantArgs) ElementType() reflect.Type {
@@ -284,52 +234,51 @@ func (o LicenseGrantOutput) ToLicenseGrantOutputWithContext(ctx context.Context)
 	return o
 }
 
-// A list of the allowed operations for the grant. This is a subset of the allowed operations on the license.
+// Allowed operations for the grant. This is a subset of the allowed operations on the license.
 func (o LicenseGrantOutput) AllowedOperations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LicenseGrant) pulumi.StringArrayOutput { return v.AllowedOperations }).(pulumi.StringArrayOutput)
 }
 
-// The grant ARN.
+// Amazon Resource Name (ARN) of the grant.
 func (o LicenseGrantOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseGrant) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The home region for the license.
+// Home Region of the grant.
 func (o LicenseGrantOutput) HomeRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseGrant) pulumi.StringOutput { return v.HomeRegion }).(pulumi.StringOutput)
 }
 
-// The ARN of the license to grant.
+// License ARN.
 func (o LicenseGrantOutput) LicenseArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseGrant) pulumi.StringOutput { return v.LicenseArn }).(pulumi.StringOutput)
 }
 
-// The Name of the grant.
+// Name of the grant.
 func (o LicenseGrantOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseGrant) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The parent ARN.
+// Parent ARN.
 func (o LicenseGrantOutput) ParentArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseGrant) pulumi.StringOutput { return v.ParentArn }).(pulumi.StringOutput)
 }
 
-// The target account for the grant in the form of the ARN for an account principal of the root user.
+// The grantee principal ARN. The target account for the grant in the form of the ARN for an account principal of the root user.
 func (o LicenseGrantOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseGrant) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LicenseGrantOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseGrant) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The grant status.
+// Grant status.
 func (o LicenseGrantOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseGrant) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// The grant version.
+// Grant version.
 func (o LicenseGrantOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseGrant) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTaskExecutionOverridesContainerOverrideEnvironment {
-    /**
-     * @return The name of the key-value pair. For environment variables, this is the name of the environment variable.
-     * 
-     */
     private String key;
-    /**
-     * @return The value of the key-value pair. For environment variables, this is the value of the environment variable.
-     * 
-     */
     private String value;
 
     private GetTaskExecutionOverridesContainerOverrideEnvironment() {}
-    /**
-     * @return The name of the key-value pair. For environment variables, this is the name of the environment variable.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return The value of the key-value pair. For environment variables, this is the value of the environment variable.
-     * 
-     */
     public String value() {
         return this.value;
     }

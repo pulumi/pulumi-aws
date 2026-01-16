@@ -4,44 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get the ARNs and Names of IAM Users.
- *
- * ## Example Usage
- *
- * ### All users in an account
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const users = aws.iam.getUsers({});
- * ```
- *
- * ### Users filtered by name regex
- *
- * Users whose username contains `abc`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const users = aws.iam.getUsers({
- *     nameRegex: ".*abc.*",
- * });
- * ```
- *
- * ### Users filtered by path prefix
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const users = aws.iam.getUsers({
- *     pathPrefix: "/custom-path",
- * });
- * ```
- */
 export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -55,13 +17,7 @@ export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Prom
  * A collection of arguments for invoking getUsers.
  */
 export interface GetUsersArgs {
-    /**
-     * Regex string to apply to the IAM users list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
-     */
     nameRegex?: string;
-    /**
-     * Path prefix for filtering the results. For example, the prefix `/division_abc/subdivision_xyz/` gets all users whose path starts with `/division_abc/subdivision_xyz/`. If it is not included, it defaults to a slash (`/`), listing all users. For more details, check out [list-users in the AWS CLI reference][1].
-     */
     pathPrefix?: string;
 }
 
@@ -69,59 +25,15 @@ export interface GetUsersArgs {
  * A collection of values returned by getUsers.
  */
 export interface GetUsersResult {
-    /**
-     * Set of ARNs of the matched IAM users.
-     */
     readonly arns: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly nameRegex?: string;
-    /**
-     * Set of Names of the matched IAM users.
-     */
     readonly names: string[];
     readonly pathPrefix?: string;
 }
-/**
- * Use this data source to get the ARNs and Names of IAM Users.
- *
- * ## Example Usage
- *
- * ### All users in an account
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const users = aws.iam.getUsers({});
- * ```
- *
- * ### Users filtered by name regex
- *
- * Users whose username contains `abc`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const users = aws.iam.getUsers({
- *     nameRegex: ".*abc.*",
- * });
- * ```
- *
- * ### Users filtered by path prefix
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const users = aws.iam.getUsers({
- *     pathPrefix: "/custom-path",
- * });
- * ```
- */
 export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUsersResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -135,12 +47,6 @@ export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOu
  * A collection of arguments for invoking getUsers.
  */
 export interface GetUsersOutputArgs {
-    /**
-     * Regex string to apply to the IAM users list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
-     */
     nameRegex?: pulumi.Input<string>;
-    /**
-     * Path prefix for filtering the results. For example, the prefix `/division_abc/subdivision_xyz/` gets all users whose path starts with `/division_abc/subdivision_xyz/`. If it is not included, it defaults to a slash (`/`), listing all users. For more details, check out [list-users in the AWS CLI reference][1].
-     */
     pathPrefix?: pulumi.Input<string>;
 }

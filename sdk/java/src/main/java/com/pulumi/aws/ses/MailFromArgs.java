@@ -16,66 +16,30 @@ public final class MailFromArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final MailFromArgs Empty = new MailFromArgs();
 
-    /**
-     * The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
-     * 
-     */
     @Import(name="behaviorOnMxFailure")
     private @Nullable Output<String> behaviorOnMxFailure;
 
-    /**
-     * @return The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
-     * 
-     */
     public Optional<Output<String>> behaviorOnMxFailure() {
         return Optional.ofNullable(this.behaviorOnMxFailure);
     }
 
-    /**
-     * Verified domain name or email identity to generate DKIM tokens for.
-     * 
-     */
     @Import(name="domain", required=true)
     private Output<String> domain;
 
-    /**
-     * @return Verified domain name or email identity to generate DKIM tokens for.
-     * 
-     */
     public Output<String> domain() {
         return this.domain;
     }
 
-    /**
-     * Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="mailFromDomain", required=true)
     private Output<String> mailFromDomain;
 
-    /**
-     * @return Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> mailFromDomain() {
         return this.mailFromDomain;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -107,90 +71,38 @@ public final class MailFromArgs extends com.pulumi.resources.ResourceArgs {
             $ = new MailFromArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param behaviorOnMxFailure The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder behaviorOnMxFailure(@Nullable Output<String> behaviorOnMxFailure) {
             $.behaviorOnMxFailure = behaviorOnMxFailure;
             return this;
         }
 
-        /**
-         * @param behaviorOnMxFailure The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder behaviorOnMxFailure(String behaviorOnMxFailure) {
             return behaviorOnMxFailure(Output.of(behaviorOnMxFailure));
         }
 
-        /**
-         * @param domain Verified domain name or email identity to generate DKIM tokens for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(Output<String> domain) {
             $.domain = domain;
             return this;
         }
 
-        /**
-         * @param domain Verified domain name or email identity to generate DKIM tokens for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
         }
 
-        /**
-         * @param mailFromDomain Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder mailFromDomain(Output<String> mailFromDomain) {
             $.mailFromDomain = mailFromDomain;
             return this;
         }
 
-        /**
-         * @param mailFromDomain Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder mailFromDomain(String mailFromDomain) {
             return mailFromDomain(Output.of(mailFromDomain));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -16,17 +16,9 @@ public final class AnalyzerConfigurationUnusedAccessAnalysisRuleArgs extends com
 
     public static final AnalyzerConfigurationUnusedAccessAnalysisRuleArgs Empty = new AnalyzerConfigurationUnusedAccessAnalysisRuleArgs();
 
-    /**
-     * List of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings. See `exclusion` Block for details.
-     * 
-     */
     @Import(name="exclusions")
     private @Nullable Output<List<AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs>> exclusions;
 
-    /**
-     * @return List of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings. See `exclusion` Block for details.
-     * 
-     */
     public Optional<Output<List<AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs>>> exclusions() {
         return Optional.ofNullable(this.exclusions);
     }
@@ -55,33 +47,15 @@ public final class AnalyzerConfigurationUnusedAccessAnalysisRuleArgs extends com
             $ = new AnalyzerConfigurationUnusedAccessAnalysisRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param exclusions List of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings. See `exclusion` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exclusions(@Nullable Output<List<AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs>> exclusions) {
             $.exclusions = exclusions;
             return this;
         }
 
-        /**
-         * @param exclusions List of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings. See `exclusion` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exclusions(List<AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs> exclusions) {
             return exclusions(Output.of(exclusions));
         }
 
-        /**
-         * @param exclusions List of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings. See `exclusion` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exclusions(AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs... exclusions) {
             return exclusions(List.of(exclusions));
         }

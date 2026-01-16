@@ -13,115 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an Amazon S3 Vectors Vector Bucket policy.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.VectorsVectorBucketPolicy;
- * import com.pulumi.aws.s3.VectorsVectorBucketPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new VectorsVectorBucketPolicy("example", VectorsVectorBucketPolicyArgs.builder()
- *             .vectorBucketArn(exampleAwsS3vectorsVectorBucket.arn())
- *             .policy("""
- * {
- *   \"Version\": \"2012-10-17\",
- *   \"Id\": \"writePolicy\",
- *   \"Statement\": [{
- *     \"Sid\": \"writeStatement\",
- *     \"Effect\": \"Allow\",
- *     \"Principal\": {
- *       \"AWS\": \"123456789012\"
- *     },
- *     \"Action\": [
- *       \"s3vectors:PutVectors\"
- *     ],
- *     \"Resource\": \"*\"
- *   }]
- * }
- *             """)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import S3 Vectors Vector Bucket policy using the `vector_bucket_arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:s3/vectorsVectorBucketPolicy:VectorsVectorBucketPolicy example arn:aws:s3vectors:us-west-2:123456789012:bucket/example-bucket
- * ```
- * 
- */
 @ResourceType(type="aws:s3/vectorsVectorBucketPolicy:VectorsVectorBucketPolicy")
 public class VectorsVectorBucketPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The policy document.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return The policy document.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ARN of the vector bucket.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="vectorBucketArn", refs={String.class}, tree="[0]")
     private Output<String> vectorBucketArn;
 
-    /**
-     * @return ARN of the vector bucket.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> vectorBucketArn() {
         return this.vectorBucketArn;
     }

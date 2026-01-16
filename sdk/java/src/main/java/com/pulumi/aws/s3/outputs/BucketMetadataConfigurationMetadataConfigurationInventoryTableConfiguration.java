@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration {
-    /**
-     * @return Configuration state of the inventory table, indicating whether the inventory table is enabled or disabled. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     private String configurationState;
-    /**
-     * @return Encryption configuration for the inventory table. See `encryptionConfiguration` Block for details.
-     * 
-     */
     private @Nullable BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfiguration encryptionConfiguration;
-    /**
-     * @return Inventory table ARN.
-     * 
-     */
     private @Nullable String tableArn;
-    /**
-     * @return Inventory table name.
-     * 
-     */
     private @Nullable String tableName;
 
     private BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration() {}
-    /**
-     * @return Configuration state of the inventory table, indicating whether the inventory table is enabled or disabled. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     public String configurationState() {
         return this.configurationState;
     }
-    /**
-     * @return Encryption configuration for the inventory table. See `encryptionConfiguration` Block for details.
-     * 
-     */
     public Optional<BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfiguration> encryptionConfiguration() {
         return Optional.ofNullable(this.encryptionConfiguration);
     }
-    /**
-     * @return Inventory table ARN.
-     * 
-     */
     public Optional<String> tableArn() {
         return Optional.ofNullable(this.tableArn);
     }
-    /**
-     * @return Inventory table name.
-     * 
-     */
     public Optional<String> tableName() {
         return Optional.ofNullable(this.tableName);
     }

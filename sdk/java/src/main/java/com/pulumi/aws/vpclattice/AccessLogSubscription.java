@@ -15,141 +15,41 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS VPC Lattice Service Network or Service Access log subscription.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.vpclattice.AccessLogSubscription;
- * import com.pulumi.aws.vpclattice.AccessLogSubscriptionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AccessLogSubscription("example", AccessLogSubscriptionArgs.builder()
- *             .resourceIdentifier(exampleAwsVpclatticeServiceNetwork.id())
- *             .destinationArn(bucket.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import VPC Lattice Access Log Subscription using the access log subscription ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
- * ```
- * 
- */
 @ResourceType(type="aws:vpclattice/accessLogSubscription:AccessLogSubscription")
 public class AccessLogSubscription extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the access log subscription.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the access log subscription.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Amazon Resource Name (ARN) of the log destination.
-     * 
-     */
     @Export(name="destinationArn", refs={String.class}, tree="[0]")
     private Output<String> destinationArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the log destination.
-     * 
-     */
     public Output<String> destinationArn() {
         return this.destinationArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Amazon Resource Name (ARN) of the service network or service.
-     * 
-     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the service network or service.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
-    /**
-     * The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="resourceIdentifier", refs={String.class}, tree="[0]")
     private Output<String> resourceIdentifier;
 
-    /**
-     * @return The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> resourceIdentifier() {
         return this.resourceIdentifier;
     }
-    /**
-     * Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
-     * 
-     */
     @Export(name="serviceNetworkLogType", refs={String.class}, tree="[0]")
     private Output<String> serviceNetworkLogType;
 
-    /**
-     * @return Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
-     * 
-     */
     public Output<String> serviceNetworkLogType() {
         return this.serviceNetworkLogType;
     }

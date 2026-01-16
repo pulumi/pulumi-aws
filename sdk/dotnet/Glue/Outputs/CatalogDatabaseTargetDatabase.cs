@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class CatalogDatabaseTargetDatabase
     {
-        /// <summary>
-        /// ID of the Data Catalog in which the database resides.
-        /// </summary>
         public readonly string CatalogId;
-        /// <summary>
-        /// Name of the catalog database.
-        /// </summary>
         public readonly string DatabaseName;
-        /// <summary>
-        /// Region of the target database.
-        /// </summary>
         public readonly string? Region;
 
         [OutputConstructor]

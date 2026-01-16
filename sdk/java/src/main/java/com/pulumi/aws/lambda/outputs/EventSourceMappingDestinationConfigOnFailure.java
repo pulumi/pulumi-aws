@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class EventSourceMappingDestinationConfigOnFailure {
-    /**
-     * @return ARN of the destination resource, or `kafka://your-topic-name` for Amazon MSK and self-managed Apache Kafka destinations.
-     * 
-     */
     private String destinationArn;
 
     private EventSourceMappingDestinationConfigOnFailure() {}
-    /**
-     * @return ARN of the destination resource, or `kafka://your-topic-name` for Amazon MSK and self-managed Apache Kafka destinations.
-     * 
-     */
     public String destinationArn() {
         return this.destinationArn;
     }

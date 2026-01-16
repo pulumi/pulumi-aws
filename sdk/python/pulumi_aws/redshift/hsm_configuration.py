@@ -29,14 +29,6 @@ class HsmConfigurationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HsmConfiguration resource.
-        :param pulumi.Input[_builtins.str] description: A text description of the HSM configuration to be created.
-        :param pulumi.Input[_builtins.str] hsm_configuration_identifier: The identifier to be assigned to the new Amazon Redshift HSM configuration.
-        :param pulumi.Input[_builtins.str] hsm_ip_address: The IP address that the Amazon Redshift cluster must use to access the HSM.
-        :param pulumi.Input[_builtins.str] hsm_partition_name: The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
-        :param pulumi.Input[_builtins.str] hsm_partition_password: The password required to access the HSM partition.
-        :param pulumi.Input[_builtins.str] hsm_server_public_certificate: The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "hsm_configuration_identifier", hsm_configuration_identifier)
@@ -52,9 +44,6 @@ class HsmConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[_builtins.str]:
-        """
-        A text description of the HSM configuration to be created.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -64,9 +53,6 @@ class HsmConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="hsmConfigurationIdentifier")
     def hsm_configuration_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The identifier to be assigned to the new Amazon Redshift HSM configuration.
-        """
         return pulumi.get(self, "hsm_configuration_identifier")
 
     @hsm_configuration_identifier.setter
@@ -76,9 +62,6 @@ class HsmConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="hsmIpAddress")
     def hsm_ip_address(self) -> pulumi.Input[_builtins.str]:
-        """
-        The IP address that the Amazon Redshift cluster must use to access the HSM.
-        """
         return pulumi.get(self, "hsm_ip_address")
 
     @hsm_ip_address.setter
@@ -88,9 +71,6 @@ class HsmConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="hsmPartitionName")
     def hsm_partition_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
-        """
         return pulumi.get(self, "hsm_partition_name")
 
     @hsm_partition_name.setter
@@ -100,9 +80,6 @@ class HsmConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="hsmPartitionPassword")
     def hsm_partition_password(self) -> pulumi.Input[_builtins.str]:
-        """
-        The password required to access the HSM partition.
-        """
         return pulumi.get(self, "hsm_partition_password")
 
     @hsm_partition_password.setter
@@ -112,9 +89,6 @@ class HsmConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="hsmServerPublicCertificate")
     def hsm_server_public_certificate(self) -> pulumi.Input[_builtins.str]:
-        """
-        The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
-        """
         return pulumi.get(self, "hsm_server_public_certificate")
 
     @hsm_server_public_certificate.setter
@@ -124,9 +98,6 @@ class HsmConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -136,9 +107,6 @@ class HsmConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -161,16 +129,6 @@ class _HsmConfigurationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering HsmConfiguration resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Hsm Client Certificate.
-        :param pulumi.Input[_builtins.str] description: A text description of the HSM configuration to be created.
-        :param pulumi.Input[_builtins.str] hsm_configuration_identifier: The identifier to be assigned to the new Amazon Redshift HSM configuration.
-        :param pulumi.Input[_builtins.str] hsm_ip_address: The IP address that the Amazon Redshift cluster must use to access the HSM.
-        :param pulumi.Input[_builtins.str] hsm_partition_name: The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
-        :param pulumi.Input[_builtins.str] hsm_partition_password: The password required to access the HSM partition.
-        :param pulumi.Input[_builtins.str] hsm_server_public_certificate: The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -196,9 +154,6 @@ class _HsmConfigurationState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the Hsm Client Certificate.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -208,9 +163,6 @@ class _HsmConfigurationState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A text description of the HSM configuration to be created.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -220,9 +172,6 @@ class _HsmConfigurationState:
     @_builtins.property
     @pulumi.getter(name="hsmConfigurationIdentifier")
     def hsm_configuration_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier to be assigned to the new Amazon Redshift HSM configuration.
-        """
         return pulumi.get(self, "hsm_configuration_identifier")
 
     @hsm_configuration_identifier.setter
@@ -232,9 +181,6 @@ class _HsmConfigurationState:
     @_builtins.property
     @pulumi.getter(name="hsmIpAddress")
     def hsm_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IP address that the Amazon Redshift cluster must use to access the HSM.
-        """
         return pulumi.get(self, "hsm_ip_address")
 
     @hsm_ip_address.setter
@@ -244,9 +190,6 @@ class _HsmConfigurationState:
     @_builtins.property
     @pulumi.getter(name="hsmPartitionName")
     def hsm_partition_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
-        """
         return pulumi.get(self, "hsm_partition_name")
 
     @hsm_partition_name.setter
@@ -256,9 +199,6 @@ class _HsmConfigurationState:
     @_builtins.property
     @pulumi.getter(name="hsmPartitionPassword")
     def hsm_partition_password(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The password required to access the HSM partition.
-        """
         return pulumi.get(self, "hsm_partition_password")
 
     @hsm_partition_password.setter
@@ -268,9 +208,6 @@ class _HsmConfigurationState:
     @_builtins.property
     @pulumi.getter(name="hsmServerPublicCertificate")
     def hsm_server_public_certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
-        """
         return pulumi.get(self, "hsm_server_public_certificate")
 
     @hsm_server_public_certificate.setter
@@ -280,9 +217,6 @@ class _HsmConfigurationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -292,9 +226,6 @@ class _HsmConfigurationState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -304,9 +235,6 @@ class _HsmConfigurationState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -330,41 +258,9 @@ class HsmConfiguration(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Creates an HSM configuration that contains the information required by an Amazon Redshift cluster to store and use database encryption keys in a Hardware Security Module (HSM).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshift.HsmConfiguration("example",
-            description="example",
-            hsm_configuration_identifier="example",
-            hsm_ip_address="10.0.0.1",
-            hsm_partition_name="aws",
-            hsm_partition_password="example",
-            hsm_server_public_certificate="example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_configuration_identifier`. For example:
-
-        ```sh
-        $ pulumi import aws:redshift/hsmConfiguration:HsmConfiguration example example
-        ```
-
+        Create a HsmConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: A text description of the HSM configuration to be created.
-        :param pulumi.Input[_builtins.str] hsm_configuration_identifier: The identifier to be assigned to the new Amazon Redshift HSM configuration.
-        :param pulumi.Input[_builtins.str] hsm_ip_address: The IP address that the Amazon Redshift cluster must use to access the HSM.
-        :param pulumi.Input[_builtins.str] hsm_partition_name: The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
-        :param pulumi.Input[_builtins.str] hsm_partition_password: The password required to access the HSM partition.
-        :param pulumi.Input[_builtins.str] hsm_server_public_certificate: The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -373,31 +269,7 @@ class HsmConfiguration(pulumi.CustomResource):
                  args: HsmConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates an HSM configuration that contains the information required by an Amazon Redshift cluster to store and use database encryption keys in a Hardware Security Module (HSM).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshift.HsmConfiguration("example",
-            description="example",
-            hsm_configuration_identifier="example",
-            hsm_ip_address="10.0.0.1",
-            hsm_partition_name="aws",
-            hsm_partition_password="example",
-            hsm_server_public_certificate="example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_configuration_identifier`. For example:
-
-        ```sh
-        $ pulumi import aws:redshift/hsmConfiguration:HsmConfiguration example example
-        ```
-
+        Create a HsmConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param HsmConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -481,16 +353,6 @@ class HsmConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Hsm Client Certificate.
-        :param pulumi.Input[_builtins.str] description: A text description of the HSM configuration to be created.
-        :param pulumi.Input[_builtins.str] hsm_configuration_identifier: The identifier to be assigned to the new Amazon Redshift HSM configuration.
-        :param pulumi.Input[_builtins.str] hsm_ip_address: The IP address that the Amazon Redshift cluster must use to access the HSM.
-        :param pulumi.Input[_builtins.str] hsm_partition_name: The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
-        :param pulumi.Input[_builtins.str] hsm_partition_password: The password required to access the HSM partition.
-        :param pulumi.Input[_builtins.str] hsm_server_public_certificate: The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -511,80 +373,50 @@ class HsmConfiguration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the Hsm Client Certificate.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
-        """
-        A text description of the HSM configuration to be created.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="hsmConfigurationIdentifier")
     def hsm_configuration_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier to be assigned to the new Amazon Redshift HSM configuration.
-        """
         return pulumi.get(self, "hsm_configuration_identifier")
 
     @_builtins.property
     @pulumi.getter(name="hsmIpAddress")
     def hsm_ip_address(self) -> pulumi.Output[_builtins.str]:
-        """
-        The IP address that the Amazon Redshift cluster must use to access the HSM.
-        """
         return pulumi.get(self, "hsm_ip_address")
 
     @_builtins.property
     @pulumi.getter(name="hsmPartitionName")
     def hsm_partition_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
-        """
         return pulumi.get(self, "hsm_partition_name")
 
     @_builtins.property
     @pulumi.getter(name="hsmPartitionPassword")
     def hsm_partition_password(self) -> pulumi.Output[_builtins.str]:
-        """
-        The password required to access the HSM partition.
-        """
         return pulumi.get(self, "hsm_partition_password")
 
     @_builtins.property
     @pulumi.getter(name="hsmServerPublicCertificate")
     def hsm_server_public_certificate(self) -> pulumi.Output[_builtins.str]:
-        """
-        The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
-        """
         return pulumi.get(self, "hsm_server_public_certificate")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

@@ -15,32 +15,16 @@ public final class ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs ex
 
     public static final ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs Empty = new ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs();
 
-    /**
-     * The value of the `X-Frame-Options` HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
-     * 
-     */
     @Import(name="frameOption", required=true)
     private Output<String> frameOption;
 
-    /**
-     * @return The value of the `X-Frame-Options` HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
-     * 
-     */
     public Output<String> frameOption() {
         return this.frameOption;
     }
 
-    /**
-     * Whether CloudFront overrides the `X-Frame-Options` HTTP response header received from the origin with the one specified in this response headers policy.
-     * 
-     */
     @Import(name="override", required=true)
     private Output<Boolean> override;
 
-    /**
-     * @return Whether CloudFront overrides the `X-Frame-Options` HTTP response header received from the origin with the one specified in this response headers policy.
-     * 
-     */
     public Output<Boolean> override() {
         return this.override;
     }
@@ -70,44 +54,20 @@ public final class ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs ex
             $ = new ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param frameOption The value of the `X-Frame-Options` HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
-         * 
-         * @return builder
-         * 
-         */
         public Builder frameOption(Output<String> frameOption) {
             $.frameOption = frameOption;
             return this;
         }
 
-        /**
-         * @param frameOption The value of the `X-Frame-Options` HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
-         * 
-         * @return builder
-         * 
-         */
         public Builder frameOption(String frameOption) {
             return frameOption(Output.of(frameOption));
         }
 
-        /**
-         * @param override Whether CloudFront overrides the `X-Frame-Options` HTTP response header received from the origin with the one specified in this response headers policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder override(Output<Boolean> override) {
             $.override = override;
             return this;
         }
 
-        /**
-         * @param override Whether CloudFront overrides the `X-Frame-Options` HTTP response header received from the origin with the one specified in this response headers policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder override(Boolean override) {
             return override(Output.of(override));
         }

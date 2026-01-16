@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class DataSetLogicalTableMapDataTransformTagColumnOperation {
-    /**
-     * @return Column name.
-     * 
-     */
     private String columnName;
-    /**
-     * @return The dataset column tag, currently only used for geospatial type tagging. See tags.
-     * 
-     */
     private List<DataSetLogicalTableMapDataTransformTagColumnOperationTag> tags;
 
     private DataSetLogicalTableMapDataTransformTagColumnOperation() {}
-    /**
-     * @return Column name.
-     * 
-     */
     public String columnName() {
         return this.columnName;
     }
-    /**
-     * @return The dataset column tag, currently only used for geospatial type tagging. See tags.
-     * 
-     */
     public List<DataSetLogicalTableMapDataTransformTagColumnOperationTag> tags() {
         return this.tags;
     }

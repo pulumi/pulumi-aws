@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage an AWS CloudTrail Delegated Administrator.
- *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const delegated = aws.getCallerIdentity({});
- * const example = new aws.cloudtrail.OrganizationDelegatedAdminAccount("example", {accountId: delegated.then(delegated => delegated.accountId)});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import delegated administrators using the delegate account `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:cloudtrail/organizationDelegatedAdminAccount:OrganizationDelegatedAdminAccount example 12345678901
- * ```
- */
 export class OrganizationDelegatedAdminAccount extends pulumi.CustomResource {
     /**
      * Get an existing OrganizationDelegatedAdminAccount resource's state with the given name, ID, and optional extra
@@ -55,25 +32,10 @@ export class OrganizationDelegatedAdminAccount extends pulumi.CustomResource {
         return obj['__pulumiType'] === OrganizationDelegatedAdminAccount.__pulumiType;
     }
 
-    /**
-     * An organization member account ID that you want to designate as a delegated administrator.
-     */
     declare public readonly accountId: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the delegated administrator's account.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The email address that is associated with the delegated administrator's AWS account.
-     */
     declare public /*out*/ readonly email: pulumi.Output<string>;
-    /**
-     * The friendly name of the delegated administrator's account.
-     */
     declare public /*out*/ readonly name: pulumi.Output<string>;
-    /**
-     * The AWS CloudTrail service principal name.
-     */
     declare public /*out*/ readonly servicePrincipal: pulumi.Output<string>;
 
     /**
@@ -114,25 +76,10 @@ export class OrganizationDelegatedAdminAccount extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OrganizationDelegatedAdminAccount resources.
  */
 export interface OrganizationDelegatedAdminAccountState {
-    /**
-     * An organization member account ID that you want to designate as a delegated administrator.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the delegated administrator's account.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The email address that is associated with the delegated administrator's AWS account.
-     */
     email?: pulumi.Input<string>;
-    /**
-     * The friendly name of the delegated administrator's account.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The AWS CloudTrail service principal name.
-     */
     servicePrincipal?: pulumi.Input<string>;
 }
 
@@ -140,8 +87,5 @@ export interface OrganizationDelegatedAdminAccountState {
  * The set of arguments for constructing a OrganizationDelegatedAdminAccount resource.
  */
 export interface OrganizationDelegatedAdminAccountArgs {
-    /**
-     * An organization member account ID that you want to designate as a delegated administrator.
-     */
     accountId: pulumi.Input<string>;
 }

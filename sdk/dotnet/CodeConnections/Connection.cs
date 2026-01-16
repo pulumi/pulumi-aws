@@ -9,95 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CodeConnections
 {
-    /// <summary>
-    /// Resource for managing an AWS CodeConnections Connection.
-    /// 
-    /// &gt; **NOTE:** The `aws.codeconnections.Connection` resource is created in the state `PENDING`. Authentication with the connection provider must be completed in the AWS Console. See the [AWS documentation](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-update.html) for details.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CodeConnections.Connection("example", new()
-    ///     {
-    ///         Name = "example-connection",
-    ///         ProviderType = "Bitbucket",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the CodeConnections connection.
-    /// 
-    /// Using `pulumi import`, import CodeConnections connection using the ARN. For example:
-    /// 
-    /// % pulumi import aws_codeconnections_connection.test-connection arn:aws:codeconnections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
-    /// </summary>
     [AwsResourceType("aws:codeconnections/connection:Connection")]
     public partial class Connection : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The codeconnections connection ARN.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
-        /// </summary>
         [Output("connectionStatus")]
         public Output<string> ConnectionStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `ProviderType`
-        /// </summary>
         [Output("hostArn")]
         public Output<string?> HostArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `Name` will create a new resource.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         [Output("ownerAccountId")]
         public Output<string> OwnerAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the external provider where your third-party code repository is configured. Changing `ProviderType` will create a new resource. Conflicts with `HostArn`.
-        /// </summary>
         [Output("providerType")]
         public Output<string> ProviderType { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of key-value resource tags to associate with the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -150,36 +88,20 @@ namespace Pulumi.Aws.CodeConnections
 
     public sealed class ConnectionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `ProviderType`
-        /// </summary>
         [Input("hostArn")]
         public Input<string>? HostArn { get; set; }
 
-        /// <summary>
-        /// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `Name` will create a new resource.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The name of the external provider where your third-party code repository is configured. Changing `ProviderType` will create a new resource. Conflicts with `HostArn`.
-        /// </summary>
         [Input("providerType")]
         public Input<string>? ProviderType { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of key-value resource tags to associate with the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -197,51 +119,29 @@ namespace Pulumi.Aws.CodeConnections
 
     public sealed class ConnectionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The codeconnections connection ARN.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
-        /// </summary>
         [Input("connectionStatus")]
         public Input<string>? ConnectionStatus { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `ProviderType`
-        /// </summary>
         [Input("hostArn")]
         public Input<string>? HostArn { get; set; }
 
-        /// <summary>
-        /// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `Name` will create a new resource.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("ownerAccountId")]
         public Input<string>? OwnerAccountId { get; set; }
 
-        /// <summary>
-        /// The name of the external provider where your third-party code repository is configured. Changing `ProviderType` will create a new resource. Conflicts with `HostArn`.
-        /// </summary>
         [Input("providerType")]
         public Input<string>? ProviderType { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of key-value resource tags to associate with the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -250,10 +150,6 @@ namespace Pulumi.Aws.CodeConnections
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

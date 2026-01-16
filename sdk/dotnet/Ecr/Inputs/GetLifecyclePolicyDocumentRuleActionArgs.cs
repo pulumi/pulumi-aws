@@ -15,10 +15,6 @@ namespace Pulumi.Aws.Ecr.Inputs
         [Input("targetStorageClass")]
         public Input<string>? TargetStorageClass { get; set; }
 
-        /// <summary>
-        /// Specify an action type. The supported values are `Expire` (to delete images) and `Transition` (to move images to archive storage).
-        /// * `targetStorageClass` (Required if `Type` is `Transition`) - The storage class you want the lifecycle policy to transition the image to. `Archive` is the only supported value.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

@@ -16,32 +16,16 @@ public final class BucketV2ReplicationConfigurationArgs extends com.pulumi.resou
 
     public static final BucketV2ReplicationConfigurationArgs Empty = new BucketV2ReplicationConfigurationArgs();
 
-    /**
-     * ARN of the IAM role for Amazon S3 to assume when replicating the objects.
-     * 
-     */
     @Import(name="role", required=true)
     private Output<String> role;
 
-    /**
-     * @return ARN of the IAM role for Amazon S3 to assume when replicating the objects.
-     * 
-     */
     public Output<String> role() {
         return this.role;
     }
 
-    /**
-     * Specifies the rules managing the replication (documented below).
-     * 
-     */
     @Import(name="rules", required=true)
     private Output<List<BucketV2ReplicationConfigurationRuleArgs>> rules;
 
-    /**
-     * @return Specifies the rules managing the replication (documented below).
-     * 
-     */
     public Output<List<BucketV2ReplicationConfigurationRuleArgs>> rules() {
         return this.rules;
     }
@@ -71,54 +55,24 @@ public final class BucketV2ReplicationConfigurationArgs extends com.pulumi.resou
             $ = new BucketV2ReplicationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param role ARN of the IAM role for Amazon S3 to assume when replicating the objects.
-         * 
-         * @return builder
-         * 
-         */
         public Builder role(Output<String> role) {
             $.role = role;
             return this;
         }
 
-        /**
-         * @param role ARN of the IAM role for Amazon S3 to assume when replicating the objects.
-         * 
-         * @return builder
-         * 
-         */
         public Builder role(String role) {
             return role(Output.of(role));
         }
 
-        /**
-         * @param rules Specifies the rules managing the replication (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(Output<List<BucketV2ReplicationConfigurationRuleArgs>> rules) {
             $.rules = rules;
             return this;
         }
 
-        /**
-         * @param rules Specifies the rules managing the replication (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(List<BucketV2ReplicationConfigurationRuleArgs> rules) {
             return rules(Output.of(rules));
         }
 
-        /**
-         * @param rules Specifies the rules managing the replication (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(BucketV2ReplicationConfigurationRuleArgs... rules) {
             return rules(List.of(rules));
         }

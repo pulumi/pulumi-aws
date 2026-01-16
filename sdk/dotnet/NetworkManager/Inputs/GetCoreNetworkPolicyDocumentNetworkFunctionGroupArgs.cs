@@ -12,21 +12,12 @@ namespace Pulumi.Aws.NetworkManager.Inputs
 
     public sealed class GetCoreNetworkPolicyDocumentNetworkFunctionGroupInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Optional description of the network function group.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// This identifies the network function group container.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// This will be either `True`, that attachment acceptance is required, or `False`, that it is not required.
-        /// </summary>
         [Input("requireAttachmentAcceptance", required: true)]
         public Input<bool> RequireAttachmentAcceptance { get; set; } = null!;
 

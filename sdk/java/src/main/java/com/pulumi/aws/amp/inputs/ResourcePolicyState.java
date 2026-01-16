@@ -16,51 +16,23 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
 
     public static final ResourcePolicyState Empty = new ResourcePolicyState();
 
-    /**
-     * The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="policyDocument")
     private @Nullable Output<String> policyDocument;
 
-    /**
-     * @return The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> policyDocument() {
         return Optional.ofNullable(this.policyDocument);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The revision ID of the current resource-based policy.
-     * 
-     */
     @Import(name="revisionId")
     private @Nullable Output<String> revisionId;
 
-    /**
-     * @return The revision ID of the current resource-based policy.
-     * 
-     */
     public Optional<Output<String>> revisionId() {
         return Optional.ofNullable(this.revisionId);
     }
@@ -72,17 +44,9 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * The ID of the workspace to attach the resource-based policy to.
-     * 
-     */
     @Import(name="workspaceId")
     private @Nullable Output<String> workspaceId;
 
-    /**
-     * @return The ID of the workspace to attach the resource-based policy to.
-     * 
-     */
     public Optional<Output<String>> workspaceId() {
         return Optional.ofNullable(this.workspaceId);
     }
@@ -115,69 +79,29 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
             $ = new ResourcePolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policyDocument The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyDocument(@Nullable Output<String> policyDocument) {
             $.policyDocument = policyDocument;
             return this;
         }
 
-        /**
-         * @param policyDocument The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyDocument(String policyDocument) {
             return policyDocument(Output.of(policyDocument));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param revisionId The revision ID of the current resource-based policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder revisionId(@Nullable Output<String> revisionId) {
             $.revisionId = revisionId;
             return this;
         }
 
-        /**
-         * @param revisionId The revision ID of the current resource-based policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder revisionId(String revisionId) {
             return revisionId(Output.of(revisionId));
         }
@@ -191,23 +115,11 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param workspaceId The ID of the workspace to attach the resource-based policy to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workspaceId(@Nullable Output<String> workspaceId) {
             $.workspaceId = workspaceId;
             return this;
         }
 
-        /**
-         * @param workspaceId The ID of the workspace to attach the resource-based policy to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workspaceId(String workspaceId) {
             return workspaceId(Output.of(workspaceId));
         }

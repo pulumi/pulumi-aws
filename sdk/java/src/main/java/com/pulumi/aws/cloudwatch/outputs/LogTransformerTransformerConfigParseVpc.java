@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LogTransformerTransformerConfigParseVpc {
-    /**
-     * @return Specifies the source field to be parsed. The only allowed value is `{@literal @}message`. If omitted, the whole log message is processed.
-     * 
-     */
     private @Nullable String source;
 
     private LogTransformerTransformerConfigParseVpc() {}
-    /**
-     * @return Specifies the source field to be parsed. The only allowed value is `{@literal @}message`. If omitted, the whole log message is processed.
-     * 
-     */
     public Optional<String> source() {
         return Optional.ofNullable(this.source);
     }

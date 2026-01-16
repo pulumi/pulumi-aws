@@ -15,17 +15,9 @@ public final class DomainDefaultUserSettingsTensorBoardAppSettingsArgs extends c
 
     public static final DomainDefaultUserSettingsTensorBoardAppSettingsArgs Empty = new DomainDefaultUserSettingsTensorBoardAppSettingsArgs();
 
-    /**
-     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
-     * 
-     */
     @Import(name="defaultResourceSpec")
     private @Nullable Output<DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
-    /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
-     * 
-     */
     public Optional<Output<DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs>> defaultResourceSpec() {
         return Optional.ofNullable(this.defaultResourceSpec);
     }
@@ -54,23 +46,11 @@ public final class DomainDefaultUserSettingsTensorBoardAppSettingsArgs extends c
             $ = new DomainDefaultUserSettingsTensorBoardAppSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultResourceSpec(@Nullable Output<DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs> defaultResourceSpec) {
             $.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
 
-        /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultResourceSpec(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs defaultResourceSpec) {
             return defaultResourceSpec(Output.of(defaultResourceSpec));
         }

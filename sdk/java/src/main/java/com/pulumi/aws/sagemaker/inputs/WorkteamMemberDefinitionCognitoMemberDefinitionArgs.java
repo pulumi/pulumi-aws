@@ -14,47 +14,23 @@ public final class WorkteamMemberDefinitionCognitoMemberDefinitionArgs extends c
 
     public static final WorkteamMemberDefinitionCognitoMemberDefinitionArgs Empty = new WorkteamMemberDefinitionCognitoMemberDefinitionArgs();
 
-    /**
-     * An identifier for an application client. You must create the app client ID using Amazon Cognito.
-     * 
-     */
     @Import(name="clientId", required=true)
     private Output<String> clientId;
 
-    /**
-     * @return An identifier for an application client. You must create the app client ID using Amazon Cognito.
-     * 
-     */
     public Output<String> clientId() {
         return this.clientId;
     }
 
-    /**
-     * An identifier for a user group.
-     * 
-     */
     @Import(name="userGroup", required=true)
     private Output<String> userGroup;
 
-    /**
-     * @return An identifier for a user group.
-     * 
-     */
     public Output<String> userGroup() {
         return this.userGroup;
     }
 
-    /**
-     * An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
-     * 
-     */
     @Import(name="userPool", required=true)
     private Output<String> userPool;
 
-    /**
-     * @return An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
-     * 
-     */
     public Output<String> userPool() {
         return this.userPool;
     }
@@ -85,65 +61,29 @@ public final class WorkteamMemberDefinitionCognitoMemberDefinitionArgs extends c
             $ = new WorkteamMemberDefinitionCognitoMemberDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clientId An identifier for an application client. You must create the app client ID using Amazon Cognito.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientId(Output<String> clientId) {
             $.clientId = clientId;
             return this;
         }
 
-        /**
-         * @param clientId An identifier for an application client. You must create the app client ID using Amazon Cognito.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientId(String clientId) {
             return clientId(Output.of(clientId));
         }
 
-        /**
-         * @param userGroup An identifier for a user group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userGroup(Output<String> userGroup) {
             $.userGroup = userGroup;
             return this;
         }
 
-        /**
-         * @param userGroup An identifier for a user group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userGroup(String userGroup) {
             return userGroup(Output.of(userGroup));
         }
 
-        /**
-         * @param userPool An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPool(Output<String> userPool) {
             $.userPool = userPool;
             return this;
         }
 
-        /**
-         * @param userPool An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPool(String userPool) {
             return userPool(Output.of(userPool));
         }

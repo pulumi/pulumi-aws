@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Shield Subscription.
- *
- * > This resource creates a subscription to AWS Shield Advanced, which requires a 1 year subscription commitment with a monthly fee. Refer to the [AWS Shield Pricing](https://aws.amazon.com/shield/pricing/) page for more details.
- *
- * > Destruction of this resource will set `autoRenew` to `DISABLED`. Automatic renewal can only be disabled during the last 30 days of a subscription. To unsubscribe outside of this window, you must contact AWS Support. Set `skipDestroy` to `true` to skip modifying the `autoRenew` argument during destruction.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.shield.Subscription("example", {autoRenew: "ENABLED"});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Shield Subscription using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:shield/subscription:Subscription example 123456789012
- * ```
- */
 export class Subscription extends pulumi.CustomResource {
     /**
      * Get an existing Subscription resource's state with the given name, ID, and optional extra
@@ -59,12 +33,9 @@ export class Subscription extends pulumi.CustomResource {
     }
 
     /**
-     * Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
+     * Whether to automatically renew the subscription when it expires.
      */
     declare public readonly autoRenew: pulumi.Output<string>;
-    /**
-     * Skip attempting to disable automated renewal upon destruction. If set to `true`, the `autoRenew` value will be left as-is and the resource will simply be removed from state.
-     */
     declare public readonly skipDestroy: pulumi.Output<boolean | undefined>;
 
     /**
@@ -97,12 +68,9 @@ export class Subscription extends pulumi.CustomResource {
  */
 export interface SubscriptionState {
     /**
-     * Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
+     * Whether to automatically renew the subscription when it expires.
      */
     autoRenew?: pulumi.Input<string>;
-    /**
-     * Skip attempting to disable automated renewal upon destruction. If set to `true`, the `autoRenew` value will be left as-is and the resource will simply be removed from state.
-     */
     skipDestroy?: pulumi.Input<boolean>;
 }
 
@@ -111,11 +79,8 @@ export interface SubscriptionState {
  */
 export interface SubscriptionArgs {
     /**
-     * Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
+     * Whether to automatically renew the subscription when it expires.
      */
     autoRenew?: pulumi.Input<string>;
-    /**
-     * Skip attempting to disable automated renewal upon destruction. If set to `true`, the `autoRenew` value will be left as-is and the resource will simply be removed from state.
-     */
     skipDestroy?: pulumi.Input<boolean>;
 }

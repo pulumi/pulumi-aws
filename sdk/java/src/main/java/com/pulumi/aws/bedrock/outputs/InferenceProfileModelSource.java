@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class InferenceProfileModelSource {
-    /**
-     * @return The Amazon Resource Name (ARN) of the model.
-     * 
-     */
     private String copyFrom;
 
     private InferenceProfileModelSource() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the model.
-     * 
-     */
     public String copyFrom() {
         return this.copyFrom;
     }

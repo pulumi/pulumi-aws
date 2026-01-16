@@ -17,47 +17,23 @@ public final class S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity
 
     public static final S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUserArgs Empty = new S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUserArgs();
 
-    /**
-     * GID of the file system user.
-     * 
-     */
     @Import(name="gid", required=true)
     private Output<Integer> gid;
 
-    /**
-     * @return GID of the file system user.
-     * 
-     */
     public Output<Integer> gid() {
         return this.gid;
     }
 
-    /**
-     * List of secondary GIDs for the file system user..
-     * 
-     */
     @Import(name="secondaryGids")
     private @Nullable Output<List<Integer>> secondaryGids;
 
-    /**
-     * @return List of secondary GIDs for the file system user..
-     * 
-     */
     public Optional<Output<List<Integer>>> secondaryGids() {
         return Optional.ofNullable(this.secondaryGids);
     }
 
-    /**
-     * UID of the file system user.
-     * 
-     */
     @Import(name="uid", required=true)
     private Output<Integer> uid;
 
-    /**
-     * @return UID of the file system user.
-     * 
-     */
     public Output<Integer> uid() {
         return this.uid;
     }
@@ -88,75 +64,33 @@ public final class S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity
             $ = new S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUserArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param gid GID of the file system user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gid(Output<Integer> gid) {
             $.gid = gid;
             return this;
         }
 
-        /**
-         * @param gid GID of the file system user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gid(Integer gid) {
             return gid(Output.of(gid));
         }
 
-        /**
-         * @param secondaryGids List of secondary GIDs for the file system user..
-         * 
-         * @return builder
-         * 
-         */
         public Builder secondaryGids(@Nullable Output<List<Integer>> secondaryGids) {
             $.secondaryGids = secondaryGids;
             return this;
         }
 
-        /**
-         * @param secondaryGids List of secondary GIDs for the file system user..
-         * 
-         * @return builder
-         * 
-         */
         public Builder secondaryGids(List<Integer> secondaryGids) {
             return secondaryGids(Output.of(secondaryGids));
         }
 
-        /**
-         * @param secondaryGids List of secondary GIDs for the file system user..
-         * 
-         * @return builder
-         * 
-         */
         public Builder secondaryGids(Integer... secondaryGids) {
             return secondaryGids(List.of(secondaryGids));
         }
 
-        /**
-         * @param uid UID of the file system user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uid(Output<Integer> uid) {
             $.uid = uid;
             return this;
         }
 
-        /**
-         * @param uid UID of the file system user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uid(Integer uid) {
             return uid(Output.of(uid));
         }

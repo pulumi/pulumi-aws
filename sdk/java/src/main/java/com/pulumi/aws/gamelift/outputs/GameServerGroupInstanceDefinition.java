@@ -12,35 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GameServerGroupInstanceDefinition {
-    /**
-     * @return An EC2 instance type.
-     * 
-     */
     private String instanceType;
-    /**
-     * @return Instance weighting that indicates how much this instance type contributes
-     * to the total capacity of a game server group.
-     * Instance weights are used by GameLift FleetIQ to calculate the instance type&#39;s cost per unit hour and better identify
-     * the most cost-effective options.
-     * 
-     */
     private @Nullable String weightedCapacity;
 
     private GameServerGroupInstanceDefinition() {}
-    /**
-     * @return An EC2 instance type.
-     * 
-     */
     public String instanceType() {
         return this.instanceType;
     }
-    /**
-     * @return Instance weighting that indicates how much this instance type contributes
-     * to the total capacity of a game server group.
-     * Instance weights are used by GameLift FleetIQ to calculate the instance type&#39;s cost per unit hour and better identify
-     * the most cost-effective options.
-     * 
-     */
     public Optional<String> weightedCapacity() {
         return Optional.ofNullable(this.weightedCapacity);
     }

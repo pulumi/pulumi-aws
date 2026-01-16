@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class TableRetentionProperties {
-    /**
-     * @return The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
-     * 
-     */
     private Integer magneticStoreRetentionPeriodInDays;
-    /**
-     * @return The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
-     * 
-     */
     private Integer memoryStoreRetentionPeriodInHours;
 
     private TableRetentionProperties() {}
-    /**
-     * @return The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
-     * 
-     */
     public Integer magneticStoreRetentionPeriodInDays() {
         return this.magneticStoreRetentionPeriodInDays;
     }
-    /**
-     * @return The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
-     * 
-     */
     public Integer memoryStoreRetentionPeriodInHours() {
         return this.memoryStoreRetentionPeriodInHours;
     }

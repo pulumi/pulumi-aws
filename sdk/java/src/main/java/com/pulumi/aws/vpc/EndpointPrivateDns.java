@@ -14,98 +14,23 @@ import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for enabling private DNS on an AWS VPC (Virtual Private Cloud) Endpoint.
- * 
- * &gt; When using this resource, the `privateDnsEnabled` argument should be omitted on the parent `aws.ec2.VpcEndpoint` resource.
- * Setting the value both places can lead to unintended behavior and persistent differences.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.vpc.EndpointPrivateDns;
- * import com.pulumi.aws.vpc.EndpointPrivateDnsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new EndpointPrivateDns("example", EndpointPrivateDnsArgs.builder()
- *             .vpcEndpointId(exampleAwsVpcEndpoint.id())
- *             .privateDnsEnabled(true)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import a VPC (Virtual Private Cloud) Endpoint Private DNS using the `vpc_endpoint_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:vpc/endpointPrivateDns:EndpointPrivateDns example vpce-abcd-1234
- * ```
- * 
- */
 @ResourceType(type="aws:vpc/endpointPrivateDns:EndpointPrivateDns")
 public class EndpointPrivateDns extends com.pulumi.resources.CustomResource {
-    /**
-     * Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
-     * 
-     */
     @Export(name="privateDnsEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> privateDnsEnabled;
 
-    /**
-     * @return Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
-     * 
-     */
     public Output<Boolean> privateDnsEnabled() {
         return this.privateDnsEnabled;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * VPC endpoint identifier.
-     * 
-     */
     @Export(name="vpcEndpointId", refs={String.class}, tree="[0]")
     private Output<String> vpcEndpointId;
 
-    /**
-     * @return VPC endpoint identifier.
-     * 
-     */
     public Output<String> vpcEndpointId() {
         return this.vpcEndpointId;
     }

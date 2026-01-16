@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class CaCertificateValidity
     {
-        /// <summary>
-        /// The certificate is not valid after this date.
-        /// </summary>
         public readonly string? NotAfter;
-        /// <summary>
-        /// The certificate is not valid before this date.
-        /// </summary>
         public readonly string? NotBefore;
 
         [OutputConstructor]

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Athena.Outputs
     [OutputType]
     public sealed class WorkgroupConfigurationIdentityCenterConfiguration
     {
-        /// <summary>
-        /// Specifies whether the workgroup is IAM Identity Center supported.
-        /// </summary>
         public readonly bool? EnableIdentityCenter;
-        /// <summary>
-        /// The IAM Identity Center instance ARN that the workgroup associates to.
-        /// </summary>
         public readonly string? IdentityCenterInstanceArn;
 
         [OutputConstructor]

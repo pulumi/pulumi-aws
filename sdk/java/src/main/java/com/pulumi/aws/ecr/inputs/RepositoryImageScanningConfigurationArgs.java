@@ -14,17 +14,9 @@ public final class RepositoryImageScanningConfigurationArgs extends com.pulumi.r
 
     public static final RepositoryImageScanningConfigurationArgs Empty = new RepositoryImageScanningConfigurationArgs();
 
-    /**
-     * Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
-     * 
-     */
     @Import(name="scanOnPush", required=true)
     private Output<Boolean> scanOnPush;
 
-    /**
-     * @return Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
-     * 
-     */
     public Output<Boolean> scanOnPush() {
         return this.scanOnPush;
     }
@@ -53,23 +45,11 @@ public final class RepositoryImageScanningConfigurationArgs extends com.pulumi.r
             $ = new RepositoryImageScanningConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param scanOnPush Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
-         * 
-         * @return builder
-         * 
-         */
         public Builder scanOnPush(Output<Boolean> scanOnPush) {
             $.scanOnPush = scanOnPush;
             return this;
         }
 
-        /**
-         * @param scanOnPush Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
-         * 
-         * @return builder
-         * 
-         */
         public Builder scanOnPush(Boolean scanOnPush) {
             return scanOnPush(Output.of(scanOnPush));
         }

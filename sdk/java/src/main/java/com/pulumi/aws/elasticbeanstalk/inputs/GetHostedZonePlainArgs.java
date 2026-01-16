@@ -14,17 +14,9 @@ public final class GetHostedZonePlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetHostedZonePlainArgs Empty = new GetHostedZonePlainArgs();
 
-    /**
-     * Name of the Region whose hosted zone is desired. Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Name of the Region whose hosted zone is desired. Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -53,12 +45,6 @@ public final class GetHostedZonePlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetHostedZonePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Name of the Region whose hosted zone is desired. Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

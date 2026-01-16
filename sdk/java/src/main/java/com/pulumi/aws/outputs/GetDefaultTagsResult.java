@@ -12,20 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class GetDefaultTagsResult {
     private String id;
-    /**
-     * @return Key-value mapping of provider default tags.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetDefaultTagsResult() {}
     public String id() {
         return this.id;
     }
-    /**
-     * @return Key-value mapping of provider default tags.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

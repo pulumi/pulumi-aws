@@ -134,189 +134,51 @@ MYPY = False
 if not MYPY:
     class FilterFilterCriteriaArgsDict(TypedDict):
         aws_account_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaAwsAccountIdArgsDict']]]]
-        """
-        (Optional) The AWS account ID in which the finding was generated. Documented below.
-        """
         code_repository_project_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeRepositoryProjectNameArgsDict']]]]
-        """
-        (Optional) The project name in a code repository. Documented below.
-        """
         code_repository_provider_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeRepositoryProviderTypeArgsDict']]]]
-        """
-        (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
-        """
         code_vulnerability_detector_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeVulnerabilityDetectorNameArgsDict']]]]
-        """
-        (Optional) The ID of the component. Documented below.
-        """
         code_vulnerability_detector_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeVulnerabilityDetectorTagArgsDict']]]]
-        """
-        (Optional) The ID of the component. Documented below.
-        """
         code_vulnerability_file_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeVulnerabilityFilePathArgsDict']]]]
-        """
-        (Optional) The ID of the component. Documented below.
-        """
         component_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaComponentIdArgsDict']]]]
-        """
-        (Optional) The ID of the component. Documented below.
-        """
         component_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaComponentTypeArgsDict']]]]
-        """
-        (Optional) The type of the component. Documented below.
-        """
         ec2_instance_image_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEc2InstanceImageIdArgsDict']]]]
-        """
-        (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
-        """
         ec2_instance_subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEc2InstanceSubnetIdArgsDict']]]]
-        """
-        (Optional) The ID of the subnet. Documented below.
-        """
         ec2_instance_vpc_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEc2InstanceVpcIdArgsDict']]]]
-        """
-        (Optional) The ID of the VPC. Documented below.
-        """
         ecr_image_architectures: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageArchitectureArgsDict']]]]
-        """
-        (Optional) The architecture of the ECR image. Documented below.
-        """
         ecr_image_hashes: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageHashArgsDict']]]]
-        """
-        (Optional) The SHA256 hash of the ECR image. Documented below.
-        """
         ecr_image_in_use_counts: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageInUseCountArgsDict']]]]
-        """
-        (Optional)  The number of the ECR images in use. Documented below.
-        """
         ecr_image_last_in_use_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageLastInUseAtArgsDict']]]]
-        """
-        (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
-        """
         ecr_image_pushed_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImagePushedAtArgsDict']]]]
-        """
-        (Optional) The date range when the image was pushed. Documented below.
-        """
         ecr_image_registries: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageRegistryArgsDict']]]]
-        """
-        (Optional) The registry of the ECR image. Documented below.
-        """
         ecr_image_repository_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageRepositoryNameArgsDict']]]]
-        """
-        (Optional) The name of the ECR repository. Documented below.
-        """
         ecr_image_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageTagArgsDict']]]]
-        """
-        (Optional) The tags associated with the ECR image. Documented below.
-        """
         epss_scores: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEpssScoreArgsDict']]]]
-        """
-        (Optional) EPSS (Exploit Prediction Scoring System) Score of the finding. Documented below.
-        """
         exploit_availables: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaExploitAvailableArgsDict']]]]
-        """
-        (Optional) Availability of exploits. Documented below.
-        """
         finding_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaFindingArnArgsDict']]]]
-        """
-        (Optional) The ARN of the finding. Documented below.
-        """
         finding_statuses: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaFindingStatusArgsDict']]]]
-        """
-        (Optional) The status of the finding. Documented below.
-        """
         finding_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaFindingTypeArgsDict']]]]
-        """
-        (Optional) The type of the finding. Documented below.
-        """
         first_observed_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaFirstObservedAtArgsDict']]]]
-        """
-        (Optional) When the finding was first observed. Documented below.
-        """
         fix_availables: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaFixAvailableArgsDict']]]]
-        """
-        (Optional) Availability of the fix. Documented below.
-        """
         inspector_scores: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaInspectorScoreArgsDict']]]]
-        """
-        (Optional) The Inspector score given to the finding. Documented below.
-        """
         lambda_function_execution_role_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaLambdaFunctionExecutionRoleArnArgsDict']]]]
-        """
-        (Optional) Lambda execution role ARN. Documented below.
-        """
         lambda_function_last_modified_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaLambdaFunctionLastModifiedAtArgsDict']]]]
-        """
-        (Optional) Last modified timestamp of the lambda function. Documented below.
-        """
         lambda_function_layers: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaLambdaFunctionLayerArgsDict']]]]
-        """
-        (Optional) Lambda function layers. Documented below.
-        """
         lambda_function_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaLambdaFunctionNameArgsDict']]]]
-        """
-        (Optional) Lambda function name. Documented below.
-        """
         lambda_function_runtimes: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaLambdaFunctionRuntimeArgsDict']]]]
-        """
-        (Optional) Lambda function runtime. Documented below.
-        """
         last_observed_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaLastObservedAtArgsDict']]]]
-        """
-        (Optional) When the finding was last observed. Documented below.
-        """
         network_protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaNetworkProtocolArgsDict']]]]
-        """
-        (Optional) The network protocol of the finding. Documented below.
-        """
         port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaPortRangeArgsDict']]]]
-        """
-        (Optional) The port range of the finding. Documented below.
-        """
         related_vulnerabilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaRelatedVulnerabilityArgsDict']]]]
-        """
-        (Optional) Related vulnerabilities. Documented below.
-        """
         resource_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaResourceIdArgsDict']]]]
-        """
-        (Optional) The ID of the resource. Documented below.
-        """
         resource_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaResourceTagArgsDict']]]]
-        """
-        (Optional) The tags of the resource. Documented below.
-        """
         resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaResourceTypeArgsDict']]]]
-        """
-        (Optional) The type of the resource. Documented below.
-        """
         severities: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaSeverityArgsDict']]]]
-        """
-        (Optional) The severity of the finding. Documented below.
-        """
         titles: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaTitleArgsDict']]]]
-        """
-        (Optional) The title of the finding. Documented below.
-        """
         updated_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaUpdatedAtArgsDict']]]]
-        """
-        (Optional) When the finding was last updated. Documented below.
-        """
         vendor_severities: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaVendorSeverityArgsDict']]]]
-        """
-        (Optional) The severity as reported by the vendor. Documented below.
-        """
         vulnerability_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaVulnerabilityIdArgsDict']]]]
-        """
-        (Optional) The ID of the vulnerability. Documented below.
-        """
         vulnerability_sources: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaVulnerabilitySourceArgsDict']]]]
-        """
-        (Optional) The source of the vulnerability. Documented below.
-        """
         vulnerable_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaVulnerablePackageArgsDict']]]]
-        """
-        (Optional) Details about vulnerable packages. Documented below.
-        """
 elif False:
     FilterFilterCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -369,54 +231,6 @@ class FilterFilterCriteriaArgs:
                  vulnerability_ids: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaVulnerabilityIdArgs']]]] = None,
                  vulnerability_sources: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaVulnerabilitySourceArgs']]]] = None,
                  vulnerable_packages: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaVulnerablePackageArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaAwsAccountIdArgs']]] aws_account_ids: (Optional) The AWS account ID in which the finding was generated. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeRepositoryProjectNameArgs']]] code_repository_project_names: (Optional) The project name in a code repository. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeRepositoryProviderTypeArgs']]] code_repository_provider_types: (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeVulnerabilityDetectorNameArgs']]] code_vulnerability_detector_names: (Optional) The ID of the component. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeVulnerabilityDetectorTagArgs']]] code_vulnerability_detector_tags: (Optional) The ID of the component. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeVulnerabilityFilePathArgs']]] code_vulnerability_file_paths: (Optional) The ID of the component. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaComponentIdArgs']]] component_ids: (Optional) The ID of the component. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaComponentTypeArgs']]] component_types: (Optional) The type of the component. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEc2InstanceImageIdArgs']]] ec2_instance_image_ids: (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEc2InstanceSubnetIdArgs']]] ec2_instance_subnet_ids: (Optional) The ID of the subnet. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEc2InstanceVpcIdArgs']]] ec2_instance_vpc_ids: (Optional) The ID of the VPC. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageArchitectureArgs']]] ecr_image_architectures: (Optional) The architecture of the ECR image. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageHashArgs']]] ecr_image_hashes: (Optional) The SHA256 hash of the ECR image. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageInUseCountArgs']]] ecr_image_in_use_counts: (Optional)  The number of the ECR images in use. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageLastInUseAtArgs']]] ecr_image_last_in_use_ats: (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImagePushedAtArgs']]] ecr_image_pushed_ats: (Optional) The date range when the image was pushed. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageRegistryArgs']]] ecr_image_registries: (Optional) The registry of the ECR image. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageRepositoryNameArgs']]] ecr_image_repository_names: (Optional) The name of the ECR repository. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageTagArgs']]] ecr_image_tags: (Optional) The tags associated with the ECR image. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEpssScoreArgs']]] epss_scores: (Optional) EPSS (Exploit Prediction Scoring System) Score of the finding. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaExploitAvailableArgs']]] exploit_availables: (Optional) Availability of exploits. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaFindingArnArgs']]] finding_arns: (Optional) The ARN of the finding. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaFindingStatusArgs']]] finding_statuses: (Optional) The status of the finding. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaFindingTypeArgs']]] finding_types: (Optional) The type of the finding. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaFirstObservedAtArgs']]] first_observed_ats: (Optional) When the finding was first observed. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaFixAvailableArgs']]] fix_availables: (Optional) Availability of the fix. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaInspectorScoreArgs']]] inspector_scores: (Optional) The Inspector score given to the finding. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaLambdaFunctionExecutionRoleArnArgs']]] lambda_function_execution_role_arns: (Optional) Lambda execution role ARN. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaLambdaFunctionLastModifiedAtArgs']]] lambda_function_last_modified_ats: (Optional) Last modified timestamp of the lambda function. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaLambdaFunctionLayerArgs']]] lambda_function_layers: (Optional) Lambda function layers. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaLambdaFunctionNameArgs']]] lambda_function_names: (Optional) Lambda function name. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaLambdaFunctionRuntimeArgs']]] lambda_function_runtimes: (Optional) Lambda function runtime. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaLastObservedAtArgs']]] last_observed_ats: (Optional) When the finding was last observed. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaNetworkProtocolArgs']]] network_protocols: (Optional) The network protocol of the finding. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaPortRangeArgs']]] port_ranges: (Optional) The port range of the finding. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaRelatedVulnerabilityArgs']]] related_vulnerabilities: (Optional) Related vulnerabilities. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaResourceIdArgs']]] resource_ids: (Optional) The ID of the resource. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaResourceTagArgs']]] resource_tags: (Optional) The tags of the resource. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaResourceTypeArgs']]] resource_types: (Optional) The type of the resource. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaSeverityArgs']]] severities: (Optional) The severity of the finding. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaTitleArgs']]] titles: (Optional) The title of the finding. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaUpdatedAtArgs']]] updated_ats: (Optional) When the finding was last updated. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaVendorSeverityArgs']]] vendor_severities: (Optional) The severity as reported by the vendor. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaVulnerabilityIdArgs']]] vulnerability_ids: (Optional) The ID of the vulnerability. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaVulnerabilitySourceArgs']]] vulnerability_sources: (Optional) The source of the vulnerability. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaVulnerablePackageArgs']]] vulnerable_packages: (Optional) Details about vulnerable packages. Documented below.
-        """
         if aws_account_ids is not None:
             pulumi.set(__self__, "aws_account_ids", aws_account_ids)
         if code_repository_project_names is not None:
@@ -513,9 +327,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="awsAccountIds")
     def aws_account_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaAwsAccountIdArgs']]]]:
-        """
-        (Optional) The AWS account ID in which the finding was generated. Documented below.
-        """
         return pulumi.get(self, "aws_account_ids")
 
     @aws_account_ids.setter
@@ -525,9 +336,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="codeRepositoryProjectNames")
     def code_repository_project_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeRepositoryProjectNameArgs']]]]:
-        """
-        (Optional) The project name in a code repository. Documented below.
-        """
         return pulumi.get(self, "code_repository_project_names")
 
     @code_repository_project_names.setter
@@ -537,9 +345,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="codeRepositoryProviderTypes")
     def code_repository_provider_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeRepositoryProviderTypeArgs']]]]:
-        """
-        (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
-        """
         return pulumi.get(self, "code_repository_provider_types")
 
     @code_repository_provider_types.setter
@@ -549,9 +354,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="codeVulnerabilityDetectorNames")
     def code_vulnerability_detector_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeVulnerabilityDetectorNameArgs']]]]:
-        """
-        (Optional) The ID of the component. Documented below.
-        """
         return pulumi.get(self, "code_vulnerability_detector_names")
 
     @code_vulnerability_detector_names.setter
@@ -561,9 +363,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="codeVulnerabilityDetectorTags")
     def code_vulnerability_detector_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeVulnerabilityDetectorTagArgs']]]]:
-        """
-        (Optional) The ID of the component. Documented below.
-        """
         return pulumi.get(self, "code_vulnerability_detector_tags")
 
     @code_vulnerability_detector_tags.setter
@@ -573,9 +372,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="codeVulnerabilityFilePaths")
     def code_vulnerability_file_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeVulnerabilityFilePathArgs']]]]:
-        """
-        (Optional) The ID of the component. Documented below.
-        """
         return pulumi.get(self, "code_vulnerability_file_paths")
 
     @code_vulnerability_file_paths.setter
@@ -585,9 +381,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="componentIds")
     def component_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaComponentIdArgs']]]]:
-        """
-        (Optional) The ID of the component. Documented below.
-        """
         return pulumi.get(self, "component_ids")
 
     @component_ids.setter
@@ -597,9 +390,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="componentTypes")
     def component_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaComponentTypeArgs']]]]:
-        """
-        (Optional) The type of the component. Documented below.
-        """
         return pulumi.get(self, "component_types")
 
     @component_types.setter
@@ -609,9 +399,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="ec2InstanceImageIds")
     def ec2_instance_image_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEc2InstanceImageIdArgs']]]]:
-        """
-        (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
-        """
         return pulumi.get(self, "ec2_instance_image_ids")
 
     @ec2_instance_image_ids.setter
@@ -621,9 +408,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="ec2InstanceSubnetIds")
     def ec2_instance_subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEc2InstanceSubnetIdArgs']]]]:
-        """
-        (Optional) The ID of the subnet. Documented below.
-        """
         return pulumi.get(self, "ec2_instance_subnet_ids")
 
     @ec2_instance_subnet_ids.setter
@@ -633,9 +417,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="ec2InstanceVpcIds")
     def ec2_instance_vpc_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEc2InstanceVpcIdArgs']]]]:
-        """
-        (Optional) The ID of the VPC. Documented below.
-        """
         return pulumi.get(self, "ec2_instance_vpc_ids")
 
     @ec2_instance_vpc_ids.setter
@@ -645,9 +426,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="ecrImageArchitectures")
     def ecr_image_architectures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageArchitectureArgs']]]]:
-        """
-        (Optional) The architecture of the ECR image. Documented below.
-        """
         return pulumi.get(self, "ecr_image_architectures")
 
     @ecr_image_architectures.setter
@@ -657,9 +435,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="ecrImageHashes")
     def ecr_image_hashes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageHashArgs']]]]:
-        """
-        (Optional) The SHA256 hash of the ECR image. Documented below.
-        """
         return pulumi.get(self, "ecr_image_hashes")
 
     @ecr_image_hashes.setter
@@ -669,9 +444,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="ecrImageInUseCounts")
     def ecr_image_in_use_counts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageInUseCountArgs']]]]:
-        """
-        (Optional)  The number of the ECR images in use. Documented below.
-        """
         return pulumi.get(self, "ecr_image_in_use_counts")
 
     @ecr_image_in_use_counts.setter
@@ -681,9 +453,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="ecrImageLastInUseAts")
     def ecr_image_last_in_use_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageLastInUseAtArgs']]]]:
-        """
-        (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
-        """
         return pulumi.get(self, "ecr_image_last_in_use_ats")
 
     @ecr_image_last_in_use_ats.setter
@@ -693,9 +462,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="ecrImagePushedAts")
     def ecr_image_pushed_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImagePushedAtArgs']]]]:
-        """
-        (Optional) The date range when the image was pushed. Documented below.
-        """
         return pulumi.get(self, "ecr_image_pushed_ats")
 
     @ecr_image_pushed_ats.setter
@@ -705,9 +471,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="ecrImageRegistries")
     def ecr_image_registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageRegistryArgs']]]]:
-        """
-        (Optional) The registry of the ECR image. Documented below.
-        """
         return pulumi.get(self, "ecr_image_registries")
 
     @ecr_image_registries.setter
@@ -717,9 +480,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="ecrImageRepositoryNames")
     def ecr_image_repository_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageRepositoryNameArgs']]]]:
-        """
-        (Optional) The name of the ECR repository. Documented below.
-        """
         return pulumi.get(self, "ecr_image_repository_names")
 
     @ecr_image_repository_names.setter
@@ -729,9 +489,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="ecrImageTags")
     def ecr_image_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageTagArgs']]]]:
-        """
-        (Optional) The tags associated with the ECR image. Documented below.
-        """
         return pulumi.get(self, "ecr_image_tags")
 
     @ecr_image_tags.setter
@@ -741,9 +498,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="epssScores")
     def epss_scores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEpssScoreArgs']]]]:
-        """
-        (Optional) EPSS (Exploit Prediction Scoring System) Score of the finding. Documented below.
-        """
         return pulumi.get(self, "epss_scores")
 
     @epss_scores.setter
@@ -753,9 +507,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="exploitAvailables")
     def exploit_availables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaExploitAvailableArgs']]]]:
-        """
-        (Optional) Availability of exploits. Documented below.
-        """
         return pulumi.get(self, "exploit_availables")
 
     @exploit_availables.setter
@@ -765,9 +516,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="findingArns")
     def finding_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaFindingArnArgs']]]]:
-        """
-        (Optional) The ARN of the finding. Documented below.
-        """
         return pulumi.get(self, "finding_arns")
 
     @finding_arns.setter
@@ -777,9 +525,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="findingStatuses")
     def finding_statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaFindingStatusArgs']]]]:
-        """
-        (Optional) The status of the finding. Documented below.
-        """
         return pulumi.get(self, "finding_statuses")
 
     @finding_statuses.setter
@@ -789,9 +534,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="findingTypes")
     def finding_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaFindingTypeArgs']]]]:
-        """
-        (Optional) The type of the finding. Documented below.
-        """
         return pulumi.get(self, "finding_types")
 
     @finding_types.setter
@@ -801,9 +543,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="firstObservedAts")
     def first_observed_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaFirstObservedAtArgs']]]]:
-        """
-        (Optional) When the finding was first observed. Documented below.
-        """
         return pulumi.get(self, "first_observed_ats")
 
     @first_observed_ats.setter
@@ -813,9 +552,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="fixAvailables")
     def fix_availables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaFixAvailableArgs']]]]:
-        """
-        (Optional) Availability of the fix. Documented below.
-        """
         return pulumi.get(self, "fix_availables")
 
     @fix_availables.setter
@@ -825,9 +561,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="inspectorScores")
     def inspector_scores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaInspectorScoreArgs']]]]:
-        """
-        (Optional) The Inspector score given to the finding. Documented below.
-        """
         return pulumi.get(self, "inspector_scores")
 
     @inspector_scores.setter
@@ -837,9 +570,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="lambdaFunctionExecutionRoleArns")
     def lambda_function_execution_role_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaLambdaFunctionExecutionRoleArnArgs']]]]:
-        """
-        (Optional) Lambda execution role ARN. Documented below.
-        """
         return pulumi.get(self, "lambda_function_execution_role_arns")
 
     @lambda_function_execution_role_arns.setter
@@ -849,9 +579,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="lambdaFunctionLastModifiedAts")
     def lambda_function_last_modified_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaLambdaFunctionLastModifiedAtArgs']]]]:
-        """
-        (Optional) Last modified timestamp of the lambda function. Documented below.
-        """
         return pulumi.get(self, "lambda_function_last_modified_ats")
 
     @lambda_function_last_modified_ats.setter
@@ -861,9 +588,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="lambdaFunctionLayers")
     def lambda_function_layers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaLambdaFunctionLayerArgs']]]]:
-        """
-        (Optional) Lambda function layers. Documented below.
-        """
         return pulumi.get(self, "lambda_function_layers")
 
     @lambda_function_layers.setter
@@ -873,9 +597,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="lambdaFunctionNames")
     def lambda_function_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaLambdaFunctionNameArgs']]]]:
-        """
-        (Optional) Lambda function name. Documented below.
-        """
         return pulumi.get(self, "lambda_function_names")
 
     @lambda_function_names.setter
@@ -885,9 +606,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="lambdaFunctionRuntimes")
     def lambda_function_runtimes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaLambdaFunctionRuntimeArgs']]]]:
-        """
-        (Optional) Lambda function runtime. Documented below.
-        """
         return pulumi.get(self, "lambda_function_runtimes")
 
     @lambda_function_runtimes.setter
@@ -897,9 +615,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="lastObservedAts")
     def last_observed_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaLastObservedAtArgs']]]]:
-        """
-        (Optional) When the finding was last observed. Documented below.
-        """
         return pulumi.get(self, "last_observed_ats")
 
     @last_observed_ats.setter
@@ -909,9 +624,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="networkProtocols")
     def network_protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaNetworkProtocolArgs']]]]:
-        """
-        (Optional) The network protocol of the finding. Documented below.
-        """
         return pulumi.get(self, "network_protocols")
 
     @network_protocols.setter
@@ -921,9 +633,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="portRanges")
     def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaPortRangeArgs']]]]:
-        """
-        (Optional) The port range of the finding. Documented below.
-        """
         return pulumi.get(self, "port_ranges")
 
     @port_ranges.setter
@@ -933,9 +642,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="relatedVulnerabilities")
     def related_vulnerabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaRelatedVulnerabilityArgs']]]]:
-        """
-        (Optional) Related vulnerabilities. Documented below.
-        """
         return pulumi.get(self, "related_vulnerabilities")
 
     @related_vulnerabilities.setter
@@ -945,9 +651,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="resourceIds")
     def resource_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaResourceIdArgs']]]]:
-        """
-        (Optional) The ID of the resource. Documented below.
-        """
         return pulumi.get(self, "resource_ids")
 
     @resource_ids.setter
@@ -957,9 +660,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaResourceTagArgs']]]]:
-        """
-        (Optional) The tags of the resource. Documented below.
-        """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
@@ -969,9 +669,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaResourceTypeArgs']]]]:
-        """
-        (Optional) The type of the resource. Documented below.
-        """
         return pulumi.get(self, "resource_types")
 
     @resource_types.setter
@@ -981,9 +678,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter
     def severities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaSeverityArgs']]]]:
-        """
-        (Optional) The severity of the finding. Documented below.
-        """
         return pulumi.get(self, "severities")
 
     @severities.setter
@@ -993,9 +687,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter
     def titles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaTitleArgs']]]]:
-        """
-        (Optional) The title of the finding. Documented below.
-        """
         return pulumi.get(self, "titles")
 
     @titles.setter
@@ -1005,9 +696,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="updatedAts")
     def updated_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaUpdatedAtArgs']]]]:
-        """
-        (Optional) When the finding was last updated. Documented below.
-        """
         return pulumi.get(self, "updated_ats")
 
     @updated_ats.setter
@@ -1017,9 +705,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="vendorSeverities")
     def vendor_severities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaVendorSeverityArgs']]]]:
-        """
-        (Optional) The severity as reported by the vendor. Documented below.
-        """
         return pulumi.get(self, "vendor_severities")
 
     @vendor_severities.setter
@@ -1029,9 +714,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="vulnerabilityIds")
     def vulnerability_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaVulnerabilityIdArgs']]]]:
-        """
-        (Optional) The ID of the vulnerability. Documented below.
-        """
         return pulumi.get(self, "vulnerability_ids")
 
     @vulnerability_ids.setter
@@ -1041,9 +723,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="vulnerabilitySources")
     def vulnerability_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaVulnerabilitySourceArgs']]]]:
-        """
-        (Optional) The source of the vulnerability. Documented below.
-        """
         return pulumi.get(self, "vulnerability_sources")
 
     @vulnerability_sources.setter
@@ -1053,9 +732,6 @@ class FilterFilterCriteriaArgs:
     @_builtins.property
     @pulumi.getter(name="vulnerablePackages")
     def vulnerable_packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaVulnerablePackageArgs']]]]:
-        """
-        (Optional) Details about vulnerable packages. Documented below.
-        """
         return pulumi.get(self, "vulnerable_packages")
 
     @vulnerable_packages.setter
@@ -1066,13 +742,7 @@ class FilterFilterCriteriaArgs:
 if not MYPY:
     class FilterFilterCriteriaAwsAccountIdArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaAwsAccountIdArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1081,19 +751,12 @@ class FilterFilterCriteriaAwsAccountIdArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1103,9 +766,6 @@ class FilterFilterCriteriaAwsAccountIdArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1116,13 +776,7 @@ class FilterFilterCriteriaAwsAccountIdArgs:
 if not MYPY:
     class FilterFilterCriteriaCodeRepositoryProjectNameArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaCodeRepositoryProjectNameArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1131,19 +785,12 @@ class FilterFilterCriteriaCodeRepositoryProjectNameArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1153,9 +800,6 @@ class FilterFilterCriteriaCodeRepositoryProjectNameArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1166,13 +810,7 @@ class FilterFilterCriteriaCodeRepositoryProjectNameArgs:
 if not MYPY:
     class FilterFilterCriteriaCodeRepositoryProviderTypeArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaCodeRepositoryProviderTypeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1181,19 +819,12 @@ class FilterFilterCriteriaCodeRepositoryProviderTypeArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1203,9 +834,6 @@ class FilterFilterCriteriaCodeRepositoryProviderTypeArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1216,13 +844,7 @@ class FilterFilterCriteriaCodeRepositoryProviderTypeArgs:
 if not MYPY:
     class FilterFilterCriteriaCodeVulnerabilityDetectorNameArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaCodeVulnerabilityDetectorNameArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1231,19 +853,12 @@ class FilterFilterCriteriaCodeVulnerabilityDetectorNameArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1253,9 +868,6 @@ class FilterFilterCriteriaCodeVulnerabilityDetectorNameArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1266,13 +878,7 @@ class FilterFilterCriteriaCodeVulnerabilityDetectorNameArgs:
 if not MYPY:
     class FilterFilterCriteriaCodeVulnerabilityDetectorTagArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaCodeVulnerabilityDetectorTagArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1281,19 +887,12 @@ class FilterFilterCriteriaCodeVulnerabilityDetectorTagArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1303,9 +902,6 @@ class FilterFilterCriteriaCodeVulnerabilityDetectorTagArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1316,13 +912,7 @@ class FilterFilterCriteriaCodeVulnerabilityDetectorTagArgs:
 if not MYPY:
     class FilterFilterCriteriaCodeVulnerabilityFilePathArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaCodeVulnerabilityFilePathArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1331,19 +921,12 @@ class FilterFilterCriteriaCodeVulnerabilityFilePathArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1353,9 +936,6 @@ class FilterFilterCriteriaCodeVulnerabilityFilePathArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1366,13 +946,7 @@ class FilterFilterCriteriaCodeVulnerabilityFilePathArgs:
 if not MYPY:
     class FilterFilterCriteriaComponentIdArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaComponentIdArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1381,19 +955,12 @@ class FilterFilterCriteriaComponentIdArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1403,9 +970,6 @@ class FilterFilterCriteriaComponentIdArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1416,13 +980,7 @@ class FilterFilterCriteriaComponentIdArgs:
 if not MYPY:
     class FilterFilterCriteriaComponentTypeArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaComponentTypeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1431,19 +989,12 @@ class FilterFilterCriteriaComponentTypeArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1453,9 +1004,6 @@ class FilterFilterCriteriaComponentTypeArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1466,13 +1014,7 @@ class FilterFilterCriteriaComponentTypeArgs:
 if not MYPY:
     class FilterFilterCriteriaEc2InstanceImageIdArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaEc2InstanceImageIdArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1481,19 +1023,12 @@ class FilterFilterCriteriaEc2InstanceImageIdArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1503,9 +1038,6 @@ class FilterFilterCriteriaEc2InstanceImageIdArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1516,13 +1048,7 @@ class FilterFilterCriteriaEc2InstanceImageIdArgs:
 if not MYPY:
     class FilterFilterCriteriaEc2InstanceSubnetIdArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaEc2InstanceSubnetIdArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1531,19 +1057,12 @@ class FilterFilterCriteriaEc2InstanceSubnetIdArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1553,9 +1072,6 @@ class FilterFilterCriteriaEc2InstanceSubnetIdArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1566,13 +1082,7 @@ class FilterFilterCriteriaEc2InstanceSubnetIdArgs:
 if not MYPY:
     class FilterFilterCriteriaEc2InstanceVpcIdArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaEc2InstanceVpcIdArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1581,19 +1091,12 @@ class FilterFilterCriteriaEc2InstanceVpcIdArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1603,9 +1106,6 @@ class FilterFilterCriteriaEc2InstanceVpcIdArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1616,13 +1116,7 @@ class FilterFilterCriteriaEc2InstanceVpcIdArgs:
 if not MYPY:
     class FilterFilterCriteriaEcrImageArchitectureArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaEcrImageArchitectureArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1631,19 +1125,12 @@ class FilterFilterCriteriaEcrImageArchitectureArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1653,9 +1140,6 @@ class FilterFilterCriteriaEcrImageArchitectureArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1666,13 +1150,7 @@ class FilterFilterCriteriaEcrImageArchitectureArgs:
 if not MYPY:
     class FilterFilterCriteriaEcrImageHashArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaEcrImageHashArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1681,19 +1159,12 @@ class FilterFilterCriteriaEcrImageHashArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1703,9 +1174,6 @@ class FilterFilterCriteriaEcrImageHashArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1716,13 +1184,7 @@ class FilterFilterCriteriaEcrImageHashArgs:
 if not MYPY:
     class FilterFilterCriteriaEcrImageInUseCountArgsDict(TypedDict):
         lower_inclusive: pulumi.Input[_builtins.float]
-        """
-        (Optional) Lower bound of the range, inclusive.
-        """
         upper_inclusive: pulumi.Input[_builtins.float]
-        """
-        (Optional) Upper bound of the range, inclusive.
-        """
 elif False:
     FilterFilterCriteriaEcrImageInUseCountArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1731,19 +1193,12 @@ class FilterFilterCriteriaEcrImageInUseCountArgs:
     def __init__(__self__, *,
                  lower_inclusive: pulumi.Input[_builtins.float],
                  upper_inclusive: pulumi.Input[_builtins.float]):
-        """
-        :param pulumi.Input[_builtins.float] lower_inclusive: (Optional) Lower bound of the range, inclusive.
-        :param pulumi.Input[_builtins.float] upper_inclusive: (Optional) Upper bound of the range, inclusive.
-        """
         pulumi.set(__self__, "lower_inclusive", lower_inclusive)
         pulumi.set(__self__, "upper_inclusive", upper_inclusive)
 
     @_builtins.property
     @pulumi.getter(name="lowerInclusive")
     def lower_inclusive(self) -> pulumi.Input[_builtins.float]:
-        """
-        (Optional) Lower bound of the range, inclusive.
-        """
         return pulumi.get(self, "lower_inclusive")
 
     @lower_inclusive.setter
@@ -1753,9 +1208,6 @@ class FilterFilterCriteriaEcrImageInUseCountArgs:
     @_builtins.property
     @pulumi.getter(name="upperInclusive")
     def upper_inclusive(self) -> pulumi.Input[_builtins.float]:
-        """
-        (Optional) Upper bound of the range, inclusive.
-        """
         return pulumi.get(self, "upper_inclusive")
 
     @upper_inclusive.setter
@@ -1766,13 +1218,7 @@ class FilterFilterCriteriaEcrImageInUseCountArgs:
 if not MYPY:
     class FilterFilterCriteriaEcrImageLastInUseAtArgsDict(TypedDict):
         end_inclusive: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required) The end of the port range, inclusive.
-        """
         start_inclusive: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
-        """
 elif False:
     FilterFilterCriteriaEcrImageLastInUseAtArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1781,10 +1227,6 @@ class FilterFilterCriteriaEcrImageLastInUseAtArgs:
     def __init__(__self__, *,
                  end_inclusive: Optional[pulumi.Input[_builtins.str]] = None,
                  start_inclusive: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] end_inclusive: (Required) The end of the port range, inclusive.
-        :param pulumi.Input[_builtins.str] start_inclusive: (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
-        """
         if end_inclusive is not None:
             pulumi.set(__self__, "end_inclusive", end_inclusive)
         if start_inclusive is not None:
@@ -1793,9 +1235,6 @@ class FilterFilterCriteriaEcrImageLastInUseAtArgs:
     @_builtins.property
     @pulumi.getter(name="endInclusive")
     def end_inclusive(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (Required) The end of the port range, inclusive.
-        """
         return pulumi.get(self, "end_inclusive")
 
     @end_inclusive.setter
@@ -1805,9 +1244,6 @@ class FilterFilterCriteriaEcrImageLastInUseAtArgs:
     @_builtins.property
     @pulumi.getter(name="startInclusive")
     def start_inclusive(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
-        """
         return pulumi.get(self, "start_inclusive")
 
     @start_inclusive.setter
@@ -1818,13 +1254,7 @@ class FilterFilterCriteriaEcrImageLastInUseAtArgs:
 if not MYPY:
     class FilterFilterCriteriaEcrImagePushedAtArgsDict(TypedDict):
         end_inclusive: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required) The end of the port range, inclusive.
-        """
         start_inclusive: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
-        """
 elif False:
     FilterFilterCriteriaEcrImagePushedAtArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1833,10 +1263,6 @@ class FilterFilterCriteriaEcrImagePushedAtArgs:
     def __init__(__self__, *,
                  end_inclusive: Optional[pulumi.Input[_builtins.str]] = None,
                  start_inclusive: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] end_inclusive: (Required) The end of the port range, inclusive.
-        :param pulumi.Input[_builtins.str] start_inclusive: (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
-        """
         if end_inclusive is not None:
             pulumi.set(__self__, "end_inclusive", end_inclusive)
         if start_inclusive is not None:
@@ -1845,9 +1271,6 @@ class FilterFilterCriteriaEcrImagePushedAtArgs:
     @_builtins.property
     @pulumi.getter(name="endInclusive")
     def end_inclusive(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (Required) The end of the port range, inclusive.
-        """
         return pulumi.get(self, "end_inclusive")
 
     @end_inclusive.setter
@@ -1857,9 +1280,6 @@ class FilterFilterCriteriaEcrImagePushedAtArgs:
     @_builtins.property
     @pulumi.getter(name="startInclusive")
     def start_inclusive(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
-        """
         return pulumi.get(self, "start_inclusive")
 
     @start_inclusive.setter
@@ -1870,13 +1290,7 @@ class FilterFilterCriteriaEcrImagePushedAtArgs:
 if not MYPY:
     class FilterFilterCriteriaEcrImageRegistryArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaEcrImageRegistryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1885,19 +1299,12 @@ class FilterFilterCriteriaEcrImageRegistryArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1907,9 +1314,6 @@ class FilterFilterCriteriaEcrImageRegistryArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1920,13 +1324,7 @@ class FilterFilterCriteriaEcrImageRegistryArgs:
 if not MYPY:
     class FilterFilterCriteriaEcrImageRepositoryNameArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaEcrImageRepositoryNameArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1935,19 +1333,12 @@ class FilterFilterCriteriaEcrImageRepositoryNameArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -1957,9 +1348,6 @@ class FilterFilterCriteriaEcrImageRepositoryNameArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1970,13 +1358,7 @@ class FilterFilterCriteriaEcrImageRepositoryNameArgs:
 if not MYPY:
     class FilterFilterCriteriaEcrImageTagArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaEcrImageTagArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1985,19 +1367,12 @@ class FilterFilterCriteriaEcrImageTagArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2007,9 +1382,6 @@ class FilterFilterCriteriaEcrImageTagArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2020,13 +1392,7 @@ class FilterFilterCriteriaEcrImageTagArgs:
 if not MYPY:
     class FilterFilterCriteriaEpssScoreArgsDict(TypedDict):
         lower_inclusive: pulumi.Input[_builtins.float]
-        """
-        (Optional) Lower bound of the range, inclusive.
-        """
         upper_inclusive: pulumi.Input[_builtins.float]
-        """
-        (Optional) Upper bound of the range, inclusive.
-        """
 elif False:
     FilterFilterCriteriaEpssScoreArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2035,19 +1401,12 @@ class FilterFilterCriteriaEpssScoreArgs:
     def __init__(__self__, *,
                  lower_inclusive: pulumi.Input[_builtins.float],
                  upper_inclusive: pulumi.Input[_builtins.float]):
-        """
-        :param pulumi.Input[_builtins.float] lower_inclusive: (Optional) Lower bound of the range, inclusive.
-        :param pulumi.Input[_builtins.float] upper_inclusive: (Optional) Upper bound of the range, inclusive.
-        """
         pulumi.set(__self__, "lower_inclusive", lower_inclusive)
         pulumi.set(__self__, "upper_inclusive", upper_inclusive)
 
     @_builtins.property
     @pulumi.getter(name="lowerInclusive")
     def lower_inclusive(self) -> pulumi.Input[_builtins.float]:
-        """
-        (Optional) Lower bound of the range, inclusive.
-        """
         return pulumi.get(self, "lower_inclusive")
 
     @lower_inclusive.setter
@@ -2057,9 +1416,6 @@ class FilterFilterCriteriaEpssScoreArgs:
     @_builtins.property
     @pulumi.getter(name="upperInclusive")
     def upper_inclusive(self) -> pulumi.Input[_builtins.float]:
-        """
-        (Optional) Upper bound of the range, inclusive.
-        """
         return pulumi.get(self, "upper_inclusive")
 
     @upper_inclusive.setter
@@ -2070,13 +1426,7 @@ class FilterFilterCriteriaEpssScoreArgs:
 if not MYPY:
     class FilterFilterCriteriaExploitAvailableArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaExploitAvailableArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2085,19 +1435,12 @@ class FilterFilterCriteriaExploitAvailableArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2107,9 +1450,6 @@ class FilterFilterCriteriaExploitAvailableArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2120,13 +1460,7 @@ class FilterFilterCriteriaExploitAvailableArgs:
 if not MYPY:
     class FilterFilterCriteriaFindingArnArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaFindingArnArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2135,19 +1469,12 @@ class FilterFilterCriteriaFindingArnArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2157,9 +1484,6 @@ class FilterFilterCriteriaFindingArnArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2170,13 +1494,7 @@ class FilterFilterCriteriaFindingArnArgs:
 if not MYPY:
     class FilterFilterCriteriaFindingStatusArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaFindingStatusArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2185,19 +1503,12 @@ class FilterFilterCriteriaFindingStatusArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2207,9 +1518,6 @@ class FilterFilterCriteriaFindingStatusArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2220,13 +1528,7 @@ class FilterFilterCriteriaFindingStatusArgs:
 if not MYPY:
     class FilterFilterCriteriaFindingTypeArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaFindingTypeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2235,19 +1537,12 @@ class FilterFilterCriteriaFindingTypeArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2257,9 +1552,6 @@ class FilterFilterCriteriaFindingTypeArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2270,13 +1562,7 @@ class FilterFilterCriteriaFindingTypeArgs:
 if not MYPY:
     class FilterFilterCriteriaFirstObservedAtArgsDict(TypedDict):
         end_inclusive: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required) The end of the port range, inclusive.
-        """
         start_inclusive: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
-        """
 elif False:
     FilterFilterCriteriaFirstObservedAtArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2285,10 +1571,6 @@ class FilterFilterCriteriaFirstObservedAtArgs:
     def __init__(__self__, *,
                  end_inclusive: Optional[pulumi.Input[_builtins.str]] = None,
                  start_inclusive: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] end_inclusive: (Required) The end of the port range, inclusive.
-        :param pulumi.Input[_builtins.str] start_inclusive: (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
-        """
         if end_inclusive is not None:
             pulumi.set(__self__, "end_inclusive", end_inclusive)
         if start_inclusive is not None:
@@ -2297,9 +1579,6 @@ class FilterFilterCriteriaFirstObservedAtArgs:
     @_builtins.property
     @pulumi.getter(name="endInclusive")
     def end_inclusive(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (Required) The end of the port range, inclusive.
-        """
         return pulumi.get(self, "end_inclusive")
 
     @end_inclusive.setter
@@ -2309,9 +1588,6 @@ class FilterFilterCriteriaFirstObservedAtArgs:
     @_builtins.property
     @pulumi.getter(name="startInclusive")
     def start_inclusive(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
-        """
         return pulumi.get(self, "start_inclusive")
 
     @start_inclusive.setter
@@ -2322,13 +1598,7 @@ class FilterFilterCriteriaFirstObservedAtArgs:
 if not MYPY:
     class FilterFilterCriteriaFixAvailableArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaFixAvailableArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2337,19 +1607,12 @@ class FilterFilterCriteriaFixAvailableArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2359,9 +1622,6 @@ class FilterFilterCriteriaFixAvailableArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2372,13 +1632,7 @@ class FilterFilterCriteriaFixAvailableArgs:
 if not MYPY:
     class FilterFilterCriteriaInspectorScoreArgsDict(TypedDict):
         lower_inclusive: pulumi.Input[_builtins.float]
-        """
-        (Optional) Lower bound of the range, inclusive.
-        """
         upper_inclusive: pulumi.Input[_builtins.float]
-        """
-        (Optional) Upper bound of the range, inclusive.
-        """
 elif False:
     FilterFilterCriteriaInspectorScoreArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2387,19 +1641,12 @@ class FilterFilterCriteriaInspectorScoreArgs:
     def __init__(__self__, *,
                  lower_inclusive: pulumi.Input[_builtins.float],
                  upper_inclusive: pulumi.Input[_builtins.float]):
-        """
-        :param pulumi.Input[_builtins.float] lower_inclusive: (Optional) Lower bound of the range, inclusive.
-        :param pulumi.Input[_builtins.float] upper_inclusive: (Optional) Upper bound of the range, inclusive.
-        """
         pulumi.set(__self__, "lower_inclusive", lower_inclusive)
         pulumi.set(__self__, "upper_inclusive", upper_inclusive)
 
     @_builtins.property
     @pulumi.getter(name="lowerInclusive")
     def lower_inclusive(self) -> pulumi.Input[_builtins.float]:
-        """
-        (Optional) Lower bound of the range, inclusive.
-        """
         return pulumi.get(self, "lower_inclusive")
 
     @lower_inclusive.setter
@@ -2409,9 +1656,6 @@ class FilterFilterCriteriaInspectorScoreArgs:
     @_builtins.property
     @pulumi.getter(name="upperInclusive")
     def upper_inclusive(self) -> pulumi.Input[_builtins.float]:
-        """
-        (Optional) Upper bound of the range, inclusive.
-        """
         return pulumi.get(self, "upper_inclusive")
 
     @upper_inclusive.setter
@@ -2422,13 +1666,7 @@ class FilterFilterCriteriaInspectorScoreArgs:
 if not MYPY:
     class FilterFilterCriteriaLambdaFunctionExecutionRoleArnArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaLambdaFunctionExecutionRoleArnArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2437,19 +1675,12 @@ class FilterFilterCriteriaLambdaFunctionExecutionRoleArnArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2459,9 +1690,6 @@ class FilterFilterCriteriaLambdaFunctionExecutionRoleArnArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2472,13 +1700,7 @@ class FilterFilterCriteriaLambdaFunctionExecutionRoleArnArgs:
 if not MYPY:
     class FilterFilterCriteriaLambdaFunctionLastModifiedAtArgsDict(TypedDict):
         end_inclusive: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required) The end of the port range, inclusive.
-        """
         start_inclusive: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
-        """
 elif False:
     FilterFilterCriteriaLambdaFunctionLastModifiedAtArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2487,10 +1709,6 @@ class FilterFilterCriteriaLambdaFunctionLastModifiedAtArgs:
     def __init__(__self__, *,
                  end_inclusive: Optional[pulumi.Input[_builtins.str]] = None,
                  start_inclusive: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] end_inclusive: (Required) The end of the port range, inclusive.
-        :param pulumi.Input[_builtins.str] start_inclusive: (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
-        """
         if end_inclusive is not None:
             pulumi.set(__self__, "end_inclusive", end_inclusive)
         if start_inclusive is not None:
@@ -2499,9 +1717,6 @@ class FilterFilterCriteriaLambdaFunctionLastModifiedAtArgs:
     @_builtins.property
     @pulumi.getter(name="endInclusive")
     def end_inclusive(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (Required) The end of the port range, inclusive.
-        """
         return pulumi.get(self, "end_inclusive")
 
     @end_inclusive.setter
@@ -2511,9 +1726,6 @@ class FilterFilterCriteriaLambdaFunctionLastModifiedAtArgs:
     @_builtins.property
     @pulumi.getter(name="startInclusive")
     def start_inclusive(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
-        """
         return pulumi.get(self, "start_inclusive")
 
     @start_inclusive.setter
@@ -2524,13 +1736,7 @@ class FilterFilterCriteriaLambdaFunctionLastModifiedAtArgs:
 if not MYPY:
     class FilterFilterCriteriaLambdaFunctionLayerArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaLambdaFunctionLayerArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2539,19 +1745,12 @@ class FilterFilterCriteriaLambdaFunctionLayerArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2561,9 +1760,6 @@ class FilterFilterCriteriaLambdaFunctionLayerArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2574,13 +1770,7 @@ class FilterFilterCriteriaLambdaFunctionLayerArgs:
 if not MYPY:
     class FilterFilterCriteriaLambdaFunctionNameArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaLambdaFunctionNameArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2589,19 +1779,12 @@ class FilterFilterCriteriaLambdaFunctionNameArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2611,9 +1794,6 @@ class FilterFilterCriteriaLambdaFunctionNameArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2624,13 +1804,7 @@ class FilterFilterCriteriaLambdaFunctionNameArgs:
 if not MYPY:
     class FilterFilterCriteriaLambdaFunctionRuntimeArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaLambdaFunctionRuntimeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2639,19 +1813,12 @@ class FilterFilterCriteriaLambdaFunctionRuntimeArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2661,9 +1828,6 @@ class FilterFilterCriteriaLambdaFunctionRuntimeArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2674,13 +1838,7 @@ class FilterFilterCriteriaLambdaFunctionRuntimeArgs:
 if not MYPY:
     class FilterFilterCriteriaLastObservedAtArgsDict(TypedDict):
         end_inclusive: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required) The end of the port range, inclusive.
-        """
         start_inclusive: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
-        """
 elif False:
     FilterFilterCriteriaLastObservedAtArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2689,10 +1847,6 @@ class FilterFilterCriteriaLastObservedAtArgs:
     def __init__(__self__, *,
                  end_inclusive: Optional[pulumi.Input[_builtins.str]] = None,
                  start_inclusive: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] end_inclusive: (Required) The end of the port range, inclusive.
-        :param pulumi.Input[_builtins.str] start_inclusive: (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
-        """
         if end_inclusive is not None:
             pulumi.set(__self__, "end_inclusive", end_inclusive)
         if start_inclusive is not None:
@@ -2701,9 +1855,6 @@ class FilterFilterCriteriaLastObservedAtArgs:
     @_builtins.property
     @pulumi.getter(name="endInclusive")
     def end_inclusive(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (Required) The end of the port range, inclusive.
-        """
         return pulumi.get(self, "end_inclusive")
 
     @end_inclusive.setter
@@ -2713,9 +1864,6 @@ class FilterFilterCriteriaLastObservedAtArgs:
     @_builtins.property
     @pulumi.getter(name="startInclusive")
     def start_inclusive(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
-        """
         return pulumi.get(self, "start_inclusive")
 
     @start_inclusive.setter
@@ -2726,13 +1874,7 @@ class FilterFilterCriteriaLastObservedAtArgs:
 if not MYPY:
     class FilterFilterCriteriaNetworkProtocolArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaNetworkProtocolArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2741,19 +1883,12 @@ class FilterFilterCriteriaNetworkProtocolArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2763,9 +1898,6 @@ class FilterFilterCriteriaNetworkProtocolArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2776,13 +1908,7 @@ class FilterFilterCriteriaNetworkProtocolArgs:
 if not MYPY:
     class FilterFilterCriteriaPortRangeArgsDict(TypedDict):
         begin_inclusive: pulumi.Input[_builtins.int]
-        """
-        (Required) The beginning of the port range, inclusive.
-        """
         end_inclusive: pulumi.Input[_builtins.int]
-        """
-        (Required) The end of the port range, inclusive.
-        """
 elif False:
     FilterFilterCriteriaPortRangeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2791,19 +1917,12 @@ class FilterFilterCriteriaPortRangeArgs:
     def __init__(__self__, *,
                  begin_inclusive: pulumi.Input[_builtins.int],
                  end_inclusive: pulumi.Input[_builtins.int]):
-        """
-        :param pulumi.Input[_builtins.int] begin_inclusive: (Required) The beginning of the port range, inclusive.
-        :param pulumi.Input[_builtins.int] end_inclusive: (Required) The end of the port range, inclusive.
-        """
         pulumi.set(__self__, "begin_inclusive", begin_inclusive)
         pulumi.set(__self__, "end_inclusive", end_inclusive)
 
     @_builtins.property
     @pulumi.getter(name="beginInclusive")
     def begin_inclusive(self) -> pulumi.Input[_builtins.int]:
-        """
-        (Required) The beginning of the port range, inclusive.
-        """
         return pulumi.get(self, "begin_inclusive")
 
     @begin_inclusive.setter
@@ -2813,9 +1932,6 @@ class FilterFilterCriteriaPortRangeArgs:
     @_builtins.property
     @pulumi.getter(name="endInclusive")
     def end_inclusive(self) -> pulumi.Input[_builtins.int]:
-        """
-        (Required) The end of the port range, inclusive.
-        """
         return pulumi.get(self, "end_inclusive")
 
     @end_inclusive.setter
@@ -2826,13 +1942,7 @@ class FilterFilterCriteriaPortRangeArgs:
 if not MYPY:
     class FilterFilterCriteriaRelatedVulnerabilityArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaRelatedVulnerabilityArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2841,19 +1951,12 @@ class FilterFilterCriteriaRelatedVulnerabilityArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2863,9 +1966,6 @@ class FilterFilterCriteriaRelatedVulnerabilityArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2876,13 +1976,7 @@ class FilterFilterCriteriaRelatedVulnerabilityArgs:
 if not MYPY:
     class FilterFilterCriteriaResourceIdArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaResourceIdArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2891,19 +1985,12 @@ class FilterFilterCriteriaResourceIdArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2913,9 +2000,6 @@ class FilterFilterCriteriaResourceIdArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2926,17 +2010,8 @@ class FilterFilterCriteriaResourceIdArgs:
 if not MYPY:
     class FilterFilterCriteriaResourceTagArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         key: pulumi.Input[_builtins.str]
-        """
-        (Required) The key to filter on.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaResourceTagArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2946,11 +2021,6 @@ class FilterFilterCriteriaResourceTagArgs:
                  comparison: pulumi.Input[_builtins.str],
                  key: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] key: (Required) The key to filter on.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -2958,9 +2028,6 @@ class FilterFilterCriteriaResourceTagArgs:
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -2970,9 +2037,6 @@ class FilterFilterCriteriaResourceTagArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The key to filter on.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2982,9 +2046,6 @@ class FilterFilterCriteriaResourceTagArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2995,13 +2056,7 @@ class FilterFilterCriteriaResourceTagArgs:
 if not MYPY:
     class FilterFilterCriteriaResourceTypeArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3010,19 +2065,12 @@ class FilterFilterCriteriaResourceTypeArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3032,9 +2080,6 @@ class FilterFilterCriteriaResourceTypeArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3045,13 +2090,7 @@ class FilterFilterCriteriaResourceTypeArgs:
 if not MYPY:
     class FilterFilterCriteriaSeverityArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaSeverityArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3060,19 +2099,12 @@ class FilterFilterCriteriaSeverityArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3082,9 +2114,6 @@ class FilterFilterCriteriaSeverityArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3095,13 +2124,7 @@ class FilterFilterCriteriaSeverityArgs:
 if not MYPY:
     class FilterFilterCriteriaTitleArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaTitleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3110,19 +2133,12 @@ class FilterFilterCriteriaTitleArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3132,9 +2148,6 @@ class FilterFilterCriteriaTitleArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3145,13 +2158,7 @@ class FilterFilterCriteriaTitleArgs:
 if not MYPY:
     class FilterFilterCriteriaUpdatedAtArgsDict(TypedDict):
         end_inclusive: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required) The end of the port range, inclusive.
-        """
         start_inclusive: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
-        """
 elif False:
     FilterFilterCriteriaUpdatedAtArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3160,10 +2167,6 @@ class FilterFilterCriteriaUpdatedAtArgs:
     def __init__(__self__, *,
                  end_inclusive: Optional[pulumi.Input[_builtins.str]] = None,
                  start_inclusive: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] end_inclusive: (Required) The end of the port range, inclusive.
-        :param pulumi.Input[_builtins.str] start_inclusive: (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
-        """
         if end_inclusive is not None:
             pulumi.set(__self__, "end_inclusive", end_inclusive)
         if start_inclusive is not None:
@@ -3172,9 +2175,6 @@ class FilterFilterCriteriaUpdatedAtArgs:
     @_builtins.property
     @pulumi.getter(name="endInclusive")
     def end_inclusive(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (Required) The end of the port range, inclusive.
-        """
         return pulumi.get(self, "end_inclusive")
 
     @end_inclusive.setter
@@ -3184,9 +2184,6 @@ class FilterFilterCriteriaUpdatedAtArgs:
     @_builtins.property
     @pulumi.getter(name="startInclusive")
     def start_inclusive(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
-        """
         return pulumi.get(self, "start_inclusive")
 
     @start_inclusive.setter
@@ -3197,13 +2194,7 @@ class FilterFilterCriteriaUpdatedAtArgs:
 if not MYPY:
     class FilterFilterCriteriaVendorSeverityArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaVendorSeverityArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3212,19 +2203,12 @@ class FilterFilterCriteriaVendorSeverityArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3234,9 +2218,6 @@ class FilterFilterCriteriaVendorSeverityArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3247,13 +2228,7 @@ class FilterFilterCriteriaVendorSeverityArgs:
 if not MYPY:
     class FilterFilterCriteriaVulnerabilityIdArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaVulnerabilityIdArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3262,19 +2237,12 @@ class FilterFilterCriteriaVulnerabilityIdArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3284,9 +2252,6 @@ class FilterFilterCriteriaVulnerabilityIdArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3297,13 +2262,7 @@ class FilterFilterCriteriaVulnerabilityIdArgs:
 if not MYPY:
     class FilterFilterCriteriaVulnerabilitySourceArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaVulnerabilitySourceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3312,19 +2271,12 @@ class FilterFilterCriteriaVulnerabilitySourceArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3334,9 +2286,6 @@ class FilterFilterCriteriaVulnerabilitySourceArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3347,37 +2296,13 @@ class FilterFilterCriteriaVulnerabilitySourceArgs:
 if not MYPY:
     class FilterFilterCriteriaVulnerablePackageArgsDict(TypedDict):
         architecture: NotRequired[pulumi.Input['FilterFilterCriteriaVulnerablePackageArchitectureArgsDict']]
-        """
-        (Optional) The architecture of the package. Documented below.
-        """
         epoches: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaVulnerablePackageEpochArgsDict']]]]
-        """
-        (Optional) The epoch of the package. Documented below.
-        """
         file_path: NotRequired[pulumi.Input['FilterFilterCriteriaVulnerablePackageFilePathArgsDict']]
-        """
-        (Optional) The name of the package. Documented below.
-        """
         name: NotRequired[pulumi.Input['FilterFilterCriteriaVulnerablePackageNameArgsDict']]
-        """
-        Name of the filter.
-        """
         release: NotRequired[pulumi.Input['FilterFilterCriteriaVulnerablePackageReleaseArgsDict']]
-        """
-        (Optional) The release of the package. Documented below.
-        """
         source_lambda_layer_arn: NotRequired[pulumi.Input['FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnArgsDict']]
-        """
-        (Optional) The ARN of the package's source lambda layer. Documented below.
-        """
         source_layer_hash: NotRequired[pulumi.Input['FilterFilterCriteriaVulnerablePackageSourceLayerHashArgsDict']]
-        """
-        (Optional) The source layer hash of the package. Documented below.
-        """
         version: NotRequired[pulumi.Input['FilterFilterCriteriaVulnerablePackageVersionArgsDict']]
-        """
-        (Optional) The version of the package. Documented below.
-        """
 elif False:
     FilterFilterCriteriaVulnerablePackageArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3392,16 +2317,6 @@ class FilterFilterCriteriaVulnerablePackageArgs:
                  source_lambda_layer_arn: Optional[pulumi.Input['FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnArgs']] = None,
                  source_layer_hash: Optional[pulumi.Input['FilterFilterCriteriaVulnerablePackageSourceLayerHashArgs']] = None,
                  version: Optional[pulumi.Input['FilterFilterCriteriaVulnerablePackageVersionArgs']] = None):
-        """
-        :param pulumi.Input['FilterFilterCriteriaVulnerablePackageArchitectureArgs'] architecture: (Optional) The architecture of the package. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaVulnerablePackageEpochArgs']]] epoches: (Optional) The epoch of the package. Documented below.
-        :param pulumi.Input['FilterFilterCriteriaVulnerablePackageFilePathArgs'] file_path: (Optional) The name of the package. Documented below.
-        :param pulumi.Input['FilterFilterCriteriaVulnerablePackageNameArgs'] name: Name of the filter.
-        :param pulumi.Input['FilterFilterCriteriaVulnerablePackageReleaseArgs'] release: (Optional) The release of the package. Documented below.
-        :param pulumi.Input['FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnArgs'] source_lambda_layer_arn: (Optional) The ARN of the package's source lambda layer. Documented below.
-        :param pulumi.Input['FilterFilterCriteriaVulnerablePackageSourceLayerHashArgs'] source_layer_hash: (Optional) The source layer hash of the package. Documented below.
-        :param pulumi.Input['FilterFilterCriteriaVulnerablePackageVersionArgs'] version: (Optional) The version of the package. Documented below.
-        """
         if architecture is not None:
             pulumi.set(__self__, "architecture", architecture)
         if epoches is not None:
@@ -3422,9 +2337,6 @@ class FilterFilterCriteriaVulnerablePackageArgs:
     @_builtins.property
     @pulumi.getter
     def architecture(self) -> Optional[pulumi.Input['FilterFilterCriteriaVulnerablePackageArchitectureArgs']]:
-        """
-        (Optional) The architecture of the package. Documented below.
-        """
         return pulumi.get(self, "architecture")
 
     @architecture.setter
@@ -3434,9 +2346,6 @@ class FilterFilterCriteriaVulnerablePackageArgs:
     @_builtins.property
     @pulumi.getter
     def epoches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaVulnerablePackageEpochArgs']]]]:
-        """
-        (Optional) The epoch of the package. Documented below.
-        """
         return pulumi.get(self, "epoches")
 
     @epoches.setter
@@ -3446,9 +2355,6 @@ class FilterFilterCriteriaVulnerablePackageArgs:
     @_builtins.property
     @pulumi.getter(name="filePath")
     def file_path(self) -> Optional[pulumi.Input['FilterFilterCriteriaVulnerablePackageFilePathArgs']]:
-        """
-        (Optional) The name of the package. Documented below.
-        """
         return pulumi.get(self, "file_path")
 
     @file_path.setter
@@ -3458,9 +2364,6 @@ class FilterFilterCriteriaVulnerablePackageArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input['FilterFilterCriteriaVulnerablePackageNameArgs']]:
-        """
-        Name of the filter.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -3470,9 +2373,6 @@ class FilterFilterCriteriaVulnerablePackageArgs:
     @_builtins.property
     @pulumi.getter
     def release(self) -> Optional[pulumi.Input['FilterFilterCriteriaVulnerablePackageReleaseArgs']]:
-        """
-        (Optional) The release of the package. Documented below.
-        """
         return pulumi.get(self, "release")
 
     @release.setter
@@ -3482,9 +2382,6 @@ class FilterFilterCriteriaVulnerablePackageArgs:
     @_builtins.property
     @pulumi.getter(name="sourceLambdaLayerArn")
     def source_lambda_layer_arn(self) -> Optional[pulumi.Input['FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnArgs']]:
-        """
-        (Optional) The ARN of the package's source lambda layer. Documented below.
-        """
         return pulumi.get(self, "source_lambda_layer_arn")
 
     @source_lambda_layer_arn.setter
@@ -3494,9 +2391,6 @@ class FilterFilterCriteriaVulnerablePackageArgs:
     @_builtins.property
     @pulumi.getter(name="sourceLayerHash")
     def source_layer_hash(self) -> Optional[pulumi.Input['FilterFilterCriteriaVulnerablePackageSourceLayerHashArgs']]:
-        """
-        (Optional) The source layer hash of the package. Documented below.
-        """
         return pulumi.get(self, "source_layer_hash")
 
     @source_layer_hash.setter
@@ -3506,9 +2400,6 @@ class FilterFilterCriteriaVulnerablePackageArgs:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input['FilterFilterCriteriaVulnerablePackageVersionArgs']]:
-        """
-        (Optional) The version of the package. Documented below.
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -3519,13 +2410,7 @@ class FilterFilterCriteriaVulnerablePackageArgs:
 if not MYPY:
     class FilterFilterCriteriaVulnerablePackageArchitectureArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaVulnerablePackageArchitectureArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3534,19 +2419,12 @@ class FilterFilterCriteriaVulnerablePackageArchitectureArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3556,9 +2434,6 @@ class FilterFilterCriteriaVulnerablePackageArchitectureArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3569,13 +2444,7 @@ class FilterFilterCriteriaVulnerablePackageArchitectureArgs:
 if not MYPY:
     class FilterFilterCriteriaVulnerablePackageEpochArgsDict(TypedDict):
         lower_inclusive: pulumi.Input[_builtins.float]
-        """
-        (Optional) Lower bound of the range, inclusive.
-        """
         upper_inclusive: pulumi.Input[_builtins.float]
-        """
-        (Optional) Upper bound of the range, inclusive.
-        """
 elif False:
     FilterFilterCriteriaVulnerablePackageEpochArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3584,19 +2453,12 @@ class FilterFilterCriteriaVulnerablePackageEpochArgs:
     def __init__(__self__, *,
                  lower_inclusive: pulumi.Input[_builtins.float],
                  upper_inclusive: pulumi.Input[_builtins.float]):
-        """
-        :param pulumi.Input[_builtins.float] lower_inclusive: (Optional) Lower bound of the range, inclusive.
-        :param pulumi.Input[_builtins.float] upper_inclusive: (Optional) Upper bound of the range, inclusive.
-        """
         pulumi.set(__self__, "lower_inclusive", lower_inclusive)
         pulumi.set(__self__, "upper_inclusive", upper_inclusive)
 
     @_builtins.property
     @pulumi.getter(name="lowerInclusive")
     def lower_inclusive(self) -> pulumi.Input[_builtins.float]:
-        """
-        (Optional) Lower bound of the range, inclusive.
-        """
         return pulumi.get(self, "lower_inclusive")
 
     @lower_inclusive.setter
@@ -3606,9 +2468,6 @@ class FilterFilterCriteriaVulnerablePackageEpochArgs:
     @_builtins.property
     @pulumi.getter(name="upperInclusive")
     def upper_inclusive(self) -> pulumi.Input[_builtins.float]:
-        """
-        (Optional) Upper bound of the range, inclusive.
-        """
         return pulumi.get(self, "upper_inclusive")
 
     @upper_inclusive.setter
@@ -3619,13 +2478,7 @@ class FilterFilterCriteriaVulnerablePackageEpochArgs:
 if not MYPY:
     class FilterFilterCriteriaVulnerablePackageFilePathArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaVulnerablePackageFilePathArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3634,19 +2487,12 @@ class FilterFilterCriteriaVulnerablePackageFilePathArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3656,9 +2502,6 @@ class FilterFilterCriteriaVulnerablePackageFilePathArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3669,13 +2512,7 @@ class FilterFilterCriteriaVulnerablePackageFilePathArgs:
 if not MYPY:
     class FilterFilterCriteriaVulnerablePackageNameArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaVulnerablePackageNameArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3684,19 +2521,12 @@ class FilterFilterCriteriaVulnerablePackageNameArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3706,9 +2536,6 @@ class FilterFilterCriteriaVulnerablePackageNameArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3719,13 +2546,7 @@ class FilterFilterCriteriaVulnerablePackageNameArgs:
 if not MYPY:
     class FilterFilterCriteriaVulnerablePackageReleaseArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaVulnerablePackageReleaseArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3734,19 +2555,12 @@ class FilterFilterCriteriaVulnerablePackageReleaseArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3756,9 +2570,6 @@ class FilterFilterCriteriaVulnerablePackageReleaseArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3769,13 +2580,7 @@ class FilterFilterCriteriaVulnerablePackageReleaseArgs:
 if not MYPY:
     class FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3784,19 +2589,12 @@ class FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3806,9 +2604,6 @@ class FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3819,13 +2614,7 @@ class FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnArgs:
 if not MYPY:
     class FilterFilterCriteriaVulnerablePackageSourceLayerHashArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaVulnerablePackageSourceLayerHashArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3834,19 +2623,12 @@ class FilterFilterCriteriaVulnerablePackageSourceLayerHashArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3856,9 +2638,6 @@ class FilterFilterCriteriaVulnerablePackageSourceLayerHashArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3869,13 +2648,7 @@ class FilterFilterCriteriaVulnerablePackageSourceLayerHashArgs:
 if not MYPY:
     class FilterFilterCriteriaVulnerablePackageVersionArgsDict(TypedDict):
         comparison: pulumi.Input[_builtins.str]
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        (Required) The value to filter on.
-        """
 elif False:
     FilterFilterCriteriaVulnerablePackageVersionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3884,19 +2657,12 @@ class FilterFilterCriteriaVulnerablePackageVersionArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] comparison: (Required) The comparison operator. Valid values: `EQUALS`.
-        :param pulumi.Input[_builtins.str] value: (Required) The value to filter on.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The comparison operator. Valid values: `EQUALS`.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -3906,9 +2672,6 @@ class FilterFilterCriteriaVulnerablePackageVersionArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The value to filter on.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3919,25 +2682,10 @@ class FilterFilterCriteriaVulnerablePackageVersionArgs:
 if not MYPY:
     class OrganizationConfigurationAutoEnableArgsDict(TypedDict):
         ec2: pulumi.Input[_builtins.bool]
-        """
-        Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
-        """
         ecr: pulumi.Input[_builtins.bool]
-        """
-        Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
-        """
         code_repository: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether code repository scans are automatically enabled for new members of your Amazon Inspector organization.
-        """
         lambda_: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
-        """
         lambda_code: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `true`, you must also set the `lambda` argument to `true`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
-        """
 elif False:
     OrganizationConfigurationAutoEnableArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3949,13 +2697,6 @@ class OrganizationConfigurationAutoEnableArgs:
                  code_repository: Optional[pulumi.Input[_builtins.bool]] = None,
                  lambda_: Optional[pulumi.Input[_builtins.bool]] = None,
                  lambda_code: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] ec2: Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
-        :param pulumi.Input[_builtins.bool] ecr: Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
-        :param pulumi.Input[_builtins.bool] code_repository: Whether code repository scans are automatically enabled for new members of your Amazon Inspector organization.
-        :param pulumi.Input[_builtins.bool] lambda_: Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
-        :param pulumi.Input[_builtins.bool] lambda_code: Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `true`, you must also set the `lambda` argument to `true`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
-        """
         pulumi.set(__self__, "ec2", ec2)
         pulumi.set(__self__, "ecr", ecr)
         if code_repository is not None:
@@ -3968,9 +2709,6 @@ class OrganizationConfigurationAutoEnableArgs:
     @_builtins.property
     @pulumi.getter
     def ec2(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
-        """
         return pulumi.get(self, "ec2")
 
     @ec2.setter
@@ -3980,9 +2718,6 @@ class OrganizationConfigurationAutoEnableArgs:
     @_builtins.property
     @pulumi.getter
     def ecr(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
-        """
         return pulumi.get(self, "ecr")
 
     @ecr.setter
@@ -3992,9 +2727,6 @@ class OrganizationConfigurationAutoEnableArgs:
     @_builtins.property
     @pulumi.getter(name="codeRepository")
     def code_repository(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether code repository scans are automatically enabled for new members of your Amazon Inspector organization.
-        """
         return pulumi.get(self, "code_repository")
 
     @code_repository.setter
@@ -4004,9 +2736,6 @@ class OrganizationConfigurationAutoEnableArgs:
     @_builtins.property
     @pulumi.getter(name="lambda")
     def lambda_(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
-        """
         return pulumi.get(self, "lambda_")
 
     @lambda_.setter
@@ -4016,9 +2745,6 @@ class OrganizationConfigurationAutoEnableArgs:
     @_builtins.property
     @pulumi.getter(name="lambdaCode")
     def lambda_code(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `true`, you must also set the `lambda` argument to `true`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
-        """
         return pulumi.get(self, "lambda_code")
 
     @lambda_code.setter

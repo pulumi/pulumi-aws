@@ -15,156 +15,47 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a CodeStar Host.
- * 
- * &gt; **NOTE:** The `aws.codestarconnections.Host` resource is created in the state `PENDING`. Authentication with the host provider must be completed in the AWS Console. For more information visit [Set up a pending host](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-host-setup.html).
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.codestarconnections.Host;
- * import com.pulumi.aws.codestarconnections.HostArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Host("example", HostArgs.builder()
- *             .name("example-host")
- *             .providerEndpoint("https://example.com")
- *             .providerType("GitHubEnterpriseServer")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the CodeStar connections host.
- * 
- * Using `pulumi import`, import CodeStar Host using the ARN. For example:
- * 
- * % pulumi import aws_codestarconnections_host.example-host arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448
- * 
- */
 @ResourceType(type="aws:codestarconnections/host:Host")
 public class Host extends com.pulumi.resources.CustomResource {
-    /**
-     * The CodeStar Host ARN.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The CodeStar Host ARN.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The name of the host to be created. The name must be unique in the calling AWS account.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the host to be created. The name must be unique in the calling AWS account.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The endpoint of the infrastructure to be represented by the host after it is created.
-     * 
-     */
     @Export(name="providerEndpoint", refs={String.class}, tree="[0]")
     private Output<String> providerEndpoint;
 
-    /**
-     * @return The endpoint of the infrastructure to be represented by the host after it is created.
-     * 
-     */
     public Output<String> providerEndpoint() {
         return this.providerEndpoint;
     }
-    /**
-     * The name of the external provider where your third-party code repository is configured.
-     * 
-     */
     @Export(name="providerType", refs={String.class}, tree="[0]")
     private Output<String> providerType;
 
-    /**
-     * @return The name of the external provider where your third-party code repository is configured.
-     * 
-     */
     public Output<String> providerType() {
         return this.providerType;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The CodeStar Host status. Possible values are `PENDING`, `AVAILABLE`, `VPC_CONFIG_DELETING`, `VPC_CONFIG_INITIALIZING`, and `VPC_CONFIG_FAILED_INITIALIZATION`.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return The CodeStar Host status. Possible values are `PENDING`, `AVAILABLE`, `VPC_CONFIG_DELETING`, `VPC_CONFIG_INITIALIZING`, and `VPC_CONFIG_FAILED_INITIALIZATION`.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
-     * 
-     */
     @Export(name="vpcConfiguration", refs={HostVpcConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ HostVpcConfiguration> vpcConfiguration;
 
-    /**
-     * @return The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
-     * 
-     */
     public Output<Optional<HostVpcConfiguration>> vpcConfiguration() {
         return Codegen.optional(this.vpcConfiguration);
     }

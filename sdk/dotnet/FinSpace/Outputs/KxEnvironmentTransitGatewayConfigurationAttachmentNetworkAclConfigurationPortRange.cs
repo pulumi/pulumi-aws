@@ -13,13 +13,7 @@ namespace Pulumi.Aws.FinSpace.Outputs
     [OutputType]
     public sealed class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange
     {
-        /// <summary>
-        /// First port in the range.
-        /// </summary>
         public readonly int From;
-        /// <summary>
-        /// Last port in the range.
-        /// </summary>
         public readonly int To;
 
         [OutputConstructor]

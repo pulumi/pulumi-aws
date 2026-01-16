@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class LogTransformerTransformerConfigSubstituteString {
-    /**
-     * @return Objects containing the information about the fields to substitute. You must include at least one entry, and ten at most. See `substituteString` `entry` below for details.
-     * 
-     */
     private List<LogTransformerTransformerConfigSubstituteStringEntry> entries;
 
     private LogTransformerTransformerConfigSubstituteString() {}
-    /**
-     * @return Objects containing the information about the fields to substitute. You must include at least one entry, and ten at most. See `substituteString` `entry` below for details.
-     * 
-     */
     public List<LogTransformerTransformerConfigSubstituteStringEntry> entries() {
         return this.entries;
     }

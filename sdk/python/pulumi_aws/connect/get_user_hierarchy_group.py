@@ -59,9 +59,6 @@ class GetUserHierarchyGroupResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the hierarchy group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -72,9 +69,6 @@ class GetUserHierarchyGroupResult:
     @_builtins.property
     @pulumi.getter(name="hierarchyPaths")
     def hierarchy_paths(self) -> Sequence['outputs.GetUserHierarchyGroupHierarchyPathResult']:
-        """
-        Block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
-        """
         return pulumi.get(self, "hierarchy_paths")
 
     @_builtins.property
@@ -93,17 +87,11 @@ class GetUserHierarchyGroupResult:
     @_builtins.property
     @pulumi.getter(name="levelId")
     def level_id(self) -> _builtins.str:
-        """
-        Identifier of the level in the hierarchy group.
-        """
         return pulumi.get(self, "level_id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the hierarchy group.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -114,9 +102,6 @@ class GetUserHierarchyGroupResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags to assign to the hierarchy group.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -144,38 +129,7 @@ def get_user_hierarchy_group(hierarchy_group_id: Optional[_builtins.str] = None,
                              tags: Optional[Mapping[str, _builtins.str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserHierarchyGroupResult:
     """
-    Provides details about a specific Amazon Connect User Hierarchy Group.
-
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_user_hierarchy_group(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Example")
-    ```
-
-    By `hierarchy_group_id`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_user_hierarchy_group(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        hierarchy_group_id="cccccccc-bbbb-cccc-dddd-111111111111")
-    ```
-
-
-    :param _builtins.str hierarchy_group_id: Returns information on a specific hierarchy group by hierarchy group id
-    :param _builtins.str instance_id: Reference to the hosting Amazon Connect Instance
-    :param _builtins.str name: Returns information on a specific hierarchy group by name
-           
-           > **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags to assign to the hierarchy group.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['hierarchyGroupId'] = hierarchy_group_id
@@ -203,38 +157,7 @@ def get_user_hierarchy_group_output(hierarchy_group_id: Optional[pulumi.Input[Op
                                     tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserHierarchyGroupResult]:
     """
-    Provides details about a specific Amazon Connect User Hierarchy Group.
-
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_user_hierarchy_group(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Example")
-    ```
-
-    By `hierarchy_group_id`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_user_hierarchy_group(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        hierarchy_group_id="cccccccc-bbbb-cccc-dddd-111111111111")
-    ```
-
-
-    :param _builtins.str hierarchy_group_id: Returns information on a specific hierarchy group by hierarchy group id
-    :param _builtins.str instance_id: Reference to the hosting Amazon Connect Instance
-    :param _builtins.str name: Returns information on a specific hierarchy group by name
-           
-           > **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags to assign to the hierarchy group.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['hierarchyGroupId'] = hierarchy_group_id

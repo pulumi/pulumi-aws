@@ -18,92 +18,44 @@ public final class DirectoryConfigState extends com.pulumi.resources.ResourceArg
 
     public static final DirectoryConfigState Empty = new DirectoryConfigState();
 
-    /**
-     * Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
-     * 
-     */
     @Import(name="certificateBasedAuthProperties")
     private @Nullable Output<DirectoryConfigCertificateBasedAuthPropertiesArgs> certificateBasedAuthProperties;
 
-    /**
-     * @return Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
-     * 
-     */
     public Optional<Output<DirectoryConfigCertificateBasedAuthPropertiesArgs>> certificateBasedAuthProperties() {
         return Optional.ofNullable(this.certificateBasedAuthProperties);
     }
 
-    /**
-     * Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
-     * 
-     */
     @Import(name="createdTime")
     private @Nullable Output<String> createdTime;
 
-    /**
-     * @return Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
-     * 
-     */
     public Optional<Output<String>> createdTime() {
         return Optional.ofNullable(this.createdTime);
     }
 
-    /**
-     * Fully qualified name of the directory.
-     * 
-     */
     @Import(name="directoryName")
     private @Nullable Output<String> directoryName;
 
-    /**
-     * @return Fully qualified name of the directory.
-     * 
-     */
     public Optional<Output<String>> directoryName() {
         return Optional.ofNullable(this.directoryName);
     }
 
-    /**
-     * Distinguished names of the organizational units for computer accounts.
-     * 
-     */
     @Import(name="organizationalUnitDistinguishedNames")
     private @Nullable Output<List<String>> organizationalUnitDistinguishedNames;
 
-    /**
-     * @return Distinguished names of the organizational units for computer accounts.
-     * 
-     */
     public Optional<Output<List<String>>> organizationalUnitDistinguishedNames() {
         return Optional.ofNullable(this.organizationalUnitDistinguishedNames);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
-     * 
-     */
     @Import(name="serviceAccountCredentials")
     private @Nullable Output<DirectoryConfigServiceAccountCredentialsArgs> serviceAccountCredentials;
 
-    /**
-     * @return Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
-     * 
-     */
     public Optional<Output<DirectoryConfigServiceAccountCredentialsArgs>> serviceAccountCredentials() {
         return Optional.ofNullable(this.serviceAccountCredentials);
     }
@@ -137,138 +89,60 @@ public final class DirectoryConfigState extends com.pulumi.resources.ResourceArg
             $ = new DirectoryConfigState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificateBasedAuthProperties Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateBasedAuthProperties(@Nullable Output<DirectoryConfigCertificateBasedAuthPropertiesArgs> certificateBasedAuthProperties) {
             $.certificateBasedAuthProperties = certificateBasedAuthProperties;
             return this;
         }
 
-        /**
-         * @param certificateBasedAuthProperties Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateBasedAuthProperties(DirectoryConfigCertificateBasedAuthPropertiesArgs certificateBasedAuthProperties) {
             return certificateBasedAuthProperties(Output.of(certificateBasedAuthProperties));
         }
 
-        /**
-         * @param createdTime Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdTime(@Nullable Output<String> createdTime) {
             $.createdTime = createdTime;
             return this;
         }
 
-        /**
-         * @param createdTime Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdTime(String createdTime) {
             return createdTime(Output.of(createdTime));
         }
 
-        /**
-         * @param directoryName Fully qualified name of the directory.
-         * 
-         * @return builder
-         * 
-         */
         public Builder directoryName(@Nullable Output<String> directoryName) {
             $.directoryName = directoryName;
             return this;
         }
 
-        /**
-         * @param directoryName Fully qualified name of the directory.
-         * 
-         * @return builder
-         * 
-         */
         public Builder directoryName(String directoryName) {
             return directoryName(Output.of(directoryName));
         }
 
-        /**
-         * @param organizationalUnitDistinguishedNames Distinguished names of the organizational units for computer accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder organizationalUnitDistinguishedNames(@Nullable Output<List<String>> organizationalUnitDistinguishedNames) {
             $.organizationalUnitDistinguishedNames = organizationalUnitDistinguishedNames;
             return this;
         }
 
-        /**
-         * @param organizationalUnitDistinguishedNames Distinguished names of the organizational units for computer accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder organizationalUnitDistinguishedNames(List<String> organizationalUnitDistinguishedNames) {
             return organizationalUnitDistinguishedNames(Output.of(organizationalUnitDistinguishedNames));
         }
 
-        /**
-         * @param organizationalUnitDistinguishedNames Distinguished names of the organizational units for computer accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder organizationalUnitDistinguishedNames(String... organizationalUnitDistinguishedNames) {
             return organizationalUnitDistinguishedNames(List.of(organizationalUnitDistinguishedNames));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param serviceAccountCredentials Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceAccountCredentials(@Nullable Output<DirectoryConfigServiceAccountCredentialsArgs> serviceAccountCredentials) {
             $.serviceAccountCredentials = serviceAccountCredentials;
             return this;
         }
 
-        /**
-         * @param serviceAccountCredentials Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceAccountCredentials(DirectoryConfigServiceAccountCredentialsArgs serviceAccountCredentials) {
             return serviceAccountCredentials(Output.of(serviceAccountCredentials));
         }

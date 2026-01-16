@@ -18,62 +18,30 @@ public final class EventConnectionAuthParametersOauthArgs extends com.pulumi.res
 
     public static final EventConnectionAuthParametersOauthArgs Empty = new EventConnectionAuthParametersOauthArgs();
 
-    /**
-     * The URL to the authorization endpoint.
-     * 
-     */
     @Import(name="authorizationEndpoint", required=true)
     private Output<String> authorizationEndpoint;
 
-    /**
-     * @return The URL to the authorization endpoint.
-     * 
-     */
     public Output<String> authorizationEndpoint() {
         return this.authorizationEndpoint;
     }
 
-    /**
-     * Contains the client parameters for OAuth authorization. Contains the following two parameters.
-     * 
-     */
     @Import(name="clientParameters")
     private @Nullable Output<EventConnectionAuthParametersOauthClientParametersArgs> clientParameters;
 
-    /**
-     * @return Contains the client parameters for OAuth authorization. Contains the following two parameters.
-     * 
-     */
     public Optional<Output<EventConnectionAuthParametersOauthClientParametersArgs>> clientParameters() {
         return Optional.ofNullable(this.clientParameters);
     }
 
-    /**
-     * A password for the authorization. Created and stored in AWS Secrets Manager.
-     * 
-     */
     @Import(name="httpMethod", required=true)
     private Output<String> httpMethod;
 
-    /**
-     * @return A password for the authorization. Created and stored in AWS Secrets Manager.
-     * 
-     */
     public Output<String> httpMethod() {
         return this.httpMethod;
     }
 
-    /**
-     * OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
-     * 
-     */
     @Import(name="oauthHttpParameters", required=true)
     private Output<EventConnectionAuthParametersOauthOauthHttpParametersArgs> oauthHttpParameters;
 
-    /**
-     * @return OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
-     * 
-     */
     public Output<EventConnectionAuthParametersOauthOauthHttpParametersArgs> oauthHttpParameters() {
         return this.oauthHttpParameters;
     }
@@ -105,86 +73,38 @@ public final class EventConnectionAuthParametersOauthArgs extends com.pulumi.res
             $ = new EventConnectionAuthParametersOauthArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authorizationEndpoint The URL to the authorization endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationEndpoint(Output<String> authorizationEndpoint) {
             $.authorizationEndpoint = authorizationEndpoint;
             return this;
         }
 
-        /**
-         * @param authorizationEndpoint The URL to the authorization endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationEndpoint(String authorizationEndpoint) {
             return authorizationEndpoint(Output.of(authorizationEndpoint));
         }
 
-        /**
-         * @param clientParameters Contains the client parameters for OAuth authorization. Contains the following two parameters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientParameters(@Nullable Output<EventConnectionAuthParametersOauthClientParametersArgs> clientParameters) {
             $.clientParameters = clientParameters;
             return this;
         }
 
-        /**
-         * @param clientParameters Contains the client parameters for OAuth authorization. Contains the following two parameters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientParameters(EventConnectionAuthParametersOauthClientParametersArgs clientParameters) {
             return clientParameters(Output.of(clientParameters));
         }
 
-        /**
-         * @param httpMethod A password for the authorization. Created and stored in AWS Secrets Manager.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpMethod(Output<String> httpMethod) {
             $.httpMethod = httpMethod;
             return this;
         }
 
-        /**
-         * @param httpMethod A password for the authorization. Created and stored in AWS Secrets Manager.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpMethod(String httpMethod) {
             return httpMethod(Output.of(httpMethod));
         }
 
-        /**
-         * @param oauthHttpParameters OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauthHttpParameters(Output<EventConnectionAuthParametersOauthOauthHttpParametersArgs> oauthHttpParameters) {
             $.oauthHttpParameters = oauthHttpParameters;
             return this;
         }
 
-        /**
-         * @param oauthHttpParameters OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauthHttpParameters(EventConnectionAuthParametersOauthOauthHttpParametersArgs oauthHttpParameters) {
             return oauthHttpParameters(Output.of(oauthHttpParameters));
         }

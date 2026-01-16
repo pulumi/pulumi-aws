@@ -19,16 +19,8 @@ public final class GetInferenceProfilesResult {
      * 
      */
     private String id;
-    /**
-     * @return List of inference profile summary objects. See `inferenceProfileSummaries`.
-     * 
-     */
     private List<GetInferenceProfilesInferenceProfileSummary> inferenceProfileSummaries;
     private String region;
-    /**
-     * @return Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means the inference profile was created by a user.
-     * 
-     */
     private @Nullable String type;
 
     private GetInferenceProfilesResult() {}
@@ -39,20 +31,12 @@ public final class GetInferenceProfilesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of inference profile summary objects. See `inferenceProfileSummaries`.
-     * 
-     */
     public List<GetInferenceProfilesInferenceProfileSummary> inferenceProfileSummaries() {
         return this.inferenceProfileSummaries;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means the inference profile was created by a user.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

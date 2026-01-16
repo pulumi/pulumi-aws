@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Efs.Outputs
     [OutputType]
     public sealed class FileSystemSizeInByte
     {
-        /// <summary>
-        /// The latest known metered size (in bytes) of data stored in the file system.
-        /// </summary>
         public readonly int? Value;
-        /// <summary>
-        /// The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
-        /// </summary>
         public readonly int? ValueInIa;
-        /// <summary>
-        /// The latest known metered size (in bytes) of data stored in the Standard storage class.
-        /// </summary>
         public readonly int? ValueInStandard;
 
         [OutputConstructor]

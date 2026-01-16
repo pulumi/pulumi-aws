@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DataQualityJobDefinitionNetworkConfig
     {
-        /// <summary>
-        /// Whether to encrypt all communications between the instances used for the monitoring jobs. Choose `True` to encrypt communications. Encryption provides greater security for distributed jobs, but the processing might take longer.
-        /// </summary>
         public readonly bool? EnableInterContainerTrafficEncryption;
-        /// <summary>
-        /// Whether to allow inbound and outbound network calls to and from the containers used for the monitoring job.
-        /// </summary>
         public readonly bool? EnableNetworkIsolation;
-        /// <summary>
-        /// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. Fields are documented below.
-        /// </summary>
         public readonly Outputs.DataQualityJobDefinitionNetworkConfigVpcConfig? VpcConfig;
 
         [OutputConstructor]

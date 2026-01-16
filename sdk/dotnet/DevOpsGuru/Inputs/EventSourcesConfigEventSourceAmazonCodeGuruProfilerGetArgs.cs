@@ -12,9 +12,6 @@ namespace Pulumi.Aws.DevOpsGuru.Inputs
 
     public sealed class EventSourcesConfigEventSourceAmazonCodeGuruProfilerGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Status of the CodeGuru Profiler integration. Valid values are `ENABLED` and `DISABLED`.
-        /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 

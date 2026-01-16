@@ -15,32 +15,16 @@ public final class GetResolverFirewallRuleGroupPlainArgs extends com.pulumi.reso
 
     public static final GetResolverFirewallRuleGroupPlainArgs Empty = new GetResolverFirewallRuleGroupPlainArgs();
 
-    /**
-     * The ID of the rule group.
-     * 
-     */
     @Import(name="firewallRuleGroupId", required=true)
     private String firewallRuleGroupId;
 
-    /**
-     * @return The ID of the rule group.
-     * 
-     */
     public String firewallRuleGroupId() {
         return this.firewallRuleGroupId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,23 +54,11 @@ public final class GetResolverFirewallRuleGroupPlainArgs extends com.pulumi.reso
             $ = new GetResolverFirewallRuleGroupPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param firewallRuleGroupId The ID of the rule group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firewallRuleGroupId(String firewallRuleGroupId) {
             $.firewallRuleGroupId = firewallRuleGroupId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

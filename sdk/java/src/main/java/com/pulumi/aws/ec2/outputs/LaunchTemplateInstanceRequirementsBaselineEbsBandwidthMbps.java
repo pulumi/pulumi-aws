@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps {
-    /**
-     * @return Maximum.
-     * 
-     */
     private @Nullable Integer max;
-    /**
-     * @return Minimum.
-     * 
-     */
     private @Nullable Integer min;
 
     private LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps() {}
-    /**
-     * @return Maximum.
-     * 
-     */
     public Optional<Integer> max() {
         return Optional.ofNullable(this.max);
     }
-    /**
-     * @return Minimum.
-     * 
-     */
     public Optional<Integer> min() {
         return Optional.ofNullable(this.min);
     }

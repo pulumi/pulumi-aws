@@ -32,16 +32,6 @@ class AgentDataSourceArgs:
                  vector_ingestion_configuration: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationArgs']] = None):
         """
         The set of arguments for constructing a AgentDataSource resource.
-        :param pulumi.Input[_builtins.str] knowledge_base_id: Unique identifier of the knowledge base to which the data source belongs.
-        :param pulumi.Input[_builtins.str] data_deletion_policy: Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
-        :param pulumi.Input['AgentDataSourceDataSourceConfigurationArgs'] data_source_configuration: Details about how the data source is stored. See `data_source_configuration` block for details.
-        :param pulumi.Input[_builtins.str] description: Description of the data source.
-        :param pulumi.Input[_builtins.str] name: Name of the data source.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['AgentDataSourceServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
-        :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationArgs'] vector_ingestion_configuration: Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
         """
         pulumi.set(__self__, "knowledge_base_id", knowledge_base_id)
         if data_deletion_policy is not None:
@@ -64,9 +54,6 @@ class AgentDataSourceArgs:
     @_builtins.property
     @pulumi.getter(name="knowledgeBaseId")
     def knowledge_base_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Unique identifier of the knowledge base to which the data source belongs.
-        """
         return pulumi.get(self, "knowledge_base_id")
 
     @knowledge_base_id.setter
@@ -76,9 +63,6 @@ class AgentDataSourceArgs:
     @_builtins.property
     @pulumi.getter(name="dataDeletionPolicy")
     def data_deletion_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
-        """
         return pulumi.get(self, "data_deletion_policy")
 
     @data_deletion_policy.setter
@@ -88,9 +72,6 @@ class AgentDataSourceArgs:
     @_builtins.property
     @pulumi.getter(name="dataSourceConfiguration")
     def data_source_configuration(self) -> Optional[pulumi.Input['AgentDataSourceDataSourceConfigurationArgs']]:
-        """
-        Details about how the data source is stored. See `data_source_configuration` block for details.
-        """
         return pulumi.get(self, "data_source_configuration")
 
     @data_source_configuration.setter
@@ -100,9 +81,6 @@ class AgentDataSourceArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the data source.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -112,11 +90,6 @@ class AgentDataSourceArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the data source.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -126,9 +99,6 @@ class AgentDataSourceArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -138,9 +108,6 @@ class AgentDataSourceArgs:
     @_builtins.property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> Optional[pulumi.Input['AgentDataSourceServerSideEncryptionConfigurationArgs']]:
-        """
-        Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
-        """
         return pulumi.get(self, "server_side_encryption_configuration")
 
     @server_side_encryption_configuration.setter
@@ -159,9 +126,6 @@ class AgentDataSourceArgs:
     @_builtins.property
     @pulumi.getter(name="vectorIngestionConfiguration")
     def vector_ingestion_configuration(self) -> Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationArgs']]:
-        """
-        Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
-        """
         return pulumi.get(self, "vector_ingestion_configuration")
 
     @vector_ingestion_configuration.setter
@@ -184,17 +148,6 @@ class _AgentDataSourceState:
                  vector_ingestion_configuration: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering AgentDataSource resources.
-        :param pulumi.Input[_builtins.str] data_deletion_policy: Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
-        :param pulumi.Input['AgentDataSourceDataSourceConfigurationArgs'] data_source_configuration: Details about how the data source is stored. See `data_source_configuration` block for details.
-        :param pulumi.Input[_builtins.str] data_source_id: Unique identifier of the data source.
-        :param pulumi.Input[_builtins.str] description: Description of the data source.
-        :param pulumi.Input[_builtins.str] knowledge_base_id: Unique identifier of the knowledge base to which the data source belongs.
-        :param pulumi.Input[_builtins.str] name: Name of the data source.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['AgentDataSourceServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
-        :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationArgs'] vector_ingestion_configuration: Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
         """
         if data_deletion_policy is not None:
             pulumi.set(__self__, "data_deletion_policy", data_deletion_policy)
@@ -220,9 +173,6 @@ class _AgentDataSourceState:
     @_builtins.property
     @pulumi.getter(name="dataDeletionPolicy")
     def data_deletion_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
-        """
         return pulumi.get(self, "data_deletion_policy")
 
     @data_deletion_policy.setter
@@ -232,9 +182,6 @@ class _AgentDataSourceState:
     @_builtins.property
     @pulumi.getter(name="dataSourceConfiguration")
     def data_source_configuration(self) -> Optional[pulumi.Input['AgentDataSourceDataSourceConfigurationArgs']]:
-        """
-        Details about how the data source is stored. See `data_source_configuration` block for details.
-        """
         return pulumi.get(self, "data_source_configuration")
 
     @data_source_configuration.setter
@@ -244,9 +191,6 @@ class _AgentDataSourceState:
     @_builtins.property
     @pulumi.getter(name="dataSourceId")
     def data_source_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier of the data source.
-        """
         return pulumi.get(self, "data_source_id")
 
     @data_source_id.setter
@@ -256,9 +200,6 @@ class _AgentDataSourceState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the data source.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -268,9 +209,6 @@ class _AgentDataSourceState:
     @_builtins.property
     @pulumi.getter(name="knowledgeBaseId")
     def knowledge_base_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier of the knowledge base to which the data source belongs.
-        """
         return pulumi.get(self, "knowledge_base_id")
 
     @knowledge_base_id.setter
@@ -280,11 +218,6 @@ class _AgentDataSourceState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the data source.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -294,9 +227,6 @@ class _AgentDataSourceState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -306,9 +236,6 @@ class _AgentDataSourceState:
     @_builtins.property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> Optional[pulumi.Input['AgentDataSourceServerSideEncryptionConfigurationArgs']]:
-        """
-        Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
-        """
         return pulumi.get(self, "server_side_encryption_configuration")
 
     @server_side_encryption_configuration.setter
@@ -327,9 +254,6 @@ class _AgentDataSourceState:
     @_builtins.property
     @pulumi.getter(name="vectorIngestionConfiguration")
     def vector_ingestion_configuration(self) -> Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationArgs']]:
-        """
-        Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
-        """
         return pulumi.get(self, "vector_ingestion_configuration")
 
     @vector_ingestion_configuration.setter
@@ -354,47 +278,9 @@ class AgentDataSource(pulumi.CustomResource):
                  vector_ingestion_configuration: Optional[pulumi.Input[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Agents for Amazon Bedrock Data Source.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.bedrock.AgentDataSource("example",
-            knowledge_base_id="EMDPPAYPZI",
-            name="example",
-            data_source_configuration={
-                "type": "S3",
-                "s3_configuration": {
-                    "bucket_arn": "arn:aws:s3:::example-bucket",
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Agents for Amazon Bedrock Data Source using the data source ID and the knowledge base ID. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/agentDataSource:AgentDataSource example GWCMFMQF6T,EMDPPAYPZI
-        ```
-
+        Create a AgentDataSource resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] data_deletion_policy: Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
-        :param pulumi.Input[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict']] data_source_configuration: Details about how the data source is stored. See `data_source_configuration` block for details.
-        :param pulumi.Input[_builtins.str] description: Description of the data source.
-        :param pulumi.Input[_builtins.str] knowledge_base_id: Unique identifier of the knowledge base to which the data source belongs.
-        :param pulumi.Input[_builtins.str] name: Name of the data source.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
-        :param pulumi.Input[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict']] vector_ingestion_configuration: Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
         """
         ...
     @overload
@@ -403,35 +289,7 @@ class AgentDataSource(pulumi.CustomResource):
                  args: AgentDataSourceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Agents for Amazon Bedrock Data Source.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.bedrock.AgentDataSource("example",
-            knowledge_base_id="EMDPPAYPZI",
-            name="example",
-            data_source_configuration={
-                "type": "S3",
-                "s3_configuration": {
-                    "bucket_arn": "arn:aws:s3:::example-bucket",
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Agents for Amazon Bedrock Data Source using the data source ID and the knowledge base ID. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/agentDataSource:AgentDataSource example GWCMFMQF6T,EMDPPAYPZI
-        ```
-
+        Create a AgentDataSource resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AgentDataSourceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -504,17 +362,6 @@ class AgentDataSource(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] data_deletion_policy: Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
-        :param pulumi.Input[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict']] data_source_configuration: Details about how the data source is stored. See `data_source_configuration` block for details.
-        :param pulumi.Input[_builtins.str] data_source_id: Unique identifier of the data source.
-        :param pulumi.Input[_builtins.str] description: Description of the data source.
-        :param pulumi.Input[_builtins.str] knowledge_base_id: Unique identifier of the knowledge base to which the data source belongs.
-        :param pulumi.Input[_builtins.str] name: Name of the data source.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
-        :param pulumi.Input[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict']] vector_ingestion_configuration: Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -535,67 +382,41 @@ class AgentDataSource(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="dataDeletionPolicy")
     def data_deletion_policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
-        """
         return pulumi.get(self, "data_deletion_policy")
 
     @_builtins.property
     @pulumi.getter(name="dataSourceConfiguration")
     def data_source_configuration(self) -> pulumi.Output[Optional['outputs.AgentDataSourceDataSourceConfiguration']]:
-        """
-        Details about how the data source is stored. See `data_source_configuration` block for details.
-        """
         return pulumi.get(self, "data_source_configuration")
 
     @_builtins.property
     @pulumi.getter(name="dataSourceId")
     def data_source_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique identifier of the data source.
-        """
         return pulumi.get(self, "data_source_id")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the data source.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="knowledgeBaseId")
     def knowledge_base_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique identifier of the knowledge base to which the data source belongs.
-        """
         return pulumi.get(self, "knowledge_base_id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the data source.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> pulumi.Output[Optional['outputs.AgentDataSourceServerSideEncryptionConfiguration']]:
-        """
-        Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
-        """
         return pulumi.get(self, "server_side_encryption_configuration")
 
     @_builtins.property
@@ -606,8 +427,5 @@ class AgentDataSource(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="vectorIngestionConfiguration")
     def vector_ingestion_configuration(self) -> pulumi.Output[Optional['outputs.AgentDataSourceVectorIngestionConfiguration']]:
-        """
-        Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
-        """
         return pulumi.get(self, "vector_ingestion_configuration")
 

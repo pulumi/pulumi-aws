@@ -12,9 +12,6 @@ namespace Pulumi.Aws.M2.Inputs
 
     public sealed class EnvironmentHighAvailabilityConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Desired number of instances for the Environment.
-        /// </summary>
         [Input("desiredCapacity", required: true)]
         public Input<int> DesiredCapacity { get; set; } = null!;
 

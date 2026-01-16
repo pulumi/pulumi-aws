@@ -17,17 +17,9 @@ public final class GetVirtualRouterArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetVirtualRouterArgs Empty = new GetVirtualRouterArgs();
 
-    /**
-     * Name of the mesh in which the virtual router exists
-     * 
-     */
     @Import(name="meshName", required=true)
     private Output<String> meshName;
 
-    /**
-     * @return Name of the mesh in which the virtual router exists
-     * 
-     */
     public Output<String> meshName() {
         return this.meshName;
     }
@@ -39,47 +31,23 @@ public final class GetVirtualRouterArgs extends com.pulumi.resources.InvokeArgs 
         return Optional.ofNullable(this.meshOwner);
     }
 
-    /**
-     * Name of the virtual router.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the virtual router.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -112,23 +80,11 @@ public final class GetVirtualRouterArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetVirtualRouterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param meshName Name of the mesh in which the virtual router exists
-         * 
-         * @return builder
-         * 
-         */
         public Builder meshName(Output<String> meshName) {
             $.meshName = meshName;
             return this;
         }
 
-        /**
-         * @param meshName Name of the mesh in which the virtual router exists
-         * 
-         * @return builder
-         * 
-         */
         public Builder meshName(String meshName) {
             return meshName(Output.of(meshName));
         }
@@ -142,65 +98,29 @@ public final class GetVirtualRouterArgs extends com.pulumi.resources.InvokeArgs 
             return meshOwner(Output.of(meshOwner));
         }
 
-        /**
-         * @param name Name of the virtual router.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the virtual router.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Map of tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

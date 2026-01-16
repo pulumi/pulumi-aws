@@ -7,22 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Data source for exadata infrastructures in AWS for Oracle Database@AWS.
- *
- * You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.odb.getCloudExadataInfrastructures({});
- * ```
- */
 export function getCloudExadataInfrastructures(args?: GetCloudExadataInfrastructuresArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudExadataInfrastructuresResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -35,9 +19,6 @@ export function getCloudExadataInfrastructures(args?: GetCloudExadataInfrastruct
  * A collection of arguments for invoking getCloudExadataInfrastructures.
  */
 export interface GetCloudExadataInfrastructuresArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -45,9 +26,6 @@ export interface GetCloudExadataInfrastructuresArgs {
  * A collection of values returned by getCloudExadataInfrastructures.
  */
 export interface GetCloudExadataInfrastructuresResult {
-    /**
-     * List of Cloud Exadata Infrastructures. Returns basic information about the Cloud Exadata Infrastructures.
-     */
     readonly cloudExadataInfrastructures: outputs.odb.GetCloudExadataInfrastructuresCloudExadataInfrastructure[];
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -55,22 +33,6 @@ export interface GetCloudExadataInfrastructuresResult {
     readonly id: string;
     readonly region: string;
 }
-/**
- * Data source for exadata infrastructures in AWS for Oracle Database@AWS.
- *
- * You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.odb.getCloudExadataInfrastructures({});
- * ```
- */
 export function getCloudExadataInfrastructuresOutput(args?: GetCloudExadataInfrastructuresOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudExadataInfrastructuresResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -83,8 +45,5 @@ export function getCloudExadataInfrastructuresOutput(args?: GetCloudExadataInfra
  * A collection of arguments for invoking getCloudExadataInfrastructures.
  */
 export interface GetCloudExadataInfrastructuresOutputArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

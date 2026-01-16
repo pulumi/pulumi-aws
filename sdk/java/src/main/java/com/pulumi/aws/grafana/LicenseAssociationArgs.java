@@ -16,62 +16,30 @@ public final class LicenseAssociationArgs extends com.pulumi.resources.ResourceA
 
     public static final LicenseAssociationArgs Empty = new LicenseAssociationArgs();
 
-    /**
-     * A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
-     * 
-     */
     @Import(name="grafanaToken")
     private @Nullable Output<String> grafanaToken;
 
-    /**
-     * @return A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
-     * 
-     */
     public Optional<Output<String>> grafanaToken() {
         return Optional.ofNullable(this.grafanaToken);
     }
 
-    /**
-     * The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
-     * 
-     */
     @Import(name="licenseType", required=true)
     private Output<String> licenseType;
 
-    /**
-     * @return The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
-     * 
-     */
     public Output<String> licenseType() {
         return this.licenseType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The workspace id.
-     * 
-     */
     @Import(name="workspaceId", required=true)
     private Output<String> workspaceId;
 
-    /**
-     * @return The workspace id.
-     * 
-     */
     public Output<String> workspaceId() {
         return this.workspaceId;
     }
@@ -103,86 +71,38 @@ public final class LicenseAssociationArgs extends com.pulumi.resources.ResourceA
             $ = new LicenseAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param grafanaToken A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder grafanaToken(@Nullable Output<String> grafanaToken) {
             $.grafanaToken = grafanaToken;
             return this;
         }
 
-        /**
-         * @param grafanaToken A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder grafanaToken(String grafanaToken) {
             return grafanaToken(Output.of(grafanaToken));
         }
 
-        /**
-         * @param licenseType The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder licenseType(Output<String> licenseType) {
             $.licenseType = licenseType;
             return this;
         }
 
-        /**
-         * @param licenseType The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder licenseType(String licenseType) {
             return licenseType(Output.of(licenseType));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param workspaceId The workspace id.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workspaceId(Output<String> workspaceId) {
             $.workspaceId = workspaceId;
             return this;
         }
 
-        /**
-         * @param workspaceId The workspace id.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workspaceId(String workspaceId) {
             return workspaceId(Output.of(workspaceId));
         }

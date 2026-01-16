@@ -9,116 +9,20 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Odb
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var withMinimumParameter = new Aws.Odb.CloudVmCluster("with_minimum_parameter", new()
-    ///     {
-    ///         DisplayName = "my_vm_cluster",
-    ///         CloudExadataInfrastructureId = "&lt;aws_odb_cloud_exadata_infrastructure_id&gt;",
-    ///         CpuCoreCount = 6,
-    ///         GiVersion = "23.0.0.0",
-    ///         HostnamePrefix = "apollo12",
-    ///         SshPublicKeys = new[]
-    ///         {
-    ///             "public-ssh-key",
-    ///         },
-    ///         OdbNetworkId = "&lt;aws_odb_network_id&gt;",
-    ///         IsLocalBackupEnabled = true,
-    ///         IsSparseDiskgroupEnabled = true,
-    ///         LicenseModel = "LICENSE_INCLUDED",
-    ///         DataStorageSizeInTbs = 20,
-    ///         DbServers = new[]
-    ///         {
-    ///             "db-server-1",
-    ///             "db-server-2",
-    ///         },
-    ///         DbNodeStorageSizeInGbs = 120,
-    ///         MemorySizeInGbs = 60,
-    ///         DataCollectionOptions = new Aws.Odb.Inputs.CloudVmClusterDataCollectionOptionsArgs
-    ///         {
-    ///             IsDiagnosticsEventsEnabled = false,
-    ///             IsHealthMonitoringEnabled = false,
-    ///             IsIncidentLogsEnabled = false,
-    ///         },
-    ///     });
-    /// 
-    ///     var withAllParameters = new Aws.Odb.CloudVmCluster("with_all_parameters", new()
-    ///     {
-    ///         DisplayName = "my_vm_cluster",
-    ///         CloudExadataInfrastructureId = "&lt;aws_odb_cloud_exadata_infrastructure_id&gt;",
-    ///         CpuCoreCount = 6,
-    ///         GiVersion = "23.0.0.0",
-    ///         HostnamePrefix = "apollo12",
-    ///         SshPublicKeys = new[]
-    ///         {
-    ///             "my-ssh-key",
-    ///         },
-    ///         OdbNetworkId = "&lt;aws_odb_network_id&gt;",
-    ///         IsLocalBackupEnabled = true,
-    ///         IsSparseDiskgroupEnabled = true,
-    ///         LicenseModel = "LICENSE_INCLUDED",
-    ///         DataStorageSizeInTbs = 20,
-    ///         DbServers = new[]
-    ///         {
-    ///             "my-dbserver-1",
-    ///             "my-db-server-2",
-    ///         },
-    ///         DbNodeStorageSizeInGbs = 120,
-    ///         MemorySizeInGbs = 60,
-    ///         ClusterName = "julia-13",
-    ///         Timezone = "UTC",
-    ///         ScanListenerPortTcp = 1521,
-    ///         Tags = 
-    ///         {
-    ///             { "env", "dev" },
-    ///         },
-    ///         DataCollectionOptions = new Aws.Odb.Inputs.CloudVmClusterDataCollectionOptionsArgs
-    ///         {
-    ///             IsDiagnosticsEventsEnabled = true,
-    ///             IsHealthMonitoringEnabled = true,
-    ///             IsIncidentLogsEnabled = true,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import cloud vm cluster using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:odb/cloudVmCluster:CloudVmCluster example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:odb/cloudVmCluster:CloudVmCluster")]
     public partial class CloudVmCluster : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the cloud vm cluster.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of CloudExadataInfrastructureId and OdbNetworkId or CloudExadataInfrastructureArn and OdbNetworkArn must be used.
+        /// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
         /// </summary>
         [Output("cloudExadataInfrastructureArn")]
         public Output<string> CloudExadataInfrastructureArn { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of CloudExadataInfrastructureId and OdbNetworkId or CloudExadataInfrastructureArn and OdbNetworkArn must be used.
+        /// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
         /// </summary>
         [Output("cloudExadataInfrastructureId")]
         public Output<string> CloudExadataInfrastructureId { get; private set; } = null!;
@@ -148,15 +52,13 @@ namespace Pulumi.Aws.Odb
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// The set of preferences for the various diagnostic collection options for the VM cluster.
+        /// The set of preferences for the various diagnostic collection options for the VM cluster. Changing this will create a new resource.
         /// </summary>
         [Output("dataCollectionOptions")]
         public Output<Outputs.CloudVmClusterDataCollectionOptions?> DataCollectionOptions { get; private set; } = null!;
 
         /// <summary>
         /// The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("dataStorageSizeInTbs")]
         public Output<double> DataStorageSizeInTbs { get; private set; } = null!;
@@ -175,13 +77,12 @@ namespace Pulumi.Aws.Odb
 
         /// <summary>
         /// The type of redundancy for the VM cluster: NORMAL (2-way) or HIGH (3-way).
-        /// * `AttrDomain` - The domain name associated with the VM cluster.
         /// </summary>
         [Output("diskRedundancy")]
         public Output<string> DiskRedundancy { get; private set; } = null!;
 
         /// <summary>
-        /// A user-friendly name for the VM cluster. Changing this will create a new resource.
+        /// A user-friendly name for the VM cluster. This member is required. Changing this will create a new resource.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
@@ -193,7 +94,7 @@ namespace Pulumi.Aws.Odb
         public Output<string> Domain { get; private set; } = null!;
 
         /// <summary>
-        /// A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
+        /// A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 This member is required. Changing this will create a new resource.
         /// </summary>
         [Output("giVersion")]
         public Output<string> GiVersion { get; private set; } = null!;
@@ -205,7 +106,7 @@ namespace Pulumi.Aws.Odb
         public Output<string> GiVersionComputed { get; private set; } = null!;
 
         /// <summary>
-        /// The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
+        /// The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
         /// </summary>
         [Output("hostnamePrefix")]
         public Output<string> HostnamePrefix { get; private set; } = null!;
@@ -283,13 +184,13 @@ namespace Pulumi.Aws.Odb
         public Output<string> Ocid { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of CloudExadataInfrastructureId and OdbNetworkId or CloudExadataInfrastructureArn and OdbNetworkArn must be used.
+        /// The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
         /// </summary>
         [Output("odbNetworkArn")]
         public Output<string> OdbNetworkArn { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of CloudExadataInfrastructureId and OdbNetworkId or CloudExadataInfrastructureArn and OdbNetworkArn must be used.
+        /// The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
         /// </summary>
         [Output("odbNetworkId")]
         public Output<string> OdbNetworkId { get; private set; } = null!;
@@ -300,9 +201,6 @@ namespace Pulumi.Aws.Odb
         [Output("percentProgress")]
         public Output<double> PercentProgress { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -325,7 +223,7 @@ namespace Pulumi.Aws.Odb
         public Output<ImmutableArray<string>> ScanIpIds { get; private set; } = null!;
 
         /// <summary>
-        /// The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
+        /// The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999 with the following exceptions: 2484 , 6100 , 6200 , 7060, 7070 , 7085 , and 7879Default: 1521. Changing this will create a new resource.
         /// </summary>
         [Output("scanListenerPortTcp")]
         public Output<int> ScanListenerPortTcp { get; private set; } = null!;
@@ -337,7 +235,7 @@ namespace Pulumi.Aws.Odb
         public Output<string> Shape { get; private set; } = null!;
 
         /// <summary>
-        /// The public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
+        /// The public key portion of one or more key pairs used for SSH access to the VM cluster. This member is required. Changing this will create a new resource.
         /// </summary>
         [Output("sshPublicKeys")]
         public Output<ImmutableArray<string>> SshPublicKeys { get; private set; } = null!;
@@ -366,15 +264,9 @@ namespace Pulumi.Aws.Odb
         [Output("systemVersion")]
         public Output<string> SystemVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the exadata infrastructure. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// The combined set of user-defined and provider-defined tags.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -440,13 +332,13 @@ namespace Pulumi.Aws.Odb
     public sealed class CloudVmClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of CloudExadataInfrastructureId and OdbNetworkId or CloudExadataInfrastructureArn and OdbNetworkArn must be used.
+        /// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
         /// </summary>
         [Input("cloudExadataInfrastructureArn")]
         public Input<string>? CloudExadataInfrastructureArn { get; set; }
 
         /// <summary>
-        /// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of CloudExadataInfrastructureId and OdbNetworkId or CloudExadataInfrastructureArn and OdbNetworkArn must be used.
+        /// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
         /// </summary>
         [Input("cloudExadataInfrastructureId")]
         public Input<string>? CloudExadataInfrastructureId { get; set; }
@@ -464,15 +356,13 @@ namespace Pulumi.Aws.Odb
         public Input<int> CpuCoreCount { get; set; } = null!;
 
         /// <summary>
-        /// The set of preferences for the various diagnostic collection options for the VM cluster.
+        /// The set of preferences for the various diagnostic collection options for the VM cluster. Changing this will create a new resource.
         /// </summary>
         [Input("dataCollectionOptions")]
         public Input<Inputs.CloudVmClusterDataCollectionOptionsArgs>? DataCollectionOptions { get; set; }
 
         /// <summary>
         /// The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("dataStorageSizeInTbs", required: true)]
         public Input<double> DataStorageSizeInTbs { get; set; } = null!;
@@ -496,19 +386,19 @@ namespace Pulumi.Aws.Odb
         }
 
         /// <summary>
-        /// A user-friendly name for the VM cluster. Changing this will create a new resource.
+        /// A user-friendly name for the VM cluster. This member is required. Changing this will create a new resource.
         /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
+        /// A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 This member is required. Changing this will create a new resource.
         /// </summary>
         [Input("giVersion", required: true)]
         public Input<string> GiVersion { get; set; } = null!;
 
         /// <summary>
-        /// The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
+        /// The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
         /// </summary>
         [Input("hostnamePrefix", required: true)]
         public Input<string> HostnamePrefix { get; set; } = null!;
@@ -538,25 +428,22 @@ namespace Pulumi.Aws.Odb
         public Input<int>? MemorySizeInGbs { get; set; }
 
         /// <summary>
-        /// The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of CloudExadataInfrastructureId and OdbNetworkId or CloudExadataInfrastructureArn and OdbNetworkArn must be used.
+        /// The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
         /// </summary>
         [Input("odbNetworkArn")]
         public Input<string>? OdbNetworkArn { get; set; }
 
         /// <summary>
-        /// The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of CloudExadataInfrastructureId and OdbNetworkId or CloudExadataInfrastructureArn and OdbNetworkArn must be used.
+        /// The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
         /// </summary>
         [Input("odbNetworkId")]
         public Input<string>? OdbNetworkId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
+        /// The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999 with the following exceptions: 2484 , 6100 , 6200 , 7060, 7070 , 7085 , and 7879Default: 1521. Changing this will create a new resource.
         /// </summary>
         [Input("scanListenerPortTcp")]
         public Input<int>? ScanListenerPortTcp { get; set; }
@@ -565,7 +452,7 @@ namespace Pulumi.Aws.Odb
         private InputList<string>? _sshPublicKeys;
 
         /// <summary>
-        /// The public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
+        /// The public key portion of one or more key pairs used for SSH access to the VM cluster. This member is required. Changing this will create a new resource.
         /// </summary>
         public InputList<string> SshPublicKeys
         {
@@ -575,10 +462,6 @@ namespace Pulumi.Aws.Odb
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the exadata infrastructure. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -602,20 +485,17 @@ namespace Pulumi.Aws.Odb
 
     public sealed class CloudVmClusterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the cloud vm cluster.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of CloudExadataInfrastructureId and OdbNetworkId or CloudExadataInfrastructureArn and OdbNetworkArn must be used.
+        /// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
         /// </summary>
         [Input("cloudExadataInfrastructureArn")]
         public Input<string>? CloudExadataInfrastructureArn { get; set; }
 
         /// <summary>
-        /// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of CloudExadataInfrastructureId and OdbNetworkId or CloudExadataInfrastructureArn and OdbNetworkArn must be used.
+        /// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
         /// </summary>
         [Input("cloudExadataInfrastructureId")]
         public Input<string>? CloudExadataInfrastructureId { get; set; }
@@ -645,15 +525,13 @@ namespace Pulumi.Aws.Odb
         public Input<string>? CreatedAt { get; set; }
 
         /// <summary>
-        /// The set of preferences for the various diagnostic collection options for the VM cluster.
+        /// The set of preferences for the various diagnostic collection options for the VM cluster. Changing this will create a new resource.
         /// </summary>
         [Input("dataCollectionOptions")]
         public Input<Inputs.CloudVmClusterDataCollectionOptionsGetArgs>? DataCollectionOptions { get; set; }
 
         /// <summary>
         /// The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("dataStorageSizeInTbs")]
         public Input<double>? DataStorageSizeInTbs { get; set; }
@@ -678,13 +556,12 @@ namespace Pulumi.Aws.Odb
 
         /// <summary>
         /// The type of redundancy for the VM cluster: NORMAL (2-way) or HIGH (3-way).
-        /// * `AttrDomain` - The domain name associated with the VM cluster.
         /// </summary>
         [Input("diskRedundancy")]
         public Input<string>? DiskRedundancy { get; set; }
 
         /// <summary>
-        /// A user-friendly name for the VM cluster. Changing this will create a new resource.
+        /// A user-friendly name for the VM cluster. This member is required. Changing this will create a new resource.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -696,7 +573,7 @@ namespace Pulumi.Aws.Odb
         public Input<string>? Domain { get; set; }
 
         /// <summary>
-        /// A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
+        /// A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 This member is required. Changing this will create a new resource.
         /// </summary>
         [Input("giVersion")]
         public Input<string>? GiVersion { get; set; }
@@ -708,7 +585,7 @@ namespace Pulumi.Aws.Odb
         public Input<string>? GiVersionComputed { get; set; }
 
         /// <summary>
-        /// The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
+        /// The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
         /// </summary>
         [Input("hostnamePrefix")]
         public Input<string>? HostnamePrefix { get; set; }
@@ -792,13 +669,13 @@ namespace Pulumi.Aws.Odb
         public Input<string>? Ocid { get; set; }
 
         /// <summary>
-        /// The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of CloudExadataInfrastructureId and OdbNetworkId or CloudExadataInfrastructureArn and OdbNetworkArn must be used.
+        /// The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
         /// </summary>
         [Input("odbNetworkArn")]
         public Input<string>? OdbNetworkArn { get; set; }
 
         /// <summary>
-        /// The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of CloudExadataInfrastructureId and OdbNetworkId or CloudExadataInfrastructureArn and OdbNetworkArn must be used.
+        /// The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
         /// </summary>
         [Input("odbNetworkId")]
         public Input<string>? OdbNetworkId { get; set; }
@@ -809,9 +686,6 @@ namespace Pulumi.Aws.Odb
         [Input("percentProgress")]
         public Input<double>? PercentProgress { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -840,7 +714,7 @@ namespace Pulumi.Aws.Odb
         }
 
         /// <summary>
-        /// The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
+        /// The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999 with the following exceptions: 2484 , 6100 , 6200 , 7060, 7070 , 7085 , and 7879Default: 1521. Changing this will create a new resource.
         /// </summary>
         [Input("scanListenerPortTcp")]
         public Input<int>? ScanListenerPortTcp { get; set; }
@@ -855,7 +729,7 @@ namespace Pulumi.Aws.Odb
         private InputList<string>? _sshPublicKeys;
 
         /// <summary>
-        /// The public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
+        /// The public key portion of one or more key pairs used for SSH access to the VM cluster. This member is required. Changing this will create a new resource.
         /// </summary>
         public InputList<string> SshPublicKeys
         {
@@ -889,10 +763,6 @@ namespace Pulumi.Aws.Odb
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the exadata infrastructure. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -901,10 +771,6 @@ namespace Pulumi.Aws.Odb
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// The combined set of user-defined and provider-defined tags.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

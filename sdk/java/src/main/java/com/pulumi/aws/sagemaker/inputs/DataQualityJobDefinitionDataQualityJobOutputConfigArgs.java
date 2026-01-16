@@ -17,32 +17,16 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfigArgs extend
 
     public static final DataQualityJobDefinitionDataQualityJobOutputConfigArgs Empty = new DataQualityJobDefinitionDataQualityJobOutputConfigArgs();
 
-    /**
-     * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-     * 
-     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
-    /**
-     * @return The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-     * 
-     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
 
-    /**
-     * Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded. Fields are documented below.
-     * 
-     */
     @Import(name="monitoringOutputs", required=true)
     private Output<DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs> monitoringOutputs;
 
-    /**
-     * @return Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded. Fields are documented below.
-     * 
-     */
     public Output<DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs> monitoringOutputs() {
         return this.monitoringOutputs;
     }
@@ -72,44 +56,20 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfigArgs extend
             $ = new DataQualityJobDefinitionDataQualityJobOutputConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsKeyId The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }
 
-        /**
-         * @param monitoringOutputs Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitoringOutputs(Output<DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs> monitoringOutputs) {
             $.monitoringOutputs = monitoringOutputs;
             return this;
         }
 
-        /**
-         * @param monitoringOutputs Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitoringOutputs(DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs monitoringOutputs) {
             return monitoringOutputs(Output.of(monitoringOutputs));
         }

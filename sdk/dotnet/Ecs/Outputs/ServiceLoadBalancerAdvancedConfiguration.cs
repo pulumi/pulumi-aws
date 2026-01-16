@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ServiceLoadBalancerAdvancedConfiguration
     {
-        /// <summary>
-        /// ARN of the alternate target group to use for Blue/Green deployments.
-        /// </summary>
         public readonly string AlternateTargetGroupArn;
-        /// <summary>
-        /// ARN of the listener rule that routes production traffic.
-        /// </summary>
         public readonly string ProductionListenerRule;
-        /// <summary>
-        /// ARN of the IAM role that allows ECS to manage the target groups.
-        /// </summary>
         public readonly string RoleArn;
-        /// <summary>
-        /// ARN of the listener rule that routes test traffic.
-        /// </summary>
         public readonly string? TestListenerRule;
 
         [OutputConstructor]

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetLocalGatewayVirtualInterfaceFilterResult
     {
-        /// <summary>
-        /// Name of the filter.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// List of one or more values for the filter.
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

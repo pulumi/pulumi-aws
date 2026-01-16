@@ -13,59 +13,11 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.OutboundWebIdentityFederation;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new OutboundWebIdentityFederation("example");
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import IAM Outbound Web Identity Federation resources using the AWS account ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:iam/outboundWebIdentityFederation:OutboundWebIdentityFederation example 123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:iam/outboundWebIdentityFederation:OutboundWebIdentityFederation")
 public class OutboundWebIdentityFederation extends com.pulumi.resources.CustomResource {
-    /**
-     * A unique issuer URL for your AWS account that hosts the OpenID Connect (OIDC) discovery endpoints.
-     * 
-     */
     @Export(name="issuerIdentifier", refs={String.class}, tree="[0]")
     private Output<String> issuerIdentifier;
 
-    /**
-     * @return A unique issuer URL for your AWS account that hosts the OpenID Connect (OIDC) discovery endpoints.
-     * 
-     */
     public Output<String> issuerIdentifier() {
         return this.issuerIdentifier;
     }

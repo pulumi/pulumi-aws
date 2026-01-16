@@ -16,47 +16,23 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final ResourcePolicyArgs Empty = new ResourcePolicyArgs();
 
-    /**
-     * An IAM policy. The policy string in JSON must not contain newlines or blank lines.
-     * 
-     */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
-    /**
-     * @return An IAM policy. The policy string in JSON must not contain newlines or blank lines.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
-     * 
-     */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
-    /**
-     * @return The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
@@ -87,65 +63,29 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
             $ = new ResourcePolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policy An IAM policy. The policy string in JSON must not contain newlines or blank lines.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy An IAM policy. The policy string in JSON must not contain newlines or blank lines.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceArn The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }

@@ -17,259 +17,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS CloudFront Continuous Deployment Policy.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudfront.Distribution;
- * import com.pulumi.aws.cloudfront.DistributionArgs;
- * import com.pulumi.aws.cloudfront.ContinuousDeploymentPolicy;
- * import com.pulumi.aws.cloudfront.ContinuousDeploymentPolicyArgs;
- * import com.pulumi.aws.cloudfront.inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs;
- * import com.pulumi.aws.cloudfront.inputs.ContinuousDeploymentPolicyTrafficConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var staging = new Distribution("staging", DistributionArgs.builder()
- *             .enabled(true)
- *             .staging(true)
- *             .build());
- * 
- *         var example = new ContinuousDeploymentPolicy("example", ContinuousDeploymentPolicyArgs.builder()
- *             .enabled(true)
- *             .stagingDistributionDnsNames(ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs.builder()
- *                 .items(staging.domainName())
- *                 .quantity(1)
- *                 .build())
- *             .trafficConfig(ContinuousDeploymentPolicyTrafficConfigArgs.builder()
- *                 .type("SingleWeight")
- *                 .singleWeightConfig(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs.builder()
- *                     .weight(0.01)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var production = new Distribution("production", DistributionArgs.builder()
- *             .enabled(true)
- *             .continuousDeploymentPolicyId(example.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Single Weight Config with Session Stickiness
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudfront.ContinuousDeploymentPolicy;
- * import com.pulumi.aws.cloudfront.ContinuousDeploymentPolicyArgs;
- * import com.pulumi.aws.cloudfront.inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs;
- * import com.pulumi.aws.cloudfront.inputs.ContinuousDeploymentPolicyTrafficConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ContinuousDeploymentPolicy("example", ContinuousDeploymentPolicyArgs.builder()
- *             .enabled(true)
- *             .stagingDistributionDnsNames(ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs.builder()
- *                 .items(staging.domainName())
- *                 .quantity(1)
- *                 .build())
- *             .trafficConfig(ContinuousDeploymentPolicyTrafficConfigArgs.builder()
- *                 .type("SingleWeight")
- *                 .singleWeightConfig(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs.builder()
- *                     .weight(0.01)
- *                     .sessionStickinessConfig(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs.builder()
- *                         .idleTtl(300)
- *                         .maximumTtl(600)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Single Header Config
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudfront.ContinuousDeploymentPolicy;
- * import com.pulumi.aws.cloudfront.ContinuousDeploymentPolicyArgs;
- * import com.pulumi.aws.cloudfront.inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs;
- * import com.pulumi.aws.cloudfront.inputs.ContinuousDeploymentPolicyTrafficConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ContinuousDeploymentPolicy("example", ContinuousDeploymentPolicyArgs.builder()
- *             .enabled(true)
- *             .stagingDistributionDnsNames(ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs.builder()
- *                 .items(staging.domainName())
- *                 .quantity(1)
- *                 .build())
- *             .trafficConfig(ContinuousDeploymentPolicyTrafficConfigArgs.builder()
- *                 .type("SingleHeader")
- *                 .singleHeaderConfig(ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs.builder()
- *                     .header("aws-cf-cd-example")
- *                     .value("example")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CloudFront Continuous Deployment Policy using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
- * ```
- * 
- */
 @ResourceType(type="aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy")
 public class ContinuousDeploymentPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The continuous deployment policy ARN.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The continuous deployment policy ARN.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Whether this continuous deployment policy is enabled.
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
-    /**
-     * @return Whether this continuous deployment policy is enabled.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
-    /**
-     * Current version of the continuous distribution policy.
-     * 
-     */
     @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
-    /**
-     * @return Current version of the continuous distribution policy.
-     * 
-     */
     public Output<String> etag() {
         return this.etag;
     }
-    /**
-     * Date and time the continuous deployment policy was last modified.
-     * 
-     */
     @Export(name="lastModifiedTime", refs={String.class}, tree="[0]")
     private Output<String> lastModifiedTime;
 
-    /**
-     * @return Date and time the continuous deployment policy was last modified.
-     * 
-     */
     public Output<String> lastModifiedTime() {
         return this.lastModifiedTime;
     }
-    /**
-     * CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
-     * 
-     */
     @Export(name="stagingDistributionDnsNames", refs={ContinuousDeploymentPolicyStagingDistributionDnsNames.class}, tree="[0]")
     private Output</* @Nullable */ ContinuousDeploymentPolicyStagingDistributionDnsNames> stagingDistributionDnsNames;
 
-    /**
-     * @return CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
-     * 
-     */
     public Output<Optional<ContinuousDeploymentPolicyStagingDistributionDnsNames>> stagingDistributionDnsNames() {
         return Codegen.optional(this.stagingDistributionDnsNames);
     }
-    /**
-     * Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
-     * 
-     */
     @Export(name="trafficConfig", refs={ContinuousDeploymentPolicyTrafficConfig.class}, tree="[0]")
     private Output</* @Nullable */ ContinuousDeploymentPolicyTrafficConfig> trafficConfig;
 
-    /**
-     * @return Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
-     * 
-     */
     public Output<Optional<ContinuousDeploymentPolicyTrafficConfig>> trafficConfig() {
         return Codegen.optional(this.trafficConfig);
     }

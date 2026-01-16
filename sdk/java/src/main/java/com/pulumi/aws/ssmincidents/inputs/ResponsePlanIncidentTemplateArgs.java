@@ -20,92 +20,44 @@ public final class ResponsePlanIncidentTemplateArgs extends com.pulumi.resources
 
     public static final ResponsePlanIncidentTemplateArgs Empty = new ResponsePlanIncidentTemplateArgs();
 
-    /**
-     * A string used to stop Incident Manager from creating multiple incident records for the same incident.
-     * 
-     */
     @Import(name="dedupeString")
     private @Nullable Output<String> dedupeString;
 
-    /**
-     * @return A string used to stop Incident Manager from creating multiple incident records for the same incident.
-     * 
-     */
     public Optional<Output<String>> dedupeString() {
         return Optional.ofNullable(this.dedupeString);
     }
 
-    /**
-     * The impact value of a generated incident. The following values are supported:
-     * 
-     */
     @Import(name="impact", required=true)
     private Output<Integer> impact;
 
-    /**
-     * @return The impact value of a generated incident. The following values are supported:
-     * 
-     */
     public Output<Integer> impact() {
         return this.impact;
     }
 
-    /**
-     * The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
-     * 
-     */
     @Import(name="incidentTags")
     private @Nullable Output<Map<String,String>> incidentTags;
 
-    /**
-     * @return The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
-     * 
-     */
     public Optional<Output<Map<String,String>>> incidentTags() {
         return Optional.ofNullable(this.incidentTags);
     }
 
-    /**
-     * The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notificationTarget` configuration block supports the following argument:
-     * 
-     */
     @Import(name="notificationTargets")
     private @Nullable Output<List<ResponsePlanIncidentTemplateNotificationTargetArgs>> notificationTargets;
 
-    /**
-     * @return The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notificationTarget` configuration block supports the following argument:
-     * 
-     */
     public Optional<Output<List<ResponsePlanIncidentTemplateNotificationTargetArgs>>> notificationTargets() {
         return Optional.ofNullable(this.notificationTargets);
     }
 
-    /**
-     * The summary of an incident.
-     * 
-     */
     @Import(name="summary")
     private @Nullable Output<String> summary;
 
-    /**
-     * @return The summary of an incident.
-     * 
-     */
     public Optional<Output<String>> summary() {
         return Optional.ofNullable(this.summary);
     }
 
-    /**
-     * The title of a generated incident.
-     * 
-     */
     @Import(name="title", required=true)
     private Output<String> title;
 
-    /**
-     * @return The title of a generated incident.
-     * 
-     */
     public Output<String> title() {
         return this.title;
     }
@@ -139,138 +91,60 @@ public final class ResponsePlanIncidentTemplateArgs extends com.pulumi.resources
             $ = new ResponsePlanIncidentTemplateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dedupeString A string used to stop Incident Manager from creating multiple incident records for the same incident.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dedupeString(@Nullable Output<String> dedupeString) {
             $.dedupeString = dedupeString;
             return this;
         }
 
-        /**
-         * @param dedupeString A string used to stop Incident Manager from creating multiple incident records for the same incident.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dedupeString(String dedupeString) {
             return dedupeString(Output.of(dedupeString));
         }
 
-        /**
-         * @param impact The impact value of a generated incident. The following values are supported:
-         * 
-         * @return builder
-         * 
-         */
         public Builder impact(Output<Integer> impact) {
             $.impact = impact;
             return this;
         }
 
-        /**
-         * @param impact The impact value of a generated incident. The following values are supported:
-         * 
-         * @return builder
-         * 
-         */
         public Builder impact(Integer impact) {
             return impact(Output.of(impact));
         }
 
-        /**
-         * @param incidentTags The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
-         * 
-         * @return builder
-         * 
-         */
         public Builder incidentTags(@Nullable Output<Map<String,String>> incidentTags) {
             $.incidentTags = incidentTags;
             return this;
         }
 
-        /**
-         * @param incidentTags The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
-         * 
-         * @return builder
-         * 
-         */
         public Builder incidentTags(Map<String,String> incidentTags) {
             return incidentTags(Output.of(incidentTags));
         }
 
-        /**
-         * @param notificationTargets The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notificationTarget` configuration block supports the following argument:
-         * 
-         * @return builder
-         * 
-         */
         public Builder notificationTargets(@Nullable Output<List<ResponsePlanIncidentTemplateNotificationTargetArgs>> notificationTargets) {
             $.notificationTargets = notificationTargets;
             return this;
         }
 
-        /**
-         * @param notificationTargets The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notificationTarget` configuration block supports the following argument:
-         * 
-         * @return builder
-         * 
-         */
         public Builder notificationTargets(List<ResponsePlanIncidentTemplateNotificationTargetArgs> notificationTargets) {
             return notificationTargets(Output.of(notificationTargets));
         }
 
-        /**
-         * @param notificationTargets The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notificationTarget` configuration block supports the following argument:
-         * 
-         * @return builder
-         * 
-         */
         public Builder notificationTargets(ResponsePlanIncidentTemplateNotificationTargetArgs... notificationTargets) {
             return notificationTargets(List.of(notificationTargets));
         }
 
-        /**
-         * @param summary The summary of an incident.
-         * 
-         * @return builder
-         * 
-         */
         public Builder summary(@Nullable Output<String> summary) {
             $.summary = summary;
             return this;
         }
 
-        /**
-         * @param summary The summary of an incident.
-         * 
-         * @return builder
-         * 
-         */
         public Builder summary(String summary) {
             return summary(Output.of(summary));
         }
 
-        /**
-         * @param title The title of a generated incident.
-         * 
-         * @return builder
-         * 
-         */
         public Builder title(Output<String> title) {
             $.title = title;
             return this;
         }
 
-        /**
-         * @param title The title of a generated incident.
-         * 
-         * @return builder
-         * 
-         */
         public Builder title(String title) {
             return title(Output.of(title));
         }

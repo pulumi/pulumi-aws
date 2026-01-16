@@ -15,51 +15,23 @@ public final class LbCertificateAttachmentState extends com.pulumi.resources.Res
 
     public static final LbCertificateAttachmentState Empty = new LbCertificateAttachmentState();
 
-    /**
-     * Name of your SSL/TLS certificate.
-     * 
-     */
     @Import(name="certificateName")
     private @Nullable Output<String> certificateName;
 
-    /**
-     * @return Name of your SSL/TLS certificate.
-     * 
-     */
     public Optional<Output<String>> certificateName() {
         return Optional.ofNullable(this.certificateName);
     }
 
-    /**
-     * Name of the load balancer to which you want to associate the SSL/TLS certificate.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="lbName")
     private @Nullable Output<String> lbName;
 
-    /**
-     * @return Name of the load balancer to which you want to associate the SSL/TLS certificate.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> lbName() {
         return Optional.ofNullable(this.lbName);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -90,69 +62,29 @@ public final class LbCertificateAttachmentState extends com.pulumi.resources.Res
             $ = new LbCertificateAttachmentState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificateName Name of your SSL/TLS certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateName(@Nullable Output<String> certificateName) {
             $.certificateName = certificateName;
             return this;
         }
 
-        /**
-         * @param certificateName Name of your SSL/TLS certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateName(String certificateName) {
             return certificateName(Output.of(certificateName));
         }
 
-        /**
-         * @param lbName Name of the load balancer to which you want to associate the SSL/TLS certificate.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbName(@Nullable Output<String> lbName) {
             $.lbName = lbName;
             return this;
         }
 
-        /**
-         * @param lbName Name of the load balancer to which you want to associate the SSL/TLS certificate.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbName(String lbName) {
             return lbName(Output.of(lbName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

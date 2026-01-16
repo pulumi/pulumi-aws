@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class V2modelsIntentInputContext {
-    /**
-     * @return Name of the context.
-     * 
-     */
     private String name;
 
     private V2modelsIntentInputContext() {}
-    /**
-     * @return Name of the context.
-     * 
-     */
     public String name() {
         return this.name;
     }

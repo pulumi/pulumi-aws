@@ -16,62 +16,30 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
 
     public static final AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs Empty = new AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs();
 
-    /**
-     * Account ID that owns the destination bucket.
-     * 
-     */
     @Import(name="bucketAccountId")
     private @Nullable Output<String> bucketAccountId;
 
-    /**
-     * @return Account ID that owns the destination bucket.
-     * 
-     */
     public Optional<Output<String>> bucketAccountId() {
         return Optional.ofNullable(this.bucketAccountId);
     }
 
-    /**
-     * ARN of the destination bucket.
-     * 
-     */
     @Import(name="bucketArn", required=true)
     private Output<String> bucketArn;
 
-    /**
-     * @return ARN of the destination bucket.
-     * 
-     */
     public Output<String> bucketArn() {
         return this.bucketArn;
     }
 
-    /**
-     * Output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
-     * 
-     */
     @Import(name="format")
     private @Nullable Output<String> format;
 
-    /**
-     * @return Output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
-     * 
-     */
     public Optional<Output<String>> format() {
         return Optional.ofNullable(this.format);
     }
 
-    /**
-     * Prefix to append to exported analytics data.
-     * 
-     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
-    /**
-     * @return Prefix to append to exported analytics data.
-     * 
-     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -103,86 +71,38 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
             $ = new AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketAccountId Account ID that owns the destination bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketAccountId(@Nullable Output<String> bucketAccountId) {
             $.bucketAccountId = bucketAccountId;
             return this;
         }
 
-        /**
-         * @param bucketAccountId Account ID that owns the destination bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketAccountId(String bucketAccountId) {
             return bucketAccountId(Output.of(bucketAccountId));
         }
 
-        /**
-         * @param bucketArn ARN of the destination bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketArn(Output<String> bucketArn) {
             $.bucketArn = bucketArn;
             return this;
         }
 
-        /**
-         * @param bucketArn ARN of the destination bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketArn(String bucketArn) {
             return bucketArn(Output.of(bucketArn));
         }
 
-        /**
-         * @param format Output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder format(@Nullable Output<String> format) {
             $.format = format;
             return this;
         }
 
-        /**
-         * @param format Output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder format(String format) {
             return format(Output.of(format));
         }
 
-        /**
-         * @param prefix Prefix to append to exported analytics data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix Prefix to append to exported analytics data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }

@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Creates Security Hub custom action.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.securityhub.Account("example", {});
- * const exampleActionTarget = new aws.securityhub.ActionTarget("example", {
- *     name: "Send notification to chat",
- *     identifier: "SendToChat",
- *     description: "This is custom action sends selected findings to chat",
- * }, {
- *     dependsOn: [example],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Security Hub custom action using the action target ARN. For example:
- *
- * ```sh
- * $ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
- * ```
- */
 export class ActionTarget extends pulumi.CustomResource {
     /**
      * Get an existing ActionTarget resource's state with the given name, ID, and optional extra
@@ -59,25 +32,10 @@ export class ActionTarget extends pulumi.CustomResource {
         return obj['__pulumiType'] === ActionTarget.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the Security Hub custom action target.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The name of the custom action target.
-     */
     declare public readonly description: pulumi.Output<string>;
-    /**
-     * The ID for the custom action target.
-     */
     declare public readonly identifier: pulumi.Output<string>;
-    /**
-     * The description for the custom action target.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -121,25 +79,10 @@ export class ActionTarget extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ActionTarget resources.
  */
 export interface ActionTargetState {
-    /**
-     * Amazon Resource Name (ARN) of the Security Hub custom action target.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The name of the custom action target.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The ID for the custom action target.
-     */
     identifier?: pulumi.Input<string>;
-    /**
-     * The description for the custom action target.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -147,20 +90,8 @@ export interface ActionTargetState {
  * The set of arguments for constructing a ActionTarget resource.
  */
 export interface ActionTargetArgs {
-    /**
-     * The name of the custom action target.
-     */
     description: pulumi.Input<string>;
-    /**
-     * The ID for the custom action target.
-     */
     identifier: pulumi.Input<string>;
-    /**
-     * The description for the custom action target.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

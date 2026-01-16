@@ -14,17 +14,9 @@ public final class DataSourceParametersAmazonElasticsearchArgs extends com.pulum
 
     public static final DataSourceParametersAmazonElasticsearchArgs Empty = new DataSourceParametersAmazonElasticsearchArgs();
 
-    /**
-     * The OpenSearch domain.
-     * 
-     */
     @Import(name="domain", required=true)
     private Output<String> domain;
 
-    /**
-     * @return The OpenSearch domain.
-     * 
-     */
     public Output<String> domain() {
         return this.domain;
     }
@@ -53,23 +45,11 @@ public final class DataSourceParametersAmazonElasticsearchArgs extends com.pulum
             $ = new DataSourceParametersAmazonElasticsearchArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domain The OpenSearch domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(Output<String> domain) {
             $.domain = domain;
             return this;
         }
 
-        /**
-         * @param domain The OpenSearch domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
         }

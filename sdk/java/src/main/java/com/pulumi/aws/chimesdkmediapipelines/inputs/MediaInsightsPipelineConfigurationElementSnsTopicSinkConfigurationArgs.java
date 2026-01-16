@@ -14,17 +14,9 @@ public final class MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigur
 
     public static final MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs Empty = new MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs();
 
-    /**
-     * SNS topic to deliver results.
-     * 
-     */
     @Import(name="insightsTarget", required=true)
     private Output<String> insightsTarget;
 
-    /**
-     * @return SNS topic to deliver results.
-     * 
-     */
     public Output<String> insightsTarget() {
         return this.insightsTarget;
     }
@@ -53,23 +45,11 @@ public final class MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigur
             $ = new MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param insightsTarget SNS topic to deliver results.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insightsTarget(Output<String> insightsTarget) {
             $.insightsTarget = insightsTarget;
             return this;
         }
 
-        /**
-         * @param insightsTarget SNS topic to deliver results.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insightsTarget(String insightsTarget) {
             return insightsTarget(Output.of(insightsTarget));
         }

@@ -11,72 +11,12 @@ namespace Pulumi.Aws.Odb
 {
     public static class GetNetworks
     {
-        /// <summary>
-        /// Data source for to retrieve networks from AWS for Oracle Database@AWS.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Odb.GetNetworks.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetNetworksResult> InvokeAsync(GetNetworksArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworksResult>("aws:odb/getNetworks:getNetworks", args ?? new GetNetworksArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for to retrieve networks from AWS for Oracle Database@AWS.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Odb.GetNetworks.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetNetworksResult> Invoke(GetNetworksInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworksResult>("aws:odb/getNetworks:getNetworks", args ?? new GetNetworksInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for to retrieve networks from AWS for Oracle Database@AWS.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Odb.GetNetworks.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetNetworksResult> Invoke(GetNetworksInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworksResult>("aws:odb/getNetworks:getNetworks", args ?? new GetNetworksInvokeArgs(), options.WithDefaults());
     }
@@ -84,9 +24,6 @@ namespace Pulumi.Aws.Odb
 
     public sealed class GetNetworksArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -98,9 +35,6 @@ namespace Pulumi.Aws.Odb
 
     public sealed class GetNetworksInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -118,9 +52,6 @@ namespace Pulumi.Aws.Odb
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// List of odb networks returns basic information about odb networks.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworksOdbNetworkResult> OdbNetworks;
         public readonly string Region;
 

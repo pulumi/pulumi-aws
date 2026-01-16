@@ -14,17 +14,9 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInli
 
     public static final AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgs Empty = new AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgs();
 
-    /**
-     * The inline schema payload content.
-     * 
-     */
     @Import(name="payload", required=true)
     private Output<String> payload;
 
-    /**
-     * @return The inline schema payload content.
-     * 
-     */
     public Output<String> payload() {
         return this.payload;
     }
@@ -53,23 +45,11 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInli
             $ = new AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param payload The inline schema payload content.
-         * 
-         * @return builder
-         * 
-         */
         public Builder payload(Output<String> payload) {
             $.payload = payload;
             return this;
         }
 
-        /**
-         * @param payload The inline schema payload content.
-         * 
-         * @return builder
-         * 
-         */
         public Builder payload(String payload) {
             return payload(Output.of(payload));
         }

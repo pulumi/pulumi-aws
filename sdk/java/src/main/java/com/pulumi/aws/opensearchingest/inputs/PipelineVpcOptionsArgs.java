@@ -17,47 +17,23 @@ public final class PipelineVpcOptionsArgs extends com.pulumi.resources.ResourceA
 
     public static final PipelineVpcOptionsArgs Empty = new PipelineVpcOptionsArgs();
 
-    /**
-     * A list of security groups associated with the VPC endpoint.
-     * 
-     */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
-    /**
-     * @return A list of security groups associated with the VPC endpoint.
-     * 
-     */
     public Optional<Output<List<String>>> securityGroupIds() {
         return Optional.ofNullable(this.securityGroupIds);
     }
 
-    /**
-     * A list of subnet IDs associated with the VPC endpoint.
-     * 
-     */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
-    /**
-     * @return A list of subnet IDs associated with the VPC endpoint.
-     * 
-     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
 
-    /**
-     * Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
-     * 
-     */
     @Import(name="vpcEndpointManagement")
     private @Nullable Output<String> vpcEndpointManagement;
 
-    /**
-     * @return Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
-     * 
-     */
     public Optional<Output<String>> vpcEndpointManagement() {
         return Optional.ofNullable(this.vpcEndpointManagement);
     }
@@ -88,85 +64,37 @@ public final class PipelineVpcOptionsArgs extends com.pulumi.resources.ResourceA
             $ = new PipelineVpcOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param securityGroupIds A list of security groups associated with the VPC endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(@Nullable Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
-        /**
-         * @param securityGroupIds A list of security groups associated with the VPC endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
-        /**
-         * @param securityGroupIds A list of security groups associated with the VPC endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
 
-        /**
-         * @param subnetIds A list of subnet IDs associated with the VPC endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
-        /**
-         * @param subnetIds A list of subnet IDs associated with the VPC endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
-        /**
-         * @param subnetIds A list of subnet IDs associated with the VPC endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
 
-        /**
-         * @param vpcEndpointManagement Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointManagement(@Nullable Output<String> vpcEndpointManagement) {
             $.vpcEndpointManagement = vpcEndpointManagement;
             return this;
         }
 
-        /**
-         * @param vpcEndpointManagement Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointManagement(String vpcEndpointManagement) {
             return vpcEndpointManagement(Output.of(vpcEndpointManagement));
         }

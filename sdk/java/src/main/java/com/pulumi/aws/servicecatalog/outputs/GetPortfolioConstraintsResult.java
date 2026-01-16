@@ -15,25 +15,13 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetPortfolioConstraintsResult {
     private @Nullable String acceptLanguage;
-    /**
-     * @return List of information about the constraints. See details below.
-     * 
-     */
     private List<GetPortfolioConstraintsDetail> details;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.
-     * 
-     */
     private String portfolioId;
-    /**
-     * @return Identifier of the product the constraint applies to. A constraint applies to a specific instance of a product within a certain portfolio.
-     * 
-     */
     private @Nullable String productId;
     private String region;
 
@@ -41,10 +29,6 @@ public final class GetPortfolioConstraintsResult {
     public Optional<String> acceptLanguage() {
         return Optional.ofNullable(this.acceptLanguage);
     }
-    /**
-     * @return List of information about the constraints. See details below.
-     * 
-     */
     public List<GetPortfolioConstraintsDetail> details() {
         return this.details;
     }
@@ -55,17 +39,9 @@ public final class GetPortfolioConstraintsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.
-     * 
-     */
     public String portfolioId() {
         return this.portfolioId;
     }
-    /**
-     * @return Identifier of the product the constraint applies to. A constraint applies to a specific instance of a product within a certain portfolio.
-     * 
-     */
     public Optional<String> productId() {
         return Optional.ofNullable(this.productId);
     }

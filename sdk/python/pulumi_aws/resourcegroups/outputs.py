@@ -26,10 +26,6 @@ class GroupConfiguration(dict):
     def __init__(__self__, *,
                  type: _builtins.str,
                  parameters: Optional[Sequence['outputs.GroupConfigurationParameter']] = None):
-        """
-        :param _builtins.str type: Specifies the type of group configuration item.
-        :param Sequence['GroupConfigurationParameterArgs'] parameters: A collection of parameters for this group configuration item. See below for details.
-        """
         pulumi.set(__self__, "type", type)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
@@ -37,17 +33,11 @@ class GroupConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Specifies the type of group configuration item.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[Sequence['outputs.GroupConfigurationParameter']]:
-        """
-        A collection of parameters for this group configuration item. See below for details.
-        """
         return pulumi.get(self, "parameters")
 
 
@@ -56,27 +46,17 @@ class GroupConfigurationParameter(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: The name of the group configuration parameter.
-        :param Sequence[_builtins.str] values: The value or values to be used for the specified parameter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the group configuration parameter.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        The value or values to be used for the specified parameter.
-        """
         return pulumi.get(self, "values")
 
 
@@ -85,10 +65,6 @@ class GroupResourceQuery(dict):
     def __init__(__self__, *,
                  query: _builtins.str,
                  type: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str query: The resource query as a JSON string.
-        :param _builtins.str type: The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
-        """
         pulumi.set(__self__, "query", query)
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -96,17 +72,11 @@ class GroupResourceQuery(dict):
     @_builtins.property
     @pulumi.getter
     def query(self) -> _builtins.str:
-        """
-        The resource query as a JSON string.
-        """
         return pulumi.get(self, "query")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
-        """
-        The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
-        """
         return pulumi.get(self, "type")
 
 

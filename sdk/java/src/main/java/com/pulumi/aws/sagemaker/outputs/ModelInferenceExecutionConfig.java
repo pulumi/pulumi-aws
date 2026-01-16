@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ModelInferenceExecutionConfig {
-    /**
-     * @return How containers in a multi-container are run. Allowed values are: `Serial` and `Direct`.
-     * 
-     */
     private String mode;
 
     private ModelInferenceExecutionConfig() {}
-    /**
-     * @return How containers in a multi-container are run. Allowed values are: `Serial` and `Direct`.
-     * 
-     */
     public String mode() {
         return this.mode;
     }

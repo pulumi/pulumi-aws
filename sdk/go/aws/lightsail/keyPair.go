@@ -11,131 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Lightsail Key Pair for use with Lightsail Instances. Use this resource to create or import key pairs that are separate from EC2 Key Pairs and required for Lightsail instances.
-//
-// > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
-//
-// ## Example Usage
-//
-// ### Create New Key Pair
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewKeyPair(ctx, "example", &lightsail.KeyPairArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Create New Key Pair with PGP Encrypted Private Key
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewKeyPair(ctx, "example", &lightsail.KeyPairArgs{
-//				Name:   pulumi.String("example"),
-//				PgpKey: pulumi.String("keybase:keybaseusername"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Existing Public Key Import
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "~/.ssh/id_rsa.pub",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewKeyPair(ctx, "example", &lightsail.KeyPairArgs{
-//				Name:      pulumi.String("example"),
-//				PublicKey: pulumi.String(invokeFile.Result),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// You cannot import Lightsail Key Pairs because the private and public key are only available on initial creation.
 type KeyPair struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Lightsail key pair.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// MD5 public key fingerprint for the encrypted private key.
-	EncryptedFingerprint pulumi.StringOutput `pulumi:"encryptedFingerprint"`
-	// Private key material, base 64 encoded and encrypted with the given `pgpKey`. This is only populated when creating a new key and `pgpKey` is supplied.
-	EncryptedPrivateKey pulumi.StringOutput `pulumi:"encryptedPrivateKey"`
-	// MD5 public key fingerprint as specified in section 4 of RFC 4716.
-	Fingerprint pulumi.StringOutput `pulumi:"fingerprint"`
-	// Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// PGP key to encrypt the resulting private key material. Only used when creating a new key pair.
-	PgpKey pulumi.StringPtrOutput `pulumi:"pgpKey"`
-	// Private key, base64 encoded. This is only populated when creating a new key, and when no `pgpKey` is provided.
-	PrivateKey pulumi.StringOutput `pulumi:"privateKey"`
-	// Public key material. This public key will be imported into Lightsail.
-	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// > **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `pgpKey` is ignored if `publicKey` is supplied.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                  pulumi.StringOutput    `pulumi:"arn"`
+	EncryptedFingerprint pulumi.StringOutput    `pulumi:"encryptedFingerprint"`
+	EncryptedPrivateKey  pulumi.StringOutput    `pulumi:"encryptedPrivateKey"`
+	Fingerprint          pulumi.StringOutput    `pulumi:"fingerprint"`
+	Name                 pulumi.StringOutput    `pulumi:"name"`
+	NamePrefix           pulumi.StringOutput    `pulumi:"namePrefix"`
+	PgpKey               pulumi.StringPtrOutput `pulumi:"pgpKey"`
+	PrivateKey           pulumi.StringOutput    `pulumi:"privateKey"`
+	PublicKey            pulumi.StringOutput    `pulumi:"publicKey"`
+	Region               pulumi.StringOutput    `pulumi:"region"`
+	Tags                 pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll              pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewKeyPair registers a new resource with the given unique name, arguments, and options.
@@ -168,61 +58,33 @@ func GetKeyPair(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KeyPair resources.
 type keyPairState struct {
-	// ARN of the Lightsail key pair.
-	Arn *string `pulumi:"arn"`
-	// MD5 public key fingerprint for the encrypted private key.
-	EncryptedFingerprint *string `pulumi:"encryptedFingerprint"`
-	// Private key material, base 64 encoded and encrypted with the given `pgpKey`. This is only populated when creating a new key and `pgpKey` is supplied.
-	EncryptedPrivateKey *string `pulumi:"encryptedPrivateKey"`
-	// MD5 public key fingerprint as specified in section 4 of RFC 4716.
-	Fingerprint *string `pulumi:"fingerprint"`
-	// Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// PGP key to encrypt the resulting private key material. Only used when creating a new key pair.
-	PgpKey *string `pulumi:"pgpKey"`
-	// Private key, base64 encoded. This is only populated when creating a new key, and when no `pgpKey` is provided.
-	PrivateKey *string `pulumi:"privateKey"`
-	// Public key material. This public key will be imported into Lightsail.
-	PublicKey *string `pulumi:"publicKey"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// > **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `pgpKey` is ignored if `publicKey` is supplied.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                  *string           `pulumi:"arn"`
+	EncryptedFingerprint *string           `pulumi:"encryptedFingerprint"`
+	EncryptedPrivateKey  *string           `pulumi:"encryptedPrivateKey"`
+	Fingerprint          *string           `pulumi:"fingerprint"`
+	Name                 *string           `pulumi:"name"`
+	NamePrefix           *string           `pulumi:"namePrefix"`
+	PgpKey               *string           `pulumi:"pgpKey"`
+	PrivateKey           *string           `pulumi:"privateKey"`
+	PublicKey            *string           `pulumi:"publicKey"`
+	Region               *string           `pulumi:"region"`
+	Tags                 map[string]string `pulumi:"tags"`
+	TagsAll              map[string]string `pulumi:"tagsAll"`
 }
 
 type KeyPairState struct {
-	// ARN of the Lightsail key pair.
-	Arn pulumi.StringPtrInput
-	// MD5 public key fingerprint for the encrypted private key.
+	Arn                  pulumi.StringPtrInput
 	EncryptedFingerprint pulumi.StringPtrInput
-	// Private key material, base 64 encoded and encrypted with the given `pgpKey`. This is only populated when creating a new key and `pgpKey` is supplied.
-	EncryptedPrivateKey pulumi.StringPtrInput
-	// MD5 public key fingerprint as specified in section 4 of RFC 4716.
-	Fingerprint pulumi.StringPtrInput
-	// Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// PGP key to encrypt the resulting private key material. Only used when creating a new key pair.
-	PgpKey pulumi.StringPtrInput
-	// Private key, base64 encoded. This is only populated when creating a new key, and when no `pgpKey` is provided.
-	PrivateKey pulumi.StringPtrInput
-	// Public key material. This public key will be imported into Lightsail.
-	PublicKey pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// > **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `pgpKey` is ignored if `publicKey` is supplied.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	EncryptedPrivateKey  pulumi.StringPtrInput
+	Fingerprint          pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
+	NamePrefix           pulumi.StringPtrInput
+	PgpKey               pulumi.StringPtrInput
+	PrivateKey           pulumi.StringPtrInput
+	PublicKey            pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
+	TagsAll              pulumi.StringMapInput
 }
 
 func (KeyPairState) ElementType() reflect.Type {
@@ -230,38 +92,22 @@ func (KeyPairState) ElementType() reflect.Type {
 }
 
 type keyPairArgs struct {
-	// Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// PGP key to encrypt the resulting private key material. Only used when creating a new key pair.
-	PgpKey *string `pulumi:"pgpKey"`
-	// Public key material. This public key will be imported into Lightsail.
-	PublicKey *string `pulumi:"publicKey"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// > **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `pgpKey` is ignored if `publicKey` is supplied.
-	Tags map[string]string `pulumi:"tags"`
+	Name       *string           `pulumi:"name"`
+	NamePrefix *string           `pulumi:"namePrefix"`
+	PgpKey     *string           `pulumi:"pgpKey"`
+	PublicKey  *string           `pulumi:"publicKey"`
+	Region     *string           `pulumi:"region"`
+	Tags       map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a KeyPair resource.
 type KeyPairArgs struct {
-	// Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	Name       pulumi.StringPtrInput
 	NamePrefix pulumi.StringPtrInput
-	// PGP key to encrypt the resulting private key material. Only used when creating a new key pair.
-	PgpKey pulumi.StringPtrInput
-	// Public key material. This public key will be imported into Lightsail.
-	PublicKey pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// > **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `pgpKey` is ignored if `publicKey` is supplied.
-	Tags pulumi.StringMapInput
+	PgpKey     pulumi.StringPtrInput
+	PublicKey  pulumi.StringPtrInput
+	Region     pulumi.StringPtrInput
+	Tags       pulumi.StringMapInput
 }
 
 func (KeyPairArgs) ElementType() reflect.Type {
@@ -351,64 +197,50 @@ func (o KeyPairOutput) ToKeyPairOutputWithContext(ctx context.Context) KeyPairOu
 	return o
 }
 
-// ARN of the Lightsail key pair.
 func (o KeyPairOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// MD5 public key fingerprint for the encrypted private key.
 func (o KeyPairOutput) EncryptedFingerprint() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.EncryptedFingerprint }).(pulumi.StringOutput)
 }
 
-// Private key material, base 64 encoded and encrypted with the given `pgpKey`. This is only populated when creating a new key and `pgpKey` is supplied.
 func (o KeyPairOutput) EncryptedPrivateKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.EncryptedPrivateKey }).(pulumi.StringOutput)
 }
 
-// MD5 public key fingerprint as specified in section 4 of RFC 4716.
 func (o KeyPairOutput) Fingerprint() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.Fingerprint }).(pulumi.StringOutput)
 }
 
-// Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o KeyPairOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 func (o KeyPairOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// PGP key to encrypt the resulting private key material. Only used when creating a new key pair.
 func (o KeyPairOutput) PgpKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringPtrOutput { return v.PgpKey }).(pulumi.StringPtrOutput)
 }
 
-// Private key, base64 encoded. This is only populated when creating a new key, and when no `pgpKey` is provided.
 func (o KeyPairOutput) PrivateKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.PrivateKey }).(pulumi.StringOutput)
 }
 
-// Public key material. This public key will be imported into Lightsail.
 func (o KeyPairOutput) PublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.PublicKey }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o KeyPairOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-//
-// > **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `pgpKey` is ignored if `publicKey` is supplied.
 func (o KeyPairOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o KeyPairOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

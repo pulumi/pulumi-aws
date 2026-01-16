@@ -15,141 +15,47 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a way to set SNS SMS preferences.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sns.SmsPreferences;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var updateSmsPrefs = new SmsPreferences("updateSmsPrefs");
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * You cannot import the SMS preferences.
- * 
- */
 @ResourceType(type="aws:sns/smsPreferences:SmsPreferences")
 public class SmsPreferences extends com.pulumi.resources.CustomResource {
-    /**
-     * A string, such as your business brand, that is displayed as the sender on the receiving device.
-     * 
-     */
     @Export(name="defaultSenderId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultSenderId;
 
-    /**
-     * @return A string, such as your business brand, that is displayed as the sender on the receiving device.
-     * 
-     */
     public Output<Optional<String>> defaultSenderId() {
         return Codegen.optional(this.defaultSenderId);
     }
-    /**
-     * The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
-     * 
-     */
     @Export(name="defaultSmsType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultSmsType;
 
-    /**
-     * @return The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
-     * 
-     */
     public Output<Optional<String>> defaultSmsType() {
         return Codegen.optional(this.defaultSmsType);
     }
-    /**
-     * The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
-     * 
-     */
     @Export(name="deliveryStatusIamRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deliveryStatusIamRoleArn;
 
-    /**
-     * @return The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
-     * 
-     */
     public Output<Optional<String>> deliveryStatusIamRoleArn() {
         return Codegen.optional(this.deliveryStatusIamRoleArn);
     }
-    /**
-     * The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
-     * 
-     */
     @Export(name="deliveryStatusSuccessSamplingRate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deliveryStatusSuccessSamplingRate;
 
-    /**
-     * @return The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
-     * 
-     */
     public Output<Optional<String>> deliveryStatusSuccessSamplingRate() {
         return Codegen.optional(this.deliveryStatusSuccessSamplingRate);
     }
-    /**
-     * The maximum amount in USD that you are willing to spend each month to send SMS messages.
-     * 
-     */
     @Export(name="monthlySpendLimit", refs={Integer.class}, tree="[0]")
     private Output<Integer> monthlySpendLimit;
 
-    /**
-     * @return The maximum amount in USD that you are willing to spend each month to send SMS messages.
-     * 
-     */
     public Output<Integer> monthlySpendLimit() {
         return this.monthlySpendLimit;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
-     * 
-     */
     @Export(name="usageReportS3Bucket", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> usageReportS3Bucket;
 
-    /**
-     * @return The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
-     * 
-     */
     public Output<Optional<String>> usageReportS3Bucket() {
         return Codegen.optional(this.usageReportS3Bucket);
     }

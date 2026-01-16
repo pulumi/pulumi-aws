@@ -9,113 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Glue
 {
-    /// <summary>
-    /// Provides a Glue User Defined Function Resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Glue.CatalogDatabase("example", new()
-    ///     {
-    ///         Name = "my_database",
-    ///     });
-    /// 
-    ///     var exampleUserDefinedFunction = new Aws.Glue.UserDefinedFunction("example", new()
-    ///     {
-    ///         Name = "my_func",
-    ///         CatalogId = example.CatalogId,
-    ///         DatabaseName = example.Name,
-    ///         ClassName = "class",
-    ///         OwnerName = "owner",
-    ///         OwnerType = "GROUP",
-    ///         ResourceUris = new[]
-    ///         {
-    ///             new Aws.Glue.Inputs.UserDefinedFunctionResourceUriArgs
-    ///             {
-    ///                 ResourceType = "ARCHIVE",
-    ///                 Uri = "uri",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Glue User Defined Functions using the `catalog_id:database_name:function_name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:glue/userDefinedFunction:UserDefinedFunction func 123456789012:my_database:my_func
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:glue/userDefinedFunction:UserDefinedFunction")]
     public partial class UserDefinedFunction : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the Glue User Defined Function.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
-        /// </summary>
         [Output("catalogId")]
         public Output<string?> CatalogId { get; private set; } = null!;
 
-        /// <summary>
-        /// The Java class that contains the function code.
-        /// </summary>
         [Output("className")]
         public Output<string> ClassName { get; private set; } = null!;
 
-        /// <summary>
-        /// The time at which the function was created.
-        /// </summary>
         [Output("createTime")]
         public Output<string> CreateTime { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Database to create the Function.
-        /// </summary>
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the function.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The owner of the function.
-        /// </summary>
         [Output("ownerName")]
         public Output<string> OwnerName { get; private set; } = null!;
 
-        /// <summary>
-        /// The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
-        /// </summary>
         [Output("ownerType")]
         public Output<string> OwnerType { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The configuration block for Resource URIs. See resource uris below for more details.
-        /// </summary>
         [Output("resourceUris")]
         public Output<ImmutableArray<Outputs.UserDefinedFunctionResourceUri>> ResourceUris { get; private set; } = null!;
 
@@ -165,54 +88,29 @@ namespace Pulumi.Aws.Glue
 
     public sealed class UserDefinedFunctionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
-        /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
-        /// <summary>
-        /// The Java class that contains the function code.
-        /// </summary>
         [Input("className", required: true)]
         public Input<string> ClassName { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the Database to create the Function.
-        /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the function.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The owner of the function.
-        /// </summary>
         [Input("ownerName", required: true)]
         public Input<string> OwnerName { get; set; } = null!;
 
-        /// <summary>
-        /// The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
-        /// </summary>
         [Input("ownerType", required: true)]
         public Input<string> OwnerType { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("resourceUris")]
         private InputList<Inputs.UserDefinedFunctionResourceUriArgs>? _resourceUris;
-
-        /// <summary>
-        /// The configuration block for Resource URIs. See resource uris below for more details.
-        /// </summary>
         public InputList<Inputs.UserDefinedFunctionResourceUriArgs> ResourceUris
         {
             get => _resourceUris ?? (_resourceUris = new InputList<Inputs.UserDefinedFunctionResourceUriArgs>());
@@ -227,66 +125,35 @@ namespace Pulumi.Aws.Glue
 
     public sealed class UserDefinedFunctionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the Glue User Defined Function.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
-        /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
-        /// <summary>
-        /// The Java class that contains the function code.
-        /// </summary>
         [Input("className")]
         public Input<string>? ClassName { get; set; }
 
-        /// <summary>
-        /// The time at which the function was created.
-        /// </summary>
         [Input("createTime")]
         public Input<string>? CreateTime { get; set; }
 
-        /// <summary>
-        /// The name of the Database to create the Function.
-        /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
 
-        /// <summary>
-        /// The name of the function.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The owner of the function.
-        /// </summary>
         [Input("ownerName")]
         public Input<string>? OwnerName { get; set; }
 
-        /// <summary>
-        /// The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
-        /// </summary>
         [Input("ownerType")]
         public Input<string>? OwnerType { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("resourceUris")]
         private InputList<Inputs.UserDefinedFunctionResourceUriGetArgs>? _resourceUris;
-
-        /// <summary>
-        /// The configuration block for Resource URIs. See resource uris below for more details.
-        /// </summary>
         public InputList<Inputs.UserDefinedFunctionResourceUriGetArgs> ResourceUris
         {
             get => _resourceUris ?? (_resourceUris = new InputList<Inputs.UserDefinedFunctionResourceUriGetArgs>());

@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class RefreshScheduleScheduleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-        /// </summary>
         [Input("refreshType", required: true)]
         public Input<string> RefreshType { get; set; } = null!;
 
-        /// <summary>
-        /// The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
-        /// </summary>
         [Input("scheduleFrequency")]
         public Input<Inputs.RefreshScheduleScheduleScheduleFrequencyArgs>? ScheduleFrequency { get; set; }
 
-        /// <summary>
-        /// Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
-        /// </summary>
         [Input("startAfterDateTime")]
         public Input<string>? StartAfterDateTime { get; set; }
 

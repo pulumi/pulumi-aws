@@ -43,33 +43,21 @@ class GetCallerIdentityResult:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> _builtins.str:
-        """
-        AWS Account ID number of the account that owns or contains the calling entity.
-        """
         return pulumi.get(self, "account_id")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN associated with the calling entity.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        Account ID number of the account that owns or contains the calling entity.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="userId")
     def user_id(self) -> _builtins.str:
-        """
-        Unique identifier of the calling entity.
-        """
         return pulumi.get(self, "user_id")
 
 
@@ -88,23 +76,7 @@ class AwaitableGetCallerIdentityResult(GetCallerIdentityResult):
 def get_caller_identity(id: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCallerIdentityResult:
     """
-    Use this data source to get the access to the effective Account ID, User ID, and ARN in
-    which this provider is authorized.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_caller_identity()
-    pulumi.export("accountId", current.account_id)
-    pulumi.export("callerArn", current.arn)
-    pulumi.export("callerUser", current.user_id)
-    ```
-
-
-    :param _builtins.str id: Account ID number of the account that owns or contains the calling entity.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -119,23 +91,7 @@ def get_caller_identity(id: Optional[_builtins.str] = None,
 def get_caller_identity_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCallerIdentityResult]:
     """
-    Use this data source to get the access to the effective Account ID, User ID, and ARN in
-    which this provider is authorized.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_caller_identity()
-    pulumi.export("accountId", current.account_id)
-    pulumi.export("callerArn", current.arn)
-    pulumi.export("callerUser", current.user_id)
-    ```
-
-
-    :param _builtins.str id: Account ID number of the account that owns or contains the calling entity.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolAccountRecoverySettingRecoveryMechanism
     {
-        /// <summary>
-        /// Recovery method for a user. Can be of the following: `VerifiedEmail`, `VerifiedPhoneNumber`, and `AdminOnly`.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Positive integer specifying priority of a method with 1 being the highest priority.
-        /// </summary>
         public readonly int Priority;
 
         [OutputConstructor]

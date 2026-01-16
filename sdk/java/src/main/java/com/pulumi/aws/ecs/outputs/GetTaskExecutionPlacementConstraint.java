@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTaskExecutionPlacementConstraint {
-    /**
-     * @return A cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can&#39;t specify an expression if the constraint type is `distinctInstance`.
-     * 
-     */
     private @Nullable String expression;
-    /**
-     * @return The type of constraint. Valid values are `distinctInstance` or `memberOf`. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
-     * 
-     */
     private String type;
 
     private GetTaskExecutionPlacementConstraint() {}
-    /**
-     * @return A cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can&#39;t specify an expression if the constraint type is `distinctInstance`.
-     * 
-     */
     public Optional<String> expression() {
         return Optional.ofNullable(this.expression);
     }
-    /**
-     * @return The type of constraint. Valid values are `distinctInstance` or `memberOf`. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
-     * 
-     */
     public String type() {
         return this.type;
     }

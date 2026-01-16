@@ -15,47 +15,23 @@ public final class InviteAccepterState extends com.pulumi.resources.ResourceArgs
 
     public static final InviteAccepterState Empty = new InviteAccepterState();
 
-    /**
-     * The detector ID of the member GuardDuty account.
-     * 
-     */
     @Import(name="detectorId")
     private @Nullable Output<String> detectorId;
 
-    /**
-     * @return The detector ID of the member GuardDuty account.
-     * 
-     */
     public Optional<Output<String>> detectorId() {
         return Optional.ofNullable(this.detectorId);
     }
 
-    /**
-     * AWS account ID for primary account.
-     * 
-     */
     @Import(name="masterAccountId")
     private @Nullable Output<String> masterAccountId;
 
-    /**
-     * @return AWS account ID for primary account.
-     * 
-     */
     public Optional<Output<String>> masterAccountId() {
         return Optional.ofNullable(this.masterAccountId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -86,65 +62,29 @@ public final class InviteAccepterState extends com.pulumi.resources.ResourceArgs
             $ = new InviteAccepterState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param detectorId The detector ID of the member GuardDuty account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder detectorId(@Nullable Output<String> detectorId) {
             $.detectorId = detectorId;
             return this;
         }
 
-        /**
-         * @param detectorId The detector ID of the member GuardDuty account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder detectorId(String detectorId) {
             return detectorId(Output.of(detectorId));
         }
 
-        /**
-         * @param masterAccountId AWS account ID for primary account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder masterAccountId(@Nullable Output<String> masterAccountId) {
             $.masterAccountId = masterAccountId;
             return this;
         }
 
-        /**
-         * @param masterAccountId AWS account ID for primary account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder masterAccountId(String masterAccountId) {
             return masterAccountId(Output.of(masterAccountId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

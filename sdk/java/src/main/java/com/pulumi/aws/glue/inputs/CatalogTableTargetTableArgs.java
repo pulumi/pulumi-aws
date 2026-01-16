@@ -16,62 +16,30 @@ public final class CatalogTableTargetTableArgs extends com.pulumi.resources.Reso
 
     public static final CatalogTableTargetTableArgs Empty = new CatalogTableTargetTableArgs();
 
-    /**
-     * ID of the Data Catalog in which the table resides.
-     * 
-     */
     @Import(name="catalogId", required=true)
     private Output<String> catalogId;
 
-    /**
-     * @return ID of the Data Catalog in which the table resides.
-     * 
-     */
     public Output<String> catalogId() {
         return this.catalogId;
     }
 
-    /**
-     * Name of the catalog database that contains the target table.
-     * 
-     */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
-    /**
-     * @return Name of the catalog database that contains the target table.
-     * 
-     */
     public Output<String> databaseName() {
         return this.databaseName;
     }
 
-    /**
-     * Name of the target table.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the target table.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Region of the target table.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region of the target table.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -103,86 +71,38 @@ public final class CatalogTableTargetTableArgs extends com.pulumi.resources.Reso
             $ = new CatalogTableTargetTableArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param catalogId ID of the Data Catalog in which the table resides.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(Output<String> catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
-        /**
-         * @param catalogId ID of the Data Catalog in which the table resides.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(String catalogId) {
             return catalogId(Output.of(catalogId));
         }
 
-        /**
-         * @param databaseName Name of the catalog database that contains the target table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(Output<String> databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
-        /**
-         * @param databaseName Name of the catalog database that contains the target table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
         }
 
-        /**
-         * @param name Name of the target table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the target table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region of the target table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region of the target table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

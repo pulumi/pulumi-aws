@@ -9,75 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudFront
 {
-    /// <summary>
-    /// Resource for managing an AWS CloudFront Key Value Store.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudFront.KeyValueStore("example", new()
-    ///     {
-    ///         Name = "ExampleKeyValueStore",
-    ///         Comment = "This is an example key value store",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// * `name` (String) Name of the CloudFront Key Value Store.
-    /// 
-    /// #### Optional
-    /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
-    /// 
-    /// Using `pulumi import`, import CloudFront Key Value Store using the `name`. For example:
-    /// 
-    /// % pulumi import aws_cloudfront_key_value_store.example example_store
-    /// </summary>
     [AwsResourceType("aws:cloudfront/keyValueStore:KeyValueStore")]
     public partial class KeyValueStore : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Comment.
-        /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
 
-        /// <summary>
-        /// ETag hash of the KeyValueStore.
-        /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique name for your CloudFront KeyValueStore.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -130,17 +76,9 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class KeyValueStoreArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Comment.
-        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
-        /// <summary>
-        /// Unique name for your CloudFront KeyValueStore.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -155,32 +93,18 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class KeyValueStoreState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Comment.
-        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
-        /// <summary>
-        /// ETag hash of the KeyValueStore.
-        /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
         [Input("lastModifiedTime")]
         public Input<string>? LastModifiedTime { get; set; }
 
-        /// <summary>
-        /// Unique name for your CloudFront KeyValueStore.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

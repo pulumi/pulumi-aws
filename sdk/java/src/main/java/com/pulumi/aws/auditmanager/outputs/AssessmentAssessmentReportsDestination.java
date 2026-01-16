@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AssessmentAssessmentReportsDestination {
-    /**
-     * @return Destination of the assessment report. This value be in the form `s3://{bucket_name}`.
-     * 
-     */
     private String destination;
-    /**
-     * @return Destination type. Currently, `S3` is the only valid value.
-     * 
-     */
     private String destinationType;
 
     private AssessmentAssessmentReportsDestination() {}
-    /**
-     * @return Destination of the assessment report. This value be in the form `s3://{bucket_name}`.
-     * 
-     */
     public String destination() {
         return this.destination;
     }
-    /**
-     * @return Destination type. Currently, `S3` is the only valid value.
-     * 
-     */
     public String destinationType() {
         return this.destinationType;
     }

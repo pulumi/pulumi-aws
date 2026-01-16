@@ -14,12 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type FrameworkControl struct {
-	// One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
 	InputParameters []FrameworkControlInputParameter `pulumi:"inputParameters"`
-	// The name of a control. This name is between 1 and 256 characters.
-	Name string `pulumi:"name"`
-	// The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
-	Scope *FrameworkControlScope `pulumi:"scope"`
+	Name            string                           `pulumi:"name"`
+	Scope           *FrameworkControlScope           `pulumi:"scope"`
 }
 
 // FrameworkControlInput is an input type that accepts FrameworkControlArgs and FrameworkControlOutput values.
@@ -34,12 +31,9 @@ type FrameworkControlInput interface {
 }
 
 type FrameworkControlArgs struct {
-	// One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
 	InputParameters FrameworkControlInputParameterArrayInput `pulumi:"inputParameters"`
-	// The name of a control. This name is between 1 and 256 characters.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
-	Scope FrameworkControlScopePtrInput `pulumi:"scope"`
+	Name            pulumi.StringInput                       `pulumi:"name"`
+	Scope           FrameworkControlScopePtrInput            `pulumi:"scope"`
 }
 
 func (FrameworkControlArgs) ElementType() reflect.Type {
@@ -93,17 +87,14 @@ func (o FrameworkControlOutput) ToFrameworkControlOutputWithContext(ctx context.
 	return o
 }
 
-// One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
 func (o FrameworkControlOutput) InputParameters() FrameworkControlInputParameterArrayOutput {
 	return o.ApplyT(func(v FrameworkControl) []FrameworkControlInputParameter { return v.InputParameters }).(FrameworkControlInputParameterArrayOutput)
 }
 
-// The name of a control. This name is between 1 and 256 characters.
 func (o FrameworkControlOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FrameworkControl) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
 func (o FrameworkControlOutput) Scope() FrameworkControlScopePtrOutput {
 	return o.ApplyT(func(v FrameworkControl) *FrameworkControlScope { return v.Scope }).(FrameworkControlScopePtrOutput)
 }
@@ -129,9 +120,7 @@ func (o FrameworkControlArrayOutput) Index(i pulumi.IntInput) FrameworkControlOu
 }
 
 type FrameworkControlInputParameter struct {
-	// The name of a parameter, for example, BackupPlanFrequency.
-	Name *string `pulumi:"name"`
-	// The value of parameter, for example, hourly.
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -147,9 +136,7 @@ type FrameworkControlInputParameterInput interface {
 }
 
 type FrameworkControlInputParameterArgs struct {
-	// The name of a parameter, for example, BackupPlanFrequency.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The value of parameter, for example, hourly.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -204,12 +191,10 @@ func (o FrameworkControlInputParameterOutput) ToFrameworkControlInputParameterOu
 	return o
 }
 
-// The name of a parameter, for example, BackupPlanFrequency.
 func (o FrameworkControlInputParameterOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrameworkControlInputParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The value of parameter, for example, hourly.
 func (o FrameworkControlInputParameterOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrameworkControlInputParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -235,12 +220,9 @@ func (o FrameworkControlInputParameterArrayOutput) Index(i pulumi.IntInput) Fram
 }
 
 type FrameworkControlScope struct {
-	// The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
-	ComplianceResourceIds []string `pulumi:"complianceResourceIds"`
-	// Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
-	ComplianceResourceTypes []string `pulumi:"complianceResourceTypes"`
-	// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
-	Tags map[string]string `pulumi:"tags"`
+	ComplianceResourceIds   []string          `pulumi:"complianceResourceIds"`
+	ComplianceResourceTypes []string          `pulumi:"complianceResourceTypes"`
+	Tags                    map[string]string `pulumi:"tags"`
 }
 
 // FrameworkControlScopeInput is an input type that accepts FrameworkControlScopeArgs and FrameworkControlScopeOutput values.
@@ -255,12 +237,9 @@ type FrameworkControlScopeInput interface {
 }
 
 type FrameworkControlScopeArgs struct {
-	// The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
-	ComplianceResourceIds pulumi.StringArrayInput `pulumi:"complianceResourceIds"`
-	// Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
+	ComplianceResourceIds   pulumi.StringArrayInput `pulumi:"complianceResourceIds"`
 	ComplianceResourceTypes pulumi.StringArrayInput `pulumi:"complianceResourceTypes"`
-	// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags                    pulumi.StringMapInput   `pulumi:"tags"`
 }
 
 func (FrameworkControlScopeArgs) ElementType() reflect.Type {
@@ -340,17 +319,14 @@ func (o FrameworkControlScopeOutput) ToFrameworkControlScopePtrOutputWithContext
 	}).(FrameworkControlScopePtrOutput)
 }
 
-// The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
 func (o FrameworkControlScopeOutput) ComplianceResourceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrameworkControlScope) []string { return v.ComplianceResourceIds }).(pulumi.StringArrayOutput)
 }
 
-// Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
 func (o FrameworkControlScopeOutput) ComplianceResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrameworkControlScope) []string { return v.ComplianceResourceTypes }).(pulumi.StringArrayOutput)
 }
 
-// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
 func (o FrameworkControlScopeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v FrameworkControlScope) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -379,7 +355,6 @@ func (o FrameworkControlScopePtrOutput) Elem() FrameworkControlScopeOutput {
 	}).(FrameworkControlScopeOutput)
 }
 
-// The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
 func (o FrameworkControlScopePtrOutput) ComplianceResourceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FrameworkControlScope) []string {
 		if v == nil {
@@ -389,7 +364,6 @@ func (o FrameworkControlScopePtrOutput) ComplianceResourceIds() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
 func (o FrameworkControlScopePtrOutput) ComplianceResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FrameworkControlScope) []string {
 		if v == nil {
@@ -399,7 +373,6 @@ func (o FrameworkControlScopePtrOutput) ComplianceResourceTypes() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
 func (o FrameworkControlScopePtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FrameworkControlScope) map[string]string {
 		if v == nil {
@@ -547,10 +520,8 @@ func (o LogicallyAirGappedVaultTimeoutsPtrOutput) Create() pulumi.StringPtrOutpu
 }
 
 type PlanAdvancedBackupSetting struct {
-	// Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
 	BackupOptions map[string]string `pulumi:"backupOptions"`
-	// The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
-	ResourceType string `pulumi:"resourceType"`
+	ResourceType  string            `pulumi:"resourceType"`
 }
 
 // PlanAdvancedBackupSettingInput is an input type that accepts PlanAdvancedBackupSettingArgs and PlanAdvancedBackupSettingOutput values.
@@ -565,10 +536,8 @@ type PlanAdvancedBackupSettingInput interface {
 }
 
 type PlanAdvancedBackupSettingArgs struct {
-	// Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
 	BackupOptions pulumi.StringMapInput `pulumi:"backupOptions"`
-	// The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+	ResourceType  pulumi.StringInput    `pulumi:"resourceType"`
 }
 
 func (PlanAdvancedBackupSettingArgs) ElementType() reflect.Type {
@@ -622,12 +591,10 @@ func (o PlanAdvancedBackupSettingOutput) ToPlanAdvancedBackupSettingOutputWithCo
 	return o
 }
 
-// Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
 func (o PlanAdvancedBackupSettingOutput) BackupOptions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PlanAdvancedBackupSetting) map[string]string { return v.BackupOptions }).(pulumi.StringMapOutput)
 }
 
-// The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
 func (o PlanAdvancedBackupSettingOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanAdvancedBackupSetting) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -653,30 +620,18 @@ func (o PlanAdvancedBackupSettingArrayOutput) Index(i pulumi.IntInput) PlanAdvan
 }
 
 type PlanRule struct {
-	// The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
-	CompletionWindow *int `pulumi:"completionWindow"`
-	// Configuration block(s) with copy operation settings. Detailed below.
-	CopyActions []PlanRuleCopyAction `pulumi:"copyActions"`
-	// Enable continuous backups for supported resources.
-	EnableContinuousBackup *bool `pulumi:"enableContinuousBackup"`
-	// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
-	Lifecycle *PlanRuleLifecycle `pulumi:"lifecycle"`
-	// Metadata that you can assign to help organize the resources that you create.
-	RecoveryPointTags map[string]string `pulumi:"recoveryPointTags"`
-	// An display name for a backup rule.
-	RuleName string `pulumi:"ruleName"`
-	// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
-	ScanActions []PlanRuleScanAction `pulumi:"scanActions"`
-	// A CRON expression specifying when AWS Backup initiates a backup job.
-	Schedule *string `pulumi:"schedule"`
-	// The timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
-	ScheduleExpressionTimezone *string `pulumi:"scheduleExpressionTimezone"`
-	// The amount of time in minutes before beginning a backup.
-	StartWindow *int `pulumi:"startWindow"`
-	// The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
-	TargetLogicallyAirGappedBackupVaultArn *string `pulumi:"targetLogicallyAirGappedBackupVaultArn"`
-	// The name of a logical container where backups are stored.
-	TargetVaultName string `pulumi:"targetVaultName"`
+	CompletionWindow                       *int                 `pulumi:"completionWindow"`
+	CopyActions                            []PlanRuleCopyAction `pulumi:"copyActions"`
+	EnableContinuousBackup                 *bool                `pulumi:"enableContinuousBackup"`
+	Lifecycle                              *PlanRuleLifecycle   `pulumi:"lifecycle"`
+	RecoveryPointTags                      map[string]string    `pulumi:"recoveryPointTags"`
+	RuleName                               string               `pulumi:"ruleName"`
+	ScanActions                            []PlanRuleScanAction `pulumi:"scanActions"`
+	Schedule                               *string              `pulumi:"schedule"`
+	ScheduleExpressionTimezone             *string              `pulumi:"scheduleExpressionTimezone"`
+	StartWindow                            *int                 `pulumi:"startWindow"`
+	TargetLogicallyAirGappedBackupVaultArn *string              `pulumi:"targetLogicallyAirGappedBackupVaultArn"`
+	TargetVaultName                        string               `pulumi:"targetVaultName"`
 }
 
 // PlanRuleInput is an input type that accepts PlanRuleArgs and PlanRuleOutput values.
@@ -691,30 +646,18 @@ type PlanRuleInput interface {
 }
 
 type PlanRuleArgs struct {
-	// The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
-	CompletionWindow pulumi.IntPtrInput `pulumi:"completionWindow"`
-	// Configuration block(s) with copy operation settings. Detailed below.
-	CopyActions PlanRuleCopyActionArrayInput `pulumi:"copyActions"`
-	// Enable continuous backups for supported resources.
-	EnableContinuousBackup pulumi.BoolPtrInput `pulumi:"enableContinuousBackup"`
-	// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
-	Lifecycle PlanRuleLifecyclePtrInput `pulumi:"lifecycle"`
-	// Metadata that you can assign to help organize the resources that you create.
-	RecoveryPointTags pulumi.StringMapInput `pulumi:"recoveryPointTags"`
-	// An display name for a backup rule.
-	RuleName pulumi.StringInput `pulumi:"ruleName"`
-	// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
-	ScanActions PlanRuleScanActionArrayInput `pulumi:"scanActions"`
-	// A CRON expression specifying when AWS Backup initiates a backup job.
-	Schedule pulumi.StringPtrInput `pulumi:"schedule"`
-	// The timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
-	ScheduleExpressionTimezone pulumi.StringPtrInput `pulumi:"scheduleExpressionTimezone"`
-	// The amount of time in minutes before beginning a backup.
-	StartWindow pulumi.IntPtrInput `pulumi:"startWindow"`
-	// The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
-	TargetLogicallyAirGappedBackupVaultArn pulumi.StringPtrInput `pulumi:"targetLogicallyAirGappedBackupVaultArn"`
-	// The name of a logical container where backups are stored.
-	TargetVaultName pulumi.StringInput `pulumi:"targetVaultName"`
+	CompletionWindow                       pulumi.IntPtrInput           `pulumi:"completionWindow"`
+	CopyActions                            PlanRuleCopyActionArrayInput `pulumi:"copyActions"`
+	EnableContinuousBackup                 pulumi.BoolPtrInput          `pulumi:"enableContinuousBackup"`
+	Lifecycle                              PlanRuleLifecyclePtrInput    `pulumi:"lifecycle"`
+	RecoveryPointTags                      pulumi.StringMapInput        `pulumi:"recoveryPointTags"`
+	RuleName                               pulumi.StringInput           `pulumi:"ruleName"`
+	ScanActions                            PlanRuleScanActionArrayInput `pulumi:"scanActions"`
+	Schedule                               pulumi.StringPtrInput        `pulumi:"schedule"`
+	ScheduleExpressionTimezone             pulumi.StringPtrInput        `pulumi:"scheduleExpressionTimezone"`
+	StartWindow                            pulumi.IntPtrInput           `pulumi:"startWindow"`
+	TargetLogicallyAirGappedBackupVaultArn pulumi.StringPtrInput        `pulumi:"targetLogicallyAirGappedBackupVaultArn"`
+	TargetVaultName                        pulumi.StringInput           `pulumi:"targetVaultName"`
 }
 
 func (PlanRuleArgs) ElementType() reflect.Type {
@@ -768,62 +711,50 @@ func (o PlanRuleOutput) ToPlanRuleOutputWithContext(ctx context.Context) PlanRul
 	return o
 }
 
-// The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
 func (o PlanRuleOutput) CompletionWindow() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PlanRule) *int { return v.CompletionWindow }).(pulumi.IntPtrOutput)
 }
 
-// Configuration block(s) with copy operation settings. Detailed below.
 func (o PlanRuleOutput) CopyActions() PlanRuleCopyActionArrayOutput {
 	return o.ApplyT(func(v PlanRule) []PlanRuleCopyAction { return v.CopyActions }).(PlanRuleCopyActionArrayOutput)
 }
 
-// Enable continuous backups for supported resources.
 func (o PlanRuleOutput) EnableContinuousBackup() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PlanRule) *bool { return v.EnableContinuousBackup }).(pulumi.BoolPtrOutput)
 }
 
-// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
 func (o PlanRuleOutput) Lifecycle() PlanRuleLifecyclePtrOutput {
 	return o.ApplyT(func(v PlanRule) *PlanRuleLifecycle { return v.Lifecycle }).(PlanRuleLifecyclePtrOutput)
 }
 
-// Metadata that you can assign to help organize the resources that you create.
 func (o PlanRuleOutput) RecoveryPointTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PlanRule) map[string]string { return v.RecoveryPointTags }).(pulumi.StringMapOutput)
 }
 
-// An display name for a backup rule.
 func (o PlanRuleOutput) RuleName() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanRule) string { return v.RuleName }).(pulumi.StringOutput)
 }
 
-// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
 func (o PlanRuleOutput) ScanActions() PlanRuleScanActionArrayOutput {
 	return o.ApplyT(func(v PlanRule) []PlanRuleScanAction { return v.ScanActions }).(PlanRuleScanActionArrayOutput)
 }
 
-// A CRON expression specifying when AWS Backup initiates a backup job.
 func (o PlanRuleOutput) Schedule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanRule) *string { return v.Schedule }).(pulumi.StringPtrOutput)
 }
 
-// The timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
 func (o PlanRuleOutput) ScheduleExpressionTimezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanRule) *string { return v.ScheduleExpressionTimezone }).(pulumi.StringPtrOutput)
 }
 
-// The amount of time in minutes before beginning a backup.
 func (o PlanRuleOutput) StartWindow() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PlanRule) *int { return v.StartWindow }).(pulumi.IntPtrOutput)
 }
 
-// The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
 func (o PlanRuleOutput) TargetLogicallyAirGappedBackupVaultArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanRule) *string { return v.TargetLogicallyAirGappedBackupVaultArn }).(pulumi.StringPtrOutput)
 }
 
-// The name of a logical container where backups are stored.
 func (o PlanRuleOutput) TargetVaultName() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanRule) string { return v.TargetVaultName }).(pulumi.StringOutput)
 }
@@ -849,10 +780,8 @@ func (o PlanRuleArrayOutput) Index(i pulumi.IntInput) PlanRuleOutput {
 }
 
 type PlanRuleCopyAction struct {
-	// An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
-	DestinationVaultArn string `pulumi:"destinationVaultArn"`
-	// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
-	Lifecycle *PlanRuleCopyActionLifecycle `pulumi:"lifecycle"`
+	DestinationVaultArn string                       `pulumi:"destinationVaultArn"`
+	Lifecycle           *PlanRuleCopyActionLifecycle `pulumi:"lifecycle"`
 }
 
 // PlanRuleCopyActionInput is an input type that accepts PlanRuleCopyActionArgs and PlanRuleCopyActionOutput values.
@@ -867,10 +796,8 @@ type PlanRuleCopyActionInput interface {
 }
 
 type PlanRuleCopyActionArgs struct {
-	// An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
-	DestinationVaultArn pulumi.StringInput `pulumi:"destinationVaultArn"`
-	// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
-	Lifecycle PlanRuleCopyActionLifecyclePtrInput `pulumi:"lifecycle"`
+	DestinationVaultArn pulumi.StringInput                  `pulumi:"destinationVaultArn"`
+	Lifecycle           PlanRuleCopyActionLifecyclePtrInput `pulumi:"lifecycle"`
 }
 
 func (PlanRuleCopyActionArgs) ElementType() reflect.Type {
@@ -924,12 +851,10 @@ func (o PlanRuleCopyActionOutput) ToPlanRuleCopyActionOutputWithContext(ctx cont
 	return o
 }
 
-// An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
 func (o PlanRuleCopyActionOutput) DestinationVaultArn() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanRuleCopyAction) string { return v.DestinationVaultArn }).(pulumi.StringOutput)
 }
 
-// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
 func (o PlanRuleCopyActionOutput) Lifecycle() PlanRuleCopyActionLifecyclePtrOutput {
 	return o.ApplyT(func(v PlanRuleCopyAction) *PlanRuleCopyActionLifecycle { return v.Lifecycle }).(PlanRuleCopyActionLifecyclePtrOutput)
 }
@@ -955,11 +880,8 @@ func (o PlanRuleCopyActionArrayOutput) Index(i pulumi.IntInput) PlanRuleCopyActi
 }
 
 type PlanRuleCopyActionLifecycle struct {
-	// Specifies the number of days after creation that a recovery point is moved to cold storage.
-	ColdStorageAfter *int `pulumi:"coldStorageAfter"`
-	// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
-	DeleteAfter *int `pulumi:"deleteAfter"`
-	// This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+	ColdStorageAfter                    *int  `pulumi:"coldStorageAfter"`
+	DeleteAfter                         *int  `pulumi:"deleteAfter"`
 	OptInToArchiveForSupportedResources *bool `pulumi:"optInToArchiveForSupportedResources"`
 }
 
@@ -975,11 +897,8 @@ type PlanRuleCopyActionLifecycleInput interface {
 }
 
 type PlanRuleCopyActionLifecycleArgs struct {
-	// Specifies the number of days after creation that a recovery point is moved to cold storage.
-	ColdStorageAfter pulumi.IntPtrInput `pulumi:"coldStorageAfter"`
-	// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
-	DeleteAfter pulumi.IntPtrInput `pulumi:"deleteAfter"`
-	// This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+	ColdStorageAfter                    pulumi.IntPtrInput  `pulumi:"coldStorageAfter"`
+	DeleteAfter                         pulumi.IntPtrInput  `pulumi:"deleteAfter"`
 	OptInToArchiveForSupportedResources pulumi.BoolPtrInput `pulumi:"optInToArchiveForSupportedResources"`
 }
 
@@ -1060,17 +979,14 @@ func (o PlanRuleCopyActionLifecycleOutput) ToPlanRuleCopyActionLifecyclePtrOutpu
 	}).(PlanRuleCopyActionLifecyclePtrOutput)
 }
 
-// Specifies the number of days after creation that a recovery point is moved to cold storage.
 func (o PlanRuleCopyActionLifecycleOutput) ColdStorageAfter() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PlanRuleCopyActionLifecycle) *int { return v.ColdStorageAfter }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
 func (o PlanRuleCopyActionLifecycleOutput) DeleteAfter() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PlanRuleCopyActionLifecycle) *int { return v.DeleteAfter }).(pulumi.IntPtrOutput)
 }
 
-// This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
 func (o PlanRuleCopyActionLifecycleOutput) OptInToArchiveForSupportedResources() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PlanRuleCopyActionLifecycle) *bool { return v.OptInToArchiveForSupportedResources }).(pulumi.BoolPtrOutput)
 }
@@ -1099,7 +1015,6 @@ func (o PlanRuleCopyActionLifecyclePtrOutput) Elem() PlanRuleCopyActionLifecycle
 	}).(PlanRuleCopyActionLifecycleOutput)
 }
 
-// Specifies the number of days after creation that a recovery point is moved to cold storage.
 func (o PlanRuleCopyActionLifecyclePtrOutput) ColdStorageAfter() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PlanRuleCopyActionLifecycle) *int {
 		if v == nil {
@@ -1109,7 +1024,6 @@ func (o PlanRuleCopyActionLifecyclePtrOutput) ColdStorageAfter() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
 func (o PlanRuleCopyActionLifecyclePtrOutput) DeleteAfter() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PlanRuleCopyActionLifecycle) *int {
 		if v == nil {
@@ -1119,7 +1033,6 @@ func (o PlanRuleCopyActionLifecyclePtrOutput) DeleteAfter() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
 func (o PlanRuleCopyActionLifecyclePtrOutput) OptInToArchiveForSupportedResources() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PlanRuleCopyActionLifecycle) *bool {
 		if v == nil {
@@ -1130,11 +1043,8 @@ func (o PlanRuleCopyActionLifecyclePtrOutput) OptInToArchiveForSupportedResource
 }
 
 type PlanRuleLifecycle struct {
-	// Specifies the number of days after creation that a recovery point is moved to cold storage.
-	ColdStorageAfter *int `pulumi:"coldStorageAfter"`
-	// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
-	DeleteAfter *int `pulumi:"deleteAfter"`
-	// This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+	ColdStorageAfter                    *int  `pulumi:"coldStorageAfter"`
+	DeleteAfter                         *int  `pulumi:"deleteAfter"`
 	OptInToArchiveForSupportedResources *bool `pulumi:"optInToArchiveForSupportedResources"`
 }
 
@@ -1150,11 +1060,8 @@ type PlanRuleLifecycleInput interface {
 }
 
 type PlanRuleLifecycleArgs struct {
-	// Specifies the number of days after creation that a recovery point is moved to cold storage.
-	ColdStorageAfter pulumi.IntPtrInput `pulumi:"coldStorageAfter"`
-	// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
-	DeleteAfter pulumi.IntPtrInput `pulumi:"deleteAfter"`
-	// This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+	ColdStorageAfter                    pulumi.IntPtrInput  `pulumi:"coldStorageAfter"`
+	DeleteAfter                         pulumi.IntPtrInput  `pulumi:"deleteAfter"`
 	OptInToArchiveForSupportedResources pulumi.BoolPtrInput `pulumi:"optInToArchiveForSupportedResources"`
 }
 
@@ -1235,17 +1142,14 @@ func (o PlanRuleLifecycleOutput) ToPlanRuleLifecyclePtrOutputWithContext(ctx con
 	}).(PlanRuleLifecyclePtrOutput)
 }
 
-// Specifies the number of days after creation that a recovery point is moved to cold storage.
 func (o PlanRuleLifecycleOutput) ColdStorageAfter() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PlanRuleLifecycle) *int { return v.ColdStorageAfter }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
 func (o PlanRuleLifecycleOutput) DeleteAfter() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PlanRuleLifecycle) *int { return v.DeleteAfter }).(pulumi.IntPtrOutput)
 }
 
-// This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
 func (o PlanRuleLifecycleOutput) OptInToArchiveForSupportedResources() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PlanRuleLifecycle) *bool { return v.OptInToArchiveForSupportedResources }).(pulumi.BoolPtrOutput)
 }
@@ -1274,7 +1178,6 @@ func (o PlanRuleLifecyclePtrOutput) Elem() PlanRuleLifecycleOutput {
 	}).(PlanRuleLifecycleOutput)
 }
 
-// Specifies the number of days after creation that a recovery point is moved to cold storage.
 func (o PlanRuleLifecyclePtrOutput) ColdStorageAfter() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PlanRuleLifecycle) *int {
 		if v == nil {
@@ -1284,7 +1187,6 @@ func (o PlanRuleLifecyclePtrOutput) ColdStorageAfter() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
 func (o PlanRuleLifecyclePtrOutput) DeleteAfter() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PlanRuleLifecycle) *int {
 		if v == nil {
@@ -1294,7 +1196,6 @@ func (o PlanRuleLifecyclePtrOutput) DeleteAfter() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
 func (o PlanRuleLifecyclePtrOutput) OptInToArchiveForSupportedResources() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PlanRuleLifecycle) *bool {
 		if v == nil {
@@ -1305,10 +1206,8 @@ func (o PlanRuleLifecyclePtrOutput) OptInToArchiveForSupportedResources() pulumi
 }
 
 type PlanRuleScanAction struct {
-	// Malware scanner to use for the scan action. Currently only `GUARDDUTY` is supported.
 	MalwareScanner string `pulumi:"malwareScanner"`
-	// Scanning mode to use for the scan action. Valid values are `FULL_SCAN` and `INCREMENTAL_SCAN`.
-	ScanMode string `pulumi:"scanMode"`
+	ScanMode       string `pulumi:"scanMode"`
 }
 
 // PlanRuleScanActionInput is an input type that accepts PlanRuleScanActionArgs and PlanRuleScanActionOutput values.
@@ -1323,10 +1222,8 @@ type PlanRuleScanActionInput interface {
 }
 
 type PlanRuleScanActionArgs struct {
-	// Malware scanner to use for the scan action. Currently only `GUARDDUTY` is supported.
 	MalwareScanner pulumi.StringInput `pulumi:"malwareScanner"`
-	// Scanning mode to use for the scan action. Valid values are `FULL_SCAN` and `INCREMENTAL_SCAN`.
-	ScanMode pulumi.StringInput `pulumi:"scanMode"`
+	ScanMode       pulumi.StringInput `pulumi:"scanMode"`
 }
 
 func (PlanRuleScanActionArgs) ElementType() reflect.Type {
@@ -1380,12 +1277,10 @@ func (o PlanRuleScanActionOutput) ToPlanRuleScanActionOutputWithContext(ctx cont
 	return o
 }
 
-// Malware scanner to use for the scan action. Currently only `GUARDDUTY` is supported.
 func (o PlanRuleScanActionOutput) MalwareScanner() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanRuleScanAction) string { return v.MalwareScanner }).(pulumi.StringOutput)
 }
 
-// Scanning mode to use for the scan action. Valid values are `FULL_SCAN` and `INCREMENTAL_SCAN`.
 func (o PlanRuleScanActionOutput) ScanMode() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanRuleScanAction) string { return v.ScanMode }).(pulumi.StringOutput)
 }
@@ -1411,12 +1306,9 @@ func (o PlanRuleScanActionArrayOutput) Index(i pulumi.IntInput) PlanRuleScanActi
 }
 
 type PlanScanSetting struct {
-	// Malware scanner to use for the scan setting. Currently only `GUARDDUTY` is supported.
-	MalwareScanner string `pulumi:"malwareScanner"`
-	// List of resource types to apply the scan setting to. Valid values are `EBS`, `EC2`, `S3` and `ALL`.
-	ResourceTypes []string `pulumi:"resourceTypes"`
-	// ARN of the IAM role that AWS Backup uses to scan resources. See [the AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection-backup-iam-permissions.html) for details.
-	ScannerRoleArn string `pulumi:"scannerRoleArn"`
+	MalwareScanner string   `pulumi:"malwareScanner"`
+	ResourceTypes  []string `pulumi:"resourceTypes"`
+	ScannerRoleArn string   `pulumi:"scannerRoleArn"`
 }
 
 // PlanScanSettingInput is an input type that accepts PlanScanSettingArgs and PlanScanSettingOutput values.
@@ -1431,12 +1323,9 @@ type PlanScanSettingInput interface {
 }
 
 type PlanScanSettingArgs struct {
-	// Malware scanner to use for the scan setting. Currently only `GUARDDUTY` is supported.
-	MalwareScanner pulumi.StringInput `pulumi:"malwareScanner"`
-	// List of resource types to apply the scan setting to. Valid values are `EBS`, `EC2`, `S3` and `ALL`.
-	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
-	// ARN of the IAM role that AWS Backup uses to scan resources. See [the AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection-backup-iam-permissions.html) for details.
-	ScannerRoleArn pulumi.StringInput `pulumi:"scannerRoleArn"`
+	MalwareScanner pulumi.StringInput      `pulumi:"malwareScanner"`
+	ResourceTypes  pulumi.StringArrayInput `pulumi:"resourceTypes"`
+	ScannerRoleArn pulumi.StringInput      `pulumi:"scannerRoleArn"`
 }
 
 func (PlanScanSettingArgs) ElementType() reflect.Type {
@@ -1490,17 +1379,14 @@ func (o PlanScanSettingOutput) ToPlanScanSettingOutputWithContext(ctx context.Co
 	return o
 }
 
-// Malware scanner to use for the scan setting. Currently only `GUARDDUTY` is supported.
 func (o PlanScanSettingOutput) MalwareScanner() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanScanSetting) string { return v.MalwareScanner }).(pulumi.StringOutput)
 }
 
-// List of resource types to apply the scan setting to. Valid values are `EBS`, `EC2`, `S3` and `ALL`.
 func (o PlanScanSettingOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PlanScanSetting) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
 }
 
-// ARN of the IAM role that AWS Backup uses to scan resources. See [the AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection-backup-iam-permissions.html) for details.
 func (o PlanScanSettingOutput) ScannerRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanScanSetting) string { return v.ScannerRoleArn }).(pulumi.StringOutput)
 }
@@ -1526,12 +1412,9 @@ func (o PlanScanSettingArrayOutput) Index(i pulumi.IntInput) PlanScanSettingOutp
 }
 
 type ReportPlanReportDeliveryChannel struct {
-	// A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
-	Formats []string `pulumi:"formats"`
-	// The unique name of the S3 bucket that receives your reports.
-	S3BucketName string `pulumi:"s3BucketName"`
-	// The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
-	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
+	Formats      []string `pulumi:"formats"`
+	S3BucketName string   `pulumi:"s3BucketName"`
+	S3KeyPrefix  *string  `pulumi:"s3KeyPrefix"`
 }
 
 // ReportPlanReportDeliveryChannelInput is an input type that accepts ReportPlanReportDeliveryChannelArgs and ReportPlanReportDeliveryChannelOutput values.
@@ -1546,12 +1429,9 @@ type ReportPlanReportDeliveryChannelInput interface {
 }
 
 type ReportPlanReportDeliveryChannelArgs struct {
-	// A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
-	Formats pulumi.StringArrayInput `pulumi:"formats"`
-	// The unique name of the S3 bucket that receives your reports.
-	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
-	// The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
-	S3KeyPrefix pulumi.StringPtrInput `pulumi:"s3KeyPrefix"`
+	Formats      pulumi.StringArrayInput `pulumi:"formats"`
+	S3BucketName pulumi.StringInput      `pulumi:"s3BucketName"`
+	S3KeyPrefix  pulumi.StringPtrInput   `pulumi:"s3KeyPrefix"`
 }
 
 func (ReportPlanReportDeliveryChannelArgs) ElementType() reflect.Type {
@@ -1631,17 +1511,14 @@ func (o ReportPlanReportDeliveryChannelOutput) ToReportPlanReportDeliveryChannel
 	}).(ReportPlanReportDeliveryChannelPtrOutput)
 }
 
-// A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
 func (o ReportPlanReportDeliveryChannelOutput) Formats() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReportPlanReportDeliveryChannel) []string { return v.Formats }).(pulumi.StringArrayOutput)
 }
 
-// The unique name of the S3 bucket that receives your reports.
 func (o ReportPlanReportDeliveryChannelOutput) S3BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportPlanReportDeliveryChannel) string { return v.S3BucketName }).(pulumi.StringOutput)
 }
 
-// The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
 func (o ReportPlanReportDeliveryChannelOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReportPlanReportDeliveryChannel) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
 }
@@ -1670,7 +1547,6 @@ func (o ReportPlanReportDeliveryChannelPtrOutput) Elem() ReportPlanReportDeliver
 	}).(ReportPlanReportDeliveryChannelOutput)
 }
 
-// A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
 func (o ReportPlanReportDeliveryChannelPtrOutput) Formats() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReportPlanReportDeliveryChannel) []string {
 		if v == nil {
@@ -1680,7 +1556,6 @@ func (o ReportPlanReportDeliveryChannelPtrOutput) Formats() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// The unique name of the S3 bucket that receives your reports.
 func (o ReportPlanReportDeliveryChannelPtrOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportPlanReportDeliveryChannel) *string {
 		if v == nil {
@@ -1690,7 +1565,6 @@ func (o ReportPlanReportDeliveryChannelPtrOutput) S3BucketName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
 func (o ReportPlanReportDeliveryChannelPtrOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportPlanReportDeliveryChannel) *string {
 		if v == nil {
@@ -1701,18 +1575,12 @@ func (o ReportPlanReportDeliveryChannelPtrOutput) S3KeyPrefix() pulumi.StringPtr
 }
 
 type ReportPlanReportSetting struct {
-	// Specifies the list of accounts a report covers.
-	Accounts []string `pulumi:"accounts"`
-	// Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
-	FrameworkArns []string `pulumi:"frameworkArns"`
-	// Specifies the number of frameworks a report covers.
-	NumberOfFrameworks *int `pulumi:"numberOfFrameworks"`
-	// Specifies the list of Organizational Units a report covers.
-	OrganizationUnits []string `pulumi:"organizationUnits"`
-	// Specifies the list of regions a report covers.
-	Regions []string `pulumi:"regions"`
-	// Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
-	ReportTemplate string `pulumi:"reportTemplate"`
+	Accounts           []string `pulumi:"accounts"`
+	FrameworkArns      []string `pulumi:"frameworkArns"`
+	NumberOfFrameworks *int     `pulumi:"numberOfFrameworks"`
+	OrganizationUnits  []string `pulumi:"organizationUnits"`
+	Regions            []string `pulumi:"regions"`
+	ReportTemplate     string   `pulumi:"reportTemplate"`
 }
 
 // ReportPlanReportSettingInput is an input type that accepts ReportPlanReportSettingArgs and ReportPlanReportSettingOutput values.
@@ -1727,18 +1595,12 @@ type ReportPlanReportSettingInput interface {
 }
 
 type ReportPlanReportSettingArgs struct {
-	// Specifies the list of accounts a report covers.
-	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
-	// Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
-	FrameworkArns pulumi.StringArrayInput `pulumi:"frameworkArns"`
-	// Specifies the number of frameworks a report covers.
-	NumberOfFrameworks pulumi.IntPtrInput `pulumi:"numberOfFrameworks"`
-	// Specifies the list of Organizational Units a report covers.
-	OrganizationUnits pulumi.StringArrayInput `pulumi:"organizationUnits"`
-	// Specifies the list of regions a report covers.
-	Regions pulumi.StringArrayInput `pulumi:"regions"`
-	// Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
-	ReportTemplate pulumi.StringInput `pulumi:"reportTemplate"`
+	Accounts           pulumi.StringArrayInput `pulumi:"accounts"`
+	FrameworkArns      pulumi.StringArrayInput `pulumi:"frameworkArns"`
+	NumberOfFrameworks pulumi.IntPtrInput      `pulumi:"numberOfFrameworks"`
+	OrganizationUnits  pulumi.StringArrayInput `pulumi:"organizationUnits"`
+	Regions            pulumi.StringArrayInput `pulumi:"regions"`
+	ReportTemplate     pulumi.StringInput      `pulumi:"reportTemplate"`
 }
 
 func (ReportPlanReportSettingArgs) ElementType() reflect.Type {
@@ -1818,32 +1680,26 @@ func (o ReportPlanReportSettingOutput) ToReportPlanReportSettingPtrOutputWithCon
 	}).(ReportPlanReportSettingPtrOutput)
 }
 
-// Specifies the list of accounts a report covers.
 func (o ReportPlanReportSettingOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReportPlanReportSetting) []string { return v.Accounts }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
 func (o ReportPlanReportSettingOutput) FrameworkArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReportPlanReportSetting) []string { return v.FrameworkArns }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the number of frameworks a report covers.
 func (o ReportPlanReportSettingOutput) NumberOfFrameworks() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ReportPlanReportSetting) *int { return v.NumberOfFrameworks }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the list of Organizational Units a report covers.
 func (o ReportPlanReportSettingOutput) OrganizationUnits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReportPlanReportSetting) []string { return v.OrganizationUnits }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the list of regions a report covers.
 func (o ReportPlanReportSettingOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReportPlanReportSetting) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
 
-// Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
 func (o ReportPlanReportSettingOutput) ReportTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportPlanReportSetting) string { return v.ReportTemplate }).(pulumi.StringOutput)
 }
@@ -1872,7 +1728,6 @@ func (o ReportPlanReportSettingPtrOutput) Elem() ReportPlanReportSettingOutput {
 	}).(ReportPlanReportSettingOutput)
 }
 
-// Specifies the list of accounts a report covers.
 func (o ReportPlanReportSettingPtrOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReportPlanReportSetting) []string {
 		if v == nil {
@@ -1882,7 +1737,6 @@ func (o ReportPlanReportSettingPtrOutput) Accounts() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
 func (o ReportPlanReportSettingPtrOutput) FrameworkArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReportPlanReportSetting) []string {
 		if v == nil {
@@ -1892,7 +1746,6 @@ func (o ReportPlanReportSettingPtrOutput) FrameworkArns() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the number of frameworks a report covers.
 func (o ReportPlanReportSettingPtrOutput) NumberOfFrameworks() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ReportPlanReportSetting) *int {
 		if v == nil {
@@ -1902,7 +1755,6 @@ func (o ReportPlanReportSettingPtrOutput) NumberOfFrameworks() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the list of Organizational Units a report covers.
 func (o ReportPlanReportSettingPtrOutput) OrganizationUnits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReportPlanReportSetting) []string {
 		if v == nil {
@@ -1912,7 +1764,6 @@ func (o ReportPlanReportSettingPtrOutput) OrganizationUnits() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the list of regions a report covers.
 func (o ReportPlanReportSettingPtrOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReportPlanReportSetting) []string {
 		if v == nil {
@@ -1922,7 +1773,6 @@ func (o ReportPlanReportSettingPtrOutput) Regions() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
 func (o ReportPlanReportSettingPtrOutput) ReportTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportPlanReportSetting) *string {
 		if v == nil {
@@ -1933,16 +1783,11 @@ func (o ReportPlanReportSettingPtrOutput) ReportTemplate() pulumi.StringPtrOutpu
 }
 
 type RestoreTestingPlanRecoveryPointSelection struct {
-	// Specifies the algorithm used for selecting recovery points. Valid values are "RANDOM_WITHIN_WINDOW" and "LATEST_WITHIN_WINDOW".
-	Algorithm string `pulumi:"algorithm"`
-	// Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to exclude all backup vaults.
-	ExcludeVaults []string `pulumi:"excludeVaults"`
-	// Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to include all backup vaults.
-	IncludeVaults []string `pulumi:"includeVaults"`
-	// Specifies the types of recovery points to include in the selection. Valid values are "CONTINUOUS" and "SNAPSHOT".
-	RecoveryPointTypes []string `pulumi:"recoveryPointTypes"`
-	// Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
-	SelectionWindowDays *int `pulumi:"selectionWindowDays"`
+	Algorithm           string   `pulumi:"algorithm"`
+	ExcludeVaults       []string `pulumi:"excludeVaults"`
+	IncludeVaults       []string `pulumi:"includeVaults"`
+	RecoveryPointTypes  []string `pulumi:"recoveryPointTypes"`
+	SelectionWindowDays *int     `pulumi:"selectionWindowDays"`
 }
 
 // RestoreTestingPlanRecoveryPointSelectionInput is an input type that accepts RestoreTestingPlanRecoveryPointSelectionArgs and RestoreTestingPlanRecoveryPointSelectionOutput values.
@@ -1957,16 +1802,11 @@ type RestoreTestingPlanRecoveryPointSelectionInput interface {
 }
 
 type RestoreTestingPlanRecoveryPointSelectionArgs struct {
-	// Specifies the algorithm used for selecting recovery points. Valid values are "RANDOM_WITHIN_WINDOW" and "LATEST_WITHIN_WINDOW".
-	Algorithm pulumi.StringInput `pulumi:"algorithm"`
-	// Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to exclude all backup vaults.
-	ExcludeVaults pulumi.StringArrayInput `pulumi:"excludeVaults"`
-	// Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to include all backup vaults.
-	IncludeVaults pulumi.StringArrayInput `pulumi:"includeVaults"`
-	// Specifies the types of recovery points to include in the selection. Valid values are "CONTINUOUS" and "SNAPSHOT".
-	RecoveryPointTypes pulumi.StringArrayInput `pulumi:"recoveryPointTypes"`
-	// Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
-	SelectionWindowDays pulumi.IntPtrInput `pulumi:"selectionWindowDays"`
+	Algorithm           pulumi.StringInput      `pulumi:"algorithm"`
+	ExcludeVaults       pulumi.StringArrayInput `pulumi:"excludeVaults"`
+	IncludeVaults       pulumi.StringArrayInput `pulumi:"includeVaults"`
+	RecoveryPointTypes  pulumi.StringArrayInput `pulumi:"recoveryPointTypes"`
+	SelectionWindowDays pulumi.IntPtrInput      `pulumi:"selectionWindowDays"`
 }
 
 func (RestoreTestingPlanRecoveryPointSelectionArgs) ElementType() reflect.Type {
@@ -2046,27 +1886,22 @@ func (o RestoreTestingPlanRecoveryPointSelectionOutput) ToRestoreTestingPlanReco
 	}).(RestoreTestingPlanRecoveryPointSelectionPtrOutput)
 }
 
-// Specifies the algorithm used for selecting recovery points. Valid values are "RANDOM_WITHIN_WINDOW" and "LATEST_WITHIN_WINDOW".
 func (o RestoreTestingPlanRecoveryPointSelectionOutput) Algorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v RestoreTestingPlanRecoveryPointSelection) string { return v.Algorithm }).(pulumi.StringOutput)
 }
 
-// Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to exclude all backup vaults.
 func (o RestoreTestingPlanRecoveryPointSelectionOutput) ExcludeVaults() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RestoreTestingPlanRecoveryPointSelection) []string { return v.ExcludeVaults }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to include all backup vaults.
 func (o RestoreTestingPlanRecoveryPointSelectionOutput) IncludeVaults() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RestoreTestingPlanRecoveryPointSelection) []string { return v.IncludeVaults }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the types of recovery points to include in the selection. Valid values are "CONTINUOUS" and "SNAPSHOT".
 func (o RestoreTestingPlanRecoveryPointSelectionOutput) RecoveryPointTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RestoreTestingPlanRecoveryPointSelection) []string { return v.RecoveryPointTypes }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
 func (o RestoreTestingPlanRecoveryPointSelectionOutput) SelectionWindowDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RestoreTestingPlanRecoveryPointSelection) *int { return v.SelectionWindowDays }).(pulumi.IntPtrOutput)
 }
@@ -2095,7 +1930,6 @@ func (o RestoreTestingPlanRecoveryPointSelectionPtrOutput) Elem() RestoreTesting
 	}).(RestoreTestingPlanRecoveryPointSelectionOutput)
 }
 
-// Specifies the algorithm used for selecting recovery points. Valid values are "RANDOM_WITHIN_WINDOW" and "LATEST_WITHIN_WINDOW".
 func (o RestoreTestingPlanRecoveryPointSelectionPtrOutput) Algorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RestoreTestingPlanRecoveryPointSelection) *string {
 		if v == nil {
@@ -2105,7 +1939,6 @@ func (o RestoreTestingPlanRecoveryPointSelectionPtrOutput) Algorithm() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to exclude all backup vaults.
 func (o RestoreTestingPlanRecoveryPointSelectionPtrOutput) ExcludeVaults() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RestoreTestingPlanRecoveryPointSelection) []string {
 		if v == nil {
@@ -2115,7 +1948,6 @@ func (o RestoreTestingPlanRecoveryPointSelectionPtrOutput) ExcludeVaults() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to include all backup vaults.
 func (o RestoreTestingPlanRecoveryPointSelectionPtrOutput) IncludeVaults() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RestoreTestingPlanRecoveryPointSelection) []string {
 		if v == nil {
@@ -2125,7 +1957,6 @@ func (o RestoreTestingPlanRecoveryPointSelectionPtrOutput) IncludeVaults() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the types of recovery points to include in the selection. Valid values are "CONTINUOUS" and "SNAPSHOT".
 func (o RestoreTestingPlanRecoveryPointSelectionPtrOutput) RecoveryPointTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RestoreTestingPlanRecoveryPointSelection) []string {
 		if v == nil {
@@ -2135,7 +1966,6 @@ func (o RestoreTestingPlanRecoveryPointSelectionPtrOutput) RecoveryPointTypes() 
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
 func (o RestoreTestingPlanRecoveryPointSelectionPtrOutput) SelectionWindowDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RestoreTestingPlanRecoveryPointSelection) *int {
 		if v == nil {
@@ -2146,9 +1976,7 @@ func (o RestoreTestingPlanRecoveryPointSelectionPtrOutput) SelectionWindowDays()
 }
 
 type RestoreTestingSelectionProtectedResourceConditions struct {
-	// The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See the structure for details
-	StringEquals []RestoreTestingSelectionProtectedResourceConditionsStringEqual `pulumi:"stringEquals"`
-	// The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See the structure for details
+	StringEquals    []RestoreTestingSelectionProtectedResourceConditionsStringEqual    `pulumi:"stringEquals"`
 	StringNotEquals []RestoreTestingSelectionProtectedResourceConditionsStringNotEqual `pulumi:"stringNotEquals"`
 }
 
@@ -2164,9 +1992,7 @@ type RestoreTestingSelectionProtectedResourceConditionsInput interface {
 }
 
 type RestoreTestingSelectionProtectedResourceConditionsArgs struct {
-	// The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See the structure for details
-	StringEquals RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayInput `pulumi:"stringEquals"`
-	// The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See the structure for details
+	StringEquals    RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayInput    `pulumi:"stringEquals"`
 	StringNotEquals RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayInput `pulumi:"stringNotEquals"`
 }
 
@@ -2247,14 +2073,12 @@ func (o RestoreTestingSelectionProtectedResourceConditionsOutput) ToRestoreTesti
 	}).(RestoreTestingSelectionProtectedResourceConditionsPtrOutput)
 }
 
-// The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See the structure for details
 func (o RestoreTestingSelectionProtectedResourceConditionsOutput) StringEquals() RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutput {
 	return o.ApplyT(func(v RestoreTestingSelectionProtectedResourceConditions) []RestoreTestingSelectionProtectedResourceConditionsStringEqual {
 		return v.StringEquals
 	}).(RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutput)
 }
 
-// The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See the structure for details
 func (o RestoreTestingSelectionProtectedResourceConditionsOutput) StringNotEquals() RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutput {
 	return o.ApplyT(func(v RestoreTestingSelectionProtectedResourceConditions) []RestoreTestingSelectionProtectedResourceConditionsStringNotEqual {
 		return v.StringNotEquals
@@ -2285,7 +2109,6 @@ func (o RestoreTestingSelectionProtectedResourceConditionsPtrOutput) Elem() Rest
 	}).(RestoreTestingSelectionProtectedResourceConditionsOutput)
 }
 
-// The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See the structure for details
 func (o RestoreTestingSelectionProtectedResourceConditionsPtrOutput) StringEquals() RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutput {
 	return o.ApplyT(func(v *RestoreTestingSelectionProtectedResourceConditions) []RestoreTestingSelectionProtectedResourceConditionsStringEqual {
 		if v == nil {
@@ -2295,7 +2118,6 @@ func (o RestoreTestingSelectionProtectedResourceConditionsPtrOutput) StringEqual
 	}).(RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutput)
 }
 
-// The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See the structure for details
 func (o RestoreTestingSelectionProtectedResourceConditionsPtrOutput) StringNotEquals() RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutput {
 	return o.ApplyT(func(v *RestoreTestingSelectionProtectedResourceConditions) []RestoreTestingSelectionProtectedResourceConditionsStringNotEqual {
 		if v == nil {
@@ -2306,9 +2128,7 @@ func (o RestoreTestingSelectionProtectedResourceConditionsPtrOutput) StringNotEq
 }
 
 type RestoreTestingSelectionProtectedResourceConditionsStringEqual struct {
-	// The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
-	Key string `pulumi:"key"`
-	// The value of the Tag. Maximum length of 256.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -2324,9 +2144,7 @@ type RestoreTestingSelectionProtectedResourceConditionsStringEqualInput interfac
 }
 
 type RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs struct {
-	// The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value of the Tag. Maximum length of 256.
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2381,12 +2199,10 @@ func (o RestoreTestingSelectionProtectedResourceConditionsStringEqualOutput) ToR
 	return o
 }
 
-// The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
 func (o RestoreTestingSelectionProtectedResourceConditionsStringEqualOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v RestoreTestingSelectionProtectedResourceConditionsStringEqual) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value of the Tag. Maximum length of 256.
 func (o RestoreTestingSelectionProtectedResourceConditionsStringEqualOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v RestoreTestingSelectionProtectedResourceConditionsStringEqual) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2412,9 +2228,7 @@ func (o RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutput
 }
 
 type RestoreTestingSelectionProtectedResourceConditionsStringNotEqual struct {
-	// The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
-	Key string `pulumi:"key"`
-	// The value of the Tag. Maximum length of 256.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -2430,9 +2244,7 @@ type RestoreTestingSelectionProtectedResourceConditionsStringNotEqualInput inter
 }
 
 type RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs struct {
-	// The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value of the Tag. Maximum length of 256.
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2487,12 +2299,10 @@ func (o RestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutput) 
 	return o
 }
 
-// The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
 func (o RestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v RestoreTestingSelectionProtectedResourceConditionsStringNotEqual) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value of the Tag. Maximum length of 256.
 func (o RestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v RestoreTestingSelectionProtectedResourceConditionsStringNotEqual) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2518,14 +2328,10 @@ func (o RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOut
 }
 
 type SelectionCondition struct {
-	// Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching". See below for details.
-	StringEquals []SelectionConditionStringEqual `pulumi:"stringEquals"`
-	// Filters the values of your tagged resources for matching tag values with the use of a wildcard character (`*`) anywhere in the string. For example, `prod*` or `*rod*` matches the tag value `production`. See below for details.
-	StringLikes []SelectionConditionStringLike `pulumi:"stringLikes"`
-	// Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching". See below for details.
+	StringEquals    []SelectionConditionStringEqual    `pulumi:"stringEquals"`
+	StringLikes     []SelectionConditionStringLike     `pulumi:"stringLikes"`
 	StringNotEquals []SelectionConditionStringNotEqual `pulumi:"stringNotEquals"`
-	// Filters the values of your tagged resources for non-matching tag values with the use of a wildcard character (`*`) anywhere in the string. See below for details.
-	StringNotLikes []SelectionConditionStringNotLike `pulumi:"stringNotLikes"`
+	StringNotLikes  []SelectionConditionStringNotLike  `pulumi:"stringNotLikes"`
 }
 
 // SelectionConditionInput is an input type that accepts SelectionConditionArgs and SelectionConditionOutput values.
@@ -2540,14 +2346,10 @@ type SelectionConditionInput interface {
 }
 
 type SelectionConditionArgs struct {
-	// Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching". See below for details.
-	StringEquals SelectionConditionStringEqualArrayInput `pulumi:"stringEquals"`
-	// Filters the values of your tagged resources for matching tag values with the use of a wildcard character (`*`) anywhere in the string. For example, `prod*` or `*rod*` matches the tag value `production`. See below for details.
-	StringLikes SelectionConditionStringLikeArrayInput `pulumi:"stringLikes"`
-	// Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching". See below for details.
+	StringEquals    SelectionConditionStringEqualArrayInput    `pulumi:"stringEquals"`
+	StringLikes     SelectionConditionStringLikeArrayInput     `pulumi:"stringLikes"`
 	StringNotEquals SelectionConditionStringNotEqualArrayInput `pulumi:"stringNotEquals"`
-	// Filters the values of your tagged resources for non-matching tag values with the use of a wildcard character (`*`) anywhere in the string. See below for details.
-	StringNotLikes SelectionConditionStringNotLikeArrayInput `pulumi:"stringNotLikes"`
+	StringNotLikes  SelectionConditionStringNotLikeArrayInput  `pulumi:"stringNotLikes"`
 }
 
 func (SelectionConditionArgs) ElementType() reflect.Type {
@@ -2601,22 +2403,18 @@ func (o SelectionConditionOutput) ToSelectionConditionOutputWithContext(ctx cont
 	return o
 }
 
-// Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching". See below for details.
 func (o SelectionConditionOutput) StringEquals() SelectionConditionStringEqualArrayOutput {
 	return o.ApplyT(func(v SelectionCondition) []SelectionConditionStringEqual { return v.StringEquals }).(SelectionConditionStringEqualArrayOutput)
 }
 
-// Filters the values of your tagged resources for matching tag values with the use of a wildcard character (`*`) anywhere in the string. For example, `prod*` or `*rod*` matches the tag value `production`. See below for details.
 func (o SelectionConditionOutput) StringLikes() SelectionConditionStringLikeArrayOutput {
 	return o.ApplyT(func(v SelectionCondition) []SelectionConditionStringLike { return v.StringLikes }).(SelectionConditionStringLikeArrayOutput)
 }
 
-// Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching". See below for details.
 func (o SelectionConditionOutput) StringNotEquals() SelectionConditionStringNotEqualArrayOutput {
 	return o.ApplyT(func(v SelectionCondition) []SelectionConditionStringNotEqual { return v.StringNotEquals }).(SelectionConditionStringNotEqualArrayOutput)
 }
 
-// Filters the values of your tagged resources for non-matching tag values with the use of a wildcard character (`*`) anywhere in the string. See below for details.
 func (o SelectionConditionOutput) StringNotLikes() SelectionConditionStringNotLikeArrayOutput {
 	return o.ApplyT(func(v SelectionCondition) []SelectionConditionStringNotLike { return v.StringNotLikes }).(SelectionConditionStringNotLikeArrayOutput)
 }
@@ -2642,9 +2440,7 @@ func (o SelectionConditionArrayOutput) Index(i pulumi.IntInput) SelectionConditi
 }
 
 type SelectionConditionStringEqual struct {
-	// Key for the filter.
-	Key string `pulumi:"key"`
-	// Value for the filter.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -2660,9 +2456,7 @@ type SelectionConditionStringEqualInput interface {
 }
 
 type SelectionConditionStringEqualArgs struct {
-	// Key for the filter.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Value for the filter.
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2717,12 +2511,10 @@ func (o SelectionConditionStringEqualOutput) ToSelectionConditionStringEqualOutp
 	return o
 }
 
-// Key for the filter.
 func (o SelectionConditionStringEqualOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringEqual) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Value for the filter.
 func (o SelectionConditionStringEqualOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringEqual) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2748,9 +2540,7 @@ func (o SelectionConditionStringEqualArrayOutput) Index(i pulumi.IntInput) Selec
 }
 
 type SelectionConditionStringLike struct {
-	// Key for the filter.
-	Key string `pulumi:"key"`
-	// Value for the filter.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -2766,9 +2556,7 @@ type SelectionConditionStringLikeInput interface {
 }
 
 type SelectionConditionStringLikeArgs struct {
-	// Key for the filter.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Value for the filter.
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2823,12 +2611,10 @@ func (o SelectionConditionStringLikeOutput) ToSelectionConditionStringLikeOutput
 	return o
 }
 
-// Key for the filter.
 func (o SelectionConditionStringLikeOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringLike) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Value for the filter.
 func (o SelectionConditionStringLikeOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringLike) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2854,9 +2640,7 @@ func (o SelectionConditionStringLikeArrayOutput) Index(i pulumi.IntInput) Select
 }
 
 type SelectionConditionStringNotEqual struct {
-	// Key for the filter.
-	Key string `pulumi:"key"`
-	// Value for the filter.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -2872,9 +2656,7 @@ type SelectionConditionStringNotEqualInput interface {
 }
 
 type SelectionConditionStringNotEqualArgs struct {
-	// Key for the filter.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Value for the filter.
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2929,12 +2711,10 @@ func (o SelectionConditionStringNotEqualOutput) ToSelectionConditionStringNotEqu
 	return o
 }
 
-// Key for the filter.
 func (o SelectionConditionStringNotEqualOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringNotEqual) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Value for the filter.
 func (o SelectionConditionStringNotEqualOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringNotEqual) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2960,9 +2740,7 @@ func (o SelectionConditionStringNotEqualArrayOutput) Index(i pulumi.IntInput) Se
 }
 
 type SelectionConditionStringNotLike struct {
-	// Key for the filter.
-	Key string `pulumi:"key"`
-	// Value for the filter.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -2978,9 +2756,7 @@ type SelectionConditionStringNotLikeInput interface {
 }
 
 type SelectionConditionStringNotLikeArgs struct {
-	// Key for the filter.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Value for the filter.
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -3035,12 +2811,10 @@ func (o SelectionConditionStringNotLikeOutput) ToSelectionConditionStringNotLike
 	return o
 }
 
-// Key for the filter.
 func (o SelectionConditionStringNotLikeOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringNotLike) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Value for the filter.
 func (o SelectionConditionStringNotLikeOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringNotLike) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3066,11 +2840,8 @@ func (o SelectionConditionStringNotLikeArrayOutput) Index(i pulumi.IntInput) Sel
 }
 
 type SelectionSelectionTag struct {
-	// Key for the filter.
-	Key string `pulumi:"key"`
-	// An operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
-	Type string `pulumi:"type"`
-	// Value for the filter.
+	Key   string `pulumi:"key"`
+	Type  string `pulumi:"type"`
 	Value string `pulumi:"value"`
 }
 
@@ -3086,11 +2857,8 @@ type SelectionSelectionTagInput interface {
 }
 
 type SelectionSelectionTagArgs struct {
-	// Key for the filter.
-	Key pulumi.StringInput `pulumi:"key"`
-	// An operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Value for the filter.
+	Key   pulumi.StringInput `pulumi:"key"`
+	Type  pulumi.StringInput `pulumi:"type"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -3145,17 +2913,14 @@ func (o SelectionSelectionTagOutput) ToSelectionSelectionTagOutputWithContext(ct
 	return o
 }
 
-// Key for the filter.
 func (o SelectionSelectionTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionSelectionTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// An operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
 func (o SelectionSelectionTagOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionSelectionTag) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Value for the filter.
 func (o SelectionSelectionTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionSelectionTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3181,12 +2946,9 @@ func (o SelectionSelectionTagArrayOutput) Index(i pulumi.IntInput) SelectionSele
 }
 
 type GetFrameworkControl struct {
-	// One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
 	InputParameters []GetFrameworkControlInputParameter `pulumi:"inputParameters"`
-	// Backup framework name.
-	Name string `pulumi:"name"`
-	// Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
-	Scopes []GetFrameworkControlScope `pulumi:"scopes"`
+	Name            string                              `pulumi:"name"`
+	Scopes          []GetFrameworkControlScope          `pulumi:"scopes"`
 }
 
 // GetFrameworkControlInput is an input type that accepts GetFrameworkControlArgs and GetFrameworkControlOutput values.
@@ -3201,12 +2963,9 @@ type GetFrameworkControlInput interface {
 }
 
 type GetFrameworkControlArgs struct {
-	// One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
 	InputParameters GetFrameworkControlInputParameterArrayInput `pulumi:"inputParameters"`
-	// Backup framework name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
-	Scopes GetFrameworkControlScopeArrayInput `pulumi:"scopes"`
+	Name            pulumi.StringInput                          `pulumi:"name"`
+	Scopes          GetFrameworkControlScopeArrayInput          `pulumi:"scopes"`
 }
 
 func (GetFrameworkControlArgs) ElementType() reflect.Type {
@@ -3260,17 +3019,14 @@ func (o GetFrameworkControlOutput) ToGetFrameworkControlOutputWithContext(ctx co
 	return o
 }
 
-// One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
 func (o GetFrameworkControlOutput) InputParameters() GetFrameworkControlInputParameterArrayOutput {
 	return o.ApplyT(func(v GetFrameworkControl) []GetFrameworkControlInputParameter { return v.InputParameters }).(GetFrameworkControlInputParameterArrayOutput)
 }
 
-// Backup framework name.
 func (o GetFrameworkControlOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFrameworkControl) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
 func (o GetFrameworkControlOutput) Scopes() GetFrameworkControlScopeArrayOutput {
 	return o.ApplyT(func(v GetFrameworkControl) []GetFrameworkControlScope { return v.Scopes }).(GetFrameworkControlScopeArrayOutput)
 }
@@ -3296,9 +3052,7 @@ func (o GetFrameworkControlArrayOutput) Index(i pulumi.IntInput) GetFrameworkCon
 }
 
 type GetFrameworkControlInputParameter struct {
-	// Backup framework name.
-	Name string `pulumi:"name"`
-	// Value of parameter, for example, hourly.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -3314,9 +3068,7 @@ type GetFrameworkControlInputParameterInput interface {
 }
 
 type GetFrameworkControlInputParameterArgs struct {
-	// Backup framework name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Value of parameter, for example, hourly.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -3371,12 +3123,10 @@ func (o GetFrameworkControlInputParameterOutput) ToGetFrameworkControlInputParam
 	return o
 }
 
-// Backup framework name.
 func (o GetFrameworkControlInputParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFrameworkControlInputParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Value of parameter, for example, hourly.
 func (o GetFrameworkControlInputParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFrameworkControlInputParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3402,12 +3152,9 @@ func (o GetFrameworkControlInputParameterArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetFrameworkControlScope struct {
-	// The ID of the only AWS resource that you want your control scope to contain.
-	ComplianceResourceIds []string `pulumi:"complianceResourceIds"`
-	// Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
-	ComplianceResourceTypes []string `pulumi:"complianceResourceTypes"`
-	// Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
-	Tags map[string]string `pulumi:"tags"`
+	ComplianceResourceIds   []string          `pulumi:"complianceResourceIds"`
+	ComplianceResourceTypes []string          `pulumi:"complianceResourceTypes"`
+	Tags                    map[string]string `pulumi:"tags"`
 }
 
 // GetFrameworkControlScopeInput is an input type that accepts GetFrameworkControlScopeArgs and GetFrameworkControlScopeOutput values.
@@ -3422,12 +3169,9 @@ type GetFrameworkControlScopeInput interface {
 }
 
 type GetFrameworkControlScopeArgs struct {
-	// The ID of the only AWS resource that you want your control scope to contain.
-	ComplianceResourceIds pulumi.StringArrayInput `pulumi:"complianceResourceIds"`
-	// Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
+	ComplianceResourceIds   pulumi.StringArrayInput `pulumi:"complianceResourceIds"`
 	ComplianceResourceTypes pulumi.StringArrayInput `pulumi:"complianceResourceTypes"`
-	// Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags                    pulumi.StringMapInput   `pulumi:"tags"`
 }
 
 func (GetFrameworkControlScopeArgs) ElementType() reflect.Type {
@@ -3481,17 +3225,14 @@ func (o GetFrameworkControlScopeOutput) ToGetFrameworkControlScopeOutputWithCont
 	return o
 }
 
-// The ID of the only AWS resource that you want your control scope to contain.
 func (o GetFrameworkControlScopeOutput) ComplianceResourceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetFrameworkControlScope) []string { return v.ComplianceResourceIds }).(pulumi.StringArrayOutput)
 }
 
-// Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
 func (o GetFrameworkControlScopeOutput) ComplianceResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetFrameworkControlScope) []string { return v.ComplianceResourceTypes }).(pulumi.StringArrayOutput)
 }
 
-// Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
 func (o GetFrameworkControlScopeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetFrameworkControlScope) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -4195,12 +3936,9 @@ func (o GetPlanScanSettingArrayOutput) Index(i pulumi.IntInput) GetPlanScanSetti
 }
 
 type GetReportPlanReportDeliveryChannel struct {
-	// List of the format of your reports: CSV, JSON, or both.
-	Formats []string `pulumi:"formats"`
-	// Unique name of the S3 bucket that receives your reports.
-	S3BucketName string `pulumi:"s3BucketName"`
-	// Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
-	S3KeyPrefix string `pulumi:"s3KeyPrefix"`
+	Formats      []string `pulumi:"formats"`
+	S3BucketName string   `pulumi:"s3BucketName"`
+	S3KeyPrefix  string   `pulumi:"s3KeyPrefix"`
 }
 
 // GetReportPlanReportDeliveryChannelInput is an input type that accepts GetReportPlanReportDeliveryChannelArgs and GetReportPlanReportDeliveryChannelOutput values.
@@ -4215,12 +3953,9 @@ type GetReportPlanReportDeliveryChannelInput interface {
 }
 
 type GetReportPlanReportDeliveryChannelArgs struct {
-	// List of the format of your reports: CSV, JSON, or both.
-	Formats pulumi.StringArrayInput `pulumi:"formats"`
-	// Unique name of the S3 bucket that receives your reports.
-	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
-	// Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
-	S3KeyPrefix pulumi.StringInput `pulumi:"s3KeyPrefix"`
+	Formats      pulumi.StringArrayInput `pulumi:"formats"`
+	S3BucketName pulumi.StringInput      `pulumi:"s3BucketName"`
+	S3KeyPrefix  pulumi.StringInput      `pulumi:"s3KeyPrefix"`
 }
 
 func (GetReportPlanReportDeliveryChannelArgs) ElementType() reflect.Type {
@@ -4274,17 +4009,14 @@ func (o GetReportPlanReportDeliveryChannelOutput) ToGetReportPlanReportDeliveryC
 	return o
 }
 
-// List of the format of your reports: CSV, JSON, or both.
 func (o GetReportPlanReportDeliveryChannelOutput) Formats() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetReportPlanReportDeliveryChannel) []string { return v.Formats }).(pulumi.StringArrayOutput)
 }
 
-// Unique name of the S3 bucket that receives your reports.
 func (o GetReportPlanReportDeliveryChannelOutput) S3BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReportPlanReportDeliveryChannel) string { return v.S3BucketName }).(pulumi.StringOutput)
 }
 
-// Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
 func (o GetReportPlanReportDeliveryChannelOutput) S3KeyPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReportPlanReportDeliveryChannel) string { return v.S3KeyPrefix }).(pulumi.StringOutput)
 }
@@ -4310,18 +4042,12 @@ func (o GetReportPlanReportDeliveryChannelArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetReportPlanReportSetting struct {
-	// (Optional) Specifies the list of accounts a report covers.
-	Accounts []string `pulumi:"accounts"`
-	// ARNs of the frameworks a report covers.
-	FrameworkArns []string `pulumi:"frameworkArns"`
-	// Specifies the number of frameworks a report covers.
-	NumberOfFrameworks int `pulumi:"numberOfFrameworks"`
-	// (Optional) Specifies the list of Organizational Units a report covers.
-	OrganizationUnits []string `pulumi:"organizationUnits"`
-	// (Optional) Specifies the list of regions a report covers.
-	Regions []string `pulumi:"regions"`
-	// Identifies the report template for the report. Reports are built using a report template.
-	ReportTemplate string `pulumi:"reportTemplate"`
+	Accounts           []string `pulumi:"accounts"`
+	FrameworkArns      []string `pulumi:"frameworkArns"`
+	NumberOfFrameworks int      `pulumi:"numberOfFrameworks"`
+	OrganizationUnits  []string `pulumi:"organizationUnits"`
+	Regions            []string `pulumi:"regions"`
+	ReportTemplate     string   `pulumi:"reportTemplate"`
 }
 
 // GetReportPlanReportSettingInput is an input type that accepts GetReportPlanReportSettingArgs and GetReportPlanReportSettingOutput values.
@@ -4336,18 +4062,12 @@ type GetReportPlanReportSettingInput interface {
 }
 
 type GetReportPlanReportSettingArgs struct {
-	// (Optional) Specifies the list of accounts a report covers.
-	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
-	// ARNs of the frameworks a report covers.
-	FrameworkArns pulumi.StringArrayInput `pulumi:"frameworkArns"`
-	// Specifies the number of frameworks a report covers.
-	NumberOfFrameworks pulumi.IntInput `pulumi:"numberOfFrameworks"`
-	// (Optional) Specifies the list of Organizational Units a report covers.
-	OrganizationUnits pulumi.StringArrayInput `pulumi:"organizationUnits"`
-	// (Optional) Specifies the list of regions a report covers.
-	Regions pulumi.StringArrayInput `pulumi:"regions"`
-	// Identifies the report template for the report. Reports are built using a report template.
-	ReportTemplate pulumi.StringInput `pulumi:"reportTemplate"`
+	Accounts           pulumi.StringArrayInput `pulumi:"accounts"`
+	FrameworkArns      pulumi.StringArrayInput `pulumi:"frameworkArns"`
+	NumberOfFrameworks pulumi.IntInput         `pulumi:"numberOfFrameworks"`
+	OrganizationUnits  pulumi.StringArrayInput `pulumi:"organizationUnits"`
+	Regions            pulumi.StringArrayInput `pulumi:"regions"`
+	ReportTemplate     pulumi.StringInput      `pulumi:"reportTemplate"`
 }
 
 func (GetReportPlanReportSettingArgs) ElementType() reflect.Type {
@@ -4401,32 +4121,26 @@ func (o GetReportPlanReportSettingOutput) ToGetReportPlanReportSettingOutputWith
 	return o
 }
 
-// (Optional) Specifies the list of accounts a report covers.
 func (o GetReportPlanReportSettingOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetReportPlanReportSetting) []string { return v.Accounts }).(pulumi.StringArrayOutput)
 }
 
-// ARNs of the frameworks a report covers.
 func (o GetReportPlanReportSettingOutput) FrameworkArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetReportPlanReportSetting) []string { return v.FrameworkArns }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the number of frameworks a report covers.
 func (o GetReportPlanReportSettingOutput) NumberOfFrameworks() pulumi.IntOutput {
 	return o.ApplyT(func(v GetReportPlanReportSetting) int { return v.NumberOfFrameworks }).(pulumi.IntOutput)
 }
 
-// (Optional) Specifies the list of Organizational Units a report covers.
 func (o GetReportPlanReportSettingOutput) OrganizationUnits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetReportPlanReportSetting) []string { return v.OrganizationUnits }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) Specifies the list of regions a report covers.
 func (o GetReportPlanReportSettingOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetReportPlanReportSetting) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
 
-// Identifies the report template for the report. Reports are built using a report template.
 func (o GetReportPlanReportSettingOutput) ReportTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReportPlanReportSetting) string { return v.ReportTemplate }).(pulumi.StringOutput)
 }

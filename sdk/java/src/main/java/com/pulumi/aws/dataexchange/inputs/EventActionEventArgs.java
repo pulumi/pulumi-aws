@@ -15,19 +15,9 @@ public final class EventActionEventArgs extends com.pulumi.resources.ResourceArg
 
     public static final EventActionEventArgs Empty = new EventActionEventArgs();
 
-    /**
-     * Configuration for a Revision Published event.
-     * Described in `revisionPublished` Configuration Block below.
-     * 
-     */
     @Import(name="revisionPublished")
     private @Nullable Output<EventActionEventRevisionPublishedArgs> revisionPublished;
 
-    /**
-     * @return Configuration for a Revision Published event.
-     * Described in `revisionPublished` Configuration Block below.
-     * 
-     */
     public Optional<Output<EventActionEventRevisionPublishedArgs>> revisionPublished() {
         return Optional.ofNullable(this.revisionPublished);
     }
@@ -56,25 +46,11 @@ public final class EventActionEventArgs extends com.pulumi.resources.ResourceArg
             $ = new EventActionEventArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param revisionPublished Configuration for a Revision Published event.
-         * Described in `revisionPublished` Configuration Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder revisionPublished(@Nullable Output<EventActionEventRevisionPublishedArgs> revisionPublished) {
             $.revisionPublished = revisionPublished;
             return this;
         }
 
-        /**
-         * @param revisionPublished Configuration for a Revision Published event.
-         * Described in `revisionPublished` Configuration Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder revisionPublished(EventActionEventRevisionPublishedArgs revisionPublished) {
             return revisionPublished(Output.of(revisionPublished));
         }

@@ -39,24 +39,6 @@ class ImagePipelineArgs:
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowArgs']]]] = None):
         """
         The set of arguments for constructing a ImagePipeline resource.
-        :param pulumi.Input[_builtins.str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
-        :param pulumi.Input[_builtins.str] container_recipe_arn: Amazon Resource Name (ARN) of the container recipe.
-        :param pulumi.Input[_builtins.str] description: Description of the image pipeline.
-        :param pulumi.Input[_builtins.str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
-        :param pulumi.Input[_builtins.bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] execution_role: Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
-        :param pulumi.Input[_builtins.str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
-        :param pulumi.Input['ImagePipelineImageScanningConfigurationArgs'] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
-        :param pulumi.Input['ImagePipelineImageTestsConfigurationArgs'] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
-        :param pulumi.Input['ImagePipelineLoggingConfigurationArgs'] logging_configuration: Configuration block with logging configuration. Detailed below.
-        :param pulumi.Input[_builtins.str] name: Name of the image pipeline.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['ImagePipelineScheduleArgs'] schedule: Configuration block with schedule settings. Detailed below.
-        :param pulumi.Input[_builtins.str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowArgs']]] workflows: Configuration block with the workflow configuration. Detailed below.
         """
         pulumi.set(__self__, "infrastructure_configuration_arn", infrastructure_configuration_arn)
         if container_recipe_arn is not None:
@@ -93,9 +75,6 @@ class ImagePipelineArgs:
     @_builtins.property
     @pulumi.getter(name="infrastructureConfigurationArn")
     def infrastructure_configuration_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
-        """
         return pulumi.get(self, "infrastructure_configuration_arn")
 
     @infrastructure_configuration_arn.setter
@@ -105,9 +84,6 @@ class ImagePipelineArgs:
     @_builtins.property
     @pulumi.getter(name="containerRecipeArn")
     def container_recipe_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the container recipe.
-        """
         return pulumi.get(self, "container_recipe_arn")
 
     @container_recipe_arn.setter
@@ -117,9 +93,6 @@ class ImagePipelineArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the image pipeline.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -129,9 +102,6 @@ class ImagePipelineArgs:
     @_builtins.property
     @pulumi.getter(name="distributionConfigurationArn")
     def distribution_configuration_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
-        """
         return pulumi.get(self, "distribution_configuration_arn")
 
     @distribution_configuration_arn.setter
@@ -141,9 +111,6 @@ class ImagePipelineArgs:
     @_builtins.property
     @pulumi.getter(name="enhancedImageMetadataEnabled")
     def enhanced_image_metadata_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether additional information about the image being created is collected. Defaults to `true`.
-        """
         return pulumi.get(self, "enhanced_image_metadata_enabled")
 
     @enhanced_image_metadata_enabled.setter
@@ -153,9 +120,6 @@ class ImagePipelineArgs:
     @_builtins.property
     @pulumi.getter(name="executionRole")
     def execution_role(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
-        """
         return pulumi.get(self, "execution_role")
 
     @execution_role.setter
@@ -165,9 +129,6 @@ class ImagePipelineArgs:
     @_builtins.property
     @pulumi.getter(name="imageRecipeArn")
     def image_recipe_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the image recipe.
-        """
         return pulumi.get(self, "image_recipe_arn")
 
     @image_recipe_arn.setter
@@ -177,9 +138,6 @@ class ImagePipelineArgs:
     @_builtins.property
     @pulumi.getter(name="imageScanningConfiguration")
     def image_scanning_configuration(self) -> Optional[pulumi.Input['ImagePipelineImageScanningConfigurationArgs']]:
-        """
-        Configuration block with image scanning configuration. Detailed below.
-        """
         return pulumi.get(self, "image_scanning_configuration")
 
     @image_scanning_configuration.setter
@@ -189,9 +147,6 @@ class ImagePipelineArgs:
     @_builtins.property
     @pulumi.getter(name="imageTestsConfiguration")
     def image_tests_configuration(self) -> Optional[pulumi.Input['ImagePipelineImageTestsConfigurationArgs']]:
-        """
-        Configuration block with image tests configuration. Detailed below.
-        """
         return pulumi.get(self, "image_tests_configuration")
 
     @image_tests_configuration.setter
@@ -201,9 +156,6 @@ class ImagePipelineArgs:
     @_builtins.property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> Optional[pulumi.Input['ImagePipelineLoggingConfigurationArgs']]:
-        """
-        Configuration block with logging configuration. Detailed below.
-        """
         return pulumi.get(self, "logging_configuration")
 
     @logging_configuration.setter
@@ -213,11 +165,6 @@ class ImagePipelineArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the image pipeline.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -227,9 +174,6 @@ class ImagePipelineArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -239,9 +183,6 @@ class ImagePipelineArgs:
     @_builtins.property
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['ImagePipelineScheduleArgs']]:
-        """
-        Configuration block with schedule settings. Detailed below.
-        """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
@@ -251,9 +192,6 @@ class ImagePipelineArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -263,9 +201,6 @@ class ImagePipelineArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -275,9 +210,6 @@ class ImagePipelineArgs:
     @_builtins.property
     @pulumi.getter
     def workflows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowArgs']]]]:
-        """
-        Configuration block with the workflow configuration. Detailed below.
-        """
         return pulumi.get(self, "workflows")
 
     @workflows.setter
@@ -313,31 +245,6 @@ class _ImagePipelineState:
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowArgs']]]] = None):
         """
         Input properties used for looking up and filtering ImagePipeline resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the image pipeline.
-        :param pulumi.Input[_builtins.str] container_recipe_arn: Amazon Resource Name (ARN) of the container recipe.
-        :param pulumi.Input[_builtins.str] date_created: Date the image pipeline was created.
-        :param pulumi.Input[_builtins.str] date_last_run: Date the image pipeline was last run.
-        :param pulumi.Input[_builtins.str] date_next_run: Date the image pipeline will run next.
-        :param pulumi.Input[_builtins.str] date_updated: Date the image pipeline was updated.
-        :param pulumi.Input[_builtins.str] description: Description of the image pipeline.
-        :param pulumi.Input[_builtins.str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
-        :param pulumi.Input[_builtins.bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] execution_role: Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
-        :param pulumi.Input[_builtins.str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
-        :param pulumi.Input['ImagePipelineImageScanningConfigurationArgs'] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
-        :param pulumi.Input['ImagePipelineImageTestsConfigurationArgs'] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
-        :param pulumi.Input[_builtins.str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
-        :param pulumi.Input['ImagePipelineLoggingConfigurationArgs'] logging_configuration: Configuration block with logging configuration. Detailed below.
-        :param pulumi.Input[_builtins.str] name: Name of the image pipeline.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] platform: Platform of the image pipeline.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['ImagePipelineScheduleArgs'] schedule: Configuration block with schedule settings. Detailed below.
-        :param pulumi.Input[_builtins.str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowArgs']]] workflows: Configuration block with the workflow configuration. Detailed below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -389,9 +296,6 @@ class _ImagePipelineState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the image pipeline.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -401,9 +305,6 @@ class _ImagePipelineState:
     @_builtins.property
     @pulumi.getter(name="containerRecipeArn")
     def container_recipe_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the container recipe.
-        """
         return pulumi.get(self, "container_recipe_arn")
 
     @container_recipe_arn.setter
@@ -413,9 +314,6 @@ class _ImagePipelineState:
     @_builtins.property
     @pulumi.getter(name="dateCreated")
     def date_created(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date the image pipeline was created.
-        """
         return pulumi.get(self, "date_created")
 
     @date_created.setter
@@ -425,9 +323,6 @@ class _ImagePipelineState:
     @_builtins.property
     @pulumi.getter(name="dateLastRun")
     def date_last_run(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date the image pipeline was last run.
-        """
         return pulumi.get(self, "date_last_run")
 
     @date_last_run.setter
@@ -437,9 +332,6 @@ class _ImagePipelineState:
     @_builtins.property
     @pulumi.getter(name="dateNextRun")
     def date_next_run(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date the image pipeline will run next.
-        """
         return pulumi.get(self, "date_next_run")
 
     @date_next_run.setter
@@ -449,9 +341,6 @@ class _ImagePipelineState:
     @_builtins.property
     @pulumi.getter(name="dateUpdated")
     def date_updated(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date the image pipeline was updated.
-        """
         return pulumi.get(self, "date_updated")
 
     @date_updated.setter
@@ -461,9 +350,6 @@ class _ImagePipelineState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the image pipeline.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -473,9 +359,6 @@ class _ImagePipelineState:
     @_builtins.property
     @pulumi.getter(name="distributionConfigurationArn")
     def distribution_configuration_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
-        """
         return pulumi.get(self, "distribution_configuration_arn")
 
     @distribution_configuration_arn.setter
@@ -485,9 +368,6 @@ class _ImagePipelineState:
     @_builtins.property
     @pulumi.getter(name="enhancedImageMetadataEnabled")
     def enhanced_image_metadata_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether additional information about the image being created is collected. Defaults to `true`.
-        """
         return pulumi.get(self, "enhanced_image_metadata_enabled")
 
     @enhanced_image_metadata_enabled.setter
@@ -497,9 +377,6 @@ class _ImagePipelineState:
     @_builtins.property
     @pulumi.getter(name="executionRole")
     def execution_role(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
-        """
         return pulumi.get(self, "execution_role")
 
     @execution_role.setter
@@ -509,9 +386,6 @@ class _ImagePipelineState:
     @_builtins.property
     @pulumi.getter(name="imageRecipeArn")
     def image_recipe_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the image recipe.
-        """
         return pulumi.get(self, "image_recipe_arn")
 
     @image_recipe_arn.setter
@@ -521,9 +395,6 @@ class _ImagePipelineState:
     @_builtins.property
     @pulumi.getter(name="imageScanningConfiguration")
     def image_scanning_configuration(self) -> Optional[pulumi.Input['ImagePipelineImageScanningConfigurationArgs']]:
-        """
-        Configuration block with image scanning configuration. Detailed below.
-        """
         return pulumi.get(self, "image_scanning_configuration")
 
     @image_scanning_configuration.setter
@@ -533,9 +404,6 @@ class _ImagePipelineState:
     @_builtins.property
     @pulumi.getter(name="imageTestsConfiguration")
     def image_tests_configuration(self) -> Optional[pulumi.Input['ImagePipelineImageTestsConfigurationArgs']]:
-        """
-        Configuration block with image tests configuration. Detailed below.
-        """
         return pulumi.get(self, "image_tests_configuration")
 
     @image_tests_configuration.setter
@@ -545,9 +413,6 @@ class _ImagePipelineState:
     @_builtins.property
     @pulumi.getter(name="infrastructureConfigurationArn")
     def infrastructure_configuration_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
-        """
         return pulumi.get(self, "infrastructure_configuration_arn")
 
     @infrastructure_configuration_arn.setter
@@ -557,9 +422,6 @@ class _ImagePipelineState:
     @_builtins.property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> Optional[pulumi.Input['ImagePipelineLoggingConfigurationArgs']]:
-        """
-        Configuration block with logging configuration. Detailed below.
-        """
         return pulumi.get(self, "logging_configuration")
 
     @logging_configuration.setter
@@ -569,11 +431,6 @@ class _ImagePipelineState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the image pipeline.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -583,9 +440,6 @@ class _ImagePipelineState:
     @_builtins.property
     @pulumi.getter
     def platform(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Platform of the image pipeline.
-        """
         return pulumi.get(self, "platform")
 
     @platform.setter
@@ -595,9 +449,6 @@ class _ImagePipelineState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -607,9 +458,6 @@ class _ImagePipelineState:
     @_builtins.property
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['ImagePipelineScheduleArgs']]:
-        """
-        Configuration block with schedule settings. Detailed below.
-        """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
@@ -619,9 +467,6 @@ class _ImagePipelineState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -631,9 +476,6 @@ class _ImagePipelineState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -643,9 +485,6 @@ class _ImagePipelineState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -655,9 +494,6 @@ class _ImagePipelineState:
     @_builtins.property
     @pulumi.getter
     def workflows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowArgs']]]]:
-        """
-        Configuration block with the workflow configuration. Detailed below.
-        """
         return pulumi.get(self, "workflows")
 
     @workflows.setter
@@ -689,30 +525,9 @@ class ImagePipeline(pulumi.CustomResource):
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImagePipelineWorkflowArgs', 'ImagePipelineWorkflowArgsDict']]]]] = None,
                  __props__=None):
         """
-        Manages an Image Builder Image Pipeline.
-
-        > **NOTE:** Starting with version `5.74.0`, lifecycle meta-argument `replace_triggered_by` must be used in order to prevent a dependency error on destroy.
-
+        Create a ImagePipeline resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] container_recipe_arn: Amazon Resource Name (ARN) of the container recipe.
-        :param pulumi.Input[_builtins.str] description: Description of the image pipeline.
-        :param pulumi.Input[_builtins.str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
-        :param pulumi.Input[_builtins.bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] execution_role: Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
-        :param pulumi.Input[_builtins.str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
-        :param pulumi.Input[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
-        :param pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
-        :param pulumi.Input[_builtins.str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
-        :param pulumi.Input[Union['ImagePipelineLoggingConfigurationArgs', 'ImagePipelineLoggingConfigurationArgsDict']] logging_configuration: Configuration block with logging configuration. Detailed below.
-        :param pulumi.Input[_builtins.str] name: Name of the image pipeline.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']] schedule: Configuration block with schedule settings. Detailed below.
-        :param pulumi.Input[_builtins.str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ImagePipelineWorkflowArgs', 'ImagePipelineWorkflowArgsDict']]]] workflows: Configuration block with the workflow configuration. Detailed below.
         """
         ...
     @overload
@@ -721,10 +536,7 @@ class ImagePipeline(pulumi.CustomResource):
                  args: ImagePipelineArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Image Builder Image Pipeline.
-
-        > **NOTE:** Starting with version `5.74.0`, lifecycle meta-argument `replace_triggered_by` must be used in order to prevent a dependency error on destroy.
-
+        Create a ImagePipeline resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ImagePipelineArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -830,31 +642,6 @@ class ImagePipeline(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the image pipeline.
-        :param pulumi.Input[_builtins.str] container_recipe_arn: Amazon Resource Name (ARN) of the container recipe.
-        :param pulumi.Input[_builtins.str] date_created: Date the image pipeline was created.
-        :param pulumi.Input[_builtins.str] date_last_run: Date the image pipeline was last run.
-        :param pulumi.Input[_builtins.str] date_next_run: Date the image pipeline will run next.
-        :param pulumi.Input[_builtins.str] date_updated: Date the image pipeline was updated.
-        :param pulumi.Input[_builtins.str] description: Description of the image pipeline.
-        :param pulumi.Input[_builtins.str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
-        :param pulumi.Input[_builtins.bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] execution_role: Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
-        :param pulumi.Input[_builtins.str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
-        :param pulumi.Input[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
-        :param pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
-        :param pulumi.Input[_builtins.str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
-        :param pulumi.Input[Union['ImagePipelineLoggingConfigurationArgs', 'ImagePipelineLoggingConfigurationArgsDict']] logging_configuration: Configuration block with logging configuration. Detailed below.
-        :param pulumi.Input[_builtins.str] name: Name of the image pipeline.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] platform: Platform of the image pipeline.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']] schedule: Configuration block with schedule settings. Detailed below.
-        :param pulumi.Input[_builtins.str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ImagePipelineWorkflowArgs', 'ImagePipelineWorkflowArgsDict']]]] workflows: Configuration block with the workflow configuration. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -888,186 +675,115 @@ class ImagePipeline(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the image pipeline.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="containerRecipeArn")
     def container_recipe_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the container recipe.
-        """
         return pulumi.get(self, "container_recipe_arn")
 
     @_builtins.property
     @pulumi.getter(name="dateCreated")
     def date_created(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date the image pipeline was created.
-        """
         return pulumi.get(self, "date_created")
 
     @_builtins.property
     @pulumi.getter(name="dateLastRun")
     def date_last_run(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date the image pipeline was last run.
-        """
         return pulumi.get(self, "date_last_run")
 
     @_builtins.property
     @pulumi.getter(name="dateNextRun")
     def date_next_run(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date the image pipeline will run next.
-        """
         return pulumi.get(self, "date_next_run")
 
     @_builtins.property
     @pulumi.getter(name="dateUpdated")
     def date_updated(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date the image pipeline was updated.
-        """
         return pulumi.get(self, "date_updated")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the image pipeline.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="distributionConfigurationArn")
     def distribution_configuration_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
-        """
         return pulumi.get(self, "distribution_configuration_arn")
 
     @_builtins.property
     @pulumi.getter(name="enhancedImageMetadataEnabled")
     def enhanced_image_metadata_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether additional information about the image being created is collected. Defaults to `true`.
-        """
         return pulumi.get(self, "enhanced_image_metadata_enabled")
 
     @_builtins.property
     @pulumi.getter(name="executionRole")
     def execution_role(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
-        """
         return pulumi.get(self, "execution_role")
 
     @_builtins.property
     @pulumi.getter(name="imageRecipeArn")
     def image_recipe_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the image recipe.
-        """
         return pulumi.get(self, "image_recipe_arn")
 
     @_builtins.property
     @pulumi.getter(name="imageScanningConfiguration")
     def image_scanning_configuration(self) -> pulumi.Output['outputs.ImagePipelineImageScanningConfiguration']:
-        """
-        Configuration block with image scanning configuration. Detailed below.
-        """
         return pulumi.get(self, "image_scanning_configuration")
 
     @_builtins.property
     @pulumi.getter(name="imageTestsConfiguration")
     def image_tests_configuration(self) -> pulumi.Output['outputs.ImagePipelineImageTestsConfiguration']:
-        """
-        Configuration block with image tests configuration. Detailed below.
-        """
         return pulumi.get(self, "image_tests_configuration")
 
     @_builtins.property
     @pulumi.getter(name="infrastructureConfigurationArn")
     def infrastructure_configuration_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
-        """
         return pulumi.get(self, "infrastructure_configuration_arn")
 
     @_builtins.property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> pulumi.Output[Optional['outputs.ImagePipelineLoggingConfiguration']]:
-        """
-        Configuration block with logging configuration. Detailed below.
-        """
         return pulumi.get(self, "logging_configuration")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the image pipeline.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def platform(self) -> pulumi.Output[_builtins.str]:
-        """
-        Platform of the image pipeline.
-        """
         return pulumi.get(self, "platform")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def schedule(self) -> pulumi.Output[Optional['outputs.ImagePipelineSchedule']]:
-        """
-        Configuration block with schedule settings. Detailed below.
-        """
         return pulumi.get(self, "schedule")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def workflows(self) -> pulumi.Output[Sequence['outputs.ImagePipelineWorkflow']]:
-        """
-        Configuration block with the workflow configuration. Detailed below.
-        """
         return pulumi.get(self, "workflows")
 

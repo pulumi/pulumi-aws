@@ -15,81 +15,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StageRouteSetting {
-    /**
-     * @return Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-     * Defaults to `false`. Supported only for WebSocket APIs.
-     * 
-     */
     private @Nullable Boolean dataTraceEnabled;
-    /**
-     * @return Whether detailed metrics are enabled for the route. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean detailedMetricsEnabled;
-    /**
-     * @return Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-     * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
-     * 
-     */
     private @Nullable String loggingLevel;
-    /**
-     * @return Route key.
-     * 
-     */
     private String routeKey;
-    /**
-     * @return Throttling burst limit for the route.
-     * 
-     */
     private @Nullable Integer throttlingBurstLimit;
-    /**
-     * @return Throttling rate limit for the route.
-     * 
-     */
     private @Nullable Double throttlingRateLimit;
 
     private StageRouteSetting() {}
-    /**
-     * @return Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-     * Defaults to `false`. Supported only for WebSocket APIs.
-     * 
-     */
     public Optional<Boolean> dataTraceEnabled() {
         return Optional.ofNullable(this.dataTraceEnabled);
     }
-    /**
-     * @return Whether detailed metrics are enabled for the route. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> detailedMetricsEnabled() {
         return Optional.ofNullable(this.detailedMetricsEnabled);
     }
-    /**
-     * @return Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-     * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
-     * 
-     */
     public Optional<String> loggingLevel() {
         return Optional.ofNullable(this.loggingLevel);
     }
-    /**
-     * @return Route key.
-     * 
-     */
     public String routeKey() {
         return this.routeKey;
     }
-    /**
-     * @return Throttling burst limit for the route.
-     * 
-     */
     public Optional<Integer> throttlingBurstLimit() {
         return Optional.ofNullable(this.throttlingBurstLimit);
     }
-    /**
-     * @return Throttling rate limit for the route.
-     * 
-     */
     public Optional<Double> throttlingRateLimit() {
         return Optional.ofNullable(this.throttlingRateLimit);
     }

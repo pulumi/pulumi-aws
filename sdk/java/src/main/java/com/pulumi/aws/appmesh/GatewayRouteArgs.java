@@ -18,107 +18,51 @@ public final class GatewayRouteArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GatewayRouteArgs Empty = new GatewayRouteArgs();
 
-    /**
-     * Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
-     * 
-     */
     @Import(name="meshName", required=true)
     private Output<String> meshName;
 
-    /**
-     * @return Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
-     * 
-     */
     public Output<String> meshName() {
         return this.meshName;
     }
 
-    /**
-     * AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the AWS provider is currently connected to.
-     * 
-     */
     @Import(name="meshOwner")
     private @Nullable Output<String> meshOwner;
 
-    /**
-     * @return AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the AWS provider is currently connected to.
-     * 
-     */
     public Optional<Output<String>> meshOwner() {
         return Optional.ofNullable(this.meshOwner);
     }
 
-    /**
-     * Name to use for the gateway route. Must be between 1 and 255 characters in length.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name to use for the gateway route. Must be between 1 and 255 characters in length.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Gateway route specification to apply.
-     * 
-     */
     @Import(name="spec", required=true)
     private Output<GatewayRouteSpecArgs> spec;
 
-    /**
-     * @return Gateway route specification to apply.
-     * 
-     */
     public Output<GatewayRouteSpecArgs> spec() {
         return this.spec;
     }
 
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
-     * 
-     */
     @Import(name="virtualGatewayName", required=true)
     private Output<String> virtualGatewayName;
 
-    /**
-     * @return Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
-     * 
-     */
     public Output<String> virtualGatewayName() {
         return this.virtualGatewayName;
     }
@@ -153,149 +97,65 @@ public final class GatewayRouteArgs extends com.pulumi.resources.ResourceArgs {
             $ = new GatewayRouteArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param meshName Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder meshName(Output<String> meshName) {
             $.meshName = meshName;
             return this;
         }
 
-        /**
-         * @param meshName Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder meshName(String meshName) {
             return meshName(Output.of(meshName));
         }
 
-        /**
-         * @param meshOwner AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the AWS provider is currently connected to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder meshOwner(@Nullable Output<String> meshOwner) {
             $.meshOwner = meshOwner;
             return this;
         }
 
-        /**
-         * @param meshOwner AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the AWS provider is currently connected to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder meshOwner(String meshOwner) {
             return meshOwner(Output.of(meshOwner));
         }
 
-        /**
-         * @param name Name to use for the gateway route. Must be between 1 and 255 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name to use for the gateway route. Must be between 1 and 255 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param spec Gateway route specification to apply.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spec(Output<GatewayRouteSpecArgs> spec) {
             $.spec = spec;
             return this;
         }
 
-        /**
-         * @param spec Gateway route specification to apply.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spec(GatewayRouteSpecArgs spec) {
             return spec(Output.of(spec));
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param virtualGatewayName Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualGatewayName(Output<String> virtualGatewayName) {
             $.virtualGatewayName = virtualGatewayName;
             return this;
         }
 
-        /**
-         * @param virtualGatewayName Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualGatewayName(String virtualGatewayName) {
             return virtualGatewayName(Output.of(virtualGatewayName));
         }

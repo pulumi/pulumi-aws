@@ -17,32 +17,16 @@ public final class InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs exte
 
     public static final InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs Empty = new InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs();
 
-    /**
-     * Indicates whether logging is enabled.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Indicates whether logging is enabled.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
 
-    /**
-     * The name of the CloudWatch Logs Log Group.
-     * 
-     */
     @Import(name="logGroup")
     private @Nullable Output<String> logGroup;
 
-    /**
-     * @return The name of the CloudWatch Logs Log Group.
-     * 
-     */
     public Optional<Output<String>> logGroup() {
         return Optional.ofNullable(this.logGroup);
     }
@@ -72,44 +56,20 @@ public final class InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs exte
             $ = new InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Indicates whether logging is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Indicates whether logging is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param logGroup The name of the CloudWatch Logs Log Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroup(@Nullable Output<String> logGroup) {
             $.logGroup = logGroup;
             return this;
         }
 
-        /**
-         * @param logGroup The name of the CloudWatch Logs Log Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroup(String logGroup) {
             return logGroup(Output.of(logGroup));
         }

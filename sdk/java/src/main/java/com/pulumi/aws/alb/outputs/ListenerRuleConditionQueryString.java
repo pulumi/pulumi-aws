@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerRuleConditionQueryString {
-    /**
-     * @return Query string key pattern to match.
-     * 
-     */
     private @Nullable String key;
-    /**
-     * @return Query string value pattern to match.
-     * 
-     */
     private String value;
 
     private ListenerRuleConditionQueryString() {}
-    /**
-     * @return Query string key pattern to match.
-     * 
-     */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
-    /**
-     * @return Query string value pattern to match.
-     * 
-     */
     public String value() {
         return this.value;
     }

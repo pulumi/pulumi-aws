@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration {
-    /**
-     * @return A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabledControlIdentifiers`.
-     * 
-     */
     private @Nullable List<String> disabledControlIdentifiers;
-    /**
-     * @return A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabledControlIdentifiers`.
-     * 
-     */
     private @Nullable List<String> enabledControlIdentifiers;
-    /**
-     * @return A list of control parameter customizations that are included in a configuration policy. Include multiple blocks to define multiple control custom parameters. See below.
-     * 
-     */
     private @Nullable List<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter> securityControlCustomParameters;
 
     private ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration() {}
-    /**
-     * @return A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabledControlIdentifiers`.
-     * 
-     */
     public List<String> disabledControlIdentifiers() {
         return this.disabledControlIdentifiers == null ? List.of() : this.disabledControlIdentifiers;
     }
-    /**
-     * @return A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabledControlIdentifiers`.
-     * 
-     */
     public List<String> enabledControlIdentifiers() {
         return this.enabledControlIdentifiers == null ? List.of() : this.enabledControlIdentifiers;
     }
-    /**
-     * @return A list of control parameter customizations that are included in a configuration policy. Include multiple blocks to define multiple control custom parameters. See below.
-     * 
-     */
     public List<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter> securityControlCustomParameters() {
         return this.securityControlCustomParameters == null ? List.of() : this.securityControlCustomParameters;
     }

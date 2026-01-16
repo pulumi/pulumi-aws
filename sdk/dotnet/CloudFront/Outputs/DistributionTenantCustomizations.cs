@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionTenantCustomizations
     {
-        /// <summary>
-        /// Certificate configuration for the tenant (maximum one).
-        /// </summary>
         public readonly Outputs.DistributionTenantCustomizationsCertificate? Certificate;
-        /// <summary>
-        /// Geographic restrictions configuration for the tenant (maximum one).
-        /// </summary>
         public readonly Outputs.DistributionTenantCustomizationsGeoRestriction? GeoRestriction;
-        /// <summary>
-        /// Web ACL configuration for the tenant (maximum one).
-        /// </summary>
         public readonly Outputs.DistributionTenantCustomizationsWebAcl? WebAcl;
 
         [OutputConstructor]

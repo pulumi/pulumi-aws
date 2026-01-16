@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
     {
         [Input("entries", required: true)]
         private InputList<Inputs.LogTransformerTransformerConfigCopyValueEntryGetArgs>? _entries;
-
-        /// <summary>
-        /// Objects containing the information about the values to copy to the log event. You must include at least one entry, and five at most. See `CopyValue` `Entry` below for details.
-        /// </summary>
         public InputList<Inputs.LogTransformerTransformerConfigCopyValueEntryGetArgs> Entries
         {
             get => _entries ?? (_entries = new InputList<Inputs.LogTransformerTransformerConfigCopyValueEntryGetArgs>());

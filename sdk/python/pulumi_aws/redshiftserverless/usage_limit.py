@@ -27,12 +27,6 @@ class UsageLimitArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UsageLimit resource.
-        :param pulumi.Input[_builtins.int] amount: The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
-        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
-        :param pulumi.Input[_builtins.str] usage_type: The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
-        :param pulumi.Input[_builtins.str] breach_action: The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
-        :param pulumi.Input[_builtins.str] period: The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "amount", amount)
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -47,9 +41,6 @@ class UsageLimitArgs:
     @_builtins.property
     @pulumi.getter
     def amount(self) -> pulumi.Input[_builtins.int]:
-        """
-        The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
-        """
         return pulumi.get(self, "amount")
 
     @amount.setter
@@ -59,9 +50,6 @@ class UsageLimitArgs:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -71,9 +59,6 @@ class UsageLimitArgs:
     @_builtins.property
     @pulumi.getter(name="usageType")
     def usage_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
-        """
         return pulumi.get(self, "usage_type")
 
     @usage_type.setter
@@ -83,9 +68,6 @@ class UsageLimitArgs:
     @_builtins.property
     @pulumi.getter(name="breachAction")
     def breach_action(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
-        """
         return pulumi.get(self, "breach_action")
 
     @breach_action.setter
@@ -95,9 +77,6 @@ class UsageLimitArgs:
     @_builtins.property
     @pulumi.getter
     def period(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
-        """
         return pulumi.get(self, "period")
 
     @period.setter
@@ -107,9 +86,6 @@ class UsageLimitArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -129,13 +105,6 @@ class _UsageLimitState:
                  usage_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UsageLimit resources.
-        :param pulumi.Input[_builtins.int] amount: The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
-        :param pulumi.Input[_builtins.str] breach_action: The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
-        :param pulumi.Input[_builtins.str] period: The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
-        :param pulumi.Input[_builtins.str] usage_type: The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
         """
         if amount is not None:
             pulumi.set(__self__, "amount", amount)
@@ -155,9 +124,6 @@ class _UsageLimitState:
     @_builtins.property
     @pulumi.getter
     def amount(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
-        """
         return pulumi.get(self, "amount")
 
     @amount.setter
@@ -167,9 +133,6 @@ class _UsageLimitState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -179,9 +142,6 @@ class _UsageLimitState:
     @_builtins.property
     @pulumi.getter(name="breachAction")
     def breach_action(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
-        """
         return pulumi.get(self, "breach_action")
 
     @breach_action.setter
@@ -191,9 +151,6 @@ class _UsageLimitState:
     @_builtins.property
     @pulumi.getter
     def period(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
-        """
         return pulumi.get(self, "period")
 
     @period.setter
@@ -203,9 +160,6 @@ class _UsageLimitState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -215,9 +169,6 @@ class _UsageLimitState:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -227,9 +178,6 @@ class _UsageLimitState:
     @_builtins.property
     @pulumi.getter(name="usageType")
     def usage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
-        """
         return pulumi.get(self, "usage_type")
 
     @usage_type.setter
@@ -251,39 +199,9 @@ class UsageLimit(pulumi.CustomResource):
                  usage_type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Creates a new Amazon Redshift Serverless Usage Limit.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshiftserverless.Workgroup("example",
-            namespace_name=example_aws_redshiftserverless_namespace["namespaceName"],
-            workgroup_name="example")
-        example_usage_limit = aws.redshiftserverless.UsageLimit("example",
-            resource_arn=example.arn,
-            usage_type="serverless-compute",
-            amount=60)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift Serverless Usage Limits using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:redshiftserverless/usageLimit:UsageLimit example example-id
-        ```
-
+        Create a UsageLimit resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] amount: The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
-        :param pulumi.Input[_builtins.str] breach_action: The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
-        :param pulumi.Input[_builtins.str] period: The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
-        :param pulumi.Input[_builtins.str] usage_type: The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
         """
         ...
     @overload
@@ -292,31 +210,7 @@ class UsageLimit(pulumi.CustomResource):
                  args: UsageLimitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a new Amazon Redshift Serverless Usage Limit.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshiftserverless.Workgroup("example",
-            namespace_name=example_aws_redshiftserverless_namespace["namespaceName"],
-            workgroup_name="example")
-        example_usage_limit = aws.redshiftserverless.UsageLimit("example",
-            resource_arn=example.arn,
-            usage_type="serverless-compute",
-            amount=60)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift Serverless Usage Limits using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:redshiftserverless/usageLimit:UsageLimit example example-id
-        ```
-
+        Create a UsageLimit resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UsageLimitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -384,13 +278,6 @@ class UsageLimit(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] amount: The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
-        :param pulumi.Input[_builtins.str] breach_action: The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
-        :param pulumi.Input[_builtins.str] period: The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
-        :param pulumi.Input[_builtins.str] usage_type: The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -408,56 +295,35 @@ class UsageLimit(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def amount(self) -> pulumi.Output[_builtins.int]:
-        """
-        The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
-        """
         return pulumi.get(self, "amount")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="breachAction")
     def breach_action(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
-        """
         return pulumi.get(self, "breach_action")
 
     @_builtins.property
     @pulumi.getter
     def period(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
-        """
         return pulumi.get(self, "period")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
-        """
         return pulumi.get(self, "resource_arn")
 
     @_builtins.property
     @pulumi.getter(name="usageType")
     def usage_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
-        """
         return pulumi.get(self, "usage_type")
 

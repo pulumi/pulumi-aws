@@ -19,10 +19,6 @@ public final class GetOntapStorageVirtualMachinesResult {
      * 
      */
     private String id;
-    /**
-     * @return List of all SVM IDs found.
-     * 
-     */
     private List<String> ids;
     private String region;
 
@@ -37,10 +33,6 @@ public final class GetOntapStorageVirtualMachinesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of all SVM IDs found.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }

@@ -11,53 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InfrastructureConfigurationPlacement {
-    /**
-     * @return Availability Zone where your build and test instances will launch.
-     * 
-     */
     private @Nullable String availabilityZone;
-    /**
-     * @return ID of the Dedicated Host on which build and test instances run. Conflicts with `hostResourceGroupArn`.
-     * 
-     */
     private @Nullable String hostId;
-    /**
-     * @return ARN of the host resource group in which to launch build and test instances. Conflicts with `hostId`.
-     * 
-     */
     private @Nullable String hostResourceGroupArn;
-    /**
-     * @return Placement tenancy of the instance. Valid values: `default`, `dedicated` and `host`.
-     * 
-     */
     private @Nullable String tenancy;
 
     private InfrastructureConfigurationPlacement() {}
-    /**
-     * @return Availability Zone where your build and test instances will launch.
-     * 
-     */
     public Optional<String> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
-    /**
-     * @return ID of the Dedicated Host on which build and test instances run. Conflicts with `hostResourceGroupArn`.
-     * 
-     */
     public Optional<String> hostId() {
         return Optional.ofNullable(this.hostId);
     }
-    /**
-     * @return ARN of the host resource group in which to launch build and test instances. Conflicts with `hostId`.
-     * 
-     */
     public Optional<String> hostResourceGroupArn() {
         return Optional.ofNullable(this.hostResourceGroupArn);
     }
-    /**
-     * @return Placement tenancy of the instance. Valid values: `default`, `dedicated` and `host`.
-     * 
-     */
     public Optional<String> tenancy() {
         return Optional.ofNullable(this.tenancy);
     }

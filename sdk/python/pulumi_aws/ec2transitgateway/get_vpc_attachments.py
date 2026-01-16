@@ -58,9 +58,6 @@ class GetVpcAttachmentsResult:
     @_builtins.property
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
-        """
-        A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [ec2transitgateway.VpcAttachment][2] data source, searching by identifier.
-        """
         return pulumi.get(self, "ids")
 
     @_builtins.property
@@ -85,26 +82,7 @@ def get_vpc_attachments(filters: Optional[Sequence[Union['GetVpcAttachmentsFilte
                         region: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcAttachmentsResult:
     """
-    Get information on EC2 Transit Gateway VPC Attachments.
-
-    ## Example Usage
-
-    ### By Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    filtered = aws.ec2transitgateway.get_vpc_attachments(filters=[{
-        "name": "state",
-        "values": ["pendingAcceptance"],
-    }])
-    unit = [aws.ec2transitgateway.get_vpc_attachment(id=filtered.ids[__index]) for __index in len(filtered.ids).apply(lambda length: range(length))]
-    ```
-
-
-    :param Sequence[Union['GetVpcAttachmentsFilterArgs', 'GetVpcAttachmentsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -121,26 +99,7 @@ def get_vpc_attachments_output(filters: Optional[pulumi.Input[Optional[Sequence[
                                region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcAttachmentsResult]:
     """
-    Get information on EC2 Transit Gateway VPC Attachments.
-
-    ## Example Usage
-
-    ### By Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    filtered = aws.ec2transitgateway.get_vpc_attachments(filters=[{
-        "name": "state",
-        "values": ["pendingAcceptance"],
-    }])
-    unit = [aws.ec2transitgateway.get_vpc_attachment(id=filtered.ids[__index]) for __index in len(filtered.ids).apply(lambda length: range(length))]
-    ```
-
-
-    :param Sequence[Union['GetVpcAttachmentsFilterArgs', 'GetVpcAttachmentsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

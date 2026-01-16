@@ -13,13 +13,7 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class TargetGroupTargetGroupHealthUnhealthyStateRouting
     {
-        /// <summary>
-        /// The minimum number of targets that must be healthy. If the number of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `1` to the maximum number of targets. The default is `1`.
-        /// </summary>
         public readonly int? MinimumHealthyTargetsCount;
-        /// <summary>
-        /// The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `Off` or an integer from `1` to `100`. The default is `Off`.
-        /// </summary>
         public readonly string? MinimumHealthyTargetsPercentage;
 
         [OutputConstructor]

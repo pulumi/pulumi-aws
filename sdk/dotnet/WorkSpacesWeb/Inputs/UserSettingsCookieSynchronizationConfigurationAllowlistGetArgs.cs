@@ -12,21 +12,12 @@ namespace Pulumi.Aws.WorkSpacesWeb.Inputs
 
     public sealed class UserSettingsCookieSynchronizationConfigurationAllowlistGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Domain of the cookie.
-        /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the cookie.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Path of the cookie.
-        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 

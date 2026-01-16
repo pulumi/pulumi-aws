@@ -45,9 +45,6 @@ class GetNotificationChannelResult:
     @_builtins.property
     @pulumi.getter
     def filters(self) -> Optional[Sequence['outputs.GetNotificationChannelFilterResult']]:
-        """
-        Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
-        """
         return pulumi.get(self, "filters")
 
     @_builtins.property
@@ -63,9 +60,6 @@ class GetNotificationChannelResult:
     @_builtins.property
     @pulumi.getter
     def sns(self) -> Optional[Sequence['outputs.GetNotificationChannelSnResult']]:
-        """
-        SNS noficiation channel configurations. See the `sns` attribute reference below.
-        """
         return pulumi.get(self, "sns")
 
 
@@ -87,24 +81,7 @@ def get_notification_channel(filters: Optional[Sequence[Union['GetNotificationCh
                              sns: Optional[Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict']]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationChannelResult:
     """
-    Data source for managing an AWS DevOps Guru Notification Channel.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.devopsguru.get_notification_channel(id="channel-1234")
-    ```
-
-
-    :param Sequence[Union['GetNotificationChannelFilterArgs', 'GetNotificationChannelFilterArgsDict']] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
-    :param _builtins.str id: Unique identifier for the notification channel.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict']] sns: SNS noficiation channel configurations. See the `sns` attribute reference below.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -125,24 +102,7 @@ def get_notification_channel_output(filters: Optional[pulumi.Input[Optional[Sequ
                                     sns: Optional[pulumi.Input[Optional[Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict']]]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNotificationChannelResult]:
     """
-    Data source for managing an AWS DevOps Guru Notification Channel.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.devopsguru.get_notification_channel(id="channel-1234")
-    ```
-
-
-    :param Sequence[Union['GetNotificationChannelFilterArgs', 'GetNotificationChannelFilterArgsDict']] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
-    :param _builtins.str id: Unique identifier for the notification channel.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict']] sns: SNS noficiation channel configurations. See the `sns` attribute reference below.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

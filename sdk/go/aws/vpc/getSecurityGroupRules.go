@@ -11,38 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource can be useful for getting back a set of security group rule IDs.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpc"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := vpc.GetSecurityGroupRules(ctx, &vpc.GetSecurityGroupRulesArgs{
-// Filters: []vpc.GetSecurityGroupRulesFilter{
-// {
-// Name: "group-id",
-// Values: interface{}{
-// securityGroupId,
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
 func GetSecurityGroupRules(ctx *pulumi.Context, args *GetSecurityGroupRulesArgs, opts ...pulumi.InvokeOption) (*GetSecurityGroupRulesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSecurityGroupRulesResult
@@ -55,23 +23,18 @@ func GetSecurityGroupRules(ctx *pulumi.Context, args *GetSecurityGroupRulesArgs,
 
 // A collection of arguments for invoking getSecurityGroupRules.
 type GetSecurityGroupRulesArgs struct {
-	// Custom filter block as described below.
 	Filters []GetSecurityGroupRulesFilter `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired security group rule.
-	Tags map[string]string `pulumi:"tags"`
+	Region  *string                       `pulumi:"region"`
+	Tags    map[string]string             `pulumi:"tags"`
 }
 
 // A collection of values returned by getSecurityGroupRules.
 type GetSecurityGroupRulesResult struct {
 	Filters []GetSecurityGroupRulesFilter `pulumi:"filters"`
 	Id      string                        `pulumi:"id"`
-	// List of all the security group rule IDs found.
-	Ids    []string          `pulumi:"ids"`
-	Region string            `pulumi:"region"`
-	Tags   map[string]string `pulumi:"tags"`
+	Ids     []string                      `pulumi:"ids"`
+	Region  string                        `pulumi:"region"`
+	Tags    map[string]string             `pulumi:"tags"`
 }
 
 func GetSecurityGroupRulesOutput(ctx *pulumi.Context, args GetSecurityGroupRulesOutputArgs, opts ...pulumi.InvokeOption) GetSecurityGroupRulesResultOutput {
@@ -85,13 +48,9 @@ func GetSecurityGroupRulesOutput(ctx *pulumi.Context, args GetSecurityGroupRules
 
 // A collection of arguments for invoking getSecurityGroupRules.
 type GetSecurityGroupRulesOutputArgs struct {
-	// Custom filter block as described below.
 	Filters GetSecurityGroupRulesFilterArrayInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired security group rule.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Region  pulumi.StringPtrInput                 `pulumi:"region"`
+	Tags    pulumi.StringMapInput                 `pulumi:"tags"`
 }
 
 func (GetSecurityGroupRulesOutputArgs) ElementType() reflect.Type {
@@ -121,7 +80,6 @@ func (o GetSecurityGroupRulesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityGroupRulesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of all the security group rule IDs found.
 func (o GetSecurityGroupRulesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecurityGroupRulesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

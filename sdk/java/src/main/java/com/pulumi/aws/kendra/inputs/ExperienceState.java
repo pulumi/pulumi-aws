@@ -18,160 +18,72 @@ public final class ExperienceState extends com.pulumi.resources.ResourceArgs {
 
     public static final ExperienceState Empty = new ExperienceState();
 
-    /**
-     * ARN of the Experience.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the Experience.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-     * 
-     * &gt; **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
-     * 
-     */
     @Import(name="configuration")
     private @Nullable Output<ExperienceConfigurationArgs> configuration;
 
-    /**
-     * @return Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-     * 
-     * &gt; **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
-     * 
-     */
     public Optional<Output<ExperienceConfigurationArgs>> configuration() {
         return Optional.ofNullable(this.configuration);
     }
 
-    /**
-     * A description for your Amazon Kendra experience.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A description for your Amazon Kendra experience.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
-     * 
-     */
     @Import(name="endpoints")
     private @Nullable Output<List<ExperienceEndpointArgs>> endpoints;
 
-    /**
-     * @return Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
-     * 
-     */
     public Optional<Output<List<ExperienceEndpointArgs>>> endpoints() {
         return Optional.ofNullable(this.endpoints);
     }
 
-    /**
-     * The unique identifier of the experience.
-     * 
-     */
     @Import(name="experienceId")
     private @Nullable Output<String> experienceId;
 
-    /**
-     * @return The unique identifier of the experience.
-     * 
-     */
     public Optional<Output<String>> experienceId() {
         return Optional.ofNullable(this.experienceId);
     }
 
-    /**
-     * The identifier of the index for your Amazon Kendra experience.
-     * 
-     */
     @Import(name="indexId")
     private @Nullable Output<String> indexId;
 
-    /**
-     * @return The identifier of the index for your Amazon Kendra experience.
-     * 
-     */
     public Optional<Output<String>> indexId() {
         return Optional.ofNullable(this.indexId);
     }
 
-    /**
-     * A name for your Amazon Kendra experience.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return A name for your Amazon Kendra experience.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
 
-    /**
-     * The current processing status of your Amazon Kendra experience.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The current processing status of your Amazon Kendra experience.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -209,230 +121,96 @@ public final class ExperienceState extends com.pulumi.resources.ResourceArgs {
             $ = new ExperienceState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the Experience.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the Experience.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param configuration Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-         * 
-         * &gt; **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configuration(@Nullable Output<ExperienceConfigurationArgs> configuration) {
             $.configuration = configuration;
             return this;
         }
 
-        /**
-         * @param configuration Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-         * 
-         * &gt; **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configuration(ExperienceConfigurationArgs configuration) {
             return configuration(Output.of(configuration));
         }
 
-        /**
-         * @param description A description for your Amazon Kendra experience.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A description for your Amazon Kendra experience.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param endpoints Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoints(@Nullable Output<List<ExperienceEndpointArgs>> endpoints) {
             $.endpoints = endpoints;
             return this;
         }
 
-        /**
-         * @param endpoints Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoints(List<ExperienceEndpointArgs> endpoints) {
             return endpoints(Output.of(endpoints));
         }
 
-        /**
-         * @param endpoints Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoints(ExperienceEndpointArgs... endpoints) {
             return endpoints(List.of(endpoints));
         }
 
-        /**
-         * @param experienceId The unique identifier of the experience.
-         * 
-         * @return builder
-         * 
-         */
         public Builder experienceId(@Nullable Output<String> experienceId) {
             $.experienceId = experienceId;
             return this;
         }
 
-        /**
-         * @param experienceId The unique identifier of the experience.
-         * 
-         * @return builder
-         * 
-         */
         public Builder experienceId(String experienceId) {
             return experienceId(Output.of(experienceId));
         }
 
-        /**
-         * @param indexId The identifier of the index for your Amazon Kendra experience.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexId(@Nullable Output<String> indexId) {
             $.indexId = indexId;
             return this;
         }
 
-        /**
-         * @param indexId The identifier of the index for your Amazon Kendra experience.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexId(String indexId) {
             return indexId(Output.of(indexId));
         }
 
-        /**
-         * @param name A name for your Amazon Kendra experience.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name A name for your Amazon Kendra experience.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param roleArn The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param status The current processing status of your Amazon Kendra experience.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The current processing status of your Amazon Kendra experience.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

@@ -17,10 +17,6 @@ import javax.annotation.Nullable;
 public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse {
     private @Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllow allow;
     private @Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock block;
-    /**
-     * @return Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptcha captcha;
     private @Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge challenge;
     private @Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount count;
@@ -32,10 +28,6 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
     public Optional<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock> block() {
         return Optional.ofNullable(this.block);
     }
-    /**
-     * @return Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptcha> captcha() {
         return Optional.ofNullable(this.captcha);
     }

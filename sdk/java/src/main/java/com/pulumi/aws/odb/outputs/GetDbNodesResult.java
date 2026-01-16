@@ -13,10 +13,6 @@ import java.util.Objects;
 @CustomType
 public final class GetDbNodesResult {
     private String cloudVmClusterId;
-    /**
-     * @return The list of DB nodes along with their properties.
-     * 
-     */
     private List<GetDbNodesDbNode> dbNodes;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -29,10 +25,6 @@ public final class GetDbNodesResult {
     public String cloudVmClusterId() {
         return this.cloudVmClusterId;
     }
-    /**
-     * @return The list of DB nodes along with their properties.
-     * 
-     */
     public List<GetDbNodesDbNode> dbNodes() {
         return this.dbNodes;
     }

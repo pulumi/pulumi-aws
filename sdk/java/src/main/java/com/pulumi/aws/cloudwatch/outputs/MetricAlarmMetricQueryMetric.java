@@ -14,87 +14,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MetricAlarmMetricQueryMetric {
-    /**
-     * @return The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-     * 
-     */
     private @Nullable Map<String,String> dimensions;
-    /**
-     * @return The name for this metric.
-     * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-     * 
-     */
     private String metricName;
-    /**
-     * @return The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
-     * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-     * 
-     */
     private @Nullable String namespace;
-    /**
-     * @return Granularity in seconds of returned data points.
-     * For metrics with regular resolution, valid values are any multiple of `60`.
-     * For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
-     * 
-     */
     private Integer period;
-    /**
-     * @return The statistic to apply to this metric.
-     * See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
-     * 
-     */
     private String stat;
-    /**
-     * @return The unit for this metric.
-     * 
-     */
     private @Nullable String unit;
 
     private MetricAlarmMetricQueryMetric() {}
-    /**
-     * @return The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-     * 
-     */
     public Map<String,String> dimensions() {
         return this.dimensions == null ? Map.of() : this.dimensions;
     }
-    /**
-     * @return The name for this metric.
-     * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-     * 
-     */
     public String metricName() {
         return this.metricName;
     }
-    /**
-     * @return The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
-     * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-     * 
-     */
     public Optional<String> namespace() {
         return Optional.ofNullable(this.namespace);
     }
-    /**
-     * @return Granularity in seconds of returned data points.
-     * For metrics with regular resolution, valid values are any multiple of `60`.
-     * For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
-     * 
-     */
     public Integer period() {
         return this.period;
     }
-    /**
-     * @return The statistic to apply to this metric.
-     * See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
-     * 
-     */
     public String stat() {
         return this.stat;
     }
-    /**
-     * @return The unit for this metric.
-     * 
-     */
     public Optional<String> unit() {
         return Optional.ofNullable(this.unit);
     }

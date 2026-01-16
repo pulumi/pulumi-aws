@@ -28,14 +28,6 @@ class RouteTableArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RouteTable resource.
-        :param pulumi.Input[_builtins.str] vpc_id: The VPC ID.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] propagating_vgws: A list of virtual gateways for propagation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]] routes: A list of route objects. Their keys are documented below.
-               This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
-               
-               > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`ec2.Route`) and a Route Table resource with routes defined in-line (`ec2.RouteTable`). At this time you cannot use a `ec2.RouteTable` inline `route` blocks in conjunction with any `ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "vpc_id", vpc_id)
         if propagating_vgws is not None:
@@ -50,9 +42,6 @@ class RouteTableArgs:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The VPC ID.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -62,9 +51,6 @@ class RouteTableArgs:
     @_builtins.property
     @pulumi.getter(name="propagatingVgws")
     def propagating_vgws(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of virtual gateways for propagation.
-        """
         return pulumi.get(self, "propagating_vgws")
 
     @propagating_vgws.setter
@@ -74,9 +60,6 @@ class RouteTableArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -86,12 +69,6 @@ class RouteTableArgs:
     @_builtins.property
     @pulumi.getter
     def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]]]:
-        """
-        A list of route objects. Their keys are documented below.
-        This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
-
-        > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`ec2.Route`) and a Route Table resource with routes defined in-line (`ec2.RouteTable`). At this time you cannot use a `ec2.RouteTable` inline `route` blocks in conjunction with any `ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
-        """
         return pulumi.get(self, "routes")
 
     @routes.setter
@@ -101,9 +78,6 @@ class RouteTableArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -124,17 +98,6 @@ class _RouteTableState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RouteTable resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the route table.
-        :param pulumi.Input[_builtins.str] owner_id: The ID of the AWS account that owns the route table.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] propagating_vgws: A list of virtual gateways for propagation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]] routes: A list of route objects. Their keys are documented below.
-               This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
-               
-               > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`ec2.Route`) and a Route Table resource with routes defined in-line (`ec2.RouteTable`). At this time you cannot use a `ec2.RouteTable` inline `route` blocks in conjunction with any `ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: The VPC ID.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -156,9 +119,6 @@ class _RouteTableState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the route table.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -168,9 +128,6 @@ class _RouteTableState:
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the AWS account that owns the route table.
-        """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
@@ -180,9 +137,6 @@ class _RouteTableState:
     @_builtins.property
     @pulumi.getter(name="propagatingVgws")
     def propagating_vgws(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of virtual gateways for propagation.
-        """
         return pulumi.get(self, "propagating_vgws")
 
     @propagating_vgws.setter
@@ -192,9 +146,6 @@ class _RouteTableState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -204,12 +155,6 @@ class _RouteTableState:
     @_builtins.property
     @pulumi.getter
     def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]]]:
-        """
-        A list of route objects. Their keys are documented below.
-        This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
-
-        > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`ec2.Route`) and a Route Table resource with routes defined in-line (`ec2.RouteTable`). At this time you cannot use a `ec2.RouteTable` inline `route` blocks in conjunction with any `ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
-        """
         return pulumi.get(self, "routes")
 
     @routes.setter
@@ -219,9 +164,6 @@ class _RouteTableState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -231,9 +173,6 @@ class _RouteTableState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -243,9 +182,6 @@ class _RouteTableState:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The VPC ID.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -266,128 +202,9 @@ class RouteTable(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a resource to create a VPC routing table.
-
-        > **NOTE on `gateway_id` and `nat_gateway_id`:** The AWS API is very forgiving with these two
-        attributes and the `ec2.RouteTable` resource can be created with a NAT ID specified as a Gateway ID attribute.
-        This _will_ lead to a permanent diff between your configuration and statefile, as the API returns the correct
-        parameters in the returned route table. If you're experiencing constant diffs in your `ec2.RouteTable` resources,
-        the first thing to check is whether or not you're specifying a NAT ID instead of a Gateway ID, or vice-versa.
-
-        > **NOTE on `propagating_vgws` and the `ec2.VpnGatewayRoutePropagation` resource:**
-        If the `propagating_vgws` argument is present, it's not supported to _also_
-        define route propagations using `ec2.VpnGatewayRoutePropagation`, since
-        this resource will delete any propagating gateways not explicitly listed in
-        `propagating_vgws`. Omit this argument when defining route propagation using
-        the separate resource.
-
-        ## Example Usage
-
-        ### Basic example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.RouteTable("example",
-            vpc_id=example_aws_vpc["id"],
-            routes=[
-                {
-                    "cidr_block": "10.0.1.0/24",
-                    "gateway_id": example_aws_internet_gateway["id"],
-                },
-                {
-                    "ipv6_cidr_block": "::/0",
-                    "egress_only_gateway_id": example_aws_egress_only_internet_gateway["id"],
-                },
-            ],
-            tags={
-                "Name": "example",
-            })
-        ```
-
-        To subsequently remove all managed routes:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.RouteTable("example",
-            vpc_id=example_aws_vpc["id"],
-            routes=[],
-            tags={
-                "Name": "example",
-            })
-        ```
-
-        ### Adopting an existing local route
-
-        AWS creates certain routes that the AWS provider mostly ignores. You can manage them by importing or adopting them. See Import below for information on importing. This example shows adopting a route and then updating its target.
-
-        First, adopt an existing AWS-created route:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.ec2.Vpc("test", cidr_block="10.1.0.0/16")
-        test_route_table = aws.ec2.RouteTable("test",
-            vpc_id=test.id,
-            routes=[{
-                "cidr_block": "10.1.0.0/16",
-                "gateway_id": "local",
-            }])
-        ```
-
-        Next, update the target of the route:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.ec2.Vpc("test", cidr_block="10.1.0.0/16")
-        test_subnet = aws.ec2.Subnet("test",
-            cidr_block="10.1.1.0/24",
-            vpc_id=test.id)
-        test_network_interface = aws.ec2.NetworkInterface("test", subnet_id=test_subnet.id)
-        test_route_table = aws.ec2.RouteTable("test",
-            vpc_id=test.id,
-            routes=[{
-                "cidr_block": test.cidr_block,
-                "network_interface_id": test_network_interface.id,
-            }])
-        ```
-
-        The target could then be updated again back to `local`.
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `id` - (String) ID of the routing table.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
-        Using `pulumi import`, import Route Tables using the route table `id`. For example:
-
-        % pulumi import aws_route_table.public_rt rtb-4e616f6d69
-
+        Create a RouteTable resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] propagating_vgws: A list of virtual gateways for propagation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict']]]] routes: A list of route objects. Their keys are documented below.
-               This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
-               
-               > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`ec2.Route`) and a Route Table resource with routes defined in-line (`ec2.RouteTable`). At this time you cannot use a `ec2.RouteTable` inline `route` blocks in conjunction with any `ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vpc_id: The VPC ID.
         """
         ...
     @overload
@@ -396,118 +213,7 @@ class RouteTable(pulumi.CustomResource):
                  args: RouteTableArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to create a VPC routing table.
-
-        > **NOTE on `gateway_id` and `nat_gateway_id`:** The AWS API is very forgiving with these two
-        attributes and the `ec2.RouteTable` resource can be created with a NAT ID specified as a Gateway ID attribute.
-        This _will_ lead to a permanent diff between your configuration and statefile, as the API returns the correct
-        parameters in the returned route table. If you're experiencing constant diffs in your `ec2.RouteTable` resources,
-        the first thing to check is whether or not you're specifying a NAT ID instead of a Gateway ID, or vice-versa.
-
-        > **NOTE on `propagating_vgws` and the `ec2.VpnGatewayRoutePropagation` resource:**
-        If the `propagating_vgws` argument is present, it's not supported to _also_
-        define route propagations using `ec2.VpnGatewayRoutePropagation`, since
-        this resource will delete any propagating gateways not explicitly listed in
-        `propagating_vgws`. Omit this argument when defining route propagation using
-        the separate resource.
-
-        ## Example Usage
-
-        ### Basic example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.RouteTable("example",
-            vpc_id=example_aws_vpc["id"],
-            routes=[
-                {
-                    "cidr_block": "10.0.1.0/24",
-                    "gateway_id": example_aws_internet_gateway["id"],
-                },
-                {
-                    "ipv6_cidr_block": "::/0",
-                    "egress_only_gateway_id": example_aws_egress_only_internet_gateway["id"],
-                },
-            ],
-            tags={
-                "Name": "example",
-            })
-        ```
-
-        To subsequently remove all managed routes:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.RouteTable("example",
-            vpc_id=example_aws_vpc["id"],
-            routes=[],
-            tags={
-                "Name": "example",
-            })
-        ```
-
-        ### Adopting an existing local route
-
-        AWS creates certain routes that the AWS provider mostly ignores. You can manage them by importing or adopting them. See Import below for information on importing. This example shows adopting a route and then updating its target.
-
-        First, adopt an existing AWS-created route:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.ec2.Vpc("test", cidr_block="10.1.0.0/16")
-        test_route_table = aws.ec2.RouteTable("test",
-            vpc_id=test.id,
-            routes=[{
-                "cidr_block": "10.1.0.0/16",
-                "gateway_id": "local",
-            }])
-        ```
-
-        Next, update the target of the route:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.ec2.Vpc("test", cidr_block="10.1.0.0/16")
-        test_subnet = aws.ec2.Subnet("test",
-            cidr_block="10.1.1.0/24",
-            vpc_id=test.id)
-        test_network_interface = aws.ec2.NetworkInterface("test", subnet_id=test_subnet.id)
-        test_route_table = aws.ec2.RouteTable("test",
-            vpc_id=test.id,
-            routes=[{
-                "cidr_block": test.cidr_block,
-                "network_interface_id": test_network_interface.id,
-            }])
-        ```
-
-        The target could then be updated again back to `local`.
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `id` - (String) ID of the routing table.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
-        Using `pulumi import`, import Route Tables using the route table `id`. For example:
-
-        % pulumi import aws_route_table.public_rt rtb-4e616f6d69
-
+        Create a RouteTable resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RouteTableArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -572,17 +278,6 @@ class RouteTable(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the route table.
-        :param pulumi.Input[_builtins.str] owner_id: The ID of the AWS account that owns the route table.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] propagating_vgws: A list of virtual gateways for propagation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict']]]] routes: A list of route objects. Their keys are documented below.
-               This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
-               
-               > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`ec2.Route`) and a Route Table resource with routes defined in-line (`ec2.RouteTable`). At this time you cannot use a `ec2.RouteTable` inline `route` blocks in conjunction with any `ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: The VPC ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -601,67 +296,40 @@ class RouteTable(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the route table.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the AWS account that owns the route table.
-        """
         return pulumi.get(self, "owner_id")
 
     @_builtins.property
     @pulumi.getter(name="propagatingVgws")
     def propagating_vgws(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        A list of virtual gateways for propagation.
-        """
         return pulumi.get(self, "propagating_vgws")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def routes(self) -> pulumi.Output[Sequence['outputs.RouteTableRoute']]:
-        """
-        A list of route objects. Their keys are documented below.
-        This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
-
-        > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`ec2.Route`) and a Route Table resource with routes defined in-line (`ec2.RouteTable`). At this time you cannot use a `ec2.RouteTable` inline `route` blocks in conjunction with any `ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
-        """
         return pulumi.get(self, "routes")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The VPC ID.
-        """
         return pulumi.get(self, "vpc_id")
 

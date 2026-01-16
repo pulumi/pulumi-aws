@@ -13,13 +13,7 @@ namespace Pulumi.Aws.RedshiftServerless.Outputs
     [OutputType]
     public sealed class WorkgroupPricePerformanceTarget
     {
-        /// <summary>
-        /// Whether to enable price-performance scaling.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// The price-performance scaling level. Valid values are `1` (LOW_COST), `25` (ECONOMICAL), `50` (BALANCED), `75` (RESOURCEFUL), and `100` (HIGH_PERFORMANCE).
-        /// </summary>
         public readonly int? Level;
 
         [OutputConstructor]

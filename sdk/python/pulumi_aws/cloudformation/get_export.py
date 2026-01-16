@@ -46,9 +46,6 @@ class GetExportResult:
     @_builtins.property
     @pulumi.getter(name="exportingStackId")
     def exporting_stack_id(self) -> _builtins.str:
-        """
-        ARN of stack that contains the exported output name and value.
-        """
         return pulumi.get(self, "exporting_stack_id")
 
     @_builtins.property
@@ -72,9 +69,6 @@ class GetExportResult:
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
-        """
         return pulumi.get(self, "value")
 
 
@@ -95,27 +89,7 @@ def get_export(name: Optional[_builtins.str] = None,
                region: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportResult:
     """
-    The CloudFormation Export data source allows access to stack
-    exports specified in the [Output](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) section of the Cloudformation Template using the optional Export Property.
-
-     > Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    subnet_id = aws.cloudformation.get_export(name="mySubnetIdExportName")
-    web = aws.ec2.Instance("web",
-        ami="ami-abb07bcb",
-        instance_type=aws.ec2.InstanceType.T2_MICRO,
-        subnet_id=subnet_id.value)
-    ```
-
-
-    :param _builtins.str name: Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -133,27 +107,7 @@ def get_export_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExportResult]:
     """
-    The CloudFormation Export data source allows access to stack
-    exports specified in the [Output](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) section of the Cloudformation Template using the optional Export Property.
-
-     > Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    subnet_id = aws.cloudformation.get_export(name="mySubnetIdExportName")
-    web = aws.ec2.Instance("web",
-        ami="ami-abb07bcb",
-        instance_type=aws.ec2.InstanceType.T2_MICRO,
-        subnet_id=subnet_id.value)
-    ```
-
-
-    :param _builtins.str name: Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl
     {
-        /// <summary>
-        /// Seed or starting point URL. Must match the pattern `^https?://[A-Za-z0-9][^\s]*$`.
-        /// </summary>
         public readonly string? Url;
 
         [OutputConstructor]

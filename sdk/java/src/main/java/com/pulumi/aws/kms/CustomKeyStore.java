@@ -15,145 +15,6 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS KMS (Key Management) Custom Key Store.
- * 
- * ## Example Usage
- * 
- * ### CloudHSM
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kms.CustomKeyStore;
- * import com.pulumi.aws.kms.CustomKeyStoreArgs;
- * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new CustomKeyStore("test", CustomKeyStoreArgs.builder()
- *             .cloudHsmClusterId(cloudHsmClusterId)
- *             .customKeyStoreName("kms-custom-key-store-test")
- *             .keyStorePassword("noplaintextpasswords1")
- *             .trustAnchorCertificate(StdFunctions.file(FileArgs.builder()
- *                 .input("anchor-certificate.crt")
- *                 .build()).result())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### External Key Store (VPC)
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kms.CustomKeyStore;
- * import com.pulumi.aws.kms.CustomKeyStoreArgs;
- * import com.pulumi.aws.kms.inputs.CustomKeyStoreXksProxyAuthenticationCredentialArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new CustomKeyStore("example", CustomKeyStoreArgs.builder()
- *             .customKeyStoreName("example-vpc-xks")
- *             .customKeyStoreType("EXTERNAL_KEY_STORE")
- *             .xksProxyAuthenticationCredential(CustomKeyStoreXksProxyAuthenticationCredentialArgs.builder()
- *                 .accessKeyId(ephemeralAccessKeyId)
- *                 .rawSecretAccessKey(ephemeralSecretAccessKey)
- *                 .build())
- *             .xksProxyConnectivity("VPC_ENDPOINT_SERVICE")
- *             .xksProxyUriEndpoint("https://myproxy-private.xks.example.com")
- *             .xksProxyUriPath("/kms/xks/v1")
- *             .xksProxyVpcEndpointServiceName("com.amazonaws.vpce.us-east-1.vpce-svc-example")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### External Key Store (Public)
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kms.CustomKeyStore;
- * import com.pulumi.aws.kms.CustomKeyStoreArgs;
- * import com.pulumi.aws.kms.inputs.CustomKeyStoreXksProxyAuthenticationCredentialArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new CustomKeyStore("example", CustomKeyStoreArgs.builder()
- *             .customKeyStoreName("example-public-xks")
- *             .customKeyStoreType("EXTERNAL_KEY_STORE")
- *             .xksProxyAuthenticationCredential(CustomKeyStoreXksProxyAuthenticationCredentialArgs.builder()
- *                 .accessKeyId(ephemeralAccessKeyId)
- *                 .rawSecretAccessKey(ephemeralSecretAccessKey)
- *                 .build())
- *             .xksProxyConnectivity("PUBLIC_ENDPOINT")
- *             .xksProxyUriEndpoint("https://myproxy.xks.example.com")
- *             .xksProxyUriPath("/kms/xks/v1")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import KMS (Key Management) Custom Key Store using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
- * ```
- * 
- */
 @ResourceType(type="aws:kms/customKeyStore:CustomKeyStore")
 public class CustomKeyStore extends com.pulumi.resources.CustomResource {
     @Export(name="cloudHsmClusterId", refs={String.class}, tree="[0]")
@@ -162,35 +23,15 @@ public class CustomKeyStore extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> cloudHsmClusterId() {
         return Codegen.optional(this.cloudHsmClusterId);
     }
-    /**
-     * Unique name for Custom Key Store.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="customKeyStoreName", refs={String.class}, tree="[0]")
     private Output<String> customKeyStoreName;
 
-    /**
-     * @return Unique name for Custom Key Store.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> customKeyStoreName() {
         return this.customKeyStoreName;
     }
-    /**
-     * Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-     * 
-     */
     @Export(name="customKeyStoreType", refs={String.class}, tree="[0]")
     private Output<String> customKeyStoreType;
 
-    /**
-     * @return Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-     * 
-     */
     public Output<String> customKeyStoreType() {
         return this.customKeyStoreType;
     }
@@ -200,17 +41,9 @@ public class CustomKeyStore extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> keyStorePassword() {
         return Codegen.optional(this.keyStorePassword);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

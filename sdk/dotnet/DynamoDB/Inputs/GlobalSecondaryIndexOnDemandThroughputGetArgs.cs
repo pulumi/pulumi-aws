@@ -12,15 +12,9 @@ namespace Pulumi.Aws.DynamoDB.Inputs
 
     public sealed class GlobalSecondaryIndexOnDemandThroughputGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Maximum number of read request units for this index.
-        /// </summary>
         [Input("maxReadRequestUnits")]
         public Input<int>? MaxReadRequestUnits { get; set; }
 
-        /// <summary>
-        /// Maximum number of write request units for this index.
-        /// </summary>
         [Input("maxWriteRequestUnits")]
         public Input<int>? MaxWriteRequestUnits { get; set; }
 

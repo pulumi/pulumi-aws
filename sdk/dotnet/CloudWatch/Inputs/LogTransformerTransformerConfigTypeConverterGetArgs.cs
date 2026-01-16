@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
     {
         [Input("entries", required: true)]
         private InputList<Inputs.LogTransformerTransformerConfigTypeConverterEntryGetArgs>? _entries;
-
-        /// <summary>
-        /// Objects containing the information about the fields to change the type of. You must include at least one entry, and five at most. See `TypeConverter` `Entry` below for details.
-        /// </summary>
         public InputList<Inputs.LogTransformerTransformerConfigTypeConverterEntryGetArgs> Entries
         {
             get => _entries ?? (_entries = new InputList<Inputs.LogTransformerTransformerConfigTypeConverterEntryGetArgs>());

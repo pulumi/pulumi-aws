@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ApplicationImageConfiguration {
-    /**
-     * @return The image URI.
-     * 
-     */
     private String imageUri;
 
     private ApplicationImageConfiguration() {}
-    /**
-     * @return The image URI.
-     * 
-     */
     public String imageUri() {
         return this.imageUri;
     }

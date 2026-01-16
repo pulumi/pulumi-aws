@@ -13,9 +13,6 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleChallengeConfig
     {
-        /// <summary>
-        /// Defines custom immunity time. See `ImmunityTimeProperty` below for details.
-        /// </summary>
         public readonly Outputs.WebAclRuleChallengeConfigImmunityTimeProperty? ImmunityTimeProperty;
 
         [OutputConstructor]

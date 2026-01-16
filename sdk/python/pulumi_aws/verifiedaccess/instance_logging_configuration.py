@@ -26,9 +26,6 @@ class InstanceLoggingConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a InstanceLoggingConfiguration resource.
-        :param pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs'] access_logs: A block that specifies the configuration options for Verified Access instances. Detailed below.
-        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: The ID of the Verified Access instance.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "access_logs", access_logs)
         pulumi.set(__self__, "verifiedaccess_instance_id", verifiedaccess_instance_id)
@@ -38,9 +35,6 @@ class InstanceLoggingConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="accessLogs")
     def access_logs(self) -> pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs']:
-        """
-        A block that specifies the configuration options for Verified Access instances. Detailed below.
-        """
         return pulumi.get(self, "access_logs")
 
     @access_logs.setter
@@ -50,9 +44,6 @@ class InstanceLoggingConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="verifiedaccessInstanceId")
     def verifiedaccess_instance_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the Verified Access instance.
-        """
         return pulumi.get(self, "verifiedaccess_instance_id")
 
     @verifiedaccess_instance_id.setter
@@ -62,9 +53,6 @@ class InstanceLoggingConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -80,9 +68,6 @@ class _InstanceLoggingConfigurationState:
                  verifiedaccess_instance_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering InstanceLoggingConfiguration resources.
-        :param pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs'] access_logs: A block that specifies the configuration options for Verified Access instances. Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: The ID of the Verified Access instance.
         """
         if access_logs is not None:
             pulumi.set(__self__, "access_logs", access_logs)
@@ -94,9 +79,6 @@ class _InstanceLoggingConfigurationState:
     @_builtins.property
     @pulumi.getter(name="accessLogs")
     def access_logs(self) -> Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs']]:
-        """
-        A block that specifies the configuration options for Verified Access instances. Detailed below.
-        """
         return pulumi.get(self, "access_logs")
 
     @access_logs.setter
@@ -106,9 +88,6 @@ class _InstanceLoggingConfigurationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -118,9 +97,6 @@ class _InstanceLoggingConfigurationState:
     @_builtins.property
     @pulumi.getter(name="verifiedaccessInstanceId")
     def verifiedaccess_instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the Verified Access instance.
-        """
         return pulumi.get(self, "verifiedaccess_instance_id")
 
     @verifiedaccess_instance_id.setter
@@ -139,122 +115,9 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
                  verifiedaccess_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing a Verified Access Logging Configuration.
-
-        ## Example Usage
-
-        ### With CloudWatch Logging
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
-            access_logs={
-                "cloudwatch_logs": {
-                    "enabled": True,
-                    "log_group": example_aws_cloudwatch_log_group["id"],
-                },
-            },
-            verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
-        ```
-
-        ### With Kinesis Data Firehose Logging
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
-            access_logs={
-                "kinesis_data_firehose": {
-                    "delivery_stream": example_aws_kinesis_firehose_delivery_stream["name"],
-                    "enabled": True,
-                },
-            },
-            verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
-        ```
-
-        ### With S3 logging
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
-            access_logs={
-                "s3": {
-                    "bucket_name": example_aws_s3_bucket["id"],
-                    "enabled": True,
-                    "prefix": "example",
-                },
-            },
-            verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
-        ```
-
-        ### With all three logging options
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
-            access_logs={
-                "cloudwatch_logs": {
-                    "enabled": True,
-                    "log_group": example_aws_cloudwatch_log_group["id"],
-                },
-                "kinesis_data_firehose": {
-                    "delivery_stream": example_aws_kinesis_firehose_delivery_stream["name"],
-                    "enabled": True,
-                },
-                "s3": {
-                    "bucket_name": example_aws_s3_bucket["id"],
-                    "enabled": True,
-                },
-            },
-            verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
-        ```
-
-        ### With `include_trust_context`
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
-            access_logs={
-                "include_trust_context": True,
-            },
-            verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
-        ```
-
-        ### With `log_version`
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
-            access_logs={
-                "log_version": "ocsf-1.0.0-rc.2",
-            },
-            verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Verified Access Logging Configuration using the Verified Access Instance `id`. For example:
-
-        ```sh
-        $ pulumi import aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration example vai-1234567890abcdef0
-        ```
-
+        Create a InstanceLoggingConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['InstanceLoggingConfigurationAccessLogsArgs', 'InstanceLoggingConfigurationAccessLogsArgsDict']] access_logs: A block that specifies the configuration options for Verified Access instances. Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: The ID of the Verified Access instance.
         """
         ...
     @overload
@@ -263,117 +126,7 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
                  args: InstanceLoggingConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing a Verified Access Logging Configuration.
-
-        ## Example Usage
-
-        ### With CloudWatch Logging
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
-            access_logs={
-                "cloudwatch_logs": {
-                    "enabled": True,
-                    "log_group": example_aws_cloudwatch_log_group["id"],
-                },
-            },
-            verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
-        ```
-
-        ### With Kinesis Data Firehose Logging
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
-            access_logs={
-                "kinesis_data_firehose": {
-                    "delivery_stream": example_aws_kinesis_firehose_delivery_stream["name"],
-                    "enabled": True,
-                },
-            },
-            verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
-        ```
-
-        ### With S3 logging
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
-            access_logs={
-                "s3": {
-                    "bucket_name": example_aws_s3_bucket["id"],
-                    "enabled": True,
-                    "prefix": "example",
-                },
-            },
-            verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
-        ```
-
-        ### With all three logging options
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
-            access_logs={
-                "cloudwatch_logs": {
-                    "enabled": True,
-                    "log_group": example_aws_cloudwatch_log_group["id"],
-                },
-                "kinesis_data_firehose": {
-                    "delivery_stream": example_aws_kinesis_firehose_delivery_stream["name"],
-                    "enabled": True,
-                },
-                "s3": {
-                    "bucket_name": example_aws_s3_bucket["id"],
-                    "enabled": True,
-                },
-            },
-            verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
-        ```
-
-        ### With `include_trust_context`
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
-            access_logs={
-                "include_trust_context": True,
-            },
-            verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
-        ```
-
-        ### With `log_version`
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
-            access_logs={
-                "log_version": "ocsf-1.0.0-rc.2",
-            },
-            verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Verified Access Logging Configuration using the Verified Access Instance `id`. For example:
-
-        ```sh
-        $ pulumi import aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration example vai-1234567890abcdef0
-        ```
-
+        Create a InstanceLoggingConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param InstanceLoggingConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -428,9 +181,6 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['InstanceLoggingConfigurationAccessLogsArgs', 'InstanceLoggingConfigurationAccessLogsArgsDict']] access_logs: A block that specifies the configuration options for Verified Access instances. Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: The ID of the Verified Access instance.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -444,24 +194,15 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accessLogs")
     def access_logs(self) -> pulumi.Output['outputs.InstanceLoggingConfigurationAccessLogs']:
-        """
-        A block that specifies the configuration options for Verified Access instances. Detailed below.
-        """
         return pulumi.get(self, "access_logs")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="verifiedaccessInstanceId")
     def verifiedaccess_instance_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the Verified Access instance.
-        """
         return pulumi.get(self, "verifiedaccess_instance_id")
 

@@ -9,85 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudWatch
 {
-    /// <summary>
-    /// Provides a CloudWatch Log Metric Filter resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var dada = new Aws.CloudWatch.LogGroup("dada", new()
-    ///     {
-    ///         Name = "MyApp/access.log",
-    ///     });
-    /// 
-    ///     var yada = new Aws.CloudWatch.LogMetricFilter("yada", new()
-    ///     {
-    ///         Name = "MyAppAccessCount",
-    ///         Pattern = "",
-    ///         LogGroupName = dada.Name,
-    ///         MetricTransformation = new Aws.CloudWatch.Inputs.LogMetricFilterMetricTransformationArgs
-    ///         {
-    ///             Name = "EventCount",
-    ///             Namespace = "YourNamespace",
-    ///             Value = "1",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CloudWatch Log Metric Filter using the `log_group_name:name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudwatch/logMetricFilter:LogMetricFilter")]
     public partial class LogMetricFilter : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `False`. Valid only for log groups that have an active log transformer.
-        /// </summary>
         [Output("applyOnTransformedLogs")]
         public Output<bool> ApplyOnTransformedLogs { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the log group to associate the metric filter with.
-        /// </summary>
         [Output("logGroupName")]
         public Output<string> LogGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// A block defining collection of information needed to define how metric data gets emitted. See below.
-        /// </summary>
         [Output("metricTransformation")]
         public Output<Outputs.LogMetricFilterMetricTransformation> MetricTransformation { get; private set; } = null!;
 
-        /// <summary>
-        /// A name for the metric filter.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
-        /// for extracting metric data out of ingested log events.
-        /// </summary>
         [Output("pattern")]
         public Output<string> Pattern { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -137,40 +76,21 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogMetricFilterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `False`. Valid only for log groups that have an active log transformer.
-        /// </summary>
         [Input("applyOnTransformedLogs")]
         public Input<bool>? ApplyOnTransformedLogs { get; set; }
 
-        /// <summary>
-        /// The name of the log group to associate the metric filter with.
-        /// </summary>
         [Input("logGroupName", required: true)]
         public Input<string> LogGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// A block defining collection of information needed to define how metric data gets emitted. See below.
-        /// </summary>
         [Input("metricTransformation", required: true)]
         public Input<Inputs.LogMetricFilterMetricTransformationArgs> MetricTransformation { get; set; } = null!;
 
-        /// <summary>
-        /// A name for the metric filter.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
-        /// for extracting metric data out of ingested log events.
-        /// </summary>
         [Input("pattern", required: true)]
         public Input<string> Pattern { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -182,40 +102,21 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogMetricFilterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `False`. Valid only for log groups that have an active log transformer.
-        /// </summary>
         [Input("applyOnTransformedLogs")]
         public Input<bool>? ApplyOnTransformedLogs { get; set; }
 
-        /// <summary>
-        /// The name of the log group to associate the metric filter with.
-        /// </summary>
         [Input("logGroupName")]
         public Input<string>? LogGroupName { get; set; }
 
-        /// <summary>
-        /// A block defining collection of information needed to define how metric data gets emitted. See below.
-        /// </summary>
         [Input("metricTransformation")]
         public Input<Inputs.LogMetricFilterMetricTransformationGetArgs>? MetricTransformation { get; set; }
 
-        /// <summary>
-        /// A name for the metric filter.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
-        /// for extracting metric data out of ingested log events.
-        /// </summary>
         [Input("pattern")]
         public Input<string>? Pattern { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

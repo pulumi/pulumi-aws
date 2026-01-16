@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AutomationRuleActionFindingFieldsUpdateSeverity {
-    /**
-     * @return The severity value of the finding. The allowed values are the following `INFORMATIONAL`, `LOW`, `MEDIUM`, `HIGH` and `CRITICAL`.
-     * 
-     */
     private @Nullable String label;
-    /**
-     * @return The native severity as defined by the AWS service or integrated partner product that generated the finding.
-     * 
-     */
     private @Nullable Double product;
 
     private AutomationRuleActionFindingFieldsUpdateSeverity() {}
-    /**
-     * @return The severity value of the finding. The allowed values are the following `INFORMATIONAL`, `LOW`, `MEDIUM`, `HIGH` and `CRITICAL`.
-     * 
-     */
     public Optional<String> label() {
         return Optional.ofNullable(this.label);
     }
-    /**
-     * @return The native severity as defined by the AWS service or integrated partner product that generated the finding.
-     * 
-     */
     public Optional<Double> product() {
         return Optional.ofNullable(this.product);
     }

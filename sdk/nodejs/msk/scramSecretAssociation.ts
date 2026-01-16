@@ -4,79 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Associates SCRAM secrets stored in the Secrets Manager service with a Managed Streaming for Kafka (MSK) cluster.
- *
- * !> This resource takes exclusive ownership over SCRAM secrets associated with a cluster. This includes removal of SCRAM secrets which are not explicitly configured. To prevent persistent drift, ensure any `aws.msk.SingleScramSecretAssociation` resources managed alongside this resource are included in the `secretArnList` argument.
- *
- * > **Note:** The following assumes the MSK cluster has SASL/SCRAM authentication enabled. See below for example usage or refer to the [Username/Password Authentication](https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html) section of the MSK Developer Guide for more details.
- *
- * To set up username and password authentication for a cluster, create an `aws.secretsmanager.Secret` resource and associate
- * a username and password with the secret with an `aws.secretsmanager.SecretVersion` resource. When creating a secret for the cluster,
- * the `name` must have the prefix `AmazonMSK_` and you must either use an existing custom AWS KMS key or create a new
- * custom AWS KMS key for your secret with the `aws.kms.Key` resource. It is important to note that a policy is required for the `aws.secretsmanager.Secret`
- * resource in order for Kafka to be able to read it. This policy is attached automatically when the `aws.msk.ScramSecretAssociation` is used,
- * however, this policy will not be in the state and as such, will present a diff on plan/apply. For that reason, you must use the `aws.secretsmanager.SecretPolicy`
- * resource](/docs/providers/aws/r/secretsmanager_secret_policy.html) as shown below in order to ensure that the state is in a clean state after the creation of secret and the association to the cluster.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleCluster = new aws.msk.Cluster("example", {
- *     clusterName: "example",
- *     clientAuthentication: {
- *         sasl: {
- *             scram: true,
- *         },
- *     },
- * });
- * const exampleKey = new aws.kms.Key("example", {description: "Example Key for MSK Cluster Scram Secret Association"});
- * const exampleSecret = new aws.secretsmanager.Secret("example", {
- *     name: "AmazonMSK_example",
- *     kmsKeyId: exampleKey.keyId,
- * });
- * const exampleSecretVersion = new aws.secretsmanager.SecretVersion("example", {
- *     secretId: exampleSecret.id,
- *     secretString: JSON.stringify({
- *         username: "user",
- *         password: "pass",
- *     }),
- * });
- * const exampleScramSecretAssociation = new aws.msk.ScramSecretAssociation("example", {
- *     clusterArn: exampleCluster.arn,
- *     secretArnLists: [exampleSecret.arn],
- * }, {
- *     dependsOn: [exampleSecretVersion],
- * });
- * const example = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         sid: "AWSKafkaResourcePolicy",
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["kafka.amazonaws.com"],
- *         }],
- *         actions: ["secretsmanager:getSecretValue"],
- *         resources: [exampleSecret.arn],
- *     }],
- * });
- * const exampleSecretPolicy = new aws.secretsmanager.SecretPolicy("example", {
- *     secretArn: exampleSecret.arn,
- *     policy: example.apply(example => example.json),
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import MSK SCRAM Secret Associations using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
- * ```
- */
 export class ScramSecretAssociation extends pulumi.CustomResource {
     /**
      * Get an existing ScramSecretAssociation resource's state with the given name, ID, and optional extra
@@ -105,17 +32,8 @@ export class ScramSecretAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ScramSecretAssociation.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the MSK cluster.
-     */
     declare public readonly clusterArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * List of AWS Secrets Manager secret ARNs.
-     */
     declare public readonly secretArnLists: pulumi.Output<string[]>;
 
     /**
@@ -155,17 +73,8 @@ export class ScramSecretAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ScramSecretAssociation resources.
  */
 export interface ScramSecretAssociationState {
-    /**
-     * Amazon Resource Name (ARN) of the MSK cluster.
-     */
     clusterArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * List of AWS Secrets Manager secret ARNs.
-     */
     secretArnLists?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -173,16 +82,7 @@ export interface ScramSecretAssociationState {
  * The set of arguments for constructing a ScramSecretAssociation resource.
  */
 export interface ScramSecretAssociationArgs {
-    /**
-     * Amazon Resource Name (ARN) of the MSK cluster.
-     */
     clusterArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * List of AWS Secrets Manager secret ARNs.
-     */
     secretArnLists: pulumi.Input<pulumi.Input<string>[]>;
 }

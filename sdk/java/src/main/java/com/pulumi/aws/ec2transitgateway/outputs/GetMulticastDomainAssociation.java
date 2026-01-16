@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetMulticastDomainAssociation {
-    /**
-     * @return The ID of the subnet associated with the transit gateway multicast domain.
-     * 
-     */
     private String subnetId;
-    /**
-     * @return The ID of the transit gateway attachment.
-     * 
-     */
     private String transitGatewayAttachmentId;
 
     private GetMulticastDomainAssociation() {}
-    /**
-     * @return The ID of the subnet associated with the transit gateway multicast domain.
-     * 
-     */
     public String subnetId() {
         return this.subnetId;
     }
-    /**
-     * @return The ID of the transit gateway attachment.
-     * 
-     */
     public String transitGatewayAttachmentId() {
         return this.transitGatewayAttachmentId;
     }

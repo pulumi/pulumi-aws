@@ -15,47 +15,23 @@ public final class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountIn
 
     public static final FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs Empty = new FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs();
 
-    /**
-     * The fractional portion, in cents, of the amount. Valid value range between `0` and `99`.
-     * 
-     */
     @Import(name="cents")
     private @Nullable Output<Integer> cents;
 
-    /**
-     * @return The fractional portion, in cents, of the amount. Valid value range between `0` and `99`.
-     * 
-     */
     public Optional<Output<Integer>> cents() {
         return Optional.ofNullable(this.cents);
     }
 
-    /**
-     * The whole number of dollars in the amount. Valid value range between `0` and `2`.
-     * 
-     */
     @Import(name="dollars")
     private @Nullable Output<Integer> dollars;
 
-    /**
-     * @return The whole number of dollars in the amount. Valid value range between `0` and `2`.
-     * 
-     */
     public Optional<Output<Integer>> dollars() {
         return Optional.ofNullable(this.dollars);
     }
 
-    /**
-     * Fractions of a cent, in tenths. Valid value range between `0` and `9`.
-     * 
-     */
     @Import(name="tenthFractionsOfACent")
     private @Nullable Output<Integer> tenthFractionsOfACent;
 
-    /**
-     * @return Fractions of a cent, in tenths. Valid value range between `0` and `9`.
-     * 
-     */
     public Optional<Output<Integer>> tenthFractionsOfACent() {
         return Optional.ofNullable(this.tenthFractionsOfACent);
     }
@@ -86,65 +62,29 @@ public final class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountIn
             $ = new FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cents The fractional portion, in cents, of the amount. Valid value range between `0` and `99`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cents(@Nullable Output<Integer> cents) {
             $.cents = cents;
             return this;
         }
 
-        /**
-         * @param cents The fractional portion, in cents, of the amount. Valid value range between `0` and `99`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cents(Integer cents) {
             return cents(Output.of(cents));
         }
 
-        /**
-         * @param dollars The whole number of dollars in the amount. Valid value range between `0` and `2`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dollars(@Nullable Output<Integer> dollars) {
             $.dollars = dollars;
             return this;
         }
 
-        /**
-         * @param dollars The whole number of dollars in the amount. Valid value range between `0` and `2`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dollars(Integer dollars) {
             return dollars(Output.of(dollars));
         }
 
-        /**
-         * @param tenthFractionsOfACent Fractions of a cent, in tenths. Valid value range between `0` and `9`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tenthFractionsOfACent(@Nullable Output<Integer> tenthFractionsOfACent) {
             $.tenthFractionsOfACent = tenthFractionsOfACent;
             return this;
         }
 
-        /**
-         * @param tenthFractionsOfACent Fractions of a cent, in tenths. Valid value range between `0` and `9`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tenthFractionsOfACent(Integer tenthFractionsOfACent) {
             return tenthFractionsOfACent(Output.of(tenthFractionsOfACent));
         }

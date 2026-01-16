@@ -11,62 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Traffic mirror filter.\
-// Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
-//
-// ## Example Usage
-//
-// # To create a basic traffic mirror filter
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewTrafficMirrorFilter(ctx, "foo", &ec2.TrafficMirrorFilterArgs{
-//				Description: pulumi.String("traffic mirror filter - example"),
-//				NetworkServices: pulumi.StringArray{
-//					pulumi.String("amazon-dns"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import traffic mirror filter using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64
-// ```
 type TrafficMirrorFilter struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the traffic mirror filter.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A description of the filter.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
+	Arn             pulumi.StringOutput      `pulumi:"arn"`
+	Description     pulumi.StringPtrOutput   `pulumi:"description"`
 	NetworkServices pulumi.StringArrayOutput `pulumi:"networkServices"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Region          pulumi.StringOutput      `pulumi:"region"`
+	Tags            pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput   `pulumi:"tagsAll"`
 }
 
 // NewTrafficMirrorFilter registers a new resource with the given unique name, arguments, and options.
@@ -99,33 +52,21 @@ func GetTrafficMirrorFilter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TrafficMirrorFilter resources.
 type trafficMirrorFilterState struct {
-	// The ARN of the traffic mirror filter.
-	Arn *string `pulumi:"arn"`
-	// A description of the filter.
-	Description *string `pulumi:"description"`
-	// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
-	NetworkServices []string `pulumi:"networkServices"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn             *string           `pulumi:"arn"`
+	Description     *string           `pulumi:"description"`
+	NetworkServices []string          `pulumi:"networkServices"`
+	Region          *string           `pulumi:"region"`
+	Tags            map[string]string `pulumi:"tags"`
+	TagsAll         map[string]string `pulumi:"tagsAll"`
 }
 
 type TrafficMirrorFilterState struct {
-	// The ARN of the traffic mirror filter.
-	Arn pulumi.StringPtrInput
-	// A description of the filter.
-	Description pulumi.StringPtrInput
-	// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
+	Arn             pulumi.StringPtrInput
+	Description     pulumi.StringPtrInput
 	NetworkServices pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Region          pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
 }
 
 func (TrafficMirrorFilterState) ElementType() reflect.Type {
@@ -133,26 +74,18 @@ func (TrafficMirrorFilterState) ElementType() reflect.Type {
 }
 
 type trafficMirrorFilterArgs struct {
-	// A description of the filter.
-	Description *string `pulumi:"description"`
-	// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
-	NetworkServices []string `pulumi:"networkServices"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Description     *string           `pulumi:"description"`
+	NetworkServices []string          `pulumi:"networkServices"`
+	Region          *string           `pulumi:"region"`
+	Tags            map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TrafficMirrorFilter resource.
 type TrafficMirrorFilterArgs struct {
-	// A description of the filter.
-	Description pulumi.StringPtrInput
-	// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
+	Description     pulumi.StringPtrInput
 	NetworkServices pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Region          pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
 }
 
 func (TrafficMirrorFilterArgs) ElementType() reflect.Type {
@@ -242,32 +175,26 @@ func (o TrafficMirrorFilterOutput) ToTrafficMirrorFilterOutputWithContext(ctx co
 	return o
 }
 
-// The ARN of the traffic mirror filter.
 func (o TrafficMirrorFilterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficMirrorFilter) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A description of the filter.
 func (o TrafficMirrorFilterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrafficMirrorFilter) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
 func (o TrafficMirrorFilterOutput) NetworkServices() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TrafficMirrorFilter) pulumi.StringArrayOutput { return v.NetworkServices }).(pulumi.StringArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TrafficMirrorFilterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficMirrorFilter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o TrafficMirrorFilterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TrafficMirrorFilter) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TrafficMirrorFilterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TrafficMirrorFilter) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

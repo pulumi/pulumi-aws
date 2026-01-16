@@ -14,10 +14,6 @@ namespace Pulumi.Aws.AccessAnalyzer.Inputs
     {
         [Input("accountIds")]
         private InputList<string>? _accountIds;
-
-        /// <summary>
-        /// List of AWS account IDs to apply to the internal access analysis rule criteria. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
-        /// </summary>
         public InputList<string> AccountIds
         {
             get => _accountIds ?? (_accountIds = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.AccessAnalyzer.Inputs
 
         [Input("resourceArns")]
         private InputList<string>? _resourceArns;
-
-        /// <summary>
-        /// List of resource ARNs to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources that match these ARNs.
-        /// </summary>
         public InputList<string> ResourceArns
         {
             get => _resourceArns ?? (_resourceArns = new InputList<string>());
@@ -38,10 +30,6 @@ namespace Pulumi.Aws.AccessAnalyzer.Inputs
 
         [Input("resourceTypes")]
         private InputList<string>? _resourceTypes;
-
-        /// <summary>
-        /// List of resource types to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources of these types. Refer to [InternalAccessAnalysisRuleCriteria](https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_InternalAccessAnalysisRuleCriteria.html) in the AWS IAM Access Analyzer API Reference for valid values.
-        /// </summary>
         public InputList<string> ResourceTypes
         {
             get => _resourceTypes ?? (_resourceTypes = new InputList<string>());

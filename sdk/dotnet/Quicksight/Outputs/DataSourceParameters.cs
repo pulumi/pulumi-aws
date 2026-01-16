@@ -13,89 +13,26 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSourceParameters
     {
-        /// <summary>
-        /// Parameters for connecting to Amazon Elasticsearch.
-        /// </summary>
         public readonly Outputs.DataSourceParametersAmazonElasticsearch? AmazonElasticsearch;
-        /// <summary>
-        /// Parameters for connecting to Athena.
-        /// </summary>
         public readonly Outputs.DataSourceParametersAthena? Athena;
-        /// <summary>
-        /// Parameters for connecting to Aurora MySQL.
-        /// </summary>
         public readonly Outputs.DataSourceParametersAurora? Aurora;
-        /// <summary>
-        /// Parameters for connecting to Aurora Postgresql.
-        /// </summary>
         public readonly Outputs.DataSourceParametersAuroraPostgresql? AuroraPostgresql;
-        /// <summary>
-        /// Parameters for connecting to AWS IOT Analytics.
-        /// </summary>
         public readonly Outputs.DataSourceParametersAwsIotAnalytics? AwsIotAnalytics;
-        /// <summary>
-        /// Parameters for connecting to Databricks.
-        /// </summary>
         public readonly Outputs.DataSourceParametersDatabricks? Databricks;
-        /// <summary>
-        /// Parameters for connecting to Jira.
-        /// </summary>
         public readonly Outputs.DataSourceParametersJira? Jira;
-        /// <summary>
-        /// Parameters for connecting to MariaDB.
-        /// </summary>
         public readonly Outputs.DataSourceParametersMariaDb? MariaDb;
-        /// <summary>
-        /// Parameters for connecting to MySQL.
-        /// </summary>
         public readonly Outputs.DataSourceParametersMysql? Mysql;
-        /// <summary>
-        /// Parameters for connecting to Oracle.
-        /// </summary>
         public readonly Outputs.DataSourceParametersOracle? Oracle;
-        /// <summary>
-        /// Parameters for connecting to Postgresql.
-        /// </summary>
         public readonly Outputs.DataSourceParametersPostgresql? Postgresql;
-        /// <summary>
-        /// Parameters for connecting to Presto.
-        /// </summary>
         public readonly Outputs.DataSourceParametersPresto? Presto;
-        /// <summary>
-        /// Parameters for connecting to RDS.
-        /// </summary>
         public readonly Outputs.DataSourceParametersRds? Rds;
-        /// <summary>
-        /// Parameters for connecting to Redshift.
-        /// </summary>
         public readonly Outputs.DataSourceParametersRedshift? Redshift;
-        /// <summary>
-        /// Parameters for connecting to S3.
-        /// </summary>
         public readonly Outputs.DataSourceParametersS3? S3;
-        /// <summary>
-        /// Parameters for connecting to ServiceNow.
-        /// </summary>
         public readonly Outputs.DataSourceParametersServiceNow? ServiceNow;
-        /// <summary>
-        /// Parameters for connecting to Snowflake.
-        /// </summary>
         public readonly Outputs.DataSourceParametersSnowflake? Snowflake;
-        /// <summary>
-        /// Parameters for connecting to Spark.
-        /// </summary>
         public readonly Outputs.DataSourceParametersSpark? Spark;
-        /// <summary>
-        /// Parameters for connecting to SQL Server.
-        /// </summary>
         public readonly Outputs.DataSourceParametersSqlServer? SqlServer;
-        /// <summary>
-        /// Parameters for connecting to Teradata.
-        /// </summary>
         public readonly Outputs.DataSourceParametersTeradata? Teradata;
-        /// <summary>
-        /// Parameters for connecting to Twitter.
-        /// </summary>
         public readonly Outputs.DataSourceParametersTwitter? Twitter;
 
         [OutputConstructor]

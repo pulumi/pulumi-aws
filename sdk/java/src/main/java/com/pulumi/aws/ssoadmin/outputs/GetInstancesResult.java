@@ -11,28 +11,16 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInstancesResult {
-    /**
-     * @return Set of Amazon Resource Names (ARNs) of the SSO Instances.
-     * 
-     */
     private List<String> arns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Set of identifiers of the identity stores connected to the SSO Instances.
-     * 
-     */
     private List<String> identityStoreIds;
     private String region;
 
     private GetInstancesResult() {}
-    /**
-     * @return Set of Amazon Resource Names (ARNs) of the SSO Instances.
-     * 
-     */
     public List<String> arns() {
         return this.arns;
     }
@@ -43,10 +31,6 @@ public final class GetInstancesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Set of identifiers of the identity stores connected to the SSO Instances.
-     * 
-     */
     public List<String> identityStoreIds() {
         return this.identityStoreIds;
     }

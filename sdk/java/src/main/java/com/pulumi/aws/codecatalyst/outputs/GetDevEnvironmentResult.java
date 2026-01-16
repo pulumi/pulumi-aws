@@ -18,15 +18,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDevEnvironmentResult {
-    /**
-     * @return The user-specified alias for the Dev Environment.
-     * 
-     */
     private @Nullable String alias;
-    /**
-     * @return The system-generated unique ID of the user who created the Dev Environment.
-     * 
-     */
     private @Nullable String creatorId;
     private String envId;
     /**
@@ -34,63 +26,23 @@ public final class GetDevEnvironmentResult {
      * 
      */
     private String id;
-    /**
-     * @return Information about the integrated development environment (IDE) configured for a Dev Environment.
-     * 
-     */
     private List<GetDevEnvironmentIde> ides;
-    /**
-     * @return The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-     * 
-     */
     private Integer inactivityTimeoutMinutes;
-    /**
-     * @return The Amazon EC2 instace type to use for the Dev Environment.
-     * 
-     */
     private String instanceType;
-    /**
-     * @return The time when the Dev Environment was last updated, in coordinated universal time (UTC) timestamp format as specified in [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339#section-5.6).
-     * 
-     */
     private String lastUpdatedTime;
-    /**
-     * @return Information about the amount of storage allocated to the Dev Environment.
-     * 
-     */
     private List<GetDevEnvironmentPersistentStorage> persistentStorages;
     private String projectName;
     private String region;
-    /**
-     * @return The source repository that contains the branch to clone into the Dev Environment.
-     * 
-     */
     private @Nullable List<GetDevEnvironmentRepository> repositories;
     private String spaceName;
-    /**
-     * @return The current status of the Dev Environment. From: PENDING | RUNNING | STARTING | STOPPING | STOPPED | FAILED | DELETING | DELETED.
-     * 
-     */
     private String status;
-    /**
-     * @return The reason for the status.
-     * 
-     */
     private String statusReason;
     private Map<String,String> tags;
 
     private GetDevEnvironmentResult() {}
-    /**
-     * @return The user-specified alias for the Dev Environment.
-     * 
-     */
     public Optional<String> alias() {
         return Optional.ofNullable(this.alias);
     }
-    /**
-     * @return The system-generated unique ID of the user who created the Dev Environment.
-     * 
-     */
     public Optional<String> creatorId() {
         return Optional.ofNullable(this.creatorId);
     }
@@ -104,38 +56,18 @@ public final class GetDevEnvironmentResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Information about the integrated development environment (IDE) configured for a Dev Environment.
-     * 
-     */
     public List<GetDevEnvironmentIde> ides() {
         return this.ides;
     }
-    /**
-     * @return The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-     * 
-     */
     public Integer inactivityTimeoutMinutes() {
         return this.inactivityTimeoutMinutes;
     }
-    /**
-     * @return The Amazon EC2 instace type to use for the Dev Environment.
-     * 
-     */
     public String instanceType() {
         return this.instanceType;
     }
-    /**
-     * @return The time when the Dev Environment was last updated, in coordinated universal time (UTC) timestamp format as specified in [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339#section-5.6).
-     * 
-     */
     public String lastUpdatedTime() {
         return this.lastUpdatedTime;
     }
-    /**
-     * @return Information about the amount of storage allocated to the Dev Environment.
-     * 
-     */
     public List<GetDevEnvironmentPersistentStorage> persistentStorages() {
         return this.persistentStorages;
     }
@@ -145,27 +77,15 @@ public final class GetDevEnvironmentResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return The source repository that contains the branch to clone into the Dev Environment.
-     * 
-     */
     public List<GetDevEnvironmentRepository> repositories() {
         return this.repositories == null ? List.of() : this.repositories;
     }
     public String spaceName() {
         return this.spaceName;
     }
-    /**
-     * @return The current status of the Dev Environment. From: PENDING | RUNNING | STARTING | STOPPING | STOPPED | FAILED | DELETING | DELETED.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return The reason for the status.
-     * 
-     */
     public String statusReason() {
         return this.statusReason;
     }

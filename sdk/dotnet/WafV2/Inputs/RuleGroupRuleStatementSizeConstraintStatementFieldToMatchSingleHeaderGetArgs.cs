@@ -12,9 +12,6 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the query header to inspect. This setting must be provided as lower case characters.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

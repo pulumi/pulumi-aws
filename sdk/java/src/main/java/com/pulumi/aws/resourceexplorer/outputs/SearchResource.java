@@ -12,89 +12,33 @@ import java.util.Objects;
 
 @CustomType
 public final class SearchResource {
-    /**
-     * @return Amazon resource name of resource.
-     * 
-     */
     private String arn;
-    /**
-     * @return The date and time that the information about this resource property was last updated.
-     * 
-     */
     private String lastReportedAt;
-    /**
-     * @return Amazon Web Services account that owns the resource.
-     * 
-     */
     private String owningAccountId;
-    /**
-     * @return Structure with additional type-specific details about the resource.  See `properties` below.
-     * 
-     */
     private List<SearchResourceProperty> properties;
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     private String region;
-    /**
-     * @return Type of the resource.
-     * 
-     */
     private String resourceType;
-    /**
-     * @return Amazon Web Service that owns the resource and is responsible for creating and updating it.
-     * 
-     */
     private String service;
 
     private SearchResource() {}
-    /**
-     * @return Amazon resource name of resource.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The date and time that the information about this resource property was last updated.
-     * 
-     */
     public String lastReportedAt() {
         return this.lastReportedAt;
     }
-    /**
-     * @return Amazon Web Services account that owns the resource.
-     * 
-     */
     public String owningAccountId() {
         return this.owningAccountId;
     }
-    /**
-     * @return Structure with additional type-specific details about the resource.  See `properties` below.
-     * 
-     */
     public List<SearchResourceProperty> properties() {
         return this.properties;
     }
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public String region() {
         return this.region;
     }
-    /**
-     * @return Type of the resource.
-     * 
-     */
     public String resourceType() {
         return this.resourceType;
     }
-    /**
-     * @return Amazon Web Service that owns the resource and is responsible for creating and updating it.
-     * 
-     */
     public String service() {
         return this.service;
     }

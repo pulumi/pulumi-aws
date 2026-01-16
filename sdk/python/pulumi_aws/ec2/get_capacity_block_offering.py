@@ -67,17 +67,11 @@ class GetCapacityBlockOfferingResult:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> _builtins.str:
-        """
-        The Availability Zone in which to create the Capacity Reservation.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="capacityBlockOfferingId")
     def capacity_block_offering_id(self) -> _builtins.str:
-        """
-        The Capacity Block Reservation ID.
-        """
         return pulumi.get(self, "capacity_block_offering_id")
 
     @_builtins.property
@@ -88,9 +82,6 @@ class GetCapacityBlockOfferingResult:
     @_builtins.property
     @pulumi.getter(name="currencyCode")
     def currency_code(self) -> _builtins.str:
-        """
-        The currency of the payment for the Capacity Block.
-        """
         return pulumi.get(self, "currency_code")
 
     @_builtins.property
@@ -129,17 +120,11 @@ class GetCapacityBlockOfferingResult:
     @_builtins.property
     @pulumi.getter
     def tenancy(self) -> _builtins.str:
-        """
-        Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
-        """
         return pulumi.get(self, "tenancy")
 
     @_builtins.property
     @pulumi.getter(name="upfrontFee")
     def upfront_fee(self) -> _builtins.str:
-        """
-        The total price to be paid up front.
-        """
         return pulumi.get(self, "upfront_fee")
 
 
@@ -171,28 +156,7 @@ def get_capacity_block_offering(capacity_duration_hours: Optional[_builtins.int]
                                 start_date_range: Optional[_builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityBlockOfferingResult:
     """
-    Information about a single EC2 Capacity Block Offering.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_capacity_block_offering(capacity_duration_hours=24,
-        end_date_range="2024-05-30T15:04:05Z",
-        instance_count=1,
-        instance_type="p4d.24xlarge",
-        start_date_range="2024-04-28T15:04:05Z")
-    ```
-
-
-    :param _builtins.int capacity_duration_hours: The amount of time of the Capacity Block reservation in hours.
-    :param _builtins.str end_date_range: The date and time at which the Capacity Block Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-    :param _builtins.int instance_count: The number of instances for which to reserve capacity.
-    :param _builtins.str instance_type: The instance type for which to reserve capacity.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str start_date_range: The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['capacityDurationHours'] = capacity_duration_hours
@@ -225,28 +189,7 @@ def get_capacity_block_offering_output(capacity_duration_hours: Optional[pulumi.
                                        start_date_range: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityBlockOfferingResult]:
     """
-    Information about a single EC2 Capacity Block Offering.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_capacity_block_offering(capacity_duration_hours=24,
-        end_date_range="2024-05-30T15:04:05Z",
-        instance_count=1,
-        instance_type="p4d.24xlarge",
-        start_date_range="2024-04-28T15:04:05Z")
-    ```
-
-
-    :param _builtins.int capacity_duration_hours: The amount of time of the Capacity Block reservation in hours.
-    :param _builtins.str end_date_range: The date and time at which the Capacity Block Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-    :param _builtins.int instance_count: The number of instances for which to reserve capacity.
-    :param _builtins.str instance_type: The instance type for which to reserve capacity.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str start_date_range: The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['capacityDurationHours'] = capacity_duration_hours

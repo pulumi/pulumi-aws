@@ -14,47 +14,23 @@ public final class FilterFilterCriteriaResourceTagArgs extends com.pulumi.resour
 
     public static final FilterFilterCriteriaResourceTagArgs Empty = new FilterFilterCriteriaResourceTagArgs();
 
-    /**
-     * (Required) The comparison operator. Valid values: `EQUALS`.
-     * 
-     */
     @Import(name="comparison", required=true)
     private Output<String> comparison;
 
-    /**
-     * @return (Required) The comparison operator. Valid values: `EQUALS`.
-     * 
-     */
     public Output<String> comparison() {
         return this.comparison;
     }
 
-    /**
-     * (Required) The key to filter on.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return (Required) The key to filter on.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * (Required) The value to filter on.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return (Required) The value to filter on.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -85,65 +61,29 @@ public final class FilterFilterCriteriaResourceTagArgs extends com.pulumi.resour
             $ = new FilterFilterCriteriaResourceTagArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param comparison (Required) The comparison operator. Valid values: `EQUALS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comparison(Output<String> comparison) {
             $.comparison = comparison;
             return this;
         }
 
-        /**
-         * @param comparison (Required) The comparison operator. Valid values: `EQUALS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comparison(String comparison) {
             return comparison(Output.of(comparison));
         }
 
-        /**
-         * @param key (Required) The key to filter on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key (Required) The key to filter on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param value (Required) The value to filter on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value (Required) The value to filter on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

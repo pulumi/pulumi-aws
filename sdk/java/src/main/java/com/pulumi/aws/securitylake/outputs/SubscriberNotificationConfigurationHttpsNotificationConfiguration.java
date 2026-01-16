@@ -12,71 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SubscriberNotificationConfigurationHttpsNotificationConfiguration {
-    /**
-     * @return The API key name for the notification subscription.
-     * 
-     */
     private @Nullable String authorizationApiKeyName;
-    /**
-     * @return The API key value for the notification subscription.
-     * 
-     */
     private @Nullable String authorizationApiKeyValue;
-    /**
-     * @return The subscription endpoint in Security Lake.
-     * If you prefer notification with an HTTPS endpoint, populate this field.
-     * 
-     */
     private String endpoint;
-    /**
-     * @return The HTTP method used for the notification subscription.
-     * Valid values are `POST` and `PUT`.
-     * 
-     */
     private @Nullable String httpMethod;
-    /**
-     * @return The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
-     * For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
-     * 
-     */
     private String targetRoleArn;
 
     private SubscriberNotificationConfigurationHttpsNotificationConfiguration() {}
-    /**
-     * @return The API key name for the notification subscription.
-     * 
-     */
     public Optional<String> authorizationApiKeyName() {
         return Optional.ofNullable(this.authorizationApiKeyName);
     }
-    /**
-     * @return The API key value for the notification subscription.
-     * 
-     */
     public Optional<String> authorizationApiKeyValue() {
         return Optional.ofNullable(this.authorizationApiKeyValue);
     }
-    /**
-     * @return The subscription endpoint in Security Lake.
-     * If you prefer notification with an HTTPS endpoint, populate this field.
-     * 
-     */
     public String endpoint() {
         return this.endpoint;
     }
-    /**
-     * @return The HTTP method used for the notification subscription.
-     * Valid values are `POST` and `PUT`.
-     * 
-     */
     public Optional<String> httpMethod() {
         return Optional.ofNullable(this.httpMethod);
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
-     * For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
-     * 
-     */
     public String targetRoleArn() {
         return this.targetRoleArn;
     }

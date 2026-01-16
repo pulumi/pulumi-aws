@@ -28,18 +28,6 @@ class BucketReplicationConfigArgs:
                  token: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BucketReplicationConfig resource.
-        :param pulumi.Input[_builtins.str] bucket: Name of the source S3 bucket you want Amazon S3 to monitor.
-        :param pulumi.Input[_builtins.str] role: ARN of the IAM role for Amazon S3 to assume when replicating the objects.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketReplicationConfigRuleArgs']]] rules: List of configuration blocks describing the rules managing the replication. See below.
-               > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
-               
-               > **NOTE:** Amazon S3's latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
-               
-               > **NOTE:** The `existingObjectReplication` parameter is not supported by Amazon S3 at this time and should not be included in your `rule` configurations. Specifying this parameter will result in `MalformedXML` errors.
-               To replicate existing objects, please refer to the [Replicating existing objects with S3 Batch Replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html) documentation in the Amazon S3 User Guide.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] token: Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
-               For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "role", role)
@@ -52,9 +40,6 @@ class BucketReplicationConfigArgs:
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the source S3 bucket you want Amazon S3 to monitor.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -64,9 +49,6 @@ class BucketReplicationConfigArgs:
     @_builtins.property
     @pulumi.getter
     def role(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the IAM role for Amazon S3 to assume when replicating the objects.
-        """
         return pulumi.get(self, "role")
 
     @role.setter
@@ -76,15 +58,6 @@ class BucketReplicationConfigArgs:
     @_builtins.property
     @pulumi.getter
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input['BucketReplicationConfigRuleArgs']]]:
-        """
-        List of configuration blocks describing the rules managing the replication. See below.
-        > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
-
-        > **NOTE:** Amazon S3's latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
-
-        > **NOTE:** The `existingObjectReplication` parameter is not supported by Amazon S3 at this time and should not be included in your `rule` configurations. Specifying this parameter will result in `MalformedXML` errors.
-        To replicate existing objects, please refer to the [Replicating existing objects with S3 Batch Replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html) documentation in the Amazon S3 User Guide.
-        """
         return pulumi.get(self, "rules")
 
     @rules.setter
@@ -94,9 +67,6 @@ class BucketReplicationConfigArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -106,10 +76,6 @@ class BucketReplicationConfigArgs:
     @_builtins.property
     @pulumi.getter
     def token(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
-        For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
-        """
         return pulumi.get(self, "token")
 
     @token.setter
@@ -127,18 +93,6 @@ class _BucketReplicationConfigState:
                  token: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketReplicationConfig resources.
-        :param pulumi.Input[_builtins.str] bucket: Name of the source S3 bucket you want Amazon S3 to monitor.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role: ARN of the IAM role for Amazon S3 to assume when replicating the objects.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketReplicationConfigRuleArgs']]] rules: List of configuration blocks describing the rules managing the replication. See below.
-               > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
-               
-               > **NOTE:** Amazon S3's latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
-               
-               > **NOTE:** The `existingObjectReplication` parameter is not supported by Amazon S3 at this time and should not be included in your `rule` configurations. Specifying this parameter will result in `MalformedXML` errors.
-               To replicate existing objects, please refer to the [Replicating existing objects with S3 Batch Replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html) documentation in the Amazon S3 User Guide.
-        :param pulumi.Input[_builtins.str] token: Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
-               For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -154,9 +108,6 @@ class _BucketReplicationConfigState:
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the source S3 bucket you want Amazon S3 to monitor.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -166,9 +117,6 @@ class _BucketReplicationConfigState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -178,9 +126,6 @@ class _BucketReplicationConfigState:
     @_builtins.property
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role for Amazon S3 to assume when replicating the objects.
-        """
         return pulumi.get(self, "role")
 
     @role.setter
@@ -190,15 +135,6 @@ class _BucketReplicationConfigState:
     @_builtins.property
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketReplicationConfigRuleArgs']]]]:
-        """
-        List of configuration blocks describing the rules managing the replication. See below.
-        > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
-
-        > **NOTE:** Amazon S3's latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
-
-        > **NOTE:** The `existingObjectReplication` parameter is not supported by Amazon S3 at this time and should not be included in your `rule` configurations. Specifying this parameter will result in `MalformedXML` errors.
-        To replicate existing objects, please refer to the [Replicating existing objects with S3 Batch Replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html) documentation in the Amazon S3 User Guide.
-        """
         return pulumi.get(self, "rules")
 
     @rules.setter
@@ -208,10 +144,6 @@ class _BucketReplicationConfigState:
     @_builtins.property
     @pulumi.getter
     def token(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
-        For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
-        """
         return pulumi.get(self, "token")
 
     @token.setter
@@ -232,28 +164,9 @@ class BucketReplicationConfig(pulumi.CustomResource):
                  token: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        ## Import
-
-        Using `pulumi import`, import S3 bucket replication configuration using the `bucket`. For example:
-
-        ```sh
-        $ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
-        ```
-
+        Create a BucketReplicationConfig resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bucket: Name of the source S3 bucket you want Amazon S3 to monitor.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role: ARN of the IAM role for Amazon S3 to assume when replicating the objects.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketReplicationConfigRuleArgs', 'BucketReplicationConfigRuleArgsDict']]]] rules: List of configuration blocks describing the rules managing the replication. See below.
-               > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
-               
-               > **NOTE:** Amazon S3's latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
-               
-               > **NOTE:** The `existingObjectReplication` parameter is not supported by Amazon S3 at this time and should not be included in your `rule` configurations. Specifying this parameter will result in `MalformedXML` errors.
-               To replicate existing objects, please refer to the [Replicating existing objects with S3 Batch Replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html) documentation in the Amazon S3 User Guide.
-        :param pulumi.Input[_builtins.str] token: Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
-               For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
         """
         ...
     @overload
@@ -262,14 +175,7 @@ class BucketReplicationConfig(pulumi.CustomResource):
                  args: BucketReplicationConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
-
-        Using `pulumi import`, import S3 bucket replication configuration using the `bucket`. For example:
-
-        ```sh
-        $ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
-        ```
-
+        Create a BucketReplicationConfig resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BucketReplicationConfigArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -334,18 +240,6 @@ class BucketReplicationConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bucket: Name of the source S3 bucket you want Amazon S3 to monitor.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role: ARN of the IAM role for Amazon S3 to assume when replicating the objects.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketReplicationConfigRuleArgs', 'BucketReplicationConfigRuleArgsDict']]]] rules: List of configuration blocks describing the rules managing the replication. See below.
-               > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
-               
-               > **NOTE:** Amazon S3's latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
-               
-               > **NOTE:** The `existingObjectReplication` parameter is not supported by Amazon S3 at this time and should not be included in your `rule` configurations. Specifying this parameter will result in `MalformedXML` errors.
-               To replicate existing objects, please refer to the [Replicating existing objects with S3 Batch Replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html) documentation in the Amazon S3 User Guide.
-        :param pulumi.Input[_builtins.str] token: Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
-               For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -361,47 +255,25 @@ class BucketReplicationConfig(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the source S3 bucket you want Amazon S3 to monitor.
-        """
         return pulumi.get(self, "bucket")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def role(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the IAM role for Amazon S3 to assume when replicating the objects.
-        """
         return pulumi.get(self, "role")
 
     @_builtins.property
     @pulumi.getter
     def rules(self) -> pulumi.Output[Sequence['outputs.BucketReplicationConfigRule']]:
-        """
-        List of configuration blocks describing the rules managing the replication. See below.
-        > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
-
-        > **NOTE:** Amazon S3's latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
-
-        > **NOTE:** The `existingObjectReplication` parameter is not supported by Amazon S3 at this time and should not be included in your `rule` configurations. Specifying this parameter will result in `MalformedXML` errors.
-        To replicate existing objects, please refer to the [Replicating existing objects with S3 Batch Replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html) documentation in the Amazon S3 User Guide.
-        """
         return pulumi.get(self, "rules")
 
     @_builtins.property
     @pulumi.getter
     def token(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
-        For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
-        """
         return pulumi.get(self, "token")
 

@@ -70,57 +70,6 @@ class S3EndpointArgs:
                  use_task_start_time_for_full_load_timestamp: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a S3Endpoint resource.
-        :param pulumi.Input[_builtins.str] bucket_name: S3 bucket name.
-        :param pulumi.Input[_builtins.str] endpoint_id: Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
-        :param pulumi.Input[_builtins.str] endpoint_type: Type of endpoint. Valid values are `source`, `target`.
-        :param pulumi.Input[_builtins.str] service_access_role_arn: ARN of the IAM role with permissions to the S3 Bucket.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] add_column_name: Whether to add column name information to the .csv output file. Default is `false`.
-        :param pulumi.Input[_builtins.bool] add_trailing_padding_character: Whether to add padding. Default is `false`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] bucket_folder: S3 object prefix.
-        :param pulumi.Input[_builtins.str] canned_acl_for_objects: Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
-        :param pulumi.Input[_builtins.bool] cdc_inserts_and_updates: Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
-        :param pulumi.Input[_builtins.bool] cdc_inserts_only: Whether to write insert operations to .csv or .parquet output files. Default is `false`.
-        :param pulumi.Input[_builtins.int] cdc_max_batch_interval: Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
-        :param pulumi.Input[_builtins.int] cdc_min_file_size: Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
-        :param pulumi.Input[_builtins.str] cdc_path: Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
-        :param pulumi.Input[_builtins.str] certificate_arn: ARN for the certificate.
-        :param pulumi.Input[_builtins.str] compression_type: Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] csv_delimiter: Delimiter used to separate columns in the source files. Default is `,`.
-        :param pulumi.Input[_builtins.str] csv_no_sup_value: Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] csv_null_value: String to as null when writing to the target. (AWS default is `NULL`.)
-        :param pulumi.Input[_builtins.str] csv_row_delimiter: Delimiter used to separate rows in the source files. Default is newline (_i.e._, `\\n`).
-        :param pulumi.Input[_builtins.str] data_format: Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`.  (Ignored for source endpoints -- only `csv` is valid.)
-        :param pulumi.Input[_builtins.int] data_page_size: Size of one data page in bytes. (AWS default is 1 MiB, _i.e._, `1048576`.)
-        :param pulumi.Input[_builtins.str] date_partition_delimiter: Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. (AWS default is `SLASH`.) (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.bool] date_partition_enabled: Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] date_partition_sequence: Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] date_partition_timezone: Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `date_partition_enabled` is `true`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.bool] detach_target_on_lob_lookup_failure_parquet: Undocumented argument for use as directed by AWS Support.
-        :param pulumi.Input[_builtins.int] dict_page_size_limit: Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
-        :param pulumi.Input[_builtins.bool] enable_statistics: Whether to enable statistics for Parquet pages and row groups. Default is `true`.
-        :param pulumi.Input[_builtins.str] encoding_type: Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
-        :param pulumi.Input[_builtins.str] encryption_mode: Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
-        :param pulumi.Input[_builtins.str] expected_bucket_owner: Bucket owner to prevent sniping. Value is an AWS account ID.
-        :param pulumi.Input[_builtins.str] external_table_definition: JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
-        :param pulumi.Input[_builtins.bool] glue_catalog_generation: Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
-        :param pulumi.Input[_builtins.int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
-        :param pulumi.Input[_builtins.bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
-        :param pulumi.Input[_builtins.str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
-        :param pulumi.Input[_builtins.int] max_file_size: Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
-        :param pulumi.Input[_builtins.bool] parquet_timestamp_in_millisecond: Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] parquet_version: Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.bool] preserve_transactions: Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] rfc4180: For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
-        :param pulumi.Input[_builtins.int] row_group_length: Number of rows in a row group. (AWS default is `10000`.)
-        :param pulumi.Input[_builtins.str] server_side_encryption_kms_key_id: When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
-        :param pulumi.Input[_builtins.str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] timestamp_column_name: Column to add with timestamp information to the endpoint data for an Amazon S3 target.
-        :param pulumi.Input[_builtins.bool] use_csv_no_sup_value: Whether to use `csv_no_sup_value` for columns not included in the supplemental log. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.bool] use_task_start_time_for_full_load_timestamp: When set to `true`, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to `true`, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "endpoint_id", endpoint_id)
@@ -220,9 +169,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        S3 bucket name.
-        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -232,9 +178,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="endpointId")
     def endpoint_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
-        """
         return pulumi.get(self, "endpoint_id")
 
     @endpoint_id.setter
@@ -244,9 +187,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of endpoint. Valid values are `source`, `target`.
-        """
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter
@@ -256,11 +196,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="serviceAccessRoleArn")
     def service_access_role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the IAM role with permissions to the S3 Bucket.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "service_access_role_arn")
 
     @service_access_role_arn.setter
@@ -270,9 +205,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="addColumnName")
     def add_column_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to add column name information to the .csv output file. Default is `false`.
-        """
         return pulumi.get(self, "add_column_name")
 
     @add_column_name.setter
@@ -282,9 +214,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="addTrailingPaddingCharacter")
     def add_trailing_padding_character(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to add padding. Default is `false`. (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "add_trailing_padding_character")
 
     @add_trailing_padding_character.setter
@@ -294,9 +223,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="bucketFolder")
     def bucket_folder(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        S3 object prefix.
-        """
         return pulumi.get(self, "bucket_folder")
 
     @bucket_folder.setter
@@ -306,9 +232,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="cannedAclForObjects")
     def canned_acl_for_objects(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
-        """
         return pulumi.get(self, "canned_acl_for_objects")
 
     @canned_acl_for_objects.setter
@@ -318,9 +241,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="cdcInsertsAndUpdates")
     def cdc_inserts_and_updates(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
-        """
         return pulumi.get(self, "cdc_inserts_and_updates")
 
     @cdc_inserts_and_updates.setter
@@ -330,9 +250,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="cdcInsertsOnly")
     def cdc_inserts_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to write insert operations to .csv or .parquet output files. Default is `false`.
-        """
         return pulumi.get(self, "cdc_inserts_only")
 
     @cdc_inserts_only.setter
@@ -342,9 +259,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="cdcMaxBatchInterval")
     def cdc_max_batch_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
-        """
         return pulumi.get(self, "cdc_max_batch_interval")
 
     @cdc_max_batch_interval.setter
@@ -354,9 +268,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="cdcMinFileSize")
     def cdc_min_file_size(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
-        """
         return pulumi.get(self, "cdc_min_file_size")
 
     @cdc_min_file_size.setter
@@ -366,9 +277,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="cdcPath")
     def cdc_path(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
-        """
         return pulumi.get(self, "cdc_path")
 
     @cdc_path.setter
@@ -378,9 +286,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN for the certificate.
-        """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
@@ -390,9 +295,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="compressionType")
     def compression_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "compression_type")
 
     @compression_type.setter
@@ -402,9 +304,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="csvDelimiter")
     def csv_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Delimiter used to separate columns in the source files. Default is `,`.
-        """
         return pulumi.get(self, "csv_delimiter")
 
     @csv_delimiter.setter
@@ -414,9 +313,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="csvNoSupValue")
     def csv_no_sup_value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "csv_no_sup_value")
 
     @csv_no_sup_value.setter
@@ -426,9 +322,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="csvNullValue")
     def csv_null_value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        String to as null when writing to the target. (AWS default is `NULL`.)
-        """
         return pulumi.get(self, "csv_null_value")
 
     @csv_null_value.setter
@@ -438,9 +331,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="csvRowDelimiter")
     def csv_row_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Delimiter used to separate rows in the source files. Default is newline (_i.e._, `\\n`).
-        """
         return pulumi.get(self, "csv_row_delimiter")
 
     @csv_row_delimiter.setter
@@ -450,9 +340,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="dataFormat")
     def data_format(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`.  (Ignored for source endpoints -- only `csv` is valid.)
-        """
         return pulumi.get(self, "data_format")
 
     @data_format.setter
@@ -462,9 +349,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="dataPageSize")
     def data_page_size(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Size of one data page in bytes. (AWS default is 1 MiB, _i.e._, `1048576`.)
-        """
         return pulumi.get(self, "data_page_size")
 
     @data_page_size.setter
@@ -474,9 +358,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="datePartitionDelimiter")
     def date_partition_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. (AWS default is `SLASH`.) (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "date_partition_delimiter")
 
     @date_partition_delimiter.setter
@@ -486,9 +367,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="datePartitionEnabled")
     def date_partition_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "date_partition_enabled")
 
     @date_partition_enabled.setter
@@ -498,9 +376,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="datePartitionSequence")
     def date_partition_sequence(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "date_partition_sequence")
 
     @date_partition_sequence.setter
@@ -510,9 +385,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="datePartitionTimezone")
     def date_partition_timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `date_partition_enabled` is `true`. (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "date_partition_timezone")
 
     @date_partition_timezone.setter
@@ -522,9 +394,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="detachTargetOnLobLookupFailureParquet")
     def detach_target_on_lob_lookup_failure_parquet(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Undocumented argument for use as directed by AWS Support.
-        """
         return pulumi.get(self, "detach_target_on_lob_lookup_failure_parquet")
 
     @detach_target_on_lob_lookup_failure_parquet.setter
@@ -534,9 +403,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="dictPageSizeLimit")
     def dict_page_size_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
-        """
         return pulumi.get(self, "dict_page_size_limit")
 
     @dict_page_size_limit.setter
@@ -546,9 +412,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="enableStatistics")
     def enable_statistics(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable statistics for Parquet pages and row groups. Default is `true`.
-        """
         return pulumi.get(self, "enable_statistics")
 
     @enable_statistics.setter
@@ -558,9 +421,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="encodingType")
     def encoding_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
-        """
         return pulumi.get(self, "encoding_type")
 
     @encoding_type.setter
@@ -570,9 +430,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionMode")
     def encryption_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
-        """
         return pulumi.get(self, "encryption_mode")
 
     @encryption_mode.setter
@@ -582,9 +439,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Bucket owner to prevent sniping. Value is an AWS account ID.
-        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
@@ -594,9 +448,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="externalTableDefinition")
     def external_table_definition(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
-        """
         return pulumi.get(self, "external_table_definition")
 
     @external_table_definition.setter
@@ -606,9 +457,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="glueCatalogGeneration")
     def glue_catalog_generation(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
-        """
         return pulumi.get(self, "glue_catalog_generation")
 
     @glue_catalog_generation.setter
@@ -618,9 +466,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="ignoreHeaderRows")
     def ignore_header_rows(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
-        """
         return pulumi.get(self, "ignore_header_rows")
 
     @ignore_header_rows.setter
@@ -630,9 +475,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="includeOpForFullLoad")
     def include_op_for_full_load(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
-        """
         return pulumi.get(self, "include_op_for_full_load")
 
     @include_op_for_full_load.setter
@@ -642,9 +484,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -654,9 +493,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="maxFileSize")
     def max_file_size(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
-        """
         return pulumi.get(self, "max_file_size")
 
     @max_file_size.setter
@@ -666,9 +502,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="parquetTimestampInMillisecond")
     def parquet_timestamp_in_millisecond(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "parquet_timestamp_in_millisecond")
 
     @parquet_timestamp_in_millisecond.setter
@@ -678,9 +511,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="parquetVersion")
     def parquet_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "parquet_version")
 
     @parquet_version.setter
@@ -690,9 +520,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="preserveTransactions")
     def preserve_transactions(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "preserve_transactions")
 
     @preserve_transactions.setter
@@ -702,9 +529,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -714,9 +538,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter
     def rfc4180(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
-        """
         return pulumi.get(self, "rfc4180")
 
     @rfc4180.setter
@@ -726,9 +547,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="rowGroupLength")
     def row_group_length(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of rows in a row group. (AWS default is `10000`.)
-        """
         return pulumi.get(self, "row_group_length")
 
     @row_group_length.setter
@@ -738,9 +556,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="serverSideEncryptionKmsKeyId")
     def server_side_encryption_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
-        """
         return pulumi.get(self, "server_side_encryption_kms_key_id")
 
     @server_side_encryption_kms_key_id.setter
@@ -750,9 +565,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="sslMode")
     def ssl_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
-        """
         return pulumi.get(self, "ssl_mode")
 
     @ssl_mode.setter
@@ -762,9 +574,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -774,9 +583,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="timestampColumnName")
     def timestamp_column_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Column to add with timestamp information to the endpoint data for an Amazon S3 target.
-        """
         return pulumi.get(self, "timestamp_column_name")
 
     @timestamp_column_name.setter
@@ -786,9 +592,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="useCsvNoSupValue")
     def use_csv_no_sup_value(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to use `csv_no_sup_value` for columns not included in the supplemental log. (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "use_csv_no_sup_value")
 
     @use_csv_no_sup_value.setter
@@ -798,9 +601,6 @@ class S3EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="useTaskStartTimeForFullLoadTimestamp")
     def use_task_start_time_for_full_load_timestamp(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        When set to `true`, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to `true`, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
-        """
         return pulumi.get(self, "use_task_start_time_for_full_load_timestamp")
 
     @use_task_start_time_for_full_load_timestamp.setter
@@ -867,62 +667,6 @@ class _S3EndpointState:
                  use_task_start_time_for_full_load_timestamp: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering S3Endpoint resources.
-        :param pulumi.Input[_builtins.bool] add_column_name: Whether to add column name information to the .csv output file. Default is `false`.
-        :param pulumi.Input[_builtins.bool] add_trailing_padding_character: Whether to add padding. Default is `false`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] bucket_folder: S3 object prefix.
-        :param pulumi.Input[_builtins.str] bucket_name: S3 bucket name.
-        :param pulumi.Input[_builtins.str] canned_acl_for_objects: Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
-        :param pulumi.Input[_builtins.bool] cdc_inserts_and_updates: Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
-        :param pulumi.Input[_builtins.bool] cdc_inserts_only: Whether to write insert operations to .csv or .parquet output files. Default is `false`.
-        :param pulumi.Input[_builtins.int] cdc_max_batch_interval: Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
-        :param pulumi.Input[_builtins.int] cdc_min_file_size: Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
-        :param pulumi.Input[_builtins.str] cdc_path: Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
-        :param pulumi.Input[_builtins.str] certificate_arn: ARN for the certificate.
-        :param pulumi.Input[_builtins.str] compression_type: Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] csv_delimiter: Delimiter used to separate columns in the source files. Default is `,`.
-        :param pulumi.Input[_builtins.str] csv_no_sup_value: Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] csv_null_value: String to as null when writing to the target. (AWS default is `NULL`.)
-        :param pulumi.Input[_builtins.str] csv_row_delimiter: Delimiter used to separate rows in the source files. Default is newline (_i.e._, `\\n`).
-        :param pulumi.Input[_builtins.str] data_format: Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`.  (Ignored for source endpoints -- only `csv` is valid.)
-        :param pulumi.Input[_builtins.int] data_page_size: Size of one data page in bytes. (AWS default is 1 MiB, _i.e._, `1048576`.)
-        :param pulumi.Input[_builtins.str] date_partition_delimiter: Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. (AWS default is `SLASH`.) (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.bool] date_partition_enabled: Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] date_partition_sequence: Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] date_partition_timezone: Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `date_partition_enabled` is `true`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.bool] detach_target_on_lob_lookup_failure_parquet: Undocumented argument for use as directed by AWS Support.
-        :param pulumi.Input[_builtins.int] dict_page_size_limit: Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
-        :param pulumi.Input[_builtins.bool] enable_statistics: Whether to enable statistics for Parquet pages and row groups. Default is `true`.
-        :param pulumi.Input[_builtins.str] encoding_type: Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
-        :param pulumi.Input[_builtins.str] encryption_mode: Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
-        :param pulumi.Input[_builtins.str] endpoint_arn: ARN for the endpoint.
-        :param pulumi.Input[_builtins.str] endpoint_id: Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
-        :param pulumi.Input[_builtins.str] endpoint_type: Type of endpoint. Valid values are `source`, `target`.
-        :param pulumi.Input[_builtins.str] engine_display_name: Expanded name for the engine name.
-        :param pulumi.Input[_builtins.str] expected_bucket_owner: Bucket owner to prevent sniping. Value is an AWS account ID.
-        :param pulumi.Input[_builtins.str] external_id: Can be used for cross-account validation. Use it in another account with `dms.S3Endpoint` to create the endpoint cross-account.
-        :param pulumi.Input[_builtins.str] external_table_definition: JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
-        :param pulumi.Input[_builtins.bool] glue_catalog_generation: Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
-        :param pulumi.Input[_builtins.int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
-        :param pulumi.Input[_builtins.bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
-        :param pulumi.Input[_builtins.str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
-        :param pulumi.Input[_builtins.int] max_file_size: Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
-        :param pulumi.Input[_builtins.bool] parquet_timestamp_in_millisecond: Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] parquet_version: Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.bool] preserve_transactions: Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] rfc4180: For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
-        :param pulumi.Input[_builtins.int] row_group_length: Number of rows in a row group. (AWS default is `10000`.)
-        :param pulumi.Input[_builtins.str] server_side_encryption_kms_key_id: When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
-        :param pulumi.Input[_builtins.str] service_access_role_arn: ARN of the IAM role with permissions to the S3 Bucket.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
-        :param pulumi.Input[_builtins.str] status: Status of the endpoint.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] timestamp_column_name: Column to add with timestamp information to the endpoint data for an Amazon S3 target.
-        :param pulumi.Input[_builtins.bool] use_csv_no_sup_value: Whether to use `csv_no_sup_value` for columns not included in the supplemental log. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.bool] use_task_start_time_for_full_load_timestamp: When set to `true`, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to `true`, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
         """
         if add_column_name is not None:
             pulumi.set(__self__, "add_column_name", add_column_name)
@@ -1036,9 +780,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="addColumnName")
     def add_column_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to add column name information to the .csv output file. Default is `false`.
-        """
         return pulumi.get(self, "add_column_name")
 
     @add_column_name.setter
@@ -1048,9 +789,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="addTrailingPaddingCharacter")
     def add_trailing_padding_character(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to add padding. Default is `false`. (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "add_trailing_padding_character")
 
     @add_trailing_padding_character.setter
@@ -1060,9 +798,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="bucketFolder")
     def bucket_folder(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        S3 object prefix.
-        """
         return pulumi.get(self, "bucket_folder")
 
     @bucket_folder.setter
@@ -1072,9 +807,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        S3 bucket name.
-        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -1084,9 +816,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="cannedAclForObjects")
     def canned_acl_for_objects(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
-        """
         return pulumi.get(self, "canned_acl_for_objects")
 
     @canned_acl_for_objects.setter
@@ -1096,9 +825,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="cdcInsertsAndUpdates")
     def cdc_inserts_and_updates(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
-        """
         return pulumi.get(self, "cdc_inserts_and_updates")
 
     @cdc_inserts_and_updates.setter
@@ -1108,9 +834,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="cdcInsertsOnly")
     def cdc_inserts_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to write insert operations to .csv or .parquet output files. Default is `false`.
-        """
         return pulumi.get(self, "cdc_inserts_only")
 
     @cdc_inserts_only.setter
@@ -1120,9 +843,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="cdcMaxBatchInterval")
     def cdc_max_batch_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
-        """
         return pulumi.get(self, "cdc_max_batch_interval")
 
     @cdc_max_batch_interval.setter
@@ -1132,9 +852,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="cdcMinFileSize")
     def cdc_min_file_size(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
-        """
         return pulumi.get(self, "cdc_min_file_size")
 
     @cdc_min_file_size.setter
@@ -1144,9 +861,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="cdcPath")
     def cdc_path(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
-        """
         return pulumi.get(self, "cdc_path")
 
     @cdc_path.setter
@@ -1156,9 +870,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN for the certificate.
-        """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
@@ -1168,9 +879,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="compressionType")
     def compression_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "compression_type")
 
     @compression_type.setter
@@ -1180,9 +888,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="csvDelimiter")
     def csv_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Delimiter used to separate columns in the source files. Default is `,`.
-        """
         return pulumi.get(self, "csv_delimiter")
 
     @csv_delimiter.setter
@@ -1192,9 +897,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="csvNoSupValue")
     def csv_no_sup_value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "csv_no_sup_value")
 
     @csv_no_sup_value.setter
@@ -1204,9 +906,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="csvNullValue")
     def csv_null_value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        String to as null when writing to the target. (AWS default is `NULL`.)
-        """
         return pulumi.get(self, "csv_null_value")
 
     @csv_null_value.setter
@@ -1216,9 +915,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="csvRowDelimiter")
     def csv_row_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Delimiter used to separate rows in the source files. Default is newline (_i.e._, `\\n`).
-        """
         return pulumi.get(self, "csv_row_delimiter")
 
     @csv_row_delimiter.setter
@@ -1228,9 +924,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="dataFormat")
     def data_format(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`.  (Ignored for source endpoints -- only `csv` is valid.)
-        """
         return pulumi.get(self, "data_format")
 
     @data_format.setter
@@ -1240,9 +933,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="dataPageSize")
     def data_page_size(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Size of one data page in bytes. (AWS default is 1 MiB, _i.e._, `1048576`.)
-        """
         return pulumi.get(self, "data_page_size")
 
     @data_page_size.setter
@@ -1252,9 +942,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="datePartitionDelimiter")
     def date_partition_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. (AWS default is `SLASH`.) (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "date_partition_delimiter")
 
     @date_partition_delimiter.setter
@@ -1264,9 +951,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="datePartitionEnabled")
     def date_partition_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "date_partition_enabled")
 
     @date_partition_enabled.setter
@@ -1276,9 +960,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="datePartitionSequence")
     def date_partition_sequence(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "date_partition_sequence")
 
     @date_partition_sequence.setter
@@ -1288,9 +969,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="datePartitionTimezone")
     def date_partition_timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `date_partition_enabled` is `true`. (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "date_partition_timezone")
 
     @date_partition_timezone.setter
@@ -1300,9 +978,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="detachTargetOnLobLookupFailureParquet")
     def detach_target_on_lob_lookup_failure_parquet(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Undocumented argument for use as directed by AWS Support.
-        """
         return pulumi.get(self, "detach_target_on_lob_lookup_failure_parquet")
 
     @detach_target_on_lob_lookup_failure_parquet.setter
@@ -1312,9 +987,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="dictPageSizeLimit")
     def dict_page_size_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
-        """
         return pulumi.get(self, "dict_page_size_limit")
 
     @dict_page_size_limit.setter
@@ -1324,9 +996,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="enableStatistics")
     def enable_statistics(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable statistics for Parquet pages and row groups. Default is `true`.
-        """
         return pulumi.get(self, "enable_statistics")
 
     @enable_statistics.setter
@@ -1336,9 +1005,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="encodingType")
     def encoding_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
-        """
         return pulumi.get(self, "encoding_type")
 
     @encoding_type.setter
@@ -1348,9 +1014,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="encryptionMode")
     def encryption_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
-        """
         return pulumi.get(self, "encryption_mode")
 
     @encryption_mode.setter
@@ -1360,9 +1023,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="endpointArn")
     def endpoint_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN for the endpoint.
-        """
         return pulumi.get(self, "endpoint_arn")
 
     @endpoint_arn.setter
@@ -1372,9 +1032,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="endpointId")
     def endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
-        """
         return pulumi.get(self, "endpoint_id")
 
     @endpoint_id.setter
@@ -1384,9 +1041,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of endpoint. Valid values are `source`, `target`.
-        """
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter
@@ -1396,9 +1050,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="engineDisplayName")
     def engine_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Expanded name for the engine name.
-        """
         return pulumi.get(self, "engine_display_name")
 
     @engine_display_name.setter
@@ -1408,9 +1059,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Bucket owner to prevent sniping. Value is an AWS account ID.
-        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
@@ -1420,9 +1068,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Can be used for cross-account validation. Use it in another account with `dms.S3Endpoint` to create the endpoint cross-account.
-        """
         return pulumi.get(self, "external_id")
 
     @external_id.setter
@@ -1432,9 +1077,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="externalTableDefinition")
     def external_table_definition(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
-        """
         return pulumi.get(self, "external_table_definition")
 
     @external_table_definition.setter
@@ -1444,9 +1086,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="glueCatalogGeneration")
     def glue_catalog_generation(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
-        """
         return pulumi.get(self, "glue_catalog_generation")
 
     @glue_catalog_generation.setter
@@ -1456,9 +1095,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="ignoreHeaderRows")
     def ignore_header_rows(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
-        """
         return pulumi.get(self, "ignore_header_rows")
 
     @ignore_header_rows.setter
@@ -1468,9 +1104,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="includeOpForFullLoad")
     def include_op_for_full_load(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
-        """
         return pulumi.get(self, "include_op_for_full_load")
 
     @include_op_for_full_load.setter
@@ -1480,9 +1113,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -1492,9 +1122,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="maxFileSize")
     def max_file_size(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
-        """
         return pulumi.get(self, "max_file_size")
 
     @max_file_size.setter
@@ -1504,9 +1131,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="parquetTimestampInMillisecond")
     def parquet_timestamp_in_millisecond(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "parquet_timestamp_in_millisecond")
 
     @parquet_timestamp_in_millisecond.setter
@@ -1516,9 +1140,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="parquetVersion")
     def parquet_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "parquet_version")
 
     @parquet_version.setter
@@ -1528,9 +1149,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="preserveTransactions")
     def preserve_transactions(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "preserve_transactions")
 
     @preserve_transactions.setter
@@ -1540,9 +1158,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -1552,9 +1167,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter
     def rfc4180(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
-        """
         return pulumi.get(self, "rfc4180")
 
     @rfc4180.setter
@@ -1564,9 +1176,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="rowGroupLength")
     def row_group_length(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of rows in a row group. (AWS default is `10000`.)
-        """
         return pulumi.get(self, "row_group_length")
 
     @row_group_length.setter
@@ -1576,9 +1185,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="serverSideEncryptionKmsKeyId")
     def server_side_encryption_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
-        """
         return pulumi.get(self, "server_side_encryption_kms_key_id")
 
     @server_side_encryption_kms_key_id.setter
@@ -1588,11 +1194,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="serviceAccessRoleArn")
     def service_access_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role with permissions to the S3 Bucket.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "service_access_role_arn")
 
     @service_access_role_arn.setter
@@ -1602,9 +1203,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="sslMode")
     def ssl_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
-        """
         return pulumi.get(self, "ssl_mode")
 
     @ssl_mode.setter
@@ -1614,9 +1212,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the endpoint.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -1626,9 +1221,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -1638,9 +1230,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -1650,9 +1239,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="timestampColumnName")
     def timestamp_column_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Column to add with timestamp information to the endpoint data for an Amazon S3 target.
-        """
         return pulumi.get(self, "timestamp_column_name")
 
     @timestamp_column_name.setter
@@ -1662,9 +1248,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="useCsvNoSupValue")
     def use_csv_no_sup_value(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to use `csv_no_sup_value` for columns not included in the supplemental log. (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "use_csv_no_sup_value")
 
     @use_csv_no_sup_value.setter
@@ -1674,9 +1257,6 @@ class _S3EndpointState:
     @_builtins.property
     @pulumi.getter(name="useTaskStartTimeForFullLoadTimestamp")
     def use_task_start_time_for_full_load_timestamp(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        When set to `true`, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to `true`, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
-        """
         return pulumi.get(self, "use_task_start_time_for_full_load_timestamp")
 
     @use_task_start_time_for_full_load_timestamp.setter
@@ -1741,150 +1321,9 @@ class S3Endpoint(pulumi.CustomResource):
                  use_task_start_time_for_full_load_timestamp: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Provides a DMS (Data Migration Service) S3 endpoint resource. DMS S3 endpoints can be created, updated, deleted, and imported.
-
-        > **Note:** AWS is deprecating `extra_connection_attributes`, such as used with `dms.Endpoint`. This resource is an alternative to `dms.Endpoint` and does not use `extra_connection_attributes`. (AWS currently includes `extra_connection_attributes` in the raw responses to the AWS Provider requests and so they may be visible in the logs.)
-
-        > **Note:** Some of this resource's arguments have default values that come from the AWS Provider. Other default values are provided by AWS and subject to change without notice. When relying on AWS defaults, the provider state will often have a zero value. For example, the AWS Provider does not provide a default for `cdc_max_batch_interval` but the AWS default is `60` (seconds). However, the provider state will show `0` since this is the value return by AWS when no value is present. Below, we aim to flag the defaults that come from AWS (_e.g._, "AWS default...").
-
-        ## Example Usage
-
-        ### Minimal Configuration
-
-        This is the minimal configuration for an `dms.S3Endpoint`. This endpoint will rely on the AWS Provider and AWS defaults.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.dms.S3Endpoint("example",
-            endpoint_id="donnedtipi",
-            endpoint_type="target",
-            bucket_name="beckut_name",
-            service_access_role_arn=example_aws_iam_role["arn"],
-            opts = pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
-        ```
-
-        ### Complete Configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.dms.S3Endpoint("example",
-            endpoint_id="donnedtipi",
-            endpoint_type="target",
-            ssl_mode="none",
-            tags={
-                "Name": "donnedtipi",
-                "Update": "to-update",
-                "Remove": "to-remove",
-            },
-            add_column_name=True,
-            add_trailing_padding_character=False,
-            bucket_folder="folder",
-            bucket_name="bucket_name",
-            canned_acl_for_objects="private",
-            cdc_inserts_and_updates=True,
-            cdc_inserts_only=False,
-            cdc_max_batch_interval=100,
-            cdc_min_file_size=16,
-            cdc_path="cdc/path",
-            compression_type="GZIP",
-            csv_delimiter=";",
-            csv_no_sup_value="x",
-            csv_null_value="?",
-            csv_row_delimiter="\\\\r\\\\n",
-            data_format="parquet",
-            data_page_size=1100000,
-            date_partition_delimiter="UNDERSCORE",
-            date_partition_enabled=True,
-            date_partition_sequence="yyyymmddhh",
-            date_partition_timezone="Asia/Seoul",
-            dict_page_size_limit=1000000,
-            enable_statistics=False,
-            encoding_type="plain",
-            encryption_mode="SSE_S3",
-            expected_bucket_owner=current["accountId"],
-            external_table_definition="etd",
-            ignore_header_rows=1,
-            include_op_for_full_load=True,
-            max_file_size=1000000,
-            parquet_timestamp_in_millisecond=True,
-            parquet_version="parquet-2-0",
-            preserve_transactions=False,
-            rfc4180=False,
-            row_group_length=11000,
-            server_side_encryption_kms_key_id=example_aws_kms_key["arn"],
-            service_access_role_arn=example_aws_iam_role["arn"],
-            timestamp_column_name="tx_commit_time",
-            use_csv_no_sup_value=False,
-            use_task_start_time_for_full_load_timestamp=True,
-            glue_catalog_generation=True,
-            opts = pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
-
-        ```sh
-        $ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
-        ```
-
+        Create a S3Endpoint resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] add_column_name: Whether to add column name information to the .csv output file. Default is `false`.
-        :param pulumi.Input[_builtins.bool] add_trailing_padding_character: Whether to add padding. Default is `false`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] bucket_folder: S3 object prefix.
-        :param pulumi.Input[_builtins.str] bucket_name: S3 bucket name.
-        :param pulumi.Input[_builtins.str] canned_acl_for_objects: Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
-        :param pulumi.Input[_builtins.bool] cdc_inserts_and_updates: Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
-        :param pulumi.Input[_builtins.bool] cdc_inserts_only: Whether to write insert operations to .csv or .parquet output files. Default is `false`.
-        :param pulumi.Input[_builtins.int] cdc_max_batch_interval: Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
-        :param pulumi.Input[_builtins.int] cdc_min_file_size: Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
-        :param pulumi.Input[_builtins.str] cdc_path: Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
-        :param pulumi.Input[_builtins.str] certificate_arn: ARN for the certificate.
-        :param pulumi.Input[_builtins.str] compression_type: Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] csv_delimiter: Delimiter used to separate columns in the source files. Default is `,`.
-        :param pulumi.Input[_builtins.str] csv_no_sup_value: Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] csv_null_value: String to as null when writing to the target. (AWS default is `NULL`.)
-        :param pulumi.Input[_builtins.str] csv_row_delimiter: Delimiter used to separate rows in the source files. Default is newline (_i.e._, `\\n`).
-        :param pulumi.Input[_builtins.str] data_format: Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`.  (Ignored for source endpoints -- only `csv` is valid.)
-        :param pulumi.Input[_builtins.int] data_page_size: Size of one data page in bytes. (AWS default is 1 MiB, _i.e._, `1048576`.)
-        :param pulumi.Input[_builtins.str] date_partition_delimiter: Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. (AWS default is `SLASH`.) (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.bool] date_partition_enabled: Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] date_partition_sequence: Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] date_partition_timezone: Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `date_partition_enabled` is `true`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.bool] detach_target_on_lob_lookup_failure_parquet: Undocumented argument for use as directed by AWS Support.
-        :param pulumi.Input[_builtins.int] dict_page_size_limit: Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
-        :param pulumi.Input[_builtins.bool] enable_statistics: Whether to enable statistics for Parquet pages and row groups. Default is `true`.
-        :param pulumi.Input[_builtins.str] encoding_type: Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
-        :param pulumi.Input[_builtins.str] encryption_mode: Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
-        :param pulumi.Input[_builtins.str] endpoint_id: Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
-        :param pulumi.Input[_builtins.str] endpoint_type: Type of endpoint. Valid values are `source`, `target`.
-        :param pulumi.Input[_builtins.str] expected_bucket_owner: Bucket owner to prevent sniping. Value is an AWS account ID.
-        :param pulumi.Input[_builtins.str] external_table_definition: JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
-        :param pulumi.Input[_builtins.bool] glue_catalog_generation: Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
-        :param pulumi.Input[_builtins.int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
-        :param pulumi.Input[_builtins.bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
-        :param pulumi.Input[_builtins.str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
-        :param pulumi.Input[_builtins.int] max_file_size: Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
-        :param pulumi.Input[_builtins.bool] parquet_timestamp_in_millisecond: Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] parquet_version: Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.bool] preserve_transactions: Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] rfc4180: For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
-        :param pulumi.Input[_builtins.int] row_group_length: Number of rows in a row group. (AWS default is `10000`.)
-        :param pulumi.Input[_builtins.str] server_side_encryption_kms_key_id: When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
-        :param pulumi.Input[_builtins.str] service_access_role_arn: ARN of the IAM role with permissions to the S3 Bucket.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] timestamp_column_name: Column to add with timestamp information to the endpoint data for an Amazon S3 target.
-        :param pulumi.Input[_builtins.bool] use_csv_no_sup_value: Whether to use `csv_no_sup_value` for columns not included in the supplemental log. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.bool] use_task_start_time_for_full_load_timestamp: When set to `true`, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to `true`, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
         """
         ...
     @overload
@@ -1893,97 +1332,7 @@ class S3Endpoint(pulumi.CustomResource):
                  args: S3EndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a DMS (Data Migration Service) S3 endpoint resource. DMS S3 endpoints can be created, updated, deleted, and imported.
-
-        > **Note:** AWS is deprecating `extra_connection_attributes`, such as used with `dms.Endpoint`. This resource is an alternative to `dms.Endpoint` and does not use `extra_connection_attributes`. (AWS currently includes `extra_connection_attributes` in the raw responses to the AWS Provider requests and so they may be visible in the logs.)
-
-        > **Note:** Some of this resource's arguments have default values that come from the AWS Provider. Other default values are provided by AWS and subject to change without notice. When relying on AWS defaults, the provider state will often have a zero value. For example, the AWS Provider does not provide a default for `cdc_max_batch_interval` but the AWS default is `60` (seconds). However, the provider state will show `0` since this is the value return by AWS when no value is present. Below, we aim to flag the defaults that come from AWS (_e.g._, "AWS default...").
-
-        ## Example Usage
-
-        ### Minimal Configuration
-
-        This is the minimal configuration for an `dms.S3Endpoint`. This endpoint will rely on the AWS Provider and AWS defaults.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.dms.S3Endpoint("example",
-            endpoint_id="donnedtipi",
-            endpoint_type="target",
-            bucket_name="beckut_name",
-            service_access_role_arn=example_aws_iam_role["arn"],
-            opts = pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
-        ```
-
-        ### Complete Configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.dms.S3Endpoint("example",
-            endpoint_id="donnedtipi",
-            endpoint_type="target",
-            ssl_mode="none",
-            tags={
-                "Name": "donnedtipi",
-                "Update": "to-update",
-                "Remove": "to-remove",
-            },
-            add_column_name=True,
-            add_trailing_padding_character=False,
-            bucket_folder="folder",
-            bucket_name="bucket_name",
-            canned_acl_for_objects="private",
-            cdc_inserts_and_updates=True,
-            cdc_inserts_only=False,
-            cdc_max_batch_interval=100,
-            cdc_min_file_size=16,
-            cdc_path="cdc/path",
-            compression_type="GZIP",
-            csv_delimiter=";",
-            csv_no_sup_value="x",
-            csv_null_value="?",
-            csv_row_delimiter="\\\\r\\\\n",
-            data_format="parquet",
-            data_page_size=1100000,
-            date_partition_delimiter="UNDERSCORE",
-            date_partition_enabled=True,
-            date_partition_sequence="yyyymmddhh",
-            date_partition_timezone="Asia/Seoul",
-            dict_page_size_limit=1000000,
-            enable_statistics=False,
-            encoding_type="plain",
-            encryption_mode="SSE_S3",
-            expected_bucket_owner=current["accountId"],
-            external_table_definition="etd",
-            ignore_header_rows=1,
-            include_op_for_full_load=True,
-            max_file_size=1000000,
-            parquet_timestamp_in_millisecond=True,
-            parquet_version="parquet-2-0",
-            preserve_transactions=False,
-            rfc4180=False,
-            row_group_length=11000,
-            server_side_encryption_kms_key_id=example_aws_kms_key["arn"],
-            service_access_role_arn=example_aws_iam_role["arn"],
-            timestamp_column_name="tx_commit_time",
-            use_csv_no_sup_value=False,
-            use_task_start_time_for_full_load_timestamp=True,
-            glue_catalog_generation=True,
-            opts = pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
-
-        ```sh
-        $ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
-        ```
-
+        Create a S3Endpoint resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param S3EndpointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -2190,62 +1539,6 @@ class S3Endpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] add_column_name: Whether to add column name information to the .csv output file. Default is `false`.
-        :param pulumi.Input[_builtins.bool] add_trailing_padding_character: Whether to add padding. Default is `false`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] bucket_folder: S3 object prefix.
-        :param pulumi.Input[_builtins.str] bucket_name: S3 bucket name.
-        :param pulumi.Input[_builtins.str] canned_acl_for_objects: Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
-        :param pulumi.Input[_builtins.bool] cdc_inserts_and_updates: Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
-        :param pulumi.Input[_builtins.bool] cdc_inserts_only: Whether to write insert operations to .csv or .parquet output files. Default is `false`.
-        :param pulumi.Input[_builtins.int] cdc_max_batch_interval: Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
-        :param pulumi.Input[_builtins.int] cdc_min_file_size: Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
-        :param pulumi.Input[_builtins.str] cdc_path: Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
-        :param pulumi.Input[_builtins.str] certificate_arn: ARN for the certificate.
-        :param pulumi.Input[_builtins.str] compression_type: Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] csv_delimiter: Delimiter used to separate columns in the source files. Default is `,`.
-        :param pulumi.Input[_builtins.str] csv_no_sup_value: Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] csv_null_value: String to as null when writing to the target. (AWS default is `NULL`.)
-        :param pulumi.Input[_builtins.str] csv_row_delimiter: Delimiter used to separate rows in the source files. Default is newline (_i.e._, `\\n`).
-        :param pulumi.Input[_builtins.str] data_format: Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`.  (Ignored for source endpoints -- only `csv` is valid.)
-        :param pulumi.Input[_builtins.int] data_page_size: Size of one data page in bytes. (AWS default is 1 MiB, _i.e._, `1048576`.)
-        :param pulumi.Input[_builtins.str] date_partition_delimiter: Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. (AWS default is `SLASH`.) (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.bool] date_partition_enabled: Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] date_partition_sequence: Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] date_partition_timezone: Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `date_partition_enabled` is `true`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.bool] detach_target_on_lob_lookup_failure_parquet: Undocumented argument for use as directed by AWS Support.
-        :param pulumi.Input[_builtins.int] dict_page_size_limit: Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
-        :param pulumi.Input[_builtins.bool] enable_statistics: Whether to enable statistics for Parquet pages and row groups. Default is `true`.
-        :param pulumi.Input[_builtins.str] encoding_type: Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
-        :param pulumi.Input[_builtins.str] encryption_mode: Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
-        :param pulumi.Input[_builtins.str] endpoint_arn: ARN for the endpoint.
-        :param pulumi.Input[_builtins.str] endpoint_id: Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
-        :param pulumi.Input[_builtins.str] endpoint_type: Type of endpoint. Valid values are `source`, `target`.
-        :param pulumi.Input[_builtins.str] engine_display_name: Expanded name for the engine name.
-        :param pulumi.Input[_builtins.str] expected_bucket_owner: Bucket owner to prevent sniping. Value is an AWS account ID.
-        :param pulumi.Input[_builtins.str] external_id: Can be used for cross-account validation. Use it in another account with `dms.S3Endpoint` to create the endpoint cross-account.
-        :param pulumi.Input[_builtins.str] external_table_definition: JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
-        :param pulumi.Input[_builtins.bool] glue_catalog_generation: Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
-        :param pulumi.Input[_builtins.int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
-        :param pulumi.Input[_builtins.bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
-        :param pulumi.Input[_builtins.str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
-        :param pulumi.Input[_builtins.int] max_file_size: Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
-        :param pulumi.Input[_builtins.bool] parquet_timestamp_in_millisecond: Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] parquet_version: Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.bool] preserve_transactions: Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] rfc4180: For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
-        :param pulumi.Input[_builtins.int] row_group_length: Number of rows in a row group. (AWS default is `10000`.)
-        :param pulumi.Input[_builtins.str] server_side_encryption_kms_key_id: When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
-        :param pulumi.Input[_builtins.str] service_access_role_arn: ARN of the IAM role with permissions to the S3 Bucket.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
-        :param pulumi.Input[_builtins.str] status: Status of the endpoint.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] timestamp_column_name: Column to add with timestamp information to the endpoint data for an Amazon S3 target.
-        :param pulumi.Input[_builtins.bool] use_csv_no_sup_value: Whether to use `csv_no_sup_value` for columns not included in the supplemental log. (Ignored for source endpoints.)
-        :param pulumi.Input[_builtins.bool] use_task_start_time_for_full_load_timestamp: When set to `true`, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to `true`, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -2310,434 +1603,270 @@ class S3Endpoint(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="addColumnName")
     def add_column_name(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to add column name information to the .csv output file. Default is `false`.
-        """
         return pulumi.get(self, "add_column_name")
 
     @_builtins.property
     @pulumi.getter(name="addTrailingPaddingCharacter")
     def add_trailing_padding_character(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to add padding. Default is `false`. (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "add_trailing_padding_character")
 
     @_builtins.property
     @pulumi.getter(name="bucketFolder")
     def bucket_folder(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        S3 object prefix.
-        """
         return pulumi.get(self, "bucket_folder")
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        S3 bucket name.
-        """
         return pulumi.get(self, "bucket_name")
 
     @_builtins.property
     @pulumi.getter(name="cannedAclForObjects")
     def canned_acl_for_objects(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
-        """
         return pulumi.get(self, "canned_acl_for_objects")
 
     @_builtins.property
     @pulumi.getter(name="cdcInsertsAndUpdates")
     def cdc_inserts_and_updates(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
-        """
         return pulumi.get(self, "cdc_inserts_and_updates")
 
     @_builtins.property
     @pulumi.getter(name="cdcInsertsOnly")
     def cdc_inserts_only(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to write insert operations to .csv or .parquet output files. Default is `false`.
-        """
         return pulumi.get(self, "cdc_inserts_only")
 
     @_builtins.property
     @pulumi.getter(name="cdcMaxBatchInterval")
     def cdc_max_batch_interval(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
-        """
         return pulumi.get(self, "cdc_max_batch_interval")
 
     @_builtins.property
     @pulumi.getter(name="cdcMinFileSize")
     def cdc_min_file_size(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
-        """
         return pulumi.get(self, "cdc_min_file_size")
 
     @_builtins.property
     @pulumi.getter(name="cdcPath")
     def cdc_path(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
-        """
         return pulumi.get(self, "cdc_path")
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN for the certificate.
-        """
         return pulumi.get(self, "certificate_arn")
 
     @_builtins.property
     @pulumi.getter(name="compressionType")
     def compression_type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "compression_type")
 
     @_builtins.property
     @pulumi.getter(name="csvDelimiter")
     def csv_delimiter(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Delimiter used to separate columns in the source files. Default is `,`.
-        """
         return pulumi.get(self, "csv_delimiter")
 
     @_builtins.property
     @pulumi.getter(name="csvNoSupValue")
     def csv_no_sup_value(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "csv_no_sup_value")
 
     @_builtins.property
     @pulumi.getter(name="csvNullValue")
     def csv_null_value(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        String to as null when writing to the target. (AWS default is `NULL`.)
-        """
         return pulumi.get(self, "csv_null_value")
 
     @_builtins.property
     @pulumi.getter(name="csvRowDelimiter")
     def csv_row_delimiter(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Delimiter used to separate rows in the source files. Default is newline (_i.e._, `\\n`).
-        """
         return pulumi.get(self, "csv_row_delimiter")
 
     @_builtins.property
     @pulumi.getter(name="dataFormat")
     def data_format(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`.  (Ignored for source endpoints -- only `csv` is valid.)
-        """
         return pulumi.get(self, "data_format")
 
     @_builtins.property
     @pulumi.getter(name="dataPageSize")
     def data_page_size(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Size of one data page in bytes. (AWS default is 1 MiB, _i.e._, `1048576`.)
-        """
         return pulumi.get(self, "data_page_size")
 
     @_builtins.property
     @pulumi.getter(name="datePartitionDelimiter")
     def date_partition_delimiter(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. (AWS default is `SLASH`.) (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "date_partition_delimiter")
 
     @_builtins.property
     @pulumi.getter(name="datePartitionEnabled")
     def date_partition_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "date_partition_enabled")
 
     @_builtins.property
     @pulumi.getter(name="datePartitionSequence")
     def date_partition_sequence(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "date_partition_sequence")
 
     @_builtins.property
     @pulumi.getter(name="datePartitionTimezone")
     def date_partition_timezone(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `date_partition_enabled` is `true`. (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "date_partition_timezone")
 
     @_builtins.property
     @pulumi.getter(name="detachTargetOnLobLookupFailureParquet")
     def detach_target_on_lob_lookup_failure_parquet(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Undocumented argument for use as directed by AWS Support.
-        """
         return pulumi.get(self, "detach_target_on_lob_lookup_failure_parquet")
 
     @_builtins.property
     @pulumi.getter(name="dictPageSizeLimit")
     def dict_page_size_limit(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
-        """
         return pulumi.get(self, "dict_page_size_limit")
 
     @_builtins.property
     @pulumi.getter(name="enableStatistics")
     def enable_statistics(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to enable statistics for Parquet pages and row groups. Default is `true`.
-        """
         return pulumi.get(self, "enable_statistics")
 
     @_builtins.property
     @pulumi.getter(name="encodingType")
     def encoding_type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
-        """
         return pulumi.get(self, "encoding_type")
 
     @_builtins.property
     @pulumi.getter(name="encryptionMode")
     def encryption_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
-        """
         return pulumi.get(self, "encryption_mode")
 
     @_builtins.property
     @pulumi.getter(name="endpointArn")
     def endpoint_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN for the endpoint.
-        """
         return pulumi.get(self, "endpoint_arn")
 
     @_builtins.property
     @pulumi.getter(name="endpointId")
     def endpoint_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
-        """
         return pulumi.get(self, "endpoint_id")
 
     @_builtins.property
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of endpoint. Valid values are `source`, `target`.
-        """
         return pulumi.get(self, "endpoint_type")
 
     @_builtins.property
     @pulumi.getter(name="engineDisplayName")
     def engine_display_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Expanded name for the engine name.
-        """
         return pulumi.get(self, "engine_display_name")
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Bucket owner to prevent sniping. Value is an AWS account ID.
-        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @_builtins.property
     @pulumi.getter(name="externalId")
     def external_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Can be used for cross-account validation. Use it in another account with `dms.S3Endpoint` to create the endpoint cross-account.
-        """
         return pulumi.get(self, "external_id")
 
     @_builtins.property
     @pulumi.getter(name="externalTableDefinition")
     def external_table_definition(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
-        """
         return pulumi.get(self, "external_table_definition")
 
     @_builtins.property
     @pulumi.getter(name="glueCatalogGeneration")
     def glue_catalog_generation(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
-        """
         return pulumi.get(self, "glue_catalog_generation")
 
     @_builtins.property
     @pulumi.getter(name="ignoreHeaderRows")
     def ignore_header_rows(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
-        """
         return pulumi.get(self, "ignore_header_rows")
 
     @_builtins.property
     @pulumi.getter(name="includeOpForFullLoad")
     def include_op_for_full_load(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
-        """
         return pulumi.get(self, "include_op_for_full_load")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @_builtins.property
     @pulumi.getter(name="maxFileSize")
     def max_file_size(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
-        """
         return pulumi.get(self, "max_file_size")
 
     @_builtins.property
     @pulumi.getter(name="parquetTimestampInMillisecond")
     def parquet_timestamp_in_millisecond(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "parquet_timestamp_in_millisecond")
 
     @_builtins.property
     @pulumi.getter(name="parquetVersion")
     def parquet_version(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "parquet_version")
 
     @_builtins.property
     @pulumi.getter(name="preserveTransactions")
     def preserve_transactions(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "preserve_transactions")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def rfc4180(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
-        """
         return pulumi.get(self, "rfc4180")
 
     @_builtins.property
     @pulumi.getter(name="rowGroupLength")
     def row_group_length(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Number of rows in a row group. (AWS default is `10000`.)
-        """
         return pulumi.get(self, "row_group_length")
 
     @_builtins.property
     @pulumi.getter(name="serverSideEncryptionKmsKeyId")
     def server_side_encryption_kms_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
-        """
         return pulumi.get(self, "server_side_encryption_kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="serviceAccessRoleArn")
     def service_access_role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the IAM role with permissions to the S3 Bucket.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "service_access_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="sslMode")
     def ssl_mode(self) -> pulumi.Output[_builtins.str]:
-        """
-        SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
-        """
         return pulumi.get(self, "ssl_mode")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status of the endpoint.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="timestampColumnName")
     def timestamp_column_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Column to add with timestamp information to the endpoint data for an Amazon S3 target.
-        """
         return pulumi.get(self, "timestamp_column_name")
 
     @_builtins.property
     @pulumi.getter(name="useCsvNoSupValue")
     def use_csv_no_sup_value(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to use `csv_no_sup_value` for columns not included in the supplemental log. (Ignored for source endpoints.)
-        """
         return pulumi.get(self, "use_csv_no_sup_value")
 
     @_builtins.property
     @pulumi.getter(name="useTaskStartTimeForFullLoadTimestamp")
     def use_task_start_time_for_full_load_timestamp(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        When set to `true`, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to `true`, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
-        """
         return pulumi.get(self, "use_task_start_time_for_full_load_timestamp")
 

@@ -12,142 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Amazon Connect Phone Number resource. For more information see
-// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
-//
-// ## Example Usage
-//
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewPhoneNumber(ctx, "example", &connect.PhoneNumberArgs{
-//				TargetArn:   pulumi.Any(exampleAwsConnectInstance.Arn),
-//				CountryCode: pulumi.String("US"),
-//				Type:        pulumi.String("DID"),
-//				Tags: pulumi.StringMap{
-//					"hello": pulumi.String("world"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Description
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewPhoneNumber(ctx, "example", &connect.PhoneNumberArgs{
-//				TargetArn:   pulumi.Any(exampleAwsConnectInstance.Arn),
-//				CountryCode: pulumi.String("US"),
-//				Type:        pulumi.String("DID"),
-//				Description: pulumi.String("example description"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Prefix to filter phone numbers
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewPhoneNumber(ctx, "example", &connect.PhoneNumberArgs{
-//				TargetArn:   pulumi.Any(exampleAwsConnectInstance.Arn),
-//				CountryCode: pulumi.String("US"),
-//				Type:        pulumi.String("DID"),
-//				Prefix:      pulumi.String("+18005"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// * `id` - (String) ID of the connect phone number.
-//
-// #### Optional
-//
-// - `account_id` (String) AWS Account where this resource is managed.
-//
-// - `region` (String) Region where this resource is managed.
-//
-// Using `pulumi import`, import Amazon Connect Phone Numbers using its `id`. For example:
-//
-// % pulumi import aws_connect_phone_number.example 12345678-abcd-1234-efgh-9876543210ab
 type PhoneNumber struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the phone number.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
-	CountryCode pulumi.StringOutput `pulumi:"countryCode"`
-	// The description of the phone number.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
-	PhoneNumber pulumi.StringOutput `pulumi:"phoneNumber"`
-	// The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
-	Prefix pulumi.StringPtrOutput `pulumi:"prefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
-	Statuses PhoneNumberStatusArrayOutput `pulumi:"statuses"`
-	// Tags to apply to the Phone Number. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
-	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
-	// The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Arn         pulumi.StringOutput          `pulumi:"arn"`
+	CountryCode pulumi.StringOutput          `pulumi:"countryCode"`
+	Description pulumi.StringPtrOutput       `pulumi:"description"`
+	PhoneNumber pulumi.StringOutput          `pulumi:"phoneNumber"`
+	Prefix      pulumi.StringPtrOutput       `pulumi:"prefix"`
+	Region      pulumi.StringOutput          `pulumi:"region"`
+	Statuses    PhoneNumberStatusArrayOutput `pulumi:"statuses"`
+	Tags        pulumi.StringMapOutput       `pulumi:"tags"`
+	TagsAll     pulumi.StringMapOutput       `pulumi:"tagsAll"`
+	TargetArn   pulumi.StringOutput          `pulumi:"targetArn"`
+	Type        pulumi.StringOutput          `pulumi:"type"`
 }
 
 // NewPhoneNumber registers a new resource with the given unique name, arguments, and options.
@@ -189,53 +67,31 @@ func GetPhoneNumber(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PhoneNumber resources.
 type phoneNumberState struct {
-	// The ARN of the phone number.
-	Arn *string `pulumi:"arn"`
-	// The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
-	CountryCode *string `pulumi:"countryCode"`
-	// The description of the phone number.
-	Description *string `pulumi:"description"`
-	// The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
-	PhoneNumber *string `pulumi:"phoneNumber"`
-	// The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
-	Prefix *string `pulumi:"prefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
-	Statuses []PhoneNumberStatus `pulumi:"statuses"`
-	// Tags to apply to the Phone Number. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
-	TargetArn *string `pulumi:"targetArn"`
-	// The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
-	Type *string `pulumi:"type"`
+	Arn         *string             `pulumi:"arn"`
+	CountryCode *string             `pulumi:"countryCode"`
+	Description *string             `pulumi:"description"`
+	PhoneNumber *string             `pulumi:"phoneNumber"`
+	Prefix      *string             `pulumi:"prefix"`
+	Region      *string             `pulumi:"region"`
+	Statuses    []PhoneNumberStatus `pulumi:"statuses"`
+	Tags        map[string]string   `pulumi:"tags"`
+	TagsAll     map[string]string   `pulumi:"tagsAll"`
+	TargetArn   *string             `pulumi:"targetArn"`
+	Type        *string             `pulumi:"type"`
 }
 
 type PhoneNumberState struct {
-	// The ARN of the phone number.
-	Arn pulumi.StringPtrInput
-	// The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
+	Arn         pulumi.StringPtrInput
 	CountryCode pulumi.StringPtrInput
-	// The description of the phone number.
 	Description pulumi.StringPtrInput
-	// The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
 	PhoneNumber pulumi.StringPtrInput
-	// The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
-	Prefix pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
-	Statuses PhoneNumberStatusArrayInput
-	// Tags to apply to the Phone Number. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
-	TargetArn pulumi.StringPtrInput
-	// The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
-	Type pulumi.StringPtrInput
+	Prefix      pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
+	Statuses    PhoneNumberStatusArrayInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
+	TargetArn   pulumi.StringPtrInput
+	Type        pulumi.StringPtrInput
 }
 
 func (PhoneNumberState) ElementType() reflect.Type {
@@ -243,38 +99,24 @@ func (PhoneNumberState) ElementType() reflect.Type {
 }
 
 type phoneNumberArgs struct {
-	// The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
-	CountryCode string `pulumi:"countryCode"`
-	// The description of the phone number.
-	Description *string `pulumi:"description"`
-	// The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
-	Prefix *string `pulumi:"prefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tags to apply to the Phone Number. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
-	TargetArn string `pulumi:"targetArn"`
-	// The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
-	Type string `pulumi:"type"`
+	CountryCode string            `pulumi:"countryCode"`
+	Description *string           `pulumi:"description"`
+	Prefix      *string           `pulumi:"prefix"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
+	TargetArn   string            `pulumi:"targetArn"`
+	Type        string            `pulumi:"type"`
 }
 
 // The set of arguments for constructing a PhoneNumber resource.
 type PhoneNumberArgs struct {
-	// The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
 	CountryCode pulumi.StringInput
-	// The description of the phone number.
 	Description pulumi.StringPtrInput
-	// The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
-	Prefix pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Tags to apply to the Phone Number. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
-	TargetArn pulumi.StringInput
-	// The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
-	Type pulumi.StringInput
+	Prefix      pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
+	TargetArn   pulumi.StringInput
+	Type        pulumi.StringInput
 }
 
 func (PhoneNumberArgs) ElementType() reflect.Type {
@@ -364,57 +206,46 @@ func (o PhoneNumberOutput) ToPhoneNumberOutputWithContext(ctx context.Context) P
 	return o
 }
 
-// The ARN of the phone number.
 func (o PhoneNumberOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PhoneNumber) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
 func (o PhoneNumberOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *PhoneNumber) pulumi.StringOutput { return v.CountryCode }).(pulumi.StringOutput)
 }
 
-// The description of the phone number.
 func (o PhoneNumberOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PhoneNumber) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
 func (o PhoneNumberOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v *PhoneNumber) pulumi.StringOutput { return v.PhoneNumber }).(pulumi.StringOutput)
 }
 
-// The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
 func (o PhoneNumberOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PhoneNumber) pulumi.StringPtrOutput { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PhoneNumberOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PhoneNumber) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
 func (o PhoneNumberOutput) Statuses() PhoneNumberStatusArrayOutput {
 	return o.ApplyT(func(v *PhoneNumber) PhoneNumberStatusArrayOutput { return v.Statuses }).(PhoneNumberStatusArrayOutput)
 }
 
-// Tags to apply to the Phone Number. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o PhoneNumberOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PhoneNumber) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o PhoneNumberOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PhoneNumber) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
 func (o PhoneNumberOutput) TargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PhoneNumber) pulumi.StringOutput { return v.TargetArn }).(pulumi.StringOutput)
 }
 
-// The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
 func (o PhoneNumberOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *PhoneNumber) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

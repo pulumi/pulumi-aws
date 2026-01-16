@@ -12,15 +12,9 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketReplicationConfigRuleDestinationReplicationTimeGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Status of the Replication Time Control. Either `"Enabled"` or `"Disabled"`.
-        /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration block specifying the time by which replication should be complete for all objects and operations on objects. See below.
-        /// </summary>
         [Input("time", required: true)]
         public Input<Inputs.BucketReplicationConfigRuleDestinationReplicationTimeTimeGetArgs> Time { get; set; } = null!;
 

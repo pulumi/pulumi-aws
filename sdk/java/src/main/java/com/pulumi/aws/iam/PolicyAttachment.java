@@ -15,172 +15,35 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Attaches a Managed IAM Policy to user(s), role(s), and/or group(s)
- * 
- * !&gt; **WARNING:** The aws.iam.PolicyAttachment resource creates **exclusive** attachments of IAM policies. Across the entire AWS account, all of the users/roles/groups to which a single policy is attached must be declared by a single aws.iam.PolicyAttachment resource. This means that even any users/roles/groups that have the attached policy via any other mechanism (including other resources managed by this provider) will have that attached policy revoked by this resource. Consider `aws.iam.RolePolicyAttachment`, `aws.iam.UserPolicyAttachment`, or `aws.iam.GroupPolicyAttachment` instead. These resources do not enforce exclusive attachment of an IAM policy.
- * 
- * &gt; **NOTE:** The usage of this resource conflicts with the `aws.iam.GroupPolicyAttachment`, `aws.iam.RolePolicyAttachment`, and `aws.iam.UserPolicyAttachment` resources and will permanently show a difference if both are defined.
- * 
- * &gt; **NOTE:** For a given role, this resource is incompatible with using the `aws.iam.Role` resource `managedPolicyArns` argument. When using that argument and this resource, both will attempt to manage the role&#39;s managed policy attachments and the provider will show a permanent difference.
- * 
- * &gt; **NOTE:** To ensure Pulumi correctly manages dependencies during updates, use a reference to the IAM resource when defining the `policyArn` for `aws.iam.PolicyAttachment`, rather than constructing the ARN directly. For example, use `policyArn = aws_iam_policy.example.arn` instead of `policyArn = &#34;arn:aws:iam::${data.aws_caller_identity.current.account_id}:policy/Example&#34;`. Failing to do so may lead to errors like `DeleteConflict: Cannot delete a policy attached to entities` or `NoSuchEntity`.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.User;
- * import com.pulumi.aws.iam.UserArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.Group;
- * import com.pulumi.aws.iam.GroupArgs;
- * import com.pulumi.aws.iam.Policy;
- * import com.pulumi.aws.iam.PolicyArgs;
- * import com.pulumi.aws.iam.PolicyAttachment;
- * import com.pulumi.aws.iam.PolicyAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var user = new User("user", UserArgs.builder()
- *             .name("test-user")
- *             .build());
- * 
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("ec2.amazonaws.com")
- *                     .build())
- *                 .actions("sts:AssumeRole")
- *                 .build())
- *             .build());
- * 
- *         var role = new Role("role", RoleArgs.builder()
- *             .name("test-role")
- *             .assumeRolePolicy(assumeRole.json())
- *             .build());
- * 
- *         var group = new Group("group", GroupArgs.builder()
- *             .name("test-group")
- *             .build());
- * 
- *         final var policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .actions("ec2:Describe*")
- *                 .resources("*")
- *                 .build())
- *             .build());
- * 
- *         var policyPolicy = new Policy("policyPolicy", PolicyArgs.builder()
- *             .name("test-policy")
- *             .description("A test policy")
- *             .policy(policy.json())
- *             .build());
- * 
- *         var test_attach = new PolicyAttachment("test-attach", PolicyAttachmentArgs.builder()
- *             .name("test-attachment")
- *             .users(user.name())
- *             .roles(role.name())
- *             .groups(group.name())
- *             .policyArn(policyPolicy.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:iam/policyAttachment:PolicyAttachment")
 public class PolicyAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * Group(s) the policy should be applied to.
-     * 
-     */
     @Export(name="groups", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groups;
 
-    /**
-     * @return Group(s) the policy should be applied to.
-     * 
-     */
     public Output<Optional<List<String>>> groups() {
         return Codegen.optional(this.groups);
     }
-    /**
-     * Name of the attachment. This cannot be an empty string.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the attachment. This cannot be an empty string.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
-     * 
-     */
     @Export(name="policyArn", refs={String.class}, tree="[0]")
     private Output<String> policyArn;
 
-    /**
-     * @return ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
-     * 
-     */
     public Output<String> policyArn() {
         return this.policyArn;
     }
-    /**
-     * Role(s) the policy should be applied to.
-     * 
-     */
     @Export(name="roles", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> roles;
 
-    /**
-     * @return Role(s) the policy should be applied to.
-     * 
-     */
     public Output<Optional<List<String>>> roles() {
         return Codegen.optional(this.roles);
     }
-    /**
-     * User(s) the policy should be applied to.
-     * 
-     */
     @Export(name="users", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> users;
 
-    /**
-     * @return User(s) the policy should be applied to.
-     * 
-     */
     public Output<Optional<List<String>>> users() {
         return Codegen.optional(this.users);
     }

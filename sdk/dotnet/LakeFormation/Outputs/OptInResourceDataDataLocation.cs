@@ -13,13 +13,7 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     [OutputType]
     public sealed class OptInResourceDataDataLocation
     {
-        /// <summary>
-        /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        /// </summary>
         public readonly string? CatalogId;
-        /// <summary>
-        /// ARN that uniquely identifies the data location resource.
-        /// </summary>
         public readonly string ResourceArn;
 
         [OutputConstructor]

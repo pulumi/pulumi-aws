@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp {
-    /**
-     * @return Maximum.
-     * 
-     */
     private Double max;
-    /**
-     * @return Minimum.
-     * 
-     */
     private Double min;
 
     private GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp() {}
-    /**
-     * @return Maximum.
-     * 
-     */
     public Double max() {
         return this.max;
     }
-    /**
-     * @return Minimum.
-     * 
-     */
     public Double min() {
         return this.min;
     }

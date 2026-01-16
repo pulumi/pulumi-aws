@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing a Plan of an AWS SSM Contact.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssmcontacts"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssmcontacts.LookupPlan(ctx, &ssmcontacts.LookupPlanArgs{
-//				ContactId: "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupPlan(ctx *pulumi.Context, args *LookupPlanArgs, opts ...pulumi.InvokeOption) (*LookupPlanResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPlanResult
@@ -52,19 +23,16 @@ func LookupPlan(ctx *pulumi.Context, args *LookupPlanArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getPlan.
 type LookupPlanArgs struct {
-	// The Amazon Resource Name (ARN) of the contact or escalation plan.
-	ContactId string `pulumi:"contactId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	ContactId string  `pulumi:"contactId"`
+	Region    *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPlan.
 type LookupPlanResult struct {
 	ContactId string `pulumi:"contactId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
-	// List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+	Id     string         `pulumi:"id"`
+	Region string         `pulumi:"region"`
 	Stages []GetPlanStage `pulumi:"stages"`
 }
 
@@ -79,10 +47,8 @@ func LookupPlanOutput(ctx *pulumi.Context, args LookupPlanOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getPlan.
 type LookupPlanOutputArgs struct {
-	// The Amazon Resource Name (ARN) of the contact or escalation plan.
-	ContactId pulumi.StringInput `pulumi:"contactId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	ContactId pulumi.StringInput    `pulumi:"contactId"`
+	Region    pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupPlanOutputArgs) ElementType() reflect.Type {
@@ -117,7 +83,6 @@ func (o LookupPlanResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPlanResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
 func (o LookupPlanResultOutput) Stages() GetPlanStageArrayOutput {
 	return o.ApplyT(func(v LookupPlanResult) []GetPlanStage { return v.Stages }).(GetPlanStageArrayOutput)
 }

@@ -17,174 +17,71 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource-based access control mechanism for a KMS customer master key.
- * 
- * &gt; **Note:** All arguments including the grant token will be stored in the raw state as plain-text.
- * ## Import
- * 
- * Using `pulumi import`, import KMS Grants using the Key ID and Grant ID separated by a colon (`:`). For example:
- * 
- * ```sh
- * $ pulumi import aws:kms/grant:Grant test 1234abcd-12ab-34cd-56ef-1234567890ab:abcde1237f76e4ba7987489ac329fbfba6ad343d6f7075dbd1ef191f0120514
- * ```
- * 
- */
 @ResourceType(type="aws:kms/grant:Grant")
 public class Grant extends com.pulumi.resources.CustomResource {
-    /**
-     * A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
-     * 
-     */
     @Export(name="constraints", refs={List.class,GrantConstraint.class}, tree="[0,1]")
     private Output</* @Nullable */ List<GrantConstraint>> constraints;
 
-    /**
-     * @return A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
-     * 
-     */
     public Output<Optional<List<GrantConstraint>>> constraints() {
         return Codegen.optional(this.constraints);
     }
-    /**
-     * A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
-     * 
-     */
     @Export(name="grantCreationTokens", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> grantCreationTokens;
 
-    /**
-     * @return A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
-     * 
-     */
     public Output<Optional<List<String>>> grantCreationTokens() {
         return Codegen.optional(this.grantCreationTokens);
     }
-    /**
-     * The unique identifier for the grant.
-     * 
-     */
     @Export(name="grantId", refs={String.class}, tree="[0]")
     private Output<String> grantId;
 
-    /**
-     * @return The unique identifier for the grant.
-     * 
-     */
     public Output<String> grantId() {
         return this.grantId;
     }
-    /**
-     * The grant token for the created grant. For more information, see [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token).
-     * 
-     */
     @Export(name="grantToken", refs={String.class}, tree="[0]")
     private Output<String> grantToken;
 
-    /**
-     * @return The grant token for the created grant. For more information, see [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token).
-     * 
-     */
     public Output<String> grantToken() {
         return this.grantToken;
     }
-    /**
-     * The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers&#39;s state may not always be refreshed to reflect what is true in AWS.
-     * 
-     */
     @Export(name="granteePrincipal", refs={String.class}, tree="[0]")
     private Output<String> granteePrincipal;
 
-    /**
-     * @return The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers&#39;s state may not always be refreshed to reflect what is true in AWS.
-     * 
-     */
     public Output<String> granteePrincipal() {
         return this.granteePrincipal;
     }
-    /**
-     * The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
-     * 
-     */
     @Export(name="keyId", refs={String.class}, tree="[0]")
     private Output<String> keyId;
 
-    /**
-     * @return The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
-     * 
-     */
     public Output<String> keyId() {
         return this.keyId;
     }
-    /**
-     * A friendly name for identifying the grant.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return A friendly name for identifying the grant.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
-     * 
-     */
     @Export(name="operations", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> operations;
 
-    /**
-     * @return A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
-     * 
-     */
     public Output<List<String>> operations() {
         return this.operations;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-     * See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
-     * 
-     */
     @Export(name="retireOnDelete", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> retireOnDelete;
 
-    /**
-     * @return If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-     * See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
-     * 
-     */
     public Output<Optional<Boolean>> retireOnDelete() {
         return Codegen.optional(this.retireOnDelete);
     }
-    /**
-     * The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers&#39;s state may not always be refreshed to reflect what is true in AWS.
-     * 
-     */
     @Export(name="retiringPrincipal", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> retiringPrincipal;
 
-    /**
-     * @return The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers&#39;s state may not always be refreshed to reflect what is true in AWS.
-     * 
-     */
     public Output<Optional<String>> retiringPrincipal() {
         return Codegen.optional(this.retiringPrincipal);
     }

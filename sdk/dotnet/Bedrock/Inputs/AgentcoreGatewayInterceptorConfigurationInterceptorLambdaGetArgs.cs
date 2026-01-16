@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreGatewayInterceptorConfigurationInterceptorLambdaGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Lambda function to invoke for the interceptor.
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 

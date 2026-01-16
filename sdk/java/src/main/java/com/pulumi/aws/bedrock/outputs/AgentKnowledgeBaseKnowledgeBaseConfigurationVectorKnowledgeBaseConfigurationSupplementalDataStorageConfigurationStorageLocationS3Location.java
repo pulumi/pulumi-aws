@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location {
-    /**
-     * @return URI of the location.
-     * 
-     */
     private String uri;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location() {}
-    /**
-     * @return URI of the location.
-     * 
-     */
     public String uri() {
         return this.uri;
     }

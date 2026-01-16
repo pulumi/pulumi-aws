@@ -14,30 +14,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetQuerySuggestionsBlockListResult {
-    /**
-     * @return ARN of the block list.
-     * 
-     */
     private String arn;
-    /**
-     * @return Date-time a block list was created.
-     * 
-     */
     private String createdAt;
-    /**
-     * @return Description for the block list.
-     * 
-     */
     private String description;
-    /**
-     * @return Error message containing details if there are issues processing the block list.
-     * 
-     */
     private String errorMessage;
-    /**
-     * @return Current size of the block list text file in S3.
-     * 
-     */
     private Integer fileSizeBytes;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -45,77 +25,29 @@ public final class GetQuerySuggestionsBlockListResult {
      */
     private String id;
     private String indexId;
-    /**
-     * @return Current number of valid, non-empty words or phrases in the block list text file.
-     * 
-     */
     private Integer itemCount;
-    /**
-     * @return Name of the block list.
-     * 
-     */
     private String name;
     private String querySuggestionsBlockListId;
     private String region;
-    /**
-     * @return ARN of a role with permission to access the S3 bucket that contains the block list. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-     * 
-     */
     private String roleArn;
-    /**
-     * @return S3 location of the block list input data. Detailed below.
-     * 
-     */
     private List<GetQuerySuggestionsBlockListSourceS3Path> sourceS3Paths;
-    /**
-     * @return Current status of the block list. When the value is `ACTIVE`, the block list is ready for use.
-     * 
-     */
     private String status;
-    /**
-     * @return Metadata that helps organize the block list you create.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Date and time that the block list was last updated.
-     * 
-     */
     private String updatedAt;
 
     private GetQuerySuggestionsBlockListResult() {}
-    /**
-     * @return ARN of the block list.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Date-time a block list was created.
-     * 
-     */
     public String createdAt() {
         return this.createdAt;
     }
-    /**
-     * @return Description for the block list.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Error message containing details if there are issues processing the block list.
-     * 
-     */
     public String errorMessage() {
         return this.errorMessage;
     }
-    /**
-     * @return Current size of the block list text file in S3.
-     * 
-     */
     public Integer fileSizeBytes() {
         return this.fileSizeBytes;
     }
@@ -129,17 +61,9 @@ public final class GetQuerySuggestionsBlockListResult {
     public String indexId() {
         return this.indexId;
     }
-    /**
-     * @return Current number of valid, non-empty words or phrases in the block list text file.
-     * 
-     */
     public Integer itemCount() {
         return this.itemCount;
     }
-    /**
-     * @return Name of the block list.
-     * 
-     */
     public String name() {
         return this.name;
     }
@@ -149,38 +73,18 @@ public final class GetQuerySuggestionsBlockListResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return ARN of a role with permission to access the S3 bucket that contains the block list. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return S3 location of the block list input data. Detailed below.
-     * 
-     */
     public List<GetQuerySuggestionsBlockListSourceS3Path> sourceS3Paths() {
         return this.sourceS3Paths;
     }
-    /**
-     * @return Current status of the block list. When the value is `ACTIVE`, the block list is ready for use.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Metadata that helps organize the block list you create.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Date and time that the block list was last updated.
-     * 
-     */
     public String updatedAt() {
         return this.updatedAt;
     }

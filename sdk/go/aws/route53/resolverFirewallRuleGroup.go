@@ -11,58 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Route 53 Resolver DNS Firewall rule group resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewResolverFirewallRuleGroup(ctx, "example", &route53.ResolverFirewallRuleGroupArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import  Route 53 Resolver DNS Firewall rule groups using the Route 53 Resolver DNS Firewall rule group ID. For example:
-//
-// ```sh
-// $ pulumi import aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup example rslvr-frg-0123456789abcdef
-// ```
 type ResolverFirewallRuleGroup struct {
 	pulumi.CustomResourceState
 
-	// The ARN (Amazon Resource Name) of the rule group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A name that lets you identify the rule group, to manage and use it.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM). Valid values: `NOT_SHARED`, `SHARED_BY_ME`, `SHARED_WITH_ME`
-	ShareStatus pulumi.StringOutput `pulumi:"shareStatus"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn         pulumi.StringOutput    `pulumi:"arn"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	OwnerId     pulumi.StringOutput    `pulumi:"ownerId"`
+	Region      pulumi.StringOutput    `pulumi:"region"`
+	ShareStatus pulumi.StringOutput    `pulumi:"shareStatus"`
+	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewResolverFirewallRuleGroup registers a new resource with the given unique name, arguments, and options.
@@ -95,37 +53,23 @@ func GetResolverFirewallRuleGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResolverFirewallRuleGroup resources.
 type resolverFirewallRuleGroupState struct {
-	// The ARN (Amazon Resource Name) of the rule group.
-	Arn *string `pulumi:"arn"`
-	// A name that lets you identify the rule group, to manage and use it.
-	Name *string `pulumi:"name"`
-	// The AWS account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
-	OwnerId *string `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM). Valid values: `NOT_SHARED`, `SHARED_BY_ME`, `SHARED_WITH_ME`
-	ShareStatus *string `pulumi:"shareStatus"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn         *string           `pulumi:"arn"`
+	Name        *string           `pulumi:"name"`
+	OwnerId     *string           `pulumi:"ownerId"`
+	Region      *string           `pulumi:"region"`
+	ShareStatus *string           `pulumi:"shareStatus"`
+	Tags        map[string]string `pulumi:"tags"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
 }
 
 type ResolverFirewallRuleGroupState struct {
-	// The ARN (Amazon Resource Name) of the rule group.
-	Arn pulumi.StringPtrInput
-	// A name that lets you identify the rule group, to manage and use it.
-	Name pulumi.StringPtrInput
-	// The AWS account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
-	OwnerId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM). Valid values: `NOT_SHARED`, `SHARED_BY_ME`, `SHARED_WITH_ME`
+	Arn         pulumi.StringPtrInput
+	Name        pulumi.StringPtrInput
+	OwnerId     pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
 	ShareStatus pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 }
 
 func (ResolverFirewallRuleGroupState) ElementType() reflect.Type {
@@ -133,22 +77,16 @@ func (ResolverFirewallRuleGroupState) ElementType() reflect.Type {
 }
 
 type resolverFirewallRuleGroupArgs struct {
-	// A name that lets you identify the rule group, to manage and use it.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Name   *string           `pulumi:"name"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResolverFirewallRuleGroup resource.
 type ResolverFirewallRuleGroupArgs struct {
-	// A name that lets you identify the rule group, to manage and use it.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringPtrInput
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags   pulumi.StringMapInput
 }
 
 func (ResolverFirewallRuleGroupArgs) ElementType() reflect.Type {
@@ -238,37 +176,30 @@ func (o ResolverFirewallRuleGroupOutput) ToResolverFirewallRuleGroupOutputWithCo
 	return o
 }
 
-// The ARN (Amazon Resource Name) of the rule group.
 func (o ResolverFirewallRuleGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallRuleGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A name that lets you identify the rule group, to manage and use it.
 func (o ResolverFirewallRuleGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallRuleGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
 func (o ResolverFirewallRuleGroupOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallRuleGroup) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResolverFirewallRuleGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallRuleGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM). Valid values: `NOT_SHARED`, `SHARED_BY_ME`, `SHARED_WITH_ME`
 func (o ResolverFirewallRuleGroupOutput) ShareStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallRuleGroup) pulumi.StringOutput { return v.ShareStatus }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ResolverFirewallRuleGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverFirewallRuleGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ResolverFirewallRuleGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverFirewallRuleGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

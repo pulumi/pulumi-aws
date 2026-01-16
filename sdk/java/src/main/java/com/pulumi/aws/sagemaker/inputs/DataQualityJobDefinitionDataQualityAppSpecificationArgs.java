@@ -17,62 +17,30 @@ public final class DataQualityJobDefinitionDataQualityAppSpecificationArgs exten
 
     public static final DataQualityJobDefinitionDataQualityAppSpecificationArgs Empty = new DataQualityJobDefinitionDataQualityAppSpecificationArgs();
 
-    /**
-     * Sets the environment variables in the container that the monitoring job runs. A list of key value pairs.
-     * 
-     */
     @Import(name="environment")
     private @Nullable Output<Map<String,String>> environment;
 
-    /**
-     * @return Sets the environment variables in the container that the monitoring job runs. A list of key value pairs.
-     * 
-     */
     public Optional<Output<Map<String,String>>> environment() {
         return Optional.ofNullable(this.environment);
     }
 
-    /**
-     * The container image that the data quality monitoring job runs.
-     * 
-     */
     @Import(name="imageUri", required=true)
     private Output<String> imageUri;
 
-    /**
-     * @return The container image that the data quality monitoring job runs.
-     * 
-     */
     public Output<String> imageUri() {
         return this.imageUri;
     }
 
-    /**
-     * An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
-     * 
-     */
     @Import(name="postAnalyticsProcessorSourceUri")
     private @Nullable Output<String> postAnalyticsProcessorSourceUri;
 
-    /**
-     * @return An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
-     * 
-     */
     public Optional<Output<String>> postAnalyticsProcessorSourceUri() {
         return Optional.ofNullable(this.postAnalyticsProcessorSourceUri);
     }
 
-    /**
-     * An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
-     * 
-     */
     @Import(name="recordPreprocessorSourceUri")
     private @Nullable Output<String> recordPreprocessorSourceUri;
 
-    /**
-     * @return An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
-     * 
-     */
     public Optional<Output<String>> recordPreprocessorSourceUri() {
         return Optional.ofNullable(this.recordPreprocessorSourceUri);
     }
@@ -104,86 +72,38 @@ public final class DataQualityJobDefinitionDataQualityAppSpecificationArgs exten
             $ = new DataQualityJobDefinitionDataQualityAppSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param environment Sets the environment variables in the container that the monitoring job runs. A list of key value pairs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder environment(@Nullable Output<Map<String,String>> environment) {
             $.environment = environment;
             return this;
         }
 
-        /**
-         * @param environment Sets the environment variables in the container that the monitoring job runs. A list of key value pairs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder environment(Map<String,String> environment) {
             return environment(Output.of(environment));
         }
 
-        /**
-         * @param imageUri The container image that the data quality monitoring job runs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageUri(Output<String> imageUri) {
             $.imageUri = imageUri;
             return this;
         }
 
-        /**
-         * @param imageUri The container image that the data quality monitoring job runs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageUri(String imageUri) {
             return imageUri(Output.of(imageUri));
         }
 
-        /**
-         * @param postAnalyticsProcessorSourceUri An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder postAnalyticsProcessorSourceUri(@Nullable Output<String> postAnalyticsProcessorSourceUri) {
             $.postAnalyticsProcessorSourceUri = postAnalyticsProcessorSourceUri;
             return this;
         }
 
-        /**
-         * @param postAnalyticsProcessorSourceUri An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder postAnalyticsProcessorSourceUri(String postAnalyticsProcessorSourceUri) {
             return postAnalyticsProcessorSourceUri(Output.of(postAnalyticsProcessorSourceUri));
         }
 
-        /**
-         * @param recordPreprocessorSourceUri An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordPreprocessorSourceUri(@Nullable Output<String> recordPreprocessorSourceUri) {
             $.recordPreprocessorSourceUri = recordPreprocessorSourceUri;
             return this;
         }
 
-        /**
-         * @param recordPreprocessorSourceUri An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordPreprocessorSourceUri(String recordPreprocessorSourceUri) {
             return recordPreprocessorSourceUri(Output.of(recordPreprocessorSourceUri));
         }

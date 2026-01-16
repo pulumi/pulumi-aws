@@ -9,141 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// This resource attaches a security group to an Elastic Network Interface (ENI).
-    /// It can be used to attach a security group to any existing ENI, be it a
-    /// secondary ENI or one attached as the primary interface on an instance.
-    /// 
-    /// &gt; **NOTE on instances, interfaces, and security groups:** This provider currently
-    /// provides the capability to assign security groups via the [`aws.ec2.Instance`][1]
-    /// and the [`aws.ec2.NetworkInterface`][2] resources. Using this resource in
-    /// conjunction with security groups provided in-line in those resources will cause
-    /// conflicts, and will lead to spurious diffs and undefined behavior - please use
-    /// one or the other.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// The following provides a very basic example of setting up an instance (provided
-    /// by `Instance`) in the default security group, creating a security group
-    /// (provided by `Sg`) and then attaching the security group to the instance's
-    /// primary network interface via the `aws.ec2.NetworkInterfaceSecurityGroupAttachment` resource,
-    /// named `SgAttachment`:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var ami = Aws.Ec2.GetAmi.Invoke(new()
-    ///     {
-    ///         MostRecent = true,
-    ///         Filters = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
-    ///             {
-    ///                 Name = "name",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "amzn-ami-hvm-*",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Owners = new[]
-    ///         {
-    ///             "amazon",
-    ///         },
-    ///     });
-    /// 
-    ///     var instance = new Aws.Ec2.Instance("instance", new()
-    ///     {
-    ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
-    ///         Ami = ami.Apply(getAmiResult =&gt; getAmiResult.Id),
-    ///         Tags = 
-    ///         {
-    ///             { "type", "test-instance" },
-    ///         },
-    ///     });
-    /// 
-    ///     var sg = new Aws.Ec2.SecurityGroup("sg", new()
-    ///     {
-    ///         Tags = 
-    ///         {
-    ///             { "type", "test-security-group" },
-    ///         },
-    ///     });
-    /// 
-    ///     var sgAttachment = new Aws.Ec2.NetworkInterfaceSecurityGroupAttachment("sg_attachment", new()
-    ///     {
-    ///         SecurityGroupId = sg.Id,
-    ///         NetworkInterfaceId = instance.PrimaryNetworkInterfaceId,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// In this example, `Instance` is provided by the `aws.ec2.Instance` data source,
-    /// fetching an external instance, possibly not managed by this provider.
-    /// `SgAttachment` then attaches to the output instance's `NetworkInterfaceId`:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var instance = Aws.Ec2.GetInstance.Invoke(new()
-    ///     {
-    ///         InstanceId = "i-1234567890abcdef0",
-    ///     });
-    /// 
-    ///     var sg = new Aws.Ec2.SecurityGroup("sg", new()
-    ///     {
-    ///         Tags = 
-    ///         {
-    ///             { "type", "test-security-group" },
-    ///         },
-    ///     });
-    /// 
-    ///     var sgAttachment = new Aws.Ec2.NetworkInterfaceSecurityGroupAttachment("sg_attachment", new()
-    ///     {
-    ///         SecurityGroupId = sg.Id,
-    ///         NetworkInterfaceId = instance.Apply(getInstanceResult =&gt; getInstanceResult.NetworkInterfaceId),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Network Interface Security Group attachments using the associated network interface ID and security group ID, separated by an underscore (`_`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment sg_attachment eni-1234567890abcdef0_sg-1234567890abcdef0
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment")]
     public partial class NetworkInterfaceSecurityGroupAttachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ID of the network interface to attach to.
-        /// </summary>
         [Output("networkInterfaceId")]
         public Output<string> NetworkInterfaceId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the security group.
-        /// </summary>
         [Output("securityGroupId")]
         public Output<string> SecurityGroupId { get; private set; } = null!;
 
@@ -193,21 +67,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class NetworkInterfaceSecurityGroupAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the network interface to attach to.
-        /// </summary>
         [Input("networkInterfaceId", required: true)]
         public Input<string> NetworkInterfaceId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the security group.
-        /// </summary>
         [Input("securityGroupId", required: true)]
         public Input<string> SecurityGroupId { get; set; } = null!;
 
@@ -219,21 +84,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class NetworkInterfaceSecurityGroupAttachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the network interface to attach to.
-        /// </summary>
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the security group.
-        /// </summary>
         [Input("securityGroupId")]
         public Input<string>? SecurityGroupId { get; set; }
 

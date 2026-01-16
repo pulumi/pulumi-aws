@@ -12,82 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates and manages an AWS IoT Authorizer.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iot"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "test-fixtures/iot-authorizer-signing-key.pem",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iot.NewAuthorizer(ctx, "example", &iot.AuthorizerArgs{
-//				Name:                  pulumi.String("example"),
-//				AuthorizerFunctionArn: pulumi.Any(exampleAwsLambdaFunction.Arn),
-//				SigningDisabled:       pulumi.Bool(false),
-//				Status:                pulumi.String("ACTIVE"),
-//				TokenKeyName:          pulumi.String("Token-Header"),
-//				TokenSigningPublicKeys: pulumi.StringMap{
-//					"Key1": pulumi.String(invokeFile.Result),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import IOT Authorizers using the name. For example:
-//
-// ```sh
-// $ pulumi import aws:iot/authorizer:Authorizer example example
-// ```
 type Authorizer struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the authorizer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ARN of the authorizer's Lambda function.
-	AuthorizerFunctionArn pulumi.StringOutput `pulumi:"authorizerFunctionArn"`
-	// Specifies whether the HTTP caching is enabled or not. Default: `false`.
-	EnableCachingForHttp pulumi.BoolPtrOutput `pulumi:"enableCachingForHttp"`
-	// The name of the authorizer.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
-	SigningDisabled pulumi.BoolPtrOutput `pulumi:"signingDisabled"`
-	// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
-	TokenKeyName pulumi.StringPtrOutput `pulumi:"tokenKeyName"`
-	// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
+	Arn                    pulumi.StringOutput    `pulumi:"arn"`
+	AuthorizerFunctionArn  pulumi.StringOutput    `pulumi:"authorizerFunctionArn"`
+	EnableCachingForHttp   pulumi.BoolPtrOutput   `pulumi:"enableCachingForHttp"`
+	Name                   pulumi.StringOutput    `pulumi:"name"`
+	Region                 pulumi.StringOutput    `pulumi:"region"`
+	SigningDisabled        pulumi.BoolPtrOutput   `pulumi:"signingDisabled"`
+	Status                 pulumi.StringPtrOutput `pulumi:"status"`
+	Tags                   pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll                pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TokenKeyName           pulumi.StringPtrOutput `pulumi:"tokenKeyName"`
 	TokenSigningPublicKeys pulumi.StringMapOutput `pulumi:"tokenSigningPublicKeys"`
 }
 
@@ -131,52 +68,30 @@ func GetAuthorizer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Authorizer resources.
 type authorizerState struct {
-	// The ARN of the authorizer.
-	Arn *string `pulumi:"arn"`
-	// The ARN of the authorizer's Lambda function.
-	AuthorizerFunctionArn *string `pulumi:"authorizerFunctionArn"`
-	// Specifies whether the HTTP caching is enabled or not. Default: `false`.
-	EnableCachingForHttp *bool `pulumi:"enableCachingForHttp"`
-	// The name of the authorizer.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
-	SigningDisabled *bool `pulumi:"signingDisabled"`
-	// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
-	Status *string `pulumi:"status"`
-	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
-	TokenKeyName *string `pulumi:"tokenKeyName"`
-	// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
+	Arn                    *string           `pulumi:"arn"`
+	AuthorizerFunctionArn  *string           `pulumi:"authorizerFunctionArn"`
+	EnableCachingForHttp   *bool             `pulumi:"enableCachingForHttp"`
+	Name                   *string           `pulumi:"name"`
+	Region                 *string           `pulumi:"region"`
+	SigningDisabled        *bool             `pulumi:"signingDisabled"`
+	Status                 *string           `pulumi:"status"`
+	Tags                   map[string]string `pulumi:"tags"`
+	TagsAll                map[string]string `pulumi:"tagsAll"`
+	TokenKeyName           *string           `pulumi:"tokenKeyName"`
 	TokenSigningPublicKeys map[string]string `pulumi:"tokenSigningPublicKeys"`
 }
 
 type AuthorizerState struct {
-	// The ARN of the authorizer.
-	Arn pulumi.StringPtrInput
-	// The ARN of the authorizer's Lambda function.
-	AuthorizerFunctionArn pulumi.StringPtrInput
-	// Specifies whether the HTTP caching is enabled or not. Default: `false`.
-	EnableCachingForHttp pulumi.BoolPtrInput
-	// The name of the authorizer.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
-	SigningDisabled pulumi.BoolPtrInput
-	// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
-	Status pulumi.StringPtrInput
-	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
-	TokenKeyName pulumi.StringPtrInput
-	// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
+	Arn                    pulumi.StringPtrInput
+	AuthorizerFunctionArn  pulumi.StringPtrInput
+	EnableCachingForHttp   pulumi.BoolPtrInput
+	Name                   pulumi.StringPtrInput
+	Region                 pulumi.StringPtrInput
+	SigningDisabled        pulumi.BoolPtrInput
+	Status                 pulumi.StringPtrInput
+	Tags                   pulumi.StringMapInput
+	TagsAll                pulumi.StringMapInput
+	TokenKeyName           pulumi.StringPtrInput
 	TokenSigningPublicKeys pulumi.StringMapInput
 }
 
@@ -185,45 +100,27 @@ func (AuthorizerState) ElementType() reflect.Type {
 }
 
 type authorizerArgs struct {
-	// The ARN of the authorizer's Lambda function.
-	AuthorizerFunctionArn string `pulumi:"authorizerFunctionArn"`
-	// Specifies whether the HTTP caching is enabled or not. Default: `false`.
-	EnableCachingForHttp *bool `pulumi:"enableCachingForHttp"`
-	// The name of the authorizer.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
-	SigningDisabled *bool `pulumi:"signingDisabled"`
-	// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
-	Status *string `pulumi:"status"`
-	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
-	TokenKeyName *string `pulumi:"tokenKeyName"`
-	// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
+	AuthorizerFunctionArn  string            `pulumi:"authorizerFunctionArn"`
+	EnableCachingForHttp   *bool             `pulumi:"enableCachingForHttp"`
+	Name                   *string           `pulumi:"name"`
+	Region                 *string           `pulumi:"region"`
+	SigningDisabled        *bool             `pulumi:"signingDisabled"`
+	Status                 *string           `pulumi:"status"`
+	Tags                   map[string]string `pulumi:"tags"`
+	TokenKeyName           *string           `pulumi:"tokenKeyName"`
 	TokenSigningPublicKeys map[string]string `pulumi:"tokenSigningPublicKeys"`
 }
 
 // The set of arguments for constructing a Authorizer resource.
 type AuthorizerArgs struct {
-	// The ARN of the authorizer's Lambda function.
-	AuthorizerFunctionArn pulumi.StringInput
-	// Specifies whether the HTTP caching is enabled or not. Default: `false`.
-	EnableCachingForHttp pulumi.BoolPtrInput
-	// The name of the authorizer.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
-	SigningDisabled pulumi.BoolPtrInput
-	// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
-	Status pulumi.StringPtrInput
-	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
-	TokenKeyName pulumi.StringPtrInput
-	// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
+	AuthorizerFunctionArn  pulumi.StringInput
+	EnableCachingForHttp   pulumi.BoolPtrInput
+	Name                   pulumi.StringPtrInput
+	Region                 pulumi.StringPtrInput
+	SigningDisabled        pulumi.BoolPtrInput
+	Status                 pulumi.StringPtrInput
+	Tags                   pulumi.StringMapInput
+	TokenKeyName           pulumi.StringPtrInput
 	TokenSigningPublicKeys pulumi.StringMapInput
 }
 
@@ -314,57 +211,46 @@ func (o AuthorizerOutput) ToAuthorizerOutputWithContext(ctx context.Context) Aut
 	return o
 }
 
-// The ARN of the authorizer.
 func (o AuthorizerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ARN of the authorizer's Lambda function.
 func (o AuthorizerOutput) AuthorizerFunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.AuthorizerFunctionArn }).(pulumi.StringOutput)
 }
 
-// Specifies whether the HTTP caching is enabled or not. Default: `false`.
 func (o AuthorizerOutput) EnableCachingForHttp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.BoolPtrOutput { return v.EnableCachingForHttp }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the authorizer.
 func (o AuthorizerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AuthorizerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
 func (o AuthorizerOutput) SigningDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.BoolPtrOutput { return v.SigningDisabled }).(pulumi.BoolPtrOutput)
 }
 
-// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
 func (o AuthorizerOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AuthorizerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AuthorizerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
 func (o AuthorizerOutput) TokenKeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringPtrOutput { return v.TokenKeyName }).(pulumi.StringPtrOutput)
 }
 
-// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
 func (o AuthorizerOutput) TokenSigningPublicKeys() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringMapOutput { return v.TokenSigningPublicKeys }).(pulumi.StringMapOutput)
 }

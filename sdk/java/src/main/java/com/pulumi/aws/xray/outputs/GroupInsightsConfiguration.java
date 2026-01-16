@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GroupInsightsConfiguration {
-    /**
-     * @return Specifies whether insights are enabled.
-     * 
-     */
     private Boolean insightsEnabled;
-    /**
-     * @return Specifies whether insight notifications are enabled.
-     * 
-     */
     private @Nullable Boolean notificationsEnabled;
 
     private GroupInsightsConfiguration() {}
-    /**
-     * @return Specifies whether insights are enabled.
-     * 
-     */
     public Boolean insightsEnabled() {
         return this.insightsEnabled;
     }
-    /**
-     * @return Specifies whether insight notifications are enabled.
-     * 
-     */
     public Optional<Boolean> notificationsEnabled() {
         return Optional.ofNullable(this.notificationsEnabled);
     }

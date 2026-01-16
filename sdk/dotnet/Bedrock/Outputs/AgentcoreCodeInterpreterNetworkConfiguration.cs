@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreCodeInterpreterNetworkConfiguration
     {
-        /// <summary>
-        /// Network mode for the code interpreter. Valid values: `PUBLIC`, `SANDBOX`, `VPC`.
-        /// </summary>
         public readonly string NetworkMode;
-        /// <summary>
-        /// VPC configuration. See `VpcConfig` below.
-        /// </summary>
         public readonly Outputs.AgentcoreCodeInterpreterNetworkConfigurationVpcConfig? VpcConfig;
 
         [OutputConstructor]

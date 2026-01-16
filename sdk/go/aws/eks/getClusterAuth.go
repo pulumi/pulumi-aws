@@ -11,44 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get an authentication token to communicate with an EKS cluster.
-//
-// Uses IAM credentials from the AWS provider to generate a temporary token that is compatible with
-// [AWS IAM Authenticator](https://github.com/kubernetes-sigs/aws-iam-authenticator) authentication.
-// This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
-// server configured.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/eks"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eks.LookupCluster(ctx, &eks.LookupClusterArgs{
-//				Name: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = eks.GetClusterAuth(ctx, &eks.GetClusterAuthArgs{
-//				Name: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetClusterAuth(ctx *pulumi.Context, args *GetClusterAuthArgs, opts ...pulumi.InvokeOption) (*GetClusterAuthResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetClusterAuthResult
@@ -61,9 +23,7 @@ func GetClusterAuth(ctx *pulumi.Context, args *GetClusterAuthArgs, opts ...pulum
 
 // A collection of arguments for invoking getClusterAuth.
 type GetClusterAuthArgs struct {
-	// Name of the cluster
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   string  `pulumi:"name"`
 	Region *string `pulumi:"region"`
 }
 
@@ -73,8 +33,7 @@ type GetClusterAuthResult struct {
 	Id     string `pulumi:"id"`
 	Name   string `pulumi:"name"`
 	Region string `pulumi:"region"`
-	// Token to use to authenticate with the cluster.
-	Token string `pulumi:"token"`
+	Token  string `pulumi:"token"`
 }
 
 func GetClusterAuthOutput(ctx *pulumi.Context, args GetClusterAuthOutputArgs, opts ...pulumi.InvokeOption) GetClusterAuthResultOutput {
@@ -88,9 +47,7 @@ func GetClusterAuthOutput(ctx *pulumi.Context, args GetClusterAuthOutputArgs, op
 
 // A collection of arguments for invoking getClusterAuth.
 type GetClusterAuthOutputArgs struct {
-	// Name of the cluster
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringInput    `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -126,7 +83,6 @@ func (o GetClusterAuthResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterAuthResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Token to use to authenticate with the cluster.
 func (o GetClusterAuthResultOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterAuthResult) string { return v.Token }).(pulumi.StringOutput)
 }

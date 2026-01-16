@@ -12,53 +12,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterKubernetesNetworkConfig {
-    /**
-     * @return Contains Elastic Load Balancing configuration for EKS Auto Mode enabled cluster.
-     * 
-     */
     private List<GetClusterKubernetesNetworkConfigElasticLoadBalancing> elasticLoadBalancings;
-    /**
-     * @return `ipv4` or `ipv6`.
-     * 
-     */
     private String ipFamily;
-    /**
-     * @return The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv4` was specified when the cluster was created.
-     * 
-     */
     private String serviceIpv4Cidr;
-    /**
-     * @return The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv6` was specified when the cluster was created. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can&#39;t specify a custom IPv6 CIDR block when you create the cluster.
-     * 
-     */
     private String serviceIpv6Cidr;
 
     private GetClusterKubernetesNetworkConfig() {}
-    /**
-     * @return Contains Elastic Load Balancing configuration for EKS Auto Mode enabled cluster.
-     * 
-     */
     public List<GetClusterKubernetesNetworkConfigElasticLoadBalancing> elasticLoadBalancings() {
         return this.elasticLoadBalancings;
     }
-    /**
-     * @return `ipv4` or `ipv6`.
-     * 
-     */
     public String ipFamily() {
         return this.ipFamily;
     }
-    /**
-     * @return The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv4` was specified when the cluster was created.
-     * 
-     */
     public String serviceIpv4Cidr() {
         return this.serviceIpv4Cidr;
     }
-    /**
-     * @return The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv6` was specified when the cluster was created. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can&#39;t specify a custom IPv6 CIDR block when you create the cluster.
-     * 
-     */
     public String serviceIpv6Cidr() {
         return this.serviceIpv6Cidr;
     }

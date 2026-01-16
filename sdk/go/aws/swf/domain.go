@@ -12,64 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an SWF Domain resource.
-//
-// ## Example Usage
-//
-// To register a basic SWF domain:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/swf"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := swf.NewDomain(ctx, "foo", &swf.DomainArgs{
-//				Name:                                   pulumi.String("foo"),
-//				Description:                            pulumi.String("SWF Domain"),
-//				WorkflowExecutionRetentionPeriodInDays: pulumi.String("30"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SWF Domains using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:swf/domain:Domain foo test-domain
-// ```
 type Domain struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN)
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The domain description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of the domain. If omitted, this provider will assign a random, unique name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
-	WorkflowExecutionRetentionPeriodInDays pulumi.StringOutput `pulumi:"workflowExecutionRetentionPeriodInDays"`
+	Arn                                    pulumi.StringOutput    `pulumi:"arn"`
+	Description                            pulumi.StringPtrOutput `pulumi:"description"`
+	Name                                   pulumi.StringOutput    `pulumi:"name"`
+	NamePrefix                             pulumi.StringOutput    `pulumi:"namePrefix"`
+	Region                                 pulumi.StringOutput    `pulumi:"region"`
+	Tags                                   pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll                                pulumi.StringMapOutput `pulumi:"tagsAll"`
+	WorkflowExecutionRetentionPeriodInDays pulumi.StringOutput    `pulumi:"workflowExecutionRetentionPeriodInDays"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -105,40 +58,24 @@ func GetDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Domain resources.
 type domainState struct {
-	// Amazon Resource Name (ARN)
-	Arn *string `pulumi:"arn"`
-	// The domain description.
-	Description *string `pulumi:"description"`
-	// The name of the domain. If omitted, this provider will assign a random, unique name.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
-	WorkflowExecutionRetentionPeriodInDays *string `pulumi:"workflowExecutionRetentionPeriodInDays"`
+	Arn                                    *string           `pulumi:"arn"`
+	Description                            *string           `pulumi:"description"`
+	Name                                   *string           `pulumi:"name"`
+	NamePrefix                             *string           `pulumi:"namePrefix"`
+	Region                                 *string           `pulumi:"region"`
+	Tags                                   map[string]string `pulumi:"tags"`
+	TagsAll                                map[string]string `pulumi:"tagsAll"`
+	WorkflowExecutionRetentionPeriodInDays *string           `pulumi:"workflowExecutionRetentionPeriodInDays"`
 }
 
 type DomainState struct {
-	// Amazon Resource Name (ARN)
-	Arn pulumi.StringPtrInput
-	// The domain description.
-	Description pulumi.StringPtrInput
-	// The name of the domain. If omitted, this provider will assign a random, unique name.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
+	Arn                                    pulumi.StringPtrInput
+	Description                            pulumi.StringPtrInput
+	Name                                   pulumi.StringPtrInput
+	NamePrefix                             pulumi.StringPtrInput
+	Region                                 pulumi.StringPtrInput
+	Tags                                   pulumi.StringMapInput
+	TagsAll                                pulumi.StringMapInput
 	WorkflowExecutionRetentionPeriodInDays pulumi.StringPtrInput
 }
 
@@ -147,33 +84,21 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
-	// The domain description.
-	Description *string `pulumi:"description"`
-	// The name of the domain. If omitted, this provider will assign a random, unique name.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
-	WorkflowExecutionRetentionPeriodInDays string `pulumi:"workflowExecutionRetentionPeriodInDays"`
+	Description                            *string           `pulumi:"description"`
+	Name                                   *string           `pulumi:"name"`
+	NamePrefix                             *string           `pulumi:"namePrefix"`
+	Region                                 *string           `pulumi:"region"`
+	Tags                                   map[string]string `pulumi:"tags"`
+	WorkflowExecutionRetentionPeriodInDays string            `pulumi:"workflowExecutionRetentionPeriodInDays"`
 }
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
-	// The domain description.
-	Description pulumi.StringPtrInput
-	// The name of the domain. If omitted, this provider will assign a random, unique name.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
+	Description                            pulumi.StringPtrInput
+	Name                                   pulumi.StringPtrInput
+	NamePrefix                             pulumi.StringPtrInput
+	Region                                 pulumi.StringPtrInput
+	Tags                                   pulumi.StringMapInput
 	WorkflowExecutionRetentionPeriodInDays pulumi.StringInput
 }
 
@@ -264,42 +189,34 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 	return o
 }
 
-// Amazon Resource Name (ARN)
 func (o DomainOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The domain description.
 func (o DomainOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the domain. If omitted, this provider will assign a random, unique name.
 func (o DomainOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 func (o DomainOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DomainOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DomainOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DomainOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
 func (o DomainOutput) WorkflowExecutionRetentionPeriodInDays() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.WorkflowExecutionRetentionPeriodInDays }).(pulumi.StringOutput)
 }

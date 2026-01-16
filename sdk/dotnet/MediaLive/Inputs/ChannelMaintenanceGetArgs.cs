@@ -12,15 +12,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelMaintenanceGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The day of the week to use for maintenance.
-        /// </summary>
         [Input("maintenanceDay", required: true)]
         public Input<string> MaintenanceDay { get; set; } = null!;
 
-        /// <summary>
-        /// The hour maintenance will start.
-        /// </summary>
         [Input("maintenanceStartTime", required: true)]
         public Input<string> MaintenanceStartTime { get; set; } = null!;
 

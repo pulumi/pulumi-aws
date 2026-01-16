@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainDefaultUserSettingsKernelGatewayAppSettings {
-    /**
-     * @return A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see `customImage` Block below.
-     * 
-     */
     private @Nullable List<DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage> customImages;
-    /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
-     * 
-     */
     private @Nullable DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec;
-    /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-     * 
-     */
     private @Nullable List<String> lifecycleConfigArns;
 
     private DomainDefaultUserSettingsKernelGatewayAppSettings() {}
-    /**
-     * @return A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see `customImage` Block below.
-     * 
-     */
     public List<DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage> customImages() {
         return this.customImages == null ? List.of() : this.customImages;
     }
-    /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
-     * 
-     */
     public Optional<DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec> defaultResourceSpec() {
         return Optional.ofNullable(this.defaultResourceSpec);
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-     * 
-     */
     public List<String> lifecycleConfigArns() {
         return this.lifecycleConfigArns == null ? List.of() : this.lifecycleConfigArns;
     }

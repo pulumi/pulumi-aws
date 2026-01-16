@@ -11,142 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get the ARNs and Names of IAM Roles.
-//
-// ## Example Usage
-//
-// ### All roles in an account
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.GetRoles(ctx, &iam.GetRolesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Roles filtered by name regex
-//
-// Roles whose role-name contains `project`
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.GetRoles(ctx, &iam.GetRolesArgs{
-//				NameRegex: pulumi.StringRef(".*project.*"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Roles filtered by path prefix
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.GetRoles(ctx, &iam.GetRolesArgs{
-//				PathPrefix: pulumi.StringRef("/custom-path"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Roles provisioned by AWS SSO
-//
-// # Roles in the account filtered by path prefix
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.GetRoles(ctx, &iam.GetRolesArgs{
-//				PathPrefix: pulumi.StringRef("/aws-reserved/sso.amazonaws.com/"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// # Specific role in the account filtered by name regex and path prefix
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.GetRoles(ctx, &iam.GetRolesArgs{
-//				NameRegex:  pulumi.StringRef("AWSReservedSSO_permission_set_name_.*"),
-//				PathPrefix: pulumi.StringRef("/aws-reserved/sso.amazonaws.com/"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetRoles(ctx *pulumi.Context, args *GetRolesArgs, opts ...pulumi.InvokeOption) (*GetRolesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRolesResult
@@ -159,20 +23,16 @@ func GetRoles(ctx *pulumi.Context, args *GetRolesArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getRoles.
 type GetRolesArgs struct {
-	// Regex string to apply to the IAM roles list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
-	NameRegex *string `pulumi:"nameRegex"`
-	// Path prefix for filtering the results. For example, the prefix `/application_abc/component_xyz/` gets all roles whose path starts with `/application_abc/component_xyz/`. If it is not included, it defaults to a slash (`/`), listing all roles. For more details, check out [list-roles in the AWS CLI reference][1].
+	NameRegex  *string `pulumi:"nameRegex"`
 	PathPrefix *string `pulumi:"pathPrefix"`
 }
 
 // A collection of values returned by getRoles.
 type GetRolesResult struct {
-	// Set of ARNs of the matched IAM roles.
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
-	Id        string  `pulumi:"id"`
-	NameRegex *string `pulumi:"nameRegex"`
-	// Set of Names of the matched IAM roles.
+	Id         string   `pulumi:"id"`
+	NameRegex  *string  `pulumi:"nameRegex"`
 	Names      []string `pulumi:"names"`
 	PathPrefix *string  `pulumi:"pathPrefix"`
 }
@@ -188,9 +48,7 @@ func GetRolesOutput(ctx *pulumi.Context, args GetRolesOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getRoles.
 type GetRolesOutputArgs struct {
-	// Regex string to apply to the IAM roles list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
-	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
-	// Path prefix for filtering the results. For example, the prefix `/application_abc/component_xyz/` gets all roles whose path starts with `/application_abc/component_xyz/`. If it is not included, it defaults to a slash (`/`), listing all roles. For more details, check out [list-roles in the AWS CLI reference][1].
+	NameRegex  pulumi.StringPtrInput `pulumi:"nameRegex"`
 	PathPrefix pulumi.StringPtrInput `pulumi:"pathPrefix"`
 }
 
@@ -213,7 +71,6 @@ func (o GetRolesResultOutput) ToGetRolesResultOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Set of ARNs of the matched IAM roles.
 func (o GetRolesResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRolesResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }
@@ -227,7 +84,6 @@ func (o GetRolesResultOutput) NameRegex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetRolesResult) *string { return v.NameRegex }).(pulumi.StringPtrOutput)
 }
 
-// Set of Names of the matched IAM roles.
 func (o GetRolesResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRolesResult) []string { return v.Names }).(pulumi.StringArrayOutput)
 }

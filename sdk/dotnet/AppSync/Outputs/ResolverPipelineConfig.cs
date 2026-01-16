@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppSync.Outputs
     [OutputType]
     public sealed class ResolverPipelineConfig
     {
-        /// <summary>
-        /// A list of Function objects.
-        /// </summary>
         public readonly ImmutableArray<string> Functions;
 
         [OutputConstructor]

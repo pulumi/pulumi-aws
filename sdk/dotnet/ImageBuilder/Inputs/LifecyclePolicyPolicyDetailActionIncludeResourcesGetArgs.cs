@@ -12,21 +12,12 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
     public sealed class LifecyclePolicyPolicyDetailActionIncludeResourcesGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies whether the lifecycle action should apply to distributed AMIs.
-        /// </summary>
         [Input("amis")]
         public Input<bool>? Amis { get; set; }
 
-        /// <summary>
-        /// Specifies whether the lifecycle action should apply to distributed containers.
-        /// </summary>
         [Input("containers")]
         public Input<bool>? Containers { get; set; }
 
-        /// <summary>
-        /// Specifies whether the lifecycle action should apply to snapshots associated with distributed AMIs.
-        /// </summary>
         [Input("snapshots")]
         public Input<bool>? Snapshots { get; set; }
 

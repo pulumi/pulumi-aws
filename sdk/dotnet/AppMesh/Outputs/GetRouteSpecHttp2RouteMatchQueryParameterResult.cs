@@ -14,9 +14,6 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GetRouteSpecHttp2RouteMatchQueryParameterResult
     {
         public readonly ImmutableArray<Outputs.GetRouteSpecHttp2RouteMatchQueryParameterMatchResult> Matches;
-        /// <summary>
-        /// Name of the route.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

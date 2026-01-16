@@ -23,66 +23,30 @@ public final class FolderMembershipArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.awsAccountId);
     }
 
-    /**
-     * Identifier for the folder.
-     * 
-     */
     @Import(name="folderId", required=true)
     private Output<String> folderId;
 
-    /**
-     * @return Identifier for the folder.
-     * 
-     */
     public Output<String> folderId() {
         return this.folderId;
     }
 
-    /**
-     * ID of the asset (the dashboard, analysis, or dataset).
-     * 
-     */
     @Import(name="memberId", required=true)
     private Output<String> memberId;
 
-    /**
-     * @return ID of the asset (the dashboard, analysis, or dataset).
-     * 
-     */
     public Output<String> memberId() {
         return this.memberId;
     }
 
-    /**
-     * Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="memberType", required=true)
     private Output<String> memberType;
 
-    /**
-     * @return Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> memberType() {
         return this.memberType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -124,90 +88,38 @@ public final class FolderMembershipArgs extends com.pulumi.resources.ResourceArg
             return awsAccountId(Output.of(awsAccountId));
         }
 
-        /**
-         * @param folderId Identifier for the folder.
-         * 
-         * @return builder
-         * 
-         */
         public Builder folderId(Output<String> folderId) {
             $.folderId = folderId;
             return this;
         }
 
-        /**
-         * @param folderId Identifier for the folder.
-         * 
-         * @return builder
-         * 
-         */
         public Builder folderId(String folderId) {
             return folderId(Output.of(folderId));
         }
 
-        /**
-         * @param memberId ID of the asset (the dashboard, analysis, or dataset).
-         * 
-         * @return builder
-         * 
-         */
         public Builder memberId(Output<String> memberId) {
             $.memberId = memberId;
             return this;
         }
 
-        /**
-         * @param memberId ID of the asset (the dashboard, analysis, or dataset).
-         * 
-         * @return builder
-         * 
-         */
         public Builder memberId(String memberId) {
             return memberId(Output.of(memberId));
         }
 
-        /**
-         * @param memberType Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder memberType(Output<String> memberType) {
             $.memberType = memberType;
             return this;
         }
 
-        /**
-         * @param memberType Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder memberType(String memberType) {
             return memberType(Output.of(memberType));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

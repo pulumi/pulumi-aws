@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Oam.Outputs
     [OutputType]
     public sealed class LinkLinkConfigurationLogGroupConfiguration
     {
-        /// <summary>
-        /// Filter string that specifies which log groups are to share their log events with the monitoring account. See [LogGroupConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_LogGroupConfiguration.html) for details.
-        /// </summary>
         public readonly string Filter;
 
         [OutputConstructor]

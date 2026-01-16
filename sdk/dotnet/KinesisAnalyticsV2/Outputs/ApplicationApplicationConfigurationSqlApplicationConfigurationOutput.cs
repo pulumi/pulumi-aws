@@ -13,25 +13,10 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     [OutputType]
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationOutput
     {
-        /// <summary>
-        /// Describes the data format when records are written to the destination.
-        /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema DestinationSchema;
-        /// <summary>
-        /// Identifies a Kinesis Data Firehose delivery stream as the destination.
-        /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput? KinesisFirehoseOutput;
-        /// <summary>
-        /// Identifies a Kinesis data stream as the destination.
-        /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput? KinesisStreamsOutput;
-        /// <summary>
-        /// Identifies a Lambda function as the destination.
-        /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput? LambdaOutput;
-        /// <summary>
-        /// The name of the in-application stream.
-        /// </summary>
         public readonly string Name;
         public readonly string? OutputId;
 

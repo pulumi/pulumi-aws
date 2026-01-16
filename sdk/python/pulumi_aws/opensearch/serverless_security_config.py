@@ -29,12 +29,8 @@ class ServerlessSecurityConfigArgs:
         """
         The set of arguments for constructing a ServerlessSecurityConfig resource.
         :param pulumi.Input[_builtins.str] type: Type of configuration. Must be `saml`.
-               
-               The following arguments are optional:
         :param pulumi.Input[_builtins.str] description: Description of the security configuration.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['ServerlessSecurityConfigSamlOptionsArgs'] saml_options: Configuration block for SAML options.
         """
         pulumi.set(__self__, "type", type)
         if description is not None:
@@ -51,8 +47,6 @@ class ServerlessSecurityConfigArgs:
     def type(self) -> pulumi.Input[_builtins.str]:
         """
         Type of configuration. Must be `saml`.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -87,9 +81,6 @@ class ServerlessSecurityConfigArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -99,9 +90,6 @@ class ServerlessSecurityConfigArgs:
     @_builtins.property
     @pulumi.getter(name="samlOptions")
     def saml_options(self) -> Optional[pulumi.Input['ServerlessSecurityConfigSamlOptionsArgs']]:
-        """
-        Configuration block for SAML options.
-        """
         return pulumi.get(self, "saml_options")
 
     @saml_options.setter
@@ -123,11 +111,7 @@ class _ServerlessSecurityConfigState:
         :param pulumi.Input[_builtins.str] config_version: Version of the configuration.
         :param pulumi.Input[_builtins.str] description: Description of the security configuration.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['ServerlessSecurityConfigSamlOptionsArgs'] saml_options: Configuration block for SAML options.
         :param pulumi.Input[_builtins.str] type: Type of configuration. Must be `saml`.
-               
-               The following arguments are optional:
         """
         if config_version is not None:
             pulumi.set(__self__, "config_version", config_version)
@@ -181,9 +165,6 @@ class _ServerlessSecurityConfigState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -193,9 +174,6 @@ class _ServerlessSecurityConfigState:
     @_builtins.property
     @pulumi.getter(name="samlOptions")
     def saml_options(self) -> Optional[pulumi.Input['ServerlessSecurityConfigSamlOptionsArgs']]:
-        """
-        Configuration block for SAML options.
-        """
         return pulumi.get(self, "saml_options")
 
     @saml_options.setter
@@ -207,8 +185,6 @@ class _ServerlessSecurityConfigState:
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Type of configuration. Must be `saml`.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -230,27 +206,12 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS OpenSearch Serverless Security Config.
-
-        ## Example Usage
-
-        ## Import
-
-        Using `pulumi import`, import OpenSearchServerless Access Policy using the `name` argument prefixed with the string `saml/account_id/`. For example:
-
-        ```sh
-        $ pulumi import aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig example saml/123456789012/example
-        ```
-
+        Create a ServerlessSecurityConfig resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the security configuration.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ServerlessSecurityConfigSamlOptionsArgs', 'ServerlessSecurityConfigSamlOptionsArgsDict']] saml_options: Configuration block for SAML options.
         :param pulumi.Input[_builtins.str] type: Type of configuration. Must be `saml`.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -259,18 +220,7 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
                  args: ServerlessSecurityConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS OpenSearch Serverless Security Config.
-
-        ## Example Usage
-
-        ## Import
-
-        Using `pulumi import`, import OpenSearchServerless Access Policy using the `name` argument prefixed with the string `saml/account_id/`. For example:
-
-        ```sh
-        $ pulumi import aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig example saml/123456789012/example
-        ```
-
+        Create a ServerlessSecurityConfig resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ServerlessSecurityConfigArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -334,11 +284,7 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] config_version: Version of the configuration.
         :param pulumi.Input[_builtins.str] description: Description of the security configuration.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ServerlessSecurityConfigSamlOptionsArgs', 'ServerlessSecurityConfigSamlOptionsArgsDict']] saml_options: Configuration block for SAML options.
         :param pulumi.Input[_builtins.str] type: Type of configuration. Must be `saml`.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -379,17 +325,11 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="samlOptions")
     def saml_options(self) -> pulumi.Output[Optional['outputs.ServerlessSecurityConfigSamlOptions']]:
-        """
-        Configuration block for SAML options.
-        """
         return pulumi.get(self, "saml_options")
 
     @_builtins.property
@@ -397,8 +337,6 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
     def type(self) -> pulumi.Output[_builtins.str]:
         """
         Type of configuration. Must be `saml`.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 

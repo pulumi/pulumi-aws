@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetServiceDeploymentControllerResult
     {
-        /// <summary>
-        /// Constraint type
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

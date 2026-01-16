@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPrincipalApplicationAssignmentsApplicationAssignment {
-    /**
-     * @return ARN of the application.
-     * 
-     */
     private String applicationArn;
-    /**
-     * @return An identifier for an object in IAM Identity Center, such as a user or group.
-     * 
-     */
     private String principalId;
-    /**
-     * @return Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-     * 
-     */
     private String principalType;
 
     private GetPrincipalApplicationAssignmentsApplicationAssignment() {}
-    /**
-     * @return ARN of the application.
-     * 
-     */
     public String applicationArn() {
         return this.applicationArn;
     }
-    /**
-     * @return An identifier for an object in IAM Identity Center, such as a user or group.
-     * 
-     */
     public String principalId() {
         return this.principalId;
     }
-    /**
-     * @return Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-     * 
-     */
     public String principalType() {
         return this.principalType;
     }

@@ -24,8 +24,6 @@ class AccessGrantsInstanceResourcePolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccessGrantsInstanceResourcePolicy resource.
-        :param pulumi.Input[_builtins.str] policy: The policy document.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
         if account_id is not None:
@@ -36,9 +34,6 @@ class AccessGrantsInstanceResourcePolicyArgs:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Input[_builtins.str]:
-        """
-        The policy document.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -57,9 +52,6 @@ class AccessGrantsInstanceResourcePolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -75,8 +67,6 @@ class _AccessGrantsInstanceResourcePolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccessGrantsInstanceResourcePolicy resources.
-        :param pulumi.Input[_builtins.str] policy: The policy document.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -97,9 +87,6 @@ class _AccessGrantsInstanceResourcePolicyState:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The policy document.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -109,9 +96,6 @@ class _AccessGrantsInstanceResourcePolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -130,48 +114,9 @@ class AccessGrantsInstanceResourcePolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a resource to manage an S3 Access Grants instance resource policy.
-        Use a resource policy to manage cross-account access to your S3 Access Grants instance.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3control.AccessGrantsInstance("example")
-        example_access_grants_instance_resource_policy = aws.s3control.AccessGrantsInstanceResourcePolicy("example", policy=example.access_grants_instance_arn.apply(lambda access_grants_instance_arn: f\"\"\"{{
-          \\"Version\\": \\"2012-10-17\\",
-          \\"Id\\": \\"S3AccessGrantsPolicy\\",
-          \\"Statement\\": [{{
-            \\"Sid\\": \\"AllowAccessToS3AccessGrants\\",
-            \\"Effect\\": \\"Allow\\",
-            \\"Principal\\": {{
-              \\"AWS\\": \\"123456789456\\"
-            }},
-            \\"Action\\": [
-              \\"s3:ListAccessGrants\\",
-              \\"s3:ListAccessGrantsLocations\\",
-              \\"s3:GetDataAccess\\"
-            ],
-            \\"Resource\\": \\"{access_grants_instance_arn}\\"
-          }}]
-        }}
-        \"\"\"))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import S3 Access Grants instance resource policies using the `account_id`. For example:
-
-        ```sh
-        $ pulumi import aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy example 123456789012
-        ```
-
+        Create a AccessGrantsInstanceResourcePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy: The policy document.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -180,44 +125,7 @@ class AccessGrantsInstanceResourcePolicy(pulumi.CustomResource):
                  args: AccessGrantsInstanceResourcePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage an S3 Access Grants instance resource policy.
-        Use a resource policy to manage cross-account access to your S3 Access Grants instance.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3control.AccessGrantsInstance("example")
-        example_access_grants_instance_resource_policy = aws.s3control.AccessGrantsInstanceResourcePolicy("example", policy=example.access_grants_instance_arn.apply(lambda access_grants_instance_arn: f\"\"\"{{
-          \\"Version\\": \\"2012-10-17\\",
-          \\"Id\\": \\"S3AccessGrantsPolicy\\",
-          \\"Statement\\": [{{
-            \\"Sid\\": \\"AllowAccessToS3AccessGrants\\",
-            \\"Effect\\": \\"Allow\\",
-            \\"Principal\\": {{
-              \\"AWS\\": \\"123456789456\\"
-            }},
-            \\"Action\\": [
-              \\"s3:ListAccessGrants\\",
-              \\"s3:ListAccessGrantsLocations\\",
-              \\"s3:GetDataAccess\\"
-            ],
-            \\"Resource\\": \\"{access_grants_instance_arn}\\"
-          }}]
-        }}
-        \"\"\"))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import S3 Access Grants instance resource policies using the `account_id`. For example:
-
-        ```sh
-        $ pulumi import aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy example 123456789012
-        ```
-
+        Create a AccessGrantsInstanceResourcePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AccessGrantsInstanceResourcePolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -270,8 +178,6 @@ class AccessGrantsInstanceResourcePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy: The policy document.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -290,16 +196,10 @@ class AccessGrantsInstanceResourcePolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        The policy document.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

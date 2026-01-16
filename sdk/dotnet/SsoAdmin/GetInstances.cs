@@ -11,81 +11,12 @@ namespace Pulumi.Aws.SsoAdmin
 {
     public static class GetInstances
     {
-        /// <summary>
-        /// Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["arn"] = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
-        ///         ["identityStoreId"] = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetInstancesResult> InvokeAsync(GetInstancesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstancesResult>("aws:ssoadmin/getInstances:getInstances", args ?? new GetInstancesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["arn"] = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
-        ///         ["identityStoreId"] = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetInstancesResult> Invoke(GetInstancesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstancesResult>("aws:ssoadmin/getInstances:getInstances", args ?? new GetInstancesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["arn"] = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
-        ///         ["identityStoreId"] = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetInstancesResult> Invoke(GetInstancesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstancesResult>("aws:ssoadmin/getInstances:getInstances", args ?? new GetInstancesInvokeArgs(), options.WithDefaults());
     }
@@ -93,9 +24,6 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class GetInstancesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -107,9 +35,6 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class GetInstancesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -123,17 +48,11 @@ namespace Pulumi.Aws.SsoAdmin
     [OutputType]
     public sealed class GetInstancesResult
     {
-        /// <summary>
-        /// Set of Amazon Resource Names (ARNs) of the SSO Instances.
-        /// </summary>
         public readonly ImmutableArray<string> Arns;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Set of identifiers of the identity stores connected to the SSO Instances.
-        /// </summary>
         public readonly ImmutableArray<string> IdentityStoreIds;
         public readonly string Region;
 

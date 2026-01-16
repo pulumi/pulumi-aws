@@ -29,11 +29,6 @@ class ProfilesAssociationArgs:
                  timeouts: Optional[pulumi.Input['ProfilesAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ProfilesAssociation resource.
-        :param pulumi.Input[_builtins.str] profile_id: ID of the profile associated with the VPC.
-        :param pulumi.Input[_builtins.str] resource_id: Resource ID of the VPC the profile to be associated with.
-        :param pulumi.Input[_builtins.str] name: Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\\\-_' ']+)`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "profile_id", profile_id)
         pulumi.set(__self__, "resource_id", resource_id)
@@ -49,9 +44,6 @@ class ProfilesAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="profileId")
     def profile_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the profile associated with the VPC.
-        """
         return pulumi.get(self, "profile_id")
 
     @profile_id.setter
@@ -61,9 +53,6 @@ class ProfilesAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Resource ID of the VPC the profile to be associated with.
-        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -73,9 +62,6 @@ class ProfilesAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\\\-_' ']+)`.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -85,9 +71,6 @@ class ProfilesAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -97,9 +80,6 @@ class ProfilesAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -132,14 +112,6 @@ class _ProfilesAssociationState:
                  timeouts: Optional[pulumi.Input['ProfilesAssociationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ProfilesAssociation resources.
-        :param pulumi.Input[_builtins.str] name: Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\\\-_' ']+)`.
-        :param pulumi.Input[_builtins.str] profile_id: ID of the profile associated with the VPC.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_id: Resource ID of the VPC the profile to be associated with.
-        :param pulumi.Input[_builtins.str] status: Status of the Profile Association.
-        :param pulumi.Input[_builtins.str] status_message: Status message of the Profile Association.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -176,9 +148,6 @@ class _ProfilesAssociationState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\\\-_' ']+)`.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -197,9 +166,6 @@ class _ProfilesAssociationState:
     @_builtins.property
     @pulumi.getter(name="profileId")
     def profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the profile associated with the VPC.
-        """
         return pulumi.get(self, "profile_id")
 
     @profile_id.setter
@@ -209,9 +175,6 @@ class _ProfilesAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -221,9 +184,6 @@ class _ProfilesAssociationState:
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Resource ID of the VPC the profile to be associated with.
-        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -233,9 +193,6 @@ class _ProfilesAssociationState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the Profile Association.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -245,9 +202,6 @@ class _ProfilesAssociationState:
     @_builtins.property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status message of the Profile Association.
-        """
         return pulumi.get(self, "status_message")
 
     @status_message.setter
@@ -257,9 +211,6 @@ class _ProfilesAssociationState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -269,9 +220,6 @@ class _ProfilesAssociationState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -302,42 +250,9 @@ class ProfilesAssociation(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['ProfilesAssociationTimeoutsArgs', 'ProfilesAssociationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Route 53 Profiles Association.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53.ProfilesProfile("example", name="example")
-        example_vpc = aws.ec2.Vpc("example", cidr="10.0.0.0/16")
-        example_profiles_association = aws.route53.ProfilesAssociation("example",
-            name="example",
-            profile_id=example.id,
-            resource_id=example_vpc.id,
-            tags={
-                "Environment": "dev",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Route 53 Profiles Association using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:route53/profilesAssociation:ProfilesAssociation example rpa-id-12345678
-        ```
-
+        Create a ProfilesAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\\\-_' ']+)`.
-        :param pulumi.Input[_builtins.str] profile_id: ID of the profile associated with the VPC.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_id: Resource ID of the VPC the profile to be associated with.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -346,35 +261,7 @@ class ProfilesAssociation(pulumi.CustomResource):
                  args: ProfilesAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Route 53 Profiles Association.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53.ProfilesProfile("example", name="example")
-        example_vpc = aws.ec2.Vpc("example", cidr="10.0.0.0/16")
-        example_profiles_association = aws.route53.ProfilesAssociation("example",
-            name="example",
-            profile_id=example.id,
-            resource_id=example_vpc.id,
-            tags={
-                "Environment": "dev",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Route 53 Profiles Association using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:route53/profilesAssociation:ProfilesAssociation example rpa-id-12345678
-        ```
-
+        Create a ProfilesAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ProfilesAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -448,14 +335,6 @@ class ProfilesAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\\\-_' ']+)`.
-        :param pulumi.Input[_builtins.str] profile_id: ID of the profile associated with the VPC.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_id: Resource ID of the VPC the profile to be associated with.
-        :param pulumi.Input[_builtins.str] status: Status of the Profile Association.
-        :param pulumi.Input[_builtins.str] status_message: Status message of the Profile Association.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -482,9 +361,6 @@ class ProfilesAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\\\-_' ']+)`.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -495,57 +371,36 @@ class ProfilesAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="profileId")
     def profile_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the profile associated with the VPC.
-        """
         return pulumi.get(self, "profile_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Resource ID of the VPC the profile to be associated with.
-        """
         return pulumi.get(self, "resource_id")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status of the Profile Association.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status message of the Profile Association.
-        """
         return pulumi.get(self, "status_message")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

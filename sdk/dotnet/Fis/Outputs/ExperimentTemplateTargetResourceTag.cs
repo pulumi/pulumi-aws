@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Fis.Outputs
     [OutputType]
     public sealed class ExperimentTemplateTargetResourceTag
     {
-        /// <summary>
-        /// Tag key.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// Tag value.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

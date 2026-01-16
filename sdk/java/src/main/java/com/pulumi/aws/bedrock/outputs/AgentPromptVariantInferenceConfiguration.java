@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentPromptVariantInferenceConfiguration {
-    /**
-     * @return Contains inference configurations for the prompt variant. See Text Inference Configuration for more information.
-     * 
-     */
     private @Nullable AgentPromptVariantInferenceConfigurationText text;
 
     private AgentPromptVariantInferenceConfiguration() {}
-    /**
-     * @return Contains inference configurations for the prompt variant. See Text Inference Configuration for more information.
-     * 
-     */
     public Optional<AgentPromptVariantInferenceConfigurationText> text() {
         return Optional.ofNullable(this.text);
     }

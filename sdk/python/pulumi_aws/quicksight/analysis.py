@@ -33,17 +33,6 @@ class AnalysisArgs:
                  theme_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Analysis resource.
-        :param pulumi.Input[_builtins.str] analysis_id: Identifier for the analysis.
-        :param pulumi.Input[_builtins.str] name: Display name for the analysis.
-               
-               The following arguments are optional:
-        :param pulumi.Input['AnalysisParametersArgs'] parameters: The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-        :param pulumi.Input[Sequence[pulumi.Input['AnalysisPermissionArgs']]] permissions: A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
-        :param pulumi.Input[_builtins.int] recovery_window_in_days: A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['AnalysisSourceEntityArgs'] source_entity: The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] theme_arn: The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
         """
         pulumi.set(__self__, "analysis_id", analysis_id)
         if aws_account_id is not None:
@@ -68,9 +57,6 @@ class AnalysisArgs:
     @_builtins.property
     @pulumi.getter(name="analysisId")
     def analysis_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier for the analysis.
-        """
         return pulumi.get(self, "analysis_id")
 
     @analysis_id.setter
@@ -89,11 +75,6 @@ class AnalysisArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Display name for the analysis.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -103,9 +84,6 @@ class AnalysisArgs:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input['AnalysisParametersArgs']]:
-        """
-        The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -115,9 +93,6 @@ class AnalysisArgs:
     @_builtins.property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisPermissionArgs']]]]:
-        """
-        A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
-        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -127,9 +102,6 @@ class AnalysisArgs:
     @_builtins.property
     @pulumi.getter(name="recoveryWindowInDays")
     def recovery_window_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
-        """
         return pulumi.get(self, "recovery_window_in_days")
 
     @recovery_window_in_days.setter
@@ -139,9 +111,6 @@ class AnalysisArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -151,9 +120,6 @@ class AnalysisArgs:
     @_builtins.property
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> Optional[pulumi.Input['AnalysisSourceEntityArgs']]:
-        """
-        The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
-        """
         return pulumi.get(self, "source_entity")
 
     @source_entity.setter
@@ -163,9 +129,6 @@ class AnalysisArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -175,9 +138,6 @@ class AnalysisArgs:
     @_builtins.property
     @pulumi.getter(name="themeArn")
     def theme_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
-        """
         return pulumi.get(self, "theme_arn")
 
     @theme_arn.setter
@@ -206,22 +166,6 @@ class _AnalysisState:
                  theme_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Analysis resources.
-        :param pulumi.Input[_builtins.str] analysis_id: Identifier for the analysis.
-        :param pulumi.Input[_builtins.str] arn: ARN of the analysis.
-        :param pulumi.Input[_builtins.str] created_time: The time that the analysis was created.
-        :param pulumi.Input[_builtins.str] last_updated_time: The time that the analysis was last updated.
-        :param pulumi.Input[_builtins.str] name: Display name for the analysis.
-               
-               The following arguments are optional:
-        :param pulumi.Input['AnalysisParametersArgs'] parameters: The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-        :param pulumi.Input[Sequence[pulumi.Input['AnalysisPermissionArgs']]] permissions: A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
-        :param pulumi.Input[_builtins.int] recovery_window_in_days: A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['AnalysisSourceEntityArgs'] source_entity: The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
-        :param pulumi.Input[_builtins.str] status: The analysis creation status.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] theme_arn: The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
         """
         if analysis_id is not None:
             pulumi.set(__self__, "analysis_id", analysis_id)
@@ -259,9 +203,6 @@ class _AnalysisState:
     @_builtins.property
     @pulumi.getter(name="analysisId")
     def analysis_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier for the analysis.
-        """
         return pulumi.get(self, "analysis_id")
 
     @analysis_id.setter
@@ -271,9 +212,6 @@ class _AnalysisState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the analysis.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -292,9 +230,6 @@ class _AnalysisState:
     @_builtins.property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The time that the analysis was created.
-        """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
@@ -313,9 +248,6 @@ class _AnalysisState:
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The time that the analysis was last updated.
-        """
         return pulumi.get(self, "last_updated_time")
 
     @last_updated_time.setter
@@ -325,11 +257,6 @@ class _AnalysisState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Display name for the analysis.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -339,9 +266,6 @@ class _AnalysisState:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input['AnalysisParametersArgs']]:
-        """
-        The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -351,9 +275,6 @@ class _AnalysisState:
     @_builtins.property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisPermissionArgs']]]]:
-        """
-        A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
-        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -363,9 +284,6 @@ class _AnalysisState:
     @_builtins.property
     @pulumi.getter(name="recoveryWindowInDays")
     def recovery_window_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
-        """
         return pulumi.get(self, "recovery_window_in_days")
 
     @recovery_window_in_days.setter
@@ -375,9 +293,6 @@ class _AnalysisState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -387,9 +302,6 @@ class _AnalysisState:
     @_builtins.property
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> Optional[pulumi.Input['AnalysisSourceEntityArgs']]:
-        """
-        The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
-        """
         return pulumi.get(self, "source_entity")
 
     @source_entity.setter
@@ -399,9 +311,6 @@ class _AnalysisState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The analysis creation status.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -411,9 +320,6 @@ class _AnalysisState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -423,9 +329,6 @@ class _AnalysisState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -435,9 +338,6 @@ class _AnalysisState:
     @_builtins.property
     @pulumi.getter(name="themeArn")
     def theme_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
-        """
         return pulumi.get(self, "theme_arn")
 
     @theme_arn.setter
@@ -463,107 +363,9 @@ class Analysis(pulumi.CustomResource):
                  theme_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing a QuickSight Analysis.
-
-        ## Example Usage
-
-        ### From Source Template
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.Analysis("example",
-            analysis_id="example-id",
-            name="example-name",
-            source_entity={
-                "source_template": {
-                    "arn": source["arn"],
-                    "data_set_references": [{
-                        "data_set_arn": dataset["arn"],
-                        "data_set_placeholder": "1",
-                    }],
-                },
-            })
-        ```
-
-        ### With Definition
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.Analysis("example",
-            analysis_id="example-id",
-            name="example-name",
-            definition={
-                "dataSetIdentifiersDeclarations": [{
-                    "dataSetArn": dataset["arn"],
-                    "identifier": "1",
-                }],
-                "sheets": [{
-                    "title": "Example",
-                    "sheetId": "Example1",
-                    "visuals": [{
-                        "lineChartVisual": {
-                            "visualId": "LineChart",
-                            "title": {
-                                "formatText": {
-                                    "plainText": "Line Chart Example",
-                                },
-                            },
-                            "chartConfiguration": {
-                                "fieldWells": {
-                                    "lineChartAggregatedFieldWells": {
-                                        "categories": [{
-                                            "categoricalDimensionField": {
-                                                "fieldId": "1",
-                                                "column": {
-                                                    "dataSetIdentifier": "1",
-                                                    "columnName": "Column1",
-                                                },
-                                            },
-                                        }],
-                                        "values": [{
-                                            "categoricalMeasureField": {
-                                                "fieldId": "2",
-                                                "column": {
-                                                    "dataSetIdentifier": "1",
-                                                    "columnName": "Column1",
-                                                },
-                                                "aggregationFunction": "COUNT",
-                                            },
-                                        }],
-                                    },
-                                },
-                            },
-                        },
-                    }],
-                }],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import a QuickSight Analysis using the AWS account ID and analysis ID separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:quicksight/analysis:Analysis example 123456789012,example-id
-        ```
-
+        Create a Analysis resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] analysis_id: Identifier for the analysis.
-        :param pulumi.Input[_builtins.str] name: Display name for the analysis.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict']] parameters: The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AnalysisPermissionArgs', 'AnalysisPermissionArgsDict']]]] permissions: A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
-        :param pulumi.Input[_builtins.int] recovery_window_in_days: A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict']] source_entity: The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] theme_arn: The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
         """
         ...
     @overload
@@ -572,94 +374,7 @@ class Analysis(pulumi.CustomResource):
                  args: AnalysisArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing a QuickSight Analysis.
-
-        ## Example Usage
-
-        ### From Source Template
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.Analysis("example",
-            analysis_id="example-id",
-            name="example-name",
-            source_entity={
-                "source_template": {
-                    "arn": source["arn"],
-                    "data_set_references": [{
-                        "data_set_arn": dataset["arn"],
-                        "data_set_placeholder": "1",
-                    }],
-                },
-            })
-        ```
-
-        ### With Definition
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.Analysis("example",
-            analysis_id="example-id",
-            name="example-name",
-            definition={
-                "dataSetIdentifiersDeclarations": [{
-                    "dataSetArn": dataset["arn"],
-                    "identifier": "1",
-                }],
-                "sheets": [{
-                    "title": "Example",
-                    "sheetId": "Example1",
-                    "visuals": [{
-                        "lineChartVisual": {
-                            "visualId": "LineChart",
-                            "title": {
-                                "formatText": {
-                                    "plainText": "Line Chart Example",
-                                },
-                            },
-                            "chartConfiguration": {
-                                "fieldWells": {
-                                    "lineChartAggregatedFieldWells": {
-                                        "categories": [{
-                                            "categoricalDimensionField": {
-                                                "fieldId": "1",
-                                                "column": {
-                                                    "dataSetIdentifier": "1",
-                                                    "columnName": "Column1",
-                                                },
-                                            },
-                                        }],
-                                        "values": [{
-                                            "categoricalMeasureField": {
-                                                "fieldId": "2",
-                                                "column": {
-                                                    "dataSetIdentifier": "1",
-                                                    "columnName": "Column1",
-                                                },
-                                                "aggregationFunction": "COUNT",
-                                            },
-                                        }],
-                                    },
-                                },
-                            },
-                        },
-                    }],
-                }],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import a QuickSight Analysis using the AWS account ID and analysis ID separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:quicksight/analysis:Analysis example 123456789012,example-id
-        ```
-
+        Create a Analysis resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AnalysisArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -745,22 +460,6 @@ class Analysis(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] analysis_id: Identifier for the analysis.
-        :param pulumi.Input[_builtins.str] arn: ARN of the analysis.
-        :param pulumi.Input[_builtins.str] created_time: The time that the analysis was created.
-        :param pulumi.Input[_builtins.str] last_updated_time: The time that the analysis was last updated.
-        :param pulumi.Input[_builtins.str] name: Display name for the analysis.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict']] parameters: The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AnalysisPermissionArgs', 'AnalysisPermissionArgsDict']]]] permissions: A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
-        :param pulumi.Input[_builtins.int] recovery_window_in_days: A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict']] source_entity: The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
-        :param pulumi.Input[_builtins.str] status: The analysis creation status.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] theme_arn: The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -787,17 +486,11 @@ class Analysis(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="analysisId")
     def analysis_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier for the analysis.
-        """
         return pulumi.get(self, "analysis_id")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the analysis.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -808,9 +501,6 @@ class Analysis(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        The time that the analysis was created.
-        """
         return pulumi.get(self, "created_time")
 
     @_builtins.property
@@ -821,90 +511,55 @@ class Analysis(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        The time that the analysis was last updated.
-        """
         return pulumi.get(self, "last_updated_time")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Display name for the analysis.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> pulumi.Output['outputs.AnalysisParameters']:
-        """
-        The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-        """
         return pulumi.get(self, "parameters")
 
     @_builtins.property
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.AnalysisPermission']]]:
-        """
-        A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
-        """
         return pulumi.get(self, "permissions")
 
     @_builtins.property
     @pulumi.getter(name="recoveryWindowInDays")
     def recovery_window_in_days(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
-        """
         return pulumi.get(self, "recovery_window_in_days")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> pulumi.Output[Optional['outputs.AnalysisSourceEntity']]:
-        """
-        The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
-        """
         return pulumi.get(self, "source_entity")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The analysis creation status.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="themeArn")
     def theme_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
-        """
         return pulumi.get(self, "theme_arn")
 

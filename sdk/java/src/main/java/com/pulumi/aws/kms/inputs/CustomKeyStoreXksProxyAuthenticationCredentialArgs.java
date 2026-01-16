@@ -14,32 +14,16 @@ public final class CustomKeyStoreXksProxyAuthenticationCredentialArgs extends co
 
     public static final CustomKeyStoreXksProxyAuthenticationCredentialArgs Empty = new CustomKeyStoreXksProxyAuthenticationCredentialArgs();
 
-    /**
-     * A unique identifier for the raw secret access key.
-     * 
-     */
     @Import(name="accessKeyId", required=true)
     private Output<String> accessKeyId;
 
-    /**
-     * @return A unique identifier for the raw secret access key.
-     * 
-     */
     public Output<String> accessKeyId() {
         return this.accessKeyId;
     }
 
-    /**
-     * A secret string of 43-64 characters.
-     * 
-     */
     @Import(name="rawSecretAccessKey", required=true)
     private Output<String> rawSecretAccessKey;
 
-    /**
-     * @return A secret string of 43-64 characters.
-     * 
-     */
     public Output<String> rawSecretAccessKey() {
         return this.rawSecretAccessKey;
     }
@@ -69,44 +53,20 @@ public final class CustomKeyStoreXksProxyAuthenticationCredentialArgs extends co
             $ = new CustomKeyStoreXksProxyAuthenticationCredentialArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessKeyId A unique identifier for the raw secret access key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessKeyId(Output<String> accessKeyId) {
             $.accessKeyId = accessKeyId;
             return this;
         }
 
-        /**
-         * @param accessKeyId A unique identifier for the raw secret access key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessKeyId(String accessKeyId) {
             return accessKeyId(Output.of(accessKeyId));
         }
 
-        /**
-         * @param rawSecretAccessKey A secret string of 43-64 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rawSecretAccessKey(Output<String> rawSecretAccessKey) {
             $.rawSecretAccessKey = rawSecretAccessKey;
             return this;
         }
 
-        /**
-         * @param rawSecretAccessKey A secret string of 43-64 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rawSecretAccessKey(String rawSecretAccessKey) {
             return rawSecretAccessKey(Output.of(rawSecretAccessKey));
         }

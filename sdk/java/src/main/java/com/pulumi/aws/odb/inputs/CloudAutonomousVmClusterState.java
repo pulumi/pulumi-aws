@@ -22,17 +22,9 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
 
     public static final CloudAutonomousVmClusterState Empty = new CloudAutonomousVmClusterState();
 
-    /**
-     * The Amazon Resource Name (ARN) for the Exadata infrastructure.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) for the Exadata infrastructure.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
@@ -90,14 +82,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The number of CPU cores available for allocation to Autonomous Databases.
+     * The number of CPU cores available for allocation to Autonomous Databases
      * 
      */
     @Import(name="availableCpus")
     private @Nullable Output<Double> availableCpus;
 
     /**
-     * @return The number of CPU cores available for allocation to Autonomous Databases.
+     * @return The number of CPU cores available for allocation to Autonomous Databases
      * 
      */
     public Optional<Output<Double>> availableCpus() {
@@ -439,14 +431,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
+     * The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB)
      * 
      */
     @Import(name="odbNodeStorageSizeInGbs")
     private @Nullable Output<Integer> odbNodeStorageSizeInGbs;
 
     /**
-     * @return The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
+     * @return The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB)
      * 
      */
     public Optional<Output<Integer>> odbNodeStorageSizeInGbs() {
@@ -528,17 +520,9 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         return Optional.ofNullable(this.reclaimableCpus);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -588,14 +572,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
+     * The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE , UPDATING , DELETING , DELETED , FAILED
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
+     * @return The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE , UPDATING , DELETING , DELETED , FAILED
      * 
      */
     public Optional<Output<String>> status() {
@@ -617,32 +601,16 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         return Optional.ofNullable(this.statusReason);
     }
 
-    /**
-     * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * The combined set of user-defined and provider-defined tags.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return The combined set of user-defined and provider-defined tags.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -662,17 +630,9 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         return Optional.ofNullable(this.timeDatabaseSslCertificateExpires);
     }
 
-    /**
-     * The expiration date and time of the ORDS certificate.
-     * 
-     */
     @Import(name="timeOrdsCertificateExpires")
     private @Nullable Output<String> timeOrdsCertificateExpires;
 
-    /**
-     * @return The expiration date and time of the ORDS certificate.
-     * 
-     */
     public Optional<Output<String>> timeOrdsCertificateExpires() {
         return Optional.ofNullable(this.timeOrdsCertificateExpires);
     }
@@ -773,23 +733,11 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
             $ = new CloudAutonomousVmClusterState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) for the Exadata infrastructure.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) for the Exadata infrastructure.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
@@ -867,7 +815,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param availableCpus The number of CPU cores available for allocation to Autonomous Databases.
+         * @param availableCpus The number of CPU cores available for allocation to Autonomous Databases
          * 
          * @return builder
          * 
@@ -878,7 +826,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param availableCpus The number of CPU cores available for allocation to Autonomous Databases.
+         * @param availableCpus The number of CPU cores available for allocation to Autonomous Databases
          * 
          * @return builder
          * 
@@ -1354,7 +1302,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param odbNodeStorageSizeInGbs The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
+         * @param odbNodeStorageSizeInGbs The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB)
          * 
          * @return builder
          * 
@@ -1365,7 +1313,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param odbNodeStorageSizeInGbs The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
+         * @param odbNodeStorageSizeInGbs The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB)
          * 
          * @return builder
          * 
@@ -1479,23 +1427,11 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
             return reclaimableCpus(Output.of(reclaimableCpus));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
@@ -1561,7 +1497,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param status The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
+         * @param status The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE , UPDATING , DELETING , DELETED , FAILED
          * 
          * @return builder
          * 
@@ -1572,7 +1508,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param status The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
+         * @param status The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE , UPDATING , DELETING , DELETED , FAILED
          * 
          * @return builder
          * 
@@ -1602,44 +1538,20 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
             return statusReason(Output.of(statusReason));
         }
 
-        /**
-         * @param tags A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll The combined set of user-defined and provider-defined tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll The combined set of user-defined and provider-defined tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
@@ -1665,23 +1577,11 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
             return timeDatabaseSslCertificateExpires(Output.of(timeDatabaseSslCertificateExpires));
         }
 
-        /**
-         * @param timeOrdsCertificateExpires The expiration date and time of the ORDS certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeOrdsCertificateExpires(@Nullable Output<String> timeOrdsCertificateExpires) {
             $.timeOrdsCertificateExpires = timeOrdsCertificateExpires;
             return this;
         }
 
-        /**
-         * @param timeOrdsCertificateExpires The expiration date and time of the ORDS certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeOrdsCertificateExpires(String timeOrdsCertificateExpires) {
             return timeOrdsCertificateExpires(Output.of(timeOrdsCertificateExpires));
         }

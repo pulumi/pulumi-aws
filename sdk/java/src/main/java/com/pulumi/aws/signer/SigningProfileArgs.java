@@ -33,92 +33,44 @@ public final class SigningProfileArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.namePrefix);
     }
 
-    /**
-     * The ID of the platform that is used by the target signing profile.
-     * 
-     */
     @Import(name="platformId", required=true)
     private Output<String> platformId;
 
-    /**
-     * @return The ID of the platform that is used by the target signing profile.
-     * 
-     */
     public Output<String> platformId() {
         return this.platformId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
-     * 
-     */
     @Import(name="signatureValidityPeriod")
     private @Nullable Output<SigningProfileSignatureValidityPeriodArgs> signatureValidityPeriod;
 
-    /**
-     * @return The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
-     * 
-     */
     public Optional<Output<SigningProfileSignatureValidityPeriodArgs>> signatureValidityPeriod() {
         return Optional.ofNullable(this.signatureValidityPeriod);
     }
 
-    /**
-     * The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
-     * 
-     */
     @Import(name="signingMaterial")
     private @Nullable Output<SigningProfileSigningMaterialArgs> signingMaterial;
 
-    /**
-     * @return The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
-     * 
-     */
     public Optional<Output<SigningProfileSigningMaterialArgs>> signingMaterial() {
         return Optional.ofNullable(this.signingMaterial);
     }
 
-    /**
-     * Map of key-value pairs for signing. These can include any information that you want to use during signing.
-     * 
-     */
     @Import(name="signingParameters")
     private @Nullable Output<Map<String,String>> signingParameters;
 
-    /**
-     * @return Map of key-value pairs for signing. These can include any information that you want to use during signing.
-     * 
-     */
     public Optional<Output<Map<String,String>>> signingParameters() {
         return Optional.ofNullable(this.signingParameters);
     }
 
-    /**
-     * A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -172,128 +124,56 @@ public final class SigningProfileArgs extends com.pulumi.resources.ResourceArgs 
             return namePrefix(Output.of(namePrefix));
         }
 
-        /**
-         * @param platformId The ID of the platform that is used by the target signing profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder platformId(Output<String> platformId) {
             $.platformId = platformId;
             return this;
         }
 
-        /**
-         * @param platformId The ID of the platform that is used by the target signing profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder platformId(String platformId) {
             return platformId(Output.of(platformId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param signatureValidityPeriod The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder signatureValidityPeriod(@Nullable Output<SigningProfileSignatureValidityPeriodArgs> signatureValidityPeriod) {
             $.signatureValidityPeriod = signatureValidityPeriod;
             return this;
         }
 
-        /**
-         * @param signatureValidityPeriod The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder signatureValidityPeriod(SigningProfileSignatureValidityPeriodArgs signatureValidityPeriod) {
             return signatureValidityPeriod(Output.of(signatureValidityPeriod));
         }
 
-        /**
-         * @param signingMaterial The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder signingMaterial(@Nullable Output<SigningProfileSigningMaterialArgs> signingMaterial) {
             $.signingMaterial = signingMaterial;
             return this;
         }
 
-        /**
-         * @param signingMaterial The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder signingMaterial(SigningProfileSigningMaterialArgs signingMaterial) {
             return signingMaterial(Output.of(signingMaterial));
         }
 
-        /**
-         * @param signingParameters Map of key-value pairs for signing. These can include any information that you want to use during signing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder signingParameters(@Nullable Output<Map<String,String>> signingParameters) {
             $.signingParameters = signingParameters;
             return this;
         }
 
-        /**
-         * @param signingParameters Map of key-value pairs for signing. These can include any information that you want to use during signing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder signingParameters(Map<String,String> signingParameters) {
             return signingParameters(Output.of(signingParameters));
         }
 
-        /**
-         * @param tags A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

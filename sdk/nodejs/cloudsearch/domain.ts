@@ -7,53 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an CloudSearch domain resource.
- *
- * The provider waits for the domain to become `Active` when applying a configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudsearch.Domain("example", {
- *     name: "example-domain",
- *     scalingParameters: {
- *         desiredInstanceType: "search.medium",
- *     },
- *     indexFields: [
- *         {
- *             name: "headline",
- *             type: "text",
- *             search: true,
- *             "return": true,
- *             sort: true,
- *             highlight: false,
- *             analysisScheme: "_en_default_",
- *         },
- *         {
- *             name: "price",
- *             type: "double",
- *             search: true,
- *             facet: true,
- *             "return": true,
- *             sort: true,
- *             sourceFields: "headline",
- *         },
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import CloudSearch Domains using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:cloudsearch/domain:Domain example example-domain
- * ```
- */
 export class Domain extends pulumi.CustomResource {
     /**
      * Get an existing Domain resource's state with the given name, ID, and optional extra
@@ -82,45 +35,15 @@ export class Domain extends pulumi.CustomResource {
         return obj['__pulumiType'] === Domain.__pulumiType;
     }
 
-    /**
-     * The domain's ARN.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The service endpoint for updating documents in a search domain.
-     */
     declare public /*out*/ readonly documentServiceEndpoint: pulumi.Output<string>;
-    /**
-     * An internally generated unique identifier for the domain.
-     */
     declare public /*out*/ readonly domainId: pulumi.Output<string>;
-    /**
-     * Domain endpoint options. Documented below.
-     */
     declare public readonly endpointOptions: pulumi.Output<outputs.cloudsearch.DomainEndpointOptions>;
-    /**
-     * The index fields for documents added to the domain. Documented below.
-     */
     declare public readonly indexFields: pulumi.Output<outputs.cloudsearch.DomainIndexField[] | undefined>;
-    /**
-     * Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
-     */
     declare public readonly multiAz: pulumi.Output<boolean>;
-    /**
-     * The name of the CloudSearch domain.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Domain scaling parameters. Documented below.
-     */
     declare public readonly scalingParameters: pulumi.Output<outputs.cloudsearch.DomainScalingParameters>;
-    /**
-     * The service endpoint for requesting search results from a search domain.
-     */
     declare public /*out*/ readonly searchServiceEndpoint: pulumi.Output<string>;
 
     /**
@@ -168,45 +91,15 @@ export class Domain extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Domain resources.
  */
 export interface DomainState {
-    /**
-     * The domain's ARN.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The service endpoint for updating documents in a search domain.
-     */
     documentServiceEndpoint?: pulumi.Input<string>;
-    /**
-     * An internally generated unique identifier for the domain.
-     */
     domainId?: pulumi.Input<string>;
-    /**
-     * Domain endpoint options. Documented below.
-     */
     endpointOptions?: pulumi.Input<inputs.cloudsearch.DomainEndpointOptions>;
-    /**
-     * The index fields for documents added to the domain. Documented below.
-     */
     indexFields?: pulumi.Input<pulumi.Input<inputs.cloudsearch.DomainIndexField>[]>;
-    /**
-     * Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
-     */
     multiAz?: pulumi.Input<boolean>;
-    /**
-     * The name of the CloudSearch domain.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Domain scaling parameters. Documented below.
-     */
     scalingParameters?: pulumi.Input<inputs.cloudsearch.DomainScalingParameters>;
-    /**
-     * The service endpoint for requesting search results from a search domain.
-     */
     searchServiceEndpoint?: pulumi.Input<string>;
 }
 
@@ -214,28 +107,10 @@ export interface DomainState {
  * The set of arguments for constructing a Domain resource.
  */
 export interface DomainArgs {
-    /**
-     * Domain endpoint options. Documented below.
-     */
     endpointOptions?: pulumi.Input<inputs.cloudsearch.DomainEndpointOptions>;
-    /**
-     * The index fields for documents added to the domain. Documented below.
-     */
     indexFields?: pulumi.Input<pulumi.Input<inputs.cloudsearch.DomainIndexField>[]>;
-    /**
-     * Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
-     */
     multiAz?: pulumi.Input<boolean>;
-    /**
-     * The name of the CloudSearch domain.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Domain scaling parameters. Documented below.
-     */
     scalingParameters?: pulumi.Input<inputs.cloudsearch.DomainScalingParameters>;
 }

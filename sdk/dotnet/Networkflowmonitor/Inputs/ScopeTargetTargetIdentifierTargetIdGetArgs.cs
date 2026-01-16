@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Networkflowmonitor.Inputs
 
     public sealed class ScopeTargetTargetIdentifierTargetIdGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// AWS account ID.
-        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 

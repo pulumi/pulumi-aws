@@ -15,32 +15,16 @@ public final class GetNamespacePlainArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetNamespacePlainArgs Empty = new GetNamespacePlainArgs();
 
-    /**
-     * The name of the namespace.
-     * 
-     */
     @Import(name="namespaceName", required=true)
     private String namespaceName;
 
-    /**
-     * @return The name of the namespace.
-     * 
-     */
     public String namespaceName() {
         return this.namespaceName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,23 +54,11 @@ public final class GetNamespacePlainArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetNamespacePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param namespaceName The name of the namespace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespaceName(String namespaceName) {
             $.namespaceName = namespaceName;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

@@ -14,208 +14,47 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS SSM Contacts Contact Channel.
- * 
- * &gt; **NOTE:** The contact channel needs to be activated in the AWS Systems Manager console, otherwise it can&#39;t be used to engage the contact. See the [Contacts section of the Incident Manager User Guide](https://docs.aws.amazon.com/incident-manager/latest/userguide/contacts.html) for more information.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssmcontacts.ContactChannel;
- * import com.pulumi.aws.ssmcontacts.ContactChannelArgs;
- * import com.pulumi.aws.ssmcontacts.inputs.ContactChannelDeliveryAddressArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App }{{@code
- *     public static void main(String[] args) }{{@code
- *         Pulumi.run(App::stack);
- *     }}{@code
- * 
- *     public static void stack(Context ctx) }{{@code
- *         var example = new ContactChannel("example", ContactChannelArgs.builder()
- *             .contactId("arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
- *             .deliveryAddress(ContactChannelDeliveryAddressArgs.builder()
- *                 .simpleAddress("email}{@literal @}{@code example.com")
- *                 .build())
- *             .name("Example contact channel")
- *             .type("EMAIL")
- *             .build());
- * 
- *     }}{@code
- * }}{@code
- * }
- * </pre>
- * 
- * ### Usage with SSM Contact
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssmcontacts.Contact;
- * import com.pulumi.aws.ssmcontacts.ContactArgs;
- * import com.pulumi.aws.ssmcontacts.ContactChannel;
- * import com.pulumi.aws.ssmcontacts.ContactChannelArgs;
- * import com.pulumi.aws.ssmcontacts.inputs.ContactChannelDeliveryAddressArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App }{{@code
- *     public static void main(String[] args) }{{@code
- *         Pulumi.run(App::stack);
- *     }}{@code
- * 
- *     public static void stack(Context ctx) }{{@code
- *         var exampleContact = new Contact("exampleContact", ContactArgs.builder()
- *             .alias("example_contact")
- *             .type("PERSONAL")
- *             .build());
- * 
- *         var example = new ContactChannel("example", ContactChannelArgs.builder()
- *             .contactId(exampleContact.arn())
- *             .deliveryAddress(ContactChannelDeliveryAddressArgs.builder()
- *                 .simpleAddress("email}{@literal @}{@code example.com")
- *                 .build())
- *             .name("Example contact channel")
- *             .type("EMAIL")
- *             .build());
- * 
- *     }}{@code
- * }}{@code
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the contact channel.
- * 
- * Using `pulumi import`, import SSM Contact Channel using the `arn`. For example:
- * 
- * % pulumi import aws_ssmcontacts_contact_channel.example arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example
- * 
- */
 @ResourceType(type="aws:ssmcontacts/contactChannel:ContactChannel")
 public class ContactChannel extends com.pulumi.resources.CustomResource {
-    /**
-     * Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
-     * 
-     */
     @Export(name="activationStatus", refs={String.class}, tree="[0]")
     private Output<String> activationStatus;
 
-    /**
-     * @return Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
-     * 
-     */
     public Output<String> activationStatus() {
         return this.activationStatus;
     }
-    /**
-     * Amazon Resource Name (ARN) of the contact channel.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the contact channel.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
-     * 
-     */
     @Export(name="contactId", refs={String.class}, tree="[0]")
     private Output<String> contactId;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
-     * 
-     */
     public Output<String> contactId() {
         return this.contactId;
     }
-    /**
-     * Block that contains contact engagement details. See details below.
-     * 
-     */
     @Export(name="deliveryAddress", refs={ContactChannelDeliveryAddress.class}, tree="[0]")
     private Output<ContactChannelDeliveryAddress> deliveryAddress;
 
-    /**
-     * @return Block that contains contact engagement details. See details below.
-     * 
-     */
     public Output<ContactChannelDeliveryAddress> deliveryAddress() {
         return this.deliveryAddress;
     }
-    /**
-     * Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }

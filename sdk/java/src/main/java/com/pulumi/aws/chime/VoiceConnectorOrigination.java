@@ -18,130 +18,29 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Enable origination settings to control inbound calling to your SIP infrastructure.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.chime.VoiceConnector;
- * import com.pulumi.aws.chime.VoiceConnectorArgs;
- * import com.pulumi.aws.chime.VoiceConnectorOrigination;
- * import com.pulumi.aws.chime.VoiceConnectorOriginationArgs;
- * import com.pulumi.aws.chime.inputs.VoiceConnectorOriginationRouteArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var default_ = new VoiceConnector("default", VoiceConnectorArgs.builder()
- *             .name("test")
- *             .requireEncryption(true)
- *             .build());
- * 
- *         var defaultVoiceConnectorOrigination = new VoiceConnectorOrigination("defaultVoiceConnectorOrigination", VoiceConnectorOriginationArgs.builder()
- *             .disabled(false)
- *             .voiceConnectorId(default_.id())
- *             .routes(            
- *                 VoiceConnectorOriginationRouteArgs.builder()
- *                     .host("127.0.0.1")
- *                     .port(8081)
- *                     .protocol("TCP")
- *                     .priority(1)
- *                     .weight(1)
- *                     .build(),
- *                 VoiceConnectorOriginationRouteArgs.builder()
- *                     .host("127.0.0.2")
- *                     .port(8082)
- *                     .protocol("TCP")
- *                     .priority(2)
- *                     .weight(10)
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Chime Voice Connector Origination using the `voice_connector_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:chime/voiceConnectorOrigination:VoiceConnectorOrigination default abcdef1ghij2klmno3pqr4
- * ```
- * 
- */
 @ResourceType(type="aws:chime/voiceConnectorOrigination:VoiceConnectorOrigination")
 public class VoiceConnectorOrigination extends com.pulumi.resources.CustomResource {
-    /**
-     * When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
-     * 
-     */
     @Export(name="disabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disabled;
 
-    /**
-     * @return When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
-     * 
-     */
     public Output<Optional<Boolean>> disabled() {
         return Codegen.optional(this.disabled);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
-     * 
-     */
     @Export(name="routes", refs={List.class,VoiceConnectorOriginationRoute.class}, tree="[0,1]")
     private Output<List<VoiceConnectorOriginationRoute>> routes;
 
-    /**
-     * @return Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
-     * 
-     */
     public Output<List<VoiceConnectorOriginationRoute>> routes() {
         return this.routes;
     }
-    /**
-     * The Amazon Chime Voice Connector ID.
-     * 
-     */
     @Export(name="voiceConnectorId", refs={String.class}, tree="[0]")
     private Output<String> voiceConnectorId;
 
-    /**
-     * @return The Amazon Chime Voice Connector ID.
-     * 
-     */
     public Output<String> voiceConnectorId() {
         return this.voiceConnectorId;
     }

@@ -38,13 +38,7 @@ MYPY = False
 if not MYPY:
     class CentralizationRuleForOrganizationRuleArgsDict(TypedDict):
         destination: NotRequired[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationArgsDict']]
-        """
-        Configuration block for the destination where logs will be centralized. See `destination` below.
-        """
         source: NotRequired[pulumi.Input['CentralizationRuleForOrganizationRuleSourceArgsDict']]
-        """
-        Configuration block for the source of logs to be centralized. See `source` below.
-        """
 elif False:
     CentralizationRuleForOrganizationRuleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -53,10 +47,6 @@ class CentralizationRuleForOrganizationRuleArgs:
     def __init__(__self__, *,
                  destination: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationArgs']] = None,
                  source: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleSourceArgs']] = None):
-        """
-        :param pulumi.Input['CentralizationRuleForOrganizationRuleDestinationArgs'] destination: Configuration block for the destination where logs will be centralized. See `destination` below.
-        :param pulumi.Input['CentralizationRuleForOrganizationRuleSourceArgs'] source: Configuration block for the source of logs to be centralized. See `source` below.
-        """
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
         if source is not None:
@@ -65,9 +55,6 @@ class CentralizationRuleForOrganizationRuleArgs:
     @_builtins.property
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationArgs']]:
-        """
-        Configuration block for the destination where logs will be centralized. See `destination` below.
-        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -77,9 +64,6 @@ class CentralizationRuleForOrganizationRuleArgs:
     @_builtins.property
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input['CentralizationRuleForOrganizationRuleSourceArgs']]:
-        """
-        Configuration block for the source of logs to be centralized. See `source` below.
-        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -90,17 +74,8 @@ class CentralizationRuleForOrganizationRuleArgs:
 if not MYPY:
     class CentralizationRuleForOrganizationRuleDestinationArgsDict(TypedDict):
         account: pulumi.Input[_builtins.str]
-        """
-        AWS account ID where logs will be centralized.
-        """
         region: pulumi.Input[_builtins.str]
-        """
-        AWS region where logs will be centralized.
-        """
         destination_logs_configuration: NotRequired[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgsDict']]
-        """
-        Configuration block for destination logs settings. See `destination_logs_configuration` below.
-        """
 elif False:
     CentralizationRuleForOrganizationRuleDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -110,11 +85,6 @@ class CentralizationRuleForOrganizationRuleDestinationArgs:
                  account: pulumi.Input[_builtins.str],
                  region: pulumi.Input[_builtins.str],
                  destination_logs_configuration: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs']] = None):
-        """
-        :param pulumi.Input[_builtins.str] account: AWS account ID where logs will be centralized.
-        :param pulumi.Input[_builtins.str] region: AWS region where logs will be centralized.
-        :param pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs'] destination_logs_configuration: Configuration block for destination logs settings. See `destination_logs_configuration` below.
-        """
         pulumi.set(__self__, "account", account)
         pulumi.set(__self__, "region", region)
         if destination_logs_configuration is not None:
@@ -123,9 +93,6 @@ class CentralizationRuleForOrganizationRuleDestinationArgs:
     @_builtins.property
     @pulumi.getter
     def account(self) -> pulumi.Input[_builtins.str]:
-        """
-        AWS account ID where logs will be centralized.
-        """
         return pulumi.get(self, "account")
 
     @account.setter
@@ -135,9 +102,6 @@ class CentralizationRuleForOrganizationRuleDestinationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Input[_builtins.str]:
-        """
-        AWS region where logs will be centralized.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -147,9 +111,6 @@ class CentralizationRuleForOrganizationRuleDestinationArgs:
     @_builtins.property
     @pulumi.getter(name="destinationLogsConfiguration")
     def destination_logs_configuration(self) -> Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs']]:
-        """
-        Configuration block for destination logs settings. See `destination_logs_configuration` below.
-        """
         return pulumi.get(self, "destination_logs_configuration")
 
     @destination_logs_configuration.setter
@@ -160,13 +121,7 @@ class CentralizationRuleForOrganizationRuleDestinationArgs:
 if not MYPY:
     class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgsDict(TypedDict):
         backup_configuration: NotRequired[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgsDict']]
-        """
-        Configuration block for backup settings. See `backup_configuration` below.
-        """
         logs_encryption_configuration: NotRequired[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgsDict']]
-        """
-        Configuration block for logs encryption settings. See `logs_encryption_configuration` below.
-        """
 elif False:
     CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -175,10 +130,6 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
     def __init__(__self__, *,
                  backup_configuration: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs']] = None,
                  logs_encryption_configuration: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs']] = None):
-        """
-        :param pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs'] backup_configuration: Configuration block for backup settings. See `backup_configuration` below.
-        :param pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs'] logs_encryption_configuration: Configuration block for logs encryption settings. See `logs_encryption_configuration` below.
-        """
         if backup_configuration is not None:
             pulumi.set(__self__, "backup_configuration", backup_configuration)
         if logs_encryption_configuration is not None:
@@ -187,9 +138,6 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
     @_builtins.property
     @pulumi.getter(name="backupConfiguration")
     def backup_configuration(self) -> Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs']]:
-        """
-        Configuration block for backup settings. See `backup_configuration` below.
-        """
         return pulumi.get(self, "backup_configuration")
 
     @backup_configuration.setter
@@ -199,9 +147,6 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
     @_builtins.property
     @pulumi.getter(name="logsEncryptionConfiguration")
     def logs_encryption_configuration(self) -> Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs']]:
-        """
-        Configuration block for logs encryption settings. See `logs_encryption_configuration` below.
-        """
         return pulumi.get(self, "logs_encryption_configuration")
 
     @logs_encryption_configuration.setter
@@ -212,13 +157,7 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
 if not MYPY:
     class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgsDict(TypedDict):
         kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the KMS key to use for backup encryption.
-        """
         region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AWS region for backup storage.
-        """
 elif False:
     CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -227,10 +166,6 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
     def __init__(__self__, *,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key to use for backup encryption.
-        :param pulumi.Input[_builtins.str] region: AWS region for backup storage.
-        """
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if region is not None:
@@ -239,9 +174,6 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the KMS key to use for backup encryption.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -251,9 +183,6 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS region for backup storage.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -264,17 +193,8 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
 if not MYPY:
     class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgsDict(TypedDict):
         encryption_strategy: pulumi.Input[_builtins.str]
-        """
-        Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
-        """
         encryption_conflict_resolution_strategy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Strategy for resolving encryption conflicts. Valid values: `ALLOW`, `SKIP`.
-        """
         kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the KMS key to use for encryption when `encryption_strategy` is `CUSTOMER_MANAGED`.
-        """
 elif False:
     CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -284,11 +204,6 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
                  encryption_strategy: pulumi.Input[_builtins.str],
                  encryption_conflict_resolution_strategy: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] encryption_strategy: Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
-        :param pulumi.Input[_builtins.str] encryption_conflict_resolution_strategy: Strategy for resolving encryption conflicts. Valid values: `ALLOW`, `SKIP`.
-        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key to use for encryption when `encryption_strategy` is `CUSTOMER_MANAGED`.
-        """
         pulumi.set(__self__, "encryption_strategy", encryption_strategy)
         if encryption_conflict_resolution_strategy is not None:
             pulumi.set(__self__, "encryption_conflict_resolution_strategy", encryption_conflict_resolution_strategy)
@@ -298,9 +213,6 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
     @_builtins.property
     @pulumi.getter(name="encryptionStrategy")
     def encryption_strategy(self) -> pulumi.Input[_builtins.str]:
-        """
-        Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
-        """
         return pulumi.get(self, "encryption_strategy")
 
     @encryption_strategy.setter
@@ -310,9 +222,6 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
     @_builtins.property
     @pulumi.getter(name="encryptionConflictResolutionStrategy")
     def encryption_conflict_resolution_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Strategy for resolving encryption conflicts. Valid values: `ALLOW`, `SKIP`.
-        """
         return pulumi.get(self, "encryption_conflict_resolution_strategy")
 
     @encryption_conflict_resolution_strategy.setter
@@ -322,9 +231,6 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the KMS key to use for encryption when `encryption_strategy` is `CUSTOMER_MANAGED`.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -335,17 +241,8 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
 if not MYPY:
     class CentralizationRuleForOrganizationRuleSourceArgsDict(TypedDict):
         regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Set of AWS regions from which to centralize logs. Must contain at least one region.
-        """
         scope: pulumi.Input[_builtins.str]
-        """
-        Scope defining which resources to include. Use organization ID format: `OrganizationId = 'o-example123456'`.
-        """
         source_logs_configuration: NotRequired[pulumi.Input['CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgsDict']]
-        """
-        Configuration block for source logs settings. See `source_logs_configuration` below.
-        """
 elif False:
     CentralizationRuleForOrganizationRuleSourceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -355,11 +252,6 @@ class CentralizationRuleForOrganizationRuleSourceArgs:
                  regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  scope: pulumi.Input[_builtins.str],
                  source_logs_configuration: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs']] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: Set of AWS regions from which to centralize logs. Must contain at least one region.
-        :param pulumi.Input[_builtins.str] scope: Scope defining which resources to include. Use organization ID format: `OrganizationId = 'o-example123456'`.
-        :param pulumi.Input['CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs'] source_logs_configuration: Configuration block for source logs settings. See `source_logs_configuration` below.
-        """
         pulumi.set(__self__, "regions", regions)
         pulumi.set(__self__, "scope", scope)
         if source_logs_configuration is not None:
@@ -368,9 +260,6 @@ class CentralizationRuleForOrganizationRuleSourceArgs:
     @_builtins.property
     @pulumi.getter
     def regions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Set of AWS regions from which to centralize logs. Must contain at least one region.
-        """
         return pulumi.get(self, "regions")
 
     @regions.setter
@@ -380,9 +269,6 @@ class CentralizationRuleForOrganizationRuleSourceArgs:
     @_builtins.property
     @pulumi.getter
     def scope(self) -> pulumi.Input[_builtins.str]:
-        """
-        Scope defining which resources to include. Use organization ID format: `OrganizationId = 'o-example123456'`.
-        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -392,9 +278,6 @@ class CentralizationRuleForOrganizationRuleSourceArgs:
     @_builtins.property
     @pulumi.getter(name="sourceLogsConfiguration")
     def source_logs_configuration(self) -> Optional[pulumi.Input['CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs']]:
-        """
-        Configuration block for source logs settings. See `source_logs_configuration` below.
-        """
         return pulumi.get(self, "source_logs_configuration")
 
     @source_logs_configuration.setter
@@ -405,13 +288,7 @@ class CentralizationRuleForOrganizationRuleSourceArgs:
 if not MYPY:
     class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgsDict(TypedDict):
         encrypted_log_group_strategy: pulumi.Input[_builtins.str]
-        """
-        Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
-        """
         log_group_selection_criteria: pulumi.Input[_builtins.str]
-        """
-        Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE '/aws/lambda%'`. Must be between 1 and 2000 characters.
-        """
 elif False:
     CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -420,19 +297,12 @@ class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs:
     def __init__(__self__, *,
                  encrypted_log_group_strategy: pulumi.Input[_builtins.str],
                  log_group_selection_criteria: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] encrypted_log_group_strategy: Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
-        :param pulumi.Input[_builtins.str] log_group_selection_criteria: Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE '/aws/lambda%'`. Must be between 1 and 2000 characters.
-        """
         pulumi.set(__self__, "encrypted_log_group_strategy", encrypted_log_group_strategy)
         pulumi.set(__self__, "log_group_selection_criteria", log_group_selection_criteria)
 
     @_builtins.property
     @pulumi.getter(name="encryptedLogGroupStrategy")
     def encrypted_log_group_strategy(self) -> pulumi.Input[_builtins.str]:
-        """
-        Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
-        """
         return pulumi.get(self, "encrypted_log_group_strategy")
 
     @encrypted_log_group_strategy.setter
@@ -442,9 +312,6 @@ class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="logGroupSelectionCriteria")
     def log_group_selection_criteria(self) -> pulumi.Input[_builtins.str]:
-        """
-        Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE '/aws/lambda%'`. Must be between 1 and 2000 characters.
-        """
         return pulumi.get(self, "log_group_selection_criteria")
 
     @log_group_selection_criteria.setter

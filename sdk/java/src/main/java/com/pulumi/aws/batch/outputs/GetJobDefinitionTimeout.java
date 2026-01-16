@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetJobDefinitionTimeout {
-    /**
-     * @return The job timeout time (in seconds) that&#39;s measured from the job attempt&#39;s startedAt timestamp.
-     * 
-     */
     private Integer attemptDurationSeconds;
 
     private GetJobDefinitionTimeout() {}
-    /**
-     * @return The job timeout time (in seconds) that&#39;s measured from the job attempt&#39;s startedAt timestamp.
-     * 
-     */
     public Integer attemptDurationSeconds() {
         return this.attemptDurationSeconds;
     }

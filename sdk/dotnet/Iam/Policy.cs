@@ -9,126 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    /// <summary>
-    /// Provides an IAM policy.
-    /// 
-    /// &gt; **NOTE:** We suggest using explicit JSON encoding or `aws.iam.getPolicyDocument` when assigning a value to `Policy`. They seamlessly translate configuration to JSON, enabling you to maintain consistency within your configuration without the need for context switches. Also, you can sidestep potential complications arising from formatting discrepancies, whitespace inconsistencies, and other nuances inherent to JSON.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var policy = new Aws.Iam.Policy("policy", new()
-    ///     {
-    ///         Name = "test_policy",
-    ///         Path = "/",
-    ///         Description = "My test policy",
-    ///         PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "ec2:Describe*",
-    ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = "*",
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the IAM policy.
-    /// 
-    /// Using `pulumi import`, import IAM Policies using the `arn`. For example:
-    /// 
-    /// % pulumi import aws_iam_policy.administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
-    /// </summary>
     [AwsResourceType("aws:iam/policy:Policy")]
     public partial class Policy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN assigned by AWS to this policy.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Number of entities (users, groups, and roles) that the policy is attached to.
-        /// </summary>
         [Output("attachmentCount")]
         public Output<int> AttachmentCount { get; private set; } = null!;
 
-        /// <summary>
-        /// Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
-        /// </summary>
         [Output("delayAfterPolicyCreationInMs")]
         public Output<int?> DelayAfterPolicyCreationInMs { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the IAM policy.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the policy. If omitted, the provider will assign a random, unique name.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
-        /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
 
-        /// <summary>
-        /// Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-        /// </summary>
         [Output("path")]
         public Output<string?> Path { get; private set; } = null!;
 
-        /// <summary>
-        /// Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
-        /// </summary>
         [Output("policy")]
         public Output<string> PolicyDocument { get; private set; } = null!;
 
-        /// <summary>
-        /// Policy's ID.
-        /// </summary>
         [Output("policyId")]
         public Output<string> PolicyId { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of resource tags for the IAM Policy. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -178,48 +91,26 @@ namespace Pulumi.Aws.Iam
 
     public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
-        /// </summary>
         [Input("delayAfterPolicyCreationInMs")]
         public Input<int>? DelayAfterPolicyCreationInMs { get; set; }
 
-        /// <summary>
-        /// Description of the IAM policy.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name of the policy. If omitted, the provider will assign a random, unique name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
-        /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
-        /// <summary>
-        /// Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
-        /// <summary>
-        /// Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
-        /// </summary>
         [Input("policy", required: true)]
         public InputUnion<string, Inputs.PolicyDocumentArgs> PolicyDocument { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of resource tags for the IAM Policy. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -234,66 +125,35 @@ namespace Pulumi.Aws.Iam
 
     public sealed class PolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN assigned by AWS to this policy.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Number of entities (users, groups, and roles) that the policy is attached to.
-        /// </summary>
         [Input("attachmentCount")]
         public Input<int>? AttachmentCount { get; set; }
 
-        /// <summary>
-        /// Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
-        /// </summary>
         [Input("delayAfterPolicyCreationInMs")]
         public Input<int>? DelayAfterPolicyCreationInMs { get; set; }
 
-        /// <summary>
-        /// Description of the IAM policy.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name of the policy. If omitted, the provider will assign a random, unique name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
-        /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
-        /// <summary>
-        /// Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
-        /// <summary>
-        /// Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
-        /// </summary>
         [Input("policy")]
         public InputUnion<string, Inputs.PolicyDocumentGetArgs>? PolicyDocument { get; set; }
 
-        /// <summary>
-        /// Policy's ID.
-        /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of resource tags for the IAM Policy. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -302,10 +162,6 @@ namespace Pulumi.Aws.Iam
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

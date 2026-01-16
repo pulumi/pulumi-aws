@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget {
-    /**
-     * @return The identifier of the target document attribute or metadata field. For example, &#39;Department&#39; could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
-     * 
-     */
     private @Nullable String targetDocumentAttributeKey;
-    /**
-     * @return The target value you want to create for the target attribute. For example, &#39;Finance&#39; could be the target value for the target attribute key &#39;Department&#39;. See target_document_attribute_value.
-     * 
-     */
     private @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue targetDocumentAttributeValue;
-    /**
-     * @return `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE`. To create a target value (`TargetDocumentAttributeValue`), set this to `FALSE`.
-     * 
-     */
     private @Nullable Boolean targetDocumentAttributeValueDeletion;
 
     private DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget() {}
-    /**
-     * @return The identifier of the target document attribute or metadata field. For example, &#39;Department&#39; could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
-     * 
-     */
     public Optional<String> targetDocumentAttributeKey() {
         return Optional.ofNullable(this.targetDocumentAttributeKey);
     }
-    /**
-     * @return The target value you want to create for the target attribute. For example, &#39;Finance&#39; could be the target value for the target attribute key &#39;Department&#39;. See target_document_attribute_value.
-     * 
-     */
     public Optional<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue> targetDocumentAttributeValue() {
         return Optional.ofNullable(this.targetDocumentAttributeValue);
     }
-    /**
-     * @return `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE`. To create a target value (`TargetDocumentAttributeValue`), set this to `FALSE`.
-     * 
-     */
     public Optional<Boolean> targetDocumentAttributeValueDeletion() {
         return Optional.ofNullable(this.targetDocumentAttributeValueDeletion);
     }

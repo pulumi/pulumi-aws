@@ -11,75 +11,12 @@ namespace Pulumi.Aws.CloudWatch
 {
     public static class GetLogGroups
     {
-        /// <summary>
-        /// Use this data source to get a list of AWS Cloudwatch Log Groups
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudWatch.GetLogGroups.Invoke(new()
-        ///     {
-        ///         LogGroupNamePrefix = "/MyImportantLogs",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetLogGroupsResult> InvokeAsync(GetLogGroupsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogGroupsResult>("aws:cloudwatch/getLogGroups:getLogGroups", args ?? new GetLogGroupsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get a list of AWS Cloudwatch Log Groups
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudWatch.GetLogGroups.Invoke(new()
-        ///     {
-        ///         LogGroupNamePrefix = "/MyImportantLogs",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetLogGroupsResult> Invoke(GetLogGroupsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogGroupsResult>("aws:cloudwatch/getLogGroups:getLogGroups", args ?? new GetLogGroupsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get a list of AWS Cloudwatch Log Groups
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudWatch.GetLogGroups.Invoke(new()
-        ///     {
-        ///         LogGroupNamePrefix = "/MyImportantLogs",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetLogGroupsResult> Invoke(GetLogGroupsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogGroupsResult>("aws:cloudwatch/getLogGroups:getLogGroups", args ?? new GetLogGroupsInvokeArgs(), options.WithDefaults());
     }
@@ -87,15 +24,9 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class GetLogGroupsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Group prefix of the Cloudwatch log groups to list
-        /// </summary>
         [Input("logGroupNamePrefix")]
         public string? LogGroupNamePrefix { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -107,15 +38,9 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class GetLogGroupsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Group prefix of the Cloudwatch log groups to list
-        /// </summary>
         [Input("logGroupNamePrefix")]
         public Input<string>? LogGroupNamePrefix { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -129,18 +54,12 @@ namespace Pulumi.Aws.CloudWatch
     [OutputType]
     public sealed class GetLogGroupsResult
     {
-        /// <summary>
-        /// Set of ARNs of the Cloudwatch log groups
-        /// </summary>
         public readonly ImmutableArray<string> Arns;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string? LogGroupNamePrefix;
-        /// <summary>
-        /// Set of names of the Cloudwatch log groups
-        /// </summary>
         public readonly ImmutableArray<string> LogGroupNames;
         public readonly string Region;
 

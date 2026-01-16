@@ -18,10 +18,6 @@ public final class GetExperimentTemplatesResult {
      * 
      */
     private String id;
-    /**
-     * @return List of all the experiment template ids found.
-     * 
-     */
     private List<String> ids;
     private String region;
     private @Nullable Map<String,String> tags;
@@ -34,10 +30,6 @@ public final class GetExperimentTemplatesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of all the experiment template ids found.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }

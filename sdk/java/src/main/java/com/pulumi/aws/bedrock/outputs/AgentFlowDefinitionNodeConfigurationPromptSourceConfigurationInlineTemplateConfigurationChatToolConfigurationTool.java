@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool {
-    /**
-     * @return Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-     * 
-     */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint cachePoint;
-    /**
-     * @return The specification for the tool. See Tool Specification for more information.
-     * 
-     */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec toolSpec;
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool() {}
-    /**
-     * @return Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-     * 
-     */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint> cachePoint() {
         return Optional.ofNullable(this.cachePoint);
     }
-    /**
-     * @return The specification for the tool. See Tool Specification for more information.
-     * 
-     */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec> toolSpec() {
         return Optional.ofNullable(this.toolSpec);
     }

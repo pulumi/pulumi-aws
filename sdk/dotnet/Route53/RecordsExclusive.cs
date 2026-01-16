@@ -9,33 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Route 53 Records Exclusive using the `zone_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:route53/recordsExclusive:RecordsExclusive example ABCD1234
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:route53/recordsExclusive:RecordsExclusive")]
     public partial class RecordsExclusive : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A list of all resource record sets associated with the hosted zone.
-        /// See `ResourceRecordSet` below.
-        /// </summary>
         [Output("resourceRecordSets")]
         public Output<ImmutableArray<Outputs.RecordsExclusiveResourceRecordSet>> ResourceRecordSets { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.RecordsExclusiveTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the hosted zone containing the resource record sets.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("zoneId")]
         public Output<string> ZoneId { get; private set; } = null!;
 
@@ -87,11 +69,6 @@ namespace Pulumi.Aws.Route53
     {
         [Input("resourceRecordSets")]
         private InputList<Inputs.RecordsExclusiveResourceRecordSetArgs>? _resourceRecordSets;
-
-        /// <summary>
-        /// A list of all resource record sets associated with the hosted zone.
-        /// See `ResourceRecordSet` below.
-        /// </summary>
         public InputList<Inputs.RecordsExclusiveResourceRecordSetArgs> ResourceRecordSets
         {
             get => _resourceRecordSets ?? (_resourceRecordSets = new InputList<Inputs.RecordsExclusiveResourceRecordSetArgs>());
@@ -101,11 +78,6 @@ namespace Pulumi.Aws.Route53
         [Input("timeouts")]
         public Input<Inputs.RecordsExclusiveTimeoutsArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// ID of the hosted zone containing the resource record sets.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("zoneId", required: true)]
         public Input<string> ZoneId { get; set; } = null!;
 
@@ -119,11 +91,6 @@ namespace Pulumi.Aws.Route53
     {
         [Input("resourceRecordSets")]
         private InputList<Inputs.RecordsExclusiveResourceRecordSetGetArgs>? _resourceRecordSets;
-
-        /// <summary>
-        /// A list of all resource record sets associated with the hosted zone.
-        /// See `ResourceRecordSet` below.
-        /// </summary>
         public InputList<Inputs.RecordsExclusiveResourceRecordSetGetArgs> ResourceRecordSets
         {
             get => _resourceRecordSets ?? (_resourceRecordSets = new InputList<Inputs.RecordsExclusiveResourceRecordSetGetArgs>());
@@ -133,11 +100,6 @@ namespace Pulumi.Aws.Route53
         [Input("timeouts")]
         public Input<Inputs.RecordsExclusiveTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// ID of the hosted zone containing the resource record sets.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("zoneId")]
         public Input<string>? ZoneId { get; set; }
 

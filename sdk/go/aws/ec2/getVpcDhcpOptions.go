@@ -11,74 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve information about an EC2 DHCP Options configuration.
-//
-// ## Example Usage
-//
-// ### Lookup by DHCP Options ID
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.LookupVpcDhcpOptions(ctx, &ec2.LookupVpcDhcpOptionsArgs{
-//				DhcpOptionsId: pulumi.StringRef("dopts-12345678"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Lookup by Filter
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.LookupVpcDhcpOptions(ctx, &ec2.LookupVpcDhcpOptionsArgs{
-//				Filters: []ec2.GetVpcDhcpOptionsFilter{
-//					{
-//						Name: "key",
-//						Values: []string{
-//							"domain-name",
-//						},
-//					},
-//					{
-//						Name: "value",
-//						Values: []string{
-//							"example.com",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVpcDhcpOptions(ctx *pulumi.Context, args *LookupVpcDhcpOptionsArgs, opts ...pulumi.InvokeOption) (*LookupVpcDhcpOptionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcDhcpOptionsResult
@@ -91,42 +23,28 @@ func LookupVpcDhcpOptions(ctx *pulumi.Context, args *LookupVpcDhcpOptionsArgs, o
 
 // A collection of arguments for invoking getVpcDhcpOptions.
 type LookupVpcDhcpOptionsArgs struct {
-	// EC2 DHCP Options ID.
-	DhcpOptionsId *string `pulumi:"dhcpOptionsId"`
-	// List of custom filters as described below.
-	Filters []GetVpcDhcpOptionsFilter `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags assigned to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	DhcpOptionsId *string                   `pulumi:"dhcpOptionsId"`
+	Filters       []GetVpcDhcpOptionsFilter `pulumi:"filters"`
+	Region        *string                   `pulumi:"region"`
+	Tags          map[string]string         `pulumi:"tags"`
 }
 
 // A collection of values returned by getVpcDhcpOptions.
 type LookupVpcDhcpOptionsResult struct {
-	// ARN of the DHCP Options Set.
-	Arn string `pulumi:"arn"`
-	// EC2 DHCP Options ID
-	DhcpOptionsId string `pulumi:"dhcpOptionsId"`
-	// Suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
-	DomainName string `pulumi:"domainName"`
-	// List of name servers.
+	Arn               string                    `pulumi:"arn"`
+	DhcpOptionsId     string                    `pulumi:"dhcpOptionsId"`
+	DomainName        string                    `pulumi:"domainName"`
 	DomainNameServers []string                  `pulumi:"domainNameServers"`
 	Filters           []GetVpcDhcpOptionsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal.
-	Ipv6AddressPreferredLeaseTime string `pulumi:"ipv6AddressPreferredLeaseTime"`
-	// List of NETBIOS name servers.
-	NetbiosNameServers []string `pulumi:"netbiosNameServers"`
-	// NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-	NetbiosNodeType string `pulumi:"netbiosNodeType"`
-	// List of NTP servers.
-	NtpServers []string `pulumi:"ntpServers"`
-	// ID of the AWS account that owns the DHCP options set.
-	OwnerId string `pulumi:"ownerId"`
-	Region  string `pulumi:"region"`
-	// Map of tags assigned to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Id                            string            `pulumi:"id"`
+	Ipv6AddressPreferredLeaseTime string            `pulumi:"ipv6AddressPreferredLeaseTime"`
+	NetbiosNameServers            []string          `pulumi:"netbiosNameServers"`
+	NetbiosNodeType               string            `pulumi:"netbiosNodeType"`
+	NtpServers                    []string          `pulumi:"ntpServers"`
+	OwnerId                       string            `pulumi:"ownerId"`
+	Region                        string            `pulumi:"region"`
+	Tags                          map[string]string `pulumi:"tags"`
 }
 
 func LookupVpcDhcpOptionsOutput(ctx *pulumi.Context, args LookupVpcDhcpOptionsOutputArgs, opts ...pulumi.InvokeOption) LookupVpcDhcpOptionsResultOutput {
@@ -140,14 +58,10 @@ func LookupVpcDhcpOptionsOutput(ctx *pulumi.Context, args LookupVpcDhcpOptionsOu
 
 // A collection of arguments for invoking getVpcDhcpOptions.
 type LookupVpcDhcpOptionsOutputArgs struct {
-	// EC2 DHCP Options ID.
-	DhcpOptionsId pulumi.StringPtrInput `pulumi:"dhcpOptionsId"`
-	// List of custom filters as described below.
-	Filters GetVpcDhcpOptionsFilterArrayInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags assigned to the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	DhcpOptionsId pulumi.StringPtrInput             `pulumi:"dhcpOptionsId"`
+	Filters       GetVpcDhcpOptionsFilterArrayInput `pulumi:"filters"`
+	Region        pulumi.StringPtrInput             `pulumi:"region"`
+	Tags          pulumi.StringMapInput             `pulumi:"tags"`
 }
 
 func (LookupVpcDhcpOptionsOutputArgs) ElementType() reflect.Type {
@@ -169,22 +83,18 @@ func (o LookupVpcDhcpOptionsResultOutput) ToLookupVpcDhcpOptionsResultOutputWith
 	return o
 }
 
-// ARN of the DHCP Options Set.
 func (o LookupVpcDhcpOptionsResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// EC2 DHCP Options ID
 func (o LookupVpcDhcpOptionsResultOutput) DhcpOptionsId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) string { return v.DhcpOptionsId }).(pulumi.StringOutput)
 }
 
-// Suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
 func (o LookupVpcDhcpOptionsResultOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) string { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// List of name servers.
 func (o LookupVpcDhcpOptionsResultOutput) DomainNameServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) []string { return v.DomainNameServers }).(pulumi.StringArrayOutput)
 }
@@ -198,27 +108,22 @@ func (o LookupVpcDhcpOptionsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal.
 func (o LookupVpcDhcpOptionsResultOutput) Ipv6AddressPreferredLeaseTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) string { return v.Ipv6AddressPreferredLeaseTime }).(pulumi.StringOutput)
 }
 
-// List of NETBIOS name servers.
 func (o LookupVpcDhcpOptionsResultOutput) NetbiosNameServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) []string { return v.NetbiosNameServers }).(pulumi.StringArrayOutput)
 }
 
-// NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
 func (o LookupVpcDhcpOptionsResultOutput) NetbiosNodeType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) string { return v.NetbiosNodeType }).(pulumi.StringOutput)
 }
 
-// List of NTP servers.
 func (o LookupVpcDhcpOptionsResultOutput) NtpServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) []string { return v.NtpServers }).(pulumi.StringArrayOutput)
 }
 
-// ID of the AWS account that owns the DHCP options set.
 func (o LookupVpcDhcpOptionsResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) string { return v.OwnerId }).(pulumi.StringOutput)
 }
@@ -227,7 +132,6 @@ func (o LookupVpcDhcpOptionsResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags assigned to the resource.
 func (o LookupVpcDhcpOptionsResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class FieldLevelEncryptionConfigQueryArgProfileConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Flag to set if you want a request to be forwarded to the origin even if the profile specified by the field-level encryption query argument, fle-profile, is unknown.
-        /// </summary>
         [Input("forwardWhenQueryArgProfileIsUnknown", required: true)]
         public Input<bool> ForwardWhenQueryArgProfileIsUnknown { get; set; } = null!;
 
-        /// <summary>
-        /// Object that contains an attribute `Items` that contains the list ofrofiles specified for query argument-profile mapping for field-level encryption. see Query Arg Profile.
-        /// </summary>
         [Input("queryArgProfiles")]
         public Input<Inputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs>? QueryArgProfiles { get; set; }
 

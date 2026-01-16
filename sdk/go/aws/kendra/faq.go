@@ -12,148 +12,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Kendra FAQ.
-//
-// ## Example Usage
-//
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewFaq(ctx, "example", &kendra.FaqArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("Example"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				S3Path: &kendra.FaqS3PathArgs{
-//					Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
-//					Key:    pulumi.Any(exampleAwsS3Object.Key),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Kendra Faq"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With File Format
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewFaq(ctx, "example", &kendra.FaqArgs{
-//				IndexId:    pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:       pulumi.String("Example"),
-//				FileFormat: pulumi.String("CSV"),
-//				RoleArn:    pulumi.Any(exampleAwsIamRole.Arn),
-//				S3Path: &kendra.FaqS3PathArgs{
-//					Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
-//					Key:    pulumi.Any(exampleAwsS3Object.Key),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Language Code
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewFaq(ctx, "example", &kendra.FaqArgs{
-//				IndexId:      pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:         pulumi.String("Example"),
-//				LanguageCode: pulumi.String("en"),
-//				RoleArn:      pulumi.Any(exampleAwsIamRole.Arn),
-//				S3Path: &kendra.FaqS3PathArgs{
-//					Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
-//					Key:    pulumi.Any(exampleAwsS3Object.Key),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_kendra_faq` using the unique identifiers of the FAQ and index separated by a slash (`/`). For example:
-//
-// ```sh
-// $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
-// ```
 type Faq struct {
 	pulumi.CustomResourceState
 
-	// ARN of the FAQ.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The Unix datetime that the FAQ was created.
-	CreatedAt   pulumi.StringOutput    `pulumi:"createdAt"`
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// When the Status field value is `FAILED`, this contains a message that explains why.
-	ErrorMessage pulumi.StringOutput `pulumi:"errorMessage"`
-	// The identifier of the FAQ.
-	FaqId      pulumi.StringOutput    `pulumi:"faqId"`
-	FileFormat pulumi.StringPtrOutput `pulumi:"fileFormat"`
-	// The identifier of the index for a FAQ.
-	IndexId      pulumi.StringOutput `pulumi:"indexId"`
-	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
-	// The name that should be associated with the FAQ.
-	Name   pulumi.StringOutput `pulumi:"name"`
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// The S3 location of the FAQ input data. Detailed below.
-	S3Path FaqS3PathOutput `pulumi:"s3Path"`
-	// The status of the FAQ. It is ready to use when the status is ACTIVE.
-	Status pulumi.StringOutput    `pulumi:"status"`
-	Tags   pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The date and time that the FAQ was last updated.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	Arn          pulumi.StringOutput    `pulumi:"arn"`
+	CreatedAt    pulumi.StringOutput    `pulumi:"createdAt"`
+	Description  pulumi.StringPtrOutput `pulumi:"description"`
+	ErrorMessage pulumi.StringOutput    `pulumi:"errorMessage"`
+	FaqId        pulumi.StringOutput    `pulumi:"faqId"`
+	FileFormat   pulumi.StringPtrOutput `pulumi:"fileFormat"`
+	IndexId      pulumi.StringOutput    `pulumi:"indexId"`
+	LanguageCode pulumi.StringOutput    `pulumi:"languageCode"`
+	Name         pulumi.StringOutput    `pulumi:"name"`
+	Region       pulumi.StringOutput    `pulumi:"region"`
+	RoleArn      pulumi.StringOutput    `pulumi:"roleArn"`
+	S3Path       FaqS3PathOutput        `pulumi:"s3Path"`
+	Status       pulumi.StringOutput    `pulumi:"status"`
+	Tags         pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll      pulumi.StringMapOutput `pulumi:"tagsAll"`
+	UpdatedAt    pulumi.StringOutput    `pulumi:"updatedAt"`
 }
 
 // NewFaq registers a new resource with the given unique name, arguments, and options.
@@ -195,63 +72,41 @@ func GetFaq(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Faq resources.
 type faqState struct {
-	// ARN of the FAQ.
-	Arn *string `pulumi:"arn"`
-	// The Unix datetime that the FAQ was created.
-	CreatedAt   *string `pulumi:"createdAt"`
-	Description *string `pulumi:"description"`
-	// When the Status field value is `FAILED`, this contains a message that explains why.
-	ErrorMessage *string `pulumi:"errorMessage"`
-	// The identifier of the FAQ.
-	FaqId      *string `pulumi:"faqId"`
-	FileFormat *string `pulumi:"fileFormat"`
-	// The identifier of the index for a FAQ.
-	IndexId      *string `pulumi:"indexId"`
-	LanguageCode *string `pulumi:"languageCode"`
-	// The name that should be associated with the FAQ.
-	Name   *string `pulumi:"name"`
-	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-	RoleArn *string `pulumi:"roleArn"`
-	// The S3 location of the FAQ input data. Detailed below.
-	S3Path *FaqS3Path `pulumi:"s3Path"`
-	// The status of the FAQ. It is ready to use when the status is ACTIVE.
-	Status *string           `pulumi:"status"`
-	Tags   map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The date and time that the FAQ was last updated.
-	UpdatedAt *string `pulumi:"updatedAt"`
+	Arn          *string           `pulumi:"arn"`
+	CreatedAt    *string           `pulumi:"createdAt"`
+	Description  *string           `pulumi:"description"`
+	ErrorMessage *string           `pulumi:"errorMessage"`
+	FaqId        *string           `pulumi:"faqId"`
+	FileFormat   *string           `pulumi:"fileFormat"`
+	IndexId      *string           `pulumi:"indexId"`
+	LanguageCode *string           `pulumi:"languageCode"`
+	Name         *string           `pulumi:"name"`
+	Region       *string           `pulumi:"region"`
+	RoleArn      *string           `pulumi:"roleArn"`
+	S3Path       *FaqS3Path        `pulumi:"s3Path"`
+	Status       *string           `pulumi:"status"`
+	Tags         map[string]string `pulumi:"tags"`
+	TagsAll      map[string]string `pulumi:"tagsAll"`
+	UpdatedAt    *string           `pulumi:"updatedAt"`
 }
 
 type FaqState struct {
-	// ARN of the FAQ.
-	Arn pulumi.StringPtrInput
-	// The Unix datetime that the FAQ was created.
-	CreatedAt   pulumi.StringPtrInput
-	Description pulumi.StringPtrInput
-	// When the Status field value is `FAILED`, this contains a message that explains why.
+	Arn          pulumi.StringPtrInput
+	CreatedAt    pulumi.StringPtrInput
+	Description  pulumi.StringPtrInput
 	ErrorMessage pulumi.StringPtrInput
-	// The identifier of the FAQ.
-	FaqId      pulumi.StringPtrInput
-	FileFormat pulumi.StringPtrInput
-	// The identifier of the index for a FAQ.
+	FaqId        pulumi.StringPtrInput
+	FileFormat   pulumi.StringPtrInput
 	IndexId      pulumi.StringPtrInput
 	LanguageCode pulumi.StringPtrInput
-	// The name that should be associated with the FAQ.
-	Name   pulumi.StringPtrInput
-	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-	RoleArn pulumi.StringPtrInput
-	// The S3 location of the FAQ input data. Detailed below.
-	S3Path FaqS3PathPtrInput
-	// The status of the FAQ. It is ready to use when the status is ACTIVE.
-	Status pulumi.StringPtrInput
-	Tags   pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The date and time that the FAQ was last updated.
-	UpdatedAt pulumi.StringPtrInput
+	Name         pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	RoleArn      pulumi.StringPtrInput
+	S3Path       FaqS3PathPtrInput
+	Status       pulumi.StringPtrInput
+	Tags         pulumi.StringMapInput
+	TagsAll      pulumi.StringMapInput
+	UpdatedAt    pulumi.StringPtrInput
 }
 
 func (FaqState) ElementType() reflect.Type {
@@ -259,36 +114,28 @@ func (FaqState) ElementType() reflect.Type {
 }
 
 type faqArgs struct {
-	Description *string `pulumi:"description"`
-	FileFormat  *string `pulumi:"fileFormat"`
-	// The identifier of the index for a FAQ.
-	IndexId      string  `pulumi:"indexId"`
-	LanguageCode *string `pulumi:"languageCode"`
-	// The name that should be associated with the FAQ.
-	Name   *string `pulumi:"name"`
-	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-	RoleArn string `pulumi:"roleArn"`
-	// The S3 location of the FAQ input data. Detailed below.
-	S3Path FaqS3Path         `pulumi:"s3Path"`
-	Tags   map[string]string `pulumi:"tags"`
+	Description  *string           `pulumi:"description"`
+	FileFormat   *string           `pulumi:"fileFormat"`
+	IndexId      string            `pulumi:"indexId"`
+	LanguageCode *string           `pulumi:"languageCode"`
+	Name         *string           `pulumi:"name"`
+	Region       *string           `pulumi:"region"`
+	RoleArn      string            `pulumi:"roleArn"`
+	S3Path       FaqS3Path         `pulumi:"s3Path"`
+	Tags         map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Faq resource.
 type FaqArgs struct {
-	Description pulumi.StringPtrInput
-	FileFormat  pulumi.StringPtrInput
-	// The identifier of the index for a FAQ.
+	Description  pulumi.StringPtrInput
+	FileFormat   pulumi.StringPtrInput
 	IndexId      pulumi.StringInput
 	LanguageCode pulumi.StringPtrInput
-	// The name that should be associated with the FAQ.
-	Name   pulumi.StringPtrInput
-	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-	RoleArn pulumi.StringInput
-	// The S3 location of the FAQ input data. Detailed below.
-	S3Path FaqS3PathInput
-	Tags   pulumi.StringMapInput
+	Name         pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	RoleArn      pulumi.StringInput
+	S3Path       FaqS3PathInput
+	Tags         pulumi.StringMapInput
 }
 
 func (FaqArgs) ElementType() reflect.Type {
@@ -378,12 +225,10 @@ func (o FaqOutput) ToFaqOutputWithContext(ctx context.Context) FaqOutput {
 	return o
 }
 
-// ARN of the FAQ.
 func (o FaqOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The Unix datetime that the FAQ was created.
 func (o FaqOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
@@ -392,12 +237,10 @@ func (o FaqOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// When the Status field value is `FAILED`, this contains a message that explains why.
 func (o FaqOutput) ErrorMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.ErrorMessage }).(pulumi.StringOutput)
 }
 
-// The identifier of the FAQ.
 func (o FaqOutput) FaqId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.FaqId }).(pulumi.StringOutput)
 }
@@ -406,7 +249,6 @@ func (o FaqOutput) FileFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringPtrOutput { return v.FileFormat }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the index for a FAQ.
 func (o FaqOutput) IndexId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.IndexId }).(pulumi.StringOutput)
 }
@@ -415,7 +257,6 @@ func (o FaqOutput) LanguageCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.LanguageCode }).(pulumi.StringOutput)
 }
 
-// The name that should be associated with the FAQ.
 func (o FaqOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -424,17 +265,14 @@ func (o FaqOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 func (o FaqOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// The S3 location of the FAQ input data. Detailed below.
 func (o FaqOutput) S3Path() FaqS3PathOutput {
 	return o.ApplyT(func(v *Faq) FaqS3PathOutput { return v.S3Path }).(FaqS3PathOutput)
 }
 
-// The status of the FAQ. It is ready to use when the status is ACTIVE.
 func (o FaqOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
@@ -443,12 +281,10 @@ func (o FaqOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o FaqOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The date and time that the FAQ was last updated.
 func (o FaqOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }

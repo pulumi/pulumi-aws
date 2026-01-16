@@ -13,13 +13,7 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     [OutputType]
     public sealed class DataCellsFilterTableDataRowFilter
     {
-        /// <summary>
-        /// (Optional) A wildcard that matches all rows.
-        /// </summary>
         public readonly Outputs.DataCellsFilterTableDataRowFilterAllRowsWildcard? AllRowsWildcard;
-        /// <summary>
-        /// (Optional) A filter expression.
-        /// </summary>
         public readonly string? FilterExpression;
 
         [OutputConstructor]

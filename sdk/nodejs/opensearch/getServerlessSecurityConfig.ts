@@ -7,22 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing an AWS OpenSearch Serverless Security Config.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.opensearch.getServerlessSecurityConfig({
- *     id: "saml/12345678912/example",
- * });
- * ```
- */
 export function getServerlessSecurityConfig(args: GetServerlessSecurityConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessSecurityConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:opensearch/getServerlessSecurityConfig:getServerlessSecurityConfig", {
@@ -36,17 +20,8 @@ export function getServerlessSecurityConfig(args: GetServerlessSecurityConfigArg
  * A collection of arguments for invoking getServerlessSecurityConfig.
  */
 export interface GetServerlessSecurityConfigArgs {
-    /**
-     * The unique identifier of the security configuration.
-     */
     id: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * SAML options for the security configuration.
-     */
     samlOptions?: inputs.opensearch.GetServerlessSecurityConfigSamlOption[];
 }
 
@@ -54,49 +29,15 @@ export interface GetServerlessSecurityConfigArgs {
  * A collection of values returned by getServerlessSecurityConfig.
  */
 export interface GetServerlessSecurityConfigResult {
-    /**
-     * The version of the security configuration.
-     */
     readonly configVersion: string;
-    /**
-     * The date the configuration was created.
-     */
     readonly createdDate: string;
-    /**
-     * The description of the security configuration.
-     */
     readonly description: string;
     readonly id: string;
-    /**
-     * The date the configuration was last modified.
-     */
     readonly lastModifiedDate: string;
     readonly region: string;
-    /**
-     * SAML options for the security configuration.
-     */
     readonly samlOptions?: outputs.opensearch.GetServerlessSecurityConfigSamlOption[];
-    /**
-     * The type of security configuration.
-     */
     readonly type: string;
 }
-/**
- * Data source for managing an AWS OpenSearch Serverless Security Config.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.opensearch.getServerlessSecurityConfig({
- *     id: "saml/12345678912/example",
- * });
- * ```
- */
 export function getServerlessSecurityConfigOutput(args: GetServerlessSecurityConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerlessSecurityConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:opensearch/getServerlessSecurityConfig:getServerlessSecurityConfig", {
@@ -110,16 +51,7 @@ export function getServerlessSecurityConfigOutput(args: GetServerlessSecurityCon
  * A collection of arguments for invoking getServerlessSecurityConfig.
  */
 export interface GetServerlessSecurityConfigOutputArgs {
-    /**
-     * The unique identifier of the security configuration.
-     */
     id: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * SAML options for the security configuration.
-     */
     samlOptions?: pulumi.Input<pulumi.Input<inputs.opensearch.GetServerlessSecurityConfigSamlOptionArgs>[]>;
 }

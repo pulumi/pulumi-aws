@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class AnalyticsApplicationInputsParallelism
     {
-        /// <summary>
-        /// The Count of streams.
-        /// </summary>
         public readonly int? Count;
 
         [OutputConstructor]

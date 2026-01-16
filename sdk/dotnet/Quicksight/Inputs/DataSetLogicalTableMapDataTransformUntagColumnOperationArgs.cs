@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DataSetLogicalTableMapDataTransformUntagColumnOperationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Column name.
-        /// </summary>
         [Input("columnName", required: true)]
         public Input<string> ColumnName { get; set; } = null!;
 
         [Input("tagNames", required: true)]
         private InputList<string>? _tagNames;
-
-        /// <summary>
-        /// The column tags to remove from this column.
-        /// </summary>
         public InputList<string> TagNames
         {
             get => _tagNames ?? (_tagNames = new InputList<string>());

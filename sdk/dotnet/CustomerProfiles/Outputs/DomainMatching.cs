@@ -13,21 +13,9 @@ namespace Pulumi.Aws.CustomerProfiles.Outputs
     [OutputType]
     public sealed class DomainMatching
     {
-        /// <summary>
-        /// A block that specifies the configuration about the auto-merging process. Documented below.
-        /// </summary>
         public readonly Outputs.DomainMatchingAutoMerging? AutoMerging;
-        /// <summary>
-        /// The flag that enables the matching process of duplicate profiles.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// A block that specifies the configuration for exporting Identity Resolution results. Documented below.
-        /// </summary>
         public readonly Outputs.DomainMatchingExportingConfig? ExportingConfig;
-        /// <summary>
-        /// A block that specifies the day and time when you want to start the Identity Resolution Job every week. Documented below.
-        /// </summary>
         public readonly Outputs.DomainMatchingJobSchedule? JobSchedule;
 
         [OutputConstructor]

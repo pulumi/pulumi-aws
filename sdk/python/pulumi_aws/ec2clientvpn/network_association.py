@@ -24,9 +24,6 @@ class NetworkAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkAssociation resource.
-        :param pulumi.Input[_builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
-        :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet to associate with the Client VPN endpoint.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "client_vpn_endpoint_id", client_vpn_endpoint_id)
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -36,9 +33,6 @@ class NetworkAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="clientVpnEndpointId")
     def client_vpn_endpoint_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the Client VPN endpoint.
-        """
         return pulumi.get(self, "client_vpn_endpoint_id")
 
     @client_vpn_endpoint_id.setter
@@ -48,9 +42,6 @@ class NetworkAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the subnet to associate with the Client VPN endpoint.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -60,9 +51,6 @@ class NetworkAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -80,11 +68,6 @@ class _NetworkAssociationState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkAssociation resources.
-        :param pulumi.Input[_builtins.str] association_id: The unique ID of the target network association.
-        :param pulumi.Input[_builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet to associate with the Client VPN endpoint.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC in which the target subnet is located.
         """
         if association_id is not None:
             pulumi.set(__self__, "association_id", association_id)
@@ -100,9 +83,6 @@ class _NetworkAssociationState:
     @_builtins.property
     @pulumi.getter(name="associationId")
     def association_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The unique ID of the target network association.
-        """
         return pulumi.get(self, "association_id")
 
     @association_id.setter
@@ -112,9 +92,6 @@ class _NetworkAssociationState:
     @_builtins.property
     @pulumi.getter(name="clientVpnEndpointId")
     def client_vpn_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the Client VPN endpoint.
-        """
         return pulumi.get(self, "client_vpn_endpoint_id")
 
     @client_vpn_endpoint_id.setter
@@ -124,9 +101,6 @@ class _NetworkAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -136,9 +110,6 @@ class _NetworkAssociationState:
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the subnet to associate with the Client VPN endpoint.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -148,9 +119,6 @@ class _NetworkAssociationState:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the VPC in which the target subnet is located.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -169,33 +137,9 @@ class NetworkAssociation(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the
-        [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2clientvpn.NetworkAssociation("example",
-            client_vpn_endpoint_id=example_aws_ec2_client_vpn_endpoint["id"],
-            subnet_id=example_aws_subnet["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AWS Client VPN network associations using the endpoint ID and the association ID. Values are separated by a `,`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2clientvpn/networkAssociation:NetworkAssociation example cvpn-endpoint-0ac3a1abbccddd666,cvpn-assoc-0b8db902465d069ad
-        ```
-
+        Create a NetworkAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet to associate with the Client VPN endpoint.
         """
         ...
     @overload
@@ -204,28 +148,7 @@ class NetworkAssociation(pulumi.CustomResource):
                  args: NetworkAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the
-        [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2clientvpn.NetworkAssociation("example",
-            client_vpn_endpoint_id=example_aws_ec2_client_vpn_endpoint["id"],
-            subnet_id=example_aws_subnet["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AWS Client VPN network associations using the endpoint ID and the association ID. Values are separated by a `,`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2clientvpn/networkAssociation:NetworkAssociation example cvpn-endpoint-0ac3a1abbccddd666,cvpn-assoc-0b8db902465d069ad
-        ```
-
+        Create a NetworkAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param NetworkAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -284,11 +207,6 @@ class NetworkAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] association_id: The unique ID of the target network association.
-        :param pulumi.Input[_builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet to associate with the Client VPN endpoint.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC in which the target subnet is located.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -304,40 +222,25 @@ class NetworkAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="associationId")
     def association_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The unique ID of the target network association.
-        """
         return pulumi.get(self, "association_id")
 
     @_builtins.property
     @pulumi.getter(name="clientVpnEndpointId")
     def client_vpn_endpoint_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the Client VPN endpoint.
-        """
         return pulumi.get(self, "client_vpn_endpoint_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the subnet to associate with the Client VPN endpoint.
-        """
         return pulumi.get(self, "subnet_id")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the VPC in which the target subnet is located.
-        """
         return pulumi.get(self, "vpc_id")
 

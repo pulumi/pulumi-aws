@@ -16,32 +16,16 @@ public final class TargetGroupTargetGroupHealthArgs extends com.pulumi.resources
 
     public static final TargetGroupTargetGroupHealthArgs Empty = new TargetGroupTargetGroupHealthArgs();
 
-    /**
-     * Block to configure DNS Failover requirements. See DNS Failover below for details on attributes.
-     * 
-     */
     @Import(name="dnsFailover")
     private @Nullable Output<TargetGroupTargetGroupHealthDnsFailoverArgs> dnsFailover;
 
-    /**
-     * @return Block to configure DNS Failover requirements. See DNS Failover below for details on attributes.
-     * 
-     */
     public Optional<Output<TargetGroupTargetGroupHealthDnsFailoverArgs>> dnsFailover() {
         return Optional.ofNullable(this.dnsFailover);
     }
 
-    /**
-     * Block to configure Unhealthy State Routing requirements. See Unhealthy State Routing below for details on attributes.
-     * 
-     */
     @Import(name="unhealthyStateRouting")
     private @Nullable Output<TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs> unhealthyStateRouting;
 
-    /**
-     * @return Block to configure Unhealthy State Routing requirements. See Unhealthy State Routing below for details on attributes.
-     * 
-     */
     public Optional<Output<TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs>> unhealthyStateRouting() {
         return Optional.ofNullable(this.unhealthyStateRouting);
     }
@@ -71,44 +55,20 @@ public final class TargetGroupTargetGroupHealthArgs extends com.pulumi.resources
             $ = new TargetGroupTargetGroupHealthArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dnsFailover Block to configure DNS Failover requirements. See DNS Failover below for details on attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsFailover(@Nullable Output<TargetGroupTargetGroupHealthDnsFailoverArgs> dnsFailover) {
             $.dnsFailover = dnsFailover;
             return this;
         }
 
-        /**
-         * @param dnsFailover Block to configure DNS Failover requirements. See DNS Failover below for details on attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsFailover(TargetGroupTargetGroupHealthDnsFailoverArgs dnsFailover) {
             return dnsFailover(Output.of(dnsFailover));
         }
 
-        /**
-         * @param unhealthyStateRouting Block to configure Unhealthy State Routing requirements. See Unhealthy State Routing below for details on attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unhealthyStateRouting(@Nullable Output<TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs> unhealthyStateRouting) {
             $.unhealthyStateRouting = unhealthyStateRouting;
             return this;
         }
 
-        /**
-         * @param unhealthyStateRouting Block to configure Unhealthy State Routing requirements. See Unhealthy State Routing below for details on attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unhealthyStateRouting(TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs unhealthyStateRouting) {
             return unhealthyStateRouting(Output.of(unhealthyStateRouting));
         }

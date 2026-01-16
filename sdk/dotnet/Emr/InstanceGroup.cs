@@ -9,145 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Emr
 {
-    /// <summary>
-    /// Provides an Elastic MapReduce Cluster Instance Group configuration.
-    /// See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/emr/) for more information.
-    /// 
-    /// &gt; **NOTE:** At this time, Instance Groups cannot be destroyed through the API nor
-    /// web interface. Instance Groups are destroyed when the EMR Cluster is destroyed.
-    /// this provider will resize any Instance Group to zero when destroying the resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var task = new Aws.Emr.InstanceGroup("task", new()
-    ///     {
-    ///         ClusterId = tf_test_cluster.Id,
-    ///         InstanceCount = 1,
-    ///         InstanceType = "m5.xlarge",
-    ///         Name = "my little instance group",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import EMR task instance group using their EMR Cluster id and Instance Group id separated by a forward-slash `/`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:emr/instanceGroup:InstanceGroup task_group j-123456ABCDEF/ig-15EK4O09RZLNR
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:emr/instanceGroup:InstanceGroup")]
     public partial class InstanceGroup : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
-        /// </summary>
         [Output("autoscalingPolicy")]
         public Output<string?> AutoscalingPolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-        /// </summary>
         [Output("bidPrice")]
         public Output<string?> BidPrice { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("clusterId")]
         public Output<string> ClusterId { get; private set; } = null!;
 
-        /// <summary>
-        /// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var task = new Aws.Emr.InstanceGroup("task", new()
-        ///     {
-        ///         ConfigurationsJson = @"[
-        /// {
-        /// \""Classification\"": \""hadoop-env\"",
-        /// \""Configurations\"": [
-        /// {
-        /// \""Classification\"": \""export\"",
-        /// \""Properties\"": {
-        /// \""JAVA_HOME\"": \""/usr/lib/jvm/java-1.8.0\""
-        /// }
-        /// }
-        /// ],
-        /// \""Properties\"": {}
-        /// }
-        /// ]
-        /// ",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         [Output("configurationsJson")]
         public Output<string?> ConfigurationsJson { get; private set; } = null!;
 
-        /// <summary>
-        /// One or more `EbsConfig` blocks as defined below. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("ebsConfigs")]
         public Output<ImmutableArray<Outputs.InstanceGroupEbsConfig>> EbsConfigs { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("ebsOptimized")]
         public Output<bool?> EbsOptimized { get; private set; } = null!;
 
-        /// <summary>
-        /// target number of instances for the instance group. defaults to 0.
-        /// </summary>
         [Output("instanceCount")]
         public Output<int> InstanceCount { get; private set; } = null!;
 
-        /// <summary>
-        /// The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
 
-        /// <summary>
-        /// Human friendly name given to the instance group. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The number of instances currently running in this instance group.
-        /// </summary>
         [Output("runningInstanceCount")]
         public Output<int> RunningInstanceCount { get; private set; } = null!;
 
-        /// <summary>
-        /// The current status of the instance group.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -197,99 +94,38 @@ namespace Pulumi.Aws.Emr
 
     public sealed class InstanceGroupArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
-        /// </summary>
         [Input("autoscalingPolicy")]
         public Input<string>? AutoscalingPolicy { get; set; }
 
-        /// <summary>
-        /// If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-        /// </summary>
         [Input("bidPrice")]
         public Input<string>? BidPrice { get; set; }
 
-        /// <summary>
-        /// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("clusterId", required: true)]
         public Input<string> ClusterId { get; set; } = null!;
 
-        /// <summary>
-        /// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var task = new Aws.Emr.InstanceGroup("task", new()
-        ///     {
-        ///         ConfigurationsJson = @"[
-        /// {
-        /// \""Classification\"": \""hadoop-env\"",
-        /// \""Configurations\"": [
-        /// {
-        /// \""Classification\"": \""export\"",
-        /// \""Properties\"": {
-        /// \""JAVA_HOME\"": \""/usr/lib/jvm/java-1.8.0\""
-        /// }
-        /// }
-        /// ],
-        /// \""Properties\"": {}
-        /// }
-        /// ]
-        /// ",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         [Input("configurationsJson")]
         public Input<string>? ConfigurationsJson { get; set; }
 
         [Input("ebsConfigs")]
         private InputList<Inputs.InstanceGroupEbsConfigArgs>? _ebsConfigs;
-
-        /// <summary>
-        /// One or more `EbsConfig` blocks as defined below. Changing this forces a new resource to be created.
-        /// </summary>
         public InputList<Inputs.InstanceGroupEbsConfigArgs> EbsConfigs
         {
             get => _ebsConfigs ?? (_ebsConfigs = new InputList<Inputs.InstanceGroupEbsConfigArgs>());
             set => _ebsConfigs = value;
         }
 
-        /// <summary>
-        /// Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("ebsOptimized")]
         public Input<bool>? EbsOptimized { get; set; }
 
-        /// <summary>
-        /// target number of instances for the instance group. defaults to 0.
-        /// </summary>
         [Input("instanceCount")]
         public Input<int>? InstanceCount { get; set; }
 
-        /// <summary>
-        /// The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
 
-        /// <summary>
-        /// Human friendly name given to the instance group. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -301,111 +137,44 @@ namespace Pulumi.Aws.Emr
 
     public sealed class InstanceGroupState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
-        /// </summary>
         [Input("autoscalingPolicy")]
         public Input<string>? AutoscalingPolicy { get; set; }
 
-        /// <summary>
-        /// If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-        /// </summary>
         [Input("bidPrice")]
         public Input<string>? BidPrice { get; set; }
 
-        /// <summary>
-        /// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("clusterId")]
         public Input<string>? ClusterId { get; set; }
 
-        /// <summary>
-        /// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var task = new Aws.Emr.InstanceGroup("task", new()
-        ///     {
-        ///         ConfigurationsJson = @"[
-        /// {
-        /// \""Classification\"": \""hadoop-env\"",
-        /// \""Configurations\"": [
-        /// {
-        /// \""Classification\"": \""export\"",
-        /// \""Properties\"": {
-        /// \""JAVA_HOME\"": \""/usr/lib/jvm/java-1.8.0\""
-        /// }
-        /// }
-        /// ],
-        /// \""Properties\"": {}
-        /// }
-        /// ]
-        /// ",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         [Input("configurationsJson")]
         public Input<string>? ConfigurationsJson { get; set; }
 
         [Input("ebsConfigs")]
         private InputList<Inputs.InstanceGroupEbsConfigGetArgs>? _ebsConfigs;
-
-        /// <summary>
-        /// One or more `EbsConfig` blocks as defined below. Changing this forces a new resource to be created.
-        /// </summary>
         public InputList<Inputs.InstanceGroupEbsConfigGetArgs> EbsConfigs
         {
             get => _ebsConfigs ?? (_ebsConfigs = new InputList<Inputs.InstanceGroupEbsConfigGetArgs>());
             set => _ebsConfigs = value;
         }
 
-        /// <summary>
-        /// Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("ebsOptimized")]
         public Input<bool>? EbsOptimized { get; set; }
 
-        /// <summary>
-        /// target number of instances for the instance group. defaults to 0.
-        /// </summary>
         [Input("instanceCount")]
         public Input<int>? InstanceCount { get; set; }
 
-        /// <summary>
-        /// The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
-        /// <summary>
-        /// Human friendly name given to the instance group. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The number of instances currently running in this instance group.
-        /// </summary>
         [Input("runningInstanceCount")]
         public Input<int>? RunningInstanceCount { get; set; }
 
-        /// <summary>
-        /// The current status of the instance group.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

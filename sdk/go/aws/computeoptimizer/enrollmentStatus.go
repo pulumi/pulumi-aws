@@ -12,53 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages AWS Compute Optimizer enrollment status.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/computeoptimizer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := computeoptimizer.NewEnrollmentStatus(ctx, "example", &computeoptimizer.EnrollmentStatusArgs{
-//				Status: pulumi.String("Active"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import enrollment status using the account ID. For example:
-//
-// ```sh
-// $ pulumi import aws:computeoptimizer/enrollmentStatus:EnrollmentStatus example 123456789012
-// ```
 type EnrollmentStatus struct {
 	pulumi.CustomResourceState
 
-	// Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
-	IncludeMemberAccounts pulumi.BoolOutput `pulumi:"includeMemberAccounts"`
-	// The count of organization member accounts that are opted in to the service, if your account is an organization management account.
-	NumberOfMemberAccountsOptedIn pulumi.IntOutput `pulumi:"numberOfMemberAccountsOptedIn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The enrollment status of the account. Valid values: `Active`, `Inactive`.
-	Status   pulumi.StringOutput               `pulumi:"status"`
-	Timeouts EnrollmentStatusTimeoutsPtrOutput `pulumi:"timeouts"`
+	IncludeMemberAccounts         pulumi.BoolOutput                 `pulumi:"includeMemberAccounts"`
+	NumberOfMemberAccountsOptedIn pulumi.IntOutput                  `pulumi:"numberOfMemberAccountsOptedIn"`
+	Region                        pulumi.StringOutput               `pulumi:"region"`
+	Status                        pulumi.StringOutput               `pulumi:"status"`
+	Timeouts                      EnrollmentStatusTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewEnrollmentStatus registers a new resource with the given unique name, arguments, and options.
@@ -94,27 +55,19 @@ func GetEnrollmentStatus(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EnrollmentStatus resources.
 type enrollmentStatusState struct {
-	// Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
-	IncludeMemberAccounts *bool `pulumi:"includeMemberAccounts"`
-	// The count of organization member accounts that are opted in to the service, if your account is an organization management account.
-	NumberOfMemberAccountsOptedIn *int `pulumi:"numberOfMemberAccountsOptedIn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The enrollment status of the account. Valid values: `Active`, `Inactive`.
-	Status   *string                   `pulumi:"status"`
-	Timeouts *EnrollmentStatusTimeouts `pulumi:"timeouts"`
+	IncludeMemberAccounts         *bool                     `pulumi:"includeMemberAccounts"`
+	NumberOfMemberAccountsOptedIn *int                      `pulumi:"numberOfMemberAccountsOptedIn"`
+	Region                        *string                   `pulumi:"region"`
+	Status                        *string                   `pulumi:"status"`
+	Timeouts                      *EnrollmentStatusTimeouts `pulumi:"timeouts"`
 }
 
 type EnrollmentStatusState struct {
-	// Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
-	IncludeMemberAccounts pulumi.BoolPtrInput
-	// The count of organization member accounts that are opted in to the service, if your account is an organization management account.
+	IncludeMemberAccounts         pulumi.BoolPtrInput
 	NumberOfMemberAccountsOptedIn pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The enrollment status of the account. Valid values: `Active`, `Inactive`.
-	Status   pulumi.StringPtrInput
-	Timeouts EnrollmentStatusTimeoutsPtrInput
+	Region                        pulumi.StringPtrInput
+	Status                        pulumi.StringPtrInput
+	Timeouts                      EnrollmentStatusTimeoutsPtrInput
 }
 
 func (EnrollmentStatusState) ElementType() reflect.Type {
@@ -122,24 +75,18 @@ func (EnrollmentStatusState) ElementType() reflect.Type {
 }
 
 type enrollmentStatusArgs struct {
-	// Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
-	IncludeMemberAccounts *bool `pulumi:"includeMemberAccounts"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The enrollment status of the account. Valid values: `Active`, `Inactive`.
-	Status   string                    `pulumi:"status"`
-	Timeouts *EnrollmentStatusTimeouts `pulumi:"timeouts"`
+	IncludeMemberAccounts *bool                     `pulumi:"includeMemberAccounts"`
+	Region                *string                   `pulumi:"region"`
+	Status                string                    `pulumi:"status"`
+	Timeouts              *EnrollmentStatusTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a EnrollmentStatus resource.
 type EnrollmentStatusArgs struct {
-	// Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
 	IncludeMemberAccounts pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The enrollment status of the account. Valid values: `Active`, `Inactive`.
-	Status   pulumi.StringInput
-	Timeouts EnrollmentStatusTimeoutsPtrInput
+	Region                pulumi.StringPtrInput
+	Status                pulumi.StringInput
+	Timeouts              EnrollmentStatusTimeoutsPtrInput
 }
 
 func (EnrollmentStatusArgs) ElementType() reflect.Type {
@@ -229,22 +176,18 @@ func (o EnrollmentStatusOutput) ToEnrollmentStatusOutputWithContext(ctx context.
 	return o
 }
 
-// Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
 func (o EnrollmentStatusOutput) IncludeMemberAccounts() pulumi.BoolOutput {
 	return o.ApplyT(func(v *EnrollmentStatus) pulumi.BoolOutput { return v.IncludeMemberAccounts }).(pulumi.BoolOutput)
 }
 
-// The count of organization member accounts that are opted in to the service, if your account is an organization management account.
 func (o EnrollmentStatusOutput) NumberOfMemberAccountsOptedIn() pulumi.IntOutput {
 	return o.ApplyT(func(v *EnrollmentStatus) pulumi.IntOutput { return v.NumberOfMemberAccountsOptedIn }).(pulumi.IntOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EnrollmentStatusOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnrollmentStatus) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The enrollment status of the account. Valid values: `Active`, `Inactive`.
 func (o EnrollmentStatusOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnrollmentStatus) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Eks.Inputs
 
     public sealed class ClusterAccessConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
-        /// </summary>
         [Input("authenticationMode")]
         public Input<string>? AuthenticationMode { get; set; }
 
-        /// <summary>
-        /// Whether or not to bootstrap the access config values to the cluster. Default is `True`.
-        /// </summary>
         [Input("bootstrapClusterCreatorAdminPermissions")]
         public Input<bool>? BootstrapClusterCreatorAdminPermissions { get; set; }
 

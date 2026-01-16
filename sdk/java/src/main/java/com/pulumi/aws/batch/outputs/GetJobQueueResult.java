@@ -15,83 +15,27 @@ import java.util.Objects;
 
 @CustomType
 public final class GetJobQueueResult {
-    /**
-     * @return ARN of the job queue.
-     * 
-     */
     private String arn;
-    /**
-     * @return The compute environments that are attached to the job queue and the order in
-     * which job placement is preferred. Compute environments are selected for job placement in ascending order.
-     * * `compute_environment_order.#.order` - The order of the compute environment.
-     * * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
-     * 
-     */
     private List<GetJobQueueComputeEnvironmentOrder> computeEnvironmentOrders;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
-     * * `job_state_time_limit_action.#.action` - The action to take when a job is at the head of the job queue in the specified state for the specified period of time.
-     * * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken.
-     * * `job_state_time_limit_action.#.reason` - The reason to log for the action being taken.
-     * * `job_state_time_limit_action.#.state` - The state of the job needed to trigger the action.
-     * 
-     */
     private List<GetJobQueueJobStateTimeLimitAction> jobStateTimeLimitActions;
     private String name;
-    /**
-     * @return Priority of the job queue. Job queues with a higher priority are evaluated first when
-     * associated with the same compute environment.
-     * 
-     */
     private Integer priority;
     private String region;
-    /**
-     * @return The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
-     * 
-     */
     private String schedulingPolicyArn;
-    /**
-     * @return Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
-     * 
-     */
     private String state;
-    /**
-     * @return Current status of the job queue (for example, `CREATING` or `VALID`).
-     * 
-     */
     private String status;
-    /**
-     * @return Short, human-readable string to provide additional details about the current status
-     * of the job queue.
-     * 
-     */
     private String statusReason;
-    /**
-     * @return Key-value map of resource tags
-     * 
-     */
     private Map<String,String> tags;
 
     private GetJobQueueResult() {}
-    /**
-     * @return ARN of the job queue.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The compute environments that are attached to the job queue and the order in
-     * which job placement is preferred. Compute environments are selected for job placement in ascending order.
-     * * `compute_environment_order.#.order` - The order of the compute environment.
-     * * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
-     * 
-     */
     public List<GetJobQueueComputeEnvironmentOrder> computeEnvironmentOrders() {
         return this.computeEnvironmentOrders;
     }
@@ -102,64 +46,30 @@ public final class GetJobQueueResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
-     * * `job_state_time_limit_action.#.action` - The action to take when a job is at the head of the job queue in the specified state for the specified period of time.
-     * * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken.
-     * * `job_state_time_limit_action.#.reason` - The reason to log for the action being taken.
-     * * `job_state_time_limit_action.#.state` - The state of the job needed to trigger the action.
-     * 
-     */
     public List<GetJobQueueJobStateTimeLimitAction> jobStateTimeLimitActions() {
         return this.jobStateTimeLimitActions;
     }
     public String name() {
         return this.name;
     }
-    /**
-     * @return Priority of the job queue. Job queues with a higher priority are evaluated first when
-     * associated with the same compute environment.
-     * 
-     */
     public Integer priority() {
         return this.priority;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
-     * 
-     */
     public String schedulingPolicyArn() {
         return this.schedulingPolicyArn;
     }
-    /**
-     * @return Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
-     * 
-     */
     public String state() {
         return this.state;
     }
-    /**
-     * @return Current status of the job queue (for example, `CREATING` or `VALID`).
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Short, human-readable string to provide additional details about the current status
-     * of the job queue.
-     * 
-     */
     public String statusReason() {
         return this.statusReason;
     }
-    /**
-     * @return Key-value map of resource tags
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

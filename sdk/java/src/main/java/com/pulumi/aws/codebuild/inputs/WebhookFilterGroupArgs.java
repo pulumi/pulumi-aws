@@ -16,17 +16,9 @@ public final class WebhookFilterGroupArgs extends com.pulumi.resources.ResourceA
 
     public static final WebhookFilterGroupArgs Empty = new WebhookFilterGroupArgs();
 
-    /**
-     * A webhook filter for the group. See filter for details.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<WebhookFilterGroupFilterArgs>> filters;
 
-    /**
-     * @return A webhook filter for the group. See filter for details.
-     * 
-     */
     public Optional<Output<List<WebhookFilterGroupFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
@@ -55,33 +47,15 @@ public final class WebhookFilterGroupArgs extends com.pulumi.resources.ResourceA
             $ = new WebhookFilterGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters A webhook filter for the group. See filter for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<WebhookFilterGroupFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters A webhook filter for the group. See filter for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<WebhookFilterGroupFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters A webhook filter for the group. See filter for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(WebhookFilterGroupFilterArgs... filters) {
             return filters(List.of(filters));
         }

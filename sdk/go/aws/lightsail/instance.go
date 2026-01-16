@@ -12,166 +12,29 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Lightsail Instance. Use this resource to create easy virtual private servers with custom software already setup.
-//
-// > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewInstance(ctx, "example", &lightsail.InstanceArgs{
-//				Name:             pulumi.String("example"),
-//				AvailabilityZone: pulumi.String("us-east-1b"),
-//				BlueprintId:      pulumi.String("amazon_linux_2"),
-//				BundleId:         pulumi.String("nano_3_0"),
-//				KeyPairName:      pulumi.String("some_key_name"),
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Example With User Data
-//
-// Lightsail user data is handled differently than EC2 user data. Lightsail user data only accepts a single lined string. The below example shows installing apache and creating the index page.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewInstance(ctx, "example", &lightsail.InstanceArgs{
-//				Name:             pulumi.String("example"),
-//				AvailabilityZone: pulumi.String("us-east-1b"),
-//				BlueprintId:      pulumi.String("amazon_linux_2"),
-//				BundleId:         pulumi.String("nano_3_0"),
-//				UserData:         pulumi.String("sudo yum install -y httpd && sudo systemctl start httpd && sudo systemctl enable httpd && echo '<h1>Deployed via Pulumi</h1>' | sudo tee /var/www/html/index.html"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Enable Auto Snapshots
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewInstance(ctx, "example", &lightsail.InstanceArgs{
-//				Name:             pulumi.String("example"),
-//				AvailabilityZone: pulumi.String("us-east-1b"),
-//				BlueprintId:      pulumi.String("amazon_linux_2"),
-//				BundleId:         pulumi.String("nano_3_0"),
-//				AddOn: &lightsail.InstanceAddOnArgs{
-//					Type:         pulumi.String("AutoSnapshot"),
-//					SnapshotTime: pulumi.String("06:00"),
-//					Status:       pulumi.String("Enabled"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Lightsail Instances using their name. For example:
-//
-// ```sh
-// $ pulumi import aws:lightsail/instance:Instance example 'example'
-// ```
 type Instance struct {
 	pulumi.CustomResourceState
 
-	// Add-on configuration for the instance. See below.
-	AddOn InstanceAddOnPtrOutput `pulumi:"addOn"`
-	// ARN of the Lightsail instance (matches `id`).
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Availability Zone in which to create your instance. A list of available zones can be obtained using the AWS CLI command: [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
-	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
-	// ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
-	BlueprintId pulumi.StringOutput `pulumi:"blueprintId"`
-	// Bundle of specification information. A list of available bundle IDs can be obtained using the AWS CLI command: [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
-	BundleId pulumi.StringOutput `pulumi:"bundleId"`
-	// Number of vCPUs the instance has.
-	CpuCount pulumi.IntOutput `pulumi:"cpuCount"`
-	// Timestamp when the instance was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// IP address type of the Lightsail Instance. Valid values: `dualstack`, `ipv4`, `ipv6`. Default: `dualstack`.
-	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
-	// List of IPv6 addresses for the Lightsail instance.
-	Ipv6Addresses pulumi.StringArrayOutput `pulumi:"ipv6Addresses"`
-	// Whether this instance has a static IP assigned to it.
-	IsStaticIp pulumi.BoolOutput `pulumi:"isStaticIp"`
-	// Name of your key pair. Created in the Lightsail console (cannot use `ec2.KeyPair` at this time).
-	KeyPairName pulumi.StringPtrOutput `pulumi:"keyPairName"`
-	// Name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Private IP address of the instance.
-	PrivateIpAddress pulumi.StringOutput `pulumi:"privateIpAddress"`
-	// Public IP address of the instance.
-	PublicIpAddress pulumi.StringOutput `pulumi:"publicIpAddress"`
-	// Amount of RAM in GB on the instance (e.g., 1.0).
-	RamSize pulumi.Float64Output `pulumi:"ramSize"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Single lined launch script as a string to configure server with additional user data.
-	UserData pulumi.StringPtrOutput `pulumi:"userData"`
-	// User name for connecting to the instance (e.g., ec2-user).
-	Username pulumi.StringOutput `pulumi:"username"`
+	AddOn            InstanceAddOnPtrOutput   `pulumi:"addOn"`
+	Arn              pulumi.StringOutput      `pulumi:"arn"`
+	AvailabilityZone pulumi.StringOutput      `pulumi:"availabilityZone"`
+	BlueprintId      pulumi.StringOutput      `pulumi:"blueprintId"`
+	BundleId         pulumi.StringOutput      `pulumi:"bundleId"`
+	CpuCount         pulumi.IntOutput         `pulumi:"cpuCount"`
+	CreatedAt        pulumi.StringOutput      `pulumi:"createdAt"`
+	IpAddressType    pulumi.StringPtrOutput   `pulumi:"ipAddressType"`
+	Ipv6Addresses    pulumi.StringArrayOutput `pulumi:"ipv6Addresses"`
+	IsStaticIp       pulumi.BoolOutput        `pulumi:"isStaticIp"`
+	KeyPairName      pulumi.StringPtrOutput   `pulumi:"keyPairName"`
+	Name             pulumi.StringOutput      `pulumi:"name"`
+	PrivateIpAddress pulumi.StringOutput      `pulumi:"privateIpAddress"`
+	PublicIpAddress  pulumi.StringOutput      `pulumi:"publicIpAddress"`
+	RamSize          pulumi.Float64Output     `pulumi:"ramSize"`
+	Region           pulumi.StringOutput      `pulumi:"region"`
+	Tags             pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll          pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	UserData         pulumi.StringPtrOutput   `pulumi:"userData"`
+	Username         pulumi.StringOutput      `pulumi:"username"`
 }
 
 // NewInstance registers a new resource with the given unique name, arguments, and options.
@@ -213,93 +76,49 @@ func GetInstance(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Instance resources.
 type instanceState struct {
-	// Add-on configuration for the instance. See below.
-	AddOn *InstanceAddOn `pulumi:"addOn"`
-	// ARN of the Lightsail instance (matches `id`).
-	Arn *string `pulumi:"arn"`
-	// Availability Zone in which to create your instance. A list of available zones can be obtained using the AWS CLI command: [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
-	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
-	BlueprintId *string `pulumi:"blueprintId"`
-	// Bundle of specification information. A list of available bundle IDs can be obtained using the AWS CLI command: [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
-	BundleId *string `pulumi:"bundleId"`
-	// Number of vCPUs the instance has.
-	CpuCount *int `pulumi:"cpuCount"`
-	// Timestamp when the instance was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// IP address type of the Lightsail Instance. Valid values: `dualstack`, `ipv4`, `ipv6`. Default: `dualstack`.
-	IpAddressType *string `pulumi:"ipAddressType"`
-	// List of IPv6 addresses for the Lightsail instance.
-	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
-	// Whether this instance has a static IP assigned to it.
-	IsStaticIp *bool `pulumi:"isStaticIp"`
-	// Name of your key pair. Created in the Lightsail console (cannot use `ec2.KeyPair` at this time).
-	KeyPairName *string `pulumi:"keyPairName"`
-	// Name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Private IP address of the instance.
-	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	// Public IP address of the instance.
-	PublicIpAddress *string `pulumi:"publicIpAddress"`
-	// Amount of RAM in GB on the instance (e.g., 1.0).
-	RamSize *float64 `pulumi:"ramSize"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Single lined launch script as a string to configure server with additional user data.
-	UserData *string `pulumi:"userData"`
-	// User name for connecting to the instance (e.g., ec2-user).
-	Username *string `pulumi:"username"`
+	AddOn            *InstanceAddOn    `pulumi:"addOn"`
+	Arn              *string           `pulumi:"arn"`
+	AvailabilityZone *string           `pulumi:"availabilityZone"`
+	BlueprintId      *string           `pulumi:"blueprintId"`
+	BundleId         *string           `pulumi:"bundleId"`
+	CpuCount         *int              `pulumi:"cpuCount"`
+	CreatedAt        *string           `pulumi:"createdAt"`
+	IpAddressType    *string           `pulumi:"ipAddressType"`
+	Ipv6Addresses    []string          `pulumi:"ipv6Addresses"`
+	IsStaticIp       *bool             `pulumi:"isStaticIp"`
+	KeyPairName      *string           `pulumi:"keyPairName"`
+	Name             *string           `pulumi:"name"`
+	PrivateIpAddress *string           `pulumi:"privateIpAddress"`
+	PublicIpAddress  *string           `pulumi:"publicIpAddress"`
+	RamSize          *float64          `pulumi:"ramSize"`
+	Region           *string           `pulumi:"region"`
+	Tags             map[string]string `pulumi:"tags"`
+	TagsAll          map[string]string `pulumi:"tagsAll"`
+	UserData         *string           `pulumi:"userData"`
+	Username         *string           `pulumi:"username"`
 }
 
 type InstanceState struct {
-	// Add-on configuration for the instance. See below.
-	AddOn InstanceAddOnPtrInput
-	// ARN of the Lightsail instance (matches `id`).
-	Arn pulumi.StringPtrInput
-	// Availability Zone in which to create your instance. A list of available zones can be obtained using the AWS CLI command: [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
+	AddOn            InstanceAddOnPtrInput
+	Arn              pulumi.StringPtrInput
 	AvailabilityZone pulumi.StringPtrInput
-	// ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
-	BlueprintId pulumi.StringPtrInput
-	// Bundle of specification information. A list of available bundle IDs can be obtained using the AWS CLI command: [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
-	BundleId pulumi.StringPtrInput
-	// Number of vCPUs the instance has.
-	CpuCount pulumi.IntPtrInput
-	// Timestamp when the instance was created.
-	CreatedAt pulumi.StringPtrInput
-	// IP address type of the Lightsail Instance. Valid values: `dualstack`, `ipv4`, `ipv6`. Default: `dualstack`.
-	IpAddressType pulumi.StringPtrInput
-	// List of IPv6 addresses for the Lightsail instance.
-	Ipv6Addresses pulumi.StringArrayInput
-	// Whether this instance has a static IP assigned to it.
-	IsStaticIp pulumi.BoolPtrInput
-	// Name of your key pair. Created in the Lightsail console (cannot use `ec2.KeyPair` at this time).
-	KeyPairName pulumi.StringPtrInput
-	// Name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Private IP address of the instance.
+	BlueprintId      pulumi.StringPtrInput
+	BundleId         pulumi.StringPtrInput
+	CpuCount         pulumi.IntPtrInput
+	CreatedAt        pulumi.StringPtrInput
+	IpAddressType    pulumi.StringPtrInput
+	Ipv6Addresses    pulumi.StringArrayInput
+	IsStaticIp       pulumi.BoolPtrInput
+	KeyPairName      pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
 	PrivateIpAddress pulumi.StringPtrInput
-	// Public IP address of the instance.
-	PublicIpAddress pulumi.StringPtrInput
-	// Amount of RAM in GB on the instance (e.g., 1.0).
-	RamSize pulumi.Float64PtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Single lined launch script as a string to configure server with additional user data.
-	UserData pulumi.StringPtrInput
-	// User name for connecting to the instance (e.g., ec2-user).
-	Username pulumi.StringPtrInput
+	PublicIpAddress  pulumi.StringPtrInput
+	RamSize          pulumi.Float64PtrInput
+	Region           pulumi.StringPtrInput
+	Tags             pulumi.StringMapInput
+	TagsAll          pulumi.StringMapInput
+	UserData         pulumi.StringPtrInput
+	Username         pulumi.StringPtrInput
 }
 
 func (InstanceState) ElementType() reflect.Type {
@@ -307,54 +126,30 @@ func (InstanceState) ElementType() reflect.Type {
 }
 
 type instanceArgs struct {
-	// Add-on configuration for the instance. See below.
-	AddOn *InstanceAddOn `pulumi:"addOn"`
-	// Availability Zone in which to create your instance. A list of available zones can be obtained using the AWS CLI command: [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
-	AvailabilityZone string `pulumi:"availabilityZone"`
-	// ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
-	BlueprintId string `pulumi:"blueprintId"`
-	// Bundle of specification information. A list of available bundle IDs can be obtained using the AWS CLI command: [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
-	BundleId string `pulumi:"bundleId"`
-	// IP address type of the Lightsail Instance. Valid values: `dualstack`, `ipv4`, `ipv6`. Default: `dualstack`.
-	IpAddressType *string `pulumi:"ipAddressType"`
-	// Name of your key pair. Created in the Lightsail console (cannot use `ec2.KeyPair` at this time).
-	KeyPairName *string `pulumi:"keyPairName"`
-	// Name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Single lined launch script as a string to configure server with additional user data.
-	UserData *string `pulumi:"userData"`
+	AddOn            *InstanceAddOn    `pulumi:"addOn"`
+	AvailabilityZone string            `pulumi:"availabilityZone"`
+	BlueprintId      string            `pulumi:"blueprintId"`
+	BundleId         string            `pulumi:"bundleId"`
+	IpAddressType    *string           `pulumi:"ipAddressType"`
+	KeyPairName      *string           `pulumi:"keyPairName"`
+	Name             *string           `pulumi:"name"`
+	Region           *string           `pulumi:"region"`
+	Tags             map[string]string `pulumi:"tags"`
+	UserData         *string           `pulumi:"userData"`
 }
 
 // The set of arguments for constructing a Instance resource.
 type InstanceArgs struct {
-	// Add-on configuration for the instance. See below.
-	AddOn InstanceAddOnPtrInput
-	// Availability Zone in which to create your instance. A list of available zones can be obtained using the AWS CLI command: [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
+	AddOn            InstanceAddOnPtrInput
 	AvailabilityZone pulumi.StringInput
-	// ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
-	BlueprintId pulumi.StringInput
-	// Bundle of specification information. A list of available bundle IDs can be obtained using the AWS CLI command: [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
-	BundleId pulumi.StringInput
-	// IP address type of the Lightsail Instance. Valid values: `dualstack`, `ipv4`, `ipv6`. Default: `dualstack`.
-	IpAddressType pulumi.StringPtrInput
-	// Name of your key pair. Created in the Lightsail console (cannot use `ec2.KeyPair` at this time).
-	KeyPairName pulumi.StringPtrInput
-	// Name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Single lined launch script as a string to configure server with additional user data.
-	UserData pulumi.StringPtrInput
+	BlueprintId      pulumi.StringInput
+	BundleId         pulumi.StringInput
+	IpAddressType    pulumi.StringPtrInput
+	KeyPairName      pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
+	Tags             pulumi.StringMapInput
+	UserData         pulumi.StringPtrInput
 }
 
 func (InstanceArgs) ElementType() reflect.Type {
@@ -444,104 +239,82 @@ func (o InstanceOutput) ToInstanceOutputWithContext(ctx context.Context) Instanc
 	return o
 }
 
-// Add-on configuration for the instance. See below.
 func (o InstanceOutput) AddOn() InstanceAddOnPtrOutput {
 	return o.ApplyT(func(v *Instance) InstanceAddOnPtrOutput { return v.AddOn }).(InstanceAddOnPtrOutput)
 }
 
-// ARN of the Lightsail instance (matches `id`).
 func (o InstanceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Availability Zone in which to create your instance. A list of available zones can be obtained using the AWS CLI command: [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
 func (o InstanceOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
-// ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
 func (o InstanceOutput) BlueprintId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.BlueprintId }).(pulumi.StringOutput)
 }
 
-// Bundle of specification information. A list of available bundle IDs can be obtained using the AWS CLI command: [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
 func (o InstanceOutput) BundleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.BundleId }).(pulumi.StringOutput)
 }
 
-// Number of vCPUs the instance has.
 func (o InstanceOutput) CpuCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *Instance) pulumi.IntOutput { return v.CpuCount }).(pulumi.IntOutput)
 }
 
-// Timestamp when the instance was created.
 func (o InstanceOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// IP address type of the Lightsail Instance. Valid values: `dualstack`, `ipv4`, `ipv6`. Default: `dualstack`.
 func (o InstanceOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
-// List of IPv6 addresses for the Lightsail instance.
 func (o InstanceOutput) Ipv6Addresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringArrayOutput { return v.Ipv6Addresses }).(pulumi.StringArrayOutput)
 }
 
-// Whether this instance has a static IP assigned to it.
 func (o InstanceOutput) IsStaticIp() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Instance) pulumi.BoolOutput { return v.IsStaticIp }).(pulumi.BoolOutput)
 }
 
-// Name of your key pair. Created in the Lightsail console (cannot use `ec2.KeyPair` at this time).
 func (o InstanceOutput) KeyPairName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.KeyPairName }).(pulumi.StringPtrOutput)
 }
 
-// Name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
-//
-// The following arguments are optional:
 func (o InstanceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Private IP address of the instance.
 func (o InstanceOutput) PrivateIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.PrivateIpAddress }).(pulumi.StringOutput)
 }
 
-// Public IP address of the instance.
 func (o InstanceOutput) PublicIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.PublicIpAddress }).(pulumi.StringOutput)
 }
 
-// Amount of RAM in GB on the instance (e.g., 1.0).
 func (o InstanceOutput) RamSize() pulumi.Float64Output {
 	return o.ApplyT(func(v *Instance) pulumi.Float64Output { return v.RamSize }).(pulumi.Float64Output)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InstanceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o InstanceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o InstanceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Single lined launch script as a string to configure server with additional user data.
 func (o InstanceOutput) UserData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.UserData }).(pulumi.StringPtrOutput)
 }
 
-// User name for connecting to the instance (e.g., ec2-user).
 func (o InstanceOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
 }

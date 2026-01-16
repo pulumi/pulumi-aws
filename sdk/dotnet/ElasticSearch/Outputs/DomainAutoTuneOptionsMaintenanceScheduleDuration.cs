@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
     [OutputType]
     public sealed class DomainAutoTuneOptionsMaintenanceScheduleDuration
     {
-        /// <summary>
-        /// The unit of time specifying the duration of an Auto-Tune maintenance window. Valid values: `HOURS`.
-        /// </summary>
         public readonly string Unit;
-        /// <summary>
-        /// An integer specifying the value of the duration of an Auto-Tune maintenance window.
-        /// </summary>
         public readonly int Value;
 
         [OutputConstructor]

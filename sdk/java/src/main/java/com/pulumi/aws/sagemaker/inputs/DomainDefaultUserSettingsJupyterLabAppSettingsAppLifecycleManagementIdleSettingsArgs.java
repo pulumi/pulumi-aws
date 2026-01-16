@@ -16,62 +16,30 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleMan
 
     public static final DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs Empty = new DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs();
 
-    /**
-     * The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
-     * 
-     */
     @Import(name="idleTimeoutInMinutes")
     private @Nullable Output<Integer> idleTimeoutInMinutes;
 
-    /**
-     * @return The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
-     * 
-     */
     public Optional<Output<Integer>> idleTimeoutInMinutes() {
         return Optional.ofNullable(this.idleTimeoutInMinutes);
     }
 
-    /**
-     * Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     @Import(name="lifecycleManagement")
     private @Nullable Output<String> lifecycleManagement;
 
-    /**
-     * @return Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> lifecycleManagement() {
         return Optional.ofNullable(this.lifecycleManagement);
     }
 
-    /**
-     * The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
-     * 
-     */
     @Import(name="maxIdleTimeoutInMinutes")
     private @Nullable Output<Integer> maxIdleTimeoutInMinutes;
 
-    /**
-     * @return The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
-     * 
-     */
     public Optional<Output<Integer>> maxIdleTimeoutInMinutes() {
         return Optional.ofNullable(this.maxIdleTimeoutInMinutes);
     }
 
-    /**
-     * The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
-     * 
-     */
     @Import(name="minIdleTimeoutInMinutes")
     private @Nullable Output<Integer> minIdleTimeoutInMinutes;
 
-    /**
-     * @return The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
-     * 
-     */
     public Optional<Output<Integer>> minIdleTimeoutInMinutes() {
         return Optional.ofNullable(this.minIdleTimeoutInMinutes);
     }
@@ -103,86 +71,38 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleMan
             $ = new DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param idleTimeoutInMinutes The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idleTimeoutInMinutes(@Nullable Output<Integer> idleTimeoutInMinutes) {
             $.idleTimeoutInMinutes = idleTimeoutInMinutes;
             return this;
         }
 
-        /**
-         * @param idleTimeoutInMinutes The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idleTimeoutInMinutes(Integer idleTimeoutInMinutes) {
             return idleTimeoutInMinutes(Output.of(idleTimeoutInMinutes));
         }
 
-        /**
-         * @param lifecycleManagement Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lifecycleManagement(@Nullable Output<String> lifecycleManagement) {
             $.lifecycleManagement = lifecycleManagement;
             return this;
         }
 
-        /**
-         * @param lifecycleManagement Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lifecycleManagement(String lifecycleManagement) {
             return lifecycleManagement(Output.of(lifecycleManagement));
         }
 
-        /**
-         * @param maxIdleTimeoutInMinutes The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxIdleTimeoutInMinutes(@Nullable Output<Integer> maxIdleTimeoutInMinutes) {
             $.maxIdleTimeoutInMinutes = maxIdleTimeoutInMinutes;
             return this;
         }
 
-        /**
-         * @param maxIdleTimeoutInMinutes The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxIdleTimeoutInMinutes(Integer maxIdleTimeoutInMinutes) {
             return maxIdleTimeoutInMinutes(Output.of(maxIdleTimeoutInMinutes));
         }
 
-        /**
-         * @param minIdleTimeoutInMinutes The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minIdleTimeoutInMinutes(@Nullable Output<Integer> minIdleTimeoutInMinutes) {
             $.minIdleTimeoutInMinutes = minIdleTimeoutInMinutes;
             return this;
         }
 
-        /**
-         * @param minIdleTimeoutInMinutes The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minIdleTimeoutInMinutes(Integer minIdleTimeoutInMinutes) {
             return minIdleTimeoutInMinutes(Output.of(minIdleTimeoutInMinutes));
         }

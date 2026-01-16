@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection {
-    /**
-     * @return Details about your login page password field. See `passwordField` for more details.
-     * 
-     */
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField passwordField;
-    /**
-     * @return The payload type for your login endpoint, either JSON or form encoded.
-     * 
-     */
     private String payloadType;
-    /**
-     * @return Details about your login page username field. See `usernameField` for more details.
-     * 
-     */
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField usernameField;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection() {}
-    /**
-     * @return Details about your login page password field. See `passwordField` for more details.
-     * 
-     */
     public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField passwordField() {
         return this.passwordField;
     }
-    /**
-     * @return The payload type for your login endpoint, either JSON or form encoded.
-     * 
-     */
     public String payloadType() {
         return this.payloadType;
     }
-    /**
-     * @return Details about your login page username field. See `usernameField` for more details.
-     * 
-     */
     public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField usernameField() {
         return this.usernameField;
     }

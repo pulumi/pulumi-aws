@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration {
-    /**
-     * @return S3 URI to deliver recordings.
-     * 
-     */
     private @Nullable String destination;
 
     private MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration() {}
-    /**
-     * @return S3 URI to deliver recordings.
-     * 
-     */
     public Optional<String> destination() {
         return Optional.ofNullable(this.destination);
     }

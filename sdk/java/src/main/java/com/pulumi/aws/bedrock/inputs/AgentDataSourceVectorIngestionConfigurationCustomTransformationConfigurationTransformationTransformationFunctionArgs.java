@@ -15,17 +15,9 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
 
     public static final AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs Empty = new AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs();
 
-    /**
-     * The configuration of the lambda function.
-     * 
-     */
     @Import(name="transformationLambdaConfiguration")
     private @Nullable Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs> transformationLambdaConfiguration;
 
-    /**
-     * @return The configuration of the lambda function.
-     * 
-     */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs>> transformationLambdaConfiguration() {
         return Optional.ofNullable(this.transformationLambdaConfiguration);
     }
@@ -54,23 +46,11 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
             $ = new AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param transformationLambdaConfiguration The configuration of the lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transformationLambdaConfiguration(@Nullable Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs> transformationLambdaConfiguration) {
             $.transformationLambdaConfiguration = transformationLambdaConfiguration;
             return this;
         }
 
-        /**
-         * @param transformationLambdaConfiguration The configuration of the lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transformationLambdaConfiguration(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs transformationLambdaConfiguration) {
             return transformationLambdaConfiguration(Output.of(transformationLambdaConfiguration));
         }

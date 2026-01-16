@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ServiceServiceConnectConfiguration
     {
-        /// <summary>
-        /// Whether to use Service Connect with this service.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// Log configuration for the container. See below.
-        /// </summary>
         public readonly Outputs.ServiceServiceConnectConfigurationLogConfiguration? LogConfiguration;
-        /// <summary>
-        /// Namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
-        /// </summary>
         public readonly string? Namespace;
-        /// <summary>
-        /// List of Service Connect service objects. See below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ServiceServiceConnectConfigurationService> Services;
 
         [OutputConstructor]

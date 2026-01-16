@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCatalogTableStorageDescriptorSerDeInfo {
-    /**
-     * @return Name of the table.
-     * 
-     */
     private String name;
-    /**
-     * @return Map of initialization parameters for the SerDe, in key-value form.
-     * 
-     */
     private Map<String,String> parameters;
-    /**
-     * @return Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
-     * 
-     */
     private String serializationLibrary;
 
     private GetCatalogTableStorageDescriptorSerDeInfo() {}
-    /**
-     * @return Name of the table.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Map of initialization parameters for the SerDe, in key-value form.
-     * 
-     */
     public Map<String,String> parameters() {
         return this.parameters;
     }
-    /**
-     * @return Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
-     * 
-     */
     public String serializationLibrary() {
         return this.serializationLibrary;
     }

@@ -69,17 +69,11 @@ class GetEngineVersionResult:
     @_builtins.property
     @pulumi.getter(name="engineDescription")
     def engine_description(self) -> _builtins.str:
-        """
-        Description of the database engine.
-        """
         return pulumi.get(self, "engine_description")
 
     @_builtins.property
     @pulumi.getter(name="exportableLogTypes")
     def exportable_log_types(self) -> Sequence[_builtins.str]:
-        """
-        Set of log types that the database engine has available for export to CloudWatch Logs.
-        """
         return pulumi.get(self, "exportable_log_types")
 
     @_builtins.property
@@ -108,17 +102,11 @@ class GetEngineVersionResult:
     @_builtins.property
     @pulumi.getter(name="supportsLogExportsToCloudwatch")
     def supports_log_exports_to_cloudwatch(self) -> _builtins.bool:
-        """
-        Indicates whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
-        """
         return pulumi.get(self, "supports_log_exports_to_cloudwatch")
 
     @_builtins.property
     @pulumi.getter(name="validUpgradeTargets")
     def valid_upgrade_targets(self) -> Sequence[_builtins.str]:
-        """
-        A set of engine versions that this database engine version can be upgraded to.
-        """
         return pulumi.get(self, "valid_upgrade_targets")
 
     @_builtins.property
@@ -129,9 +117,6 @@ class GetEngineVersionResult:
     @_builtins.property
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> _builtins.str:
-        """
-        Description of the database engine version.
-        """
         return pulumi.get(self, "version_description")
 
 
@@ -161,23 +146,7 @@ def get_engine_version(engine: Optional[_builtins.str] = None,
                        version: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEngineVersionResult:
     """
-    Information about a DocumentDB engine version.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.docdb.get_engine_version(version="3.6.0")
-    ```
-
-
-    :param _builtins.str engine: DB engine. (Default: `docdb`)
-    :param _builtins.str parameter_group_family: Name of a specific DB parameter group family. An example parameter group family is `docdb3.6`.
-    :param Sequence[_builtins.str] preferred_versions: Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str version: Version of the DB engine. For example, `3.6.0`. If `version` and `preferred_versions` are not set, the data source will provide information for the AWS-defined default version. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['engine'] = engine
@@ -207,23 +176,7 @@ def get_engine_version_output(engine: Optional[pulumi.Input[Optional[_builtins.s
                               version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEngineVersionResult]:
     """
-    Information about a DocumentDB engine version.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.docdb.get_engine_version(version="3.6.0")
-    ```
-
-
-    :param _builtins.str engine: DB engine. (Default: `docdb`)
-    :param _builtins.str parameter_group_family: Name of a specific DB parameter group family. An example parameter group family is `docdb3.6`.
-    :param Sequence[_builtins.str] preferred_versions: Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str version: Version of the DB engine. For example, `3.6.0`. If `version` and `preferred_versions` are not set, the data source will provide information for the AWS-defined default version. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['engine'] = engine

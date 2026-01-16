@@ -14,119 +14,45 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TargetGroupConfigHealthCheck {
-    /**
-     * @return Indicates whether health checking is enabled. Defaults to `true`.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
-     * 
-     */
     private @Nullable Integer healthCheckIntervalSeconds;
-    /**
-     * @return The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
-     * * ` healthyThresholdCount  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
-     * 
-     */
     private @Nullable Integer healthCheckTimeoutSeconds;
     private @Nullable Integer healthyThresholdCount;
-    /**
-     * @return The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
-     * 
-     */
     private @Nullable TargetGroupConfigHealthCheckMatcher matcher;
-    /**
-     * @return The destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
-     * 
-     */
     private @Nullable String path;
-    /**
-     * @return The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
-     * 
-     */
     private @Nullable Integer port;
-    /**
-     * @return The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
-     * 
-     */
     private @Nullable String protocol;
-    /**
-     * @return The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`. The default is `HTTP1`.
-     * 
-     */
     private @Nullable String protocolVersion;
-    /**
-     * @return The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
-     * 
-     */
     private @Nullable Integer unhealthyThresholdCount;
 
     private TargetGroupConfigHealthCheck() {}
-    /**
-     * @return Indicates whether health checking is enabled. Defaults to `true`.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
-     * 
-     */
     public Optional<Integer> healthCheckIntervalSeconds() {
         return Optional.ofNullable(this.healthCheckIntervalSeconds);
     }
-    /**
-     * @return The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
-     * * ` healthyThresholdCount  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
-     * 
-     */
     public Optional<Integer> healthCheckTimeoutSeconds() {
         return Optional.ofNullable(this.healthCheckTimeoutSeconds);
     }
     public Optional<Integer> healthyThresholdCount() {
         return Optional.ofNullable(this.healthyThresholdCount);
     }
-    /**
-     * @return The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
-     * 
-     */
     public Optional<TargetGroupConfigHealthCheckMatcher> matcher() {
         return Optional.ofNullable(this.matcher);
     }
-    /**
-     * @return The destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
-     * 
-     */
     public Optional<String> path() {
         return Optional.ofNullable(this.path);
     }
-    /**
-     * @return The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
-     * 
-     */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }
-    /**
-     * @return The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
-     * 
-     */
     public Optional<String> protocol() {
         return Optional.ofNullable(this.protocol);
     }
-    /**
-     * @return The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`. The default is `HTTP1`.
-     * 
-     */
     public Optional<String> protocolVersion() {
         return Optional.ofNullable(this.protocolVersion);
     }
-    /**
-     * @return The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
-     * 
-     */
     public Optional<Integer> unhealthyThresholdCount() {
         return Optional.ofNullable(this.unhealthyThresholdCount);
     }

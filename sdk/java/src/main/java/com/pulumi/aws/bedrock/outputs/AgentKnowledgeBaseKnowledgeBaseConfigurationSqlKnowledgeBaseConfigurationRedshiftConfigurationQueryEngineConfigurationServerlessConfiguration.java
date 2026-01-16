@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration {
-    /**
-     * @return Configurations for authentication to a Redshift Serverless. See `authConfiguration` block for details.
-     * 
-     */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration authConfiguration;
-    /**
-     * @return ARN of the Amazon Redshift workgroup.
-     * 
-     */
     private String workgroupArn;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration() {}
-    /**
-     * @return Configurations for authentication to a Redshift Serverless. See `authConfiguration` block for details.
-     * 
-     */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration> authConfiguration() {
         return Optional.ofNullable(this.authConfiguration);
     }
-    /**
-     * @return ARN of the Amazon Redshift workgroup.
-     * 
-     */
     public String workgroupArn() {
         return this.workgroupArn;
     }

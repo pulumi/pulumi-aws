@@ -4,21 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get the name and value of a pre-existing API Key, for
- * example to supply credentials for a dependency microservice.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myApiKey = aws.apigateway.getKey({
- *     id: "ru3mpjgse6",
- * });
- * ```
- */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigateway/getKey:getKey", {
@@ -32,17 +17,8 @@ export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<G
  * A collection of arguments for invoking getKey.
  */
 export interface GetKeyArgs {
-    /**
-     * ID of the API Key to look up.
-     */
     id: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Map of tags for the resource.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -51,59 +27,17 @@ export interface GetKeyArgs {
  */
 export interface GetKeyResult {
     readonly arn: string;
-    /**
-     * Date and time when the API Key was created.
-     */
     readonly createdDate: string;
-    /**
-     * Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
-     */
     readonly customerId: string;
-    /**
-     * Description of the API Key.
-     */
     readonly description: string;
-    /**
-     * Whether the API Key is enabled.
-     */
     readonly enabled: boolean;
-    /**
-     * Set to the ID of the API Key.
-     */
     readonly id: string;
-    /**
-     * Date and time when the API Key was last updated.
-     */
     readonly lastUpdatedDate: string;
-    /**
-     * Set to the name of the API Key.
-     */
     readonly name: string;
     readonly region: string;
-    /**
-     * Map of tags for the resource.
-     */
     readonly tags: {[key: string]: string};
-    /**
-     * Set to the value of the API Key.
-     */
     readonly value: string;
 }
-/**
- * Use this data source to get the name and value of a pre-existing API Key, for
- * example to supply credentials for a dependency microservice.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myApiKey = aws.apigateway.getKey({
- *     id: "ru3mpjgse6",
- * });
- * ```
- */
 export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:apigateway/getKey:getKey", {
@@ -117,16 +51,7 @@ export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOutputO
  * A collection of arguments for invoking getKey.
  */
 export interface GetKeyOutputArgs {
-    /**
-     * ID of the API Key to look up.
-     */
     id: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags for the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

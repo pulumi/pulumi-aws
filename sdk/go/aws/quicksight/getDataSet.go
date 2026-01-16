@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing a QuickSight Data Set.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.LookupDataSet(ctx, &quicksight.LookupDataSetArgs{
-//				DataSetId: "example-id",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupDataSet(ctx *pulumi.Context, args *LookupDataSetArgs, opts ...pulumi.InvokeOption) (*LookupDataSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDataSetResult
@@ -52,12 +23,10 @@ func LookupDataSet(ctx *pulumi.Context, args *LookupDataSetArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getDataSet.
 type LookupDataSetArgs struct {
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Identifier for the data set.
-	DataSetId string `pulumi:"dataSetId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string           `pulumi:"region"`
-	Tags   map[string]string `pulumi:"tags"`
+	AwsAccountId *string           `pulumi:"awsAccountId"`
+	DataSetId    string            `pulumi:"dataSetId"`
+	Region       *string           `pulumi:"region"`
+	Tags         map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getDataSet.
@@ -94,11 +63,9 @@ func LookupDataSetOutput(ctx *pulumi.Context, args LookupDataSetOutputArgs, opts
 // A collection of arguments for invoking getDataSet.
 type LookupDataSetOutputArgs struct {
 	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
-	// Identifier for the data set.
-	DataSetId pulumi.StringInput `pulumi:"dataSetId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	Tags   pulumi.StringMapInput `pulumi:"tags"`
+	DataSetId    pulumi.StringInput    `pulumi:"dataSetId"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
+	Tags         pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupDataSetOutputArgs) ElementType() reflect.Type {

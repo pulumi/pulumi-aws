@@ -19,66 +19,30 @@ public final class ResourceSetArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ResourceSetArgs Empty = new ResourceSetArgs();
 
-    /**
-     * Unique name describing the resource set.
-     * 
-     */
     @Import(name="resourceSetName", required=true)
     private Output<String> resourceSetName;
 
-    /**
-     * @return Unique name describing the resource set.
-     * 
-     */
     public Output<String> resourceSetName() {
         return this.resourceSetName;
     }
 
-    /**
-     * Type of the resources in the resource set.
-     * 
-     */
     @Import(name="resourceSetType", required=true)
     private Output<String> resourceSetType;
 
-    /**
-     * @return Type of the resources in the resource set.
-     * 
-     */
     public Output<String> resourceSetType() {
         return this.resourceSetType;
     }
 
-    /**
-     * List of resources to add to this resource set. See below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="resources", required=true)
     private Output<List<ResourceSetResourceArgs>> resources;
 
-    /**
-     * @return List of resources to add to this resource set. See below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<List<ResourceSetResourceArgs>> resources() {
         return this.resources;
     }
 
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -110,102 +74,42 @@ public final class ResourceSetArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ResourceSetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param resourceSetName Unique name describing the resource set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceSetName(Output<String> resourceSetName) {
             $.resourceSetName = resourceSetName;
             return this;
         }
 
-        /**
-         * @param resourceSetName Unique name describing the resource set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceSetName(String resourceSetName) {
             return resourceSetName(Output.of(resourceSetName));
         }
 
-        /**
-         * @param resourceSetType Type of the resources in the resource set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceSetType(Output<String> resourceSetType) {
             $.resourceSetType = resourceSetType;
             return this;
         }
 
-        /**
-         * @param resourceSetType Type of the resources in the resource set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceSetType(String resourceSetType) {
             return resourceSetType(Output.of(resourceSetType));
         }
 
-        /**
-         * @param resources List of resources to add to this resource set. See below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder resources(Output<List<ResourceSetResourceArgs>> resources) {
             $.resources = resources;
             return this;
         }
 
-        /**
-         * @param resources List of resources to add to this resource set. See below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder resources(List<ResourceSetResourceArgs> resources) {
             return resources(Output.of(resources));
         }
 
-        /**
-         * @param resources List of resources to add to this resource set. See below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder resources(ResourceSetResourceArgs... resources) {
             return resources(List.of(resources));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

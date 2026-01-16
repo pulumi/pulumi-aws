@@ -65,9 +65,6 @@ class GetProvisioningArtifactsResult:
     @_builtins.property
     @pulumi.getter(name="provisioningArtifactDetails")
     def provisioning_artifact_details(self) -> Sequence['outputs.GetProvisioningArtifactsProvisioningArtifactDetailResult']:
-        """
-        List with information about the provisioning artifacts. See details below.
-        """
         return pulumi.get(self, "provisioning_artifact_details")
 
     @_builtins.property
@@ -94,25 +91,7 @@ def get_provisioning_artifacts(accept_language: Optional[_builtins.str] = None,
                                region: Optional[_builtins.str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProvisioningArtifactsResult:
     """
-    Lists the provisioning artifacts for the specified product.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicecatalog.get_provisioning_artifacts(product_id="prod-yakog5pdriver")
-    ```
-
-
-    :param _builtins.str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-    :param _builtins.str product_id: Product identifier.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
@@ -132,25 +111,7 @@ def get_provisioning_artifacts_output(accept_language: Optional[pulumi.Input[Opt
                                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProvisioningArtifactsResult]:
     """
-    Lists the provisioning artifacts for the specified product.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicecatalog.get_provisioning_artifacts(product_id="prod-yakog5pdriver")
-    ```
-
-
-    :param _builtins.str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-    :param _builtins.str product_id: Product identifier.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language

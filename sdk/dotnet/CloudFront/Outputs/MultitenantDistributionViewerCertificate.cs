@@ -13,21 +13,9 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class MultitenantDistributionViewerCertificate
     {
-        /// <summary>
-        /// ARN of the AWS Certificate Manager certificate that you wish to use with this distribution. Required when using a custom SSL certificate.
-        /// </summary>
         public readonly string? AcmCertificateArn;
-        /// <summary>
-        /// Whether to use the CloudFront default certificate. Cannot be used with `AcmCertificateArn`.
-        /// </summary>
         public readonly bool? CloudfrontDefaultCertificate;
-        /// <summary>
-        /// Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Default: `TLSv1`.
-        /// </summary>
         public readonly string? MinimumProtocolVersion;
-        /// <summary>
-        /// How you want CloudFront to serve HTTPS requests. Valid values are `sni-only` and `Vip`. Required when `AcmCertificateArn` is specified.
-        /// </summary>
         public readonly string? SslSupportMethod;
 
         [OutputConstructor]

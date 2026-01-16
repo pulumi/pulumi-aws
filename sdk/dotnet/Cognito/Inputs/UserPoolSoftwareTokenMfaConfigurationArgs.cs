@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Cognito.Inputs
 
     public sealed class UserPoolSoftwareTokenMfaConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA When `SmsConfiguration` is not present, the `MfaConfiguration` argument must be set to `OFF` and the `SoftwareTokenMfaConfiguration` configuration block must be fully removed.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 

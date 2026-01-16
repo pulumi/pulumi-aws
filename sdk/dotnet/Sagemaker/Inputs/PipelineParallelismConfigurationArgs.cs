@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class PipelineParallelismConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The max number of steps that can be executed in parallel.
-        /// </summary>
         [Input("maxParallelExecutionSteps", required: true)]
         public Input<int> MaxParallelExecutionSteps { get; set; } = null!;
 

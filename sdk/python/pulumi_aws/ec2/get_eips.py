@@ -51,9 +51,6 @@ class GetEipsResult:
     @_builtins.property
     @pulumi.getter(name="allocationIds")
     def allocation_ids(self) -> Sequence[_builtins.str]:
-        """
-        List of all the allocation IDs for address for use with EC2-VPC.
-        """
         return pulumi.get(self, "allocation_ids")
 
     @_builtins.property
@@ -72,9 +69,6 @@ class GetEipsResult:
     @_builtins.property
     @pulumi.getter(name="publicIps")
     def public_ips(self) -> Sequence[_builtins.str]:
-        """
-        List of all the Elastic IP addresses.
-        """
         return pulumi.get(self, "public_ips")
 
     @_builtins.property
@@ -107,27 +101,7 @@ def get_eips(filters: Optional[Sequence[Union['GetEipsFilterArgs', 'GetEipsFilte
              tags: Optional[Mapping[str, _builtins.str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEipsResult:
     """
-    Provides a list of Elastic IPs in a region.
-
-    ## Example Usage
-
-    The following shows outputting all Elastic IPs with the a specific tag value.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_eips(tags={
-        "Env": "dev",
-    })
-    pulumi.export("allocationIds", example.allocation_ids)
-    pulumi.export("publicIps", example.public_ips)
-    ```
-
-
-    :param Sequence[Union['GetEipsFilterArgs', 'GetEipsFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -148,27 +122,7 @@ def get_eips_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetE
                     tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEipsResult]:
     """
-    Provides a list of Elastic IPs in a region.
-
-    ## Example Usage
-
-    The following shows outputting all Elastic IPs with the a specific tag value.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_eips(tags={
-        "Env": "dev",
-    })
-    pulumi.export("allocationIds", example.allocation_ids)
-    pulumi.export("publicIps", example.public_ips)
-    ```
-
-
-    :param Sequence[Union['GetEipsFilterArgs', 'GetEipsFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

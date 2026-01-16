@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class EventEndpointEventBus {
-    /**
-     * @return The ARN of the event bus the endpoint is associated with.
-     * 
-     */
     private String eventBusArn;
 
     private EventEndpointEventBus() {}
-    /**
-     * @return The ARN of the event bus the endpoint is associated with.
-     * 
-     */
     public String eventBusArn() {
         return this.eventBusArn;
     }

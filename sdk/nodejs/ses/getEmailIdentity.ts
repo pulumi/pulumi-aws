@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Retrieve the active SES email identity
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ses.getEmailIdentity({
- *     email: "awesome@example.com",
- * });
- * ```
- */
 export function getEmailIdentity(args: GetEmailIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailIdentityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ses/getEmailIdentity:getEmailIdentity", {
@@ -30,13 +16,7 @@ export function getEmailIdentity(args: GetEmailIdentityArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getEmailIdentity.
  */
 export interface GetEmailIdentityArgs {
-    /**
-     * Email identity.
-     */
     email: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -44,13 +24,7 @@ export interface GetEmailIdentityArgs {
  * A collection of values returned by getEmailIdentity.
  */
 export interface GetEmailIdentityResult {
-    /**
-     * The ARN of the email identity.
-     */
     readonly arn: string;
-    /**
-     * Email identity.
-     */
     readonly email: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -58,20 +32,6 @@ export interface GetEmailIdentityResult {
     readonly id: string;
     readonly region: string;
 }
-/**
- * Retrieve the active SES email identity
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ses.getEmailIdentity({
- *     email: "awesome@example.com",
- * });
- * ```
- */
 export function getEmailIdentityOutput(args: GetEmailIdentityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEmailIdentityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ses/getEmailIdentity:getEmailIdentity", {
@@ -84,12 +44,6 @@ export function getEmailIdentityOutput(args: GetEmailIdentityOutputArgs, opts?: 
  * A collection of arguments for invoking getEmailIdentity.
  */
 export interface GetEmailIdentityOutputArgs {
-    /**
-     * Email identity.
-     */
     email: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

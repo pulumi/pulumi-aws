@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Auditmanager.Outputs
     [OutputType]
     public sealed class AssessmentScopeAwsAccount
     {
-        /// <summary>
-        /// Identifier for the Amazon Web Services account.
-        /// </summary>
         public readonly string Id;
 
         [OutputConstructor]

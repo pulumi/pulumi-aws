@@ -12,86 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Lightsail disk attachment. Use this resource to attach additional storage disks to your Lightsail instances for expanded storage capacity.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
-//				State: pulumi.StringRef("available"),
-//				Filters: []aws.GetAvailabilityZonesFilter{
-//					{
-//						Name: "opt-in-status",
-//						Values: []string{
-//							"opt-in-not-required",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := lightsail.NewDisk(ctx, "example", &lightsail.DiskArgs{
-//				Name:             pulumi.String("example-disk"),
-//				SizeInGb:         pulumi.Int(8),
-//				AvailabilityZone: pulumi.String(available.Names[0]),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleInstance, err := lightsail.NewInstance(ctx, "example", &lightsail.InstanceArgs{
-//				Name:             pulumi.String("example-instance"),
-//				AvailabilityZone: pulumi.String(available.Names[0]),
-//				BlueprintId:      pulumi.String("amazon_linux_2"),
-//				BundleId:         pulumi.String("nano_3_0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewDisk_attachment(ctx, "example", &lightsail.Disk_attachmentArgs{
-//				DiskName:     example.Name,
-//				InstanceName: exampleInstance.Name,
-//				DiskPath:     pulumi.String("/dev/xvdf"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_lightsail_disk_attachment` using the id attribute. For example:
-//
-// ```sh
-// $ pulumi import aws:lightsail/disk_attachment:Disk_attachment example example-disk,example-instance
-// ```
 type Disk_attachment struct {
 	pulumi.CustomResourceState
 
-	// Name of the Lightsail disk.
-	DiskName pulumi.StringOutput `pulumi:"diskName"`
-	// Disk path to expose to the instance.
-	DiskPath pulumi.StringOutput `pulumi:"diskPath"`
-	// Name of the Lightsail instance to attach to.
+	DiskName     pulumi.StringOutput `pulumi:"diskName"`
+	DiskPath     pulumi.StringOutput `pulumi:"diskPath"`
 	InstanceName pulumi.StringOutput `pulumi:"instanceName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region       pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewDisk_attachment registers a new resource with the given unique name, arguments, and options.
@@ -133,25 +60,17 @@ func GetDisk_attachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Disk_attachment resources.
 type disk_attachmentState struct {
-	// Name of the Lightsail disk.
-	DiskName *string `pulumi:"diskName"`
-	// Disk path to expose to the instance.
-	DiskPath *string `pulumi:"diskPath"`
-	// Name of the Lightsail instance to attach to.
+	DiskName     *string `pulumi:"diskName"`
+	DiskPath     *string `pulumi:"diskPath"`
 	InstanceName *string `pulumi:"instanceName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region       *string `pulumi:"region"`
 }
 
 type Disk_attachmentState struct {
-	// Name of the Lightsail disk.
-	DiskName pulumi.StringPtrInput
-	// Disk path to expose to the instance.
-	DiskPath pulumi.StringPtrInput
-	// Name of the Lightsail instance to attach to.
+	DiskName     pulumi.StringPtrInput
+	DiskPath     pulumi.StringPtrInput
 	InstanceName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
 }
 
 func (Disk_attachmentState) ElementType() reflect.Type {
@@ -159,26 +78,18 @@ func (Disk_attachmentState) ElementType() reflect.Type {
 }
 
 type disk_attachmentArgs struct {
-	// Name of the Lightsail disk.
-	DiskName string `pulumi:"diskName"`
-	// Disk path to expose to the instance.
-	DiskPath string `pulumi:"diskPath"`
-	// Name of the Lightsail instance to attach to.
-	InstanceName string `pulumi:"instanceName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	DiskName     string  `pulumi:"diskName"`
+	DiskPath     string  `pulumi:"diskPath"`
+	InstanceName string  `pulumi:"instanceName"`
+	Region       *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Disk_attachment resource.
 type Disk_attachmentArgs struct {
-	// Name of the Lightsail disk.
-	DiskName pulumi.StringInput
-	// Disk path to expose to the instance.
-	DiskPath pulumi.StringInput
-	// Name of the Lightsail instance to attach to.
+	DiskName     pulumi.StringInput
+	DiskPath     pulumi.StringInput
 	InstanceName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
 }
 
 func (Disk_attachmentArgs) ElementType() reflect.Type {
@@ -268,22 +179,18 @@ func (o Disk_attachmentOutput) ToDisk_attachmentOutputWithContext(ctx context.Co
 	return o
 }
 
-// Name of the Lightsail disk.
 func (o Disk_attachmentOutput) DiskName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Disk_attachment) pulumi.StringOutput { return v.DiskName }).(pulumi.StringOutput)
 }
 
-// Disk path to expose to the instance.
 func (o Disk_attachmentOutput) DiskPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *Disk_attachment) pulumi.StringOutput { return v.DiskPath }).(pulumi.StringOutput)
 }
 
-// Name of the Lightsail instance to attach to.
 func (o Disk_attachmentOutput) InstanceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Disk_attachment) pulumi.StringOutput { return v.InstanceName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o Disk_attachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Disk_attachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -12,37 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an IAM Security Token Service Preferences resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.NewSecurityTokenServicePreferences(ctx, "example", &iam.SecurityTokenServicePreferencesArgs{
-//				GlobalEndpointTokenVersion: pulumi.String("v2Token"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type SecurityTokenServicePreferences struct {
 	pulumi.CustomResourceState
 
-	// The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
 	GlobalEndpointTokenVersion pulumi.StringOutput `pulumi:"globalEndpointTokenVersion"`
 }
 
@@ -79,12 +51,10 @@ func GetSecurityTokenServicePreferences(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecurityTokenServicePreferences resources.
 type securityTokenServicePreferencesState struct {
-	// The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
 	GlobalEndpointTokenVersion *string `pulumi:"globalEndpointTokenVersion"`
 }
 
 type SecurityTokenServicePreferencesState struct {
-	// The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
 	GlobalEndpointTokenVersion pulumi.StringPtrInput
 }
 
@@ -93,13 +63,11 @@ func (SecurityTokenServicePreferencesState) ElementType() reflect.Type {
 }
 
 type securityTokenServicePreferencesArgs struct {
-	// The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
 	GlobalEndpointTokenVersion string `pulumi:"globalEndpointTokenVersion"`
 }
 
 // The set of arguments for constructing a SecurityTokenServicePreferences resource.
 type SecurityTokenServicePreferencesArgs struct {
-	// The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
 	GlobalEndpointTokenVersion pulumi.StringInput
 }
 
@@ -190,7 +158,6 @@ func (o SecurityTokenServicePreferencesOutput) ToSecurityTokenServicePreferences
 	return o
 }
 
-// The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
 func (o SecurityTokenServicePreferencesOutput) GlobalEndpointTokenVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityTokenServicePreferences) pulumi.StringOutput { return v.GlobalEndpointTokenVersion }).(pulumi.StringOutput)
 }

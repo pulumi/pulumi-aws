@@ -9,104 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    /// <summary>
-    /// &gt; **Note:** There is only a single policy allowed per AWS account. An existing policy will be lost when using this resource as an effect of this limitation.
-    /// 
-    /// Manages Password Policy for the AWS Account.
-    /// See more about [Account Password Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html)
-    /// in the official AWS docs.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var strict = new Aws.Iam.AccountPasswordPolicy("strict", new()
-    ///     {
-    ///         MinimumPasswordLength = 8,
-    ///         RequireLowercaseCharacters = true,
-    ///         RequireNumbers = true,
-    ///         RequireUppercaseCharacters = true,
-    ///         RequireSymbols = true,
-    ///         AllowUsersToChangePassword = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import IAM Account Password Policy using the word `iam-account-password-policy`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iam/accountPasswordPolicy:AccountPasswordPolicy")]
     public partial class AccountPasswordPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Whether to allow users to change their own password
-        /// </summary>
         [Output("allowUsersToChangePassword")]
         public Output<bool?> AllowUsersToChangePassword { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether passwords in the account expire. Returns `True` if `MaxPasswordAge` contains a value greater than `0`. Returns `False` if it is `0` or _not present_.
-        /// </summary>
         [Output("expirePasswords")]
         public Output<bool> ExpirePasswords { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
-        /// </summary>
         [Output("hardExpiry")]
         public Output<bool> HardExpiry { get; private set; } = null!;
 
-        /// <summary>
-        /// The number of days that an user password is valid.
-        /// </summary>
         [Output("maxPasswordAge")]
         public Output<int> MaxPasswordAge { get; private set; } = null!;
 
-        /// <summary>
-        /// Minimum length to require for user passwords.
-        /// </summary>
         [Output("minimumPasswordLength")]
         public Output<int?> MinimumPasswordLength { get; private set; } = null!;
 
-        /// <summary>
-        /// The number of previous passwords that users are prevented from reusing.
-        /// </summary>
         [Output("passwordReusePrevention")]
         public Output<int> PasswordReusePrevention { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to require lowercase characters for user passwords.
-        /// </summary>
         [Output("requireLowercaseCharacters")]
         public Output<bool> RequireLowercaseCharacters { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to require numbers for user passwords.
-        /// </summary>
         [Output("requireNumbers")]
         public Output<bool> RequireNumbers { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to require symbols for user passwords.
-        /// </summary>
         [Output("requireSymbols")]
         public Output<bool> RequireSymbols { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to require uppercase characters for user passwords.
-        /// </summary>
         [Output("requireUppercaseCharacters")]
         public Output<bool> RequireUppercaseCharacters { get; private set; } = null!;
 
@@ -156,57 +88,30 @@ namespace Pulumi.Aws.Iam
 
     public sealed class AccountPasswordPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to allow users to change their own password
-        /// </summary>
         [Input("allowUsersToChangePassword")]
         public Input<bool>? AllowUsersToChangePassword { get; set; }
 
-        /// <summary>
-        /// Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
-        /// </summary>
         [Input("hardExpiry")]
         public Input<bool>? HardExpiry { get; set; }
 
-        /// <summary>
-        /// The number of days that an user password is valid.
-        /// </summary>
         [Input("maxPasswordAge")]
         public Input<int>? MaxPasswordAge { get; set; }
 
-        /// <summary>
-        /// Minimum length to require for user passwords.
-        /// </summary>
         [Input("minimumPasswordLength")]
         public Input<int>? MinimumPasswordLength { get; set; }
 
-        /// <summary>
-        /// The number of previous passwords that users are prevented from reusing.
-        /// </summary>
         [Input("passwordReusePrevention")]
         public Input<int>? PasswordReusePrevention { get; set; }
 
-        /// <summary>
-        /// Whether to require lowercase characters for user passwords.
-        /// </summary>
         [Input("requireLowercaseCharacters")]
         public Input<bool>? RequireLowercaseCharacters { get; set; }
 
-        /// <summary>
-        /// Whether to require numbers for user passwords.
-        /// </summary>
         [Input("requireNumbers")]
         public Input<bool>? RequireNumbers { get; set; }
 
-        /// <summary>
-        /// Whether to require symbols for user passwords.
-        /// </summary>
         [Input("requireSymbols")]
         public Input<bool>? RequireSymbols { get; set; }
 
-        /// <summary>
-        /// Whether to require uppercase characters for user passwords.
-        /// </summary>
         [Input("requireUppercaseCharacters")]
         public Input<bool>? RequireUppercaseCharacters { get; set; }
 
@@ -218,63 +123,33 @@ namespace Pulumi.Aws.Iam
 
     public sealed class AccountPasswordPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to allow users to change their own password
-        /// </summary>
         [Input("allowUsersToChangePassword")]
         public Input<bool>? AllowUsersToChangePassword { get; set; }
 
-        /// <summary>
-        /// Indicates whether passwords in the account expire. Returns `True` if `MaxPasswordAge` contains a value greater than `0`. Returns `False` if it is `0` or _not present_.
-        /// </summary>
         [Input("expirePasswords")]
         public Input<bool>? ExpirePasswords { get; set; }
 
-        /// <summary>
-        /// Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
-        /// </summary>
         [Input("hardExpiry")]
         public Input<bool>? HardExpiry { get; set; }
 
-        /// <summary>
-        /// The number of days that an user password is valid.
-        /// </summary>
         [Input("maxPasswordAge")]
         public Input<int>? MaxPasswordAge { get; set; }
 
-        /// <summary>
-        /// Minimum length to require for user passwords.
-        /// </summary>
         [Input("minimumPasswordLength")]
         public Input<int>? MinimumPasswordLength { get; set; }
 
-        /// <summary>
-        /// The number of previous passwords that users are prevented from reusing.
-        /// </summary>
         [Input("passwordReusePrevention")]
         public Input<int>? PasswordReusePrevention { get; set; }
 
-        /// <summary>
-        /// Whether to require lowercase characters for user passwords.
-        /// </summary>
         [Input("requireLowercaseCharacters")]
         public Input<bool>? RequireLowercaseCharacters { get; set; }
 
-        /// <summary>
-        /// Whether to require numbers for user passwords.
-        /// </summary>
         [Input("requireNumbers")]
         public Input<bool>? RequireNumbers { get; set; }
 
-        /// <summary>
-        /// Whether to require symbols for user passwords.
-        /// </summary>
         [Input("requireSymbols")]
         public Input<bool>? RequireSymbols { get; set; }
 
-        /// <summary>
-        /// Whether to require uppercase characters for user passwords.
-        /// </summary>
         [Input("requireUppercaseCharacters")]
         public Input<bool>? RequireUppercaseCharacters { get; set; }
 

@@ -16,36 +16,16 @@ public final class GetGlobalClusterArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetGlobalClusterArgs Empty = new GetGlobalClusterArgs();
 
-    /**
-     * The global cluster identifier of the RDS global cluster.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="identifier", required=true)
     private Output<String> identifier;
 
-    /**
-     * @return The global cluster identifier of the RDS global cluster.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> identifier() {
         return this.identifier;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -75,48 +55,20 @@ public final class GetGlobalClusterArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetGlobalClusterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param identifier The global cluster identifier of the RDS global cluster.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder identifier(Output<String> identifier) {
             $.identifier = identifier;
             return this;
         }
 
-        /**
-         * @param identifier The global cluster identifier of the RDS global cluster.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder identifier(String identifier) {
             return identifier(Output.of(identifier));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

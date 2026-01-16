@@ -31,13 +31,6 @@ class AccessGrantArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AccessGrant resource.
-        :param pulumi.Input[_builtins.str] access_grants_location_id: The ID of the S3 Access Grants location to with the access grant is giving access.
-        :param pulumi.Input[_builtins.str] permission: The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
-        :param pulumi.Input['AccessGrantAccessGrantsLocationConfigurationArgs'] access_grants_location_configuration: See Location Configuration below for more details.
-        :param pulumi.Input['AccessGrantGranteeArgs'] grantee: See Grantee below for more details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] s3_prefix_type: If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "access_grants_location_id", access_grants_location_id)
         pulumi.set(__self__, "permission", permission)
@@ -57,9 +50,6 @@ class AccessGrantArgs:
     @_builtins.property
     @pulumi.getter(name="accessGrantsLocationId")
     def access_grants_location_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the S3 Access Grants location to with the access grant is giving access.
-        """
         return pulumi.get(self, "access_grants_location_id")
 
     @access_grants_location_id.setter
@@ -69,9 +59,6 @@ class AccessGrantArgs:
     @_builtins.property
     @pulumi.getter
     def permission(self) -> pulumi.Input[_builtins.str]:
-        """
-        The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
-        """
         return pulumi.get(self, "permission")
 
     @permission.setter
@@ -81,9 +68,6 @@ class AccessGrantArgs:
     @_builtins.property
     @pulumi.getter(name="accessGrantsLocationConfiguration")
     def access_grants_location_configuration(self) -> Optional[pulumi.Input['AccessGrantAccessGrantsLocationConfigurationArgs']]:
-        """
-        See Location Configuration below for more details.
-        """
         return pulumi.get(self, "access_grants_location_configuration")
 
     @access_grants_location_configuration.setter
@@ -102,9 +86,6 @@ class AccessGrantArgs:
     @_builtins.property
     @pulumi.getter
     def grantee(self) -> Optional[pulumi.Input['AccessGrantGranteeArgs']]:
-        """
-        See Grantee below for more details.
-        """
         return pulumi.get(self, "grantee")
 
     @grantee.setter
@@ -114,9 +95,6 @@ class AccessGrantArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -126,9 +104,6 @@ class AccessGrantArgs:
     @_builtins.property
     @pulumi.getter(name="s3PrefixType")
     def s3_prefix_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
-        """
         return pulumi.get(self, "s3_prefix_type")
 
     @s3_prefix_type.setter
@@ -138,9 +113,6 @@ class AccessGrantArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -165,17 +137,6 @@ class _AccessGrantState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AccessGrant resources.
-        :param pulumi.Input[_builtins.str] access_grant_arn: Amazon Resource Name (ARN) of the S3 Access Grant.
-        :param pulumi.Input[_builtins.str] access_grant_id: Unique ID of the S3 Access Grant.
-        :param pulumi.Input['AccessGrantAccessGrantsLocationConfigurationArgs'] access_grants_location_configuration: See Location Configuration below for more details.
-        :param pulumi.Input[_builtins.str] access_grants_location_id: The ID of the S3 Access Grants location to with the access grant is giving access.
-        :param pulumi.Input[_builtins.str] grant_scope: The access grant's scope.
-        :param pulumi.Input['AccessGrantGranteeArgs'] grantee: See Grantee below for more details.
-        :param pulumi.Input[_builtins.str] permission: The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] s3_prefix_type: If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if access_grant_arn is not None:
             pulumi.set(__self__, "access_grant_arn", access_grant_arn)
@@ -205,9 +166,6 @@ class _AccessGrantState:
     @_builtins.property
     @pulumi.getter(name="accessGrantArn")
     def access_grant_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the S3 Access Grant.
-        """
         return pulumi.get(self, "access_grant_arn")
 
     @access_grant_arn.setter
@@ -217,9 +175,6 @@ class _AccessGrantState:
     @_builtins.property
     @pulumi.getter(name="accessGrantId")
     def access_grant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique ID of the S3 Access Grant.
-        """
         return pulumi.get(self, "access_grant_id")
 
     @access_grant_id.setter
@@ -229,9 +184,6 @@ class _AccessGrantState:
     @_builtins.property
     @pulumi.getter(name="accessGrantsLocationConfiguration")
     def access_grants_location_configuration(self) -> Optional[pulumi.Input['AccessGrantAccessGrantsLocationConfigurationArgs']]:
-        """
-        See Location Configuration below for more details.
-        """
         return pulumi.get(self, "access_grants_location_configuration")
 
     @access_grants_location_configuration.setter
@@ -241,9 +193,6 @@ class _AccessGrantState:
     @_builtins.property
     @pulumi.getter(name="accessGrantsLocationId")
     def access_grants_location_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the S3 Access Grants location to with the access grant is giving access.
-        """
         return pulumi.get(self, "access_grants_location_id")
 
     @access_grants_location_id.setter
@@ -262,9 +211,6 @@ class _AccessGrantState:
     @_builtins.property
     @pulumi.getter(name="grantScope")
     def grant_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The access grant's scope.
-        """
         return pulumi.get(self, "grant_scope")
 
     @grant_scope.setter
@@ -274,9 +220,6 @@ class _AccessGrantState:
     @_builtins.property
     @pulumi.getter
     def grantee(self) -> Optional[pulumi.Input['AccessGrantGranteeArgs']]:
-        """
-        See Grantee below for more details.
-        """
         return pulumi.get(self, "grantee")
 
     @grantee.setter
@@ -286,9 +229,6 @@ class _AccessGrantState:
     @_builtins.property
     @pulumi.getter
     def permission(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
-        """
         return pulumi.get(self, "permission")
 
     @permission.setter
@@ -298,9 +238,6 @@ class _AccessGrantState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -310,9 +247,6 @@ class _AccessGrantState:
     @_builtins.property
     @pulumi.getter(name="s3PrefixType")
     def s3_prefix_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
-        """
         return pulumi.get(self, "s3_prefix_type")
 
     @s3_prefix_type.setter
@@ -322,9 +256,6 @@ class _AccessGrantState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -334,9 +265,6 @@ class _AccessGrantState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -360,50 +288,9 @@ class AccessGrant(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a resource to manage an S3 Access Grant.
-        Each access grant has its own ID and gives an IAM user or role or a directory user, or group (the grantee) access to a registered location. You determine the level of access, such as `READ` or `READWRITE`.
-        Before you can create a grant, you must have an S3 Access Grants instance in the same Region as the S3 data.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3control.AccessGrantsInstance("example")
-        example_access_grants_location = aws.s3control.AccessGrantsLocation("example",
-            iam_role_arn=example_aws_iam_role["arn"],
-            location_scope=f"s3://{example_aws_s3_bucket['bucket']}/prefixA*",
-            opts = pulumi.ResourceOptions(depends_on=[example]))
-        example_access_grant = aws.s3control.AccessGrant("example",
-            access_grants_location_id=example_access_grants_location.access_grants_location_id,
-            permission="READ",
-            access_grants_location_configuration={
-                "s3_sub_prefix": "prefixB*",
-            },
-            grantee={
-                "grantee_type": "IAM",
-                "grantee_identifier": example_aws_iam_user["arn"],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import S3 Access Grants using the `account_id` and `access_grant_id`, separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:s3control/accessGrant:AccessGrant example 123456789012,04549c5e-2f3c-4a07-824d-2cafe720aa22
-        ```
-
+        Create a AccessGrant resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AccessGrantAccessGrantsLocationConfigurationArgs', 'AccessGrantAccessGrantsLocationConfigurationArgsDict']] access_grants_location_configuration: See Location Configuration below for more details.
-        :param pulumi.Input[_builtins.str] access_grants_location_id: The ID of the S3 Access Grants location to with the access grant is giving access.
-        :param pulumi.Input[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict']] grantee: See Grantee below for more details.
-        :param pulumi.Input[_builtins.str] permission: The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] s3_prefix_type: If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -412,41 +299,7 @@ class AccessGrant(pulumi.CustomResource):
                  args: AccessGrantArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage an S3 Access Grant.
-        Each access grant has its own ID and gives an IAM user or role or a directory user, or group (the grantee) access to a registered location. You determine the level of access, such as `READ` or `READWRITE`.
-        Before you can create a grant, you must have an S3 Access Grants instance in the same Region as the S3 data.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3control.AccessGrantsInstance("example")
-        example_access_grants_location = aws.s3control.AccessGrantsLocation("example",
-            iam_role_arn=example_aws_iam_role["arn"],
-            location_scope=f"s3://{example_aws_s3_bucket['bucket']}/prefixA*",
-            opts = pulumi.ResourceOptions(depends_on=[example]))
-        example_access_grant = aws.s3control.AccessGrant("example",
-            access_grants_location_id=example_access_grants_location.access_grants_location_id,
-            permission="READ",
-            access_grants_location_configuration={
-                "s3_sub_prefix": "prefixB*",
-            },
-            grantee={
-                "grantee_type": "IAM",
-                "grantee_identifier": example_aws_iam_user["arn"],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import S3 Access Grants using the `account_id` and `access_grant_id`, separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:s3control/accessGrant:AccessGrant example 123456789012,04549c5e-2f3c-4a07-824d-2cafe720aa22
-        ```
-
+        Create a AccessGrant resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AccessGrantArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -524,17 +377,6 @@ class AccessGrant(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_grant_arn: Amazon Resource Name (ARN) of the S3 Access Grant.
-        :param pulumi.Input[_builtins.str] access_grant_id: Unique ID of the S3 Access Grant.
-        :param pulumi.Input[Union['AccessGrantAccessGrantsLocationConfigurationArgs', 'AccessGrantAccessGrantsLocationConfigurationArgsDict']] access_grants_location_configuration: See Location Configuration below for more details.
-        :param pulumi.Input[_builtins.str] access_grants_location_id: The ID of the S3 Access Grants location to with the access grant is giving access.
-        :param pulumi.Input[_builtins.str] grant_scope: The access grant's scope.
-        :param pulumi.Input[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict']] grantee: See Grantee below for more details.
-        :param pulumi.Input[_builtins.str] permission: The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] s3_prefix_type: If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -557,33 +399,21 @@ class AccessGrant(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accessGrantArn")
     def access_grant_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the S3 Access Grant.
-        """
         return pulumi.get(self, "access_grant_arn")
 
     @_builtins.property
     @pulumi.getter(name="accessGrantId")
     def access_grant_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique ID of the S3 Access Grant.
-        """
         return pulumi.get(self, "access_grant_id")
 
     @_builtins.property
     @pulumi.getter(name="accessGrantsLocationConfiguration")
     def access_grants_location_configuration(self) -> pulumi.Output[Optional['outputs.AccessGrantAccessGrantsLocationConfiguration']]:
-        """
-        See Location Configuration below for more details.
-        """
         return pulumi.get(self, "access_grants_location_configuration")
 
     @_builtins.property
     @pulumi.getter(name="accessGrantsLocationId")
     def access_grants_location_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the S3 Access Grants location to with the access grant is giving access.
-        """
         return pulumi.get(self, "access_grants_location_id")
 
     @_builtins.property
@@ -594,56 +424,35 @@ class AccessGrant(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="grantScope")
     def grant_scope(self) -> pulumi.Output[_builtins.str]:
-        """
-        The access grant's scope.
-        """
         return pulumi.get(self, "grant_scope")
 
     @_builtins.property
     @pulumi.getter
     def grantee(self) -> pulumi.Output[Optional['outputs.AccessGrantGrantee']]:
-        """
-        See Grantee below for more details.
-        """
         return pulumi.get(self, "grantee")
 
     @_builtins.property
     @pulumi.getter
     def permission(self) -> pulumi.Output[_builtins.str]:
-        """
-        The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
-        """
         return pulumi.get(self, "permission")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="s3PrefixType")
     def s3_prefix_type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
-        """
         return pulumi.get(self, "s3_prefix_type")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

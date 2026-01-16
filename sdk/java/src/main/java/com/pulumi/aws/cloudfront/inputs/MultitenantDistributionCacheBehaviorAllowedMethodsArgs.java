@@ -15,17 +15,9 @@ public final class MultitenantDistributionCacheBehaviorAllowedMethodsArgs extend
 
     public static final MultitenantDistributionCacheBehaviorAllowedMethodsArgs Empty = new MultitenantDistributionCacheBehaviorAllowedMethodsArgs();
 
-    /**
-     * Controls whether CloudFront caches the response to requests using the specified HTTP methods.
-     * 
-     */
     @Import(name="cachedMethods", required=true)
     private Output<List<String>> cachedMethods;
 
-    /**
-     * @return Controls whether CloudFront caches the response to requests using the specified HTTP methods.
-     * 
-     */
     public Output<List<String>> cachedMethods() {
         return this.cachedMethods;
     }
@@ -62,33 +54,15 @@ public final class MultitenantDistributionCacheBehaviorAllowedMethodsArgs extend
             $ = new MultitenantDistributionCacheBehaviorAllowedMethodsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cachedMethods Controls whether CloudFront caches the response to requests using the specified HTTP methods.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cachedMethods(Output<List<String>> cachedMethods) {
             $.cachedMethods = cachedMethods;
             return this;
         }
 
-        /**
-         * @param cachedMethods Controls whether CloudFront caches the response to requests using the specified HTTP methods.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cachedMethods(List<String> cachedMethods) {
             return cachedMethods(Output.of(cachedMethods));
         }
 
-        /**
-         * @param cachedMethods Controls whether CloudFront caches the response to requests using the specified HTTP methods.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cachedMethods(String... cachedMethods) {
             return cachedMethods(List.of(cachedMethods));
         }

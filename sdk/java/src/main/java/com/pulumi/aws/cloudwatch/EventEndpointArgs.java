@@ -20,107 +20,51 @@ public final class EventEndpointArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final EventEndpointArgs Empty = new EventEndpointArgs();
 
-    /**
-     * A description of the global endpoint.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A description of the global endpoint.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
-     * 
-     */
     @Import(name="eventBuses", required=true)
     private Output<List<EventEndpointEventBusArgs>> eventBuses;
 
-    /**
-     * @return The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
-     * 
-     */
     public Output<List<EventEndpointEventBusArgs>> eventBuses() {
         return this.eventBuses;
     }
 
-    /**
-     * The name of the global endpoint.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the global endpoint.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Parameters used for replication. Documented below.
-     * 
-     */
     @Import(name="replicationConfig")
     private @Nullable Output<EventEndpointReplicationConfigArgs> replicationConfig;
 
-    /**
-     * @return Parameters used for replication. Documented below.
-     * 
-     */
     public Optional<Output<EventEndpointReplicationConfigArgs>> replicationConfig() {
         return Optional.ofNullable(this.replicationConfig);
     }
 
-    /**
-     * The ARN of the IAM role used for replication between event buses.
-     * 
-     */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
-    /**
-     * @return The ARN of the IAM role used for replication between event buses.
-     * 
-     */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
 
-    /**
-     * Parameters used for routing, including the health check and secondary Region. Documented below.
-     * 
-     */
     @Import(name="routingConfig", required=true)
     private Output<EventEndpointRoutingConfigArgs> routingConfig;
 
-    /**
-     * @return Parameters used for routing, including the health check and secondary Region. Documented below.
-     * 
-     */
     public Output<EventEndpointRoutingConfigArgs> routingConfig() {
         return this.routingConfig;
     }
@@ -155,159 +99,69 @@ public final class EventEndpointArgs extends com.pulumi.resources.ResourceArgs {
             $ = new EventEndpointArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description A description of the global endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A description of the global endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param eventBuses The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventBuses(Output<List<EventEndpointEventBusArgs>> eventBuses) {
             $.eventBuses = eventBuses;
             return this;
         }
 
-        /**
-         * @param eventBuses The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventBuses(List<EventEndpointEventBusArgs> eventBuses) {
             return eventBuses(Output.of(eventBuses));
         }
 
-        /**
-         * @param eventBuses The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventBuses(EventEndpointEventBusArgs... eventBuses) {
             return eventBuses(List.of(eventBuses));
         }
 
-        /**
-         * @param name The name of the global endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the global endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param replicationConfig Parameters used for replication. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationConfig(@Nullable Output<EventEndpointReplicationConfigArgs> replicationConfig) {
             $.replicationConfig = replicationConfig;
             return this;
         }
 
-        /**
-         * @param replicationConfig Parameters used for replication. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationConfig(EventEndpointReplicationConfigArgs replicationConfig) {
             return replicationConfig(Output.of(replicationConfig));
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role used for replication between event buses.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role used for replication between event buses.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param routingConfig Parameters used for routing, including the health check and secondary Region. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingConfig(Output<EventEndpointRoutingConfigArgs> routingConfig) {
             $.routingConfig = routingConfig;
             return this;
         }
 
-        /**
-         * @param routingConfig Parameters used for routing, including the health check and secondary Region. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingConfig(EventEndpointRoutingConfigArgs routingConfig) {
             return routingConfig(Output.of(routingConfig));
         }

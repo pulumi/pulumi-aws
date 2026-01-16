@@ -21,92 +21,44 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
 
     public static final GatewayRouteSpecHttpRouteMatchArgs Empty = new GatewayRouteSpecHttpRouteMatchArgs();
 
-    /**
-     * Client request headers to match on.
-     * 
-     */
     @Import(name="headers")
     private @Nullable Output<List<GatewayRouteSpecHttpRouteMatchHeaderArgs>> headers;
 
-    /**
-     * @return Client request headers to match on.
-     * 
-     */
     public Optional<Output<List<GatewayRouteSpecHttpRouteMatchHeaderArgs>>> headers() {
         return Optional.ofNullable(this.headers);
     }
 
-    /**
-     * Host name to match on.
-     * 
-     */
     @Import(name="hostname")
     private @Nullable Output<GatewayRouteSpecHttpRouteMatchHostnameArgs> hostname;
 
-    /**
-     * @return Host name to match on.
-     * 
-     */
     public Optional<Output<GatewayRouteSpecHttpRouteMatchHostnameArgs>> hostname() {
         return Optional.ofNullable(this.hostname);
     }
 
-    /**
-     * Client request path to match on.
-     * 
-     */
     @Import(name="path")
     private @Nullable Output<GatewayRouteSpecHttpRouteMatchPathArgs> path;
 
-    /**
-     * @return Client request path to match on.
-     * 
-     */
     public Optional<Output<GatewayRouteSpecHttpRouteMatchPathArgs>> path() {
         return Optional.ofNullable(this.path);
     }
 
-    /**
-     * The port number to match from the request.
-     * 
-     */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
-    /**
-     * @return The port number to match from the request.
-     * 
-     */
     public Optional<Output<Integer>> port() {
         return Optional.ofNullable(this.port);
     }
 
-    /**
-     * Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
-     * 
-     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
-    /**
-     * @return Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
-     * 
-     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
 
-    /**
-     * Client request query parameters to match on.
-     * 
-     */
     @Import(name="queryParameters")
     private @Nullable Output<List<GatewayRouteSpecHttpRouteMatchQueryParameterArgs>> queryParameters;
 
-    /**
-     * @return Client request query parameters to match on.
-     * 
-     */
     public Optional<Output<List<GatewayRouteSpecHttpRouteMatchQueryParameterArgs>>> queryParameters() {
         return Optional.ofNullable(this.queryParameters);
     }
@@ -140,148 +92,64 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
             $ = new GatewayRouteSpecHttpRouteMatchArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param headers Client request headers to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headers(@Nullable Output<List<GatewayRouteSpecHttpRouteMatchHeaderArgs>> headers) {
             $.headers = headers;
             return this;
         }
 
-        /**
-         * @param headers Client request headers to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headers(List<GatewayRouteSpecHttpRouteMatchHeaderArgs> headers) {
             return headers(Output.of(headers));
         }
 
-        /**
-         * @param headers Client request headers to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headers(GatewayRouteSpecHttpRouteMatchHeaderArgs... headers) {
             return headers(List.of(headers));
         }
 
-        /**
-         * @param hostname Host name to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostname(@Nullable Output<GatewayRouteSpecHttpRouteMatchHostnameArgs> hostname) {
             $.hostname = hostname;
             return this;
         }
 
-        /**
-         * @param hostname Host name to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostname(GatewayRouteSpecHttpRouteMatchHostnameArgs hostname) {
             return hostname(Output.of(hostname));
         }
 
-        /**
-         * @param path Client request path to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(@Nullable Output<GatewayRouteSpecHttpRouteMatchPathArgs> path) {
             $.path = path;
             return this;
         }
 
-        /**
-         * @param path Client request path to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(GatewayRouteSpecHttpRouteMatchPathArgs path) {
             return path(Output.of(path));
         }
 
-        /**
-         * @param port The port number to match from the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(@Nullable Output<Integer> port) {
             $.port = port;
             return this;
         }
 
-        /**
-         * @param port The port number to match from the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(Integer port) {
             return port(Output.of(port));
         }
 
-        /**
-         * @param prefix Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }
 
-        /**
-         * @param queryParameters Client request query parameters to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryParameters(@Nullable Output<List<GatewayRouteSpecHttpRouteMatchQueryParameterArgs>> queryParameters) {
             $.queryParameters = queryParameters;
             return this;
         }
 
-        /**
-         * @param queryParameters Client request query parameters to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryParameters(List<GatewayRouteSpecHttpRouteMatchQueryParameterArgs> queryParameters) {
             return queryParameters(Output.of(queryParameters));
         }
 
-        /**
-         * @param queryParameters Client request query parameters to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryParameters(GatewayRouteSpecHttpRouteMatchQueryParameterArgs... queryParameters) {
             return queryParameters(List.of(queryParameters));
         }

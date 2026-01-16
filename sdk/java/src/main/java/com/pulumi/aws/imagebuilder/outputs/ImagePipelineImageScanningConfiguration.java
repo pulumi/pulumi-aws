@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ImagePipelineImageScanningConfiguration {
-    /**
-     * @return Configuration block with ECR configuration for image scanning. Detailed below.
-     * 
-     */
     private @Nullable ImagePipelineImageScanningConfigurationEcrConfiguration ecrConfiguration;
-    /**
-     * @return Whether image scans are enabled. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean imageScanningEnabled;
 
     private ImagePipelineImageScanningConfiguration() {}
-    /**
-     * @return Configuration block with ECR configuration for image scanning. Detailed below.
-     * 
-     */
     public Optional<ImagePipelineImageScanningConfigurationEcrConfiguration> ecrConfiguration() {
         return Optional.ofNullable(this.ecrConfiguration);
     }
-    /**
-     * @return Whether image scans are enabled. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> imageScanningEnabled() {
         return Optional.ofNullable(this.imageScanningEnabled);
     }

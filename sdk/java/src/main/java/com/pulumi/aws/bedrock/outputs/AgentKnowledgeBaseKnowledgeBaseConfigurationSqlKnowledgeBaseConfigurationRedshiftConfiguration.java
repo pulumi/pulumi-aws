@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration {
-    /**
-     * @return Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` block for details.
-     * 
-     */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration queryEngineConfiguration;
-    /**
-     * @return Configurations for generating queries. See `queryGenerationConfiguration` block for details.
-     * 
-     */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration queryGenerationConfiguration;
-    /**
-     * @return Configurations for Amazon Redshift database storage. See `storageConfiguration` block for details.
-     * 
-     */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration storageConfiguration;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration() {}
-    /**
-     * @return Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` block for details.
-     * 
-     */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration> queryEngineConfiguration() {
         return Optional.ofNullable(this.queryEngineConfiguration);
     }
-    /**
-     * @return Configurations for generating queries. See `queryGenerationConfiguration` block for details.
-     * 
-     */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration> queryGenerationConfiguration() {
         return Optional.ofNullable(this.queryGenerationConfiguration);
     }
-    /**
-     * @return Configurations for Amazon Redshift database storage. See `storageConfiguration` block for details.
-     * 
-     */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration> storageConfiguration() {
         return Optional.ofNullable(this.storageConfiguration);
     }

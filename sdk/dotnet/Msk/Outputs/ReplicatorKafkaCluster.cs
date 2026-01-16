@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class ReplicatorKafkaCluster
     {
-        /// <summary>
-        /// Details of an Amazon MSK cluster.
-        /// </summary>
         public readonly Outputs.ReplicatorKafkaClusterAmazonMskCluster AmazonMskCluster;
-        /// <summary>
-        /// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
-        /// </summary>
         public readonly Outputs.ReplicatorKafkaClusterVpcConfig VpcConfig;
 
         [OutputConstructor]

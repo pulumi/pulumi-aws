@@ -26,14 +26,6 @@ class AppCookieStickinessPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AppCookieStickinessPolicy resource.
-        :param pulumi.Input[_builtins.str] cookie_name: Application cookie whose lifetime the ELB's cookie should follow.
-        :param pulumi.Input[_builtins.int] lb_port: Load balancer port to which the policy
-               should be applied. This must be an active listener on the load
-               balancer.
-        :param pulumi.Input[_builtins.str] load_balancer: Name of load balancer to which the policy
-               should be attached.
-        :param pulumi.Input[_builtins.str] name: Name of the stickiness policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "cookie_name", cookie_name)
         pulumi.set(__self__, "lb_port", lb_port)
@@ -46,9 +38,6 @@ class AppCookieStickinessPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="cookieName")
     def cookie_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Application cookie whose lifetime the ELB's cookie should follow.
-        """
         return pulumi.get(self, "cookie_name")
 
     @cookie_name.setter
@@ -58,11 +47,6 @@ class AppCookieStickinessPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="lbPort")
     def lb_port(self) -> pulumi.Input[_builtins.int]:
-        """
-        Load balancer port to which the policy
-        should be applied. This must be an active listener on the load
-        balancer.
-        """
         return pulumi.get(self, "lb_port")
 
     @lb_port.setter
@@ -72,10 +56,6 @@ class AppCookieStickinessPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="loadBalancer")
     def load_balancer(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of load balancer to which the policy
-        should be attached.
-        """
         return pulumi.get(self, "load_balancer")
 
     @load_balancer.setter
@@ -85,9 +65,6 @@ class AppCookieStickinessPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the stickiness policy.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -97,9 +74,6 @@ class AppCookieStickinessPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -117,14 +91,6 @@ class _AppCookieStickinessPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AppCookieStickinessPolicy resources.
-        :param pulumi.Input[_builtins.str] cookie_name: Application cookie whose lifetime the ELB's cookie should follow.
-        :param pulumi.Input[_builtins.int] lb_port: Load balancer port to which the policy
-               should be applied. This must be an active listener on the load
-               balancer.
-        :param pulumi.Input[_builtins.str] load_balancer: Name of load balancer to which the policy
-               should be attached.
-        :param pulumi.Input[_builtins.str] name: Name of the stickiness policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if cookie_name is not None:
             pulumi.set(__self__, "cookie_name", cookie_name)
@@ -140,9 +106,6 @@ class _AppCookieStickinessPolicyState:
     @_builtins.property
     @pulumi.getter(name="cookieName")
     def cookie_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Application cookie whose lifetime the ELB's cookie should follow.
-        """
         return pulumi.get(self, "cookie_name")
 
     @cookie_name.setter
@@ -152,11 +115,6 @@ class _AppCookieStickinessPolicyState:
     @_builtins.property
     @pulumi.getter(name="lbPort")
     def lb_port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Load balancer port to which the policy
-        should be applied. This must be an active listener on the load
-        balancer.
-        """
         return pulumi.get(self, "lb_port")
 
     @lb_port.setter
@@ -166,10 +124,6 @@ class _AppCookieStickinessPolicyState:
     @_builtins.property
     @pulumi.getter(name="loadBalancer")
     def load_balancer(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of load balancer to which the policy
-        should be attached.
-        """
         return pulumi.get(self, "load_balancer")
 
     @load_balancer.setter
@@ -179,9 +133,6 @@ class _AppCookieStickinessPolicyState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the stickiness policy.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -191,9 +142,6 @@ class _AppCookieStickinessPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -214,48 +162,9 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an application cookie stickiness policy, which allows an ELB to wed its sticky cookie's expiration to a cookie generated by your application.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        lb = aws.elb.LoadBalancer("lb",
-            name="test-lb",
-            availability_zones=["us-east-1a"],
-            listeners=[{
-                "instance_port": 8000,
-                "instance_protocol": "http",
-                "lb_port": 80,
-                "lb_protocol": "http",
-            }])
-        foo = aws.elb.AppCookieStickinessPolicy("foo",
-            name="foo_policy",
-            load_balancer=lb.name,
-            lb_port=80,
-            cookie_name="MyAppCookie")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import application cookie stickiness policies using the ELB name, port, and policy name separated by colons (`:`). For example:
-
-        ```sh
-        $ pulumi import aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy example my-elb:80:my-policy
-        ```
-
+        Create a AppCookieStickinessPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cookie_name: Application cookie whose lifetime the ELB's cookie should follow.
-        :param pulumi.Input[_builtins.int] lb_port: Load balancer port to which the policy
-               should be applied. This must be an active listener on the load
-               balancer.
-        :param pulumi.Input[_builtins.str] load_balancer: Name of load balancer to which the policy
-               should be attached.
-        :param pulumi.Input[_builtins.str] name: Name of the stickiness policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -264,38 +173,7 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
                  args: AppCookieStickinessPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an application cookie stickiness policy, which allows an ELB to wed its sticky cookie's expiration to a cookie generated by your application.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        lb = aws.elb.LoadBalancer("lb",
-            name="test-lb",
-            availability_zones=["us-east-1a"],
-            listeners=[{
-                "instance_port": 8000,
-                "instance_protocol": "http",
-                "lb_port": 80,
-                "lb_protocol": "http",
-            }])
-        foo = aws.elb.AppCookieStickinessPolicy("foo",
-            name="foo_policy",
-            load_balancer=lb.name,
-            lb_port=80,
-            cookie_name="MyAppCookie")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import application cookie stickiness policies using the ELB name, port, and policy name separated by colons (`:`). For example:
-
-        ```sh
-        $ pulumi import aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy example my-elb:80:my-policy
-        ```
-
+        Create a AppCookieStickinessPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AppCookieStickinessPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -360,14 +238,6 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cookie_name: Application cookie whose lifetime the ELB's cookie should follow.
-        :param pulumi.Input[_builtins.int] lb_port: Load balancer port to which the policy
-               should be applied. This must be an active listener on the load
-               balancer.
-        :param pulumi.Input[_builtins.str] load_balancer: Name of load balancer to which the policy
-               should be attached.
-        :param pulumi.Input[_builtins.str] name: Name of the stickiness policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -383,43 +253,25 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="cookieName")
     def cookie_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Application cookie whose lifetime the ELB's cookie should follow.
-        """
         return pulumi.get(self, "cookie_name")
 
     @_builtins.property
     @pulumi.getter(name="lbPort")
     def lb_port(self) -> pulumi.Output[_builtins.int]:
-        """
-        Load balancer port to which the policy
-        should be applied. This must be an active listener on the load
-        balancer.
-        """
         return pulumi.get(self, "lb_port")
 
     @_builtins.property
     @pulumi.getter(name="loadBalancer")
     def load_balancer(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of load balancer to which the policy
-        should be attached.
-        """
         return pulumi.get(self, "load_balancer")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the stickiness policy.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

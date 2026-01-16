@@ -11,54 +11,22 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ReplicationConfigurationDestination {
-    /**
-     * @return The availability zone in which the replica should be created. If specified, the replica will be created with One Zone storage. If omitted, regional storage will be used.
-     * 
-     */
     private @Nullable String availabilityZoneName;
-    /**
-     * @return The ID of the destination file system for the replication. If no ID is provided, then EFS creates a new file system with the default settings.
-     * 
-     */
     private @Nullable String fileSystemId;
-    /**
-     * @return The Key ID, ARN, alias, or alias ARN of the KMS key that should be used to encrypt the replica file system. If omitted, the default KMS key for EFS `/aws/elasticfilesystem` will be used.
-     * 
-     */
     private @Nullable String kmsKeyId;
-    /**
-     * @return The region in which the replica should be created.
-     * 
-     */
     private @Nullable String region;
     private @Nullable String status;
 
     private ReplicationConfigurationDestination() {}
-    /**
-     * @return The availability zone in which the replica should be created. If specified, the replica will be created with One Zone storage. If omitted, regional storage will be used.
-     * 
-     */
     public Optional<String> availabilityZoneName() {
         return Optional.ofNullable(this.availabilityZoneName);
     }
-    /**
-     * @return The ID of the destination file system for the replication. If no ID is provided, then EFS creates a new file system with the default settings.
-     * 
-     */
     public Optional<String> fileSystemId() {
         return Optional.ofNullable(this.fileSystemId);
     }
-    /**
-     * @return The Key ID, ARN, alias, or alias ARN of the KMS key that should be used to encrypt the replica file system. If omitted, the default KMS key for EFS `/aws/elasticfilesystem` will be used.
-     * 
-     */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
-    /**
-     * @return The region in which the replica should be created.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }

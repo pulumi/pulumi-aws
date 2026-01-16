@@ -18,178 +18,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS AppFabric Ingestion Destination.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appfabric.IngestionDestination;
- * import com.pulumi.aws.appfabric.IngestionDestinationArgs;
- * import com.pulumi.aws.appfabric.inputs.IngestionDestinationProcessingConfigurationArgs;
- * import com.pulumi.aws.appfabric.inputs.IngestionDestinationProcessingConfigurationAuditLogArgs;
- * import com.pulumi.aws.appfabric.inputs.IngestionDestinationDestinationConfigurationArgs;
- * import com.pulumi.aws.appfabric.inputs.IngestionDestinationDestinationConfigurationAuditLogArgs;
- * import com.pulumi.aws.appfabric.inputs.IngestionDestinationDestinationConfigurationAuditLogDestinationArgs;
- * import com.pulumi.aws.appfabric.inputs.IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new IngestionDestination("example", IngestionDestinationArgs.builder()
- *             .appBundleArn(exampleAwsAppfabricAppBundle.arn())
- *             .ingestionArn(exampleAwsAppfabricIngestion.arn())
- *             .processingConfiguration(IngestionDestinationProcessingConfigurationArgs.builder()
- *                 .auditLog(IngestionDestinationProcessingConfigurationAuditLogArgs.builder()
- *                     .format("json")
- *                     .schema("raw")
- *                     .build())
- *                 .build())
- *             .destinationConfiguration(IngestionDestinationDestinationConfigurationArgs.builder()
- *                 .auditLog(IngestionDestinationDestinationConfigurationAuditLogArgs.builder()
- *                     .destination(IngestionDestinationDestinationConfigurationAuditLogDestinationArgs.builder()
- *                         .s3Bucket(IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs.builder()
- *                             .bucketName(exampleAwsS3Bucket.bucket())
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:appfabric/ingestionDestination:IngestionDestination")
 public class IngestionDestination extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) of the app bundle to use for the request.
-     * 
-     */
     @Export(name="appBundleArn", refs={String.class}, tree="[0]")
     private Output<String> appBundleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the app bundle to use for the request.
-     * 
-     */
     public Output<String> appBundleArn() {
         return this.appBundleArn;
     }
-    /**
-     * ARN of the Ingestion Destination.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Ingestion Destination.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Contains information about the destination of ingested data.
-     * 
-     */
     @Export(name="destinationConfiguration", refs={IngestionDestinationDestinationConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ IngestionDestinationDestinationConfiguration> destinationConfiguration;
 
-    /**
-     * @return Contains information about the destination of ingested data.
-     * 
-     */
     public Output<Optional<IngestionDestinationDestinationConfiguration>> destinationConfiguration() {
         return Codegen.optional(this.destinationConfiguration);
     }
-    /**
-     * The Amazon Resource Name (ARN) of the ingestion to use for the request.
-     * 
-     */
     @Export(name="ingestionArn", refs={String.class}, tree="[0]")
     private Output<String> ingestionArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the ingestion to use for the request.
-     * 
-     */
     public Output<String> ingestionArn() {
         return this.ingestionArn;
     }
-    /**
-     * Contains information about how ingested data is processed.
-     * 
-     */
     @Export(name="processingConfiguration", refs={IngestionDestinationProcessingConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ IngestionDestinationProcessingConfiguration> processingConfiguration;
 
-    /**
-     * @return Contains information about how ingested data is processed.
-     * 
-     */
     public Output<Optional<IngestionDestinationProcessingConfiguration>> processingConfiguration() {
         return Codegen.optional(this.processingConfiguration);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

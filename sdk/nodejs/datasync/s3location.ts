@@ -7,55 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an S3 Location within AWS DataSync.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.datasync.S3Location("example", {
- *     s3BucketArn: exampleAwsS3Bucket.arn,
- *     subdirectory: "/example/prefix",
- *     s3Config: {
- *         bucketAccessRoleArn: exampleAwsIamRole.arn,
- *     },
- * });
- * ```
- *
- * ### S3 Bucket on AWS Outposts
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const destination = new aws.datasync.S3Location("destination", {
- *     agentArns: [exampleAwsDatasyncAgent.arn],
- *     s3BucketArn: exampleAwsS3AccessPoint.arn,
- *     s3StorageClass: "OUTPOSTS",
- *     subdirectory: "/example/prefix",
- *     s3Config: {
- *         bucketAccessRoleArn: example.arn,
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the DataSync S3 location.
- *
- * Using `pulumi import`, import `aws_datasync_location_s3` using the DataSync Task Amazon Resource Name (ARN). For example:
- *
- * % pulumi import aws_datasync_location_s3.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
- */
 export class S3Location extends pulumi.CustomResource {
     /**
      * Get an existing S3Location resource's state with the given name, ID, and optional extra
@@ -84,41 +35,14 @@ export class S3Location extends pulumi.CustomResource {
         return obj['__pulumiType'] === S3Location.__pulumiType;
     }
 
-    /**
-     * (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
-     */
     declare public readonly agentArns: pulumi.Output<string[] | undefined>;
-    /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
-     */
     declare public readonly s3BucketArn: pulumi.Output<string>;
-    /**
-     * Configuration block containing information for connecting to S3.
-     */
     declare public readonly s3Config: pulumi.Output<outputs.datasync.S3LocationS3Config>;
-    /**
-     * Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
-     */
     declare public readonly s3StorageClass: pulumi.Output<string>;
-    /**
-     * Prefix to perform actions as source or destination.
-     */
     declare public readonly subdirectory: pulumi.Output<string>;
-    /**
-     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public /*out*/ readonly uri: pulumi.Output<string>;
 
@@ -176,41 +100,14 @@ export class S3Location extends pulumi.CustomResource {
  * Input properties used for looking up and filtering S3Location resources.
  */
 export interface S3LocationState {
-    /**
-     * (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
-     */
     agentArns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
-     */
     s3BucketArn?: pulumi.Input<string>;
-    /**
-     * Configuration block containing information for connecting to S3.
-     */
     s3Config?: pulumi.Input<inputs.datasync.S3LocationS3Config>;
-    /**
-     * Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
-     */
     s3StorageClass?: pulumi.Input<string>;
-    /**
-     * Prefix to perform actions as source or destination.
-     */
     subdirectory?: pulumi.Input<string>;
-    /**
-     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     uri?: pulumi.Input<string>;
 }
@@ -219,32 +116,11 @@ export interface S3LocationState {
  * The set of arguments for constructing a S3Location resource.
  */
 export interface S3LocationArgs {
-    /**
-     * (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
-     */
     agentArns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
-     */
     s3BucketArn: pulumi.Input<string>;
-    /**
-     * Configuration block containing information for connecting to S3.
-     */
     s3Config: pulumi.Input<inputs.datasync.S3LocationS3Config>;
-    /**
-     * Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
-     */
     s3StorageClass?: pulumi.Input<string>;
-    /**
-     * Prefix to perform actions as source or destination.
-     */
     subdirectory: pulumi.Input<string>;
-    /**
-     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

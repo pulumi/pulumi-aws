@@ -12,15 +12,9 @@ namespace Pulumi.Aws.ApiGateway.Inputs
 
     public sealed class AccountThrottleSettingArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
-        /// </summary>
         [Input("burstLimit", required: true)]
         public Input<int> BurstLimit { get; set; } = null!;
 
-        /// <summary>
-        /// Number of times API Gateway allows the API to be called per second on average (RPS).
-        /// </summary>
         [Input("rateLimit", required: true)]
         public Input<double> RateLimit { get; set; } = null!;
 

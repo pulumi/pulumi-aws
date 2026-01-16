@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Security Hub member resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.securityhub.Account("example", {});
- * const exampleMember = new aws.securityhub.Member("example", {
- *     accountId: "123456789012",
- *     email: "example@example.com",
- *     invite: true,
- * }, {
- *     dependsOn: [example],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Security Hub members using their account ID. For example:
- *
- * ```sh
- * $ pulumi import aws:securityhub/member:Member example 123456789012
- * ```
- */
 export class Member extends pulumi.CustomResource {
     /**
      * Get an existing Member resource's state with the given name, ID, and optional extra
@@ -59,29 +32,11 @@ export class Member extends pulumi.CustomResource {
         return obj['__pulumiType'] === Member.__pulumiType;
     }
 
-    /**
-     * The ID of the member AWS account.
-     */
     declare public readonly accountId: pulumi.Output<string>;
-    /**
-     * The email of the member AWS account.
-     */
     declare public readonly email: pulumi.Output<string | undefined>;
-    /**
-     * Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
-     */
     declare public readonly invite: pulumi.Output<boolean | undefined>;
-    /**
-     * The ID of the master Security Hub AWS account.
-     */
     declare public /*out*/ readonly masterId: pulumi.Output<string>;
-    /**
-     * The status of the member account relationship.
-     */
     declare public /*out*/ readonly memberStatus: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -124,29 +79,11 @@ export class Member extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Member resources.
  */
 export interface MemberState {
-    /**
-     * The ID of the member AWS account.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * The email of the member AWS account.
-     */
     email?: pulumi.Input<string>;
-    /**
-     * Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
-     */
     invite?: pulumi.Input<boolean>;
-    /**
-     * The ID of the master Security Hub AWS account.
-     */
     masterId?: pulumi.Input<string>;
-    /**
-     * The status of the member account relationship.
-     */
     memberStatus?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -154,20 +91,8 @@ export interface MemberState {
  * The set of arguments for constructing a Member resource.
  */
 export interface MemberArgs {
-    /**
-     * The ID of the member AWS account.
-     */
     accountId: pulumi.Input<string>;
-    /**
-     * The email of the member AWS account.
-     */
     email?: pulumi.Input<string>;
-    /**
-     * Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
-     */
     invite?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

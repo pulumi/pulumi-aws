@@ -15,17 +15,9 @@ public final class ProjectDataDeliveryCloudwatchLogsArgs extends com.pulumi.reso
 
     public static final ProjectDataDeliveryCloudwatchLogsArgs Empty = new ProjectDataDeliveryCloudwatchLogsArgs();
 
-    /**
-     * The name of the log group where the project stores evaluation events.
-     * 
-     */
     @Import(name="logGroup")
     private @Nullable Output<String> logGroup;
 
-    /**
-     * @return The name of the log group where the project stores evaluation events.
-     * 
-     */
     public Optional<Output<String>> logGroup() {
         return Optional.ofNullable(this.logGroup);
     }
@@ -54,23 +46,11 @@ public final class ProjectDataDeliveryCloudwatchLogsArgs extends com.pulumi.reso
             $ = new ProjectDataDeliveryCloudwatchLogsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param logGroup The name of the log group where the project stores evaluation events.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroup(@Nullable Output<String> logGroup) {
             $.logGroup = logGroup;
             return this;
         }
 
-        /**
-         * @param logGroup The name of the log group where the project stores evaluation events.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroup(String logGroup) {
             return logGroup(Output.of(logGroup));
         }

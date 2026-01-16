@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration {
-    /**
-     * @return Rule name.
-     * 
-     */
     private String ruleName;
 
     private MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration() {}
-    /**
-     * @return Rule name.
-     * 
-     */
     public String ruleName() {
         return this.ruleName;
     }

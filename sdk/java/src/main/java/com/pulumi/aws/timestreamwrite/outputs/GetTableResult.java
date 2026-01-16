@@ -14,77 +14,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTableResult {
-    /**
-     * @return ARN that uniquely identifies the table.
-     * 
-     */
     private String arn;
-    /**
-     * @return Time that table was created.
-     * 
-     */
     private String creationTime;
-    /**
-     * @return Name of database.
-     * 
-     */
     private String databaseName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Last time table was updated.
-     * 
-     */
     private String lastUpdatedTime;
-    /**
-     * @return Object containing the following attributes to desribe magnetic store writes.
-     * 
-     */
     private List<GetTableMagneticStoreWriteProperty> magneticStoreWriteProperties;
-    /**
-     * @return Name of the table.
-     * 
-     */
     private String name;
     private String region;
-    /**
-     * @return Object containing the following attributes to describe the retention duration for the memory and magnetic stores.
-     * 
-     */
     private List<GetTableRetentionProperty> retentionProperties;
-    /**
-     * @return Object containing the following attributes to describe the schema of the table.
-     * 
-     */
     private List<GetTableSchema> schemas;
-    /**
-     * @return Current state of table.
-     * 
-     */
     private String tableStatus;
 
     private GetTableResult() {}
-    /**
-     * @return ARN that uniquely identifies the table.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Time that table was created.
-     * 
-     */
     public String creationTime() {
         return this.creationTime;
     }
-    /**
-     * @return Name of database.
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }
@@ -95,48 +47,24 @@ public final class GetTableResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Last time table was updated.
-     * 
-     */
     public String lastUpdatedTime() {
         return this.lastUpdatedTime;
     }
-    /**
-     * @return Object containing the following attributes to desribe magnetic store writes.
-     * 
-     */
     public List<GetTableMagneticStoreWriteProperty> magneticStoreWriteProperties() {
         return this.magneticStoreWriteProperties;
     }
-    /**
-     * @return Name of the table.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Object containing the following attributes to describe the retention duration for the memory and magnetic stores.
-     * 
-     */
     public List<GetTableRetentionProperty> retentionProperties() {
         return this.retentionProperties;
     }
-    /**
-     * @return Object containing the following attributes to describe the schema of the table.
-     * 
-     */
     public List<GetTableSchema> schemas() {
         return this.schemas;
     }
-    /**
-     * @return Current state of table.
-     * 
-     */
     public String tableStatus() {
         return this.tableStatus;
     }

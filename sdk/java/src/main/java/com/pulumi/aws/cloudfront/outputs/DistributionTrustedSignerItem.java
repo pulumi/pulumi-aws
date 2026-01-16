@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionTrustedSignerItem {
-    /**
-     * @return AWS account ID or `self`
-     * 
-     */
     private @Nullable String awsAccountNumber;
-    /**
-     * @return Set of active CloudFront key pairs associated with the signer account
-     * 
-     */
     private @Nullable List<String> keyPairIds;
 
     private DistributionTrustedSignerItem() {}
-    /**
-     * @return AWS account ID or `self`
-     * 
-     */
     public Optional<String> awsAccountNumber() {
         return Optional.ofNullable(this.awsAccountNumber);
     }
-    /**
-     * @return Set of active CloudFront key pairs associated with the signer account
-     * 
-     */
     public List<String> keyPairIds() {
         return this.keyPairIds == null ? List.of() : this.keyPairIds;
     }

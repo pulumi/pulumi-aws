@@ -15,47 +15,23 @@ public final class GetKafkaVersionPlainArgs extends com.pulumi.resources.InvokeA
 
     public static final GetKafkaVersionPlainArgs Empty = new GetKafkaVersionPlainArgs();
 
-    /**
-     * Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferredVersions` or `version` must be set.
-     * 
-     */
     @Import(name="preferredVersions")
     private @Nullable List<String> preferredVersions;
 
-    /**
-     * @return Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferredVersions` or `version` must be set.
-     * 
-     */
     public Optional<List<String>> preferredVersions() {
         return Optional.ofNullable(this.preferredVersions);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Version of MSK Kafka. For example 2.4.1.1 or &#34;2.2.1&#34; etc. Either `preferredVersions` or `version` must be set.
-     * 
-     */
     @Import(name="version")
     private @Nullable String version;
 
-    /**
-     * @return Version of MSK Kafka. For example 2.4.1.1 or &#34;2.2.1&#34; etc. Either `preferredVersions` or `version` must be set.
-     * 
-     */
     public Optional<String> version() {
         return Optional.ofNullable(this.version);
     }
@@ -86,44 +62,20 @@ public final class GetKafkaVersionPlainArgs extends com.pulumi.resources.InvokeA
             $ = new GetKafkaVersionPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param preferredVersions Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferredVersions` or `version` must be set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preferredVersions(@Nullable List<String> preferredVersions) {
             $.preferredVersions = preferredVersions;
             return this;
         }
 
-        /**
-         * @param preferredVersions Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferredVersions` or `version` must be set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preferredVersions(String... preferredVersions) {
             return preferredVersions(List.of(preferredVersions));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param version Version of MSK Kafka. For example 2.4.1.1 or &#34;2.2.1&#34; etc. Either `preferredVersions` or `version` must be set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable String version) {
             $.version = version;
             return this;

@@ -15,17 +15,9 @@ public final class DistributionDefaultCacheBehaviorGrpcConfigArgs extends com.pu
 
     public static final DistributionDefaultCacheBehaviorGrpcConfigArgs Empty = new DistributionDefaultCacheBehaviorGrpcConfigArgs();
 
-    /**
-     * Whether the distribution is enabled to accept end user requests for content.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether the distribution is enabled to accept end user requests for content.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -54,23 +46,11 @@ public final class DistributionDefaultCacheBehaviorGrpcConfigArgs extends com.pu
             $ = new DistributionDefaultCacheBehaviorGrpcConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Whether the distribution is enabled to accept end user requests for content.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether the distribution is enabled to accept end user requests for content.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

@@ -16,32 +16,16 @@ public final class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemp
 
     public static final ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgs Empty = new ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgs();
 
-    /**
-     * ARN of the table which is queried with the largest time range.
-     * 
-     */
     @Import(name="tableArn")
     private @Nullable Output<String> tableArn;
 
-    /**
-     * @return ARN of the table which is queried with the largest time range.
-     * 
-     */
     public Optional<Output<String>> tableArn() {
         return Optional.ofNullable(this.tableArn);
     }
 
-    /**
-     * Maximum duration in nanoseconds between the start and end of the query.
-     * 
-     */
     @Import(name="value")
     private @Nullable Output<Integer> value;
 
-    /**
-     * @return Maximum duration in nanoseconds between the start and end of the query.
-     * 
-     */
     public Optional<Output<Integer>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -71,44 +55,20 @@ public final class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemp
             $ = new ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param tableArn ARN of the table which is queried with the largest time range.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableArn(@Nullable Output<String> tableArn) {
             $.tableArn = tableArn;
             return this;
         }
 
-        /**
-         * @param tableArn ARN of the table which is queried with the largest time range.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableArn(String tableArn) {
             return tableArn(Output.of(tableArn));
         }
 
-        /**
-         * @param value Maximum duration in nanoseconds between the start and end of the query.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable Output<Integer> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Maximum duration in nanoseconds between the start and end of the query.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Integer value) {
             return value(Output.of(value));
         }

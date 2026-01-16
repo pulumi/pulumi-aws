@@ -76,33 +76,21 @@ class GetZoneResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Hosted Zone.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="callerReference")
     def caller_reference(self) -> _builtins.str:
-        """
-        Caller Reference of the Hosted Zone.
-        """
         return pulumi.get(self, "caller_reference")
 
     @_builtins.property
     @pulumi.getter
     def comment(self) -> _builtins.str:
-        """
-        Comment field of the Hosted Zone.
-        """
         return pulumi.get(self, "comment")
 
     @_builtins.property
     @pulumi.getter(name="enableAcceleratedRecovery")
     def enable_accelerated_recovery(self) -> Optional[_builtins.bool]:
-        """
-        Boolean to indicate whether to enable accelerated recovery for the hosted zone.
-        """
         return pulumi.get(self, "enable_accelerated_recovery")
 
     @_builtins.property
@@ -116,65 +104,41 @@ class GetZoneResult:
     @_builtins.property
     @pulumi.getter(name="linkedServiceDescription")
     def linked_service_description(self) -> _builtins.str:
-        """
-        The description provided by the service that created the Hosted Zone (e.g., `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
-        """
         return pulumi.get(self, "linked_service_description")
 
     @_builtins.property
     @pulumi.getter(name="linkedServicePrincipal")
     def linked_service_principal(self) -> _builtins.str:
-        """
-        The service that created the Hosted Zone (e.g., `servicediscovery.amazonaws.com`).
-        """
         return pulumi.get(self, "linked_service_principal")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The Hosted Zone name.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="nameServers")
     def name_servers(self) -> Sequence[_builtins.str]:
-        """
-        List of DNS name servers for the Hosted Zone.
-        """
         return pulumi.get(self, "name_servers")
 
     @_builtins.property
     @pulumi.getter(name="primaryNameServer")
     def primary_name_server(self) -> _builtins.str:
-        """
-        The Route 53 name server that created the SOA record.
-        """
         return pulumi.get(self, "primary_name_server")
 
     @_builtins.property
     @pulumi.getter(name="privateZone")
     def private_zone(self) -> Optional[_builtins.bool]:
-        """
-        Indicates whether this is a private hosted zone.
-        """
         return pulumi.get(self, "private_zone")
 
     @_builtins.property
     @pulumi.getter(name="resourceRecordSetCount")
     def resource_record_set_count(self) -> _builtins.int:
-        """
-        The number of Record Set in the Hosted Zone.
-        """
         return pulumi.get(self, "resource_record_set_count")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        A map of tags assigned to the Hosted Zone.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -185,9 +149,6 @@ class GetZoneResult:
     @_builtins.property
     @pulumi.getter(name="zoneId")
     def zone_id(self) -> _builtins.str:
-        """
-        The Hosted Zone identifier.
-        """
         return pulumi.get(self, "zone_id")
 
 
@@ -222,53 +183,7 @@ def get_zone(enable_accelerated_recovery: Optional[_builtins.bool] = None,
              zone_id: Optional[_builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetZoneResult:
     """
-    `route53.Zone` provides details about a specific Route 53 Hosted Zone.
-
-    This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
-
-    ## Example Usage
-
-    The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.route53.get_zone(name="test.com.",
-        private_zone=True)
-    www = aws.route53.Record("www",
-        zone_id=selected.zone_id,
-        name=f"www.{selected.name}",
-        type=aws.route53.RecordType.A,
-        ttl=300,
-        records=["10.0.0.1"])
-    ```
-
-    The following example shows how to get a Hosted Zone from a unique combination of its tags:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.route53.get_zone(tags={
-        "scope": "local",
-        "category": "api",
-    })
-    pulumi.export("localApiZone", selected.zone_id)
-    ```
-
-
-    :param _builtins.bool enable_accelerated_recovery: Boolean to indicate whether to enable accelerated recovery for the hosted zone.
-    :param _builtins.str name: Hosted Zone name of the desired Hosted Zone. If blank, then accept any name, filtering on only `private_zone`, `vpc_id` and `tags`.
-    :param _builtins.bool private_zone: Filter to only private Hosted Zones.
-    :param Mapping[str, _builtins.str] tags: A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
-           
-           The arguments of this data source act as filters for querying the available Hosted Zone.
-           
-           - The given filter must match exactly one Hosted Zone.
-    :param _builtins.str vpc_id: Filter to private Hosted Zones associated with the specified `vpc_id`.
-    :param _builtins.str zone_id: and `name` are mutually exclusive.
-           - If you use the `name` argument for a private Hosted Zone, you need to set the `private_zone` argument to `true`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['enableAcceleratedRecovery'] = enable_accelerated_recovery
@@ -304,53 +219,7 @@ def get_zone_output(enable_accelerated_recovery: Optional[pulumi.Input[Optional[
                     zone_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetZoneResult]:
     """
-    `route53.Zone` provides details about a specific Route 53 Hosted Zone.
-
-    This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
-
-    ## Example Usage
-
-    The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.route53.get_zone(name="test.com.",
-        private_zone=True)
-    www = aws.route53.Record("www",
-        zone_id=selected.zone_id,
-        name=f"www.{selected.name}",
-        type=aws.route53.RecordType.A,
-        ttl=300,
-        records=["10.0.0.1"])
-    ```
-
-    The following example shows how to get a Hosted Zone from a unique combination of its tags:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.route53.get_zone(tags={
-        "scope": "local",
-        "category": "api",
-    })
-    pulumi.export("localApiZone", selected.zone_id)
-    ```
-
-
-    :param _builtins.bool enable_accelerated_recovery: Boolean to indicate whether to enable accelerated recovery for the hosted zone.
-    :param _builtins.str name: Hosted Zone name of the desired Hosted Zone. If blank, then accept any name, filtering on only `private_zone`, `vpc_id` and `tags`.
-    :param _builtins.bool private_zone: Filter to only private Hosted Zones.
-    :param Mapping[str, _builtins.str] tags: A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
-           
-           The arguments of this data source act as filters for querying the available Hosted Zone.
-           
-           - The given filter must match exactly one Hosted Zone.
-    :param _builtins.str vpc_id: Filter to private Hosted Zones associated with the specified `vpc_id`.
-    :param _builtins.str zone_id: and `name` are mutually exclusive.
-           - If you use the `name` argument for a private Hosted Zone, you need to set the `private_zone` argument to `true`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['enableAcceleratedRecovery'] = enable_accelerated_recovery

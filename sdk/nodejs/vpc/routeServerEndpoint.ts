@@ -7,34 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource for managing a VPC (Virtual Private Cloud) Route Server Endpoint.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.vpc.RouteServerEndpoint("test", {
- *     routeServerId: example.routeServerId,
- *     subnetId: main.id,
- *     tags: {
- *         Name: "Endpoint A",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import VPC (Virtual Private Cloud) Route Server Endpoint using the `route_server_endpoint_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:vpc/routeServerEndpoint:RouteServerEndpoint example rse-12345678
- * ```
- */
 export class RouteServerEndpoint extends pulumi.CustomResource {
     /**
      * Get an existing RouteServerEndpoint resource's state with the given name, ID, and optional extra
@@ -63,48 +35,16 @@ export class RouteServerEndpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === RouteServerEndpoint.__pulumiType;
     }
 
-    /**
-     * The ARN of the route server endpoint.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The IP address of the Elastic network interface for the endpoint.
-     */
     declare public /*out*/ readonly eniAddress: pulumi.Output<string>;
-    /**
-     * The ID of the Elastic network interface for the endpoint.
-     */
     declare public /*out*/ readonly eniId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The unique identifier of the route server endpoint.
-     */
     declare public /*out*/ readonly routeServerEndpointId: pulumi.Output<string>;
-    /**
-     * The ID of the route server for which to create an endpoint.
-     */
     declare public readonly routeServerId: pulumi.Output<string>;
-    /**
-     * The ID of the subnet in which to create the route server endpoint.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly subnetId: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.vpc.RouteServerEndpointTimeouts | undefined>;
-    /**
-     * The ID of the VPC containing the endpoint.
-     */
     declare public /*out*/ readonly vpcId: pulumi.Output<string>;
 
     /**
@@ -160,48 +100,16 @@ export class RouteServerEndpoint extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RouteServerEndpoint resources.
  */
 export interface RouteServerEndpointState {
-    /**
-     * The ARN of the route server endpoint.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The IP address of the Elastic network interface for the endpoint.
-     */
     eniAddress?: pulumi.Input<string>;
-    /**
-     * The ID of the Elastic network interface for the endpoint.
-     */
     eniId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The unique identifier of the route server endpoint.
-     */
     routeServerEndpointId?: pulumi.Input<string>;
-    /**
-     * The ID of the route server for which to create an endpoint.
-     */
     routeServerId?: pulumi.Input<string>;
-    /**
-     * The ID of the subnet in which to create the route server endpoint.
-     *
-     * The following arguments are optional:
-     */
     subnetId?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.vpc.RouteServerEndpointTimeouts>;
-    /**
-     * The ID of the VPC containing the endpoint.
-     */
     vpcId?: pulumi.Input<string>;
 }
 
@@ -209,23 +117,9 @@ export interface RouteServerEndpointState {
  * The set of arguments for constructing a RouteServerEndpoint resource.
  */
 export interface RouteServerEndpointArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the route server for which to create an endpoint.
-     */
     routeServerId: pulumi.Input<string>;
-    /**
-     * The ID of the subnet in which to create the route server endpoint.
-     *
-     * The following arguments are optional:
-     */
     subnetId: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.vpc.RouteServerEndpointTimeouts>;
 }

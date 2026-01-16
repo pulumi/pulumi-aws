@@ -26,47 +26,23 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         return Optional.ofNullable(this.inputVariables);
     }
 
-    /**
-     * A list of messages in the chat for the prompt. See Message for more information.
-     * 
-     */
     @Import(name="messages")
     private @Nullable Output<List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs>> messages;
 
-    /**
-     * @return A list of messages in the chat for the prompt. See Message for more information.
-     * 
-     */
     public Optional<Output<List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs>>> messages() {
         return Optional.ofNullable(this.messages);
     }
 
-    /**
-     * A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
-     * 
-     */
     @Import(name="systems")
     private @Nullable Output<List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs>> systems;
 
-    /**
-     * @return A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
-     * 
-     */
     public Optional<Output<List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs>>> systems() {
         return Optional.ofNullable(this.systems);
     }
 
-    /**
-     * Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
-     * 
-     */
     @Import(name="toolConfiguration")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs> toolConfiguration;
 
-    /**
-     * @return Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
-     * 
-     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs>> toolConfiguration() {
         return Optional.ofNullable(this.toolConfiguration);
     }
@@ -111,85 +87,37 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
             return inputVariables(List.of(inputVariables));
         }
 
-        /**
-         * @param messages A list of messages in the chat for the prompt. See Message for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messages(@Nullable Output<List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs>> messages) {
             $.messages = messages;
             return this;
         }
 
-        /**
-         * @param messages A list of messages in the chat for the prompt. See Message for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messages(List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs> messages) {
             return messages(Output.of(messages));
         }
 
-        /**
-         * @param messages A list of messages in the chat for the prompt. See Message for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messages(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs... messages) {
             return messages(List.of(messages));
         }
 
-        /**
-         * @param systems A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder systems(@Nullable Output<List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs>> systems) {
             $.systems = systems;
             return this;
         }
 
-        /**
-         * @param systems A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder systems(List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs> systems) {
             return systems(Output.of(systems));
         }
 
-        /**
-         * @param systems A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder systems(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs... systems) {
             return systems(List.of(systems));
         }
 
-        /**
-         * @param toolConfiguration Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder toolConfiguration(@Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs> toolConfiguration) {
             $.toolConfiguration = toolConfiguration;
             return this;
         }
 
-        /**
-         * @param toolConfiguration Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder toolConfiguration(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs toolConfiguration) {
             return toolConfiguration(Output.of(toolConfiguration));
         }

@@ -7,39 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Microsoft Azure Blob Storage Location within AWS DataSync.
- *
- * > **NOTE:** The DataSync Agents must be available before creating this resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.datasync.LocationAzureBlob("example", {
- *     agentArns: [exampleAwsDatasyncAgent.arn],
- *     authenticationType: "SAS",
- *     containerUrl: "https://myaccount.blob.core.windows.net/mycontainer",
- *     sasConfiguration: {
- *         token: "sp=r&st=2023-12-20T14:54:52Z&se=2023-12-20T22:54:52Z&spr=https&sv=2021-06-08&sr=c&sig=aBBKDWQvyuVcTPH9EBp%2FXTI9E%2F%2Fmq171%2BZU178wcwqU%3D",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the DataSync Azure Blob location.
- *
- * Using `pulumi import`, import `aws_datasync_location_azure_blob` using the Amazon Resource Name (ARN). For example:
- *
- * % pulumi import aws_datasync_location_azure_blob.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
- */
 export class LocationAzureBlob extends pulumi.CustomResource {
     /**
      * Get an existing LocationAzureBlob resource's state with the given name, ID, and optional extra
@@ -68,49 +35,16 @@ export class LocationAzureBlob extends pulumi.CustomResource {
         return obj['__pulumiType'] === LocationAzureBlob.__pulumiType;
     }
 
-    /**
-     * The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
-     */
     declare public readonly accessTier: pulumi.Output<string | undefined>;
-    /**
-     * A list of DataSync Agent ARNs with which this location will be associated.
-     */
     declare public readonly agentArns: pulumi.Output<string[]>;
-    /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
-     */
     declare public readonly authenticationType: pulumi.Output<string>;
-    /**
-     * The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
-     */
     declare public readonly blobType: pulumi.Output<string | undefined>;
-    /**
-     * The URL of the Azure Blob Storage container involved in your transfer.
-     */
     declare public readonly containerUrl: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
-     */
     declare public readonly sasConfiguration: pulumi.Output<outputs.datasync.LocationAzureBlobSasConfiguration | undefined>;
-    /**
-     * Path segments if you want to limit your transfer to a virtual directory in the container.
-     */
     declare public readonly subdirectory: pulumi.Output<string>;
-    /**
-     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public /*out*/ readonly uri: pulumi.Output<string>;
 
@@ -172,49 +106,16 @@ export class LocationAzureBlob extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LocationAzureBlob resources.
  */
 export interface LocationAzureBlobState {
-    /**
-     * The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
-     */
     accessTier?: pulumi.Input<string>;
-    /**
-     * A list of DataSync Agent ARNs with which this location will be associated.
-     */
     agentArns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
-     */
     authenticationType?: pulumi.Input<string>;
-    /**
-     * The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
-     */
     blobType?: pulumi.Input<string>;
-    /**
-     * The URL of the Azure Blob Storage container involved in your transfer.
-     */
     containerUrl?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
-     */
     sasConfiguration?: pulumi.Input<inputs.datasync.LocationAzureBlobSasConfiguration>;
-    /**
-     * Path segments if you want to limit your transfer to a virtual directory in the container.
-     */
     subdirectory?: pulumi.Input<string>;
-    /**
-     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     uri?: pulumi.Input<string>;
 }
@@ -223,40 +124,13 @@ export interface LocationAzureBlobState {
  * The set of arguments for constructing a LocationAzureBlob resource.
  */
 export interface LocationAzureBlobArgs {
-    /**
-     * The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
-     */
     accessTier?: pulumi.Input<string>;
-    /**
-     * A list of DataSync Agent ARNs with which this location will be associated.
-     */
     agentArns: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
-     */
     authenticationType: pulumi.Input<string>;
-    /**
-     * The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
-     */
     blobType?: pulumi.Input<string>;
-    /**
-     * The URL of the Azure Blob Storage container involved in your transfer.
-     */
     containerUrl: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
-     */
     sasConfiguration?: pulumi.Input<inputs.datasync.LocationAzureBlobSasConfiguration>;
-    /**
-     * Path segments if you want to limit your transfer to a virtual directory in the container.
-     */
     subdirectory?: pulumi.Input<string>;
-    /**
-     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

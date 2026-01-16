@@ -49,60 +49,6 @@ class SpotFleetRequestArgs:
                  wait_for_fulfillment: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SpotFleetRequest resource.
-        :param pulumi.Input[_builtins.str] iam_fleet_role: Grants the Spot fleet permission to terminate
-               Spot instances on your behalf when you cancel its Spot fleet request using
-               CancelSpotFleetRequests or when the Spot fleet request expires, if you set
-               terminateInstancesWithExpiration.
-        :param pulumi.Input[_builtins.int] target_capacity: The number of units to request. You can choose to set the
-               target capacity in terms of instances or a performance characteristic that is
-               important to your application workload, such as vCPUs, memory, or I/O.
-        :param pulumi.Input[_builtins.str] allocation_strategy: Indicates how to allocate the target capacity across
-               the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
-               `lowestPrice`.
-        :param pulumi.Input[_builtins.str] context: Reserved.
-        :param pulumi.Input[_builtins.str] excess_capacity_termination_policy: Indicates whether running Spot
-               instances should be terminated if the target capacity of the Spot fleet
-               request is decreased below the current size of the Spot fleet.
-        :param pulumi.Input[_builtins.str] fleet_type: The type of fleet request. Indicates whether the Spot Fleet only requests the target
-               capacity or also attempts to maintain it. Default is `maintain`.
-        :param pulumi.Input[_builtins.str] instance_interruption_behaviour: Indicates whether a Spot
-               instance stops or terminates when it is interrupted. Default is
-               `terminate`.
-        :param pulumi.Input[_builtins.int] instance_pools_to_use_count: The number of Spot pools across which to allocate your target Spot capacity.
-               Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
-               the cheapest Spot pools and evenly allocates your target Spot capacity across
-               the number of Spot pools that you specify.
-        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationArgs']]] launch_specifications: Used to define the launch configuration of the
-               spot-fleet request. Can be specified multiple times to define different bids
-               across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
-               
-               **Note**: This takes in similar but not
-               identical inputs as `ec2.Instance`.  There are limitations on
-               what you can specify. See the list of officially supported inputs in the
-               [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
-               a additional parameter `iam_instance_profile_arn` takes `iam.InstanceProfile` attribute `arn` as input.
-        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchTemplateConfigArgs']]] launch_template_configs: Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] load_balancers: A list of elastic load balancer names to add to the Spot fleet.
-        :param pulumi.Input[_builtins.str] on_demand_allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
-        :param pulumi.Input[_builtins.str] on_demand_max_total_price: The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
-        :param pulumi.Input[_builtins.int] on_demand_target_capacity: The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] replace_unhealthy_instances: Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
-        :param pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesArgs'] spot_maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
-        :param pulumi.Input[_builtins.str] spot_price: The maximum bid price per unit hour.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] target_capacity_unit_type: The unit for the target capacity. This can only be done with `instance_requirements` defined
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] target_group_arns: A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
-        :param pulumi.Input[_builtins.str] terminate_instances_on_delete: Indicates whether running Spot
-               instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
-               If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
-        :param pulumi.Input[_builtins.bool] terminate_instances_with_expiration: Indicates whether running Spot
-               instances should be terminated when the Spot fleet request expires.
-        :param pulumi.Input[_builtins.str] valid_from: The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-        :param pulumi.Input[_builtins.str] valid_until: The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
-        :param pulumi.Input[_builtins.bool] wait_for_fulfillment: If set, this provider will
-               wait for the Spot Request to be fulfilled, and will throw an error if the
-               timeout of 10m is reached.
         """
         pulumi.set(__self__, "iam_fleet_role", iam_fleet_role)
         pulumi.set(__self__, "target_capacity", target_capacity)
@@ -158,12 +104,6 @@ class SpotFleetRequestArgs:
     @_builtins.property
     @pulumi.getter(name="iamFleetRole")
     def iam_fleet_role(self) -> pulumi.Input[_builtins.str]:
-        """
-        Grants the Spot fleet permission to terminate
-        Spot instances on your behalf when you cancel its Spot fleet request using
-        CancelSpotFleetRequests or when the Spot fleet request expires, if you set
-        terminateInstancesWithExpiration.
-        """
         return pulumi.get(self, "iam_fleet_role")
 
     @iam_fleet_role.setter
@@ -173,11 +113,6 @@ class SpotFleetRequestArgs:
     @_builtins.property
     @pulumi.getter(name="targetCapacity")
     def target_capacity(self) -> pulumi.Input[_builtins.int]:
-        """
-        The number of units to request. You can choose to set the
-        target capacity in terms of instances or a performance characteristic that is
-        important to your application workload, such as vCPUs, memory, or I/O.
-        """
         return pulumi.get(self, "target_capacity")
 
     @target_capacity.setter
@@ -187,11 +122,6 @@ class SpotFleetRequestArgs:
     @_builtins.property
     @pulumi.getter(name="allocationStrategy")
     def allocation_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates how to allocate the target capacity across
-        the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
-        `lowestPrice`.
-        """
         return pulumi.get(self, "allocation_strategy")
 
     @allocation_strategy.setter
@@ -201,9 +131,6 @@ class SpotFleetRequestArgs:
     @_builtins.property
     @pulumi.getter
     def context(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Reserved.
-        """
         return pulumi.get(self, "context")
 
     @context.setter
@@ -213,11 +140,6 @@ class SpotFleetRequestArgs:
     @_builtins.property
     @pulumi.getter(name="excessCapacityTerminationPolicy")
     def excess_capacity_termination_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether running Spot
-        instances should be terminated if the target capacity of the Spot fleet
-        request is decreased below the current size of the Spot fleet.
-        """
         return pulumi.get(self, "excess_capacity_termination_policy")
 
     @excess_capacity_termination_policy.setter
@@ -227,10 +149,6 @@ class SpotFleetRequestArgs:
     @_builtins.property
     @pulumi.getter(name="fleetType")
     def fleet_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of fleet request. Indicates whether the Spot Fleet only requests the target
-        capacity or also attempts to maintain it. Default is `maintain`.
-        """
         return pulumi.get(self, "fleet_type")
 
     @fleet_type.setter
@@ -240,11 +158,6 @@ class SpotFleetRequestArgs:
     @_builtins.property
     @pulumi.getter(name="instanceInterruptionBehaviour")
     def instance_interruption_behaviour(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether a Spot
-        instance stops or terminates when it is interrupted. Default is
-        `terminate`.
-        """
         return pulumi.get(self, "instance_interruption_behaviour")
 
     @instance_interruption_behaviour.setter
@@ -254,12 +167,6 @@ class SpotFleetRequestArgs:
     @_builtins.property
     @pulumi.getter(name="instancePoolsToUseCount")
     def instance_pools_to_use_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of Spot pools across which to allocate your target Spot capacity.
-        Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
-        the cheapest Spot pools and evenly allocates your target Spot capacity across
-        the number of Spot pools that you specify.
-        """
         return pulumi.get(self, "instance_pools_to_use_count")
 
     @instance_pools_to_use_count.setter
@@ -269,17 +176,6 @@ class SpotFleetRequestArgs:
     @_builtins.property
     @pulumi.getter(name="launchSpecifications")
     def launch_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationArgs']]]]:
-        """
-        Used to define the launch configuration of the
-        spot-fleet request. Can be specified multiple times to define different bids
-        across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
-
-        **Note**: This takes in similar but not
-        identical inputs as `ec2.Instance`.  There are limitations on
-        what you can specify. See the list of officially supported inputs in the
-        [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
-        a additional parameter `iam_instance_profile_arn` takes `iam.InstanceProfile` attribute `arn` as input.
-        """
         return pulumi.get(self, "launch_specifications")
 
     @launch_specifications.setter
@@ -289,9 +185,6 @@ class SpotFleetRequestArgs:
     @_builtins.property
     @pulumi.getter(name="launchTemplateConfigs")
     def launch_template_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchTemplateConfigArgs']]]]:
-        """
-        Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
-        """
         return pulumi.get(self, "launch_template_configs")
 
     @launch_template_configs.setter
@@ -301,9 +194,6 @@ class SpotFleetRequestArgs:
     @_builtins.property
     @pulumi.getter(name="loadBalancers")
     def load_balancers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of elastic load balancer names to add to the Spot fleet.
-        """
         return pulumi.get(self, "load_balancers")
 
     @load_balancers.setter
@@ -313,9 +203,6 @@ class SpotFleetRequestArgs:
     @_builtins.property
     @pulumi.getter(name="onDemandAllocationStrategy")
     def on_demand_allocation_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
-        """
         return pulumi.get(self, "on_demand_allocation_strategy")
 
     @on_demand_allocation_strategy.setter
@@ -325,9 +212,6 @@ class SpotFleetRequestArgs:
     @_builtins.property
     @pulumi.getter(name="onDemandMaxTotalPrice")
     def on_demand_max_total_price(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
-        """
         return pulumi.get(self, "on_demand_max_total_price")
 
     @on_demand_max_total_price.setter
@@ -337,9 +221,6 @@ class SpotFleetRequestArgs:
     @_builtins.property
     @pulumi.getter(name="onDemandTargetCapacity")
     def on_demand_target_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
-        """
         return pulumi.get(self, "on_demand_target_capacity")
 
     @on_demand_target_capacity.setter
@@ -349,9 +230,6 @@ class SpotFleetRequestArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -361,9 +239,6 @@ class SpotFleetRequestArgs:
     @_builtins.property
     @pulumi.getter(name="replaceUnhealthyInstances")
     def replace_unhealthy_instances(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
-        """
         return pulumi.get(self, "replace_unhealthy_instances")
 
     @replace_unhealthy_instances.setter
@@ -373,9 +248,6 @@ class SpotFleetRequestArgs:
     @_builtins.property
     @pulumi.getter(name="spotMaintenanceStrategies")
     def spot_maintenance_strategies(self) -> Optional[pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesArgs']]:
-        """
-        Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
-        """
         return pulumi.get(self, "spot_maintenance_strategies")
 
     @spot_maintenance_strategies.setter
@@ -385,9 +257,6 @@ class SpotFleetRequestArgs:
     @_builtins.property
     @pulumi.getter(name="spotPrice")
     def spot_price(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The maximum bid price per unit hour.
-        """
         return pulumi.get(self, "spot_price")
 
     @spot_price.setter
@@ -397,9 +266,6 @@ class SpotFleetRequestArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -409,9 +275,6 @@ class SpotFleetRequestArgs:
     @_builtins.property
     @pulumi.getter(name="targetCapacityUnitType")
     def target_capacity_unit_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The unit for the target capacity. This can only be done with `instance_requirements` defined
-        """
         return pulumi.get(self, "target_capacity_unit_type")
 
     @target_capacity_unit_type.setter
@@ -421,9 +284,6 @@ class SpotFleetRequestArgs:
     @_builtins.property
     @pulumi.getter(name="targetGroupArns")
     def target_group_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
-        """
         return pulumi.get(self, "target_group_arns")
 
     @target_group_arns.setter
@@ -433,11 +293,6 @@ class SpotFleetRequestArgs:
     @_builtins.property
     @pulumi.getter(name="terminateInstancesOnDelete")
     def terminate_instances_on_delete(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether running Spot
-        instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
-        If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
-        """
         return pulumi.get(self, "terminate_instances_on_delete")
 
     @terminate_instances_on_delete.setter
@@ -447,10 +302,6 @@ class SpotFleetRequestArgs:
     @_builtins.property
     @pulumi.getter(name="terminateInstancesWithExpiration")
     def terminate_instances_with_expiration(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether running Spot
-        instances should be terminated when the Spot fleet request expires.
-        """
         return pulumi.get(self, "terminate_instances_with_expiration")
 
     @terminate_instances_with_expiration.setter
@@ -460,9 +311,6 @@ class SpotFleetRequestArgs:
     @_builtins.property
     @pulumi.getter(name="validFrom")
     def valid_from(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-        """
         return pulumi.get(self, "valid_from")
 
     @valid_from.setter
@@ -472,9 +320,6 @@ class SpotFleetRequestArgs:
     @_builtins.property
     @pulumi.getter(name="validUntil")
     def valid_until(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
-        """
         return pulumi.get(self, "valid_until")
 
     @valid_until.setter
@@ -484,11 +329,6 @@ class SpotFleetRequestArgs:
     @_builtins.property
     @pulumi.getter(name="waitForFulfillment")
     def wait_for_fulfillment(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If set, this provider will
-        wait for the Spot Request to be fulfilled, and will throw an error if the
-        timeout of 10m is reached.
-        """
         return pulumi.get(self, "wait_for_fulfillment")
 
     @wait_for_fulfillment.setter
@@ -530,62 +370,6 @@ class _SpotFleetRequestState:
                  wait_for_fulfillment: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SpotFleetRequest resources.
-        :param pulumi.Input[_builtins.str] allocation_strategy: Indicates how to allocate the target capacity across
-               the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
-               `lowestPrice`.
-        :param pulumi.Input[_builtins.str] context: Reserved.
-        :param pulumi.Input[_builtins.str] excess_capacity_termination_policy: Indicates whether running Spot
-               instances should be terminated if the target capacity of the Spot fleet
-               request is decreased below the current size of the Spot fleet.
-        :param pulumi.Input[_builtins.str] fleet_type: The type of fleet request. Indicates whether the Spot Fleet only requests the target
-               capacity or also attempts to maintain it. Default is `maintain`.
-        :param pulumi.Input[_builtins.str] iam_fleet_role: Grants the Spot fleet permission to terminate
-               Spot instances on your behalf when you cancel its Spot fleet request using
-               CancelSpotFleetRequests or when the Spot fleet request expires, if you set
-               terminateInstancesWithExpiration.
-        :param pulumi.Input[_builtins.str] instance_interruption_behaviour: Indicates whether a Spot
-               instance stops or terminates when it is interrupted. Default is
-               `terminate`.
-        :param pulumi.Input[_builtins.int] instance_pools_to_use_count: The number of Spot pools across which to allocate your target Spot capacity.
-               Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
-               the cheapest Spot pools and evenly allocates your target Spot capacity across
-               the number of Spot pools that you specify.
-        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationArgs']]] launch_specifications: Used to define the launch configuration of the
-               spot-fleet request. Can be specified multiple times to define different bids
-               across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
-               
-               **Note**: This takes in similar but not
-               identical inputs as `ec2.Instance`.  There are limitations on
-               what you can specify. See the list of officially supported inputs in the
-               [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
-               a additional parameter `iam_instance_profile_arn` takes `iam.InstanceProfile` attribute `arn` as input.
-        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchTemplateConfigArgs']]] launch_template_configs: Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] load_balancers: A list of elastic load balancer names to add to the Spot fleet.
-        :param pulumi.Input[_builtins.str] on_demand_allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
-        :param pulumi.Input[_builtins.str] on_demand_max_total_price: The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
-        :param pulumi.Input[_builtins.int] on_demand_target_capacity: The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] replace_unhealthy_instances: Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
-        :param pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesArgs'] spot_maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
-        :param pulumi.Input[_builtins.str] spot_price: The maximum bid price per unit hour.
-        :param pulumi.Input[_builtins.str] spot_request_state: The state of the Spot fleet request.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.int] target_capacity: The number of units to request. You can choose to set the
-               target capacity in terms of instances or a performance characteristic that is
-               important to your application workload, such as vCPUs, memory, or I/O.
-        :param pulumi.Input[_builtins.str] target_capacity_unit_type: The unit for the target capacity. This can only be done with `instance_requirements` defined
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] target_group_arns: A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
-        :param pulumi.Input[_builtins.str] terminate_instances_on_delete: Indicates whether running Spot
-               instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
-               If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
-        :param pulumi.Input[_builtins.bool] terminate_instances_with_expiration: Indicates whether running Spot
-               instances should be terminated when the Spot fleet request expires.
-        :param pulumi.Input[_builtins.str] valid_from: The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-        :param pulumi.Input[_builtins.str] valid_until: The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
-        :param pulumi.Input[_builtins.bool] wait_for_fulfillment: If set, this provider will
-               wait for the Spot Request to be fulfilled, and will throw an error if the
-               timeout of 10m is reached.
         """
         if allocation_strategy is not None:
             pulumi.set(__self__, "allocation_strategy", allocation_strategy)
@@ -649,11 +433,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter(name="allocationStrategy")
     def allocation_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates how to allocate the target capacity across
-        the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
-        `lowestPrice`.
-        """
         return pulumi.get(self, "allocation_strategy")
 
     @allocation_strategy.setter
@@ -672,9 +451,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter
     def context(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Reserved.
-        """
         return pulumi.get(self, "context")
 
     @context.setter
@@ -684,11 +460,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter(name="excessCapacityTerminationPolicy")
     def excess_capacity_termination_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether running Spot
-        instances should be terminated if the target capacity of the Spot fleet
-        request is decreased below the current size of the Spot fleet.
-        """
         return pulumi.get(self, "excess_capacity_termination_policy")
 
     @excess_capacity_termination_policy.setter
@@ -698,10 +469,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter(name="fleetType")
     def fleet_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of fleet request. Indicates whether the Spot Fleet only requests the target
-        capacity or also attempts to maintain it. Default is `maintain`.
-        """
         return pulumi.get(self, "fleet_type")
 
     @fleet_type.setter
@@ -711,12 +478,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter(name="iamFleetRole")
     def iam_fleet_role(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Grants the Spot fleet permission to terminate
-        Spot instances on your behalf when you cancel its Spot fleet request using
-        CancelSpotFleetRequests or when the Spot fleet request expires, if you set
-        terminateInstancesWithExpiration.
-        """
         return pulumi.get(self, "iam_fleet_role")
 
     @iam_fleet_role.setter
@@ -726,11 +487,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter(name="instanceInterruptionBehaviour")
     def instance_interruption_behaviour(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether a Spot
-        instance stops or terminates when it is interrupted. Default is
-        `terminate`.
-        """
         return pulumi.get(self, "instance_interruption_behaviour")
 
     @instance_interruption_behaviour.setter
@@ -740,12 +496,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter(name="instancePoolsToUseCount")
     def instance_pools_to_use_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of Spot pools across which to allocate your target Spot capacity.
-        Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
-        the cheapest Spot pools and evenly allocates your target Spot capacity across
-        the number of Spot pools that you specify.
-        """
         return pulumi.get(self, "instance_pools_to_use_count")
 
     @instance_pools_to_use_count.setter
@@ -755,17 +505,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter(name="launchSpecifications")
     def launch_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationArgs']]]]:
-        """
-        Used to define the launch configuration of the
-        spot-fleet request. Can be specified multiple times to define different bids
-        across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
-
-        **Note**: This takes in similar but not
-        identical inputs as `ec2.Instance`.  There are limitations on
-        what you can specify. See the list of officially supported inputs in the
-        [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
-        a additional parameter `iam_instance_profile_arn` takes `iam.InstanceProfile` attribute `arn` as input.
-        """
         return pulumi.get(self, "launch_specifications")
 
     @launch_specifications.setter
@@ -775,9 +514,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter(name="launchTemplateConfigs")
     def launch_template_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchTemplateConfigArgs']]]]:
-        """
-        Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
-        """
         return pulumi.get(self, "launch_template_configs")
 
     @launch_template_configs.setter
@@ -787,9 +523,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter(name="loadBalancers")
     def load_balancers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of elastic load balancer names to add to the Spot fleet.
-        """
         return pulumi.get(self, "load_balancers")
 
     @load_balancers.setter
@@ -799,9 +532,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter(name="onDemandAllocationStrategy")
     def on_demand_allocation_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
-        """
         return pulumi.get(self, "on_demand_allocation_strategy")
 
     @on_demand_allocation_strategy.setter
@@ -811,9 +541,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter(name="onDemandMaxTotalPrice")
     def on_demand_max_total_price(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
-        """
         return pulumi.get(self, "on_demand_max_total_price")
 
     @on_demand_max_total_price.setter
@@ -823,9 +550,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter(name="onDemandTargetCapacity")
     def on_demand_target_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
-        """
         return pulumi.get(self, "on_demand_target_capacity")
 
     @on_demand_target_capacity.setter
@@ -835,9 +559,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -847,9 +568,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter(name="replaceUnhealthyInstances")
     def replace_unhealthy_instances(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
-        """
         return pulumi.get(self, "replace_unhealthy_instances")
 
     @replace_unhealthy_instances.setter
@@ -859,9 +577,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter(name="spotMaintenanceStrategies")
     def spot_maintenance_strategies(self) -> Optional[pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesArgs']]:
-        """
-        Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
-        """
         return pulumi.get(self, "spot_maintenance_strategies")
 
     @spot_maintenance_strategies.setter
@@ -871,9 +586,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter(name="spotPrice")
     def spot_price(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The maximum bid price per unit hour.
-        """
         return pulumi.get(self, "spot_price")
 
     @spot_price.setter
@@ -883,9 +595,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter(name="spotRequestState")
     def spot_request_state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The state of the Spot fleet request.
-        """
         return pulumi.get(self, "spot_request_state")
 
     @spot_request_state.setter
@@ -895,9 +604,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -907,9 +613,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -919,11 +622,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter(name="targetCapacity")
     def target_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of units to request. You can choose to set the
-        target capacity in terms of instances or a performance characteristic that is
-        important to your application workload, such as vCPUs, memory, or I/O.
-        """
         return pulumi.get(self, "target_capacity")
 
     @target_capacity.setter
@@ -933,9 +631,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter(name="targetCapacityUnitType")
     def target_capacity_unit_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The unit for the target capacity. This can only be done with `instance_requirements` defined
-        """
         return pulumi.get(self, "target_capacity_unit_type")
 
     @target_capacity_unit_type.setter
@@ -945,9 +640,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter(name="targetGroupArns")
     def target_group_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
-        """
         return pulumi.get(self, "target_group_arns")
 
     @target_group_arns.setter
@@ -957,11 +649,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter(name="terminateInstancesOnDelete")
     def terminate_instances_on_delete(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether running Spot
-        instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
-        If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
-        """
         return pulumi.get(self, "terminate_instances_on_delete")
 
     @terminate_instances_on_delete.setter
@@ -971,10 +658,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter(name="terminateInstancesWithExpiration")
     def terminate_instances_with_expiration(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether running Spot
-        instances should be terminated when the Spot fleet request expires.
-        """
         return pulumi.get(self, "terminate_instances_with_expiration")
 
     @terminate_instances_with_expiration.setter
@@ -984,9 +667,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter(name="validFrom")
     def valid_from(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-        """
         return pulumi.get(self, "valid_from")
 
     @valid_from.setter
@@ -996,9 +676,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter(name="validUntil")
     def valid_until(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
-        """
         return pulumi.get(self, "valid_until")
 
     @valid_until.setter
@@ -1008,11 +685,6 @@ class _SpotFleetRequestState:
     @_builtins.property
     @pulumi.getter(name="waitForFulfillment")
     def wait_for_fulfillment(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If set, this provider will
-        wait for the Spot Request to be fulfilled, and will throw an error if the
-        timeout of 10m is reached.
-        """
         return pulumi.get(self, "wait_for_fulfillment")
 
     @wait_for_fulfillment.setter
@@ -1054,249 +726,9 @@ class SpotFleetRequest(pulumi.CustomResource):
                  wait_for_fulfillment: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
-        instances to be requested on the Spot market.
-
-        > **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
-        We recommend using the EC2 Fleet or Auto Scaling Group resources instead.
-
-        ## Example Usage
-
-        ### Using launch specifications
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Request a Spot fleet
-        cheap_compute = aws.ec2.SpotFleetRequest("cheap_compute",
-            iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
-            spot_price="0.03",
-            allocation_strategy="diversified",
-            target_capacity=6,
-            valid_until="2019-11-04T20:44:20Z",
-            launch_specifications=[
-                {
-                    "instance_type": "m4.10xlarge",
-                    "ami": "ami-1234",
-                    "spot_price": "2.793",
-                    "placement_tenancy": "dedicated",
-                    "iam_instance_profile_arn": example["arn"],
-                },
-                {
-                    "instance_type": "m4.4xlarge",
-                    "ami": "ami-5678",
-                    "key_name": "my-key",
-                    "spot_price": "1.117",
-                    "iam_instance_profile_arn": example["arn"],
-                    "availability_zone": "us-west-1a",
-                    "subnet_id": "subnet-1234",
-                    "weighted_capacity": "35",
-                    "root_block_devices": [{
-                        "volume_size": 300,
-                        "volume_type": "gp2",
-                    }],
-                    "tags": {
-                        "Name": "spot-fleet-example",
-                    },
-                },
-            ])
-        ```
-
-        ### Using launch templates
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ec2.LaunchTemplate("foo",
-            name="launch-template",
-            image_id="ami-516b9131",
-            instance_type="m1.small",
-            key_name="some-key")
-        foo_spot_fleet_request = aws.ec2.SpotFleetRequest("foo",
-            iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
-            spot_price="0.005",
-            target_capacity=2,
-            valid_until="2019-11-04T20:44:20Z",
-            launch_template_configs=[{
-                "launch_template_specification": {
-                    "id": foo.id,
-                    "version": foo.latest_version,
-                },
-            }],
-            opts = pulumi.ResourceOptions(depends_on=[test_attach]))
-        ```
-
-        > **NOTE:** This provider does not support the functionality where multiple `subnet_id` or `availability_zone` parameters can be specified in the same
-        launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used or launch template overrides should be configured, one per subnet:
-
-        ### Using multiple launch specifications
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ec2.SpotFleetRequest("foo",
-            iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
-            spot_price="0.005",
-            target_capacity=2,
-            valid_until="2019-11-04T20:44:20Z",
-            launch_specifications=[
-                {
-                    "instance_type": "m1.small",
-                    "ami": "ami-d06a90b0",
-                    "key_name": "my-key",
-                    "availability_zone": "us-west-2a",
-                },
-                {
-                    "instance_type": "m5.large",
-                    "ami": "ami-d06a90b0",
-                    "key_name": "my-key",
-                    "availability_zone": "us-west-2a",
-                },
-            ])
-        ```
-
-        > In this example, we use a `dynamic` block to define zero or more `launch_specification` blocks, producing one for each element in the list of subnet ids.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        config = pulumi.Config()
-        subnets = config.require_object("subnets")
-        example = aws.ec2.SpotFleetRequest("example",
-            launch_specifications=[{
-                "ami": "ami-1234",
-                "instance_type": "m4.4xlarge",
-                "subnet_id": entry["value"]["subnetId"],
-                "vpc_security_group_ids": "sg-123456",
-                "root_block_devices": [{
-                    "volume_size": 8,
-                    "volume_type": "gp2",
-                    "delete_on_termination": True,
-                }],
-                "tags": {
-                    "Name": "Spot Node",
-                    "tag_builder": "builder",
-                },
-            } for entry in [{"key": k, "value": v} for k, v in [{
-                "subnetId": s[1],
-            } for s in subnets]]],
-            iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
-            target_capacity=3,
-            valid_until="2019-11-04T20:44:20Z",
-            allocation_strategy="lowestPrice",
-            fleet_type="request",
-            wait_for_fulfillment=True,
-            terminate_instances_with_expiration=True)
-        ```
-
-        ### Using multiple launch configurations
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.get_subnets(filters=[{
-            "name": "vpc-id",
-            "values": [vpc_id],
-        }])
-        foo = aws.ec2.LaunchTemplate("foo",
-            name="launch-template",
-            image_id="ami-516b9131",
-            instance_type="m1.small",
-            key_name="some-key")
-        foo_spot_fleet_request = aws.ec2.SpotFleetRequest("foo",
-            iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
-            spot_price="0.005",
-            target_capacity=2,
-            valid_until="2019-11-04T20:44:20Z",
-            launch_template_configs=[{
-                "launch_template_specification": {
-                    "id": foo.id,
-                    "version": foo.latest_version,
-                },
-                "overrides": [
-                    {
-                        "subnet_id": example.ids[0],
-                    },
-                    {
-                        "subnet_id": example.ids[1],
-                    },
-                    {
-                        "subnet_id": example.ids[2],
-                    },
-                ],
-            }],
-            opts = pulumi.ResourceOptions(depends_on=[test_attach]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Spot Fleet Requests using `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/spotFleetRequest:SpotFleetRequest fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
-        ```
-
+        Create a SpotFleetRequest resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] allocation_strategy: Indicates how to allocate the target capacity across
-               the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
-               `lowestPrice`.
-        :param pulumi.Input[_builtins.str] context: Reserved.
-        :param pulumi.Input[_builtins.str] excess_capacity_termination_policy: Indicates whether running Spot
-               instances should be terminated if the target capacity of the Spot fleet
-               request is decreased below the current size of the Spot fleet.
-        :param pulumi.Input[_builtins.str] fleet_type: The type of fleet request. Indicates whether the Spot Fleet only requests the target
-               capacity or also attempts to maintain it. Default is `maintain`.
-        :param pulumi.Input[_builtins.str] iam_fleet_role: Grants the Spot fleet permission to terminate
-               Spot instances on your behalf when you cancel its Spot fleet request using
-               CancelSpotFleetRequests or when the Spot fleet request expires, if you set
-               terminateInstancesWithExpiration.
-        :param pulumi.Input[_builtins.str] instance_interruption_behaviour: Indicates whether a Spot
-               instance stops or terminates when it is interrupted. Default is
-               `terminate`.
-        :param pulumi.Input[_builtins.int] instance_pools_to_use_count: The number of Spot pools across which to allocate your target Spot capacity.
-               Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
-               the cheapest Spot pools and evenly allocates your target Spot capacity across
-               the number of Spot pools that you specify.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotFleetRequestLaunchSpecificationArgs', 'SpotFleetRequestLaunchSpecificationArgsDict']]]] launch_specifications: Used to define the launch configuration of the
-               spot-fleet request. Can be specified multiple times to define different bids
-               across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
-               
-               **Note**: This takes in similar but not
-               identical inputs as `ec2.Instance`.  There are limitations on
-               what you can specify. See the list of officially supported inputs in the
-               [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
-               a additional parameter `iam_instance_profile_arn` takes `iam.InstanceProfile` attribute `arn` as input.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotFleetRequestLaunchTemplateConfigArgs', 'SpotFleetRequestLaunchTemplateConfigArgsDict']]]] launch_template_configs: Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] load_balancers: A list of elastic load balancer names to add to the Spot fleet.
-        :param pulumi.Input[_builtins.str] on_demand_allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
-        :param pulumi.Input[_builtins.str] on_demand_max_total_price: The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
-        :param pulumi.Input[_builtins.int] on_demand_target_capacity: The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] replace_unhealthy_instances: Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
-        :param pulumi.Input[Union['SpotFleetRequestSpotMaintenanceStrategiesArgs', 'SpotFleetRequestSpotMaintenanceStrategiesArgsDict']] spot_maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
-        :param pulumi.Input[_builtins.str] spot_price: The maximum bid price per unit hour.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.int] target_capacity: The number of units to request. You can choose to set the
-               target capacity in terms of instances or a performance characteristic that is
-               important to your application workload, such as vCPUs, memory, or I/O.
-        :param pulumi.Input[_builtins.str] target_capacity_unit_type: The unit for the target capacity. This can only be done with `instance_requirements` defined
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] target_group_arns: A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
-        :param pulumi.Input[_builtins.str] terminate_instances_on_delete: Indicates whether running Spot
-               instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
-               If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
-        :param pulumi.Input[_builtins.bool] terminate_instances_with_expiration: Indicates whether running Spot
-               instances should be terminated when the Spot fleet request expires.
-        :param pulumi.Input[_builtins.str] valid_from: The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-        :param pulumi.Input[_builtins.str] valid_until: The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
-        :param pulumi.Input[_builtins.bool] wait_for_fulfillment: If set, this provider will
-               wait for the Spot Request to be fulfilled, and will throw an error if the
-               timeout of 10m is reached.
         """
         ...
     @overload
@@ -1305,193 +737,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                  args: SpotFleetRequestArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
-        instances to be requested on the Spot market.
-
-        > **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
-        We recommend using the EC2 Fleet or Auto Scaling Group resources instead.
-
-        ## Example Usage
-
-        ### Using launch specifications
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Request a Spot fleet
-        cheap_compute = aws.ec2.SpotFleetRequest("cheap_compute",
-            iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
-            spot_price="0.03",
-            allocation_strategy="diversified",
-            target_capacity=6,
-            valid_until="2019-11-04T20:44:20Z",
-            launch_specifications=[
-                {
-                    "instance_type": "m4.10xlarge",
-                    "ami": "ami-1234",
-                    "spot_price": "2.793",
-                    "placement_tenancy": "dedicated",
-                    "iam_instance_profile_arn": example["arn"],
-                },
-                {
-                    "instance_type": "m4.4xlarge",
-                    "ami": "ami-5678",
-                    "key_name": "my-key",
-                    "spot_price": "1.117",
-                    "iam_instance_profile_arn": example["arn"],
-                    "availability_zone": "us-west-1a",
-                    "subnet_id": "subnet-1234",
-                    "weighted_capacity": "35",
-                    "root_block_devices": [{
-                        "volume_size": 300,
-                        "volume_type": "gp2",
-                    }],
-                    "tags": {
-                        "Name": "spot-fleet-example",
-                    },
-                },
-            ])
-        ```
-
-        ### Using launch templates
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ec2.LaunchTemplate("foo",
-            name="launch-template",
-            image_id="ami-516b9131",
-            instance_type="m1.small",
-            key_name="some-key")
-        foo_spot_fleet_request = aws.ec2.SpotFleetRequest("foo",
-            iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
-            spot_price="0.005",
-            target_capacity=2,
-            valid_until="2019-11-04T20:44:20Z",
-            launch_template_configs=[{
-                "launch_template_specification": {
-                    "id": foo.id,
-                    "version": foo.latest_version,
-                },
-            }],
-            opts = pulumi.ResourceOptions(depends_on=[test_attach]))
-        ```
-
-        > **NOTE:** This provider does not support the functionality where multiple `subnet_id` or `availability_zone` parameters can be specified in the same
-        launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used or launch template overrides should be configured, one per subnet:
-
-        ### Using multiple launch specifications
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ec2.SpotFleetRequest("foo",
-            iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
-            spot_price="0.005",
-            target_capacity=2,
-            valid_until="2019-11-04T20:44:20Z",
-            launch_specifications=[
-                {
-                    "instance_type": "m1.small",
-                    "ami": "ami-d06a90b0",
-                    "key_name": "my-key",
-                    "availability_zone": "us-west-2a",
-                },
-                {
-                    "instance_type": "m5.large",
-                    "ami": "ami-d06a90b0",
-                    "key_name": "my-key",
-                    "availability_zone": "us-west-2a",
-                },
-            ])
-        ```
-
-        > In this example, we use a `dynamic` block to define zero or more `launch_specification` blocks, producing one for each element in the list of subnet ids.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        config = pulumi.Config()
-        subnets = config.require_object("subnets")
-        example = aws.ec2.SpotFleetRequest("example",
-            launch_specifications=[{
-                "ami": "ami-1234",
-                "instance_type": "m4.4xlarge",
-                "subnet_id": entry["value"]["subnetId"],
-                "vpc_security_group_ids": "sg-123456",
-                "root_block_devices": [{
-                    "volume_size": 8,
-                    "volume_type": "gp2",
-                    "delete_on_termination": True,
-                }],
-                "tags": {
-                    "Name": "Spot Node",
-                    "tag_builder": "builder",
-                },
-            } for entry in [{"key": k, "value": v} for k, v in [{
-                "subnetId": s[1],
-            } for s in subnets]]],
-            iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
-            target_capacity=3,
-            valid_until="2019-11-04T20:44:20Z",
-            allocation_strategy="lowestPrice",
-            fleet_type="request",
-            wait_for_fulfillment=True,
-            terminate_instances_with_expiration=True)
-        ```
-
-        ### Using multiple launch configurations
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.get_subnets(filters=[{
-            "name": "vpc-id",
-            "values": [vpc_id],
-        }])
-        foo = aws.ec2.LaunchTemplate("foo",
-            name="launch-template",
-            image_id="ami-516b9131",
-            instance_type="m1.small",
-            key_name="some-key")
-        foo_spot_fleet_request = aws.ec2.SpotFleetRequest("foo",
-            iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
-            spot_price="0.005",
-            target_capacity=2,
-            valid_until="2019-11-04T20:44:20Z",
-            launch_template_configs=[{
-                "launch_template_specification": {
-                    "id": foo.id,
-                    "version": foo.latest_version,
-                },
-                "overrides": [
-                    {
-                        "subnet_id": example.ids[0],
-                    },
-                    {
-                        "subnet_id": example.ids[1],
-                    },
-                    {
-                        "subnet_id": example.ids[2],
-                    },
-                ],
-            }],
-            opts = pulumi.ResourceOptions(depends_on=[test_attach]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Spot Fleet Requests using `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/spotFleetRequest:SpotFleetRequest fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
-        ```
-
+        Create a SpotFleetRequest resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SpotFleetRequestArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1621,62 +867,6 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] allocation_strategy: Indicates how to allocate the target capacity across
-               the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
-               `lowestPrice`.
-        :param pulumi.Input[_builtins.str] context: Reserved.
-        :param pulumi.Input[_builtins.str] excess_capacity_termination_policy: Indicates whether running Spot
-               instances should be terminated if the target capacity of the Spot fleet
-               request is decreased below the current size of the Spot fleet.
-        :param pulumi.Input[_builtins.str] fleet_type: The type of fleet request. Indicates whether the Spot Fleet only requests the target
-               capacity or also attempts to maintain it. Default is `maintain`.
-        :param pulumi.Input[_builtins.str] iam_fleet_role: Grants the Spot fleet permission to terminate
-               Spot instances on your behalf when you cancel its Spot fleet request using
-               CancelSpotFleetRequests or when the Spot fleet request expires, if you set
-               terminateInstancesWithExpiration.
-        :param pulumi.Input[_builtins.str] instance_interruption_behaviour: Indicates whether a Spot
-               instance stops or terminates when it is interrupted. Default is
-               `terminate`.
-        :param pulumi.Input[_builtins.int] instance_pools_to_use_count: The number of Spot pools across which to allocate your target Spot capacity.
-               Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
-               the cheapest Spot pools and evenly allocates your target Spot capacity across
-               the number of Spot pools that you specify.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotFleetRequestLaunchSpecificationArgs', 'SpotFleetRequestLaunchSpecificationArgsDict']]]] launch_specifications: Used to define the launch configuration of the
-               spot-fleet request. Can be specified multiple times to define different bids
-               across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
-               
-               **Note**: This takes in similar but not
-               identical inputs as `ec2.Instance`.  There are limitations on
-               what you can specify. See the list of officially supported inputs in the
-               [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
-               a additional parameter `iam_instance_profile_arn` takes `iam.InstanceProfile` attribute `arn` as input.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotFleetRequestLaunchTemplateConfigArgs', 'SpotFleetRequestLaunchTemplateConfigArgsDict']]]] launch_template_configs: Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] load_balancers: A list of elastic load balancer names to add to the Spot fleet.
-        :param pulumi.Input[_builtins.str] on_demand_allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
-        :param pulumi.Input[_builtins.str] on_demand_max_total_price: The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
-        :param pulumi.Input[_builtins.int] on_demand_target_capacity: The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] replace_unhealthy_instances: Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
-        :param pulumi.Input[Union['SpotFleetRequestSpotMaintenanceStrategiesArgs', 'SpotFleetRequestSpotMaintenanceStrategiesArgsDict']] spot_maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
-        :param pulumi.Input[_builtins.str] spot_price: The maximum bid price per unit hour.
-        :param pulumi.Input[_builtins.str] spot_request_state: The state of the Spot fleet request.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.int] target_capacity: The number of units to request. You can choose to set the
-               target capacity in terms of instances or a performance characteristic that is
-               important to your application workload, such as vCPUs, memory, or I/O.
-        :param pulumi.Input[_builtins.str] target_capacity_unit_type: The unit for the target capacity. This can only be done with `instance_requirements` defined
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] target_group_arns: A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
-        :param pulumi.Input[_builtins.str] terminate_instances_on_delete: Indicates whether running Spot
-               instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
-               If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
-        :param pulumi.Input[_builtins.bool] terminate_instances_with_expiration: Indicates whether running Spot
-               instances should be terminated when the Spot fleet request expires.
-        :param pulumi.Input[_builtins.str] valid_from: The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-        :param pulumi.Input[_builtins.str] valid_until: The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
-        :param pulumi.Input[_builtins.bool] wait_for_fulfillment: If set, this provider will
-               wait for the Spot Request to be fulfilled, and will throw an error if the
-               timeout of 10m is reached.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1716,11 +906,6 @@ class SpotFleetRequest(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="allocationStrategy")
     def allocation_strategy(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Indicates how to allocate the target capacity across
-        the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
-        `lowestPrice`.
-        """
         return pulumi.get(self, "allocation_strategy")
 
     @_builtins.property
@@ -1731,242 +916,135 @@ class SpotFleetRequest(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def context(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Reserved.
-        """
         return pulumi.get(self, "context")
 
     @_builtins.property
     @pulumi.getter(name="excessCapacityTerminationPolicy")
     def excess_capacity_termination_policy(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Indicates whether running Spot
-        instances should be terminated if the target capacity of the Spot fleet
-        request is decreased below the current size of the Spot fleet.
-        """
         return pulumi.get(self, "excess_capacity_termination_policy")
 
     @_builtins.property
     @pulumi.getter(name="fleetType")
     def fleet_type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The type of fleet request. Indicates whether the Spot Fleet only requests the target
-        capacity or also attempts to maintain it. Default is `maintain`.
-        """
         return pulumi.get(self, "fleet_type")
 
     @_builtins.property
     @pulumi.getter(name="iamFleetRole")
     def iam_fleet_role(self) -> pulumi.Output[_builtins.str]:
-        """
-        Grants the Spot fleet permission to terminate
-        Spot instances on your behalf when you cancel its Spot fleet request using
-        CancelSpotFleetRequests or when the Spot fleet request expires, if you set
-        terminateInstancesWithExpiration.
-        """
         return pulumi.get(self, "iam_fleet_role")
 
     @_builtins.property
     @pulumi.getter(name="instanceInterruptionBehaviour")
     def instance_interruption_behaviour(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Indicates whether a Spot
-        instance stops or terminates when it is interrupted. Default is
-        `terminate`.
-        """
         return pulumi.get(self, "instance_interruption_behaviour")
 
     @_builtins.property
     @pulumi.getter(name="instancePoolsToUseCount")
     def instance_pools_to_use_count(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The number of Spot pools across which to allocate your target Spot capacity.
-        Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
-        the cheapest Spot pools and evenly allocates your target Spot capacity across
-        the number of Spot pools that you specify.
-        """
         return pulumi.get(self, "instance_pools_to_use_count")
 
     @_builtins.property
     @pulumi.getter(name="launchSpecifications")
     def launch_specifications(self) -> pulumi.Output[Optional[Sequence['outputs.SpotFleetRequestLaunchSpecification']]]:
-        """
-        Used to define the launch configuration of the
-        spot-fleet request. Can be specified multiple times to define different bids
-        across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
-
-        **Note**: This takes in similar but not
-        identical inputs as `ec2.Instance`.  There are limitations on
-        what you can specify. See the list of officially supported inputs in the
-        [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
-        a additional parameter `iam_instance_profile_arn` takes `iam.InstanceProfile` attribute `arn` as input.
-        """
         return pulumi.get(self, "launch_specifications")
 
     @_builtins.property
     @pulumi.getter(name="launchTemplateConfigs")
     def launch_template_configs(self) -> pulumi.Output[Optional[Sequence['outputs.SpotFleetRequestLaunchTemplateConfig']]]:
-        """
-        Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
-        """
         return pulumi.get(self, "launch_template_configs")
 
     @_builtins.property
     @pulumi.getter(name="loadBalancers")
     def load_balancers(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        A list of elastic load balancer names to add to the Spot fleet.
-        """
         return pulumi.get(self, "load_balancers")
 
     @_builtins.property
     @pulumi.getter(name="onDemandAllocationStrategy")
     def on_demand_allocation_strategy(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
-        """
         return pulumi.get(self, "on_demand_allocation_strategy")
 
     @_builtins.property
     @pulumi.getter(name="onDemandMaxTotalPrice")
     def on_demand_max_total_price(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
-        """
         return pulumi.get(self, "on_demand_max_total_price")
 
     @_builtins.property
     @pulumi.getter(name="onDemandTargetCapacity")
     def on_demand_target_capacity(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
-        """
         return pulumi.get(self, "on_demand_target_capacity")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="replaceUnhealthyInstances")
     def replace_unhealthy_instances(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
-        """
         return pulumi.get(self, "replace_unhealthy_instances")
 
     @_builtins.property
     @pulumi.getter(name="spotMaintenanceStrategies")
     def spot_maintenance_strategies(self) -> pulumi.Output[Optional['outputs.SpotFleetRequestSpotMaintenanceStrategies']]:
-        """
-        Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
-        """
         return pulumi.get(self, "spot_maintenance_strategies")
 
     @_builtins.property
     @pulumi.getter(name="spotPrice")
     def spot_price(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The maximum bid price per unit hour.
-        """
         return pulumi.get(self, "spot_price")
 
     @_builtins.property
     @pulumi.getter(name="spotRequestState")
     def spot_request_state(self) -> pulumi.Output[_builtins.str]:
-        """
-        The state of the Spot fleet request.
-        """
         return pulumi.get(self, "spot_request_state")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="targetCapacity")
     def target_capacity(self) -> pulumi.Output[_builtins.int]:
-        """
-        The number of units to request. You can choose to set the
-        target capacity in terms of instances or a performance characteristic that is
-        important to your application workload, such as vCPUs, memory, or I/O.
-        """
         return pulumi.get(self, "target_capacity")
 
     @_builtins.property
     @pulumi.getter(name="targetCapacityUnitType")
     def target_capacity_unit_type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The unit for the target capacity. This can only be done with `instance_requirements` defined
-        """
         return pulumi.get(self, "target_capacity_unit_type")
 
     @_builtins.property
     @pulumi.getter(name="targetGroupArns")
     def target_group_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
-        """
         return pulumi.get(self, "target_group_arns")
 
     @_builtins.property
     @pulumi.getter(name="terminateInstancesOnDelete")
     def terminate_instances_on_delete(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Indicates whether running Spot
-        instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
-        If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
-        """
         return pulumi.get(self, "terminate_instances_on_delete")
 
     @_builtins.property
     @pulumi.getter(name="terminateInstancesWithExpiration")
     def terminate_instances_with_expiration(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Indicates whether running Spot
-        instances should be terminated when the Spot fleet request expires.
-        """
         return pulumi.get(self, "terminate_instances_with_expiration")
 
     @_builtins.property
     @pulumi.getter(name="validFrom")
     def valid_from(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-        """
         return pulumi.get(self, "valid_from")
 
     @_builtins.property
     @pulumi.getter(name="validUntil")
     def valid_until(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
-        """
         return pulumi.get(self, "valid_until")
 
     @_builtins.property
     @pulumi.getter(name="waitForFulfillment")
     def wait_for_fulfillment(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        If set, this provider will
-        wait for the Spot Request to be fulfilled, and will throw an error if the
-        timeout of 10m is reached.
-        """
         return pulumi.get(self, "wait_for_fulfillment")
 

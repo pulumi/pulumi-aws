@@ -4,35 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS DynamoDB Resource Policy.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.dynamodb.ResourcePolicy("example", {
- *     resourceArn: exampleAwsDynamodbTable.arn,
- *     policy: test.json,
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the DynamoDB table.
- *
- * Using `pulumi import`, import DynamoDB Resource Policy using the `resource_arn`. For example:
- *
- * % pulumi import aws_dynamodb_resource_policy.example arn:aws:dynamodb:us-east-1:1234567890:table/my-table
- */
 export class ResourcePolicy extends pulumi.CustomResource {
     /**
      * Get an existing ResourcePolicy resource's state with the given name, ID, and optional extra
@@ -61,27 +32,10 @@ export class ResourcePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourcePolicy.__pulumiType;
     }
 
-    /**
-     * Set this parameter to true to confirm that you want to remove your permissions to change the policy of this resource in the future.
-     */
     declare public readonly confirmRemoveSelfResourceAccess: pulumi.Output<boolean>;
-    /**
-     * n Amazon Web Services resource-based policy document in JSON format. The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see Resource-based policy considerations.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly policy: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table's policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
-     */
     declare public readonly resourceArn: pulumi.Output<string>;
-    /**
-     * A unique string that represents the revision ID of the policy. If you are comparing revision IDs, make sure to always use string comparison logic.
-     */
     declare public /*out*/ readonly revisionId: pulumi.Output<string>;
 
     /**
@@ -125,27 +79,10 @@ export class ResourcePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResourcePolicy resources.
  */
 export interface ResourcePolicyState {
-    /**
-     * Set this parameter to true to confirm that you want to remove your permissions to change the policy of this resource in the future.
-     */
     confirmRemoveSelfResourceAccess?: pulumi.Input<boolean>;
-    /**
-     * n Amazon Web Services resource-based policy document in JSON format. The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see Resource-based policy considerations.
-     *
-     * The following arguments are optional:
-     */
     policy?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table's policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
-     */
     resourceArn?: pulumi.Input<string>;
-    /**
-     * A unique string that represents the revision ID of the policy. If you are comparing revision IDs, make sure to always use string comparison logic.
-     */
     revisionId?: pulumi.Input<string>;
 }
 
@@ -153,22 +90,8 @@ export interface ResourcePolicyState {
  * The set of arguments for constructing a ResourcePolicy resource.
  */
 export interface ResourcePolicyArgs {
-    /**
-     * Set this parameter to true to confirm that you want to remove your permissions to change the policy of this resource in the future.
-     */
     confirmRemoveSelfResourceAccess?: pulumi.Input<boolean>;
-    /**
-     * n Amazon Web Services resource-based policy document in JSON format. The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see Resource-based policy considerations.
-     *
-     * The following arguments are optional:
-     */
     policy: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table's policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
-     */
     resourceArn: pulumi.Input<string>;
 }

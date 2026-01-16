@@ -21,10 +21,6 @@ public final class GetNetworkAclsResult {
      * 
      */
     private String id;
-    /**
-     * @return List of all the network ACL ids found.
-     * 
-     */
     private List<String> ids;
     private String region;
     private Map<String,String> tags;
@@ -41,10 +37,6 @@ public final class GetNetworkAclsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of all the network ACL ids found.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }

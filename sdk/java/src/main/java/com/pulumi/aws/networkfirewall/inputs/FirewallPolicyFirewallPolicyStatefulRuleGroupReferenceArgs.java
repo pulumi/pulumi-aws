@@ -18,66 +18,30 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs ex
 
     public static final FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs Empty = new FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs();
 
-    /**
-     * Whether to enable deep threat inspection, which allows AWS to analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services. This only applies to active threat defense maanaged rule groups.
-     * 
-     * For details, refer to [AWS active threat defense for AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/aws-managed-rule-groups-atd.html) in the AWS Network Firewall Developer Guide.
-     * 
-     */
     @Import(name="deepThreatInspection")
     private @Nullable Output<String> deepThreatInspection;
 
-    /**
-     * @return Whether to enable deep threat inspection, which allows AWS to analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services. This only applies to active threat defense maanaged rule groups.
-     * 
-     * For details, refer to [AWS active threat defense for AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/aws-managed-rule-groups-atd.html) in the AWS Network Firewall Developer Guide.
-     * 
-     */
     public Optional<Output<String>> deepThreatInspection() {
         return Optional.ofNullable(this.deepThreatInspection);
     }
 
-    /**
-     * Configuration block for override values
-     * 
-     */
     @Import(name="override")
     private @Nullable Output<FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs> override;
 
-    /**
-     * @return Configuration block for override values
-     * 
-     */
     public Optional<Output<FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs>> override() {
         return Optional.ofNullable(this.override);
     }
 
-    /**
-     * An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
-     * 
-     */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
-    /**
-     * @return An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
-     * 
-     */
     public Optional<Output<Integer>> priority() {
         return Optional.ofNullable(this.priority);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the stateful rule group.
-     * 
-     */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the stateful rule group.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
@@ -109,90 +73,38 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs ex
             $ = new FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param deepThreatInspection Whether to enable deep threat inspection, which allows AWS to analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services. This only applies to active threat defense maanaged rule groups.
-         * 
-         * For details, refer to [AWS active threat defense for AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/aws-managed-rule-groups-atd.html) in the AWS Network Firewall Developer Guide.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deepThreatInspection(@Nullable Output<String> deepThreatInspection) {
             $.deepThreatInspection = deepThreatInspection;
             return this;
         }
 
-        /**
-         * @param deepThreatInspection Whether to enable deep threat inspection, which allows AWS to analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services. This only applies to active threat defense maanaged rule groups.
-         * 
-         * For details, refer to [AWS active threat defense for AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/aws-managed-rule-groups-atd.html) in the AWS Network Firewall Developer Guide.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deepThreatInspection(String deepThreatInspection) {
             return deepThreatInspection(Output.of(deepThreatInspection));
         }
 
-        /**
-         * @param override Configuration block for override values
-         * 
-         * @return builder
-         * 
-         */
         public Builder override(@Nullable Output<FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs> override) {
             $.override = override;
             return this;
         }
 
-        /**
-         * @param override Configuration block for override values
-         * 
-         * @return builder
-         * 
-         */
         public Builder override(FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs override) {
             return override(Output.of(override));
         }
 
-        /**
-         * @param priority An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder priority(@Nullable Output<Integer> priority) {
             $.priority = priority;
             return this;
         }
 
-        /**
-         * @param priority An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder priority(Integer priority) {
             return priority(Output.of(priority));
         }
 
-        /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the stateful rule group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the stateful rule group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentFlowDefinitionNodeConfigurationPrompt
     {
-        /// <summary>
-        /// Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
-        /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration? GuardrailConfiguration;
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration? SourceConfiguration;
 

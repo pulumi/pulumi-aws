@@ -13,17 +13,8 @@ namespace Pulumi.Aws.SecurityHub.Outputs
     [OutputType]
     public sealed class InsightFiltersResourceAwsEc2InstanceLaunchedAt
     {
-        /// <summary>
-        /// A configuration block of the date range for the date filter. See DateRange below for more details.
-        /// </summary>
         public readonly Outputs.InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange? DateRange;
-        /// <summary>
-        /// An end date for the date filter. Required with `Start` if `DateRange` is not specified.
-        /// </summary>
         public readonly string? End;
-        /// <summary>
-        /// A start date for the date filter. Required with `End` if `DateRange` is not specified.
-        /// </summary>
         public readonly string? Start;
 
         [OutputConstructor]

@@ -18,62 +18,30 @@ public final class V2modelsIntentInitialResponseSettingInitialResponseMessageGro
 
     public static final V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageImageResponseCardArgs Empty = new V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageImageResponseCardArgs();
 
-    /**
-     * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
-     * 
-     */
     @Import(name="buttons")
     private @Nullable Output<List<V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageImageResponseCardButtonArgs>> buttons;
 
-    /**
-     * @return Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
-     * 
-     */
     public Optional<Output<List<V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageImageResponseCardButtonArgs>>> buttons() {
         return Optional.ofNullable(this.buttons);
     }
 
-    /**
-     * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
-     * 
-     */
     @Import(name="imageUrl")
     private @Nullable Output<String> imageUrl;
 
-    /**
-     * @return URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
-     * 
-     */
     public Optional<Output<String>> imageUrl() {
         return Optional.ofNullable(this.imageUrl);
     }
 
-    /**
-     * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
-     * 
-     */
     @Import(name="subtitle")
     private @Nullable Output<String> subtitle;
 
-    /**
-     * @return Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
-     * 
-     */
     public Optional<Output<String>> subtitle() {
         return Optional.ofNullable(this.subtitle);
     }
 
-    /**
-     * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
-     * 
-     */
     @Import(name="title", required=true)
     private Output<String> title;
 
-    /**
-     * @return Title to display on the response card. The format of the title is determined by the platform displaying the response card.
-     * 
-     */
     public Output<String> title() {
         return this.title;
     }
@@ -105,96 +73,42 @@ public final class V2modelsIntentInitialResponseSettingInitialResponseMessageGro
             $ = new V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageImageResponseCardArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param buttons Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder buttons(@Nullable Output<List<V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageImageResponseCardButtonArgs>> buttons) {
             $.buttons = buttons;
             return this;
         }
 
-        /**
-         * @param buttons Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder buttons(List<V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageImageResponseCardButtonArgs> buttons) {
             return buttons(Output.of(buttons));
         }
 
-        /**
-         * @param buttons Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder buttons(V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageImageResponseCardButtonArgs... buttons) {
             return buttons(List.of(buttons));
         }
 
-        /**
-         * @param imageUrl URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageUrl(@Nullable Output<String> imageUrl) {
             $.imageUrl = imageUrl;
             return this;
         }
 
-        /**
-         * @param imageUrl URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageUrl(String imageUrl) {
             return imageUrl(Output.of(imageUrl));
         }
 
-        /**
-         * @param subtitle Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subtitle(@Nullable Output<String> subtitle) {
             $.subtitle = subtitle;
             return this;
         }
 
-        /**
-         * @param subtitle Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subtitle(String subtitle) {
             return subtitle(Output.of(subtitle));
         }
 
-        /**
-         * @param title Title to display on the response card. The format of the title is determined by the platform displaying the response card.
-         * 
-         * @return builder
-         * 
-         */
         public Builder title(Output<String> title) {
             $.title = title;
             return this;
         }
 
-        /**
-         * @param title Title to display on the response card. The format of the title is determined by the platform displaying the response card.
-         * 
-         * @return builder
-         * 
-         */
         public Builder title(String title) {
             return title(Output.of(title));
         }

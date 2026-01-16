@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class IngestionDestinationProcessingConfigurationAuditLog {
-    /**
-     * @return The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
-     * 
-     */
     private String format;
-    /**
-     * @return The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
-     * 
-     */
     private String schema;
 
     private IngestionDestinationProcessingConfigurationAuditLog() {}
-    /**
-     * @return The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
-     * 
-     */
     public String format() {
         return this.format;
     }
-    /**
-     * @return The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
-     * 
-     */
     public String schema() {
         return this.schema;
     }

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceOrderedPlacementStrategy {
-    /**
-     * @return Field to apply placement strategy against
-     * 
-     */
     private String field;
-    /**
-     * @return Constraint type
-     * 
-     */
     private String type;
 
     private GetServiceOrderedPlacementStrategy() {}
-    /**
-     * @return Field to apply placement strategy against
-     * 
-     */
     public String field() {
         return this.field;
     }
-    /**
-     * @return Constraint type
-     * 
-     */
     public String type() {
         return this.type;
     }

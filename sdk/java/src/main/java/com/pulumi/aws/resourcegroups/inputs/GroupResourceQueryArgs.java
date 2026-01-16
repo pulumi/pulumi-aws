@@ -16,32 +16,16 @@ public final class GroupResourceQueryArgs extends com.pulumi.resources.ResourceA
 
     public static final GroupResourceQueryArgs Empty = new GroupResourceQueryArgs();
 
-    /**
-     * The resource query as a JSON string.
-     * 
-     */
     @Import(name="query", required=true)
     private Output<String> query;
 
-    /**
-     * @return The resource query as a JSON string.
-     * 
-     */
     public Output<String> query() {
         return this.query;
     }
 
-    /**
-     * The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -71,44 +55,20 @@ public final class GroupResourceQueryArgs extends com.pulumi.resources.ResourceA
             $ = new GroupResourceQueryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param query The resource query as a JSON string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder query(Output<String> query) {
             $.query = query;
             return this;
         }
 
-        /**
-         * @param query The resource query as a JSON string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder query(String query) {
             return query(Output.of(query));
         }
 
-        /**
-         * @param type The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

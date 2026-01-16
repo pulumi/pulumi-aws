@@ -12,222 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS CloudWatch Observability Admin Centralization Rule For Organization.
-//
-// Centralization rules enable you to centralize log data from multiple AWS accounts and regions within your organization to a single destination account and region. This helps with log management, compliance, and cost optimization by consolidating logs in a central location.
-//
-// This requires an AWS account within an organization with at least [delegated administrator permissions](https://docs.aws.amazon.com/organizations/latest/APIReference/API_RegisterDelegatedAdministrator.html).
-//
-// ## Example Usage
-//
-// ### Basic Centralization Rule
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/observabilityadmin"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentGetOrganization, err := organizations.LookupOrganization(ctx, map[string]interface{}{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = observabilityadmin.NewCentralizationRuleForOrganization(ctx, "example", &observabilityadmin.CentralizationRuleForOrganizationArgs{
-//				RuleName: pulumi.String("example-centralization-rule"),
-//				Rule: &observabilityadmin.CentralizationRuleForOrganizationRuleArgs{
-//					Destination: &observabilityadmin.CentralizationRuleForOrganizationRuleDestinationArgs{
-//						Region:  pulumi.String("eu-west-1"),
-//						Account: pulumi.String(current.AccountId),
-//					},
-//					Source: &observabilityadmin.CentralizationRuleForOrganizationRuleSourceArgs{
-//						Regions: pulumi.StringArray{
-//							pulumi.String("ap-southeast-1"),
-//						},
-//						Scope: pulumi.Sprintf("OrganizationId = '%v'", currentGetOrganization.Id),
-//						SourceLogsConfiguration: &observabilityadmin.CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs{
-//							EncryptedLogGroupStrategy: pulumi.String("SKIP"),
-//							LogGroupSelectionCriteria: pulumi.String("*"),
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name":        pulumi.String("example-centralization-rule"),
-//					"Environment": pulumi.String("production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Advanced Configuration with Encryption and Backup
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/observabilityadmin"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentGetOrganization, err := organizations.LookupOrganization(ctx, map[string]interface{}{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = observabilityadmin.NewCentralizationRuleForOrganization(ctx, "advanced", &observabilityadmin.CentralizationRuleForOrganizationArgs{
-//				RuleName: pulumi.String("advanced-centralization-rule"),
-//				Rule: &observabilityadmin.CentralizationRuleForOrganizationRuleArgs{
-//					Destination: &observabilityadmin.CentralizationRuleForOrganizationRuleDestinationArgs{
-//						Region:  pulumi.String("eu-west-1"),
-//						Account: pulumi.String(current.AccountId),
-//						DestinationLogsConfiguration: &observabilityadmin.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs{
-//							LogsEncryptionConfiguration: &observabilityadmin.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs{
-//								EncryptionStrategy: pulumi.String("AWS_OWNED"),
-//							},
-//							BackupConfiguration: &observabilityadmin.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs{
-//								Region: pulumi.String("us-west-1"),
-//							},
-//						},
-//					},
-//					Source: &observabilityadmin.CentralizationRuleForOrganizationRuleSourceArgs{
-//						Regions: pulumi.StringArray{
-//							pulumi.String("ap-southeast-1"),
-//							pulumi.String("us-east-1"),
-//						},
-//						Scope: pulumi.Sprintf("OrganizationId = '%v'", currentGetOrganization.Id),
-//						SourceLogsConfiguration: &observabilityadmin.CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs{
-//							EncryptedLogGroupStrategy: pulumi.String("ALLOW"),
-//							LogGroupSelectionCriteria: pulumi.String("*"),
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name":        pulumi.String("advanced-centralization-rule"),
-//					"Environment": pulumi.String("production"),
-//					"Team":        pulumi.String("observability"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Selective Log Group Filtering
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/observabilityadmin"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentGetOrganization, err := organizations.LookupOrganization(ctx, map[string]interface{}{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = observabilityadmin.NewCentralizationRuleForOrganization(ctx, "filtered", &observabilityadmin.CentralizationRuleForOrganizationArgs{
-//				RuleName: pulumi.String("filtered-centralization-rule"),
-//				Rule: &observabilityadmin.CentralizationRuleForOrganizationRuleArgs{
-//					Destination: &observabilityadmin.CentralizationRuleForOrganizationRuleDestinationArgs{
-//						Region:  pulumi.String("eu-west-1"),
-//						Account: pulumi.String(current.AccountId),
-//					},
-//					Source: &observabilityadmin.CentralizationRuleForOrganizationRuleSourceArgs{
-//						Regions: pulumi.StringArray{
-//							pulumi.String("ap-southeast-1"),
-//							pulumi.String("us-east-1"),
-//						},
-//						Scope: pulumi.Sprintf("OrganizationId = '%v'", currentGetOrganization.Id),
-//						SourceLogsConfiguration: &observabilityadmin.CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs{
-//							EncryptedLogGroupStrategy: pulumi.String("ALLOW"),
-//							LogGroupSelectionCriteria: pulumi.String("LogGroupName LIKE '/aws/lambda%'"),
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name":   pulumi.String("filtered-centralization-rule"),
-//					"Filter": pulumi.String("lambda-logs"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudWatch Observability Admin Centralization Rule For Organization using the `rule_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:observabilityadmin/centralizationRuleForOrganization:CentralizationRuleForOrganization example example-centralization-rule
-// ```
 type CentralizationRuleForOrganization struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Configuration block for the centralization rule. See `rule` below.
-	//
-	// The following arguments are optional:
-	Rule CentralizationRuleForOrganizationRulePtrOutput `pulumi:"rule"`
-	// ARN of the centralization rule.
-	RuleArn pulumi.StringOutput `pulumi:"ruleArn"`
-	// Name of the centralization rule. Must be unique within the organization.
-	RuleName pulumi.StringOutput `pulumi:"ruleName"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	Region   pulumi.StringOutput                                `pulumi:"region"`
+	Rule     CentralizationRuleForOrganizationRulePtrOutput     `pulumi:"rule"`
+	RuleArn  pulumi.StringOutput                                `pulumi:"ruleArn"`
+	RuleName pulumi.StringOutput                                `pulumi:"ruleName"`
+	Tags     pulumi.StringMapOutput                             `pulumi:"tags"`
 	TagsAll  pulumi.StringMapOutput                             `pulumi:"tagsAll"`
 	Timeouts CentralizationRuleForOrganizationTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -265,37 +57,21 @@ func GetCentralizationRuleForOrganization(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CentralizationRuleForOrganization resources.
 type centralizationRuleForOrganizationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configuration block for the centralization rule. See `rule` below.
-	//
-	// The following arguments are optional:
-	Rule *CentralizationRuleForOrganizationRule `pulumi:"rule"`
-	// ARN of the centralization rule.
-	RuleArn *string `pulumi:"ruleArn"`
-	// Name of the centralization rule. Must be unique within the organization.
-	RuleName *string `pulumi:"ruleName"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	Region   *string                                    `pulumi:"region"`
+	Rule     *CentralizationRuleForOrganizationRule     `pulumi:"rule"`
+	RuleArn  *string                                    `pulumi:"ruleArn"`
+	RuleName *string                                    `pulumi:"ruleName"`
+	Tags     map[string]string                          `pulumi:"tags"`
 	TagsAll  map[string]string                          `pulumi:"tagsAll"`
 	Timeouts *CentralizationRuleForOrganizationTimeouts `pulumi:"timeouts"`
 }
 
 type CentralizationRuleForOrganizationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configuration block for the centralization rule. See `rule` below.
-	//
-	// The following arguments are optional:
-	Rule CentralizationRuleForOrganizationRulePtrInput
-	// ARN of the centralization rule.
-	RuleArn pulumi.StringPtrInput
-	// Name of the centralization rule. Must be unique within the organization.
+	Region   pulumi.StringPtrInput
+	Rule     CentralizationRuleForOrganizationRulePtrInput
+	RuleArn  pulumi.StringPtrInput
 	RuleName pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	Tags     pulumi.StringMapInput
 	TagsAll  pulumi.StringMapInput
 	Timeouts CentralizationRuleForOrganizationTimeoutsPtrInput
 }
@@ -305,30 +81,18 @@ func (CentralizationRuleForOrganizationState) ElementType() reflect.Type {
 }
 
 type centralizationRuleForOrganizationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configuration block for the centralization rule. See `rule` below.
-	//
-	// The following arguments are optional:
-	Rule *CentralizationRuleForOrganizationRule `pulumi:"rule"`
-	// Name of the centralization rule. Must be unique within the organization.
-	RuleName string `pulumi:"ruleName"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Region   *string                                    `pulumi:"region"`
+	Rule     *CentralizationRuleForOrganizationRule     `pulumi:"rule"`
+	RuleName string                                     `pulumi:"ruleName"`
 	Tags     map[string]string                          `pulumi:"tags"`
 	Timeouts *CentralizationRuleForOrganizationTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a CentralizationRuleForOrganization resource.
 type CentralizationRuleForOrganizationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configuration block for the centralization rule. See `rule` below.
-	//
-	// The following arguments are optional:
-	Rule CentralizationRuleForOrganizationRulePtrInput
-	// Name of the centralization rule. Must be unique within the organization.
+	Region   pulumi.StringPtrInput
+	Rule     CentralizationRuleForOrganizationRulePtrInput
 	RuleName pulumi.StringInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts CentralizationRuleForOrganizationTimeoutsPtrInput
 }
@@ -420,36 +184,28 @@ func (o CentralizationRuleForOrganizationOutput) ToCentralizationRuleForOrganiza
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CentralizationRuleForOrganizationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganization) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Configuration block for the centralization rule. See `rule` below.
-//
-// The following arguments are optional:
 func (o CentralizationRuleForOrganizationOutput) Rule() CentralizationRuleForOrganizationRulePtrOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganization) CentralizationRuleForOrganizationRulePtrOutput {
 		return v.Rule
 	}).(CentralizationRuleForOrganizationRulePtrOutput)
 }
 
-// ARN of the centralization rule.
 func (o CentralizationRuleForOrganizationOutput) RuleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganization) pulumi.StringOutput { return v.RuleArn }).(pulumi.StringOutput)
 }
 
-// Name of the centralization rule. Must be unique within the organization.
 func (o CentralizationRuleForOrganizationOutput) RuleName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganization) pulumi.StringOutput { return v.RuleName }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CentralizationRuleForOrganizationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganization) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CentralizationRuleForOrganizationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganization) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

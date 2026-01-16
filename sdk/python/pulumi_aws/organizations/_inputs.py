@@ -32,37 +32,13 @@ MYPY = False
 if not MYPY:
     class OrganizationAccountArgsDict(TypedDict):
         arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the root.
-        """
         email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email of the account.
-        """
         id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier of the root.
-        """
         joined_method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Method by which the account joined the organization.
-        """
         joined_timestamp: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Date the account became a part of the organization.
-        """
         name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the policy type.
-        """
         state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        State of the account.
-        """
         status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status of the policy type as it relates to the associated root.
-        """
 elif False:
     OrganizationAccountArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -77,16 +53,6 @@ class OrganizationAccountArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] arn: ARN of the root.
-        :param pulumi.Input[_builtins.str] email: Email of the account.
-        :param pulumi.Input[_builtins.str] id: Identifier of the root.
-        :param pulumi.Input[_builtins.str] joined_method: Method by which the account joined the organization.
-        :param pulumi.Input[_builtins.str] joined_timestamp: Date the account became a part of the organization.
-        :param pulumi.Input[_builtins.str] name: Name of the policy type.
-        :param pulumi.Input[_builtins.str] state: State of the account.
-        :param pulumi.Input[_builtins.str] status: Status of the policy type as it relates to the associated root.
-        """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if email is not None:
@@ -110,9 +76,6 @@ class OrganizationAccountArgs:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the root.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -122,9 +85,6 @@ class OrganizationAccountArgs:
     @_builtins.property
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Email of the account.
-        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -134,9 +94,6 @@ class OrganizationAccountArgs:
     @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the root.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -146,9 +103,6 @@ class OrganizationAccountArgs:
     @_builtins.property
     @pulumi.getter(name="joinedMethod")
     def joined_method(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Method by which the account joined the organization.
-        """
         return pulumi.get(self, "joined_method")
 
     @joined_method.setter
@@ -158,9 +112,6 @@ class OrganizationAccountArgs:
     @_builtins.property
     @pulumi.getter(name="joinedTimestamp")
     def joined_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date the account became a part of the organization.
-        """
         return pulumi.get(self, "joined_timestamp")
 
     @joined_timestamp.setter
@@ -170,9 +121,6 @@ class OrganizationAccountArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the policy type.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -182,9 +130,6 @@ class OrganizationAccountArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        State of the account.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -195,9 +140,6 @@ class OrganizationAccountArgs:
     @pulumi.getter
     @_utilities.deprecated("""status is deprecated. Use state instead.""")
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the policy type as it relates to the associated root.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -208,37 +150,13 @@ class OrganizationAccountArgs:
 if not MYPY:
     class OrganizationNonMasterAccountArgsDict(TypedDict):
         arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the root.
-        """
         email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email of the account.
-        """
         id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier of the root.
-        """
         joined_method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Method by which the account joined the organization.
-        """
         joined_timestamp: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Date the account became a part of the organization.
-        """
         name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the policy type.
-        """
         state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        State of the account.
-        """
         status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status of the policy type as it relates to the associated root.
-        """
 elif False:
     OrganizationNonMasterAccountArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -253,16 +171,6 @@ class OrganizationNonMasterAccountArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] arn: ARN of the root.
-        :param pulumi.Input[_builtins.str] email: Email of the account.
-        :param pulumi.Input[_builtins.str] id: Identifier of the root.
-        :param pulumi.Input[_builtins.str] joined_method: Method by which the account joined the organization.
-        :param pulumi.Input[_builtins.str] joined_timestamp: Date the account became a part of the organization.
-        :param pulumi.Input[_builtins.str] name: Name of the policy type.
-        :param pulumi.Input[_builtins.str] state: State of the account.
-        :param pulumi.Input[_builtins.str] status: Status of the policy type as it relates to the associated root.
-        """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if email is not None:
@@ -286,9 +194,6 @@ class OrganizationNonMasterAccountArgs:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the root.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -298,9 +203,6 @@ class OrganizationNonMasterAccountArgs:
     @_builtins.property
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Email of the account.
-        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -310,9 +212,6 @@ class OrganizationNonMasterAccountArgs:
     @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the root.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -322,9 +221,6 @@ class OrganizationNonMasterAccountArgs:
     @_builtins.property
     @pulumi.getter(name="joinedMethod")
     def joined_method(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Method by which the account joined the organization.
-        """
         return pulumi.get(self, "joined_method")
 
     @joined_method.setter
@@ -334,9 +230,6 @@ class OrganizationNonMasterAccountArgs:
     @_builtins.property
     @pulumi.getter(name="joinedTimestamp")
     def joined_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date the account became a part of the organization.
-        """
         return pulumi.get(self, "joined_timestamp")
 
     @joined_timestamp.setter
@@ -346,9 +239,6 @@ class OrganizationNonMasterAccountArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the policy type.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -358,9 +248,6 @@ class OrganizationNonMasterAccountArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        State of the account.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -371,9 +258,6 @@ class OrganizationNonMasterAccountArgs:
     @pulumi.getter
     @_utilities.deprecated("""status is deprecated. Use state instead.""")
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the policy type as it relates to the associated root.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -384,21 +268,9 @@ class OrganizationNonMasterAccountArgs:
 if not MYPY:
     class OrganizationRootArgsDict(TypedDict):
         arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the root.
-        """
         id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier of the root.
-        """
         name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the policy type.
-        """
         policy_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['OrganizationRootPolicyTypeArgsDict']]]]
-        """
-        List of policy types enabled for this root. All elements have these attributes:
-        """
 elif False:
     OrganizationRootArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -409,12 +281,6 @@ class OrganizationRootArgs:
                  id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  policy_types: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRootPolicyTypeArgs']]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] arn: ARN of the root.
-        :param pulumi.Input[_builtins.str] id: Identifier of the root.
-        :param pulumi.Input[_builtins.str] name: Name of the policy type.
-        :param pulumi.Input[Sequence[pulumi.Input['OrganizationRootPolicyTypeArgs']]] policy_types: List of policy types enabled for this root. All elements have these attributes:
-        """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if id is not None:
@@ -427,9 +293,6 @@ class OrganizationRootArgs:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the root.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -439,9 +302,6 @@ class OrganizationRootArgs:
     @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the root.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -451,9 +311,6 @@ class OrganizationRootArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the policy type.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -463,9 +320,6 @@ class OrganizationRootArgs:
     @_builtins.property
     @pulumi.getter(name="policyTypes")
     def policy_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRootPolicyTypeArgs']]]]:
-        """
-        List of policy types enabled for this root. All elements have these attributes:
-        """
         return pulumi.get(self, "policy_types")
 
     @policy_types.setter
@@ -476,9 +330,6 @@ class OrganizationRootArgs:
 if not MYPY:
     class OrganizationRootPolicyTypeArgsDict(TypedDict):
         status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status of the policy type as it relates to the associated root.
-        """
         type: NotRequired[pulumi.Input[_builtins.str]]
 elif False:
     OrganizationRootPolicyTypeArgsDict: TypeAlias = Mapping[str, Any]
@@ -488,9 +339,6 @@ class OrganizationRootPolicyTypeArgs:
     def __init__(__self__, *,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] status: Status of the policy type as it relates to the associated root.
-        """
         if status is not None:
             pulumi.set(__self__, "status", status)
         if type is not None:
@@ -499,9 +347,6 @@ class OrganizationRootPolicyTypeArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the policy type as it relates to the associated root.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -521,21 +366,9 @@ class OrganizationRootPolicyTypeArgs:
 if not MYPY:
     class OrganizationalUnitAccountArgsDict(TypedDict):
         arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the organizational unit
-        """
         email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email of the account
-        """
         id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier of the organization unit
-        """
         name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name for the organizational unit
-        """
 elif False:
     OrganizationalUnitAccountArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -546,12 +379,6 @@ class OrganizationalUnitAccountArgs:
                  email: Optional[pulumi.Input[_builtins.str]] = None,
                  id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] arn: ARN of the organizational unit
-        :param pulumi.Input[_builtins.str] email: Email of the account
-        :param pulumi.Input[_builtins.str] id: Identifier of the organization unit
-        :param pulumi.Input[_builtins.str] name: The name for the organizational unit
-        """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if email is not None:
@@ -564,9 +391,6 @@ class OrganizationalUnitAccountArgs:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the organizational unit
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -576,9 +400,6 @@ class OrganizationalUnitAccountArgs:
     @_builtins.property
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Email of the account
-        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -588,9 +409,6 @@ class OrganizationalUnitAccountArgs:
     @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the organization unit
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -600,9 +418,6 @@ class OrganizationalUnitAccountArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name for the organizational unit
-        """
         return pulumi.get(self, "name")
 
     @name.setter

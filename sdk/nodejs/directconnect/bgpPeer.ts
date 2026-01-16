@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Direct Connect BGP peer resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const peer = new aws.directconnect.BgpPeer("peer", {
- *     virtualInterfaceId: foo.id,
- *     addressFamily: "ipv6",
- *     bgpAsn: 65351,
- * });
- * ```
- */
 export class BgpPeer extends pulumi.CustomResource {
     /**
      * Get an existing BgpPeer resource's state with the given name, ID, and optional extra
@@ -48,47 +32,15 @@ export class BgpPeer extends pulumi.CustomResource {
         return obj['__pulumiType'] === BgpPeer.__pulumiType;
     }
 
-    /**
-     * The address family for the BGP peer. `ipv4 ` or `ipv6`.
-     */
     declare public readonly addressFamily: pulumi.Output<string>;
-    /**
-     * The IPv4 CIDR address to use to send traffic to Amazon.
-     * Required for IPv4 BGP peers on public virtual interfaces.
-     */
     declare public readonly amazonAddress: pulumi.Output<string>;
-    /**
-     * The Direct Connect endpoint on which the BGP peer terminates.
-     */
     declare public /*out*/ readonly awsDevice: pulumi.Output<string>;
-    /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-     */
     declare public readonly bgpAsn: pulumi.Output<number>;
-    /**
-     * The authentication key for BGP configuration.
-     */
     declare public readonly bgpAuthKey: pulumi.Output<string>;
-    /**
-     * The ID of the BGP peer.
-     */
     declare public /*out*/ readonly bgpPeerId: pulumi.Output<string>;
-    /**
-     * The Up/Down state of the BGP peer.
-     */
     declare public /*out*/ readonly bgpStatus: pulumi.Output<string>;
-    /**
-     * The IPv4 CIDR destination address to which Amazon should send traffic.
-     * Required for IPv4 BGP peers on public virtual interfaces.
-     */
     declare public readonly customerAddress: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ID of the Direct Connect virtual interface on which to create the BGP peer.
-     */
     declare public readonly virtualInterfaceId: pulumi.Output<string>;
 
     /**
@@ -145,47 +97,15 @@ export class BgpPeer extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BgpPeer resources.
  */
 export interface BgpPeerState {
-    /**
-     * The address family for the BGP peer. `ipv4 ` or `ipv6`.
-     */
     addressFamily?: pulumi.Input<string>;
-    /**
-     * The IPv4 CIDR address to use to send traffic to Amazon.
-     * Required for IPv4 BGP peers on public virtual interfaces.
-     */
     amazonAddress?: pulumi.Input<string>;
-    /**
-     * The Direct Connect endpoint on which the BGP peer terminates.
-     */
     awsDevice?: pulumi.Input<string>;
-    /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-     */
     bgpAsn?: pulumi.Input<number>;
-    /**
-     * The authentication key for BGP configuration.
-     */
     bgpAuthKey?: pulumi.Input<string>;
-    /**
-     * The ID of the BGP peer.
-     */
     bgpPeerId?: pulumi.Input<string>;
-    /**
-     * The Up/Down state of the BGP peer.
-     */
     bgpStatus?: pulumi.Input<string>;
-    /**
-     * The IPv4 CIDR destination address to which Amazon should send traffic.
-     * Required for IPv4 BGP peers on public virtual interfaces.
-     */
     customerAddress?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the Direct Connect virtual interface on which to create the BGP peer.
-     */
     virtualInterfaceId?: pulumi.Input<string>;
 }
 
@@ -193,34 +113,11 @@ export interface BgpPeerState {
  * The set of arguments for constructing a BgpPeer resource.
  */
 export interface BgpPeerArgs {
-    /**
-     * The address family for the BGP peer. `ipv4 ` or `ipv6`.
-     */
     addressFamily: pulumi.Input<string>;
-    /**
-     * The IPv4 CIDR address to use to send traffic to Amazon.
-     * Required for IPv4 BGP peers on public virtual interfaces.
-     */
     amazonAddress?: pulumi.Input<string>;
-    /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-     */
     bgpAsn: pulumi.Input<number>;
-    /**
-     * The authentication key for BGP configuration.
-     */
     bgpAuthKey?: pulumi.Input<string>;
-    /**
-     * The IPv4 CIDR destination address to which Amazon should send traffic.
-     * Required for IPv4 BGP peers on public virtual interfaces.
-     */
     customerAddress?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the Direct Connect virtual interface on which to create the BGP peer.
-     */
     virtualInterfaceId: pulumi.Input<string>;
 }

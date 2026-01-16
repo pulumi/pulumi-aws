@@ -24,9 +24,6 @@ class TagArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Tag resource.
-        :param pulumi.Input[_builtins.str] key: Tag name.
-        :param pulumi.Input[_builtins.str] resource_id: Id of the Organizations resource to tag.
-        :param pulumi.Input[_builtins.str] value: Tag value.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "resource_id", resource_id)
@@ -35,9 +32,6 @@ class TagArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Input[_builtins.str]:
-        """
-        Tag name.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -47,9 +41,6 @@ class TagArgs:
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Id of the Organizations resource to tag.
-        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -59,9 +50,6 @@ class TagArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        Tag value.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -77,9 +65,6 @@ class _TagState:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Tag resources.
-        :param pulumi.Input[_builtins.str] key: Tag name.
-        :param pulumi.Input[_builtins.str] resource_id: Id of the Organizations resource to tag.
-        :param pulumi.Input[_builtins.str] value: Tag value.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -91,9 +76,6 @@ class _TagState:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Tag name.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -103,9 +85,6 @@ class _TagState:
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Id of the Organizations resource to tag.
-        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -115,9 +94,6 @@ class _TagState:
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Tag value.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -136,35 +112,9 @@ class Tag(pulumi.CustomResource):
                  value: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.organizations.get_organization()
-        example_organizational_unit = aws.organizations.OrganizationalUnit("example",
-            name="ExampleOU",
-            parent_id=example.roots[0].id)
-        example_tag = aws.organizations.Tag("example",
-            resource_id=example_organizational_unit.id,
-            key="ExampleKey",
-            value="ExampleValue")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_organizations_tag` using the Organizations resource identifier and key, separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:organizations/tag:Tag example ou-1234567,ExampleKey
-        ```
-
+        Create a Tag resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] key: Tag name.
-        :param pulumi.Input[_builtins.str] resource_id: Id of the Organizations resource to tag.
-        :param pulumi.Input[_builtins.str] value: Tag value.
         """
         ...
     @overload
@@ -173,30 +123,7 @@ class Tag(pulumi.CustomResource):
                  args: TagArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.organizations.get_organization()
-        example_organizational_unit = aws.organizations.OrganizationalUnit("example",
-            name="ExampleOU",
-            parent_id=example.roots[0].id)
-        example_tag = aws.organizations.Tag("example",
-            resource_id=example_organizational_unit.id,
-            key="ExampleKey",
-            value="ExampleValue")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_organizations_tag` using the Organizations resource identifier and key, separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:organizations/tag:Tag example ou-1234567,ExampleKey
-        ```
-
+        Create a Tag resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TagArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -253,9 +180,6 @@ class Tag(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] key: Tag name.
-        :param pulumi.Input[_builtins.str] resource_id: Id of the Organizations resource to tag.
-        :param pulumi.Input[_builtins.str] value: Tag value.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -269,24 +193,15 @@ class Tag(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Output[_builtins.str]:
-        """
-        Tag name.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Id of the Organizations resource to tag.
-        """
         return pulumi.get(self, "resource_id")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Output[_builtins.str]:
-        """
-        Tag value.
-        """
         return pulumi.get(self, "value")
 

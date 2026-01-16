@@ -19,62 +19,30 @@ public final class PolicyTargetTrackingConfigurationArgs extends com.pulumi.reso
 
     public static final PolicyTargetTrackingConfigurationArgs Empty = new PolicyTargetTrackingConfigurationArgs();
 
-    /**
-     * Customized metric. Conflicts with `predefinedMetricSpecification`.
-     * 
-     */
     @Import(name="customizedMetricSpecification")
     private @Nullable Output<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs> customizedMetricSpecification;
 
-    /**
-     * @return Customized metric. Conflicts with `predefinedMetricSpecification`.
-     * 
-     */
     public Optional<Output<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs>> customizedMetricSpecification() {
         return Optional.ofNullable(this.customizedMetricSpecification);
     }
 
-    /**
-     * Whether scale in by the target tracking policy is disabled.
-     * 
-     */
     @Import(name="disableScaleIn")
     private @Nullable Output<Boolean> disableScaleIn;
 
-    /**
-     * @return Whether scale in by the target tracking policy is disabled.
-     * 
-     */
     public Optional<Output<Boolean>> disableScaleIn() {
         return Optional.ofNullable(this.disableScaleIn);
     }
 
-    /**
-     * Predefined metric. Conflicts with `customizedMetricSpecification`.
-     * 
-     */
     @Import(name="predefinedMetricSpecification")
     private @Nullable Output<PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs> predefinedMetricSpecification;
 
-    /**
-     * @return Predefined metric. Conflicts with `customizedMetricSpecification`.
-     * 
-     */
     public Optional<Output<PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs>> predefinedMetricSpecification() {
         return Optional.ofNullable(this.predefinedMetricSpecification);
     }
 
-    /**
-     * Target value for the metric.
-     * 
-     */
     @Import(name="targetValue", required=true)
     private Output<Double> targetValue;
 
-    /**
-     * @return Target value for the metric.
-     * 
-     */
     public Output<Double> targetValue() {
         return this.targetValue;
     }
@@ -106,86 +74,38 @@ public final class PolicyTargetTrackingConfigurationArgs extends com.pulumi.reso
             $ = new PolicyTargetTrackingConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customizedMetricSpecification Customized metric. Conflicts with `predefinedMetricSpecification`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customizedMetricSpecification(@Nullable Output<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs> customizedMetricSpecification) {
             $.customizedMetricSpecification = customizedMetricSpecification;
             return this;
         }
 
-        /**
-         * @param customizedMetricSpecification Customized metric. Conflicts with `predefinedMetricSpecification`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customizedMetricSpecification(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs customizedMetricSpecification) {
             return customizedMetricSpecification(Output.of(customizedMetricSpecification));
         }
 
-        /**
-         * @param disableScaleIn Whether scale in by the target tracking policy is disabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disableScaleIn(@Nullable Output<Boolean> disableScaleIn) {
             $.disableScaleIn = disableScaleIn;
             return this;
         }
 
-        /**
-         * @param disableScaleIn Whether scale in by the target tracking policy is disabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disableScaleIn(Boolean disableScaleIn) {
             return disableScaleIn(Output.of(disableScaleIn));
         }
 
-        /**
-         * @param predefinedMetricSpecification Predefined metric. Conflicts with `customizedMetricSpecification`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder predefinedMetricSpecification(@Nullable Output<PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs> predefinedMetricSpecification) {
             $.predefinedMetricSpecification = predefinedMetricSpecification;
             return this;
         }
 
-        /**
-         * @param predefinedMetricSpecification Predefined metric. Conflicts with `customizedMetricSpecification`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs predefinedMetricSpecification) {
             return predefinedMetricSpecification(Output.of(predefinedMetricSpecification));
         }
 
-        /**
-         * @param targetValue Target value for the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetValue(Output<Double> targetValue) {
             $.targetValue = targetValue;
             return this;
         }
 
-        /**
-         * @param targetValue Target value for the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetValue(Double targetValue) {
             return targetValue(Output.of(targetValue));
         }

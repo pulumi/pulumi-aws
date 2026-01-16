@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation
     {
-        /// <summary>
-        /// ARN of the key value store.
-        /// </summary>
         public readonly string KeyValueStoreArn;
 
         [OutputConstructor]

@@ -12,156 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AppFlow connector profile resource.
-//
-// For information about AppFlow flows, see the [Amazon AppFlow API Reference](https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html).
-// For specific information about creating an AppFlow connector profile, see the
-// [CreateConnectorProfile](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html) page in the Amazon AppFlow API Reference.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appflow"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.LookupPolicy(ctx, &iam.LookupPolicyArgs{
-//				Name: pulumi.StringRef("AmazonRedshiftAllCommandsFullAccess"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Sid":    "",
-//						"Principal": map[string]interface{}{
-//							"Service": "ec2.amazonaws.com",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				Name: pulumi.String("example_role"),
-//				ManagedPolicyArns: pulumi.StringArray{
-//					test.Arn,
-//				},
-//				AssumeRolePolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket: pulumi.String("example-bucket"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleCluster, err := redshift.NewCluster(ctx, "example", &redshift.ClusterArgs{
-//				ClusterIdentifier: pulumi.String("example_cluster"),
-//				DatabaseName:      pulumi.String("example_db"),
-//				MasterUsername:    pulumi.String("exampleuser"),
-//				MasterPassword:    pulumi.String("examplePassword123!"),
-//				NodeType:          pulumi.String("dc1.large"),
-//				ClusterType:       pulumi.String("single-node"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appflow.NewConnectorProfile(ctx, "example", &appflow.ConnectorProfileArgs{
-//				Name:           pulumi.String("example_profile"),
-//				ConnectorType:  pulumi.String("Redshift"),
-//				ConnectionMode: pulumi.String("Public"),
-//				ConnectorProfileConfig: &appflow.ConnectorProfileConnectorProfileConfigArgs{
-//					ConnectorProfileCredentials: &appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs{
-//						Redshift: &appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs{
-//							Password: exampleCluster.MasterPassword,
-//							Username: exampleCluster.MasterUsername,
-//						},
-//					},
-//					ConnectorProfileProperties: &appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs{
-//						Redshift: &appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs{
-//							BucketName: exampleBucket.Name,
-//							DatabaseUrl: pulumi.All(exampleCluster.Endpoint, exampleCluster.DatabaseName).ApplyT(func(_args []interface{}) (string, error) {
-//								endpoint := _args[0].(string)
-//								databaseName := _args[1].(string)
-//								return fmt.Sprintf("jdbc:redshift://%v/%v", endpoint, databaseName), nil
-//							}).(pulumi.StringOutput),
-//							RoleArn: exampleRole.Arn,
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// * `name` (String) Name of the Appflow connector profile.
-//
-// #### Optional
-//
-// * `account_id` (String) AWS Account where this resource is managed.
-//
-// * `region` (String) Region where this resource is managed.
-//
-// Using `pulumi import`, import AppFlow Connector Profile using the connector profile `name`. For example:
-//
-// % pulumi import aws_appflow_connector_profile.example example-profile
-//
-// [1]: https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html
-// [2]: https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html
 type ConnectorProfile struct {
 	pulumi.CustomResourceState
 
-	// ARN of the connector profile.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
-	ConnectionMode pulumi.StringOutput `pulumi:"connectionMode"`
-	// The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
-	ConnectorLabel pulumi.StringPtrOutput `pulumi:"connectorLabel"`
-	// Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+	Arn                    pulumi.StringOutput                          `pulumi:"arn"`
+	ConnectionMode         pulumi.StringOutput                          `pulumi:"connectionMode"`
+	ConnectorLabel         pulumi.StringPtrOutput                       `pulumi:"connectorLabel"`
 	ConnectorProfileConfig ConnectorProfileConnectorProfileConfigOutput `pulumi:"connectorProfileConfig"`
-	// The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
-	ConnectorType pulumi.StringOutput `pulumi:"connectorType"`
-	// ARN of the connector profile credentials.
-	CredentialsArn pulumi.StringOutput `pulumi:"credentialsArn"`
-	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-	KmsArn pulumi.StringOutput `pulumi:"kmsArn"`
-	Name   pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
-	Region pulumi.StringOutput `pulumi:"region"`
+	ConnectorType          pulumi.StringOutput                          `pulumi:"connectorType"`
+	CredentialsArn         pulumi.StringOutput                          `pulumi:"credentialsArn"`
+	KmsArn                 pulumi.StringOutput                          `pulumi:"kmsArn"`
+	Name                   pulumi.StringOutput                          `pulumi:"name"`
+	Region                 pulumi.StringOutput                          `pulumi:"region"`
 }
 
 // NewConnectorProfile registers a new resource with the given unique name, arguments, and options.
@@ -203,45 +65,27 @@ func GetConnectorProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConnectorProfile resources.
 type connectorProfileState struct {
-	// ARN of the connector profile.
-	Arn *string `pulumi:"arn"`
-	// Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
-	ConnectionMode *string `pulumi:"connectionMode"`
-	// The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
-	ConnectorLabel *string `pulumi:"connectorLabel"`
-	// Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+	Arn                    *string                                 `pulumi:"arn"`
+	ConnectionMode         *string                                 `pulumi:"connectionMode"`
+	ConnectorLabel         *string                                 `pulumi:"connectorLabel"`
 	ConnectorProfileConfig *ConnectorProfileConnectorProfileConfig `pulumi:"connectorProfileConfig"`
-	// The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
-	ConnectorType *string `pulumi:"connectorType"`
-	// ARN of the connector profile credentials.
-	CredentialsArn *string `pulumi:"credentialsArn"`
-	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-	KmsArn *string `pulumi:"kmsArn"`
-	Name   *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
-	Region *string `pulumi:"region"`
+	ConnectorType          *string                                 `pulumi:"connectorType"`
+	CredentialsArn         *string                                 `pulumi:"credentialsArn"`
+	KmsArn                 *string                                 `pulumi:"kmsArn"`
+	Name                   *string                                 `pulumi:"name"`
+	Region                 *string                                 `pulumi:"region"`
 }
 
 type ConnectorProfileState struct {
-	// ARN of the connector profile.
-	Arn pulumi.StringPtrInput
-	// Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
-	ConnectionMode pulumi.StringPtrInput
-	// The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
-	ConnectorLabel pulumi.StringPtrInput
-	// Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+	Arn                    pulumi.StringPtrInput
+	ConnectionMode         pulumi.StringPtrInput
+	ConnectorLabel         pulumi.StringPtrInput
 	ConnectorProfileConfig ConnectorProfileConnectorProfileConfigPtrInput
-	// The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
-	ConnectorType pulumi.StringPtrInput
-	// ARN of the connector profile credentials.
-	CredentialsArn pulumi.StringPtrInput
-	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-	KmsArn pulumi.StringPtrInput
-	Name   pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
-	Region pulumi.StringPtrInput
+	ConnectorType          pulumi.StringPtrInput
+	CredentialsArn         pulumi.StringPtrInput
+	KmsArn                 pulumi.StringPtrInput
+	Name                   pulumi.StringPtrInput
+	Region                 pulumi.StringPtrInput
 }
 
 func (ConnectorProfileState) ElementType() reflect.Type {
@@ -249,38 +93,24 @@ func (ConnectorProfileState) ElementType() reflect.Type {
 }
 
 type connectorProfileArgs struct {
-	// Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
-	ConnectionMode string `pulumi:"connectionMode"`
-	// The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
-	ConnectorLabel *string `pulumi:"connectorLabel"`
-	// Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+	ConnectionMode         string                                 `pulumi:"connectionMode"`
+	ConnectorLabel         *string                                `pulumi:"connectorLabel"`
 	ConnectorProfileConfig ConnectorProfileConnectorProfileConfig `pulumi:"connectorProfileConfig"`
-	// The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
-	ConnectorType string `pulumi:"connectorType"`
-	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-	KmsArn *string `pulumi:"kmsArn"`
-	Name   *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
-	Region *string `pulumi:"region"`
+	ConnectorType          string                                 `pulumi:"connectorType"`
+	KmsArn                 *string                                `pulumi:"kmsArn"`
+	Name                   *string                                `pulumi:"name"`
+	Region                 *string                                `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ConnectorProfile resource.
 type ConnectorProfileArgs struct {
-	// Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
-	ConnectionMode pulumi.StringInput
-	// The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
-	ConnectorLabel pulumi.StringPtrInput
-	// Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+	ConnectionMode         pulumi.StringInput
+	ConnectorLabel         pulumi.StringPtrInput
 	ConnectorProfileConfig ConnectorProfileConnectorProfileConfigInput
-	// The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
-	ConnectorType pulumi.StringInput
-	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-	KmsArn pulumi.StringPtrInput
-	Name   pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
-	Region pulumi.StringPtrInput
+	ConnectorType          pulumi.StringInput
+	KmsArn                 pulumi.StringPtrInput
+	Name                   pulumi.StringPtrInput
+	Region                 pulumi.StringPtrInput
 }
 
 func (ConnectorProfileArgs) ElementType() reflect.Type {
@@ -370,39 +200,32 @@ func (o ConnectorProfileOutput) ToConnectorProfileOutputWithContext(ctx context.
 	return o
 }
 
-// ARN of the connector profile.
 func (o ConnectorProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectorProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
 func (o ConnectorProfileOutput) ConnectionMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectorProfile) pulumi.StringOutput { return v.ConnectionMode }).(pulumi.StringOutput)
 }
 
-// The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
 func (o ConnectorProfileOutput) ConnectorLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfile) pulumi.StringPtrOutput { return v.ConnectorLabel }).(pulumi.StringPtrOutput)
 }
 
-// Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
 func (o ConnectorProfileOutput) ConnectorProfileConfig() ConnectorProfileConnectorProfileConfigOutput {
 	return o.ApplyT(func(v *ConnectorProfile) ConnectorProfileConnectorProfileConfigOutput {
 		return v.ConnectorProfileConfig
 	}).(ConnectorProfileConnectorProfileConfigOutput)
 }
 
-// The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
 func (o ConnectorProfileOutput) ConnectorType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectorProfile) pulumi.StringOutput { return v.ConnectorType }).(pulumi.StringOutput)
 }
 
-// ARN of the connector profile credentials.
 func (o ConnectorProfileOutput) CredentialsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectorProfile) pulumi.StringOutput { return v.CredentialsArn }).(pulumi.StringOutput)
 }
 
-// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 func (o ConnectorProfileOutput) KmsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectorProfile) pulumi.StringOutput { return v.KmsArn }).(pulumi.StringOutput)
 }
@@ -411,8 +234,6 @@ func (o ConnectorProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectorProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-// * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
 func (o ConnectorProfileOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectorProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

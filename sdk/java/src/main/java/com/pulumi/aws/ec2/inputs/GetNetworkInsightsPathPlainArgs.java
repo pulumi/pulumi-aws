@@ -17,70 +17,30 @@ public final class GetNetworkInsightsPathPlainArgs extends com.pulumi.resources.
 
     public static final GetNetworkInsightsPathPlainArgs Empty = new GetNetworkInsightsPathPlainArgs();
 
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     * 
-     * The arguments of this data source act as filters for querying the available
-     * Network Insights Paths. The given filters must match exactly one Network Insights Path
-     * whose data will be exported as attributes.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetNetworkInsightsPathFilter> filters;
 
-    /**
-     * @return Configuration block(s) for filtering. Detailed below.
-     * 
-     * The arguments of this data source act as filters for querying the available
-     * Network Insights Paths. The given filters must match exactly one Network Insights Path
-     * whose data will be exported as attributes.
-     * 
-     */
     public Optional<List<GetNetworkInsightsPathFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * ID of the Network Insights Path to select.
-     * 
-     */
     @Import(name="networkInsightsPathId")
     private @Nullable String networkInsightsPathId;
 
-    /**
-     * @return ID of the Network Insights Path to select.
-     * 
-     */
     public Optional<String> networkInsightsPathId() {
         return Optional.ofNullable(this.networkInsightsPathId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags assigned to the resource.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags assigned to the resource.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -112,63 +72,25 @@ public final class GetNetworkInsightsPathPlainArgs extends com.pulumi.resources.
             $ = new GetNetworkInsightsPathPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * The arguments of this data source act as filters for querying the available
-         * Network Insights Paths. The given filters must match exactly one Network Insights Path
-         * whose data will be exported as attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetNetworkInsightsPathFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * The arguments of this data source act as filters for querying the available
-         * Network Insights Paths. The given filters must match exactly one Network Insights Path
-         * whose data will be exported as attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetNetworkInsightsPathFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param networkInsightsPathId ID of the Network Insights Path to select.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInsightsPathId(@Nullable String networkInsightsPathId) {
             $.networkInsightsPathId = networkInsightsPathId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Map of tags assigned to the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

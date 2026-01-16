@@ -9,19 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Transfer
 {
-    /// <summary>
-    /// Resource for managing an AWS Transfer Family Web App Customization.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Transfer Family Web App Customization using the `web_app_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:transfer/webAppCustomization:WebAppCustomization example webapp-12345678901234567890
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:transfer/webAppCustomization:WebAppCustomization")]
     public partial class WebAppCustomization : global::Pulumi.CustomResource
     {
@@ -31,23 +18,12 @@ namespace Pulumi.Aws.Transfer
         [Output("logoFile")]
         public Output<string> LogoFile { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
-        /// </summary>
         [Output("title")]
         public Output<string?> Title { get; private set; } = null!;
 
-        /// <summary>
-        /// The identifier of the web app to be customized.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("webAppId")]
         public Output<string> WebAppId { get; private set; } = null!;
 
@@ -103,23 +79,12 @@ namespace Pulumi.Aws.Transfer
         [Input("logoFile")]
         public Input<string>? LogoFile { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
-        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
-        /// <summary>
-        /// The identifier of the web app to be customized.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("webAppId", required: true)]
         public Input<string> WebAppId { get; set; } = null!;
 
@@ -137,23 +102,12 @@ namespace Pulumi.Aws.Transfer
         [Input("logoFile")]
         public Input<string>? LogoFile { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
-        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
-        /// <summary>
-        /// The identifier of the web app to be customized.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("webAppId")]
         public Input<string>? WebAppId { get; set; }
 

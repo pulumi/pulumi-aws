@@ -53,12 +53,6 @@ class ServiceQuotaUsageMetric(dict):
                  metric_name: Optional[_builtins.str] = None,
                  metric_namespace: Optional[_builtins.str] = None,
                  metric_statistic_recommendation: Optional[_builtins.str] = None):
-        """
-        :param Sequence['ServiceQuotaUsageMetricMetricDimensionArgs'] metric_dimensions: The metric dimensions.
-        :param _builtins.str metric_name: The name of the metric.
-        :param _builtins.str metric_namespace: The namespace of the metric.
-        :param _builtins.str metric_statistic_recommendation: The metric statistic that AWS recommend you use when determining quota usage.
-        """
         if metric_dimensions is not None:
             pulumi.set(__self__, "metric_dimensions", metric_dimensions)
         if metric_name is not None:
@@ -71,33 +65,21 @@ class ServiceQuotaUsageMetric(dict):
     @_builtins.property
     @pulumi.getter(name="metricDimensions")
     def metric_dimensions(self) -> Optional[Sequence['outputs.ServiceQuotaUsageMetricMetricDimension']]:
-        """
-        The metric dimensions.
-        """
         return pulumi.get(self, "metric_dimensions")
 
     @_builtins.property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> Optional[_builtins.str]:
-        """
-        The name of the metric.
-        """
         return pulumi.get(self, "metric_name")
 
     @_builtins.property
     @pulumi.getter(name="metricNamespace")
     def metric_namespace(self) -> Optional[_builtins.str]:
-        """
-        The namespace of the metric.
-        """
         return pulumi.get(self, "metric_namespace")
 
     @_builtins.property
     @pulumi.getter(name="metricStatisticRecommendation")
     def metric_statistic_recommendation(self) -> Optional[_builtins.str]:
-        """
-        The metric statistic that AWS recommend you use when determining quota usage.
-        """
         return pulumi.get(self, "metric_statistic_recommendation")
 
 
@@ -162,12 +144,6 @@ class GetServiceQuotaUsageMetricResult(dict):
                  metric_name: _builtins.str,
                  metric_namespace: _builtins.str,
                  metric_statistic_recommendation: _builtins.str):
-        """
-        :param Sequence['GetServiceQuotaUsageMetricMetricDimensionArgs'] metric_dimensions: The metric dimensions.
-        :param _builtins.str metric_name: The name of the metric.
-        :param _builtins.str metric_namespace: The namespace of the metric.
-        :param _builtins.str metric_statistic_recommendation: The metric statistic that AWS recommend you use when determining quota usage.
-        """
         pulumi.set(__self__, "metric_dimensions", metric_dimensions)
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "metric_namespace", metric_namespace)
@@ -176,33 +152,21 @@ class GetServiceQuotaUsageMetricResult(dict):
     @_builtins.property
     @pulumi.getter(name="metricDimensions")
     def metric_dimensions(self) -> Sequence['outputs.GetServiceQuotaUsageMetricMetricDimensionResult']:
-        """
-        The metric dimensions.
-        """
         return pulumi.get(self, "metric_dimensions")
 
     @_builtins.property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> _builtins.str:
-        """
-        The name of the metric.
-        """
         return pulumi.get(self, "metric_name")
 
     @_builtins.property
     @pulumi.getter(name="metricNamespace")
     def metric_namespace(self) -> _builtins.str:
-        """
-        The namespace of the metric.
-        """
         return pulumi.get(self, "metric_namespace")
 
     @_builtins.property
     @pulumi.getter(name="metricStatisticRecommendation")
     def metric_statistic_recommendation(self) -> _builtins.str:
-        """
-        The metric statistic that AWS recommend you use when determining quota usage.
-        """
         return pulumi.get(self, "metric_statistic_recommendation")
 
 
@@ -250,16 +214,6 @@ class GetTemplatesTemplateResult(dict):
                  service_name: _builtins.str,
                  unit: _builtins.str,
                  value: _builtins.float):
-        """
-        :param _builtins.bool global_quota: Indicates whether the quota is global.
-        :param _builtins.str quota_code: Quota identifier.
-        :param _builtins.str quota_name: Quota name.
-        :param _builtins.str region: AWS Region to which the quota increases apply. Use `get_region` instead.
-        :param _builtins.str service_code: Service identifier.
-        :param _builtins.str service_name: Service name.
-        :param _builtins.str unit: Unit of measurement.
-        :param _builtins.float value: The new, increased value for the quota.
-        """
         pulumi.set(__self__, "global_quota", global_quota)
         pulumi.set(__self__, "quota_code", quota_code)
         pulumi.set(__self__, "quota_name", quota_name)
@@ -272,65 +226,41 @@ class GetTemplatesTemplateResult(dict):
     @_builtins.property
     @pulumi.getter(name="globalQuota")
     def global_quota(self) -> _builtins.bool:
-        """
-        Indicates whether the quota is global.
-        """
         return pulumi.get(self, "global_quota")
 
     @_builtins.property
     @pulumi.getter(name="quotaCode")
     def quota_code(self) -> _builtins.str:
-        """
-        Quota identifier.
-        """
         return pulumi.get(self, "quota_code")
 
     @_builtins.property
     @pulumi.getter(name="quotaName")
     def quota_name(self) -> _builtins.str:
-        """
-        Quota name.
-        """
         return pulumi.get(self, "quota_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> _builtins.str:
-        """
-        AWS Region to which the quota increases apply. Use `get_region` instead.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="serviceCode")
     def service_code(self) -> _builtins.str:
-        """
-        Service identifier.
-        """
         return pulumi.get(self, "service_code")
 
     @_builtins.property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> _builtins.str:
-        """
-        Service name.
-        """
         return pulumi.get(self, "service_name")
 
     @_builtins.property
     @pulumi.getter
     def unit(self) -> _builtins.str:
-        """
-        Unit of measurement.
-        """
         return pulumi.get(self, "unit")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.float:
-        """
-        The new, increased value for the quota.
-        """
         return pulumi.get(self, "value")
 
 

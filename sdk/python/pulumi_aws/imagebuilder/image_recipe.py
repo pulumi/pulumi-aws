@@ -35,20 +35,6 @@ class ImageRecipeArgs:
                  working_directory: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ImageRecipe resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentArgs']]] components: Ordered configuration block(s) with components for the image recipe. Detailed below.
-        :param pulumi.Input[_builtins.str] parent_image: The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
-        :param pulumi.Input[_builtins.str] version: The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ami_tags: Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
-        :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeBlockDeviceMappingArgs']]] block_device_mappings: Configuration block(s) with block device mappings for the image recipe. Detailed below.
-        :param pulumi.Input[_builtins.str] description: Description of the image recipe.
-        :param pulumi.Input[_builtins.str] name: Name of the image recipe.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['ImageRecipeSystemsManagerAgentArgs'] systems_manager_agent: Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] user_data_base64: Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
-        :param pulumi.Input[_builtins.str] working_directory: The working directory to be used during build and test workflows.
         """
         pulumi.set(__self__, "components", components)
         pulumi.set(__self__, "parent_image", parent_image)
@@ -75,9 +61,6 @@ class ImageRecipeArgs:
     @_builtins.property
     @pulumi.getter
     def components(self) -> pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentArgs']]]:
-        """
-        Ordered configuration block(s) with components for the image recipe. Detailed below.
-        """
         return pulumi.get(self, "components")
 
     @components.setter
@@ -87,9 +70,6 @@ class ImageRecipeArgs:
     @_builtins.property
     @pulumi.getter(name="parentImage")
     def parent_image(self) -> pulumi.Input[_builtins.str]:
-        """
-        The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
-        """
         return pulumi.get(self, "parent_image")
 
     @parent_image.setter
@@ -99,11 +79,6 @@ class ImageRecipeArgs:
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Input[_builtins.str]:
-        """
-        The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -113,9 +88,6 @@ class ImageRecipeArgs:
     @_builtins.property
     @pulumi.getter(name="amiTags")
     def ami_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
-        """
         return pulumi.get(self, "ami_tags")
 
     @ami_tags.setter
@@ -125,9 +97,6 @@ class ImageRecipeArgs:
     @_builtins.property
     @pulumi.getter(name="blockDeviceMappings")
     def block_device_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeBlockDeviceMappingArgs']]]]:
-        """
-        Configuration block(s) with block device mappings for the image recipe. Detailed below.
-        """
         return pulumi.get(self, "block_device_mappings")
 
     @block_device_mappings.setter
@@ -137,9 +106,6 @@ class ImageRecipeArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the image recipe.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -149,9 +115,6 @@ class ImageRecipeArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the image recipe.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -161,9 +124,6 @@ class ImageRecipeArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -173,9 +133,6 @@ class ImageRecipeArgs:
     @_builtins.property
     @pulumi.getter(name="systemsManagerAgent")
     def systems_manager_agent(self) -> Optional[pulumi.Input['ImageRecipeSystemsManagerAgentArgs']]:
-        """
-        Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
-        """
         return pulumi.get(self, "systems_manager_agent")
 
     @systems_manager_agent.setter
@@ -185,9 +142,6 @@ class ImageRecipeArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -197,9 +151,6 @@ class ImageRecipeArgs:
     @_builtins.property
     @pulumi.getter(name="userDataBase64")
     def user_data_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
-        """
         return pulumi.get(self, "user_data_base64")
 
     @user_data_base64.setter
@@ -209,9 +160,6 @@ class ImageRecipeArgs:
     @_builtins.property
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The working directory to be used during build and test workflows.
-        """
         return pulumi.get(self, "working_directory")
 
     @working_directory.setter
@@ -241,25 +189,6 @@ class _ImageRecipeState:
                  working_directory: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ImageRecipe resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ami_tags: Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the image recipe.
-        :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeBlockDeviceMappingArgs']]] block_device_mappings: Configuration block(s) with block device mappings for the image recipe. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentArgs']]] components: Ordered configuration block(s) with components for the image recipe. Detailed below.
-        :param pulumi.Input[_builtins.str] date_created: Date the image recipe was created.
-        :param pulumi.Input[_builtins.str] description: Description of the image recipe.
-        :param pulumi.Input[_builtins.str] name: Name of the image recipe.
-        :param pulumi.Input[_builtins.str] owner: Owner of the image recipe.
-        :param pulumi.Input[_builtins.str] parent_image: The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
-        :param pulumi.Input[_builtins.str] platform: Platform of the image recipe.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['ImageRecipeSystemsManagerAgentArgs'] systems_manager_agent: Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] user_data_base64: Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
-        :param pulumi.Input[_builtins.str] version: The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] working_directory: The working directory to be used during build and test workflows.
         """
         if ami_tags is not None:
             pulumi.set(__self__, "ami_tags", ami_tags)
@@ -299,9 +228,6 @@ class _ImageRecipeState:
     @_builtins.property
     @pulumi.getter(name="amiTags")
     def ami_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
-        """
         return pulumi.get(self, "ami_tags")
 
     @ami_tags.setter
@@ -311,9 +237,6 @@ class _ImageRecipeState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the image recipe.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -323,9 +246,6 @@ class _ImageRecipeState:
     @_builtins.property
     @pulumi.getter(name="blockDeviceMappings")
     def block_device_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeBlockDeviceMappingArgs']]]]:
-        """
-        Configuration block(s) with block device mappings for the image recipe. Detailed below.
-        """
         return pulumi.get(self, "block_device_mappings")
 
     @block_device_mappings.setter
@@ -335,9 +255,6 @@ class _ImageRecipeState:
     @_builtins.property
     @pulumi.getter
     def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentArgs']]]]:
-        """
-        Ordered configuration block(s) with components for the image recipe. Detailed below.
-        """
         return pulumi.get(self, "components")
 
     @components.setter
@@ -347,9 +264,6 @@ class _ImageRecipeState:
     @_builtins.property
     @pulumi.getter(name="dateCreated")
     def date_created(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date the image recipe was created.
-        """
         return pulumi.get(self, "date_created")
 
     @date_created.setter
@@ -359,9 +273,6 @@ class _ImageRecipeState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the image recipe.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -371,9 +282,6 @@ class _ImageRecipeState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the image recipe.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -383,9 +291,6 @@ class _ImageRecipeState:
     @_builtins.property
     @pulumi.getter
     def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Owner of the image recipe.
-        """
         return pulumi.get(self, "owner")
 
     @owner.setter
@@ -395,9 +300,6 @@ class _ImageRecipeState:
     @_builtins.property
     @pulumi.getter(name="parentImage")
     def parent_image(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
-        """
         return pulumi.get(self, "parent_image")
 
     @parent_image.setter
@@ -407,9 +309,6 @@ class _ImageRecipeState:
     @_builtins.property
     @pulumi.getter
     def platform(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Platform of the image recipe.
-        """
         return pulumi.get(self, "platform")
 
     @platform.setter
@@ -419,9 +318,6 @@ class _ImageRecipeState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -431,9 +327,6 @@ class _ImageRecipeState:
     @_builtins.property
     @pulumi.getter(name="systemsManagerAgent")
     def systems_manager_agent(self) -> Optional[pulumi.Input['ImageRecipeSystemsManagerAgentArgs']]:
-        """
-        Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
-        """
         return pulumi.get(self, "systems_manager_agent")
 
     @systems_manager_agent.setter
@@ -443,9 +336,6 @@ class _ImageRecipeState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -455,9 +345,6 @@ class _ImageRecipeState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -467,9 +354,6 @@ class _ImageRecipeState:
     @_builtins.property
     @pulumi.getter(name="userDataBase64")
     def user_data_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
-        """
         return pulumi.get(self, "user_data_base64")
 
     @user_data_base64.setter
@@ -479,11 +363,6 @@ class _ImageRecipeState:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -493,9 +372,6 @@ class _ImageRecipeState:
     @_builtins.property
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The working directory to be used during build and test workflows.
-        """
         return pulumi.get(self, "working_directory")
 
     @working_directory.setter
@@ -523,69 +399,9 @@ class ImageRecipe(pulumi.CustomResource):
                  working_directory: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an Image Builder Image Recipe.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.imagebuilder.ImageRecipe("example",
-            block_device_mappings=[{
-                "device_name": "/dev/xvdb",
-                "ebs": {
-                    "delete_on_termination": "true",
-                    "volume_size": 100,
-                    "volume_type": "gp2",
-                },
-            }],
-            components=[{
-                "component_arn": example_aws_imagebuilder_component["arn"],
-                "parameters": [
-                    {
-                        "name": "Parameter1",
-                        "value": "Value1",
-                    },
-                    {
-                        "name": "Parameter2",
-                        "value": "Value2",
-                    },
-                ],
-            }],
-            name="example",
-            parent_image=f"arn:{current['partition']}:imagebuilder:{current_aws_region['region']}:aws:image/amazon-linux-2-x86/x.x.x",
-            version="1.0.0")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Image Builder image recipe.
-
-        Using `pulumi import`, import `aws_imagebuilder_image_recipe` resources using the Amazon Resource Name (ARN). For example:
-
-        % pulumi import aws_imagebuilder_image_recipe.example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
-
+        Create a ImageRecipe resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ami_tags: Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeBlockDeviceMappingArgs', 'ImageRecipeBlockDeviceMappingArgsDict']]]] block_device_mappings: Configuration block(s) with block device mappings for the image recipe. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeComponentArgs', 'ImageRecipeComponentArgsDict']]]] components: Ordered configuration block(s) with components for the image recipe. Detailed below.
-        :param pulumi.Input[_builtins.str] description: Description of the image recipe.
-        :param pulumi.Input[_builtins.str] name: Name of the image recipe.
-        :param pulumi.Input[_builtins.str] parent_image: The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ImageRecipeSystemsManagerAgentArgs', 'ImageRecipeSystemsManagerAgentArgsDict']] systems_manager_agent: Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] user_data_base64: Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
-        :param pulumi.Input[_builtins.str] version: The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] working_directory: The working directory to be used during build and test workflows.
         """
         ...
     @overload
@@ -594,53 +410,7 @@ class ImageRecipe(pulumi.CustomResource):
                  args: ImageRecipeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Image Builder Image Recipe.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.imagebuilder.ImageRecipe("example",
-            block_device_mappings=[{
-                "device_name": "/dev/xvdb",
-                "ebs": {
-                    "delete_on_termination": "true",
-                    "volume_size": 100,
-                    "volume_type": "gp2",
-                },
-            }],
-            components=[{
-                "component_arn": example_aws_imagebuilder_component["arn"],
-                "parameters": [
-                    {
-                        "name": "Parameter1",
-                        "value": "Value1",
-                    },
-                    {
-                        "name": "Parameter2",
-                        "value": "Value2",
-                    },
-                ],
-            }],
-            name="example",
-            parent_image=f"arn:{current['partition']}:imagebuilder:{current_aws_region['region']}:aws:image/amazon-linux-2-x86/x.x.x",
-            version="1.0.0")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Image Builder image recipe.
-
-        Using `pulumi import`, import `aws_imagebuilder_image_recipe` resources using the Amazon Resource Name (ARN). For example:
-
-        % pulumi import aws_imagebuilder_image_recipe.example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
-
+        Create a ImageRecipe resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ImageRecipeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -734,25 +504,6 @@ class ImageRecipe(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ami_tags: Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the image recipe.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeBlockDeviceMappingArgs', 'ImageRecipeBlockDeviceMappingArgsDict']]]] block_device_mappings: Configuration block(s) with block device mappings for the image recipe. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeComponentArgs', 'ImageRecipeComponentArgsDict']]]] components: Ordered configuration block(s) with components for the image recipe. Detailed below.
-        :param pulumi.Input[_builtins.str] date_created: Date the image recipe was created.
-        :param pulumi.Input[_builtins.str] description: Description of the image recipe.
-        :param pulumi.Input[_builtins.str] name: Name of the image recipe.
-        :param pulumi.Input[_builtins.str] owner: Owner of the image recipe.
-        :param pulumi.Input[_builtins.str] parent_image: The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
-        :param pulumi.Input[_builtins.str] platform: Platform of the image recipe.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ImageRecipeSystemsManagerAgentArgs', 'ImageRecipeSystemsManagerAgentArgsDict']] systems_manager_agent: Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] user_data_base64: Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
-        :param pulumi.Input[_builtins.str] version: The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] working_directory: The working directory to be used during build and test workflows.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -780,138 +531,85 @@ class ImageRecipe(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="amiTags")
     def ami_tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
-        """
         return pulumi.get(self, "ami_tags")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the image recipe.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="blockDeviceMappings")
     def block_device_mappings(self) -> pulumi.Output[Optional[Sequence['outputs.ImageRecipeBlockDeviceMapping']]]:
-        """
-        Configuration block(s) with block device mappings for the image recipe. Detailed below.
-        """
         return pulumi.get(self, "block_device_mappings")
 
     @_builtins.property
     @pulumi.getter
     def components(self) -> pulumi.Output[Sequence['outputs.ImageRecipeComponent']]:
-        """
-        Ordered configuration block(s) with components for the image recipe. Detailed below.
-        """
         return pulumi.get(self, "components")
 
     @_builtins.property
     @pulumi.getter(name="dateCreated")
     def date_created(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date the image recipe was created.
-        """
         return pulumi.get(self, "date_created")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the image recipe.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the image recipe.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def owner(self) -> pulumi.Output[_builtins.str]:
-        """
-        Owner of the image recipe.
-        """
         return pulumi.get(self, "owner")
 
     @_builtins.property
     @pulumi.getter(name="parentImage")
     def parent_image(self) -> pulumi.Output[_builtins.str]:
-        """
-        The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN, an AMI ID, or an SSM Parameter referencing the AMI. For an SSM Parameter, enter the prefix `ssm:`, followed by the parameter name or ARN.
-        """
         return pulumi.get(self, "parent_image")
 
     @_builtins.property
     @pulumi.getter
     def platform(self) -> pulumi.Output[_builtins.str]:
-        """
-        Platform of the image recipe.
-        """
         return pulumi.get(self, "platform")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="systemsManagerAgent")
     def systems_manager_agent(self) -> pulumi.Output['outputs.ImageRecipeSystemsManagerAgent']:
-        """
-        Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
-        """
         return pulumi.get(self, "systems_manager_agent")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="userDataBase64")
     def user_data_base64(self) -> pulumi.Output[_builtins.str]:
-        """
-        Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
-        """
         return pulumi.get(self, "user_data_base64")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.str]:
-        """
-        The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "version")
 
     @_builtins.property
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The working directory to be used during build and test workflows.
-        """
         return pulumi.get(self, "working_directory")
 

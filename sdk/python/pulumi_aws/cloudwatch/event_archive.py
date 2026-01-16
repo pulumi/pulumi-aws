@@ -28,13 +28,6 @@ class EventArchiveArgs:
                  retention_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a EventArchive resource.
-        :param pulumi.Input[_builtins.str] event_source_arn: ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
-        :param pulumi.Input[_builtins.str] description: Description for the archive.
-        :param pulumi.Input[_builtins.str] event_pattern: Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
-        :param pulumi.Input[_builtins.str] name: Name of the archive. The archive name cannot exceed 48 characters.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] retention_days: The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
         """
         pulumi.set(__self__, "event_source_arn", event_source_arn)
         if description is not None:
@@ -53,9 +46,6 @@ class EventArchiveArgs:
     @_builtins.property
     @pulumi.getter(name="eventSourceArn")
     def event_source_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
-        """
         return pulumi.get(self, "event_source_arn")
 
     @event_source_arn.setter
@@ -65,9 +55,6 @@ class EventArchiveArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description for the archive.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -77,9 +64,6 @@ class EventArchiveArgs:
     @_builtins.property
     @pulumi.getter(name="eventPattern")
     def event_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
-        """
         return pulumi.get(self, "event_pattern")
 
     @event_pattern.setter
@@ -89,9 +73,6 @@ class EventArchiveArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
-        """
         return pulumi.get(self, "kms_key_identifier")
 
     @kms_key_identifier.setter
@@ -101,9 +82,6 @@ class EventArchiveArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the archive. The archive name cannot exceed 48 characters.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -113,9 +91,6 @@ class EventArchiveArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -125,9 +100,6 @@ class EventArchiveArgs:
     @_builtins.property
     @pulumi.getter(name="retentionDays")
     def retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
-        """
         return pulumi.get(self, "retention_days")
 
     @retention_days.setter
@@ -148,14 +120,6 @@ class _EventArchiveState:
                  retention_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering EventArchive resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the archive.
-        :param pulumi.Input[_builtins.str] description: Description for the archive.
-        :param pulumi.Input[_builtins.str] event_pattern: Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
-        :param pulumi.Input[_builtins.str] event_source_arn: ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
-        :param pulumi.Input[_builtins.str] name: Name of the archive. The archive name cannot exceed 48 characters.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] retention_days: The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -177,9 +141,6 @@ class _EventArchiveState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the archive.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -189,9 +150,6 @@ class _EventArchiveState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description for the archive.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -201,9 +159,6 @@ class _EventArchiveState:
     @_builtins.property
     @pulumi.getter(name="eventPattern")
     def event_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
-        """
         return pulumi.get(self, "event_pattern")
 
     @event_pattern.setter
@@ -213,9 +168,6 @@ class _EventArchiveState:
     @_builtins.property
     @pulumi.getter(name="eventSourceArn")
     def event_source_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
-        """
         return pulumi.get(self, "event_source_arn")
 
     @event_source_arn.setter
@@ -225,9 +177,6 @@ class _EventArchiveState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
-        """
         return pulumi.get(self, "kms_key_identifier")
 
     @kms_key_identifier.setter
@@ -237,9 +186,6 @@ class _EventArchiveState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the archive. The archive name cannot exceed 48 characters.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -249,9 +195,6 @@ class _EventArchiveState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -261,9 +204,6 @@ class _EventArchiveState:
     @_builtins.property
     @pulumi.getter(name="retentionDays")
     def retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
-        """
         return pulumi.get(self, "retention_days")
 
     @retention_days.setter
@@ -286,120 +226,9 @@ class EventArchive(pulumi.CustomResource):
                  retention_days: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
-        Provides an EventBridge event archive resource.
-
-        > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        order = aws.cloudwatch.EventBus("order", name="orders")
-        order_event_archive = aws.cloudwatch.EventArchive("order",
-            name="order-archive",
-            event_source_arn=order.arn)
-        ```
-
-        ### Optional Arguments
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        order = aws.cloudwatch.EventBus("order", name="orders")
-        order_event_archive = aws.cloudwatch.EventArchive("order",
-            name="order-archive",
-            description="Archived events from order service",
-            event_source_arn=order.arn,
-            retention_days=7,
-            event_pattern=json.dumps({
-                "source": ["company.team.order"],
-            }))
-        ```
-
-        ### CMK Encryption
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_partition = aws.get_partition()
-        example = aws.cloudwatch.EventBus("example", name="example")
-        example_key = aws.kms.Key("example",
-            deletion_window_in_days=7,
-            policy=pulumi.Output.json_dumps({
-                "Version": "2012-10-17",
-                "Id": "key-policy-example",
-                "Statement": [
-                    {
-                        "Sid": "Enable IAM User Permissions",
-                        "Effect": "Allow",
-                        "Principal": {
-                            "AWS": f"arn:{current_get_partition.partition}:iam::{current.account_id}:root",
-                        },
-                        "Action": "kms:*",
-                        "Resource": "*",
-                    },
-                    {
-                        "Sid": "Allow describing of the key",
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "events.amazonaws.com",
-                        },
-                        "Action": ["kms:DescribeKey"],
-                        "Resource": "*",
-                    },
-                    {
-                        "Sid": "Allow use of the key",
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "events.amazonaws.com",
-                        },
-                        "Action": [
-                            "kms:GenerateDataKey",
-                            "kms:Decrypt",
-                            "kms:ReEncrypt*",
-                        ],
-                        "Resource": "*",
-                        "Condition": {
-                            "StringEquals": {
-                                "kms:EncryptionContext:aws:events:event-bus:arn": example.arn,
-                            },
-                        },
-                    },
-                ],
-            }),
-            tags={
-                "EventBridgeApiDestinations": "true",
-            })
-        example_event_archive = aws.cloudwatch.EventArchive("example",
-            name="example",
-            event_source_arn=example.arn,
-            kms_key_identifier=example_key.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import an EventBridge archive using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
-        ```
-
+        Create a EventArchive resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Description for the archive.
-        :param pulumi.Input[_builtins.str] event_pattern: Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
-        :param pulumi.Input[_builtins.str] event_source_arn: ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
-        :param pulumi.Input[_builtins.str] name: Name of the archive. The archive name cannot exceed 48 characters.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] retention_days: The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
         """
         ...
     @overload
@@ -408,111 +237,7 @@ class EventArchive(pulumi.CustomResource):
                  args: EventArchiveArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an EventBridge event archive resource.
-
-        > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        order = aws.cloudwatch.EventBus("order", name="orders")
-        order_event_archive = aws.cloudwatch.EventArchive("order",
-            name="order-archive",
-            event_source_arn=order.arn)
-        ```
-
-        ### Optional Arguments
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        order = aws.cloudwatch.EventBus("order", name="orders")
-        order_event_archive = aws.cloudwatch.EventArchive("order",
-            name="order-archive",
-            description="Archived events from order service",
-            event_source_arn=order.arn,
-            retention_days=7,
-            event_pattern=json.dumps({
-                "source": ["company.team.order"],
-            }))
-        ```
-
-        ### CMK Encryption
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_partition = aws.get_partition()
-        example = aws.cloudwatch.EventBus("example", name="example")
-        example_key = aws.kms.Key("example",
-            deletion_window_in_days=7,
-            policy=pulumi.Output.json_dumps({
-                "Version": "2012-10-17",
-                "Id": "key-policy-example",
-                "Statement": [
-                    {
-                        "Sid": "Enable IAM User Permissions",
-                        "Effect": "Allow",
-                        "Principal": {
-                            "AWS": f"arn:{current_get_partition.partition}:iam::{current.account_id}:root",
-                        },
-                        "Action": "kms:*",
-                        "Resource": "*",
-                    },
-                    {
-                        "Sid": "Allow describing of the key",
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "events.amazonaws.com",
-                        },
-                        "Action": ["kms:DescribeKey"],
-                        "Resource": "*",
-                    },
-                    {
-                        "Sid": "Allow use of the key",
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "events.amazonaws.com",
-                        },
-                        "Action": [
-                            "kms:GenerateDataKey",
-                            "kms:Decrypt",
-                            "kms:ReEncrypt*",
-                        ],
-                        "Resource": "*",
-                        "Condition": {
-                            "StringEquals": {
-                                "kms:EncryptionContext:aws:events:event-bus:arn": example.arn,
-                            },
-                        },
-                    },
-                ],
-            }),
-            tags={
-                "EventBridgeApiDestinations": "true",
-            })
-        example_event_archive = aws.cloudwatch.EventArchive("example",
-            name="example",
-            event_source_arn=example.arn,
-            kms_key_identifier=example_key.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import an EventBridge archive using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
-        ```
-
+        Create a EventArchive resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EventArchiveArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -579,14 +304,6 @@ class EventArchive(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the archive.
-        :param pulumi.Input[_builtins.str] description: Description for the archive.
-        :param pulumi.Input[_builtins.str] event_pattern: Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
-        :param pulumi.Input[_builtins.str] event_source_arn: ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
-        :param pulumi.Input[_builtins.str] name: Name of the archive. The archive name cannot exceed 48 characters.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] retention_days: The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -605,64 +322,40 @@ class EventArchive(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the archive.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description for the archive.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="eventPattern")
     def event_pattern(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
-        """
         return pulumi.get(self, "event_pattern")
 
     @_builtins.property
     @pulumi.getter(name="eventSourceArn")
     def event_source_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
-        """
         return pulumi.get(self, "event_source_arn")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
-        """
         return pulumi.get(self, "kms_key_identifier")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the archive. The archive name cannot exceed 48 characters.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="retentionDays")
     def retention_days(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
-        """
         return pulumi.get(self, "retention_days")
 

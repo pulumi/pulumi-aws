@@ -7,48 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage an Amazon GuardDuty detector.
- *
- * > **NOTE:** Deleting this resource is equivalent to "disabling" GuardDuty for an AWS region, which removes all existing findings. You can set the `enable` attribute to `false` to instead "suspend" monitoring and feedback reporting while keeping existing data. See the [Suspending or Disabling Amazon GuardDuty documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_suspend-disable.html) for more information.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myDetector = new aws.guardduty.Detector("MyDetector", {
- *     enable: true,
- *     datasources: {
- *         s3Logs: {
- *             enable: true,
- *         },
- *         kubernetes: {
- *             auditLogs: {
- *                 enable: false,
- *             },
- *         },
- *         malwareProtection: {
- *             scanEc2InstanceWithFindings: {
- *                 ebsVolumes: {
- *                     enable: true,
- *                 },
- *             },
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import GuardDuty detectors using the detector ID. For example:
- *
- * ```sh
- * $ pulumi import aws:guardduty/detector:Detector MyDetector 00b00fd5aecc0ab60a708659477e9617
- * ```
- * The ID of the detector can be retrieved via the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/list-detectors.html) using `aws guardduty list-detectors`.
- */
 export class Detector extends pulumi.CustomResource {
     /**
      * Get an existing Detector resource's state with the given name, ID, and optional extra
@@ -77,39 +35,16 @@ export class Detector extends pulumi.CustomResource {
         return obj['__pulumiType'] === Detector.__pulumiType;
     }
 
-    /**
-     * The AWS account ID of the GuardDuty detector
-     */
     declare public /*out*/ readonly accountId: pulumi.Output<string>;
-    /**
-     * Amazon Resource Name (ARN) of the GuardDuty detector
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
-     *
      * @deprecated datasources is deprecated. Use aws.guardduty.DetectorFeature resources instead.
      */
     declare public readonly datasources: pulumi.Output<outputs.guardduty.DetectorDatasources>;
-    /**
-     * Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
-     */
     declare public readonly enable: pulumi.Output<boolean | undefined>;
-    /**
-     * Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
-     */
     declare public readonly findingPublishingFrequency: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -153,39 +88,16 @@ export class Detector extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Detector resources.
  */
 export interface DetectorState {
-    /**
-     * The AWS account ID of the GuardDuty detector
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the GuardDuty detector
-     */
     arn?: pulumi.Input<string>;
     /**
-     * Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
-     *
      * @deprecated datasources is deprecated. Use aws.guardduty.DetectorFeature resources instead.
      */
     datasources?: pulumi.Input<inputs.guardduty.DetectorDatasources>;
-    /**
-     * Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
-     */
     enable?: pulumi.Input<boolean>;
-    /**
-     * Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
-     */
     findingPublishingFrequency?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -194,25 +106,11 @@ export interface DetectorState {
  */
 export interface DetectorArgs {
     /**
-     * Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
-     *
      * @deprecated datasources is deprecated. Use aws.guardduty.DetectorFeature resources instead.
      */
     datasources?: pulumi.Input<inputs.guardduty.DetectorDatasources>;
-    /**
-     * Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
-     */
     enable?: pulumi.Input<boolean>;
-    /**
-     * Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
-     */
     findingPublishingFrequency?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

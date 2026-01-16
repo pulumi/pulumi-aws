@@ -15,17 +15,9 @@ public final class LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigu
 
     public static final LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs Empty = new LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs();
 
-    /**
-     * The ARN of the CloudWatch Logs log group to which the logs should be delivered.
-     * 
-     */
     @Import(name="logGroupArn")
     private @Nullable Output<String> logGroupArn;
 
-    /**
-     * @return The ARN of the CloudWatch Logs log group to which the logs should be delivered.
-     * 
-     */
     public Optional<Output<String>> logGroupArn() {
         return Optional.ofNullable(this.logGroupArn);
     }
@@ -54,23 +46,11 @@ public final class LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigu
             $ = new LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param logGroupArn The ARN of the CloudWatch Logs log group to which the logs should be delivered.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupArn(@Nullable Output<String> logGroupArn) {
             $.logGroupArn = logGroupArn;
             return this;
         }
 
-        /**
-         * @param logGroupArn The ARN of the CloudWatch Logs log group to which the logs should be delivered.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupArn(String logGroupArn) {
             return logGroupArn(Output.of(logGroupArn));
         }

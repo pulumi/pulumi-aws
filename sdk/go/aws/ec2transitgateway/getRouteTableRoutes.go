@@ -11,41 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides informations for routes of a specific transit gateway, such as state, type, cidr
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.GetRouteTableRoutes(ctx, &ec2transitgateway.GetRouteTableRoutesArgs{
-//				Filters: []ec2transitgateway.GetRouteTableRoutesFilter{
-//					{
-//						Name: "type",
-//						Values: []string{
-//							"propagated",
-//						},
-//					},
-//				},
-//				TransitGatewayRouteTableId: example.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetRouteTableRoutes(ctx *pulumi.Context, args *GetRouteTableRoutesArgs, opts ...pulumi.InvokeOption) (*GetRouteTableRoutesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRouteTableRoutesResult
@@ -58,24 +23,17 @@ func GetRouteTableRoutes(ctx *pulumi.Context, args *GetRouteTableRoutesArgs, opt
 
 // A collection of arguments for invoking getRouteTableRoutes.
 type GetRouteTableRoutesArgs struct {
-	// Custom filter block as described below.
-	Filters []GetRouteTableRoutesFilter `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Identifier of EC2 Transit Gateway Route Table.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
-	TransitGatewayRouteTableId string `pulumi:"transitGatewayRouteTableId"`
+	Filters                    []GetRouteTableRoutesFilter `pulumi:"filters"`
+	Region                     *string                     `pulumi:"region"`
+	TransitGatewayRouteTableId string                      `pulumi:"transitGatewayRouteTableId"`
 }
 
 // A collection of values returned by getRouteTableRoutes.
 type GetRouteTableRoutesResult struct {
 	Filters []GetRouteTableRoutesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
-	// List of Transit Gateway Routes.
+	Id                         string                     `pulumi:"id"`
+	Region                     string                     `pulumi:"region"`
 	Routes                     []GetRouteTableRoutesRoute `pulumi:"routes"`
 	TransitGatewayRouteTableId string                     `pulumi:"transitGatewayRouteTableId"`
 }
@@ -91,15 +49,9 @@ func GetRouteTableRoutesOutput(ctx *pulumi.Context, args GetRouteTableRoutesOutp
 
 // A collection of arguments for invoking getRouteTableRoutes.
 type GetRouteTableRoutesOutputArgs struct {
-	// Custom filter block as described below.
-	Filters GetRouteTableRoutesFilterArrayInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Identifier of EC2 Transit Gateway Route Table.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
-	TransitGatewayRouteTableId pulumi.StringInput `pulumi:"transitGatewayRouteTableId"`
+	Filters                    GetRouteTableRoutesFilterArrayInput `pulumi:"filters"`
+	Region                     pulumi.StringPtrInput               `pulumi:"region"`
+	TransitGatewayRouteTableId pulumi.StringInput                  `pulumi:"transitGatewayRouteTableId"`
 }
 
 func (GetRouteTableRoutesOutputArgs) ElementType() reflect.Type {
@@ -134,7 +86,6 @@ func (o GetRouteTableRoutesResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableRoutesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// List of Transit Gateway Routes.
 func (o GetRouteTableRoutesResultOutput) Routes() GetRouteTableRoutesRouteArrayOutput {
 	return o.ApplyT(func(v GetRouteTableRoutesResult) []GetRouteTableRoutesRoute { return v.Routes }).(GetRouteTableRoutesRouteArrayOutput)
 }

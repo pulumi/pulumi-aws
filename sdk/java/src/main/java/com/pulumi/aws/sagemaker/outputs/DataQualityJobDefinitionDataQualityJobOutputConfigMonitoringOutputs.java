@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs {
-    /**
-     * @return The Amazon S3 storage location where the results of a monitoring job are saved. Fields are documented below.
-     * 
-     */
     private DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output s3Output;
 
     private DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs() {}
-    /**
-     * @return The Amazon S3 storage location where the results of a monitoring job are saved. Fields are documented below.
-     * 
-     */
     public DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output s3Output() {
         return this.s3Output;
     }

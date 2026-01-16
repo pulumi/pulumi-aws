@@ -15,32 +15,16 @@ public final class DirectoryConfigCertificateBasedAuthPropertiesArgs extends com
 
     public static final DirectoryConfigCertificateBasedAuthPropertiesArgs Empty = new DirectoryConfigCertificateBasedAuthPropertiesArgs();
 
-    /**
-     * The ARN of the AWS Certificate Manager Private CA resource.
-     * 
-     */
     @Import(name="certificateAuthorityArn")
     private @Nullable Output<String> certificateAuthorityArn;
 
-    /**
-     * @return The ARN of the AWS Certificate Manager Private CA resource.
-     * 
-     */
     public Optional<Output<String>> certificateAuthorityArn() {
         return Optional.ofNullable(this.certificateAuthorityArn);
     }
 
-    /**
-     * The status of the certificate-based authentication properties. Valid values - [&#34;DISABLED&#34;, &#34;ENABLED&#34;, &#34;ENABLED_NO_DIRECTORY_LOGIN_FALLBACK&#34;].
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The status of the certificate-based authentication properties. Valid values - [&#34;DISABLED&#34;, &#34;ENABLED&#34;, &#34;ENABLED_NO_DIRECTORY_LOGIN_FALLBACK&#34;].
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -70,44 +54,20 @@ public final class DirectoryConfigCertificateBasedAuthPropertiesArgs extends com
             $ = new DirectoryConfigCertificateBasedAuthPropertiesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificateAuthorityArn The ARN of the AWS Certificate Manager Private CA resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateAuthorityArn(@Nullable Output<String> certificateAuthorityArn) {
             $.certificateAuthorityArn = certificateAuthorityArn;
             return this;
         }
 
-        /**
-         * @param certificateAuthorityArn The ARN of the AWS Certificate Manager Private CA resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateAuthorityArn(String certificateAuthorityArn) {
             return certificateAuthorityArn(Output.of(certificateAuthorityArn));
         }
 
-        /**
-         * @param status The status of the certificate-based authentication properties. Valid values - [&#34;DISABLED&#34;, &#34;ENABLED&#34;, &#34;ENABLED_NO_DIRECTORY_LOGIN_FALLBACK&#34;].
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The status of the certificate-based authentication properties. Valid values - [&#34;DISABLED&#34;, &#34;ENABLED&#34;, &#34;ENABLED_NO_DIRECTORY_LOGIN_FALLBACK&#34;].
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Scheduler.Outputs
     [OutputType]
     public sealed class ScheduleTargetRetryPolicy
     {
-        /// <summary>
-        /// Maximum amount of time, in seconds, to continue to make retry attempts. Ranges from `60` to `86400` (default).
-        /// </summary>
         public readonly int? MaximumEventAgeInSeconds;
-        /// <summary>
-        /// Maximum number of retry attempts to make before the request fails. Ranges from `0` to `185` (default).
-        /// </summary>
         public readonly int? MaximumRetryAttempts;
 
         [OutputConstructor]

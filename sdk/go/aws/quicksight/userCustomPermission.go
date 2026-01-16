@@ -12,56 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages the custom permissions profile for a user.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewUserCustomPermission(ctx, "example", &quicksight.UserCustomPermissionArgs{
-//				UserName:              pulumi.Any(exampleAwsQuicksightUser.UserName),
-//				CustomPermissionsName: pulumi.Any(exampleAwsQuicksightCustomPermissions.CustomPermissionsName),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import QuickSight user custom permissions using a comma-delimited string combining the `aws_account_id`, `namespace`, and `user_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:quicksight/userCustomPermission:UserCustomPermission example 012345678901,default,user1
-// ```
 type UserCustomPermission struct {
 	pulumi.CustomResourceState
 
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// Custom permissions profile name.
+	AwsAccountId          pulumi.StringOutput `pulumi:"awsAccountId"`
 	CustomPermissionsName pulumi.StringOutput `pulumi:"customPermissionsName"`
-	// Namespace that the user belongs to. Defaults to `default`.
-	Namespace pulumi.StringOutput `pulumi:"namespace"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Username of the user.
-	//
-	// The following arguments are optional:
-	UserName pulumi.StringOutput `pulumi:"userName"`
+	Namespace             pulumi.StringOutput `pulumi:"namespace"`
+	Region                pulumi.StringOutput `pulumi:"region"`
+	UserName              pulumi.StringOutput `pulumi:"userName"`
 }
 
 // NewUserCustomPermission registers a new resource with the given unique name, arguments, and options.
@@ -100,31 +58,19 @@ func GetUserCustomPermission(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserCustomPermission resources.
 type userCustomPermissionState struct {
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Custom permissions profile name.
+	AwsAccountId          *string `pulumi:"awsAccountId"`
 	CustomPermissionsName *string `pulumi:"customPermissionsName"`
-	// Namespace that the user belongs to. Defaults to `default`.
-	Namespace *string `pulumi:"namespace"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Username of the user.
-	//
-	// The following arguments are optional:
-	UserName *string `pulumi:"userName"`
+	Namespace             *string `pulumi:"namespace"`
+	Region                *string `pulumi:"region"`
+	UserName              *string `pulumi:"userName"`
 }
 
 type UserCustomPermissionState struct {
-	AwsAccountId pulumi.StringPtrInput
-	// Custom permissions profile name.
+	AwsAccountId          pulumi.StringPtrInput
 	CustomPermissionsName pulumi.StringPtrInput
-	// Namespace that the user belongs to. Defaults to `default`.
-	Namespace pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Username of the user.
-	//
-	// The following arguments are optional:
-	UserName pulumi.StringPtrInput
+	Namespace             pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
+	UserName              pulumi.StringPtrInput
 }
 
 func (UserCustomPermissionState) ElementType() reflect.Type {
@@ -132,32 +78,20 @@ func (UserCustomPermissionState) ElementType() reflect.Type {
 }
 
 type userCustomPermissionArgs struct {
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Custom permissions profile name.
-	CustomPermissionsName string `pulumi:"customPermissionsName"`
-	// Namespace that the user belongs to. Defaults to `default`.
-	Namespace *string `pulumi:"namespace"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Username of the user.
-	//
-	// The following arguments are optional:
-	UserName string `pulumi:"userName"`
+	AwsAccountId          *string `pulumi:"awsAccountId"`
+	CustomPermissionsName string  `pulumi:"customPermissionsName"`
+	Namespace             *string `pulumi:"namespace"`
+	Region                *string `pulumi:"region"`
+	UserName              string  `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a UserCustomPermission resource.
 type UserCustomPermissionArgs struct {
-	AwsAccountId pulumi.StringPtrInput
-	// Custom permissions profile name.
+	AwsAccountId          pulumi.StringPtrInput
 	CustomPermissionsName pulumi.StringInput
-	// Namespace that the user belongs to. Defaults to `default`.
-	Namespace pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Username of the user.
-	//
-	// The following arguments are optional:
-	UserName pulumi.StringInput
+	Namespace             pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
+	UserName              pulumi.StringInput
 }
 
 func (UserCustomPermissionArgs) ElementType() reflect.Type {
@@ -251,24 +185,18 @@ func (o UserCustomPermissionOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserCustomPermission) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// Custom permissions profile name.
 func (o UserCustomPermissionOutput) CustomPermissionsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserCustomPermission) pulumi.StringOutput { return v.CustomPermissionsName }).(pulumi.StringOutput)
 }
 
-// Namespace that the user belongs to. Defaults to `default`.
 func (o UserCustomPermissionOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserCustomPermission) pulumi.StringOutput { return v.Namespace }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UserCustomPermissionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserCustomPermission) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Username of the user.
-//
-// The following arguments are optional:
 func (o UserCustomPermissionOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserCustomPermission) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }

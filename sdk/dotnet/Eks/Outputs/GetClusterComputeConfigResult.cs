@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class GetClusterComputeConfigResult
     {
-        /// <summary>
-        /// Whether zonal shift is enabled.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// List of node pools for the EKS Auto Mode compute capability.
-        /// </summary>
         public readonly ImmutableArray<string> NodePools;
-        /// <summary>
-        /// The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster.
-        /// </summary>
         public readonly string NodeRoleArn;
 
         [OutputConstructor]

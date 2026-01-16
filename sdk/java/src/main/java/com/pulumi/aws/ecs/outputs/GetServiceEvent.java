@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceEvent {
-    /**
-     * @return Time when task set was created (RFC3339 format)
-     * 
-     */
     private String createdAt;
-    /**
-     * @return Task set ID
-     * 
-     */
     private String id;
-    /**
-     * @return Event message
-     * 
-     */
     private String message;
 
     private GetServiceEvent() {}
-    /**
-     * @return Time when task set was created (RFC3339 format)
-     * 
-     */
     public String createdAt() {
         return this.createdAt;
     }
-    /**
-     * @return Task set ID
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Event message
-     * 
-     */
     public String message() {
         return this.message;
     }

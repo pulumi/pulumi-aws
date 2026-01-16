@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing QuickSight Group Membership
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.quicksight.GroupMembership("example", {
- *     groupName: "all-access-users",
- *     memberName: "john_smith",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import QuickSight Group membership using the AWS account ID, namespace, group name and member name separated by `/`. For example:
- *
- * ```sh
- * $ pulumi import aws:quicksight/groupMembership:GroupMembership example 123456789123/default/all-access-users/john_smith
- * ```
- */
 export class GroupMembership extends pulumi.CustomResource {
     /**
      * Get an existing GroupMembership resource's state with the given name, ID, and optional extra
@@ -57,21 +34,9 @@ export class GroupMembership extends pulumi.CustomResource {
 
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public readonly awsAccountId: pulumi.Output<string>;
-    /**
-     * The name of the group in which the member will be added.
-     */
     declare public readonly groupName: pulumi.Output<string>;
-    /**
-     * The name of the member to add to the group.
-     */
     declare public readonly memberName: pulumi.Output<string>;
-    /**
-     * The namespace that you want the user to be a part of. Defaults to `default`.
-     */
     declare public readonly namespace: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -119,21 +84,9 @@ export class GroupMembership extends pulumi.CustomResource {
 export interface GroupMembershipState {
     arn?: pulumi.Input<string>;
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * The name of the group in which the member will be added.
-     */
     groupName?: pulumi.Input<string>;
-    /**
-     * The name of the member to add to the group.
-     */
     memberName?: pulumi.Input<string>;
-    /**
-     * The namespace that you want the user to be a part of. Defaults to `default`.
-     */
     namespace?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -142,20 +95,8 @@ export interface GroupMembershipState {
  */
 export interface GroupMembershipArgs {
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * The name of the group in which the member will be added.
-     */
     groupName: pulumi.Input<string>;
-    /**
-     * The name of the member to add to the group.
-     */
     memberName: pulumi.Input<string>;
-    /**
-     * The namespace that you want the user to be a part of. Defaults to `default`.
-     */
     namespace?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

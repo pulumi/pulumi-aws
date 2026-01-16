@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The ECR Repository Creation Template data source allows the template details to be retrieved for a Repository Creation Template.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecr.LookupRepositoryCreationTemplate(ctx, &ecr.LookupRepositoryCreationTemplateArgs{
-//				Prefix: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRepositoryCreationTemplate(ctx *pulumi.Context, args *LookupRepositoryCreationTemplateArgs, opts ...pulumi.InvokeOption) (*LookupRepositoryCreationTemplateResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRepositoryCreationTemplateResult
@@ -50,40 +23,27 @@ func LookupRepositoryCreationTemplate(ctx *pulumi.Context, args *LookupRepositor
 
 // A collection of arguments for invoking getRepositoryCreationTemplate.
 type LookupRepositoryCreationTemplateArgs struct {
-	// The repository name prefix that the template matches against.
-	Prefix string `pulumi:"prefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to any created repositories.
+	Prefix       string            `pulumi:"prefix"`
+	Region       *string           `pulumi:"region"`
 	ResourceTags map[string]string `pulumi:"resourceTags"`
 }
 
 // A collection of values returned by getRepositoryCreationTemplate.
 type LookupRepositoryCreationTemplateResult struct {
-	// Which features this template applies to. Contains one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
-	AppliedFors []string `pulumi:"appliedFors"`
-	// The ARN of the custom role used for repository creation.
-	CustomRoleArn string `pulumi:"customRoleArn"`
-	// The description for this template.
-	Description string `pulumi:"description"`
-	// Encryption configuration for any created repositories. See Encryption Configuration below.
+	AppliedFors              []string                                               `pulumi:"appliedFors"`
+	CustomRoleArn            string                                                 `pulumi:"customRoleArn"`
+	Description              string                                                 `pulumi:"description"`
 	EncryptionConfigurations []GetRepositoryCreationTemplateEncryptionConfiguration `pulumi:"encryptionConfigurations"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The tag mutability setting for any created repositories.
-	ImageTagMutability string `pulumi:"imageTagMutability"`
-	// Block that defines filters to specify which image tags can override the default tag mutability setting.
+	Id                                 string                                                           `pulumi:"id"`
+	ImageTagMutability                 string                                                           `pulumi:"imageTagMutability"`
 	ImageTagMutabilityExclusionFilters []GetRepositoryCreationTemplateImageTagMutabilityExclusionFilter `pulumi:"imageTagMutabilityExclusionFilters"`
-	// The lifecycle policy document to apply to any created repositories.
-	LifecyclePolicy string `pulumi:"lifecyclePolicy"`
-	Prefix          string `pulumi:"prefix"`
-	Region          string `pulumi:"region"`
-	// The registry ID the repository creation template applies to.
-	RegistryId string `pulumi:"registryId"`
-	// The registry policy document to apply to any created repositories.
-	RepositoryPolicy string `pulumi:"repositoryPolicy"`
-	// A map of tags to assign to any created repositories.
-	ResourceTags map[string]string `pulumi:"resourceTags"`
+	LifecyclePolicy                    string                                                           `pulumi:"lifecyclePolicy"`
+	Prefix                             string                                                           `pulumi:"prefix"`
+	Region                             string                                                           `pulumi:"region"`
+	RegistryId                         string                                                           `pulumi:"registryId"`
+	RepositoryPolicy                   string                                                           `pulumi:"repositoryPolicy"`
+	ResourceTags                       map[string]string                                                `pulumi:"resourceTags"`
 }
 
 func LookupRepositoryCreationTemplateOutput(ctx *pulumi.Context, args LookupRepositoryCreationTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupRepositoryCreationTemplateResultOutput {
@@ -97,11 +57,8 @@ func LookupRepositoryCreationTemplateOutput(ctx *pulumi.Context, args LookupRepo
 
 // A collection of arguments for invoking getRepositoryCreationTemplate.
 type LookupRepositoryCreationTemplateOutputArgs struct {
-	// The repository name prefix that the template matches against.
-	Prefix pulumi.StringInput `pulumi:"prefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// A map of tags to assign to any created repositories.
+	Prefix       pulumi.StringInput    `pulumi:"prefix"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
 	ResourceTags pulumi.StringMapInput `pulumi:"resourceTags"`
 }
 
@@ -124,22 +81,18 @@ func (o LookupRepositoryCreationTemplateResultOutput) ToLookupRepositoryCreation
 	return o
 }
 
-// Which features this template applies to. Contains one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
 func (o LookupRepositoryCreationTemplateResultOutput) AppliedFors() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) []string { return v.AppliedFors }).(pulumi.StringArrayOutput)
 }
 
-// The ARN of the custom role used for repository creation.
 func (o LookupRepositoryCreationTemplateResultOutput) CustomRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) string { return v.CustomRoleArn }).(pulumi.StringOutput)
 }
 
-// The description for this template.
 func (o LookupRepositoryCreationTemplateResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Encryption configuration for any created repositories. See Encryption Configuration below.
 func (o LookupRepositoryCreationTemplateResultOutput) EncryptionConfigurations() GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) []GetRepositoryCreationTemplateEncryptionConfiguration {
 		return v.EncryptionConfigurations
@@ -151,19 +104,16 @@ func (o LookupRepositoryCreationTemplateResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The tag mutability setting for any created repositories.
 func (o LookupRepositoryCreationTemplateResultOutput) ImageTagMutability() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) string { return v.ImageTagMutability }).(pulumi.StringOutput)
 }
 
-// Block that defines filters to specify which image tags can override the default tag mutability setting.
 func (o LookupRepositoryCreationTemplateResultOutput) ImageTagMutabilityExclusionFilters() GetRepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) []GetRepositoryCreationTemplateImageTagMutabilityExclusionFilter {
 		return v.ImageTagMutabilityExclusionFilters
 	}).(GetRepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayOutput)
 }
 
-// The lifecycle policy document to apply to any created repositories.
 func (o LookupRepositoryCreationTemplateResultOutput) LifecyclePolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) string { return v.LifecyclePolicy }).(pulumi.StringOutput)
 }
@@ -176,17 +126,14 @@ func (o LookupRepositoryCreationTemplateResultOutput) Region() pulumi.StringOutp
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The registry ID the repository creation template applies to.
 func (o LookupRepositoryCreationTemplateResultOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) string { return v.RegistryId }).(pulumi.StringOutput)
 }
 
-// The registry policy document to apply to any created repositories.
 func (o LookupRepositoryCreationTemplateResultOutput) RepositoryPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) string { return v.RepositoryPolicy }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to any created repositories.
 func (o LookupRepositoryCreationTemplateResultOutput) ResourceTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) map[string]string { return v.ResourceTags }).(pulumi.StringMapOutput)
 }

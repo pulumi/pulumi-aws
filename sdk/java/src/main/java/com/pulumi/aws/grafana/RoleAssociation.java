@@ -15,150 +15,35 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Amazon Managed Grafana workspace role association resource.
- * 
- * ## Example Usage
- * 
- * ### Basic configuration
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.grafana.Workspace;
- * import com.pulumi.aws.grafana.WorkspaceArgs;
- * import com.pulumi.aws.grafana.RoleAssociation;
- * import com.pulumi.aws.grafana.RoleAssociationArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var assume = new Role("assume", RoleArgs.builder()
- *             .name("grafana-assume")
- *             .assumeRolePolicy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Version", "2012-10-17"),
- *                     jsonProperty("Statement", jsonArray(jsonObject(
- *                         jsonProperty("Action", "sts:AssumeRole"),
- *                         jsonProperty("Effect", "Allow"),
- *                         jsonProperty("Sid", ""),
- *                         jsonProperty("Principal", jsonObject(
- *                             jsonProperty("Service", "grafana.amazonaws.com")
- *                         ))
- *                     )))
- *                 )))
- *             .build());
- * 
- *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
- *             .accountAccessType("CURRENT_ACCOUNT")
- *             .authenticationProviders("SAML")
- *             .permissionType("SERVICE_MANAGED")
- *             .roleArn(assume.arn())
- *             .build());
- * 
- *         var example = new RoleAssociation("example", RoleAssociationArgs.builder()
- *             .role("ADMIN")
- *             .userIds(            
- *                 "USER_ID_1",
- *                 "USER_ID_2")
- *             .workspaceId(exampleWorkspace.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:grafana/roleAssociation:RoleAssociation")
 public class RoleAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * The AWS SSO group ids to be assigned the role given in `role`.
-     * 
-     */
     @Export(name="groupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groupIds;
 
-    /**
-     * @return The AWS SSO group ids to be assigned the role given in `role`.
-     * 
-     */
     public Output<Optional<List<String>>> groupIds() {
         return Codegen.optional(this.groupIds);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
-     * 
-     */
     @Export(name="role", refs={String.class}, tree="[0]")
     private Output<String> role;
 
-    /**
-     * @return The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
-     * 
-     */
     public Output<String> role() {
         return this.role;
     }
-    /**
-     * The AWS SSO user ids to be assigned the role given in `role`.
-     * 
-     */
     @Export(name="userIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> userIds;
 
-    /**
-     * @return The AWS SSO user ids to be assigned the role given in `role`.
-     * 
-     */
     public Output<Optional<List<String>>> userIds() {
         return Codegen.optional(this.userIds);
     }
-    /**
-     * The workspace id.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
-    /**
-     * @return The workspace id.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> workspaceId() {
         return this.workspaceId;
     }

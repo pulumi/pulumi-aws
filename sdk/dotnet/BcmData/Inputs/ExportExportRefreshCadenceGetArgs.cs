@@ -12,9 +12,6 @@ namespace Pulumi.Aws.BcmData.Inputs
 
     public sealed class ExportExportRefreshCadenceGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Frequency that data exports are updated. The export refreshes each time the source data updates, up to three times daily. Valid values `SYNCHRONOUS`.
-        /// </summary>
         [Input("frequency", required: true)]
         public Input<string> Frequency { get; set; } = null!;
 

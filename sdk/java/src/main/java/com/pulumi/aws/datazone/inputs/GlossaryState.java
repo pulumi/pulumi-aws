@@ -15,17 +15,9 @@ public final class GlossaryState extends com.pulumi.resources.ResourceArgs {
 
     public static final GlossaryState Empty = new GlossaryState();
 
-    /**
-     * Description of the glossary. Must have a length between 0 and 4096.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the glossary. Must have a length between 0 and 4096.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -37,66 +29,30 @@ public final class GlossaryState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.domainIdentifier);
     }
 
-    /**
-     * Name of the glossary. Must have length between 1 and 256.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the glossary. Must have length between 1 and 256.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="owningProjectIdentifier")
     private @Nullable Output<String> owningProjectIdentifier;
 
-    /**
-     * @return ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> owningProjectIdentifier() {
         return Optional.ofNullable(this.owningProjectIdentifier);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Status of business glossary. Valid values are DISABLED and ENABLED.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Status of business glossary. Valid values are DISABLED and ENABLED.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -130,23 +86,11 @@ public final class GlossaryState extends com.pulumi.resources.ResourceArgs {
             $ = new GlossaryState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Description of the glossary. Must have a length between 0 and 4096.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the glossary. Must have a length between 0 and 4096.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
@@ -160,90 +104,38 @@ public final class GlossaryState extends com.pulumi.resources.ResourceArgs {
             return domainIdentifier(Output.of(domainIdentifier));
         }
 
-        /**
-         * @param name Name of the glossary. Must have length between 1 and 256.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the glossary. Must have length between 1 and 256.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param owningProjectIdentifier ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder owningProjectIdentifier(@Nullable Output<String> owningProjectIdentifier) {
             $.owningProjectIdentifier = owningProjectIdentifier;
             return this;
         }
 
-        /**
-         * @param owningProjectIdentifier ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder owningProjectIdentifier(String owningProjectIdentifier) {
             return owningProjectIdentifier(Output.of(owningProjectIdentifier));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param status Status of business glossary. Valid values are DISABLED and ENABLED.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Status of business glossary. Valid values are DISABLED and ENABLED.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

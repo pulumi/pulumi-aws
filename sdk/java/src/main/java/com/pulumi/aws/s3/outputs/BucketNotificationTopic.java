@@ -13,65 +13,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketNotificationTopic {
-    /**
-     * @return [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
-     * 
-     */
     private List<String> events;
-    /**
-     * @return Object key name prefix.
-     * 
-     */
     private @Nullable String filterPrefix;
-    /**
-     * @return Object key name suffix.
-     * 
-     */
     private @Nullable String filterSuffix;
-    /**
-     * @return Unique identifier for each of the notification configurations.
-     * 
-     */
     private @Nullable String id;
-    /**
-     * @return SNS topic ARN.
-     * 
-     */
     private String topicArn;
 
     private BucketNotificationTopic() {}
-    /**
-     * @return [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
-     * 
-     */
     public List<String> events() {
         return this.events;
     }
-    /**
-     * @return Object key name prefix.
-     * 
-     */
     public Optional<String> filterPrefix() {
         return Optional.ofNullable(this.filterPrefix);
     }
-    /**
-     * @return Object key name suffix.
-     * 
-     */
     public Optional<String> filterSuffix() {
         return Optional.ofNullable(this.filterSuffix);
     }
-    /**
-     * @return Unique identifier for each of the notification configurations.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return SNS topic ARN.
-     * 
-     */
     public String topicArn() {
         return this.topicArn;
     }

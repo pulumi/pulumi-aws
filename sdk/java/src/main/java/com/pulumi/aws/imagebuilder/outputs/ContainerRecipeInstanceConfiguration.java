@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ContainerRecipeInstanceConfiguration {
-    /**
-     * @return Configuration block(s) with block device mappings for the container recipe. Detailed below.
-     * 
-     */
     private @Nullable List<ContainerRecipeInstanceConfigurationBlockDeviceMapping> blockDeviceMappings;
-    /**
-     * @return The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
-     * 
-     */
     private @Nullable String image;
 
     private ContainerRecipeInstanceConfiguration() {}
-    /**
-     * @return Configuration block(s) with block device mappings for the container recipe. Detailed below.
-     * 
-     */
     public List<ContainerRecipeInstanceConfigurationBlockDeviceMapping> blockDeviceMappings() {
         return this.blockDeviceMappings == null ? List.of() : this.blockDeviceMappings;
     }
-    /**
-     * @return The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
-     * 
-     */
     public Optional<String> image() {
         return Optional.ofNullable(this.image);
     }

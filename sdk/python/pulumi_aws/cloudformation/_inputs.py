@@ -42,13 +42,7 @@ MYPY = False
 if not MYPY:
     class CloudFormationTypeLoggingConfigArgsDict(TypedDict):
         log_group_name: pulumi.Input[_builtins.str]
-        """
-        Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
-        """
         log_role_arn: pulumi.Input[_builtins.str]
-        """
-        Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
-        """
 elif False:
     CloudFormationTypeLoggingConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -57,19 +51,12 @@ class CloudFormationTypeLoggingConfigArgs:
     def __init__(__self__, *,
                  log_group_name: pulumi.Input[_builtins.str],
                  log_role_arn: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] log_group_name: Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
-        :param pulumi.Input[_builtins.str] log_role_arn: Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
-        """
         pulumi.set(__self__, "log_group_name", log_group_name)
         pulumi.set(__self__, "log_role_arn", log_role_arn)
 
     @_builtins.property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
-        """
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
@@ -79,9 +66,6 @@ class CloudFormationTypeLoggingConfigArgs:
     @_builtins.property
     @pulumi.getter(name="logRoleArn")
     def log_role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
-        """
         return pulumi.get(self, "log_role_arn")
 
     @log_role_arn.setter
@@ -92,21 +76,9 @@ class CloudFormationTypeLoggingConfigArgs:
 if not MYPY:
     class StackInstancesDeploymentTargetsArgsDict(TypedDict):
         account_filter_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
-        """
         accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of accounts to deploy stack set updates.
-        """
         accounts_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        S3 URL of the file containing the list of accounts.
-        """
         organizational_unit_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Organization root ID or organizational unit (OU) IDs to which stack sets deploy.
-        """
 elif False:
     StackInstancesDeploymentTargetsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -117,12 +89,6 @@ class StackInstancesDeploymentTargetsArgs:
                  accounts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  accounts_url: Optional[pulumi.Input[_builtins.str]] = None,
                  organizational_unit_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] account_filter_type: Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts: List of accounts to deploy stack set updates.
-        :param pulumi.Input[_builtins.str] accounts_url: S3 URL of the file containing the list of accounts.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] organizational_unit_ids: Organization root ID or organizational unit (OU) IDs to which stack sets deploy.
-        """
         if account_filter_type is not None:
             pulumi.set(__self__, "account_filter_type", account_filter_type)
         if accounts is not None:
@@ -135,9 +101,6 @@ class StackInstancesDeploymentTargetsArgs:
     @_builtins.property
     @pulumi.getter(name="accountFilterType")
     def account_filter_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
-        """
         return pulumi.get(self, "account_filter_type")
 
     @account_filter_type.setter
@@ -147,9 +110,6 @@ class StackInstancesDeploymentTargetsArgs:
     @_builtins.property
     @pulumi.getter
     def accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of accounts to deploy stack set updates.
-        """
         return pulumi.get(self, "accounts")
 
     @accounts.setter
@@ -159,9 +119,6 @@ class StackInstancesDeploymentTargetsArgs:
     @_builtins.property
     @pulumi.getter(name="accountsUrl")
     def accounts_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        S3 URL of the file containing the list of accounts.
-        """
         return pulumi.get(self, "accounts_url")
 
     @accounts_url.setter
@@ -171,9 +128,6 @@ class StackInstancesDeploymentTargetsArgs:
     @_builtins.property
     @pulumi.getter(name="organizationalUnitIds")
     def organizational_unit_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Organization root ID or organizational unit (OU) IDs to which stack sets deploy.
-        """
         return pulumi.get(self, "organizational_unit_ids")
 
     @organizational_unit_ids.setter
@@ -184,33 +138,12 @@ class StackInstancesDeploymentTargetsArgs:
 if not MYPY:
     class StackInstancesOperationPreferencesArgsDict(TypedDict):
         concurrency_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        How the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
-        """
         failure_tolerance_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of accounts, per region, for which this operation can fail before CloudFormation stops the operation in that region.
-        """
         failure_tolerance_percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Percentage of accounts, per region, for which this stack operation can fail before CloudFormation stops the operation in that region.
-        """
         max_concurrent_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum number of accounts in which to perform this operation at one time.
-        """
         max_concurrent_percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum percentage of accounts in which to perform this operation at one time.
-        """
         region_concurrency_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Concurrency type of deploying stack sets operations in regions, could be in parallel or one region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
-        """
         region_orders: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Order of the regions where you want to perform the stack operation.
-        """
 elif False:
     StackInstancesOperationPreferencesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -224,15 +157,6 @@ class StackInstancesOperationPreferencesArgs:
                  max_concurrent_percentage: Optional[pulumi.Input[_builtins.int]] = None,
                  region_concurrency_type: Optional[pulumi.Input[_builtins.str]] = None,
                  region_orders: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] concurrency_mode: How the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
-        :param pulumi.Input[_builtins.int] failure_tolerance_count: Number of accounts, per region, for which this operation can fail before CloudFormation stops the operation in that region.
-        :param pulumi.Input[_builtins.int] failure_tolerance_percentage: Percentage of accounts, per region, for which this stack operation can fail before CloudFormation stops the operation in that region.
-        :param pulumi.Input[_builtins.int] max_concurrent_count: Maximum number of accounts in which to perform this operation at one time.
-        :param pulumi.Input[_builtins.int] max_concurrent_percentage: Maximum percentage of accounts in which to perform this operation at one time.
-        :param pulumi.Input[_builtins.str] region_concurrency_type: Concurrency type of deploying stack sets operations in regions, could be in parallel or one region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] region_orders: Order of the regions where you want to perform the stack operation.
-        """
         if concurrency_mode is not None:
             pulumi.set(__self__, "concurrency_mode", concurrency_mode)
         if failure_tolerance_count is not None:
@@ -251,9 +175,6 @@ class StackInstancesOperationPreferencesArgs:
     @_builtins.property
     @pulumi.getter(name="concurrencyMode")
     def concurrency_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        How the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
-        """
         return pulumi.get(self, "concurrency_mode")
 
     @concurrency_mode.setter
@@ -263,9 +184,6 @@ class StackInstancesOperationPreferencesArgs:
     @_builtins.property
     @pulumi.getter(name="failureToleranceCount")
     def failure_tolerance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of accounts, per region, for which this operation can fail before CloudFormation stops the operation in that region.
-        """
         return pulumi.get(self, "failure_tolerance_count")
 
     @failure_tolerance_count.setter
@@ -275,9 +193,6 @@ class StackInstancesOperationPreferencesArgs:
     @_builtins.property
     @pulumi.getter(name="failureTolerancePercentage")
     def failure_tolerance_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Percentage of accounts, per region, for which this stack operation can fail before CloudFormation stops the operation in that region.
-        """
         return pulumi.get(self, "failure_tolerance_percentage")
 
     @failure_tolerance_percentage.setter
@@ -287,9 +202,6 @@ class StackInstancesOperationPreferencesArgs:
     @_builtins.property
     @pulumi.getter(name="maxConcurrentCount")
     def max_concurrent_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Maximum number of accounts in which to perform this operation at one time.
-        """
         return pulumi.get(self, "max_concurrent_count")
 
     @max_concurrent_count.setter
@@ -299,9 +211,6 @@ class StackInstancesOperationPreferencesArgs:
     @_builtins.property
     @pulumi.getter(name="maxConcurrentPercentage")
     def max_concurrent_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Maximum percentage of accounts in which to perform this operation at one time.
-        """
         return pulumi.get(self, "max_concurrent_percentage")
 
     @max_concurrent_percentage.setter
@@ -311,9 +220,6 @@ class StackInstancesOperationPreferencesArgs:
     @_builtins.property
     @pulumi.getter(name="regionConcurrencyType")
     def region_concurrency_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Concurrency type of deploying stack sets operations in regions, could be in parallel or one region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
-        """
         return pulumi.get(self, "region_concurrency_type")
 
     @region_concurrency_type.setter
@@ -323,9 +229,6 @@ class StackInstancesOperationPreferencesArgs:
     @_builtins.property
     @pulumi.getter(name="regionOrders")
     def region_orders(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Order of the regions where you want to perform the stack operation.
-        """
         return pulumi.get(self, "region_orders")
 
     @region_orders.setter
@@ -336,41 +239,14 @@ class StackInstancesOperationPreferencesArgs:
 if not MYPY:
     class StackInstancesStackInstanceSummaryArgsDict(TypedDict):
         account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Account ID in which the instance is deployed.
-        """
         detailed_status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Detailed status of the stack instance. Values include `PENDING`, `RUNNING`, `SUCCEEDED`, `FAILED`, `CANCELLED`, `INOPERABLE`, `SKIPPED_SUSPENDED_ACCOUNT`, `FAILED_IMPORT`.
-        """
         drift_status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status of the stack instance's actual configuration compared to the expected template and parameter configuration of the stack set to which it belongs. Values include `DRIFTED`, `IN_SYNC`, `UNKNOWN`, `NOT_CHECKED`.
-        """
         organizational_unit_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Organization root ID or organizational unit (OU) IDs that you specified for `deployment_targets`.
-        """
         region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         stack_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ID of the stack instance.
-        """
         stack_set_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name or unique ID of the stack set that the stack instance is associated with.
-        """
         status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status of the stack instance, in terms of its synchronization with its associated stack set. Values include `CURRENT`, `OUTDATED`, `INOPERABLE`.
-        """
         status_reason: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Explanation for the specific status code assigned to this stack instance.
-        """
 elif False:
     StackInstancesStackInstanceSummaryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -386,17 +262,6 @@ class StackInstancesStackInstanceSummaryArgs:
                  stack_set_id: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  status_reason: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] account_id: Account ID in which the instance is deployed.
-        :param pulumi.Input[_builtins.str] detailed_status: Detailed status of the stack instance. Values include `PENDING`, `RUNNING`, `SUCCEEDED`, `FAILED`, `CANCELLED`, `INOPERABLE`, `SKIPPED_SUSPENDED_ACCOUNT`, `FAILED_IMPORT`.
-        :param pulumi.Input[_builtins.str] drift_status: Status of the stack instance's actual configuration compared to the expected template and parameter configuration of the stack set to which it belongs. Values include `DRIFTED`, `IN_SYNC`, `UNKNOWN`, `NOT_CHECKED`.
-        :param pulumi.Input[_builtins.str] organizational_unit_id: Organization root ID or organizational unit (OU) IDs that you specified for `deployment_targets`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] stack_id: ID of the stack instance.
-        :param pulumi.Input[_builtins.str] stack_set_id: Name or unique ID of the stack set that the stack instance is associated with.
-        :param pulumi.Input[_builtins.str] status: Status of the stack instance, in terms of its synchronization with its associated stack set. Values include `CURRENT`, `OUTDATED`, `INOPERABLE`.
-        :param pulumi.Input[_builtins.str] status_reason: Explanation for the specific status code assigned to this stack instance.
-        """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
         if detailed_status is not None:
@@ -419,9 +284,6 @@ class StackInstancesStackInstanceSummaryArgs:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Account ID in which the instance is deployed.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -431,9 +293,6 @@ class StackInstancesStackInstanceSummaryArgs:
     @_builtins.property
     @pulumi.getter(name="detailedStatus")
     def detailed_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Detailed status of the stack instance. Values include `PENDING`, `RUNNING`, `SUCCEEDED`, `FAILED`, `CANCELLED`, `INOPERABLE`, `SKIPPED_SUSPENDED_ACCOUNT`, `FAILED_IMPORT`.
-        """
         return pulumi.get(self, "detailed_status")
 
     @detailed_status.setter
@@ -443,9 +302,6 @@ class StackInstancesStackInstanceSummaryArgs:
     @_builtins.property
     @pulumi.getter(name="driftStatus")
     def drift_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the stack instance's actual configuration compared to the expected template and parameter configuration of the stack set to which it belongs. Values include `DRIFTED`, `IN_SYNC`, `UNKNOWN`, `NOT_CHECKED`.
-        """
         return pulumi.get(self, "drift_status")
 
     @drift_status.setter
@@ -455,9 +311,6 @@ class StackInstancesStackInstanceSummaryArgs:
     @_builtins.property
     @pulumi.getter(name="organizationalUnitId")
     def organizational_unit_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Organization root ID or organizational unit (OU) IDs that you specified for `deployment_targets`.
-        """
         return pulumi.get(self, "organizational_unit_id")
 
     @organizational_unit_id.setter
@@ -467,9 +320,6 @@ class StackInstancesStackInstanceSummaryArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -479,9 +329,6 @@ class StackInstancesStackInstanceSummaryArgs:
     @_builtins.property
     @pulumi.getter(name="stackId")
     def stack_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the stack instance.
-        """
         return pulumi.get(self, "stack_id")
 
     @stack_id.setter
@@ -491,9 +338,6 @@ class StackInstancesStackInstanceSummaryArgs:
     @_builtins.property
     @pulumi.getter(name="stackSetId")
     def stack_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name or unique ID of the stack set that the stack instance is associated with.
-        """
         return pulumi.get(self, "stack_set_id")
 
     @stack_set_id.setter
@@ -503,9 +347,6 @@ class StackInstancesStackInstanceSummaryArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the stack instance, in terms of its synchronization with its associated stack set. Values include `CURRENT`, `OUTDATED`, `INOPERABLE`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -515,9 +356,6 @@ class StackInstancesStackInstanceSummaryArgs:
     @_builtins.property
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Explanation for the specific status code assigned to this stack instance.
-        """
         return pulumi.get(self, "status_reason")
 
     @status_reason.setter
@@ -528,13 +366,7 @@ class StackInstancesStackInstanceSummaryArgs:
 if not MYPY:
     class StackSetAutoDeploymentArgsDict(TypedDict):
         enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether or not auto-deployment is enabled.
-        """
         retain_stacks_on_account_removal: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether or not to retain stacks when the account is removed.
-        """
 elif False:
     StackSetAutoDeploymentArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -543,10 +375,6 @@ class StackSetAutoDeploymentArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  retain_stacks_on_account_removal: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] enabled: Whether or not auto-deployment is enabled.
-        :param pulumi.Input[_builtins.bool] retain_stacks_on_account_removal: Whether or not to retain stacks when the account is removed.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if retain_stacks_on_account_removal is not None:
@@ -555,9 +383,6 @@ class StackSetAutoDeploymentArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether or not auto-deployment is enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -567,9 +392,6 @@ class StackSetAutoDeploymentArgs:
     @_builtins.property
     @pulumi.getter(name="retainStacksOnAccountRemoval")
     def retain_stacks_on_account_removal(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether or not to retain stacks when the account is removed.
-        """
         return pulumi.get(self, "retain_stacks_on_account_removal")
 
     @retain_stacks_on_account_removal.setter
@@ -580,21 +402,9 @@ class StackSetAutoDeploymentArgs:
 if not MYPY:
     class StackSetInstanceDeploymentTargetsArgsDict(TypedDict):
         account_filter_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
-        """
         accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of accounts to deploy stack set updates.
-        """
         accounts_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        S3 URL of the file containing the list of accounts.
-        """
         organizational_unit_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
-        """
 elif False:
     StackSetInstanceDeploymentTargetsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -605,12 +415,6 @@ class StackSetInstanceDeploymentTargetsArgs:
                  accounts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  accounts_url: Optional[pulumi.Input[_builtins.str]] = None,
                  organizational_unit_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] account_filter_type: Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts: List of accounts to deploy stack set updates.
-        :param pulumi.Input[_builtins.str] accounts_url: S3 URL of the file containing the list of accounts.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] organizational_unit_ids: Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
-        """
         if account_filter_type is not None:
             pulumi.set(__self__, "account_filter_type", account_filter_type)
         if accounts is not None:
@@ -623,9 +427,6 @@ class StackSetInstanceDeploymentTargetsArgs:
     @_builtins.property
     @pulumi.getter(name="accountFilterType")
     def account_filter_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
-        """
         return pulumi.get(self, "account_filter_type")
 
     @account_filter_type.setter
@@ -635,9 +436,6 @@ class StackSetInstanceDeploymentTargetsArgs:
     @_builtins.property
     @pulumi.getter
     def accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of accounts to deploy stack set updates.
-        """
         return pulumi.get(self, "accounts")
 
     @accounts.setter
@@ -647,9 +445,6 @@ class StackSetInstanceDeploymentTargetsArgs:
     @_builtins.property
     @pulumi.getter(name="accountsUrl")
     def accounts_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        S3 URL of the file containing the list of accounts.
-        """
         return pulumi.get(self, "accounts_url")
 
     @accounts_url.setter
@@ -659,9 +454,6 @@ class StackSetInstanceDeploymentTargetsArgs:
     @_builtins.property
     @pulumi.getter(name="organizationalUnitIds")
     def organizational_unit_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
-        """
         return pulumi.get(self, "organizational_unit_ids")
 
     @organizational_unit_ids.setter
@@ -672,33 +464,12 @@ class StackSetInstanceDeploymentTargetsArgs:
 if not MYPY:
     class StackSetInstanceOperationPreferencesArgsDict(TypedDict):
         concurrency_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
-        """
         failure_tolerance_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
-        """
         failure_tolerance_percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
-        """
         max_concurrent_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum number of accounts in which to perform this operation at one time.
-        """
         max_concurrent_percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum percentage of accounts in which to perform this operation at one time.
-        """
         region_concurrency_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
-        """
         region_orders: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Order of the Regions in where you want to perform the stack operation.
-        """
 elif False:
     StackSetInstanceOperationPreferencesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -712,15 +483,6 @@ class StackSetInstanceOperationPreferencesArgs:
                  max_concurrent_percentage: Optional[pulumi.Input[_builtins.int]] = None,
                  region_concurrency_type: Optional[pulumi.Input[_builtins.str]] = None,
                  region_orders: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] concurrency_mode: Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
-        :param pulumi.Input[_builtins.int] failure_tolerance_count: Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
-        :param pulumi.Input[_builtins.int] failure_tolerance_percentage: Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
-        :param pulumi.Input[_builtins.int] max_concurrent_count: Maximum number of accounts in which to perform this operation at one time.
-        :param pulumi.Input[_builtins.int] max_concurrent_percentage: Maximum percentage of accounts in which to perform this operation at one time.
-        :param pulumi.Input[_builtins.str] region_concurrency_type: Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] region_orders: Order of the Regions in where you want to perform the stack operation.
-        """
         if concurrency_mode is not None:
             pulumi.set(__self__, "concurrency_mode", concurrency_mode)
         if failure_tolerance_count is not None:
@@ -739,9 +501,6 @@ class StackSetInstanceOperationPreferencesArgs:
     @_builtins.property
     @pulumi.getter(name="concurrencyMode")
     def concurrency_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
-        """
         return pulumi.get(self, "concurrency_mode")
 
     @concurrency_mode.setter
@@ -751,9 +510,6 @@ class StackSetInstanceOperationPreferencesArgs:
     @_builtins.property
     @pulumi.getter(name="failureToleranceCount")
     def failure_tolerance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
-        """
         return pulumi.get(self, "failure_tolerance_count")
 
     @failure_tolerance_count.setter
@@ -763,9 +519,6 @@ class StackSetInstanceOperationPreferencesArgs:
     @_builtins.property
     @pulumi.getter(name="failureTolerancePercentage")
     def failure_tolerance_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
-        """
         return pulumi.get(self, "failure_tolerance_percentage")
 
     @failure_tolerance_percentage.setter
@@ -775,9 +528,6 @@ class StackSetInstanceOperationPreferencesArgs:
     @_builtins.property
     @pulumi.getter(name="maxConcurrentCount")
     def max_concurrent_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Maximum number of accounts in which to perform this operation at one time.
-        """
         return pulumi.get(self, "max_concurrent_count")
 
     @max_concurrent_count.setter
@@ -787,9 +537,6 @@ class StackSetInstanceOperationPreferencesArgs:
     @_builtins.property
     @pulumi.getter(name="maxConcurrentPercentage")
     def max_concurrent_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Maximum percentage of accounts in which to perform this operation at one time.
-        """
         return pulumi.get(self, "max_concurrent_percentage")
 
     @max_concurrent_percentage.setter
@@ -799,9 +546,6 @@ class StackSetInstanceOperationPreferencesArgs:
     @_builtins.property
     @pulumi.getter(name="regionConcurrencyType")
     def region_concurrency_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
-        """
         return pulumi.get(self, "region_concurrency_type")
 
     @region_concurrency_type.setter
@@ -811,9 +555,6 @@ class StackSetInstanceOperationPreferencesArgs:
     @_builtins.property
     @pulumi.getter(name="regionOrders")
     def region_orders(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Order of the Regions in where you want to perform the stack operation.
-        """
         return pulumi.get(self, "region_orders")
 
     @region_orders.setter
@@ -824,17 +565,8 @@ class StackSetInstanceOperationPreferencesArgs:
 if not MYPY:
     class StackSetInstanceStackInstanceSummaryArgsDict(TypedDict):
         account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
-        """
         organizational_unit_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Organizational unit ID in which the stack is deployed.
-        """
         stack_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Stack identifier.
-        """
 elif False:
     StackSetInstanceStackInstanceSummaryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -844,11 +576,6 @@ class StackSetInstanceStackInstanceSummaryArgs:
                  account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  organizational_unit_id: Optional[pulumi.Input[_builtins.str]] = None,
                  stack_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] account_id: Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
-        :param pulumi.Input[_builtins.str] organizational_unit_id: Organizational unit ID in which the stack is deployed.
-        :param pulumi.Input[_builtins.str] stack_id: Stack identifier.
-        """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
         if organizational_unit_id is not None:
@@ -859,9 +586,6 @@ class StackSetInstanceStackInstanceSummaryArgs:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -871,9 +595,6 @@ class StackSetInstanceStackInstanceSummaryArgs:
     @_builtins.property
     @pulumi.getter(name="organizationalUnitId")
     def organizational_unit_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Organizational unit ID in which the stack is deployed.
-        """
         return pulumi.get(self, "organizational_unit_id")
 
     @organizational_unit_id.setter
@@ -883,9 +604,6 @@ class StackSetInstanceStackInstanceSummaryArgs:
     @_builtins.property
     @pulumi.getter(name="stackId")
     def stack_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Stack identifier.
-        """
         return pulumi.get(self, "stack_id")
 
     @stack_id.setter
@@ -896,9 +614,6 @@ class StackSetInstanceStackInstanceSummaryArgs:
 if not MYPY:
     class StackSetManagedExecutionArgsDict(TypedDict):
         active: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
-        """
 elif False:
     StackSetManagedExecutionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -906,18 +621,12 @@ elif False:
 class StackSetManagedExecutionArgs:
     def __init__(__self__, *,
                  active: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] active: When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
-        """
         if active is not None:
             pulumi.set(__self__, "active", active)
 
     @_builtins.property
     @pulumi.getter
     def active(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
-        """
         return pulumi.get(self, "active")
 
     @active.setter
@@ -928,29 +637,11 @@ class StackSetManagedExecutionArgs:
 if not MYPY:
     class StackSetOperationPreferencesArgsDict(TypedDict):
         failure_tolerance_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
-        """
         failure_tolerance_percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
-        """
         max_concurrent_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of accounts in which to perform this operation at one time.
-        """
         max_concurrent_percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum percentage of accounts in which to perform this operation at one time.
-        """
         region_concurrency_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
-        """
         region_orders: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The order of the Regions in where you want to perform the stack operation.
-        """
 elif False:
     StackSetOperationPreferencesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -963,14 +654,6 @@ class StackSetOperationPreferencesArgs:
                  max_concurrent_percentage: Optional[pulumi.Input[_builtins.int]] = None,
                  region_concurrency_type: Optional[pulumi.Input[_builtins.str]] = None,
                  region_orders: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.int] failure_tolerance_count: The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
-        :param pulumi.Input[_builtins.int] failure_tolerance_percentage: The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
-        :param pulumi.Input[_builtins.int] max_concurrent_count: The maximum number of accounts in which to perform this operation at one time.
-        :param pulumi.Input[_builtins.int] max_concurrent_percentage: The maximum percentage of accounts in which to perform this operation at one time.
-        :param pulumi.Input[_builtins.str] region_concurrency_type: The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] region_orders: The order of the Regions in where you want to perform the stack operation.
-        """
         if failure_tolerance_count is not None:
             pulumi.set(__self__, "failure_tolerance_count", failure_tolerance_count)
         if failure_tolerance_percentage is not None:
@@ -987,9 +670,6 @@ class StackSetOperationPreferencesArgs:
     @_builtins.property
     @pulumi.getter(name="failureToleranceCount")
     def failure_tolerance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
-        """
         return pulumi.get(self, "failure_tolerance_count")
 
     @failure_tolerance_count.setter
@@ -999,9 +679,6 @@ class StackSetOperationPreferencesArgs:
     @_builtins.property
     @pulumi.getter(name="failureTolerancePercentage")
     def failure_tolerance_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
-        """
         return pulumi.get(self, "failure_tolerance_percentage")
 
     @failure_tolerance_percentage.setter
@@ -1011,9 +688,6 @@ class StackSetOperationPreferencesArgs:
     @_builtins.property
     @pulumi.getter(name="maxConcurrentCount")
     def max_concurrent_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The maximum number of accounts in which to perform this operation at one time.
-        """
         return pulumi.get(self, "max_concurrent_count")
 
     @max_concurrent_count.setter
@@ -1023,9 +697,6 @@ class StackSetOperationPreferencesArgs:
     @_builtins.property
     @pulumi.getter(name="maxConcurrentPercentage")
     def max_concurrent_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The maximum percentage of accounts in which to perform this operation at one time.
-        """
         return pulumi.get(self, "max_concurrent_percentage")
 
     @max_concurrent_percentage.setter
@@ -1035,9 +706,6 @@ class StackSetOperationPreferencesArgs:
     @_builtins.property
     @pulumi.getter(name="regionConcurrencyType")
     def region_concurrency_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
-        """
         return pulumi.get(self, "region_concurrency_type")
 
     @region_concurrency_type.setter
@@ -1047,9 +715,6 @@ class StackSetOperationPreferencesArgs:
     @_builtins.property
     @pulumi.getter(name="regionOrders")
     def region_orders(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The order of the Regions in where you want to perform the stack operation.
-        """
         return pulumi.get(self, "region_orders")
 
     @region_orders.setter

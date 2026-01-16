@@ -12,82 +12,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Direct Connect hosted public virtual interface resource. This resource represents the allocator's side of the hosted virtual interface.
-// A hosted virtual interface is a virtual interface that is owned by another AWS account.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.NewHostedPublicVirtualInterface(ctx, "foo", &directconnect.HostedPublicVirtualInterfaceArgs{
-//				ConnectionId:    pulumi.String("dxcon-zzzzzzzz"),
-//				Name:            pulumi.String("vif-foo"),
-//				Vlan:            pulumi.Int(4094),
-//				AddressFamily:   pulumi.String("ipv4"),
-//				BgpAsn:          pulumi.Int(65352),
-//				CustomerAddress: pulumi.String("175.45.176.1/30"),
-//				AmazonAddress:   pulumi.String("175.45.176.2/30"),
-//				RouteFilterPrefixes: pulumi.StringArray{
-//					pulumi.String("210.52.109.0/24"),
-//					pulumi.String("175.45.176.0/22"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Direct Connect hosted public virtual interfaces using the VIF `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface test dxvif-33cc44dd
-// ```
 type HostedPublicVirtualInterface struct {
 	pulumi.CustomResourceState
 
-	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
-	AddressFamily pulumi.StringOutput `pulumi:"addressFamily"`
-	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-	AmazonAddress pulumi.StringOutput `pulumi:"amazonAddress"`
-	AmazonSideAsn pulumi.StringOutput `pulumi:"amazonSideAsn"`
-	// The ARN of the virtual interface.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The Direct Connect endpoint on which the virtual interface terminates.
-	AwsDevice pulumi.StringOutput `pulumi:"awsDevice"`
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	BgpAsn pulumi.IntOutput `pulumi:"bgpAsn"`
-	// The authentication key for BGP configuration.
-	BgpAuthKey pulumi.StringOutput `pulumi:"bgpAuthKey"`
-	// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
-	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
-	// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
-	CustomerAddress pulumi.StringOutput `pulumi:"customerAddress"`
-	// The name for the virtual interface.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS account that will own the new virtual interface.
-	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A list of routes to be advertised to the AWS network in this region.
+	AddressFamily       pulumi.StringOutput      `pulumi:"addressFamily"`
+	AmazonAddress       pulumi.StringOutput      `pulumi:"amazonAddress"`
+	AmazonSideAsn       pulumi.StringOutput      `pulumi:"amazonSideAsn"`
+	Arn                 pulumi.StringOutput      `pulumi:"arn"`
+	AwsDevice           pulumi.StringOutput      `pulumi:"awsDevice"`
+	BgpAsn              pulumi.IntOutput         `pulumi:"bgpAsn"`
+	BgpAuthKey          pulumi.StringOutput      `pulumi:"bgpAuthKey"`
+	ConnectionId        pulumi.StringOutput      `pulumi:"connectionId"`
+	CustomerAddress     pulumi.StringOutput      `pulumi:"customerAddress"`
+	Name                pulumi.StringOutput      `pulumi:"name"`
+	OwnerAccountId      pulumi.StringOutput      `pulumi:"ownerAccountId"`
+	Region              pulumi.StringOutput      `pulumi:"region"`
 	RouteFilterPrefixes pulumi.StringArrayOutput `pulumi:"routeFilterPrefixes"`
-	// The VLAN ID.
-	Vlan pulumi.IntOutput `pulumi:"vlan"`
+	Vlan                pulumi.IntOutput         `pulumi:"vlan"`
 }
 
 // NewHostedPublicVirtualInterface registers a new resource with the given unique name, arguments, and options.
@@ -138,63 +79,37 @@ func GetHostedPublicVirtualInterface(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HostedPublicVirtualInterface resources.
 type hostedPublicVirtualInterfaceState struct {
-	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
-	AddressFamily *string `pulumi:"addressFamily"`
-	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-	AmazonAddress *string `pulumi:"amazonAddress"`
-	AmazonSideAsn *string `pulumi:"amazonSideAsn"`
-	// The ARN of the virtual interface.
-	Arn *string `pulumi:"arn"`
-	// The Direct Connect endpoint on which the virtual interface terminates.
-	AwsDevice *string `pulumi:"awsDevice"`
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	BgpAsn *int `pulumi:"bgpAsn"`
-	// The authentication key for BGP configuration.
-	BgpAuthKey *string `pulumi:"bgpAuthKey"`
-	// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
-	ConnectionId *string `pulumi:"connectionId"`
-	// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
-	CustomerAddress *string `pulumi:"customerAddress"`
-	// The name for the virtual interface.
-	Name *string `pulumi:"name"`
-	// The AWS account that will own the new virtual interface.
-	OwnerAccountId *string `pulumi:"ownerAccountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A list of routes to be advertised to the AWS network in this region.
+	AddressFamily       *string  `pulumi:"addressFamily"`
+	AmazonAddress       *string  `pulumi:"amazonAddress"`
+	AmazonSideAsn       *string  `pulumi:"amazonSideAsn"`
+	Arn                 *string  `pulumi:"arn"`
+	AwsDevice           *string  `pulumi:"awsDevice"`
+	BgpAsn              *int     `pulumi:"bgpAsn"`
+	BgpAuthKey          *string  `pulumi:"bgpAuthKey"`
+	ConnectionId        *string  `pulumi:"connectionId"`
+	CustomerAddress     *string  `pulumi:"customerAddress"`
+	Name                *string  `pulumi:"name"`
+	OwnerAccountId      *string  `pulumi:"ownerAccountId"`
+	Region              *string  `pulumi:"region"`
 	RouteFilterPrefixes []string `pulumi:"routeFilterPrefixes"`
-	// The VLAN ID.
-	Vlan *int `pulumi:"vlan"`
+	Vlan                *int     `pulumi:"vlan"`
 }
 
 type HostedPublicVirtualInterfaceState struct {
-	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
-	AddressFamily pulumi.StringPtrInput
-	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-	AmazonAddress pulumi.StringPtrInput
-	AmazonSideAsn pulumi.StringPtrInput
-	// The ARN of the virtual interface.
-	Arn pulumi.StringPtrInput
-	// The Direct Connect endpoint on which the virtual interface terminates.
-	AwsDevice pulumi.StringPtrInput
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	BgpAsn pulumi.IntPtrInput
-	// The authentication key for BGP configuration.
-	BgpAuthKey pulumi.StringPtrInput
-	// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
-	ConnectionId pulumi.StringPtrInput
-	// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
-	CustomerAddress pulumi.StringPtrInput
-	// The name for the virtual interface.
-	Name pulumi.StringPtrInput
-	// The AWS account that will own the new virtual interface.
-	OwnerAccountId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A list of routes to be advertised to the AWS network in this region.
+	AddressFamily       pulumi.StringPtrInput
+	AmazonAddress       pulumi.StringPtrInput
+	AmazonSideAsn       pulumi.StringPtrInput
+	Arn                 pulumi.StringPtrInput
+	AwsDevice           pulumi.StringPtrInput
+	BgpAsn              pulumi.IntPtrInput
+	BgpAuthKey          pulumi.StringPtrInput
+	ConnectionId        pulumi.StringPtrInput
+	CustomerAddress     pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
+	OwnerAccountId      pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
 	RouteFilterPrefixes pulumi.StringArrayInput
-	// The VLAN ID.
-	Vlan pulumi.IntPtrInput
+	Vlan                pulumi.IntPtrInput
 }
 
 func (HostedPublicVirtualInterfaceState) ElementType() reflect.Type {
@@ -202,54 +117,32 @@ func (HostedPublicVirtualInterfaceState) ElementType() reflect.Type {
 }
 
 type hostedPublicVirtualInterfaceArgs struct {
-	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
-	AddressFamily string `pulumi:"addressFamily"`
-	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-	AmazonAddress *string `pulumi:"amazonAddress"`
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	BgpAsn int `pulumi:"bgpAsn"`
-	// The authentication key for BGP configuration.
-	BgpAuthKey *string `pulumi:"bgpAuthKey"`
-	// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
-	ConnectionId string `pulumi:"connectionId"`
-	// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
-	CustomerAddress *string `pulumi:"customerAddress"`
-	// The name for the virtual interface.
-	Name *string `pulumi:"name"`
-	// The AWS account that will own the new virtual interface.
-	OwnerAccountId string `pulumi:"ownerAccountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A list of routes to be advertised to the AWS network in this region.
+	AddressFamily       string   `pulumi:"addressFamily"`
+	AmazonAddress       *string  `pulumi:"amazonAddress"`
+	BgpAsn              int      `pulumi:"bgpAsn"`
+	BgpAuthKey          *string  `pulumi:"bgpAuthKey"`
+	ConnectionId        string   `pulumi:"connectionId"`
+	CustomerAddress     *string  `pulumi:"customerAddress"`
+	Name                *string  `pulumi:"name"`
+	OwnerAccountId      string   `pulumi:"ownerAccountId"`
+	Region              *string  `pulumi:"region"`
 	RouteFilterPrefixes []string `pulumi:"routeFilterPrefixes"`
-	// The VLAN ID.
-	Vlan int `pulumi:"vlan"`
+	Vlan                int      `pulumi:"vlan"`
 }
 
 // The set of arguments for constructing a HostedPublicVirtualInterface resource.
 type HostedPublicVirtualInterfaceArgs struct {
-	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
-	AddressFamily pulumi.StringInput
-	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-	AmazonAddress pulumi.StringPtrInput
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	BgpAsn pulumi.IntInput
-	// The authentication key for BGP configuration.
-	BgpAuthKey pulumi.StringPtrInput
-	// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
-	ConnectionId pulumi.StringInput
-	// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
-	CustomerAddress pulumi.StringPtrInput
-	// The name for the virtual interface.
-	Name pulumi.StringPtrInput
-	// The AWS account that will own the new virtual interface.
-	OwnerAccountId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A list of routes to be advertised to the AWS network in this region.
+	AddressFamily       pulumi.StringInput
+	AmazonAddress       pulumi.StringPtrInput
+	BgpAsn              pulumi.IntInput
+	BgpAuthKey          pulumi.StringPtrInput
+	ConnectionId        pulumi.StringInput
+	CustomerAddress     pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
+	OwnerAccountId      pulumi.StringInput
+	Region              pulumi.StringPtrInput
 	RouteFilterPrefixes pulumi.StringArrayInput
-	// The VLAN ID.
-	Vlan pulumi.IntInput
+	Vlan                pulumi.IntInput
 }
 
 func (HostedPublicVirtualInterfaceArgs) ElementType() reflect.Type {
@@ -339,12 +232,10 @@ func (o HostedPublicVirtualInterfaceOutput) ToHostedPublicVirtualInterfaceOutput
 	return o
 }
 
-// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
 func (o HostedPublicVirtualInterfaceOutput) AddressFamily() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringOutput { return v.AddressFamily }).(pulumi.StringOutput)
 }
 
-// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
 func (o HostedPublicVirtualInterfaceOutput) AmazonAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringOutput { return v.AmazonAddress }).(pulumi.StringOutput)
 }
@@ -353,57 +244,46 @@ func (o HostedPublicVirtualInterfaceOutput) AmazonSideAsn() pulumi.StringOutput 
 	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringOutput { return v.AmazonSideAsn }).(pulumi.StringOutput)
 }
 
-// The ARN of the virtual interface.
 func (o HostedPublicVirtualInterfaceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The Direct Connect endpoint on which the virtual interface terminates.
 func (o HostedPublicVirtualInterfaceOutput) AwsDevice() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringOutput { return v.AwsDevice }).(pulumi.StringOutput)
 }
 
-// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 func (o HostedPublicVirtualInterfaceOutput) BgpAsn() pulumi.IntOutput {
 	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.IntOutput { return v.BgpAsn }).(pulumi.IntOutput)
 }
 
-// The authentication key for BGP configuration.
 func (o HostedPublicVirtualInterfaceOutput) BgpAuthKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringOutput { return v.BgpAuthKey }).(pulumi.StringOutput)
 }
 
-// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
 func (o HostedPublicVirtualInterfaceOutput) ConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringOutput { return v.ConnectionId }).(pulumi.StringOutput)
 }
 
-// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
 func (o HostedPublicVirtualInterfaceOutput) CustomerAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringOutput { return v.CustomerAddress }).(pulumi.StringOutput)
 }
 
-// The name for the virtual interface.
 func (o HostedPublicVirtualInterfaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS account that will own the new virtual interface.
 func (o HostedPublicVirtualInterfaceOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o HostedPublicVirtualInterfaceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A list of routes to be advertised to the AWS network in this region.
 func (o HostedPublicVirtualInterfaceOutput) RouteFilterPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringArrayOutput { return v.RouteFilterPrefixes }).(pulumi.StringArrayOutput)
 }
 
-// The VLAN ID.
 func (o HostedPublicVirtualInterfaceOutput) Vlan() pulumi.IntOutput {
 	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.IntOutput { return v.Vlan }).(pulumi.IntOutput)
 }

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration {
-    /**
-     * @return The URL configuration of your web data source. See `urlConfiguration` block for details.
-     * 
-     */
     private @Nullable AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration urlConfiguration;
 
     private AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration() {}
-    /**
-     * @return The URL configuration of your web data source. See `urlConfiguration` block for details.
-     * 
-     */
     public Optional<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration> urlConfiguration() {
         return Optional.ofNullable(this.urlConfiguration);
     }

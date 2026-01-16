@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ComputeOptimizer.Outputs
     [OutputType]
     public sealed class RecommendationPreferencesUtilizationPreference
     {
-        /// <summary>
-        /// The name of the resource utilization metric name to customize. Valid values: `CpuUtilization`, `MemoryUtilization`.
-        /// </summary>
         public readonly string MetricName;
-        /// <summary>
-        /// The parameters to set when customizing the resource utilization thresholds.
-        /// </summary>
         public readonly Outputs.RecommendationPreferencesUtilizationPreferenceMetricParameters? MetricParameters;
 
         [OutputConstructor]

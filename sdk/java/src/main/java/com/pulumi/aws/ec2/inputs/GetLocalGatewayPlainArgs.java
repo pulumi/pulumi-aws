@@ -17,89 +17,37 @@ public final class GetLocalGatewayPlainArgs extends com.pulumi.resources.InvokeA
 
     public static final GetLocalGatewayPlainArgs Empty = new GetLocalGatewayPlainArgs();
 
-    /**
-     * Custom filter block as described below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetLocalGatewayFilter> filters;
 
-    /**
-     * @return Custom filter block as described below.
-     * 
-     */
     public Optional<List<GetLocalGatewayFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Id of the specific Local Gateway to retrieve.
-     * 
-     */
     @Import(name="id")
     private @Nullable String id;
 
-    /**
-     * @return Id of the specific Local Gateway to retrieve.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Current state of the desired Local Gateway.
-     * Can be either `&#34;pending&#34;` or `&#34;available&#34;`.
-     * 
-     */
     @Import(name="state")
     private @Nullable String state;
 
-    /**
-     * @return Current state of the desired Local Gateway.
-     * Can be either `&#34;pending&#34;` or `&#34;available&#34;`.
-     * 
-     */
     public Optional<String> state() {
         return Optional.ofNullable(this.state);
     }
 
-    /**
-     * Mapping of tags, each pair of which must exactly match
-     * a pair on the desired Local Gateway.
-     * 
-     * The arguments of this data source act as filters for querying the available
-     * Local Gateways in the current region. The given filters must match exactly one
-     * Local Gateway whose data will be exported as attributes.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Mapping of tags, each pair of which must exactly match
-     * a pair on the desired Local Gateway.
-     * 
-     * The arguments of this data source act as filters for querying the available
-     * Local Gateways in the current region. The given filters must match exactly one
-     * Local Gateway whose data will be exported as attributes.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -132,72 +80,30 @@ public final class GetLocalGatewayPlainArgs extends com.pulumi.resources.InvokeA
             $ = new GetLocalGatewayPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetLocalGatewayFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetLocalGatewayFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param id Id of the specific Local Gateway to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param state Current state of the desired Local Gateway.
-         * Can be either `&#34;pending&#34;` or `&#34;available&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(@Nullable String state) {
             $.state = state;
             return this;
         }
 
-        /**
-         * @param tags Mapping of tags, each pair of which must exactly match
-         * a pair on the desired Local Gateway.
-         * 
-         * The arguments of this data source act as filters for querying the available
-         * Local Gateways in the current region. The given filters must match exactly one
-         * Local Gateway whose data will be exported as attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

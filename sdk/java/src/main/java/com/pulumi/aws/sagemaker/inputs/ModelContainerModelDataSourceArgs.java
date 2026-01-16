@@ -15,17 +15,9 @@ public final class ModelContainerModelDataSourceArgs extends com.pulumi.resource
 
     public static final ModelContainerModelDataSourceArgs Empty = new ModelContainerModelDataSourceArgs();
 
-    /**
-     * S3 location of model data to deploy. See S3 Data Source.
-     * 
-     */
     @Import(name="s3DataSources", required=true)
     private Output<List<ModelContainerModelDataSourceS3DataSourceArgs>> s3DataSources;
 
-    /**
-     * @return S3 location of model data to deploy. See S3 Data Source.
-     * 
-     */
     public Output<List<ModelContainerModelDataSourceS3DataSourceArgs>> s3DataSources() {
         return this.s3DataSources;
     }
@@ -54,33 +46,15 @@ public final class ModelContainerModelDataSourceArgs extends com.pulumi.resource
             $ = new ModelContainerModelDataSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3DataSources S3 location of model data to deploy. See S3 Data Source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3DataSources(Output<List<ModelContainerModelDataSourceS3DataSourceArgs>> s3DataSources) {
             $.s3DataSources = s3DataSources;
             return this;
         }
 
-        /**
-         * @param s3DataSources S3 location of model data to deploy. See S3 Data Source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3DataSources(List<ModelContainerModelDataSourceS3DataSourceArgs> s3DataSources) {
             return s3DataSources(Output.of(s3DataSources));
         }
 
-        /**
-         * @param s3DataSources S3 location of model data to deploy. See S3 Data Source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3DataSources(ModelContainerModelDataSourceS3DataSourceArgs... s3DataSources) {
             return s3DataSources(List.of(s3DataSources));
         }

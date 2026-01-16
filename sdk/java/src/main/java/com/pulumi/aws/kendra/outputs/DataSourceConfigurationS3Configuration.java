@@ -15,77 +15,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSourceConfigurationS3Configuration {
-    /**
-     * @return A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
-     * 
-     */
     private @Nullable DataSourceConfigurationS3ConfigurationAccessControlListConfiguration accessControlListConfiguration;
-    /**
-     * @return The name of the bucket that contains the documents.
-     * 
-     */
     private String bucketName;
-    /**
-     * @return A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
-     * 
-     */
     private @Nullable DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration documentsMetadataConfiguration;
-    /**
-     * @return A list of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
-     * 
-     */
     private @Nullable List<String> exclusionPatterns;
-    /**
-     * @return A list of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
-     * 
-     */
     private @Nullable List<String> inclusionPatterns;
-    /**
-     * @return A list of S3 prefixes for the documents that should be included in the index.
-     * 
-     */
     private @Nullable List<String> inclusionPrefixes;
 
     private DataSourceConfigurationS3Configuration() {}
-    /**
-     * @return A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
-     * 
-     */
     public Optional<DataSourceConfigurationS3ConfigurationAccessControlListConfiguration> accessControlListConfiguration() {
         return Optional.ofNullable(this.accessControlListConfiguration);
     }
-    /**
-     * @return The name of the bucket that contains the documents.
-     * 
-     */
     public String bucketName() {
         return this.bucketName;
     }
-    /**
-     * @return A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
-     * 
-     */
     public Optional<DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration> documentsMetadataConfiguration() {
         return Optional.ofNullable(this.documentsMetadataConfiguration);
     }
-    /**
-     * @return A list of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
-     * 
-     */
     public List<String> exclusionPatterns() {
         return this.exclusionPatterns == null ? List.of() : this.exclusionPatterns;
     }
-    /**
-     * @return A list of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
-     * 
-     */
     public List<String> inclusionPatterns() {
         return this.inclusionPatterns == null ? List.of() : this.inclusionPatterns;
     }
-    /**
-     * @return A list of S3 prefixes for the documents that should be included in the index.
-     * 
-     */
     public List<String> inclusionPrefixes() {
         return this.inclusionPrefixes == null ? List.of() : this.inclusionPrefixes;
     }

@@ -18,62 +18,30 @@ public final class EnrollmentStatusState extends com.pulumi.resources.ResourceAr
 
     public static final EnrollmentStatusState Empty = new EnrollmentStatusState();
 
-    /**
-     * Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
-     * 
-     */
     @Import(name="includeMemberAccounts")
     private @Nullable Output<Boolean> includeMemberAccounts;
 
-    /**
-     * @return Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> includeMemberAccounts() {
         return Optional.ofNullable(this.includeMemberAccounts);
     }
 
-    /**
-     * The count of organization member accounts that are opted in to the service, if your account is an organization management account.
-     * 
-     */
     @Import(name="numberOfMemberAccountsOptedIn")
     private @Nullable Output<Integer> numberOfMemberAccountsOptedIn;
 
-    /**
-     * @return The count of organization member accounts that are opted in to the service, if your account is an organization management account.
-     * 
-     */
     public Optional<Output<Integer>> numberOfMemberAccountsOptedIn() {
         return Optional.ofNullable(this.numberOfMemberAccountsOptedIn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The enrollment status of the account. Valid values: `Active`, `Inactive`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The enrollment status of the account. Valid values: `Active`, `Inactive`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -113,86 +81,38 @@ public final class EnrollmentStatusState extends com.pulumi.resources.ResourceAr
             $ = new EnrollmentStatusState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param includeMemberAccounts Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeMemberAccounts(@Nullable Output<Boolean> includeMemberAccounts) {
             $.includeMemberAccounts = includeMemberAccounts;
             return this;
         }
 
-        /**
-         * @param includeMemberAccounts Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeMemberAccounts(Boolean includeMemberAccounts) {
             return includeMemberAccounts(Output.of(includeMemberAccounts));
         }
 
-        /**
-         * @param numberOfMemberAccountsOptedIn The count of organization member accounts that are opted in to the service, if your account is an organization management account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder numberOfMemberAccountsOptedIn(@Nullable Output<Integer> numberOfMemberAccountsOptedIn) {
             $.numberOfMemberAccountsOptedIn = numberOfMemberAccountsOptedIn;
             return this;
         }
 
-        /**
-         * @param numberOfMemberAccountsOptedIn The count of organization member accounts that are opted in to the service, if your account is an organization management account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder numberOfMemberAccountsOptedIn(Integer numberOfMemberAccountsOptedIn) {
             return numberOfMemberAccountsOptedIn(Output.of(numberOfMemberAccountsOptedIn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param status The enrollment status of the account. Valid values: `Active`, `Inactive`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The enrollment status of the account. Valid values: `Active`, `Inactive`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

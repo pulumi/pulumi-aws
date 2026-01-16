@@ -45,17 +45,11 @@ class PipelineBufferOptions(dict):
 
     def __init__(__self__, *,
                  persistent_buffer_enabled: _builtins.bool):
-        """
-        :param _builtins.bool persistent_buffer_enabled: Whether persistent buffering should be enabled.
-        """
         pulumi.set(__self__, "persistent_buffer_enabled", persistent_buffer_enabled)
 
     @_builtins.property
     @pulumi.getter(name="persistentBufferEnabled")
     def persistent_buffer_enabled(self) -> _builtins.bool:
-        """
-        Whether persistent buffering should be enabled.
-        """
         return pulumi.get(self, "persistent_buffer_enabled")
 
 
@@ -80,17 +74,11 @@ class PipelineEncryptionAtRestOptions(dict):
 
     def __init__(__self__, *,
                  kms_key_arn: _builtins.str):
-        """
-        :param _builtins.str kms_key_arn: The ARN of the KMS key used to encrypt data-at-rest in OpenSearch Ingestion. By default, data is encrypted using an AWS owned key.
-        """
         pulumi.set(__self__, "kms_key_arn", kms_key_arn)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> _builtins.str:
-        """
-        The ARN of the KMS key used to encrypt data-at-rest in OpenSearch Ingestion. By default, data is encrypted using an AWS owned key.
-        """
         return pulumi.get(self, "kms_key_arn")
 
 
@@ -118,10 +106,6 @@ class PipelineLogPublishingOptions(dict):
     def __init__(__self__, *,
                  cloudwatch_log_destination: Optional['outputs.PipelineLogPublishingOptionsCloudwatchLogDestination'] = None,
                  is_logging_enabled: Optional[_builtins.bool] = None):
-        """
-        :param 'PipelineLogPublishingOptionsCloudwatchLogDestinationArgs' cloudwatch_log_destination: The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatch_log_destination` below.
-        :param _builtins.bool is_logging_enabled: Whether logs should be published.
-        """
         if cloudwatch_log_destination is not None:
             pulumi.set(__self__, "cloudwatch_log_destination", cloudwatch_log_destination)
         if is_logging_enabled is not None:
@@ -130,17 +114,11 @@ class PipelineLogPublishingOptions(dict):
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogDestination")
     def cloudwatch_log_destination(self) -> Optional['outputs.PipelineLogPublishingOptionsCloudwatchLogDestination']:
-        """
-        The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatch_log_destination` below.
-        """
         return pulumi.get(self, "cloudwatch_log_destination")
 
     @_builtins.property
     @pulumi.getter(name="isLoggingEnabled")
     def is_logging_enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether logs should be published.
-        """
         return pulumi.get(self, "is_logging_enabled")
 
 
@@ -165,17 +143,11 @@ class PipelineLogPublishingOptionsCloudwatchLogDestination(dict):
 
     def __init__(__self__, *,
                  log_group: _builtins.str):
-        """
-        :param _builtins.str log_group: The name of the CloudWatch Logs group to send pipeline logs to. You can specify an existing log group or create a new one. For example, /aws/OpenSearchService/IngestionService/my-pipeline.
-        """
         pulumi.set(__self__, "log_group", log_group)
 
     @_builtins.property
     @pulumi.getter(name="logGroup")
     def log_group(self) -> _builtins.str:
-        """
-        The name of the CloudWatch Logs group to send pipeline logs to. You can specify an existing log group or create a new one. For example, /aws/OpenSearchService/IngestionService/my-pipeline.
-        """
         return pulumi.get(self, "log_group")
 
 
@@ -249,11 +221,6 @@ class PipelineVpcOptions(dict):
                  subnet_ids: Sequence[_builtins.str],
                  security_group_ids: Optional[Sequence[_builtins.str]] = None,
                  vpc_endpoint_management: Optional[_builtins.str] = None):
-        """
-        :param Sequence[_builtins.str] subnet_ids: A list of subnet IDs associated with the VPC endpoint.
-        :param Sequence[_builtins.str] security_group_ids: A list of security groups associated with the VPC endpoint.
-        :param _builtins.str vpc_endpoint_management: Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
-        """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
@@ -263,25 +230,16 @@ class PipelineVpcOptions(dict):
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[_builtins.str]:
-        """
-        A list of subnet IDs associated with the VPC endpoint.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        A list of security groups associated with the VPC endpoint.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointManagement")
     def vpc_endpoint_management(self) -> Optional[_builtins.str]:
-        """
-        Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
-        """
         return pulumi.get(self, "vpc_endpoint_management")
 
 

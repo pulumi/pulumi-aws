@@ -9,90 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Athena
 {
-    /// <summary>
-    /// Resource for managing an AWS Athena Capacity Reservation.
-    /// 
-    /// &gt; Destruction of this resource will both [cancel](https://docs.aws.amazon.com/athena/latest/ug/capacity-management-cancelling-a-capacity-reservation.html) and [delete](https://docs.aws.amazon.com/athena/latest/ug/capacity-management-deleting-a-capacity-reservation.html) the capacity reservation.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Athena.CapacityReservation("example", new()
-    ///     {
-    ///         Name = "example-reservation",
-    ///         TargetDpus = 24,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Athena Capacity Reservation using the `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:athena/capacityReservation:CapacityReservation example example-reservation
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:athena/capacityReservation:CapacityReservation")]
     public partial class CapacityReservation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Number of data processing units currently allocated.
-        /// </summary>
         [Output("allocatedDpus")]
         public Output<int> AllocatedDpus { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the Capacity Reservation.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the capacity reservation.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Status of the capacity reservation.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Number of data processing units requested. Must be at least `24` units.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("targetDpus")]
         public Output<int> TargetDpus { get; private set; } = null!;
 
@@ -145,35 +85,20 @@ namespace Pulumi.Aws.Athena
 
     public sealed class CapacityReservationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the capacity reservation.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Number of data processing units requested. Must be at least `24` units.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("targetDpus", required: true)]
         public Input<int> TargetDpus { get; set; } = null!;
 
@@ -188,42 +113,23 @@ namespace Pulumi.Aws.Athena
 
     public sealed class CapacityReservationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Number of data processing units currently allocated.
-        /// </summary>
         [Input("allocatedDpus")]
         public Input<int>? AllocatedDpus { get; set; }
 
-        /// <summary>
-        /// ARN of the Capacity Reservation.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Name of the capacity reservation.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Status of the capacity reservation.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -232,21 +138,12 @@ namespace Pulumi.Aws.Athena
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Number of data processing units requested. Must be at least `24` units.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("targetDpus")]
         public Input<int>? TargetDpus { get; set; }
 

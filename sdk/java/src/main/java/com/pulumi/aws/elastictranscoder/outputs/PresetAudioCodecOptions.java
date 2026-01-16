@@ -11,53 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PresetAudioCodecOptions {
-    /**
-     * @return The bit depth of a sample is how many bits of information are included in the audio samples. Valid values are `16` and `24`. (FLAC/PCM Only)
-     * 
-     */
     private @Nullable String bitDepth;
-    /**
-     * @return The order the bits of a PCM sample are stored in. The supported value is LittleEndian. (PCM Only)
-     * 
-     */
     private @Nullable String bitOrder;
-    /**
-     * @return If you specified AAC for Audio:Codec, choose the AAC profile for the output file.
-     * 
-     */
     private @Nullable String profile;
-    /**
-     * @return Whether audio samples are represented with negative and positive numbers (signed) or only positive numbers (unsigned). The supported value is Signed. (PCM Only)
-     * 
-     */
     private @Nullable String signed;
 
     private PresetAudioCodecOptions() {}
-    /**
-     * @return The bit depth of a sample is how many bits of information are included in the audio samples. Valid values are `16` and `24`. (FLAC/PCM Only)
-     * 
-     */
     public Optional<String> bitDepth() {
         return Optional.ofNullable(this.bitDepth);
     }
-    /**
-     * @return The order the bits of a PCM sample are stored in. The supported value is LittleEndian. (PCM Only)
-     * 
-     */
     public Optional<String> bitOrder() {
         return Optional.ofNullable(this.bitOrder);
     }
-    /**
-     * @return If you specified AAC for Audio:Codec, choose the AAC profile for the output file.
-     * 
-     */
     public Optional<String> profile() {
         return Optional.ofNullable(this.profile);
     }
-    /**
-     * @return Whether audio samples are represented with negative and positive numbers (signed) or only positive numbers (unsigned). The supported value is Signed. (PCM Only)
-     * 
-     */
     public Optional<String> signed() {
         return Optional.ofNullable(this.signed);
     }

@@ -46,9 +46,6 @@ class GetTopicResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the found topic, suitable for referencing in other resources that support SNS topics.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -72,9 +69,6 @@ class GetTopicResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags for the resource.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -96,23 +90,7 @@ def get_topic(name: Optional[_builtins.str] = None,
               tags: Optional[Mapping[str, _builtins.str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicResult:
     """
-    Use this data source to get the ARN of a topic in AWS Simple Notification
-    Service (SNS). By using this data source, you can reference SNS topics
-    without having to hard code the ARNs as input.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.sns.get_topic(name="an_example_topic")
-    ```
-
-
-    :param _builtins.str name: Friendly name of the topic to match.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -132,23 +110,7 @@ def get_topic_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicResult]:
     """
-    Use this data source to get the ARN of a topic in AWS Simple Notification
-    Service (SNS). By using this data source, you can reference SNS topics
-    without having to hard code the ARNs as input.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.sns.get_topic(name="an_example_topic")
-    ```
-
-
-    :param _builtins.str name: Friendly name of the topic to match.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

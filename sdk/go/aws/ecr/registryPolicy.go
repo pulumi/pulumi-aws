@@ -12,89 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Elastic Container Registry Policy.
-//
-// > **NOTE on ECR Registry Policies:** While the AWS Management Console interface may suggest the ability to define multiple policies by creating multiple statements, ECR registry policies are effectively managed as singular entities at the regional level by the AWS APIs. Therefore, the `ecr.RegistryPolicy` resource should be configured only once per region with all necessary statements defined in the same policy. Attempting to define multiple `ecr.RegistryPolicy` resources may result in perpetual differences, with one policy overriding another.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentGetRegion, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Sid":    "testpolicy",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentGetPartition.Partition, current.AccountId),
-//						},
-//						"Action": []string{
-//							"ecr:ReplicateImage",
-//						},
-//						"Resource": []string{
-//							fmt.Sprintf("arn:%v:ecr:%v:%v:repository/*", currentGetPartition.Partition, currentGetRegion.Region, current.AccountId),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = ecr.NewRegistryPolicy(ctx, "example", &ecr.RegistryPolicyArgs{
-//				Policy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import ECR Registry Policy using the registry id. For example:
-//
-// ```sh
-// $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
-// ```
 type RegistryPolicy struct {
 	pulumi.CustomResourceState
 
-	// The policy document. This is a JSON formatted string.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The registry ID where the registry was created.
+	Policy     pulumi.StringOutput `pulumi:"policy"`
+	Region     pulumi.StringOutput `pulumi:"region"`
 	RegistryId pulumi.StringOutput `pulumi:"registryId"`
 }
 
@@ -131,20 +53,14 @@ func GetRegistryPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegistryPolicy resources.
 type registryPolicyState struct {
-	// The policy document. This is a JSON formatted string.
-	Policy interface{} `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The registry ID where the registry was created.
-	RegistryId *string `pulumi:"registryId"`
+	Policy     interface{} `pulumi:"policy"`
+	Region     *string     `pulumi:"region"`
+	RegistryId *string     `pulumi:"registryId"`
 }
 
 type RegistryPolicyState struct {
-	// The policy document. This is a JSON formatted string.
-	Policy pulumi.Input
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The registry ID where the registry was created.
+	Policy     pulumi.Input
+	Region     pulumi.StringPtrInput
 	RegistryId pulumi.StringPtrInput
 }
 
@@ -153,17 +69,13 @@ func (RegistryPolicyState) ElementType() reflect.Type {
 }
 
 type registryPolicyArgs struct {
-	// The policy document. This is a JSON formatted string.
 	Policy interface{} `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region *string     `pulumi:"region"`
 }
 
 // The set of arguments for constructing a RegistryPolicy resource.
 type RegistryPolicyArgs struct {
-	// The policy document. This is a JSON formatted string.
 	Policy pulumi.Input
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -254,17 +166,14 @@ func (o RegistryPolicyOutput) ToRegistryPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The policy document. This is a JSON formatted string.
 func (o RegistryPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistryPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RegistryPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistryPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The registry ID where the registry was created.
 func (o RegistryPolicyOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistryPolicy) pulumi.StringOutput { return v.RegistryId }).(pulumi.StringOutput)
 }

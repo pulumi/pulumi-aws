@@ -17,32 +17,16 @@ public final class ContactsRotationRecurrenceWeeklySettingArgs extends com.pulum
 
     public static final ContactsRotationRecurrenceWeeklySettingArgs Empty = new ContactsRotationRecurrenceWeeklySettingArgs();
 
-    /**
-     * (Required) The day of the week when the shift coverage occurs.
-     * 
-     */
     @Import(name="dayOfWeek", required=true)
     private Output<String> dayOfWeek;
 
-    /**
-     * @return (Required) The day of the week when the shift coverage occurs.
-     * 
-     */
     public Output<String> dayOfWeek() {
         return this.dayOfWeek;
     }
 
-    /**
-     * (Required) The hand off time. See Hand Off Time for more details.
-     * 
-     */
     @Import(name="handOffTime")
     private @Nullable Output<ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs> handOffTime;
 
-    /**
-     * @return (Required) The hand off time. See Hand Off Time for more details.
-     * 
-     */
     public Optional<Output<ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs>> handOffTime() {
         return Optional.ofNullable(this.handOffTime);
     }
@@ -72,44 +56,20 @@ public final class ContactsRotationRecurrenceWeeklySettingArgs extends com.pulum
             $ = new ContactsRotationRecurrenceWeeklySettingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dayOfWeek (Required) The day of the week when the shift coverage occurs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dayOfWeek(Output<String> dayOfWeek) {
             $.dayOfWeek = dayOfWeek;
             return this;
         }
 
-        /**
-         * @param dayOfWeek (Required) The day of the week when the shift coverage occurs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dayOfWeek(String dayOfWeek) {
             return dayOfWeek(Output.of(dayOfWeek));
         }
 
-        /**
-         * @param handOffTime (Required) The hand off time. See Hand Off Time for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder handOffTime(@Nullable Output<ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs> handOffTime) {
             $.handOffTime = handOffTime;
             return this;
         }
 
-        /**
-         * @param handOffTime (Required) The hand off time. See Hand Off Time for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder handOffTime(ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs handOffTime) {
             return handOffTime(Output.of(handOffTime));
         }

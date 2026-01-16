@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreGatewayInterceptorConfigurationInterceptor {
-    /**
-     * @return Lambda function configuration for the interceptor. See `lambda` below.
-     * 
-     */
     private @Nullable AgentcoreGatewayInterceptorConfigurationInterceptorLambda lambda;
 
     private AgentcoreGatewayInterceptorConfigurationInterceptor() {}
-    /**
-     * @return Lambda function configuration for the interceptor. See `lambda` below.
-     * 
-     */
     public Optional<AgentcoreGatewayInterceptorConfigurationInterceptorLambda> lambda() {
         return Optional.ofNullable(this.lambda);
     }

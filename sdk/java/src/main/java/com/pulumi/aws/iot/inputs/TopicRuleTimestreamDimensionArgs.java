@@ -14,32 +14,16 @@ public final class TopicRuleTimestreamDimensionArgs extends com.pulumi.resources
 
     public static final TopicRuleTimestreamDimensionArgs Empty = new TopicRuleTimestreamDimensionArgs();
 
-    /**
-     * The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * The value to write in this column of the database record.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return The value to write in this column of the database record.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -69,44 +53,20 @@ public final class TopicRuleTimestreamDimensionArgs extends com.pulumi.resources
             $ = new TopicRuleTimestreamDimensionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param value The value to write in this column of the database record.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The value to write in this column of the database record.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

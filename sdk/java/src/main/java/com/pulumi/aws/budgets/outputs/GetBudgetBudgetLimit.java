@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBudgetBudgetLimit {
-    /**
-     * @return The cost or usage amount that&#39;s associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-     * 
-     */
     private String amount;
-    /**
-     * @return The unit of measurement that&#39;s used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-     * 
-     */
     private String unit;
 
     private GetBudgetBudgetLimit() {}
-    /**
-     * @return The cost or usage amount that&#39;s associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-     * 
-     */
     public String amount() {
         return this.amount;
     }
-    /**
-     * @return The unit of measurement that&#39;s used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-     * 
-     */
     public String unit() {
         return this.unit;
     }

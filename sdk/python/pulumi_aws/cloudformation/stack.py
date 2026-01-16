@@ -35,25 +35,6 @@ class StackArgs:
                  timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Stack resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capabilities: A list of capabilities.
-               Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
-        :param pulumi.Input[_builtins.bool] disable_rollback: Set to true to disable rollback of the stack if stack creation failed.
-               Conflicts with `on_failure`.
-        :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
-        :param pulumi.Input[_builtins.str] name: Stack name.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_arns: A list of SNS topic ARNs to publish stack related events.
-        :param pulumi.Input[_builtins.str] on_failure: Action to be taken if stack creation fails. This must be
-               one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of Parameter structures that specify input parameters for the stack.
-        :param pulumi.Input[_builtins.str] policy_body: Structure containing the stack policy body.
-               Conflicts w/ `policy_url`.
-        :param pulumi.Input[_builtins.str] policy_url: Location of a file containing the stack policy.
-               Conflicts w/ `policy_body`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] template_body: Structure containing the template body (max size: 51,200 bytes).
-        :param pulumi.Input[_builtins.str] template_url: Location of a file containing the template body (max size: 460,800 bytes).
-        :param pulumi.Input[_builtins.int] timeout_in_minutes: The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
         """
         if capabilities is not None:
             pulumi.set(__self__, "capabilities", capabilities)
@@ -87,10 +68,6 @@ class StackArgs:
     @_builtins.property
     @pulumi.getter
     def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of capabilities.
-        Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
-        """
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
@@ -100,10 +77,6 @@ class StackArgs:
     @_builtins.property
     @pulumi.getter(name="disableRollback")
     def disable_rollback(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Set to true to disable rollback of the stack if stack creation failed.
-        Conflicts with `on_failure`.
-        """
         return pulumi.get(self, "disable_rollback")
 
     @disable_rollback.setter
@@ -113,9 +86,6 @@ class StackArgs:
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
@@ -125,9 +95,6 @@ class StackArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Stack name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -137,9 +104,6 @@ class StackArgs:
     @_builtins.property
     @pulumi.getter(name="notificationArns")
     def notification_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of SNS topic ARNs to publish stack related events.
-        """
         return pulumi.get(self, "notification_arns")
 
     @notification_arns.setter
@@ -149,10 +113,6 @@ class StackArgs:
     @_builtins.property
     @pulumi.getter(name="onFailure")
     def on_failure(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Action to be taken if stack creation fails. This must be
-        one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
-        """
         return pulumi.get(self, "on_failure")
 
     @on_failure.setter
@@ -162,9 +122,6 @@ class StackArgs:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of Parameter structures that specify input parameters for the stack.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -174,10 +131,6 @@ class StackArgs:
     @_builtins.property
     @pulumi.getter(name="policyBody")
     def policy_body(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Structure containing the stack policy body.
-        Conflicts w/ `policy_url`.
-        """
         return pulumi.get(self, "policy_body")
 
     @policy_body.setter
@@ -187,10 +140,6 @@ class StackArgs:
     @_builtins.property
     @pulumi.getter(name="policyUrl")
     def policy_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Location of a file containing the stack policy.
-        Conflicts w/ `policy_body`.
-        """
         return pulumi.get(self, "policy_url")
 
     @policy_url.setter
@@ -200,9 +149,6 @@ class StackArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -212,9 +158,6 @@ class StackArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -224,9 +167,6 @@ class StackArgs:
     @_builtins.property
     @pulumi.getter(name="templateBody")
     def template_body(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Structure containing the template body (max size: 51,200 bytes).
-        """
         return pulumi.get(self, "template_body")
 
     @template_body.setter
@@ -236,9 +176,6 @@ class StackArgs:
     @_builtins.property
     @pulumi.getter(name="templateUrl")
     def template_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Location of a file containing the template body (max size: 460,800 bytes).
-        """
         return pulumi.get(self, "template_url")
 
     @template_url.setter
@@ -248,9 +185,6 @@ class StackArgs:
     @_builtins.property
     @pulumi.getter(name="timeoutInMinutes")
     def timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
-        """
         return pulumi.get(self, "timeout_in_minutes")
 
     @timeout_in_minutes.setter
@@ -279,27 +213,6 @@ class _StackState:
                  timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Stack resources.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capabilities: A list of capabilities.
-               Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
-        :param pulumi.Input[_builtins.bool] disable_rollback: Set to true to disable rollback of the stack if stack creation failed.
-               Conflicts with `on_failure`.
-        :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
-        :param pulumi.Input[_builtins.str] name: Stack name.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_arns: A list of SNS topic ARNs to publish stack related events.
-        :param pulumi.Input[_builtins.str] on_failure: Action to be taken if stack creation fails. This must be
-               one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] outputs: A map of outputs from the stack.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of Parameter structures that specify input parameters for the stack.
-        :param pulumi.Input[_builtins.str] policy_body: Structure containing the stack policy body.
-               Conflicts w/ `policy_url`.
-        :param pulumi.Input[_builtins.str] policy_url: Location of a file containing the stack policy.
-               Conflicts w/ `policy_body`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] template_body: Structure containing the template body (max size: 51,200 bytes).
-        :param pulumi.Input[_builtins.str] template_url: Location of a file containing the template body (max size: 460,800 bytes).
-        :param pulumi.Input[_builtins.int] timeout_in_minutes: The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
         """
         if capabilities is not None:
             pulumi.set(__self__, "capabilities", capabilities)
@@ -337,10 +250,6 @@ class _StackState:
     @_builtins.property
     @pulumi.getter
     def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of capabilities.
-        Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
-        """
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
@@ -350,10 +259,6 @@ class _StackState:
     @_builtins.property
     @pulumi.getter(name="disableRollback")
     def disable_rollback(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Set to true to disable rollback of the stack if stack creation failed.
-        Conflicts with `on_failure`.
-        """
         return pulumi.get(self, "disable_rollback")
 
     @disable_rollback.setter
@@ -363,9 +268,6 @@ class _StackState:
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
@@ -375,9 +277,6 @@ class _StackState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Stack name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -387,9 +286,6 @@ class _StackState:
     @_builtins.property
     @pulumi.getter(name="notificationArns")
     def notification_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of SNS topic ARNs to publish stack related events.
-        """
         return pulumi.get(self, "notification_arns")
 
     @notification_arns.setter
@@ -399,10 +295,6 @@ class _StackState:
     @_builtins.property
     @pulumi.getter(name="onFailure")
     def on_failure(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Action to be taken if stack creation fails. This must be
-        one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
-        """
         return pulumi.get(self, "on_failure")
 
     @on_failure.setter
@@ -412,9 +304,6 @@ class _StackState:
     @_builtins.property
     @pulumi.getter
     def outputs(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of outputs from the stack.
-        """
         return pulumi.get(self, "outputs")
 
     @outputs.setter
@@ -424,9 +313,6 @@ class _StackState:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of Parameter structures that specify input parameters for the stack.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -436,10 +322,6 @@ class _StackState:
     @_builtins.property
     @pulumi.getter(name="policyBody")
     def policy_body(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Structure containing the stack policy body.
-        Conflicts w/ `policy_url`.
-        """
         return pulumi.get(self, "policy_body")
 
     @policy_body.setter
@@ -449,10 +331,6 @@ class _StackState:
     @_builtins.property
     @pulumi.getter(name="policyUrl")
     def policy_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Location of a file containing the stack policy.
-        Conflicts w/ `policy_body`.
-        """
         return pulumi.get(self, "policy_url")
 
     @policy_url.setter
@@ -462,9 +340,6 @@ class _StackState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -474,9 +349,6 @@ class _StackState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -486,9 +358,6 @@ class _StackState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -498,9 +367,6 @@ class _StackState:
     @_builtins.property
     @pulumi.getter(name="templateBody")
     def template_body(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Structure containing the template body (max size: 51,200 bytes).
-        """
         return pulumi.get(self, "template_body")
 
     @template_body.setter
@@ -510,9 +376,6 @@ class _StackState:
     @_builtins.property
     @pulumi.getter(name="templateUrl")
     def template_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Location of a file containing the template body (max size: 460,800 bytes).
-        """
         return pulumi.get(self, "template_url")
 
     @template_url.setter
@@ -522,9 +385,6 @@ class _StackState:
     @_builtins.property
     @pulumi.getter(name="timeoutInMinutes")
     def timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
-        """
         return pulumi.get(self, "timeout_in_minutes")
 
     @timeout_in_minutes.setter
@@ -554,74 +414,9 @@ class Stack(pulumi.CustomResource):
                  timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
-        Provides a CloudFormation Stack resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        network = aws.cloudformation.Stack("network",
-            name="networking-stack",
-            parameters={
-                "VPCCidr": "10.0.0.0/16",
-            },
-            template_body=json.dumps({
-                "Parameters": {
-                    "VPCCidr": {
-                        "Type": "String",
-                        "Default": "10.0.0.0/16",
-                        "Description": "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
-                    },
-                },
-                "Resources": {
-                    "myVpc": {
-                        "Type": "AWS::EC2::VPC",
-                        "Properties": {
-                            "CidrBlock": {
-                                "Ref": "VPCCidr",
-                            },
-                            "Tags": [{
-                                "Key": "Name",
-                                "Value": "Primary_CF_VPC",
-                            }],
-                        },
-                    },
-                },
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Cloudformation Stacks using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
-        ```
-
+        Create a Stack resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capabilities: A list of capabilities.
-               Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
-        :param pulumi.Input[_builtins.bool] disable_rollback: Set to true to disable rollback of the stack if stack creation failed.
-               Conflicts with `on_failure`.
-        :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
-        :param pulumi.Input[_builtins.str] name: Stack name.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_arns: A list of SNS topic ARNs to publish stack related events.
-        :param pulumi.Input[_builtins.str] on_failure: Action to be taken if stack creation fails. This must be
-               one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of Parameter structures that specify input parameters for the stack.
-        :param pulumi.Input[_builtins.str] policy_body: Structure containing the stack policy body.
-               Conflicts w/ `policy_url`.
-        :param pulumi.Input[_builtins.str] policy_url: Location of a file containing the stack policy.
-               Conflicts w/ `policy_body`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] template_body: Structure containing the template body (max size: 51,200 bytes).
-        :param pulumi.Input[_builtins.str] template_url: Location of a file containing the template body (max size: 460,800 bytes).
-        :param pulumi.Input[_builtins.int] timeout_in_minutes: The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
         """
         ...
     @overload
@@ -630,53 +425,7 @@ class Stack(pulumi.CustomResource):
                  args: Optional[StackArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CloudFormation Stack resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        network = aws.cloudformation.Stack("network",
-            name="networking-stack",
-            parameters={
-                "VPCCidr": "10.0.0.0/16",
-            },
-            template_body=json.dumps({
-                "Parameters": {
-                    "VPCCidr": {
-                        "Type": "String",
-                        "Default": "10.0.0.0/16",
-                        "Description": "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
-                    },
-                },
-                "Resources": {
-                    "myVpc": {
-                        "Type": "AWS::EC2::VPC",
-                        "Properties": {
-                            "CidrBlock": {
-                                "Ref": "VPCCidr",
-                            },
-                            "Tags": [{
-                                "Key": "Name",
-                                "Value": "Primary_CF_VPC",
-                            }],
-                        },
-                    },
-                },
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Cloudformation Stacks using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
-        ```
-
+        Create a Stack resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param StackArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -764,27 +513,6 @@ class Stack(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capabilities: A list of capabilities.
-               Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
-        :param pulumi.Input[_builtins.bool] disable_rollback: Set to true to disable rollback of the stack if stack creation failed.
-               Conflicts with `on_failure`.
-        :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
-        :param pulumi.Input[_builtins.str] name: Stack name.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_arns: A list of SNS topic ARNs to publish stack related events.
-        :param pulumi.Input[_builtins.str] on_failure: Action to be taken if stack creation fails. This must be
-               one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] outputs: A map of outputs from the stack.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of Parameter structures that specify input parameters for the stack.
-        :param pulumi.Input[_builtins.str] policy_body: Structure containing the stack policy body.
-               Conflicts w/ `policy_url`.
-        :param pulumi.Input[_builtins.str] policy_url: Location of a file containing the stack policy.
-               Conflicts w/ `policy_body`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] template_body: Structure containing the template body (max size: 51,200 bytes).
-        :param pulumi.Input[_builtins.str] template_url: Location of a file containing the template body (max size: 460,800 bytes).
-        :param pulumi.Input[_builtins.int] timeout_in_minutes: The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -811,133 +539,80 @@ class Stack(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def capabilities(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        A list of capabilities.
-        Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
-        """
         return pulumi.get(self, "capabilities")
 
     @_builtins.property
     @pulumi.getter(name="disableRollback")
     def disable_rollback(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Set to true to disable rollback of the stack if stack creation failed.
-        Conflicts with `on_failure`.
-        """
         return pulumi.get(self, "disable_rollback")
 
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Stack name.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="notificationArns")
     def notification_arns(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        A list of SNS topic ARNs to publish stack related events.
-        """
         return pulumi.get(self, "notification_arns")
 
     @_builtins.property
     @pulumi.getter(name="onFailure")
     def on_failure(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Action to be taken if stack creation fails. This must be
-        one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
-        """
         return pulumi.get(self, "on_failure")
 
     @_builtins.property
     @pulumi.getter
     def outputs(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of outputs from the stack.
-        """
         return pulumi.get(self, "outputs")
 
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of Parameter structures that specify input parameters for the stack.
-        """
         return pulumi.get(self, "parameters")
 
     @_builtins.property
     @pulumi.getter(name="policyBody")
     def policy_body(self) -> pulumi.Output[_builtins.str]:
-        """
-        Structure containing the stack policy body.
-        Conflicts w/ `policy_url`.
-        """
         return pulumi.get(self, "policy_body")
 
     @_builtins.property
     @pulumi.getter(name="policyUrl")
     def policy_url(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Location of a file containing the stack policy.
-        Conflicts w/ `policy_body`.
-        """
         return pulumi.get(self, "policy_url")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="templateBody")
     def template_body(self) -> pulumi.Output[_builtins.str]:
-        """
-        Structure containing the template body (max size: 51,200 bytes).
-        """
         return pulumi.get(self, "template_body")
 
     @_builtins.property
     @pulumi.getter(name="templateUrl")
     def template_url(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Location of a file containing the template body (max size: 460,800 bytes).
-        """
         return pulumi.get(self, "template_url")
 
     @_builtins.property
     @pulumi.getter(name="timeoutInMinutes")
     def timeout_in_minutes(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
-        """
         return pulumi.get(self, "timeout_in_minutes")
 

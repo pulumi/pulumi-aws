@@ -15,53 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ObjectLambdaAccessPointConfiguration {
-    /**
-     * @return Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
-     * 
-     */
     private @Nullable List<String> allowedFeatures;
-    /**
-     * @return Whether or not the CloudWatch metrics configuration is enabled.
-     * 
-     */
     private @Nullable Boolean cloudWatchMetricsEnabled;
-    /**
-     * @return Standard access point associated with the Object Lambda Access Point.
-     * 
-     */
     private String supportingAccessPoint;
-    /**
-     * @return List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
-     * 
-     */
     private List<ObjectLambdaAccessPointConfigurationTransformationConfiguration> transformationConfigurations;
 
     private ObjectLambdaAccessPointConfiguration() {}
-    /**
-     * @return Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
-     * 
-     */
     public List<String> allowedFeatures() {
         return this.allowedFeatures == null ? List.of() : this.allowedFeatures;
     }
-    /**
-     * @return Whether or not the CloudWatch metrics configuration is enabled.
-     * 
-     */
     public Optional<Boolean> cloudWatchMetricsEnabled() {
         return Optional.ofNullable(this.cloudWatchMetricsEnabled);
     }
-    /**
-     * @return Standard access point associated with the Object Lambda Access Point.
-     * 
-     */
     public String supportingAccessPoint() {
         return this.supportingAccessPoint;
     }
-    /**
-     * @return List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
-     * 
-     */
     public List<ObjectLambdaAccessPointConfigurationTransformationConfiguration> transformationConfigurations() {
         return this.transformationConfigurations;
     }

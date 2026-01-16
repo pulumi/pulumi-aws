@@ -7,20 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * The ECR Repository Creation Template data source allows the template details to be retrieved for a Repository Creation Template.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ecr.getRepositoryCreationTemplate({
- *     prefix: "example",
- * });
- * ```
- */
 export function getRepositoryCreationTemplate(args: GetRepositoryCreationTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryCreationTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecr/getRepositoryCreationTemplate:getRepositoryCreationTemplate", {
@@ -34,17 +20,8 @@ export function getRepositoryCreationTemplate(args: GetRepositoryCreationTemplat
  * A collection of arguments for invoking getRepositoryCreationTemplate.
  */
 export interface GetRepositoryCreationTemplateArgs {
-    /**
-     * The repository name prefix that the template matches against.
-     */
     prefix: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * A map of tags to assign to any created repositories.
-     */
     resourceTags?: {[key: string]: string};
 }
 
@@ -52,67 +29,23 @@ export interface GetRepositoryCreationTemplateArgs {
  * A collection of values returned by getRepositoryCreationTemplate.
  */
 export interface GetRepositoryCreationTemplateResult {
-    /**
-     * Which features this template applies to. Contains one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
-     */
     readonly appliedFors: string[];
-    /**
-     * The ARN of the custom role used for repository creation.
-     */
     readonly customRoleArn: string;
-    /**
-     * The description for this template.
-     */
     readonly description: string;
-    /**
-     * Encryption configuration for any created repositories. See Encryption Configuration below.
-     */
     readonly encryptionConfigurations: outputs.ecr.GetRepositoryCreationTemplateEncryptionConfiguration[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * The tag mutability setting for any created repositories.
-     */
     readonly imageTagMutability: string;
-    /**
-     * Block that defines filters to specify which image tags can override the default tag mutability setting.
-     */
     readonly imageTagMutabilityExclusionFilters: outputs.ecr.GetRepositoryCreationTemplateImageTagMutabilityExclusionFilter[];
-    /**
-     * The lifecycle policy document to apply to any created repositories.
-     */
     readonly lifecyclePolicy: string;
     readonly prefix: string;
     readonly region: string;
-    /**
-     * The registry ID the repository creation template applies to.
-     */
     readonly registryId: string;
-    /**
-     * The registry policy document to apply to any created repositories.
-     */
     readonly repositoryPolicy: string;
-    /**
-     * A map of tags to assign to any created repositories.
-     */
     readonly resourceTags: {[key: string]: string};
 }
-/**
- * The ECR Repository Creation Template data source allows the template details to be retrieved for a Repository Creation Template.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ecr.getRepositoryCreationTemplate({
- *     prefix: "example",
- * });
- * ```
- */
 export function getRepositoryCreationTemplateOutput(args: GetRepositoryCreationTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRepositoryCreationTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ecr/getRepositoryCreationTemplate:getRepositoryCreationTemplate", {
@@ -126,16 +59,7 @@ export function getRepositoryCreationTemplateOutput(args: GetRepositoryCreationT
  * A collection of arguments for invoking getRepositoryCreationTemplate.
  */
 export interface GetRepositoryCreationTemplateOutputArgs {
-    /**
-     * The repository name prefix that the template matches against.
-     */
     prefix: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to any created repositories.
-     */
     resourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -7,17 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AWS Cognito Identity Pool Roles Attachment.
- *
- * ## Import
- *
- * Using `pulumi import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID. For example:
- *
- * ```sh
- * $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42
- * ```
- */
 export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
     /**
      * Get an existing IdentityPoolRoleAttachment resource's state with the given name, ID, and optional extra
@@ -46,21 +35,9 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === IdentityPoolRoleAttachment.__pulumiType;
     }
 
-    /**
-     * An identity pool ID in the format `REGION_GUID`.
-     */
     declare public readonly identityPoolId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A List of Role Mapping.
-     */
     declare public readonly roleMappings: pulumi.Output<outputs.cognito.IdentityPoolRoleAttachmentRoleMapping[] | undefined>;
-    /**
-     * The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-     */
     declare public readonly roles: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -102,21 +79,9 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IdentityPoolRoleAttachment resources.
  */
 export interface IdentityPoolRoleAttachmentState {
-    /**
-     * An identity pool ID in the format `REGION_GUID`.
-     */
     identityPoolId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A List of Role Mapping.
-     */
     roleMappings?: pulumi.Input<pulumi.Input<inputs.cognito.IdentityPoolRoleAttachmentRoleMapping>[]>;
-    /**
-     * The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-     */
     roles?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -124,20 +89,8 @@ export interface IdentityPoolRoleAttachmentState {
  * The set of arguments for constructing a IdentityPoolRoleAttachment resource.
  */
 export interface IdentityPoolRoleAttachmentArgs {
-    /**
-     * An identity pool ID in the format `REGION_GUID`.
-     */
     identityPoolId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A List of Role Mapping.
-     */
     roleMappings?: pulumi.Input<pulumi.Input<inputs.cognito.IdentityPoolRoleAttachmentRoleMapping>[]>;
-    /**
-     * The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-     */
     roles: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

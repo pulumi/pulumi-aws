@@ -12,89 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Managed Streaming for Kafka Cluster Policy.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/msk"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Sid":    "ExampleMskClusterPolicy",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentGetPartition.Partition, current.AccountId),
-//						},
-//						"Action": []string{
-//							"kafka:Describe*",
-//							"kafka:Get*",
-//							"kafka:CreateVpcConnection",
-//							"kafka:GetBootstrapBrokers",
-//						},
-//						"Resource": exampleAwsMskCluster.Arn,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = msk.NewClusterPolicy(ctx, "example", &msk.ClusterPolicyArgs{
-//				ClusterArn: pulumi.Any(exampleAwsMskCluster.Arn),
-//				Policy:     pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Managed Streaming for Kafka Cluster Policy using the `cluster_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:msk/clusterPolicy:ClusterPolicy example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
-// ```
 type ClusterPolicy struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 	ClusterArn     pulumi.StringOutput `pulumi:"clusterArn"`
 	CurrentVersion pulumi.StringOutput `pulumi:"currentVersion"`
-	// Resource policy for cluster.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Policy         pulumi.StringOutput `pulumi:"policy"`
+	Region         pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewClusterPolicy registers a new resource with the given unique name, arguments, and options.
@@ -133,23 +57,17 @@ func GetClusterPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ClusterPolicy resources.
 type clusterPolicyState struct {
-	// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 	ClusterArn     *string `pulumi:"clusterArn"`
 	CurrentVersion *string `pulumi:"currentVersion"`
-	// Resource policy for cluster.
-	Policy *string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Policy         *string `pulumi:"policy"`
+	Region         *string `pulumi:"region"`
 }
 
 type ClusterPolicyState struct {
-	// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 	ClusterArn     pulumi.StringPtrInput
 	CurrentVersion pulumi.StringPtrInput
-	// Resource policy for cluster.
-	Policy pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Policy         pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
 }
 
 func (ClusterPolicyState) ElementType() reflect.Type {
@@ -157,22 +75,16 @@ func (ClusterPolicyState) ElementType() reflect.Type {
 }
 
 type clusterPolicyArgs struct {
-	// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
-	ClusterArn string `pulumi:"clusterArn"`
-	// Resource policy for cluster.
-	Policy string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	ClusterArn string  `pulumi:"clusterArn"`
+	Policy     string  `pulumi:"policy"`
+	Region     *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ClusterPolicy resource.
 type ClusterPolicyArgs struct {
-	// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 	ClusterArn pulumi.StringInput
-	// Resource policy for cluster.
-	Policy pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Policy     pulumi.StringInput
+	Region     pulumi.StringPtrInput
 }
 
 func (ClusterPolicyArgs) ElementType() reflect.Type {
@@ -262,7 +174,6 @@ func (o ClusterPolicyOutput) ToClusterPolicyOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 func (o ClusterPolicyOutput) ClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterPolicy) pulumi.StringOutput { return v.ClusterArn }).(pulumi.StringOutput)
 }
@@ -271,12 +182,10 @@ func (o ClusterPolicyOutput) CurrentVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterPolicy) pulumi.StringOutput { return v.CurrentVersion }).(pulumi.StringOutput)
 }
 
-// Resource policy for cluster.
 func (o ClusterPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ClusterPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

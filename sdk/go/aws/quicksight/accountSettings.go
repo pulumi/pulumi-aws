@@ -11,63 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS QuickSight Account Settings.
-//
-// > Deletion of this resource will not modify any settings, only remove the resource from state.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			subscription, err := quicksight.NewAccountSubscription(ctx, "subscription", &quicksight.AccountSubscriptionArgs{
-//				AccountName:          pulumi.String("quicksight-terraform"),
-//				AuthenticationMethod: pulumi.String("IAM_AND_QUICKSIGHT"),
-//				Edition:              pulumi.String("ENTERPRISE"),
-//				NotificationEmail:    pulumi.String("notification@email.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = quicksight.NewAccountSettings(ctx, "example", &quicksight.AccountSettingsArgs{
-//				TerminationProtectionEnabled: pulumi.Bool(false),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				subscription,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import QuickSight Account Settings using the AWS account ID. For example:
-//
-// ```sh
-// $ pulumi import aws:quicksight/accountSettings:AccountSettings example "012345678901"
-// ```
 type AccountSettings struct {
 	pulumi.CustomResourceState
 
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// The default namespace for this Amazon Web Services account. Currently, the default is `default`.
-	DefaultNamespace pulumi.StringOutput `pulumi:"defaultNamespace"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
+	AwsAccountId                 pulumi.StringOutput              `pulumi:"awsAccountId"`
+	DefaultNamespace             pulumi.StringOutput              `pulumi:"defaultNamespace"`
+	Region                       pulumi.StringOutput              `pulumi:"region"`
 	TerminationProtectionEnabled pulumi.BoolOutput                `pulumi:"terminationProtectionEnabled"`
 	Timeouts                     AccountSettingsTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -102,23 +51,17 @@ func GetAccountSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccountSettings resources.
 type accountSettingsState struct {
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The default namespace for this Amazon Web Services account. Currently, the default is `default`.
-	DefaultNamespace *string `pulumi:"defaultNamespace"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
+	AwsAccountId                 *string                  `pulumi:"awsAccountId"`
+	DefaultNamespace             *string                  `pulumi:"defaultNamespace"`
+	Region                       *string                  `pulumi:"region"`
 	TerminationProtectionEnabled *bool                    `pulumi:"terminationProtectionEnabled"`
 	Timeouts                     *AccountSettingsTimeouts `pulumi:"timeouts"`
 }
 
 type AccountSettingsState struct {
-	AwsAccountId pulumi.StringPtrInput
-	// The default namespace for this Amazon Web Services account. Currently, the default is `default`.
-	DefaultNamespace pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
+	AwsAccountId                 pulumi.StringPtrInput
+	DefaultNamespace             pulumi.StringPtrInput
+	Region                       pulumi.StringPtrInput
 	TerminationProtectionEnabled pulumi.BoolPtrInput
 	Timeouts                     AccountSettingsTimeoutsPtrInput
 }
@@ -128,24 +71,18 @@ func (AccountSettingsState) ElementType() reflect.Type {
 }
 
 type accountSettingsArgs struct {
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The default namespace for this Amazon Web Services account. Currently, the default is `default`.
-	DefaultNamespace *string `pulumi:"defaultNamespace"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
+	AwsAccountId                 *string                  `pulumi:"awsAccountId"`
+	DefaultNamespace             *string                  `pulumi:"defaultNamespace"`
+	Region                       *string                  `pulumi:"region"`
 	TerminationProtectionEnabled *bool                    `pulumi:"terminationProtectionEnabled"`
 	Timeouts                     *AccountSettingsTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a AccountSettings resource.
 type AccountSettingsArgs struct {
-	AwsAccountId pulumi.StringPtrInput
-	// The default namespace for this Amazon Web Services account. Currently, the default is `default`.
-	DefaultNamespace pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
+	AwsAccountId                 pulumi.StringPtrInput
+	DefaultNamespace             pulumi.StringPtrInput
+	Region                       pulumi.StringPtrInput
 	TerminationProtectionEnabled pulumi.BoolPtrInput
 	Timeouts                     AccountSettingsTimeoutsPtrInput
 }
@@ -241,17 +178,14 @@ func (o AccountSettingsOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSettings) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// The default namespace for this Amazon Web Services account. Currently, the default is `default`.
 func (o AccountSettingsOutput) DefaultNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSettings) pulumi.StringOutput { return v.DefaultNamespace }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AccountSettingsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSettings) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
 func (o AccountSettingsOutput) TerminationProtectionEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AccountSettings) pulumi.BoolOutput { return v.TerminationProtectionEnabled }).(pulumi.BoolOutput)
 }

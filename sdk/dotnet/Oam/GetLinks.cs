@@ -11,72 +11,12 @@ namespace Pulumi.Aws.Oam
 {
     public static class GetLinks
     {
-        /// <summary>
-        /// Data source for managing an AWS CloudWatch Observability Access Manager Links.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Oam.GetLinks.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetLinksResult> InvokeAsync(GetLinksArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinksResult>("aws:oam/getLinks:getLinks", args ?? new GetLinksArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS CloudWatch Observability Access Manager Links.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Oam.GetLinks.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetLinksResult> Invoke(GetLinksInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinksResult>("aws:oam/getLinks:getLinks", args ?? new GetLinksInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS CloudWatch Observability Access Manager Links.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Oam.GetLinks.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetLinksResult> Invoke(GetLinksInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinksResult>("aws:oam/getLinks:getLinks", args ?? new GetLinksInvokeArgs(), options.WithDefaults());
     }
@@ -84,9 +24,6 @@ namespace Pulumi.Aws.Oam
 
     public sealed class GetLinksArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -98,9 +35,6 @@ namespace Pulumi.Aws.Oam
 
     public sealed class GetLinksInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -114,9 +48,6 @@ namespace Pulumi.Aws.Oam
     [OutputType]
     public sealed class GetLinksResult
     {
-        /// <summary>
-        /// Set of ARN of the Links.
-        /// </summary>
         public readonly ImmutableArray<string> Arns;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

@@ -14,32 +14,16 @@ public final class VectorsIndexEncryptionConfigurationArgs extends com.pulumi.re
 
     public static final VectorsIndexEncryptionConfigurationArgs Empty = new VectorsIndexEncryptionConfigurationArgs();
 
-    /**
-     * AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
-     * 
-     */
     @Import(name="kmsKeyArn", required=true)
     private Output<String> kmsKeyArn;
 
-    /**
-     * @return AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
-     * 
-     */
     public Output<String> kmsKeyArn() {
         return this.kmsKeyArn;
     }
 
-    /**
-     * Type of encryption to use. Valid values: `AES256`, `aws:kms`. Defaults to `AES256`.
-     * 
-     */
     @Import(name="sseType", required=true)
     private Output<String> sseType;
 
-    /**
-     * @return Type of encryption to use. Valid values: `AES256`, `aws:kms`. Defaults to `AES256`.
-     * 
-     */
     public Output<String> sseType() {
         return this.sseType;
     }
@@ -69,44 +53,20 @@ public final class VectorsIndexEncryptionConfigurationArgs extends com.pulumi.re
             $ = new VectorsIndexEncryptionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsKeyArn AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
-        /**
-         * @param kmsKeyArn AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }
 
-        /**
-         * @param sseType Type of encryption to use. Valid values: `AES256`, `aws:kms`. Defaults to `AES256`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sseType(Output<String> sseType) {
             $.sseType = sseType;
             return this;
         }
 
-        /**
-         * @param sseType Type of encryption to use. Valid values: `AES256`, `aws:kms`. Defaults to `AES256`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sseType(String sseType) {
             return sseType(Output.of(sseType));
         }

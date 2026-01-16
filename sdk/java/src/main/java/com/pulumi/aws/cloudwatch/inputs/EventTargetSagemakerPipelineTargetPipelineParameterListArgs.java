@@ -14,32 +14,16 @@ public final class EventTargetSagemakerPipelineTargetPipelineParameterListArgs e
 
     public static final EventTargetSagemakerPipelineTargetPipelineParameterListArgs Empty = new EventTargetSagemakerPipelineTargetPipelineParameterListArgs();
 
-    /**
-     * Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -69,44 +53,20 @@ public final class EventTargetSagemakerPipelineTargetPipelineParameterListArgs e
             $ = new EventTargetSagemakerPipelineTargetPipelineParameterListArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param value Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

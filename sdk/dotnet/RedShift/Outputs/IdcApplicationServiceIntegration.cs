@@ -13,17 +13,8 @@ namespace Pulumi.Aws.RedShift.Outputs
     [OutputType]
     public sealed class IdcApplicationServiceIntegration
     {
-        /// <summary>
-        /// List of scopes set up for Lake Formation integration. Refer to the LakeFormation documentation for more details.
-        /// </summary>
         public readonly Outputs.IdcApplicationServiceIntegrationLakeFormation? LakeFormation;
-        /// <summary>
-        /// List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
-        /// </summary>
         public readonly Outputs.IdcApplicationServiceIntegrationRedshift? Redshift;
-        /// <summary>
-        /// List of scopes set up for S3 Access Grants integration. Refer to the S3AccessGrants documentation for more details.
-        /// </summary>
         public readonly Outputs.IdcApplicationServiceIntegrationS3AccessGrants? S3AccessGrants;
 
         [OutputConstructor]

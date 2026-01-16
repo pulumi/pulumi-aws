@@ -14,77 +14,37 @@ public final class TopicRuleElasticsearchArgs extends com.pulumi.resources.Resou
 
     public static final TopicRuleElasticsearchArgs Empty = new TopicRuleElasticsearchArgs();
 
-    /**
-     * The endpoint of your Elasticsearch domain.
-     * 
-     */
     @Import(name="endpoint", required=true)
     private Output<String> endpoint;
 
-    /**
-     * @return The endpoint of your Elasticsearch domain.
-     * 
-     */
     public Output<String> endpoint() {
         return this.endpoint;
     }
 
-    /**
-     * The unique identifier for the document you are storing.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return The unique identifier for the document you are storing.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
 
-    /**
-     * The Elasticsearch index where you want to store your data.
-     * 
-     */
     @Import(name="index", required=true)
     private Output<String> index;
 
-    /**
-     * @return The Elasticsearch index where you want to store your data.
-     * 
-     */
     public Output<String> index() {
         return this.index;
     }
 
-    /**
-     * The IAM role ARN that has access to Elasticsearch.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The IAM role ARN that has access to Elasticsearch.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
 
-    /**
-     * The type of document you are storing.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The type of document you are storing.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -117,107 +77,47 @@ public final class TopicRuleElasticsearchArgs extends com.pulumi.resources.Resou
             $ = new TopicRuleElasticsearchArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param endpoint The endpoint of your Elasticsearch domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoint(Output<String> endpoint) {
             $.endpoint = endpoint;
             return this;
         }
 
-        /**
-         * @param endpoint The endpoint of your Elasticsearch domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
         }
 
-        /**
-         * @param id The unique identifier for the document you are storing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id The unique identifier for the document you are storing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param index The Elasticsearch index where you want to store your data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder index(Output<String> index) {
             $.index = index;
             return this;
         }
 
-        /**
-         * @param index The Elasticsearch index where you want to store your data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder index(String index) {
             return index(Output.of(index));
         }
 
-        /**
-         * @param roleArn The IAM role ARN that has access to Elasticsearch.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The IAM role ARN that has access to Elasticsearch.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param type The type of document you are storing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of document you are storing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
     {
         [Input("withKeys", required: true)]
         private InputList<string>? _withKeys;
-
-        /// <summary>
-        /// Specifies the keys of the fields to trim.
-        /// </summary>
         public InputList<string> WithKeys
         {
             get => _withKeys ?? (_withKeys = new InputList<string>());

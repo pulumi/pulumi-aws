@@ -17,32 +17,16 @@ public final class CertificateAuthorityRevocationConfigurationOcspConfigurationA
 
     public static final CertificateAuthorityRevocationConfigurationOcspConfigurationArgs Empty = new CertificateAuthorityRevocationConfigurationOcspConfigurationArgs();
 
-    /**
-     * Boolean value that specifies whether a custom OCSP responder is enabled.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Boolean value that specifies whether a custom OCSP responder is enabled.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
 
-    /**
-     * CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as &#34;http://&#34; or &#34;https://&#34;.
-     * 
-     */
     @Import(name="ocspCustomCname")
     private @Nullable Output<String> ocspCustomCname;
 
-    /**
-     * @return CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as &#34;http://&#34; or &#34;https://&#34;.
-     * 
-     */
     public Optional<Output<String>> ocspCustomCname() {
         return Optional.ofNullable(this.ocspCustomCname);
     }
@@ -72,44 +56,20 @@ public final class CertificateAuthorityRevocationConfigurationOcspConfigurationA
             $ = new CertificateAuthorityRevocationConfigurationOcspConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Boolean value that specifies whether a custom OCSP responder is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Boolean value that specifies whether a custom OCSP responder is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param ocspCustomCname CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as &#34;http://&#34; or &#34;https://&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ocspCustomCname(@Nullable Output<String> ocspCustomCname) {
             $.ocspCustomCname = ocspCustomCname;
             return this;
         }
 
-        /**
-         * @param ocspCustomCname CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as &#34;http://&#34; or &#34;https://&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ocspCustomCname(String ocspCustomCname) {
             return ocspCustomCname(Output.of(ocspCustomCname));
         }

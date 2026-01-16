@@ -12,49 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker AI projects.
-//
-// ## Example Usage
-//
-// Usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewServicecatalogPortfolioStatus(ctx, "example", &sagemaker.ServicecatalogPortfolioStatusArgs{
-//				Status: pulumi.String("Enabled"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import models using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus example us-east-1
-// ```
 type ServicecatalogPortfolioStatus struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
 	Status pulumi.StringOutput `pulumi:"status"`
 }
 
@@ -91,16 +52,12 @@ func GetServicecatalogPortfolioStatus(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServicecatalogPortfolioStatus resources.
 type servicecatalogPortfolioStatusState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
 	Status *string `pulumi:"status"`
 }
 
 type ServicecatalogPortfolioStatusState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
 	Status pulumi.StringPtrInput
 }
 
@@ -109,17 +66,13 @@ func (ServicecatalogPortfolioStatusState) ElementType() reflect.Type {
 }
 
 type servicecatalogPortfolioStatusArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
-	Status string `pulumi:"status"`
+	Status string  `pulumi:"status"`
 }
 
 // The set of arguments for constructing a ServicecatalogPortfolioStatus resource.
 type ServicecatalogPortfolioStatusArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
 	Status pulumi.StringInput
 }
 
@@ -210,12 +163,10 @@ func (o ServicecatalogPortfolioStatusOutput) ToServicecatalogPortfolioStatusOutp
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ServicecatalogPortfolioStatusOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServicecatalogPortfolioStatus) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
 func (o ServicecatalogPortfolioStatusOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServicecatalogPortfolioStatus) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

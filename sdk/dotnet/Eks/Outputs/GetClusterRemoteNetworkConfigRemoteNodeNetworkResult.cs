@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class GetClusterRemoteNetworkConfigRemoteNodeNetworkResult
     {
-        /// <summary>
-        /// List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
-        /// </summary>
         public readonly ImmutableArray<string> Cidrs;
 
         [OutputConstructor]

@@ -17,190 +17,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Athena Workgroup.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.athena.Workgroup;
- * import com.pulumi.aws.athena.WorkgroupArgs;
- * import com.pulumi.aws.athena.inputs.WorkgroupConfigurationArgs;
- * import com.pulumi.aws.athena.inputs.WorkgroupConfigurationResultConfigurationArgs;
- * import com.pulumi.aws.athena.inputs.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Workgroup("example", WorkgroupArgs.builder()
- *             .name("example")
- *             .configuration(WorkgroupConfigurationArgs.builder()
- *                 .enforceWorkgroupConfiguration(true)
- *                 .publishCloudwatchMetricsEnabled(true)
- *                 .resultConfiguration(WorkgroupConfigurationResultConfigurationArgs.builder()
- *                     .outputLocation(String.format("s3://%s/output/", exampleAwsS3Bucket.bucket()))
- *                     .encryptionConfiguration(WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs.builder()
- *                         .encryptionOption("SSE_KMS")
- *                         .kmsKeyArn(exampleAwsKmsKey.arn())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Athena Workgroups using their name. For example:
- * 
- * ```sh
- * $ pulumi import aws:athena/workgroup:Workgroup example example
- * ```
- * 
- */
 @ResourceType(type="aws:athena/workgroup:Workgroup")
 public class Workgroup extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the workgroup
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the workgroup
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Configuration block with various settings for the workgroup. Documented below.
-     * 
-     */
     @Export(name="configuration", refs={WorkgroupConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ WorkgroupConfiguration> configuration;
 
-    /**
-     * @return Configuration block with various settings for the workgroup. Documented below.
-     * 
-     */
     public Output<Optional<WorkgroupConfiguration>> configuration() {
         return Codegen.optional(this.configuration);
     }
-    /**
-     * Description of the workgroup.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the workgroup.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Option to delete the workgroup and its contents even if the workgroup contains any named queries.
-     * 
-     */
     @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDestroy;
 
-    /**
-     * @return Option to delete the workgroup and its contents even if the workgroup contains any named queries.
-     * 
-     */
     public Output<Optional<Boolean>> forceDestroy() {
         return Codegen.optional(this.forceDestroy);
     }
-    /**
-     * Name of the workgroup.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the workgroup.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
-     * 
-     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
-    /**
-     * @return State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
-     * 
-     */
     public Output<Optional<String>> state() {
         return Codegen.optional(this.state);
     }
-    /**
-     * Key-value map of resource tags for the workgroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags for the workgroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

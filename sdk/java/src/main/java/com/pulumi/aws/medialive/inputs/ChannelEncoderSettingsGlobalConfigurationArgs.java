@@ -17,92 +17,44 @@ public final class ChannelEncoderSettingsGlobalConfigurationArgs extends com.pul
 
     public static final ChannelEncoderSettingsGlobalConfigurationArgs Empty = new ChannelEncoderSettingsGlobalConfigurationArgs();
 
-    /**
-     * Value to set the initial audio gain for the Live Event.
-     * 
-     */
     @Import(name="initialAudioGain")
     private @Nullable Output<Integer> initialAudioGain;
 
-    /**
-     * @return Value to set the initial audio gain for the Live Event.
-     * 
-     */
     public Optional<Output<Integer>> initialAudioGain() {
         return Optional.ofNullable(this.initialAudioGain);
     }
 
-    /**
-     * Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
-     * 
-     */
     @Import(name="inputEndAction")
     private @Nullable Output<String> inputEndAction;
 
-    /**
-     * @return Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
-     * 
-     */
     public Optional<Output<String>> inputEndAction() {
         return Optional.ofNullable(this.inputEndAction);
     }
 
-    /**
-     * Settings for system actions when input is lost. See Input Loss Behavior for more details.
-     * 
-     */
     @Import(name="inputLossBehavior")
     private @Nullable Output<ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs> inputLossBehavior;
 
-    /**
-     * @return Settings for system actions when input is lost. See Input Loss Behavior for more details.
-     * 
-     */
     public Optional<Output<ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs>> inputLossBehavior() {
         return Optional.ofNullable(this.inputLossBehavior);
     }
 
-    /**
-     * Indicates how MediaLive pipelines are synchronized. PIPELINE\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
-     * 
-     */
     @Import(name="outputLockingMode")
     private @Nullable Output<String> outputLockingMode;
 
-    /**
-     * @return Indicates how MediaLive pipelines are synchronized. PIPELINE\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
-     * 
-     */
     public Optional<Output<String>> outputLockingMode() {
         return Optional.ofNullable(this.outputLockingMode);
     }
 
-    /**
-     * Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
-     * 
-     */
     @Import(name="outputTimingSource")
     private @Nullable Output<String> outputTimingSource;
 
-    /**
-     * @return Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
-     * 
-     */
     public Optional<Output<String>> outputTimingSource() {
         return Optional.ofNullable(this.outputTimingSource);
     }
 
-    /**
-     * Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
-     * 
-     */
     @Import(name="supportLowFramerateInputs")
     private @Nullable Output<String> supportLowFramerateInputs;
 
-    /**
-     * @return Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
-     * 
-     */
     public Optional<Output<String>> supportLowFramerateInputs() {
         return Optional.ofNullable(this.supportLowFramerateInputs);
     }
@@ -136,128 +88,56 @@ public final class ChannelEncoderSettingsGlobalConfigurationArgs extends com.pul
             $ = new ChannelEncoderSettingsGlobalConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param initialAudioGain Value to set the initial audio gain for the Live Event.
-         * 
-         * @return builder
-         * 
-         */
         public Builder initialAudioGain(@Nullable Output<Integer> initialAudioGain) {
             $.initialAudioGain = initialAudioGain;
             return this;
         }
 
-        /**
-         * @param initialAudioGain Value to set the initial audio gain for the Live Event.
-         * 
-         * @return builder
-         * 
-         */
         public Builder initialAudioGain(Integer initialAudioGain) {
             return initialAudioGain(Output.of(initialAudioGain));
         }
 
-        /**
-         * @param inputEndAction Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputEndAction(@Nullable Output<String> inputEndAction) {
             $.inputEndAction = inputEndAction;
             return this;
         }
 
-        /**
-         * @param inputEndAction Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputEndAction(String inputEndAction) {
             return inputEndAction(Output.of(inputEndAction));
         }
 
-        /**
-         * @param inputLossBehavior Settings for system actions when input is lost. See Input Loss Behavior for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputLossBehavior(@Nullable Output<ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs> inputLossBehavior) {
             $.inputLossBehavior = inputLossBehavior;
             return this;
         }
 
-        /**
-         * @param inputLossBehavior Settings for system actions when input is lost. See Input Loss Behavior for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputLossBehavior(ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs inputLossBehavior) {
             return inputLossBehavior(Output.of(inputLossBehavior));
         }
 
-        /**
-         * @param outputLockingMode Indicates how MediaLive pipelines are synchronized. PIPELINE\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputLockingMode(@Nullable Output<String> outputLockingMode) {
             $.outputLockingMode = outputLockingMode;
             return this;
         }
 
-        /**
-         * @param outputLockingMode Indicates how MediaLive pipelines are synchronized. PIPELINE\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputLockingMode(String outputLockingMode) {
             return outputLockingMode(Output.of(outputLockingMode));
         }
 
-        /**
-         * @param outputTimingSource Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputTimingSource(@Nullable Output<String> outputTimingSource) {
             $.outputTimingSource = outputTimingSource;
             return this;
         }
 
-        /**
-         * @param outputTimingSource Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputTimingSource(String outputTimingSource) {
             return outputTimingSource(Output.of(outputTimingSource));
         }
 
-        /**
-         * @param supportLowFramerateInputs Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
-         * 
-         * @return builder
-         * 
-         */
         public Builder supportLowFramerateInputs(@Nullable Output<String> supportLowFramerateInputs) {
             $.supportLowFramerateInputs = supportLowFramerateInputs;
             return this;
         }
 
-        /**
-         * @param supportLowFramerateInputs Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
-         * 
-         * @return builder
-         * 
-         */
         public Builder supportLowFramerateInputs(String supportLowFramerateInputs) {
             return supportLowFramerateInputs(Output.of(supportLowFramerateInputs));
         }

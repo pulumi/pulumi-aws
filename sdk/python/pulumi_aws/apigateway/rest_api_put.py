@@ -30,14 +30,6 @@ class RestApiPutArgs:
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RestApiPut resource.
-        :param pulumi.Input[_builtins.str] body: PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
-        :param pulumi.Input[_builtins.str] rest_api_id: Identifier of the associated REST API.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] fail_on_warnings: Whether to rollback the API update when a warning is encountered. The default value is `false`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
         """
         pulumi.set(__self__, "body", body)
         pulumi.set(__self__, "rest_api_id", rest_api_id)
@@ -55,9 +47,6 @@ class RestApiPutArgs:
     @_builtins.property
     @pulumi.getter
     def body(self) -> pulumi.Input[_builtins.str]:
-        """
-        PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
-        """
         return pulumi.get(self, "body")
 
     @body.setter
@@ -67,11 +56,6 @@ class RestApiPutArgs:
     @_builtins.property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of the associated REST API.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "rest_api_id")
 
     @rest_api_id.setter
@@ -81,9 +65,6 @@ class RestApiPutArgs:
     @_builtins.property
     @pulumi.getter(name="failOnWarnings")
     def fail_on_warnings(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to rollback the API update when a warning is encountered. The default value is `false`.
-        """
         return pulumi.get(self, "fail_on_warnings")
 
     @fail_on_warnings.setter
@@ -93,9 +74,6 @@ class RestApiPutArgs:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -105,9 +83,6 @@ class RestApiPutArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -126,9 +101,6 @@ class RestApiPutArgs:
     @_builtins.property
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
-        """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
@@ -148,14 +120,6 @@ class _RestApiPutState:
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RestApiPut resources.
-        :param pulumi.Input[_builtins.str] body: PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
-        :param pulumi.Input[_builtins.bool] fail_on_warnings: Whether to rollback the API update when a warning is encountered. The default value is `false`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rest_api_id: Identifier of the associated REST API.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
         """
         if body is not None:
             pulumi.set(__self__, "body", body)
@@ -175,9 +139,6 @@ class _RestApiPutState:
     @_builtins.property
     @pulumi.getter
     def body(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
-        """
         return pulumi.get(self, "body")
 
     @body.setter
@@ -187,9 +148,6 @@ class _RestApiPutState:
     @_builtins.property
     @pulumi.getter(name="failOnWarnings")
     def fail_on_warnings(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to rollback the API update when a warning is encountered. The default value is `false`.
-        """
         return pulumi.get(self, "fail_on_warnings")
 
     @fail_on_warnings.setter
@@ -199,9 +157,6 @@ class _RestApiPutState:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -211,9 +166,6 @@ class _RestApiPutState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -223,11 +175,6 @@ class _RestApiPutState:
     @_builtins.property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the associated REST API.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "rest_api_id")
 
     @rest_api_id.setter
@@ -246,9 +193,6 @@ class _RestApiPutState:
     @_builtins.property
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
-        """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
@@ -271,67 +215,9 @@ class RestApiPut(pulumi.CustomResource):
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.apigateway.RestApiPut("example",
-            body=json.dumps({
-                "swagger": "2.0",
-                "info": {
-                    "title": "Example API",
-                    "version": "v1",
-                },
-                "schemes": ["https"],
-                "paths": {
-                    "/example": {
-                        "get": {
-                            "responses": {
-                                "200": {
-                                    "description": "OK",
-                                },
-                            },
-                            "x-amazon-apigateway-integration": {
-                                "httpMethod": "GET",
-                                "type": "HTTP",
-                                "responses": {
-                                    "default": {
-                                        "statusCode": 200,
-                                    },
-                                },
-                                "uri": "https://api.example.com/",
-                            },
-                        },
-                    },
-                },
-            }),
-            fail_on_warnings=True,
-            rest_api_id=example_aws_api_gateway_rest_api["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import API Gateway REST API Put using the `rest_api_id`. For example:
-
-        ```sh
-        $ pulumi import aws:apigateway/restApiPut:RestApiPut example import-id-12345678
-        ```
-
+        Create a RestApiPut resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] body: PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
-        :param pulumi.Input[_builtins.bool] fail_on_warnings: Whether to rollback the API update when a warning is encountered. The default value is `false`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rest_api_id: Identifier of the associated REST API.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
         """
         ...
     @overload
@@ -340,57 +226,7 @@ class RestApiPut(pulumi.CustomResource):
                  args: RestApiPutArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.apigateway.RestApiPut("example",
-            body=json.dumps({
-                "swagger": "2.0",
-                "info": {
-                    "title": "Example API",
-                    "version": "v1",
-                },
-                "schemes": ["https"],
-                "paths": {
-                    "/example": {
-                        "get": {
-                            "responses": {
-                                "200": {
-                                    "description": "OK",
-                                },
-                            },
-                            "x-amazon-apigateway-integration": {
-                                "httpMethod": "GET",
-                                "type": "HTTP",
-                                "responses": {
-                                    "default": {
-                                        "statusCode": 200,
-                                    },
-                                },
-                                "uri": "https://api.example.com/",
-                            },
-                        },
-                    },
-                },
-            }),
-            fail_on_warnings=True,
-            rest_api_id=example_aws_api_gateway_rest_api["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import API Gateway REST API Put using the `rest_api_id`. For example:
-
-        ```sh
-        $ pulumi import aws:apigateway/restApiPut:RestApiPut example import-id-12345678
-        ```
-
+        Create a RestApiPut resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RestApiPutArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -457,14 +293,6 @@ class RestApiPut(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] body: PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
-        :param pulumi.Input[_builtins.bool] fail_on_warnings: Whether to rollback the API update when a warning is encountered. The default value is `false`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rest_api_id: Identifier of the associated REST API.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -482,43 +310,26 @@ class RestApiPut(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def body(self) -> pulumi.Output[_builtins.str]:
-        """
-        PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
-        """
         return pulumi.get(self, "body")
 
     @_builtins.property
     @pulumi.getter(name="failOnWarnings")
     def fail_on_warnings(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether to rollback the API update when a warning is encountered. The default value is `false`.
-        """
         return pulumi.get(self, "fail_on_warnings")
 
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
-        """
         return pulumi.get(self, "parameters")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of the associated REST API.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "rest_api_id")
 
     @_builtins.property
@@ -529,8 +340,5 @@ class RestApiPut(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def triggers(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
-        """
         return pulumi.get(self, "triggers")
 

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GameServerGroupAutoScalingPolicyTargetTrackingConfiguration {
-    /**
-     * @return Desired value to use with a game server group target-based scaling policy.
-     * 
-     */
     private Double targetValue;
 
     private GameServerGroupAutoScalingPolicyTargetTrackingConfiguration() {}
-    /**
-     * @return Desired value to use with a game server group target-based scaling policy.
-     * 
-     */
     public Double targetValue() {
         return this.targetValue;
     }

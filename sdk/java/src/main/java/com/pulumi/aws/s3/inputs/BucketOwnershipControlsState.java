@@ -16,47 +16,23 @@ public final class BucketOwnershipControlsState extends com.pulumi.resources.Res
 
     public static final BucketOwnershipControlsState Empty = new BucketOwnershipControlsState();
 
-    /**
-     * Name of the bucket that you want to associate this access point with.
-     * 
-     */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
-    /**
-     * @return Name of the bucket that you want to associate this access point with.
-     * 
-     */
     public Optional<Output<String>> bucket() {
         return Optional.ofNullable(this.bucket);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Configuration block(s) with Ownership Controls rules. Detailed below.
-     * 
-     */
     @Import(name="rule")
     private @Nullable Output<BucketOwnershipControlsRuleArgs> rule;
 
-    /**
-     * @return Configuration block(s) with Ownership Controls rules. Detailed below.
-     * 
-     */
     public Optional<Output<BucketOwnershipControlsRuleArgs>> rule() {
         return Optional.ofNullable(this.rule);
     }
@@ -87,65 +63,29 @@ public final class BucketOwnershipControlsState extends com.pulumi.resources.Res
             $ = new BucketOwnershipControlsState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket Name of the bucket that you want to associate this access point with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(@Nullable Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket Name of the bucket that you want to associate this access point with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param rule Configuration block(s) with Ownership Controls rules. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rule(@Nullable Output<BucketOwnershipControlsRuleArgs> rule) {
             $.rule = rule;
             return this;
         }
 
-        /**
-         * @param rule Configuration block(s) with Ownership Controls rules. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rule(BucketOwnershipControlsRuleArgs rule) {
             return rule(Output.of(rule));
         }

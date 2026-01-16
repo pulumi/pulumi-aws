@@ -7,35 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Verified Permissions Policy.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.verifiedpermissions.Policy("test", {
- *     policyStoreId: testAwsVerifiedpermissionsPolicyStore.id,
- *     definition: {
- *         static: {
- *             statement: "permit (principal, action == Action::\"view\", resource in Album:: \"test_album\");",
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Verified Permissions Policy using the `policy_id,policy_store_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:verifiedpermissions/policy:Policy example policy-id-12345678,policy-store-id-12345678
- * ```
- */
 export class Policy extends pulumi.CustomResource {
     /**
      * Get an existing Policy resource's state with the given name, ID, and optional extra
@@ -64,25 +35,10 @@ export class Policy extends pulumi.CustomResource {
         return obj['__pulumiType'] === Policy.__pulumiType;
     }
 
-    /**
-     * The date the policy was created.
-     */
     declare public /*out*/ readonly createdDate: pulumi.Output<string>;
-    /**
-     * The definition of the policy. See Definition below.
-     */
     declare public readonly definition: pulumi.Output<outputs.verifiedpermissions.PolicyDefinition | undefined>;
-    /**
-     * The Policy ID of the policy.
-     */
     declare public /*out*/ readonly policyId: pulumi.Output<string>;
-    /**
-     * The Policy Store ID of the policy store.
-     */
     declare public readonly policyStoreId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -123,25 +79,10 @@ export class Policy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Policy resources.
  */
 export interface PolicyState {
-    /**
-     * The date the policy was created.
-     */
     createdDate?: pulumi.Input<string>;
-    /**
-     * The definition of the policy. See Definition below.
-     */
     definition?: pulumi.Input<inputs.verifiedpermissions.PolicyDefinition>;
-    /**
-     * The Policy ID of the policy.
-     */
     policyId?: pulumi.Input<string>;
-    /**
-     * The Policy Store ID of the policy store.
-     */
     policyStoreId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -149,16 +90,7 @@ export interface PolicyState {
  * The set of arguments for constructing a Policy resource.
  */
 export interface PolicyArgs {
-    /**
-     * The definition of the policy. See Definition below.
-     */
     definition?: pulumi.Input<inputs.verifiedpermissions.PolicyDefinition>;
-    /**
-     * The Policy Store ID of the policy store.
-     */
     policyStoreId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

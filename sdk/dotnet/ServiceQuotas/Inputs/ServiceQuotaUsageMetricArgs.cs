@@ -14,31 +14,18 @@ namespace Pulumi.Aws.ServiceQuotas.Inputs
     {
         [Input("metricDimensions")]
         private InputList<Inputs.ServiceQuotaUsageMetricMetricDimensionArgs>? _metricDimensions;
-
-        /// <summary>
-        /// The metric dimensions.
-        /// </summary>
         public InputList<Inputs.ServiceQuotaUsageMetricMetricDimensionArgs> MetricDimensions
         {
             get => _metricDimensions ?? (_metricDimensions = new InputList<Inputs.ServiceQuotaUsageMetricMetricDimensionArgs>());
             set => _metricDimensions = value;
         }
 
-        /// <summary>
-        /// The name of the metric.
-        /// </summary>
         [Input("metricName")]
         public Input<string>? MetricName { get; set; }
 
-        /// <summary>
-        /// The namespace of the metric.
-        /// </summary>
         [Input("metricNamespace")]
         public Input<string>? MetricNamespace { get; set; }
 
-        /// <summary>
-        /// The metric statistic that AWS recommend you use when determining quota usage.
-        /// </summary>
         [Input("metricStatisticRecommendation")]
         public Input<string>? MetricStatisticRecommendation { get; set; }
 

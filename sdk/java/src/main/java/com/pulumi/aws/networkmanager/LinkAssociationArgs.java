@@ -14,47 +14,23 @@ public final class LinkAssociationArgs extends com.pulumi.resources.ResourceArgs
 
     public static final LinkAssociationArgs Empty = new LinkAssociationArgs();
 
-    /**
-     * ID of the device.
-     * 
-     */
     @Import(name="deviceId", required=true)
     private Output<String> deviceId;
 
-    /**
-     * @return ID of the device.
-     * 
-     */
     public Output<String> deviceId() {
         return this.deviceId;
     }
 
-    /**
-     * ID of the global network.
-     * 
-     */
     @Import(name="globalNetworkId", required=true)
     private Output<String> globalNetworkId;
 
-    /**
-     * @return ID of the global network.
-     * 
-     */
     public Output<String> globalNetworkId() {
         return this.globalNetworkId;
     }
 
-    /**
-     * ID of the link.
-     * 
-     */
     @Import(name="linkId", required=true)
     private Output<String> linkId;
 
-    /**
-     * @return ID of the link.
-     * 
-     */
     public Output<String> linkId() {
         return this.linkId;
     }
@@ -85,65 +61,29 @@ public final class LinkAssociationArgs extends com.pulumi.resources.ResourceArgs
             $ = new LinkAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param deviceId ID of the device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceId(Output<String> deviceId) {
             $.deviceId = deviceId;
             return this;
         }
 
-        /**
-         * @param deviceId ID of the device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceId(String deviceId) {
             return deviceId(Output.of(deviceId));
         }
 
-        /**
-         * @param globalNetworkId ID of the global network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(Output<String> globalNetworkId) {
             $.globalNetworkId = globalNetworkId;
             return this;
         }
 
-        /**
-         * @param globalNetworkId ID of the global network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(String globalNetworkId) {
             return globalNetworkId(Output.of(globalNetworkId));
         }
 
-        /**
-         * @param linkId ID of the link.
-         * 
-         * @return builder
-         * 
-         */
         public Builder linkId(Output<String> linkId) {
             $.linkId = linkId;
             return this;
         }
 
-        /**
-         * @param linkId ID of the link.
-         * 
-         * @return builder
-         * 
-         */
         public Builder linkId(String linkId) {
             return linkId(Output.of(linkId));
         }

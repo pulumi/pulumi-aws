@@ -14,119 +14,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Connects a custom domain name registered via `aws.apigateway.DomainName`
- * with a deployed API so that its methods can be called via the
- * custom domain name.
- * 
- * ## Import
- * 
- * For a non-root `base_path`:
- * 
- * For a non-root `base_path` and a private custom domain name:
- * 
- * Using `pulumi import`, import `aws_api_gateway_base_path_mapping` using the domain name and base path or domain name, base path and domain name ID (for private custom domain names). For example:
- * 
- * For an empty `base_path` or, in other words, a root path (`/`):
- * 
- * ```sh
- * $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
- * ```
- * For a non-root `base_path`:
- * 
- * ```sh
- * $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
- * ```
- * For a non-root `base_path` and a private custom domain name:
- * 
- * ```sh
- * $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example api.internal.example.com/base-path/abcde12345
- * ```
- * 
- */
 @ResourceType(type="aws:apigateway/basePathMapping:BasePathMapping")
 public class BasePathMapping extends com.pulumi.resources.CustomResource {
-    /**
-     * Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
-     * 
-     */
     @Export(name="basePath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> basePath;
 
-    /**
-     * @return Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
-     * 
-     */
     public Output<Optional<String>> basePath() {
         return Codegen.optional(this.basePath);
     }
-    /**
-     * Already-registered domain name to connect the API to.
-     * 
-     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
-    /**
-     * @return Already-registered domain name to connect the API to.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
-    /**
-     * The identifier for the domain name resource. Supported only for private custom domain names.
-     * 
-     */
     @Export(name="domainNameId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> domainNameId;
 
-    /**
-     * @return The identifier for the domain name resource. Supported only for private custom domain names.
-     * 
-     */
     public Output<Optional<String>> domainNameId() {
         return Codegen.optional(this.domainNameId);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ID of the API to connect.
-     * 
-     */
     @Export(name="restApi", refs={String.class}, tree="[0]")
     private Output<String> restApi;
 
-    /**
-     * @return ID of the API to connect.
-     * 
-     */
     public Output<String> restApi() {
         return this.restApi;
     }
-    /**
-     * Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
-     * 
-     */
     @Export(name="stageName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> stageName;
 
-    /**
-     * @return Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
-     * 
-     */
     public Output<Optional<String>> stageName() {
         return Codegen.optional(this.stageName);
     }

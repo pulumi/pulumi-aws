@@ -62,41 +62,26 @@ class GetServiceResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the service.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the service.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="dnsConfigs")
     def dns_configs(self) -> Sequence['outputs.GetServiceDnsConfigResult']:
-        """
-        Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
-        """
         return pulumi.get(self, "dns_configs")
 
     @_builtins.property
     @pulumi.getter(name="healthCheckConfigs")
     def health_check_configs(self) -> Sequence['outputs.GetServiceHealthCheckConfigResult']:
-        """
-        Complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
-        """
         return pulumi.get(self, "health_check_configs")
 
     @_builtins.property
     @pulumi.getter(name="healthCheckCustomConfigs")
     def health_check_custom_configs(self) -> Sequence['outputs.GetServiceHealthCheckCustomConfigResult']:
-        """
-        A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
-        """
         return pulumi.get(self, "health_check_custom_configs")
 
     @_builtins.property
@@ -115,9 +100,6 @@ class GetServiceResult:
     @_builtins.property
     @pulumi.getter(name="namespaceId")
     def namespace_id(self) -> _builtins.str:
-        """
-        ID of the namespace to use for DNS configuration.
-        """
         return pulumi.get(self, "namespace_id")
 
     @_builtins.property
@@ -128,9 +110,6 @@ class GetServiceResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -158,23 +137,7 @@ def get_service(name: Optional[_builtins.str] = None,
                 tags: Optional[Mapping[str, _builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-    Retrieves information about a Service Discovery Service.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.servicediscovery.get_service(name="example",
-        namespace_id="NAMESPACE_ID_VALUE")
-    ```
-
-
-    :param _builtins.str name: Name of the service.
-    :param _builtins.str namespace_id: ID of the namespace that the service belongs to.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -201,23 +164,7 @@ def get_service_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
-    Retrieves information about a Service Discovery Service.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.servicediscovery.get_service(name="example",
-        namespace_id="NAMESPACE_ID_VALUE")
-    ```
-
-
-    :param _builtins.str name: Name of the service.
-    :param _builtins.str namespace_id: ID of the namespace that the service belongs to.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

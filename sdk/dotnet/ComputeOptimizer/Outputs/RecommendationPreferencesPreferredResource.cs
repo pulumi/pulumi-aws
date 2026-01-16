@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ComputeOptimizer.Outputs
     [OutputType]
     public sealed class RecommendationPreferencesPreferredResource
     {
-        /// <summary>
-        /// The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported resources are included by default.
-        /// </summary>
         public readonly ImmutableArray<string> ExcludeLists;
-        /// <summary>
-        /// The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value, such as `"m5.large"`, or use wild card expressions, such as `"m5"`. If this isn’t specified, all supported resources are included by default.
-        /// </summary>
         public readonly ImmutableArray<string> IncludeLists;
         public readonly string Name;
 

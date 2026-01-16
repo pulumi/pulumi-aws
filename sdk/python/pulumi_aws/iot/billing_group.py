@@ -27,10 +27,6 @@ class BillingGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BillingGroup resource.
-        :param pulumi.Input[_builtins.str] name: The name of the Billing Group.
-        :param pulumi.Input['BillingGroupPropertiesArgs'] properties: The Billing Group properties. Defined below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -44,9 +40,6 @@ class BillingGroupArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Billing Group.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -56,9 +49,6 @@ class BillingGroupArgs:
     @_builtins.property
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input['BillingGroupPropertiesArgs']]:
-        """
-        The Billing Group properties. Defined below.
-        """
         return pulumi.get(self, "properties")
 
     @properties.setter
@@ -68,9 +58,6 @@ class BillingGroupArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -80,9 +67,6 @@ class BillingGroupArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -103,12 +87,6 @@ class _BillingGroupState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering BillingGroup resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Billing Group.
-        :param pulumi.Input[_builtins.str] name: The name of the Billing Group.
-        :param pulumi.Input['BillingGroupPropertiesArgs'] properties: The Billing Group properties. Defined below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags
-        :param pulumi.Input[_builtins.int] version: The current version of the Billing Group record in the registry.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -130,9 +108,6 @@ class _BillingGroupState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the Billing Group.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -151,9 +126,6 @@ class _BillingGroupState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Billing Group.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -163,9 +135,6 @@ class _BillingGroupState:
     @_builtins.property
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input['BillingGroupPropertiesArgs']]:
-        """
-        The Billing Group properties. Defined below.
-        """
         return pulumi.get(self, "properties")
 
     @properties.setter
@@ -175,9 +144,6 @@ class _BillingGroupState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -187,9 +153,6 @@ class _BillingGroupState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -208,9 +171,6 @@ class _BillingGroupState:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The current version of the Billing Group record in the registry.
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -230,38 +190,9 @@ class BillingGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages an AWS IoT Billing Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iot.BillingGroup("example",
-            name="example",
-            properties={
-                "description": "This is my billing group",
-            },
-            tags={
-                "terraform": "true",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import IoT Billing Groups using the name. For example:
-
-        ```sh
-        $ pulumi import aws:iot/billingGroup:BillingGroup example example
-        ```
-
+        Create a BillingGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: The name of the Billing Group.
-        :param pulumi.Input[Union['BillingGroupPropertiesArgs', 'BillingGroupPropertiesArgsDict']] properties: The Billing Group properties. Defined below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags
         """
         ...
     @overload
@@ -270,32 +201,7 @@ class BillingGroup(pulumi.CustomResource):
                  args: Optional[BillingGroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS IoT Billing Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iot.BillingGroup("example",
-            name="example",
-            properties={
-                "description": "This is my billing group",
-            },
-            tags={
-                "terraform": "true",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import IoT Billing Groups using the name. For example:
-
-        ```sh
-        $ pulumi import aws:iot/billingGroup:BillingGroup example example
-        ```
-
+        Create a BillingGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BillingGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -357,12 +263,6 @@ class BillingGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Billing Group.
-        :param pulumi.Input[_builtins.str] name: The name of the Billing Group.
-        :param pulumi.Input[Union['BillingGroupPropertiesArgs', 'BillingGroupPropertiesArgsDict']] properties: The Billing Group properties. Defined below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags
-        :param pulumi.Input[_builtins.int] version: The current version of the Billing Group record in the registry.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -381,9 +281,6 @@ class BillingGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the Billing Group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -394,33 +291,21 @@ class BillingGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the Billing Group.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Output[Optional['outputs.BillingGroupProperties']]:
-        """
-        The Billing Group properties. Defined below.
-        """
         return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value mapping of resource tags
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -431,8 +316,5 @@ class BillingGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.int]:
-        """
-        The current version of the Billing Group record in the registry.
-        """
         return pulumi.get(self, "version")
 

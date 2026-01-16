@@ -4,40 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage the [default AWS VPC](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html)
- * in the current AWS Region.
- *
- * If you created your AWS account after 2013-12-04 you have a default VPC in each AWS Region.
- *
- * **This is an advanced resource** and has special caveats to be aware of when using it. Please read this document in its entirety before using this resource.
- *
- * The `aws.ec2.DefaultVpc` resource behaves differently from normal resources in that if a default VPC exists, this provider does not _create_ this resource, but instead "adopts" it into management.
- * If no default VPC exists, the provider creates a new default VPC, which leads to the implicit creation of [other resources](https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#default-vpc-components).
- * By default, `pulumi destroy` does not delete the default VPC but does remove the resource from the state.
- * Set the `forceDestroy` argument to `true` to delete the default VPC.
- *
- * ## Example Usage
- *
- * Basic usage with tags:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.ec2.DefaultVpc("default", {tags: {
- *     Name: "Default VPC",
- * }});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Default VPCs using the VPC `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
- * ```
- */
 export class DefaultVpc extends pulumi.CustomResource {
     /**
      * Get an existing DefaultVpc resource's state with the given name, ID, and optional extra
@@ -68,9 +34,6 @@ export class DefaultVpc extends pulumi.CustomResource {
 
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public readonly assignGeneratedIpv6CidrBlock: pulumi.Output<boolean | undefined>;
-    /**
-     * The primary IPv4 CIDR block for the VPC
-     */
     declare public /*out*/ readonly cidrBlock: pulumi.Output<string>;
     declare public /*out*/ readonly defaultNetworkAclId: pulumi.Output<string>;
     declare public /*out*/ readonly defaultRouteTableId: pulumi.Output<string>;
@@ -80,13 +43,7 @@ export class DefaultVpc extends pulumi.CustomResource {
     declare public readonly enableDnsSupport: pulumi.Output<boolean | undefined>;
     declare public readonly enableNetworkAddressUsageMetrics: pulumi.Output<boolean>;
     declare public /*out*/ readonly existingDefaultVpc: pulumi.Output<boolean>;
-    /**
-     * Whether destroying the resource deletes the default VPC. Default: `false`
-     */
     declare public readonly forceDestroy: pulumi.Output<boolean | undefined>;
-    /**
-     * The allowed tenancy of instances launched into the VPC
-     */
     declare public /*out*/ readonly instanceTenancy: pulumi.Output<string>;
     declare public /*out*/ readonly ipv6AssociationId: pulumi.Output<string>;
     declare public readonly ipv6CidrBlock: pulumi.Output<string>;
@@ -172,9 +129,6 @@ export class DefaultVpc extends pulumi.CustomResource {
 export interface DefaultVpcState {
     arn?: pulumi.Input<string>;
     assignGeneratedIpv6CidrBlock?: pulumi.Input<boolean>;
-    /**
-     * The primary IPv4 CIDR block for the VPC
-     */
     cidrBlock?: pulumi.Input<string>;
     defaultNetworkAclId?: pulumi.Input<string>;
     defaultRouteTableId?: pulumi.Input<string>;
@@ -184,13 +138,7 @@ export interface DefaultVpcState {
     enableDnsSupport?: pulumi.Input<boolean>;
     enableNetworkAddressUsageMetrics?: pulumi.Input<boolean>;
     existingDefaultVpc?: pulumi.Input<boolean>;
-    /**
-     * Whether destroying the resource deletes the default VPC. Default: `false`
-     */
     forceDestroy?: pulumi.Input<boolean>;
-    /**
-     * The allowed tenancy of instances launched into the VPC
-     */
     instanceTenancy?: pulumi.Input<string>;
     ipv6AssociationId?: pulumi.Input<string>;
     ipv6CidrBlock?: pulumi.Input<string>;
@@ -212,9 +160,6 @@ export interface DefaultVpcArgs {
     enableDnsHostnames?: pulumi.Input<boolean>;
     enableDnsSupport?: pulumi.Input<boolean>;
     enableNetworkAddressUsageMetrics?: pulumi.Input<boolean>;
-    /**
-     * Whether destroying the resource deletes the default VPC. Default: `false`
-     */
     forceDestroy?: pulumi.Input<boolean>;
     ipv6CidrBlock?: pulumi.Input<string>;
     ipv6CidrBlockNetworkBorderGroup?: pulumi.Input<string>;

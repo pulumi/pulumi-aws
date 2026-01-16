@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetMultiRegionAccessPointRegion {
-    /**
-     * @return The name of the bucket.
-     * 
-     */
     private String bucket;
-    /**
-     * @return The AWS account ID that owns the bucket.
-     * 
-     */
     private String bucketAccountId;
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     private String region;
 
     private GetMultiRegionAccessPointRegion() {}
-    /**
-     * @return The name of the bucket.
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }
-    /**
-     * @return The AWS account ID that owns the bucket.
-     * 
-     */
     public String bucketAccountId() {
         return this.bucketAccountId;
     }
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public String region() {
         return this.region;
     }

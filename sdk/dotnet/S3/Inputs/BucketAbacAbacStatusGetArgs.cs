@@ -12,11 +12,6 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketAbacAbacStatusGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ABAC status of the general purpose bucket.
-        /// Valid values are `Enabled` and `Disabled`.
-        /// By default, ABAC is disabled for all Amazon S3 general purpose buckets.
-        /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 

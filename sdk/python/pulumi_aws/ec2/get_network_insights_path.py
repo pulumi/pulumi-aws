@@ -81,57 +81,36 @@ class GetNetworkInsightsPathResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the selected Network Insights Path.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def destination(self) -> _builtins.str:
-        """
-        AWS resource that is the destination of the path.
-        """
         return pulumi.get(self, "destination")
 
     @_builtins.property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> _builtins.str:
-        """
-        ARN of the destination.
-        """
         return pulumi.get(self, "destination_arn")
 
     @_builtins.property
     @pulumi.getter(name="destinationIp")
     def destination_ip(self) -> _builtins.str:
-        """
-        IP address of the AWS resource that is the destination of the path.
-        """
         return pulumi.get(self, "destination_ip")
 
     @_builtins.property
     @pulumi.getter(name="destinationPort")
     def destination_port(self) -> _builtins.int:
-        """
-        Destination port.
-        """
         return pulumi.get(self, "destination_port")
 
     @_builtins.property
     @pulumi.getter(name="filterAtDestinations")
     def filter_at_destinations(self) -> Sequence['outputs.GetNetworkInsightsPathFilterAtDestinationResult']:
-        """
-        Filters of the network paths at the destination.
-        """
         return pulumi.get(self, "filter_at_destinations")
 
     @_builtins.property
     @pulumi.getter(name="filterAtSources")
     def filter_at_sources(self) -> Sequence['outputs.GetNetworkInsightsPathFilterAtSourceResult']:
-        """
-        Filters of the network paths at the source.
-        """
         return pulumi.get(self, "filter_at_sources")
 
     @_builtins.property
@@ -155,9 +134,6 @@ class GetNetworkInsightsPathResult:
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> _builtins.str:
-        """
-        Protocol.
-        """
         return pulumi.get(self, "protocol")
 
     @_builtins.property
@@ -168,33 +144,21 @@ class GetNetworkInsightsPathResult:
     @_builtins.property
     @pulumi.getter
     def source(self) -> _builtins.str:
-        """
-        AWS resource that is the source of the path.
-        """
         return pulumi.get(self, "source")
 
     @_builtins.property
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> _builtins.str:
-        """
-        ARN of the source.
-        """
         return pulumi.get(self, "source_arn")
 
     @_builtins.property
     @pulumi.getter(name="sourceIp")
     def source_ip(self) -> _builtins.str:
-        """
-        IP address of the AWS resource that is the source of the path.
-        """
         return pulumi.get(self, "source_ip")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags assigned to the resource.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -228,26 +192,7 @@ def get_network_insights_path(filters: Optional[Sequence[Union['GetNetworkInsigh
                               tags: Optional[Mapping[str, _builtins.str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInsightsPathResult:
     """
-    `ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_network_insights_path(network_insights_path_id=example_aws_ec2_network_insights_path["id"])
-    ```
-
-
-    :param Sequence[Union['GetNetworkInsightsPathFilterArgs', 'GetNetworkInsightsPathFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-           
-           The arguments of this data source act as filters for querying the available
-           Network Insights Paths. The given filters must match exactly one Network Insights Path
-           whose data will be exported as attributes.
-    :param _builtins.str network_insights_path_id: ID of the Network Insights Path to select.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -280,26 +225,7 @@ def get_network_insights_path_output(filters: Optional[pulumi.Input[Optional[Seq
                                      tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInsightsPathResult]:
     """
-    `ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_network_insights_path(network_insights_path_id=example_aws_ec2_network_insights_path["id"])
-    ```
-
-
-    :param Sequence[Union['GetNetworkInsightsPathFilterArgs', 'GetNetworkInsightsPathFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-           
-           The arguments of this data source act as filters for querying the available
-           Network Insights Paths. The given filters must match exactly one Network Insights Path
-           whose data will be exported as attributes.
-    :param _builtins.str network_insights_path_id: ID of the Network Insights Path to select.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

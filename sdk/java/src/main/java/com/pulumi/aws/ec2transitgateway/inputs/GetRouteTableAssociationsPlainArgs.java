@@ -17,57 +17,23 @@ public final class GetRouteTableAssociationsPlainArgs extends com.pulumi.resourc
 
     public static final GetRouteTableAssociationsPlainArgs Empty = new GetRouteTableAssociationsPlainArgs();
 
-    /**
-     * Custom filter block as described below.
-     * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetRouteTableAssociationsFilter> filters;
 
-    /**
-     * @return Custom filter block as described below.
-     * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     * 
-     */
     public Optional<List<GetRouteTableAssociationsFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Identifier of EC2 Transit Gateway Route Table.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="transitGatewayRouteTableId", required=true)
     private String transitGatewayRouteTableId;
 
-    /**
-     * @return Identifier of EC2 Transit Gateway Route Table.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String transitGatewayRouteTableId() {
         return this.transitGatewayRouteTableId;
     }
@@ -98,52 +64,20 @@ public final class GetRouteTableAssociationsPlainArgs extends com.pulumi.resourc
             $ = new GetRouteTableAssociationsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetRouteTableAssociationsFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetRouteTableAssociationsFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param transitGatewayRouteTableId Identifier of EC2 Transit Gateway Route Table.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayRouteTableId(String transitGatewayRouteTableId) {
             $.transitGatewayRouteTableId = transitGatewayRouteTableId;
             return this;

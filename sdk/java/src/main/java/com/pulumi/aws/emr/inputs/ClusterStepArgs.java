@@ -15,47 +15,23 @@ public final class ClusterStepArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ClusterStepArgs Empty = new ClusterStepArgs();
 
-    /**
-     * Action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
-     * 
-     */
     @Import(name="actionOnFailure", required=true)
     private Output<String> actionOnFailure;
 
-    /**
-     * @return Action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
-     * 
-     */
     public Output<String> actionOnFailure() {
         return this.actionOnFailure;
     }
 
-    /**
-     * JAR file used for the step. See below.
-     * 
-     */
     @Import(name="hadoopJarStep", required=true)
     private Output<ClusterStepHadoopJarStepArgs> hadoopJarStep;
 
-    /**
-     * @return JAR file used for the step. See below.
-     * 
-     */
     public Output<ClusterStepHadoopJarStepArgs> hadoopJarStep() {
         return this.hadoopJarStep;
     }
 
-    /**
-     * Name of the step.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the step.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -86,65 +62,29 @@ public final class ClusterStepArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ClusterStepArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param actionOnFailure Action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionOnFailure(Output<String> actionOnFailure) {
             $.actionOnFailure = actionOnFailure;
             return this;
         }
 
-        /**
-         * @param actionOnFailure Action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionOnFailure(String actionOnFailure) {
             return actionOnFailure(Output.of(actionOnFailure));
         }
 
-        /**
-         * @param hadoopJarStep JAR file used for the step. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hadoopJarStep(Output<ClusterStepHadoopJarStepArgs> hadoopJarStep) {
             $.hadoopJarStep = hadoopJarStep;
             return this;
         }
 
-        /**
-         * @param hadoopJarStep JAR file used for the step. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hadoopJarStep(ClusterStepHadoopJarStepArgs hadoopJarStep) {
             return hadoopJarStep(Output.of(hadoopJarStep));
         }
 
-        /**
-         * @param name Name of the step.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the step.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class CrawlerDeltaTarget
     {
-        /// <summary>
-        /// The name of the connection to use to connect to the Delta table target.
-        /// </summary>
         public readonly string? ConnectionName;
-        /// <summary>
-        /// Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
-        /// </summary>
         public readonly bool? CreateNativeDeltaTable;
-        /// <summary>
-        /// A list of the Amazon S3 paths to the Delta tables.
-        /// </summary>
         public readonly ImmutableArray<string> DeltaTables;
-        /// <summary>
-        /// Specifies whether to write the manifest files to the Delta table path.
-        /// </summary>
         public readonly bool WriteManifest;
 
         [OutputConstructor]

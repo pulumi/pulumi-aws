@@ -11,15 +11,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSubnetGroupResult {
-    /**
-     * @return ARN for the DB subnet group.
-     * 
-     */
     private String arn;
-    /**
-     * @return Provides the description of the DB subnet group.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -28,39 +20,15 @@ public final class GetSubnetGroupResult {
     private String id;
     private String name;
     private String region;
-    /**
-     * @return Provides the status of the DB subnet group.
-     * 
-     */
     private String status;
-    /**
-     * @return Contains a list of subnet identifiers.
-     * 
-     */
     private List<String> subnetIds;
-    /**
-     * @return The network type of the DB subnet group.
-     * 
-     */
     private List<String> supportedNetworkTypes;
-    /**
-     * @return Provides the VPC ID of the DB subnet group.
-     * 
-     */
     private String vpcId;
 
     private GetSubnetGroupResult() {}
-    /**
-     * @return ARN for the DB subnet group.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Provides the description of the DB subnet group.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -77,31 +45,15 @@ public final class GetSubnetGroupResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Provides the status of the DB subnet group.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Contains a list of subnet identifiers.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
-    /**
-     * @return The network type of the DB subnet group.
-     * 
-     */
     public List<String> supportedNetworkTypes() {
         return this.supportedNetworkTypes;
     }
-    /**
-     * @return Provides the VPC ID of the DB subnet group.
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }

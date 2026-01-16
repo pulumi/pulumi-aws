@@ -4,68 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Cognito User Pool UI Customization resource.
- *
- * > **Note:** To use this resource, the user pool must have a domain associated with it. For more information, see the Amazon Cognito Developer Guide on [Customizing the Built-in Sign-In and Sign-up Webpages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-ui-customization.html).
- *
- * ## Example Usage
- *
- * ### UI customization settings for a single client
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.cognito.UserPool("example", {name: "example"});
- * const exampleUserPoolDomain = new aws.cognito.UserPoolDomain("example", {
- *     domain: "example",
- *     userPoolId: example.id,
- * });
- * const exampleUserPoolClient = new aws.cognito.UserPoolClient("example", {
- *     name: "example",
- *     userPoolId: example.id,
- * });
- * const exampleUserPoolUICustomization = new aws.cognito.UserPoolUICustomization("example", {
- *     clientId: exampleUserPoolClient.id,
- *     css: ".label-customizable {font-weight: 400;}",
- *     imageFile: std.filebase64({
- *         input: "logo.png",
- *     }).then(invoke => invoke.result),
- *     userPoolId: exampleUserPoolDomain.userPoolId,
- * });
- * ```
- *
- * ### UI customization settings for all clients
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.cognito.UserPool("example", {name: "example"});
- * const exampleUserPoolDomain = new aws.cognito.UserPoolDomain("example", {
- *     domain: "example",
- *     userPoolId: example.id,
- * });
- * const exampleUserPoolUICustomization = new aws.cognito.UserPoolUICustomization("example", {
- *     css: ".label-customizable {font-weight: 400;}",
- *     imageFile: std.filebase64({
- *         input: "logo.png",
- *     }).then(invoke => invoke.result),
- *     userPoolId: exampleUserPoolDomain.userPoolId,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Cognito User Pool UI Customizations using the `user_pool_id` and `client_id` separated by `,`. For example:
- *
- * ```sh
- * $ pulumi import aws:cognito/userPoolUICustomization:UserPoolUICustomization example us-west-2_ZCTarbt5C,12bu4fuk3mlgqa2rtrujgp6egq
- * ```
- */
 export class UserPoolUICustomization extends pulumi.CustomResource {
     /**
      * Get an existing UserPoolUICustomization resource's state with the given name, ID, and optional extra
@@ -94,41 +32,14 @@ export class UserPoolUICustomization extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserPoolUICustomization.__pulumiType;
     }
 
-    /**
-     * The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `imageFile` settings will be used for every client that has no UI customization set previously.
-     */
     declare public readonly clientId: pulumi.Output<string | undefined>;
-    /**
-     * The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
-     */
     declare public /*out*/ readonly creationDate: pulumi.Output<string>;
-    /**
-     * The CSS values in the UI customization, provided as a String. At least one of `css` or `imageFile` is required.
-     */
     declare public readonly css: pulumi.Output<string | undefined>;
-    /**
-     * The CSS version number.
-     */
     declare public /*out*/ readonly cssVersion: pulumi.Output<string>;
-    /**
-     * The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `imageFile` is required.
-     */
     declare public readonly imageFile: pulumi.Output<string | undefined>;
-    /**
-     * The logo image URL for the UI customization.
-     */
     declare public /*out*/ readonly imageUrl: pulumi.Output<string>;
-    /**
-     * The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
-     */
     declare public /*out*/ readonly lastModifiedDate: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The user pool ID for the user pool.
-     */
     declare public readonly userPoolId: pulumi.Output<string>;
 
     /**
@@ -177,41 +88,14 @@ export class UserPoolUICustomization extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserPoolUICustomization resources.
  */
 export interface UserPoolUICustomizationState {
-    /**
-     * The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `imageFile` settings will be used for every client that has no UI customization set previously.
-     */
     clientId?: pulumi.Input<string>;
-    /**
-     * The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
-     */
     creationDate?: pulumi.Input<string>;
-    /**
-     * The CSS values in the UI customization, provided as a String. At least one of `css` or `imageFile` is required.
-     */
     css?: pulumi.Input<string>;
-    /**
-     * The CSS version number.
-     */
     cssVersion?: pulumi.Input<string>;
-    /**
-     * The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `imageFile` is required.
-     */
     imageFile?: pulumi.Input<string>;
-    /**
-     * The logo image URL for the UI customization.
-     */
     imageUrl?: pulumi.Input<string>;
-    /**
-     * The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
-     */
     lastModifiedDate?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The user pool ID for the user pool.
-     */
     userPoolId?: pulumi.Input<string>;
 }
 
@@ -219,24 +103,9 @@ export interface UserPoolUICustomizationState {
  * The set of arguments for constructing a UserPoolUICustomization resource.
  */
 export interface UserPoolUICustomizationArgs {
-    /**
-     * The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `imageFile` settings will be used for every client that has no UI customization set previously.
-     */
     clientId?: pulumi.Input<string>;
-    /**
-     * The CSS values in the UI customization, provided as a String. At least one of `css` or `imageFile` is required.
-     */
     css?: pulumi.Input<string>;
-    /**
-     * The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `imageFile` is required.
-     */
     imageFile?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The user pool ID for the user pool.
-     */
     userPoolId: pulumi.Input<string>;
 }

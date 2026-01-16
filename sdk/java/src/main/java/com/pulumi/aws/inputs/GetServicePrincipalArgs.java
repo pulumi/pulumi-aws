@@ -16,32 +16,16 @@ public final class GetServicePrincipalArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetServicePrincipalArgs Empty = new GetServicePrincipalArgs();
 
-    /**
-     * Region you&#39;d like the SPN for. Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region you&#39;d like the SPN for. Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Name of the service you want to generate a Service Principal Name for.
-     * 
-     */
     @Import(name="serviceName", required=true)
     private Output<String> serviceName;
 
-    /**
-     * @return Name of the service you want to generate a Service Principal Name for.
-     * 
-     */
     public Output<String> serviceName() {
         return this.serviceName;
     }
@@ -71,44 +55,20 @@ public final class GetServicePrincipalArgs extends com.pulumi.resources.InvokeAr
             $ = new GetServicePrincipalArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region you&#39;d like the SPN for. Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region you&#39;d like the SPN for. Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param serviceName Name of the service you want to generate a Service Principal Name for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(Output<String> serviceName) {
             $.serviceName = serviceName;
             return this;
         }
 
-        /**
-         * @param serviceName Name of the service you want to generate a Service Principal Name for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(String serviceName) {
             return serviceName(Output.of(serviceName));
         }

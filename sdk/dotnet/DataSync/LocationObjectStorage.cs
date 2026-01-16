@@ -9,130 +9,48 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DataSync
 {
-    /// <summary>
-    /// Manages a Object Storage Location within AWS DataSync.
-    /// 
-    /// &gt; **NOTE:** The DataSync Agents must be available before creating this resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DataSync.LocationObjectStorage("example", new()
-    ///     {
-    ///         AgentArns = new[]
-    ///         {
-    ///             exampleAwsDatasyncAgent.Arn,
-    ///         },
-    ///         ServerHostname = "example",
-    ///         BucketName = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the DataSync object storage location.
-    /// 
-    /// Using `pulumi import`, import `aws_datasync_location_object_storage` using the Amazon Resource Name (ARN). For example:
-    /// 
-    /// % pulumi import aws_datasync_location_object_storage.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-    /// </summary>
     [AwsResourceType("aws:datasync/locationObjectStorage:LocationObjectStorage")]
     public partial class LocationObjectStorage : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `AccessKey` and `SecretKey` to provide the user name and password, respectively.
-        /// </summary>
         [Output("accessKey")]
         public Output<string?> AccessKey { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
-        /// </summary>
         [Output("agentArns")]
         public Output<ImmutableArray<string>> AgentArns { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the DataSync Location.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The bucket on the self-managed object storage server that is used to read data from.
-        /// </summary>
         [Output("bucketName")]
         public Output<string> BucketName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `AccessKey` and `SecretKey` to provide the user name and password, respectively.
-        /// </summary>
         [Output("secretKey")]
         public Output<string?> SecretKey { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
-        /// </summary>
         [Output("serverCertificate")]
         public Output<string?> ServerCertificate { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
-        /// </summary>
         [Output("serverHostname")]
         public Output<string> ServerHostname { get; private set; } = null!;
 
-        /// <summary>
-        /// The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (`HTTP`) or TCP 443 (`HTTPS`). You can specify a custom port if your self-managed object storage server requires one.
-        /// </summary>
         [Output("serverPort")]
         public Output<int?> ServerPort { get; private set; } = null!;
 
-        /// <summary>
-        /// The protocol that the object storage server uses to communicate. Valid values are `HTTP` or `HTTPS`.
-        /// </summary>
         [Output("serverProtocol")]
         public Output<string?> ServerProtocol { get; private set; } = null!;
 
-        /// <summary>
-        /// A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
-        /// </summary>
         [Output("subdirectory")]
         public Output<string> Subdirectory { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The URL of the Object Storage location that was described.
-        /// </summary>
         [Output("uri")]
         public Output<string> Uri { get; private set; } = null!;
 
@@ -186,42 +104,25 @@ namespace Pulumi.Aws.DataSync
 
     public sealed class LocationObjectStorageArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `AccessKey` and `SecretKey` to provide the user name and password, respectively.
-        /// </summary>
         [Input("accessKey")]
         public Input<string>? AccessKey { get; set; }
 
         [Input("agentArns")]
         private InputList<string>? _agentArns;
-
-        /// <summary>
-        /// A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
-        /// </summary>
         public InputList<string> AgentArns
         {
             get => _agentArns ?? (_agentArns = new InputList<string>());
             set => _agentArns = value;
         }
 
-        /// <summary>
-        /// The bucket on the self-managed object storage server that is used to read data from.
-        /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("secretKey")]
         private Input<string>? _secretKey;
-
-        /// <summary>
-        /// The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `AccessKey` and `SecretKey` to provide the user name and password, respectively.
-        /// </summary>
         public Input<string>? SecretKey
         {
             get => _secretKey;
@@ -232,42 +133,23 @@ namespace Pulumi.Aws.DataSync
             }
         }
 
-        /// <summary>
-        /// Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
-        /// </summary>
         [Input("serverCertificate")]
         public Input<string>? ServerCertificate { get; set; }
 
-        /// <summary>
-        /// The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
-        /// </summary>
         [Input("serverHostname", required: true)]
         public Input<string> ServerHostname { get; set; } = null!;
 
-        /// <summary>
-        /// The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (`HTTP`) or TCP 443 (`HTTPS`). You can specify a custom port if your self-managed object storage server requires one.
-        /// </summary>
         [Input("serverPort")]
         public Input<int>? ServerPort { get; set; }
 
-        /// <summary>
-        /// The protocol that the object storage server uses to communicate. Valid values are `HTTP` or `HTTPS`.
-        /// </summary>
         [Input("serverProtocol")]
         public Input<string>? ServerProtocol { get; set; }
 
-        /// <summary>
-        /// A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
-        /// </summary>
         [Input("subdirectory")]
         public Input<string>? Subdirectory { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -282,48 +164,28 @@ namespace Pulumi.Aws.DataSync
 
     public sealed class LocationObjectStorageState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `AccessKey` and `SecretKey` to provide the user name and password, respectively.
-        /// </summary>
         [Input("accessKey")]
         public Input<string>? AccessKey { get; set; }
 
         [Input("agentArns")]
         private InputList<string>? _agentArns;
-
-        /// <summary>
-        /// A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
-        /// </summary>
         public InputList<string> AgentArns
         {
             get => _agentArns ?? (_agentArns = new InputList<string>());
             set => _agentArns = value;
         }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the DataSync Location.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The bucket on the self-managed object storage server that is used to read data from.
-        /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("secretKey")]
         private Input<string>? _secretKey;
-
-        /// <summary>
-        /// The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `AccessKey` and `SecretKey` to provide the user name and password, respectively.
-        /// </summary>
         public Input<string>? SecretKey
         {
             get => _secretKey;
@@ -334,42 +196,23 @@ namespace Pulumi.Aws.DataSync
             }
         }
 
-        /// <summary>
-        /// Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
-        /// </summary>
         [Input("serverCertificate")]
         public Input<string>? ServerCertificate { get; set; }
 
-        /// <summary>
-        /// The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
-        /// </summary>
         [Input("serverHostname")]
         public Input<string>? ServerHostname { get; set; }
 
-        /// <summary>
-        /// The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (`HTTP`) or TCP 443 (`HTTPS`). You can specify a custom port if your self-managed object storage server requires one.
-        /// </summary>
         [Input("serverPort")]
         public Input<int>? ServerPort { get; set; }
 
-        /// <summary>
-        /// The protocol that the object storage server uses to communicate. Valid values are `HTTP` or `HTTPS`.
-        /// </summary>
         [Input("serverProtocol")]
         public Input<string>? ServerProtocol { get; set; }
 
-        /// <summary>
-        /// A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
-        /// </summary>
         [Input("subdirectory")]
         public Input<string>? Subdirectory { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -378,19 +221,12 @@ namespace Pulumi.Aws.DataSync
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The URL of the Object Storage location that was described.
-        /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }
 

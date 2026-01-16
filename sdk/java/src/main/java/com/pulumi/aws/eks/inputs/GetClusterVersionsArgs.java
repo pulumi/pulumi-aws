@@ -17,19 +17,9 @@ public final class GetClusterVersionsArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetClusterVersionsArgs Empty = new GetClusterVersionsArgs();
 
-    /**
-     * Type of clusters to filter by.
-     * Currently, the only valid value is `eks`.
-     * 
-     */
     @Import(name="clusterType")
     private @Nullable Output<String> clusterType;
 
-    /**
-     * @return Type of clusters to filter by.
-     * Currently, the only valid value is `eks`.
-     * 
-     */
     public Optional<Output<String>> clusterType() {
         return Optional.ofNullable(this.clusterType);
     }
@@ -41,64 +31,30 @@ public final class GetClusterVersionsArgs extends com.pulumi.resources.InvokeArg
         return Optional.ofNullable(this.clusterVersionsOnlies);
     }
 
-    /**
-     * Whether to show only the default versions of Kubernetes supported by EKS.
-     * 
-     */
     @Import(name="defaultOnly")
     private @Nullable Output<Boolean> defaultOnly;
 
-    /**
-     * @return Whether to show only the default versions of Kubernetes supported by EKS.
-     * 
-     */
     public Optional<Output<Boolean>> defaultOnly() {
         return Optional.ofNullable(this.defaultOnly);
     }
 
-    /**
-     * Whether to include all kubernetes versions in the response.
-     * 
-     */
     @Import(name="includeAll")
     private @Nullable Output<Boolean> includeAll;
 
-    /**
-     * @return Whether to include all kubernetes versions in the response.
-     * 
-     */
     public Optional<Output<Boolean>> includeAll() {
         return Optional.ofNullable(this.includeAll);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Status of the EKS cluster versions to list.
-     * Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
-     * 
-     */
     @Import(name="versionStatus")
     private @Nullable Output<String> versionStatus;
 
-    /**
-     * @return Status of the EKS cluster versions to list.
-     * Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
-     * 
-     */
     public Optional<Output<String>> versionStatus() {
         return Optional.ofNullable(this.versionStatus);
     }
@@ -132,25 +88,11 @@ public final class GetClusterVersionsArgs extends com.pulumi.resources.InvokeArg
             $ = new GetClusterVersionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusterType Type of clusters to filter by.
-         * Currently, the only valid value is `eks`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterType(@Nullable Output<String> clusterType) {
             $.clusterType = clusterType;
             return this;
         }
 
-        /**
-         * @param clusterType Type of clusters to filter by.
-         * Currently, the only valid value is `eks`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterType(String clusterType) {
             return clusterType(Output.of(clusterType));
         }
@@ -168,88 +110,38 @@ public final class GetClusterVersionsArgs extends com.pulumi.resources.InvokeArg
             return clusterVersionsOnlies(List.of(clusterVersionsOnlies));
         }
 
-        /**
-         * @param defaultOnly Whether to show only the default versions of Kubernetes supported by EKS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultOnly(@Nullable Output<Boolean> defaultOnly) {
             $.defaultOnly = defaultOnly;
             return this;
         }
 
-        /**
-         * @param defaultOnly Whether to show only the default versions of Kubernetes supported by EKS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultOnly(Boolean defaultOnly) {
             return defaultOnly(Output.of(defaultOnly));
         }
 
-        /**
-         * @param includeAll Whether to include all kubernetes versions in the response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeAll(@Nullable Output<Boolean> includeAll) {
             $.includeAll = includeAll;
             return this;
         }
 
-        /**
-         * @param includeAll Whether to include all kubernetes versions in the response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeAll(Boolean includeAll) {
             return includeAll(Output.of(includeAll));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param versionStatus Status of the EKS cluster versions to list.
-         * Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder versionStatus(@Nullable Output<String> versionStatus) {
             $.versionStatus = versionStatus;
             return this;
         }
 
-        /**
-         * @param versionStatus Status of the EKS cluster versions to list.
-         * Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder versionStatus(String versionStatus) {
             return versionStatus(Output.of(versionStatus));
         }

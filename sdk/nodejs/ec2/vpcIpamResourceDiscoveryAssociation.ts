@@ -4,36 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an association between an Amazon IP Address Manager (IPAM) and a IPAM Resource Discovery. IPAM Resource Discoveries are resources meant for multi-organization customers. If you wish to use a single IPAM across multiple orgs, a resource discovery can be created and shared from a subordinate organization to the management organizations IPAM delegated admin account.
- *
- * Once an association is created between two organizations via IPAM & a IPAM Resource Discovery, IPAM Pools can be shared via Resource Access Manager (RAM) to accounts in the subordinate organization; these RAM shares must be accepted by the end user account. Pools can then also discover and monitor IPAM resources in the subordinate organization.
- *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.ec2.VpcIpamResourceDiscoveryAssociation("test", {
- *     ipamId: testAwsVpcIpam.id,
- *     ipamResourceDiscoveryId: testAwsVpcIpamResourceDiscovery.id,
- *     tags: {
- *         Name: "test",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import IPAMs using the IPAM resource discovery association `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation example ipam-res-disco-assoc-0178368ad2146a492
- * ```
- */
 export class VpcIpamResourceDiscoveryAssociation extends pulumi.CustomResource {
     /**
      * Get an existing VpcIpamResourceDiscoveryAssociation resource's state with the given name, ID, and optional extra
@@ -62,49 +32,16 @@ export class VpcIpamResourceDiscoveryAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcIpamResourceDiscoveryAssociation.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the IPAM.
-     */
     declare public /*out*/ readonly ipamArn: pulumi.Output<string>;
-    /**
-     * The ID of the IPAM to associate.
-     */
     declare public readonly ipamId: pulumi.Output<string>;
-    /**
-     * The home region of the IPAM.
-     */
     declare public /*out*/ readonly ipamRegion: pulumi.Output<string>;
-    /**
-     * The ID of the Resource Discovery to associate.
-     */
     declare public readonly ipamResourceDiscoveryId: pulumi.Output<string>;
-    /**
-     * A boolean to identify if the Resource Discovery is the accounts default resource discovery.
-     */
     declare public /*out*/ readonly isDefault: pulumi.Output<boolean>;
-    /**
-     * The account ID for the account that manages the Resource Discovery
-     */
     declare public /*out*/ readonly ownerId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The lifecycle state of the association when you associate or disassociate a resource discovery.
-     */
     declare public /*out*/ readonly state: pulumi.Output<string>;
-    /**
-     * A map of tags to add to the IPAM resource discovery association resource.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -160,49 +97,16 @@ export class VpcIpamResourceDiscoveryAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpcIpamResourceDiscoveryAssociation resources.
  */
 export interface VpcIpamResourceDiscoveryAssociationState {
-    /**
-     * The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the IPAM.
-     */
     ipamArn?: pulumi.Input<string>;
-    /**
-     * The ID of the IPAM to associate.
-     */
     ipamId?: pulumi.Input<string>;
-    /**
-     * The home region of the IPAM.
-     */
     ipamRegion?: pulumi.Input<string>;
-    /**
-     * The ID of the Resource Discovery to associate.
-     */
     ipamResourceDiscoveryId?: pulumi.Input<string>;
-    /**
-     * A boolean to identify if the Resource Discovery is the accounts default resource discovery.
-     */
     isDefault?: pulumi.Input<boolean>;
-    /**
-     * The account ID for the account that manages the Resource Discovery
-     */
     ownerId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The lifecycle state of the association when you associate or disassociate a resource discovery.
-     */
     state?: pulumi.Input<string>;
-    /**
-     * A map of tags to add to the IPAM resource discovery association resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -210,20 +114,8 @@ export interface VpcIpamResourceDiscoveryAssociationState {
  * The set of arguments for constructing a VpcIpamResourceDiscoveryAssociation resource.
  */
 export interface VpcIpamResourceDiscoveryAssociationArgs {
-    /**
-     * The ID of the IPAM to associate.
-     */
     ipamId: pulumi.Input<string>;
-    /**
-     * The ID of the Resource Discovery to associate.
-     */
     ipamResourceDiscoveryId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to add to the IPAM resource discovery association resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

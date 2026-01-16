@@ -4,49 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a CodeArtifact Domains Permissions Policy Resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.kms.Key("example", {description: "domain key"});
- * const exampleDomain = new aws.codeartifact.Domain("example", {
- *     domain: "example",
- *     encryptionKey: example.arn,
- * });
- * const test = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "*",
- *             identifiers: ["*"],
- *         }],
- *         actions: ["codeartifact:CreateRepository"],
- *         resources: [exampleDomain.arn],
- *     }],
- * });
- * const testDomainPermissions = new aws.codeartifact.DomainPermissions("test", {
- *     domain: exampleDomain.domain,
- *     policyDocument: test.apply(test => test.json),
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the CodeArtifact domain.
- *
- * Using `pulumi import`, import CodeArtifact Domain Permissions Policies using the CodeArtifact Domain ARN. For example:
- *
- * % pulumi import aws_codeartifact_domain_permissions_policy.example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
- */
 export class DomainPermissions extends pulumi.CustomResource {
     /**
      * Get an existing DomainPermissions resource's state with the given name, ID, and optional extra
@@ -75,29 +32,11 @@ export class DomainPermissions extends pulumi.CustomResource {
         return obj['__pulumiType'] === DomainPermissions.__pulumiType;
     }
 
-    /**
-     * The name of the domain on which to set the resource policy.
-     */
     declare public readonly domain: pulumi.Output<string>;
-    /**
-     * The account number of the AWS account that owns the domain.
-     */
     declare public readonly domainOwner: pulumi.Output<string>;
-    /**
-     * A JSON policy string to be set as the access control resource policy on the provided domain.
-     */
     declare public readonly policyDocument: pulumi.Output<string>;
-    /**
-     * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
-     */
     declare public readonly policyRevision: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ARN of the resource associated with the resource policy.
-     */
     declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
 
     /**
@@ -140,29 +79,11 @@ export class DomainPermissions extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DomainPermissions resources.
  */
 export interface DomainPermissionsState {
-    /**
-     * The name of the domain on which to set the resource policy.
-     */
     domain?: pulumi.Input<string>;
-    /**
-     * The account number of the AWS account that owns the domain.
-     */
     domainOwner?: pulumi.Input<string>;
-    /**
-     * A JSON policy string to be set as the access control resource policy on the provided domain.
-     */
     policyDocument?: pulumi.Input<string>;
-    /**
-     * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
-     */
     policyRevision?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ARN of the resource associated with the resource policy.
-     */
     resourceArn?: pulumi.Input<string>;
 }
 
@@ -170,24 +91,9 @@ export interface DomainPermissionsState {
  * The set of arguments for constructing a DomainPermissions resource.
  */
 export interface DomainPermissionsArgs {
-    /**
-     * The name of the domain on which to set the resource policy.
-     */
     domain: pulumi.Input<string>;
-    /**
-     * The account number of the AWS account that owns the domain.
-     */
     domainOwner?: pulumi.Input<string>;
-    /**
-     * A JSON policy string to be set as the access control resource policy on the provided domain.
-     */
     policyDocument?: pulumi.Input<string>;
-    /**
-     * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
-     */
     policyRevision?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

@@ -4,37 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a MemoryDB Subnet Group.
- *
- * More information about subnet groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/subnetgroups.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.Vpc("example", {cidrBlock: "10.0.0.0/16"});
- * const exampleSubnet = new aws.ec2.Subnet("example", {
- *     vpcId: example.id,
- *     cidrBlock: "10.0.0.0/24",
- *     availabilityZone: "us-west-2a",
- * });
- * const exampleSubnetGroup = new aws.memorydb.SubnetGroup("example", {
- *     name: "my-subnet-group",
- *     subnetIds: [exampleSubnet.id],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import a subnet group using its `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:memorydb/subnetGroup:SubnetGroup example my-subnet-group
- * ```
- */
 export class SubnetGroup extends pulumi.CustomResource {
     /**
      * Get an existing SubnetGroup resource's state with the given name, ID, and optional extra
@@ -63,43 +32,14 @@ export class SubnetGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === SubnetGroup.__pulumiType;
     }
 
-    /**
-     * The ARN of the subnet group.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Description for the subnet group. Defaults to `"Managed by Pulumi"`.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     declare public readonly namePrefix: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly subnetIds: pulumi.Output<string[]>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The VPC in which the subnet group exists.
-     */
     declare public /*out*/ readonly vpcId: pulumi.Output<string>;
 
     /**
@@ -148,43 +88,14 @@ export class SubnetGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SubnetGroup resources.
  */
 export interface SubnetGroupState {
-    /**
-     * The ARN of the subnet group.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Description for the subnet group. Defaults to `"Managed by Pulumi"`.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     namePrefix?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
-     *
-     * The following arguments are optional:
-     */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The VPC in which the subnet group exists.
-     */
     vpcId?: pulumi.Input<string>;
 }
 
@@ -192,30 +103,10 @@ export interface SubnetGroupState {
  * The set of arguments for constructing a SubnetGroup resource.
  */
 export interface SubnetGroupArgs {
-    /**
-     * Description for the subnet group. Defaults to `"Managed by Pulumi"`.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     namePrefix?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
-     *
-     * The following arguments are optional:
-     */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

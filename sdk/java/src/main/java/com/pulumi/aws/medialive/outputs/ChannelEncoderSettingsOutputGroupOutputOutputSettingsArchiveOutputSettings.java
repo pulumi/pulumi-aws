@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings {
-    /**
-     * @return Settings specific to the container type of the file. See Container Settings for more details.
-     * 
-     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings containerSettings;
-    /**
-     * @return Output file extension.
-     * 
-     */
     private @Nullable String extension;
-    /**
-     * @return String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-     * 
-     */
     private @Nullable String nameModifier;
 
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings() {}
-    /**
-     * @return Settings specific to the container type of the file. See Container Settings for more details.
-     * 
-     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings> containerSettings() {
         return Optional.ofNullable(this.containerSettings);
     }
-    /**
-     * @return Output file extension.
-     * 
-     */
     public Optional<String> extension() {
         return Optional.ofNullable(this.extension);
     }
-    /**
-     * @return String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-     * 
-     */
     public Optional<String> nameModifier() {
         return Optional.ofNullable(this.nameModifier);
     }

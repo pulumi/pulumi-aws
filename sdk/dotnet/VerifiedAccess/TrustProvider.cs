@@ -9,105 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.VerifiedAccess
 {
-    /// <summary>
-    /// Resource for managing a Verified Access Trust Provider.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.VerifiedAccess.TrustProvider("example", new()
-    ///     {
-    ///         PolicyReferenceName = "example",
-    ///         TrustProviderType = "user",
-    ///         UserTrustProviderType = "iam-identity-center",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Transfer Workflows using the  `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:verifiedaccess/trustProvider:TrustProvider example vatp-8012925589
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:verifiedaccess/trustProvider:TrustProvider")]
     public partial class TrustProvider : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A description for the AWS Verified Access trust provider.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// A block of options for device identity based trust providers.
-        /// </summary>
         [Output("deviceOptions")]
         public Output<Outputs.TrustProviderDeviceOptions?> DeviceOptions { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of device-based trust provider.
-        /// </summary>
         [Output("deviceTrustProviderType")]
         public Output<string?> DeviceTrustProviderType { get; private set; } = null!;
 
-        /// <summary>
-        /// The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
-        /// </summary>
         [Output("nativeApplicationOidcOptions")]
         public Output<Outputs.TrustProviderNativeApplicationOidcOptions?> NativeApplicationOidcOptions { get; private set; } = null!;
 
-        /// <summary>
-        /// The OpenID Connect details for an oidc-type, user-identity based trust provider.
-        /// </summary>
         [Output("oidcOptions")]
         public Output<Outputs.TrustProviderOidcOptions?> OidcOptions { get; private set; } = null!;
 
-        /// <summary>
-        /// The identifier to be used when working with policy rules.
-        /// </summary>
         [Output("policyReferenceName")]
         public Output<string> PolicyReferenceName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
         [Output("sseSpecification")]
         public Output<Outputs.TrustProviderSseSpecification> SseSpecification { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of trust provider can be either user or device-based.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("trustProviderType")]
         public Output<string> TrustProviderType { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of user-based trust provider.
-        /// </summary>
         [Output("userTrustProviderType")]
         public Output<string?> UserTrustProviderType { get; private set; } = null!;
 
@@ -157,45 +94,24 @@ namespace Pulumi.Aws.VerifiedAccess
 
     public sealed class TrustProviderArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A description for the AWS Verified Access trust provider.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// A block of options for device identity based trust providers.
-        /// </summary>
         [Input("deviceOptions")]
         public Input<Inputs.TrustProviderDeviceOptionsArgs>? DeviceOptions { get; set; }
 
-        /// <summary>
-        /// The type of device-based trust provider.
-        /// </summary>
         [Input("deviceTrustProviderType")]
         public Input<string>? DeviceTrustProviderType { get; set; }
 
-        /// <summary>
-        /// The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
-        /// </summary>
         [Input("nativeApplicationOidcOptions")]
         public Input<Inputs.TrustProviderNativeApplicationOidcOptionsArgs>? NativeApplicationOidcOptions { get; set; }
 
-        /// <summary>
-        /// The OpenID Connect details for an oidc-type, user-identity based trust provider.
-        /// </summary>
         [Input("oidcOptions")]
         public Input<Inputs.TrustProviderOidcOptionsArgs>? OidcOptions { get; set; }
 
-        /// <summary>
-        /// The identifier to be used when working with policy rules.
-        /// </summary>
         [Input("policyReferenceName", required: true)]
         public Input<string> PolicyReferenceName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -204,27 +120,15 @@ namespace Pulumi.Aws.VerifiedAccess
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The type of trust provider can be either user or device-based.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("trustProviderType", required: true)]
         public Input<string> TrustProviderType { get; set; } = null!;
 
-        /// <summary>
-        /// The type of user-based trust provider.
-        /// </summary>
         [Input("userTrustProviderType")]
         public Input<string>? UserTrustProviderType { get; set; }
 
@@ -236,45 +140,24 @@ namespace Pulumi.Aws.VerifiedAccess
 
     public sealed class TrustProviderState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A description for the AWS Verified Access trust provider.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// A block of options for device identity based trust providers.
-        /// </summary>
         [Input("deviceOptions")]
         public Input<Inputs.TrustProviderDeviceOptionsGetArgs>? DeviceOptions { get; set; }
 
-        /// <summary>
-        /// The type of device-based trust provider.
-        /// </summary>
         [Input("deviceTrustProviderType")]
         public Input<string>? DeviceTrustProviderType { get; set; }
 
-        /// <summary>
-        /// The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
-        /// </summary>
         [Input("nativeApplicationOidcOptions")]
         public Input<Inputs.TrustProviderNativeApplicationOidcOptionsGetArgs>? NativeApplicationOidcOptions { get; set; }
 
-        /// <summary>
-        /// The OpenID Connect details for an oidc-type, user-identity based trust provider.
-        /// </summary>
         [Input("oidcOptions")]
         public Input<Inputs.TrustProviderOidcOptionsGetArgs>? OidcOptions { get; set; }
 
-        /// <summary>
-        /// The identifier to be used when working with policy rules.
-        /// </summary>
         [Input("policyReferenceName")]
         public Input<string>? PolicyReferenceName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -283,10 +166,6 @@ namespace Pulumi.Aws.VerifiedAccess
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -301,17 +180,9 @@ namespace Pulumi.Aws.VerifiedAccess
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The type of trust provider can be either user or device-based.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("trustProviderType")]
         public Input<string>? TrustProviderType { get; set; }
 
-        /// <summary>
-        /// The type of user-based trust provider.
-        /// </summary>
         [Input("userTrustProviderType")]
         public Input<string>? UserTrustProviderType { get; set; }
 

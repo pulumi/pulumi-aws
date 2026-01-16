@@ -17,96 +17,44 @@ public final class SnapshotCopyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SnapshotCopyArgs Empty = new SnapshotCopyArgs();
 
-    /**
-     * Identifier of the source cluster.
-     * 
-     */
     @Import(name="clusterIdentifier", required=true)
     private Output<String> clusterIdentifier;
 
-    /**
-     * @return Identifier of the source cluster.
-     * 
-     */
     public Output<String> clusterIdentifier() {
         return this.clusterIdentifier;
     }
 
-    /**
-     * AWS Region to copy snapshots to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="destinationRegion", required=true)
     private Output<String> destinationRegion;
 
-    /**
-     * @return AWS Region to copy snapshots to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> destinationRegion() {
         return this.destinationRegion;
     }
 
-    /**
-     * Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
-     * 
-     */
     @Import(name="manualSnapshotRetentionPeriod")
     private @Nullable Output<Integer> manualSnapshotRetentionPeriod;
 
-    /**
-     * @return Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
-     * 
-     */
     public Optional<Output<Integer>> manualSnapshotRetentionPeriod() {
         return Optional.ofNullable(this.manualSnapshotRetentionPeriod);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Number of days to retain automated snapshots in the destination region after they are copied from the source region.
-     * 
-     */
     @Import(name="retentionPeriod")
     private @Nullable Output<Integer> retentionPeriod;
 
-    /**
-     * @return Number of days to retain automated snapshots in the destination region after they are copied from the source region.
-     * 
-     */
     public Optional<Output<Integer>> retentionPeriod() {
         return Optional.ofNullable(this.retentionPeriod);
     }
 
-    /**
-     * Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-     * 
-     */
     @Import(name="snapshotCopyGrantName")
     private @Nullable Output<String> snapshotCopyGrantName;
 
-    /**
-     * @return Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-     * 
-     */
     public Optional<Output<String>> snapshotCopyGrantName() {
         return Optional.ofNullable(this.snapshotCopyGrantName);
     }
@@ -140,132 +88,56 @@ public final class SnapshotCopyArgs extends com.pulumi.resources.ResourceArgs {
             $ = new SnapshotCopyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusterIdentifier Identifier of the source cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterIdentifier(Output<String> clusterIdentifier) {
             $.clusterIdentifier = clusterIdentifier;
             return this;
         }
 
-        /**
-         * @param clusterIdentifier Identifier of the source cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterIdentifier(String clusterIdentifier) {
             return clusterIdentifier(Output.of(clusterIdentifier));
         }
 
-        /**
-         * @param destinationRegion AWS Region to copy snapshots to.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationRegion(Output<String> destinationRegion) {
             $.destinationRegion = destinationRegion;
             return this;
         }
 
-        /**
-         * @param destinationRegion AWS Region to copy snapshots to.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationRegion(String destinationRegion) {
             return destinationRegion(Output.of(destinationRegion));
         }
 
-        /**
-         * @param manualSnapshotRetentionPeriod Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
-         * 
-         * @return builder
-         * 
-         */
         public Builder manualSnapshotRetentionPeriod(@Nullable Output<Integer> manualSnapshotRetentionPeriod) {
             $.manualSnapshotRetentionPeriod = manualSnapshotRetentionPeriod;
             return this;
         }
 
-        /**
-         * @param manualSnapshotRetentionPeriod Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
-         * 
-         * @return builder
-         * 
-         */
         public Builder manualSnapshotRetentionPeriod(Integer manualSnapshotRetentionPeriod) {
             return manualSnapshotRetentionPeriod(Output.of(manualSnapshotRetentionPeriod));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param retentionPeriod Number of days to retain automated snapshots in the destination region after they are copied from the source region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionPeriod(@Nullable Output<Integer> retentionPeriod) {
             $.retentionPeriod = retentionPeriod;
             return this;
         }
 
-        /**
-         * @param retentionPeriod Number of days to retain automated snapshots in the destination region after they are copied from the source region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionPeriod(Integer retentionPeriod) {
             return retentionPeriod(Output.of(retentionPeriod));
         }
 
-        /**
-         * @param snapshotCopyGrantName Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotCopyGrantName(@Nullable Output<String> snapshotCopyGrantName) {
             $.snapshotCopyGrantName = snapshotCopyGrantName;
             return this;
         }
 
-        /**
-         * @param snapshotCopyGrantName Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotCopyGrantName(String snapshotCopyGrantName) {
             return snapshotCopyGrantName(Output.of(snapshotCopyGrantName));
         }

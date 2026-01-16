@@ -17,47 +17,23 @@ public final class GetVpcIpamPoolCidrsPlainArgs extends com.pulumi.resources.Inv
 
     public static final GetVpcIpamPoolCidrsPlainArgs Empty = new GetVpcIpamPoolCidrsPlainArgs();
 
-    /**
-     * Custom filter block as described below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetVpcIpamPoolCidrsFilter> filters;
 
-    /**
-     * @return Custom filter block as described below.
-     * 
-     */
     public Optional<List<GetVpcIpamPoolCidrsFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * ID of the IPAM pool you would like the list of provisioned CIDRs.
-     * 
-     */
     @Import(name="ipamPoolId", required=true)
     private String ipamPoolId;
 
-    /**
-     * @return ID of the IPAM pool you would like the list of provisioned CIDRs.
-     * 
-     */
     public String ipamPoolId() {
         return this.ipamPoolId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -88,44 +64,20 @@ public final class GetVpcIpamPoolCidrsPlainArgs extends com.pulumi.resources.Inv
             $ = new GetVpcIpamPoolCidrsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetVpcIpamPoolCidrsFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetVpcIpamPoolCidrsFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param ipamPoolId ID of the IPAM pool you would like the list of provisioned CIDRs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipamPoolId(String ipamPoolId) {
             $.ipamPoolId = ipamPoolId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

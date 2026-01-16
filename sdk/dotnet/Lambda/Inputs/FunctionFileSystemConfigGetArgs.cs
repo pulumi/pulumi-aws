@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Lambda.Inputs
 
     public sealed class FunctionFileSystemConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Amazon EFS Access Point.
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
-        /// <summary>
-        /// Path where the function can access the file system. Must start with `/mnt/`.
-        /// </summary>
         [Input("localMountPath", required: true)]
         public Input<string> LocalMountPath { get; set; } = null!;
 

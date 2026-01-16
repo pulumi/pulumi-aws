@@ -16,47 +16,23 @@ public final class GroupAssociationArgs extends com.pulumi.resources.ResourceArg
 
     public static final GroupAssociationArgs Empty = new GroupAssociationArgs();
 
-    /**
-     * ARN of the canary.
-     * 
-     */
     @Import(name="canaryArn", required=true)
     private Output<String> canaryArn;
 
-    /**
-     * @return ARN of the canary.
-     * 
-     */
     public Output<String> canaryArn() {
         return this.canaryArn;
     }
 
-    /**
-     * Name of the group that the canary will be associated with.
-     * 
-     */
     @Import(name="groupName", required=true)
     private Output<String> groupName;
 
-    /**
-     * @return Name of the group that the canary will be associated with.
-     * 
-     */
     public Output<String> groupName() {
         return this.groupName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -87,65 +63,29 @@ public final class GroupAssociationArgs extends com.pulumi.resources.ResourceArg
             $ = new GroupAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param canaryArn ARN of the canary.
-         * 
-         * @return builder
-         * 
-         */
         public Builder canaryArn(Output<String> canaryArn) {
             $.canaryArn = canaryArn;
             return this;
         }
 
-        /**
-         * @param canaryArn ARN of the canary.
-         * 
-         * @return builder
-         * 
-         */
         public Builder canaryArn(String canaryArn) {
             return canaryArn(Output.of(canaryArn));
         }
 
-        /**
-         * @param groupName Name of the group that the canary will be associated with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupName(Output<String> groupName) {
             $.groupName = groupName;
             return this;
         }
 
-        /**
-         * @param groupName Name of the group that the canary will be associated with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupName(String groupName) {
             return groupName(Output.of(groupName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

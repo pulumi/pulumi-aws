@@ -16,162 +16,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an EMR Containers (EMR on EKS) Job Template.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.emrcontainers.JobTemplate;
- * import com.pulumi.aws.emrcontainers.JobTemplateArgs;
- * import com.pulumi.aws.emrcontainers.inputs.JobTemplateJobTemplateDataArgs;
- * import com.pulumi.aws.emrcontainers.inputs.JobTemplateJobTemplateDataJobDriverArgs;
- * import com.pulumi.aws.emrcontainers.inputs.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new JobTemplate("example", JobTemplateArgs.builder()
- *             .jobTemplateData(JobTemplateJobTemplateDataArgs.builder()
- *                 .executionRoleArn(exampleAwsIamRole.arn())
- *                 .releaseLabel("emr-6.10.0-latest")
- *                 .jobDriver(JobTemplateJobTemplateDataJobDriverArgs.builder()
- *                     .sparkSqlJobDriver(JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs.builder()
- *                         .entryPoint("default")
- *                         .build())
- *                     .build())
- *                 .build())
- *             .name("example")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import EKS job templates using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
- * ```
- * 
- */
 @ResourceType(type="aws:emrcontainers/jobTemplate:JobTemplate")
 public class JobTemplate extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the job template.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the job template.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The job template data which holds values of StartJobRun API request.
-     * 
-     */
     @Export(name="jobTemplateData", refs={JobTemplateJobTemplateData.class}, tree="[0]")
     private Output<JobTemplateJobTemplateData> jobTemplateData;
 
-    /**
-     * @return The job template data which holds values of StartJobRun API request.
-     * 
-     */
     public Output<JobTemplateJobTemplateData> jobTemplateData() {
         return this.jobTemplateData;
     }
-    /**
-     * The KMS key ARN used to encrypt the job template.
-     * 
-     */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyArn;
 
-    /**
-     * @return The KMS key ARN used to encrypt the job template.
-     * 
-     */
     public Output<Optional<String>> kmsKeyArn() {
         return Codegen.optional(this.kmsKeyArn);
     }
-    /**
-     * The specified name of the job template.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The specified name of the job template.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

@@ -36,41 +36,6 @@ class IntentArgs:
                  slots: Optional[pulumi.Input[Sequence[pulumi.Input['IntentSlotArgs']]]] = None):
         """
         The set of arguments for constructing a Intent resource.
-        :param pulumi.Input['IntentFulfillmentActivityArgs'] fulfillment_activity: Describes how the intent is fulfilled. For example, after a
-               user provides all of the information for a pizza order, `fulfillment_activity` defines how the bot
-               places an order with a local pizza store. Attributes are documented under fulfillment_activity.
-        :param pulumi.Input['IntentConclusionStatementArgs'] conclusion_statement: The statement that you want Amazon Lex to convey to the user
-               after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
-               you provide a Lambda function in the `fulfillment_activity`. If you return the intent to the client
-               application, you can't specify this element. The `follow_up_prompt` and `conclusion_statement` are
-               mutually exclusive. You can specify only one. Attributes are documented under statement.
-        :param pulumi.Input['IntentConfirmationPromptArgs'] confirmation_prompt: Prompts the user to confirm the intent. This question should
-               have a yes or no answer. You you must provide both the `rejection_statement` and `confirmation_prompt`,
-               or neither. Attributes are documented under prompt.
-        :param pulumi.Input[_builtins.bool] create_version: Determines if a new slot type version is created when the initial
-               resource is created and on each update. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] description: A description of the intent. Must be less than or equal to 200 characters in length.
-        :param pulumi.Input['IntentDialogCodeHookArgs'] dialog_code_hook: Specifies a Lambda function to invoke for each user input. You can
-               invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
-        :param pulumi.Input['IntentFollowUpPromptArgs'] follow_up_prompt: Amazon Lex uses this prompt to solicit additional activity after
-               fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
-               user to order a drink. The `follow_up_prompt` field and the `conclusion_statement` field are mutually
-               exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
-        :param pulumi.Input[_builtins.str] name: The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
-        :param pulumi.Input[_builtins.str] parent_intent_signature: A unique identifier for the built-in intent to base this
-               intent on. To find the signature for an intent, see
-               [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
-               in the Alexa Skills Kit.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['IntentRejectionStatementArgs'] rejection_statement: When the user answers "no" to the question defined in
-               `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
-               canceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.
-               Attributes are documented under statement.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sample_utterances: An array of utterances (strings) that a user might say to signal
-               the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity} {PizzaSize} pizzas".
-               In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
-        :param pulumi.Input[Sequence[pulumi.Input['IntentSlotArgs']]] slots: An list of intent slots. At runtime, Amazon Lex elicits required slot values
-               from the user using prompts defined in the slots. Attributes are documented under slot.
         """
         pulumi.set(__self__, "fulfillment_activity", fulfillment_activity)
         if conclusion_statement is not None:
@@ -101,11 +66,6 @@ class IntentArgs:
     @_builtins.property
     @pulumi.getter(name="fulfillmentActivity")
     def fulfillment_activity(self) -> pulumi.Input['IntentFulfillmentActivityArgs']:
-        """
-        Describes how the intent is fulfilled. For example, after a
-        user provides all of the information for a pizza order, `fulfillment_activity` defines how the bot
-        places an order with a local pizza store. Attributes are documented under fulfillment_activity.
-        """
         return pulumi.get(self, "fulfillment_activity")
 
     @fulfillment_activity.setter
@@ -115,13 +75,6 @@ class IntentArgs:
     @_builtins.property
     @pulumi.getter(name="conclusionStatement")
     def conclusion_statement(self) -> Optional[pulumi.Input['IntentConclusionStatementArgs']]:
-        """
-        The statement that you want Amazon Lex to convey to the user
-        after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
-        you provide a Lambda function in the `fulfillment_activity`. If you return the intent to the client
-        application, you can't specify this element. The `follow_up_prompt` and `conclusion_statement` are
-        mutually exclusive. You can specify only one. Attributes are documented under statement.
-        """
         return pulumi.get(self, "conclusion_statement")
 
     @conclusion_statement.setter
@@ -131,11 +84,6 @@ class IntentArgs:
     @_builtins.property
     @pulumi.getter(name="confirmationPrompt")
     def confirmation_prompt(self) -> Optional[pulumi.Input['IntentConfirmationPromptArgs']]:
-        """
-        Prompts the user to confirm the intent. This question should
-        have a yes or no answer. You you must provide both the `rejection_statement` and `confirmation_prompt`,
-        or neither. Attributes are documented under prompt.
-        """
         return pulumi.get(self, "confirmation_prompt")
 
     @confirmation_prompt.setter
@@ -145,10 +93,6 @@ class IntentArgs:
     @_builtins.property
     @pulumi.getter(name="createVersion")
     def create_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Determines if a new slot type version is created when the initial
-        resource is created and on each update. Defaults to `false`.
-        """
         return pulumi.get(self, "create_version")
 
     @create_version.setter
@@ -158,9 +102,6 @@ class IntentArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description of the intent. Must be less than or equal to 200 characters in length.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -170,10 +111,6 @@ class IntentArgs:
     @_builtins.property
     @pulumi.getter(name="dialogCodeHook")
     def dialog_code_hook(self) -> Optional[pulumi.Input['IntentDialogCodeHookArgs']]:
-        """
-        Specifies a Lambda function to invoke for each user input. You can
-        invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
-        """
         return pulumi.get(self, "dialog_code_hook")
 
     @dialog_code_hook.setter
@@ -183,12 +120,6 @@ class IntentArgs:
     @_builtins.property
     @pulumi.getter(name="followUpPrompt")
     def follow_up_prompt(self) -> Optional[pulumi.Input['IntentFollowUpPromptArgs']]:
-        """
-        Amazon Lex uses this prompt to solicit additional activity after
-        fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
-        user to order a drink. The `follow_up_prompt` field and the `conclusion_statement` field are mutually
-        exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
-        """
         return pulumi.get(self, "follow_up_prompt")
 
     @follow_up_prompt.setter
@@ -198,9 +129,6 @@ class IntentArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -210,12 +138,6 @@ class IntentArgs:
     @_builtins.property
     @pulumi.getter(name="parentIntentSignature")
     def parent_intent_signature(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A unique identifier for the built-in intent to base this
-        intent on. To find the signature for an intent, see
-        [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
-        in the Alexa Skills Kit.
-        """
         return pulumi.get(self, "parent_intent_signature")
 
     @parent_intent_signature.setter
@@ -225,9 +147,6 @@ class IntentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -237,12 +156,6 @@ class IntentArgs:
     @_builtins.property
     @pulumi.getter(name="rejectionStatement")
     def rejection_statement(self) -> Optional[pulumi.Input['IntentRejectionStatementArgs']]:
-        """
-        When the user answers "no" to the question defined in
-        `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
-        canceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.
-        Attributes are documented under statement.
-        """
         return pulumi.get(self, "rejection_statement")
 
     @rejection_statement.setter
@@ -252,11 +165,6 @@ class IntentArgs:
     @_builtins.property
     @pulumi.getter(name="sampleUtterances")
     def sample_utterances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        An array of utterances (strings) that a user might say to signal
-        the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity} {PizzaSize} pizzas".
-        In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
-        """
         return pulumi.get(self, "sample_utterances")
 
     @sample_utterances.setter
@@ -266,10 +174,6 @@ class IntentArgs:
     @_builtins.property
     @pulumi.getter
     def slots(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntentSlotArgs']]]]:
-        """
-        An list of intent slots. At runtime, Amazon Lex elicits required slot values
-        from the user using prompts defined in the slots. Attributes are documented under slot.
-        """
         return pulumi.get(self, "slots")
 
     @slots.setter
@@ -300,47 +204,6 @@ class _IntentState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Intent resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Lex intent.
-        :param pulumi.Input[_builtins.str] checksum: Checksum identifying the version of the intent that was created. The checksum is not
-               included as an argument because the resource will add it automatically when updating the intent.
-        :param pulumi.Input['IntentConclusionStatementArgs'] conclusion_statement: The statement that you want Amazon Lex to convey to the user
-               after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
-               you provide a Lambda function in the `fulfillment_activity`. If you return the intent to the client
-               application, you can't specify this element. The `follow_up_prompt` and `conclusion_statement` are
-               mutually exclusive. You can specify only one. Attributes are documented under statement.
-        :param pulumi.Input['IntentConfirmationPromptArgs'] confirmation_prompt: Prompts the user to confirm the intent. This question should
-               have a yes or no answer. You you must provide both the `rejection_statement` and `confirmation_prompt`,
-               or neither. Attributes are documented under prompt.
-        :param pulumi.Input[_builtins.bool] create_version: Determines if a new slot type version is created when the initial
-               resource is created and on each update. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] created_date: The date when the intent version was created.
-        :param pulumi.Input[_builtins.str] description: A description of the intent. Must be less than or equal to 200 characters in length.
-        :param pulumi.Input['IntentDialogCodeHookArgs'] dialog_code_hook: Specifies a Lambda function to invoke for each user input. You can
-               invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
-        :param pulumi.Input['IntentFollowUpPromptArgs'] follow_up_prompt: Amazon Lex uses this prompt to solicit additional activity after
-               fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
-               user to order a drink. The `follow_up_prompt` field and the `conclusion_statement` field are mutually
-               exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
-        :param pulumi.Input['IntentFulfillmentActivityArgs'] fulfillment_activity: Describes how the intent is fulfilled. For example, after a
-               user provides all of the information for a pizza order, `fulfillment_activity` defines how the bot
-               places an order with a local pizza store. Attributes are documented under fulfillment_activity.
-        :param pulumi.Input[_builtins.str] last_updated_date: The date when the $LATEST version of this intent was updated.
-        :param pulumi.Input[_builtins.str] name: The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
-        :param pulumi.Input[_builtins.str] parent_intent_signature: A unique identifier for the built-in intent to base this
-               intent on. To find the signature for an intent, see
-               [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
-               in the Alexa Skills Kit.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['IntentRejectionStatementArgs'] rejection_statement: When the user answers "no" to the question defined in
-               `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
-               canceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.
-               Attributes are documented under statement.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sample_utterances: An array of utterances (strings) that a user might say to signal
-               the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity} {PizzaSize} pizzas".
-               In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
-        :param pulumi.Input[Sequence[pulumi.Input['IntentSlotArgs']]] slots: An list of intent slots. At runtime, Amazon Lex elicits required slot values
-               from the user using prompts defined in the slots. Attributes are documented under slot.
-        :param pulumi.Input[_builtins.str] version: The version of the bot.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -382,9 +245,6 @@ class _IntentState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the Lex intent.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -394,10 +254,6 @@ class _IntentState:
     @_builtins.property
     @pulumi.getter
     def checksum(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Checksum identifying the version of the intent that was created. The checksum is not
-        included as an argument because the resource will add it automatically when updating the intent.
-        """
         return pulumi.get(self, "checksum")
 
     @checksum.setter
@@ -407,13 +263,6 @@ class _IntentState:
     @_builtins.property
     @pulumi.getter(name="conclusionStatement")
     def conclusion_statement(self) -> Optional[pulumi.Input['IntentConclusionStatementArgs']]:
-        """
-        The statement that you want Amazon Lex to convey to the user
-        after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
-        you provide a Lambda function in the `fulfillment_activity`. If you return the intent to the client
-        application, you can't specify this element. The `follow_up_prompt` and `conclusion_statement` are
-        mutually exclusive. You can specify only one. Attributes are documented under statement.
-        """
         return pulumi.get(self, "conclusion_statement")
 
     @conclusion_statement.setter
@@ -423,11 +272,6 @@ class _IntentState:
     @_builtins.property
     @pulumi.getter(name="confirmationPrompt")
     def confirmation_prompt(self) -> Optional[pulumi.Input['IntentConfirmationPromptArgs']]:
-        """
-        Prompts the user to confirm the intent. This question should
-        have a yes or no answer. You you must provide both the `rejection_statement` and `confirmation_prompt`,
-        or neither. Attributes are documented under prompt.
-        """
         return pulumi.get(self, "confirmation_prompt")
 
     @confirmation_prompt.setter
@@ -437,10 +281,6 @@ class _IntentState:
     @_builtins.property
     @pulumi.getter(name="createVersion")
     def create_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Determines if a new slot type version is created when the initial
-        resource is created and on each update. Defaults to `false`.
-        """
         return pulumi.get(self, "create_version")
 
     @create_version.setter
@@ -450,9 +290,6 @@ class _IntentState:
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date when the intent version was created.
-        """
         return pulumi.get(self, "created_date")
 
     @created_date.setter
@@ -462,9 +299,6 @@ class _IntentState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description of the intent. Must be less than or equal to 200 characters in length.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -474,10 +308,6 @@ class _IntentState:
     @_builtins.property
     @pulumi.getter(name="dialogCodeHook")
     def dialog_code_hook(self) -> Optional[pulumi.Input['IntentDialogCodeHookArgs']]:
-        """
-        Specifies a Lambda function to invoke for each user input. You can
-        invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
-        """
         return pulumi.get(self, "dialog_code_hook")
 
     @dialog_code_hook.setter
@@ -487,12 +317,6 @@ class _IntentState:
     @_builtins.property
     @pulumi.getter(name="followUpPrompt")
     def follow_up_prompt(self) -> Optional[pulumi.Input['IntentFollowUpPromptArgs']]:
-        """
-        Amazon Lex uses this prompt to solicit additional activity after
-        fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
-        user to order a drink. The `follow_up_prompt` field and the `conclusion_statement` field are mutually
-        exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
-        """
         return pulumi.get(self, "follow_up_prompt")
 
     @follow_up_prompt.setter
@@ -502,11 +326,6 @@ class _IntentState:
     @_builtins.property
     @pulumi.getter(name="fulfillmentActivity")
     def fulfillment_activity(self) -> Optional[pulumi.Input['IntentFulfillmentActivityArgs']]:
-        """
-        Describes how the intent is fulfilled. For example, after a
-        user provides all of the information for a pizza order, `fulfillment_activity` defines how the bot
-        places an order with a local pizza store. Attributes are documented under fulfillment_activity.
-        """
         return pulumi.get(self, "fulfillment_activity")
 
     @fulfillment_activity.setter
@@ -516,9 +335,6 @@ class _IntentState:
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date when the $LATEST version of this intent was updated.
-        """
         return pulumi.get(self, "last_updated_date")
 
     @last_updated_date.setter
@@ -528,9 +344,6 @@ class _IntentState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -540,12 +353,6 @@ class _IntentState:
     @_builtins.property
     @pulumi.getter(name="parentIntentSignature")
     def parent_intent_signature(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A unique identifier for the built-in intent to base this
-        intent on. To find the signature for an intent, see
-        [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
-        in the Alexa Skills Kit.
-        """
         return pulumi.get(self, "parent_intent_signature")
 
     @parent_intent_signature.setter
@@ -555,9 +362,6 @@ class _IntentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -567,12 +371,6 @@ class _IntentState:
     @_builtins.property
     @pulumi.getter(name="rejectionStatement")
     def rejection_statement(self) -> Optional[pulumi.Input['IntentRejectionStatementArgs']]:
-        """
-        When the user answers "no" to the question defined in
-        `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
-        canceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.
-        Attributes are documented under statement.
-        """
         return pulumi.get(self, "rejection_statement")
 
     @rejection_statement.setter
@@ -582,11 +380,6 @@ class _IntentState:
     @_builtins.property
     @pulumi.getter(name="sampleUtterances")
     def sample_utterances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        An array of utterances (strings) that a user might say to signal
-        the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity} {PizzaSize} pizzas".
-        In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
-        """
         return pulumi.get(self, "sample_utterances")
 
     @sample_utterances.setter
@@ -596,10 +389,6 @@ class _IntentState:
     @_builtins.property
     @pulumi.getter
     def slots(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntentSlotArgs']]]]:
-        """
-        An list of intent slots. At runtime, Amazon Lex elicits required slot values
-        from the user using prompts defined in the slots. Attributes are documented under slot.
-        """
         return pulumi.get(self, "slots")
 
     @slots.setter
@@ -609,9 +398,6 @@ class _IntentState:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The version of the bot.
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -640,136 +426,9 @@ class Intent(pulumi.CustomResource):
                  slots: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntentSlotArgs', 'IntentSlotArgsDict']]]]] = None,
                  __props__=None):
         """
-        Provides an Amazon Lex Intent resource. For more information see
-        [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        order_flowers_intent = aws.lex.Intent("order_flowers_intent",
-            confirmation_prompt={
-                "max_attempts": 2,
-                "messages": [{
-                    "content": "Okay, your {FlowerType} will be ready for pickup by {PickupTime} on {PickupDate}.  Does this sound okay?",
-                    "content_type": "PlainText",
-                }],
-            },
-            create_version=False,
-            name="OrderFlowers",
-            description="Intent to order a bouquet of flowers for pick up",
-            fulfillment_activity={
-                "type": "ReturnIntent",
-            },
-            rejection_statement={
-                "messages": [{
-                    "content": "Okay, I will not place your order.",
-                    "content_type": "PlainText",
-                }],
-            },
-            sample_utterances=[
-                "I would like to order some flowers",
-                "I would like to pick up flowers",
-            ],
-            slots=[
-                {
-                    "description": "The type of flowers to pick up",
-                    "name": "FlowerType",
-                    "priority": 1,
-                    "sample_utterances": ["I would like to order {FlowerType}"],
-                    "slot_constraint": "Required",
-                    "slot_type": "FlowerTypes",
-                    "slot_type_version": "$$LATEST",
-                    "value_elicitation_prompt": {
-                        "max_attempts": 2,
-                        "messages": [{
-                            "content": "What type of flowers would you like to order?",
-                            "content_type": "PlainText",
-                        }],
-                    },
-                },
-                {
-                    "description": "The date to pick up the flowers",
-                    "name": "PickupDate",
-                    "priority": 2,
-                    "sample_utterances": ["I would like to order {FlowerType}"],
-                    "slot_constraint": "Required",
-                    "slot_type": "AMAZON.DATE",
-                    "slot_type_version": "$$LATEST",
-                    "value_elicitation_prompt": {
-                        "max_attempts": 2,
-                        "messages": [{
-                            "content": "What day do you want the {FlowerType} to be picked up?",
-                            "content_type": "PlainText",
-                        }],
-                    },
-                },
-                {
-                    "description": "The time to pick up the flowers",
-                    "name": "PickupTime",
-                    "priority": 3,
-                    "sample_utterances": ["I would like to order {FlowerType}"],
-                    "slot_constraint": "Required",
-                    "slot_type": "AMAZON.TIME",
-                    "slot_type_version": "$$LATEST",
-                    "value_elicitation_prompt": {
-                        "max_attempts": 2,
-                        "messages": [{
-                            "content": "Pick up the {FlowerType} at what time on {PickupDate}?",
-                            "content_type": "PlainText",
-                        }],
-                    },
-                },
-            ])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import intents using their name. For example:
-
-        ```sh
-        $ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
-        ```
-
+        Create a Intent resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['IntentConclusionStatementArgs', 'IntentConclusionStatementArgsDict']] conclusion_statement: The statement that you want Amazon Lex to convey to the user
-               after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
-               you provide a Lambda function in the `fulfillment_activity`. If you return the intent to the client
-               application, you can't specify this element. The `follow_up_prompt` and `conclusion_statement` are
-               mutually exclusive. You can specify only one. Attributes are documented under statement.
-        :param pulumi.Input[Union['IntentConfirmationPromptArgs', 'IntentConfirmationPromptArgsDict']] confirmation_prompt: Prompts the user to confirm the intent. This question should
-               have a yes or no answer. You you must provide both the `rejection_statement` and `confirmation_prompt`,
-               or neither. Attributes are documented under prompt.
-        :param pulumi.Input[_builtins.bool] create_version: Determines if a new slot type version is created when the initial
-               resource is created and on each update. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] description: A description of the intent. Must be less than or equal to 200 characters in length.
-        :param pulumi.Input[Union['IntentDialogCodeHookArgs', 'IntentDialogCodeHookArgsDict']] dialog_code_hook: Specifies a Lambda function to invoke for each user input. You can
-               invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
-        :param pulumi.Input[Union['IntentFollowUpPromptArgs', 'IntentFollowUpPromptArgsDict']] follow_up_prompt: Amazon Lex uses this prompt to solicit additional activity after
-               fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
-               user to order a drink. The `follow_up_prompt` field and the `conclusion_statement` field are mutually
-               exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
-        :param pulumi.Input[Union['IntentFulfillmentActivityArgs', 'IntentFulfillmentActivityArgsDict']] fulfillment_activity: Describes how the intent is fulfilled. For example, after a
-               user provides all of the information for a pizza order, `fulfillment_activity` defines how the bot
-               places an order with a local pizza store. Attributes are documented under fulfillment_activity.
-        :param pulumi.Input[_builtins.str] name: The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
-        :param pulumi.Input[_builtins.str] parent_intent_signature: A unique identifier for the built-in intent to base this
-               intent on. To find the signature for an intent, see
-               [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
-               in the Alexa Skills Kit.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['IntentRejectionStatementArgs', 'IntentRejectionStatementArgsDict']] rejection_statement: When the user answers "no" to the question defined in
-               `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
-               canceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.
-               Attributes are documented under statement.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sample_utterances: An array of utterances (strings) that a user might say to signal
-               the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity} {PizzaSize} pizzas".
-               In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IntentSlotArgs', 'IntentSlotArgsDict']]]] slots: An list of intent slots. At runtime, Amazon Lex elicits required slot values
-               from the user using prompts defined in the slots. Attributes are documented under slot.
         """
         ...
     @overload
@@ -778,99 +437,7 @@ class Intent(pulumi.CustomResource):
                  args: IntentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Amazon Lex Intent resource. For more information see
-        [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        order_flowers_intent = aws.lex.Intent("order_flowers_intent",
-            confirmation_prompt={
-                "max_attempts": 2,
-                "messages": [{
-                    "content": "Okay, your {FlowerType} will be ready for pickup by {PickupTime} on {PickupDate}.  Does this sound okay?",
-                    "content_type": "PlainText",
-                }],
-            },
-            create_version=False,
-            name="OrderFlowers",
-            description="Intent to order a bouquet of flowers for pick up",
-            fulfillment_activity={
-                "type": "ReturnIntent",
-            },
-            rejection_statement={
-                "messages": [{
-                    "content": "Okay, I will not place your order.",
-                    "content_type": "PlainText",
-                }],
-            },
-            sample_utterances=[
-                "I would like to order some flowers",
-                "I would like to pick up flowers",
-            ],
-            slots=[
-                {
-                    "description": "The type of flowers to pick up",
-                    "name": "FlowerType",
-                    "priority": 1,
-                    "sample_utterances": ["I would like to order {FlowerType}"],
-                    "slot_constraint": "Required",
-                    "slot_type": "FlowerTypes",
-                    "slot_type_version": "$$LATEST",
-                    "value_elicitation_prompt": {
-                        "max_attempts": 2,
-                        "messages": [{
-                            "content": "What type of flowers would you like to order?",
-                            "content_type": "PlainText",
-                        }],
-                    },
-                },
-                {
-                    "description": "The date to pick up the flowers",
-                    "name": "PickupDate",
-                    "priority": 2,
-                    "sample_utterances": ["I would like to order {FlowerType}"],
-                    "slot_constraint": "Required",
-                    "slot_type": "AMAZON.DATE",
-                    "slot_type_version": "$$LATEST",
-                    "value_elicitation_prompt": {
-                        "max_attempts": 2,
-                        "messages": [{
-                            "content": "What day do you want the {FlowerType} to be picked up?",
-                            "content_type": "PlainText",
-                        }],
-                    },
-                },
-                {
-                    "description": "The time to pick up the flowers",
-                    "name": "PickupTime",
-                    "priority": 3,
-                    "sample_utterances": ["I would like to order {FlowerType}"],
-                    "slot_constraint": "Required",
-                    "slot_type": "AMAZON.TIME",
-                    "slot_type_version": "$$LATEST",
-                    "value_elicitation_prompt": {
-                        "max_attempts": 2,
-                        "messages": [{
-                            "content": "Pick up the {FlowerType} at what time on {PickupDate}?",
-                            "content_type": "PlainText",
-                        }],
-                    },
-                },
-            ])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import intents using their name. For example:
-
-        ```sh
-        $ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
-        ```
-
+        Create a Intent resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param IntentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -963,47 +530,6 @@ class Intent(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Lex intent.
-        :param pulumi.Input[_builtins.str] checksum: Checksum identifying the version of the intent that was created. The checksum is not
-               included as an argument because the resource will add it automatically when updating the intent.
-        :param pulumi.Input[Union['IntentConclusionStatementArgs', 'IntentConclusionStatementArgsDict']] conclusion_statement: The statement that you want Amazon Lex to convey to the user
-               after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
-               you provide a Lambda function in the `fulfillment_activity`. If you return the intent to the client
-               application, you can't specify this element. The `follow_up_prompt` and `conclusion_statement` are
-               mutually exclusive. You can specify only one. Attributes are documented under statement.
-        :param pulumi.Input[Union['IntentConfirmationPromptArgs', 'IntentConfirmationPromptArgsDict']] confirmation_prompt: Prompts the user to confirm the intent. This question should
-               have a yes or no answer. You you must provide both the `rejection_statement` and `confirmation_prompt`,
-               or neither. Attributes are documented under prompt.
-        :param pulumi.Input[_builtins.bool] create_version: Determines if a new slot type version is created when the initial
-               resource is created and on each update. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] created_date: The date when the intent version was created.
-        :param pulumi.Input[_builtins.str] description: A description of the intent. Must be less than or equal to 200 characters in length.
-        :param pulumi.Input[Union['IntentDialogCodeHookArgs', 'IntentDialogCodeHookArgsDict']] dialog_code_hook: Specifies a Lambda function to invoke for each user input. You can
-               invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
-        :param pulumi.Input[Union['IntentFollowUpPromptArgs', 'IntentFollowUpPromptArgsDict']] follow_up_prompt: Amazon Lex uses this prompt to solicit additional activity after
-               fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
-               user to order a drink. The `follow_up_prompt` field and the `conclusion_statement` field are mutually
-               exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
-        :param pulumi.Input[Union['IntentFulfillmentActivityArgs', 'IntentFulfillmentActivityArgsDict']] fulfillment_activity: Describes how the intent is fulfilled. For example, after a
-               user provides all of the information for a pizza order, `fulfillment_activity` defines how the bot
-               places an order with a local pizza store. Attributes are documented under fulfillment_activity.
-        :param pulumi.Input[_builtins.str] last_updated_date: The date when the $LATEST version of this intent was updated.
-        :param pulumi.Input[_builtins.str] name: The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
-        :param pulumi.Input[_builtins.str] parent_intent_signature: A unique identifier for the built-in intent to base this
-               intent on. To find the signature for an intent, see
-               [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
-               in the Alexa Skills Kit.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['IntentRejectionStatementArgs', 'IntentRejectionStatementArgsDict']] rejection_statement: When the user answers "no" to the question defined in
-               `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
-               canceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.
-               Attributes are documented under statement.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sample_utterances: An array of utterances (strings) that a user might say to signal
-               the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity} {PizzaSize} pizzas".
-               In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IntentSlotArgs', 'IntentSlotArgsDict']]]] slots: An list of intent slots. At runtime, Amazon Lex elicits required slot values
-               from the user using prompts defined in the slots. Attributes are documented under slot.
-        :param pulumi.Input[_builtins.str] version: The version of the bot.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1032,167 +558,90 @@ class Intent(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the Lex intent.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def checksum(self) -> pulumi.Output[_builtins.str]:
-        """
-        Checksum identifying the version of the intent that was created. The checksum is not
-        included as an argument because the resource will add it automatically when updating the intent.
-        """
         return pulumi.get(self, "checksum")
 
     @_builtins.property
     @pulumi.getter(name="conclusionStatement")
     def conclusion_statement(self) -> pulumi.Output[Optional['outputs.IntentConclusionStatement']]:
-        """
-        The statement that you want Amazon Lex to convey to the user
-        after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
-        you provide a Lambda function in the `fulfillment_activity`. If you return the intent to the client
-        application, you can't specify this element. The `follow_up_prompt` and `conclusion_statement` are
-        mutually exclusive. You can specify only one. Attributes are documented under statement.
-        """
         return pulumi.get(self, "conclusion_statement")
 
     @_builtins.property
     @pulumi.getter(name="confirmationPrompt")
     def confirmation_prompt(self) -> pulumi.Output[Optional['outputs.IntentConfirmationPrompt']]:
-        """
-        Prompts the user to confirm the intent. This question should
-        have a yes or no answer. You you must provide both the `rejection_statement` and `confirmation_prompt`,
-        or neither. Attributes are documented under prompt.
-        """
         return pulumi.get(self, "confirmation_prompt")
 
     @_builtins.property
     @pulumi.getter(name="createVersion")
     def create_version(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Determines if a new slot type version is created when the initial
-        resource is created and on each update. Defaults to `false`.
-        """
         return pulumi.get(self, "create_version")
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date when the intent version was created.
-        """
         return pulumi.get(self, "created_date")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A description of the intent. Must be less than or equal to 200 characters in length.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="dialogCodeHook")
     def dialog_code_hook(self) -> pulumi.Output[Optional['outputs.IntentDialogCodeHook']]:
-        """
-        Specifies a Lambda function to invoke for each user input. You can
-        invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
-        """
         return pulumi.get(self, "dialog_code_hook")
 
     @_builtins.property
     @pulumi.getter(name="followUpPrompt")
     def follow_up_prompt(self) -> pulumi.Output[Optional['outputs.IntentFollowUpPrompt']]:
-        """
-        Amazon Lex uses this prompt to solicit additional activity after
-        fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
-        user to order a drink. The `follow_up_prompt` field and the `conclusion_statement` field are mutually
-        exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
-        """
         return pulumi.get(self, "follow_up_prompt")
 
     @_builtins.property
     @pulumi.getter(name="fulfillmentActivity")
     def fulfillment_activity(self) -> pulumi.Output['outputs.IntentFulfillmentActivity']:
-        """
-        Describes how the intent is fulfilled. For example, after a
-        user provides all of the information for a pizza order, `fulfillment_activity` defines how the bot
-        places an order with a local pizza store. Attributes are documented under fulfillment_activity.
-        """
         return pulumi.get(self, "fulfillment_activity")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date when the $LATEST version of this intent was updated.
-        """
         return pulumi.get(self, "last_updated_date")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="parentIntentSignature")
     def parent_intent_signature(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A unique identifier for the built-in intent to base this
-        intent on. To find the signature for an intent, see
-        [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
-        in the Alexa Skills Kit.
-        """
         return pulumi.get(self, "parent_intent_signature")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="rejectionStatement")
     def rejection_statement(self) -> pulumi.Output[Optional['outputs.IntentRejectionStatement']]:
-        """
-        When the user answers "no" to the question defined in
-        `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
-        canceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.
-        Attributes are documented under statement.
-        """
         return pulumi.get(self, "rejection_statement")
 
     @_builtins.property
     @pulumi.getter(name="sampleUtterances")
     def sample_utterances(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        An array of utterances (strings) that a user might say to signal
-        the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity} {PizzaSize} pizzas".
-        In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
-        """
         return pulumi.get(self, "sample_utterances")
 
     @_builtins.property
     @pulumi.getter
     def slots(self) -> pulumi.Output[Optional[Sequence['outputs.IntentSlot']]]:
-        """
-        An list of intent slots. At runtime, Amazon Lex elicits required slot values
-        from the user using prompts defined in the slots. Attributes are documented under slot.
-        """
         return pulumi.get(self, "slots")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.str]:
-        """
-        The version of the bot.
-        """
         return pulumi.get(self, "version")
 

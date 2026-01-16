@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreAgentRuntimeLifecycleConfiguration
     {
-        /// <summary>
-        /// Timeout in seconds for idle runtime sessions.
-        /// </summary>
         public readonly int IdleRuntimeSessionTimeout;
-        /// <summary>
-        /// Maximum lifetime for the instance in seconds.
-        /// </summary>
         public readonly int MaxLifetime;
 
         [OutputConstructor]

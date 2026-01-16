@@ -23,23 +23,9 @@ public final class MembershipDefaultResultConfigurationArgs extends com.pulumi.r
         return Optional.ofNullable(this.outputConfiguration);
     }
 
-    /**
-     * The ARN of the IAM role which will be used to create the membership.
-     * - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
-     * - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
-     * - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
-     * 
-     */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
-    /**
-     * @return The ARN of the IAM role which will be used to create the membership.
-     * - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
-     * - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
-     * - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
-     * 
-     */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
@@ -78,29 +64,11 @@ public final class MembershipDefaultResultConfigurationArgs extends com.pulumi.r
             return outputConfiguration(Output.of(outputConfiguration));
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role which will be used to create the membership.
-         * - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
-         * - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
-         * - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role which will be used to create the membership.
-         * - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
-         * - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
-         * - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

@@ -14,17 +14,9 @@ public final class InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs extends c
 
     public static final InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs Empty = new InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs();
 
-    /**
-     * A finding&#39;s CIDR value.
-     * 
-     */
     @Import(name="cidr", required=true)
     private Output<String> cidr;
 
-    /**
-     * @return A finding&#39;s CIDR value.
-     * 
-     */
     public Output<String> cidr() {
         return this.cidr;
     }
@@ -53,23 +45,11 @@ public final class InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs extends c
             $ = new InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cidr A finding&#39;s CIDR value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidr(Output<String> cidr) {
             $.cidr = cidr;
             return this;
         }
 
-        /**
-         * @param cidr A finding&#39;s CIDR value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidr(String cidr) {
             return cidr(Output.of(cidr));
         }

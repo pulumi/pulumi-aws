@@ -13,13 +13,7 @@ namespace Pulumi.Aws.LicenseManager.Outputs
     [OutputType]
     public sealed class GetReceivedLicenseLicenseMetadataResult
     {
-        /// <summary>
-        /// The key name.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The value.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

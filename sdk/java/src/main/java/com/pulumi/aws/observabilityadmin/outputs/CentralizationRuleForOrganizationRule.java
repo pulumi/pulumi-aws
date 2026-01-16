@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CentralizationRuleForOrganizationRule {
-    /**
-     * @return Configuration block for the destination where logs will be centralized. See `destination` below.
-     * 
-     */
     private @Nullable CentralizationRuleForOrganizationRuleDestination destination;
-    /**
-     * @return Configuration block for the source of logs to be centralized. See `source` below.
-     * 
-     */
     private @Nullable CentralizationRuleForOrganizationRuleSource source;
 
     private CentralizationRuleForOrganizationRule() {}
-    /**
-     * @return Configuration block for the destination where logs will be centralized. See `destination` below.
-     * 
-     */
     public Optional<CentralizationRuleForOrganizationRuleDestination> destination() {
         return Optional.ofNullable(this.destination);
     }
-    /**
-     * @return Configuration block for the source of logs to be centralized. See `source` below.
-     * 
-     */
     public Optional<CentralizationRuleForOrganizationRuleSource> source() {
         return Optional.ofNullable(this.source);
     }

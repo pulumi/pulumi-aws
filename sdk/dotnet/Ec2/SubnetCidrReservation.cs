@@ -9,73 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides a subnet CIDR reservation resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.SubnetCidrReservation("example", new()
-    ///     {
-    ///         CidrBlock = "10.0.0.16/28",
-    ///         ReservationType = "prefix",
-    ///         SubnetId = exampleAwsSubnet.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Existing CIDR reservations using `SUBNET_ID:RESERVATION_ID`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/subnetCidrReservation:SubnetCidrReservation example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/subnetCidrReservation:SubnetCidrReservation")]
     public partial class SubnetCidrReservation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The CIDR block for the reservation.
-        /// </summary>
         [Output("cidrBlock")]
         public Output<string> CidrBlock { get; private set; } = null!;
 
-        /// <summary>
-        /// A brief description of the reservation.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the AWS account that owns this CIDR reservation.
-        /// </summary>
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of reservation to create. Valid values: `Explicit`, `Prefix`
-        /// </summary>
         [Output("reservationType")]
         public Output<string> ReservationType { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the subnet to create the reservation for.
-        /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 
@@ -125,33 +76,18 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class SubnetCidrReservationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The CIDR block for the reservation.
-        /// </summary>
         [Input("cidrBlock", required: true)]
         public Input<string> CidrBlock { get; set; } = null!;
 
-        /// <summary>
-        /// A brief description of the reservation.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The type of reservation to create. Valid values: `Explicit`, `Prefix`
-        /// </summary>
         [Input("reservationType", required: true)]
         public Input<string> ReservationType { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the subnet to create the reservation for.
-        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
@@ -163,39 +99,21 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class SubnetCidrReservationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The CIDR block for the reservation.
-        /// </summary>
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
 
-        /// <summary>
-        /// A brief description of the reservation.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// ID of the AWS account that owns this CIDR reservation.
-        /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The type of reservation to create. Valid values: `Explicit`, `Prefix`
-        /// </summary>
         [Input("reservationType")]
         public Input<string>? ReservationType { get; set; }
 
-        /// <summary>
-        /// The ID of the subnet to create the reservation for.
-        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 

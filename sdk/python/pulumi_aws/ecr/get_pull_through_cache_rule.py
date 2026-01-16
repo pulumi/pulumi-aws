@@ -55,17 +55,11 @@ class GetPullThroughCacheRuleResult:
     @_builtins.property
     @pulumi.getter(name="credentialArn")
     def credential_arn(self) -> _builtins.str:
-        """
-        ARN of the Secret which will be used to authenticate against the registry.
-        """
         return pulumi.get(self, "credential_arn")
 
     @_builtins.property
     @pulumi.getter(name="customRoleArn")
     def custom_role_arn(self) -> _builtins.str:
-        """
-        The ARN of the IAM role associated with the pull through cache rule. Used if the upstream registry is a cross-account ECR private registry.
-        """
         return pulumi.get(self, "custom_role_arn")
 
     @_builtins.property
@@ -89,25 +83,16 @@ class GetPullThroughCacheRuleResult:
     @_builtins.property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> _builtins.str:
-        """
-        The registry ID where the repository was created.
-        """
         return pulumi.get(self, "registry_id")
 
     @_builtins.property
     @pulumi.getter(name="upstreamRegistryUrl")
     def upstream_registry_url(self) -> _builtins.str:
-        """
-        The registry URL of the upstream registry to use as the source.
-        """
         return pulumi.get(self, "upstream_registry_url")
 
     @_builtins.property
     @pulumi.getter(name="upstreamRepositoryPrefix")
     def upstream_repository_prefix(self) -> _builtins.str:
-        """
-        The upstream repository prefix associated with the pull through cache rule.
-        """
         return pulumi.get(self, "upstream_repository_prefix")
 
 
@@ -131,20 +116,7 @@ def get_pull_through_cache_rule(ecr_repository_prefix: Optional[_builtins.str] =
                                 region: Optional[_builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPullThroughCacheRuleResult:
     """
-    The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    ecr_public = aws.ecr.get_pull_through_cache_rule(ecr_repository_prefix="ecr-public")
-    ```
-
-
-    :param _builtins.str ecr_repository_prefix: The repository name prefix to use when caching images from the source registry.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['ecrRepositoryPrefix'] = ecr_repository_prefix
@@ -165,20 +137,7 @@ def get_pull_through_cache_rule_output(ecr_repository_prefix: Optional[pulumi.In
                                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPullThroughCacheRuleResult]:
     """
-    The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    ecr_public = aws.ecr.get_pull_through_cache_rule(ecr_repository_prefix="ecr-public")
-    ```
-
-
-    :param _builtins.str ecr_repository_prefix: The repository name prefix to use when caching images from the source registry.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['ecrRepositoryPrefix'] = ecr_repository_prefix

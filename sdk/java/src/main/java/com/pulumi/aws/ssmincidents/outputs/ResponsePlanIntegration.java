@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ResponsePlanIntegration {
-    /**
-     * @return Details about the PagerDuty configuration for a response plan. The following values are supported:
-     * 
-     */
     private @Nullable List<ResponsePlanIntegrationPagerduty> pagerduties;
 
     private ResponsePlanIntegration() {}
-    /**
-     * @return Details about the PagerDuty configuration for a response plan. The following values are supported:
-     * 
-     */
     public List<ResponsePlanIntegrationPagerduty> pagerduties() {
         return this.pagerduties == null ? List.of() : this.pagerduties;
     }

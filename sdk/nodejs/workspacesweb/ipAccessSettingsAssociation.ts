@@ -4,30 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS WorkSpaces Web IP Access Settings Association.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.workspacesweb.Portal("example", {displayName: "example"});
- * const exampleIpAccessSettings = new aws.workspacesweb.IpAccessSettings("example", {
- *     displayName: "example",
- *     ipRules: [{
- *         ipRange: "10.0.0.0/16",
- *     }],
- * });
- * const exampleIpAccessSettingsAssociation = new aws.workspacesweb.IpAccessSettingsAssociation("example", {
- *     ipAccessSettingsArn: exampleIpAccessSettings.ipAccessSettingsArn,
- *     portalArn: example.portalArn,
- * });
- * ```
- */
 export class IpAccessSettingsAssociation extends pulumi.CustomResource {
     /**
      * Get an existing IpAccessSettingsAssociation resource's state with the given name, ID, and optional extra
@@ -56,19 +32,8 @@ export class IpAccessSettingsAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === IpAccessSettingsAssociation.__pulumiType;
     }
 
-    /**
-     * ARN of the IP access settings to associate with the portal. Forces replacement if changed.
-     */
     declare public readonly ipAccessSettingsArn: pulumi.Output<string>;
-    /**
-     * ARN of the portal to associate with the IP access settings. Forces replacement if changed.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly portalArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -108,19 +73,8 @@ export class IpAccessSettingsAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IpAccessSettingsAssociation resources.
  */
 export interface IpAccessSettingsAssociationState {
-    /**
-     * ARN of the IP access settings to associate with the portal. Forces replacement if changed.
-     */
     ipAccessSettingsArn?: pulumi.Input<string>;
-    /**
-     * ARN of the portal to associate with the IP access settings. Forces replacement if changed.
-     *
-     * The following arguments are optional:
-     */
     portalArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -128,18 +82,7 @@ export interface IpAccessSettingsAssociationState {
  * The set of arguments for constructing a IpAccessSettingsAssociation resource.
  */
 export interface IpAccessSettingsAssociationArgs {
-    /**
-     * ARN of the IP access settings to associate with the portal. Forces replacement if changed.
-     */
     ipAccessSettingsArn: pulumi.Input<string>;
-    /**
-     * ARN of the portal to associate with the IP access settings. Forces replacement if changed.
-     *
-     * The following arguments are optional:
-     */
     portalArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

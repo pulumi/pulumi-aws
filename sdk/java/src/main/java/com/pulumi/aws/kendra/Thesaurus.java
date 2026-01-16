@@ -16,72 +16,11 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Kendra Thesaurus.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kendra.Thesaurus;
- * import com.pulumi.aws.kendra.ThesaurusArgs;
- * import com.pulumi.aws.kendra.inputs.ThesaurusSourceS3PathArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Thesaurus("example", ThesaurusArgs.builder()
- *             .indexId(exampleAwsKendraIndex.id())
- *             .name("Example")
- *             .roleArn(exampleAwsIamRole.arn())
- *             .sourceS3Path(ThesaurusSourceS3PathArgs.builder()
- *                 .bucket(exampleAwsS3Bucket.id())
- *                 .key(exampleAwsS3Object.key())
- *                 .build())
- *             .tags(Map.of("Name", "Example Kendra Thesaurus"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_kendra_thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For example:
- * 
- * ```sh
- * $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
- * ```
- * 
- */
 @ResourceType(type="aws:kendra/thesaurus:Thesaurus")
 public class Thesaurus extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the thesaurus.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the thesaurus.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -91,31 +30,15 @@ public class Thesaurus extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The identifier of the index for a thesaurus.
-     * 
-     */
     @Export(name="indexId", refs={String.class}, tree="[0]")
     private Output<String> indexId;
 
-    /**
-     * @return The identifier of the index for a thesaurus.
-     * 
-     */
     public Output<String> indexId() {
         return this.indexId;
     }
-    /**
-     * The name for the thesaurus.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name for the thesaurus.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -125,45 +48,21 @@ public class Thesaurus extends com.pulumi.resources.CustomResource {
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
-    /**
-     * @return The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
-    /**
-     * The S3 path where your thesaurus file sits in S3. Detailed below.
-     * 
-     */
     @Export(name="sourceS3Path", refs={ThesaurusSourceS3Path.class}, tree="[0]")
     private Output<ThesaurusSourceS3Path> sourceS3Path;
 
-    /**
-     * @return The S3 path where your thesaurus file sits in S3. Detailed below.
-     * 
-     */
     public Output<ThesaurusSourceS3Path> sourceS3Path() {
         return this.sourceS3Path;
     }
-    /**
-     * The current status of the thesaurus.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return The current status of the thesaurus.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
@@ -173,17 +72,9 @@ public class Thesaurus extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

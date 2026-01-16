@@ -12,59 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Amazon API Gateway Version 2 API mapping.
-// More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
-//
-// ## Example Usage
-//
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigatewayv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigatewayv2.NewApiMapping(ctx, "example", &apigatewayv2.ApiMappingArgs{
-//				ApiId:      pulumi.Any(exampleAwsApigatewayv2Api.Id),
-//				DomainName: pulumi.Any(exampleAwsApigatewayv2DomainName.Id),
-//				Stage:      pulumi.Any(exampleAwsApigatewayv2Stage.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_apigatewayv2_api_mapping` using the API mapping identifier and domain name. For example:
-//
-// ```sh
-// $ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com
-// ```
 type ApiMapping struct {
 	pulumi.CustomResourceState
 
-	// API identifier.
-	ApiId pulumi.StringOutput `pulumi:"apiId"`
-	// The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
+	ApiId         pulumi.StringOutput    `pulumi:"apiId"`
 	ApiMappingKey pulumi.StringPtrOutput `pulumi:"apiMappingKey"`
-	// Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
-	Stage pulumi.StringOutput `pulumi:"stage"`
+	DomainName    pulumi.StringOutput    `pulumi:"domainName"`
+	Region        pulumi.StringOutput    `pulumi:"region"`
+	Stage         pulumi.StringOutput    `pulumi:"stage"`
 }
 
 // NewApiMapping registers a new resource with the given unique name, arguments, and options.
@@ -106,29 +61,19 @@ func GetApiMapping(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiMapping resources.
 type apiMappingState struct {
-	// API identifier.
-	ApiId *string `pulumi:"apiId"`
-	// The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
+	ApiId         *string `pulumi:"apiId"`
 	ApiMappingKey *string `pulumi:"apiMappingKey"`
-	// Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
-	DomainName *string `pulumi:"domainName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
-	Stage *string `pulumi:"stage"`
+	DomainName    *string `pulumi:"domainName"`
+	Region        *string `pulumi:"region"`
+	Stage         *string `pulumi:"stage"`
 }
 
 type ApiMappingState struct {
-	// API identifier.
-	ApiId pulumi.StringPtrInput
-	// The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
+	ApiId         pulumi.StringPtrInput
 	ApiMappingKey pulumi.StringPtrInput
-	// Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
-	DomainName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
-	Stage pulumi.StringPtrInput
+	DomainName    pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
+	Stage         pulumi.StringPtrInput
 }
 
 func (ApiMappingState) ElementType() reflect.Type {
@@ -136,30 +81,20 @@ func (ApiMappingState) ElementType() reflect.Type {
 }
 
 type apiMappingArgs struct {
-	// API identifier.
-	ApiId string `pulumi:"apiId"`
-	// The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
+	ApiId         string  `pulumi:"apiId"`
 	ApiMappingKey *string `pulumi:"apiMappingKey"`
-	// Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
-	DomainName string `pulumi:"domainName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
-	Stage string `pulumi:"stage"`
+	DomainName    string  `pulumi:"domainName"`
+	Region        *string `pulumi:"region"`
+	Stage         string  `pulumi:"stage"`
 }
 
 // The set of arguments for constructing a ApiMapping resource.
 type ApiMappingArgs struct {
-	// API identifier.
-	ApiId pulumi.StringInput
-	// The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
+	ApiId         pulumi.StringInput
 	ApiMappingKey pulumi.StringPtrInput
-	// Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
-	DomainName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
-	Stage pulumi.StringInput
+	DomainName    pulumi.StringInput
+	Region        pulumi.StringPtrInput
+	Stage         pulumi.StringInput
 }
 
 func (ApiMappingArgs) ElementType() reflect.Type {
@@ -249,27 +184,22 @@ func (o ApiMappingOutput) ToApiMappingOutputWithContext(ctx context.Context) Api
 	return o
 }
 
-// API identifier.
 func (o ApiMappingOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiMapping) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
-// The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
 func (o ApiMappingOutput) ApiMappingKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiMapping) pulumi.StringPtrOutput { return v.ApiMappingKey }).(pulumi.StringPtrOutput)
 }
 
-// Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
 func (o ApiMappingOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiMapping) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ApiMappingOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiMapping) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
 func (o ApiMappingOutput) Stage() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiMapping) pulumi.StringOutput { return v.Stage }).(pulumi.StringOutput)
 }

@@ -9,99 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AppFabric
 {
-    /// <summary>
-    /// Resource for managing an AWS AppFabric Ingestion Destination.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppFabric.IngestionDestination("example", new()
-    ///     {
-    ///         AppBundleArn = exampleAwsAppfabricAppBundle.Arn,
-    ///         IngestionArn = exampleAwsAppfabricIngestion.Arn,
-    ///         ProcessingConfiguration = new Aws.AppFabric.Inputs.IngestionDestinationProcessingConfigurationArgs
-    ///         {
-    ///             AuditLog = new Aws.AppFabric.Inputs.IngestionDestinationProcessingConfigurationAuditLogArgs
-    ///             {
-    ///                 Format = "json",
-    ///                 Schema = "raw",
-    ///             },
-    ///         },
-    ///         DestinationConfiguration = new Aws.AppFabric.Inputs.IngestionDestinationDestinationConfigurationArgs
-    ///         {
-    ///             AuditLog = new Aws.AppFabric.Inputs.IngestionDestinationDestinationConfigurationAuditLogArgs
-    ///             {
-    ///                 Destination = new Aws.AppFabric.Inputs.IngestionDestinationDestinationConfigurationAuditLogDestinationArgs
-    ///                 {
-    ///                     S3Bucket = new Aws.AppFabric.Inputs.IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs
-    ///                     {
-    ///                         BucketName = exampleAwsS3Bucket.Bucket,
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:appfabric/ingestionDestination:IngestionDestination")]
     public partial class IngestionDestination : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
-        /// </summary>
         [Output("appBundleArn")]
         public Output<string> AppBundleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the Ingestion Destination.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Contains information about the destination of ingested data.
-        /// </summary>
         [Output("destinationConfiguration")]
         public Output<Outputs.IngestionDestinationDestinationConfiguration?> DestinationConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the ingestion to use for the request.
-        /// </summary>
         [Output("ingestionArn")]
         public Output<string> IngestionArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Contains information about how ingested data is processed.
-        /// </summary>
         [Output("processingConfiguration")]
         public Output<Outputs.IngestionDestinationProcessingConfiguration?> ProcessingConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -154,42 +85,23 @@ namespace Pulumi.Aws.AppFabric
 
     public sealed class IngestionDestinationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
-        /// </summary>
         [Input("appBundleArn", required: true)]
         public Input<string> AppBundleArn { get; set; } = null!;
 
-        /// <summary>
-        /// Contains information about the destination of ingested data.
-        /// </summary>
         [Input("destinationConfiguration")]
         public Input<Inputs.IngestionDestinationDestinationConfigurationArgs>? DestinationConfiguration { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the ingestion to use for the request.
-        /// </summary>
         [Input("ingestionArn", required: true)]
         public Input<string> IngestionArn { get; set; } = null!;
 
-        /// <summary>
-        /// Contains information about how ingested data is processed.
-        /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.IngestionDestinationProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -207,48 +119,26 @@ namespace Pulumi.Aws.AppFabric
 
     public sealed class IngestionDestinationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
-        /// </summary>
         [Input("appBundleArn")]
         public Input<string>? AppBundleArn { get; set; }
 
-        /// <summary>
-        /// ARN of the Ingestion Destination.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Contains information about the destination of ingested data.
-        /// </summary>
         [Input("destinationConfiguration")]
         public Input<Inputs.IngestionDestinationDestinationConfigurationGetArgs>? DestinationConfiguration { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the ingestion to use for the request.
-        /// </summary>
         [Input("ingestionArn")]
         public Input<string>? IngestionArn { get; set; }
 
-        /// <summary>
-        /// Contains information about how ingested data is processed.
-        /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.IngestionDestinationProcessingConfigurationGetArgs>? ProcessingConfiguration { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -257,10 +147,6 @@ namespace Pulumi.Aws.AppFabric
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

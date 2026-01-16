@@ -15,17 +15,9 @@ public final class IntegrationTlsConfigArgs extends com.pulumi.resources.Resourc
 
     public static final IntegrationTlsConfigArgs Empty = new IntegrationTlsConfigArgs();
 
-    /**
-     * Whether or not API Gateway skips verification that the certificate for an integration endpoint is issued by a [supported certificate authority](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-supported-certificate-authorities-for-http-endpoints.html). This isn’t recommended, but it enables you to use certificates that are signed by private certificate authorities, or certificates that are self-signed. If enabled, API Gateway still performs basic certificate validation, which includes checking the certificate&#39;s expiration date, hostname, and presence of a root certificate authority. Supported only for `HTTP` and `HTTP_PROXY` integrations.
-     * 
-     */
     @Import(name="insecureSkipVerification")
     private @Nullable Output<Boolean> insecureSkipVerification;
 
-    /**
-     * @return Whether or not API Gateway skips verification that the certificate for an integration endpoint is issued by a [supported certificate authority](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-supported-certificate-authorities-for-http-endpoints.html). This isn’t recommended, but it enables you to use certificates that are signed by private certificate authorities, or certificates that are self-signed. If enabled, API Gateway still performs basic certificate validation, which includes checking the certificate&#39;s expiration date, hostname, and presence of a root certificate authority. Supported only for `HTTP` and `HTTP_PROXY` integrations.
-     * 
-     */
     public Optional<Output<Boolean>> insecureSkipVerification() {
         return Optional.ofNullable(this.insecureSkipVerification);
     }
@@ -54,23 +46,11 @@ public final class IntegrationTlsConfigArgs extends com.pulumi.resources.Resourc
             $ = new IntegrationTlsConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param insecureSkipVerification Whether or not API Gateway skips verification that the certificate for an integration endpoint is issued by a [supported certificate authority](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-supported-certificate-authorities-for-http-endpoints.html). This isn’t recommended, but it enables you to use certificates that are signed by private certificate authorities, or certificates that are self-signed. If enabled, API Gateway still performs basic certificate validation, which includes checking the certificate&#39;s expiration date, hostname, and presence of a root certificate authority. Supported only for `HTTP` and `HTTP_PROXY` integrations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insecureSkipVerification(@Nullable Output<Boolean> insecureSkipVerification) {
             $.insecureSkipVerification = insecureSkipVerification;
             return this;
         }
 
-        /**
-         * @param insecureSkipVerification Whether or not API Gateway skips verification that the certificate for an integration endpoint is issued by a [supported certificate authority](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-supported-certificate-authorities-for-http-endpoints.html). This isn’t recommended, but it enables you to use certificates that are signed by private certificate authorities, or certificates that are self-signed. If enabled, API Gateway still performs basic certificate validation, which includes checking the certificate&#39;s expiration date, hostname, and presence of a root certificate authority. Supported only for `HTTP` and `HTTP_PROXY` integrations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insecureSkipVerification(Boolean insecureSkipVerification) {
             return insecureSkipVerification(Output.of(insecureSkipVerification));
         }

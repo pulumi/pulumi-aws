@@ -4,47 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a ELBv2 Trust Store for use with Application Load Balancer Listener resources.
- *
- * ## Example Usage
- *
- * ### Trust Store Load Balancer Listener
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.lb.TrustStore("test", {
- *     name: "tf-example-lb-ts",
- *     caCertificatesBundleS3Bucket: "...",
- *     caCertificatesBundleS3Key: "...",
- * });
- * const example = new aws.lb.Listener("example", {
- *     loadBalancerArn: exampleAwsLb.id,
- *     defaultActions: [{
- *         targetGroupArn: exampleAwsLbTargetGroup.id,
- *         type: "forward",
- *     }],
- *     mutualAuthentication: {
- *         mode: "verify",
- *         trustStoreArn: test.arn,
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the trust store.
- *
- * Using `pulumi import`, import Target Groups using their ARN. For example:
- *
- * % pulumi import aws_lb_trust_store.example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314
- */
 export class TrustStore extends pulumi.CustomResource {
     /**
      * Get an existing TrustStore resource's state with the given name, ID, and optional extra
@@ -73,45 +32,15 @@ export class TrustStore extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrustStore.__pulumiType;
     }
 
-    /**
-     * ARN of the Trust Store (matches `id`).
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * ARN suffix for use with CloudWatch Metrics.
-     */
     declare public /*out*/ readonly arnSuffix: pulumi.Output<string>;
-    /**
-     * S3 Bucket name holding the client certificate CA bundle.
-     */
     declare public readonly caCertificatesBundleS3Bucket: pulumi.Output<string>;
-    /**
-     * S3 object key holding the client certificate CA bundle.
-     */
     declare public readonly caCertificatesBundleS3Key: pulumi.Output<string>;
-    /**
-     * Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
-     */
     declare public readonly caCertificatesBundleS3ObjectVersion: pulumi.Output<string | undefined>;
-    /**
-     * Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-     */
     declare public readonly namePrefix: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -165,45 +94,15 @@ export class TrustStore extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TrustStore resources.
  */
 export interface TrustStoreState {
-    /**
-     * ARN of the Trust Store (matches `id`).
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * ARN suffix for use with CloudWatch Metrics.
-     */
     arnSuffix?: pulumi.Input<string>;
-    /**
-     * S3 Bucket name holding the client certificate CA bundle.
-     */
     caCertificatesBundleS3Bucket?: pulumi.Input<string>;
-    /**
-     * S3 object key holding the client certificate CA bundle.
-     */
     caCertificatesBundleS3Key?: pulumi.Input<string>;
-    /**
-     * Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
-     */
     caCertificatesBundleS3ObjectVersion?: pulumi.Input<string>;
-    /**
-     * Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-     */
     namePrefix?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -211,32 +110,11 @@ export interface TrustStoreState {
  * The set of arguments for constructing a TrustStore resource.
  */
 export interface TrustStoreArgs {
-    /**
-     * S3 Bucket name holding the client certificate CA bundle.
-     */
     caCertificatesBundleS3Bucket: pulumi.Input<string>;
-    /**
-     * S3 object key holding the client certificate CA bundle.
-     */
     caCertificatesBundleS3Key: pulumi.Input<string>;
-    /**
-     * Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
-     */
     caCertificatesBundleS3ObjectVersion?: pulumi.Input<string>;
-    /**
-     * Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-     */
     namePrefix?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

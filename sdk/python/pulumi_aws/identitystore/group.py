@@ -27,12 +27,6 @@ class GroupArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Group resource.
-        :param pulumi.Input[_builtins.str] display_name: A string containing the name of the group. This value is commonly displayed when the group is referenced.
-        :param pulumi.Input[_builtins.str] identity_store_id: The globally unique identifier for the identity store.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: A string containing the description of the group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "identity_store_id", identity_store_id)
@@ -44,9 +38,6 @@ class GroupArgs:
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        A string containing the name of the group. This value is commonly displayed when the group is referenced.
-        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -56,11 +47,6 @@ class GroupArgs:
     @_builtins.property
     @pulumi.getter(name="identityStoreId")
     def identity_store_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The globally unique identifier for the identity store.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "identity_store_id")
 
     @identity_store_id.setter
@@ -70,9 +56,6 @@ class GroupArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A string containing the description of the group.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -82,9 +65,6 @@ class GroupArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -104,15 +84,6 @@ class _GroupState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Group resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Group.
-        :param pulumi.Input[_builtins.str] description: A string containing the description of the group.
-        :param pulumi.Input[_builtins.str] display_name: A string containing the name of the group. This value is commonly displayed when the group is referenced.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupExternalIdArgs']]] external_ids: A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
-        :param pulumi.Input[_builtins.str] group_id: The identifier of the newly created group in the identity store.
-        :param pulumi.Input[_builtins.str] identity_store_id: The globally unique identifier for the identity store.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -132,9 +103,6 @@ class _GroupState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Group.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -144,9 +112,6 @@ class _GroupState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A string containing the description of the group.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -156,9 +121,6 @@ class _GroupState:
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A string containing the name of the group. This value is commonly displayed when the group is referenced.
-        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -168,9 +130,6 @@ class _GroupState:
     @_builtins.property
     @pulumi.getter(name="externalIds")
     def external_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupExternalIdArgs']]]]:
-        """
-        A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
-        """
         return pulumi.get(self, "external_ids")
 
     @external_ids.setter
@@ -180,9 +139,6 @@ class _GroupState:
     @_builtins.property
     @pulumi.getter(name="groupId")
     def group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier of the newly created group in the identity store.
-        """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
@@ -192,11 +148,6 @@ class _GroupState:
     @_builtins.property
     @pulumi.getter(name="identityStoreId")
     def identity_store_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The globally unique identifier for the identity store.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "identity_store_id")
 
     @identity_store_id.setter
@@ -206,9 +157,6 @@ class _GroupState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -228,38 +176,9 @@ class Group(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS IdentityStore Group.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        this = aws.identitystore.Group("this",
-            display_name="Example group",
-            description="Example description",
-            identity_store_id=example["identityStoreIds"][0])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import an Identity Store Group using the combination `identity_store_id/group_id`. For example:
-
-        ```sh
-        $ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
-        ```
-
+        Create a Group resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: A string containing the description of the group.
-        :param pulumi.Input[_builtins.str] display_name: A string containing the name of the group. This value is commonly displayed when the group is referenced.
-        :param pulumi.Input[_builtins.str] identity_store_id: The globally unique identifier for the identity store.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -268,30 +187,7 @@ class Group(pulumi.CustomResource):
                  args: GroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS IdentityStore Group.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        this = aws.identitystore.Group("this",
-            display_name="Example group",
-            description="Example description",
-            identity_store_id=example["identityStoreIds"][0])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import an Identity Store Group using the combination `identity_store_id/group_id`. For example:
-
-        ```sh
-        $ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
-        ```
-
+        Create a Group resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -355,15 +251,6 @@ class Group(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Group.
-        :param pulumi.Input[_builtins.str] description: A string containing the description of the group.
-        :param pulumi.Input[_builtins.str] display_name: A string containing the name of the group. This value is commonly displayed when the group is referenced.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupExternalIdArgs', 'GroupExternalIdArgsDict']]]] external_ids: A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
-        :param pulumi.Input[_builtins.str] group_id: The identifier of the newly created group in the identity store.
-        :param pulumi.Input[_builtins.str] identity_store_id: The globally unique identifier for the identity store.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -381,58 +268,35 @@ class Group(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A string containing the description of the group.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        A string containing the name of the group. This value is commonly displayed when the group is referenced.
-        """
         return pulumi.get(self, "display_name")
 
     @_builtins.property
     @pulumi.getter(name="externalIds")
     def external_ids(self) -> pulumi.Output[Sequence['outputs.GroupExternalId']]:
-        """
-        A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
-        """
         return pulumi.get(self, "external_ids")
 
     @_builtins.property
     @pulumi.getter(name="groupId")
     def group_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier of the newly created group in the identity store.
-        """
         return pulumi.get(self, "group_id")
 
     @_builtins.property
     @pulumi.getter(name="identityStoreId")
     def identity_store_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The globally unique identifier for the identity store.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "identity_store_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

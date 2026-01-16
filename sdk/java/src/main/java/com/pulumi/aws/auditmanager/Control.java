@@ -17,176 +17,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Audit Manager Control.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.auditmanager.Control;
- * import com.pulumi.aws.auditmanager.ControlArgs;
- * import com.pulumi.aws.auditmanager.inputs.ControlControlMappingSourceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Control("example", ControlArgs.builder()
- *             .name("example")
- *             .controlMappingSources(ControlControlMappingSourceArgs.builder()
- *                 .sourceName("example")
- *                 .sourceSetUpOption("Procedural_Controls_Mapping")
- *                 .sourceType("MANUAL")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import an Audit Manager Control using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:auditmanager/control:Control example abc123-de45
- * ```
- * 
- */
 @ResourceType(type="aws:auditmanager/control:Control")
 public class Control extends com.pulumi.resources.CustomResource {
-    /**
-     * Recommended actions to carry out if the control isn&#39;t fulfilled.
-     * 
-     */
     @Export(name="actionPlanInstructions", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> actionPlanInstructions;
 
-    /**
-     * @return Recommended actions to carry out if the control isn&#39;t fulfilled.
-     * 
-     */
     public Output<Optional<String>> actionPlanInstructions() {
         return Codegen.optional(this.actionPlanInstructions);
     }
-    /**
-     * Title of the action plan for remediating the control.
-     * 
-     */
     @Export(name="actionPlanTitle", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> actionPlanTitle;
 
-    /**
-     * @return Title of the action plan for remediating the control.
-     * 
-     */
     public Output<Optional<String>> actionPlanTitle() {
         return Codegen.optional(this.actionPlanTitle);
     }
-    /**
-     * Amazon Resource Name (ARN) of the control.
-     * * `control_mapping_sources.*.source_id` - Unique identifier for the source.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the control.
-     * * `control_mapping_sources.*.source_id` - Unique identifier for the source.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Data mapping sources. See `controlMappingSources` below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="controlMappingSources", refs={List.class,ControlControlMappingSource.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ControlControlMappingSource>> controlMappingSources;
 
-    /**
-     * @return Data mapping sources. See `controlMappingSources` below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<List<ControlControlMappingSource>>> controlMappingSources() {
         return Codegen.optional(this.controlMappingSources);
     }
-    /**
-     * Description of the control.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the control.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Name of the control.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the control.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -196,31 +73,15 @@ public class Control extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Steps to follow to determine if the control is satisfied.
-     * 
-     */
     @Export(name="testingInformation", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> testingInformation;
 
-    /**
-     * @return Steps to follow to determine if the control is satisfied.
-     * 
-     */
     public Output<Optional<String>> testingInformation() {
         return Codegen.optional(this.testingInformation);
     }
-    /**
-     * Type of control, such as a custom control or a standard control.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return Type of control, such as a custom control or a standard control.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }

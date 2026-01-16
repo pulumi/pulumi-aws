@@ -9,54 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2TransitGateway
 {
-    /// <summary>
-    /// Resource for managing an AWS EC2 (Elastic Compute Cloud) Transit Gateway Default Route Table Association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2TransitGateway.DefaultRouteTableAssociation("example", new()
-    ///     {
-    ///         TransitGatewayId = exampleAwsEc2TransitGateway.Id,
-    ///         TransitGatewayRouteTableId = exampleAwsEc2TransitGatewayRouteTable.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2transitgateway/defaultRouteTableAssociation:DefaultRouteTableAssociation")]
     public partial class DefaultRouteTableAssociation : global::Pulumi.CustomResource
     {
         [Output("originalDefaultRouteTableId")]
         public Output<string> OriginalDefaultRouteTableId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.DefaultRouteTableAssociationTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the Transit Gateway to change the default association route table on.
-        /// </summary>
         [Output("transitGatewayId")]
         public Output<string> TransitGatewayId { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the Transit Gateway Route Table to be made the default association route table.
-        /// </summary>
         [Output("transitGatewayRouteTableId")]
         public Output<string> TransitGatewayRouteTableId { get; private set; } = null!;
 
@@ -106,24 +73,15 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class DefaultRouteTableAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.DefaultRouteTableAssociationTimeoutsArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// ID of the Transit Gateway to change the default association route table on.
-        /// </summary>
         [Input("transitGatewayId", required: true)]
         public Input<string> TransitGatewayId { get; set; } = null!;
 
-        /// <summary>
-        /// ID of the Transit Gateway Route Table to be made the default association route table.
-        /// </summary>
         [Input("transitGatewayRouteTableId", required: true)]
         public Input<string> TransitGatewayRouteTableId { get; set; } = null!;
 
@@ -138,24 +96,15 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Input("originalDefaultRouteTableId")]
         public Input<string>? OriginalDefaultRouteTableId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.DefaultRouteTableAssociationTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// ID of the Transit Gateway to change the default association route table on.
-        /// </summary>
         [Input("transitGatewayId")]
         public Input<string>? TransitGatewayId { get; set; }
 
-        /// <summary>
-        /// ID of the Transit Gateway Route Table to be made the default association route table.
-        /// </summary>
         [Input("transitGatewayRouteTableId")]
         public Input<string>? TransitGatewayRouteTableId { get; set; }
 

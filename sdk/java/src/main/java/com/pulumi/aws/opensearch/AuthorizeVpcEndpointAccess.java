@@ -15,114 +15,29 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS OpenSearch Authorize Vpc Endpoint Access.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.opensearch.AuthorizeVpcEndpointAccess;
- * import com.pulumi.aws.opensearch.AuthorizeVpcEndpointAccessArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         var test = new AuthorizeVpcEndpointAccess("test", AuthorizeVpcEndpointAccessArgs.builder()
- *             .domainName(testAwsOpensearchDomain.domainName())
- *             .account(current.accountId())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import OpenSearch Authorize Vpc Endpoint Access using the `domain_name` and `account` separated by a comma (,). For example:
- * 
- * ```sh
- * $ pulumi import aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess example authorize_vpc_endpoint_access-id-12345678,123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess")
 public class AuthorizeVpcEndpointAccess extends com.pulumi.resources.CustomResource {
-    /**
-     * AWS account ID to grant access to.
-     * 
-     */
     @Export(name="account", refs={String.class}, tree="[0]")
     private Output<String> account;
 
-    /**
-     * @return AWS account ID to grant access to.
-     * 
-     */
     public Output<String> account() {
         return this.account;
     }
-    /**
-     * Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
-     * 
-     */
     @Export(name="authorizedPrincipals", refs={List.class,AuthorizeVpcEndpointAccessAuthorizedPrincipal.class}, tree="[0,1]")
     private Output<List<AuthorizeVpcEndpointAccessAuthorizedPrincipal>> authorizedPrincipals;
 
-    /**
-     * @return Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
-     * 
-     */
     public Output<List<AuthorizeVpcEndpointAccessAuthorizedPrincipal>> authorizedPrincipals() {
         return this.authorizedPrincipals;
     }
-    /**
-     * Name of OpenSearch Service domain to provide access to.
-     * 
-     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
-    /**
-     * @return Name of OpenSearch Service domain to provide access to.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

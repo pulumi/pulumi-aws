@@ -13,13 +13,13 @@ namespace Pulumi.Aws.EcrPublic.Inputs
     public sealed class GetImagesImageIdArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Digest of the image manifest.
+        /// Image digest.
         /// </summary>
         [Input("imageDigest")]
         public string? ImageDigest { get; set; }
 
         /// <summary>
-        /// Tag used for the image.
+        /// Image tag.
         /// </summary>
         [Input("imageTag")]
         public string? ImageTag { get; set; }

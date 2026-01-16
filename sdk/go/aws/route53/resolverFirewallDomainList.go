@@ -11,56 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Route 53 Resolver DNS Firewall domain list resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewResolverFirewallDomainList(ctx, "example", &route53.ResolverFirewallDomainListArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import  Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For example:
-//
-// ```sh
-// $ pulumi import aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList example rslvr-fdl-0123456789abcdef
-// ```
 type ResolverFirewallDomainList struct {
 	pulumi.CustomResourceState
 
-	// The ARN (Amazon Resource Name) of the domain list.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A array of domains for the firewall domain list.
+	Arn     pulumi.StringOutput      `pulumi:"arn"`
 	Domains pulumi.StringArrayOutput `pulumi:"domains"`
-	// A name that lets you identify the domain list, to manage and use it.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. f configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Name    pulumi.StringOutput      `pulumi:"name"`
+	Region  pulumi.StringOutput      `pulumi:"region"`
+	Tags    pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput   `pulumi:"tagsAll"`
 }
 
 // NewResolverFirewallDomainList registers a new resource with the given unique name, arguments, and options.
@@ -93,32 +52,20 @@ func GetResolverFirewallDomainList(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResolverFirewallDomainList resources.
 type resolverFirewallDomainListState struct {
-	// The ARN (Amazon Resource Name) of the domain list.
-	Arn *string `pulumi:"arn"`
-	// A array of domains for the firewall domain list.
-	Domains []string `pulumi:"domains"`
-	// A name that lets you identify the domain list, to manage and use it.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. f configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	Arn     *string           `pulumi:"arn"`
+	Domains []string          `pulumi:"domains"`
+	Name    *string           `pulumi:"name"`
+	Region  *string           `pulumi:"region"`
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ResolverFirewallDomainListState struct {
-	// The ARN (Amazon Resource Name) of the domain list.
-	Arn pulumi.StringPtrInput
-	// A array of domains for the firewall domain list.
+	Arn     pulumi.StringPtrInput
 	Domains pulumi.StringArrayInput
-	// A name that lets you identify the domain list, to manage and use it.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. f configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	Name    pulumi.StringPtrInput
+	Region  pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -127,26 +74,18 @@ func (ResolverFirewallDomainListState) ElementType() reflect.Type {
 }
 
 type resolverFirewallDomainListArgs struct {
-	// A array of domains for the firewall domain list.
-	Domains []string `pulumi:"domains"`
-	// A name that lets you identify the domain list, to manage and use it.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. f configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Domains []string          `pulumi:"domains"`
+	Name    *string           `pulumi:"name"`
+	Region  *string           `pulumi:"region"`
+	Tags    map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResolverFirewallDomainList resource.
 type ResolverFirewallDomainListArgs struct {
-	// A array of domains for the firewall domain list.
 	Domains pulumi.StringArrayInput
-	// A name that lets you identify the domain list, to manage and use it.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. f configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name    pulumi.StringPtrInput
+	Region  pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
 }
 
 func (ResolverFirewallDomainListArgs) ElementType() reflect.Type {
@@ -236,32 +175,26 @@ func (o ResolverFirewallDomainListOutput) ToResolverFirewallDomainListOutputWith
 	return o
 }
 
-// The ARN (Amazon Resource Name) of the domain list.
 func (o ResolverFirewallDomainListOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallDomainList) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A array of domains for the firewall domain list.
 func (o ResolverFirewallDomainListOutput) Domains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResolverFirewallDomainList) pulumi.StringArrayOutput { return v.Domains }).(pulumi.StringArrayOutput)
 }
 
-// A name that lets you identify the domain list, to manage and use it.
 func (o ResolverFirewallDomainListOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallDomainList) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResolverFirewallDomainListOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallDomainList) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. f configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ResolverFirewallDomainListOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverFirewallDomainList) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ResolverFirewallDomainListOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverFirewallDomainList) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -18,92 +18,44 @@ public final class PipeSourceParametersManagedStreamingKafkaParametersArgs exten
 
     public static final PipeSourceParametersManagedStreamingKafkaParametersArgs Empty = new PipeSourceParametersManagedStreamingKafkaParametersArgs();
 
-    /**
-     * The maximum number of records to include in each batch. Maximum value of 10000.
-     * 
-     */
     @Import(name="batchSize")
     private @Nullable Output<Integer> batchSize;
 
-    /**
-     * @return The maximum number of records to include in each batch. Maximum value of 10000.
-     * 
-     */
     public Optional<Output<Integer>> batchSize() {
         return Optional.ofNullable(this.batchSize);
     }
 
-    /**
-     * The name of the destination queue to consume. Maximum value of 200.
-     * 
-     */
     @Import(name="consumerGroupId")
     private @Nullable Output<String> consumerGroupId;
 
-    /**
-     * @return The name of the destination queue to consume. Maximum value of 200.
-     * 
-     */
     public Optional<Output<String>> consumerGroupId() {
         return Optional.ofNullable(this.consumerGroupId);
     }
 
-    /**
-     * The credentials needed to access the resource. Detailed below.
-     * 
-     */
     @Import(name="credentials")
     private @Nullable Output<PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs> credentials;
 
-    /**
-     * @return The credentials needed to access the resource. Detailed below.
-     * 
-     */
     public Optional<Output<PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs>> credentials() {
         return Optional.ofNullable(this.credentials);
     }
 
-    /**
-     * The maximum length of a time to wait for events. Maximum value of 300.
-     * 
-     */
     @Import(name="maximumBatchingWindowInSeconds")
     private @Nullable Output<Integer> maximumBatchingWindowInSeconds;
 
-    /**
-     * @return The maximum length of a time to wait for events. Maximum value of 300.
-     * 
-     */
     public Optional<Output<Integer>> maximumBatchingWindowInSeconds() {
         return Optional.ofNullable(this.maximumBatchingWindowInSeconds);
     }
 
-    /**
-     * The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
-     * 
-     */
     @Import(name="startingPosition")
     private @Nullable Output<String> startingPosition;
 
-    /**
-     * @return The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
-     * 
-     */
     public Optional<Output<String>> startingPosition() {
         return Optional.ofNullable(this.startingPosition);
     }
 
-    /**
-     * The name of the topic that the pipe will read from. Maximum length of 249.
-     * 
-     */
     @Import(name="topicName", required=true)
     private Output<String> topicName;
 
-    /**
-     * @return The name of the topic that the pipe will read from. Maximum length of 249.
-     * 
-     */
     public Output<String> topicName() {
         return this.topicName;
     }
@@ -137,128 +89,56 @@ public final class PipeSourceParametersManagedStreamingKafkaParametersArgs exten
             $ = new PipeSourceParametersManagedStreamingKafkaParametersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param batchSize The maximum number of records to include in each batch. Maximum value of 10000.
-         * 
-         * @return builder
-         * 
-         */
         public Builder batchSize(@Nullable Output<Integer> batchSize) {
             $.batchSize = batchSize;
             return this;
         }
 
-        /**
-         * @param batchSize The maximum number of records to include in each batch. Maximum value of 10000.
-         * 
-         * @return builder
-         * 
-         */
         public Builder batchSize(Integer batchSize) {
             return batchSize(Output.of(batchSize));
         }
 
-        /**
-         * @param consumerGroupId The name of the destination queue to consume. Maximum value of 200.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consumerGroupId(@Nullable Output<String> consumerGroupId) {
             $.consumerGroupId = consumerGroupId;
             return this;
         }
 
-        /**
-         * @param consumerGroupId The name of the destination queue to consume. Maximum value of 200.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consumerGroupId(String consumerGroupId) {
             return consumerGroupId(Output.of(consumerGroupId));
         }
 
-        /**
-         * @param credentials The credentials needed to access the resource. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentials(@Nullable Output<PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs> credentials) {
             $.credentials = credentials;
             return this;
         }
 
-        /**
-         * @param credentials The credentials needed to access the resource. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentials(PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs credentials) {
             return credentials(Output.of(credentials));
         }
 
-        /**
-         * @param maximumBatchingWindowInSeconds The maximum length of a time to wait for events. Maximum value of 300.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumBatchingWindowInSeconds(@Nullable Output<Integer> maximumBatchingWindowInSeconds) {
             $.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
             return this;
         }
 
-        /**
-         * @param maximumBatchingWindowInSeconds The maximum length of a time to wait for events. Maximum value of 300.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumBatchingWindowInSeconds(Integer maximumBatchingWindowInSeconds) {
             return maximumBatchingWindowInSeconds(Output.of(maximumBatchingWindowInSeconds));
         }
 
-        /**
-         * @param startingPosition The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startingPosition(@Nullable Output<String> startingPosition) {
             $.startingPosition = startingPosition;
             return this;
         }
 
-        /**
-         * @param startingPosition The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startingPosition(String startingPosition) {
             return startingPosition(Output.of(startingPosition));
         }
 
-        /**
-         * @param topicName The name of the topic that the pipe will read from. Maximum length of 249.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicName(Output<String> topicName) {
             $.topicName = topicName;
             return this;
         }
 
-        /**
-         * @param topicName The name of the topic that the pipe will read from. Maximum length of 249.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicName(String topicName) {
             return topicName(Output.of(topicName));
         }

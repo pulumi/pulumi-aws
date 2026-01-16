@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreAgentRuntimeProtocolConfiguration {
-    /**
-     * @return Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`.
-     * 
-     */
     private @Nullable String serverProtocol;
 
     private AgentcoreAgentRuntimeProtocolConfiguration() {}
-    /**
-     * @return Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`.
-     * 
-     */
     public Optional<String> serverProtocol() {
         return Optional.ofNullable(this.serverProtocol);
     }

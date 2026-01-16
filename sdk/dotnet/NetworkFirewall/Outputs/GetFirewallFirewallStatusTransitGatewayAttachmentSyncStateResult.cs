@@ -13,17 +13,8 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateResult
     {
-        /// <summary>
-        /// The unique identifier of the transit gateway attachment.
-        /// </summary>
         public readonly string AttachmentId;
-        /// <summary>
-        /// A message providing additional information about the current status.
-        /// </summary>
         public readonly string StatusMessage;
-        /// <summary>
-        /// The current status of the transit gateway attachment.
-        /// </summary>
         public readonly string TransitGatewayAttachmentStatus;
 
         [OutputConstructor]

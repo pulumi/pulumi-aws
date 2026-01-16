@@ -11,63 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a WAF Regional XSS Match Set Resource for use with Application Load Balancer.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafregional"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafregional.NewXssMatchSet(ctx, "xss_match_set", &wafregional.XssMatchSetArgs{
-//				Name: pulumi.String("xss_match_set"),
-//				XssMatchTuples: wafregional.XssMatchSetXssMatchTupleArray{
-//					&wafregional.XssMatchSetXssMatchTupleArgs{
-//						TextTransformation: pulumi.String("NONE"),
-//						FieldToMatch: &wafregional.XssMatchSetXssMatchTupleFieldToMatchArgs{
-//							Type: pulumi.String("URI"),
-//						},
-//					},
-//					&wafregional.XssMatchSetXssMatchTupleArgs{
-//						TextTransformation: pulumi.String("NONE"),
-//						FieldToMatch: &wafregional.XssMatchSetXssMatchTupleFieldToMatchArgs{
-//							Type: pulumi.String("QUERY_STRING"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import AWS WAF Regional XSS Match using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde
-// ```
 type XssMatchSet struct {
 	pulumi.CustomResourceState
 
-	// The name of the set
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The parts of web requests that you want to inspect for cross-site scripting attacks.
+	Name           pulumi.StringOutput                 `pulumi:"name"`
+	Region         pulumi.StringOutput                 `pulumi:"region"`
 	XssMatchTuples XssMatchSetXssMatchTupleArrayOutput `pulumi:"xssMatchTuples"`
 }
 
@@ -101,20 +49,14 @@ func GetXssMatchSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering XssMatchSet resources.
 type xssMatchSetState struct {
-	// The name of the set
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The parts of web requests that you want to inspect for cross-site scripting attacks.
+	Name           *string                    `pulumi:"name"`
+	Region         *string                    `pulumi:"region"`
 	XssMatchTuples []XssMatchSetXssMatchTuple `pulumi:"xssMatchTuples"`
 }
 
 type XssMatchSetState struct {
-	// The name of the set
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The parts of web requests that you want to inspect for cross-site scripting attacks.
+	Name           pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
 	XssMatchTuples XssMatchSetXssMatchTupleArrayInput
 }
 
@@ -123,21 +65,15 @@ func (XssMatchSetState) ElementType() reflect.Type {
 }
 
 type xssMatchSetArgs struct {
-	// The name of the set
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The parts of web requests that you want to inspect for cross-site scripting attacks.
+	Name           *string                    `pulumi:"name"`
+	Region         *string                    `pulumi:"region"`
 	XssMatchTuples []XssMatchSetXssMatchTuple `pulumi:"xssMatchTuples"`
 }
 
 // The set of arguments for constructing a XssMatchSet resource.
 type XssMatchSetArgs struct {
-	// The name of the set
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The parts of web requests that you want to inspect for cross-site scripting attacks.
+	Name           pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
 	XssMatchTuples XssMatchSetXssMatchTupleArrayInput
 }
 
@@ -228,17 +164,14 @@ func (o XssMatchSetOutput) ToXssMatchSetOutputWithContext(ctx context.Context) X
 	return o
 }
 
-// The name of the set
 func (o XssMatchSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *XssMatchSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o XssMatchSetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *XssMatchSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The parts of web requests that you want to inspect for cross-site scripting attacks.
 func (o XssMatchSetOutput) XssMatchTuples() XssMatchSetXssMatchTupleArrayOutput {
 	return o.ApplyT(func(v *XssMatchSet) XssMatchSetXssMatchTupleArrayOutput { return v.XssMatchTuples }).(XssMatchSetXssMatchTupleArrayOutput)
 }

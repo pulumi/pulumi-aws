@@ -17,47 +17,23 @@ public final class GetLinkArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetLinkArgs Empty = new GetLinkArgs();
 
-    /**
-     * ID of the Global Network of the link to retrieve.
-     * 
-     */
     @Import(name="globalNetworkId", required=true)
     private Output<String> globalNetworkId;
 
-    /**
-     * @return ID of the Global Network of the link to retrieve.
-     * 
-     */
     public Output<String> globalNetworkId() {
         return this.globalNetworkId;
     }
 
-    /**
-     * ID of the specific link to retrieve.
-     * 
-     */
     @Import(name="linkId", required=true)
     private Output<String> linkId;
 
-    /**
-     * @return ID of the specific link to retrieve.
-     * 
-     */
     public Output<String> linkId() {
         return this.linkId;
     }
 
-    /**
-     * Key-value tags for the link.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the link.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -88,65 +64,29 @@ public final class GetLinkArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetLinkArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param globalNetworkId ID of the Global Network of the link to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(Output<String> globalNetworkId) {
             $.globalNetworkId = globalNetworkId;
             return this;
         }
 
-        /**
-         * @param globalNetworkId ID of the Global Network of the link to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(String globalNetworkId) {
             return globalNetworkId(Output.of(globalNetworkId));
         }
 
-        /**
-         * @param linkId ID of the specific link to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder linkId(Output<String> linkId) {
             $.linkId = linkId;
             return this;
         }
 
-        /**
-         * @param linkId ID of the specific link to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder linkId(String linkId) {
             return linkId(Output.of(linkId));
         }
 
-        /**
-         * @param tags Key-value tags for the link.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the link.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

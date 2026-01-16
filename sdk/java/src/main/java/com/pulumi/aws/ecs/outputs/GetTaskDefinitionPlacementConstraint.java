@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTaskDefinitionPlacementConstraint {
-    /**
-     * @return Cluster Query Language expression to apply to the constraint. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
-     * 
-     */
     private String expression;
-    /**
-     * @return Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
-     * 
-     */
     private String type;
 
     private GetTaskDefinitionPlacementConstraint() {}
-    /**
-     * @return Cluster Query Language expression to apply to the constraint. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
-     * 
-     */
     public String expression() {
         return this.expression;
     }
-    /**
-     * @return Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
-     * 
-     */
     public String type() {
         return this.type;
     }

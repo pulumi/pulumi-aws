@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterRestoreToPointInTime {
-    /**
-     * @return The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
-     * 
-     */
     private @Nullable String restoreToTime;
-    /**
-     * @return The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
-     * 
-     */
     private @Nullable String restoreType;
-    /**
-     * @return The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
-     * 
-     */
     private String sourceClusterIdentifier;
-    /**
-     * @return A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreToTime`.
-     * 
-     */
     private @Nullable Boolean useLatestRestorableTime;
 
     private ClusterRestoreToPointInTime() {}
-    /**
-     * @return The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
-     * 
-     */
     public Optional<String> restoreToTime() {
         return Optional.ofNullable(this.restoreToTime);
     }
-    /**
-     * @return The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
-     * 
-     */
     public Optional<String> restoreType() {
         return Optional.ofNullable(this.restoreType);
     }
-    /**
-     * @return The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
-     * 
-     */
     public String sourceClusterIdentifier() {
         return this.sourceClusterIdentifier;
     }
-    /**
-     * @return A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreToTime`.
-     * 
-     */
     public Optional<Boolean> useLatestRestorableTime() {
         return Optional.ofNullable(this.useLatestRestorableTime);
     }

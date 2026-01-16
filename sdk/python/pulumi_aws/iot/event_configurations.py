@@ -23,8 +23,6 @@ class EventConfigurationsArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventConfigurations resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.bool]]] event_configurations: Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "event_configurations", event_configurations)
         if region is not None:
@@ -33,9 +31,6 @@ class EventConfigurationsArgs:
     @_builtins.property
     @pulumi.getter(name="eventConfigurations")
     def event_configurations(self) -> pulumi.Input[Mapping[str, pulumi.Input[_builtins.bool]]]:
-        """
-        Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
-        """
         return pulumi.get(self, "event_configurations")
 
     @event_configurations.setter
@@ -45,9 +40,6 @@ class EventConfigurationsArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -62,8 +54,6 @@ class _EventConfigurationsState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventConfigurations resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.bool]]] event_configurations: Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if event_configurations is not None:
             pulumi.set(__self__, "event_configurations", event_configurations)
@@ -73,9 +63,6 @@ class _EventConfigurationsState:
     @_builtins.property
     @pulumi.getter(name="eventConfigurations")
     def event_configurations(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.bool]]]]:
-        """
-        Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
-        """
         return pulumi.get(self, "event_configurations")
 
     @event_configurations.setter
@@ -85,9 +72,6 @@ class _EventConfigurationsState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -105,43 +89,9 @@ class EventConfigurations(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages IoT event configurations.
-
-        > **NOTE:** Deleting this resource does not disable the event configurations, the resource in simply removed from state instead.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iot.EventConfigurations("example", event_configurations={
-            "THING": True,
-            "THING_GROUP": False,
-            "THING_TYPE": False,
-            "THING_GROUP_MEMBERSHIP": False,
-            "THING_GROUP_HIERARCHY": False,
-            "THING_TYPE_ASSOCIATION": False,
-            "JOB": False,
-            "JOB_EXECUTION": False,
-            "POLICY": False,
-            "CERTIFICATE": True,
-            "CA_CERTIFICATE": False,
-        })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import IoT Event Configurations using the AWS Region. For example:
-
-        ```sh
-        $ pulumi import aws:iot/eventConfigurations:EventConfigurations example us-west-2
-        ```
-
+        Create a EventConfigurations resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.bool]]] event_configurations: Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -150,39 +100,7 @@ class EventConfigurations(pulumi.CustomResource):
                  args: EventConfigurationsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages IoT event configurations.
-
-        > **NOTE:** Deleting this resource does not disable the event configurations, the resource in simply removed from state instead.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iot.EventConfigurations("example", event_configurations={
-            "THING": True,
-            "THING_GROUP": False,
-            "THING_TYPE": False,
-            "THING_GROUP_MEMBERSHIP": False,
-            "THING_GROUP_HIERARCHY": False,
-            "THING_TYPE_ASSOCIATION": False,
-            "JOB": False,
-            "JOB_EXECUTION": False,
-            "POLICY": False,
-            "CERTIFICATE": True,
-            "CA_CERTIFICATE": False,
-        })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import IoT Event Configurations using the AWS Region. For example:
-
-        ```sh
-        $ pulumi import aws:iot/eventConfigurations:EventConfigurations example us-west-2
-        ```
-
+        Create a EventConfigurations resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EventConfigurationsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -232,8 +150,6 @@ class EventConfigurations(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.bool]]] event_configurations: Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -246,16 +162,10 @@ class EventConfigurations(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="eventConfigurations")
     def event_configurations(self) -> pulumi.Output[Mapping[str, _builtins.bool]]:
-        """
-        Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
-        """
         return pulumi.get(self, "event_configurations")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

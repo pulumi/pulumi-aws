@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class MonitoringScheduleMonitoringScheduleConfig
     {
-        /// <summary>
-        /// The name of the monitoring job definition to schedule.
-        /// </summary>
         public readonly string MonitoringJobDefinitionName;
-        /// <summary>
-        /// The type of the monitoring job definition to schedule. Valid values are `DataQuality`, `ModelQuality`, `ModelBias` or `ModelExplainability`
-        /// </summary>
         public readonly string MonitoringType;
-        /// <summary>
-        /// Configures the monitoring schedule. Fields are documented below.
-        /// </summary>
         public readonly Outputs.MonitoringScheduleMonitoringScheduleConfigScheduleConfig? ScheduleConfig;
 
         [OutputConstructor]

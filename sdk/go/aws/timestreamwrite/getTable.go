@@ -11,36 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS Timestream Write Table.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/timestreamwrite"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := timestreamwrite.LookupTable(ctx, &timestreamwrite.LookupTableArgs{
-//				DatabaseName: testAwsTimestreamwriteDatabase.DatabaseName,
-//				Name:         testAwsTimestreamwriteTable.TableName,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupTable(ctx *pulumi.Context, args *LookupTableArgs, opts ...pulumi.InvokeOption) (*LookupTableResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTableResult
@@ -53,37 +23,25 @@ func LookupTable(ctx *pulumi.Context, args *LookupTableArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getTable.
 type LookupTableArgs struct {
-	// Name of the Timestream database.
-	DatabaseName string `pulumi:"databaseName"`
-	// Name of the Timestream table.
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	DatabaseName string  `pulumi:"databaseName"`
+	Name         string  `pulumi:"name"`
+	Region       *string `pulumi:"region"`
 }
 
 // A collection of values returned by getTable.
 type LookupTableResult struct {
-	// ARN that uniquely identifies the table.
-	Arn string `pulumi:"arn"`
-	// Time that table was created.
+	Arn          string `pulumi:"arn"`
 	CreationTime string `pulumi:"creationTime"`
-	// Name of database.
 	DatabaseName string `pulumi:"databaseName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Last time table was updated.
-	LastUpdatedTime string `pulumi:"lastUpdatedTime"`
-	// Object containing the following attributes to desribe magnetic store writes.
+	Id                           string                               `pulumi:"id"`
+	LastUpdatedTime              string                               `pulumi:"lastUpdatedTime"`
 	MagneticStoreWriteProperties []GetTableMagneticStoreWriteProperty `pulumi:"magneticStoreWriteProperties"`
-	// Name of the table.
-	Name   string `pulumi:"name"`
-	Region string `pulumi:"region"`
-	// Object containing the following attributes to describe the retention duration for the memory and magnetic stores.
-	RetentionProperties []GetTableRetentionProperty `pulumi:"retentionProperties"`
-	// Object containing the following attributes to describe the schema of the table.
-	Schemas []GetTableSchema `pulumi:"schemas"`
-	// Current state of table.
-	TableStatus string `pulumi:"tableStatus"`
+	Name                         string                               `pulumi:"name"`
+	Region                       string                               `pulumi:"region"`
+	RetentionProperties          []GetTableRetentionProperty          `pulumi:"retentionProperties"`
+	Schemas                      []GetTableSchema                     `pulumi:"schemas"`
+	TableStatus                  string                               `pulumi:"tableStatus"`
 }
 
 func LookupTableOutput(ctx *pulumi.Context, args LookupTableOutputArgs, opts ...pulumi.InvokeOption) LookupTableResultOutput {
@@ -97,12 +55,9 @@ func LookupTableOutput(ctx *pulumi.Context, args LookupTableOutputArgs, opts ...
 
 // A collection of arguments for invoking getTable.
 type LookupTableOutputArgs struct {
-	// Name of the Timestream database.
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// Name of the Timestream table.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	DatabaseName pulumi.StringInput    `pulumi:"databaseName"`
+	Name         pulumi.StringInput    `pulumi:"name"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupTableOutputArgs) ElementType() reflect.Type {
@@ -124,17 +79,14 @@ func (o LookupTableResultOutput) ToLookupTableResultOutputWithContext(ctx contex
 	return o
 }
 
-// ARN that uniquely identifies the table.
 func (o LookupTableResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTableResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Time that table was created.
 func (o LookupTableResultOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTableResult) string { return v.CreationTime }).(pulumi.StringOutput)
 }
 
-// Name of database.
 func (o LookupTableResultOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTableResult) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
@@ -144,17 +96,14 @@ func (o LookupTableResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTableResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Last time table was updated.
 func (o LookupTableResultOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTableResult) string { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
 
-// Object containing the following attributes to desribe magnetic store writes.
 func (o LookupTableResultOutput) MagneticStoreWriteProperties() GetTableMagneticStoreWritePropertyArrayOutput {
 	return o.ApplyT(func(v LookupTableResult) []GetTableMagneticStoreWriteProperty { return v.MagneticStoreWriteProperties }).(GetTableMagneticStoreWritePropertyArrayOutput)
 }
 
-// Name of the table.
 func (o LookupTableResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTableResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -163,17 +112,14 @@ func (o LookupTableResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTableResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Object containing the following attributes to describe the retention duration for the memory and magnetic stores.
 func (o LookupTableResultOutput) RetentionProperties() GetTableRetentionPropertyArrayOutput {
 	return o.ApplyT(func(v LookupTableResult) []GetTableRetentionProperty { return v.RetentionProperties }).(GetTableRetentionPropertyArrayOutput)
 }
 
-// Object containing the following attributes to describe the schema of the table.
 func (o LookupTableResultOutput) Schemas() GetTableSchemaArrayOutput {
 	return o.ApplyT(func(v LookupTableResult) []GetTableSchema { return v.Schemas }).(GetTableSchemaArrayOutput)
 }
 
-// Current state of table.
 func (o LookupTableResultOutput) TableStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTableResult) string { return v.TableStatus }).(pulumi.StringOutput)
 }

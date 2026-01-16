@@ -13,21 +13,9 @@ namespace Pulumi.Aws.ServiceCatalog.Outputs
     [OutputType]
     public sealed class GetLaunchPathsSummaryResult
     {
-        /// <summary>
-        /// Block for constraints on the portfolio-product relationship. See details below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetLaunchPathsSummaryConstraintSummaryResult> ConstraintSummaries;
-        /// <summary>
-        /// Name of the portfolio to which the path was assigned.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Identifier of the product path.
-        /// </summary>
         public readonly string PathId;
-        /// <summary>
-        /// Tags associated with this product path.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

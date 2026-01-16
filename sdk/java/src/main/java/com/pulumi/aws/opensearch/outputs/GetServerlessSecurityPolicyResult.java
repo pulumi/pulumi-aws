@@ -10,52 +10,24 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServerlessSecurityPolicyResult {
-    /**
-     * @return The date the security policy was created.
-     * 
-     */
     private String createdDate;
-    /**
-     * @return Description of the security policy.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The date the security policy was last modified.
-     * 
-     */
     private String lastModifiedDate;
     private String name;
-    /**
-     * @return The JSON policy document without any whitespaces.
-     * 
-     */
     private String policy;
-    /**
-     * @return Version of the policy.
-     * 
-     */
     private String policyVersion;
     private String region;
     private String type;
 
     private GetServerlessSecurityPolicyResult() {}
-    /**
-     * @return The date the security policy was created.
-     * 
-     */
     public String createdDate() {
         return this.createdDate;
     }
-    /**
-     * @return Description of the security policy.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -66,27 +38,15 @@ public final class GetServerlessSecurityPolicyResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The date the security policy was last modified.
-     * 
-     */
     public String lastModifiedDate() {
         return this.lastModifiedDate;
     }
     public String name() {
         return this.name;
     }
-    /**
-     * @return The JSON policy document without any whitespaces.
-     * 
-     */
     public String policy() {
         return this.policy;
     }
-    /**
-     * @return Version of the policy.
-     * 
-     */
     public String policyVersion() {
         return this.policyVersion;
     }

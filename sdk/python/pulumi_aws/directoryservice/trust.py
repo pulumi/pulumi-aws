@@ -30,24 +30,6 @@ class TrustArgs:
                  trust_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Trust resource.
-        :param pulumi.Input[_builtins.str] directory_id: ID of the Directory.
-        :param pulumi.Input[_builtins.str] remote_domain_name: Fully qualified domain name of the remote Directory.
-        :param pulumi.Input[_builtins.str] trust_direction: The direction of the Trust relationship.
-               Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
-        :param pulumi.Input[_builtins.str] trust_password: Password for the Trust.
-               Does not need to match the passwords for either Directory.
-               Can contain upper- and lower-case letters, numbers, and punctuation characters.
-               May be up to 128 characters long.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] conditional_forwarder_ip_addrs: Set of IPv4 addresses for the DNS server associated with the remote Directory.
-               Can contain between 1 and 4 values.
-        :param pulumi.Input[_builtins.bool] delete_associated_conditional_forwarder: Whether to delete the conditional forwarder when deleting the Trust relationship.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] selective_auth: Whether to enable selective authentication.
-               Valid values are `Enabled` and `Disabled`.
-               Default value is `Disabled`.
-        :param pulumi.Input[_builtins.str] trust_type: Type of the Trust relationship.
-               Valid values are `Forest` and `External`.
-               Default value is `Forest`.
         """
         pulumi.set(__self__, "directory_id", directory_id)
         pulumi.set(__self__, "remote_domain_name", remote_domain_name)
@@ -67,9 +49,6 @@ class TrustArgs:
     @_builtins.property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the Directory.
-        """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
@@ -79,9 +58,6 @@ class TrustArgs:
     @_builtins.property
     @pulumi.getter(name="remoteDomainName")
     def remote_domain_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Fully qualified domain name of the remote Directory.
-        """
         return pulumi.get(self, "remote_domain_name")
 
     @remote_domain_name.setter
@@ -91,10 +67,6 @@ class TrustArgs:
     @_builtins.property
     @pulumi.getter(name="trustDirection")
     def trust_direction(self) -> pulumi.Input[_builtins.str]:
-        """
-        The direction of the Trust relationship.
-        Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
-        """
         return pulumi.get(self, "trust_direction")
 
     @trust_direction.setter
@@ -104,12 +76,6 @@ class TrustArgs:
     @_builtins.property
     @pulumi.getter(name="trustPassword")
     def trust_password(self) -> pulumi.Input[_builtins.str]:
-        """
-        Password for the Trust.
-        Does not need to match the passwords for either Directory.
-        Can contain upper- and lower-case letters, numbers, and punctuation characters.
-        May be up to 128 characters long.
-        """
         return pulumi.get(self, "trust_password")
 
     @trust_password.setter
@@ -119,10 +85,6 @@ class TrustArgs:
     @_builtins.property
     @pulumi.getter(name="conditionalForwarderIpAddrs")
     def conditional_forwarder_ip_addrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Set of IPv4 addresses for the DNS server associated with the remote Directory.
-        Can contain between 1 and 4 values.
-        """
         return pulumi.get(self, "conditional_forwarder_ip_addrs")
 
     @conditional_forwarder_ip_addrs.setter
@@ -132,9 +94,6 @@ class TrustArgs:
     @_builtins.property
     @pulumi.getter(name="deleteAssociatedConditionalForwarder")
     def delete_associated_conditional_forwarder(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to delete the conditional forwarder when deleting the Trust relationship.
-        """
         return pulumi.get(self, "delete_associated_conditional_forwarder")
 
     @delete_associated_conditional_forwarder.setter
@@ -144,9 +103,6 @@ class TrustArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -156,11 +112,6 @@ class TrustArgs:
     @_builtins.property
     @pulumi.getter(name="selectiveAuth")
     def selective_auth(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether to enable selective authentication.
-        Valid values are `Enabled` and `Disabled`.
-        Default value is `Disabled`.
-        """
         return pulumi.get(self, "selective_auth")
 
     @selective_auth.setter
@@ -170,11 +121,6 @@ class TrustArgs:
     @_builtins.property
     @pulumi.getter(name="trustType")
     def trust_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of the Trust relationship.
-        Valid values are `Forest` and `External`.
-        Default value is `Forest`.
-        """
         return pulumi.get(self, "trust_type")
 
     @trust_type.setter
@@ -201,30 +147,6 @@ class _TrustState:
                  trust_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Trust resources.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] conditional_forwarder_ip_addrs: Set of IPv4 addresses for the DNS server associated with the remote Directory.
-               Can contain between 1 and 4 values.
-        :param pulumi.Input[_builtins.str] created_date_time: Date and time when the Trust was created.
-        :param pulumi.Input[_builtins.bool] delete_associated_conditional_forwarder: Whether to delete the conditional forwarder when deleting the Trust relationship.
-        :param pulumi.Input[_builtins.str] directory_id: ID of the Directory.
-        :param pulumi.Input[_builtins.str] last_updated_date_time: Date and time when the Trust was last updated.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] remote_domain_name: Fully qualified domain name of the remote Directory.
-        :param pulumi.Input[_builtins.str] selective_auth: Whether to enable selective authentication.
-               Valid values are `Enabled` and `Disabled`.
-               Default value is `Disabled`.
-        :param pulumi.Input[_builtins.str] state_last_updated_date_time: Date and time when the Trust state in `trust_state` was last updated.
-        :param pulumi.Input[_builtins.str] trust_direction: The direction of the Trust relationship.
-               Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
-        :param pulumi.Input[_builtins.str] trust_password: Password for the Trust.
-               Does not need to match the passwords for either Directory.
-               Can contain upper- and lower-case letters, numbers, and punctuation characters.
-               May be up to 128 characters long.
-        :param pulumi.Input[_builtins.str] trust_state: State of the Trust relationship.
-               One of `Created`, `VerifyFailed`,`Verified`, `UpdateFailed`,`Updated`,`Deleted`, or `Failed`.
-        :param pulumi.Input[_builtins.str] trust_state_reason: Reason for the Trust state set in `trust_state`.
-        :param pulumi.Input[_builtins.str] trust_type: Type of the Trust relationship.
-               Valid values are `Forest` and `External`.
-               Default value is `Forest`.
         """
         if conditional_forwarder_ip_addrs is not None:
             pulumi.set(__self__, "conditional_forwarder_ip_addrs", conditional_forwarder_ip_addrs)
@@ -258,10 +180,6 @@ class _TrustState:
     @_builtins.property
     @pulumi.getter(name="conditionalForwarderIpAddrs")
     def conditional_forwarder_ip_addrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Set of IPv4 addresses for the DNS server associated with the remote Directory.
-        Can contain between 1 and 4 values.
-        """
         return pulumi.get(self, "conditional_forwarder_ip_addrs")
 
     @conditional_forwarder_ip_addrs.setter
@@ -271,9 +189,6 @@ class _TrustState:
     @_builtins.property
     @pulumi.getter(name="createdDateTime")
     def created_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date and time when the Trust was created.
-        """
         return pulumi.get(self, "created_date_time")
 
     @created_date_time.setter
@@ -283,9 +198,6 @@ class _TrustState:
     @_builtins.property
     @pulumi.getter(name="deleteAssociatedConditionalForwarder")
     def delete_associated_conditional_forwarder(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to delete the conditional forwarder when deleting the Trust relationship.
-        """
         return pulumi.get(self, "delete_associated_conditional_forwarder")
 
     @delete_associated_conditional_forwarder.setter
@@ -295,9 +207,6 @@ class _TrustState:
     @_builtins.property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the Directory.
-        """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
@@ -307,9 +216,6 @@ class _TrustState:
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDateTime")
     def last_updated_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date and time when the Trust was last updated.
-        """
         return pulumi.get(self, "last_updated_date_time")
 
     @last_updated_date_time.setter
@@ -319,9 +225,6 @@ class _TrustState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -331,9 +234,6 @@ class _TrustState:
     @_builtins.property
     @pulumi.getter(name="remoteDomainName")
     def remote_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Fully qualified domain name of the remote Directory.
-        """
         return pulumi.get(self, "remote_domain_name")
 
     @remote_domain_name.setter
@@ -343,11 +243,6 @@ class _TrustState:
     @_builtins.property
     @pulumi.getter(name="selectiveAuth")
     def selective_auth(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether to enable selective authentication.
-        Valid values are `Enabled` and `Disabled`.
-        Default value is `Disabled`.
-        """
         return pulumi.get(self, "selective_auth")
 
     @selective_auth.setter
@@ -357,9 +252,6 @@ class _TrustState:
     @_builtins.property
     @pulumi.getter(name="stateLastUpdatedDateTime")
     def state_last_updated_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date and time when the Trust state in `trust_state` was last updated.
-        """
         return pulumi.get(self, "state_last_updated_date_time")
 
     @state_last_updated_date_time.setter
@@ -369,10 +261,6 @@ class _TrustState:
     @_builtins.property
     @pulumi.getter(name="trustDirection")
     def trust_direction(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The direction of the Trust relationship.
-        Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
-        """
         return pulumi.get(self, "trust_direction")
 
     @trust_direction.setter
@@ -382,12 +270,6 @@ class _TrustState:
     @_builtins.property
     @pulumi.getter(name="trustPassword")
     def trust_password(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Password for the Trust.
-        Does not need to match the passwords for either Directory.
-        Can contain upper- and lower-case letters, numbers, and punctuation characters.
-        May be up to 128 characters long.
-        """
         return pulumi.get(self, "trust_password")
 
     @trust_password.setter
@@ -397,10 +279,6 @@ class _TrustState:
     @_builtins.property
     @pulumi.getter(name="trustState")
     def trust_state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        State of the Trust relationship.
-        One of `Created`, `VerifyFailed`,`Verified`, `UpdateFailed`,`Updated`,`Deleted`, or `Failed`.
-        """
         return pulumi.get(self, "trust_state")
 
     @trust_state.setter
@@ -410,9 +288,6 @@ class _TrustState:
     @_builtins.property
     @pulumi.getter(name="trustStateReason")
     def trust_state_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Reason for the Trust state set in `trust_state`.
-        """
         return pulumi.get(self, "trust_state_reason")
 
     @trust_state_reason.setter
@@ -422,11 +297,6 @@ class _TrustState:
     @_builtins.property
     @pulumi.getter(name="trustType")
     def trust_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of the Trust relationship.
-        Valid values are `Forest` and `External`.
-        Default value is `Forest`.
-        """
         return pulumi.get(self, "trust_type")
 
     @trust_type.setter
@@ -451,96 +321,9 @@ class Trust(pulumi.CustomResource):
                  trust_type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a trust relationship between two Active Directory Directories.
-
-        The directories may either be both AWS Managed Microsoft AD domains or an AWS Managed Microsoft AD domain and a self-managed Active Directory Domain.
-
-        The Trust relationship must be configured on both sides of the relationship.
-        If a Trust has only been created on one side, it will be in the state `VerifyFailed`.
-        Once the second Trust is created, the first will update to the correct state.
-
-        ## Example Usage
-
-        ### Two-Way Trust
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        one_directory = aws.directoryservice.Directory("one",
-            name="one.example.com",
-            type="MicrosoftAD")
-        two_directory = aws.directoryservice.Directory("two",
-            name="two.example.com",
-            type="MicrosoftAD")
-        one = aws.directoryservice.Trust("one",
-            directory_id=one_directory.id,
-            remote_domain_name=two_directory.name,
-            trust_direction="Two-Way",
-            trust_password="Some0therPassword",
-            conditional_forwarder_ip_addrs=two_directory.dns_ip_addresses)
-        two = aws.directoryservice.Trust("two",
-            directory_id=two_directory.id,
-            remote_domain_name=one_directory.name,
-            trust_direction="Two-Way",
-            trust_password="Some0therPassword",
-            conditional_forwarder_ip_addrs=one_directory.dns_ip_addresses)
-        ```
-
-        ### One-Way Trust
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        one_directory = aws.directoryservice.Directory("one",
-            name="one.example.com",
-            type="MicrosoftAD")
-        two_directory = aws.directoryservice.Directory("two",
-            name="two.example.com",
-            type="MicrosoftAD")
-        one = aws.directoryservice.Trust("one",
-            directory_id=one_directory.id,
-            remote_domain_name=two_directory.name,
-            trust_direction="One-Way: Incoming",
-            trust_password="Some0therPassword",
-            conditional_forwarder_ip_addrs=two_directory.dns_ip_addresses)
-        two = aws.directoryservice.Trust("two",
-            directory_id=two_directory.id,
-            remote_domain_name=one_directory.name,
-            trust_direction="One-Way: Outgoing",
-            trust_password="Some0therPassword",
-            conditional_forwarder_ip_addrs=one_directory.dns_ip_addresses)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import the Trust relationship using the directory ID and remote domain name, separated by a `/`. For example:
-
-        ```sh
-        $ pulumi import aws:directoryservice/trust:Trust example d-926724cf57/directory.example.com
-        ```
-
+        Create a Trust resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] conditional_forwarder_ip_addrs: Set of IPv4 addresses for the DNS server associated with the remote Directory.
-               Can contain between 1 and 4 values.
-        :param pulumi.Input[_builtins.bool] delete_associated_conditional_forwarder: Whether to delete the conditional forwarder when deleting the Trust relationship.
-        :param pulumi.Input[_builtins.str] directory_id: ID of the Directory.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] remote_domain_name: Fully qualified domain name of the remote Directory.
-        :param pulumi.Input[_builtins.str] selective_auth: Whether to enable selective authentication.
-               Valid values are `Enabled` and `Disabled`.
-               Default value is `Disabled`.
-        :param pulumi.Input[_builtins.str] trust_direction: The direction of the Trust relationship.
-               Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
-        :param pulumi.Input[_builtins.str] trust_password: Password for the Trust.
-               Does not need to match the passwords for either Directory.
-               Can contain upper- and lower-case letters, numbers, and punctuation characters.
-               May be up to 128 characters long.
-        :param pulumi.Input[_builtins.str] trust_type: Type of the Trust relationship.
-               Valid values are `Forest` and `External`.
-               Default value is `Forest`.
         """
         ...
     @overload
@@ -549,76 +332,7 @@ class Trust(pulumi.CustomResource):
                  args: TrustArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a trust relationship between two Active Directory Directories.
-
-        The directories may either be both AWS Managed Microsoft AD domains or an AWS Managed Microsoft AD domain and a self-managed Active Directory Domain.
-
-        The Trust relationship must be configured on both sides of the relationship.
-        If a Trust has only been created on one side, it will be in the state `VerifyFailed`.
-        Once the second Trust is created, the first will update to the correct state.
-
-        ## Example Usage
-
-        ### Two-Way Trust
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        one_directory = aws.directoryservice.Directory("one",
-            name="one.example.com",
-            type="MicrosoftAD")
-        two_directory = aws.directoryservice.Directory("two",
-            name="two.example.com",
-            type="MicrosoftAD")
-        one = aws.directoryservice.Trust("one",
-            directory_id=one_directory.id,
-            remote_domain_name=two_directory.name,
-            trust_direction="Two-Way",
-            trust_password="Some0therPassword",
-            conditional_forwarder_ip_addrs=two_directory.dns_ip_addresses)
-        two = aws.directoryservice.Trust("two",
-            directory_id=two_directory.id,
-            remote_domain_name=one_directory.name,
-            trust_direction="Two-Way",
-            trust_password="Some0therPassword",
-            conditional_forwarder_ip_addrs=one_directory.dns_ip_addresses)
-        ```
-
-        ### One-Way Trust
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        one_directory = aws.directoryservice.Directory("one",
-            name="one.example.com",
-            type="MicrosoftAD")
-        two_directory = aws.directoryservice.Directory("two",
-            name="two.example.com",
-            type="MicrosoftAD")
-        one = aws.directoryservice.Trust("one",
-            directory_id=one_directory.id,
-            remote_domain_name=two_directory.name,
-            trust_direction="One-Way: Incoming",
-            trust_password="Some0therPassword",
-            conditional_forwarder_ip_addrs=two_directory.dns_ip_addresses)
-        two = aws.directoryservice.Trust("two",
-            directory_id=two_directory.id,
-            remote_domain_name=one_directory.name,
-            trust_direction="One-Way: Outgoing",
-            trust_password="Some0therPassword",
-            conditional_forwarder_ip_addrs=one_directory.dns_ip_addresses)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import the Trust relationship using the directory ID and remote domain name, separated by a `/`. For example:
-
-        ```sh
-        $ pulumi import aws:directoryservice/trust:Trust example d-926724cf57/directory.example.com
-        ```
-
+        Create a Trust resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TrustArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -705,30 +419,6 @@ class Trust(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] conditional_forwarder_ip_addrs: Set of IPv4 addresses for the DNS server associated with the remote Directory.
-               Can contain between 1 and 4 values.
-        :param pulumi.Input[_builtins.str] created_date_time: Date and time when the Trust was created.
-        :param pulumi.Input[_builtins.bool] delete_associated_conditional_forwarder: Whether to delete the conditional forwarder when deleting the Trust relationship.
-        :param pulumi.Input[_builtins.str] directory_id: ID of the Directory.
-        :param pulumi.Input[_builtins.str] last_updated_date_time: Date and time when the Trust was last updated.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] remote_domain_name: Fully qualified domain name of the remote Directory.
-        :param pulumi.Input[_builtins.str] selective_auth: Whether to enable selective authentication.
-               Valid values are `Enabled` and `Disabled`.
-               Default value is `Disabled`.
-        :param pulumi.Input[_builtins.str] state_last_updated_date_time: Date and time when the Trust state in `trust_state` was last updated.
-        :param pulumi.Input[_builtins.str] trust_direction: The direction of the Trust relationship.
-               Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
-        :param pulumi.Input[_builtins.str] trust_password: Password for the Trust.
-               Does not need to match the passwords for either Directory.
-               Can contain upper- and lower-case letters, numbers, and punctuation characters.
-               May be up to 128 characters long.
-        :param pulumi.Input[_builtins.str] trust_state: State of the Trust relationship.
-               One of `Created`, `VerifyFailed`,`Verified`, `UpdateFailed`,`Updated`,`Deleted`, or `Failed`.
-        :param pulumi.Input[_builtins.str] trust_state_reason: Reason for the Trust state set in `trust_state`.
-        :param pulumi.Input[_builtins.str] trust_type: Type of the Trust relationship.
-               Valid values are `Forest` and `External`.
-               Default value is `Forest`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -753,122 +443,70 @@ class Trust(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="conditionalForwarderIpAddrs")
     def conditional_forwarder_ip_addrs(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Set of IPv4 addresses for the DNS server associated with the remote Directory.
-        Can contain between 1 and 4 values.
-        """
         return pulumi.get(self, "conditional_forwarder_ip_addrs")
 
     @_builtins.property
     @pulumi.getter(name="createdDateTime")
     def created_date_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date and time when the Trust was created.
-        """
         return pulumi.get(self, "created_date_time")
 
     @_builtins.property
     @pulumi.getter(name="deleteAssociatedConditionalForwarder")
     def delete_associated_conditional_forwarder(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether to delete the conditional forwarder when deleting the Trust relationship.
-        """
         return pulumi.get(self, "delete_associated_conditional_forwarder")
 
     @_builtins.property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the Directory.
-        """
         return pulumi.get(self, "directory_id")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDateTime")
     def last_updated_date_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date and time when the Trust was last updated.
-        """
         return pulumi.get(self, "last_updated_date_time")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="remoteDomainName")
     def remote_domain_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Fully qualified domain name of the remote Directory.
-        """
         return pulumi.get(self, "remote_domain_name")
 
     @_builtins.property
     @pulumi.getter(name="selectiveAuth")
     def selective_auth(self) -> pulumi.Output[_builtins.str]:
-        """
-        Whether to enable selective authentication.
-        Valid values are `Enabled` and `Disabled`.
-        Default value is `Disabled`.
-        """
         return pulumi.get(self, "selective_auth")
 
     @_builtins.property
     @pulumi.getter(name="stateLastUpdatedDateTime")
     def state_last_updated_date_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date and time when the Trust state in `trust_state` was last updated.
-        """
         return pulumi.get(self, "state_last_updated_date_time")
 
     @_builtins.property
     @pulumi.getter(name="trustDirection")
     def trust_direction(self) -> pulumi.Output[_builtins.str]:
-        """
-        The direction of the Trust relationship.
-        Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
-        """
         return pulumi.get(self, "trust_direction")
 
     @_builtins.property
     @pulumi.getter(name="trustPassword")
     def trust_password(self) -> pulumi.Output[_builtins.str]:
-        """
-        Password for the Trust.
-        Does not need to match the passwords for either Directory.
-        Can contain upper- and lower-case letters, numbers, and punctuation characters.
-        May be up to 128 characters long.
-        """
         return pulumi.get(self, "trust_password")
 
     @_builtins.property
     @pulumi.getter(name="trustState")
     def trust_state(self) -> pulumi.Output[_builtins.str]:
-        """
-        State of the Trust relationship.
-        One of `Created`, `VerifyFailed`,`Verified`, `UpdateFailed`,`Updated`,`Deleted`, or `Failed`.
-        """
         return pulumi.get(self, "trust_state")
 
     @_builtins.property
     @pulumi.getter(name="trustStateReason")
     def trust_state_reason(self) -> pulumi.Output[_builtins.str]:
-        """
-        Reason for the Trust state set in `trust_state`.
-        """
         return pulumi.get(self, "trust_state_reason")
 
     @_builtins.property
     @pulumi.getter(name="trustType")
     def trust_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of the Trust relationship.
-        Valid values are `Forest` and `External`.
-        Default value is `Forest`.
-        """
         return pulumi.get(self, "trust_type")
 

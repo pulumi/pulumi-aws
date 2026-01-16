@@ -9,139 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WafRegional
 {
-    /// <summary>
-    /// Manages an association with WAF Regional Web ACL.
-    /// 
-    /// &gt; **Note:** An Application Load Balancer can only be associated with one WAF Regional WebACL.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Application Load Balancer Association
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var ipset = new Aws.WafRegional.IpSet("ipset", new()
-    ///     {
-    ///         Name = "tfIPSet",
-    ///         IpSetDescriptors = new[]
-    ///         {
-    ///             new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs
-    ///             {
-    ///                 Type = "IPV4",
-    ///                 Value = "192.0.7.0/24",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var foo = new Aws.WafRegional.Rule("foo", new()
-    ///     {
-    ///         Name = "tfWAFRule",
-    ///         MetricName = "tfWAFRule",
-    ///         Predicates = new[]
-    ///         {
-    ///             new Aws.WafRegional.Inputs.RulePredicateArgs
-    ///             {
-    ///                 DataId = ipset.Id,
-    ///                 Negated = false,
-    ///                 Type = "IPMatch",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var fooWebAcl = new Aws.WafRegional.WebAcl("foo", new()
-    ///     {
-    ///         Name = "foo",
-    ///         MetricName = "foo",
-    ///         DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
-    ///         {
-    ///             Type = "ALLOW",
-    ///         },
-    ///         Rules = new[]
-    ///         {
-    ///             new Aws.WafRegional.Inputs.WebAclRuleArgs
-    ///             {
-    ///                 Action = new Aws.WafRegional.Inputs.WebAclRuleActionArgs
-    ///                 {
-    ///                     Type = "BLOCK",
-    ///                 },
-    ///                 Priority = 1,
-    ///                 RuleId = foo.Id,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var fooVpc = new Aws.Ec2.Vpc("foo", new()
-    ///     {
-    ///         CidrBlock = "10.1.0.0/16",
-    ///     });
-    /// 
-    ///     var available = Aws.GetAvailabilityZones.Invoke();
-    /// 
-    ///     var fooSubnet = new Aws.Ec2.Subnet("foo", new()
-    ///     {
-    ///         VpcId = fooVpc.Id,
-    ///         CidrBlock = "10.1.1.0/24",
-    ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
-    ///     });
-    /// 
-    ///     var bar = new Aws.Ec2.Subnet("bar", new()
-    ///     {
-    ///         VpcId = fooVpc.Id,
-    ///         CidrBlock = "10.1.2.0/24",
-    ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[1]),
-    ///     });
-    /// 
-    ///     var fooLoadBalancer = new Aws.Alb.LoadBalancer("foo", new()
-    ///     {
-    ///         Internal = true,
-    ///         Subnets = new[]
-    ///         {
-    ///             fooSubnet.Id,
-    ///             bar.Id,
-    ///         },
-    ///     });
-    /// 
-    ///     var fooWebAclAssociation = new Aws.WafRegional.WebAclAssociation("foo", new()
-    ///     {
-    ///         ResourceArn = fooLoadBalancer.Arn,
-    ///         WebAclId = fooWebAcl.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import WAF Regional Web ACL Association using their `web_acl_id:resource_arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:wafregional/webAclAssociation:WebAclAssociation")]
     public partial class WebAclAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
-        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the WAF Regional WebACL to create an association.
-        /// </summary>
         [Output("webAclId")]
         public Output<string> WebAclId { get; private set; } = null!;
 
@@ -191,21 +67,12 @@ namespace Pulumi.Aws.WafRegional
 
     public sealed class WebAclAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
-        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the WAF Regional WebACL to create an association.
-        /// </summary>
         [Input("webAclId", required: true)]
         public Input<string> WebAclId { get; set; } = null!;
 
@@ -217,21 +84,12 @@ namespace Pulumi.Aws.WafRegional
 
     public sealed class WebAclAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
-        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 
-        /// <summary>
-        /// The ID of the WAF Regional WebACL to create an association.
-        /// </summary>
         [Input("webAclId")]
         public Input<string>? WebAclId { get; set; }
 

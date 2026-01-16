@@ -13,46 +13,15 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class GetListenerRuleActionAuthenticateOidcResult
     {
-        /// <summary>
-        /// Set of additional parameters for the request.
-        /// Detailed below.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> AuthenticationRequestExtraParams;
-        /// <summary>
-        /// The authorization endpoint of the IdP.
-        /// </summary>
         public readonly string AuthorizationEndpoint;
-        /// <summary>
-        /// OAuth 2.0 client identifier.
-        /// </summary>
         public readonly string ClientId;
-        /// <summary>
-        /// Issuer of the JWT.
-        /// </summary>
         public readonly string Issuer;
-        /// <summary>
-        /// Behavior when the client is not authenticated.
-        /// </summary>
         public readonly string OnUnauthenticatedRequest;
-        /// <summary>
-        /// Set of user claims requested.
-        /// </summary>
         public readonly string Scope;
-        /// <summary>
-        /// Name of the cookie used to maintain session information.
-        /// </summary>
         public readonly string SessionCookieName;
-        /// <summary>
-        /// Maximum duration of the authentication session in seconds.
-        /// </summary>
         public readonly int SessionTimeout;
-        /// <summary>
-        /// The token endpoint of the IdP.
-        /// </summary>
         public readonly string TokenEndpoint;
-        /// <summary>
-        /// The user info endpoint of the IdP.
-        /// </summary>
         public readonly string UserInfoEndpoint;
 
         [OutputConstructor]

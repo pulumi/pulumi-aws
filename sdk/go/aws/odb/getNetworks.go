@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for to retrieve networks from AWS for Oracle Database@AWS.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/odb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := odb.GetNetworks(ctx, &odb.GetNetworksArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetNetworks(ctx *pulumi.Context, args *GetNetworksArgs, opts ...pulumi.InvokeOption) (*GetNetworksResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetNetworksResult
@@ -50,15 +23,13 @@ func GetNetworks(ctx *pulumi.Context, args *GetNetworksArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getNetworks.
 type GetNetworksArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getNetworks.
 type GetNetworksResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// List of odb networks returns basic information about odb networks.
+	Id          string                  `pulumi:"id"`
 	OdbNetworks []GetNetworksOdbNetwork `pulumi:"odbNetworks"`
 	Region      string                  `pulumi:"region"`
 }
@@ -74,7 +45,6 @@ func GetNetworksOutput(ctx *pulumi.Context, args GetNetworksOutputArgs, opts ...
 
 // A collection of arguments for invoking getNetworks.
 type GetNetworksOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -102,7 +72,6 @@ func (o GetNetworksResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworksResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of odb networks returns basic information about odb networks.
 func (o GetNetworksResultOutput) OdbNetworks() GetNetworksOdbNetworkArrayOutput {
 	return o.ApplyT(func(v GetNetworksResult) []GetNetworksOdbNetwork { return v.OdbNetworks }).(GetNetworksOdbNetworkArrayOutput)
 }

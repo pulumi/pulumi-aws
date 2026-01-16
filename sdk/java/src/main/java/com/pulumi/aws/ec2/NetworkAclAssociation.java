@@ -13,97 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an network ACL association resource which allows you to associate your network ACL with any subnet(s).
- * 
- * &gt; **NOTE on Network ACLs and Network ACL Associations:** the provider provides both a standalone network ACL association resource
- * and a network ACL resource with a `subnetIds` attribute. Do not use the same subnet ID in both a network ACL
- * resource and a network ACL association resource. Doing so will cause a conflict of associations and will overwrite the association.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.NetworkAclAssociation;
- * import com.pulumi.aws.ec2.NetworkAclAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var main = new NetworkAclAssociation("main", NetworkAclAssociationArgs.builder()
- *             .networkAclId(mainAwsNetworkAcl.id())
- *             .subnetId(mainAwsSubnet.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Network ACL associations using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2/networkAclAssociation:NetworkAclAssociation main aclassoc-02baf37f20966b3e6
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/networkAclAssociation:NetworkAclAssociation")
 public class NetworkAclAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * The ID of the network ACL.
-     * 
-     */
     @Export(name="networkAclId", refs={String.class}, tree="[0]")
     private Output<String> networkAclId;
 
-    /**
-     * @return The ID of the network ACL.
-     * 
-     */
     public Output<String> networkAclId() {
         return this.networkAclId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The ID of the associated Subnet.
-     * 
-     */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
-    /**
-     * @return The ID of the associated Subnet.
-     * 
-     */
     public Output<String> subnetId() {
         return this.subnetId;
     }

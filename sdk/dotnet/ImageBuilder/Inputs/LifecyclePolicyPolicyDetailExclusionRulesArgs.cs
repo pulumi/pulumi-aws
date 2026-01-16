@@ -12,18 +12,11 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
     public sealed class LifecyclePolicyPolicyDetailExclusionRulesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Lists configuration values that apply to AMIs that Image Builder should exclude from the lifecycle action. Detailed below.
-        /// </summary>
         [Input("amis")]
         public Input<Inputs.LifecyclePolicyPolicyDetailExclusionRulesAmisArgs>? Amis { get; set; }
 
         [Input("tagMap")]
         private InputMap<string>? _tagMap;
-
-        /// <summary>
-        /// Contains a list of tags that Image Builder uses to skip lifecycle actions for Image Builder image resources that have them.
-        /// </summary>
         public InputMap<string> TagMap
         {
             get => _tagMap ?? (_tagMap = new InputMap<string>());

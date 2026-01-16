@@ -20,107 +20,51 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
 
     public static final ExtensionState Empty = new ExtensionState();
 
-    /**
-     * The action points defined in the extension. Detailed below.
-     * 
-     */
     @Import(name="actionPoints")
     private @Nullable Output<List<ExtensionActionPointArgs>> actionPoints;
 
-    /**
-     * @return The action points defined in the extension. Detailed below.
-     * 
-     */
     public Optional<Output<List<ExtensionActionPointArgs>>> actionPoints() {
         return Optional.ofNullable(this.actionPoints);
     }
 
-    /**
-     * ARN of the AppConfig Extension.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the AppConfig Extension.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Information about the extension.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Information about the extension.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
-     * 
-     */
     @Import(name="parameters")
     private @Nullable Output<List<ExtensionParameterArgs>> parameters;
 
-    /**
-     * @return The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
-     * 
-     */
     public Optional<Output<List<ExtensionParameterArgs>>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -132,17 +76,9 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * The version number for the extension.
-     * 
-     */
     @Import(name="version")
     private @Nullable Output<Integer> version;
 
-    /**
-     * @return The version number for the extension.
-     * 
-     */
     public Optional<Output<Integer>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -179,169 +115,73 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
             $ = new ExtensionState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param actionPoints The action points defined in the extension. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionPoints(@Nullable Output<List<ExtensionActionPointArgs>> actionPoints) {
             $.actionPoints = actionPoints;
             return this;
         }
 
-        /**
-         * @param actionPoints The action points defined in the extension. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionPoints(List<ExtensionActionPointArgs> actionPoints) {
             return actionPoints(Output.of(actionPoints));
         }
 
-        /**
-         * @param actionPoints The action points defined in the extension. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionPoints(ExtensionActionPointArgs... actionPoints) {
             return actionPoints(List.of(actionPoints));
         }
 
-        /**
-         * @param arn ARN of the AppConfig Extension.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the AppConfig Extension.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param description Information about the extension.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Information about the extension.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param name A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param parameters The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(@Nullable Output<List<ExtensionParameterArgs>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
-        /**
-         * @param parameters The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(List<ExtensionParameterArgs> parameters) {
             return parameters(Output.of(parameters));
         }
 
-        /**
-         * @param parameters The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(ExtensionParameterArgs... parameters) {
             return parameters(List.of(parameters));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
@@ -355,23 +195,11 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param version The version number for the extension.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable Output<Integer> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version The version number for the extension.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(Integer version) {
             return version(Output.of(version));
         }

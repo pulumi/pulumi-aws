@@ -30,12 +30,6 @@ class LogicallyAirGappedVaultArgs:
                  timeouts: Optional[pulumi.Input['LogicallyAirGappedVaultTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a LogicallyAirGappedVault resource.
-        :param pulumi.Input[_builtins.int] max_retention_days: Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-        :param pulumi.Input[_builtins.int] min_retention_days: Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-        :param pulumi.Input[_builtins.str] encryption_key_arn: The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
-        :param pulumi.Input[_builtins.str] name: Name of the Logically Air Gapped Backup Vault to create.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "max_retention_days", max_retention_days)
         pulumi.set(__self__, "min_retention_days", min_retention_days)
@@ -53,9 +47,6 @@ class LogicallyAirGappedVaultArgs:
     @_builtins.property
     @pulumi.getter(name="maxRetentionDays")
     def max_retention_days(self) -> pulumi.Input[_builtins.int]:
-        """
-        Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-        """
         return pulumi.get(self, "max_retention_days")
 
     @max_retention_days.setter
@@ -65,9 +56,6 @@ class LogicallyAirGappedVaultArgs:
     @_builtins.property
     @pulumi.getter(name="minRetentionDays")
     def min_retention_days(self) -> pulumi.Input[_builtins.int]:
-        """
-        Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-        """
         return pulumi.get(self, "min_retention_days")
 
     @min_retention_days.setter
@@ -77,9 +65,6 @@ class LogicallyAirGappedVaultArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionKeyArn")
     def encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
-        """
         return pulumi.get(self, "encryption_key_arn")
 
     @encryption_key_arn.setter
@@ -89,9 +74,6 @@ class LogicallyAirGappedVaultArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Logically Air Gapped Backup Vault to create.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -101,9 +83,6 @@ class LogicallyAirGappedVaultArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -113,9 +92,6 @@ class LogicallyAirGappedVaultArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -146,14 +122,6 @@ class _LogicallyAirGappedVaultState:
                  timeouts: Optional[pulumi.Input['LogicallyAirGappedVaultTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering LogicallyAirGappedVault resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Logically Air Gapped Backup Vault.
-        :param pulumi.Input[_builtins.str] encryption_key_arn: The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
-        :param pulumi.Input[_builtins.int] max_retention_days: Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-        :param pulumi.Input[_builtins.int] min_retention_days: Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-        :param pulumi.Input[_builtins.str] name: Name of the Logically Air Gapped Backup Vault to create.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -177,9 +145,6 @@ class _LogicallyAirGappedVaultState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the Logically Air Gapped Backup Vault.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -189,9 +154,6 @@ class _LogicallyAirGappedVaultState:
     @_builtins.property
     @pulumi.getter(name="encryptionKeyArn")
     def encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
-        """
         return pulumi.get(self, "encryption_key_arn")
 
     @encryption_key_arn.setter
@@ -201,9 +163,6 @@ class _LogicallyAirGappedVaultState:
     @_builtins.property
     @pulumi.getter(name="maxRetentionDays")
     def max_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-        """
         return pulumi.get(self, "max_retention_days")
 
     @max_retention_days.setter
@@ -213,9 +172,6 @@ class _LogicallyAirGappedVaultState:
     @_builtins.property
     @pulumi.getter(name="minRetentionDays")
     def min_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-        """
         return pulumi.get(self, "min_retention_days")
 
     @min_retention_days.setter
@@ -225,9 +181,6 @@ class _LogicallyAirGappedVaultState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Logically Air Gapped Backup Vault to create.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -237,9 +190,6 @@ class _LogicallyAirGappedVaultState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -249,9 +199,6 @@ class _LogicallyAirGappedVaultState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -261,9 +208,6 @@ class _LogicallyAirGappedVaultState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -295,38 +239,9 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['LogicallyAirGappedVaultTimeoutsArgs', 'LogicallyAirGappedVaultTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Backup Logically Air Gapped Vault.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.backup.LogicallyAirGappedVault("example",
-            name="lag-example-vault",
-            max_retention_days=7,
-            min_retention_days=7)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Backup Logically Air Gapped Vault using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:backup/logicallyAirGappedVault:LogicallyAirGappedVault example lag-example-vault
-        ```
-
+        Create a LogicallyAirGappedVault resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] encryption_key_arn: The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
-        :param pulumi.Input[_builtins.int] max_retention_days: Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-        :param pulumi.Input[_builtins.int] min_retention_days: Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-        :param pulumi.Input[_builtins.str] name: Name of the Logically Air Gapped Backup Vault to create.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -335,30 +250,7 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
                  args: LogicallyAirGappedVaultArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Backup Logically Air Gapped Vault.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.backup.LogicallyAirGappedVault("example",
-            name="lag-example-vault",
-            max_retention_days=7,
-            min_retention_days=7)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Backup Logically Air Gapped Vault using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:backup/logicallyAirGappedVault:LogicallyAirGappedVault example lag-example-vault
-        ```
-
+        Create a LogicallyAirGappedVault resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LogicallyAirGappedVaultArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -429,14 +321,6 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Logically Air Gapped Backup Vault.
-        :param pulumi.Input[_builtins.str] encryption_key_arn: The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
-        :param pulumi.Input[_builtins.int] max_retention_days: Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-        :param pulumi.Input[_builtins.int] min_retention_days: Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-        :param pulumi.Input[_builtins.str] name: Name of the Logically Air Gapped Backup Vault to create.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -456,65 +340,41 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the Logically Air Gapped Backup Vault.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeyArn")
     def encryption_key_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
-        """
         return pulumi.get(self, "encryption_key_arn")
 
     @_builtins.property
     @pulumi.getter(name="maxRetentionDays")
     def max_retention_days(self) -> pulumi.Output[_builtins.int]:
-        """
-        Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-        """
         return pulumi.get(self, "max_retention_days")
 
     @_builtins.property
     @pulumi.getter(name="minRetentionDays")
     def min_retention_days(self) -> pulumi.Output[_builtins.int]:
-        """
-        Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-        """
         return pulumi.get(self, "min_retention_days")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Logically Air Gapped Backup Vault to create.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

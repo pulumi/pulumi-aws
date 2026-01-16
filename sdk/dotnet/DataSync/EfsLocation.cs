@@ -9,109 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DataSync
 {
-    /// <summary>
-    /// Manages an AWS DataSync EFS Location.
-    /// 
-    /// &gt; **NOTE:** The EFS File System must have a mounted EFS Mount Target before creating this resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DataSync.EfsLocation("example", new()
-    ///     {
-    ///         EfsFileSystemArn = exampleAwsEfsMountTarget.FileSystemArn,
-    ///         Ec2Config = new Aws.DataSync.Inputs.EfsLocationEc2ConfigArgs
-    ///         {
-    ///             SecurityGroupArns = new[]
-    ///             {
-    ///                 exampleAwsSecurityGroup.Arn,
-    ///             },
-    ///             SubnetArn = exampleAwsSubnet.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the DataSync EFS location.
-    /// 
-    /// Using `pulumi import`, import `aws_datasync_location_efs` using the DataSync Task Amazon Resource Name (ARN). For example:
-    /// 
-    /// % pulumi import aws_datasync_location_efs.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-    /// </summary>
     [AwsResourceType("aws:datasync/efsLocation:EfsLocation")]
     public partial class EfsLocation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
-        /// </summary>
         [Output("accessPointArn")]
         public Output<string?> AccessPointArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the DataSync Location.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block containing EC2 configurations for connecting to the EFS File System.
-        /// </summary>
         [Output("ec2Config")]
         public Output<Outputs.EfsLocationEc2Config> Ec2Config { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of EFS File System.
-        /// </summary>
         [Output("efsFileSystemArn")]
         public Output<string> EfsFileSystemArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
-        /// </summary>
         [Output("fileSystemAccessRoleArn")]
         public Output<string?> FileSystemAccessRoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
-        /// </summary>
         [Output("inTransitEncryption")]
         public Output<string?> InTransitEncryption { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Subdirectory to perform actions as source or destination. Default `/`.
-        /// </summary>
         [Output("subdirectory")]
         public Output<string?> Subdirectory { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -164,54 +91,29 @@ namespace Pulumi.Aws.DataSync
 
     public sealed class EfsLocationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
-        /// </summary>
         [Input("accessPointArn")]
         public Input<string>? AccessPointArn { get; set; }
 
-        /// <summary>
-        /// Configuration block containing EC2 configurations for connecting to the EFS File System.
-        /// </summary>
         [Input("ec2Config", required: true)]
         public Input<Inputs.EfsLocationEc2ConfigArgs> Ec2Config { get; set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of EFS File System.
-        /// </summary>
         [Input("efsFileSystemArn", required: true)]
         public Input<string> EfsFileSystemArn { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
-        /// </summary>
         [Input("fileSystemAccessRoleArn")]
         public Input<string>? FileSystemAccessRoleArn { get; set; }
 
-        /// <summary>
-        /// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
-        /// </summary>
         [Input("inTransitEncryption")]
         public Input<string>? InTransitEncryption { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Subdirectory to perform actions as source or destination. Default `/`.
-        /// </summary>
         [Input("subdirectory")]
         public Input<string>? Subdirectory { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -226,60 +128,32 @@ namespace Pulumi.Aws.DataSync
 
     public sealed class EfsLocationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
-        /// </summary>
         [Input("accessPointArn")]
         public Input<string>? AccessPointArn { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the DataSync Location.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Configuration block containing EC2 configurations for connecting to the EFS File System.
-        /// </summary>
         [Input("ec2Config")]
         public Input<Inputs.EfsLocationEc2ConfigGetArgs>? Ec2Config { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of EFS File System.
-        /// </summary>
         [Input("efsFileSystemArn")]
         public Input<string>? EfsFileSystemArn { get; set; }
 
-        /// <summary>
-        /// Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
-        /// </summary>
         [Input("fileSystemAccessRoleArn")]
         public Input<string>? FileSystemAccessRoleArn { get; set; }
 
-        /// <summary>
-        /// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
-        /// </summary>
         [Input("inTransitEncryption")]
         public Input<string>? InTransitEncryption { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Subdirectory to perform actions as source or destination. Default `/`.
-        /// </summary>
         [Input("subdirectory")]
         public Input<string>? Subdirectory { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -288,10 +162,6 @@ namespace Pulumi.Aws.DataSync
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

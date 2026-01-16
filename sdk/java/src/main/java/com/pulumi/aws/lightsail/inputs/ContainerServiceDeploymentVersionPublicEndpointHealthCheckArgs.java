@@ -16,92 +16,44 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArg
 
     public static final ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs Empty = new ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs();
 
-    /**
-     * Number of consecutive health check successes required before moving the container to the Healthy state. Defaults to 2.
-     * 
-     */
     @Import(name="healthyThreshold")
     private @Nullable Output<Integer> healthyThreshold;
 
-    /**
-     * @return Number of consecutive health check successes required before moving the container to the Healthy state. Defaults to 2.
-     * 
-     */
     public Optional<Output<Integer>> healthyThreshold() {
         return Optional.ofNullable(this.healthyThreshold);
     }
 
-    /**
-     * Approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
-     * 
-     */
     @Import(name="intervalSeconds")
     private @Nullable Output<Integer> intervalSeconds;
 
-    /**
-     * @return Approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
-     * 
-     */
     public Optional<Output<Integer>> intervalSeconds() {
         return Optional.ofNullable(this.intervalSeconds);
     }
 
-    /**
-     * Path on the container on which to perform the health check. Defaults to &#34;/&#34;.
-     * 
-     */
     @Import(name="path")
     private @Nullable Output<String> path;
 
-    /**
-     * @return Path on the container on which to perform the health check. Defaults to &#34;/&#34;.
-     * 
-     */
     public Optional<Output<String>> path() {
         return Optional.ofNullable(this.path);
     }
 
-    /**
-     * HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to &#34;200-499&#34;.
-     * 
-     */
     @Import(name="successCodes")
     private @Nullable Output<String> successCodes;
 
-    /**
-     * @return HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to &#34;200-499&#34;.
-     * 
-     */
     public Optional<Output<String>> successCodes() {
         return Optional.ofNullable(this.successCodes);
     }
 
-    /**
-     * Amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
-     * 
-     */
     @Import(name="timeoutSeconds")
     private @Nullable Output<Integer> timeoutSeconds;
 
-    /**
-     * @return Amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
-     * 
-     */
     public Optional<Output<Integer>> timeoutSeconds() {
         return Optional.ofNullable(this.timeoutSeconds);
     }
 
-    /**
-     * Number of consecutive health check failures required before moving the container to the Unhealthy state. Defaults to 2.
-     * 
-     */
     @Import(name="unhealthyThreshold")
     private @Nullable Output<Integer> unhealthyThreshold;
 
-    /**
-     * @return Number of consecutive health check failures required before moving the container to the Unhealthy state. Defaults to 2.
-     * 
-     */
     public Optional<Output<Integer>> unhealthyThreshold() {
         return Optional.ofNullable(this.unhealthyThreshold);
     }
@@ -135,128 +87,56 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArg
             $ = new ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param healthyThreshold Number of consecutive health check successes required before moving the container to the Healthy state. Defaults to 2.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthyThreshold(@Nullable Output<Integer> healthyThreshold) {
             $.healthyThreshold = healthyThreshold;
             return this;
         }
 
-        /**
-         * @param healthyThreshold Number of consecutive health check successes required before moving the container to the Healthy state. Defaults to 2.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthyThreshold(Integer healthyThreshold) {
             return healthyThreshold(Output.of(healthyThreshold));
         }
 
-        /**
-         * @param intervalSeconds Approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
-         * 
-         * @return builder
-         * 
-         */
         public Builder intervalSeconds(@Nullable Output<Integer> intervalSeconds) {
             $.intervalSeconds = intervalSeconds;
             return this;
         }
 
-        /**
-         * @param intervalSeconds Approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
-         * 
-         * @return builder
-         * 
-         */
         public Builder intervalSeconds(Integer intervalSeconds) {
             return intervalSeconds(Output.of(intervalSeconds));
         }
 
-        /**
-         * @param path Path on the container on which to perform the health check. Defaults to &#34;/&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(@Nullable Output<String> path) {
             $.path = path;
             return this;
         }
 
-        /**
-         * @param path Path on the container on which to perform the health check. Defaults to &#34;/&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(String path) {
             return path(Output.of(path));
         }
 
-        /**
-         * @param successCodes HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to &#34;200-499&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder successCodes(@Nullable Output<String> successCodes) {
             $.successCodes = successCodes;
             return this;
         }
 
-        /**
-         * @param successCodes HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to &#34;200-499&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder successCodes(String successCodes) {
             return successCodes(Output.of(successCodes));
         }
 
-        /**
-         * @param timeoutSeconds Amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeoutSeconds(@Nullable Output<Integer> timeoutSeconds) {
             $.timeoutSeconds = timeoutSeconds;
             return this;
         }
 
-        /**
-         * @param timeoutSeconds Amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeoutSeconds(Integer timeoutSeconds) {
             return timeoutSeconds(Output.of(timeoutSeconds));
         }
 
-        /**
-         * @param unhealthyThreshold Number of consecutive health check failures required before moving the container to the Unhealthy state. Defaults to 2.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unhealthyThreshold(@Nullable Output<Integer> unhealthyThreshold) {
             $.unhealthyThreshold = unhealthyThreshold;
             return this;
         }
 
-        /**
-         * @param unhealthyThreshold Number of consecutive health check failures required before moving the container to the Unhealthy state. Defaults to 2.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unhealthyThreshold(Integer unhealthyThreshold) {
             return unhealthyThreshold(Output.of(unhealthyThreshold));
         }

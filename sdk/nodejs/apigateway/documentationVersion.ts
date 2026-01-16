@@ -4,40 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage an API Gateway Documentation Version.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleRestApi = new aws.apigateway.RestApi("example", {name: "example_api"});
- * const exampleDocumentationPart = new aws.apigateway.DocumentationPart("example", {
- *     location: {
- *         type: "API",
- *     },
- *     properties: "{\"description\":\"Example\"}",
- *     restApiId: exampleRestApi.id,
- * });
- * const example = new aws.apigateway.DocumentationVersion("example", {
- *     version: "example_version",
- *     restApiId: exampleRestApi.id,
- *     description: "Example description",
- * }, {
- *     dependsOn: [exampleDocumentationPart],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import API Gateway documentation versions using `REST-API-ID/VERSION`. For example:
- *
- * ```sh
- * $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
- * ```
- */
 export class DocumentationVersion extends pulumi.CustomResource {
     /**
      * Get an existing DocumentationVersion resource's state with the given name, ID, and optional extra
@@ -66,21 +32,9 @@ export class DocumentationVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === DocumentationVersion.__pulumiType;
     }
 
-    /**
-     * Description of the API documentation version.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ID of the associated Rest API
-     */
     declare public readonly restApiId: pulumi.Output<string>;
-    /**
-     * Version identifier of the API documentation snapshot.
-     */
     declare public readonly version: pulumi.Output<string>;
 
     /**
@@ -122,21 +76,9 @@ export class DocumentationVersion extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DocumentationVersion resources.
  */
 export interface DocumentationVersionState {
-    /**
-     * Description of the API documentation version.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ID of the associated Rest API
-     */
     restApiId?: pulumi.Input<string>;
-    /**
-     * Version identifier of the API documentation snapshot.
-     */
     version?: pulumi.Input<string>;
 }
 
@@ -144,20 +86,8 @@ export interface DocumentationVersionState {
  * The set of arguments for constructing a DocumentationVersion resource.
  */
 export interface DocumentationVersionArgs {
-    /**
-     * Description of the API documentation version.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ID of the associated Rest API
-     */
     restApiId: pulumi.Input<string>;
-    /**
-     * Version identifier of the API documentation snapshot.
-     */
     version: pulumi.Input<string>;
 }

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ScheduledQueryErrorReportConfiguration {
-    /**
-     * @return Configuration block for the S3 configuration for the error reports. See below.
-     * 
-     */
     private ScheduledQueryErrorReportConfigurationS3Configuration s3Configuration;
 
     private ScheduledQueryErrorReportConfiguration() {}
-    /**
-     * @return Configuration block for the S3 configuration for the error reports. See below.
-     * 
-     */
     public ScheduledQueryErrorReportConfigurationS3Configuration s3Configuration() {
         return this.s3Configuration;
     }

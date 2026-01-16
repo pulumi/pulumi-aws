@@ -13,25 +13,10 @@ namespace Pulumi.Aws.LightSail.Outputs
     [OutputType]
     public sealed class ContainerServiceDeploymentVersionContainer
     {
-        /// <summary>
-        /// Launch command for the container. A list of strings.
-        /// </summary>
         public readonly ImmutableArray<string> Commands;
-        /// <summary>
-        /// Name of the container.
-        /// </summary>
         public readonly string ContainerName;
-        /// <summary>
-        /// Key-value map of the environment variables of the container.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? Environment;
-        /// <summary>
-        /// Name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don't start with a colon. For example, `nginx:latest` or `Nginx`.
-        /// </summary>
         public readonly string Image;
-        /// <summary>
-        /// Key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? Ports;
 
         [OutputConstructor]

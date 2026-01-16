@@ -32,14 +32,6 @@ class AutomationRuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AutomationRule resource.
-        :param pulumi.Input[_builtins.str] description: The description of the rule.
-        :param pulumi.Input[_builtins.str] rule_name: The name of the rule.
-        :param pulumi.Input[_builtins.int] rule_order: An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionArgs']]] actions: A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-        :param pulumi.Input['AutomationRuleCriteriaArgs'] criteria: A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-        :param pulumi.Input[_builtins.bool] is_terminal: Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rule_status: Whether the rule is active after it is created.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "rule_name", rule_name)
@@ -60,9 +52,6 @@ class AutomationRuleArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[_builtins.str]:
-        """
-        The description of the rule.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -72,9 +61,6 @@ class AutomationRuleArgs:
     @_builtins.property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the rule.
-        """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
@@ -84,9 +70,6 @@ class AutomationRuleArgs:
     @_builtins.property
     @pulumi.getter(name="ruleOrder")
     def rule_order(self) -> pulumi.Input[_builtins.int]:
-        """
-        An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-        """
         return pulumi.get(self, "rule_order")
 
     @rule_order.setter
@@ -96,9 +79,6 @@ class AutomationRuleArgs:
     @_builtins.property
     @pulumi.getter
     def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionArgs']]]]:
-        """
-        A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -108,9 +88,6 @@ class AutomationRuleArgs:
     @_builtins.property
     @pulumi.getter
     def criteria(self) -> Optional[pulumi.Input['AutomationRuleCriteriaArgs']]:
-        """
-        A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-        """
         return pulumi.get(self, "criteria")
 
     @criteria.setter
@@ -120,9 +97,6 @@ class AutomationRuleArgs:
     @_builtins.property
     @pulumi.getter(name="isTerminal")
     def is_terminal(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
-        """
         return pulumi.get(self, "is_terminal")
 
     @is_terminal.setter
@@ -132,9 +106,6 @@ class AutomationRuleArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -144,9 +115,6 @@ class AutomationRuleArgs:
     @_builtins.property
     @pulumi.getter(name="ruleStatus")
     def rule_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether the rule is active after it is created.
-        """
         return pulumi.get(self, "rule_status")
 
     @rule_status.setter
@@ -179,15 +147,6 @@ class _AutomationRuleState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AutomationRule resources.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionArgs']]] actions: A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Security Hub automation rule.
-        :param pulumi.Input['AutomationRuleCriteriaArgs'] criteria: A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-        :param pulumi.Input[_builtins.str] description: The description of the rule.
-        :param pulumi.Input[_builtins.bool] is_terminal: Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rule_name: The name of the rule.
-        :param pulumi.Input[_builtins.int] rule_order: An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-        :param pulumi.Input[_builtins.str] rule_status: Whether the rule is active after it is created.
         """
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -215,9 +174,6 @@ class _AutomationRuleState:
     @_builtins.property
     @pulumi.getter
     def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionArgs']]]]:
-        """
-        A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -227,9 +183,6 @@ class _AutomationRuleState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the Security Hub automation rule.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -239,9 +192,6 @@ class _AutomationRuleState:
     @_builtins.property
     @pulumi.getter
     def criteria(self) -> Optional[pulumi.Input['AutomationRuleCriteriaArgs']]:
-        """
-        A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-        """
         return pulumi.get(self, "criteria")
 
     @criteria.setter
@@ -251,9 +201,6 @@ class _AutomationRuleState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the rule.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -263,9 +210,6 @@ class _AutomationRuleState:
     @_builtins.property
     @pulumi.getter(name="isTerminal")
     def is_terminal(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
-        """
         return pulumi.get(self, "is_terminal")
 
     @is_terminal.setter
@@ -275,9 +219,6 @@ class _AutomationRuleState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -287,9 +228,6 @@ class _AutomationRuleState:
     @_builtins.property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the rule.
-        """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
@@ -299,9 +237,6 @@ class _AutomationRuleState:
     @_builtins.property
     @pulumi.getter(name="ruleOrder")
     def rule_order(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-        """
         return pulumi.get(self, "rule_order")
 
     @rule_order.setter
@@ -311,9 +246,6 @@ class _AutomationRuleState:
     @_builtins.property
     @pulumi.getter(name="ruleStatus")
     def rule_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether the rule is active after it is created.
-        """
         return pulumi.get(self, "rule_status")
 
     @rule_status.setter
@@ -356,67 +288,9 @@ class AutomationRule(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Security Hub Automation Rule.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.securityhub.AutomationRule("example",
-            description="Elevate finding severity to CRITICAL when specific resources such as an S3 bucket is at risk",
-            rule_name="Elevate severity of findings that relate to important resources",
-            rule_order=1,
-            actions=[{
-                "finding_fields_update": {
-                    "severity": {
-                        "label": "CRITICAL",
-                        "product": 0,
-                    },
-                    "note": {
-                        "text": "This is a critical resource. Please review ASAP.",
-                        "updated_by": "sechub-automation",
-                    },
-                    "types": ["Software and Configuration Checks/Industry and Regulatory Standards"],
-                    "user_defined_fields": {
-                        "key": "value",
-                    },
-                },
-                "type": "FINDING_FIELDS_UPDATE",
-            }],
-            criteria={
-                "resource_ids": [{
-                    "comparison": "EQUALS",
-                    "value": "arn:aws:s3:::examplebucket/*",
-                }],
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Security Hub automation rule.
-
-        Using `pulumi import`, import Security Hub automation rule using their ARN. For example:
-
-        % pulumi import aws_securityhub_automation_rule.example arn:aws:securityhub:us-west-2:123456789012:automation-rule/473eddde-f5c4-4ae5-85c7-e922f271fffc
-
+        Create a AutomationRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionArgs', 'AutomationRuleActionArgsDict']]]] actions: A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-        :param pulumi.Input[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict']] criteria: A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-        :param pulumi.Input[_builtins.str] description: The description of the rule.
-        :param pulumi.Input[_builtins.bool] is_terminal: Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rule_name: The name of the rule.
-        :param pulumi.Input[_builtins.int] rule_order: An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-        :param pulumi.Input[_builtins.str] rule_status: Whether the rule is active after it is created.
         """
         ...
     @overload
@@ -425,57 +299,7 @@ class AutomationRule(pulumi.CustomResource):
                  args: AutomationRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Security Hub Automation Rule.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.securityhub.AutomationRule("example",
-            description="Elevate finding severity to CRITICAL when specific resources such as an S3 bucket is at risk",
-            rule_name="Elevate severity of findings that relate to important resources",
-            rule_order=1,
-            actions=[{
-                "finding_fields_update": {
-                    "severity": {
-                        "label": "CRITICAL",
-                        "product": 0,
-                    },
-                    "note": {
-                        "text": "This is a critical resource. Please review ASAP.",
-                        "updated_by": "sechub-automation",
-                    },
-                    "types": ["Software and Configuration Checks/Industry and Regulatory Standards"],
-                    "user_defined_fields": {
-                        "key": "value",
-                    },
-                },
-                "type": "FINDING_FIELDS_UPDATE",
-            }],
-            criteria={
-                "resource_ids": [{
-                    "comparison": "EQUALS",
-                    "value": "arn:aws:s3:::examplebucket/*",
-                }],
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Security Hub automation rule.
-
-        Using `pulumi import`, import Security Hub automation rule using their ARN. For example:
-
-        % pulumi import aws_securityhub_automation_rule.example arn:aws:securityhub:us-west-2:123456789012:automation-rule/473eddde-f5c4-4ae5-85c7-e922f271fffc
-
+        Create a AutomationRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AutomationRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -554,15 +378,6 @@ class AutomationRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionArgs', 'AutomationRuleActionArgsDict']]]] actions: A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Security Hub automation rule.
-        :param pulumi.Input[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict']] criteria: A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-        :param pulumi.Input[_builtins.str] description: The description of the rule.
-        :param pulumi.Input[_builtins.bool] is_terminal: Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rule_name: The name of the rule.
-        :param pulumi.Input[_builtins.int] rule_order: An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-        :param pulumi.Input[_builtins.str] rule_status: Whether the rule is active after it is created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -584,73 +399,46 @@ class AutomationRule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def actions(self) -> pulumi.Output[Optional[Sequence['outputs.AutomationRuleAction']]]:
-        """
-        A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-        """
         return pulumi.get(self, "actions")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the Security Hub automation rule.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def criteria(self) -> pulumi.Output[Optional['outputs.AutomationRuleCriteria']]:
-        """
-        A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-        """
         return pulumi.get(self, "criteria")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
-        """
-        The description of the rule.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="isTerminal")
     def is_terminal(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
-        """
         return pulumi.get(self, "is_terminal")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the rule.
-        """
         return pulumi.get(self, "rule_name")
 
     @_builtins.property
     @pulumi.getter(name="ruleOrder")
     def rule_order(self) -> pulumi.Output[_builtins.int]:
-        """
-        An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-        """
         return pulumi.get(self, "rule_order")
 
     @_builtins.property
     @pulumi.getter(name="ruleStatus")
     def rule_status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Whether the rule is active after it is created.
-        """
         return pulumi.get(self, "rule_status")
 
     @_builtins.property

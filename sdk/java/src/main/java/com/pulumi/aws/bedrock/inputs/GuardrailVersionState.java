@@ -17,66 +17,30 @@ public final class GuardrailVersionState extends com.pulumi.resources.ResourceAr
 
     public static final GuardrailVersionState Empty = new GuardrailVersionState();
 
-    /**
-     * Description of the Guardrail version.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the Guardrail version.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Guardrail ARN.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="guardrailArn")
     private @Nullable Output<String> guardrailArn;
 
-    /**
-     * @return Guardrail ARN.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> guardrailArn() {
         return Optional.ofNullable(this.guardrailArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Whether to retain the old version of a previously deployed Guardrail. Default is `false`
-     * 
-     */
     @Import(name="skipDestroy")
     private @Nullable Output<Boolean> skipDestroy;
 
-    /**
-     * @return Whether to retain the old version of a previously deployed Guardrail. Default is `false`
-     * 
-     */
     public Optional<Output<Boolean>> skipDestroy() {
         return Optional.ofNullable(this.skipDestroy);
     }
@@ -88,17 +52,9 @@ public final class GuardrailVersionState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * Guardrail version.
-     * 
-     */
     @Import(name="version")
     private @Nullable Output<String> version;
 
-    /**
-     * @return Guardrail version.
-     * 
-     */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -132,90 +88,38 @@ public final class GuardrailVersionState extends com.pulumi.resources.ResourceAr
             $ = new GuardrailVersionState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Description of the Guardrail version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the Guardrail version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param guardrailArn Guardrail ARN.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder guardrailArn(@Nullable Output<String> guardrailArn) {
             $.guardrailArn = guardrailArn;
             return this;
         }
 
-        /**
-         * @param guardrailArn Guardrail ARN.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder guardrailArn(String guardrailArn) {
             return guardrailArn(Output.of(guardrailArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param skipDestroy Whether to retain the old version of a previously deployed Guardrail. Default is `false`
-         * 
-         * @return builder
-         * 
-         */
         public Builder skipDestroy(@Nullable Output<Boolean> skipDestroy) {
             $.skipDestroy = skipDestroy;
             return this;
         }
 
-        /**
-         * @param skipDestroy Whether to retain the old version of a previously deployed Guardrail. Default is `false`
-         * 
-         * @return builder
-         * 
-         */
         public Builder skipDestroy(Boolean skipDestroy) {
             return skipDestroy(Output.of(skipDestroy));
         }
@@ -229,23 +133,11 @@ public final class GuardrailVersionState extends com.pulumi.resources.ResourceAr
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param version Guardrail version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable Output<String> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version Guardrail version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

@@ -10,33 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings {
-    /**
-     * @return Data objects marked for deletion are deleted after this many days.
-     * Must be at least `1`.
-     * 
-     */
     private Integer nonCurrentDays;
-    /**
-     * @return Unreferenced data objects are marked for deletion after this many days.
-     * Must be at least `1`.
-     * 
-     */
     private Integer unreferencedDays;
 
     private TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings() {}
-    /**
-     * @return Data objects marked for deletion are deleted after this many days.
-     * Must be at least `1`.
-     * 
-     */
     public Integer nonCurrentDays() {
         return this.nonCurrentDays;
     }
-    /**
-     * @return Unreferenced data objects are marked for deletion after this many days.
-     * Must be at least `1`.
-     * 
-     */
     public Integer unreferencedDays() {
         return this.unreferencedDays;
     }

@@ -27,12 +27,6 @@ class ContainerServiceDeploymentVersionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ContainerServiceDeploymentVersion resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]] containers: Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
-        :param pulumi.Input[_builtins.str] service_name: Name of the container service.
-               
-               The following arguments are optional:
-        :param pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs'] public_endpoint: Configuration block that describes the settings of the public endpoint for the container service. See below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "containers", containers)
         pulumi.set(__self__, "service_name", service_name)
@@ -44,9 +38,6 @@ class ContainerServiceDeploymentVersionArgs:
     @_builtins.property
     @pulumi.getter
     def containers(self) -> pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]]:
-        """
-        Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
-        """
         return pulumi.get(self, "containers")
 
     @containers.setter
@@ -56,11 +47,6 @@ class ContainerServiceDeploymentVersionArgs:
     @_builtins.property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the container service.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
@@ -70,9 +56,6 @@ class ContainerServiceDeploymentVersionArgs:
     @_builtins.property
     @pulumi.getter(name="publicEndpoint")
     def public_endpoint(self) -> Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs']]:
-        """
-        Configuration block that describes the settings of the public endpoint for the container service. See below.
-        """
         return pulumi.get(self, "public_endpoint")
 
     @public_endpoint.setter
@@ -82,9 +65,6 @@ class ContainerServiceDeploymentVersionArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -104,15 +84,6 @@ class _ContainerServiceDeploymentVersionState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering ContainerServiceDeploymentVersion resources.
-        :param pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]] containers: Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
-        :param pulumi.Input[_builtins.str] created_at: Date and time when the deployment was created.
-        :param pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs'] public_endpoint: Configuration block that describes the settings of the public endpoint for the container service. See below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_name: Name of the container service.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] state: Current state of the container service.
-        :param pulumi.Input[_builtins.int] version: Version number of the deployment.
         """
         if containers is not None:
             pulumi.set(__self__, "containers", containers)
@@ -132,9 +103,6 @@ class _ContainerServiceDeploymentVersionState:
     @_builtins.property
     @pulumi.getter
     def containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]]]:
-        """
-        Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
-        """
         return pulumi.get(self, "containers")
 
     @containers.setter
@@ -144,9 +112,6 @@ class _ContainerServiceDeploymentVersionState:
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date and time when the deployment was created.
-        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -156,9 +121,6 @@ class _ContainerServiceDeploymentVersionState:
     @_builtins.property
     @pulumi.getter(name="publicEndpoint")
     def public_endpoint(self) -> Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs']]:
-        """
-        Configuration block that describes the settings of the public endpoint for the container service. See below.
-        """
         return pulumi.get(self, "public_endpoint")
 
     @public_endpoint.setter
@@ -168,9 +130,6 @@ class _ContainerServiceDeploymentVersionState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -180,11 +139,6 @@ class _ContainerServiceDeploymentVersionState:
     @_builtins.property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the container service.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
@@ -194,9 +148,6 @@ class _ContainerServiceDeploymentVersionState:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Current state of the container service.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -206,9 +157,6 @@ class _ContainerServiceDeploymentVersionState:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Version number of the deployment.
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -228,63 +176,9 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a Lightsail container service deployment version. Use this resource to deploy containerized applications to your Lightsail container service with specific container configurations and settings.
-
-        > **NOTE:** The Amazon Lightsail container service must be enabled to create a deployment.
-
-        > **NOTE:** This resource allows you to manage an Amazon Lightsail container service deployment version but the provider cannot destroy it. Removing this resource from your configuration will remove it from your statefile.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lightsail.ContainerServiceDeploymentVersion("example",
-            containers=[{
-                "container_name": "hello-world",
-                "image": "amazon/amazon-lightsail:hello-world",
-                "commands": [],
-                "environment": {
-                    "MY_ENVIRONMENT_VARIABLE": "my_value",
-                },
-                "ports": {
-                    "80": "HTTP",
-                },
-            }],
-            public_endpoint={
-                "container_name": "hello-world",
-                "container_port": 80,
-                "health_check": {
-                    "healthy_threshold": 2,
-                    "unhealthy_threshold": 2,
-                    "timeout_seconds": 2,
-                    "interval_seconds": 5,
-                    "path": "/",
-                    "success_codes": "200-499",
-                },
-            },
-            service_name=example_aws_lightsail_container_service["name"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Lightsail Container Service Deployment Version using the `service_name` and `version` separated by a slash (`/`). For example:
-
-        ```sh
-        $ pulumi import aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion example container-service-1/1
-        ```
-
+        Create a ContainerServiceDeploymentVersion resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerServiceDeploymentVersionContainerArgs', 'ContainerServiceDeploymentVersionContainerArgsDict']]]] containers: Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
-        :param pulumi.Input[Union['ContainerServiceDeploymentVersionPublicEndpointArgs', 'ContainerServiceDeploymentVersionPublicEndpointArgsDict']] public_endpoint: Configuration block that describes the settings of the public endpoint for the container service. See below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_name: Name of the container service.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -293,55 +187,7 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
                  args: ContainerServiceDeploymentVersionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Lightsail container service deployment version. Use this resource to deploy containerized applications to your Lightsail container service with specific container configurations and settings.
-
-        > **NOTE:** The Amazon Lightsail container service must be enabled to create a deployment.
-
-        > **NOTE:** This resource allows you to manage an Amazon Lightsail container service deployment version but the provider cannot destroy it. Removing this resource from your configuration will remove it from your statefile.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lightsail.ContainerServiceDeploymentVersion("example",
-            containers=[{
-                "container_name": "hello-world",
-                "image": "amazon/amazon-lightsail:hello-world",
-                "commands": [],
-                "environment": {
-                    "MY_ENVIRONMENT_VARIABLE": "my_value",
-                },
-                "ports": {
-                    "80": "HTTP",
-                },
-            }],
-            public_endpoint={
-                "container_name": "hello-world",
-                "container_port": 80,
-                "health_check": {
-                    "healthy_threshold": 2,
-                    "unhealthy_threshold": 2,
-                    "timeout_seconds": 2,
-                    "interval_seconds": 5,
-                    "path": "/",
-                    "success_codes": "200-499",
-                },
-            },
-            service_name=example_aws_lightsail_container_service["name"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Lightsail Container Service Deployment Version using the `service_name` and `version` separated by a slash (`/`). For example:
-
-        ```sh
-        $ pulumi import aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion example container-service-1/1
-        ```
-
+        Create a ContainerServiceDeploymentVersion resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ContainerServiceDeploymentVersionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -405,15 +251,6 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerServiceDeploymentVersionContainerArgs', 'ContainerServiceDeploymentVersionContainerArgsDict']]]] containers: Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
-        :param pulumi.Input[_builtins.str] created_at: Date and time when the deployment was created.
-        :param pulumi.Input[Union['ContainerServiceDeploymentVersionPublicEndpointArgs', 'ContainerServiceDeploymentVersionPublicEndpointArgsDict']] public_endpoint: Configuration block that describes the settings of the public endpoint for the container service. See below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_name: Name of the container service.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] state: Current state of the container service.
-        :param pulumi.Input[_builtins.int] version: Version number of the deployment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -431,58 +268,35 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def containers(self) -> pulumi.Output[Sequence['outputs.ContainerServiceDeploymentVersionContainer']]:
-        """
-        Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
-        """
         return pulumi.get(self, "containers")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date and time when the deployment was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter(name="publicEndpoint")
     def public_endpoint(self) -> pulumi.Output[Optional['outputs.ContainerServiceDeploymentVersionPublicEndpoint']]:
-        """
-        Configuration block that describes the settings of the public endpoint for the container service. See below.
-        """
         return pulumi.get(self, "public_endpoint")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the container service.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "service_name")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
-        """
-        Current state of the container service.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.int]:
-        """
-        Version number of the deployment.
-        """
         return pulumi.get(self, "version")
 

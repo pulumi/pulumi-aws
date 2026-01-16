@@ -13,13 +13,7 @@ namespace Pulumi.Aws.SecurityHub.Outputs
     [OutputType]
     public sealed class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter
     {
-        /// <summary>
-        /// An object that specifies parameter values for a control in a configuration policy. See below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter> Parameters;
-        /// <summary>
-        /// The ID of the security control. For more information see the [Security Hub controls reference] documentation.
-        /// </summary>
         public readonly string SecurityControlId;
 
         [OutputConstructor]

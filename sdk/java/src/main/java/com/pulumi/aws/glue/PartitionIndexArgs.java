@@ -17,77 +17,37 @@ public final class PartitionIndexArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final PartitionIndexArgs Empty = new PartitionIndexArgs();
 
-    /**
-     * The catalog ID where the table resides.
-     * 
-     */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
-    /**
-     * @return The catalog ID where the table resides.
-     * 
-     */
     public Optional<Output<String>> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
 
-    /**
-     * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-     * 
-     */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
-    /**
-     * @return Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-     * 
-     */
     public Output<String> databaseName() {
         return this.databaseName;
     }
 
-    /**
-     * Configuration block for a partition index. See `partitionIndex` below.
-     * 
-     */
     @Import(name="partitionIndex", required=true)
     private Output<PartitionIndexPartitionIndexArgs> partitionIndex;
 
-    /**
-     * @return Configuration block for a partition index. See `partitionIndex` below.
-     * 
-     */
     public Output<PartitionIndexPartitionIndexArgs> partitionIndex() {
         return this.partitionIndex;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Name of the table. For Hive compatibility, this must be entirely lowercase.
-     * 
-     */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
-    /**
-     * @return Name of the table. For Hive compatibility, this must be entirely lowercase.
-     * 
-     */
     public Output<String> tableName() {
         return this.tableName;
     }
@@ -120,107 +80,47 @@ public final class PartitionIndexArgs extends com.pulumi.resources.ResourceArgs 
             $ = new PartitionIndexArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param catalogId The catalog ID where the table resides.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(@Nullable Output<String> catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
-        /**
-         * @param catalogId The catalog ID where the table resides.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(String catalogId) {
             return catalogId(Output.of(catalogId));
         }
 
-        /**
-         * @param databaseName Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(Output<String> databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
-        /**
-         * @param databaseName Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
         }
 
-        /**
-         * @param partitionIndex Configuration block for a partition index. See `partitionIndex` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder partitionIndex(Output<PartitionIndexPartitionIndexArgs> partitionIndex) {
             $.partitionIndex = partitionIndex;
             return this;
         }
 
-        /**
-         * @param partitionIndex Configuration block for a partition index. See `partitionIndex` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder partitionIndex(PartitionIndexPartitionIndexArgs partitionIndex) {
             return partitionIndex(Output.of(partitionIndex));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tableName Name of the table. For Hive compatibility, this must be entirely lowercase.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
-        /**
-         * @param tableName Name of the table. For Hive compatibility, this must be entirely lowercase.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }

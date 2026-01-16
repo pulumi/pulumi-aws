@@ -13,17 +13,8 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern
     {
-        /// <summary>
-        /// An empty configuration block that is used for inspecting all headers.
-        /// </summary>
         public readonly Outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll? All;
-        /// <summary>
-        /// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
-        /// </summary>
         public readonly ImmutableArray<string> ExcludedHeaders;
-        /// <summary>
-        /// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
-        /// </summary>
         public readonly ImmutableArray<string> IncludedHeaders;
 
         [OutputConstructor]

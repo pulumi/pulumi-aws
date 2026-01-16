@@ -21,131 +21,11 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource managing cloud autonomous vm cluster in AWS for Oracle Database{@literal @}AWS.
- * 
- * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.odb.CloudAutonomousVmCluster;
- * import com.pulumi.aws.odb.CloudAutonomousVmClusterArgs;
- * import com.pulumi.aws.odb.inputs.CloudAutonomousVmClusterMaintenanceWindowArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var avmcWithMinimumParameters = new CloudAutonomousVmCluster("avmcWithMinimumParameters", CloudAutonomousVmClusterArgs.builder()
- *             .cloudExadataInfrastructureId("<aws_odb_cloud_exadata_infrastructure_id>")
- *             .odbNetworkId("<aws_odb_network_id>")
- *             .displayName("my_autonomous_vm_cluster")
- *             .autonomousDataStorageSizeInTbs(5.0)
- *             .memoryPerOracleComputeUnitInGbs(2)
- *             .totalContainerDatabases(1)
- *             .cpuCoreCountPerNode(40)
- *             .licenseModel("LICENSE_INCLUDED")
- *             .dbServers("<my_db_server_id>")
- *             .scanListenerPortTls(8561)
- *             .scanListenerPortNonTls(1024)
- *             .maintenanceWindow(CloudAutonomousVmClusterMaintenanceWindowArgs.builder()
- *                 .preference("NO_PREFERENCE")
- *                 .build())
- *             .build());
- * 
- *         var avmcWithAllParams = new CloudAutonomousVmCluster("avmcWithAllParams", CloudAutonomousVmClusterArgs.builder()
- *             .description("my first avmc")
- *             .timeZone("UTC")
- *             .cloudExadataInfrastructureId("<aws_odb_cloud_exadata_infrastructure_id>")
- *             .odbNetworkId("<aws_odb_network_id>")
- *             .displayName("my_autonomous_vm_cluster")
- *             .autonomousDataStorageSizeInTbs(5.0)
- *             .memoryPerOracleComputeUnitInGbs(2)
- *             .totalContainerDatabases(1)
- *             .cpuCoreCountPerNode(40)
- *             .licenseModel("LICENSE_INCLUDED")
- *             .dbServers(            
- *                 "<my_db_server_1>",
- *                 "<my_db_server_2>")
- *             .scanListenerPortTls(8561)
- *             .scanListenerPortNonTls(1024)
- *             .maintenanceWindow(CloudAutonomousVmClusterMaintenanceWindowArgs.builder()
- *                 .daysOfWeeks(                
- *                     CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs.builder()
- *                         .name("MONDAY")
- *                         .build(),
- *                     CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs.builder()
- *                         .name("TUESDAY")
- *                         .build())
- *                 .hoursOfDays(                
- *                     4,
- *                     16)
- *                 .leadTimeInWeeks(3)
- *                 .months(                
- *                     CloudAutonomousVmClusterMaintenanceWindowMonthArgs.builder()
- *                         .name("FEBRUARY")
- *                         .build(),
- *                     CloudAutonomousVmClusterMaintenanceWindowMonthArgs.builder()
- *                         .name("MAY")
- *                         .build(),
- *                     CloudAutonomousVmClusterMaintenanceWindowMonthArgs.builder()
- *                         .name("AUGUST")
- *                         .build(),
- *                     CloudAutonomousVmClusterMaintenanceWindowMonthArgs.builder()
- *                         .name("NOVEMBER")
- *                         .build())
- *                 .preference("CUSTOM_PREFERENCE")
- *                 .weeksOfMonths(                
- *                     2,
- *                     4)
- *                 .build())
- *             .tags(Map.of("env", "dev"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import cloud autonomous vm cluster `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:odb/cloudAutonomousVmCluster:CloudAutonomousVmCluster example example
- * ```
- * 
- */
 @ResourceType(type="aws:odb/cloudAutonomousVmCluster:CloudAutonomousVmCluster")
 public class CloudAutonomousVmCluster extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) for the Exadata infrastructure.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) for the Exadata infrastructure.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -198,14 +78,14 @@ public class CloudAutonomousVmCluster extends com.pulumi.resources.CustomResourc
         return this.availableContainerDatabases;
     }
     /**
-     * The number of CPU cores available for allocation to Autonomous Databases.
+     * The number of CPU cores available for allocation to Autonomous Databases
      * 
      */
     @Export(name="availableCpus", refs={Double.class}, tree="[0]")
     private Output<Double> availableCpus;
 
     /**
-     * @return The number of CPU cores available for allocation to Autonomous Databases.
+     * @return The number of CPU cores available for allocation to Autonomous Databases
      * 
      */
     public Output<Double> availableCpus() {
@@ -520,14 +400,14 @@ public class CloudAutonomousVmCluster extends com.pulumi.resources.CustomResourc
         return this.odbNetworkId;
     }
     /**
-     * The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
+     * The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB)
      * 
      */
     @Export(name="odbNodeStorageSizeInGbs", refs={Integer.class}, tree="[0]")
     private Output<Integer> odbNodeStorageSizeInGbs;
 
     /**
-     * @return The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
+     * @return The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB)
      * 
      */
     public Output<Integer> odbNodeStorageSizeInGbs() {
@@ -603,17 +483,9 @@ public class CloudAutonomousVmCluster extends com.pulumi.resources.CustomResourc
     public Output<Double> reclaimableCpus() {
         return this.reclaimableCpus;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
@@ -658,14 +530,14 @@ public class CloudAutonomousVmCluster extends com.pulumi.resources.CustomResourc
         return this.shape;
     }
     /**
-     * The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
+     * The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE , UPDATING , DELETING , DELETED , FAILED
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
+     * @return The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE , UPDATING , DELETING , DELETED , FAILED
      * 
      */
     public Output<String> status() {
@@ -685,31 +557,15 @@ public class CloudAutonomousVmCluster extends com.pulumi.resources.CustomResourc
     public Output<String> statusReason() {
         return this.statusReason;
     }
-    /**
-     * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * The combined set of user-defined and provider-defined tags.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return The combined set of user-defined and provider-defined tags.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
@@ -727,17 +583,9 @@ public class CloudAutonomousVmCluster extends com.pulumi.resources.CustomResourc
     public Output<String> timeDatabaseSslCertificateExpires() {
         return this.timeDatabaseSslCertificateExpires;
     }
-    /**
-     * The expiration date and time of the ORDS certificate.
-     * 
-     */
     @Export(name="timeOrdsCertificateExpires", refs={String.class}, tree="[0]")
     private Output<String> timeOrdsCertificateExpires;
 
-    /**
-     * @return The expiration date and time of the ORDS certificate.
-     * 
-     */
     public Output<String> timeOrdsCertificateExpires() {
         return this.timeOrdsCertificateExpires;
     }

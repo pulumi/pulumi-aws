@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorCapacityAutoscalingScaleInPolicy {
-    /**
-     * @return Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.
-     * 
-     */
     private @Nullable Integer cpuUtilizationPercentage;
 
     private ConnectorCapacityAutoscalingScaleInPolicy() {}
-    /**
-     * @return Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.
-     * 
-     */
     public Optional<Integer> cpuUtilizationPercentage() {
         return Optional.ofNullable(this.cpuUtilizationPercentage);
     }

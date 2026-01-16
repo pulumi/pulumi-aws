@@ -14,143 +14,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a customer managed policy attachment for a Single Sign-On (SSO) Permission Set resource
- * 
- * &gt; **NOTE:** Creating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
- * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
- * import com.pulumi.aws.ssoadmin.PermissionSet;
- * import com.pulumi.aws.ssoadmin.PermissionSetArgs;
- * import com.pulumi.aws.iam.Policy;
- * import com.pulumi.aws.iam.PolicyArgs;
- * import com.pulumi.aws.ssoadmin.CustomerManagedPolicyAttachment;
- * import com.pulumi.aws.ssoadmin.CustomerManagedPolicyAttachmentArgs;
- * import com.pulumi.aws.ssoadmin.inputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
- *             .build());
- * 
- *         var examplePermissionSet = new PermissionSet("examplePermissionSet", PermissionSetArgs.builder()
- *             .name("Example")
- *             .instanceArn(example.arns()[0])
- *             .build());
- * 
- *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
- *             .name("TestPolicy")
- *             .description("My test policy")
- *             .policy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Version", "2012-10-17"),
- *                     jsonProperty("Statement", jsonArray(jsonObject(
- *                         jsonProperty("Action", jsonArray("ec2:Describe*")),
- *                         jsonProperty("Effect", "Allow"),
- *                         jsonProperty("Resource", "*")
- *                     )))
- *                 )))
- *             .build());
- * 
- *         var exampleCustomerManagedPolicyAttachment = new CustomerManagedPolicyAttachment("exampleCustomerManagedPolicyAttachment", CustomerManagedPolicyAttachmentArgs.builder()
- *             .instanceArn(examplePermissionSet.instanceArn())
- *             .permissionSetArn(examplePermissionSet.arn())
- *             .customerManagedPolicyReference(CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs.builder()
- *                 .name(examplePolicy.name())
- *                 .path("/")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SSO Managed Policy Attachments using the `name`, `path`, `permission_set_arn`, and `instance_arn` separated by a comma (`,`). For example:
- * 
- * ```sh
- * $ pulumi import aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment example TestPolicy,/,arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
- * ```
- * 
- */
 @ResourceType(type="aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment")
 public class CustomerManagedPolicyAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * Specifies the name and path of a customer managed policy. See below.
-     * 
-     */
     @Export(name="customerManagedPolicyReference", refs={CustomerManagedPolicyAttachmentCustomerManagedPolicyReference.class}, tree="[0]")
     private Output<CustomerManagedPolicyAttachmentCustomerManagedPolicyReference> customerManagedPolicyReference;
 
-    /**
-     * @return Specifies the name and path of a customer managed policy. See below.
-     * 
-     */
     public Output<CustomerManagedPolicyAttachmentCustomerManagedPolicyReference> customerManagedPolicyReference() {
         return this.customerManagedPolicyReference;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     * 
-     */
     @Export(name="instanceArn", refs={String.class}, tree="[0]")
     private Output<String> instanceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     * 
-     */
     public Output<String> instanceArn() {
         return this.instanceArn;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
-     * 
-     */
     @Export(name="permissionSetArn", refs={String.class}, tree="[0]")
     private Output<String> permissionSetArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Permission Set.
-     * 
-     */
     public Output<String> permissionSetArn() {
         return this.permissionSetArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

@@ -12,10 +12,6 @@ namespace Pulumi.Aws.ElasticBeanstalk.Inputs
 
     public sealed class EnvironmentAllSettingGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A unique name for this Environment. This name is used
-        /// in the application URL
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

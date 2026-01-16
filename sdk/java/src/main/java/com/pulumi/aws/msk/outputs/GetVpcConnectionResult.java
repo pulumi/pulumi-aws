@@ -13,15 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetVpcConnectionResult {
     private String arn;
-    /**
-     * @return The authentication type for the client VPC Connection.
-     * 
-     */
     private String authentication;
-    /**
-     * @return The list of subnets in the client VPC.
-     * 
-     */
     private List<String> clientSubnets;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -29,42 +21,18 @@ public final class GetVpcConnectionResult {
      */
     private String id;
     private String region;
-    /**
-     * @return The security groups attached to the ENIs for the broker nodes.
-     * 
-     */
     private List<String> securityGroups;
-    /**
-     * @return Map of key-value pairs assigned to the VPC Connection.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return The Amazon Resource Name (ARN) of the cluster.
-     * 
-     */
     private String targetClusterArn;
-    /**
-     * @return The VPC ID of the remote client.
-     * 
-     */
     private String vpcId;
 
     private GetVpcConnectionResult() {}
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The authentication type for the client VPC Connection.
-     * 
-     */
     public String authentication() {
         return this.authentication;
     }
-    /**
-     * @return The list of subnets in the client VPC.
-     * 
-     */
     public List<String> clientSubnets() {
         return this.clientSubnets;
     }
@@ -78,31 +46,15 @@ public final class GetVpcConnectionResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return The security groups attached to the ENIs for the broker nodes.
-     * 
-     */
     public List<String> securityGroups() {
         return this.securityGroups;
     }
-    /**
-     * @return Map of key-value pairs assigned to the VPC Connection.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the cluster.
-     * 
-     */
     public String targetClusterArn() {
         return this.targetClusterArn;
     }
-    /**
-     * @return The VPC ID of the remote client.
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }

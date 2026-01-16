@@ -16,17 +16,9 @@ namespace Pulumi.Aws.Odb.Outputs
         public readonly ImmutableArray<Outputs.NetworkManagedServiceManagedS3BackupAccess> ManagedS3BackupAccesses;
         public readonly ImmutableArray<string> ManagedServiceIpv4Cidrs;
         public readonly string ResourceGatewayArn;
-        /// <summary>
-        /// Specifies the configuration for Amazon S3 access from the ODB network.
-        /// </summary>
         public readonly ImmutableArray<Outputs.NetworkManagedServiceS3Access> S3Accesses;
         public readonly string ServiceNetworkArn;
         public readonly ImmutableArray<Outputs.NetworkManagedServiceServiceNetworkEndpoint> ServiceNetworkEndpoints;
-        /// <summary>
-        /// Specifies the configuration for Zero-ETL access from the ODB network.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public readonly ImmutableArray<Outputs.NetworkManagedServiceZeroEtlAccess> ZeroEtlAccesses;
 
         [OutputConstructor]

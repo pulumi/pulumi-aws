@@ -16,119 +16,29 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.verifiedpermissions.Schema;
- * import com.pulumi.aws.verifiedpermissions.SchemaArgs;
- * import com.pulumi.aws.verifiedpermissions.inputs.SchemaDefinitionArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Schema("example", SchemaArgs.builder()
- *             .policyStoreId(exampleAwsVerifiedpermissionsPolicyStore.policyStoreId())
- *             .definition(SchemaDefinitionArgs.builder()
- *                 .value(serializeJson(
- *                     jsonObject(
- *                         jsonProperty("Namespace", jsonObject(
- *                             jsonProperty("entityTypes", jsonObject(
- * 
- *                             )),
- *                             jsonProperty("actions", jsonObject(
- * 
- *                             ))
- *                         ))
- *                     )))
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Verified Permissions Policy Store Schema using the `policy_store_id`. For example:
- * 
- *  % pulumi import aws_verifiedpermissions_schema.example DxQg2j8xvXJQ1tQCYNWj9T
- * 
- */
 @ResourceType(type="aws:verifiedpermissions/schema:Schema")
 public class Schema extends com.pulumi.resources.CustomResource {
-    /**
-     * The definition of the schema.
-     * 
-     */
     @Export(name="definition", refs={SchemaDefinition.class}, tree="[0]")
     private Output</* @Nullable */ SchemaDefinition> definition;
 
-    /**
-     * @return The definition of the schema.
-     * 
-     */
     public Output<Optional<SchemaDefinition>> definition() {
         return Codegen.optional(this.definition);
     }
-    /**
-     * (Optional) Identifies the namespaces of the entities referenced by this schema.
-     * 
-     */
     @Export(name="namespaces", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> namespaces;
 
-    /**
-     * @return (Optional) Identifies the namespaces of the entities referenced by this schema.
-     * 
-     */
     public Output<List<String>> namespaces() {
         return this.namespaces;
     }
-    /**
-     * The ID of the Policy Store.
-     * 
-     */
     @Export(name="policyStoreId", refs={String.class}, tree="[0]")
     private Output<String> policyStoreId;
 
-    /**
-     * @return The ID of the Policy Store.
-     * 
-     */
     public Output<String> policyStoreId() {
         return this.policyStoreId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

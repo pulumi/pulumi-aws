@@ -16,111 +16,23 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a WAF Regional Regex Match Set Resource
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.wafregional.RegexPatternSet;
- * import com.pulumi.aws.wafregional.RegexPatternSetArgs;
- * import com.pulumi.aws.wafregional.RegexMatchSet;
- * import com.pulumi.aws.wafregional.RegexMatchSetArgs;
- * import com.pulumi.aws.wafregional.inputs.RegexMatchSetRegexMatchTupleArgs;
- * import com.pulumi.aws.wafregional.inputs.RegexMatchSetRegexMatchTupleFieldToMatchArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleRegexPatternSet = new RegexPatternSet("exampleRegexPatternSet", RegexPatternSetArgs.builder()
- *             .name("example")
- *             .regexPatternStrings(            
- *                 "one",
- *                 "two")
- *             .build());
- * 
- *         var example = new RegexMatchSet("example", RegexMatchSetArgs.builder()
- *             .name("example")
- *             .regexMatchTuples(RegexMatchSetRegexMatchTupleArgs.builder()
- *                 .fieldToMatch(RegexMatchSetRegexMatchTupleFieldToMatchArgs.builder()
- *                     .data("User-Agent")
- *                     .type("HEADER")
- *                     .build())
- *                 .regexPatternSetId(exampleRegexPatternSet.id())
- *                 .textTransformation("NONE")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import WAF Regional Regex Match Set using the id. For example:
- * 
- * ```sh
- * $ pulumi import aws:wafregional/regexMatchSet:RegexMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
- * ```
- * 
- */
 @ResourceType(type="aws:wafregional/regexMatchSet:RegexMatchSet")
 public class RegexMatchSet extends com.pulumi.resources.CustomResource {
-    /**
-     * The name or description of the Regex Match Set.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name or description of the Regex Match Set.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
-     * 
-     */
     @Export(name="regexMatchTuples", refs={List.class,RegexMatchSetRegexMatchTuple.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RegexMatchSetRegexMatchTuple>> regexMatchTuples;
 
-    /**
-     * @return The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
-     * 
-     */
     public Output<Optional<List<RegexMatchSetRegexMatchTuple>>> regexMatchTuples() {
         return Codegen.optional(this.regexMatchTuples);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

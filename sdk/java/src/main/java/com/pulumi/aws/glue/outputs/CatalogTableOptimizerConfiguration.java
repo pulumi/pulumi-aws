@@ -15,53 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CatalogTableOptimizerConfiguration {
-    /**
-     * @return Indicates whether the table optimizer is enabled.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
-     * 
-     */
     private @Nullable CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration orphanFileDeletionConfiguration;
-    /**
-     * @return The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
-     * 
-     */
     private @Nullable CatalogTableOptimizerConfigurationRetentionConfiguration retentionConfiguration;
-    /**
-     * @return The ARN of the IAM role to use for the table optimizer.
-     * 
-     */
     private String roleArn;
 
     private CatalogTableOptimizerConfiguration() {}
-    /**
-     * @return Indicates whether the table optimizer is enabled.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
-     * 
-     */
     public Optional<CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration> orphanFileDeletionConfiguration() {
         return Optional.ofNullable(this.orphanFileDeletionConfiguration);
     }
-    /**
-     * @return The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
-     * 
-     */
     public Optional<CatalogTableOptimizerConfigurationRetentionConfiguration> retentionConfiguration() {
         return Optional.ofNullable(this.retentionConfiguration);
     }
-    /**
-     * @return The ARN of the IAM role to use for the table optimizer.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }

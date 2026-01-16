@@ -19,106 +19,44 @@ public final class SslNegotiationPolicyState extends com.pulumi.resources.Resour
 
     public static final SslNegotiationPolicyState Empty = new SslNegotiationPolicyState();
 
-    /**
-     * An SSL Negotiation policy attribute. Each has two properties:
-     * 
-     */
     @Import(name="attributes")
     private @Nullable Output<List<SslNegotiationPolicyAttributeArgs>> attributes;
 
-    /**
-     * @return An SSL Negotiation policy attribute. Each has two properties:
-     * 
-     */
     public Optional<Output<List<SslNegotiationPolicyAttributeArgs>>> attributes() {
         return Optional.ofNullable(this.attributes);
     }
 
-    /**
-     * The load balancer port to which the policy
-     * should be applied. This must be an active listener on the load
-     * balancer.
-     * 
-     */
     @Import(name="lbPort")
     private @Nullable Output<Integer> lbPort;
 
-    /**
-     * @return The load balancer port to which the policy
-     * should be applied. This must be an active listener on the load
-     * balancer.
-     * 
-     */
     public Optional<Output<Integer>> lbPort() {
         return Optional.ofNullable(this.lbPort);
     }
 
-    /**
-     * The load balancer to which the policy
-     * should be attached.
-     * 
-     */
     @Import(name="loadBalancer")
     private @Nullable Output<String> loadBalancer;
 
-    /**
-     * @return The load balancer to which the policy
-     * should be attached.
-     * 
-     */
     public Optional<Output<String>> loadBalancer() {
         return Optional.ofNullable(this.loadBalancer);
     }
 
-    /**
-     * The name of the SSL negotiation policy.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the SSL negotiation policy.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-     * 
-     * To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
-     * 
-     * &gt; **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
-     * 
-     */
     @Import(name="triggers")
     private @Nullable Output<Map<String,String>> triggers;
 
-    /**
-     * @return Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-     * 
-     * To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
-     * 
-     * &gt; **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
-     * 
-     */
     public Optional<Output<Map<String,String>>> triggers() {
         return Optional.ofNullable(this.triggers);
     }
@@ -152,152 +90,60 @@ public final class SslNegotiationPolicyState extends com.pulumi.resources.Resour
             $ = new SslNegotiationPolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attributes An SSL Negotiation policy attribute. Each has two properties:
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributes(@Nullable Output<List<SslNegotiationPolicyAttributeArgs>> attributes) {
             $.attributes = attributes;
             return this;
         }
 
-        /**
-         * @param attributes An SSL Negotiation policy attribute. Each has two properties:
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributes(List<SslNegotiationPolicyAttributeArgs> attributes) {
             return attributes(Output.of(attributes));
         }
 
-        /**
-         * @param attributes An SSL Negotiation policy attribute. Each has two properties:
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributes(SslNegotiationPolicyAttributeArgs... attributes) {
             return attributes(List.of(attributes));
         }
 
-        /**
-         * @param lbPort The load balancer port to which the policy
-         * should be applied. This must be an active listener on the load
-         * balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbPort(@Nullable Output<Integer> lbPort) {
             $.lbPort = lbPort;
             return this;
         }
 
-        /**
-         * @param lbPort The load balancer port to which the policy
-         * should be applied. This must be an active listener on the load
-         * balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbPort(Integer lbPort) {
             return lbPort(Output.of(lbPort));
         }
 
-        /**
-         * @param loadBalancer The load balancer to which the policy
-         * should be attached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loadBalancer(@Nullable Output<String> loadBalancer) {
             $.loadBalancer = loadBalancer;
             return this;
         }
 
-        /**
-         * @param loadBalancer The load balancer to which the policy
-         * should be attached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loadBalancer(String loadBalancer) {
             return loadBalancer(Output.of(loadBalancer));
         }
 
-        /**
-         * @param name The name of the SSL negotiation policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the SSL negotiation policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param triggers Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-         * 
-         * To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
-         * 
-         * &gt; **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
-         * 
-         * @return builder
-         * 
-         */
         public Builder triggers(@Nullable Output<Map<String,String>> triggers) {
             $.triggers = triggers;
             return this;
         }
 
-        /**
-         * @param triggers Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-         * 
-         * To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
-         * 
-         * &gt; **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
-         * 
-         * @return builder
-         * 
-         */
         public Builder triggers(Map<String,String> triggers) {
             return triggers(Output.of(triggers));
         }

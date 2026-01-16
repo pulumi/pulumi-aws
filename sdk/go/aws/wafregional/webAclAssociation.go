@@ -12,139 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an association with WAF Regional Web ACL.
-//
-// > **Note:** An Application Load Balancer can only be associated with one WAF Regional WebACL.
-//
-// ## Example Usage
-//
-// ### Application Load Balancer Association
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/alb"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafregional"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			ipset, err := wafregional.NewIpSet(ctx, "ipset", &wafregional.IpSetArgs{
-//				Name: pulumi.String("tfIPSet"),
-//				IpSetDescriptors: wafregional.IpSetIpSetDescriptorArray{
-//					&wafregional.IpSetIpSetDescriptorArgs{
-//						Type:  pulumi.String("IPV4"),
-//						Value: pulumi.String("192.0.7.0/24"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			foo, err := wafregional.NewRule(ctx, "foo", &wafregional.RuleArgs{
-//				Name:       pulumi.String("tfWAFRule"),
-//				MetricName: pulumi.String("tfWAFRule"),
-//				Predicates: wafregional.RulePredicateArray{
-//					&wafregional.RulePredicateArgs{
-//						DataId:  ipset.ID(),
-//						Negated: pulumi.Bool(false),
-//						Type:    pulumi.String("IPMatch"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			fooWebAcl, err := wafregional.NewWebAcl(ctx, "foo", &wafregional.WebAclArgs{
-//				Name:       pulumi.String("foo"),
-//				MetricName: pulumi.String("foo"),
-//				DefaultAction: &wafregional.WebAclDefaultActionArgs{
-//					Type: pulumi.String("ALLOW"),
-//				},
-//				Rules: wafregional.WebAclRuleArray{
-//					&wafregional.WebAclRuleArgs{
-//						Action: &wafregional.WebAclRuleActionArgs{
-//							Type: pulumi.String("BLOCK"),
-//						},
-//						Priority: pulumi.Int(1),
-//						RuleId:   foo.ID(),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			fooVpc, err := ec2.NewVpc(ctx, "foo", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.1.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			fooSubnet, err := ec2.NewSubnet(ctx, "foo", &ec2.SubnetArgs{
-//				VpcId:            fooVpc.ID(),
-//				CidrBlock:        pulumi.String("10.1.1.0/24"),
-//				AvailabilityZone: pulumi.String(available.Names[0]),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			bar, err := ec2.NewSubnet(ctx, "bar", &ec2.SubnetArgs{
-//				VpcId:            fooVpc.ID(),
-//				CidrBlock:        pulumi.String("10.1.2.0/24"),
-//				AvailabilityZone: pulumi.String(available.Names[1]),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			fooLoadBalancer, err := alb.NewLoadBalancer(ctx, "foo", &alb.LoadBalancerArgs{
-//				Internal: pulumi.Bool(true),
-//				Subnets: pulumi.StringArray{
-//					fooSubnet.ID(),
-//					bar.ID(),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = wafregional.NewWebAclAssociation(ctx, "foo", &wafregional.WebAclAssociationArgs{
-//				ResourceArn: fooLoadBalancer.Arn,
-//				WebAclId:    fooWebAcl.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import WAF Regional Web ACL Association using their `web_acl_id:resource_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
-// ```
 type WebAclAssociation struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
+	Region      pulumi.StringOutput `pulumi:"region"`
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
-	// The ID of the WAF Regional WebACL to create an association.
-	WebAclId pulumi.StringOutput `pulumi:"webAclId"`
+	WebAclId    pulumi.StringOutput `pulumi:"webAclId"`
 }
 
 // NewWebAclAssociation registers a new resource with the given unique name, arguments, and options.
@@ -183,21 +56,15 @@ func GetWebAclAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAclAssociation resources.
 type webAclAssociationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
+	Region      *string `pulumi:"region"`
 	ResourceArn *string `pulumi:"resourceArn"`
-	// The ID of the WAF Regional WebACL to create an association.
-	WebAclId *string `pulumi:"webAclId"`
+	WebAclId    *string `pulumi:"webAclId"`
 }
 
 type WebAclAssociationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
+	Region      pulumi.StringPtrInput
 	ResourceArn pulumi.StringPtrInput
-	// The ID of the WAF Regional WebACL to create an association.
-	WebAclId pulumi.StringPtrInput
+	WebAclId    pulumi.StringPtrInput
 }
 
 func (WebAclAssociationState) ElementType() reflect.Type {
@@ -205,22 +72,16 @@ func (WebAclAssociationState) ElementType() reflect.Type {
 }
 
 type webAclAssociationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
-	ResourceArn string `pulumi:"resourceArn"`
-	// The ID of the WAF Regional WebACL to create an association.
-	WebAclId string `pulumi:"webAclId"`
+	Region      *string `pulumi:"region"`
+	ResourceArn string  `pulumi:"resourceArn"`
+	WebAclId    string  `pulumi:"webAclId"`
 }
 
 // The set of arguments for constructing a WebAclAssociation resource.
 type WebAclAssociationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
+	Region      pulumi.StringPtrInput
 	ResourceArn pulumi.StringInput
-	// The ID of the WAF Regional WebACL to create an association.
-	WebAclId pulumi.StringInput
+	WebAclId    pulumi.StringInput
 }
 
 func (WebAclAssociationArgs) ElementType() reflect.Type {
@@ -310,17 +171,14 @@ func (o WebAclAssociationOutput) ToWebAclAssociationOutputWithContext(ctx contex
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WebAclAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAclAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
 func (o WebAclAssociationOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAclAssociation) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-// The ID of the WAF Regional WebACL to create an association.
 func (o WebAclAssociationOutput) WebAclId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAclAssociation) pulumi.StringOutput { return v.WebAclId }).(pulumi.StringOutput)
 }

@@ -20,10 +20,6 @@ public final class GetRouteTableRoutesResult {
      */
     private String id;
     private String region;
-    /**
-     * @return List of Transit Gateway Routes.
-     * 
-     */
     private List<GetRouteTableRoutesRoute> routes;
     private String transitGatewayRouteTableId;
 
@@ -41,10 +37,6 @@ public final class GetRouteTableRoutesResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return List of Transit Gateway Routes.
-     * 
-     */
     public List<GetRouteTableRoutesRoute> routes() {
         return this.routes;
     }

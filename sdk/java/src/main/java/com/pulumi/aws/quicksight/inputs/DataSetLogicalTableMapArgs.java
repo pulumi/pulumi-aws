@@ -19,62 +19,30 @@ public final class DataSetLogicalTableMapArgs extends com.pulumi.resources.Resou
 
     public static final DataSetLogicalTableMapArgs Empty = new DataSetLogicalTableMapArgs();
 
-    /**
-     * A display name for the logical table.
-     * 
-     */
     @Import(name="alias", required=true)
     private Output<String> alias;
 
-    /**
-     * @return A display name for the logical table.
-     * 
-     */
     public Output<String> alias() {
         return this.alias;
     }
 
-    /**
-     * Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
-     * 
-     */
     @Import(name="dataTransforms")
     private @Nullable Output<List<DataSetLogicalTableMapDataTransformArgs>> dataTransforms;
 
-    /**
-     * @return Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
-     * 
-     */
     public Optional<Output<List<DataSetLogicalTableMapDataTransformArgs>>> dataTransforms() {
         return Optional.ofNullable(this.dataTransforms);
     }
 
-    /**
-     * Key of the logical table map.
-     * 
-     */
     @Import(name="logicalTableMapId", required=true)
     private Output<String> logicalTableMapId;
 
-    /**
-     * @return Key of the logical table map.
-     * 
-     */
     public Output<String> logicalTableMapId() {
         return this.logicalTableMapId;
     }
 
-    /**
-     * Source of this logical table. See source.
-     * 
-     */
     @Import(name="source", required=true)
     private Output<DataSetLogicalTableMapSourceArgs> source;
 
-    /**
-     * @return Source of this logical table. See source.
-     * 
-     */
     public Output<DataSetLogicalTableMapSourceArgs> source() {
         return this.source;
     }
@@ -106,96 +74,42 @@ public final class DataSetLogicalTableMapArgs extends com.pulumi.resources.Resou
             $ = new DataSetLogicalTableMapArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param alias A display name for the logical table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alias(Output<String> alias) {
             $.alias = alias;
             return this;
         }
 
-        /**
-         * @param alias A display name for the logical table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alias(String alias) {
             return alias(Output.of(alias));
         }
 
-        /**
-         * @param dataTransforms Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataTransforms(@Nullable Output<List<DataSetLogicalTableMapDataTransformArgs>> dataTransforms) {
             $.dataTransforms = dataTransforms;
             return this;
         }
 
-        /**
-         * @param dataTransforms Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataTransforms(List<DataSetLogicalTableMapDataTransformArgs> dataTransforms) {
             return dataTransforms(Output.of(dataTransforms));
         }
 
-        /**
-         * @param dataTransforms Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataTransforms(DataSetLogicalTableMapDataTransformArgs... dataTransforms) {
             return dataTransforms(List.of(dataTransforms));
         }
 
-        /**
-         * @param logicalTableMapId Key of the logical table map.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logicalTableMapId(Output<String> logicalTableMapId) {
             $.logicalTableMapId = logicalTableMapId;
             return this;
         }
 
-        /**
-         * @param logicalTableMapId Key of the logical table map.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logicalTableMapId(String logicalTableMapId) {
             return logicalTableMapId(Output.of(logicalTableMapId));
         }
 
-        /**
-         * @param source Source of this logical table. See source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(Output<DataSetLogicalTableMapSourceArgs> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source Source of this logical table. See source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(DataSetLogicalTableMapSourceArgs source) {
             return source(Output.of(source));
         }

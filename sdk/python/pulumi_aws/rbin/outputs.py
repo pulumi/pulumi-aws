@@ -47,12 +47,6 @@ class RuleExcludeResourceTag(dict):
     def __init__(__self__, *,
                  resource_tag_key: _builtins.str,
                  resource_tag_value: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str resource_tag_key: Tag key.
-               
-               The following argument is optional:
-        :param _builtins.str resource_tag_value: Tag value.
-        """
         pulumi.set(__self__, "resource_tag_key", resource_tag_key)
         if resource_tag_value is not None:
             pulumi.set(__self__, "resource_tag_value", resource_tag_value)
@@ -60,19 +54,11 @@ class RuleExcludeResourceTag(dict):
     @_builtins.property
     @pulumi.getter(name="resourceTagKey")
     def resource_tag_key(self) -> _builtins.str:
-        """
-        Tag key.
-
-        The following argument is optional:
-        """
         return pulumi.get(self, "resource_tag_key")
 
     @_builtins.property
     @pulumi.getter(name="resourceTagValue")
     def resource_tag_value(self) -> Optional[_builtins.str]:
-        """
-        Tag value.
-        """
         return pulumi.get(self, "resource_tag_value")
 
 
@@ -97,17 +83,11 @@ class RuleLockConfiguration(dict):
 
     def __init__(__self__, *,
                  unlock_delay: 'outputs.RuleLockConfigurationUnlockDelay'):
-        """
-        :param 'RuleLockConfigurationUnlockDelayArgs' unlock_delay: Information about the retention rule unlock delay. See `unlock_delay` below.
-        """
         pulumi.set(__self__, "unlock_delay", unlock_delay)
 
     @_builtins.property
     @pulumi.getter(name="unlockDelay")
     def unlock_delay(self) -> 'outputs.RuleLockConfigurationUnlockDelay':
-        """
-        Information about the retention rule unlock delay. See `unlock_delay` below.
-        """
         return pulumi.get(self, "unlock_delay")
 
 
@@ -135,27 +115,17 @@ class RuleLockConfigurationUnlockDelay(dict):
     def __init__(__self__, *,
                  unlock_delay_unit: _builtins.str,
                  unlock_delay_value: _builtins.int):
-        """
-        :param _builtins.str unlock_delay_unit: Unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
-        :param _builtins.int unlock_delay_value: Unlock delay period, measured in the unit specified for UnlockDelayUnit.
-        """
         pulumi.set(__self__, "unlock_delay_unit", unlock_delay_unit)
         pulumi.set(__self__, "unlock_delay_value", unlock_delay_value)
 
     @_builtins.property
     @pulumi.getter(name="unlockDelayUnit")
     def unlock_delay_unit(self) -> _builtins.str:
-        """
-        Unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
-        """
         return pulumi.get(self, "unlock_delay_unit")
 
     @_builtins.property
     @pulumi.getter(name="unlockDelayValue")
     def unlock_delay_value(self) -> _builtins.int:
-        """
-        Unlock delay period, measured in the unit specified for UnlockDelayUnit.
-        """
         return pulumi.get(self, "unlock_delay_value")
 
 
@@ -183,12 +153,6 @@ class RuleResourceTag(dict):
     def __init__(__self__, *,
                  resource_tag_key: _builtins.str,
                  resource_tag_value: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str resource_tag_key: Tag key.
-               
-               The following argument is optional:
-        :param _builtins.str resource_tag_value: Tag value.
-        """
         pulumi.set(__self__, "resource_tag_key", resource_tag_key)
         if resource_tag_value is not None:
             pulumi.set(__self__, "resource_tag_value", resource_tag_value)
@@ -196,19 +160,11 @@ class RuleResourceTag(dict):
     @_builtins.property
     @pulumi.getter(name="resourceTagKey")
     def resource_tag_key(self) -> _builtins.str:
-        """
-        Tag key.
-
-        The following argument is optional:
-        """
         return pulumi.get(self, "resource_tag_key")
 
     @_builtins.property
     @pulumi.getter(name="resourceTagValue")
     def resource_tag_value(self) -> Optional[_builtins.str]:
-        """
-        Tag value.
-        """
         return pulumi.get(self, "resource_tag_value")
 
 
@@ -236,27 +192,17 @@ class RuleRetentionPeriod(dict):
     def __init__(__self__, *,
                  retention_period_unit: _builtins.str,
                  retention_period_value: _builtins.int):
-        """
-        :param _builtins.str retention_period_unit: Unit of time in which the retention period is measured. Currently, only DAYS is supported.
-        :param _builtins.int retention_period_value: Period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
-        """
         pulumi.set(__self__, "retention_period_unit", retention_period_unit)
         pulumi.set(__self__, "retention_period_value", retention_period_value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriodUnit")
     def retention_period_unit(self) -> _builtins.str:
-        """
-        Unit of time in which the retention period is measured. Currently, only DAYS is supported.
-        """
         return pulumi.get(self, "retention_period_unit")
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriodValue")
     def retention_period_value(self) -> _builtins.int:
-        """
-        Period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
-        """
         return pulumi.get(self, "retention_period_value")
 
 

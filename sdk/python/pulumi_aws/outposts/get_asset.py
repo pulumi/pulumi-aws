@@ -65,17 +65,11 @@ class GetAssetResult:
     @_builtins.property
     @pulumi.getter(name="assetType")
     def asset_type(self) -> _builtins.str:
-        """
-        Type of the asset.
-        """
         return pulumi.get(self, "asset_type")
 
     @_builtins.property
     @pulumi.getter(name="hostId")
     def host_id(self) -> _builtins.str:
-        """
-        Host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
-        """
         return pulumi.get(self, "host_id")
 
     @_builtins.property
@@ -89,17 +83,11 @@ class GetAssetResult:
     @_builtins.property
     @pulumi.getter(name="rackElevation")
     def rack_elevation(self) -> _builtins.int:
-        """
-        Position of an asset in a rack measured in rack units.
-        """
         return pulumi.get(self, "rack_elevation")
 
     @_builtins.property
     @pulumi.getter(name="rackId")
     def rack_id(self) -> _builtins.str:
-        """
-        Rack ID of the asset.
-        """
         return pulumi.get(self, "rack_id")
 
     @_builtins.property
@@ -129,12 +117,7 @@ def get_asset(arn: Optional[_builtins.str] = None,
               region: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssetResult:
     """
-    Information about a specific hardware asset in an Outpost.
-
-
-    :param _builtins.str arn: Outpost ARN.
-    :param _builtins.str asset_id: ID of the asset.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -157,12 +140,7 @@ def get_asset_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssetResult]:
     """
-    Information about a specific hardware asset in an Outpost.
-
-
-    :param _builtins.str arn: Outpost ARN.
-    :param _builtins.str asset_id: ID of the asset.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

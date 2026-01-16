@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserPoolSchemaAttributeStringAttributeConstraint {
-    /**
-     * @return - Maximum allowed length.
-     * 
-     */
     private String maxLength;
-    /**
-     * @return - Minimum allowed length.
-     * 
-     */
     private String minLength;
 
     private GetUserPoolSchemaAttributeStringAttributeConstraint() {}
-    /**
-     * @return - Maximum allowed length.
-     * 
-     */
     public String maxLength() {
         return this.maxLength;
     }
-    /**
-     * @return - Minimum allowed length.
-     * 
-     */
     public String minLength() {
         return this.minLength;
     }

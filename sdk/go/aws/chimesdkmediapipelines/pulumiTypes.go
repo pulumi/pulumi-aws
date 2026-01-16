@@ -14,24 +14,15 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type MediaInsightsPipelineConfigurationElement struct {
-	// Configuration for Amazon Transcribe Call Analytics processor.
 	AmazonTranscribeCallAnalyticsProcessorConfiguration *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration `pulumi:"amazonTranscribeCallAnalyticsProcessorConfiguration"`
-	// Configuration for Amazon Transcribe processor.
-	AmazonTranscribeProcessorConfiguration *MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration `pulumi:"amazonTranscribeProcessorConfiguration"`
-	// Configuration for Kinesis Data Stream sink.
-	KinesisDataStreamSinkConfiguration *MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration `pulumi:"kinesisDataStreamSinkConfiguration"`
-	// Configuration for Lambda Function sink.
-	LambdaFunctionSinkConfiguration *MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration `pulumi:"lambdaFunctionSinkConfiguration"`
-	// Configuration for S3 recording sink.
-	S3RecordingSinkConfiguration *MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration `pulumi:"s3RecordingSinkConfiguration"`
-	// Configuration for SNS Topic sink.
-	SnsTopicSinkConfiguration *MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration `pulumi:"snsTopicSinkConfiguration"`
-	// Configuration for SQS Queue sink.
-	SqsQueueSinkConfiguration *MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration `pulumi:"sqsQueueSinkConfiguration"`
-	// Element type.
-	Type string `pulumi:"type"`
-	// Configuration for Voice analytics processor.
-	VoiceAnalyticsProcessorConfiguration *MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration `pulumi:"voiceAnalyticsProcessorConfiguration"`
+	AmazonTranscribeProcessorConfiguration              *MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration              `pulumi:"amazonTranscribeProcessorConfiguration"`
+	KinesisDataStreamSinkConfiguration                  *MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration                  `pulumi:"kinesisDataStreamSinkConfiguration"`
+	LambdaFunctionSinkConfiguration                     *MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration                     `pulumi:"lambdaFunctionSinkConfiguration"`
+	S3RecordingSinkConfiguration                        *MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration                        `pulumi:"s3RecordingSinkConfiguration"`
+	SnsTopicSinkConfiguration                           *MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration                           `pulumi:"snsTopicSinkConfiguration"`
+	SqsQueueSinkConfiguration                           *MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration                           `pulumi:"sqsQueueSinkConfiguration"`
+	Type                                                string                                                                                        `pulumi:"type"`
+	VoiceAnalyticsProcessorConfiguration                *MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration                `pulumi:"voiceAnalyticsProcessorConfiguration"`
 }
 
 // MediaInsightsPipelineConfigurationElementInput is an input type that accepts MediaInsightsPipelineConfigurationElementArgs and MediaInsightsPipelineConfigurationElementOutput values.
@@ -46,24 +37,15 @@ type MediaInsightsPipelineConfigurationElementInput interface {
 }
 
 type MediaInsightsPipelineConfigurationElementArgs struct {
-	// Configuration for Amazon Transcribe Call Analytics processor.
 	AmazonTranscribeCallAnalyticsProcessorConfiguration MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrInput `pulumi:"amazonTranscribeCallAnalyticsProcessorConfiguration"`
-	// Configuration for Amazon Transcribe processor.
-	AmazonTranscribeProcessorConfiguration MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrInput `pulumi:"amazonTranscribeProcessorConfiguration"`
-	// Configuration for Kinesis Data Stream sink.
-	KinesisDataStreamSinkConfiguration MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationPtrInput `pulumi:"kinesisDataStreamSinkConfiguration"`
-	// Configuration for Lambda Function sink.
-	LambdaFunctionSinkConfiguration MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationPtrInput `pulumi:"lambdaFunctionSinkConfiguration"`
-	// Configuration for S3 recording sink.
-	S3RecordingSinkConfiguration MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationPtrInput `pulumi:"s3RecordingSinkConfiguration"`
-	// Configuration for SNS Topic sink.
-	SnsTopicSinkConfiguration MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationPtrInput `pulumi:"snsTopicSinkConfiguration"`
-	// Configuration for SQS Queue sink.
-	SqsQueueSinkConfiguration MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationPtrInput `pulumi:"sqsQueueSinkConfiguration"`
-	// Element type.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Configuration for Voice analytics processor.
-	VoiceAnalyticsProcessorConfiguration MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationPtrInput `pulumi:"voiceAnalyticsProcessorConfiguration"`
+	AmazonTranscribeProcessorConfiguration              MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrInput              `pulumi:"amazonTranscribeProcessorConfiguration"`
+	KinesisDataStreamSinkConfiguration                  MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationPtrInput                  `pulumi:"kinesisDataStreamSinkConfiguration"`
+	LambdaFunctionSinkConfiguration                     MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationPtrInput                     `pulumi:"lambdaFunctionSinkConfiguration"`
+	S3RecordingSinkConfiguration                        MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationPtrInput                        `pulumi:"s3RecordingSinkConfiguration"`
+	SnsTopicSinkConfiguration                           MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationPtrInput                           `pulumi:"snsTopicSinkConfiguration"`
+	SqsQueueSinkConfiguration                           MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationPtrInput                           `pulumi:"sqsQueueSinkConfiguration"`
+	Type                                                pulumi.StringInput                                                                                   `pulumi:"type"`
+	VoiceAnalyticsProcessorConfiguration                MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationPtrInput                `pulumi:"voiceAnalyticsProcessorConfiguration"`
 }
 
 func (MediaInsightsPipelineConfigurationElementArgs) ElementType() reflect.Type {
@@ -117,61 +99,52 @@ func (o MediaInsightsPipelineConfigurationElementOutput) ToMediaInsightsPipeline
 	return o
 }
 
-// Configuration for Amazon Transcribe Call Analytics processor.
 func (o MediaInsightsPipelineConfigurationElementOutput) AmazonTranscribeCallAnalyticsProcessorConfiguration() MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElement) *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration {
 		return v.AmazonTranscribeCallAnalyticsProcessorConfiguration
 	}).(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput)
 }
 
-// Configuration for Amazon Transcribe processor.
 func (o MediaInsightsPipelineConfigurationElementOutput) AmazonTranscribeProcessorConfiguration() MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElement) *MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration {
 		return v.AmazonTranscribeProcessorConfiguration
 	}).(MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrOutput)
 }
 
-// Configuration for Kinesis Data Stream sink.
 func (o MediaInsightsPipelineConfigurationElementOutput) KinesisDataStreamSinkConfiguration() MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElement) *MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration {
 		return v.KinesisDataStreamSinkConfiguration
 	}).(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationPtrOutput)
 }
 
-// Configuration for Lambda Function sink.
 func (o MediaInsightsPipelineConfigurationElementOutput) LambdaFunctionSinkConfiguration() MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElement) *MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration {
 		return v.LambdaFunctionSinkConfiguration
 	}).(MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationPtrOutput)
 }
 
-// Configuration for S3 recording sink.
 func (o MediaInsightsPipelineConfigurationElementOutput) S3RecordingSinkConfiguration() MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElement) *MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration {
 		return v.S3RecordingSinkConfiguration
 	}).(MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationPtrOutput)
 }
 
-// Configuration for SNS Topic sink.
 func (o MediaInsightsPipelineConfigurationElementOutput) SnsTopicSinkConfiguration() MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElement) *MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration {
 		return v.SnsTopicSinkConfiguration
 	}).(MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationPtrOutput)
 }
 
-// Configuration for SQS Queue sink.
 func (o MediaInsightsPipelineConfigurationElementOutput) SqsQueueSinkConfiguration() MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElement) *MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration {
 		return v.SqsQueueSinkConfiguration
 	}).(MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationPtrOutput)
 }
 
-// Element type.
 func (o MediaInsightsPipelineConfigurationElementOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElement) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Configuration for Voice analytics processor.
 func (o MediaInsightsPipelineConfigurationElementOutput) VoiceAnalyticsProcessorConfiguration() MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElement) *MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration {
 		return v.VoiceAnalyticsProcessorConfiguration
@@ -199,32 +172,19 @@ func (o MediaInsightsPipelineConfigurationElementArrayOutput) Index(i pulumi.Int
 }
 
 type MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration struct {
-	// Filter for category events to be delivered to insights target.
-	CallAnalyticsStreamCategories []string `pulumi:"callAnalyticsStreamCategories"`
-	// Labels all personally identifiable information (PII) identified in Utterance events.
-	ContentIdentificationType *string `pulumi:"contentIdentificationType"`
-	// Redacts all personally identifiable information (PII) identified in Utterance events.
-	ContentRedactionType *string `pulumi:"contentRedactionType"`
-	// Enables partial result stabilization in Utterance events.
-	EnablePartialResultsStabilization *bool `pulumi:"enablePartialResultsStabilization"`
-	// Filters partial Utterance events from delivery to the insights target.
-	FilterPartialResults *bool `pulumi:"filterPartialResults"`
-	// Language code for the transcription model.
-	LanguageCode string `pulumi:"languageCode"`
-	// Name of custom language model for transcription.
-	LanguageModelName *string `pulumi:"languageModelName"`
-	// Level of stability to use when partial results stabilization is enabled.
-	PartialResultsStability *string `pulumi:"partialResultsStability"`
-	// Types of personally identifiable information (PII) to redact from an Utterance event.
-	PiiEntityTypes *string `pulumi:"piiEntityTypes"`
-	// Settings for post call analytics.
-	PostCallAnalyticsSettings *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings `pulumi:"postCallAnalyticsSettings"`
-	// Method for applying a vocabulary filter to Utterance events.
-	VocabularyFilterMethod *string `pulumi:"vocabularyFilterMethod"`
-	// Name of the custom vocabulary filter to use when processing Utterance events.
-	VocabularyFilterName *string `pulumi:"vocabularyFilterName"`
-	// Name of the custom vocabulary to use when processing Utterance events.
-	VocabularyName *string `pulumi:"vocabularyName"`
+	CallAnalyticsStreamCategories     []string                                                                                                               `pulumi:"callAnalyticsStreamCategories"`
+	ContentIdentificationType         *string                                                                                                                `pulumi:"contentIdentificationType"`
+	ContentRedactionType              *string                                                                                                                `pulumi:"contentRedactionType"`
+	EnablePartialResultsStabilization *bool                                                                                                                  `pulumi:"enablePartialResultsStabilization"`
+	FilterPartialResults              *bool                                                                                                                  `pulumi:"filterPartialResults"`
+	LanguageCode                      string                                                                                                                 `pulumi:"languageCode"`
+	LanguageModelName                 *string                                                                                                                `pulumi:"languageModelName"`
+	PartialResultsStability           *string                                                                                                                `pulumi:"partialResultsStability"`
+	PiiEntityTypes                    *string                                                                                                                `pulumi:"piiEntityTypes"`
+	PostCallAnalyticsSettings         *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings `pulumi:"postCallAnalyticsSettings"`
+	VocabularyFilterMethod            *string                                                                                                                `pulumi:"vocabularyFilterMethod"`
+	VocabularyFilterName              *string                                                                                                                `pulumi:"vocabularyFilterName"`
+	VocabularyName                    *string                                                                                                                `pulumi:"vocabularyName"`
 }
 
 // MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationInput is an input type that accepts MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs and MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationOutput values.
@@ -239,32 +199,19 @@ type MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProce
 }
 
 type MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs struct {
-	// Filter for category events to be delivered to insights target.
-	CallAnalyticsStreamCategories pulumi.StringArrayInput `pulumi:"callAnalyticsStreamCategories"`
-	// Labels all personally identifiable information (PII) identified in Utterance events.
-	ContentIdentificationType pulumi.StringPtrInput `pulumi:"contentIdentificationType"`
-	// Redacts all personally identifiable information (PII) identified in Utterance events.
-	ContentRedactionType pulumi.StringPtrInput `pulumi:"contentRedactionType"`
-	// Enables partial result stabilization in Utterance events.
-	EnablePartialResultsStabilization pulumi.BoolPtrInput `pulumi:"enablePartialResultsStabilization"`
-	// Filters partial Utterance events from delivery to the insights target.
-	FilterPartialResults pulumi.BoolPtrInput `pulumi:"filterPartialResults"`
-	// Language code for the transcription model.
-	LanguageCode pulumi.StringInput `pulumi:"languageCode"`
-	// Name of custom language model for transcription.
-	LanguageModelName pulumi.StringPtrInput `pulumi:"languageModelName"`
-	// Level of stability to use when partial results stabilization is enabled.
-	PartialResultsStability pulumi.StringPtrInput `pulumi:"partialResultsStability"`
-	// Types of personally identifiable information (PII) to redact from an Utterance event.
-	PiiEntityTypes pulumi.StringPtrInput `pulumi:"piiEntityTypes"`
-	// Settings for post call analytics.
-	PostCallAnalyticsSettings MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsPtrInput `pulumi:"postCallAnalyticsSettings"`
-	// Method for applying a vocabulary filter to Utterance events.
-	VocabularyFilterMethod pulumi.StringPtrInput `pulumi:"vocabularyFilterMethod"`
-	// Name of the custom vocabulary filter to use when processing Utterance events.
-	VocabularyFilterName pulumi.StringPtrInput `pulumi:"vocabularyFilterName"`
-	// Name of the custom vocabulary to use when processing Utterance events.
-	VocabularyName pulumi.StringPtrInput `pulumi:"vocabularyName"`
+	CallAnalyticsStreamCategories     pulumi.StringArrayInput                                                                                                       `pulumi:"callAnalyticsStreamCategories"`
+	ContentIdentificationType         pulumi.StringPtrInput                                                                                                         `pulumi:"contentIdentificationType"`
+	ContentRedactionType              pulumi.StringPtrInput                                                                                                         `pulumi:"contentRedactionType"`
+	EnablePartialResultsStabilization pulumi.BoolPtrInput                                                                                                           `pulumi:"enablePartialResultsStabilization"`
+	FilterPartialResults              pulumi.BoolPtrInput                                                                                                           `pulumi:"filterPartialResults"`
+	LanguageCode                      pulumi.StringInput                                                                                                            `pulumi:"languageCode"`
+	LanguageModelName                 pulumi.StringPtrInput                                                                                                         `pulumi:"languageModelName"`
+	PartialResultsStability           pulumi.StringPtrInput                                                                                                         `pulumi:"partialResultsStability"`
+	PiiEntityTypes                    pulumi.StringPtrInput                                                                                                         `pulumi:"piiEntityTypes"`
+	PostCallAnalyticsSettings         MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsPtrInput `pulumi:"postCallAnalyticsSettings"`
+	VocabularyFilterMethod            pulumi.StringPtrInput                                                                                                         `pulumi:"vocabularyFilterMethod"`
+	VocabularyFilterName              pulumi.StringPtrInput                                                                                                         `pulumi:"vocabularyFilterName"`
+	VocabularyName                    pulumi.StringPtrInput                                                                                                         `pulumi:"vocabularyName"`
 }
 
 func (MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs) ElementType() reflect.Type {
@@ -344,91 +291,78 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	}).(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput)
 }
 
-// Filter for category events to be delivered to insights target.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) CallAnalyticsStreamCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) []string {
 		return v.CallAnalyticsStreamCategories
 	}).(pulumi.StringArrayOutput)
 }
 
-// Labels all personally identifiable information (PII) identified in Utterance events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) ContentIdentificationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
 		return v.ContentIdentificationType
 	}).(pulumi.StringPtrOutput)
 }
 
-// Redacts all personally identifiable information (PII) identified in Utterance events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) ContentRedactionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
 		return v.ContentRedactionType
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enables partial result stabilization in Utterance events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) EnablePartialResultsStabilization() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *bool {
 		return v.EnablePartialResultsStabilization
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Filters partial Utterance events from delivery to the insights target.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) FilterPartialResults() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *bool {
 		return v.FilterPartialResults
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Language code for the transcription model.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) LanguageCode() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) string {
 		return v.LanguageCode
 	}).(pulumi.StringOutput)
 }
 
-// Name of custom language model for transcription.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) LanguageModelName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
 		return v.LanguageModelName
 	}).(pulumi.StringPtrOutput)
 }
 
-// Level of stability to use when partial results stabilization is enabled.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) PartialResultsStability() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
 		return v.PartialResultsStability
 	}).(pulumi.StringPtrOutput)
 }
 
-// Types of personally identifiable information (PII) to redact from an Utterance event.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) PiiEntityTypes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
 		return v.PiiEntityTypes
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings for post call analytics.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) PostCallAnalyticsSettings() MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings {
 		return v.PostCallAnalyticsSettings
 	}).(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsPtrOutput)
 }
 
-// Method for applying a vocabulary filter to Utterance events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) VocabularyFilterMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
 		return v.VocabularyFilterMethod
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the custom vocabulary filter to use when processing Utterance events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) VocabularyFilterName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
 		return v.VocabularyFilterName
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the custom vocabulary to use when processing Utterance events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) VocabularyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
 		return v.VocabularyName
@@ -459,7 +393,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	}).(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationOutput)
 }
 
-// Filter for category events to be delivered to insights target.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) CallAnalyticsStreamCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) []string {
 		if v == nil {
@@ -469,7 +402,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Labels all personally identifiable information (PII) identified in Utterance events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) ContentIdentificationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
 		if v == nil {
@@ -479,7 +411,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Redacts all personally identifiable information (PII) identified in Utterance events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) ContentRedactionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
 		if v == nil {
@@ -489,7 +420,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enables partial result stabilization in Utterance events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) EnablePartialResultsStabilization() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *bool {
 		if v == nil {
@@ -499,7 +429,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Filters partial Utterance events from delivery to the insights target.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) FilterPartialResults() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *bool {
 		if v == nil {
@@ -509,7 +438,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Language code for the transcription model.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) LanguageCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
 		if v == nil {
@@ -519,7 +447,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of custom language model for transcription.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) LanguageModelName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
 		if v == nil {
@@ -529,7 +456,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Level of stability to use when partial results stabilization is enabled.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) PartialResultsStability() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
 		if v == nil {
@@ -539,7 +465,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Types of personally identifiable information (PII) to redact from an Utterance event.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) PiiEntityTypes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
 		if v == nil {
@@ -549,7 +474,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings for post call analytics.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) PostCallAnalyticsSettings() MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings {
 		if v == nil {
@@ -559,7 +483,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	}).(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsPtrOutput)
 }
 
-// Method for applying a vocabulary filter to Utterance events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) VocabularyFilterMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
 		if v == nil {
@@ -569,7 +492,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the custom vocabulary filter to use when processing Utterance events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) VocabularyFilterName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
 		if v == nil {
@@ -579,7 +501,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the custom vocabulary to use when processing Utterance events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) VocabularyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
 		if v == nil {
@@ -590,14 +511,10 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 }
 
 type MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings struct {
-	// Should output be redacted.
-	ContentRedactionOutput *string `pulumi:"contentRedactionOutput"`
-	// ARN of the role used by AWS Transcribe to upload your post call analysis.
-	DataAccessRoleArn string `pulumi:"dataAccessRoleArn"`
-	// ID of the KMS key used to encrypt the output.
+	ContentRedactionOutput   *string `pulumi:"contentRedactionOutput"`
+	DataAccessRoleArn        string  `pulumi:"dataAccessRoleArn"`
 	OutputEncryptionKmsKeyId *string `pulumi:"outputEncryptionKmsKeyId"`
-	// The Amazon S3 location where you want your Call Analytics post-call transcription output stored.
-	OutputLocation string `pulumi:"outputLocation"`
+	OutputLocation           string  `pulumi:"outputLocation"`
 }
 
 // MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsInput is an input type that accepts MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs and MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsOutput values.
@@ -612,14 +529,10 @@ type MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProce
 }
 
 type MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs struct {
-	// Should output be redacted.
-	ContentRedactionOutput pulumi.StringPtrInput `pulumi:"contentRedactionOutput"`
-	// ARN of the role used by AWS Transcribe to upload your post call analysis.
-	DataAccessRoleArn pulumi.StringInput `pulumi:"dataAccessRoleArn"`
-	// ID of the KMS key used to encrypt the output.
+	ContentRedactionOutput   pulumi.StringPtrInput `pulumi:"contentRedactionOutput"`
+	DataAccessRoleArn        pulumi.StringInput    `pulumi:"dataAccessRoleArn"`
 	OutputEncryptionKmsKeyId pulumi.StringPtrInput `pulumi:"outputEncryptionKmsKeyId"`
-	// The Amazon S3 location where you want your Call Analytics post-call transcription output stored.
-	OutputLocation pulumi.StringInput `pulumi:"outputLocation"`
+	OutputLocation           pulumi.StringInput    `pulumi:"outputLocation"`
 }
 
 func (MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs) ElementType() reflect.Type {
@@ -699,28 +612,24 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	}).(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsPtrOutput)
 }
 
-// Should output be redacted.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsOutput) ContentRedactionOutput() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings) *string {
 		return v.ContentRedactionOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN of the role used by AWS Transcribe to upload your post call analysis.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsOutput) DataAccessRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings) string {
 		return v.DataAccessRoleArn
 	}).(pulumi.StringOutput)
 }
 
-// ID of the KMS key used to encrypt the output.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsOutput) OutputEncryptionKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings) *string {
 		return v.OutputEncryptionKmsKeyId
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon S3 location where you want your Call Analytics post-call transcription output stored.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsOutput) OutputLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings) string {
 		return v.OutputLocation
@@ -751,7 +660,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	}).(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsOutput)
 }
 
-// Should output be redacted.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsPtrOutput) ContentRedactionOutput() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings) *string {
 		if v == nil {
@@ -761,7 +669,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN of the role used by AWS Transcribe to upload your post call analysis.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsPtrOutput) DataAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings) *string {
 		if v == nil {
@@ -771,7 +678,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	}).(pulumi.StringPtrOutput)
 }
 
-// ID of the KMS key used to encrypt the output.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsPtrOutput) OutputEncryptionKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings) *string {
 		if v == nil {
@@ -781,7 +687,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon S3 location where you want your Call Analytics post-call transcription output stored.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsPtrOutput) OutputLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings) *string {
 		if v == nil {
@@ -792,30 +697,18 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 }
 
 type MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration struct {
-	// Labels all personally identifiable information (PII) identified in Transcript events.
-	ContentIdentificationType *string `pulumi:"contentIdentificationType"`
-	// Redacts all personally identifiable information (PII) identified in Transcript events.
-	ContentRedactionType *string `pulumi:"contentRedactionType"`
-	// Enables partial result stabilization in Transcript events.
-	EnablePartialResultsStabilization *bool `pulumi:"enablePartialResultsStabilization"`
-	// Filters partial Utterance events from delivery to the insights target.
-	FilterPartialResults *bool `pulumi:"filterPartialResults"`
-	// Language code for the transcription model.
-	LanguageCode string `pulumi:"languageCode"`
-	// Name of custom language model for transcription.
-	LanguageModelName *string `pulumi:"languageModelName"`
-	// Level of stability to use when partial results stabilization is enabled.
-	PartialResultsStability *string `pulumi:"partialResultsStability"`
-	// Types of personally identifiable information (PII) to redact from a Transcript event.
-	PiiEntityTypes *string `pulumi:"piiEntityTypes"`
-	// Enables speaker partitioning (diarization) in your Transcript events.
-	ShowSpeakerLabel *bool `pulumi:"showSpeakerLabel"`
-	// Method for applying a vocabulary filter to Transcript events.
-	VocabularyFilterMethod *string `pulumi:"vocabularyFilterMethod"`
-	// Name of the custom vocabulary filter to use when processing Transcript events.
-	VocabularyFilterName *string `pulumi:"vocabularyFilterName"`
-	// Name of the custom vocabulary to use when processing Transcript events.
-	VocabularyName *string `pulumi:"vocabularyName"`
+	ContentIdentificationType         *string `pulumi:"contentIdentificationType"`
+	ContentRedactionType              *string `pulumi:"contentRedactionType"`
+	EnablePartialResultsStabilization *bool   `pulumi:"enablePartialResultsStabilization"`
+	FilterPartialResults              *bool   `pulumi:"filterPartialResults"`
+	LanguageCode                      string  `pulumi:"languageCode"`
+	LanguageModelName                 *string `pulumi:"languageModelName"`
+	PartialResultsStability           *string `pulumi:"partialResultsStability"`
+	PiiEntityTypes                    *string `pulumi:"piiEntityTypes"`
+	ShowSpeakerLabel                  *bool   `pulumi:"showSpeakerLabel"`
+	VocabularyFilterMethod            *string `pulumi:"vocabularyFilterMethod"`
+	VocabularyFilterName              *string `pulumi:"vocabularyFilterName"`
+	VocabularyName                    *string `pulumi:"vocabularyName"`
 }
 
 // MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationInput is an input type that accepts MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs and MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationOutput values.
@@ -830,30 +723,18 @@ type MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigura
 }
 
 type MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs struct {
-	// Labels all personally identifiable information (PII) identified in Transcript events.
-	ContentIdentificationType pulumi.StringPtrInput `pulumi:"contentIdentificationType"`
-	// Redacts all personally identifiable information (PII) identified in Transcript events.
-	ContentRedactionType pulumi.StringPtrInput `pulumi:"contentRedactionType"`
-	// Enables partial result stabilization in Transcript events.
-	EnablePartialResultsStabilization pulumi.BoolPtrInput `pulumi:"enablePartialResultsStabilization"`
-	// Filters partial Utterance events from delivery to the insights target.
-	FilterPartialResults pulumi.BoolPtrInput `pulumi:"filterPartialResults"`
-	// Language code for the transcription model.
-	LanguageCode pulumi.StringInput `pulumi:"languageCode"`
-	// Name of custom language model for transcription.
-	LanguageModelName pulumi.StringPtrInput `pulumi:"languageModelName"`
-	// Level of stability to use when partial results stabilization is enabled.
-	PartialResultsStability pulumi.StringPtrInput `pulumi:"partialResultsStability"`
-	// Types of personally identifiable information (PII) to redact from a Transcript event.
-	PiiEntityTypes pulumi.StringPtrInput `pulumi:"piiEntityTypes"`
-	// Enables speaker partitioning (diarization) in your Transcript events.
-	ShowSpeakerLabel pulumi.BoolPtrInput `pulumi:"showSpeakerLabel"`
-	// Method for applying a vocabulary filter to Transcript events.
-	VocabularyFilterMethod pulumi.StringPtrInput `pulumi:"vocabularyFilterMethod"`
-	// Name of the custom vocabulary filter to use when processing Transcript events.
-	VocabularyFilterName pulumi.StringPtrInput `pulumi:"vocabularyFilterName"`
-	// Name of the custom vocabulary to use when processing Transcript events.
-	VocabularyName pulumi.StringPtrInput `pulumi:"vocabularyName"`
+	ContentIdentificationType         pulumi.StringPtrInput `pulumi:"contentIdentificationType"`
+	ContentRedactionType              pulumi.StringPtrInput `pulumi:"contentRedactionType"`
+	EnablePartialResultsStabilization pulumi.BoolPtrInput   `pulumi:"enablePartialResultsStabilization"`
+	FilterPartialResults              pulumi.BoolPtrInput   `pulumi:"filterPartialResults"`
+	LanguageCode                      pulumi.StringInput    `pulumi:"languageCode"`
+	LanguageModelName                 pulumi.StringPtrInput `pulumi:"languageModelName"`
+	PartialResultsStability           pulumi.StringPtrInput `pulumi:"partialResultsStability"`
+	PiiEntityTypes                    pulumi.StringPtrInput `pulumi:"piiEntityTypes"`
+	ShowSpeakerLabel                  pulumi.BoolPtrInput   `pulumi:"showSpeakerLabel"`
+	VocabularyFilterMethod            pulumi.StringPtrInput `pulumi:"vocabularyFilterMethod"`
+	VocabularyFilterName              pulumi.StringPtrInput `pulumi:"vocabularyFilterName"`
+	VocabularyName                    pulumi.StringPtrInput `pulumi:"vocabularyName"`
 }
 
 func (MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs) ElementType() reflect.Type {
@@ -933,84 +814,72 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfig
 	}).(MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrOutput)
 }
 
-// Labels all personally identifiable information (PII) identified in Transcript events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationOutput) ContentIdentificationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration) *string {
 		return v.ContentIdentificationType
 	}).(pulumi.StringPtrOutput)
 }
 
-// Redacts all personally identifiable information (PII) identified in Transcript events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationOutput) ContentRedactionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration) *string {
 		return v.ContentRedactionType
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enables partial result stabilization in Transcript events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationOutput) EnablePartialResultsStabilization() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration) *bool {
 		return v.EnablePartialResultsStabilization
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Filters partial Utterance events from delivery to the insights target.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationOutput) FilterPartialResults() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration) *bool {
 		return v.FilterPartialResults
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Language code for the transcription model.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationOutput) LanguageCode() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration) string {
 		return v.LanguageCode
 	}).(pulumi.StringOutput)
 }
 
-// Name of custom language model for transcription.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationOutput) LanguageModelName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration) *string {
 		return v.LanguageModelName
 	}).(pulumi.StringPtrOutput)
 }
 
-// Level of stability to use when partial results stabilization is enabled.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationOutput) PartialResultsStability() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration) *string {
 		return v.PartialResultsStability
 	}).(pulumi.StringPtrOutput)
 }
 
-// Types of personally identifiable information (PII) to redact from a Transcript event.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationOutput) PiiEntityTypes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration) *string {
 		return v.PiiEntityTypes
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enables speaker partitioning (diarization) in your Transcript events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationOutput) ShowSpeakerLabel() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration) *bool {
 		return v.ShowSpeakerLabel
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Method for applying a vocabulary filter to Transcript events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationOutput) VocabularyFilterMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration) *string {
 		return v.VocabularyFilterMethod
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the custom vocabulary filter to use when processing Transcript events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationOutput) VocabularyFilterName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration) *string {
 		return v.VocabularyFilterName
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the custom vocabulary to use when processing Transcript events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationOutput) VocabularyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration) *string {
 		return v.VocabularyName
@@ -1041,7 +910,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfig
 	}).(MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationOutput)
 }
 
-// Labels all personally identifiable information (PII) identified in Transcript events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrOutput) ContentIdentificationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration) *string {
 		if v == nil {
@@ -1051,7 +919,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfig
 	}).(pulumi.StringPtrOutput)
 }
 
-// Redacts all personally identifiable information (PII) identified in Transcript events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrOutput) ContentRedactionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration) *string {
 		if v == nil {
@@ -1061,7 +928,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfig
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enables partial result stabilization in Transcript events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrOutput) EnablePartialResultsStabilization() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration) *bool {
 		if v == nil {
@@ -1071,7 +937,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfig
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Filters partial Utterance events from delivery to the insights target.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrOutput) FilterPartialResults() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration) *bool {
 		if v == nil {
@@ -1081,7 +946,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfig
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Language code for the transcription model.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrOutput) LanguageCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration) *string {
 		if v == nil {
@@ -1091,7 +955,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfig
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of custom language model for transcription.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrOutput) LanguageModelName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration) *string {
 		if v == nil {
@@ -1101,7 +964,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfig
 	}).(pulumi.StringPtrOutput)
 }
 
-// Level of stability to use when partial results stabilization is enabled.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrOutput) PartialResultsStability() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration) *string {
 		if v == nil {
@@ -1111,7 +973,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfig
 	}).(pulumi.StringPtrOutput)
 }
 
-// Types of personally identifiable information (PII) to redact from a Transcript event.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrOutput) PiiEntityTypes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration) *string {
 		if v == nil {
@@ -1121,7 +982,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfig
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enables speaker partitioning (diarization) in your Transcript events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrOutput) ShowSpeakerLabel() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration) *bool {
 		if v == nil {
@@ -1131,7 +991,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfig
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Method for applying a vocabulary filter to Transcript events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrOutput) VocabularyFilterMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration) *string {
 		if v == nil {
@@ -1141,7 +1000,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfig
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the custom vocabulary filter to use when processing Transcript events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrOutput) VocabularyFilterName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration) *string {
 		if v == nil {
@@ -1151,7 +1009,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfig
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the custom vocabulary to use when processing Transcript events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrOutput) VocabularyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration) *string {
 		if v == nil {
@@ -1162,7 +1019,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfig
 }
 
 type MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration struct {
-	// Kinesis Data Stream to deliver results.
 	InsightsTarget string `pulumi:"insightsTarget"`
 }
 
@@ -1178,7 +1034,6 @@ type MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration
 }
 
 type MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs struct {
-	// Kinesis Data Stream to deliver results.
 	InsightsTarget pulumi.StringInput `pulumi:"insightsTarget"`
 }
 
@@ -1259,7 +1114,6 @@ func (o MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurat
 	}).(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationPtrOutput)
 }
 
-// Kinesis Data Stream to deliver results.
 func (o MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationOutput) InsightsTarget() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration) string {
 		return v.InsightsTarget
@@ -1290,7 +1144,6 @@ func (o MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurat
 	}).(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationOutput)
 }
 
-// Kinesis Data Stream to deliver results.
 func (o MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationPtrOutput) InsightsTarget() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration) *string {
 		if v == nil {
@@ -1301,7 +1154,6 @@ func (o MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurat
 }
 
 type MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration struct {
-	// Lambda Function to deliver results.
 	InsightsTarget string `pulumi:"insightsTarget"`
 }
 
@@ -1317,7 +1169,6 @@ type MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationInp
 }
 
 type MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgs struct {
-	// Lambda Function to deliver results.
 	InsightsTarget pulumi.StringInput `pulumi:"insightsTarget"`
 }
 
@@ -1398,7 +1249,6 @@ func (o MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration
 	}).(MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationPtrOutput)
 }
 
-// Lambda Function to deliver results.
 func (o MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationOutput) InsightsTarget() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration) string {
 		return v.InsightsTarget
@@ -1429,7 +1279,6 @@ func (o MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration
 	}).(MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationOutput)
 }
 
-// Lambda Function to deliver results.
 func (o MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationPtrOutput) InsightsTarget() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration) *string {
 		if v == nil {
@@ -1440,7 +1289,6 @@ func (o MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration
 }
 
 type MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration struct {
-	// S3 URI to deliver recordings.
 	Destination *string `pulumi:"destination"`
 }
 
@@ -1456,7 +1304,6 @@ type MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationInput 
 }
 
 type MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgs struct {
-	// S3 URI to deliver recordings.
 	Destination pulumi.StringPtrInput `pulumi:"destination"`
 }
 
@@ -1537,7 +1384,6 @@ func (o MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationOut
 	}).(MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationPtrOutput)
 }
 
-// S3 URI to deliver recordings.
 func (o MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration) *string {
 		return v.Destination
@@ -1568,7 +1414,6 @@ func (o MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationPtr
 	}).(MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationOutput)
 }
 
-// S3 URI to deliver recordings.
 func (o MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationPtrOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration) *string {
 		if v == nil {
@@ -1579,7 +1424,6 @@ func (o MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationPtr
 }
 
 type MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration struct {
-	// SNS topic to deliver results.
 	InsightsTarget string `pulumi:"insightsTarget"`
 }
 
@@ -1595,7 +1439,6 @@ type MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationInput int
 }
 
 type MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs struct {
-	// SNS topic to deliver results.
 	InsightsTarget pulumi.StringInput `pulumi:"insightsTarget"`
 }
 
@@ -1676,7 +1519,6 @@ func (o MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationOutput
 	}).(MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationPtrOutput)
 }
 
-// SNS topic to deliver results.
 func (o MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationOutput) InsightsTarget() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration) string {
 		return v.InsightsTarget
@@ -1707,7 +1549,6 @@ func (o MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationPtrOut
 	}).(MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationOutput)
 }
 
-// SNS topic to deliver results.
 func (o MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationPtrOutput) InsightsTarget() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration) *string {
 		if v == nil {
@@ -1718,7 +1559,6 @@ func (o MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationPtrOut
 }
 
 type MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration struct {
-	// SQS queue to deliver results.
 	InsightsTarget string `pulumi:"insightsTarget"`
 }
 
@@ -1734,7 +1574,6 @@ type MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationInput int
 }
 
 type MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgs struct {
-	// SQS queue to deliver results.
 	InsightsTarget pulumi.StringInput `pulumi:"insightsTarget"`
 }
 
@@ -1815,7 +1654,6 @@ func (o MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationOutput
 	}).(MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationPtrOutput)
 }
 
-// SQS queue to deliver results.
 func (o MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationOutput) InsightsTarget() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration) string {
 		return v.InsightsTarget
@@ -1846,7 +1684,6 @@ func (o MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationPtrOut
 	}).(MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationOutput)
 }
 
-// SQS queue to deliver results.
 func (o MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationPtrOutput) InsightsTarget() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration) *string {
 		if v == nil {
@@ -1857,9 +1694,7 @@ func (o MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationPtrOut
 }
 
 type MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration struct {
-	// Enable speaker search.
-	SpeakerSearchStatus string `pulumi:"speakerSearchStatus"`
-	// Enable voice tone analysis.
+	SpeakerSearchStatus     string `pulumi:"speakerSearchStatus"`
 	VoiceToneAnalysisStatus string `pulumi:"voiceToneAnalysisStatus"`
 }
 
@@ -1875,9 +1710,7 @@ type MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurati
 }
 
 type MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgs struct {
-	// Enable speaker search.
-	SpeakerSearchStatus pulumi.StringInput `pulumi:"speakerSearchStatus"`
-	// Enable voice tone analysis.
+	SpeakerSearchStatus     pulumi.StringInput `pulumi:"speakerSearchStatus"`
 	VoiceToneAnalysisStatus pulumi.StringInput `pulumi:"voiceToneAnalysisStatus"`
 }
 
@@ -1958,14 +1791,12 @@ func (o MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigur
 	}).(MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationPtrOutput)
 }
 
-// Enable speaker search.
 func (o MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationOutput) SpeakerSearchStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration) string {
 		return v.SpeakerSearchStatus
 	}).(pulumi.StringOutput)
 }
 
-// Enable voice tone analysis.
 func (o MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationOutput) VoiceToneAnalysisStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration) string {
 		return v.VoiceToneAnalysisStatus
@@ -1996,7 +1827,6 @@ func (o MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigur
 	}).(MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationOutput)
 }
 
-// Enable speaker search.
 func (o MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationPtrOutput) SpeakerSearchStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration) *string {
 		if v == nil {
@@ -2006,7 +1836,6 @@ func (o MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigur
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enable voice tone analysis.
 func (o MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationPtrOutput) VoiceToneAnalysisStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration) *string {
 		if v == nil {
@@ -2017,10 +1846,8 @@ func (o MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigur
 }
 
 type MediaInsightsPipelineConfigurationRealTimeAlertConfiguration struct {
-	// Disables real time alert rules.
-	Disabled *bool `pulumi:"disabled"`
-	// Collection of real time alert rules
-	Rules []MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule `pulumi:"rules"`
+	Disabled *bool                                                              `pulumi:"disabled"`
+	Rules    []MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule `pulumi:"rules"`
 }
 
 // MediaInsightsPipelineConfigurationRealTimeAlertConfigurationInput is an input type that accepts MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs and MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput values.
@@ -2035,10 +1862,8 @@ type MediaInsightsPipelineConfigurationRealTimeAlertConfigurationInput interface
 }
 
 type MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs struct {
-	// Disables real time alert rules.
-	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
-	// Collection of real time alert rules
-	Rules MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArrayInput `pulumi:"rules"`
+	Disabled pulumi.BoolPtrInput                                                        `pulumi:"disabled"`
+	Rules    MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArrayInput `pulumi:"rules"`
 }
 
 func (MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs) ElementType() reflect.Type {
@@ -2118,12 +1943,10 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput) ToMe
 	}).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput)
 }
 
-// Disables real time alert rules.
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput) Disabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationRealTimeAlertConfiguration) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
 }
 
-// Collection of real time alert rules
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput) Rules() MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArrayOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationRealTimeAlertConfiguration) []MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule {
 		return v.Rules
@@ -2154,7 +1977,6 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput) E
 	}).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput)
 }
 
-// Disables real time alert rules.
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput) Disabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationRealTimeAlertConfiguration) *bool {
 		if v == nil {
@@ -2164,7 +1986,6 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput) D
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Collection of real time alert rules
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput) Rules() MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArrayOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationRealTimeAlertConfiguration) []MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule {
 		if v == nil {
@@ -2175,14 +1996,10 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput) R
 }
 
 type MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule struct {
-	// Configuration for an issue detection rule.
 	IssueDetectionConfiguration *MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration `pulumi:"issueDetectionConfiguration"`
-	// Configuration for a keyword match rule.
-	KeywordMatchConfiguration *MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration `pulumi:"keywordMatchConfiguration"`
-	// Configuration for a sentiment rule.
-	SentimentConfiguration *MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration `pulumi:"sentimentConfiguration"`
-	// Rule type.
-	Type string `pulumi:"type"`
+	KeywordMatchConfiguration   *MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration   `pulumi:"keywordMatchConfiguration"`
+	SentimentConfiguration      *MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration      `pulumi:"sentimentConfiguration"`
+	Type                        string                                                                                       `pulumi:"type"`
 }
 
 // MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleInput is an input type that accepts MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs and MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleOutput values.
@@ -2197,14 +2014,10 @@ type MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleInput inter
 }
 
 type MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs struct {
-	// Configuration for an issue detection rule.
 	IssueDetectionConfiguration MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationPtrInput `pulumi:"issueDetectionConfiguration"`
-	// Configuration for a keyword match rule.
-	KeywordMatchConfiguration MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationPtrInput `pulumi:"keywordMatchConfiguration"`
-	// Configuration for a sentiment rule.
-	SentimentConfiguration MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationPtrInput `pulumi:"sentimentConfiguration"`
-	// Rule type.
-	Type pulumi.StringInput `pulumi:"type"`
+	KeywordMatchConfiguration   MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationPtrInput   `pulumi:"keywordMatchConfiguration"`
+	SentimentConfiguration      MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationPtrInput      `pulumi:"sentimentConfiguration"`
+	Type                        pulumi.StringInput                                                                                  `pulumi:"type"`
 }
 
 func (MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs) ElementType() reflect.Type {
@@ -2258,28 +2071,24 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleOutput) 
 	return o
 }
 
-// Configuration for an issue detection rule.
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleOutput) IssueDetectionConfiguration() MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule) *MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration {
 		return v.IssueDetectionConfiguration
 	}).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationPtrOutput)
 }
 
-// Configuration for a keyword match rule.
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleOutput) KeywordMatchConfiguration() MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule) *MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration {
 		return v.KeywordMatchConfiguration
 	}).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationPtrOutput)
 }
 
-// Configuration for a sentiment rule.
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleOutput) SentimentConfiguration() MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule) *MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration {
 		return v.SentimentConfiguration
 	}).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationPtrOutput)
 }
 
-// Rule type.
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2305,7 +2114,6 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArrayOut
 }
 
 type MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration struct {
-	// Rule name.
 	RuleName string `pulumi:"ruleName"`
 }
 
@@ -2321,7 +2129,6 @@ type MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetect
 }
 
 type MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs struct {
-	// Rule name.
 	RuleName pulumi.StringInput `pulumi:"ruleName"`
 }
 
@@ -2402,7 +2209,6 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDet
 	}).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationPtrOutput)
 }
 
-// Rule name.
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationOutput) RuleName() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration) string {
 		return v.RuleName
@@ -2433,7 +2239,6 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDet
 	}).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationOutput)
 }
 
-// Rule name.
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationPtrOutput) RuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration) *string {
 		if v == nil {
@@ -2444,12 +2249,9 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDet
 }
 
 type MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration struct {
-	// Collection of keywords to match.
 	Keywords []string `pulumi:"keywords"`
-	// Negate the rule.
-	Negate *bool `pulumi:"negate"`
-	// Rule name.
-	RuleName string `pulumi:"ruleName"`
+	Negate   *bool    `pulumi:"negate"`
+	RuleName string   `pulumi:"ruleName"`
 }
 
 // MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationInput is an input type that accepts MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs and MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationOutput values.
@@ -2464,12 +2266,9 @@ type MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatc
 }
 
 type MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs struct {
-	// Collection of keywords to match.
 	Keywords pulumi.StringArrayInput `pulumi:"keywords"`
-	// Negate the rule.
-	Negate pulumi.BoolPtrInput `pulumi:"negate"`
-	// Rule name.
-	RuleName pulumi.StringInput `pulumi:"ruleName"`
+	Negate   pulumi.BoolPtrInput     `pulumi:"negate"`
+	RuleName pulumi.StringInput      `pulumi:"ruleName"`
 }
 
 func (MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs) ElementType() reflect.Type {
@@ -2549,21 +2348,18 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordM
 	}).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationPtrOutput)
 }
 
-// Collection of keywords to match.
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationOutput) Keywords() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration) []string {
 		return v.Keywords
 	}).(pulumi.StringArrayOutput)
 }
 
-// Negate the rule.
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationOutput) Negate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration) *bool {
 		return v.Negate
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Rule name.
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationOutput) RuleName() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration) string {
 		return v.RuleName
@@ -2594,7 +2390,6 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordM
 	}).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationOutput)
 }
 
-// Collection of keywords to match.
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationPtrOutput) Keywords() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration) []string {
 		if v == nil {
@@ -2604,7 +2399,6 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordM
 	}).(pulumi.StringArrayOutput)
 }
 
-// Negate the rule.
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationPtrOutput) Negate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration) *bool {
 		if v == nil {
@@ -2614,7 +2408,6 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordM
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Rule name.
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationPtrOutput) RuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration) *string {
 		if v == nil {
@@ -2625,12 +2418,9 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordM
 }
 
 type MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration struct {
-	// Rule name.
-	RuleName string `pulumi:"ruleName"`
-	// Sentiment type to match.
+	RuleName      string `pulumi:"ruleName"`
 	SentimentType string `pulumi:"sentimentType"`
-	// Analysis interval.
-	TimePeriod int `pulumi:"timePeriod"`
+	TimePeriod    int    `pulumi:"timePeriod"`
 }
 
 // MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationInput is an input type that accepts MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs and MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationOutput values.
@@ -2645,12 +2435,9 @@ type MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentCo
 }
 
 type MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs struct {
-	// Rule name.
-	RuleName pulumi.StringInput `pulumi:"ruleName"`
-	// Sentiment type to match.
+	RuleName      pulumi.StringInput `pulumi:"ruleName"`
 	SentimentType pulumi.StringInput `pulumi:"sentimentType"`
-	// Analysis interval.
-	TimePeriod pulumi.IntInput `pulumi:"timePeriod"`
+	TimePeriod    pulumi.IntInput    `pulumi:"timePeriod"`
 }
 
 func (MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs) ElementType() reflect.Type {
@@ -2730,21 +2517,18 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimen
 	}).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationPtrOutput)
 }
 
-// Rule name.
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationOutput) RuleName() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration) string {
 		return v.RuleName
 	}).(pulumi.StringOutput)
 }
 
-// Sentiment type to match.
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationOutput) SentimentType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration) string {
 		return v.SentimentType
 	}).(pulumi.StringOutput)
 }
 
-// Analysis interval.
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationOutput) TimePeriod() pulumi.IntOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration) int {
 		return v.TimePeriod
@@ -2775,7 +2559,6 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimen
 	}).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationOutput)
 }
 
-// Rule name.
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationPtrOutput) RuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration) *string {
 		if v == nil {
@@ -2785,7 +2568,6 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimen
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sentiment type to match.
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationPtrOutput) SentimentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration) *string {
 		if v == nil {
@@ -2795,7 +2577,6 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimen
 	}).(pulumi.StringPtrOutput)
 }
 
-// Analysis interval.
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationPtrOutput) TimePeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration) *int {
 		if v == nil {

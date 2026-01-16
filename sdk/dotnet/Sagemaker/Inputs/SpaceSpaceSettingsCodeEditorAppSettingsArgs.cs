@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class SpaceSpaceSettingsCodeEditorAppSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `AppLifecycleManagement` Block below.
-        /// </summary>
         [Input("appLifecycleManagement")]
         public Input<Inputs.SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs>? AppLifecycleManagement { get; set; }
 
-        /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `DefaultResourceSpec` Block below.
-        /// </summary>
         [Input("defaultResourceSpec", required: true)]
         public Input<Inputs.SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs> DefaultResourceSpec { get; set; } = null!;
 

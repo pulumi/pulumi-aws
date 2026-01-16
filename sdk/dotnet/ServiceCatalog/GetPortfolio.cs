@@ -11,75 +11,12 @@ namespace Pulumi.Aws.ServiceCatalog
 {
     public static class GetPortfolio
     {
-        /// <summary>
-        /// Provides information for a Service Catalog Portfolio.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var portfolio = Aws.ServiceCatalog.GetPortfolio.Invoke(new()
-        ///     {
-        ///         Id = "port-07052002",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetPortfolioResult> InvokeAsync(GetPortfolioArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPortfolioResult>("aws:servicecatalog/getPortfolio:getPortfolio", args ?? new GetPortfolioArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information for a Service Catalog Portfolio.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var portfolio = Aws.ServiceCatalog.GetPortfolio.Invoke(new()
-        ///     {
-        ///         Id = "port-07052002",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPortfolioResult> Invoke(GetPortfolioInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPortfolioResult>("aws:servicecatalog/getPortfolio:getPortfolio", args ?? new GetPortfolioInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information for a Service Catalog Portfolio.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var portfolio = Aws.ServiceCatalog.GetPortfolio.Invoke(new()
-        ///     {
-        ///         Id = "port-07052002",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPortfolioResult> Invoke(GetPortfolioInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPortfolioResult>("aws:servicecatalog/getPortfolio:getPortfolio", args ?? new GetPortfolioInvokeArgs(), options.WithDefaults());
     }
@@ -87,32 +24,17 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class GetPortfolioArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Language code. Valid values: `En` (English), `Jp` (Japanese), `Zh` (Chinese). Default value is `En`.
-        /// </summary>
         [Input("acceptLanguage")]
         public string? AcceptLanguage { get; set; }
 
-        /// <summary>
-        /// Portfolio identifier.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Tags applied to the portfolio.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -127,32 +49,17 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class GetPortfolioInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Language code. Valid values: `En` (English), `Jp` (Japanese), `Zh` (Chinese). Default value is `En`.
-        /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
 
-        /// <summary>
-        /// Portfolio identifier.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags applied to the portfolio.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -170,31 +77,13 @@ namespace Pulumi.Aws.ServiceCatalog
     public sealed class GetPortfolioResult
     {
         public readonly string? AcceptLanguage;
-        /// <summary>
-        /// Portfolio ARN.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Time the portfolio was created.
-        /// </summary>
         public readonly string CreatedTime;
-        /// <summary>
-        /// Description of the portfolio
-        /// </summary>
         public readonly string Description;
         public readonly string Id;
-        /// <summary>
-        /// Portfolio name.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Name of the person or organization who owns the portfolio.
-        /// </summary>
         public readonly string ProviderName;
         public readonly string Region;
-        /// <summary>
-        /// Tags applied to the portfolio.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

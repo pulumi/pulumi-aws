@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration {
-    /**
-     * @return Enable speaker search.
-     * 
-     */
     private String speakerSearchStatus;
-    /**
-     * @return Enable voice tone analysis.
-     * 
-     */
     private String voiceToneAnalysisStatus;
 
     private MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration() {}
-    /**
-     * @return Enable speaker search.
-     * 
-     */
     public String speakerSearchStatus() {
         return this.speakerSearchStatus;
     }
-    /**
-     * @return Enable voice tone analysis.
-     * 
-     */
     public String voiceToneAnalysisStatus() {
         return this.voiceToneAnalysisStatus;
     }

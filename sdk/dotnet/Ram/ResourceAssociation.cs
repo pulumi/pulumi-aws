@@ -9,56 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ram
 {
-    /// <summary>
-    /// Manages a Resource Access Manager (RAM) Resource Association.
-    /// 
-    /// &gt; *NOTE:* Certain AWS resources (e.g., EC2 Subnets) can only be shared in an AWS account that is a member of an AWS Organizations organization with organization-wide Resource Access Manager functionality enabled. See the [Resource Access Manager User Guide](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) and AWS service specific documentation for additional information.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ram.ResourceAssociation("example", new()
-    ///     {
-    ///         ResourceArn = exampleAwsSubnet.Arn,
-    ///         ResourceShareArn = exampleAwsRamResourceShare.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import RAM Resource Associations using their Resource Share ARN and Resource ARN separated by a comma. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ram/resourceAssociation:ResourceAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,arn:aws:ec2:eu-west-1:123456789012:subnet/subnet-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ram/resourceAssociation:ResourceAssociation")]
     public partial class ResourceAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
-        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the RAM Resource Share.
-        /// </summary>
         [Output("resourceShareArn")]
         public Output<string> ResourceShareArn { get; private set; } = null!;
 
@@ -108,21 +67,12 @@ namespace Pulumi.Aws.Ram
 
     public sealed class ResourceAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
-        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the RAM Resource Share.
-        /// </summary>
         [Input("resourceShareArn", required: true)]
         public Input<string> ResourceShareArn { get; set; } = null!;
 
@@ -134,21 +84,12 @@ namespace Pulumi.Aws.Ram
 
     public sealed class ResourceAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
-        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the RAM Resource Share.
-        /// </summary>
         [Input("resourceShareArn")]
         public Input<string>? ResourceShareArn { get; set; }
 

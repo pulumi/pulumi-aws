@@ -17,96 +17,44 @@ public final class DomainEntryArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DomainEntryArgs Empty = new DomainEntryArgs();
 
-    /**
-     * Name of the Lightsail domain in which to create the entry.
-     * 
-     */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
-    /**
-     * @return Name of the Lightsail domain in which to create the entry.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
 
-    /**
-     * Whether the entry should be an alias. Default: `false`.
-     * 
-     */
     @Import(name="isAlias")
     private @Nullable Output<Boolean> isAlias;
 
-    /**
-     * @return Whether the entry should be an alias. Default: `false`.
-     * 
-     */
     public Optional<Output<Boolean>> isAlias() {
         return Optional.ofNullable(this.isAlias);
     }
 
-    /**
-     * Name of the entry record.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the entry record.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Target of the domain entry.
-     * 
-     */
     @Import(name="target", required=true)
     private Output<String> target;
 
-    /**
-     * @return Target of the domain entry.
-     * 
-     */
     public Output<String> target() {
         return this.target;
     }
 
-    /**
-     * Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -140,132 +88,56 @@ public final class DomainEntryArgs extends com.pulumi.resources.ResourceArgs {
             $ = new DomainEntryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domainName Name of the Lightsail domain in which to create the entry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName Name of the Lightsail domain in which to create the entry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param isAlias Whether the entry should be an alias. Default: `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isAlias(@Nullable Output<Boolean> isAlias) {
             $.isAlias = isAlias;
             return this;
         }
 
-        /**
-         * @param isAlias Whether the entry should be an alias. Default: `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isAlias(Boolean isAlias) {
             return isAlias(Output.of(isAlias));
         }
 
-        /**
-         * @param name Name of the entry record.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the entry record.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param target Target of the domain entry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(Output<String> target) {
             $.target = target;
             return this;
         }
 
-        /**
-         * @param target Target of the domain entry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(String target) {
             return target(Output.of(target));
         }
 
-        /**
-         * @param type Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

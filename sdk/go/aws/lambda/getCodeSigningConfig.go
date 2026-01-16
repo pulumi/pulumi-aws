@@ -11,195 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about an AWS Lambda Code Signing Config. Use this data source to retrieve information about an existing code signing configuration for Lambda functions to ensure code integrity and authenticity.
-//
-// For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html).
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := lambda.LookupCodeSigningConfig(ctx, &lambda.LookupCodeSigningConfigArgs{
-//				Arn: "arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("configDetails", pulumi.StringMap{
-//				"configId":    example.ConfigId,
-//				"description": example.Description,
-//				"policy":      example.Policies[0].UntrustedArtifactOnDeployment,
-//			})
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Use in Lambda Function
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Get existing code signing configuration
-//			securityConfig, err := lambda.LookupCodeSigningConfig(ctx, &lambda.LookupCodeSigningConfigArgs{
-//				Arn: codeSigningConfigArn,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			// Create Lambda function with code signing
-//			_, err = lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
-//				Code:                 pulumi.NewFileArchive("function.zip"),
-//				Name:                 pulumi.String("secure-function"),
-//				Role:                 pulumi.Any(lambdaRole.Arn),
-//				Handler:              pulumi.String("index.handler"),
-//				Runtime:              pulumi.String(lambda.RuntimeNodeJS20dX),
-//				CodeSigningConfigArn: pulumi.String(securityConfig.Arn),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("production"),
-//					"Security":    pulumi.String("code-signed"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Validate Signing Profiles
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := lambda.LookupCodeSigningConfig(ctx, &lambda.LookupCodeSigningConfigArgs{
-//				Arn: codeSigningConfigArn,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			allowedProfiles := example.AllowedPublishers[0].SigningProfileVersionArns
-//			requiredProfile := "arn:aws:signer:us-west-2:123456789012:/signing-profiles/MyProfile"
-//			profileAllowed := std.Contains(ctx, &std.ContainsArgs{
-//				Input:   allowedProfiles,
-//				Element: requiredProfile,
-//			}, nil).Result
-//			// Conditional resource creation based on signing profile validation
-//			var tmp0 float64
-//			if profileAllowed {
-//				tmp0 = 1
-//			} else {
-//				tmp0 = 0
-//			}
-//			var conditional []*lambda.Function
-//			for index := 0; index < tmp0; index++ {
-//				key0 := index
-//				_ := index
-//				__res, err := lambda.NewFunction(ctx, fmt.Sprintf("conditional-%v", key0), &lambda.FunctionArgs{
-//					Code:                 pulumi.NewFileArchive("function.zip"),
-//					Name:                 pulumi.String("conditional-function"),
-//					Role:                 pulumi.Any(lambdaRole.Arn),
-//					Handler:              pulumi.String("index.handler"),
-//					Runtime:              pulumi.String(lambda.RuntimePython3d12),
-//					CodeSigningConfigArn: pulumi.String(example.Arn),
-//				})
-//				if err != nil {
-//					return err
-//				}
-//				conditional = append(conditional, __res)
-//			}
-//			var tmp1 string
-//			if profileAllowed {
-//				tmp1 = "Function deployed with valid signing profile"
-//			} else {
-//				tmp1 = "Deployment blocked - signing profile not allowed"
-//			}
-//			ctx.Export("deploymentStatus", pulumi.Map{
-//				"profileAllowed":  profileAllowed,
-//				"functionCreated": profileAllowed,
-//				"message":         tmp1,
-//			})
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Multi-Environment Configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Production code signing config
-//			prod, err := lambda.LookupCodeSigningConfig(ctx, &lambda.LookupCodeSigningConfigArgs{
-//				Arn: "arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-prod-123",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			// Development code signing config
-//			dev, err := lambda.LookupCodeSigningConfig(ctx, &lambda.LookupCodeSigningConfigArgs{
-//				Arn: "arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-dev-456",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			prodPolicy := prod.Policies[0].UntrustedArtifactOnDeployment
-//			devPolicy := dev.Policies[0].UntrustedArtifactOnDeployment
-//			configComparison := map[string]interface{}{
-//				"prodEnforcement": prodPolicy,
-//				"devEnforcement":  devPolicy,
-//				"policiesMatch":   prodPolicy == devPolicy,
-//			}
-//			ctx.Export("environmentComparison", configComparison)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupCodeSigningConfig(ctx *pulumi.Context, args *LookupCodeSigningConfigArgs, opts ...pulumi.InvokeOption) (*LookupCodeSigningConfigResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCodeSigningConfigResult
@@ -212,30 +23,21 @@ func LookupCodeSigningConfig(ctx *pulumi.Context, args *LookupCodeSigningConfigA
 
 // A collection of arguments for invoking getCodeSigningConfig.
 type LookupCodeSigningConfigArgs struct {
-	// ARN of the code signing configuration.
-	//
-	// The following arguments are optional:
-	Arn string `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Arn    string  `pulumi:"arn"`
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getCodeSigningConfig.
 type LookupCodeSigningConfigResult struct {
-	// List of allowed publishers as signing profiles for this code signing configuration. See below.
 	AllowedPublishers []GetCodeSigningConfigAllowedPublisher `pulumi:"allowedPublishers"`
 	Arn               string                                 `pulumi:"arn"`
-	// Unique identifier for the code signing configuration.
-	ConfigId string `pulumi:"configId"`
-	// Code signing configuration description.
-	Description string `pulumi:"description"`
+	ConfigId          string                                 `pulumi:"configId"`
+	Description       string                                 `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Date and time that the code signing configuration was last modified.
-	LastModified string `pulumi:"lastModified"`
-	// List of code signing policies that control the validation failure action for signature mismatch or expiry. See below.
-	Policies []GetCodeSigningConfigPolicy `pulumi:"policies"`
-	Region   string                       `pulumi:"region"`
+	Id           string                       `pulumi:"id"`
+	LastModified string                       `pulumi:"lastModified"`
+	Policies     []GetCodeSigningConfigPolicy `pulumi:"policies"`
+	Region       string                       `pulumi:"region"`
 }
 
 func LookupCodeSigningConfigOutput(ctx *pulumi.Context, args LookupCodeSigningConfigOutputArgs, opts ...pulumi.InvokeOption) LookupCodeSigningConfigResultOutput {
@@ -249,11 +51,7 @@ func LookupCodeSigningConfigOutput(ctx *pulumi.Context, args LookupCodeSigningCo
 
 // A collection of arguments for invoking getCodeSigningConfig.
 type LookupCodeSigningConfigOutputArgs struct {
-	// ARN of the code signing configuration.
-	//
-	// The following arguments are optional:
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Arn    pulumi.StringInput    `pulumi:"arn"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -276,7 +74,6 @@ func (o LookupCodeSigningConfigResultOutput) ToLookupCodeSigningConfigResultOutp
 	return o
 }
 
-// List of allowed publishers as signing profiles for this code signing configuration. See below.
 func (o LookupCodeSigningConfigResultOutput) AllowedPublishers() GetCodeSigningConfigAllowedPublisherArrayOutput {
 	return o.ApplyT(func(v LookupCodeSigningConfigResult) []GetCodeSigningConfigAllowedPublisher {
 		return v.AllowedPublishers
@@ -287,12 +84,10 @@ func (o LookupCodeSigningConfigResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCodeSigningConfigResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Unique identifier for the code signing configuration.
 func (o LookupCodeSigningConfigResultOutput) ConfigId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCodeSigningConfigResult) string { return v.ConfigId }).(pulumi.StringOutput)
 }
 
-// Code signing configuration description.
 func (o LookupCodeSigningConfigResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCodeSigningConfigResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -302,12 +97,10 @@ func (o LookupCodeSigningConfigResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCodeSigningConfigResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Date and time that the code signing configuration was last modified.
 func (o LookupCodeSigningConfigResultOutput) LastModified() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCodeSigningConfigResult) string { return v.LastModified }).(pulumi.StringOutput)
 }
 
-// List of code signing policies that control the validation failure action for signature mismatch or expiry. See below.
 func (o LookupCodeSigningConfigResultOutput) Policies() GetCodeSigningConfigPolicyArrayOutput {
 	return o.ApplyT(func(v LookupCodeSigningConfigResult) []GetCodeSigningConfigPolicy { return v.Policies }).(GetCodeSigningConfigPolicyArrayOutput)
 }

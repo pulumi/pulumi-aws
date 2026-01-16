@@ -13,15 +13,9 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachment
     {
-        /// <summary>
-        /// The identifier of the VPC endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
-        /// </summary>
         public readonly string EndpointId;
         public readonly string Status;
         public readonly string StatusMessage;
-        /// <summary>
-        /// The unique identifier of the subnet that you've specified to be used for a VPC Endpoint Association endpoint.
-        /// </summary>
         public readonly string SubnetId;
 
         [OutputConstructor]

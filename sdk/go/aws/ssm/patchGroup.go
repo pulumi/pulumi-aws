@@ -12,52 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an SSM Patch Group resource
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			production, err := ssm.NewPatchBaseline(ctx, "production", &ssm.PatchBaselineArgs{
-//				Name: pulumi.String("patch-baseline"),
-//				ApprovedPatches: pulumi.StringArray{
-//					pulumi.String("KB123456"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssm.NewPatchGroup(ctx, "patchgroup", &ssm.PatchGroupArgs{
-//				BaselineId: production.ID(),
-//				PatchGroup: pulumi.String("patch-group-name"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type PatchGroup struct {
 	pulumi.CustomResourceState
 
-	// The ID of the patch baseline to register the patch group with.
 	BaselineId pulumi.StringOutput `pulumi:"baselineId"`
-	// The name of the patch group that should be registered with the patch baseline.
 	PatchGroup pulumi.StringOutput `pulumi:"patchGroup"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region     pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewPatchGroup registers a new resource with the given unique name, arguments, and options.
@@ -96,21 +56,15 @@ func GetPatchGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PatchGroup resources.
 type patchGroupState struct {
-	// The ID of the patch baseline to register the patch group with.
 	BaselineId *string `pulumi:"baselineId"`
-	// The name of the patch group that should be registered with the patch baseline.
 	PatchGroup *string `pulumi:"patchGroup"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region     *string `pulumi:"region"`
 }
 
 type PatchGroupState struct {
-	// The ID of the patch baseline to register the patch group with.
 	BaselineId pulumi.StringPtrInput
-	// The name of the patch group that should be registered with the patch baseline.
 	PatchGroup pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region     pulumi.StringPtrInput
 }
 
 func (PatchGroupState) ElementType() reflect.Type {
@@ -118,22 +72,16 @@ func (PatchGroupState) ElementType() reflect.Type {
 }
 
 type patchGroupArgs struct {
-	// The ID of the patch baseline to register the patch group with.
-	BaselineId string `pulumi:"baselineId"`
-	// The name of the patch group that should be registered with the patch baseline.
-	PatchGroup string `pulumi:"patchGroup"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	BaselineId string  `pulumi:"baselineId"`
+	PatchGroup string  `pulumi:"patchGroup"`
+	Region     *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a PatchGroup resource.
 type PatchGroupArgs struct {
-	// The ID of the patch baseline to register the patch group with.
 	BaselineId pulumi.StringInput
-	// The name of the patch group that should be registered with the patch baseline.
 	PatchGroup pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region     pulumi.StringPtrInput
 }
 
 func (PatchGroupArgs) ElementType() reflect.Type {
@@ -223,17 +171,14 @@ func (o PatchGroupOutput) ToPatchGroupOutputWithContext(ctx context.Context) Pat
 	return o
 }
 
-// The ID of the patch baseline to register the patch group with.
 func (o PatchGroupOutput) BaselineId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PatchGroup) pulumi.StringOutput { return v.BaselineId }).(pulumi.StringOutput)
 }
 
-// The name of the patch group that should be registered with the patch baseline.
 func (o PatchGroupOutput) PatchGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v *PatchGroup) pulumi.StringOutput { return v.PatchGroup }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PatchGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PatchGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

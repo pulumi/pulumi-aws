@@ -121,9 +121,6 @@ class GetDbNodeResult:
     @_builtins.property
     @pulumi.getter(name="additionalDetails")
     def additional_details(self) -> _builtins.str:
-        """
-        Additional information about the planned maintenance.
-        """
         return pulumi.get(self, "additional_details")
 
     @_builtins.property
@@ -134,105 +131,66 @@ class GetDbNodeResult:
     @_builtins.property
     @pulumi.getter(name="backupIpId")
     def backup_ip_id(self) -> _builtins.str:
-        """
-        The Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
-        """
         return pulumi.get(self, "backup_ip_id")
 
     @_builtins.property
     @pulumi.getter(name="backupVnic2Id")
     def backup_vnic2_id(self) -> _builtins.str:
-        """
-        The OCID of the second backup VNIC.
-        """
         return pulumi.get(self, "backup_vnic2_id")
 
     @_builtins.property
     @pulumi.getter(name="backupVnicId")
     def backup_vnic_id(self) -> _builtins.str:
-        """
-        The OCID of the backup VNIC.
-        """
         return pulumi.get(self, "backup_vnic_id")
 
     @_builtins.property
     @pulumi.getter(name="cloudVmClusterId")
     def cloud_vm_cluster_id(self) -> _builtins.str:
-        """
-        The ID of the cloud VM cluster.
-        """
         return pulumi.get(self, "cloud_vm_cluster_id")
 
     @_builtins.property
     @pulumi.getter(name="cpuCoreCount")
     def cpu_core_count(self) -> _builtins.int:
-        """
-        The number of CPU cores enabled on the DB node.
-        """
         return pulumi.get(self, "cpu_core_count")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> _builtins.str:
-        """
-        The date and time when the DB node was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter(name="dbServerId")
     def db_server_id(self) -> _builtins.str:
-        """
-        The unique identifier of the DB server that is associated with the DB node.
-        """
         return pulumi.get(self, "db_server_id")
 
     @_builtins.property
     @pulumi.getter(name="dbStorageSizeInGbs")
     def db_storage_size_in_gbs(self) -> _builtins.int:
-        """
-        The amount of local node storage, in gigabytes (GB), allocated on the DB node.
-        """
         return pulumi.get(self, "db_storage_size_in_gbs")
 
     @_builtins.property
     @pulumi.getter(name="dbSystemId")
     def db_system_id(self) -> _builtins.str:
-        """
-        The OCID of the DB system.
-        """
         return pulumi.get(self, "db_system_id")
 
     @_builtins.property
     @pulumi.getter(name="faultDomain")
     def fault_domain(self) -> _builtins.str:
-        """
-        The name of the fault domain the instance is contained in.
-        """
         return pulumi.get(self, "fault_domain")
 
     @_builtins.property
     @pulumi.getter(name="floatingIpAddress")
     def floating_ip_address(self) -> _builtins.str:
-        """
-        The floating IP address assigned to the DB node.
-        """
         return pulumi.get(self, "floating_ip_address")
 
     @_builtins.property
     @pulumi.getter(name="hostIpId")
     def host_ip_id(self) -> _builtins.str:
-        """
-        The OCID of the host IP address that's associated with the DB node.
-        """
         return pulumi.get(self, "host_ip_id")
 
     @_builtins.property
     @pulumi.getter
     def hostname(self) -> _builtins.str:
-        """
-        The host name for the DB node.
-        """
         return pulumi.get(self, "hostname")
 
     @_builtins.property
@@ -243,41 +201,26 @@ class GetDbNodeResult:
     @_builtins.property
     @pulumi.getter(name="maintenanceType")
     def maintenance_type(self) -> _builtins.str:
-        """
-        The type of database node maintenance. Either VMDB_REBOOT_MIGRATION or EXADBXS_REBOOT_MIGRATION.
-        """
         return pulumi.get(self, "maintenance_type")
 
     @_builtins.property
     @pulumi.getter(name="memorySizeInGbs")
     def memory_size_in_gbs(self) -> _builtins.int:
-        """
-        The allocated memory in GBs on the DB node.
-        """
         return pulumi.get(self, "memory_size_in_gbs")
 
     @_builtins.property
     @pulumi.getter(name="ociResourceAnchorName")
     def oci_resource_anchor_name(self) -> _builtins.str:
-        """
-        The name of the OCI resource anchor for the DB node.
-        """
         return pulumi.get(self, "oci_resource_anchor_name")
 
     @_builtins.property
     @pulumi.getter
     def ocid(self) -> _builtins.str:
-        """
-        The OCID of the DB node.
-        """
         return pulumi.get(self, "ocid")
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> _builtins.str:
-        """
-        The private IP address assigned to the DB node.
-        """
         return pulumi.get(self, "private_ip_address")
 
     @_builtins.property
@@ -288,65 +231,41 @@ class GetDbNodeResult:
     @_builtins.property
     @pulumi.getter(name="softwareStorageSizeInGbs")
     def software_storage_size_in_gbs(self) -> _builtins.int:
-        """
-        The size (in GB) of the block storage volume allocation for the DB system.
-        """
         return pulumi.get(self, "software_storage_size_in_gbs")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        The current status of the DB node.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> _builtins.str:
-        """
-        Additional information about the status of the DB node.
-        """
         return pulumi.get(self, "status_reason")
 
     @_builtins.property
     @pulumi.getter(name="timeMaintenanceWindowEnd")
     def time_maintenance_window_end(self) -> _builtins.str:
-        """
-        The end date and time of the maintenance window.
-        """
         return pulumi.get(self, "time_maintenance_window_end")
 
     @_builtins.property
     @pulumi.getter(name="timeMaintenanceWindowStart")
     def time_maintenance_window_start(self) -> _builtins.str:
-        """
-        The start date and time of the maintenance window.
-        """
         return pulumi.get(self, "time_maintenance_window_start")
 
     @_builtins.property
     @pulumi.getter(name="totalCpuCoreCount")
     def total_cpu_core_count(self) -> _builtins.int:
-        """
-        The total number of CPU cores reserved on the DB node.
-        """
         return pulumi.get(self, "total_cpu_core_count")
 
     @_builtins.property
     @pulumi.getter(name="vnic2Id")
     def vnic2_id(self) -> _builtins.str:
-        """
-        The OCID of the second VNIC.
-        """
         return pulumi.get(self, "vnic2_id")
 
     @_builtins.property
     @pulumi.getter(name="vnicId")
     def vnic_id(self) -> _builtins.str:
-        """
-        The OCID of the VNIC.
-        """
         return pulumi.get(self, "vnic_id")
 
 
@@ -393,28 +312,7 @@ def get_db_node(cloud_vm_cluster_id: Optional[_builtins.str] = None,
                 region: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDbNodeResult:
     """
-    Data source for manging db nodes linked to cloud vm cluster of Oracle Database@AWS.
-
-    You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.odb.get_db_node(cloud_vm_cluster_id="cloud_vm_cluster_id",
-        id="db_node_id")
-    ```
-
-
-    :param _builtins.str cloud_vm_cluster_id: The unique identifier of the cloud vm cluster.
-    :param _builtins.str id: The unique identifier of db node associated with vm cluster.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['cloudVmClusterId'] = cloud_vm_cluster_id
@@ -459,28 +357,7 @@ def get_db_node_output(cloud_vm_cluster_id: Optional[pulumi.Input[_builtins.str]
                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbNodeResult]:
     """
-    Data source for manging db nodes linked to cloud vm cluster of Oracle Database@AWS.
-
-    You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.odb.get_db_node(cloud_vm_cluster_id="cloud_vm_cluster_id",
-        id="db_node_id")
-    ```
-
-
-    :param _builtins.str cloud_vm_cluster_id: The unique identifier of the cloud vm cluster.
-    :param _builtins.str id: The unique identifier of db node associated with vm cluster.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['cloudVmClusterId'] = cloud_vm_cluster_id

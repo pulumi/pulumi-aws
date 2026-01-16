@@ -7,81 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Elastic Container Registry Replication Configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const example = aws.getRegions({});
- * const exampleReplicationConfiguration = new aws.ecr.ReplicationConfiguration("example", {replicationConfiguration: {
- *     rules: [{
- *         destinations: [{
- *             region: example.then(example => example.names?.[0]),
- *             registryId: current.then(current => current.accountId),
- *         }],
- *     }],
- * }});
- * ```
- *
- * ## Multiple Region Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const example = aws.getRegions({});
- * const exampleReplicationConfiguration = new aws.ecr.ReplicationConfiguration("example", {replicationConfiguration: {
- *     rules: [{
- *         destinations: [
- *             {
- *                 region: example.then(example => example.names?.[0]),
- *                 registryId: current.then(current => current.accountId),
- *             },
- *             {
- *                 region: example.then(example => example.names?.[1]),
- *                 registryId: current.then(current => current.accountId),
- *             },
- *         ],
- *     }],
- * }});
- * ```
- *
- * ## Repository Filter Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const example = aws.getRegions({});
- * const exampleReplicationConfiguration = new aws.ecr.ReplicationConfiguration("example", {replicationConfiguration: {
- *     rules: [{
- *         destinations: [{
- *             region: example.then(example => example.names?.[0]),
- *             registryId: current.then(current => current.accountId),
- *         }],
- *         repositoryFilters: [{
- *             filter: "prod-microservice",
- *             filterType: "PREFIX_MATCH",
- *         }],
- *     }],
- * }});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import ECR Replication Configuration using the `registry_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
- * ```
- */
 export class ReplicationConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing ReplicationConfiguration resource's state with the given name, ID, and optional extra
@@ -110,17 +35,8 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReplicationConfiguration.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The registry ID where the replication configuration was created.
-     */
     declare public /*out*/ readonly registryId: pulumi.Output<string>;
-    /**
-     * Replication configuration for a registry. See Replication Configuration.
-     */
     declare public readonly replicationConfiguration: pulumi.Output<outputs.ecr.ReplicationConfigurationReplicationConfiguration | undefined>;
 
     /**
@@ -154,17 +70,8 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ReplicationConfiguration resources.
  */
 export interface ReplicationConfigurationState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The registry ID where the replication configuration was created.
-     */
     registryId?: pulumi.Input<string>;
-    /**
-     * Replication configuration for a registry. See Replication Configuration.
-     */
     replicationConfiguration?: pulumi.Input<inputs.ecr.ReplicationConfigurationReplicationConfiguration>;
 }
 
@@ -172,12 +79,6 @@ export interface ReplicationConfigurationState {
  * The set of arguments for constructing a ReplicationConfiguration resource.
  */
 export interface ReplicationConfigurationArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Replication configuration for a registry. See Replication Configuration.
-     */
     replicationConfiguration?: pulumi.Input<inputs.ecr.ReplicationConfigurationReplicationConfiguration>;
 }

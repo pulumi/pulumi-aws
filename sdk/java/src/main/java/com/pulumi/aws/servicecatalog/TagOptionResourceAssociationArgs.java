@@ -16,47 +16,23 @@ public final class TagOptionResourceAssociationArgs extends com.pulumi.resources
 
     public static final TagOptionResourceAssociationArgs Empty = new TagOptionResourceAssociationArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Resource identifier.
-     * 
-     */
     @Import(name="resourceId", required=true)
     private Output<String> resourceId;
 
-    /**
-     * @return Resource identifier.
-     * 
-     */
     public Output<String> resourceId() {
         return this.resourceId;
     }
 
-    /**
-     * Tag Option identifier.
-     * 
-     */
     @Import(name="tagOptionId", required=true)
     private Output<String> tagOptionId;
 
-    /**
-     * @return Tag Option identifier.
-     * 
-     */
     public Output<String> tagOptionId() {
         return this.tagOptionId;
     }
@@ -87,65 +63,29 @@ public final class TagOptionResourceAssociationArgs extends com.pulumi.resources
             $ = new TagOptionResourceAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceId Resource identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(Output<String> resourceId) {
             $.resourceId = resourceId;
             return this;
         }
 
-        /**
-         * @param resourceId Resource identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(String resourceId) {
             return resourceId(Output.of(resourceId));
         }
 
-        /**
-         * @param tagOptionId Tag Option identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagOptionId(Output<String> tagOptionId) {
             $.tagOptionId = tagOptionId;
             return this;
         }
 
-        /**
-         * @param tagOptionId Tag Option identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagOptionId(String tagOptionId) {
             return tagOptionId(Output.of(tagOptionId));
         }

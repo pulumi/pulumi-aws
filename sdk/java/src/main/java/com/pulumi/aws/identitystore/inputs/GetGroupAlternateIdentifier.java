@@ -15,36 +15,16 @@ public final class GetGroupAlternateIdentifier extends com.pulumi.resources.Invo
 
     public static final GetGroupAlternateIdentifier Empty = new GetGroupAlternateIdentifier();
 
-    /**
-     * Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-     * 
-     */
     @Import(name="externalId")
     private @Nullable GetGroupAlternateIdentifierExternalId externalId;
 
-    /**
-     * @return Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-     * 
-     */
     public Optional<GetGroupAlternateIdentifierExternalId> externalId() {
         return Optional.ofNullable(this.externalId);
     }
 
-    /**
-     * An entity attribute that&#39;s unique to a specific entity. Detailed below.
-     * 
-     * &gt; Exactly one of the above arguments must be provided.
-     * 
-     */
     @Import(name="uniqueAttribute")
     private @Nullable GetGroupAlternateIdentifierUniqueAttribute uniqueAttribute;
 
-    /**
-     * @return An entity attribute that&#39;s unique to a specific entity. Detailed below.
-     * 
-     * &gt; Exactly one of the above arguments must be provided.
-     * 
-     */
     public Optional<GetGroupAlternateIdentifierUniqueAttribute> uniqueAttribute() {
         return Optional.ofNullable(this.uniqueAttribute);
     }
@@ -74,25 +54,11 @@ public final class GetGroupAlternateIdentifier extends com.pulumi.resources.Invo
             $ = new GetGroupAlternateIdentifier(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param externalId Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalId(@Nullable GetGroupAlternateIdentifierExternalId externalId) {
             $.externalId = externalId;
             return this;
         }
 
-        /**
-         * @param uniqueAttribute An entity attribute that&#39;s unique to a specific entity. Detailed below.
-         * 
-         * &gt; Exactly one of the above arguments must be provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uniqueAttribute(@Nullable GetGroupAlternateIdentifierUniqueAttribute uniqueAttribute) {
             $.uniqueAttribute = uniqueAttribute;
             return this;

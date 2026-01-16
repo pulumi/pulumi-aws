@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterMultiRegionProperties {
-    /**
-     * @return List of DSQL Cluster ARNs peered to this cluster.
-     * 
-     */
     private @Nullable List<String> clusters;
-    /**
-     * @return Witness region for the multi-region clusters. Setting this makes this cluster a multi-region cluster. Changing it recreates the resource.
-     * 
-     */
     private @Nullable String witnessRegion;
 
     private ClusterMultiRegionProperties() {}
-    /**
-     * @return List of DSQL Cluster ARNs peered to this cluster.
-     * 
-     */
     public List<String> clusters() {
         return this.clusters == null ? List.of() : this.clusters;
     }
-    /**
-     * @return Witness region for the multi-region clusters. Setting this makes this cluster a multi-region cluster. Changing it recreates the resource.
-     * 
-     */
     public Optional<String> witnessRegion() {
         return Optional.ofNullable(this.witnessRegion);
     }

@@ -4,18 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Pinpoint GCM Channel resource.
- *
- * > **Note:** Credentials (Service Account JSON and API Key) will be stored in the raw state as plain-text.
- * ## Import
- *
- * Using `pulumi import`, import Pinpoint GCM Channel using the `application-id`. For example:
- *
- * ```sh
- * $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
- * ```
- */
 export class GcmChannel extends pulumi.CustomResource {
     /**
      * Get an existing GcmChannel resource's state with the given name, ID, and optional extra
@@ -44,22 +32,10 @@ export class GcmChannel extends pulumi.CustomResource {
         return obj['__pulumiType'] === GcmChannel.__pulumiType;
     }
 
-    /**
-     * Platform credential API key from Google.
-     */
     declare public readonly apiKey: pulumi.Output<string | undefined>;
-    /**
-     * The application ID.
-     */
     declare public readonly applicationId: pulumi.Output<string>;
     declare public readonly defaultAuthenticationMethod: pulumi.Output<string | undefined>;
-    /**
-     * Whether the channel is enabled or disabled. Defaults to `true`.
-     */
     declare public readonly enabled: pulumi.Output<boolean | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     declare public readonly serviceJson: pulumi.Output<string | undefined>;
 
@@ -105,22 +81,10 @@ export class GcmChannel extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GcmChannel resources.
  */
 export interface GcmChannelState {
-    /**
-     * Platform credential API key from Google.
-     */
     apiKey?: pulumi.Input<string>;
-    /**
-     * The application ID.
-     */
     applicationId?: pulumi.Input<string>;
     defaultAuthenticationMethod?: pulumi.Input<string>;
-    /**
-     * Whether the channel is enabled or disabled. Defaults to `true`.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     serviceJson?: pulumi.Input<string>;
 }
@@ -129,22 +93,10 @@ export interface GcmChannelState {
  * The set of arguments for constructing a GcmChannel resource.
  */
 export interface GcmChannelArgs {
-    /**
-     * Platform credential API key from Google.
-     */
     apiKey?: pulumi.Input<string>;
-    /**
-     * The application ID.
-     */
     applicationId: pulumi.Input<string>;
     defaultAuthenticationMethod?: pulumi.Input<string>;
-    /**
-     * Whether the channel is enabled or disabled. Defaults to `true`.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     serviceJson?: pulumi.Input<string>;
 }

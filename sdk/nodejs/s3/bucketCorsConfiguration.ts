@@ -7,79 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an S3 bucket CORS configuration resource. For more information about CORS, go to [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html) in the Amazon S3 User Guide.
- *
- * > **NOTE:** S3 Buckets only support a single CORS configuration. Declaring multiple `aws.s3.BucketCorsConfiguration` resources to the same S3 Bucket will cause a perpetual difference in configuration.
- *
- * > This resource cannot be used with S3 directory buckets.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3.Bucket("example", {bucket: "mybucket"});
- * const exampleBucketCorsConfiguration = new aws.s3.BucketCorsConfiguration("example", {
- *     bucket: example.id,
- *     corsRules: [
- *         {
- *             allowedHeaders: ["*"],
- *             allowedMethods: [
- *                 "PUT",
- *                 "POST",
- *             ],
- *             allowedOrigins: ["https://s3-website-test.domain.example"],
- *             exposeHeaders: ["ETag"],
- *             maxAgeSeconds: 3000,
- *         },
- *         {
- *             allowedMethods: ["GET"],
- *             allowedOrigins: ["*"],
- *         },
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * * `bucket` (String) S3 bucket name.
- *
- * #### Optional
- *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
- * * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
- *
- * * `region` (String) Region where this resource is managed.
- *
- * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
- *
- * terraform
- *
- * import {
- *
- *   to = aws_s3_bucket_cors_configuration.example
- *
- *   id = "bucket-name,123456789012"
- *
- * }
- *
- * **Using `pulumi import` to import** S3 bucket CORS configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
- *
- * If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
- *
- * % pulumi import aws_s3_bucket_cors_configuration.example bucket-name
- *
- * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
- *
- * % pulumi import aws_s3_bucket_cors_configuration.example bucket-name,123456789012
- */
 export class BucketCorsConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing BucketCorsConfiguration resource's state with the given name, ID, and optional extra
@@ -108,21 +35,9 @@ export class BucketCorsConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === BucketCorsConfiguration.__pulumiType;
     }
 
-    /**
-     * Name of the bucket.
-     */
     declare public readonly bucket: pulumi.Output<string>;
-    /**
-     * Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
-     */
     declare public readonly corsRules: pulumi.Output<outputs.s3.BucketCorsConfigurationCorsRule[]>;
-    /**
-     * Account ID of the expected bucket owner.
-     */
     declare public readonly expectedBucketOwner: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -166,21 +81,9 @@ export class BucketCorsConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BucketCorsConfiguration resources.
  */
 export interface BucketCorsConfigurationState {
-    /**
-     * Name of the bucket.
-     */
     bucket?: pulumi.Input<string>;
-    /**
-     * Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
-     */
     corsRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketCorsConfigurationCorsRule>[]>;
-    /**
-     * Account ID of the expected bucket owner.
-     */
     expectedBucketOwner?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -188,20 +91,8 @@ export interface BucketCorsConfigurationState {
  * The set of arguments for constructing a BucketCorsConfiguration resource.
  */
 export interface BucketCorsConfigurationArgs {
-    /**
-     * Name of the bucket.
-     */
     bucket: pulumi.Input<string>;
-    /**
-     * Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
-     */
     corsRules: pulumi.Input<pulumi.Input<inputs.s3.BucketCorsConfigurationCorsRule>[]>;
-    /**
-     * Account ID of the expected bucket owner.
-     */
     expectedBucketOwner?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

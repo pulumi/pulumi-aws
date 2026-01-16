@@ -12,15 +12,9 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class AnalyticsConfigurationStorageClassAnalysisDataExportGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the destination for the exported analytics data (documented below).
-        /// </summary>
         [Input("destination", required: true)]
         public Input<Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationGetArgs> Destination { get; set; } = null!;
 
-        /// <summary>
-        /// Schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
-        /// </summary>
         [Input("outputSchemaVersion")]
         public Input<string>? OutputSchemaVersion { get; set; }
 

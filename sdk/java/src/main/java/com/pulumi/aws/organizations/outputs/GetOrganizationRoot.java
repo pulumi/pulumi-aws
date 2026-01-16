@@ -12,53 +12,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOrganizationRoot {
-    /**
-     * @return ARN of the root.
-     * 
-     */
     private String arn;
-    /**
-     * @return Identifier of the root.
-     * 
-     */
     private String id;
-    /**
-     * @return Name of the policy type.
-     * 
-     */
     private String name;
-    /**
-     * @return List of policy types enabled for this root. All elements have these attributes:
-     * 
-     */
     private List<GetOrganizationRootPolicyType> policyTypes;
 
     private GetOrganizationRoot() {}
-    /**
-     * @return ARN of the root.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Identifier of the root.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the policy type.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return List of policy types enabled for this root. All elements have these attributes:
-     * 
-     */
     public List<GetOrganizationRootPolicyType> policyTypes() {
         return this.policyTypes;
     }

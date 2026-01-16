@@ -16,47 +16,23 @@ public final class EventSourceMappingProvisionedPollerConfigArgs extends com.pul
 
     public static final EventSourceMappingProvisionedPollerConfigArgs Empty = new EventSourceMappingProvisionedPollerConfigArgs();
 
-    /**
-     * Maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
-     * 
-     */
     @Import(name="maximumPollers")
     private @Nullable Output<Integer> maximumPollers;
 
-    /**
-     * @return Maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
-     * 
-     */
     public Optional<Output<Integer>> maximumPollers() {
         return Optional.ofNullable(this.maximumPollers);
     }
 
-    /**
-     * Minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
-     * 
-     */
     @Import(name="minimumPollers")
     private @Nullable Output<Integer> minimumPollers;
 
-    /**
-     * @return Minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
-     * 
-     */
     public Optional<Output<Integer>> minimumPollers() {
         return Optional.ofNullable(this.minimumPollers);
     }
 
-    /**
-     * The name of the provisioned poller group used to group multiple ESMs within the event source&#39;s VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
-     * 
-     */
     @Import(name="pollerGroupName")
     private @Nullable Output<String> pollerGroupName;
 
-    /**
-     * @return The name of the provisioned poller group used to group multiple ESMs within the event source&#39;s VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
-     * 
-     */
     public Optional<Output<String>> pollerGroupName() {
         return Optional.ofNullable(this.pollerGroupName);
     }
@@ -87,65 +63,29 @@ public final class EventSourceMappingProvisionedPollerConfigArgs extends com.pul
             $ = new EventSourceMappingProvisionedPollerConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maximumPollers Maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumPollers(@Nullable Output<Integer> maximumPollers) {
             $.maximumPollers = maximumPollers;
             return this;
         }
 
-        /**
-         * @param maximumPollers Maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumPollers(Integer maximumPollers) {
             return maximumPollers(Output.of(maximumPollers));
         }
 
-        /**
-         * @param minimumPollers Minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minimumPollers(@Nullable Output<Integer> minimumPollers) {
             $.minimumPollers = minimumPollers;
             return this;
         }
 
-        /**
-         * @param minimumPollers Minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minimumPollers(Integer minimumPollers) {
             return minimumPollers(Output.of(minimumPollers));
         }
 
-        /**
-         * @param pollerGroupName The name of the provisioned poller group used to group multiple ESMs within the event source&#39;s VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pollerGroupName(@Nullable Output<String> pollerGroupName) {
             $.pollerGroupName = pollerGroupName;
             return this;
         }
 
-        /**
-         * @param pollerGroupName The name of the provisioned poller group used to group multiple ESMs within the event source&#39;s VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pollerGroupName(String pollerGroupName) {
             return pollerGroupName(Output.of(pollerGroupName));
         }

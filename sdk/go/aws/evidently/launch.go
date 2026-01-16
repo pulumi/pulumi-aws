@@ -12,439 +12,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CloudWatch Evidently Launch resource.
-//
-// > **Warning:** This resource is deprecated. Use [AWS AppConfig feature flags](https://aws.amazon.com/blogs/mt/using-aws-appconfig-feature-flags/) instead.
-//
-// ## Example Usage
-//
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/evidently"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewLaunch(ctx, "example", &evidently.LaunchArgs{
-//				Name:    pulumi.String("example"),
-//				Project: pulumi.Any(exampleAwsEvidentlyProject.Name),
-//				Groups: evidently.LaunchGroupArray{
-//					&evidently.LaunchGroupArgs{
-//						Feature:   pulumi.Any(exampleAwsEvidentlyFeature.Name),
-//						Name:      pulumi.String("Variation1"),
-//						Variation: pulumi.String("Variation1"),
-//					},
-//				},
-//				ScheduledSplitsConfig: &evidently.LaunchScheduledSplitsConfigArgs{
-//					Steps: evidently.LaunchScheduledSplitsConfigStepArray{
-//						&evidently.LaunchScheduledSplitsConfigStepArgs{
-//							GroupWeights: pulumi.IntMap{
-//								"Variation1": pulumi.Int(0),
-//							},
-//							StartTime: pulumi.String("2024-01-07 01:43:59+00:00"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With description
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/evidently"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewLaunch(ctx, "example", &evidently.LaunchArgs{
-//				Name:        pulumi.String("example"),
-//				Project:     pulumi.Any(exampleAwsEvidentlyProject.Name),
-//				Description: pulumi.String("example description"),
-//				Groups: evidently.LaunchGroupArray{
-//					&evidently.LaunchGroupArgs{
-//						Feature:   pulumi.Any(exampleAwsEvidentlyFeature.Name),
-//						Name:      pulumi.String("Variation1"),
-//						Variation: pulumi.String("Variation1"),
-//					},
-//				},
-//				ScheduledSplitsConfig: &evidently.LaunchScheduledSplitsConfigArgs{
-//					Steps: evidently.LaunchScheduledSplitsConfigStepArray{
-//						&evidently.LaunchScheduledSplitsConfigStepArgs{
-//							GroupWeights: pulumi.IntMap{
-//								"Variation1": pulumi.Int(0),
-//							},
-//							StartTime: pulumi.String("2024-01-07 01:43:59+00:00"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With multiple groups
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/evidently"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewLaunch(ctx, "example", &evidently.LaunchArgs{
-//				Name:    pulumi.String("example"),
-//				Project: pulumi.Any(exampleAwsEvidentlyProject.Name),
-//				Groups: evidently.LaunchGroupArray{
-//					&evidently.LaunchGroupArgs{
-//						Feature:     pulumi.Any(exampleAwsEvidentlyFeature.Name),
-//						Name:        pulumi.String("Variation1"),
-//						Variation:   pulumi.String("Variation1"),
-//						Description: pulumi.String("first-group"),
-//					},
-//					&evidently.LaunchGroupArgs{
-//						Feature:     pulumi.Any(exampleAwsEvidentlyFeature.Name),
-//						Name:        pulumi.String("Variation2"),
-//						Variation:   pulumi.String("Variation2"),
-//						Description: pulumi.String("second-group"),
-//					},
-//				},
-//				ScheduledSplitsConfig: &evidently.LaunchScheduledSplitsConfigArgs{
-//					Steps: evidently.LaunchScheduledSplitsConfigStepArray{
-//						&evidently.LaunchScheduledSplitsConfigStepArgs{
-//							GroupWeights: pulumi.IntMap{
-//								"Variation1": pulumi.Int(0),
-//								"Variation2": pulumi.Int(0),
-//							},
-//							StartTime: pulumi.String("2024-01-07 01:43:59+00:00"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With metricMonitors
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/evidently"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewLaunch(ctx, "example", &evidently.LaunchArgs{
-//				Name:    pulumi.String("example"),
-//				Project: pulumi.Any(exampleAwsEvidentlyProject.Name),
-//				Groups: evidently.LaunchGroupArray{
-//					&evidently.LaunchGroupArgs{
-//						Feature:   pulumi.Any(exampleAwsEvidentlyFeature.Name),
-//						Name:      pulumi.String("Variation1"),
-//						Variation: pulumi.String("Variation1"),
-//					},
-//				},
-//				MetricMonitors: evidently.LaunchMetricMonitorArray{
-//					&evidently.LaunchMetricMonitorArgs{
-//						MetricDefinition: &evidently.LaunchMetricMonitorMetricDefinitionArgs{
-//							EntityIdKey:  pulumi.String("entity_id_key1"),
-//							EventPattern: pulumi.String("{\"Price\":[{\"numeric\":[\">\",11,\"<=\",22]}]}"),
-//							Name:         pulumi.String("name1"),
-//							UnitLabel:    pulumi.String("unit_label1"),
-//							ValueKey:     pulumi.String("value_key1"),
-//						},
-//					},
-//					&evidently.LaunchMetricMonitorArgs{
-//						MetricDefinition: &evidently.LaunchMetricMonitorMetricDefinitionArgs{
-//							EntityIdKey:  pulumi.String("entity_id_key2"),
-//							EventPattern: pulumi.String("{\"Price\":[{\"numeric\":[\">\",9,\"<=\",19]}]}"),
-//							Name:         pulumi.String("name2"),
-//							UnitLabel:    pulumi.String("unit_label2"),
-//							ValueKey:     pulumi.String("value_key2"),
-//						},
-//					},
-//				},
-//				ScheduledSplitsConfig: &evidently.LaunchScheduledSplitsConfigArgs{
-//					Steps: evidently.LaunchScheduledSplitsConfigStepArray{
-//						&evidently.LaunchScheduledSplitsConfigStepArgs{
-//							GroupWeights: pulumi.IntMap{
-//								"Variation1": pulumi.Int(0),
-//							},
-//							StartTime: pulumi.String("2024-01-07 01:43:59+00:00"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With randomizationSalt
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/evidently"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewLaunch(ctx, "example", &evidently.LaunchArgs{
-//				Name:              pulumi.String("example"),
-//				Project:           pulumi.Any(exampleAwsEvidentlyProject.Name),
-//				RandomizationSalt: pulumi.String("example randomization salt"),
-//				Groups: evidently.LaunchGroupArray{
-//					&evidently.LaunchGroupArgs{
-//						Feature:   pulumi.Any(exampleAwsEvidentlyFeature.Name),
-//						Name:      pulumi.String("Variation1"),
-//						Variation: pulumi.String("Variation1"),
-//					},
-//				},
-//				ScheduledSplitsConfig: &evidently.LaunchScheduledSplitsConfigArgs{
-//					Steps: evidently.LaunchScheduledSplitsConfigStepArray{
-//						&evidently.LaunchScheduledSplitsConfigStepArgs{
-//							GroupWeights: pulumi.IntMap{
-//								"Variation1": pulumi.Int(0),
-//							},
-//							StartTime: pulumi.String("2024-01-07 01:43:59+00:00"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With multiple steps
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/evidently"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewLaunch(ctx, "example", &evidently.LaunchArgs{
-//				Name:    pulumi.String("example"),
-//				Project: pulumi.Any(exampleAwsEvidentlyProject.Name),
-//				Groups: evidently.LaunchGroupArray{
-//					&evidently.LaunchGroupArgs{
-//						Feature:   pulumi.Any(exampleAwsEvidentlyFeature.Name),
-//						Name:      pulumi.String("Variation1"),
-//						Variation: pulumi.String("Variation1"),
-//					},
-//					&evidently.LaunchGroupArgs{
-//						Feature:   pulumi.Any(exampleAwsEvidentlyFeature.Name),
-//						Name:      pulumi.String("Variation2"),
-//						Variation: pulumi.String("Variation2"),
-//					},
-//				},
-//				ScheduledSplitsConfig: &evidently.LaunchScheduledSplitsConfigArgs{
-//					Steps: evidently.LaunchScheduledSplitsConfigStepArray{
-//						&evidently.LaunchScheduledSplitsConfigStepArgs{
-//							GroupWeights: pulumi.IntMap{
-//								"Variation1": pulumi.Int(15),
-//								"Variation2": pulumi.Int(10),
-//							},
-//							StartTime: pulumi.String("2024-01-07 01:43:59+00:00"),
-//						},
-//						&evidently.LaunchScheduledSplitsConfigStepArgs{
-//							GroupWeights: pulumi.IntMap{
-//								"Variation1": pulumi.Int(20),
-//								"Variation2": pulumi.Int(25),
-//							},
-//							StartTime: pulumi.String("2024-01-08 01:43:59+00:00"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With segment overrides
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/evidently"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewLaunch(ctx, "example", &evidently.LaunchArgs{
-//				Name:    pulumi.String("example"),
-//				Project: pulumi.Any(exampleAwsEvidentlyProject.Name),
-//				Groups: evidently.LaunchGroupArray{
-//					&evidently.LaunchGroupArgs{
-//						Feature:   pulumi.Any(exampleAwsEvidentlyFeature.Name),
-//						Name:      pulumi.String("Variation1"),
-//						Variation: pulumi.String("Variation1"),
-//					},
-//					&evidently.LaunchGroupArgs{
-//						Feature:   pulumi.Any(exampleAwsEvidentlyFeature.Name),
-//						Name:      pulumi.String("Variation2"),
-//						Variation: pulumi.String("Variation2"),
-//					},
-//				},
-//				ScheduledSplitsConfig: &evidently.LaunchScheduledSplitsConfigArgs{
-//					Steps: evidently.LaunchScheduledSplitsConfigStepArray{
-//						&evidently.LaunchScheduledSplitsConfigStepArgs{
-//							GroupWeights: pulumi.IntMap{
-//								"Variation1": pulumi.Int(0),
-//								"Variation2": pulumi.Int(0),
-//							},
-//							SegmentOverrides: evidently.LaunchScheduledSplitsConfigStepSegmentOverrideArray{
-//								&evidently.LaunchScheduledSplitsConfigStepSegmentOverrideArgs{
-//									EvaluationOrder: pulumi.Int(1),
-//									Segment:         pulumi.Any(exampleAwsEvidentlySegment.Name),
-//									Weights: pulumi.IntMap{
-//										"Variation2": pulumi.Int(10000),
-//									},
-//								},
-//								&evidently.LaunchScheduledSplitsConfigStepSegmentOverrideArgs{
-//									EvaluationOrder: pulumi.Int(2),
-//									Segment:         pulumi.Any(exampleAwsEvidentlySegment.Name),
-//									Weights: pulumi.IntMap{
-//										"Variation1": pulumi.Int(40000),
-//										"Variation2": pulumi.Int(30000),
-//									},
-//								},
-//							},
-//							StartTime: pulumi.String("2024-01-08 01:43:59+00:00"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Import using the `name` of the launch and `arn` of the project separated by a `:`:
-//
-// __Using `pulumi import` to import__ CloudWatch Evidently Launch using the `name` of the launch and `name` of the project or `arn` of the hosting CloudWatch Evidently Project separated by a `:`. For example:
-//
-// Import using the `name` of the launch and `name` of the project separated by a `:`:
-//
-// ```sh
-// $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:exampleProjectName
-// ```
-// Import using the `name` of the launch and `arn` of the project separated by a `:`:
-//
-// ```sh
-// $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
-// ```
 type Launch struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the launch.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The date and time that the launch is created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// Specifies the description of the launch.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A block that contains information about the start and end times of the launch. Detailed below
-	Executions LaunchExecutionArrayOutput `pulumi:"executions"`
-	// One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
-	Groups LaunchGroupArrayOutput `pulumi:"groups"`
-	// The date and time that the launch was most recently updated.
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
-	// One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
-	MetricMonitors LaunchMetricMonitorArrayOutput `pulumi:"metricMonitors"`
-	// The name for the new launch. Minimum length of `1`. Maximum length of `127`.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The name or ARN of the project that is to contain the new launch.
-	Project pulumi.StringOutput `pulumi:"project"`
-	// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
-	RandomizationSalt pulumi.StringPtrOutput `pulumi:"randomizationSalt"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
+	Arn                   pulumi.StringOutput                  `pulumi:"arn"`
+	CreatedTime           pulumi.StringOutput                  `pulumi:"createdTime"`
+	Description           pulumi.StringPtrOutput               `pulumi:"description"`
+	Executions            LaunchExecutionArrayOutput           `pulumi:"executions"`
+	Groups                LaunchGroupArrayOutput               `pulumi:"groups"`
+	LastUpdatedTime       pulumi.StringOutput                  `pulumi:"lastUpdatedTime"`
+	MetricMonitors        LaunchMetricMonitorArrayOutput       `pulumi:"metricMonitors"`
+	Name                  pulumi.StringOutput                  `pulumi:"name"`
+	Project               pulumi.StringOutput                  `pulumi:"project"`
+	RandomizationSalt     pulumi.StringPtrOutput               `pulumi:"randomizationSalt"`
+	Region                pulumi.StringOutput                  `pulumi:"region"`
 	ScheduledSplitsConfig LaunchScheduledSplitsConfigPtrOutput `pulumi:"scheduledSplitsConfig"`
-	// The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// If the launch was stopped, this is the string that was entered by the person who stopped the launch, to explain why it was stopped.
-	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
-	// Tags to apply to the launch. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The type of launch.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Status                pulumi.StringOutput                  `pulumi:"status"`
+	StatusReason          pulumi.StringOutput                  `pulumi:"statusReason"`
+	Tags                  pulumi.StringMapOutput               `pulumi:"tags"`
+	TagsAll               pulumi.StringMapOutput               `pulumi:"tagsAll"`
+	Type                  pulumi.StringOutput                  `pulumi:"type"`
 }
 
 // NewLaunch registers a new resource with the given unique name, arguments, and options.
@@ -483,77 +70,43 @@ func GetLaunch(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Launch resources.
 type launchState struct {
-	// The ARN of the launch.
-	Arn *string `pulumi:"arn"`
-	// The date and time that the launch is created.
-	CreatedTime *string `pulumi:"createdTime"`
-	// Specifies the description of the launch.
-	Description *string `pulumi:"description"`
-	// A block that contains information about the start and end times of the launch. Detailed below
-	Executions []LaunchExecution `pulumi:"executions"`
-	// One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
-	Groups []LaunchGroup `pulumi:"groups"`
-	// The date and time that the launch was most recently updated.
-	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
-	MetricMonitors []LaunchMetricMonitor `pulumi:"metricMonitors"`
-	// The name for the new launch. Minimum length of `1`. Maximum length of `127`.
-	Name *string `pulumi:"name"`
-	// The name or ARN of the project that is to contain the new launch.
-	Project *string `pulumi:"project"`
-	// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
-	RandomizationSalt *string `pulumi:"randomizationSalt"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
+	Arn                   *string                      `pulumi:"arn"`
+	CreatedTime           *string                      `pulumi:"createdTime"`
+	Description           *string                      `pulumi:"description"`
+	Executions            []LaunchExecution            `pulumi:"executions"`
+	Groups                []LaunchGroup                `pulumi:"groups"`
+	LastUpdatedTime       *string                      `pulumi:"lastUpdatedTime"`
+	MetricMonitors        []LaunchMetricMonitor        `pulumi:"metricMonitors"`
+	Name                  *string                      `pulumi:"name"`
+	Project               *string                      `pulumi:"project"`
+	RandomizationSalt     *string                      `pulumi:"randomizationSalt"`
+	Region                *string                      `pulumi:"region"`
 	ScheduledSplitsConfig *LaunchScheduledSplitsConfig `pulumi:"scheduledSplitsConfig"`
-	// The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
-	Status *string `pulumi:"status"`
-	// If the launch was stopped, this is the string that was entered by the person who stopped the launch, to explain why it was stopped.
-	StatusReason *string `pulumi:"statusReason"`
-	// Tags to apply to the launch. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The type of launch.
-	Type *string `pulumi:"type"`
+	Status                *string                      `pulumi:"status"`
+	StatusReason          *string                      `pulumi:"statusReason"`
+	Tags                  map[string]string            `pulumi:"tags"`
+	TagsAll               map[string]string            `pulumi:"tagsAll"`
+	Type                  *string                      `pulumi:"type"`
 }
 
 type LaunchState struct {
-	// The ARN of the launch.
-	Arn pulumi.StringPtrInput
-	// The date and time that the launch is created.
-	CreatedTime pulumi.StringPtrInput
-	// Specifies the description of the launch.
-	Description pulumi.StringPtrInput
-	// A block that contains information about the start and end times of the launch. Detailed below
-	Executions LaunchExecutionArrayInput
-	// One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
-	Groups LaunchGroupArrayInput
-	// The date and time that the launch was most recently updated.
-	LastUpdatedTime pulumi.StringPtrInput
-	// One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
-	MetricMonitors LaunchMetricMonitorArrayInput
-	// The name for the new launch. Minimum length of `1`. Maximum length of `127`.
-	Name pulumi.StringPtrInput
-	// The name or ARN of the project that is to contain the new launch.
-	Project pulumi.StringPtrInput
-	// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
-	RandomizationSalt pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
+	Arn                   pulumi.StringPtrInput
+	CreatedTime           pulumi.StringPtrInput
+	Description           pulumi.StringPtrInput
+	Executions            LaunchExecutionArrayInput
+	Groups                LaunchGroupArrayInput
+	LastUpdatedTime       pulumi.StringPtrInput
+	MetricMonitors        LaunchMetricMonitorArrayInput
+	Name                  pulumi.StringPtrInput
+	Project               pulumi.StringPtrInput
+	RandomizationSalt     pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
 	ScheduledSplitsConfig LaunchScheduledSplitsConfigPtrInput
-	// The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
-	Status pulumi.StringPtrInput
-	// If the launch was stopped, this is the string that was entered by the person who stopped the launch, to explain why it was stopped.
-	StatusReason pulumi.StringPtrInput
-	// Tags to apply to the launch. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The type of launch.
-	Type pulumi.StringPtrInput
+	Status                pulumi.StringPtrInput
+	StatusReason          pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
+	TagsAll               pulumi.StringMapInput
+	Type                  pulumi.StringPtrInput
 }
 
 func (LaunchState) ElementType() reflect.Type {
@@ -561,46 +114,28 @@ func (LaunchState) ElementType() reflect.Type {
 }
 
 type launchArgs struct {
-	// Specifies the description of the launch.
-	Description *string `pulumi:"description"`
-	// One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
-	Groups []LaunchGroup `pulumi:"groups"`
-	// One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
-	MetricMonitors []LaunchMetricMonitor `pulumi:"metricMonitors"`
-	// The name for the new launch. Minimum length of `1`. Maximum length of `127`.
-	Name *string `pulumi:"name"`
-	// The name or ARN of the project that is to contain the new launch.
-	Project string `pulumi:"project"`
-	// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
-	RandomizationSalt *string `pulumi:"randomizationSalt"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
+	Description           *string                      `pulumi:"description"`
+	Groups                []LaunchGroup                `pulumi:"groups"`
+	MetricMonitors        []LaunchMetricMonitor        `pulumi:"metricMonitors"`
+	Name                  *string                      `pulumi:"name"`
+	Project               string                       `pulumi:"project"`
+	RandomizationSalt     *string                      `pulumi:"randomizationSalt"`
+	Region                *string                      `pulumi:"region"`
 	ScheduledSplitsConfig *LaunchScheduledSplitsConfig `pulumi:"scheduledSplitsConfig"`
-	// Tags to apply to the launch. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags                  map[string]string            `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Launch resource.
 type LaunchArgs struct {
-	// Specifies the description of the launch.
-	Description pulumi.StringPtrInput
-	// One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
-	Groups LaunchGroupArrayInput
-	// One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
-	MetricMonitors LaunchMetricMonitorArrayInput
-	// The name for the new launch. Minimum length of `1`. Maximum length of `127`.
-	Name pulumi.StringPtrInput
-	// The name or ARN of the project that is to contain the new launch.
-	Project pulumi.StringInput
-	// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
-	RandomizationSalt pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
+	Description           pulumi.StringPtrInput
+	Groups                LaunchGroupArrayInput
+	MetricMonitors        LaunchMetricMonitorArrayInput
+	Name                  pulumi.StringPtrInput
+	Project               pulumi.StringInput
+	RandomizationSalt     pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
 	ScheduledSplitsConfig LaunchScheduledSplitsConfigPtrInput
-	// Tags to apply to the launch. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags                  pulumi.StringMapInput
 }
 
 func (LaunchArgs) ElementType() reflect.Type {
@@ -690,87 +225,70 @@ func (o LaunchOutput) ToLaunchOutputWithContext(ctx context.Context) LaunchOutpu
 	return o
 }
 
-// The ARN of the launch.
 func (o LaunchOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Launch) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The date and time that the launch is created.
 func (o LaunchOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Launch) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Specifies the description of the launch.
 func (o LaunchOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Launch) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A block that contains information about the start and end times of the launch. Detailed below
 func (o LaunchOutput) Executions() LaunchExecutionArrayOutput {
 	return o.ApplyT(func(v *Launch) LaunchExecutionArrayOutput { return v.Executions }).(LaunchExecutionArrayOutput)
 }
 
-// One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
 func (o LaunchOutput) Groups() LaunchGroupArrayOutput {
 	return o.ApplyT(func(v *Launch) LaunchGroupArrayOutput { return v.Groups }).(LaunchGroupArrayOutput)
 }
 
-// The date and time that the launch was most recently updated.
 func (o LaunchOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Launch) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
 
-// One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
 func (o LaunchOutput) MetricMonitors() LaunchMetricMonitorArrayOutput {
 	return o.ApplyT(func(v *Launch) LaunchMetricMonitorArrayOutput { return v.MetricMonitors }).(LaunchMetricMonitorArrayOutput)
 }
 
-// The name for the new launch. Minimum length of `1`. Maximum length of `127`.
 func (o LaunchOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Launch) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name or ARN of the project that is to contain the new launch.
 func (o LaunchOutput) Project() pulumi.StringOutput {
 	return o.ApplyT(func(v *Launch) pulumi.StringOutput { return v.Project }).(pulumi.StringOutput)
 }
 
-// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
 func (o LaunchOutput) RandomizationSalt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Launch) pulumi.StringPtrOutput { return v.RandomizationSalt }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LaunchOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Launch) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
 func (o LaunchOutput) ScheduledSplitsConfig() LaunchScheduledSplitsConfigPtrOutput {
 	return o.ApplyT(func(v *Launch) LaunchScheduledSplitsConfigPtrOutput { return v.ScheduledSplitsConfig }).(LaunchScheduledSplitsConfigPtrOutput)
 }
 
-// The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
 func (o LaunchOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Launch) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// If the launch was stopped, this is the string that was entered by the person who stopped the launch, to explain why it was stopped.
 func (o LaunchOutput) StatusReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *Launch) pulumi.StringOutput { return v.StatusReason }).(pulumi.StringOutput)
 }
 
-// Tags to apply to the launch. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LaunchOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Launch) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LaunchOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Launch) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The type of launch.
 func (o LaunchOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Launch) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

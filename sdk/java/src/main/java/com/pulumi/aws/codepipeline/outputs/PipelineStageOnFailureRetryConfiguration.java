@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipelineStageOnFailureRetryConfiguration {
-    /**
-     * @return The method that you want to configure for automatic stage retry on stage failure. You can specify to retry only failed action in the stage or all actions in the stage. Possible values are `FAILED_ACTIONS` and `ALL_ACTIONS`.
-     * 
-     */
     private @Nullable String retryMode;
 
     private PipelineStageOnFailureRetryConfiguration() {}
-    /**
-     * @return The method that you want to configure for automatic stage retry on stage failure. You can specify to retry only failed action in the stage or all actions in the stage. Possible values are `FAILED_ACTIONS` and `ALL_ACTIONS`.
-     * 
-     */
     public Optional<String> retryMode() {
         return Optional.ofNullable(this.retryMode);
     }

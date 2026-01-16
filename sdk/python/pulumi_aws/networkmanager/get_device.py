@@ -71,25 +71,16 @@ class GetDeviceResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the device.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="awsLocations")
     def aws_locations(self) -> Sequence['outputs.GetDeviceAwsLocationResult']:
-        """
-        AWS location of the device. Documented below.
-        """
         return pulumi.get(self, "aws_locations")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the device.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -113,57 +104,36 @@ class GetDeviceResult:
     @_builtins.property
     @pulumi.getter
     def locations(self) -> Sequence['outputs.GetDeviceLocationResult']:
-        """
-        Location of the device. Documented below.
-        """
         return pulumi.get(self, "locations")
 
     @_builtins.property
     @pulumi.getter
     def model(self) -> _builtins.str:
-        """
-        Model of device.
-        """
         return pulumi.get(self, "model")
 
     @_builtins.property
     @pulumi.getter(name="serialNumber")
     def serial_number(self) -> _builtins.str:
-        """
-        Serial number of the device.
-        """
         return pulumi.get(self, "serial_number")
 
     @_builtins.property
     @pulumi.getter(name="siteId")
     def site_id(self) -> _builtins.str:
-        """
-        ID of the site.
-        """
         return pulumi.get(self, "site_id")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value tags for the device.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of device.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def vendor(self) -> _builtins.str:
-        """
-        Vendor of the device.
-        """
         return pulumi.get(self, "vendor")
 
 
@@ -193,22 +163,7 @@ def get_device(device_id: Optional[_builtins.str] = None,
                tags: Optional[Mapping[str, _builtins.str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeviceResult:
     """
-    Provides details about an existing Network Manager device.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_device(global_network_id=global_network_id,
-        device_id=device_id)
-    ```
-
-
-    :param _builtins.str device_id: ID of the device.
-    :param _builtins.str global_network_id: ID of the global network.
-    :param Mapping[str, _builtins.str] tags: Key-value tags for the device.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['deviceId'] = device_id
@@ -236,22 +191,7 @@ def get_device_output(device_id: Optional[pulumi.Input[_builtins.str]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeviceResult]:
     """
-    Provides details about an existing Network Manager device.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_device(global_network_id=global_network_id,
-        device_id=device_id)
-    ```
-
-
-    :param _builtins.str device_id: ID of the device.
-    :param _builtins.str global_network_id: ID of the global network.
-    :param Mapping[str, _builtins.str] tags: Key-value tags for the device.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['deviceId'] = device_id

@@ -15,124 +15,23 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Manages public ports for a Lightsail instance. Use this resource to open ports for a specific Amazon Lightsail instance and specify the IP addresses allowed to connect to the instance through the ports and the protocol.
- * 
- * &gt; See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail) for more information.
- * 
- * &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see [&#34;Regions and Availability Zones in Amazon Lightsail&#34;](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
- * import com.pulumi.aws.lightsail.Instance;
- * import com.pulumi.aws.lightsail.InstanceArgs;
- * import com.pulumi.aws.lightsail.InstancePublicPorts;
- * import com.pulumi.aws.lightsail.InstancePublicPortsArgs;
- * import com.pulumi.aws.lightsail.inputs.InstancePublicPortsPortInfoArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
- *             .state("available")
- *             .filters(GetAvailabilityZonesFilterArgs.builder()
- *                 .name("opt-in-status")
- *                 .values("opt-in-not-required")
- *                 .build())
- *             .build());
- * 
- *         var example = new Instance("example", InstanceArgs.builder()
- *             .name("example-instance")
- *             .availabilityZone(available.names()[0])
- *             .blueprintId("amazon_linux_2")
- *             .bundleId("nano_3_0")
- *             .build());
- * 
- *         var exampleInstancePublicPorts = new InstancePublicPorts("exampleInstancePublicPorts", InstancePublicPortsArgs.builder()
- *             .instanceName(example.name())
- *             .portInfos(            
- *                 InstancePublicPortsPortInfoArgs.builder()
- *                     .protocol("tcp")
- *                     .fromPort(80)
- *                     .toPort(80)
- *                     .build(),
- *                 InstancePublicPortsPortInfoArgs.builder()
- *                     .protocol("tcp")
- *                     .fromPort(443)
- *                     .toPort(443)
- *                     .cidrs("192.168.1.0/24")
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:lightsail/instancePublicPorts:InstancePublicPorts")
 public class InstancePublicPorts extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of the instance for which to open ports.
-     * 
-     */
     @Export(name="instanceName", refs={String.class}, tree="[0]")
     private Output<String> instanceName;
 
-    /**
-     * @return Name of the instance for which to open ports.
-     * 
-     */
     public Output<String> instanceName() {
         return this.instanceName;
     }
-    /**
-     * Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="portInfos", refs={List.class,InstancePublicPortsPortInfo.class}, tree="[0,1]")
     private Output<List<InstancePublicPortsPortInfo>> portInfos;
 
-    /**
-     * @return Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<List<InstancePublicPortsPortInfo>> portInfos() {
         return this.portInfos;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

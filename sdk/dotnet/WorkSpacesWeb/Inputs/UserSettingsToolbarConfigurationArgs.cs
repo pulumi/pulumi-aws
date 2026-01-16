@@ -14,31 +14,18 @@ namespace Pulumi.Aws.WorkSpacesWeb.Inputs
     {
         [Input("hiddenToolbarItems")]
         private InputList<string>? _hiddenToolbarItems;
-
-        /// <summary>
-        /// List of toolbar items to be hidden.
-        /// </summary>
         public InputList<string> HiddenToolbarItems
         {
             get => _hiddenToolbarItems ?? (_hiddenToolbarItems = new InputList<string>());
             set => _hiddenToolbarItems = value;
         }
 
-        /// <summary>
-        /// Maximum display resolution that is allowed for the session.
-        /// </summary>
         [Input("maxDisplayResolution")]
         public Input<string>? MaxDisplayResolution { get; set; }
 
-        /// <summary>
-        /// Type of toolbar displayed during the session.
-        /// </summary>
         [Input("toolbarType")]
         public Input<string>? ToolbarType { get; set; }
 
-        /// <summary>
-        /// Visual mode of the toolbar.
-        /// </summary>
         [Input("visualMode")]
         public Input<string>? VisualMode { get; set; }
 

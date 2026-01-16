@@ -12,21 +12,12 @@ namespace Pulumi.Aws.S3Control.Inputs
 
     public sealed class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The delimiter of the selection criteria being used.
-        /// </summary>
         [Input("delimiter")]
         public Input<string>? Delimiter { get; set; }
 
-        /// <summary>
-        /// The max depth of the selection criteria.
-        /// </summary>
         [Input("maxDepth")]
         public Input<int>? MaxDepth { get; set; }
 
-        /// <summary>
-        /// The minimum number of storage bytes percentage whose metrics will be selected.
-        /// </summary>
         [Input("minStorageBytesPercentage")]
         public Input<double>? MinStorageBytesPercentage { get; set; }
 

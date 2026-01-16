@@ -14,182 +14,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS Lambda Runtime Management Config. Use this resource to control how Lambda updates the runtime for your function.
- * 
- * Refer to the [AWS Lambda documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) for supported runtimes.
- * 
- * &gt; **Note:** Deletion of this resource returns the runtime update mode to `Auto` (the default behavior). To leave the configured runtime management options in-place, use a `removed` block with the destroy lifecycle set to `false`.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lambda.RuntimeManagementConfig;
- * import com.pulumi.aws.lambda.RuntimeManagementConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RuntimeManagementConfig("example", RuntimeManagementConfigArgs.builder()
- *             .functionName(exampleAwsLambdaFunction.functionName())
- *             .updateRuntimeOn("FunctionUpdate")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Manual Update
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lambda.RuntimeManagementConfig;
- * import com.pulumi.aws.lambda.RuntimeManagementConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RuntimeManagementConfig("example", RuntimeManagementConfigArgs.builder()
- *             .functionName(exampleAwsLambdaFunction.functionName())
- *             .updateRuntimeOn("Manual")
- *             .runtimeVersionArn("arn:aws:lambda:us-east-1::runtime:abcd1234")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * &gt; **Note:** Once the runtime update mode is set to `Manual`, the `aws.lambda.Function` `runtime` cannot be updated. To upgrade a runtime, the `updateRuntimeOn` argument must be set to `Auto` or `FunctionUpdate` prior to changing the function&#39;s `runtime` argument.
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Lambda Runtime Management Config using a comma-delimited string combining `function_name` and `qualifier`. For example:
- * 
- * ```sh
- * $ pulumi import aws:lambda/runtimeManagementConfig:RuntimeManagementConfig example example,$LATEST
- * ```
- * 
- */
 @ResourceType(type="aws:lambda/runtimeManagementConfig:RuntimeManagementConfig")
 public class RuntimeManagementConfig extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the function.
-     * 
-     */
     @Export(name="functionArn", refs={String.class}, tree="[0]")
     private Output<String> functionArn;
 
-    /**
-     * @return ARN of the function.
-     * 
-     */
     public Output<String> functionArn() {
         return this.functionArn;
     }
-    /**
-     * Name or ARN of the Lambda function.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="functionName", refs={String.class}, tree="[0]")
     private Output<String> functionName;
 
-    /**
-     * @return Name or ARN of the Lambda function.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> functionName() {
         return this.functionName;
     }
-    /**
-     * Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
-     * 
-     */
     @Export(name="qualifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> qualifier;
 
-    /**
-     * @return Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
-     * 
-     */
     public Output<Optional<String>> qualifier() {
         return Codegen.optional(this.qualifier);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
-     * 
-     */
     @Export(name="runtimeVersionArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runtimeVersionArn;
 
-    /**
-     * @return ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
-     * 
-     */
     public Output<Optional<String>> runtimeVersionArn() {
         return Codegen.optional(this.runtimeVersionArn);
     }
-    /**
-     * Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
-     * 
-     */
     @Export(name="updateRuntimeOn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> updateRuntimeOn;
 
-    /**
-     * @return Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
-     * 
-     */
     public Output<Optional<String>> updateRuntimeOn() {
         return Codegen.optional(this.updateRuntimeOn);
     }

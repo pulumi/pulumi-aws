@@ -14,102 +14,23 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Route53 CIDR location resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.route53.CidrCollection;
- * import com.pulumi.aws.route53.CidrCollectionArgs;
- * import com.pulumi.aws.route53.CidrLocation;
- * import com.pulumi.aws.route53.CidrLocationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new CidrCollection("example", CidrCollectionArgs.builder()
- *             .name("collection-1")
- *             .build());
- * 
- *         var exampleCidrLocation = new CidrLocation("exampleCidrLocation", CidrLocationArgs.builder()
- *             .cidrCollectionId(example.id())
- *             .name("office")
- *             .cidrBlocks(            
- *                 "200.5.3.0/24",
- *                 "200.6.3.0/24")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CIDR locations using their the CIDR collection ID and location name. For example:
- * 
- * ```sh
- * $ pulumi import aws:route53/cidrLocation:CidrLocation example 9ac32814-3e67-0932-6048-8d779cc6f511,office
- * ```
- * 
- */
 @ResourceType(type="aws:route53/cidrLocation:CidrLocation")
 public class CidrLocation extends com.pulumi.resources.CustomResource {
-    /**
-     * CIDR blocks for the location.
-     * 
-     */
     @Export(name="cidrBlocks", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> cidrBlocks;
 
-    /**
-     * @return CIDR blocks for the location.
-     * 
-     */
     public Output<List<String>> cidrBlocks() {
         return this.cidrBlocks;
     }
-    /**
-     * The ID of the CIDR collection to update.
-     * 
-     */
     @Export(name="cidrCollectionId", refs={String.class}, tree="[0]")
     private Output<String> cidrCollectionId;
 
-    /**
-     * @return The ID of the CIDR collection to update.
-     * 
-     */
     public Output<String> cidrCollectionId() {
         return this.cidrCollectionId;
     }
-    /**
-     * Name for the CIDR location.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name for the CIDR location.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }

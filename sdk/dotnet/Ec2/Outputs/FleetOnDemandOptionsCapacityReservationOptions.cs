@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class FleetOnDemandOptionsCapacityReservationOptions
     {
-        /// <summary>
-        /// Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity. Valid values: `use-capacity-reservations-first`.
-        /// </summary>
         public readonly string? UsageStrategy;
 
         [OutputConstructor]

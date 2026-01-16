@@ -14,65 +14,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPatchBaselineApprovalRule {
-    /**
-     * @return Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
-     * 
-     */
     private Integer approveAfterDays;
-    /**
-     * @return Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approveAfterDays`
-     * 
-     */
     private String approveUntilDate;
-    /**
-     * @return Compliance level for patches approved by this rule.
-     * 
-     */
     private String complianceLevel;
-    /**
-     * @return Boolean enabling the application of non-security updates.
-     * 
-     */
     private Boolean enableNonSecurity;
-    /**
-     * @return Patch filter group that defines the criteria for the rule.
-     * 
-     */
     private List<GetPatchBaselineApprovalRulePatchFilter> patchFilters;
 
     private GetPatchBaselineApprovalRule() {}
-    /**
-     * @return Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
-     * 
-     */
     public Integer approveAfterDays() {
         return this.approveAfterDays;
     }
-    /**
-     * @return Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approveAfterDays`
-     * 
-     */
     public String approveUntilDate() {
         return this.approveUntilDate;
     }
-    /**
-     * @return Compliance level for patches approved by this rule.
-     * 
-     */
     public String complianceLevel() {
         return this.complianceLevel;
     }
-    /**
-     * @return Boolean enabling the application of non-security updates.
-     * 
-     */
     public Boolean enableNonSecurity() {
         return this.enableNonSecurity;
     }
-    /**
-     * @return Patch filter group that defines the criteria for the rule.
-     * 
-     */
     public List<GetPatchBaselineApprovalRulePatchFilter> patchFilters() {
         return this.patchFilters;
     }

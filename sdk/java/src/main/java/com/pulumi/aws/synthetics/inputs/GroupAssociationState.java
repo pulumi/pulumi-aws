@@ -15,17 +15,9 @@ public final class GroupAssociationState extends com.pulumi.resources.ResourceAr
 
     public static final GroupAssociationState Empty = new GroupAssociationState();
 
-    /**
-     * ARN of the canary.
-     * 
-     */
     @Import(name="canaryArn")
     private @Nullable Output<String> canaryArn;
 
-    /**
-     * @return ARN of the canary.
-     * 
-     */
     public Optional<Output<String>> canaryArn() {
         return Optional.ofNullable(this.canaryArn);
     }
@@ -37,47 +29,23 @@ public final class GroupAssociationState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.groupArn);
     }
 
-    /**
-     * ID of the Group.
-     * 
-     */
     @Import(name="groupId")
     private @Nullable Output<String> groupId;
 
-    /**
-     * @return ID of the Group.
-     * 
-     */
     public Optional<Output<String>> groupId() {
         return Optional.ofNullable(this.groupId);
     }
 
-    /**
-     * Name of the group that the canary will be associated with.
-     * 
-     */
     @Import(name="groupName")
     private @Nullable Output<String> groupName;
 
-    /**
-     * @return Name of the group that the canary will be associated with.
-     * 
-     */
     public Optional<Output<String>> groupName() {
         return Optional.ofNullable(this.groupName);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -110,23 +78,11 @@ public final class GroupAssociationState extends com.pulumi.resources.ResourceAr
             $ = new GroupAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param canaryArn ARN of the canary.
-         * 
-         * @return builder
-         * 
-         */
         public Builder canaryArn(@Nullable Output<String> canaryArn) {
             $.canaryArn = canaryArn;
             return this;
         }
 
-        /**
-         * @param canaryArn ARN of the canary.
-         * 
-         * @return builder
-         * 
-         */
         public Builder canaryArn(String canaryArn) {
             return canaryArn(Output.of(canaryArn));
         }
@@ -140,65 +96,29 @@ public final class GroupAssociationState extends com.pulumi.resources.ResourceAr
             return groupArn(Output.of(groupArn));
         }
 
-        /**
-         * @param groupId ID of the Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupId(@Nullable Output<String> groupId) {
             $.groupId = groupId;
             return this;
         }
 
-        /**
-         * @param groupId ID of the Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupId(String groupId) {
             return groupId(Output.of(groupId));
         }
 
-        /**
-         * @param groupName Name of the group that the canary will be associated with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupName(@Nullable Output<String> groupName) {
             $.groupName = groupName;
             return this;
         }
 
-        /**
-         * @param groupName Name of the group that the canary will be associated with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupName(String groupName) {
             return groupName(Output.of(groupName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

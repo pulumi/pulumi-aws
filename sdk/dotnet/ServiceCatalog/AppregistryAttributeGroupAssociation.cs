@@ -9,55 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ServiceCatalog
 {
-    /// <summary>
-    /// Resource for managing an AWS Service Catalog AppRegistry Attribute Group Association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceCatalog.AppregistryApplication("example", new()
-    ///     {
-    ///         Name = "example-app",
-    ///     });
-    /// 
-    ///     var exampleAppregistryAttributeGroup = new Aws.ServiceCatalog.AppregistryAttributeGroup("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Description = "example description",
-    ///         Attributes = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["app"] = "exampleapp",
-    ///             ["group"] = "examplegroup",
-    ///         }),
-    ///     });
-    /// 
-    ///     var exampleAppregistryAttributeGroupAssociation = new Aws.ServiceCatalog.AppregistryAttributeGroupAssociation("example", new()
-    ///     {
-    ///         ApplicationId = example.Id,
-    ///         AttributeGroupId = exampleAppregistryAttributeGroup.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Service Catalog AppRegistry Attribute Group Association using `application_id` and `attribute_group_id` arguments separated by a comma (`,`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:servicecatalog/appregistryAttributeGroupAssociation:AppregistryAttributeGroupAssociation example 12456778723424sdffsdfsdq34,12234t3564dsfsdf34asff4ww3
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:servicecatalog/appregistryAttributeGroupAssociation:AppregistryAttributeGroupAssociation")]
     public partial class AppregistryAttributeGroupAssociation : global::Pulumi.CustomResource
     {
@@ -73,9 +24,6 @@ namespace Pulumi.Aws.ServiceCatalog
         [Output("attributeGroupId")]
         public Output<string> AttributeGroupId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -137,9 +85,6 @@ namespace Pulumi.Aws.ServiceCatalog
         [Input("attributeGroupId", required: true)]
         public Input<string> AttributeGroupId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -163,9 +108,6 @@ namespace Pulumi.Aws.ServiceCatalog
         [Input("attributeGroupId")]
         public Input<string>? AttributeGroupId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

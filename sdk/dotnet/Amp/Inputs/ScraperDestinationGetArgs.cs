@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Amp.Inputs
 
     public sealed class ScraperDestinationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for an Amazon Managed Prometheus workspace destination. See `Amp`.
-        /// </summary>
         [Input("amp")]
         public Input<Inputs.ScraperDestinationAmpGetArgs>? Amp { get; set; }
 

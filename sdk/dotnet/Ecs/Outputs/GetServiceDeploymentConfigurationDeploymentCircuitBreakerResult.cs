@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetServiceDeploymentConfigurationDeploymentCircuitBreakerResult
     {
-        /// <summary>
-        /// Whether circuit breaker is enabled
-        /// </summary>
         public readonly bool Enable;
-        /// <summary>
-        /// Whether to rollback on failure
-        /// </summary>
         public readonly bool Rollback;
 
         [OutputConstructor]

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Route53.Outputs
     [OutputType]
     public sealed class ZoneVpc
     {
-        /// <summary>
-        /// ID of the VPC to associate.
-        /// </summary>
         public readonly string VpcId;
-        /// <summary>
-        /// Region of the VPC to associate. Defaults to AWS provider region.
-        /// </summary>
         public readonly string? VpcRegion;
 
         [OutputConstructor]

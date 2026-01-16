@@ -15,32 +15,16 @@ public final class CaCertificateValidityArgs extends com.pulumi.resources.Resour
 
     public static final CaCertificateValidityArgs Empty = new CaCertificateValidityArgs();
 
-    /**
-     * The certificate is not valid after this date.
-     * 
-     */
     @Import(name="notAfter")
     private @Nullable Output<String> notAfter;
 
-    /**
-     * @return The certificate is not valid after this date.
-     * 
-     */
     public Optional<Output<String>> notAfter() {
         return Optional.ofNullable(this.notAfter);
     }
 
-    /**
-     * The certificate is not valid before this date.
-     * 
-     */
     @Import(name="notBefore")
     private @Nullable Output<String> notBefore;
 
-    /**
-     * @return The certificate is not valid before this date.
-     * 
-     */
     public Optional<Output<String>> notBefore() {
         return Optional.ofNullable(this.notBefore);
     }
@@ -70,44 +54,20 @@ public final class CaCertificateValidityArgs extends com.pulumi.resources.Resour
             $ = new CaCertificateValidityArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param notAfter The certificate is not valid after this date.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notAfter(@Nullable Output<String> notAfter) {
             $.notAfter = notAfter;
             return this;
         }
 
-        /**
-         * @param notAfter The certificate is not valid after this date.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notAfter(String notAfter) {
             return notAfter(Output.of(notAfter));
         }
 
-        /**
-         * @param notBefore The certificate is not valid before this date.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notBefore(@Nullable Output<String> notBefore) {
             $.notBefore = notBefore;
             return this;
         }
 
-        /**
-         * @param notBefore The certificate is not valid before this date.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notBefore(String notBefore) {
             return notBefore(Output.of(notBefore));
         }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.EmrContainers.Outputs
     [OutputType]
     public sealed class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration
     {
-        /// <summary>
-        /// Amazon S3 destination URI for log publishing.
-        /// </summary>
         public readonly string LogUri;
 
         [OutputConstructor]

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.ControlTower.Inputs
 
     public sealed class LandingZoneDriftStatusArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The drift status of the landing zone.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

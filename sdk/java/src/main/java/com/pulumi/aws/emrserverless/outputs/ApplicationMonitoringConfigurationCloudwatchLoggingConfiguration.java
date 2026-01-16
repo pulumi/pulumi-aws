@@ -15,65 +15,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration {
-    /**
-     * @return Enables CloudWatch logging.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
-     * 
-     */
     private @Nullable String encryptionKeyArn;
-    /**
-     * @return The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
-     * 
-     */
     private @Nullable String logGroupName;
-    /**
-     * @return Prefix for the CloudWatch log stream name.
-     * 
-     */
     private @Nullable String logStreamNamePrefix;
-    /**
-     * @return The types of logs that you want to publish to CloudWatch. If you don&#39;t specify any log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by default. See logTypes for more details.
-     * 
-     */
     private @Nullable List<ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType> logTypes;
 
     private ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration() {}
-    /**
-     * @return Enables CloudWatch logging.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
-     * 
-     */
     public Optional<String> encryptionKeyArn() {
         return Optional.ofNullable(this.encryptionKeyArn);
     }
-    /**
-     * @return The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
-     * 
-     */
     public Optional<String> logGroupName() {
         return Optional.ofNullable(this.logGroupName);
     }
-    /**
-     * @return Prefix for the CloudWatch log stream name.
-     * 
-     */
     public Optional<String> logStreamNamePrefix() {
         return Optional.ofNullable(this.logStreamNamePrefix);
     }
-    /**
-     * @return The types of logs that you want to publish to CloudWatch. If you don&#39;t specify any log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by default. See logTypes for more details.
-     * 
-     */
     public List<ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType> logTypes() {
         return this.logTypes == null ? List.of() : this.logTypes;
     }

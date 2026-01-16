@@ -12,15 +12,9 @@ namespace Pulumi.Aws.DynamoDB.Inputs
 
     public sealed class GlobalSecondaryIndexProvisionedThroughputGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Number of read capacity units for this index.
-        /// </summary>
         [Input("readCapacityUnits")]
         public Input<int>? ReadCapacityUnits { get; set; }
 
-        /// <summary>
-        /// Number of write capacity units for this index.
-        /// </summary>
         [Input("writeCapacityUnits")]
         public Input<int>? WriteCapacityUnits { get; set; }
 

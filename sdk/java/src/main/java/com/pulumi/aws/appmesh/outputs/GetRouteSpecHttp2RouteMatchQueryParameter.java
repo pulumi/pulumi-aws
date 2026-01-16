@@ -13,20 +13,12 @@ import java.util.Objects;
 @CustomType
 public final class GetRouteSpecHttp2RouteMatchQueryParameter {
     private List<GetRouteSpecHttp2RouteMatchQueryParameterMatch> matches;
-    /**
-     * @return Name of the route.
-     * 
-     */
     private String name;
 
     private GetRouteSpecHttp2RouteMatchQueryParameter() {}
     public List<GetRouteSpecHttp2RouteMatchQueryParameterMatch> matches() {
         return this.matches;
     }
-    /**
-     * @return Name of the route.
-     * 
-     */
     public String name() {
         return this.name;
     }

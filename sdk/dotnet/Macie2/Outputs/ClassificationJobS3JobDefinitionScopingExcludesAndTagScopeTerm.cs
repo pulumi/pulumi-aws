@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Macie2.Outputs
     [OutputType]
     public sealed class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm
     {
-        /// <summary>
-        /// The operator to use in the condition.
-        /// </summary>
         public readonly string? Comparator;
-        /// <summary>
-        /// The tag key to use in the condition. The only valid value is `TAG`.
-        /// </summary>
         public readonly string? Key;
-        /// <summary>
-        /// The tag keys or tag key and value pairs to use in the condition.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue> TagValues;
-        /// <summary>
-        /// The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
-        /// </summary>
         public readonly string? Target;
 
         [OutputConstructor]

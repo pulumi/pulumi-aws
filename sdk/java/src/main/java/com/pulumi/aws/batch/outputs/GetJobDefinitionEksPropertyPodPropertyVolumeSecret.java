@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetJobDefinitionEksPropertyPodPropertyVolumeSecret {
-    /**
-     * @return Specifies whether the secret or the secret&#39;s keys must be defined.
-     * 
-     */
     private Boolean optional;
-    /**
-     * @return The name of the secret. The name must be allowed as a DNS subdomain name
-     * 
-     */
     private String secretName;
 
     private GetJobDefinitionEksPropertyPodPropertyVolumeSecret() {}
-    /**
-     * @return Specifies whether the secret or the secret&#39;s keys must be defined.
-     * 
-     */
     public Boolean optional() {
         return this.optional;
     }
-    /**
-     * @return The name of the secret. The name must be allowed as a DNS subdomain name
-     * 
-     */
     public String secretName() {
         return this.secretName;
     }

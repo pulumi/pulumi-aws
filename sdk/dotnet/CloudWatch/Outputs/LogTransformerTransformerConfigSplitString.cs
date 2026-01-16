@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class LogTransformerTransformerConfigSplitString
     {
-        /// <summary>
-        /// Objects containing the information about the fields to split. You must include at least one entry, and ten at most. See `SplitString` `Entry` below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.LogTransformerTransformerConfigSplitStringEntry> Entries;
 
         [OutputConstructor]

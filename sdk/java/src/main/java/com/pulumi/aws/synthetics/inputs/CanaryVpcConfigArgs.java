@@ -17,62 +17,30 @@ public final class CanaryVpcConfigArgs extends com.pulumi.resources.ResourceArgs
 
     public static final CanaryVpcConfigArgs Empty = new CanaryVpcConfigArgs();
 
-    /**
-     * If `true`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `false`.
-     * 
-     */
     @Import(name="ipv6AllowedForDualStack")
     private @Nullable Output<Boolean> ipv6AllowedForDualStack;
 
-    /**
-     * @return If `true`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> ipv6AllowedForDualStack() {
         return Optional.ofNullable(this.ipv6AllowedForDualStack);
     }
 
-    /**
-     * IDs of the security groups for this canary.
-     * 
-     */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
-    /**
-     * @return IDs of the security groups for this canary.
-     * 
-     */
     public Optional<Output<List<String>>> securityGroupIds() {
         return Optional.ofNullable(this.securityGroupIds);
     }
 
-    /**
-     * IDs of the subnets where this canary is to run.
-     * 
-     */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
-    /**
-     * @return IDs of the subnets where this canary is to run.
-     * 
-     */
     public Optional<Output<List<String>>> subnetIds() {
         return Optional.ofNullable(this.subnetIds);
     }
 
-    /**
-     * ID of the VPC where this canary is to run.
-     * 
-     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
-    /**
-     * @return ID of the VPC where this canary is to run.
-     * 
-     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -104,106 +72,46 @@ public final class CanaryVpcConfigArgs extends com.pulumi.resources.ResourceArgs
             $ = new CanaryVpcConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ipv6AllowedForDualStack If `true`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipv6AllowedForDualStack(@Nullable Output<Boolean> ipv6AllowedForDualStack) {
             $.ipv6AllowedForDualStack = ipv6AllowedForDualStack;
             return this;
         }
 
-        /**
-         * @param ipv6AllowedForDualStack If `true`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipv6AllowedForDualStack(Boolean ipv6AllowedForDualStack) {
             return ipv6AllowedForDualStack(Output.of(ipv6AllowedForDualStack));
         }
 
-        /**
-         * @param securityGroupIds IDs of the security groups for this canary.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(@Nullable Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
-        /**
-         * @param securityGroupIds IDs of the security groups for this canary.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
-        /**
-         * @param securityGroupIds IDs of the security groups for this canary.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
 
-        /**
-         * @param subnetIds IDs of the subnets where this canary is to run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(@Nullable Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
-        /**
-         * @param subnetIds IDs of the subnets where this canary is to run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
-        /**
-         * @param subnetIds IDs of the subnets where this canary is to run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
 
-        /**
-         * @param vpcId ID of the VPC where this canary is to run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId ID of the VPC where this canary is to run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

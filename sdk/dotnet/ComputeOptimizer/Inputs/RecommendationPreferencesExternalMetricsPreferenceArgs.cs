@@ -12,9 +12,6 @@ namespace Pulumi.Aws.ComputeOptimizer.Inputs
 
     public sealed class RecommendationPreferencesExternalMetricsPreferenceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The source options for external metrics preferences. Valid values: `Datadog`, `Dynatrace`, `NewRelic`, `Instana`.
-        /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
 

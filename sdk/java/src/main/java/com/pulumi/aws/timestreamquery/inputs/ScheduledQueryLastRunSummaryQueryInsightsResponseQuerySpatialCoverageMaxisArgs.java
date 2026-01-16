@@ -17,47 +17,23 @@ public final class ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatial
 
     public static final ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArgs Empty = new ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArgs();
 
-    /**
-     * Partition key used for partitioning, which can be a default measureName or a customer defined partition key.
-     * 
-     */
     @Import(name="partitionKeys")
     private @Nullable Output<List<String>> partitionKeys;
 
-    /**
-     * @return Partition key used for partitioning, which can be a default measureName or a customer defined partition key.
-     * 
-     */
     public Optional<Output<List<String>>> partitionKeys() {
         return Optional.ofNullable(this.partitionKeys);
     }
 
-    /**
-     * ARN of the table which is queried with the largest time range.
-     * 
-     */
     @Import(name="tableArn")
     private @Nullable Output<String> tableArn;
 
-    /**
-     * @return ARN of the table which is queried with the largest time range.
-     * 
-     */
     public Optional<Output<String>> tableArn() {
         return Optional.ofNullable(this.tableArn);
     }
 
-    /**
-     * Maximum duration in nanoseconds between the start and end of the query.
-     * 
-     */
     @Import(name="value")
     private @Nullable Output<Double> value;
 
-    /**
-     * @return Maximum duration in nanoseconds between the start and end of the query.
-     * 
-     */
     public Optional<Output<Double>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -88,75 +64,33 @@ public final class ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatial
             $ = new ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param partitionKeys Partition key used for partitioning, which can be a default measureName or a customer defined partition key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder partitionKeys(@Nullable Output<List<String>> partitionKeys) {
             $.partitionKeys = partitionKeys;
             return this;
         }
 
-        /**
-         * @param partitionKeys Partition key used for partitioning, which can be a default measureName or a customer defined partition key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder partitionKeys(List<String> partitionKeys) {
             return partitionKeys(Output.of(partitionKeys));
         }
 
-        /**
-         * @param partitionKeys Partition key used for partitioning, which can be a default measureName or a customer defined partition key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder partitionKeys(String... partitionKeys) {
             return partitionKeys(List.of(partitionKeys));
         }
 
-        /**
-         * @param tableArn ARN of the table which is queried with the largest time range.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableArn(@Nullable Output<String> tableArn) {
             $.tableArn = tableArn;
             return this;
         }
 
-        /**
-         * @param tableArn ARN of the table which is queried with the largest time range.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableArn(String tableArn) {
             return tableArn(Output.of(tableArn));
         }
 
-        /**
-         * @param value Maximum duration in nanoseconds between the start and end of the query.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable Output<Double> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Maximum duration in nanoseconds between the start and end of the query.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Double value) {
             return value(Output.of(value));
         }

@@ -7,29 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Creates a new Amazon Redshift Serverless Endpoint Access.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.redshiftserverless.EndpointAccess("example", {
- *     endpointName: "example",
- *     workgroupName: "example",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Redshift Serverless Endpoint Access using the `endpoint_name`. For example:
- *
- * ```sh
- * $ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example
- * ```
- */
 export class EndpointAccess extends pulumi.CustomResource {
     /**
      * Get an existing EndpointAccess resource's state with the given name, ID, and optional extra
@@ -58,45 +35,15 @@ export class EndpointAccess extends pulumi.CustomResource {
         return obj['__pulumiType'] === EndpointAccess.__pulumiType;
     }
 
-    /**
-     * The DNS address of the VPC endpoint.
-     */
     declare public /*out*/ readonly address: pulumi.Output<string>;
-    /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The name of the endpoint.
-     */
     declare public readonly endpointName: pulumi.Output<string>;
-    /**
-     * The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
-     */
     declare public readonly ownerAccount: pulumi.Output<string | undefined>;
-    /**
-     * The port that Amazon Redshift Serverless listens on.
-     */
     declare public /*out*/ readonly port: pulumi.Output<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * An array of VPC subnet IDs to associate with the endpoint.
-     */
     declare public readonly subnetIds: pulumi.Output<string[]>;
-    /**
-     * The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
-     */
     declare public /*out*/ readonly vpcEndpoints: pulumi.Output<outputs.redshiftserverless.EndpointAccessVpcEndpoint[]>;
-    /**
-     * An array of security group IDs to associate with the workgroup.
-     */
     declare public readonly vpcSecurityGroupIds: pulumi.Output<string[]>;
-    /**
-     * The name of the workgroup.
-     */
     declare public readonly workgroupName: pulumi.Output<string>;
 
     /**
@@ -153,45 +100,15 @@ export class EndpointAccess extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EndpointAccess resources.
  */
 export interface EndpointAccessState {
-    /**
-     * The DNS address of the VPC endpoint.
-     */
     address?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The name of the endpoint.
-     */
     endpointName?: pulumi.Input<string>;
-    /**
-     * The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
-     */
     ownerAccount?: pulumi.Input<string>;
-    /**
-     * The port that Amazon Redshift Serverless listens on.
-     */
     port?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * An array of VPC subnet IDs to associate with the endpoint.
-     */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
-     */
     vpcEndpoints?: pulumi.Input<pulumi.Input<inputs.redshiftserverless.EndpointAccessVpcEndpoint>[]>;
-    /**
-     * An array of security group IDs to associate with the workgroup.
-     */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The name of the workgroup.
-     */
     workgroupName?: pulumi.Input<string>;
 }
 
@@ -199,28 +116,10 @@ export interface EndpointAccessState {
  * The set of arguments for constructing a EndpointAccess resource.
  */
 export interface EndpointAccessArgs {
-    /**
-     * The name of the endpoint.
-     */
     endpointName: pulumi.Input<string>;
-    /**
-     * The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
-     */
     ownerAccount?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * An array of VPC subnet IDs to associate with the endpoint.
-     */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * An array of security group IDs to associate with the workgroup.
-     */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The name of the workgroup.
-     */
     workgroupName: pulumi.Input<string>;
 }

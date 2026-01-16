@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ViewDataFilterExpressionDimensions {
-    /**
-     * @return Key of the dimension. Possible values are `LINKED_ACCOUNT`.
-     * 
-     */
     private String key;
-    /**
-     * @return List of metadata values that you can use to filter and group your results.
-     * 
-     */
     private List<String> values;
 
     private ViewDataFilterExpressionDimensions() {}
-    /**
-     * @return Key of the dimension. Possible values are `LINKED_ACCOUNT`.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return List of metadata values that you can use to filter and group your results.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

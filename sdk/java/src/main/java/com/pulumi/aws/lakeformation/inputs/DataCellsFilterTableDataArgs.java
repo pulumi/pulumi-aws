@@ -19,122 +19,58 @@ public final class DataCellsFilterTableDataArgs extends com.pulumi.resources.Res
 
     public static final DataCellsFilterTableDataArgs Empty = new DataCellsFilterTableDataArgs();
 
-    /**
-     * A list of column names and/or nested column attributes.
-     * 
-     */
     @Import(name="columnNames")
     private @Nullable Output<List<String>> columnNames;
 
-    /**
-     * @return A list of column names and/or nested column attributes.
-     * 
-     */
     public Optional<Output<List<String>>> columnNames() {
         return Optional.ofNullable(this.columnNames);
     }
 
-    /**
-     * A wildcard with exclusions. See Column Wildcard below for details.
-     * 
-     */
     @Import(name="columnWildcard")
     private @Nullable Output<DataCellsFilterTableDataColumnWildcardArgs> columnWildcard;
 
-    /**
-     * @return A wildcard with exclusions. See Column Wildcard below for details.
-     * 
-     */
     public Optional<Output<DataCellsFilterTableDataColumnWildcardArgs>> columnWildcard() {
         return Optional.ofNullable(this.columnWildcard);
     }
 
-    /**
-     * The name of the database.
-     * 
-     */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
-    /**
-     * @return The name of the database.
-     * 
-     */
     public Output<String> databaseName() {
         return this.databaseName;
     }
 
-    /**
-     * The name of the data cells filter.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the data cells filter.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * A PartiQL predicate. See Row Filter below for details.
-     * 
-     */
     @Import(name="rowFilter")
     private @Nullable Output<DataCellsFilterTableDataRowFilterArgs> rowFilter;
 
-    /**
-     * @return A PartiQL predicate. See Row Filter below for details.
-     * 
-     */
     public Optional<Output<DataCellsFilterTableDataRowFilterArgs>> rowFilter() {
         return Optional.ofNullable(this.rowFilter);
     }
 
-    /**
-     * The ID of the Data Catalog.
-     * 
-     */
     @Import(name="tableCatalogId", required=true)
     private Output<String> tableCatalogId;
 
-    /**
-     * @return The ID of the Data Catalog.
-     * 
-     */
     public Output<String> tableCatalogId() {
         return this.tableCatalogId;
     }
 
-    /**
-     * The name of the table.
-     * 
-     */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
-    /**
-     * @return The name of the table.
-     * 
-     */
     public Output<String> tableName() {
         return this.tableName;
     }
 
-    /**
-     * ID of the data cells filter version.
-     * 
-     */
     @Import(name="versionId")
     private @Nullable Output<String> versionId;
 
-    /**
-     * @return ID of the data cells filter version.
-     * 
-     */
     public Optional<Output<String>> versionId() {
         return Optional.ofNullable(this.versionId);
     }
@@ -170,180 +106,78 @@ public final class DataCellsFilterTableDataArgs extends com.pulumi.resources.Res
             $ = new DataCellsFilterTableDataArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param columnNames A list of column names and/or nested column attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnNames(@Nullable Output<List<String>> columnNames) {
             $.columnNames = columnNames;
             return this;
         }
 
-        /**
-         * @param columnNames A list of column names and/or nested column attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnNames(List<String> columnNames) {
             return columnNames(Output.of(columnNames));
         }
 
-        /**
-         * @param columnNames A list of column names and/or nested column attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnNames(String... columnNames) {
             return columnNames(List.of(columnNames));
         }
 
-        /**
-         * @param columnWildcard A wildcard with exclusions. See Column Wildcard below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnWildcard(@Nullable Output<DataCellsFilterTableDataColumnWildcardArgs> columnWildcard) {
             $.columnWildcard = columnWildcard;
             return this;
         }
 
-        /**
-         * @param columnWildcard A wildcard with exclusions. See Column Wildcard below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnWildcard(DataCellsFilterTableDataColumnWildcardArgs columnWildcard) {
             return columnWildcard(Output.of(columnWildcard));
         }
 
-        /**
-         * @param databaseName The name of the database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(Output<String> databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
-        /**
-         * @param databaseName The name of the database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
         }
 
-        /**
-         * @param name The name of the data cells filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the data cells filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param rowFilter A PartiQL predicate. See Row Filter below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rowFilter(@Nullable Output<DataCellsFilterTableDataRowFilterArgs> rowFilter) {
             $.rowFilter = rowFilter;
             return this;
         }
 
-        /**
-         * @param rowFilter A PartiQL predicate. See Row Filter below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rowFilter(DataCellsFilterTableDataRowFilterArgs rowFilter) {
             return rowFilter(Output.of(rowFilter));
         }
 
-        /**
-         * @param tableCatalogId The ID of the Data Catalog.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableCatalogId(Output<String> tableCatalogId) {
             $.tableCatalogId = tableCatalogId;
             return this;
         }
 
-        /**
-         * @param tableCatalogId The ID of the Data Catalog.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableCatalogId(String tableCatalogId) {
             return tableCatalogId(Output.of(tableCatalogId));
         }
 
-        /**
-         * @param tableName The name of the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
-        /**
-         * @param tableName The name of the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }
 
-        /**
-         * @param versionId ID of the data cells filter version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder versionId(@Nullable Output<String> versionId) {
             $.versionId = versionId;
             return this;
         }
 
-        /**
-         * @param versionId ID of the data cells filter version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder versionId(String versionId) {
             return versionId(Output.of(versionId));
         }

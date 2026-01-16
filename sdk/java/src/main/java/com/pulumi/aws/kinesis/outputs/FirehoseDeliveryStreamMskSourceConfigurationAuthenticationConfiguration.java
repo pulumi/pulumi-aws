@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration {
-    /**
-     * @return The type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
-     * 
-     */
     private String connectivity;
-    /**
-     * @return The ARN of the role used to access the Amazon MSK cluster.
-     * 
-     */
     private String roleArn;
 
     private FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration() {}
-    /**
-     * @return The type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
-     * 
-     */
     public String connectivity() {
         return this.connectivity;
     }
-    /**
-     * @return The ARN of the role used to access the Amazon MSK cluster.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }

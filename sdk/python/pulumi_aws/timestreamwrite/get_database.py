@@ -55,17 +55,11 @@ class GetDatabaseResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The ARN that uniquely identifies this database.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> _builtins.str:
-        """
-        Creation time of database.
-        """
         return pulumi.get(self, "created_time")
 
     @_builtins.property
@@ -79,17 +73,11 @@ class GetDatabaseResult:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
-        """
-        The ARN of the KMS key used to encrypt the data stored in the database.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> _builtins.str:
-        """
-        Last time database was updated.
-        """
         return pulumi.get(self, "last_updated_time")
 
     @_builtins.property
@@ -105,9 +93,6 @@ class GetDatabaseResult:
     @_builtins.property
     @pulumi.getter(name="tableCount")
     def table_count(self) -> _builtins.int:
-        """
-        Total number of tables in the Timestream database.
-        """
         return pulumi.get(self, "table_count")
 
 
@@ -131,21 +116,7 @@ def get_database(name: Optional[_builtins.str] = None,
                  region: Optional[_builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
-    Data source for managing an AWS Timestream Write Database.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.timestreamwrite.get_database(name="database-example")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -166,21 +137,7 @@ def get_database_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseResult]:
     """
-    Data source for managing an AWS Timestream Write Database.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.timestreamwrite.get_database(name="database-example")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

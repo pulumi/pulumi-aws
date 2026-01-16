@@ -11,50 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **Note:** `awsAlbTrustStore` is known as `lb.TrustStore`. The functionality is identical.
-//
-// Provides information about a Load Balancer Trust Store.
-//
-// This data source can prove useful when a module accepts an LB Trust Store as an
-// input variable and needs to know its attributes. It can also be used to get the ARN of
-// an LB Trust Store for use in other resources, given LB Trust Store name.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			lbTsArn := ""
-//			if param := cfg.Get("lbTsArn"); param != "" {
-//				lbTsArn = param
-//			}
-//			lbTsName := ""
-//			if param := cfg.Get("lbTsName"); param != "" {
-//				lbTsName = param
-//			}
-//			_, err := lb.LookupTrustStore(ctx, &lb.LookupTrustStoreArgs{
-//				Arn:  pulumi.StringRef(lbTsArn),
-//				Name: pulumi.StringRef(lbTsName),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupTrustStore(ctx *pulumi.Context, args *LookupTrustStoreArgs, opts ...pulumi.InvokeOption) (*LookupTrustStoreResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTrustStoreResult
@@ -67,13 +23,8 @@ func LookupTrustStore(ctx *pulumi.Context, args *LookupTrustStoreArgs, opts ...p
 
 // A collection of arguments for invoking getTrustStore.
 type LookupTrustStoreArgs struct {
-	// Full ARN of the trust store.
-	Arn *string `pulumi:"arn"`
-	// Unique name of the trust store.
-	//
-	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Arn    *string `pulumi:"arn"`
+	Name   *string `pulumi:"name"`
 	Region *string `pulumi:"region"`
 }
 
@@ -97,13 +48,8 @@ func LookupTrustStoreOutput(ctx *pulumi.Context, args LookupTrustStoreOutputArgs
 
 // A collection of arguments for invoking getTrustStore.
 type LookupTrustStoreOutputArgs struct {
-	// Full ARN of the trust store.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// Unique name of the trust store.
-	//
-	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Arn    pulumi.StringPtrInput `pulumi:"arn"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

@@ -15,17 +15,9 @@ public final class ContainerServicePrivateRegistryAccessArgs extends com.pulumi.
 
     public static final ContainerServicePrivateRegistryAccessArgs Empty = new ContainerServicePrivateRegistryAccessArgs();
 
-    /**
-     * Configuration to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
-     * 
-     */
     @Import(name="ecrImagePullerRole")
     private @Nullable Output<ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs> ecrImagePullerRole;
 
-    /**
-     * @return Configuration to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
-     * 
-     */
     public Optional<Output<ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs>> ecrImagePullerRole() {
         return Optional.ofNullable(this.ecrImagePullerRole);
     }
@@ -54,23 +46,11 @@ public final class ContainerServicePrivateRegistryAccessArgs extends com.pulumi.
             $ = new ContainerServicePrivateRegistryAccessArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ecrImagePullerRole Configuration to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ecrImagePullerRole(@Nullable Output<ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs> ecrImagePullerRole) {
             $.ecrImagePullerRole = ecrImagePullerRole;
             return this;
         }
 
-        /**
-         * @param ecrImagePullerRole Configuration to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ecrImagePullerRole(ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs ecrImagePullerRole) {
             return ecrImagePullerRole(Output.of(ecrImagePullerRole));
         }

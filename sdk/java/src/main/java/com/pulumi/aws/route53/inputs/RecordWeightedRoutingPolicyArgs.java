@@ -14,17 +14,9 @@ public final class RecordWeightedRoutingPolicyArgs extends com.pulumi.resources.
 
     public static final RecordWeightedRoutingPolicyArgs Empty = new RecordWeightedRoutingPolicyArgs();
 
-    /**
-     * A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
-     * 
-     */
     @Import(name="weight", required=true)
     private Output<Integer> weight;
 
-    /**
-     * @return A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
-     * 
-     */
     public Output<Integer> weight() {
         return this.weight;
     }
@@ -53,23 +45,11 @@ public final class RecordWeightedRoutingPolicyArgs extends com.pulumi.resources.
             $ = new RecordWeightedRoutingPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param weight A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weight(Output<Integer> weight) {
             $.weight = weight;
             return this;
         }
 
-        /**
-         * @param weight A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weight(Integer weight) {
             return weight(Output.of(weight));
         }

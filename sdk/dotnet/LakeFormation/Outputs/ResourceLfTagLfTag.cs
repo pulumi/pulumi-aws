@@ -13,19 +13,8 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     [OutputType]
     public sealed class ResourceLfTagLfTag
     {
-        /// <summary>
-        /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        /// </summary>
         public readonly string? CatalogId;
-        /// <summary>
-        /// Key name for an existing LF-tag.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// Value from the possible values for the LF-tag.
-        /// 
-        /// The following argument is optional:
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

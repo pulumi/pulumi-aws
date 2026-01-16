@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Lambda.Inputs
     {
         [Input("variables")]
         private InputMap<string>? _variables;
-
-        /// <summary>
-        /// Map of environment variables available to your Lambda function during execution.
-        /// </summary>
         public InputMap<string> Variables
         {
             get => _variables ?? (_variables = new InputMap<string>());

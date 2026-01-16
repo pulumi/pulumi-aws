@@ -11,105 +11,12 @@ namespace Pulumi.Aws.Efs
 {
     public static class GetFileSystem
     {
-        /// <summary>
-        /// Provides information about an Elastic File System (EFS) File System.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var fileSystemId = config.Get("fileSystemId") ?? "";
-        ///     var byId = Aws.Efs.GetFileSystem.Invoke(new()
-        ///     {
-        ///         FileSystemId = fileSystemId,
-        ///     });
-        /// 
-        ///     var byTag = Aws.Efs.GetFileSystem.Invoke(new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "Environment", "dev" },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetFileSystemResult> InvokeAsync(GetFileSystemArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileSystemResult>("aws:efs/getFileSystem:getFileSystem", args ?? new GetFileSystemArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information about an Elastic File System (EFS) File System.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var fileSystemId = config.Get("fileSystemId") ?? "";
-        ///     var byId = Aws.Efs.GetFileSystem.Invoke(new()
-        ///     {
-        ///         FileSystemId = fileSystemId,
-        ///     });
-        /// 
-        ///     var byTag = Aws.Efs.GetFileSystem.Invoke(new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "Environment", "dev" },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetFileSystemResult> Invoke(GetFileSystemInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileSystemResult>("aws:efs/getFileSystem:getFileSystem", args ?? new GetFileSystemInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information about an Elastic File System (EFS) File System.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var fileSystemId = config.Get("fileSystemId") ?? "";
-        ///     var byId = Aws.Efs.GetFileSystem.Invoke(new()
-        ///     {
-        ///         FileSystemId = fileSystemId,
-        ///     });
-        /// 
-        ///     var byTag = Aws.Efs.GetFileSystem.Invoke(new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "Environment", "dev" },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetFileSystemResult> Invoke(GetFileSystemInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileSystemResult>("aws:efs/getFileSystem:getFileSystem", args ?? new GetFileSystemInvokeArgs(), options.WithDefaults());
     }
@@ -117,30 +24,17 @@ namespace Pulumi.Aws.Efs
 
     public sealed class GetFileSystemArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Restricts the list to the file system with this creation token.
-        /// </summary>
         [Input("creationToken")]
         public string? CreationToken { get; set; }
 
-        /// <summary>
-        /// ID that identifies the file system (e.g., fs-ccfc0d65).
-        /// </summary>
         [Input("fileSystemId")]
         public string? FileSystemId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Restricts the list to the file system with these tags.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -155,30 +49,17 @@ namespace Pulumi.Aws.Efs
 
     public sealed class GetFileSystemInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Restricts the list to the file system with this creation token.
-        /// </summary>
         [Input("creationToken")]
         public Input<string>? CreationToken { get; set; }
 
-        /// <summary>
-        /// ID that identifies the file system (e.g., fs-ccfc0d65).
-        /// </summary>
         [Input("fileSystemId")]
         public Input<string>? FileSystemId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Restricts the list to the file system with these tags.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -195,65 +76,26 @@ namespace Pulumi.Aws.Efs
     [OutputType]
     public sealed class GetFileSystemResult
     {
-        /// <summary>
-        /// Amazon Resource Name of the file system.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
-        /// </summary>
         public readonly string AvailabilityZoneId;
-        /// <summary>
-        /// The Availability Zone name in which the file system's One Zone storage classes exist.
-        /// </summary>
         public readonly string AvailabilityZoneName;
         public readonly string CreationToken;
-        /// <summary>
-        /// DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
-        /// </summary>
         public readonly string DnsName;
-        /// <summary>
-        /// Whether EFS is encrypted.
-        /// </summary>
         public readonly bool Encrypted;
         public readonly string FileSystemId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// ARN for the KMS encryption key.
-        /// </summary>
         public readonly string KmsKeyId;
-        /// <summary>
-        /// File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetFileSystemLifecyclePolicyResult> LifecyclePolicies;
-        /// <summary>
-        /// The value of the file system's `Name` tag.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// File system performance mode.
-        /// </summary>
         public readonly string PerformanceMode;
         public readonly ImmutableArray<Outputs.GetFileSystemProtectionResult> Protections;
-        /// <summary>
-        /// The throughput, measured in MiB/s, that you want to provision for the file system.
-        /// </summary>
         public readonly double ProvisionedThroughputInMibps;
         public readonly string Region;
-        /// <summary>
-        /// Current byte count used by the file system.
-        /// </summary>
         public readonly int SizeInBytes;
-        /// <summary>
-        /// A map of tags to assign to the file system.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Throughput mode for the file system.
-        /// </summary>
         public readonly string ThroughputMode;
 
         [OutputConstructor]
